@@ -8,7 +8,7 @@
 
 /* global contr */ // js/designer/init.js
 /* global fromArray:writable */ // js/designer/move.js
-/* global pmaThemeImage */ // templates/javascript/variables.twig
+/* global themeImagePath */ // templates/javascript/variables.twig
 
 var DesignerHistory = {};
 
@@ -97,9 +97,9 @@ DesignerHistory.display = function (init, finit) {
             str += '<div class="block"> <table width ="250">';
             str += '<thead><tr><td>';
             if (historyArray[i].getAndOr()) {
-                str += '<img src="' + pmaThemeImage + 'designer/or_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="OR"></td>';
+                str += '<img src="' + themeImagePath + 'designer/or_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="OR"></td>';
             } else {
-                str += '<img src="' + pmaThemeImage + 'designer/and_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="AND"></td>';
+                str += '<img src="' + themeImagePath + 'designer/and_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="AND"></td>';
             }
             str += '<td style="padding-left: 5px;" class="right">' + Functions.getImage('b_sbrowse', Messages.strColumnName) + '</td>' +
                 '<td width="175" style="padding-left: 5px">' + $('<div/>').text(historyArray[i].getColumnName()).html() + '<td>';

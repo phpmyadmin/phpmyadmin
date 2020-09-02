@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
-use PhpMyAdmin\Display\ImportAjax;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Plugins\UploadInterface;
 use function array_key_exists;
 use function function_exists;
@@ -57,7 +57,7 @@ class UploadProgress implements UploadInterface
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (! ImportAjax::progressCheck() || $ret['finished']) {
+        if (! Ajax::progressCheck() || $ret['finished']) {
             return $ret;
         }
 

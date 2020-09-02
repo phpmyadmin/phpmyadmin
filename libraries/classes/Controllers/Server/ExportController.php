@@ -11,7 +11,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use function array_merge;
@@ -61,11 +60,7 @@ final class ExportController extends AbstractController
 
         $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? null;
 
-        /** @var ExportPlugin[] $exportList */
-        $exportList = Plugins::getPlugins('export', 'libraries/classes/Plugins/Export/', [
-            'export_type' => 'server',
-            'single_table' => isset($GLOBALS['single_table']),
-        ]);
+        $exportList = Plugins::getExport('server', isset($GLOBALS['single_table']));
 
         if (empty($exportList)) {
             $this->response->addHTML(Message::error(

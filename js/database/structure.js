@@ -298,15 +298,15 @@ AJAX.registerOnload('database/structure.js', function () {
         }
 
         if (action === 'analyze_tbl') {
-            url = 'index.php?route=/database/structure/analyze-table';
+            url = 'index.php?route=/table/maintenance/analyze';
         } else if (action === 'sync_unique_columns_central_list') {
             url = 'index.php?route=/database/structure/central-columns-add';
         } else if (action === 'delete_unique_columns_central_list') {
             url = 'index.php?route=/database/structure/central-columns-remove';
         } else if (action === 'check_tbl') {
-            url = 'index.php?route=/database/structure/check-table';
+            url = 'index.php?route=/table/maintenance/check';
         } else if (action === 'checksum_tbl') {
-            url = 'index.php?route=/database/structure/checksum-table';
+            url = 'index.php?route=/table/maintenance/checksum';
         } else if (action === 'drop_tbl') {
             url = 'index.php?route=/database/structure/drop-form';
         } else if (action === 'empty_tbl') {
@@ -314,9 +314,9 @@ AJAX.registerOnload('database/structure.js', function () {
         } else if (action === 'export') {
             url = 'index.php?route=/database/structure/export';
         } else if (action === 'optimize_tbl') {
-            url = 'index.php?route=/database/structure/optimize-table';
+            url = 'index.php?route=/table/maintenance/optimize';
         } else if (action === 'repair_tbl') {
-            url = 'index.php?route=/database/structure/repair-table';
+            url = 'index.php?route=/table/maintenance/repair';
         } else if (action === 'show_create') {
             url = 'index.php?route=/database/structure/show-create';
         } else {

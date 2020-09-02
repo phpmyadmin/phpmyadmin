@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-08-16 18:48-0300\n"
+"POT-Creation-Date: 2020-08-31 19:04-0300\n"
 "PO-Revision-Date: 2018-12-18 22:09+0000\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15,74 +15,1208 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.4-dev\n"
 
-#: libraries/classes/Advisor.php:319
+#: libraries/advisory_rules_generic.php:9
+msgid "Uptime below one day"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:12
+msgid "Uptime is less than 1 day, performance tuning may not be accurate."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:14
+msgid ""
+"To have more accurate averages it is recommended to let the server run for "
+"longer than a day before running this analyzer"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:17
+#, php-format
+msgid "The uptime is only %s"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:22
+msgid "Questions below 1,000"
+msgstr "ප්‍රශ්න ගණන 1,000 ට වඩා අඩුය"
+
+#: libraries/advisory_rules_generic.php:26
+msgid ""
+"Fewer than 1,000 questions have been run against this server. The "
+"recommendations may not be accurate."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:30
+msgid ""
+"Let the server run for a longer time until it has executed a greater amount "
+"of queries."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:32
+#, php-format
+msgid "Current amount of Questions: %s"
+msgstr "වත්මන් ප්‍රශ්න ගණන: %s"
+
+#: libraries/advisory_rules_generic.php:37
+msgid "Percentage of slow queries"
+msgstr "මන්දගාමී විමසුම් ප්‍රතිශතය"
+
+#: libraries/advisory_rules_generic.php:41
+msgid ""
+"There is a lot of slow queries compared to the overall amount of Queries."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:43
+#: libraries/advisory_rules_generic.php:57
+msgid ""
+"You might want to increase {long_query_time} or optimize the queries listed "
+"in the slow query log"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:46
+#, php-format
+msgid "The slow query rate should be below 5%%, your value is %s%%."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:51
+msgid "Slow query rate"
+msgstr "මන්දගාමී විමසුම් ශ්‍රීඝ‍්‍රතාවය"
+
+#: libraries/advisory_rules_generic.php:55
+msgid ""
+"There is a high percentage of slow queries compared to the server uptime."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:60
+#, php-format
+msgid ""
+"You have a slow query rate of %s per hour, you should have less than 1%% per "
+"hour."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:65
+msgid "Long query time"
+msgstr "දිගු විමසුම් කාලය"
+
+#: libraries/advisory_rules_generic.php:69
+msgid ""
+"{long_query_time} is set to 10 seconds or more, thus only slow queries that "
+"take above 10 seconds are logged."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:73
+msgid ""
+"It is suggested to set {long_query_time} to a lower value, depending on your "
+"environment. Usually a value of 1-5 seconds is suggested."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:76
+#, php-format
+msgid "long_query_time is currently set to %ds."
+msgstr "long_query_time තත්පර %d කට සිටුවා ඇත."
+
+#: libraries/advisory_rules_generic.php:81
+#: libraries/advisory_rules_generic.php:94
+msgid "Slow query logging"
+msgstr "මන්දගාමී විමසුම් ලොගගත කිරීම"
+
+#: libraries/advisory_rules_generic.php:85
+#: libraries/advisory_rules_generic.php:98
+msgid "The slow query log is disabled."
+msgstr "වැඩි කාලයක් ගන්න විමසුම් සටහන් කරනා ලොගය අක්‍රීය යි."
+
+#: libraries/advisory_rules_generic.php:87
+msgid ""
+"Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
+"help troubleshooting badly performing queries."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:90
+msgid "log_slow_queries is set to 'OFF'"
+msgstr "log_slow_queries, 'OFF'(අක්‍රීය) වෙත පිහිටුවා ඇත"
+
+#: libraries/advisory_rules_generic.php:100
+msgid ""
+"Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
+"help troubleshooting badly performing queries."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:103
+msgid "slow_query_log is set to 'OFF'"
+msgstr "slow_query_log, 'OFF'(අක්‍රීය) වෙත පිහිටුවා ඇත"
+
+#: libraries/advisory_rules_generic.php:108
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Release Series"
+msgstr "වගු තෝරන්න"
+
+#: libraries/advisory_rules_generic.php:111
+msgid "The MySQL server version less than 5.1."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:113
+msgid ""
+"You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
+"even more so."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:115
+#: libraries/advisory_rules_generic.php:129
+#: libraries/advisory_rules_generic.php:140
+#, php-format
+msgid "Current version: %s"
+msgstr "වත්මන් අනුවාදය: %s"
+
+#: libraries/advisory_rules_generic.php:120
+#: libraries/advisory_rules_generic.php:134
+msgid "Minor Version"
+msgstr "සුළු අනුවාදය"
+
+#: libraries/advisory_rules_generic.php:124
+msgid "Version less than 5.1.30 (the first GA release of 5.1)."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:126
+msgid ""
+"You should upgrade, as recent versions of MySQL 5.1 have improved "
+"performance and MySQL 5.5 even more so."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:138
+msgid "Version less than 5.5.8 (the first GA release of 5.5)."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:139
+#, fuzzy
+#| msgid "You should upgrade, to a stable version of MySQL 5.5"
+msgid "You should upgrade, to a stable version of MySQL 5.5."
+msgstr "ඔබ MySQL 5.5 හි ස්ථාවර අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය"
+
+#: libraries/advisory_rules_generic.php:145
+#: libraries/advisory_rules_generic.php:158
+msgid "Distribution"
+msgstr "ව්‍යප්තිය"
+
+#: libraries/advisory_rules_generic.php:148
+msgid "Version is compiled from source, not a MySQL official binary."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:150
+msgid ""
+"If you did not compile from source, you may be using a package modified by a "
+"distribution. The MySQL manual only is accurate for official MySQL binaries, "
+"not any package distributions (such as RedHat, Debian/Ubuntu etc)."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:154
+msgid "'source' found in version_comment"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:161
+msgid "The MySQL manual only is accurate for official MySQL binaries."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:163
+msgid ""
+"Percona documentation is at <a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a>"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:166
+msgid "'percona' found in version_comment"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:170
+msgid "MySQL Architecture"
+msgstr "MySQL නිර්මිතය"
+
+#: libraries/advisory_rules_generic.php:174
+msgid "MySQL is not compiled as a 64-bit package."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:176
+msgid ""
+"Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
+"so MySQL might not be able to access all of your memory. You might want to "
+"consider installing the 64-bit version of MySQL."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:180
+#, php-format
+msgid "Available memory on this host: %s"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:186
+msgid "Query caching method"
+msgstr "විමසුම් කෑෂ්ගත කරන ක්‍රමය"
+
+#: libraries/advisory_rules_generic.php:190
+msgid "Suboptimal caching method."
+msgstr "කෑෂ්ගත කරන ක්‍රමය ප්‍රශස්ත නැත."
+
+#: libraries/advisory_rules_generic.php:192
+msgid ""
+"You are using the MySQL Query cache with a fairly high traffic database. It "
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
+"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
+"cache, especially if you have multiple slaves."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:198
+#, php-format
+msgid ""
+"The query cache is enabled and the server receives %d queries per second. "
+"This rule fires if there is more than 100 queries per second."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:206
+msgid "Percentage of sorts that cause temporary tables"
+msgstr "තාවකාලික වගු සැදීමට සිදුවූ අනුපිළිවෙල සැකසීම් ප්‍රතිශතයක් ලෙස"
+
+#: libraries/advisory_rules_generic.php:210
+#: libraries/advisory_rules_generic.php:223
+msgid "Too many sorts are causing temporary tables."
+msgstr "තාවකාලික වගු සැදීමට සිදුවූ අනුපිළිවෙල සැකසීම් ඉතා විශාල ගණනකි."
+
+#: libraries/advisory_rules_generic.php:212
+#: libraries/advisory_rules_generic.php:225
+msgid ""
+"Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
+"depending on your system memory limits."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:215
+#, php-format
+msgid ""
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:220
+msgid "Rate of sorts that cause temporary tables"
+msgstr "තාවකාලික වගු සැදීමට සිදුවූ අනුපිළිවෙල සැකසීම් ගණන"
+
+#: libraries/advisory_rules_generic.php:228
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid ""
+"Temporary tables average: %s, this value should be less than 1 per hour."
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:233
+msgid "Sort rows"
+msgstr "පේළි සුබෙදන්න"
+
+#: libraries/advisory_rules_generic.php:236
+msgid "There are lots of rows being sorted."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:238
+msgid ""
+"While there is nothing wrong with a high amount of row sorting, you might "
+"want to make sure that the queries which require a lot of sorting use "
+"indexed columns in the ORDER BY clause, as this will result in much faster "
+"sorting."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:242
+#, php-format
+msgid "Sorted rows average: %s"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:248
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "Rate of joins without indexes"
+msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
+
+#: libraries/advisory_rules_generic.php:251
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "There are too many joins without indexes."
+msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
+
+#: libraries/advisory_rules_generic.php:253
+msgid ""
+"This means that joins are doing full table scans. Adding indexes for the "
+"columns being used in the join conditions will greatly speed up table joins."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:256
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "Table joins average: %s, this value should be less than 1 per hour"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:261
+#, fuzzy
+#| msgid "There are no files to upload"
+msgid "Rate of reading first index entry"
+msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
+
+#: libraries/advisory_rules_generic.php:264
+#, fuzzy
+#| msgid "The number of pending log file fsyncs."
+msgid "The rate of reading the first index entry is high."
+msgstr "The number of pending log file fsyncs."
+
+#: libraries/advisory_rules_generic.php:266
+msgid ""
+"This usually indicates frequent full index scans. Full index scans are "
+"faster than table scans but require lots of CPU cycles in big tables, if "
+"those tables that have or had high volumes of UPDATEs and DELETEs, running "
+"'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index "
+"scans. Other than that full index scans can only be reduced by rewriting "
+"queries."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:272
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "Index scans average: %s, this value should be less than 1 per hour"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:277
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Rate of reading fixed position"
+msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
+
+#: libraries/advisory_rules_generic.php:280
+#, fuzzy
+#| msgid "The number of pending log file fsyncs."
+msgid "The rate of reading data from a fixed position is high."
+msgstr "The number of pending log file fsyncs."
+
+#: libraries/advisory_rules_generic.php:282
+msgid ""
+"This indicates that many queries need to sort results and/or do a full table "
+"scan, including join queries that do not use indexes. Add indexes where "
+"applicable."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:285
+#, php-format
+msgid ""
+"Rate of reading fixed position average: %s, this value should be less than 1 "
+"per hour"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:290
+#, fuzzy
+#| msgid "Create table"
+msgid "Rate of reading next table row"
+msgstr "වගුව සාදන්න"
+
+#: libraries/advisory_rules_generic.php:293
+#, fuzzy
+#| msgid "The current number of pending writes."
+msgid "The rate of reading the next table row is high."
+msgstr "The current number of pending writes."
+
+#: libraries/advisory_rules_generic.php:295
+msgid ""
+"This indicates that many queries are doing full table scans. Add indexes "
+"where applicable."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:297
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid ""
+"Rate of reading next table row: %s, this value should be less than 1 per hour"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:303
+msgid "Different tmp_table_size and max_heap_table_size"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:306
+msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:308
+msgid ""
+"If you have deliberately changed one of either: The server uses the lower "
+"value of either to determine the maximum size of in-memory tables. So if you "
+"wish to increase the in-memory table limit you will have to increase the "
+"other value as well."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:312
+#, php-format
+msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:318
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Percentage of temp tables on disk"
+msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
+
+#: libraries/advisory_rules_generic.php:322
+#: libraries/advisory_rules_generic.php:343
+msgid ""
+"Many temporary tables are being written to disk instead of being kept in "
+"memory."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:324
+msgid ""
+"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+"some temporary tables are always being written to disk, independent of the "
+"value of these variables. To eliminate these you will have to rewrite your "
+"queries to avoid those conditions (Within a temporary table: Presence of a "
+"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
+"mentioned in the beginning of an <a href=\"https://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:333
+#, php-format
+msgid ""
+"%s%% of all temporary tables are being written to disk, this value should be "
+"below 25%%"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:339
+#, fuzzy
+#| msgid "%s table"
+#| msgid_plural "%s tables"
+msgid "Temp disk rate"
+msgstr "%s වගු"
+
+#: libraries/advisory_rules_generic.php:345
+msgid ""
+"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+"some temporary tables are always being written to disk, independent of the "
+"value of these variables. To eliminate these you will have to rewrite your "
+"queries to avoid those conditions (Within a temporary table: Presence of a "
+"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
+"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
+"temporary-tables.html\">MySQL Documentation</a>"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:354
+#, php-format
+msgid ""
+"Rate of temporary tables being written to disk: %s, this value should be "
+"less than 1 per hour"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:361
+#, fuzzy
+#| msgid "Sort buffer size"
+msgid "MyISAM key buffer size"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:364
+msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:366
+msgid ""
+"Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
+"good start."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:368
+#, fuzzy
+#| msgid "Sort buffer size"
+msgid "key_buffer_size is 0"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:373
+#, fuzzy, no-php-format
+#| msgid "Sort buffer size"
+msgid "Max % MyISAM key buffer ever used"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:378
+#: libraries/advisory_rules_generic.php:395
+#, fuzzy, no-php-format
+#| msgid "Sort buffer size"
+msgid "MyISAM key buffer (index cache) % used is low."
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:380
+#: libraries/advisory_rules_generic.php:397
+msgid ""
+"You may need to decrease the size of {key_buffer_size}, re-examine your "
+"tables to see if indexes have been removed, or examine queries and "
+"expectations about what indexes are being used."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:384
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid ""
+"max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:389
+#, fuzzy
+#| msgid "Sort buffer size"
+msgid "Percentage of MyISAM key buffer used"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:401
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:406
+#, fuzzy
+#| msgid "Percentage of slow queries"
+msgid "Percentage of index reads from memory"
+msgstr "මන්දගාමී විමසුම් ප්‍රතිශතය"
+
+#: libraries/advisory_rules_generic.php:411
+#, no-php-format
+msgid "The % of indexes that use the MyISAM key buffer is low."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:412
+msgid "You may need to increase {key_buffer_size}."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:413
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "Index reads from memory: %s%%, this value should be above 95%%"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:419
+#, fuzzy
+#| msgid "Create table"
+msgid "Rate of table open"
+msgstr "වගුව සාදන්න"
+
+#: libraries/advisory_rules_generic.php:422
+#, fuzzy
+#| msgid "The current number of pending writes."
+msgid "The rate of opening tables is high."
+msgstr "The current number of pending writes."
+
+#: libraries/advisory_rules_generic.php:424
+msgid ""
+"Opening tables requires disk I/O which is costly. Increasing "
+"{table_open_cache} might avoid this."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:427
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "Opened table rate: %s, this value should be less than 10 per hour"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:432
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Percentage of used open files limit"
+msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
+
+#: libraries/advisory_rules_generic.php:436
+msgid ""
+"The number of open files is approaching the max number of open files. You "
+"may get a \"Too many open files\" error."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:440
+#: libraries/advisory_rules_generic.php:453
+msgid ""
+"Consider increasing {open_files_limit}, and check the error log when "
+"restarting after changing {open_files_limit}."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:443
+#, php-format
+msgid ""
+"The number of opened files is at %s%% of the limit. It should be below 85%%"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:448
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Rate of open files"
+msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
+
+#: libraries/advisory_rules_generic.php:451
+#, fuzzy
+#| msgid "The number of pending log file fsyncs."
+msgid "The rate of opening files is high."
+msgstr "The number of pending log file fsyncs."
+
+#: libraries/advisory_rules_generic.php:456
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "Opened files rate: %s, this value should be less than 5 per hour"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:462
+#, fuzzy, no-php-format
+#| msgid "Create table on database %s"
+msgid "Immediate table locks %"
+msgstr "%s දත්තගබඩාවේ නව වගුවක් සාදන්න"
+
+#: libraries/advisory_rules_generic.php:466
+#: libraries/advisory_rules_generic.php:476
+#, fuzzy
+#| msgid " number of times that a table lock was acquired immediately."
+msgid "Too many table locks were not granted immediately."
+msgstr "The number of times that a table lock was acquired immediately."
+
+#: libraries/advisory_rules_generic.php:467
+#: libraries/advisory_rules_generic.php:477
+msgid "Optimize queries and/or use InnoDB to reduce lock wait."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:468
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "Immediate table locks: %s%%, this value should be above 95%%"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:473
+msgid "Table lock wait rate"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:478
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:483
+#, fuzzy
+#| msgid "Key cache"
+msgid "Thread cache"
+msgstr "යතුරු කෑෂ් කිරීම"
+
+#: libraries/advisory_rules_generic.php:486
+msgid ""
+"Thread cache is disabled, resulting in more overhead from new connections to "
+"MySQL."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:487
+msgid "Enable the thread cache by setting {thread_cache_size} > 0."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:488
+#, fuzzy
+#| msgid "Tracking is not active."
+msgid "The thread cache is set to 0"
+msgstr "අවධානය අක්‍රීයයි."
+
+#: libraries/advisory_rules_generic.php:493
+#, fuzzy, no-php-format
+#| msgid "Tracking is not active."
+msgid "Thread cache hit rate %"
+msgstr "අවධානය අක්‍රීයයි."
+
+#: libraries/advisory_rules_generic.php:497
+#, fuzzy
+#| msgid "Tracking is not active."
+msgid "Thread cache is not efficient."
+msgstr "අවධානය අක්‍රීයයි."
+
+#: libraries/advisory_rules_generic.php:498
+msgid "Increase {thread_cache_size}."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:499
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:504
+#, fuzzy
+#| msgid "The number of threads that are not sleeping."
+msgid "Threads that are slow to launch"
+msgstr "The number of threads that are not sleeping."
+
+#: libraries/advisory_rules_generic.php:508
+#, fuzzy
+#| msgid "The number of threads that are not sleeping."
+msgid "There are too many threads that are slow to launch."
+msgstr "The number of threads that are not sleeping."
+
+#: libraries/advisory_rules_generic.php:510
+msgid ""
+"This generally happens in case of general system overload as it is pretty "
+"simple operations. You might want to monitor your system load carefully."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:513
+#, php-format
+msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:518
+msgid "Slow launch time"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:521
+#, fuzzy
+#| msgid "long_query_time is set to %d second(s)."
+msgid "Slow_launch_time is above 2s."
+msgstr "long_query_time තත්පර %d කට සිටුවා ඇත."
+
+#: libraries/advisory_rules_generic.php:523
+#, fuzzy
+#| msgid "The number of threads that are not sleeping."
+msgid ""
+"Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
+"to launch."
+msgstr "The number of threads that are not sleeping."
+
+#: libraries/advisory_rules_generic.php:525
+#, fuzzy, php-format
+#| msgid "long_query_time is set to %d second(s)."
+msgid "slow_launch_time is set to %s"
+msgstr "long_query_time තත්පර %d කට සිටුවා ඇත."
+
+#: libraries/advisory_rules_generic.php:531
+#, fuzzy
+#| msgid "max. concurrent connections"
+msgid "Percentage of used connections"
+msgstr "උපරිම සමගාමී සම්බන්ධතා"
+
+#: libraries/advisory_rules_generic.php:535
+msgid ""
+"The maximum amount of used connections is getting close to the value of "
+"{max_connections}."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:538
+msgid ""
+"Increase {max_connections}, or decrease {wait_timeout} so that connections "
+"that do not close database handlers properly get killed sooner. Make sure "
+"the code closes database handlers properly."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:542
+#, php-format
+msgid ""
+"Max_used_connections is at %s%% of max_connections, it should be below 80%%"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:547
+#, fuzzy
+#| msgid "max. concurrent connections"
+msgid "Percentage of aborted connections"
+msgstr "උපරිම සමගාමී සම්බන්ධතා"
+
+#: libraries/advisory_rules_generic.php:550
+#: libraries/advisory_rules_generic.php:564
+#, fuzzy
+#| msgid "Allows creating temporary tables."
+msgid "Too many connections are aborted."
+msgstr "Allows creating temporary tables."
+
+#: libraries/advisory_rules_generic.php:552
+#: libraries/advisory_rules_generic.php:566
+msgid ""
+"Connections are usually aborted when they cannot be authorized. <a href="
+"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">This article</a> might help you track down the source."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:556
+#, php-format
+msgid "%s%% of all connections are aborted. This value should be below 1%%"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:561
+#, fuzzy
+#| msgid "max. concurrent connections"
+msgid "Rate of aborted connections"
+msgstr "උපරිම සමගාමී සම්බන්ධතා"
+
+#: libraries/advisory_rules_generic.php:570
+#, php-format
+msgid ""
+"Aborted connections rate is at %s, this value should be less than 1 per hour"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:575
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Percentage of aborted clients"
+msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
+
+#: libraries/advisory_rules_generic.php:578
+#: libraries/advisory_rules_generic.php:592
+#, fuzzy
+#| msgid "Allows creating temporary tables."
+msgid "Too many clients are aborted."
+msgstr "Allows creating temporary tables."
+
+#: libraries/advisory_rules_generic.php:580
+#: libraries/advisory_rules_generic.php:594
+msgid ""
+"Clients are usually aborted when they did not close their connection to "
+"MySQL properly. This can be due to network issues or code not closing a "
+"database handler properly. Check your network and code."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:584
+#, php-format
+msgid "%s%% of all clients are aborted. This value should be below 2%%"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:589
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Rate of aborted clients"
+msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
+
+#: libraries/advisory_rules_generic.php:598
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_generic.php:604
+msgid "Is InnoDB disabled?"
+msgstr "InnoDB අක්‍රීයද?"
+
+#: libraries/advisory_rules_generic.php:608
+msgid "You do not have InnoDB enabled."
+msgstr "ඔබ InnoDB සක්‍රීය කර නැත."
+
+#: libraries/advisory_rules_generic.php:609
+msgid "InnoDB is usually the better choice for table engines."
+msgstr "සාමාන්‍යයෙන් වගු එන්ජිම සඳහා වඩාත් සුදුසු InnoDB වේ."
+
+#: libraries/advisory_rules_generic.php:610
+msgid "have_innodb is set to 'value'"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:614
+msgid "InnoDB log size"
+msgstr "InnoDB ලොග විශාලත්වය"
+
+#: libraries/advisory_rules_generic.php:619
+#, fuzzy
+#| msgid "The number writes done to the InnoDB buffer pool."
+msgid ""
+"The InnoDB log file size is not an appropriate size, in relation to the "
+"InnoDB buffer pool."
+msgstr "The number writes done to the InnoDB buffer pool."
+
+#: libraries/advisory_rules_generic.php:622
+#, no-php-format
+msgid ""
+"Especially on a system with a lot of writes to InnoDB tables you should set "
+"{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
+"bigger this value, the longer the recovery time will be when database "
+"crashes, so this value should not be set much higher than 256 MiB. Please "
+"note however that you cannot simply change the value of this variable. You "
+"need to shutdown the server, remove the InnoDB log files, set the new value "
+"in my.cnf, start the server, then check the error logs if everything went "
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:633
+#, fuzzy, php-format
+#| msgid "The number writes done to the InnoDB buffer pool."
+msgid ""
+"Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
+"it should not be below 20%%"
+msgstr "The number writes done to the InnoDB buffer pool."
+
+#: libraries/advisory_rules_generic.php:640
+msgid "Max InnoDB log size"
+msgstr "උපරිම InnoDB ලොග විශාලත්වය"
+
+#: libraries/advisory_rules_generic.php:644
+msgid "The InnoDB log file size is inadequately large."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:646
+#, no-php-format
+msgid ""
+"It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
+"{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
+"recovery time after a database crash considerably. See also <a href="
+"\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
+"remove the InnoDB log files, set the new value in my.cnf, start the server, "
+"then check the error logs if everything went fine. See also <a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">this blog entry</a>"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:656
+#, php-format
+msgid "Your absolute InnoDB log size is %s MiB"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:661
+#, fuzzy
+#| msgid "Buffer pool size"
+msgid "InnoDB buffer pool size"
+msgstr "Buffer pool size"
+
+#: libraries/advisory_rules_generic.php:665
+#, fuzzy
+#| msgid "Buffer pool size"
+msgid "Your InnoDB buffer pool is fairly small."
+msgstr "Buffer pool size"
+
+#: libraries/advisory_rules_generic.php:667
+#, no-php-format
+msgid ""
+"The InnoDB buffer pool has a profound impact on performance for InnoDB "
+"tables. Assign all your remaining memory to this buffer. For database "
+"servers that use solely InnoDB as storage engine and have no other services "
+"(e.g. a web server) running, you may set this as high as 80% of your "
+"available memory. If that is not the case, you need to carefully assess the "
+"memory consumption of your other services and non-InnoDB-Tables and set this "
+"variable accordingly. If it is set too high, your system will start "
+"swapping, which decreases performance significantly. See also <a href="
+"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
+"\">this article</a>"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:677
+#, php-format
+msgid ""
+"You are currently using %s%% of your memory for the InnoDB buffer pool. This "
+"rule fires if you are assigning less than 60%%, however this might be "
+"perfectly adequate for your system if you don't have much InnoDB tables or "
+"other services running on the same machine."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:687
+#, fuzzy
+#| msgid "max. concurrent connections"
+msgid "MyISAM concurrent inserts"
+msgstr "උපරිම සමගාමී සම්බන්ධතා"
+
+#: libraries/advisory_rules_generic.php:690
+msgid "Enable {concurrent_insert} by setting it to 1"
+msgstr "{concurret_insert} 1ට සිටුවා සක්‍රීය කරන්න"
+
+#: libraries/advisory_rules_generic.php:692
+msgid ""
+"Setting {concurrent_insert} to 1 reduces contention between readers and "
+"writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:696
+msgid "concurrent_insert is set to 0"
+msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
+
+#: libraries/advisory_rules_mysql_before80003.php:9
+msgid "Query cache disabled"
+msgstr "විමසුම් කෑෂ් අක්‍රීයයි"
+
+#: libraries/advisory_rules_mysql_before80003.php:12
+msgid "The query cache is not enabled."
+msgstr "විමසුම් කෑෂ් සක්‍රීය කර නැත."
+
+#: libraries/advisory_rules_mysql_before80003.php:14
+msgid ""
+"The query cache is known to greatly improve performance if configured "
+"correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
+"and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
+"memcached, ignore this recommendation."
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:18
+msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:23
+#, fuzzy, no-php-format
+#| msgid "Query cache efficiency (%%)"
+msgid "Query cache efficiency (%)"
+msgstr "විමසුම් කෑෂ් කාර්යක්ෂමතාව (%%)"
+
+#: libraries/advisory_rules_mysql_before80003.php:27
+msgid "Query cache not running efficiently, it has a low hit rate."
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:28
+msgid "Consider increasing {query_cache_limit}."
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:29
+#, fuzzy, php-format
+#| msgid "Sort buffer size"
+msgid "The current query cache hit rate of %s%% is below 20%%"
+msgstr "Sort buffer size"
+
+#: libraries/advisory_rules_mysql_before80003.php:34
+msgid "Query Cache usage"
+msgstr "විමසුම් කෑෂ් භාවිතය"
+
+#: libraries/advisory_rules_mysql_before80003.php:39
+#, no-php-format
+msgid "Less than 80% of the query cache is being utilized."
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:41
+msgid ""
+"This might be caused by {query_cache_limit} being too low. Flushing the "
+"query cache might help as well."
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:45
+#, php-format
+msgid ""
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:52
+msgid "Query cache fragmentation"
+msgstr "විමසුම් කෑෂ් ඛණ්ඩනීකරණය"
+
+#: libraries/advisory_rules_mysql_before80003.php:56
+msgid "The query cache is considerably fragmented."
+msgstr "විමසුම් කෑෂය භාගීකරණයට ලක්වී ඇත."
+
+#: libraries/advisory_rules_mysql_before80003.php:58
+msgid ""
+"Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
+"This might be caused by many Query cache low memory prunes due to "
+"{query_cache_size} being too small. For a immediate but short lived fix you "
+"can flush the query cache (might lock the query cache for a long time). "
+"Carefully adjusting {query_cache_min_res_unit} to a lower value might help "
+"too, e.g. you can set it to the average size of your queries in the cache "
+"using this formula: (query_cache_size - qcache_free_memory) / "
+"qcache_queries_in_cache"
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:66
+#, php-format
+msgid ""
+"The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
+"that the query cache is an alternating pattern of free and used blocks. This "
+"value should be below 20%%."
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:73
+#, fuzzy
+#| msgid "Query cache used"
+msgid "Query cache low memory prunes"
+msgstr "භාවිතා කරන ලද විමසුම් කෑෂ්"
+
+#: libraries/advisory_rules_mysql_before80003.php:77
+msgid ""
+"Cached queries are removed due to low query cache memory from the query "
+"cache."
+msgstr "අඩු විමසුම් කෑෂ් ධාරිතාව හේතුවෙන් කෑෂ්ගත කරන ලද විමසුම් කෑෂයෙන් ඉවත් කෙරෙයි."
+
+#: libraries/advisory_rules_mysql_before80003.php:79
+msgid ""
+"You might want to increase {query_cache_size}, however keep in mind that the "
+"overhead of maintaining the cache is likely to increase with its size, so do "
+"this in small increments and monitor the results."
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:84
+#, php-format
+msgid ""
+"The ratio of removed queries to inserted queries is %s%%. The lower this "
+"value is, the better (This rules firing limit: 0.1%%)"
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:91
+msgid "Query cache max size"
+msgstr "විමසුම් කෑෂ් උපරිම ප්‍රමාණය"
+
+#: libraries/advisory_rules_mysql_before80003.php:96
+msgid ""
+"The query cache size is above 128 MiB. Big query caches may cause "
+"significant overhead that is required to maintain the cache."
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:100
+msgid ""
+"Depending on your environment, it might be performance increasing to reduce "
+"this value."
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:102
+#, php-format
+msgid "Current query cache size: %s"
+msgstr "වත්මන් විමසුම් කෑෂයේ ප්‍රමාණය: %s"
+
+#: libraries/advisory_rules_mysql_before80003.php:107
+msgid "Query cache min result size"
+msgstr "විමසුම් කෑෂ් අවම ප්‍රථිඵල ප්‍රමාණය"
+
+#: libraries/advisory_rules_mysql_before80003.php:111
+msgid ""
+"The max size of the result set in the query cache is the default of 1 MiB."
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:113
+msgid ""
+"Changing {query_cache_limit} (usually by increasing) may increase "
+"efficiency. This variable determines the maximum size a query result may "
+"have to be inserted into the query cache. If there are many query results "
+"above 1 MiB that are well cacheable (many reads, little writes) then "
+"increasing {query_cache_limit} will increase efficiency. Whereas in the case "
+"of many query results being above 1 MiB that are not very well cacheable "
+"(often invalidated due to table updates) increasing {query_cache_limit} "
+"might reduce efficiency."
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:120
+msgid "query_cache_limit is set to 1 MiB"
+msgstr ""
+
+#: libraries/classes/Advisor.php:232
 #, fuzzy, php-format
 #| msgid "Error while creating PDF:"
 msgid "Error when evaluating: %s"
 msgstr "PDF සැදීමේදී දෝෂ:"
 
-#: libraries/classes/Advisor.php:348
+#: libraries/classes/Advisor.php:259
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "'%s' රීතිය සඳහා පූර්ව කොන්දේසි විනිශ්චය කිරීම අසමත් විය."
 
-#: libraries/classes/Advisor.php:365
+#: libraries/classes/Advisor.php:279
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "'%s' රීතිය සඳහා අගය ගණනය කිරීම අසමත් විය."
 
-#: libraries/classes/Advisor.php:384
+#: libraries/classes/Advisor.php:298
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "'%s' රීතිය සඳහා පරීක්ෂණය සිදු කිරීම අසමත් විය."
 
-#: libraries/classes/Advisor.php:467
+#: libraries/classes/Advisor.php:326
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "'%s' රීතිය සඳහා පෙළ සැකසීම අසමත් විය."
 
-#: libraries/classes/Advisor.php:588
-#, php-format
-msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
-
-#: libraries/classes/Advisor.php:623
-#, php-format
-msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
-msgstr "%1$s පේළියේ වැරදි රීති අර්ථ දැක්වීමකි, පෙර රීතියේ %2$s වන පේළිය බලාපොරොත්තු විය."
-
-#: libraries/classes/Advisor.php:642
-#, php-format
-msgid "Invalid rule declaration on line %s."
-msgstr "%s වන පේළියේ වැරදි රීති අර්ථදැක්වීමකි."
-
-#: libraries/classes/Advisor.php:651
-#, php-format
-msgid "Unexpected characters on line %s."
-msgstr "%s වන පේළියේ අනපේක්ෂිත අනුලකුණකි."
-
-#: libraries/classes/Advisor.php:665
-#, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr "%1$s වන පේළියේ අනපේක්ෂිත අනුලකුණකි. ටැබයක් අපේක්ෂිත නමුත් \"%2$s\" හමුවිය."
-
-#: libraries/classes/Advisor.php:706
+#: libraries/classes/Advisor.php:404
 msgid "per second"
 msgstr "තප්පරයකට"
 
-#: libraries/classes/Advisor.php:709
+#: libraries/classes/Advisor.php:407
 msgid "per minute"
 msgstr "මිනිත්තුවකට"
 
-#: libraries/classes/Advisor.php:712
+#: libraries/classes/Advisor.php:410
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
 msgid "per hour"
 msgstr "පැයකට"
 
-#: libraries/classes/Advisor.php:715
+#: libraries/classes/Advisor.php:413
 msgid "per day"
 msgstr "දිනකට"
 
@@ -109,11 +1243,11 @@ msgstr "සෙවීම:"
 #: templates/database/operations/index.twig:190
 #: templates/database/operations/index.twig:230
 #: templates/database/search/main.twig:74
-#: templates/display/import/import.twig:232
 #: templates/display/results/table.twig:175 templates/export.twig:422
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/login/form.twig:85 templates/login/form.twig:87
-#: templates/login/form.twig:90 templates/preferences/manage/main.twig:46
+#: templates/import.twig:221 templates/login/form.twig:85
+#: templates/login/form.twig:87 templates/login/form.twig:90
+#: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
 #: templates/server/privileges/add_user.twig:36
@@ -136,7 +1270,7 @@ msgstr "සෙවීම:"
 #: templates/table/operations/index.twig:88
 #: templates/table/operations/index.twig:217
 #: templates/table/operations/index.twig:306
-#: templates/table/operations/index.twig:409
+#: templates/table/operations/index.twig:461
 #: templates/table/operations/view.twig:16
 #: templates/table/relation/common_form.twig:318
 #: templates/table/search/index.twig:160
@@ -165,7 +1299,7 @@ msgid "Description"
 msgstr "විස්තරය"
 
 #: libraries/classes/BrowseForeigners.php:331
-#: libraries/classes/Html/Generator.php:1283 libraries/classes/Language.php:212
+#: libraries/classes/Html/Generator.php:1284 libraries/classes/Language.php:212
 #: libraries/classes/Pdf.php:92
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:532
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
@@ -222,10 +1356,10 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:889
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:385
 #: libraries/classes/Display/Results.php:3213
-#: libraries/classes/Html/Generator.php:757
-#: libraries/classes/Html/Generator.php:1019
-#: libraries/classes/Server/UserGroups.php:125 libraries/classes/Util.php:3221
-#: libraries/classes/Util.php:3222 templates/console/bookmark_content.twig:7
+#: libraries/classes/Html/Generator.php:758
+#: libraries/classes/Html/Generator.php:1020
+#: libraries/classes/Server/UserGroups.php:125 libraries/classes/Util.php:3197
+#: libraries/classes/Util.php:3198 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:281
 #: templates/database/central_columns/main.twig:403
@@ -822,7 +1956,7 @@ msgid "No databases selected."
 msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත."
 
 #: libraries/classes/Common.php:179
-#: libraries/classes/Controllers/Table/OperationsController.php:276
+#: libraries/classes/Controllers/Table/OperationsController.php:264
 msgid "No collation provided."
 msgstr ""
 
@@ -1216,14 +2350,14 @@ msgstr "තීර නම් පළමු පේළියේ යොදන්න"
 #: libraries/classes/Config/Descriptions.php:224
 #: libraries/classes/Config/Descriptions.php:432
 #: libraries/classes/Config/Descriptions.php:443
-#: libraries/classes/Plugins/Import/ImportCsv.php:669
+#: libraries/classes/Plugins/Import/ImportCsv.php:670
 msgid "Columns enclosed with"
 msgstr "තීර ඇවුරුම් සළකුණ"
 
 #: libraries/classes/Config/Descriptions.php:225
 #: libraries/classes/Config/Descriptions.php:433
 #: libraries/classes/Config/Descriptions.php:444
-#: libraries/classes/Plugins/Import/ImportCsv.php:680
+#: libraries/classes/Plugins/Import/ImportCsv.php:681
 msgid "Columns escaped with"
 msgstr "තීර මගහැරීමේ සළකුණ"
 
@@ -1245,13 +2379,13 @@ msgstr "තීර තුල ඇති CRLF අනුලකුණු ඉවත්
 #: libraries/classes/Config/Descriptions.php:228
 #: libraries/classes/Config/Descriptions.php:437
 #: libraries/classes/Config/Descriptions.php:449
-#: libraries/classes/Plugins/Import/ImportCsv.php:654
+#: libraries/classes/Plugins/Import/ImportCsv.php:655
 msgid "Columns terminated with"
 msgstr "තීර වෙන් කිරීමේ සළකුණ"
 
 #: libraries/classes/Config/Descriptions.php:229
 #: libraries/classes/Config/Descriptions.php:431
-#: libraries/classes/Plugins/Import/ImportCsv.php:689
+#: libraries/classes/Plugins/Import/ImportCsv.php:690
 msgid "Lines terminated with"
 msgstr "පේළි අවසන් කිරීමේ සළකුණ"
 
@@ -1586,7 +2720,7 @@ msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:337
 #: libraries/classes/Config/Descriptions.php:403 libraries/classes/Menu.php:527
-#: libraries/classes/Util.php:2496 libraries/config.values.php:155
+#: libraries/classes/Util.php:2472 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:8
 #: templates/server/privileges/user_properties.twig:20
@@ -1744,8 +2878,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:385 libraries/classes/Menu.php:285
 #: libraries/classes/Menu.php:402 libraries/classes/Menu.php:532
 #: libraries/classes/Navigation/Nodes/NodeTable.php:315
-#: libraries/classes/Util.php:1787 libraries/classes/Util.php:2497
-#: libraries/classes/Util.php:2512 libraries/classes/Util.php:2529
+#: libraries/classes/Util.php:1763 libraries/classes/Util.php:2473
+#: libraries/classes/Util.php:2488 libraries/classes/Util.php:2505
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -1896,8 +3030,8 @@ msgstr "අර්ධ ආනයනය: අතුරු බිඳිය හැක"
 
 #: libraries/classes/Config/Descriptions.php:434
 #: libraries/classes/Config/Descriptions.php:445
-#: libraries/classes/Plugins/Import/ImportCsv.php:132
-#: libraries/classes/Plugins/Import/ImportLdi.php:77
+#: libraries/classes/Plugins/Import/ImportCsv.php:133
+#: libraries/classes/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "ඇතුළු කිරීමේ දෝෂ මත අත් නොහරින්න"
 
@@ -1924,7 +3058,7 @@ msgid "Format of imported file"
 msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
 
 #: libraries/classes/Config/Descriptions.php:446
-#: libraries/classes/Plugins/Import/ImportLdi.php:83
+#: libraries/classes/Plugins/Import/ImportLdi.php:84
 msgid "Use LOCAL keyword"
 msgstr "LOCAL මූල පදය භාවිතා කරන්න"
 
@@ -1933,7 +3067,7 @@ msgid "Column names in first row"
 msgstr "පළමු පේළියේ තීරු නම්"
 
 #: libraries/classes/Config/Descriptions.php:451
-#: libraries/classes/Plugins/Import/ImportOds.php:75
+#: libraries/classes/Plugins/Import/ImportOds.php:76
 msgid "Do not import empty rows"
 msgstr "හිස් පේළි ආනයනය නොකරන්න"
 
@@ -3384,12 +4518,12 @@ msgid "Skip locked tables"
 msgstr "අගුලු ළෑ දත්තගබඩා මඟහරින්න"
 
 #: libraries/classes/Config/Descriptions.php:890
-#: libraries/classes/Html/Generator.php:721
+#: libraries/classes/Html/Generator.php:722
 msgid "Explain SQL"
 msgstr "SQL ය පහදන්න"
 
 #: libraries/classes/Config/Descriptions.php:891
-#: libraries/classes/Export.php:603 libraries/classes/Html/Generator.php:801
+#: libraries/classes/Export.php:603 libraries/classes/Html/Generator.php:802
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
 #: templates/server/status/variables/index.twig:12
@@ -3397,7 +4531,7 @@ msgid "Refresh"
 msgstr "අලුත් කරන්න"
 
 #: libraries/classes/Config/Descriptions.php:892
-#: libraries/classes/Html/Generator.php:786
+#: libraries/classes/Html/Generator.php:787
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -3535,6 +4669,7 @@ msgstr "වගුවක් තෝරා ඇති විට බ්‍රව්�
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/user_properties.twig:37
 #: templates/server/privileges/user_properties.twig:82
+#: templates/table/maintenance/checksum.twig:12
 #: templates/table/operations/index.twig:67
 #: templates/table/operations/index.twig:244
 #: templates/table/relation/common_form.twig:36
@@ -3827,7 +4962,7 @@ msgstr "උපරිම %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:194
 #: libraries/classes/Engines/Pbxt.php:168
-#: libraries/classes/Html/Generator.php:885
+#: libraries/classes/Html/Generator.php:886
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:202 templates/home/index.twig:183
 #: templates/server/variables/index.twig:17
@@ -3845,8 +4980,8 @@ msgid "Disabled"
 msgstr "අක්‍රිය"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:319
-#: libraries/classes/Controllers/Database/StructureController.php:1707
-#: libraries/classes/Controllers/Database/StructureController.php:1790
+#: libraries/classes/Controllers/Database/StructureController.php:1451
+#: libraries/classes/Controllers/Database/StructureController.php:1534
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:495
 #: libraries/classes/Controllers/Table/DeleteController.php:27
 #: libraries/classes/Controllers/Table/StructureController.php:482
@@ -3965,8 +5100,8 @@ msgstr "අභිමත"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:57
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
-#: libraries/classes/Util.php:1786 libraries/classes/Util.php:2511
-#: libraries/classes/Util.php:2528 libraries/classes/Util.php:3216
+#: libraries/classes/Util.php:1762 libraries/classes/Util.php:2487
+#: libraries/classes/Util.php:2504 libraries/classes/Util.php:3192
 #: libraries/config.values.php:60 libraries/config.values.php:74
 #: libraries/config.values.php:165 libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4009,9 +5144,9 @@ msgstr "OpenDocument පෙළ"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:422
 #: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1614
-#: libraries/classes/Util.php:2500 libraries/classes/Util.php:2515
-#: libraries/classes/Util.php:2532 libraries/classes/Util.php:3223
-#: libraries/classes/Util.php:3224 templates/database/events/index.twig:55
+#: libraries/classes/Util.php:2476 libraries/classes/Util.php:2491
+#: libraries/classes/Util.php:2508 libraries/classes/Util.php:3199
+#: libraries/classes/Util.php:3200 templates/database/events/index.twig:55
 #: templates/database/events/index.twig:87
 #: templates/database/events/index.twig:88
 #: templates/database/events/row.twig:33
@@ -4054,9 +5189,9 @@ msgstr "LOAD DATA භාවිතයෙන් CSV"
 #: libraries/classes/Config/Forms/User/ImportForm.php:65
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:305
 #: libraries/classes/Menu.php:316 libraries/classes/Menu.php:432
-#: libraries/classes/Menu.php:565 libraries/classes/Util.php:2501
-#: libraries/classes/Util.php:2516 libraries/classes/Util.php:2533
-#: templates/display/import/import.twig:38 templates/preferences/header.twig:48
+#: libraries/classes/Menu.php:565 libraries/classes/Util.php:2477
+#: libraries/classes/Util.php:2492 libraries/classes/Util.php:2509
+#: templates/import.twig:33 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
 msgid "Import"
@@ -4317,20 +5452,27 @@ msgstr "%s ගොනුව මෙම පද්ධතියේ නොමැත. �
 msgid "Showing rows %1$s - %2$s."
 msgstr "%1$s - %2$s පේළි පෙන්වමින්."
 
-#: libraries/classes/Controllers/Database/ExportController.php:78
+#: libraries/classes/Controllers/Database/ExportController.php:77
 #: libraries/classes/Controllers/Database/TrackingController.php:125
-#: libraries/classes/Controllers/ExportController.php:457
+#: libraries/classes/Controllers/ExportController.php:461
 #: libraries/classes/Database/Qbe.php:359
 #: templates/database/structure/index.twig:19
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "දත්තගබඩාවේ වගු කිසිවක් සොයා ගැනීමට නොමැත."
 
-#: libraries/classes/Controllers/Database/ExportController.php:156
-#: libraries/classes/Controllers/Server/ExportController.php:72
-#: libraries/classes/Controllers/Table/ExportController.php:128
+#: libraries/classes/Controllers/Database/ExportController.php:151
+#: libraries/classes/Controllers/Server/ExportController.php:67
+#: libraries/classes/Controllers/Table/ExportController.php:123
 msgid "Could not load export plugins, please check your installation!"
 msgstr "අපනයන පේණු පූරණය කල නොහැකි විය, ඔබගේ ස්ථාපනය පරීක්ෂා කර බලන්න!"
+
+#: libraries/classes/Controllers/Database/ImportController.php:53
+#: libraries/classes/Controllers/ImportController.php:619
+#: libraries/classes/Controllers/Server/ImportController.php:41
+#: libraries/classes/Controllers/Table/ImportController.php:45
+msgid "Could not load import plugins, please check your installation!"
+msgstr "ආනයනය පේනු පූරණය අසමත් විය. ඔබගේ ස්ථාපිතය පරීක්ෂා කරන්න!"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:97
 #: libraries/classes/Controllers/Table/CreateController.php:76
@@ -4370,20 +5512,20 @@ msgid "Favorite List is full!"
 msgstr ""
 
 #: libraries/classes/Controllers/Database/StructureController.php:550
-#: templates/table/operations/index.twig:356
+#: templates/table/operations/index.twig:408
 #: templates/table/operations/view.twig:27
 #, php-format
 msgid "View %s has been dropped."
 msgstr "%s දසුන හලන ලදි."
 
 #: libraries/classes/Controllers/Database/StructureController.php:551
-#: templates/table/operations/index.twig:356
+#: templates/table/operations/index.twig:408
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "%s වගුව හලන ලදි."
 
 #: libraries/classes/Controllers/Database/StructureController.php:607
-#: templates/table/operations/index.twig:335
+#: templates/table/operations/index.twig:387
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "%s වගුව හිස් කරන ලදි."
@@ -4411,11 +5553,11 @@ msgstr "නොදන්නා"
 #: libraries/classes/Controllers/Database/StructureController.php:1339
 #: libraries/classes/Controllers/Database/StructureController.php:1369
 #: libraries/classes/Controllers/Database/StructureController.php:1420
-#: libraries/classes/Controllers/Database/StructureController.php:1449
-#: libraries/classes/Controllers/Database/StructureController.php:1501
-#: libraries/classes/Controllers/Database/StructureController.php:1552
-#: libraries/classes/Controllers/Database/StructureController.php:1603
-#: libraries/classes/Controllers/Database/StructureController.php:1654
+#: libraries/classes/Controllers/Table/MaintenanceController.php:47
+#: libraries/classes/Controllers/Table/MaintenanceController.php:82
+#: libraries/classes/Controllers/Table/MaintenanceController.php:120
+#: libraries/classes/Controllers/Table/MaintenanceController.php:156
+#: libraries/classes/Controllers/Table/MaintenanceController.php:191
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
@@ -4427,9 +5569,9 @@ msgstr "වගුවක් තෝරාගෙන නොමැත."
 msgid "Success!"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/StructureController.php:1708
-#: libraries/classes/Controllers/Database/StructureController.php:1791
-#: libraries/classes/Controllers/Table/OperationsController.php:325
+#: libraries/classes/Controllers/Database/StructureController.php:1452
+#: libraries/classes/Controllers/Database/StructureController.php:1535
+#: libraries/classes/Controllers/Table/OperationsController.php:313
 #: libraries/classes/Controllers/Table/ReplaceController.php:391
 #: libraries/classes/Core.php:856 templates/preview_sql.twig:3
 msgid "No change"
@@ -4479,12 +5621,12 @@ msgstr "ඔබ යම් දෝෂ වලට මුහුණදී නම් ඔ
 msgid "You may want to refresh the page."
 msgstr "ඔබ පිටුව ප්‍රතිපුර්ණය කිරීමට ඔබට අවශ්ය විය හැක."
 
-#: libraries/classes/Controllers/ExportController.php:240
+#: libraries/classes/Controllers/ExportController.php:241
 #: libraries/classes/Export.php:1347
 msgid "Bad type!"
 msgstr "වැරදි වර්ගය!"
 
-#: libraries/classes/Controllers/ExportController.php:342
+#: libraries/classes/Controllers/ExportController.php:346
 msgid "Bad parameters!"
 msgstr "වැරදි පරාමිතියන්!"
 
@@ -4604,20 +5746,20 @@ msgid ""
 "templates and will be slow because of this."
 msgstr ""
 
-#: libraries/classes/Controllers/ImportController.php:114
+#: libraries/classes/Controllers/ImportController.php:113
 msgid "Incomplete params"
 msgstr "අසම්පූර්ණ පරාමිති"
 
-#: libraries/classes/Controllers/ImportController.php:139
+#: libraries/classes/Controllers/ImportController.php:138
 msgid "Succeeded"
 msgstr "සාර්ථක විය"
 
-#: libraries/classes/Controllers/ImportController.php:143
+#: libraries/classes/Controllers/ImportController.php:142
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid "Failed"
 msgstr "අසාර්ථකයි"
 
-#: libraries/classes/Controllers/ImportController.php:245
+#: libraries/classes/Controllers/ImportController.php:244
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -4626,17 +5768,17 @@ msgstr ""
 "ඔබ උඩුගත කිරීමට උත්සාහ කල ගොනුව විශාල වැඩි විය හැක. මෙම සීමාවන් ඉක්මවීමේ ක්‍රම සඳහා කරුණාකර "
 "%sලියකියවිලි%s බලන්න."
 
-#: libraries/classes/Controllers/ImportController.php:425
-#: libraries/classes/Controllers/ImportController.php:643
+#: libraries/classes/Controllers/ImportController.php:423
+#: libraries/classes/Controllers/ImportController.php:659
 msgid "Showing bookmark"
 msgstr "පොත් සලකුණ පෙන්වන්න"
 
-#: libraries/classes/Controllers/ImportController.php:449
-#: libraries/classes/Controllers/ImportController.php:639
+#: libraries/classes/Controllers/ImportController.php:447
+#: libraries/classes/Controllers/ImportController.php:655
 msgid "The bookmark has been deleted."
 msgstr "පොත් සලකුණ ඉවත් කරන ලදි."
 
-#: libraries/classes/Controllers/ImportController.php:546
+#: libraries/classes/Controllers/ImportController.php:561
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -4646,26 +5788,21 @@ msgstr ""
 "විශාලත්වය PHP වින්‍යාසයන්හි අනුමත ප්‍රමාණයට වැඩ විශාල වීම මීට හේතු විය හැකිය. "
 "[doc@faq1-16]FAQ 1.16[/doc] බලන්න."
 
-#: libraries/classes/Controllers/ImportController.php:603
-#: libraries/classes/Display/Import.php:62
-msgid "Could not load import plugins, please check your installation!"
-msgstr "ආනයනය පේනු පූරණය අසමත් විය. ඔබගේ ස්ථාපිතය පරීක්ෂා කරන්න!"
-
-#: libraries/classes/Controllers/ImportController.php:646
-#: libraries/classes/Controllers/SqlController.php:355
-#: libraries/classes/Sql.php:1382
+#: libraries/classes/Controllers/ImportController.php:662
+#: libraries/classes/Controllers/SqlController.php:371
+#: libraries/classes/Sql.php:1257
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "%s පොත් සලකුණ සාදන ලදි."
 
-#: libraries/classes/Controllers/ImportController.php:656
+#: libraries/classes/Controllers/ImportController.php:672
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "ආනයනය සාර්ථකව අවසන් කරන ලදි, එක් විමසුමක් ක්‍රියාත්මක කරන ලදි."
 msgstr[1] "ආනයනය සාර්ථකව අවසන් කරන ලදි, විමසුම් %dක් ක්‍රියාත්මක කරන ලදි."
 
-#: libraries/classes/Controllers/ImportController.php:687
+#: libraries/classes/Controllers/ImportController.php:703
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -4674,7 +5811,7 @@ msgstr ""
 "විධානාවලිය ක්‍රියාත්මක වීමට ලබා දුන් කාලය අවසන් විය. ඔබට ආනයනය සම්පූර්ණ කිරීමට අවශ්‍ය නම් %sඑම "
 "ආනයන ගොනුවම නැවත ආනයනය සඳහා යොමු කරන්න%s."
 
-#: libraries/classes/Controllers/ImportController.php:697
+#: libraries/classes/Controllers/ImportController.php:713
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -4682,8 +5819,8 @@ msgstr ""
 "කෙසේ නමුදු අවසන් වාරයේදී කිසිදු දත්තයක් ලබා ගත නොහැකි විය. මෙයින් අදහස් වන්නේ ඔබගේ php කාල "
 "සීමාව වැඩි කිරීමකින් තොරව phpMyAdmin හට මෙම ආනයනය සම්පූර්ණ කිරීමට හැකි නොවන බවය."
 
-#: libraries/classes/Controllers/ImportController.php:771
-#: libraries/classes/Controllers/SqlController.php:166
+#: libraries/classes/Controllers/ImportController.php:787
+#: libraries/classes/Controllers/SqlController.php:168
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" ප්‍රකාශ අක්‍රීය කර ඇත."
 
@@ -4948,7 +6085,7 @@ msgid "Matched rows:"
 msgstr "වෙනස් වූ පේළි:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:115
-#: libraries/classes/Html/Generator.php:991 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:992 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL විමසුම:"
 
@@ -5027,13 +6164,13 @@ msgstr "අනෙකුත්"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
-#: libraries/classes/Util.php:630 libraries/classes/Util.php:662
+#: libraries/classes/Util.php:606 libraries/classes/Util.php:638
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
-#: libraries/classes/Util.php:628 libraries/classes/Util.php:660
+#: libraries/classes/Util.php:604 libraries/classes/Util.php:636
 msgid "."
 msgstr "."
 
@@ -5150,45 +6287,45 @@ msgstr "ක්‍රියාවලි"
 
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:182
-#: libraries/classes/Util.php:540
+#: libraries/classes/Util.php:516
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:183
-#: libraries/classes/Util.php:542
+#: libraries/classes/Util.php:518
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:184
-#: libraries/classes/Util.php:544
+#: libraries/classes/Util.php:520
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:185
-#: libraries/classes/Util.php:546
+#: libraries/classes/Util.php:522
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:186
-#: libraries/classes/Util.php:548
+#: libraries/classes/Util.php:524
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:187
-#: libraries/classes/Util.php:550
+#: libraries/classes/Util.php:526
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:188
-#: libraries/classes/Util.php:552
+#: libraries/classes/Util.php:528
 msgid "EiB"
 msgstr "EiB"
 
@@ -5208,7 +6345,7 @@ msgid "Traffic"
 msgstr "දත්ත හුවමාරුව"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
-#: libraries/classes/Menu.php:570 libraries/classes/Util.php:2502
+#: libraries/classes/Menu.php:570 libraries/classes/Util.php:2478
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "සිටුවම්"
@@ -5430,7 +6567,7 @@ msgstr "ප්‍රතිදානය පහදන්න"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:268
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Menu.php:537 libraries/classes/Util.php:2498
+#: libraries/classes/Menu.php:537 libraries/classes/Util.php:2474
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:18
 #: templates/database/events/index.twig:18
@@ -5715,9 +6852,8 @@ msgstr "අක්ෂර කට්ටලය වෙනස් කෙරෙමින
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:352
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16
-#: templates/display/import/import.twig:204 templates/sql/query.twig:131
-#: templates/table/delete/confirm.twig:25
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:193
+#: templates/sql/query.twig:131 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "අන්‍ය මූල පරීක්ෂා සක්‍රිය කරන්න"
 
@@ -5803,7 +6939,7 @@ msgstr "%d වලංගු පේළි අංකයක් නොවේ."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 #: libraries/classes/Controllers/Table/ChangeController.php:200
-#: libraries/classes/Controllers/Table/SearchController.php:356
+#: libraries/classes/Controllers/Table/SearchController.php:353
 #: libraries/classes/Controllers/Table/ZoomSearchController.php:389
 #: libraries/classes/Controllers/Table/ZoomSearchController.php:431
 #: templates/sql/relational_column_dropdown.twig:3
@@ -5937,7 +7073,7 @@ msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත.
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:591
-#: libraries/classes/Export.php:598 libraries/classes/Html/Generator.php:1095
+#: libraries/classes/Export.php:598 libraries/classes/Html/Generator.php:1096
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:307
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6091,7 +7227,7 @@ msgstr "නොසලකන්න"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 #: libraries/classes/Display/Results.php:3217
-#: libraries/classes/Html/Generator.php:70
+#: libraries/classes/Html/Generator.php:71
 #: templates/display/results/table.twig:214
 #: templates/display/results/table.twig:215
 msgid "Copy"
@@ -6514,9 +7650,9 @@ msgid "up to date"
 msgstr "යාවත්කාලීන"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/Display/Results.php:4625
 #: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:284 templates/view_create.twig:11
+#: templates/display/results/table.twig:284
+#: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "දසුනක් සාදන්න"
 
@@ -7829,21 +8965,21 @@ msgstr "පෙරනිමි සේවාදායකය"
 msgid "End of line"
 msgstr "පේළියේ අවසානය"
 
-#: libraries/classes/Controllers/SqlController.php:362
+#: libraries/classes/Controllers/SqlController.php:378
 msgid "Bookmark not created!"
 msgstr "පොත් සලකුණ නොසාදන ලදි!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:134
 #: libraries/classes/Controllers/Table/StructureController.php:1023
-#: libraries/classes/Controllers/Table/StructureController.php:1245
+#: libraries/classes/Controllers/Table/StructureController.php:1242
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "%1$s වගුව සාර්ථකව වෙනස් කරන ලදි."
 
 #: libraries/classes/Controllers/Table/ChangeController.php:312
-#: libraries/classes/Controllers/Table/DeleteController.php:96
-#: libraries/classes/Controllers/Table/ExportController.php:157
+#: libraries/classes/Controllers/Table/DeleteController.php:93
+#: libraries/classes/Controllers/Table/ExportController.php:152
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No row selected."
@@ -7875,6 +9011,11 @@ msgstr "%s වගුව දැනටමත් පවතී!"
 
 #: libraries/classes/Controllers/Table/DeleteController.php:52
 #: libraries/classes/Controllers/Table/FindReplaceController.php:180
+#: libraries/classes/Controllers/Table/MaintenanceController.php:62
+#: libraries/classes/Controllers/Table/MaintenanceController.php:97
+#: libraries/classes/Controllers/Table/MaintenanceController.php:135
+#: libraries/classes/Controllers/Table/MaintenanceController.php:171
+#: libraries/classes/Controllers/Table/MaintenanceController.php:206
 #: libraries/classes/Controllers/Table/RelationController.php:275
 #: libraries/classes/Controllers/ViewOperationsController.php:75
 #: libraries/classes/Database/Routines.php:1534
@@ -7897,12 +9038,20 @@ msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැ�
 #: libraries/classes/Controllers/Table/GetFieldController.php:65
 #: libraries/classes/Database/Routines.php:1555
 #: libraries/classes/Import.php:159 libraries/classes/InsertEdit.php:225
-#: libraries/classes/Sql.php:1197
+#: libraries/classes/Sql.php:1055
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL හිස් ප්‍රතිඵල කුලකයක් (පේළි කිසිවක් අඩංගු නොවන) සපයන ලදි."
 
-#: libraries/classes/Controllers/Table/OperationsController.php:110
-#: libraries/classes/Controllers/Table/OperationsController.php:307
+#: libraries/classes/Controllers/Table/MaintenanceController.php:54
+#: libraries/classes/Controllers/Table/MaintenanceController.php:89
+#: libraries/classes/Controllers/Table/MaintenanceController.php:127
+#: libraries/classes/Controllers/Table/MaintenanceController.php:163
+#: libraries/classes/Controllers/Table/MaintenanceController.php:198
+msgid "Maintenance operations on multiple tables are disabled."
+msgstr ""
+
+#: libraries/classes/Controllers/Table/OperationsController.php:108
+#: libraries/classes/Controllers/Table/OperationsController.php:295
 #: libraries/classes/Controllers/Table/StructureController.php:126
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
 #: templates/database/structure/show_create.twig:32
@@ -7953,27 +9102,27 @@ msgid "Failed to get description of column %s!"
 msgstr "ශීර්ෂකය ලබා ගැනීමට නොහැකි විය"
 
 #: libraries/classes/Controllers/Table/StructureController.php:1015
-#: libraries/classes/Controllers/Table/StructureController.php:1296
+#: libraries/classes/Controllers/Table/StructureController.php:1293
 #: libraries/classes/Tracking.php:795
 msgid "Query error"
 msgstr "විමසුම් දෝෂය"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1239
+#: libraries/classes/Controllers/Table/StructureController.php:1236
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "%1$s වගුව සාර්ථකව වෙනස් කරන ලදි"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1478
+#: libraries/classes/Controllers/Table/StructureController.php:1475
 #: templates/table/structure/display_structure.twig:286
 msgid "Change"
 msgstr "වෙනස් කරන්න"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1479
-#: libraries/classes/Controllers/Table/StructureController.php:1480
-#: libraries/classes/Operations.php:712 libraries/classes/Util.php:3217
-#: libraries/classes/Util.php:3218 templates/database/events/index.twig:64
+#: libraries/classes/Controllers/Table/StructureController.php:1476
+#: libraries/classes/Controllers/Table/StructureController.php:1477
+#: libraries/classes/Operations.php:620 libraries/classes/Util.php:3193
+#: libraries/classes/Util.php:3194 templates/database/events/index.twig:64
 #: templates/database/events/index.twig:70
 #: templates/database/events/index.twig:90
 #: templates/database/events/index.twig:91
@@ -7997,9 +9146,9 @@ msgstr "වෙනස් කරන්න"
 msgid "Drop"
 msgstr "හලන්න"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1481
-#: libraries/classes/Controllers/Table/StructureController.php:1486
-#: libraries/classes/Controllers/Table/StructureController.php:1542
+#: libraries/classes/Controllers/Table/StructureController.php:1478
+#: libraries/classes/Controllers/Table/StructureController.php:1483
+#: libraries/classes/Controllers/Table/StructureController.php:1539
 #: templates/columns_definitions/column_indexes.twig:4
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:294
@@ -8007,9 +9156,9 @@ msgstr "හලන්න"
 msgid "Primary"
 msgstr "ප්‍රාථමික"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1482
-#: libraries/classes/Controllers/Table/StructureController.php:1487
-#: libraries/classes/Controllers/Table/StructureController.php:1547
+#: libraries/classes/Controllers/Table/StructureController.php:1479
+#: libraries/classes/Controllers/Table/StructureController.php:1484
+#: libraries/classes/Controllers/Table/StructureController.php:1544
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_indexes.twig:12
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8019,8 +9168,8 @@ msgstr "ප්‍රාථමික"
 msgid "Index"
 msgstr "සූචිය"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1483
-#: libraries/classes/Controllers/Table/StructureController.php:1488
+#: libraries/classes/Controllers/Table/StructureController.php:1480
+#: libraries/classes/Controllers/Table/StructureController.php:1485
 #: templates/columns_definitions/column_indexes.twig:8
 #: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:17
 #: templates/table/relation/common_form.twig:237
@@ -8030,25 +9179,25 @@ msgstr "සූචිය"
 msgid "Unique"
 msgstr "අනන්‍ය"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1484
-#: libraries/classes/Controllers/Table/StructureController.php:1489
+#: libraries/classes/Controllers/Table/StructureController.php:1481
+#: libraries/classes/Controllers/Table/StructureController.php:1486
 #: templates/columns_definitions/column_indexes.twig:20
 #: templates/table/structure/display_structure.twig:303
 msgid "Spatial"
 msgstr "ජ්‍යාමිතික"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1485
-#: libraries/classes/Controllers/Table/StructureController.php:1490
+#: libraries/classes/Controllers/Table/StructureController.php:1482
+#: libraries/classes/Controllers/Table/StructureController.php:1487
 #: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/display_structure.twig:306
 msgid "Fulltext"
 msgstr "සම්පූර්ණ පාඨය"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1491
+#: libraries/classes/Controllers/Table/StructureController.php:1488
 msgid "Distinct values"
 msgstr "එකිනෙකට වෙනස් අගයන්"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1809
+#: libraries/classes/Controllers/Table/StructureController.php:1806
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -8090,13 +9239,13 @@ msgid "View name can not be empty!"
 msgstr ""
 
 #: libraries/classes/Controllers/ViewOperationsController.php:78
-#: libraries/classes/Html/Generator.php:967 libraries/classes/Import.php:140
+#: libraries/classes/Html/Generator.php:968 libraries/classes/Import.php:140
 #: libraries/classes/InsertEdit.php:1583 libraries/classes/Message.php:197
 #: templates/error/generic.twig:37 templates/javascript/variables.twig:108
 msgid "Error"
 msgstr "දෝෂය"
 
-#: libraries/classes/Core.php:359
+#: libraries/classes/Core.php:359 libraries/classes/ZipExtension.php:60
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s දිගුව සොයාගත නොහැක. කරුණාකර ඔබගේ PHP වින්‍යාසයන් පරීක්ෂා කර බලන්න."
@@ -8202,7 +9351,7 @@ msgstr "ගොනුව කියවිය නොහැක!"
 msgid "Internal relationship has been removed."
 msgstr "අභ්‍යන්තර සබඳතා එක් කරන ලදි"
 
-#: libraries/classes/Database/Designer.php:144
+#: libraries/classes/Database/Designer.php:137
 #, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
@@ -8235,7 +9384,7 @@ msgstr "පහත විමසුම් අසමත් විය: \"%s\""
 #: libraries/classes/Database/Triggers.php:144
 #: libraries/classes/Database/Triggers.php:169
 #: libraries/classes/Database/Triggers.php:550
-#: libraries/classes/Html/Generator.php:1039
+#: libraries/classes/Html/Generator.php:1040
 msgid "MySQL said: "
 msgstr "MySQL පවසන ලදි: "
 
@@ -8494,11 +9643,11 @@ msgstr "දිශාව"
 #: libraries/classes/Plugins/Export/ExportXml.php:89
 #: libraries/classes/Plugins/Export/ExportYaml.php:43
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:31
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:60
-#: libraries/classes/Plugins/Import/ImportOds.php:52
-#: libraries/classes/Plugins/Import/ImportShp.php:66
-#: libraries/classes/Plugins/Import/ImportSql.php:45
-#: libraries/classes/Plugins/Import/ImportXml.php:51
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:61
+#: libraries/classes/Plugins/Import/ImportOds.php:53
+#: libraries/classes/Plugins/Import/ImportShp.php:68
+#: libraries/classes/Plugins/Import/ImportSql.php:46
+#: libraries/classes/Plugins/Import/ImportXml.php:52
 #: templates/console/display.twig:7 templates/console/display.twig:140
 #: templates/database/designer/database_tables.twig:114
 #: templates/display/results/table.twig:107
@@ -8811,31 +9960,31 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
 #: libraries/classes/Display/Results.php:911
-#: libraries/classes/Html/Generator.php:1295
-#: libraries/classes/Html/Generator.php:1298
+#: libraries/classes/Html/Generator.php:1296
+#: libraries/classes/Html/Generator.php:1299
 msgctxt "First page"
 msgid "Begin"
 msgstr "ඇරඹුම"
 
 #: libraries/classes/Display/Results.php:918
-#: libraries/classes/Html/Generator.php:1296
-#: libraries/classes/Html/Generator.php:1299
+#: libraries/classes/Html/Generator.php:1297
+#: libraries/classes/Html/Generator.php:1300
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "පෙර"
 
 #: libraries/classes/Display/Results.php:946
-#: libraries/classes/Html/Generator.php:1328
-#: libraries/classes/Html/Generator.php:1335
+#: libraries/classes/Html/Generator.php:1329
+#: libraries/classes/Html/Generator.php:1336
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "මීලඟ"
 
 #: libraries/classes/Display/Results.php:976
-#: libraries/classes/Html/Generator.php:1329
-#: libraries/classes/Html/Generator.php:1336
+#: libraries/classes/Html/Generator.php:1330
+#: libraries/classes/Html/Generator.php:1337
 msgctxt "Last page"
 msgid "End"
 msgstr "අවසන"
@@ -8851,8 +10000,8 @@ msgid "Full texts"
 msgstr "පූර්ණ පෙළ"
 
 #: libraries/classes/Display/Results.php:1942
-#: libraries/classes/Display/Results.php:1968 libraries/classes/Util.php:3137
-#: libraries/classes/Util.php:3160 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1968 libraries/classes/Util.php:3113
+#: libraries/classes/Util.php:3136 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:61
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:114
@@ -8865,8 +10014,8 @@ msgid "Descending"
 msgstr "අවරෝහන"
 
 #: libraries/classes/Display/Results.php:1950
-#: libraries/classes/Display/Results.php:1960 libraries/classes/Util.php:3129
-#: libraries/classes/Util.php:3152 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1960 libraries/classes/Util.php:3105
+#: libraries/classes/Util.php:3128 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:60
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:112
@@ -8907,17 +10056,12 @@ msgstr ""
 msgid "%d total"
 msgstr "මුළු එකතුව %d"
 
-#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1203
+#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1061
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "විමසුම තත්පර %01.4f ගන්නා ලදි."
 
-#: libraries/classes/Display/Results.php:4614
-#: templates/display/results/table.twig:242
-msgid "Query results operations"
-msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙයුම්"
-
-#: libraries/classes/Display/Results.php:4867
+#: libraries/classes/Display/Results.php:4831
 msgid "Link not found!"
 msgstr "සබැඳිය හමු නොවිණි!"
 
@@ -9262,64 +10406,64 @@ msgstr "%s ගොනුවට නික්ෂේප දත්ත සුරකි
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
-#: libraries/classes/File.php:285
+#: libraries/classes/File.php:286
 msgid "File was not an uploaded file."
 msgstr "ගොනුව උඩුගත කරන ලද්දක් නොවේ."
 
-#: libraries/classes/File.php:325
+#: libraries/classes/File.php:326
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "උඩුගත කෙරුනු ගොනුව php.ini හි upload_max_filesize අගය ඉක්මවයි."
 
-#: libraries/classes/File.php:331
+#: libraries/classes/File.php:332
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr "උඩුගත කෙරුනු ගොනුව HTML පෝරමයෙහි සඳහන් MAX_FILE_SIZE අගය ඉක්මවයි."
 
-#: libraries/classes/File.php:337
+#: libraries/classes/File.php:338
 msgid "The uploaded file was only partially uploaded."
 msgstr "උඩුගත කෙරුනු ගොනුවේ කොටසක් පමණක් උඩුගත විය."
 
-#: libraries/classes/File.php:341
+#: libraries/classes/File.php:342
 msgid "Missing a temporary folder."
 msgstr "තාවකාලික ෆෝල්ඩරයක් නැතිවී ඇත."
 
-#: libraries/classes/File.php:344
+#: libraries/classes/File.php:345
 msgid "Failed to write file to disk."
 msgstr "ගොනුව ඩිස්කයට පිටපත් කිරීම අසාර්ථක විය."
 
-#: libraries/classes/File.php:347
+#: libraries/classes/File.php:348
 msgid "File upload stopped by extension."
 msgstr "දිගුව නිසා ගොනුව උඩුගත කිරීම නවතන ලදි."
 
-#: libraries/classes/File.php:350
+#: libraries/classes/File.php:351
 msgid "Unknown error in file upload."
 msgstr "ගොනුව උඩුගත කිරීමේදී දෝෂයක් ඇති විය."
 
-#: libraries/classes/File.php:498
+#: libraries/classes/File.php:499
 msgid "File is a symbolic link"
 msgstr ""
 
-#: libraries/classes/File.php:504 libraries/classes/File.php:603
+#: libraries/classes/File.php:505 libraries/classes/File.php:604
 msgid "File could not be read!"
 msgstr "ගොනුව කියවිය නොහැක!"
 
-#: libraries/classes/File.php:547
+#: libraries/classes/File.php:548
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "උඩුගත කෙරුණු ගොනුව ගෙන යාමේදී දෝෂයක් ඇති විය, [doc@faq1-11]FAQ 1.11[/doc] බලන්න."
 
-#: libraries/classes/File.php:567
+#: libraries/classes/File.php:568
 msgid "Error while moving uploaded file."
 msgstr "උඩුගත කරන ලද ගොනුව චලනයේදී දෝෂයක් මතු විය."
 
-#: libraries/classes/File.php:576
+#: libraries/classes/File.php:577
 #, fuzzy
 #| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
 msgstr "උඩුගත කරන ලද ගොනුව කියවීමට නොහැක."
 
-#: libraries/classes/File.php:654
+#: libraries/classes/File.php:655
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -9353,57 +10497,57 @@ msgstr "නව phpMyAdmin කවුළුවක් විවෘත කරන්�
 msgid "Print view"
 msgstr "මුද්‍රණ දර්ශනය"
 
-#: libraries/classes/Html/Generator.php:157
+#: libraries/classes/Html/Generator.php:158
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "\"%s\" දත්තගබඩාව වෙත යන්න."
 
-#: libraries/classes/Html/Generator.php:183
+#: libraries/classes/Html/Generator.php:184
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s විශේෂාංගයෙහි හඳුනාගත් දෝෂයක් ඇත, %s බලන්න"
 
-#: libraries/classes/Html/Generator.php:296
+#: libraries/classes/Html/Generator.php:297
 msgid "SSL is not being used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:301
+#: libraries/classes/Html/Generator.php:302
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:303
+#: libraries/classes/Html/Generator.php:304
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:306
+#: libraries/classes/Html/Generator.php:307
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:429
+#: libraries/classes/Html/Generator.php:430
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:430
+#: libraries/classes/Html/Generator.php:431
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:732
+#: libraries/classes/Html/Generator.php:733
 msgid "Skip Explain SQL"
 msgstr "SQL ය පහදා දීමෙන් ඉවත් වන්න"
 
-#: libraries/classes/Html/Generator.php:740
+#: libraries/classes/Html/Generator.php:741
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:770
+#: libraries/classes/Html/Generator.php:771
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "PHP කේත නොමැතිව"
 
-#: libraries/classes/Html/Generator.php:777
+#: libraries/classes/Html/Generator.php:778
 #: templates/database/multi_table_query/form.twig:170
 #: templates/database/qbe/selection_form.twig:115
 #, fuzzy
@@ -9411,30 +10555,30 @@ msgstr "PHP කේත නොමැතිව"
 msgid "Submit query"
 msgstr "විමසුම ඉදිරිපත් කරන්න"
 
-#: libraries/classes/Html/Generator.php:822 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:823 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:836
+#: libraries/classes/Html/Generator.php:837
 #, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "සුචිය සංස්කරණය කරන්න"
 
-#: libraries/classes/Html/Generator.php:974
+#: libraries/classes/Html/Generator.php:975
 #, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
 msgstr "ස්ථිතික දත්ත"
 
-#: libraries/classes/Html/Generator.php:977
+#: libraries/classes/Html/Generator.php:978
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Import.php:325 libraries/classes/Sql.php:1211
+#: libraries/classes/Import.php:325 libraries/classes/Sql.php:1069
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9488,11 +10632,11 @@ msgstr "%s හි සැකිල්ල"
 msgid "Go to view: %s"
 msgstr "%s දසුන වෙත යන්න"
 
-#: libraries/classes/Import.php:1465
+#: libraries/classes/Import.php:1437
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/classes/Import.php:1692
+#: libraries/classes/Import.php:1664
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9519,9 +10663,8 @@ msgstr "මෙහි දිග නිසා,<br /> මෙම තීරුව ස
 msgid "Binary - do not edit"
 msgstr "ද්වීමය - සංස්කරණය නොකරන්න"
 
-#: libraries/classes/InsertEdit.php:1584
-#: templates/display/import/import.twig:89
-#: templates/display/import/import.twig:119
+#: libraries/classes/InsertEdit.php:1584 templates/import.twig:78
+#: templates/import.twig:108
 msgid "The directory you set for upload work cannot be reached."
 msgstr "උඩුගත කිරීම් සඳහා සැකසූ ඩිරෙක්ටරිය වෙත පිවිසිය නොහැක."
 
@@ -9614,11 +10757,11 @@ msgstr ""
 msgid "Column"
 msgstr "තීර"
 
-#: libraries/classes/InsertEdit.php:2410 libraries/classes/Sql.php:1194
+#: libraries/classes/InsertEdit.php:2410 libraries/classes/Sql.php:1052
 msgid "Showing SQL query"
 msgstr "SQL විමසුම පෙන්වමින්"
 
-#: libraries/classes/InsertEdit.php:2436 libraries/classes/Sql.php:1172
+#: libraries/classes/InsertEdit.php:2436 libraries/classes/Sql.php:1030
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "%1$d පේළිය ඇතුල් කරන ලදි"
@@ -9645,8 +10788,8 @@ msgstr ""
 
 #: libraries/classes/Menu.php:270
 #: libraries/classes/Navigation/Nodes/NodeTable.php:318
-#: libraries/classes/Util.php:1790 libraries/classes/Util.php:2527
-#: libraries/classes/Util.php:3210 libraries/classes/Util.php:3211
+#: libraries/classes/Util.php:1766 libraries/classes/Util.php:2503
+#: libraries/classes/Util.php:3186 libraries/classes/Util.php:3187
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/table/structure/display_structure.twig:281
@@ -9655,9 +10798,9 @@ msgstr "පිරික්සන්න"
 
 #: libraries/classes/Menu.php:289 libraries/classes/Menu.php:406
 #: libraries/classes/Navigation/Nodes/NodeTable.php:309
-#: libraries/classes/Util.php:1788 libraries/classes/Util.php:2513
-#: libraries/classes/Util.php:2530 libraries/classes/Util.php:3212
-#: libraries/classes/Util.php:3213 libraries/config.values.php:64
+#: libraries/classes/Util.php:1764 libraries/classes/Util.php:2489
+#: libraries/classes/Util.php:2506 libraries/classes/Util.php:3188
+#: libraries/classes/Util.php:3189 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179
 msgid "Search"
@@ -9665,8 +10808,8 @@ msgstr "සෙවීම"
 
 #: libraries/classes/Menu.php:300
 #: libraries/classes/Navigation/Nodes/NodeTable.php:312
-#: libraries/classes/Util.php:1789 libraries/classes/Util.php:2531
-#: libraries/classes/Util.php:3214 libraries/classes/Util.php:3215
+#: libraries/classes/Util.php:1765 libraries/classes/Util.php:2507
+#: libraries/classes/Util.php:3190 libraries/classes/Util.php:3191
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -9675,8 +10818,8 @@ msgid "Insert"
 msgstr "ඇතුල් කරන්න"
 
 #: libraries/classes/Menu.php:327 libraries/classes/Menu.php:446
-#: libraries/classes/Server/Privileges.php:2964 libraries/classes/Util.php:2518
-#: libraries/classes/Util.php:2534 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2964 libraries/classes/Util.php:2494
+#: libraries/classes/Util.php:2510 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -9685,15 +10828,15 @@ msgid "Privileges"
 msgstr "වරප්‍රසාද"
 
 #: libraries/classes/Menu.php:337 libraries/classes/Menu.php:346
-#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1791
-#: libraries/classes/Util.php:2517 libraries/classes/Util.php:2535
+#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1767
+#: libraries/classes/Util.php:2493 libraries/classes/Util.php:2511
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "මෙහෙයුම්"
 
 #: libraries/classes/Menu.php:352 libraries/classes/Menu.php:472
-#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2522
-#: libraries/classes/Util.php:2536
+#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2498
+#: libraries/classes/Util.php:2512
 msgid "Tracking"
 msgstr "අවධානය"
 
@@ -9705,7 +10848,7 @@ msgstr "අවධානය"
 #: libraries/classes/Plugins/Export/ExportSql.php:2157
 #: libraries/classes/Plugins/Export/ExportTexytext.php:553
 #: libraries/classes/Plugins/Export/ExportXml.php:135
-#: libraries/classes/Util.php:2521 libraries/classes/Util.php:2537
+#: libraries/classes/Util.php:2497 libraries/classes/Util.php:2513
 #: templates/database/triggers/list.twig:6
 msgid "Triggers"
 msgstr "ප්‍රේරක"
@@ -9715,11 +10858,11 @@ msgstr "ප්‍රේරක"
 msgid "Database seems to be empty!"
 msgstr "දත්තගබඩාව හිස්ය!"
 
-#: libraries/classes/Menu.php:414 libraries/classes/Util.php:2514
+#: libraries/classes/Menu.php:414 libraries/classes/Util.php:2490
 msgid "Query"
 msgstr "විමසුම"
 
-#: libraries/classes/Menu.php:452 libraries/classes/Util.php:2519
+#: libraries/classes/Menu.php:452 libraries/classes/Util.php:2495
 #: templates/database/routines/list.twig:6
 msgid "Routines"
 msgstr "නෛත්‍යක"
@@ -9728,15 +10871,15 @@ msgstr "නෛත්‍යක"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:24
 #: libraries/classes/Plugins/Export/ExportSql.php:1017
 #: libraries/classes/Plugins/Export/ExportXml.php:115
-#: libraries/classes/Util.php:2520 templates/database/events/index.twig:6
+#: libraries/classes/Util.php:2496 templates/database/events/index.twig:6
 msgid "Events"
 msgstr "සිද්ධි"
 
-#: libraries/classes/Menu.php:479 libraries/classes/Util.php:2523
+#: libraries/classes/Menu.php:479 libraries/classes/Util.php:2499
 msgid "Designer"
 msgstr "සැලසුම්කරණය"
 
-#: libraries/classes/Menu.php:488 libraries/classes/Util.php:2524
+#: libraries/classes/Menu.php:488 libraries/classes/Util.php:2500
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "මධ්‍යම තීර"
@@ -9746,12 +10889,12 @@ msgid "User accounts"
 msgstr "භාවිත ගිණුම්"
 
 #: libraries/classes/Menu.php:585 libraries/classes/Server/Status/Data.php:144
-#: libraries/classes/Util.php:2503 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:2479 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "ද්වීමය ලොගය"
 
 #: libraries/classes/Menu.php:592 libraries/classes/Server/Status/Data.php:149
-#: libraries/classes/Util.php:2504
+#: libraries/classes/Util.php:2480
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -9759,21 +10902,21 @@ msgid "Replication"
 msgstr "අනුරූකරණය"
 
 #: libraries/classes/Menu.php:598 libraries/classes/Server/Status/Data.php:217
-#: libraries/classes/Util.php:2505 libraries/config.values.php:159
+#: libraries/classes/Util.php:2481 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:178
 msgid "Variables"
 msgstr "විචල්‍යනයන්"
 
-#: libraries/classes/Menu.php:603 libraries/classes/Util.php:2506
+#: libraries/classes/Menu.php:603 libraries/classes/Util.php:2482
 msgid "Charsets"
 msgstr "අක්ෂර කට්ටලය"
 
-#: libraries/classes/Menu.php:608 libraries/classes/Util.php:2508
+#: libraries/classes/Menu.php:608 libraries/classes/Util.php:2484
 msgid "Engines"
 msgstr "යන්ත්‍රයන්"
 
-#: libraries/classes/Menu.php:613 libraries/classes/Util.php:2507
+#: libraries/classes/Menu.php:613 libraries/classes/Util.php:2483
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "පේණු"
@@ -10262,116 +11405,73 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: libraries/classes/Operations.php:615
-#: templates/database/structure/check_all_tables.twig:19
-msgid "Analyze table"
-msgstr "වගුව විශ්ලේෂණය කරන්න"
-
-#: libraries/classes/Operations.php:626
-#: templates/database/structure/check_all_tables.twig:20
-msgid "Check table"
-msgstr "වගුව පරීක්ෂා කරන්න"
-
-#: libraries/classes/Operations.php:636
-#: templates/database/structure/check_all_tables.twig:21
-#, fuzzy
-#| msgid "Check table"
-msgid "Checksum table"
-msgstr "වගුව පරීක්ෂා කරන්න"
-
-#: libraries/classes/Operations.php:645
-msgid "Defragment table"
-msgstr ""
-
-#: libraries/classes/Operations.php:654
-#, php-format
-msgid "Table %s has been flushed."
-msgstr ""
-
-#: libraries/classes/Operations.php:659
-#, fuzzy
-#| msgid "Flush the table (\"FLUSH\")"
-msgid "Flush the table (FLUSH)"
-msgstr "Flush the table (FLUSH)"
-
-#: libraries/classes/Operations.php:669
-#: templates/database/structure/check_all_tables.twig:22
-#: templates/table/structure/display_table_stats.twig:62
-msgid "Optimize table"
-msgstr "වගුව ප්‍රශස්තගත කරන්න"
-
-#: libraries/classes/Operations.php:680
-#: templates/database/structure/check_all_tables.twig:23
-msgid "Repair table"
-msgstr "වගුව ප්‍රතිසංස්කරණය කරන්න"
-
-#: libraries/classes/Operations.php:696
+#: libraries/classes/Operations.php:604
 #: templates/table/structure/display_structure.twig:521
 msgid "Analyze"
 msgstr "විශ්ලේෂණය"
 
-#: libraries/classes/Operations.php:697
+#: libraries/classes/Operations.php:605
 #: templates/table/structure/display_structure.twig:521
 msgid "Check"
 msgstr "පරීක්ෂාව"
 
-#: libraries/classes/Operations.php:698
+#: libraries/classes/Operations.php:606
 #: templates/table/structure/display_structure.twig:521
 msgid "Optimize"
 msgstr "ප්‍රශස්තනය"
 
-#: libraries/classes/Operations.php:699
+#: libraries/classes/Operations.php:607
 #: templates/table/structure/display_structure.twig:521
 msgid "Rebuild"
 msgstr "නැවත සෑදීම"
 
-#: libraries/classes/Operations.php:700
+#: libraries/classes/Operations.php:608
 #: templates/table/structure/display_structure.twig:521
 msgid "Repair"
 msgstr "ප්‍රතිසංස්කරණය"
 
-#: libraries/classes/Operations.php:701
+#: libraries/classes/Operations.php:609
 #: templates/table/structure/display_structure.twig:521
 msgid "Truncate"
 msgstr ""
 
-#: libraries/classes/Operations.php:714
+#: libraries/classes/Operations.php:622
 #, fuzzy
 #| msgid "Close"
 msgid "Coalesce"
 msgstr "වසන්න"
 
-#: libraries/classes/Operations.php:1149
+#: libraries/classes/Operations.php:1057
 msgid "Can't move table to same one!"
 msgstr ""
 
-#: libraries/classes/Operations.php:1151
+#: libraries/classes/Operations.php:1059
 msgid "Can't copy table to same one!"
 msgstr "එම වගුවටම පිටපත් කල නොහැක!"
 
-#: libraries/classes/Operations.php:1186
+#: libraries/classes/Operations.php:1094
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "%s වගුව %s වෙතට ගෙනයන ලදි."
 
-#: libraries/classes/Operations.php:1193
+#: libraries/classes/Operations.php:1101
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "%s වගුව %s වෙතට පිටපත් කරන ලදි."
 
-#: libraries/classes/Operations.php:1201
+#: libraries/classes/Operations.php:1109
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "%s වගුව %s වෙතට ගෙනයන ලදි."
 
-#: libraries/classes/Operations.php:1205
+#: libraries/classes/Operations.php:1113
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "%s වගුව %s වෙතට පිටපත් කරන ලදි."
 
-#: libraries/classes/Operations.php:1229
+#: libraries/classes/Operations.php:1137
 msgid "The table name is empty!"
 msgstr "වගුවෙහි නම හිස්ව ඇත!"
 
@@ -10468,7 +11568,7 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:87
-#: templates/display/import/import.twig:209 templates/export.twig:94
+#: templates/export.twig:94 templates/import.twig:198
 msgid "Format:"
 msgstr "ආකෘතිය:"
 
@@ -11055,21 +12155,21 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:74
+#: libraries/classes/Plugins/Import/ImportCsv.php:75
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:83
+#: libraries/classes/Plugins/Import/ImportCsv.php:84
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:92
-#: libraries/classes/Plugins/Import/ImportCsv.php:110
+#: libraries/classes/Plugins/Import/ImportCsv.php:93
+#: libraries/classes/Plugins/Import/ImportCsv.php:111
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:100
-#: libraries/classes/Plugins/Import/ImportOds.php:67
+#: libraries/classes/Plugins/Import/ImportCsv.php:101
+#: libraries/classes/Plugins/Import/ImportOds.php:68
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -11077,7 +12177,7 @@ msgstr ""
 "ගොනුවේ පළමු පේළියේ ඇත්තේ වගුවේ තීරවල නම්ය.<i>(මෙය තෝරා නොගතහොත් පළමු පේලිය දත්ත සේ "
 "ගැනේ)</i>"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:117
+#: libraries/classes/Plugins/Import/ImportCsv.php:118
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -11086,32 +12186,32 @@ msgstr ""
 "ගොනුවේ එක් එක් පේළියේ අඩංගු දත්ත දත්තගබඩාවේ අනුපිළිවල හා නොගැලපේ නම්, අදාල තීර අනුපිළිවල "
 "මෙහි සඳහන් කරන්න. තීර නම් උධෘත මගින් ඇහිරිය යුතු අතර කොමා සලකුණු වලින් වෙන් කල යුතුය."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:125
+#: libraries/classes/Plugins/Import/ImportCsv.php:126
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column names:"
 msgstr "තීර නම්: "
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:264
-#: libraries/classes/Plugins/Import/ImportCsv.php:634
+#: libraries/classes/Plugins/Import/ImportCsv.php:265
+#: libraries/classes/Plugins/Import/ImportCsv.php:635
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "CSV ආනයනයේ %d පේළියේ වැරදි ආකෘතියක්."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:497
+#: libraries/classes/Plugins/Import/ImportCsv.php:498
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV අදානයේ %d පේළියේ වැරදි තීර ගණනකි."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:652
-#: libraries/classes/Plugins/Import/ImportCsv.php:667
-#: libraries/classes/Plugins/Import/ImportCsv.php:678
-#: libraries/classes/Plugins/Import/ImportCsv.php:687
+#: libraries/classes/Plugins/Import/ImportCsv.php:653
+#: libraries/classes/Plugins/Import/ImportCsv.php:668
+#: libraries/classes/Plugins/Import/ImportCsv.php:679
+#: libraries/classes/Plugins/Import/ImportCsv.php:688
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV ආනයනය සඳහා වැරදි පරාමිතියක්: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:807
+#: libraries/classes/Plugins/Import/ImportCsv.php:808
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -11120,83 +12220,83 @@ msgstr ""
 "සැපයූ තීර නාමය (%s) වලංගු නොවේ! තීර නම් නිවැරදි අක්ෂර වින්‍යාසය සහිත බවට, උධෘත මගින් අහුරා "
 "ඇති බවට සහ කොමා සලකුණු වලින් වෙන් කර ඇති බවට වගබලා ගන්න."
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:71
+#: libraries/classes/Plugins/Import/ImportLdi.php:72
 msgid "Column names: "
 msgstr "තීර නම්: "
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:109
+#: libraries/classes/Plugins/Import/ImportLdi.php:113
 msgid "This plugin does not support compressed imports!"
 msgstr "මෙම පේණුව හැකිළු ආනයන සඳහා සහාය නොදක්වයි!"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:56
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:57
 msgid "MediaWiki Table"
 msgstr "MediaWiki වගු"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:290
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:291
 #, fuzzy, php-format
 #| msgid "Invalid format of mediawiki input on line: <br />%s."
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Mediawiki ආනයනයේ වැරදි ආකෘතියකි, පේළිය: <br />%s."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:81
+#: libraries/classes/Plugins/Import/ImportOds.php:82
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "ප්‍රතිශත පූර්ණ සංඛ්‍යා ලෙස ආනයනය කරන්න <i>(උදා. 12.00%, .12 ලෙස)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:87
+#: libraries/classes/Plugins/Import/ImportOds.php:88
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "ව්‍යවහාර මුදල් අගයන් ආනයනය කරන්න <i>(උදා. $5.00, 5.00 ලෙස)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:154
-#: libraries/classes/Plugins/Import/ImportXml.php:113
-#: libraries/classes/Plugins/Import/ImportXml.php:177
+#: libraries/classes/Plugins/Import/ImportOds.php:155
+#: libraries/classes/Plugins/Import/ImportXml.php:114
+#: libraries/classes/Plugins/Import/ImportXml.php:178
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
 "ලබා දුන් XML ගොනුව අසම්පූර්ණ හෝ විකෘතිය. මෙම ගැටලුව නිරාකරණය කිරීමෙන් පසු නැවත උත්සාහ කරන්න."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:165
+#: libraries/classes/Plugins/Import/ImportOds.php:166
 #, fuzzy
 #| msgid "OpenDocument Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "OpenDocument පැතුරුම්පත"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:63
+#: libraries/classes/Plugins/Import/ImportShp.php:65
 msgid "ESRI Shape File"
 msgstr "ESRI Shape ගොනුව"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:95
-#: libraries/classes/Plugins/Import/ImportShp.php:174
+#: libraries/classes/Plugins/Import/ImportShp.php:104
+#: libraries/classes/Plugins/Import/ImportShp.php:183
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "\"%s\" ESRI shape ගොනුව ආනයනය කිරීමේදී දෝෂයක් ඇති විය."
 
-#: libraries/classes/Plugins/Import/ImportShp.php:204
+#: libraries/classes/Plugins/Import/ImportShp.php:213
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL ජ්‍යාමිතික දිගුව ESRI \"%s\" වර්ගය සඳහා සහාය නොදක්වයි."
 
-#: libraries/classes/Plugins/Import/ImportShp.php:252
+#: libraries/classes/Plugins/Import/ImportShp.php:261
 msgid "The imported file does not contain any data!"
 msgstr "ආනයන කල ගොනුවේ දත්ත කිසිවක් අඩංගු නොවේ!"
 
-#: libraries/classes/Plugins/Import/ImportSql.php:66
+#: libraries/classes/Plugins/Import/ImportSql.php:67
 msgid "SQL compatibility mode:"
 msgstr "SQL ගැළපුම් ප්‍රකාරය:"
 
-#: libraries/classes/Plugins/Import/ImportSql.php:78
+#: libraries/classes/Plugins/Import/ImportSql.php:79
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "ශුන්‍ය අගයන් සඳහා <code>AUTO_INCREMENT</code> භාවිතා නොකරන්න"
 
-#: libraries/classes/Plugins/Import/ImportXml.php:47
+#: libraries/classes/Plugins/Import/ImportXml.php:48
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:671
+#: libraries/classes/Plugins.php:705
 msgid "This format has no options"
 msgstr "මෙම ආකෘතියේ ආකෘති-විශේෂී තෝරා ගැනීම් කිසිවක් නැත"
 
-#: libraries/classes/Plugins.php:687
+#: libraries/classes/Plugins.php:721
 msgid "Invalid authentication method set in configuration:"
 msgstr "වින්‍යසයන්හි වලංගු නැති සත්‍යාපන ක්‍රමයක් සිටුවා ඇත:"
 
@@ -11332,7 +12432,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
-#: libraries/classes/Util.php:814
+#: libraries/classes/Util.php:790
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y දින %I:%M %p ට"
 
@@ -12202,16 +13302,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "අලුත් ස්ථායී අනුවාදයක් නොමැත"
 
-#: libraries/classes/Sql.php:672
+#: libraries/classes/Sql.php:539
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "\"%s\" පොත් සලකුණ පිරික්සීම සඳහා වූ පෙරනිමි SQL විමසුම ලෙස යොදා ගනිමින්."
 
-#: libraries/classes/Sql.php:1191
+#: libraries/classes/Sql.php:1049
 msgid "Showing as PHP code"
 msgstr "PHP කේත ලෙස පෙන්වමින්"
 
-#: libraries/classes/Sql.php:1570
+#: libraries/classes/Sql.php:1445
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12223,7 +13323,7 @@ msgstr ""
 "මෙම වගුවෙහි අනුපම තීරුවක් නැත. සුරැකීමෙන් අනතුරුව වෙනස් කිරීමට, පිටපත් කිරීමට, මකා දැමීමට අදාළ "
 "ඇඳීම් ක්‍රියා විරහිත වනු ඇත."
 
-#: libraries/classes/Sql.php:1584
+#: libraries/classes/Sql.php:1459
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -12234,11 +13334,6 @@ msgid ""
 msgstr ""
 "මෙම වගුවෙහි අනුපම තීරුවක් නැත. සුරැකීමෙන් අනතුරුව වෙනස් කිරීමට, පිටපත් කිරීමට, මකා දැමීමට අදාළ "
 "ඇඳීම් ක්‍රියා විරහිත වනු ඇත."
-
-#: libraries/classes/Sql.php:1621
-#, php-format
-msgid "Problems with indexes of table `%s`"
-msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:148
 #, fuzzy, php-format
@@ -12282,6 +13377,11 @@ msgstr "මෙම MySQL සේවාදායකයේ %s අක්‍රීය 
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "මෙම MySQL සේවාදායකයේ %s ගබඩා යන්ත්‍රය භාවිත කල නොහැක."
+
+#: libraries/classes/Table/Maintenance.php:94
+#, php-format
+msgid "Problems with indexes of table `%s`"
+msgstr ""
 
 #: libraries/classes/Table.php:354
 #, fuzzy
@@ -12836,78 +13936,78 @@ msgstr "උපරිම: %s%s"
 
 #. l10n: Short month name
 #. l10n: Short month name for January
-#: libraries/classes/Util.php:771 templates/javascript/variables.twig:34
+#: libraries/classes/Util.php:747 templates/javascript/variables.twig:34
 msgid "Jan"
 msgstr "ජනවාරි"
 
 #. l10n: Short month name
 #. l10n: Short month name for February
-#: libraries/classes/Util.php:773 templates/javascript/variables.twig:35
+#: libraries/classes/Util.php:749 templates/javascript/variables.twig:35
 msgid "Feb"
 msgstr "පෙබරවාරි"
 
 #. l10n: Short month name
 #. l10n: Short month name for March
-#: libraries/classes/Util.php:775 templates/javascript/variables.twig:36
+#: libraries/classes/Util.php:751 templates/javascript/variables.twig:36
 msgid "Mar"
 msgstr "මාර්තු"
 
 #. l10n: Short month name
 #. l10n: Short month name for April
-#: libraries/classes/Util.php:777 templates/javascript/variables.twig:37
+#: libraries/classes/Util.php:753 templates/javascript/variables.twig:37
 msgid "Apr"
 msgstr "අ‍ප්‍රේල්"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:779
+#: libraries/classes/Util.php:755
 msgctxt "Short month name"
 msgid "May"
 msgstr "මැයි"
 
 #. l10n: Short month name
 #. l10n: Short month name for June
-#: libraries/classes/Util.php:781 templates/javascript/variables.twig:39
+#: libraries/classes/Util.php:757 templates/javascript/variables.twig:39
 msgid "Jun"
 msgstr "ජුනි"
 
 #. l10n: Short month name
 #. l10n: Short month name for July
-#: libraries/classes/Util.php:783 templates/javascript/variables.twig:40
+#: libraries/classes/Util.php:759 templates/javascript/variables.twig:40
 msgid "Jul"
 msgstr "ජූලි"
 
 #. l10n: Short month name
 #. l10n: Short month name for August
-#: libraries/classes/Util.php:785 templates/javascript/variables.twig:41
+#: libraries/classes/Util.php:761 templates/javascript/variables.twig:41
 msgid "Aug"
 msgstr "අගෝස්තු"
 
 #. l10n: Short month name
 #. l10n: Short month name for September
-#: libraries/classes/Util.php:787 templates/javascript/variables.twig:42
+#: libraries/classes/Util.php:763 templates/javascript/variables.twig:42
 msgid "Sep"
 msgstr "සැප්තැම්බර්"
 
 #. l10n: Short month name
 #. l10n: Short month name for October
-#: libraries/classes/Util.php:789 templates/javascript/variables.twig:43
+#: libraries/classes/Util.php:765 templates/javascript/variables.twig:43
 msgid "Oct"
 msgstr "ඔක්තෝම්බර්"
 
 #. l10n: Short month name
 #. l10n: Short month name for November
-#: libraries/classes/Util.php:791 templates/javascript/variables.twig:44
+#: libraries/classes/Util.php:767 templates/javascript/variables.twig:44
 msgid "Nov"
 msgstr "නොවැම්බර්"
 
 #. l10n: Short month name
 #. l10n: Short month name for December
-#: libraries/classes/Util.php:793 templates/javascript/variables.twig:45
+#: libraries/classes/Util.php:769 templates/javascript/variables.twig:45
 msgid "Dec"
 msgstr "දෙසැම්බර්"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:797
+#: libraries/classes/Util.php:773
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
@@ -12915,89 +14015,89 @@ msgid "Sun"
 msgstr "ඉරිදා"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:799 templates/javascript/variables.twig:58
+#: libraries/classes/Util.php:775 templates/javascript/variables.twig:58
 msgid "Mon"
 msgstr "සඳුදා"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:801 templates/javascript/variables.twig:59
+#: libraries/classes/Util.php:777 templates/javascript/variables.twig:59
 msgid "Tue"
 msgstr "අඟහ"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:803 templates/javascript/variables.twig:60
+#: libraries/classes/Util.php:779 templates/javascript/variables.twig:60
 msgid "Wed"
 msgstr "බදාදා"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:805 templates/javascript/variables.twig:61
+#: libraries/classes/Util.php:781 templates/javascript/variables.twig:61
 msgid "Thu"
 msgstr "බ්‍රහස්"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:807 templates/javascript/variables.twig:62
+#: libraries/classes/Util.php:783 templates/javascript/variables.twig:62
 msgid "Fri"
 msgstr "සිකුරා"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:809 templates/javascript/variables.twig:63
+#: libraries/classes/Util.php:785 templates/javascript/variables.twig:63
 msgid "Sat"
 msgstr "සෙනසු"
 
-#: libraries/classes/Util.php:835
+#: libraries/classes/Util.php:811
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: libraries/classes/Util.php:837
+#: libraries/classes/Util.php:813
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/classes/Util.php:912
+#: libraries/classes/Util.php:888
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "දින %s, පැය %s, මිනිත්තු %s සහ තප්පර %s"
 
-#: libraries/classes/Util.php:948
+#: libraries/classes/Util.php:924
 msgid "Missing parameter:"
 msgstr "නොමැති පරාමිතිය:"
 
-#: libraries/classes/Util.php:2499
+#: libraries/classes/Util.php:2475
 msgid "Users"
 msgstr "භාවිතා කරන්නන්"
 
-#: libraries/classes/Util.php:3121
+#: libraries/classes/Util.php:3097
 #: templates/database/multi_table_query/form.twig:59
 msgid "Sort"
 msgstr "සුබෙදන්න"
 
-#: libraries/classes/Util.php:3219 libraries/classes/Util.php:3220
+#: libraries/classes/Util.php:3195 libraries/classes/Util.php:3196
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "හිස් කරන්න"
 
-#: libraries/classes/Util.php:3225 libraries/classes/Util.php:3226
+#: libraries/classes/Util.php:3201 libraries/classes/Util.php:3202
 #: templates/database/routines/row.twig:32
 #: templates/database/routines/row.twig:42
 #: templates/database/routines/row.twig:46
 msgid "Execute"
 msgstr "ක්‍රියාත්මක කරන්න"
 
-#: libraries/classes/ZipExtension.php:63 libraries/classes/ZipExtension.php:109
+#: libraries/classes/ZipExtension.php:71 libraries/classes/ZipExtension.php:117
 msgid "Error in ZIP archive:"
 msgstr "ZIP ආරක්ෂණයේ දෝෂයක් ඇත:"
 
-#: libraries/classes/ZipExtension.php:73
+#: libraries/classes/ZipExtension.php:81
 msgid "No files found inside ZIP archive!"
 msgstr ""
 
-#: libraries/common.inc.php:267
+#: libraries/common.inc.php:268
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "ඔබ %s %s හෝ ඉන්පසු අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය."
 
-#: libraries/common.inc.php:299
+#: libraries/common.inc.php:300
 msgid "Error: Token mismatch"
 msgstr "දෝෂය: ටෝකන නොගැලපීම"
 
@@ -13300,7 +14400,7 @@ msgid "Subpartitions:"
 msgstr "කොටස් කරන ලද"
 
 #: templates/columns_definitions/partitions.twig:76
-#: templates/table/operations/index.twig:384
+#: templates/table/operations/index.twig:436
 #: templates/table/structure/display_partitions.twig:24
 #, fuzzy
 #| msgid "Partition %s"
@@ -14105,6 +15205,11 @@ msgstr "SQL විමසුම පෙන්වමින්"
 msgid "Exporting tables from \"%s\" database"
 msgstr "\"%s\" දත්තගබඩාවෙන් වගු අපනයනය කිරීම"
 
+#: templates/database/import/index.twig:3
+#, php-format
+msgid "Importing into the database \"%s\""
+msgstr "\"%s\" දත්තගබඩාව තුළට ආනයනය කිරීම"
+
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 msgid "Multi-table query"
@@ -14519,7 +15624,7 @@ msgid "Show create"
 msgstr "වර්ණය පෙන්වන්න"
 
 #: templates/database/structure/check_all_tables.twig:14
-#: templates/table/operations/index.twig:329
+#: templates/table/operations/index.twig:381
 #: templates/table/operations/view.twig:22
 msgid "Delete data or table"
 msgstr "වගුව හෝ දත්ත ඉවත් කරන්න"
@@ -14528,6 +15633,39 @@ msgstr "වගුව හෝ දත්ත ඉවත් කරන්න"
 #: templates/table/operations/index.twig:312
 msgid "Table maintenance"
 msgstr "වගු නඩත්තුව"
+
+#: templates/database/structure/check_all_tables.twig:19
+#: templates/table/maintenance/analyze.twig:3
+#: templates/table/operations/index.twig:317
+msgid "Analyze table"
+msgstr "වගුව විශ්ලේෂණය කරන්න"
+
+#: templates/database/structure/check_all_tables.twig:20
+#: templates/table/maintenance/check.twig:3
+#: templates/table/operations/index.twig:326
+msgid "Check table"
+msgstr "වගුව පරීක්ෂා කරන්න"
+
+#: templates/database/structure/check_all_tables.twig:21
+#: templates/table/maintenance/checksum.twig:3
+#: templates/table/operations/index.twig:334
+#, fuzzy
+#| msgid "Check table"
+msgid "Checksum table"
+msgstr "වගුව පරීක්ෂා කරන්න"
+
+#: templates/database/structure/check_all_tables.twig:22
+#: templates/table/maintenance/optimize.twig:3
+#: templates/table/operations/index.twig:362
+#: templates/table/structure/display_table_stats.twig:62
+msgid "Optimize table"
+msgstr "වගුව ප්‍රශස්තගත කරන්න"
+
+#: templates/database/structure/check_all_tables.twig:23
+#: templates/table/maintenance/repair.twig:3
+#: templates/table/operations/index.twig:371
+msgid "Repair table"
+msgstr "වගුව ප්‍රතිසංස්කරණය කරන්න"
 
 #: templates/database/structure/check_all_tables.twig:25
 #, fuzzy
@@ -14688,168 +15826,6 @@ msgstr "වගුව අවධානයට ලක් කරන්න"
 msgid "There are no triggers to display."
 msgstr "පෙන්වීම සඳහා ප්‍රේරක නොමැත."
 
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "වත්මන් සේවාදායකය තුළට ආනයනය කිරීම"
-
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "\"%s\" දත්තගබඩාව තුළට ආනයනය කිරීම"
-
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "\"%s\" වගුව තුළට ආනයනය කිරීම"
-
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "ආනයනය සඳහා වූ ගොනුව:"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "ගොනුව, හකුළුවා ඇති (උදා: %s) හෝ හකුළුවා නැති එකක් විය හැක."
-
-#: templates/display/import/import.twig:58
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"හැකිළූ ගොනුවක නම <strong>.[ආකෘතිය].[හැකිළීම]</strong> ලෙස අවසන් විය යුතුයි. උදා: "
-"<strong>.sql.zip</strong>"
-
-#: templates/display/import/import.twig:68
-#: templates/display/import/import.twig:101
-#: templates/preferences/manage/main.twig:22
-msgid "Browse your computer:"
-msgstr "පරිගණකය තුළ පිරික්සන්න:"
-
-#: templates/display/import/import.twig:73
-#, fuzzy
-#| msgid "Browse your computer:"
-msgid "Browse your computer"
-msgstr "පරිගණකය තුළ පිරික්සන්න:"
-
-#: templates/display/import/import.twig:79
-#: templates/display/import/import.twig:112
-msgid "You may also drag and drop a file on any page."
-msgstr ""
-
-#: templates/display/import/import.twig:85
-#: templates/display/import/import.twig:115
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
-msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "වෙබ් සේවාදායකයේ <b>%s</b> උඩුගත කිරීම් ඩිරෙක්ටරියෙන් තෝරන්න:"
-
-#: templates/display/import/import.twig:91
-#, fuzzy
-#| msgid "File to import:"
-msgid "Select file to import"
-msgstr "ආනයනය සඳහා වූ ගොනුව:"
-
-#: templates/display/import/import.twig:96
-#: templates/display/import/import.twig:126
-msgid "There are no files to upload!"
-msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත!"
-
-#: templates/display/import/import.twig:129
-msgid "File uploads are not allowed on this server."
-msgstr "මෙම සේවාදායකයේ ගොනු උඩුගත කිරීමට අවසර නොමැත."
-
-#: templates/display/import/import.twig:135 templates/export.twig:336
-msgid "Character set of the file:"
-msgstr "ගොනුවේ අක්ෂර කට්ටලය:"
-
-#: templates/display/import/import.twig:163
-msgid "Partial import:"
-msgstr "අර්ධ ආනයනය:"
-
-#: templates/display/import/import.twig:168
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-"පෙර උඩුගත කිරීම නියමිත කාලය ඉක්මවා ගියේය. නැවත වරක් යොමු කල විට උඩුගත කිරීම %d ස්ථානයෙන් "
-"ඇරඹෙනු ඇත."
-
-#: templates/display/import/import.twig:176
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"කාල සීමාව අවසානයට ආසන්න බව දැණුනු විට අනයනනයට බාධා කිරීම සිදුකරන්න. <em>(විශාල ගොනු "
-"ආනයනයට මෙය හොඳ ක්‍රමයක් වන නමුත් මෙමඟින් transactions බිඳීම සිදුවිය හැක.)</em>"
-
-#: templates/display/import/import.twig:183
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "පළමු විමසුමේ සිට අත්හළ යුතු විමසුම් ගණන:"
-
-#: templates/display/import/import.twig:200
-msgid "Other options:"
-msgstr "අනෙකුත් විකල්ප:"
-
-#: templates/display/import/import.twig:215 templates/export.twig:406
-msgid "Format-specific options:"
-msgstr "ආකෘති-විශේෂී තෝරා ගැනීම්:"
-
-#: templates/display/import/import.twig:217 templates/export.twig:408
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-"තෝරාගත් ආකෘතිය සඳහා විකල්ප භාවිතා කිරීමට පහලට යන්න. අනෙකුත් ආකෘති සඳහා විකල්ප නොසලකන්න."
-
-#: templates/display/import/import.twig:226 templates/export.twig:416
-msgid "Encoding Conversion:"
-msgstr "කේතීකරණ පරිවර්තනය:"
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"මෙය ඔබ උඩුගත කරන ගොනුව අවසරැති ප්‍රමාණයට වඩා විශාල වීම හෝ webkit මූලික කරගත් බ්‍රව්සර වල "
-"(Safari, Google Chrome, Arora etc.) හඳුනාගත් දෝෂයක් විය හැක."
-
-#: templates/display/import/javascript.twig:13
-#, php-format
-msgid "%s of %s"
-msgstr "%s/%s"
-
-#: templates/display/import/javascript.twig:14
-#, php-format
-msgid "%s/sec."
-msgstr "%s/තත්පර."
-
-#: templates/display/import/javascript.twig:15
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "තවත් මිනිත්තු %MIN තත්පර %SEC ක් පමණ ඉතිරිව ඇත."
-
-#: templates/display/import/javascript.twig:16
-msgid "About %SEC sec. remaining."
-msgstr "තවත් තත්පර %SEC ක් පමණ ඉතිරිව ඇත."
-
-#: templates/display/import/javascript.twig:17
-msgid "The file is being processed, please be patient."
-msgstr "ඔබගේ ගොනුව සැකසෙමින් පවතී. කරුණාකර ඉවසා සිටින්න."
-
-#: templates/display/import/javascript.twig:29
-#, fuzzy
-#| msgid "Uploading your import file…"
-msgid "Uploading your import file…"
-msgstr "ඔබගේ ආනයන ගොනුව උඩුගත කෙරෙමින්…"
-
-#: templates/display/import/javascript.twig:153
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"කරුණාකර ඉවසා සිටින්න. ගොනුව උඩුගත කෙරෙමින් පවතී. උඩුගත කිරීම පිලිබඳ වැඩි විස්තර ලබා ගත නොහැක."
-
 #: templates/display/results/sort_by_key.twig:3
 #, fuzzy
 #| msgid "Sort by key"
@@ -14902,6 +15878,11 @@ msgstr "Well Known Text"
 #: templates/display/results/table.twig:168
 msgid "Well Known Binary"
 msgstr "Well Known Binary"
+
+#: templates/display/results/table.twig:242
+#: templates/sql/no_results_returned.twig:9
+msgid "Query results operations"
+msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙයුම්"
 
 #: templates/display/results/table.twig:252
 msgid "Copy to clipboard"
@@ -15100,6 +16081,10 @@ msgstr ""
 msgid "use this for future exports"
 msgstr "මතු අපනයන සඳහා භාවිතා කරන්න"
 
+#: templates/export.twig:336 templates/import.twig:124
+msgid "Character set of the file:"
+msgstr "ගොනුවේ අක්ෂර කට්ටලය:"
+
 #: templates/export.twig:352
 msgid "Compression:"
 msgstr "හැකිළීම:"
@@ -15130,6 +16115,21 @@ msgstr "ප්‍රතිදානය පෙළ ලෙස දර්ශනය �
 #, php-format
 msgid "Skip tables larger than %s MiB"
 msgstr ""
+
+#: templates/export.twig:406 templates/import.twig:204
+msgid "Format-specific options:"
+msgstr "ආකෘති-විශේෂී තෝරා ගැනීම්:"
+
+#: templates/export.twig:408 templates/import.twig:206
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+"තෝරාගත් ආකෘතිය සඳහා විකල්ප භාවිතා කිරීමට පහලට යන්න. අනෙකුත් ආකෘති සඳහා විකල්ප නොසලකන්න."
+
+#: templates/export.twig:416 templates/import.twig:215
+msgid "Encoding Conversion:"
+msgstr "කේතීකරණ පරිවර්තනය:"
 
 #: templates/filter.twig:4 templates/server/status/processes/index.twig:7
 #: templates/server/status/variables/index.twig:8
@@ -15342,6 +16342,131 @@ msgstr "වෙනස්කම් ලැයිස්තුව"
 #: templates/home/index.twig:208 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "බලපත්‍රය"
+
+#: templates/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"මෙය ඔබ උඩුගත කරන ගොනුව අවසරැති ප්‍රමාණයට වඩා විශාල වීම හෝ webkit මූලික කරගත් බ්‍රව්සර වල "
+"(Safari, Google Chrome, Arora etc.) හඳුනාගත් දෝෂයක් විය හැක."
+
+#: templates/import/javascript.twig:13
+#, php-format
+msgid "%s of %s"
+msgstr "%s/%s"
+
+#: templates/import/javascript.twig:14
+#, php-format
+msgid "%s/sec."
+msgstr "%s/තත්පර."
+
+#: templates/import/javascript.twig:15
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "තවත් මිනිත්තු %MIN තත්පර %SEC ක් පමණ ඉතිරිව ඇත."
+
+#: templates/import/javascript.twig:16
+msgid "About %SEC sec. remaining."
+msgstr "තවත් තත්පර %SEC ක් පමණ ඉතිරිව ඇත."
+
+#: templates/import/javascript.twig:17
+msgid "The file is being processed, please be patient."
+msgstr "ඔබගේ ගොනුව සැකසෙමින් පවතී. කරුණාකර ඉවසා සිටින්න."
+
+#: templates/import/javascript.twig:29
+#, fuzzy
+#| msgid "Uploading your import file…"
+msgid "Uploading your import file…"
+msgstr "ඔබගේ ආනයන ගොනුව උඩුගත කෙරෙමින්…"
+
+#: templates/import/javascript.twig:153
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+"කරුණාකර ඉවසා සිටින්න. ගොනුව උඩුගත කෙරෙමින් පවතී. උඩුගත කිරීම පිලිබඳ වැඩි විස්තර ලබා ගත නොහැක."
+
+#: templates/import.twig:39
+msgid "File to import:"
+msgstr "ආනයනය සඳහා වූ ගොනුව:"
+
+#: templates/import.twig:45
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr "ගොනුව, හකුළුවා ඇති (උදා: %s) හෝ හකුළුවා නැති එකක් විය හැක."
+
+#: templates/import.twig:47
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+"හැකිළූ ගොනුවක නම <strong>.[ආකෘතිය].[හැකිළීම]</strong> ලෙස අවසන් විය යුතුයි. උදා: "
+"<strong>.sql.zip</strong>"
+
+#: templates/import.twig:57 templates/import.twig:90
+#: templates/preferences/manage/main.twig:22
+msgid "Browse your computer:"
+msgstr "පරිගණකය තුළ පිරික්සන්න:"
+
+#: templates/import.twig:62
+#, fuzzy
+#| msgid "Browse your computer:"
+msgid "Browse your computer"
+msgstr "පරිගණකය තුළ පිරික්සන්න:"
+
+#: templates/import.twig:68 templates/import.twig:101
+msgid "You may also drag and drop a file on any page."
+msgstr ""
+
+#: templates/import.twig:74 templates/import.twig:104
+#, fuzzy, php-format
+#| msgid "Select from the web server upload directory <b>%s</b>:"
+msgid "Select from the web server upload directory [strong]%s[/strong]:"
+msgstr "වෙබ් සේවාදායකයේ <b>%s</b> උඩුගත කිරීම් ඩිරෙක්ටරියෙන් තෝරන්න:"
+
+#: templates/import.twig:80
+#, fuzzy
+#| msgid "File to import:"
+msgid "Select file to import"
+msgstr "ආනයනය සඳහා වූ ගොනුව:"
+
+#: templates/import.twig:85 templates/import.twig:115
+msgid "There are no files to upload!"
+msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත!"
+
+#: templates/import.twig:118
+msgid "File uploads are not allowed on this server."
+msgstr "මෙම සේවාදායකයේ ගොනු උඩුගත කිරීමට අවසර නොමැත."
+
+#: templates/import.twig:152
+msgid "Partial import:"
+msgstr "අර්ධ ආනයනය:"
+
+#: templates/import.twig:157
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+"පෙර උඩුගත කිරීම නියමිත කාලය ඉක්මවා ගියේය. නැවත වරක් යොමු කල විට උඩුගත කිරීම %d ස්ථානයෙන් "
+"ඇරඹෙනු ඇත."
+
+#: templates/import.twig:165
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+"කාල සීමාව අවසානයට ආසන්න බව දැණුනු විට අනයනනයට බාධා කිරීම සිදුකරන්න. <em>(විශාල ගොනු "
+"ආනයනයට මෙය හොඳ ක්‍රමයක් වන නමුත් මෙමඟින් transactions බිඳීම සිදුවිය හැක.)</em>"
+
+#: templates/import.twig:172
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr "පළමු විමසුමේ සිට අත්හළ යුතු විමසුම් ගණන:"
+
+#: templates/import.twig:189
+msgid "Other options:"
+msgstr "අනෙකුත් විකල්ප:"
 
 #: templates/indexes.twig:39 templates/table/relation/common_form.twig:259
 #: templates/table/structure/display_structure.twig:441
@@ -16068,6 +17193,10 @@ msgstr "වත්මන් සේවාදායකයෙන් දත්තග�
 msgid "Databases:"
 msgstr "දත්තගබඩා"
 
+#: templates/server/import/index.twig:3
+msgid "Importing into the current server"
+msgstr "වත්මන් සේවාදායකය තුළට ආනයනය කිරීම"
+
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
 msgstr ""
@@ -16727,44 +17856,39 @@ msgstr ""
 "දත්තගබඩාව නිරීක්ෂණය කිරීම හා පෙර අවස්ථා සමග සසැදීමත්, මැනිය හැකි වර්ධනයක් ගෙන නොදෙන වෙනස් "
 "කිරීම් ප්‍රතිවර්තනය කිරීමත් ය."
 
-#. l10n: Advisor rules file
 #: templates/server/status/advisor/index.twig:55
-msgid "Rules file is not well formed, the following errors were found:"
-msgstr ""
-
-#: templates/server/status/advisor/index.twig:66
 msgid "Errors occurred while executing rule expressions:"
 msgstr ""
 
-#: templates/server/status/advisor/index.twig:76
+#: templates/server/status/advisor/index.twig:65
 msgid "Possible performance issues"
 msgstr "විය හැකි කාර්ය සාධනය ආශ්‍රිත ගැටළු"
 
-#: templates/server/status/advisor/index.twig:89
+#: templates/server/status/advisor/index.twig:78
 #, fuzzy
 #| msgid "Issue"
 msgid "Issue:"
 msgstr "ගැටළු"
 
-#: templates/server/status/advisor/index.twig:92
+#: templates/server/status/advisor/index.twig:81
 #, fuzzy
 #| msgid "Recommendation"
 msgid "Recommendation:"
 msgstr "නිර්දේශය"
 
-#: templates/server/status/advisor/index.twig:95
+#: templates/server/status/advisor/index.twig:84
 #, fuzzy
 #| msgid "Justification"
 msgid "Justification:"
 msgstr "යුක්තිසාධනය"
 
-#: templates/server/status/advisor/index.twig:98
+#: templates/server/status/advisor/index.twig:87
 #, fuzzy
 #| msgid "Used variable / formula"
 msgid "Used variable / formula:"
 msgstr "භාවිතා කරන ලද විචල්‍යයන් / සූත්‍ර"
 
-#: templates/server/status/advisor/index.twig:101
+#: templates/server/status/advisor/index.twig:90
 #, fuzzy
 #| msgid "Test"
 msgid "Test:"
@@ -17267,32 +18391,32 @@ msgstr "සියලු භාවිතා කරන්නනට මෙම ප�
 msgid "Detailed profile"
 msgstr "දත්ත ගොනු"
 
-#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:34
+#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:43
 #, fuzzy
 #| msgctxt "Start of recurring event"
 #| msgid "Start"
 msgid "State"
 msgstr "අරඹන්න"
 
-#: templates/sql/profiling_chart.twig:29
+#: templates/sql/profiling_chart.twig:38
 msgid "Summary by state"
 msgstr ""
 
-#: templates/sql/profiling_chart.twig:38
+#: templates/sql/profiling_chart.twig:47
 msgid "Total Time"
 msgstr "මුළු කාලය"
 
-#: templates/sql/profiling_chart.twig:42
+#: templates/sql/profiling_chart.twig:51
 msgid "% Time"
 msgstr "% කාලය"
 
-#: templates/sql/profiling_chart.twig:46
+#: templates/sql/profiling_chart.twig:55
 #, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "වසන්න"
 
-#: templates/sql/profiling_chart.twig:50
+#: templates/sql/profiling_chart.twig:59
 msgid "ø Time"
 msgstr "ø කාලය"
 
@@ -17528,6 +18652,11 @@ msgstr "- කිසිවක් නොමැත -"
 msgid "Spatial column"
 msgstr "ජ්‍යාමිතික තීරුව"
 
+#: templates/table/import/index.twig:3
+#, php-format
+msgid "Importing into the table \"%s\""
+msgstr "\"%s\" වගුව තුළට ආනයනය කිරීම"
+
 #: templates/table/index_form.twig:15
 msgid "Index name:"
 msgstr "සූචියේ නම:"
@@ -17578,6 +18707,12 @@ msgstr "අනුපිලිවෙල නැවත සකස් කිරීම
 msgid "Continue insertion with %s rows"
 msgstr "පේළි %s බැගින් තවදුරටත් ඇතුල් කරන්න"
 
+#: templates/table/maintenance/checksum.twig:13
+#, fuzzy
+#| msgid "Check"
+msgid "Checksum"
+msgstr "පරීක්ෂාව"
+
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
 msgstr "වගු අනුපිළිවෙල වෙනස් කරන්න"
@@ -17620,24 +18755,39 @@ msgstr "වගුව (දත්තගබඩාව<b>.</b>වගුව) වෙත
 msgid "Switch to copied table"
 msgstr "පිටපත් කල වගුව වෙත මාරු වන්න"
 
-#: templates/table/operations/index.twig:338
+#: templates/table/operations/index.twig:342
+msgid "Defragment table"
+msgstr ""
+
+#: templates/table/operations/index.twig:350
+#, php-format
+msgid "Table %s has been flushed."
+msgstr ""
+
+#: templates/table/operations/index.twig:354
+#, fuzzy
+#| msgid "Flush the table (\"FLUSH\")"
+msgid "Flush the table (FLUSH)"
+msgstr "Flush the table (FLUSH)"
+
+#: templates/table/operations/index.twig:390
 msgid "Empty the table (TRUNCATE)"
 msgstr "වගුව හිස් කරන්න (TRUNCATE)"
 
-#: templates/table/operations/index.twig:357
+#: templates/table/operations/index.twig:409
 msgid "Delete the table (DROP)"
 msgstr "වගුව ඉවත් කරන්න (DROP)"
 
-#: templates/table/operations/index.twig:378
+#: templates/table/operations/index.twig:430
 msgid "Partition maintenance"
 msgstr "කොටස් නඩත්තුව"
 
-#: templates/table/operations/index.twig:404
+#: templates/table/operations/index.twig:456
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
 msgstr "කොටස් කිරීම ඉවත් කරන්න"
 
-#: templates/table/operations/index.twig:417
+#: templates/table/operations/index.twig:469
 msgid "Check referential integrity"
 msgstr ""
 
@@ -18061,1164 +19211,19 @@ msgstr "තීර නම්"
 msgid "Taking you to the target site."
 msgstr "අවධානය පිළිබඳ වාර්තාව"
 
-#: libraries/advisory_rules_generic.txt:49
-msgid "Uptime below one day"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:52
-msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:53
-msgid ""
-"To have more accurate averages it is recommended to let the server run for "
-"longer than a day before running this analyzer"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:54
-#, php-format
-msgid "The uptime is only %s"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:56
-msgid "Questions below 1,000"
-msgstr "ප්‍රශ්න ගණන 1,000 ට වඩා අඩුය"
-
-#: libraries/advisory_rules_generic.txt:59
-msgid ""
-"Fewer than 1,000 questions have been run against this server. The "
-"recommendations may not be accurate."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:60
-msgid ""
-"Let the server run for a longer time until it has executed a greater amount "
-"of queries."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:61
-#, php-format
-msgid "Current amount of Questions: %s"
-msgstr "වත්මන් ප්‍රශ්න ගණන: %s"
-
-#: libraries/advisory_rules_generic.txt:63
-msgid "Percentage of slow queries"
-msgstr "මන්දගාමී විමසුම් ප්‍රතිශතය"
-
-#: libraries/advisory_rules_generic.txt:66
-msgid ""
-"There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:67
-#: libraries/advisory_rules_generic.txt:74
-msgid ""
-"You might want to increase {long_query_time} or optimize the queries listed "
-"in the slow query log"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:68
-#, php-format
-msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:70
-msgid "Slow query rate"
-msgstr "මන්දගාමී විමසුම් ශ්‍රීඝ‍්‍රතාවය"
-
-#: libraries/advisory_rules_generic.txt:73
-msgid ""
-"There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:75
-#, php-format
-msgid ""
-"You have a slow query rate of %s per hour, you should have less than 1%% per "
-"hour."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:77
-msgid "Long query time"
-msgstr "දිගු විමසුම් කාලය"
-
-#: libraries/advisory_rules_generic.txt:80
-msgid ""
-"{long_query_time} is set to 10 seconds or more, thus only slow queries that "
-"take above 10 seconds are logged."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:81
-msgid ""
-"It is suggested to set {long_query_time} to a lower value, depending on your "
-"environment. Usually a value of 1-5 seconds is suggested."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:82
-#, php-format
-msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time තත්පර %d කට සිටුවා ඇත."
-
-#: libraries/advisory_rules_generic.txt:84
-#: libraries/advisory_rules_generic.txt:91
-msgid "Slow query logging"
-msgstr "මන්දගාමී විමසුම් ලොගගත කිරීම"
-
-#: libraries/advisory_rules_generic.txt:87
-#: libraries/advisory_rules_generic.txt:94
-msgid "The slow query log is disabled."
-msgstr "වැඩි කාලයක් ගන්න විමසුම් සටහන් කරනා ලොගය අක්‍රීය යි."
-
-#: libraries/advisory_rules_generic.txt:88
-msgid ""
-"Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
-"help troubleshooting badly performing queries."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:89
-msgid "log_slow_queries is set to 'OFF'"
-msgstr "log_slow_queries, 'OFF'(අක්‍රීය) වෙත පිහිටුවා ඇත"
-
-#: libraries/advisory_rules_generic.txt:95
-msgid ""
-"Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
-"help troubleshooting badly performing queries."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:96
-msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log, 'OFF'(අක්‍රීය) වෙත පිහිටුවා ඇත"
-
-#: libraries/advisory_rules_generic.txt:100
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Release Series"
-msgstr "වගු තෝරන්න"
-
-#: libraries/advisory_rules_generic.txt:103
-msgid "The MySQL server version less than 5.1."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:104
-msgid ""
-"You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
-"even more so."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:105
-#: libraries/advisory_rules_generic.txt:112
-#: libraries/advisory_rules_generic.txt:119
-#, php-format
-msgid "Current version: %s"
-msgstr "වත්මන් අනුවාදය: %s"
-
-#: libraries/advisory_rules_generic.txt:107
-#: libraries/advisory_rules_generic.txt:114
-msgid "Minor Version"
-msgstr "සුළු අනුවාදය"
-
-#: libraries/advisory_rules_generic.txt:110
-msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:111
-msgid ""
-"You should upgrade, as recent versions of MySQL 5.1 have improved "
-"performance and MySQL 5.5 even more so."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:117
-msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:118
-#, fuzzy
-#| msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "ඔබ MySQL 5.5 හි ස්ථාවර අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය"
-
-#: libraries/advisory_rules_generic.txt:121
-#: libraries/advisory_rules_generic.txt:128
-msgid "Distribution"
-msgstr "ව්‍යප්තිය"
-
-#: libraries/advisory_rules_generic.txt:124
-msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:125
-msgid ""
-"If you did not compile from source, you may be using a package modified by a "
-"distribution. The MySQL manual only is accurate for official MySQL binaries, "
-"not any package distributions (such as RedHat, Debian/Ubuntu etc)."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:126
-msgid "'source' found in version_comment"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:131
-msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:132
-msgid ""
-"Percona documentation is at <a href=\"https://www.percona.com/software/"
-"documentation/\">https://www.percona.com/software/documentation/</a>"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:133
-msgid "'percona' found in version_comment"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:135
-msgid "MySQL Architecture"
-msgstr "MySQL නිර්මිතය"
-
-#: libraries/advisory_rules_generic.txt:138
-msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:139
-msgid ""
-"Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
-"so MySQL might not be able to access all of your memory. You might want to "
-"consider installing the 64-bit version of MySQL."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:140
-#, php-format
-msgid "Available memory on this host: %s"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:145
-msgid "Query caching method"
-msgstr "විමසුම් කෑෂ්ගත කරන ක්‍රමය"
-
-#: libraries/advisory_rules_generic.txt:148
-msgid "Suboptimal caching method."
-msgstr "කෑෂ්ගත කරන ක්‍රමය ප්‍රශස්ත නැත."
-
-#: libraries/advisory_rules_generic.txt:149
-msgid ""
-"You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple slaves."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:150
-#, php-format
-msgid ""
-"The query cache is enabled and the server receives %d queries per second. "
-"This rule fires if there is more than 100 queries per second."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:154
-msgid "Percentage of sorts that cause temporary tables"
-msgstr "තාවකාලික වගු සැදීමට සිදුවූ අනුපිළිවෙල සැකසීම් ප්‍රතිශතයක් ලෙස"
-
-#: libraries/advisory_rules_generic.txt:157
-#: libraries/advisory_rules_generic.txt:164
-msgid "Too many sorts are causing temporary tables."
-msgstr "තාවකාලික වගු සැදීමට සිදුවූ අනුපිළිවෙල සැකසීම් ඉතා විශාල ගණනකි."
-
-#: libraries/advisory_rules_generic.txt:158
-#: libraries/advisory_rules_generic.txt:165
-msgid ""
-"Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
-"depending on your system memory limits."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:159
-#, php-format
-msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:161
-msgid "Rate of sorts that cause temporary tables"
-msgstr "තාවකාලික වගු සැදීමට සිදුවූ අනුපිළිවෙල සැකසීම් ගණන"
-
-#: libraries/advisory_rules_generic.txt:166
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid ""
-"Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:168
-msgid "Sort rows"
-msgstr "පේළි සුබෙදන්න"
-
-#: libraries/advisory_rules_generic.txt:171
-msgid "There are lots of rows being sorted."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:172
-msgid ""
-"While there is nothing wrong with a high amount of row sorting, you might "
-"want to make sure that the queries which require a lot of sorting use "
-"indexed columns in the ORDER BY clause, as this will result in much faster "
-"sorting."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:173
-#, php-format
-msgid "Sorted rows average: %s"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:176
-#, fuzzy
-#| msgid "There are no files to upload"
-msgid "Rate of joins without indexes"
-msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
-
-#: libraries/advisory_rules_generic.txt:179
-#, fuzzy
-#| msgid "There are no files to upload"
-msgid "There are too many joins without indexes."
-msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
-
-#: libraries/advisory_rules_generic.txt:180
-msgid ""
-"This means that joins are doing full table scans. Adding indexes for the "
-"columns being used in the join conditions will greatly speed up table joins."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:181
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:183
-#, fuzzy
-#| msgid "There are no files to upload"
-msgid "Rate of reading first index entry"
-msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
-
-#: libraries/advisory_rules_generic.txt:186
-#, fuzzy
-#| msgid "The number of pending log file fsyncs."
-msgid "The rate of reading the first index entry is high."
-msgstr "The number of pending log file fsyncs."
-
-#: libraries/advisory_rules_generic.txt:187
-msgid ""
-"This usually indicates frequent full index scans. Full index scans are "
-"faster than table scans but require lots of CPU cycles in big tables, if "
-"those tables that have or had high volumes of UPDATEs and DELETEs, running "
-"'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index "
-"scans. Other than that full index scans can only be reduced by rewriting "
-"queries."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:188
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:190
-#, fuzzy
-#| msgid "Format of imported file"
-msgid "Rate of reading fixed position"
-msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
-
-#: libraries/advisory_rules_generic.txt:193
-#, fuzzy
-#| msgid "The number of pending log file fsyncs."
-msgid "The rate of reading data from a fixed position is high."
-msgstr "The number of pending log file fsyncs."
-
-#: libraries/advisory_rules_generic.txt:194
-msgid ""
-"This indicates that many queries need to sort results and/or do a full table "
-"scan, including join queries that do not use indexes. Add indexes where "
-"applicable."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:195
-#, php-format
-msgid ""
-"Rate of reading fixed position average: %s, this value should be less than 1 "
-"per hour"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:197
-#, fuzzy
-#| msgid "Create table"
-msgid "Rate of reading next table row"
-msgstr "වගුව සාදන්න"
-
-#: libraries/advisory_rules_generic.txt:200
-#, fuzzy
-#| msgid "The current number of pending writes."
-msgid "The rate of reading the next table row is high."
-msgstr "The current number of pending writes."
-
-#: libraries/advisory_rules_generic.txt:201
-msgid ""
-"This indicates that many queries are doing full table scans. Add indexes "
-"where applicable."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:202
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid ""
-"Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:205
-msgid "Different tmp_table_size and max_heap_table_size"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:208
-msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:209
-msgid ""
-"If you have deliberately changed one of either: The server uses the lower "
-"value of either to determine the maximum size of in-memory tables. So if you "
-"wish to increase the in-memory table limit you will have to increase the "
-"other value as well."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:210
-#, php-format
-msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:212
-#, fuzzy
-#| msgid "Format of imported file"
-msgid "Percentage of temp tables on disk"
-msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
-
-#: libraries/advisory_rules_generic.txt:215
-#: libraries/advisory_rules_generic.txt:222
-msgid ""
-"Many temporary tables are being written to disk instead of being kept in "
-"memory."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:216
-msgid ""
-"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-"some temporary tables are always being written to disk, independent of the "
-"value of these variables. To eliminate these you will have to rewrite your "
-"queries to avoid those conditions (Within a temporary table: Presence of a "
-"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the beginning of an <a href=\"https://www.facebook.com/note.php?"
-"note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:217
-#, php-format
-msgid ""
-"%s%% of all temporary tables are being written to disk, this value should be "
-"below 25%%"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:219
-#, fuzzy
-#| msgid "%s table"
-#| msgid_plural "%s tables"
-msgid "Temp disk rate"
-msgstr "%s වගු"
-
-#: libraries/advisory_rules_generic.txt:223
-msgid ""
-"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-"some temporary tables are always being written to disk, independent of the "
-"value of these variables. To eliminate these you will have to rewrite your "
-"queries to avoid those conditions (Within a temporary table: Presence of a "
-"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
-"temporary-tables.html\">MySQL Documentation</a>"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:224
-#, php-format
-msgid ""
-"Rate of temporary tables being written to disk: %s, this value should be "
-"less than 1 per hour"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:228
-#, fuzzy
-#| msgid "Sort buffer size"
-msgid "MyISAM key buffer size"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:231
-msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:232
-msgid ""
-"Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
-"good start."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:233
-#, fuzzy
-#| msgid "Sort buffer size"
-msgid "key_buffer_size is 0"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:235
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "Max %% MyISAM key buffer ever used"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:238
-#: libraries/advisory_rules_generic.txt:246
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:239
-#: libraries/advisory_rules_generic.txt:247
-msgid ""
-"You may need to decrease the size of {key_buffer_size}, re-examine your "
-"tables to see if indexes have been removed, or examine queries and "
-"expectations about what indexes are being used."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:240
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid ""
-"max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:243
-#, fuzzy
-#| msgid "Sort buffer size"
-msgid "Percentage of MyISAM key buffer used"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:248
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:250
-#, fuzzy
-#| msgid "Percentage of slow queries"
-msgid "Percentage of index reads from memory"
-msgstr "මන්දගාමී විමසුම් ප්‍රතිශතය"
-
-#: libraries/advisory_rules_generic.txt:253
-#, php-format
-msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:254
-msgid "You may need to increase {key_buffer_size}."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:255
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:259
-#, fuzzy
-#| msgid "Create table"
-msgid "Rate of table open"
-msgstr "වගුව සාදන්න"
-
-#: libraries/advisory_rules_generic.txt:262
-#, fuzzy
-#| msgid "The current number of pending writes."
-msgid "The rate of opening tables is high."
-msgstr "The current number of pending writes."
-
-#: libraries/advisory_rules_generic.txt:263
-msgid ""
-"Opening tables requires disk I/O which is costly. Increasing "
-"{table_open_cache} might avoid this."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:264
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:266
-#, fuzzy
-#| msgid "Format of imported file"
-msgid "Percentage of used open files limit"
-msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
-
-#: libraries/advisory_rules_generic.txt:269
-msgid ""
-"The number of open files is approaching the max number of open files.  You "
-"may get a \"Too many open files\" error."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:270
-#: libraries/advisory_rules_generic.txt:277
-msgid ""
-"Consider increasing {open_files_limit}, and check the error log when "
-"restarting after changing {open_files_limit}."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:271
-#, php-format
-msgid ""
-"The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:273
-#, fuzzy
-#| msgid "Format of imported file"
-msgid "Rate of open files"
-msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
-
-#: libraries/advisory_rules_generic.txt:276
-#, fuzzy
-#| msgid "The number of pending log file fsyncs."
-msgid "The rate of opening files is high."
-msgstr "The number of pending log file fsyncs."
-
-#: libraries/advisory_rules_generic.txt:278
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:280
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Immediate table locks %%"
-msgstr "%s දත්තගබඩාවේ නව වගුවක් සාදන්න"
-
-#: libraries/advisory_rules_generic.txt:283
-#: libraries/advisory_rules_generic.txt:290
-#, fuzzy
-#| msgid " number of times that a table lock was acquired immediately."
-msgid "Too many table locks were not granted immediately."
-msgstr "The number of times that a table lock was acquired immediately."
-
-#: libraries/advisory_rules_generic.txt:284
-#: libraries/advisory_rules_generic.txt:291
-msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:285
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:287
-msgid "Table lock wait rate"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:292
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:294
-#, fuzzy
-#| msgid "Key cache"
-msgid "Thread cache"
-msgstr "යතුරු කෑෂ් කිරීම"
-
-#: libraries/advisory_rules_generic.txt:297
-msgid ""
-"Thread cache is disabled, resulting in more overhead from new connections to "
-"MySQL."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:298
-msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:299
-#, fuzzy
-#| msgid "Tracking is not active."
-msgid "The thread cache is set to 0"
-msgstr "අවධානය අක්‍රීයයි."
-
-#: libraries/advisory_rules_generic.txt:301
-#, fuzzy, php-format
-#| msgid "Tracking is not active."
-msgid "Thread cache hit rate %%"
-msgstr "අවධානය අක්‍රීයයි."
-
-#: libraries/advisory_rules_generic.txt:304
-#, fuzzy
-#| msgid "Tracking is not active."
-msgid "Thread cache is not efficient."
-msgstr "අවධානය අක්‍රීයයි."
-
-#: libraries/advisory_rules_generic.txt:305
-msgid "Increase {thread_cache_size}."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:306
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:308
-#, fuzzy
-#| msgid "The number of threads that are not sleeping."
-msgid "Threads that are slow to launch"
-msgstr "The number of threads that are not sleeping."
-
-#: libraries/advisory_rules_generic.txt:311
-#, fuzzy
-#| msgid "The number of threads that are not sleeping."
-msgid "There are too many threads that are slow to launch."
-msgstr "The number of threads that are not sleeping."
-
-#: libraries/advisory_rules_generic.txt:312
-msgid ""
-"This generally happens in case of general system overload as it is pretty "
-"simple operations. You might want to monitor your system load carefully."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:313
-#, php-format
-msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:315
-msgid "Slow launch time"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:318
-#, fuzzy
-#| msgid "long_query_time is set to %d second(s)."
-msgid "Slow_launch_time is above 2s."
-msgstr "long_query_time තත්පර %d කට සිටුවා ඇත."
-
-#: libraries/advisory_rules_generic.txt:319
-#, fuzzy
-#| msgid "The number of threads that are not sleeping."
-msgid ""
-"Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
-"to launch."
-msgstr "The number of threads that are not sleeping."
-
-#: libraries/advisory_rules_generic.txt:320
-#, fuzzy, php-format
-#| msgid "long_query_time is set to %d second(s)."
-msgid "slow_launch_time is set to %s"
-msgstr "long_query_time තත්පර %d කට සිටුවා ඇත."
-
-#: libraries/advisory_rules_generic.txt:324
-#, fuzzy
-#| msgid "max. concurrent connections"
-msgid "Percentage of used connections"
-msgstr "උපරිම සමගාමී සම්බන්ධතා"
-
-#: libraries/advisory_rules_generic.txt:327
-msgid ""
-"The maximum amount of used connections is getting close to the value of "
-"{max_connections}."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:328
-msgid ""
-"Increase {max_connections}, or decrease {wait_timeout} so that connections "
-"that do not close database handlers properly get killed sooner. Make sure "
-"the code closes database handlers properly."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:329
-#, php-format
-msgid ""
-"Max_used_connections is at %s%% of max_connections, it should be below 80%%"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:331
-#, fuzzy
-#| msgid "max. concurrent connections"
-msgid "Percentage of aborted connections"
-msgstr "උපරිම සමගාමී සම්බන්ධතා"
-
-#: libraries/advisory_rules_generic.txt:334
-#: libraries/advisory_rules_generic.txt:341
-#, fuzzy
-#| msgid "Allows creating temporary tables."
-msgid "Too many connections are aborted."
-msgstr "Allows creating temporary tables."
-
-#: libraries/advisory_rules_generic.txt:335
-#: libraries/advisory_rules_generic.txt:342
-msgid ""
-"Connections are usually aborted when they cannot be authorized. <a href="
-"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
-"aborted_connects/\">This article</a> might help you track down the source."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:336
-#, php-format
-msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:338
-#, fuzzy
-#| msgid "max. concurrent connections"
-msgid "Rate of aborted connections"
-msgstr "උපරිම සමගාමී සම්බන්ධතා"
-
-#: libraries/advisory_rules_generic.txt:343
-#, php-format
-msgid ""
-"Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:345
-#, fuzzy
-#| msgid "Format of imported file"
-msgid "Percentage of aborted clients"
-msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
-
-#: libraries/advisory_rules_generic.txt:348
-#: libraries/advisory_rules_generic.txt:355
-#, fuzzy
-#| msgid "Allows creating temporary tables."
-msgid "Too many clients are aborted."
-msgstr "Allows creating temporary tables."
-
-#: libraries/advisory_rules_generic.txt:349
-#: libraries/advisory_rules_generic.txt:356
-msgid ""
-"Clients are usually aborted when they did not close their connection to "
-"MySQL properly. This can be due to network issues or code not closing a "
-"database handler properly. Check your network and code."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:350
-#, php-format
-msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:352
-#, fuzzy
-#| msgid "Format of imported file"
-msgid "Rate of aborted clients"
-msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
-
-#: libraries/advisory_rules_generic.txt:357
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_generic.txt:361
-msgid "Is InnoDB disabled?"
-msgstr "InnoDB අක්‍රීයද?"
-
-#: libraries/advisory_rules_generic.txt:364
-msgid "You do not have InnoDB enabled."
-msgstr "ඔබ InnoDB සක්‍රීය කර නැත."
-
-#: libraries/advisory_rules_generic.txt:365
-msgid "InnoDB is usually the better choice for table engines."
-msgstr "සාමාන්‍යයෙන් වගු එන්ජිම සඳහා වඩාත් සුදුසු InnoDB වේ."
-
-#: libraries/advisory_rules_generic.txt:366
-msgid "have_innodb is set to 'value'"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:368
-msgid "InnoDB log size"
-msgstr "InnoDB ලොග විශාලත්වය"
-
-#: libraries/advisory_rules_generic.txt:371
-#, fuzzy
-#| msgid "The number writes done to the InnoDB buffer pool."
-msgid ""
-"The InnoDB log file size is not an appropriate size, in relation to the "
-"InnoDB buffer pool."
-msgstr "The number writes done to the InnoDB buffer pool."
-
-#: libraries/advisory_rules_generic.txt:372
-#, php-format
-msgid ""
-"Especially on a system with a lot of writes to InnoDB tables you should set "
-"{innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However the "
-"bigger this value, the longer the recovery time will be when database "
-"crashes, so this value should not be set much higher than 256 MiB. Please "
-"note however that you cannot simply change the value of this variable. You "
-"need to shutdown the server, remove the InnoDB log files, set the new value "
-"in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:373
-#, fuzzy, php-format
-#| msgid "The number writes done to the InnoDB buffer pool."
-msgid ""
-"Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
-"it should not be below 20%%"
-msgstr "The number writes done to the InnoDB buffer pool."
-
-#: libraries/advisory_rules_generic.txt:375
-msgid "Max InnoDB log size"
-msgstr "උපරිම InnoDB ලොග විශාලත්වය"
-
-#: libraries/advisory_rules_generic.txt:378
-msgid "The InnoDB log file size is inadequately large."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:379
-#, php-format
-msgid ""
-"It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
-"of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down "
-"the recovery time after a database crash considerably. See also <a href="
-"\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
-"remove the InnoDB log files, set the new value in my.cnf, start the server, "
-"then check the error logs if everything went fine. See also <a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">this blog entry</a>"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:380
-#, php-format
-msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:382
-#, fuzzy
-#| msgid "Buffer pool size"
-msgid "InnoDB buffer pool size"
-msgstr "Buffer pool size"
-
-#: libraries/advisory_rules_generic.txt:385
-#, fuzzy
-#| msgid "Buffer pool size"
-msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Buffer pool size"
-
-#: libraries/advisory_rules_generic.txt:386
-#, php-format
-msgid ""
-"The InnoDB buffer pool has a profound impact on performance for InnoDB "
-"tables. Assign all your remaining memory to this buffer. For database "
-"servers that use solely InnoDB as storage engine and have no other services "
-"(e.g. a web server) running, you may set this as high as 80%% of your "
-"available memory. If that is not the case, you need to carefully assess the "
-"memory consumption of your other services and non-InnoDB-Tables and set this "
-"variable accordingly. If it is set too high, your system will start "
-"swapping, which decreases performance significantly. See also <a href="
-"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">this article</a>"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:387
-#, php-format
-msgid ""
-"You are currently using %s%% of your memory for the InnoDB buffer pool. This "
-"rule fires if you are assigning less than 60%%, however this might be "
-"perfectly adequate for your system if you don't have much InnoDB tables or "
-"other services running on the same machine."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:391
-#, fuzzy
-#| msgid "max. concurrent connections"
-msgid "MyISAM concurrent inserts"
-msgstr "උපරිම සමගාමී සම්බන්ධතා"
-
-#: libraries/advisory_rules_generic.txt:394
-msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "{concurret_insert} 1ට සිටුවා සක්‍රීය කරන්න"
-
-#: libraries/advisory_rules_generic.txt:395
-msgid ""
-"Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:396
-msgid "concurrent_insert is set to 0"
-msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
-
-#: libraries/advisory_rules_mysql_before80003.txt:10
-msgid "Query cache disabled"
-msgstr "විමසුම් කෑෂ් අක්‍රීයයි"
-
-#: libraries/advisory_rules_mysql_before80003.txt:13
-msgid "The query cache is not enabled."
-msgstr "විමසුම් කෑෂ් සක්‍රීය කර නැත."
-
-#: libraries/advisory_rules_mysql_before80003.txt:14
-msgid ""
-"The query cache is known to greatly improve performance if configured "
-"correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
-"and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
-"memcached, ignore this recommendation."
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:15
-msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:17
-#, php-format
-msgid "Query cache efficiency (%%)"
-msgstr "විමසුම් කෑෂ් කාර්යක්ෂමතාව (%%)"
-
-#: libraries/advisory_rules_mysql_before80003.txt:20
-msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:21
-msgid "Consider increasing {query_cache_limit}."
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:22
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
-msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Sort buffer size"
-
-#: libraries/advisory_rules_mysql_before80003.txt:24
-msgid "Query Cache usage"
-msgstr "විමසුම් කෑෂ් භාවිතය"
-
-#: libraries/advisory_rules_mysql_before80003.txt:27
-#, php-format
-msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:28
-msgid ""
-"This might be caused by {query_cache_limit} being too low. Flushing the "
-"query cache might help as well."
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:29
-#, php-format
-msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:31
-msgid "Query cache fragmentation"
-msgstr "විමසුම් කෑෂ් ඛණ්ඩනීකරණය"
-
-#: libraries/advisory_rules_mysql_before80003.txt:34
-msgid "The query cache is considerably fragmented."
-msgstr "විමසුම් කෑෂය භාගීකරණයට ලක්වී ඇත."
-
-#: libraries/advisory_rules_mysql_before80003.txt:35
-msgid ""
-"Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
-"This might be caused by many Query cache low memory prunes due to "
-"{query_cache_size} being too small. For a immediate but short lived fix you "
-"can flush the query cache (might lock the query cache for a long time). "
-"Carefully adjusting {query_cache_min_res_unit} to a lower value might help "
-"too, e.g. you can set it to the average size of your queries in the cache "
-"using this formula: (query_cache_size - qcache_free_memory) / "
-"qcache_queries_in_cache"
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:36
-#, php-format
-msgid ""
-"The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
-"that the query cache is an alternating pattern of free and used blocks. This "
-"value should be below 20%%."
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:38
-#, fuzzy
-#| msgid "Query cache used"
-msgid "Query cache low memory prunes"
-msgstr "භාවිතා කරන ලද විමසුම් කෑෂ්"
-
-#: libraries/advisory_rules_mysql_before80003.txt:41
-msgid ""
-"Cached queries are removed due to low query cache memory from the query "
-"cache."
-msgstr "අඩු විමසුම් කෑෂ් ධාරිතාව හේතුවෙන් කෑෂ්ගත කරන ලද විමසුම් කෑෂයෙන් ඉවත් කෙරෙයි."
-
-#: libraries/advisory_rules_mysql_before80003.txt:42
-msgid ""
-"You might want to increase {query_cache_size}, however keep in mind that the "
-"overhead of maintaining the cache is likely to increase with its size, so do "
-"this in small increments and monitor the results."
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:43
-#, php-format
-msgid ""
-"The ratio of removed queries to inserted queries is %s%%. The lower this "
-"value is, the better (This rules firing limit: 0.1%%)"
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:45
-msgid "Query cache max size"
-msgstr "විමසුම් කෑෂ් උපරිම ප්‍රමාණය"
-
-#: libraries/advisory_rules_mysql_before80003.txt:48
-msgid ""
-"The query cache size is above 128 MiB. Big query caches may cause "
-"significant overhead that is required to maintain the cache."
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:49
-msgid ""
-"Depending on your environment, it might be performance increasing to reduce "
-"this value."
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:50
-#, php-format
-msgid "Current query cache size: %s"
-msgstr "වත්මන් විමසුම් කෑෂයේ ප්‍රමාණය: %s"
-
-#: libraries/advisory_rules_mysql_before80003.txt:52
-msgid "Query cache min result size"
-msgstr "විමසුම් කෑෂ් අවම ප්‍රථිඵල ප්‍රමාණය"
-
-#: libraries/advisory_rules_mysql_before80003.txt:55
-msgid ""
-"The max size of the result set in the query cache is the default of 1 MiB."
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:56
-msgid ""
-"Changing {query_cache_limit} (usually by increasing) may increase "
-"efficiency. This variable determines the maximum size a query result may "
-"have to be inserted into the query cache. If there are many query results "
-"above 1 MiB that are well cacheable (many reads, little writes) then "
-"increasing {query_cache_limit} will increase efficiency. Whereas in the case "
-"of many query results being above 1 MiB that are not very well cacheable "
-"(often invalidated due to table updates) increasing {query_cache_limit} "
-"might reduce efficiency."
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:57
-msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+#~ msgid ""
+#~ "Invalid rule declaration on line %1$s, expected line %2$s of previous "
+#~ "rule."
+#~ msgstr "%1$s පේළියේ වැරදි රීති අර්ථ දැක්වීමකි, පෙර රීතියේ %2$s වන පේළිය බලාපොරොත්තු විය."
+
+#~ msgid "Invalid rule declaration on line %s."
+#~ msgstr "%s වන පේළියේ වැරදි රීති අර්ථදැක්වීමකි."
+
+#~ msgid "Unexpected characters on line %s."
+#~ msgstr "%s වන පේළියේ අනපේක්ෂිත අනුලකුණකි."
+
+#~ msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
+#~ msgstr "%1$s වන පේළියේ අනපේක්ෂිත අනුලකුණකි. ටැබයක් අපේක්ෂිත නමුත් \"%2$s\" හමුවිය."
 
 #~ msgid "View dump (schema) of database"
 #~ msgstr "දත්තගබඩාවේ නික්ෂේපනය (ක්‍රමානුරූපය) දර්ශනය කරන්න"

@@ -9,7 +9,7 @@
 
 /* global isStorageSupported */ // js/config.js
 /* global codeMirrorEditor:writable */ // js/functions.js
-/* global firstDayOfCalendar, pmaThemeImage */ // templates/javascript/variables.twig
+/* global firstDayOfCalendar, themeImagePath */ // templates/javascript/variables.twig
 /* global variableNames */ // templates/server/status/monitor/index.twig
 
 var runtime = {};
@@ -1647,7 +1647,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         $('#emptyDialog').dialog({ title: Messages.strAnalysingLogsTitle });
         $('#emptyDialog').html(Messages.strAnalysingLogs +
-                                ' <img class="ajaxIcon" src="' + pmaThemeImage +
+                                ' <img class="ajaxIcon" src="' + themeImagePath +
                                 'ajax_clock_small.gif" alt="">');
         var dlgBtns = {};
 
@@ -2068,7 +2068,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         $('#queryAnalyzerDialog').find('div.placeHolder').html(
             Messages.strAnalyzing + ' <img class="ajaxIcon" src="' +
-            pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+            themeImagePath + 'ajax_clock_small.gif" alt="">');
 
         $.post('index.php?route=/server/status/monitor/query', {
             'ajax_request': true,

@@ -39,6 +39,7 @@ use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Routing;
 use PhpMyAdmin\Session;
@@ -50,7 +51,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi;
-global $lang, $cfg, $isConfigLoading, $auth_plugin, $route;
+global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $PMA_Theme;
 global $url_params, $goto, $back, $db, $table, $sql_query, $token_mismatch;
 
 /**
@@ -228,7 +229,7 @@ $PMA_Config->enableBc();
 
 /* setup themes                                          LABEL_theme_setup    */
 
-ThemeManager::initializeTheme();
+$PMA_Theme = ThemeManager::initializeTheme();
 
 /** @var DatabaseInterface $dbi */
 $dbi = null;
@@ -286,7 +287,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
     $response = Response::getInstance();
 
-    Core::checkProfiling($response);
+    Profiling::check($dbi, $response);
 
     /*
      * There is no point in even attempting to process

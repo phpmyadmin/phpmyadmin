@@ -11,7 +11,6 @@ use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -117,11 +116,7 @@ class ExportController extends AbstractController
 
         $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? null;
 
-        /** @var ExportPlugin[] $exportList */
-        $exportList = Plugins::getPlugins('export', 'libraries/classes/Plugins/Export/', [
-            'export_type' => 'table',
-            'single_table' => isset($GLOBALS['single_table']),
-        ]);
+        $exportList = Plugins::getExport('table', isset($GLOBALS['single_table']));
 
         if (empty($exportList)) {
             $this->response->addHTML(Message::error(

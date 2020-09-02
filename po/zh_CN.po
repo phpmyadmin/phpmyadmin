@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-08-16 18:48-0300\n"
+"POT-Creation-Date: 2020-08-31 19:04-0300\n"
 "PO-Revision-Date: 2020-02-13 17:50+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -15,73 +15,1250 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.11-dev\n"
 
-#: libraries/classes/Advisor.php:319
+#: libraries/advisory_rules_generic.php:9
+msgid "Uptime below one day"
+msgstr "运行时间少于一天"
+
+#: libraries/advisory_rules_generic.php:12
+msgid "Uptime is less than 1 day, performance tuning may not be accurate."
+msgstr "运行时间少于一天，性能调整建议可能不准确。"
+
+#: libraries/advisory_rules_generic.php:14
+msgid ""
+"To have more accurate averages it is recommended to let the server run for "
+"longer than a day before running this analyzer"
+msgstr "要获得更加准确的数据，建议在运行分析器之前先让服务器运行至少一天"
+
+#: libraries/advisory_rules_generic.php:17
+#, php-format
+msgid "The uptime is only %s"
+msgstr "运行时间只有 %s"
+
+#: libraries/advisory_rules_generic.php:22
+msgid "Questions below 1,000"
+msgstr "内部查询少于 1000"
+
+#: libraries/advisory_rules_generic.php:26
+msgid ""
+"Fewer than 1,000 questions have been run against this server. The "
+"recommendations may not be accurate."
+msgstr "内部查询少于 1000 。建议可能不准确。"
+
+#: libraries/advisory_rules_generic.php:30
+msgid ""
+"Let the server run for a longer time until it has executed a greater amount "
+"of queries."
+msgstr "让服务器运行一段时间以使查询数超过该值。"
+
+#: libraries/advisory_rules_generic.php:32
+#, php-format
+msgid "Current amount of Questions: %s"
+msgstr "当前内部查询数: %s"
+
+#: libraries/advisory_rules_generic.php:37
+msgid "Percentage of slow queries"
+msgstr "慢查询率"
+
+#: libraries/advisory_rules_generic.php:41
+msgid ""
+"There is a lot of slow queries compared to the overall amount of Queries."
+msgstr "慢查询的数量在所有查询中所占的比例很大。"
+
+#: libraries/advisory_rules_generic.php:43
+#: libraries/advisory_rules_generic.php:57
+msgid ""
+"You might want to increase {long_query_time} or optimize the queries listed "
+"in the slow query log"
+msgstr "你可能需要增加 {long_query_time} 值或优化在慢查询日志中所列出的查询"
+
+#: libraries/advisory_rules_generic.php:46
+#, php-format
+msgid "The slow query rate should be below 5%%, your value is %s%%."
+msgstr "慢查询率应低于 5%%，当前为 %s%%。"
+
+#: libraries/advisory_rules_generic.php:51
+msgid "Slow query rate"
+msgstr "慢查询率"
+
+#: libraries/advisory_rules_generic.php:55
+msgid ""
+"There is a high percentage of slow queries compared to the server uptime."
+msgstr "慢查询率过高。"
+
+#: libraries/advisory_rules_generic.php:60
+#, php-format
+msgid ""
+"You have a slow query rate of %s per hour, you should have less than 1%% per "
+"hour."
+msgstr "当前慢查询率为 %s 每小时，此值不应高于 1%% 每小时。"
+
+#: libraries/advisory_rules_generic.php:65
+msgid "Long query time"
+msgstr "慢查询时间"
+
+#: libraries/advisory_rules_generic.php:69
+msgid ""
+"{long_query_time} is set to 10 seconds or more, thus only slow queries that "
+"take above 10 seconds are logged."
+msgstr ""
+"{long_query_time} 当前设为 10 秒或更长，因此超过 10 秒的查询才被记为慢查询。"
+
+#: libraries/advisory_rules_generic.php:73
+msgid ""
+"It is suggested to set {long_query_time} to a lower value, depending on your "
+"environment. Usually a value of 1-5 seconds is suggested."
+msgstr "建议根据您的环境将 {long_query_time} 调短。通常建议设为 1-5 秒。"
+
+#: libraries/advisory_rules_generic.php:76
+#, php-format
+msgid "long_query_time is currently set to %ds."
+msgstr "long_query_time 当前被设为 %d 秒。"
+
+#: libraries/advisory_rules_generic.php:81
+#: libraries/advisory_rules_generic.php:94
+msgid "Slow query logging"
+msgstr "慢查询记录"
+
+#: libraries/advisory_rules_generic.php:85
+#: libraries/advisory_rules_generic.php:98
+msgid "The slow query log is disabled."
+msgstr "慢查询记录已禁用。"
+
+#: libraries/advisory_rules_generic.php:87
+msgid ""
+"Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
+"help troubleshooting badly performing queries."
+msgstr ""
+"请将 {log_slow_queries} 设为 'ON' 来启用慢查询记录。这将有助于解决查询问题。"
+
+#: libraries/advisory_rules_generic.php:90
+msgid "log_slow_queries is set to 'OFF'"
+msgstr "log_slow_queries 被设为 'OFF'"
+
+#: libraries/advisory_rules_generic.php:100
+msgid ""
+"Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
+"help troubleshooting badly performing queries."
+msgstr ""
+"请将 {slow_query_log} 设为 'ON' 来启用慢查询记录。这将有助于解决查询问题。"
+
+#: libraries/advisory_rules_generic.php:103
+msgid "slow_query_log is set to 'OFF'"
+msgstr "slow_query_log 被设为 'OFF'"
+
+#: libraries/advisory_rules_generic.php:108
+msgid "Release Series"
+msgstr "发行版系列"
+
+#: libraries/advisory_rules_generic.php:111
+msgid "The MySQL server version less than 5.1."
+msgstr "MySQL 服务器版本低于 5.1。"
+
+#: libraries/advisory_rules_generic.php:113
+msgid ""
+"You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
+"even more so."
+msgstr "您应该升级到 MySQL 5.1 或 5.5，以获得新版本的更高性能。"
+
+#: libraries/advisory_rules_generic.php:115
+#: libraries/advisory_rules_generic.php:129
+#: libraries/advisory_rules_generic.php:140
+#, php-format
+msgid "Current version: %s"
+msgstr "当前版本：%s"
+
+#: libraries/advisory_rules_generic.php:120
+#: libraries/advisory_rules_generic.php:134
+msgid "Minor Version"
+msgstr "子版本"
+
+#: libraries/advisory_rules_generic.php:124
+msgid "Version less than 5.1.30 (the first GA release of 5.1)."
+msgstr "版本低于 5.1.30 (5.1 的第一个 GA 版本)。"
+
+#: libraries/advisory_rules_generic.php:126
+msgid ""
+"You should upgrade, as recent versions of MySQL 5.1 have improved "
+"performance and MySQL 5.5 even more so."
+msgstr "您应该升级到最新的 MySQL 5.1 或 5.5，以获得新版本的更高性能。"
+
+#: libraries/advisory_rules_generic.php:138
+msgid "Version less than 5.5.8 (the first GA release of 5.5)."
+msgstr "版本低于 5.5.8 (5.5 的第一个 GA 版本)。"
+
+#: libraries/advisory_rules_generic.php:139
+msgid "You should upgrade, to a stable version of MySQL 5.5."
+msgstr "您应升级到 MySQL 5.5 的稳定版本。"
+
+#: libraries/advisory_rules_generic.php:145
+#: libraries/advisory_rules_generic.php:158
+msgid "Distribution"
+msgstr "发行"
+
+#: libraries/advisory_rules_generic.php:148
+msgid "Version is compiled from source, not a MySQL official binary."
+msgstr "从源代码编译，不是 MySQL 官方二进制。"
+
+#: libraries/advisory_rules_generic.php:150
+msgid ""
+"If you did not compile from source, you may be using a package modified by a "
+"distribution. The MySQL manual only is accurate for official MySQL binaries, "
+"not any package distributions (such as RedHat, Debian/Ubuntu etc)."
+msgstr ""
+"如果您没有从源代码编译，您可能使用了再发行的修改版本。MySQL 手册仅适用于官方"
+"二进制，而非其它再发行包 (如 RedHat、Debian/Ubuntu 等等)。"
+
+#: libraries/advisory_rules_generic.php:154
+msgid "'source' found in version_comment"
+msgstr "版本注释中含有 'source'"
+
+#: libraries/advisory_rules_generic.php:161
+msgid "The MySQL manual only is accurate for official MySQL binaries."
+msgstr "MySQL 手册仅适用于官方二进制。"
+
+#: libraries/advisory_rules_generic.php:163
+msgid ""
+"Percona documentation is at <a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a>"
+msgstr ""
+"有关Percona的文档，请访问访问<a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a>"
+
+#: libraries/advisory_rules_generic.php:166
+msgid "'percona' found in version_comment"
+msgstr "版本注释中含有 'percona'"
+
+#: libraries/advisory_rules_generic.php:170
+msgid "MySQL Architecture"
+msgstr "MySQL 架构"
+
+#: libraries/advisory_rules_generic.php:174
+msgid "MySQL is not compiled as a 64-bit package."
+msgstr "MySQL 没有以 64 位编译。"
+
+#: libraries/advisory_rules_generic.php:176
+msgid ""
+"Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
+"so MySQL might not be able to access all of your memory. You might want to "
+"consider installing the 64-bit version of MySQL."
+msgstr ""
+"您的内存大小超过 3 GB (若服务器就在本地)，MySQL 可能无法访问所有内存。您需要"
+"考虑安装 64 位版本的 MySQL。"
+
+#: libraries/advisory_rules_generic.php:180
+#, php-format
+msgid "Available memory on this host: %s"
+msgstr "此服务器上的可用内存: %s"
+
+#: libraries/advisory_rules_generic.php:186
+msgid "Query caching method"
+msgstr "查询缓存模式"
+
+#: libraries/advisory_rules_generic.php:190
+msgid "Suboptimal caching method."
+msgstr "最佳缓存模式。"
+
+#: libraries/advisory_rules_generic.php:192
+#, fuzzy
+#| msgid ""
+#| "You are using the MySQL Query cache with a fairly high traffic database. "
+#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
+#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
+#| "Query cache, especially if you have multiple slaves."
+msgid ""
+"You are using the MySQL Query cache with a fairly high traffic database. It "
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
+"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
+"cache, especially if you have multiple slaves."
+msgstr ""
+"您正在一台具有相当高流量的数据库中使用 MySQL 查询缓存。除非您有多台从服务器，"
+"使用 <a href=\"https://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html"
+"\">memcached</a> 代替 MySQL 查询缓存将更好。"
+
+#: libraries/advisory_rules_generic.php:198
+#, php-format
+msgid ""
+"The query cache is enabled and the server receives %d queries per second. "
+"This rule fires if there is more than 100 queries per second."
+msgstr ""
+"查询缓存已启用且服务器每秒收到 %d 个查询。该规则在每秒超过 100 个查询时被触"
+"发。"
+
+#: libraries/advisory_rules_generic.php:206
+msgid "Percentage of sorts that cause temporary tables"
+msgstr "使用临时表的排序率"
+
+#: libraries/advisory_rules_generic.php:210
+#: libraries/advisory_rules_generic.php:223
+msgid "Too many sorts are causing temporary tables."
+msgstr "过多排序引发临时表创建。"
+
+#: libraries/advisory_rules_generic.php:212
+#: libraries/advisory_rules_generic.php:225
+msgid ""
+"Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
+"depending on your system memory limits."
+msgstr ""
+"根据系统内存限制，考虑增加 {sort_buffer_size} 和/或 {read_rnd_buffer_size}。"
+
+#: libraries/advisory_rules_generic.php:215
+#, php-format
+msgid ""
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
+msgstr "%s%% 的排序引发临时表创建，该值应低于 10%%。"
+
+#: libraries/advisory_rules_generic.php:220
+msgid "Rate of sorts that cause temporary tables"
+msgstr "排序使用临时表的创建率"
+
+#: libraries/advisory_rules_generic.php:228
+#, php-format
+msgid ""
+"Temporary tables average: %s, this value should be less than 1 per hour."
+msgstr "临时表创建率: %s，该值应低于 1 每小时。"
+
+#: libraries/advisory_rules_generic.php:233
+msgid "Sort rows"
+msgstr "行排序"
+
+#: libraries/advisory_rules_generic.php:236
+msgid "There are lots of rows being sorted."
+msgstr "大量行被排序。"
+
+#: libraries/advisory_rules_generic.php:238
+msgid ""
+"While there is nothing wrong with a high amount of row sorting, you might "
+"want to make sure that the queries which require a lot of sorting use "
+"indexed columns in the ORDER BY clause, as this will result in much faster "
+"sorting."
+msgstr ""
+"大量行排序不是什么错误，但您应确保需要大量排序的查询在 ORDER BY 中使用索引字"
+"段，这将使排序加快。"
+
+#: libraries/advisory_rules_generic.php:242
+#, php-format
+msgid "Sorted rows average: %s"
+msgstr "行排序率: %s"
+
+#: libraries/advisory_rules_generic.php:248
+msgid "Rate of joins without indexes"
+msgstr "无索引联合查询率"
+
+#: libraries/advisory_rules_generic.php:251
+msgid "There are too many joins without indexes."
+msgstr "有太多的联合查询未使用索引。"
+
+#: libraries/advisory_rules_generic.php:253
+msgid ""
+"This means that joins are doing full table scans. Adding indexes for the "
+"columns being used in the join conditions will greatly speed up table joins."
+msgstr ""
+"这意味着联合查询使用全表扫描。给联合条件所用的字段增加索引将极大提高查询速"
+"度。"
+
+#: libraries/advisory_rules_generic.php:256
+#, php-format
+msgid "Table joins average: %s, this value should be less than 1 per hour"
+msgstr "表联合率: %s，该值应低于 1 每小时"
+
+#: libraries/advisory_rules_generic.php:261
+msgid "Rate of reading first index entry"
+msgstr "首索引入口读取率"
+
+#: libraries/advisory_rules_generic.php:264
+msgid "The rate of reading the first index entry is high."
+msgstr "读取第一个索引入口比例过高。"
+
+#: libraries/advisory_rules_generic.php:266
+msgid ""
+"This usually indicates frequent full index scans. Full index scans are "
+"faster than table scans but require lots of CPU cycles in big tables, if "
+"those tables that have or had high volumes of UPDATEs and DELETEs, running "
+"'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index "
+"scans. Other than that full index scans can only be reduced by rewriting "
+"queries."
+msgstr ""
+"这通常说明频繁的全索引扫描。全索引扫描虽然比全表扫描快，但在大表中仍然需要一"
+"定 CPU 周期，如果这些表有或有过大量 UPDATE 和 DELETE，运行 'OPTIMIZE TABLE' "
+"可减少全索引扫描的次数以及提高速度。其它会减少全索引扫描的是重写查询。"
+
+#: libraries/advisory_rules_generic.php:272
+#, php-format
+msgid "Index scans average: %s, this value should be less than 1 per hour"
+msgstr "索引扫描率: %s，该值应低于 1 每小时"
+
+#: libraries/advisory_rules_generic.php:277
+msgid "Rate of reading fixed position"
+msgstr "固定位置读取率"
+
+#: libraries/advisory_rules_generic.php:280
+msgid "The rate of reading data from a fixed position is high."
+msgstr "从固定位置读取数据的比例过高。"
+
+#: libraries/advisory_rules_generic.php:282
+msgid ""
+"This indicates that many queries need to sort results and/or do a full table "
+"scan, including join queries that do not use indexes. Add indexes where "
+"applicable."
+msgstr ""
+"这说明很多查询需要结果排序且/或执行一次全表扫描，包括无索引的联合查询。请在合"
+"适的地方添加索引。"
+
+#: libraries/advisory_rules_generic.php:285
+#, php-format
+msgid ""
+"Rate of reading fixed position average: %s, this value should be less than 1 "
+"per hour"
+msgstr "固定位置读取率: %s，该值应低于 1 每小时"
+
+#: libraries/advisory_rules_generic.php:290
+msgid "Rate of reading next table row"
+msgstr "下一行读取率"
+
+#: libraries/advisory_rules_generic.php:293
+msgid "The rate of reading the next table row is high."
+msgstr "读取下一行的比例过高。"
+
+#: libraries/advisory_rules_generic.php:295
+msgid ""
+"This indicates that many queries are doing full table scans. Add indexes "
+"where applicable."
+msgstr "这说明很多查询都需要全表扫描。请在合适的地方添加索引。"
+
+#: libraries/advisory_rules_generic.php:297
+#, php-format
+msgid ""
+"Rate of reading next table row: %s, this value should be less than 1 per hour"
+msgstr "下一行读取率: %s，该值应低于 1 每小时"
+
+#: libraries/advisory_rules_generic.php:303
+msgid "Different tmp_table_size and max_heap_table_size"
+msgstr "不同的 tmp_table_size 和 max_heap_table_size"
+
+#: libraries/advisory_rules_generic.php:306
+msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
+msgstr "{tmp_table_size} 和 {max_heap_table_size} 不一致。"
+
+#: libraries/advisory_rules_generic.php:308
+msgid ""
+"If you have deliberately changed one of either: The server uses the lower "
+"value of either to determine the maximum size of in-memory tables. So if you "
+"wish to increase the in-memory table limit you will have to increase the "
+"other value as well."
+msgstr ""
+"若您故意改变了其中一个值: 服务器使用较低的值来确定内存表的最大大小。如果您想"
+"增加内存表的大小您应该同时修改另一个值。"
+
+#: libraries/advisory_rules_generic.php:312
+#, php-format
+msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
+msgstr "当前值为 tmp_table_size: %s，max_heap_table_size: %s"
+
+#: libraries/advisory_rules_generic.php:318
+msgid "Percentage of temp tables on disk"
+msgstr "磁盘临时表比例"
+
+#: libraries/advisory_rules_generic.php:322
+#: libraries/advisory_rules_generic.php:343
+msgid ""
+"Many temporary tables are being written to disk instead of being kept in "
+"memory."
+msgstr "很多临时表被创建在磁盘上而非内存中。"
+
+#: libraries/advisory_rules_generic.php:324
+msgid ""
+"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+"some temporary tables are always being written to disk, independent of the "
+"value of these variables. To eliminate these you will have to rewrite your "
+"queries to avoid those conditions (Within a temporary table: Presence of a "
+"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
+"mentioned in the beginning of an <a href=\"https://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
+msgstr ""
+"增加 {max_heap_table_size} 和 {tmp_table_size} 可能会有帮助。但有些临时表总是"
+"会写入硬盘，和这些变量无关。要避免这些，您需要重写您的查询来避免 <a href="
+"\"https://www.facebook.com/note.php?note_id=10150111255065841&comments"
+"\">Pythian 小组的文章</a>开头所提到的这些条件 (临时表内: 具有 BLOB 或 TEXT 字"
+"段或具有大于 512 字节的字段)"
+
+#: libraries/advisory_rules_generic.php:333
+#, php-format
+msgid ""
+"%s%% of all temporary tables are being written to disk, this value should be "
+"below 25%%"
+msgstr "%s%% 的临时表被创建在磁盘上，该值应低于 25%%"
+
+#: libraries/advisory_rules_generic.php:339
+msgid "Temp disk rate"
+msgstr "临时磁盘使用率"
+
+#: libraries/advisory_rules_generic.php:345
+#, fuzzy
+#| msgid ""
+#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+#| "some temporary tables are always being written to disk, independent of "
+#| "the value of these variables. To eliminate these you will have to rewrite "
+#| "your queries to avoid those conditions (Within a temporary table: "
+#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
+#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
+#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
+msgid ""
+"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+"some temporary tables are always being written to disk, independent of the "
+"value of these variables. To eliminate these you will have to rewrite your "
+"queries to avoid those conditions (Within a temporary table: Presence of a "
+"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
+"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
+"temporary-tables.html\">MySQL Documentation</a>"
+msgstr ""
+"增加 {max_heap_table_size} 和 {tmp_table_size} 可能会有帮助。但有些临时表总是"
+"会写入硬盘，和这些变量无关。要避免这些，您需要重写您的查询来避免 <a href="
+"\"https://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
+"\">MySQL 文档</a>中所提到的这些条件 (临时表内: 具有 BLOB 或 TEXT 字段或具有大"
+"于 512 字节的字段)"
+
+#: libraries/advisory_rules_generic.php:354
+#, php-format
+msgid ""
+"Rate of temporary tables being written to disk: %s, this value should be "
+"less than 1 per hour"
+msgstr "临时表硬盘写入率: %s，该值应低于 1 每小时"
+
+#: libraries/advisory_rules_generic.php:361
+msgid "MyISAM key buffer size"
+msgstr "MyISAM 索引缓存大小"
+
+#: libraries/advisory_rules_generic.php:364
+msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
+msgstr "索引缓存未初始化。MyISAM 索引不会被缓存。"
+
+#: libraries/advisory_rules_generic.php:366
+msgid ""
+"Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
+"good start."
+msgstr "根据 MyISAM 索引大小设置 {key_buffer_size}。64M 通常可以满足普通需求。"
+
+#: libraries/advisory_rules_generic.php:368
+msgid "key_buffer_size is 0"
+msgstr "key_buffer_size 为 0"
+
+#: libraries/advisory_rules_generic.php:373
+#, fuzzy, no-php-format
+#| msgid "Max %% MyISAM key buffer ever used"
+msgid "Max % MyISAM key buffer ever used"
+msgstr "最大 %% MyISAM 索引缓存从未使用"
+
+#: libraries/advisory_rules_generic.php:378
+#: libraries/advisory_rules_generic.php:395
+#, fuzzy, no-php-format
+#| msgid "MyISAM key buffer (index cache) %% used is low."
+msgid "MyISAM key buffer (index cache) % used is low."
+msgstr "MyISAM 索引缓存 %% 使用率低。"
+
+#: libraries/advisory_rules_generic.php:380
+#: libraries/advisory_rules_generic.php:397
+msgid ""
+"You may need to decrease the size of {key_buffer_size}, re-examine your "
+"tables to see if indexes have been removed, or examine queries and "
+"expectations about what indexes are being used."
+msgstr ""
+"您可能需要减小 {key_buffer_size} 的大小，重新检查您的表是否删除了索引或检查查"
+"询期望使用的索引。"
+
+#: libraries/advisory_rules_generic.php:384
+#, php-format
+msgid ""
+"max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
+msgstr "最大 %% MyISAM 索引缓存从未使用: %s%%，该值应高于 95%%"
+
+#: libraries/advisory_rules_generic.php:389
+msgid "Percentage of MyISAM key buffer used"
+msgstr "MyISAM 索引缓存使用百分比"
+
+#: libraries/advisory_rules_generic.php:401
+#, php-format
+msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
+msgstr "MyISAM 索引缓存使用率: %s%%，该值应高于 95%%"
+
+#: libraries/advisory_rules_generic.php:406
+msgid "Percentage of index reads from memory"
+msgstr "从内存读取索引的百分比"
+
+#: libraries/advisory_rules_generic.php:411
+#, fuzzy, no-php-format
+#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+msgid "The % of indexes that use the MyISAM key buffer is low."
+msgstr "%% 使用索引缓存的比例是低的。"
+
+#: libraries/advisory_rules_generic.php:412
+msgid "You may need to increase {key_buffer_size}."
+msgstr "你需要增大 {key_buffer_size}。"
+
+#: libraries/advisory_rules_generic.php:413
+#, php-format
+msgid "Index reads from memory: %s%%, this value should be above 95%%"
+msgstr "从内存读取索引率: %s%%，该值应高于 95%%"
+
+#: libraries/advisory_rules_generic.php:419
+msgid "Rate of table open"
+msgstr "表打开率"
+
+#: libraries/advisory_rules_generic.php:422
+msgid "The rate of opening tables is high."
+msgstr "打开表的比例过高。"
+
+#: libraries/advisory_rules_generic.php:424
+msgid ""
+"Opening tables requires disk I/O which is costly. Increasing "
+"{table_open_cache} might avoid this."
+msgstr "打开表需要很耗时的磁盘 I/O。增加 {table_open_cache} 避免多次打开。"
+
+#: libraries/advisory_rules_generic.php:427
+#, php-format
+msgid "Opened table rate: %s, this value should be less than 10 per hour"
+msgstr "已打开表的比率: %s，该值应低于 10 每小时"
+
+#: libraries/advisory_rules_generic.php:432
+msgid "Percentage of used open files limit"
+msgstr "打开文件限制使用率"
+
+#: libraries/advisory_rules_generic.php:436
+#, fuzzy
+#| msgid ""
+#| "The number of open files is approaching the max number of open files.  "
+#| "You may get a \"Too many open files\" error."
+msgid ""
+"The number of open files is approaching the max number of open files. You "
+"may get a \"Too many open files\" error."
+msgstr ""
+"打开文件的数量接近打开文件的最大数量。您可能会收到 \"过多打开的文件\" 错误。"
+
+#: libraries/advisory_rules_generic.php:440
+#: libraries/advisory_rules_generic.php:453
+msgid ""
+"Consider increasing {open_files_limit}, and check the error log when "
+"restarting after changing {open_files_limit}."
+msgstr ""
+"考虑增加 {open_files_limit}，并在修改 {open_files_limit} 重启后检查错误日志。"
+
+#: libraries/advisory_rules_generic.php:443
+#, php-format
+msgid ""
+"The number of opened files is at %s%% of the limit. It should be below 85%%"
+msgstr "打开的文件数量为最大数量的 %s%%。该值应低于 85%%"
+
+#: libraries/advisory_rules_generic.php:448
+msgid "Rate of open files"
+msgstr "打开文件的比率"
+
+#: libraries/advisory_rules_generic.php:451
+msgid "The rate of opening files is high."
+msgstr "当前打开文件数比率很高。"
+
+#: libraries/advisory_rules_generic.php:456
+#, php-format
+msgid "Opened files rate: %s, this value should be less than 5 per hour"
+msgstr "已打开文件的比率：%s,这个值应该低于5每小时"
+
+#: libraries/advisory_rules_generic.php:462
+#, fuzzy, no-php-format
+#| msgid "Immediate table locks %%"
+msgid "Immediate table locks %"
+msgstr "立即锁表 %%"
+
+#: libraries/advisory_rules_generic.php:466
+#: libraries/advisory_rules_generic.php:476
+msgid "Too many table locks were not granted immediately."
+msgstr "过多的锁表没有立即执行。"
+
+#: libraries/advisory_rules_generic.php:467
+#: libraries/advisory_rules_generic.php:477
+msgid "Optimize queries and/or use InnoDB to reduce lock wait."
+msgstr "优化查询并/或使用 InnoDB 来减少锁等待。"
+
+#: libraries/advisory_rules_generic.php:468
+#, php-format
+msgid "Immediate table locks: %s%%, this value should be above 95%%"
+msgstr "立即锁表率: %s%%，该值应高于 95%%"
+
+#: libraries/advisory_rules_generic.php:473
+msgid "Table lock wait rate"
+msgstr "锁表等待率"
+
+#: libraries/advisory_rules_generic.php:478
+#, php-format
+msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
+msgstr "锁表等待率: %s，该值应低于 1 每小时"
+
+#: libraries/advisory_rules_generic.php:483
+msgid "Thread cache"
+msgstr "线程缓存"
+
+#: libraries/advisory_rules_generic.php:486
+msgid ""
+"Thread cache is disabled, resulting in more overhead from new connections to "
+"MySQL."
+msgstr "线程缓存被禁用，有新连接到 MySQL 时将导致额外开销。"
+
+#: libraries/advisory_rules_generic.php:487
+msgid "Enable the thread cache by setting {thread_cache_size} > 0."
+msgstr "通过设置 {thread_cache_size} 大于 0 启用线程缓存。"
+
+#: libraries/advisory_rules_generic.php:488
+msgid "The thread cache is set to 0"
+msgstr "线程缓存被设为 0"
+
+#: libraries/advisory_rules_generic.php:493
+#, fuzzy, no-php-format
+#| msgid "Thread cache hit rate %%"
+msgid "Thread cache hit rate %"
+msgstr "线程缓存命中率 %%"
+
+#: libraries/advisory_rules_generic.php:497
+msgid "Thread cache is not efficient."
+msgstr "线程缓存效率低。"
+
+#: libraries/advisory_rules_generic.php:498
+msgid "Increase {thread_cache_size}."
+msgstr "增加 {thread_cache_size}。"
+
+#: libraries/advisory_rules_generic.php:499
+#, php-format
+msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
+msgstr "线程缓存命中率: %s%%，该值应高于 80%%"
+
+#: libraries/advisory_rules_generic.php:504
+msgid "Threads that are slow to launch"
+msgstr "线程启动缓慢"
+
+#: libraries/advisory_rules_generic.php:508
+msgid "There are too many threads that are slow to launch."
+msgstr "大量线程运行缓慢。"
+
+#: libraries/advisory_rules_generic.php:510
+msgid ""
+"This generally happens in case of general system overload as it is pretty "
+"simple operations. You might want to monitor your system load carefully."
+msgstr "这通常是因为系统负载过高。您需要监控您的系统负载。"
+
+#: libraries/advisory_rules_generic.php:513
+#, php-format
+msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
+msgstr "%s 个线程启动时间超过 %s 秒，该数值应为 0"
+
+#: libraries/advisory_rules_generic.php:518
+msgid "Slow launch time"
+msgstr "慢启动时间"
+
+#: libraries/advisory_rules_generic.php:521
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time 大于 2 秒。"
+
+#: libraries/advisory_rules_generic.php:523
+msgid ""
+"Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
+"to launch."
+msgstr "设置 {slow_launch_time} 为 1 秒或 2 秒以正确计算启动慢的线程数。"
+
+#: libraries/advisory_rules_generic.php:525
+#, php-format
+msgid "slow_launch_time is set to %s"
+msgstr "slow_launch_time 已设为 %s"
+
+#: libraries/advisory_rules_generic.php:531
+msgid "Percentage of used connections"
+msgstr "已用连接率"
+
+#: libraries/advisory_rules_generic.php:535
+msgid ""
+"The maximum amount of used connections is getting close to the value of "
+"{max_connections}."
+msgstr "最大已用连接数接近 {max_connections}。"
+
+#: libraries/advisory_rules_generic.php:538
+msgid ""
+"Increase {max_connections}, or decrease {wait_timeout} so that connections "
+"that do not close database handlers properly get killed sooner. Make sure "
+"the code closes database handlers properly."
+msgstr ""
+"增加 {max_connections}，或减少 {wait_timeout} 以使没有正常关闭连接的连接更快"
+"被杀死。确保代码中正常关闭数据库连接。"
+
+#: libraries/advisory_rules_generic.php:542
+#, php-format
+msgid ""
+"Max_used_connections is at %s%% of max_connections, it should be below 80%%"
+msgstr "Max_used_connections 为 max_connections 的 %s%%，该值应低于 80%%"
+
+#: libraries/advisory_rules_generic.php:547
+msgid "Percentage of aborted connections"
+msgstr "已中止连接率"
+
+#: libraries/advisory_rules_generic.php:550
+#: libraries/advisory_rules_generic.php:564
+msgid "Too many connections are aborted."
+msgstr "太多连接已中止。"
+
+#: libraries/advisory_rules_generic.php:552
+#: libraries/advisory_rules_generic.php:566
+msgid ""
+"Connections are usually aborted when they cannot be authorized. <a href="
+"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">This article</a> might help you track down the source."
+msgstr ""
+"连接通常因为无法被授权而中止。<a href=\"https://www.percona.com/"
+"blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">这篇文章"
+"</a>对您追踪来源可能有所帮助。"
+
+#: libraries/advisory_rules_generic.php:556
+#, php-format
+msgid "%s%% of all connections are aborted. This value should be below 1%%"
+msgstr "%s%% 的连接已中止。该值应低于 1%%"
+
+#: libraries/advisory_rules_generic.php:561
+msgid "Rate of aborted connections"
+msgstr "已中止连接的比例"
+
+#: libraries/advisory_rules_generic.php:570
+#, php-format
+msgid ""
+"Aborted connections rate is at %s, this value should be less than 1 per hour"
+msgstr "已中止连接率为 %s，该值应低于 1 每小时"
+
+#: libraries/advisory_rules_generic.php:575
+msgid "Percentage of aborted clients"
+msgstr "已中止客户端比例"
+
+#: libraries/advisory_rules_generic.php:578
+#: libraries/advisory_rules_generic.php:592
+msgid "Too many clients are aborted."
+msgstr "太多的客户端已中止。"
+
+#: libraries/advisory_rules_generic.php:580
+#: libraries/advisory_rules_generic.php:594
+msgid ""
+"Clients are usually aborted when they did not close their connection to "
+"MySQL properly. This can be due to network issues or code not closing a "
+"database handler properly. Check your network and code."
+msgstr ""
+"客户端中止通常是因为它们没有正确关闭到 MySQL 服务器的连接。这可能由网络问题或"
+"代码中没有正确关闭数据库连接引起。请检查您的网络和代码。"
+
+#: libraries/advisory_rules_generic.php:584
+#, php-format
+msgid "%s%% of all clients are aborted. This value should be below 2%%"
+msgstr "%s%% 的客户端已取消。此值不应高于 2%%"
+
+#: libraries/advisory_rules_generic.php:589
+msgid "Rate of aborted clients"
+msgstr "客户端的取消率"
+
+#: libraries/advisory_rules_generic.php:598
+#, php-format
+msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
+msgstr "客户端取消率为 %s，此值应低于 1 每小时"
+
+#: libraries/advisory_rules_generic.php:604
+msgid "Is InnoDB disabled?"
+msgstr "InnoDB是否不可用？"
+
+#: libraries/advisory_rules_generic.php:608
+msgid "You do not have InnoDB enabled."
+msgstr "您没有启用 InnoDB。"
+
+#: libraries/advisory_rules_generic.php:609
+msgid "InnoDB is usually the better choice for table engines."
+msgstr "对于表引擎来说，InnoDB 是一个更好的选择。"
+
+#: libraries/advisory_rules_generic.php:610
+msgid "have_innodb is set to 'value'"
+msgstr "have_innodb被设置为'value'"
+
+#: libraries/advisory_rules_generic.php:614
+msgid "InnoDB log size"
+msgstr "InnoDB的日志大小"
+
+#: libraries/advisory_rules_generic.php:619
+msgid ""
+"The InnoDB log file size is not an appropriate size, in relation to the "
+"InnoDB buffer pool."
+msgstr "InnoDB 日志文件大小不合适，此关系到 InnoDB 缓冲池。"
+
+#: libraries/advisory_rules_generic.php:622
+#, fuzzy, no-php-format
+#| msgid ""
+#| "Especially on a system with a lot of writes to InnoDB tables you should "
+#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
+#| "the bigger this value, the longer the recovery time will be when database "
+#| "crashes, so this value should not be set much higher than 256 MiB. Please "
+#| "note however that you cannot simply change the value of this variable. "
+#| "You need to shutdown the server, remove the InnoDB log files, set the new "
+#| "value in my.cnf, start the server, then check the error logs if "
+#| "everything went fine. See also <a href=\"https://"
+#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+msgid ""
+"Especially on a system with a lot of writes to InnoDB tables you should set "
+"{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
+"bigger this value, the longer the recovery time will be when database "
+"crashes, so this value should not be set much higher than 256 MiB. Please "
+"note however that you cannot simply change the value of this variable. You "
+"need to shutdown the server, remove the InnoDB log files, set the new value "
+"in my.cnf, start the server, then check the error logs if everything went "
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+msgstr ""
+"在一个 InnoDB 表写入很多的系统上您应该将 {innodb_log_file_size} 设为 "
+"{innodb_buffer_pool_size} 的 25%% 。因为该值越大，当数据库崩溃时恢复的时间就"
+"越长，所以该值不应高于 256 MB 。请注意您不能简单的修改该变量的值。您需要关闭"
+"服务器，删除 InnoDB 日志文件，在 my.cnf 中设置新的值，启动服务器，一切正常后"
+"再检查错误日志。参见<a href=\"https://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">这篇博客</a>"
+
+#: libraries/advisory_rules_generic.php:633
+#, php-format
+msgid ""
+"Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
+"it should not be below 20%%"
+msgstr "您的 InnoDB 日志大小为 InnoDB 缓冲池大小的 %s%%，该值不应低于 20%%"
+
+#: libraries/advisory_rules_generic.php:640
+msgid "Max InnoDB log size"
+msgstr "InnoDB日志最大大小"
+
+#: libraries/advisory_rules_generic.php:644
+msgid "The InnoDB log file size is inadequately large."
+msgstr "InnoDB 日志文件大小设置的不够大。"
+
+#: libraries/advisory_rules_generic.php:646
+#, fuzzy, no-php-format
+#| msgid ""
+#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
+#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
+#| "slows down the recovery time after a database crash considerably. See "
+#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
+#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
+#| "the server, then check the error logs if everything went fine. See also "
+#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
+#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+msgid ""
+"It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
+"{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
+"recovery time after a database crash considerably. See also <a href="
+"\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
+"remove the InnoDB log files, set the new value in my.cnf, start the server, "
+"then check the error logs if everything went fine. See also <a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">this blog entry</a>"
+msgstr ""
+"通常将 {innodb_log_file_size} 设置为 {innodb_buffer_pool_size} 的 25%% 已经足"
+"够。过大的 {innodb_log_file_size} 将会严重减慢数据库崩溃后的恢复时间。参见<a "
+"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">这篇文章</a>。您首先需要关闭服务器，移除 InnoDB 日志"
+"文件，然后在 my.cnf 中设置新的值，最后启动服务器，并检查错误日志确定一切都正"
+"常。另见<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
+"increase-innodblogfilesize-proper-way.html\">这篇博客</a>"
+
+#: libraries/advisory_rules_generic.php:656
+#, php-format
+msgid "Your absolute InnoDB log size is %s MiB"
+msgstr "你的InnoDB日志文件的绝对大小为%s MB"
+
+#: libraries/advisory_rules_generic.php:661
+msgid "InnoDB buffer pool size"
+msgstr "InnoDB缓冲池大小"
+
+#: libraries/advisory_rules_generic.php:665
+msgid "Your InnoDB buffer pool is fairly small."
+msgstr "你的 InnoDB 缓冲池相当小。"
+
+#: libraries/advisory_rules_generic.php:667
+#, fuzzy, no-php-format
+#| msgid ""
+#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
+#| "tables. Assign all your remaining memory to this buffer. For database "
+#| "servers that use solely InnoDB as storage engine and have no other "
+#| "services (e.g. a web server) running, you may set this as high as 80%% of "
+#| "your available memory. If that is not the case, you need to carefully "
+#| "assess the memory consumption of your other services and non-InnoDB-"
+#| "Tables and set this variable accordingly. If it is set too high, your "
+#| "system will start swapping, which decreases performance significantly. "
+#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
+#| "innodb_buffer_pool_size/\">this article</a>"
+msgid ""
+"The InnoDB buffer pool has a profound impact on performance for InnoDB "
+"tables. Assign all your remaining memory to this buffer. For database "
+"servers that use solely InnoDB as storage engine and have no other services "
+"(e.g. a web server) running, you may set this as high as 80% of your "
+"available memory. If that is not the case, you need to carefully assess the "
+"memory consumption of your other services and non-InnoDB-Tables and set this "
+"variable accordingly. If it is set too high, your system will start "
+"swapping, which decreases performance significantly. See also <a href="
+"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
+"\">this article</a>"
+msgstr ""
+"InnoDB缓冲池对InnoDB表的性能有着深远的影响。将所有剩余内存分配给此缓冲区。对"
+"于仅使用InnoDB作为存储引擎并且没有其他服务（例如Web服务器）运行的数据库服务"
+"器，您可以将其设置为高达可用内存的80%%。如果不是这种情况，则需要仔细评估其他"
+"服务和非InnoDB-Tables的内存消耗，并相应地设置此变量。如果设置得太高，系统将开"
+"始使用交换内存，这会显着降低性能。另请参见<a href=\"https://www.percona.com/"
+"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">这篇文章</a>"
+
+#: libraries/advisory_rules_generic.php:677
+#, php-format
+msgid ""
+"You are currently using %s%% of your memory for the InnoDB buffer pool. This "
+"rule fires if you are assigning less than 60%%, however this might be "
+"perfectly adequate for your system if you don't have much InnoDB tables or "
+"other services running on the same machine."
+msgstr ""
+"您当前的 InnoDB 缓冲池使用了内存的 %s%% 。此规则在您分配少于 60%% 时被触发，"
+"然而这也可能因为您没有太多 InnoDB 表所以这样足够或者服务器上还运行了其它服"
+"务。"
+
+#: libraries/advisory_rules_generic.php:687
+msgid "MyISAM concurrent inserts"
+msgstr "MyISAM 并发插入"
+
+#: libraries/advisory_rules_generic.php:690
+msgid "Enable {concurrent_insert} by setting it to 1"
+msgstr "设置 {concurrent_insert} 的值为1来启用（并发插入）"
+
+#: libraries/advisory_rules_generic.php:692
+msgid ""
+"Setting {concurrent_insert} to 1 reduces contention between readers and "
+"writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
+msgstr ""
+"设置 {concurrent_insert} 为 1 可以减少在相同表上的读取和写入冲突。参见 <a "
+"href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html"
+"\">MySQL 文档</a>"
+
+#: libraries/advisory_rules_generic.php:696
+msgid "concurrent_insert is set to 0"
+msgstr "concurrent_insert 被设为 0"
+
+#: libraries/advisory_rules_mysql_before80003.php:9
+msgid "Query cache disabled"
+msgstr "查询缓存已禁用"
+
+#: libraries/advisory_rules_mysql_before80003.php:12
+msgid "The query cache is not enabled."
+msgstr "查询缓存没有启用。"
+
+#: libraries/advisory_rules_mysql_before80003.php:14
+msgid ""
+"The query cache is known to greatly improve performance if configured "
+"correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
+"and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
+"memcached, ignore this recommendation."
+msgstr ""
+"若正确设置查询缓存将带来性能上的极大提升。您可以通过设置 {query_cache_size} "
+"为 2 位数的 MB 值和设置 {query_cache_type} 为 'ON'。<b>注意:</b> 若您正在使"
+"用 memcached，请忽略此建议。"
+
+#: libraries/advisory_rules_mysql_before80003.php:18
+msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
+msgstr "query_cache_size 被设为 0 或 query_cache_type 被设为 'OFF'"
+
+#: libraries/advisory_rules_mysql_before80003.php:23
+#, fuzzy, no-php-format
+#| msgid "Query cache efficiency (%%)"
+msgid "Query cache efficiency (%)"
+msgstr "查询缓存效率 (%%)"
+
+#: libraries/advisory_rules_mysql_before80003.php:27
+msgid "Query cache not running efficiently, it has a low hit rate."
+msgstr "查询缓存命中率低。"
+
+#: libraries/advisory_rules_mysql_before80003.php:28
+msgid "Consider increasing {query_cache_limit}."
+msgstr "请考虑增加 {query_cache_limit}。"
+
+#: libraries/advisory_rules_mysql_before80003.php:29
+#, php-format
+msgid "The current query cache hit rate of %s%% is below 20%%"
+msgstr "当前查询缓存命中率为 %s%% 低于 20%%"
+
+#: libraries/advisory_rules_mysql_before80003.php:34
+msgid "Query Cache usage"
+msgstr "查询缓存使用率"
+
+#: libraries/advisory_rules_mysql_before80003.php:39
+#, fuzzy, no-php-format
+#| msgid "Less than 80%% of the query cache is being utilized."
+msgid "Less than 80% of the query cache is being utilized."
+msgstr "查询缓存使用不到 80%%。"
+
+#: libraries/advisory_rules_mysql_before80003.php:41
+msgid ""
+"This might be caused by {query_cache_limit} being too low. Flushing the "
+"query cache might help as well."
+msgstr ""
+"这可能是因为 {query_cache_limit} 太低所导致。刷新查询缓存可能会有帮助。"
+
+#: libraries/advisory_rules_mysql_before80003.php:45
+#, php-format
+msgid ""
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
+msgstr "当前空闲查询缓存内存为总查询缓存大小的 %s%%。此值应高于 80%%"
+
+#: libraries/advisory_rules_mysql_before80003.php:52
+msgid "Query cache fragmentation"
+msgstr "查询缓存碎片"
+
+#: libraries/advisory_rules_mysql_before80003.php:56
+msgid "The query cache is considerably fragmented."
+msgstr "查询缓存碎片化相当严重。"
+
+#: libraries/advisory_rules_mysql_before80003.php:58
+msgid ""
+"Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
+"This might be caused by many Query cache low memory prunes due to "
+"{query_cache_size} being too small. For a immediate but short lived fix you "
+"can flush the query cache (might lock the query cache for a long time). "
+"Carefully adjusting {query_cache_min_res_unit} to a lower value might help "
+"too, e.g. you can set it to the average size of your queries in the cache "
+"using this formula: (query_cache_size - qcache_free_memory) / "
+"qcache_queries_in_cache"
+msgstr ""
+"大量碎片很可能会增加 Qcache_lowmem_prunes 。这可能由 {query_cache_size} 过小"
+"而导致大量查询缓存低内存清理。刷新查询缓存 (可能锁住查询缓存很长时间) 可以临"
+"时解决这个问题。仔细调整 {query_cache_min_res_unit} 到一个更小的值将会有所帮"
+"助，如您可以使用下列公式来计算并设置您查询缓存大小平均值: (查询缓存大小 - 查"
+"询缓存剩余大小) / 查询缓存中的查询数量"
+
+#: libraries/advisory_rules_mysql_before80003.php:66
+#, php-format
+msgid ""
+"The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
+"that the query cache is an alternating pattern of free and used blocks. This "
+"value should be below 20%%."
+msgstr ""
+"缓存碎片的数量已经到达至 %s%%，当到 100%% 的时候那就意味着已用空间和可用空间"
+"的界线已经不清楚了，这个值会下降 20%%."
+
+#: libraries/advisory_rules_mysql_before80003.php:73
+msgid "Query cache low memory prunes"
+msgstr "查询缓存低内存清理"
+
+#: libraries/advisory_rules_mysql_before80003.php:77
+msgid ""
+"Cached queries are removed due to low query cache memory from the query "
+"cache."
+msgstr "在查询缓存内存过低时会清理已缓存的查询。"
+
+#: libraries/advisory_rules_mysql_before80003.php:79
+msgid ""
+"You might want to increase {query_cache_size}, however keep in mind that the "
+"overhead of maintaining the cache is likely to increase with its size, so do "
+"this in small increments and monitor the results."
+msgstr ""
+"您可能需要增加 {query_cache_size}，但请注意增加它可能会导致的维护开销，所以请"
+"慢慢增加并观察结果。"
+
+#: libraries/advisory_rules_mysql_before80003.php:84
+#, php-format
+msgid ""
+"The ratio of removed queries to inserted queries is %s%%. The lower this "
+"value is, the better (This rules firing limit: 0.1%%)"
+msgstr "删除查询比插入查询的比例是 %s%%.这个比例越小越好。（警戒比例：0.1%%）"
+
+#: libraries/advisory_rules_mysql_before80003.php:91
+msgid "Query cache max size"
+msgstr "查询缓存最大值"
+
+#: libraries/advisory_rules_mysql_before80003.php:96
+msgid ""
+"The query cache size is above 128 MiB. Big query caches may cause "
+"significant overhead that is required to maintain the cache."
+msgstr "查询缓存超过 128 MB 。过大的查询缓存可能会引起额外的维护开销。"
+
+#: libraries/advisory_rules_mysql_before80003.php:100
+msgid ""
+"Depending on your environment, it might be performance increasing to reduce "
+"this value."
+msgstr "根据您的环境，减小该值可能会带来性能上的提升。"
+
+#: libraries/advisory_rules_mysql_before80003.php:102
+#, php-format
+msgid "Current query cache size: %s"
+msgstr "当前查询缓存大小: %s"
+
+#: libraries/advisory_rules_mysql_before80003.php:107
+msgid "Query cache min result size"
+msgstr "查询缓存结果最小大小"
+
+#: libraries/advisory_rules_mysql_before80003.php:111
+msgid ""
+"The max size of the result set in the query cache is the default of 1 MiB."
+msgstr "查询缓存结果最大大小已设为默认值 1 MB 。"
+
+#: libraries/advisory_rules_mysql_before80003.php:113
+msgid ""
+"Changing {query_cache_limit} (usually by increasing) may increase "
+"efficiency. This variable determines the maximum size a query result may "
+"have to be inserted into the query cache. If there are many query results "
+"above 1 MiB that are well cacheable (many reads, little writes) then "
+"increasing {query_cache_limit} will increase efficiency. Whereas in the case "
+"of many query results being above 1 MiB that are not very well cacheable "
+"(often invalidated due to table updates) increasing {query_cache_limit} "
+"might reduce efficiency."
+msgstr ""
+"修改 {query_cache_limit} (通常是增加) 可能提升效率。该变量决定可能要插入到查"
+"询缓存中查询结果的最大大小。若多数超过 1 MB 的查询结果能很好的缓存 (多读、少"
+"写) 则增加 {query_cache_limit} 将会提升效率。若多数超过 1 MB 的查询结果不能很"
+"好的缓存 (通常因为表更新而失效) 增加 {query_cache_limit} 将会降低效率。"
+
+#: libraries/advisory_rules_mysql_before80003.php:120
+msgid "query_cache_limit is set to 1 MiB"
+msgstr "query_cache_limit 已被设为 1 MB"
+
+#: libraries/classes/Advisor.php:232
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "评估时发生错误：%s"
 
-#: libraries/classes/Advisor.php:348
+#: libraries/classes/Advisor.php:259
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "检查规则‘%s’的前提条件时出错。"
 
-#: libraries/classes/Advisor.php:365
+#: libraries/classes/Advisor.php:279
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "计算规则‘%s’的值时出错。"
 
-#: libraries/classes/Advisor.php:384
+#: libraries/classes/Advisor.php:298
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "检验规则‘%s’时出错。"
 
-#: libraries/classes/Advisor.php:467
+#: libraries/classes/Advisor.php:326
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "格式化规则‘%s’的字符串时出错。"
 
-#: libraries/classes/Advisor.php:588
-#, php-format
-msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr "文件读取失败，%s不存在或不可读，请检查！"
-
-#: libraries/classes/Advisor.php:623
-#, php-format
-msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
-msgstr "第 %1$s 行的规则声明无效，该行应是上一规则的 %2$s 声明。"
-
-#: libraries/classes/Advisor.php:642
-#, php-format
-msgid "Invalid rule declaration on line %s."
-msgstr "第 %s 行的规则声明无效。"
-
-#: libraries/classes/Advisor.php:651
-#, php-format
-msgid "Unexpected characters on line %s."
-msgstr "第 %s 行有不应出现的字符。"
-
-#: libraries/classes/Advisor.php:665
-#, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr "第 %1$s 行有不应出现的字符。应是制表符，而不是“%2$s”。"
-
-#: libraries/classes/Advisor.php:706
+#: libraries/classes/Advisor.php:404
 msgid "per second"
 msgstr "每秒"
 
-#: libraries/classes/Advisor.php:709
+#: libraries/classes/Advisor.php:407
 msgid "per minute"
 msgstr "每分钟"
 
-#: libraries/classes/Advisor.php:712
+#: libraries/classes/Advisor.php:410
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
 msgid "per hour"
 msgstr "每小时"
 
-#: libraries/classes/Advisor.php:715
+#: libraries/classes/Advisor.php:413
 msgid "per day"
 msgstr "每天"
 
@@ -108,11 +1285,11 @@ msgstr "搜索："
 #: templates/database/operations/index.twig:190
 #: templates/database/operations/index.twig:230
 #: templates/database/search/main.twig:74
-#: templates/display/import/import.twig:232
 #: templates/display/results/table.twig:175 templates/export.twig:422
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/login/form.twig:85 templates/login/form.twig:87
-#: templates/login/form.twig:90 templates/preferences/manage/main.twig:46
+#: templates/import.twig:221 templates/login/form.twig:85
+#: templates/login/form.twig:87 templates/login/form.twig:90
+#: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
 #: templates/server/privileges/add_user.twig:36
@@ -135,7 +1312,7 @@ msgstr "搜索："
 #: templates/table/operations/index.twig:88
 #: templates/table/operations/index.twig:217
 #: templates/table/operations/index.twig:306
-#: templates/table/operations/index.twig:409
+#: templates/table/operations/index.twig:461
 #: templates/table/operations/view.twig:16
 #: templates/table/relation/common_form.twig:318
 #: templates/table/search/index.twig:160
@@ -164,7 +1341,7 @@ msgid "Description"
 msgstr "说明"
 
 #: libraries/classes/BrowseForeigners.php:331
-#: libraries/classes/Html/Generator.php:1283 libraries/classes/Language.php:212
+#: libraries/classes/Html/Generator.php:1284 libraries/classes/Language.php:212
 #: libraries/classes/Pdf.php:92
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:532
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
@@ -217,10 +1394,10 @@ msgstr "不好"
 #: libraries/classes/Config/Descriptions.php:889
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:385
 #: libraries/classes/Display/Results.php:3213
-#: libraries/classes/Html/Generator.php:757
-#: libraries/classes/Html/Generator.php:1019
-#: libraries/classes/Server/UserGroups.php:125 libraries/classes/Util.php:3221
-#: libraries/classes/Util.php:3222 templates/console/bookmark_content.twig:7
+#: libraries/classes/Html/Generator.php:758
+#: libraries/classes/Html/Generator.php:1020
+#: libraries/classes/Server/UserGroups.php:125 libraries/classes/Util.php:3197
+#: libraries/classes/Util.php:3198 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:281
 #: templates/database/central_columns/main.twig:403
@@ -717,7 +1894,7 @@ msgid "No databases selected."
 msgstr "没有已选择的数据库。"
 
 #: libraries/classes/Common.php:179
-#: libraries/classes/Controllers/Table/OperationsController.php:276
+#: libraries/classes/Controllers/Table/OperationsController.php:264
 msgid "No collation provided."
 msgstr "未提供排序规则"
 
@@ -1067,14 +2244,14 @@ msgstr "首行保存字段名"
 #: libraries/classes/Config/Descriptions.php:224
 #: libraries/classes/Config/Descriptions.php:432
 #: libraries/classes/Config/Descriptions.php:443
-#: libraries/classes/Plugins/Import/ImportCsv.php:669
+#: libraries/classes/Plugins/Import/ImportCsv.php:670
 msgid "Columns enclosed with"
 msgstr "内容分隔符"
 
 #: libraries/classes/Config/Descriptions.php:225
 #: libraries/classes/Config/Descriptions.php:433
 #: libraries/classes/Config/Descriptions.php:444
-#: libraries/classes/Plugins/Import/ImportCsv.php:680
+#: libraries/classes/Plugins/Import/ImportCsv.php:681
 msgid "Columns escaped with"
 msgstr "内容转义符"
 
@@ -1096,13 +2273,13 @@ msgstr "删除内容中的回车换行符"
 #: libraries/classes/Config/Descriptions.php:228
 #: libraries/classes/Config/Descriptions.php:437
 #: libraries/classes/Config/Descriptions.php:449
-#: libraries/classes/Plugins/Import/ImportCsv.php:654
+#: libraries/classes/Plugins/Import/ImportCsv.php:655
 msgid "Columns terminated with"
 msgstr "字段分隔符"
 
 #: libraries/classes/Config/Descriptions.php:229
 #: libraries/classes/Config/Descriptions.php:431
-#: libraries/classes/Plugins/Import/ImportCsv.php:689
+#: libraries/classes/Plugins/Import/ImportCsv.php:690
 msgid "Lines terminated with"
 msgstr "换行符"
 
@@ -1422,7 +2599,7 @@ msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:337
 #: libraries/classes/Config/Descriptions.php:403 libraries/classes/Menu.php:527
-#: libraries/classes/Util.php:2496 libraries/config.values.php:155
+#: libraries/classes/Util.php:2472 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:8
 #: templates/server/privileges/user_properties.twig:20
@@ -1568,8 +2745,8 @@ msgstr "追踪数据库的改变。需要 phpMyAdmin 高级功能。"
 #: libraries/classes/Config/Descriptions.php:385 libraries/classes/Menu.php:285
 #: libraries/classes/Menu.php:402 libraries/classes/Menu.php:532
 #: libraries/classes/Navigation/Nodes/NodeTable.php:315
-#: libraries/classes/Util.php:1787 libraries/classes/Util.php:2497
-#: libraries/classes/Util.php:2512 libraries/classes/Util.php:2529
+#: libraries/classes/Util.php:1763 libraries/classes/Util.php:2473
+#: libraries/classes/Util.php:2488 libraries/classes/Util.php:2505
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -1713,8 +2890,8 @@ msgstr "部分导入：允许中断"
 
 #: libraries/classes/Config/Descriptions.php:434
 #: libraries/classes/Config/Descriptions.php:445
-#: libraries/classes/Plugins/Import/ImportCsv.php:132
-#: libraries/classes/Plugins/Import/ImportLdi.php:77
+#: libraries/classes/Plugins/Import/ImportCsv.php:133
+#: libraries/classes/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "忽略插入错误"
 
@@ -1741,7 +2918,7 @@ msgid "Format of imported file"
 msgstr "导入文件的格式"
 
 #: libraries/classes/Config/Descriptions.php:446
-#: libraries/classes/Plugins/Import/ImportLdi.php:83
+#: libraries/classes/Plugins/Import/ImportLdi.php:84
 msgid "Use LOCAL keyword"
 msgstr "使用 LOCAL 关键字"
 
@@ -1750,7 +2927,7 @@ msgid "Column names in first row"
 msgstr "首行为字段名"
 
 #: libraries/classes/Config/Descriptions.php:451
-#: libraries/classes/Plugins/Import/ImportOds.php:75
+#: libraries/classes/Plugins/Import/ImportOds.php:76
 msgid "Do not import empty rows"
 msgstr "不导入空行"
 
@@ -2926,12 +4103,12 @@ msgid "Skip locked tables"
 msgstr "跳过锁定的表"
 
 #: libraries/classes/Config/Descriptions.php:890
-#: libraries/classes/Html/Generator.php:721
+#: libraries/classes/Html/Generator.php:722
 msgid "Explain SQL"
 msgstr "解析 SQL"
 
 #: libraries/classes/Config/Descriptions.php:891
-#: libraries/classes/Export.php:603 libraries/classes/Html/Generator.php:801
+#: libraries/classes/Export.php:603 libraries/classes/Html/Generator.php:802
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
 #: templates/server/status/variables/index.twig:12
@@ -2939,7 +4116,7 @@ msgid "Refresh"
 msgstr "刷新"
 
 #: libraries/classes/Config/Descriptions.php:892
-#: libraries/classes/Html/Generator.php:786
+#: libraries/classes/Html/Generator.php:787
 msgid "Create PHP code"
 msgstr "创建 PHP 代码"
 
@@ -3048,6 +4225,7 @@ msgstr "选中一张数据表时浏览器窗口的标题。"
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/user_properties.twig:37
 #: templates/server/privileges/user_properties.twig:82
+#: templates/table/maintenance/checksum.twig:12
 #: templates/table/operations/index.twig:67
 #: templates/table/operations/index.twig:244
 #: templates/table/relation/common_form.twig:36
@@ -3315,7 +4493,7 @@ msgstr "最大 %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:194
 #: libraries/classes/Engines/Pbxt.php:168
-#: libraries/classes/Html/Generator.php:885
+#: libraries/classes/Html/Generator.php:886
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:202 templates/home/index.twig:183
 #: templates/server/variables/index.twig:17
@@ -3333,8 +4511,8 @@ msgid "Disabled"
 msgstr "已禁用"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:319
-#: libraries/classes/Controllers/Database/StructureController.php:1707
-#: libraries/classes/Controllers/Database/StructureController.php:1790
+#: libraries/classes/Controllers/Database/StructureController.php:1451
+#: libraries/classes/Controllers/Database/StructureController.php:1534
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:495
 #: libraries/classes/Controllers/Table/DeleteController.php:27
 #: libraries/classes/Controllers/Table/StructureController.php:482
@@ -3453,8 +4631,8 @@ msgstr "自定义"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:57
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
-#: libraries/classes/Util.php:1786 libraries/classes/Util.php:2511
-#: libraries/classes/Util.php:2528 libraries/classes/Util.php:3216
+#: libraries/classes/Util.php:1762 libraries/classes/Util.php:2487
+#: libraries/classes/Util.php:2504 libraries/classes/Util.php:3192
 #: libraries/config.values.php:60 libraries/config.values.php:74
 #: libraries/config.values.php:165 libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -3497,9 +4675,9 @@ msgstr "OpenOffice 文档"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:422
 #: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1614
-#: libraries/classes/Util.php:2500 libraries/classes/Util.php:2515
-#: libraries/classes/Util.php:2532 libraries/classes/Util.php:3223
-#: libraries/classes/Util.php:3224 templates/database/events/index.twig:55
+#: libraries/classes/Util.php:2476 libraries/classes/Util.php:2491
+#: libraries/classes/Util.php:2508 libraries/classes/Util.php:3199
+#: libraries/classes/Util.php:3200 templates/database/events/index.twig:55
 #: templates/database/events/index.twig:87
 #: templates/database/events/index.twig:88
 #: templates/database/events/row.twig:33
@@ -3542,9 +4720,9 @@ msgstr "CSV 使用 LOAD DATA"
 #: libraries/classes/Config/Forms/User/ImportForm.php:65
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:305
 #: libraries/classes/Menu.php:316 libraries/classes/Menu.php:432
-#: libraries/classes/Menu.php:565 libraries/classes/Util.php:2501
-#: libraries/classes/Util.php:2516 libraries/classes/Util.php:2533
-#: templates/display/import/import.twig:38 templates/preferences/header.twig:48
+#: libraries/classes/Menu.php:565 libraries/classes/Util.php:2477
+#: libraries/classes/Util.php:2492 libraries/classes/Util.php:2509
+#: templates/import.twig:33 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
 msgid "Import"
@@ -3787,20 +4965,27 @@ msgstr "该系统上没有文件 %s，请访问 %s 获取更多信息。"
 msgid "Showing rows %1$s - %2$s."
 msgstr "正在显示第 %1$s - %2$s 行。"
 
-#: libraries/classes/Controllers/Database/ExportController.php:78
+#: libraries/classes/Controllers/Database/ExportController.php:77
 #: libraries/classes/Controllers/Database/TrackingController.php:125
-#: libraries/classes/Controllers/ExportController.php:457
+#: libraries/classes/Controllers/ExportController.php:461
 #: libraries/classes/Database/Qbe.php:359
 #: templates/database/structure/index.twig:19
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "数据库中没有表。"
 
-#: libraries/classes/Controllers/Database/ExportController.php:156
-#: libraries/classes/Controllers/Server/ExportController.php:72
-#: libraries/classes/Controllers/Table/ExportController.php:128
+#: libraries/classes/Controllers/Database/ExportController.php:151
+#: libraries/classes/Controllers/Server/ExportController.php:67
+#: libraries/classes/Controllers/Table/ExportController.php:123
 msgid "Could not load export plugins, please check your installation!"
 msgstr "无法加载导出插件，请检查安装！"
+
+#: libraries/classes/Controllers/Database/ImportController.php:53
+#: libraries/classes/Controllers/ImportController.php:619
+#: libraries/classes/Controllers/Server/ImportController.php:41
+#: libraries/classes/Controllers/Table/ImportController.php:45
+msgid "Could not load import plugins, please check your installation!"
+msgstr "无法加载导入插件，请检查您的安装！"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:97
 #: libraries/classes/Controllers/Table/CreateController.php:76
@@ -3840,20 +5025,20 @@ msgid "Favorite List is full!"
 msgstr "收藏夹数量已达上限！"
 
 #: libraries/classes/Controllers/Database/StructureController.php:550
-#: templates/table/operations/index.twig:356
+#: templates/table/operations/index.twig:408
 #: templates/table/operations/view.twig:27
 #, php-format
 msgid "View %s has been dropped."
 msgstr "已删除视图 %s。"
 
 #: libraries/classes/Controllers/Database/StructureController.php:551
-#: templates/table/operations/index.twig:356
+#: templates/table/operations/index.twig:408
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "已删除表 %s。"
 
 #: libraries/classes/Controllers/Database/StructureController.php:607
-#: templates/table/operations/index.twig:335
+#: templates/table/operations/index.twig:387
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "已清空表 %s。"
@@ -3880,11 +5065,11 @@ msgstr "未知"
 #: libraries/classes/Controllers/Database/StructureController.php:1339
 #: libraries/classes/Controllers/Database/StructureController.php:1369
 #: libraries/classes/Controllers/Database/StructureController.php:1420
-#: libraries/classes/Controllers/Database/StructureController.php:1449
-#: libraries/classes/Controllers/Database/StructureController.php:1501
-#: libraries/classes/Controllers/Database/StructureController.php:1552
-#: libraries/classes/Controllers/Database/StructureController.php:1603
-#: libraries/classes/Controllers/Database/StructureController.php:1654
+#: libraries/classes/Controllers/Table/MaintenanceController.php:47
+#: libraries/classes/Controllers/Table/MaintenanceController.php:82
+#: libraries/classes/Controllers/Table/MaintenanceController.php:120
+#: libraries/classes/Controllers/Table/MaintenanceController.php:156
+#: libraries/classes/Controllers/Table/MaintenanceController.php:191
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
@@ -3896,9 +5081,9 @@ msgstr "没有已选择的表。"
 msgid "Success!"
 msgstr "成功！"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1708
-#: libraries/classes/Controllers/Database/StructureController.php:1791
-#: libraries/classes/Controllers/Table/OperationsController.php:325
+#: libraries/classes/Controllers/Database/StructureController.php:1452
+#: libraries/classes/Controllers/Database/StructureController.php:1535
+#: libraries/classes/Controllers/Table/OperationsController.php:313
 #: libraries/classes/Controllers/Table/ReplaceController.php:391
 #: libraries/classes/Core.php:856 templates/preview_sql.twig:3
 msgid "No change"
@@ -3947,12 +5132,12 @@ msgstr "如果您遇到问题，请手动提交漏洞报告。"
 msgid "You may want to refresh the page."
 msgstr "您需要刷新当前页面。"
 
-#: libraries/classes/Controllers/ExportController.php:240
+#: libraries/classes/Controllers/ExportController.php:241
 #: libraries/classes/Export.php:1347
 msgid "Bad type!"
 msgstr "类型无效！"
 
-#: libraries/classes/Controllers/ExportController.php:342
+#: libraries/classes/Controllers/ExportController.php:346
 msgid "Bad parameters!"
 msgstr "参数无效！"
 
@@ -4072,37 +5257,37 @@ msgstr ""
 "变量 $cfg['TempDir'] （%s）无法访问。phpMyAdmin无法缓存模板文件，所以会运行缓"
 "慢。"
 
-#: libraries/classes/Controllers/ImportController.php:114
+#: libraries/classes/Controllers/ImportController.php:113
 msgid "Incomplete params"
 msgstr "不完整的参数"
 
-#: libraries/classes/Controllers/ImportController.php:139
+#: libraries/classes/Controllers/ImportController.php:138
 msgid "Succeeded"
 msgstr "成功"
 
-#: libraries/classes/Controllers/ImportController.php:143
+#: libraries/classes/Controllers/ImportController.php:142
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid "Failed"
 msgstr "失败"
 
-#: libraries/classes/Controllers/ImportController.php:245
+#: libraries/classes/Controllers/ImportController.php:244
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr "您想要上传的文件可能太大了，请参考%s文档%s来寻找解决方法。"
 
-#: libraries/classes/Controllers/ImportController.php:425
-#: libraries/classes/Controllers/ImportController.php:643
+#: libraries/classes/Controllers/ImportController.php:423
+#: libraries/classes/Controllers/ImportController.php:659
 msgid "Showing bookmark"
 msgstr "显示书签"
 
-#: libraries/classes/Controllers/ImportController.php:449
-#: libraries/classes/Controllers/ImportController.php:639
+#: libraries/classes/Controllers/ImportController.php:447
+#: libraries/classes/Controllers/ImportController.php:655
 msgid "The bookmark has been deleted."
 msgstr "已删除书签。"
 
-#: libraries/classes/Controllers/ImportController.php:546
+#: libraries/classes/Controllers/ImportController.php:561
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -4111,25 +5296,20 @@ msgstr ""
 "没有接收到要导入的数据。可能是文件名没有提交，也可能是文件大小超出 PHP 限制。"
 "参见[doc@faq1-16]常见问题 1.16[/doc]。"
 
-#: libraries/classes/Controllers/ImportController.php:603
-#: libraries/classes/Display/Import.php:62
-msgid "Could not load import plugins, please check your installation!"
-msgstr "无法加载导入插件，请检查您的安装！"
-
-#: libraries/classes/Controllers/ImportController.php:646
-#: libraries/classes/Controllers/SqlController.php:355
-#: libraries/classes/Sql.php:1382
+#: libraries/classes/Controllers/ImportController.php:662
+#: libraries/classes/Controllers/SqlController.php:371
+#: libraries/classes/Sql.php:1257
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已创建书签 %s。"
 
-#: libraries/classes/Controllers/ImportController.php:656
+#: libraries/classes/Controllers/ImportController.php:672
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "导入成功，执行了 %d 个查询。"
 
-#: libraries/classes/Controllers/ImportController.php:687
+#: libraries/classes/Controllers/ImportController.php:703
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -4137,7 +5317,7 @@ msgid ""
 msgstr ""
 "脚本超时，如果您要完成导入，请%s重新提交相同的文件%s，导入将会继续进行。"
 
-#: libraries/classes/Controllers/ImportController.php:697
+#: libraries/classes/Controllers/ImportController.php:713
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -4145,8 +5325,8 @@ msgstr ""
 "在最后一次执行时没有数据被解析，建议您增加 PHP 运行时间限制，否则 phpMyAdmin "
 "将无法完成导入操作。"
 
-#: libraries/classes/Controllers/ImportController.php:771
-#: libraries/classes/Controllers/SqlController.php:166
+#: libraries/classes/Controllers/ImportController.php:787
+#: libraries/classes/Controllers/SqlController.php:168
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "已禁用“删除数据库”语句。"
 
@@ -4386,7 +5566,7 @@ msgid "Matched rows:"
 msgstr "受影响的行数："
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:115
-#: libraries/classes/Html/Generator.php:991 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:992 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL 查询："
 
@@ -4455,13 +5635,13 @@ msgstr "其它"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
-#: libraries/classes/Util.php:630 libraries/classes/Util.php:662
+#: libraries/classes/Util.php:606 libraries/classes/Util.php:638
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
-#: libraries/classes/Util.php:628 libraries/classes/Util.php:660
+#: libraries/classes/Util.php:604 libraries/classes/Util.php:636
 msgid "."
 msgstr "."
 
@@ -4568,45 +5748,45 @@ msgstr "进程"
 
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:182
-#: libraries/classes/Util.php:540
+#: libraries/classes/Util.php:516
 msgid "B"
 msgstr "字节"
 
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:183
-#: libraries/classes/Util.php:542
+#: libraries/classes/Util.php:518
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:184
-#: libraries/classes/Util.php:544
+#: libraries/classes/Util.php:520
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:185
-#: libraries/classes/Util.php:546
+#: libraries/classes/Util.php:522
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:186
-#: libraries/classes/Util.php:548
+#: libraries/classes/Util.php:524
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:187
-#: libraries/classes/Util.php:550
+#: libraries/classes/Util.php:526
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:188
-#: libraries/classes/Util.php:552
+#: libraries/classes/Util.php:528
 msgid "EiB"
 msgstr "EB"
 
@@ -4626,7 +5806,7 @@ msgid "Traffic"
 msgstr "流量"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
-#: libraries/classes/Menu.php:570 libraries/classes/Util.php:2502
+#: libraries/classes/Menu.php:570 libraries/classes/Util.php:2478
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "设置"
@@ -4847,7 +6027,7 @@ msgstr "解析输出"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:268
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Menu.php:537 libraries/classes/Util.php:2498
+#: libraries/classes/Menu.php:537 libraries/classes/Util.php:2474
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:18
 #: templates/database/events/index.twig:18
@@ -5095,9 +6275,8 @@ msgstr "正在修改字符集"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:352
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16
-#: templates/display/import/import.twig:204 templates/sql/query.twig:131
-#: templates/table/delete/confirm.twig:25
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:193
+#: templates/sql/query.twig:131 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "启用外键约束"
 
@@ -5181,7 +6360,7 @@ msgstr "%d 不是有效行数。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 #: libraries/classes/Controllers/Table/ChangeController.php:200
-#: libraries/classes/Controllers/Table/SearchController.php:356
+#: libraries/classes/Controllers/Table/SearchController.php:353
 #: libraries/classes/Controllers/Table/ZoomSearchController.php:389
 #: libraries/classes/Controllers/Table/ZoomSearchController.php:431
 #: templates/sql/relational_column_dropdown.twig:3
@@ -5299,7 +6478,7 @@ msgstr "没有已选择的局部依赖！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:591
-#: libraries/classes/Export.php:598 libraries/classes/Html/Generator.php:1095
+#: libraries/classes/Export.php:598 libraries/classes/Html/Generator.php:1096
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:307
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -5433,7 +6612,7 @@ msgstr "忽略"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 #: libraries/classes/Display/Results.php:3217
-#: libraries/classes/Html/Generator.php:70
+#: libraries/classes/Html/Generator.php:71
 #: templates/display/results/table.twig:214
 #: templates/display/results/table.twig:215
 msgid "Copy"
@@ -5802,9 +6981,9 @@ msgid "up to date"
 msgstr "已更新"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/Display/Results.php:4625
 #: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:284 templates/view_create.twig:11
+#: templates/display/results/table.twig:284
+#: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "新建视图"
 
@@ -7130,21 +8309,21 @@ msgstr "默认服务器"
 msgid "End of line"
 msgstr "换行符"
 
-#: libraries/classes/Controllers/SqlController.php:362
+#: libraries/classes/Controllers/SqlController.php:378
 msgid "Bookmark not created!"
 msgstr "未创建书签！"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:134
 #: libraries/classes/Controllers/Table/StructureController.php:1023
-#: libraries/classes/Controllers/Table/StructureController.php:1245
+#: libraries/classes/Controllers/Table/StructureController.php:1242
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "已成功修改表 %1$s。"
 
 #: libraries/classes/Controllers/Table/ChangeController.php:312
-#: libraries/classes/Controllers/Table/DeleteController.php:96
-#: libraries/classes/Controllers/Table/ExportController.php:157
+#: libraries/classes/Controllers/Table/DeleteController.php:93
+#: libraries/classes/Controllers/Table/ExportController.php:152
 msgid "No row selected."
 msgstr "没有选中任何行。"
 
@@ -7174,6 +8353,11 @@ msgstr "数据表 %s 已存在！"
 
 #: libraries/classes/Controllers/Table/DeleteController.php:52
 #: libraries/classes/Controllers/Table/FindReplaceController.php:180
+#: libraries/classes/Controllers/Table/MaintenanceController.php:62
+#: libraries/classes/Controllers/Table/MaintenanceController.php:97
+#: libraries/classes/Controllers/Table/MaintenanceController.php:135
+#: libraries/classes/Controllers/Table/MaintenanceController.php:171
+#: libraries/classes/Controllers/Table/MaintenanceController.php:206
 #: libraries/classes/Controllers/Table/RelationController.php:275
 #: libraries/classes/Controllers/ViewOperationsController.php:75
 #: libraries/classes/Database/Routines.php:1534
@@ -7196,12 +8380,20 @@ msgstr "有太多的联合查询未使用索引。"
 #: libraries/classes/Controllers/Table/GetFieldController.php:65
 #: libraries/classes/Database/Routines.php:1555
 #: libraries/classes/Import.php:159 libraries/classes/InsertEdit.php:225
-#: libraries/classes/Sql.php:1197
+#: libraries/classes/Sql.php:1055
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 返回的查询结果为空 (即零行)。"
 
-#: libraries/classes/Controllers/Table/OperationsController.php:110
-#: libraries/classes/Controllers/Table/OperationsController.php:307
+#: libraries/classes/Controllers/Table/MaintenanceController.php:54
+#: libraries/classes/Controllers/Table/MaintenanceController.php:89
+#: libraries/classes/Controllers/Table/MaintenanceController.php:127
+#: libraries/classes/Controllers/Table/MaintenanceController.php:163
+#: libraries/classes/Controllers/Table/MaintenanceController.php:198
+msgid "Maintenance operations on multiple tables are disabled."
+msgstr ""
+
+#: libraries/classes/Controllers/Table/OperationsController.php:108
+#: libraries/classes/Controllers/Table/OperationsController.php:295
 #: libraries/classes/Controllers/Table/StructureController.php:126
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
 #: templates/database/structure/show_create.twig:32
@@ -7247,26 +8439,26 @@ msgid "Failed to get description of column %s!"
 msgstr "读取表 %s 的时候出现错误！"
 
 #: libraries/classes/Controllers/Table/StructureController.php:1015
-#: libraries/classes/Controllers/Table/StructureController.php:1296
+#: libraries/classes/Controllers/Table/StructureController.php:1293
 #: libraries/classes/Tracking.php:795
 msgid "Query error"
 msgstr "查询错误"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1239
+#: libraries/classes/Controllers/Table/StructureController.php:1236
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "已成功修改表 %1$s。已调整权限。"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1478
+#: libraries/classes/Controllers/Table/StructureController.php:1475
 #: templates/table/structure/display_structure.twig:286
 msgid "Change"
 msgstr "修改"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1479
-#: libraries/classes/Controllers/Table/StructureController.php:1480
-#: libraries/classes/Operations.php:712 libraries/classes/Util.php:3217
-#: libraries/classes/Util.php:3218 templates/database/events/index.twig:64
+#: libraries/classes/Controllers/Table/StructureController.php:1476
+#: libraries/classes/Controllers/Table/StructureController.php:1477
+#: libraries/classes/Operations.php:620 libraries/classes/Util.php:3193
+#: libraries/classes/Util.php:3194 templates/database/events/index.twig:64
 #: templates/database/events/index.twig:70
 #: templates/database/events/index.twig:90
 #: templates/database/events/index.twig:91
@@ -7290,9 +8482,9 @@ msgstr "修改"
 msgid "Drop"
 msgstr "删除"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1481
-#: libraries/classes/Controllers/Table/StructureController.php:1486
-#: libraries/classes/Controllers/Table/StructureController.php:1542
+#: libraries/classes/Controllers/Table/StructureController.php:1478
+#: libraries/classes/Controllers/Table/StructureController.php:1483
+#: libraries/classes/Controllers/Table/StructureController.php:1539
 #: templates/columns_definitions/column_indexes.twig:4
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:294
@@ -7300,9 +8492,9 @@ msgstr "删除"
 msgid "Primary"
 msgstr "主键"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1482
-#: libraries/classes/Controllers/Table/StructureController.php:1487
-#: libraries/classes/Controllers/Table/StructureController.php:1547
+#: libraries/classes/Controllers/Table/StructureController.php:1479
+#: libraries/classes/Controllers/Table/StructureController.php:1484
+#: libraries/classes/Controllers/Table/StructureController.php:1544
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_indexes.twig:12
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -7312,8 +8504,8 @@ msgstr "主键"
 msgid "Index"
 msgstr "索引"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1483
-#: libraries/classes/Controllers/Table/StructureController.php:1488
+#: libraries/classes/Controllers/Table/StructureController.php:1480
+#: libraries/classes/Controllers/Table/StructureController.php:1485
 #: templates/columns_definitions/column_indexes.twig:8
 #: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:17
 #: templates/table/relation/common_form.twig:237
@@ -7323,25 +8515,25 @@ msgstr "索引"
 msgid "Unique"
 msgstr "唯一"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1484
-#: libraries/classes/Controllers/Table/StructureController.php:1489
+#: libraries/classes/Controllers/Table/StructureController.php:1481
+#: libraries/classes/Controllers/Table/StructureController.php:1486
 #: templates/columns_definitions/column_indexes.twig:20
 #: templates/table/structure/display_structure.twig:303
 msgid "Spatial"
 msgstr "空间"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1485
-#: libraries/classes/Controllers/Table/StructureController.php:1490
+#: libraries/classes/Controllers/Table/StructureController.php:1482
+#: libraries/classes/Controllers/Table/StructureController.php:1487
 #: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/display_structure.twig:306
 msgid "Fulltext"
 msgstr "全文搜索"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1491
+#: libraries/classes/Controllers/Table/StructureController.php:1488
 msgid "Distinct values"
 msgstr "非重复值 (DISTINCT)"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1809
+#: libraries/classes/Controllers/Table/StructureController.php:1806
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -7378,13 +8570,13 @@ msgid "View name can not be empty!"
 msgstr "视图名不可为空！"
 
 #: libraries/classes/Controllers/ViewOperationsController.php:78
-#: libraries/classes/Html/Generator.php:967 libraries/classes/Import.php:140
+#: libraries/classes/Html/Generator.php:968 libraries/classes/Import.php:140
 #: libraries/classes/InsertEdit.php:1583 libraries/classes/Message.php:197
 #: templates/error/generic.twig:37 templates/javascript/variables.twig:108
 msgid "Error"
 msgstr "错误"
 
-#: libraries/classes/Core.php:359
+#: libraries/classes/Core.php:359 libraries/classes/ZipExtension.php:60
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "缺少 %s 扩展。请检查 PHP 配置。"
@@ -7470,7 +8662,7 @@ msgstr "错误：内联关系无法移除！"
 msgid "Internal relationship has been removed."
 msgstr "已移除内联关系。"
 
-#: libraries/classes/Database/Designer.php:144
+#: libraries/classes/Database/Designer.php:137
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "无法加载schema插件，请检查您的安装！"
 
@@ -7501,7 +8693,7 @@ msgstr "下列查询失败了: \"%s\""
 #: libraries/classes/Database/Triggers.php:144
 #: libraries/classes/Database/Triggers.php:169
 #: libraries/classes/Database/Triggers.php:550
-#: libraries/classes/Html/Generator.php:1039
+#: libraries/classes/Html/Generator.php:1040
 msgid "MySQL said: "
 msgstr "MySQL 返回： "
 
@@ -7746,11 +8938,11 @@ msgstr "方向"
 #: libraries/classes/Plugins/Export/ExportXml.php:89
 #: libraries/classes/Plugins/Export/ExportYaml.php:43
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:31
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:60
-#: libraries/classes/Plugins/Import/ImportOds.php:52
-#: libraries/classes/Plugins/Import/ImportShp.php:66
-#: libraries/classes/Plugins/Import/ImportSql.php:45
-#: libraries/classes/Plugins/Import/ImportXml.php:51
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:61
+#: libraries/classes/Plugins/Import/ImportOds.php:53
+#: libraries/classes/Plugins/Import/ImportShp.php:68
+#: libraries/classes/Plugins/Import/ImportSql.php:46
+#: libraries/classes/Plugins/Import/ImportXml.php:52
 #: templates/console/display.twig:7 templates/console/display.twig:140
 #: templates/database/designer/database_tables.twig:114
 #: templates/display/results/table.twig:107
@@ -8052,31 +9244,31 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "服务器要求 SSL 连接，已自动启用 SSL。"
 
 #: libraries/classes/Display/Results.php:911
-#: libraries/classes/Html/Generator.php:1295
-#: libraries/classes/Html/Generator.php:1298
+#: libraries/classes/Html/Generator.php:1296
+#: libraries/classes/Html/Generator.php:1299
 msgctxt "First page"
 msgid "Begin"
 msgstr "首页"
 
 #: libraries/classes/Display/Results.php:918
-#: libraries/classes/Html/Generator.php:1296
-#: libraries/classes/Html/Generator.php:1299
+#: libraries/classes/Html/Generator.php:1297
+#: libraries/classes/Html/Generator.php:1300
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "上一页"
 
 #: libraries/classes/Display/Results.php:946
-#: libraries/classes/Html/Generator.php:1328
-#: libraries/classes/Html/Generator.php:1335
+#: libraries/classes/Html/Generator.php:1329
+#: libraries/classes/Html/Generator.php:1336
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "下一页"
 
 #: libraries/classes/Display/Results.php:976
-#: libraries/classes/Html/Generator.php:1329
-#: libraries/classes/Html/Generator.php:1336
+#: libraries/classes/Html/Generator.php:1330
+#: libraries/classes/Html/Generator.php:1337
 msgctxt "Last page"
 msgid "End"
 msgstr "尾页"
@@ -8092,8 +9284,8 @@ msgid "Full texts"
 msgstr "完整内容"
 
 #: libraries/classes/Display/Results.php:1942
-#: libraries/classes/Display/Results.php:1968 libraries/classes/Util.php:3137
-#: libraries/classes/Util.php:3160 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1968 libraries/classes/Util.php:3113
+#: libraries/classes/Util.php:3136 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:61
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:114
@@ -8106,8 +9298,8 @@ msgid "Descending"
 msgstr "递减"
 
 #: libraries/classes/Display/Results.php:1950
-#: libraries/classes/Display/Results.php:1960 libraries/classes/Util.php:3129
-#: libraries/classes/Util.php:3152 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1960 libraries/classes/Util.php:3105
+#: libraries/classes/Util.php:3128 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:60
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:112
@@ -8148,17 +9340,12 @@ msgstr "总数为 %1$d，查询包含 %2$d"
 msgid "%d total"
 msgstr "共 %d 行"
 
-#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1203
+#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1061
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查询花费 %01.4f 秒。"
 
-#: libraries/classes/Display/Results.php:4614
-#: templates/display/results/table.twig:242
-msgid "Query results operations"
-msgstr "查询结果操作"
-
-#: libraries/classes/Display/Results.php:4867
+#: libraries/classes/Display/Results.php:4831
 msgid "Link not found!"
 msgstr "找不到链接！"
 
@@ -8516,61 +9703,61 @@ msgstr "已保存转储到文件 %s 中。"
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
-#: libraries/classes/File.php:285
+#: libraries/classes/File.php:286
 msgid "File was not an uploaded file."
 msgstr "文件不是上传的文件。"
 
-#: libraries/classes/File.php:325
+#: libraries/classes/File.php:326
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "上传文件的大小超过 php.ini 文件中 upload_max_filesize 的限制。"
 
-#: libraries/classes/File.php:331
+#: libraries/classes/File.php:332
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr "上传文件的大小超过 HTML 表单中 MAX_FILE_SIZE 的限制。"
 
-#: libraries/classes/File.php:337
+#: libraries/classes/File.php:338
 msgid "The uploaded file was only partially uploaded."
 msgstr "文件没有完全上传。"
 
-#: libraries/classes/File.php:341
+#: libraries/classes/File.php:342
 msgid "Missing a temporary folder."
 msgstr "找不到临时文件夹。"
 
-#: libraries/classes/File.php:344
+#: libraries/classes/File.php:345
 msgid "Failed to write file to disk."
 msgstr "向磁盘写入文件失败。"
 
-#: libraries/classes/File.php:347
+#: libraries/classes/File.php:348
 msgid "File upload stopped by extension."
 msgstr "扩展停止了文件上传。"
 
-#: libraries/classes/File.php:350
+#: libraries/classes/File.php:351
 msgid "Unknown error in file upload."
 msgstr "上传文件时发生未知错误。"
 
-#: libraries/classes/File.php:498
+#: libraries/classes/File.php:499
 msgid "File is a symbolic link"
 msgstr "文件是一个符号链接"
 
-#: libraries/classes/File.php:504 libraries/classes/File.php:603
+#: libraries/classes/File.php:505 libraries/classes/File.php:604
 msgid "File could not be read!"
 msgstr "无法读取文件！"
 
-#: libraries/classes/File.php:547
+#: libraries/classes/File.php:548
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr "移动已上传的文件时发生错误，参见[doc@faq1-11]常见问题 1.11[/doc]。"
 
-#: libraries/classes/File.php:567
+#: libraries/classes/File.php:568
 msgid "Error while moving uploaded file."
 msgstr "移动已上传的文件时发生错误。"
 
-#: libraries/classes/File.php:576
+#: libraries/classes/File.php:577
 msgid "Cannot read uploaded file."
 msgstr "无法读取上传的文件。"
 
-#: libraries/classes/File.php:654
+#: libraries/classes/File.php:655
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -8602,79 +9789,79 @@ msgstr "打开新的 phpMyAdmin 窗口"
 msgid "Print view"
 msgstr "打印预览"
 
-#: libraries/classes/Html/Generator.php:157
+#: libraries/classes/Html/Generator.php:158
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "转到数据库 “%s”。"
 
-#: libraries/classes/Html/Generator.php:183
+#: libraries/classes/Html/Generator.php:184
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "功能 %s 受到一个已知缺陷的影响，参见 %s"
 
-#: libraries/classes/Html/Generator.php:296
+#: libraries/classes/Html/Generator.php:297
 msgid "SSL is not being used"
 msgstr "SSL未被使用"
 
-#: libraries/classes/Html/Generator.php:301
+#: libraries/classes/Html/Generator.php:302
 msgid "SSL is used with disabled verification"
 msgstr "SSL在禁用验证的状态下使用"
 
-#: libraries/classes/Html/Generator.php:303
+#: libraries/classes/Html/Generator.php:304
 msgid "SSL is used without certification authority"
 msgstr "SSL在没有证书颁发机构的情况下使用"
 
-#: libraries/classes/Html/Generator.php:306
+#: libraries/classes/Html/Generator.php:307
 msgid "SSL is used"
 msgstr "已使用SSL"
 
-#: libraries/classes/Html/Generator.php:429
+#: libraries/classes/Html/Generator.php:430
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:430
+#: libraries/classes/Html/Generator.php:431
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:732
+#: libraries/classes/Html/Generator.php:733
 msgid "Skip Explain SQL"
 msgstr "略过解析 SQL"
 
-#: libraries/classes/Html/Generator.php:740
+#: libraries/classes/Html/Generator.php:741
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "分析解释了%s"
 
-#: libraries/classes/Html/Generator.php:770
+#: libraries/classes/Html/Generator.php:771
 msgid "Without PHP code"
 msgstr "无 PHP 代码"
 
-#: libraries/classes/Html/Generator.php:777
+#: libraries/classes/Html/Generator.php:778
 #: templates/database/multi_table_query/form.twig:170
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "提交查询"
 
-#: libraries/classes/Html/Generator.php:822 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:823 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "性能分析"
 
-#: libraries/classes/Html/Generator.php:836
+#: libraries/classes/Html/Generator.php:837
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "编辑内嵌"
 
-#: libraries/classes/Html/Generator.php:974
+#: libraries/classes/Html/Generator.php:975
 msgid "Static analysis:"
 msgstr "静态分析："
 
-#: libraries/classes/Html/Generator.php:977
+#: libraries/classes/Html/Generator.php:978
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "分析时发现%d个错误。"
 
-#: libraries/classes/Import.php:325 libraries/classes/Sql.php:1211
+#: libraries/classes/Import.php:325 libraries/classes/Sql.php:1069
 msgid "[ROLLBACK occurred.]"
 msgstr "[发生 ROLLBACK.]"
 
@@ -8721,11 +9908,11 @@ msgstr "%s 的结构"
 msgid "Go to view: %s"
 msgstr "转到视图: %s"
 
-#: libraries/classes/Import.php:1465
+#: libraries/classes/Import.php:1437
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "只能预览单一数据表的UPDATE和DELETE查询。"
 
-#: libraries/classes/Import.php:1692
+#: libraries/classes/Import.php:1664
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -8752,9 +9939,8 @@ msgstr "因长度问题，<br> 该字段可能无法编辑。"
 msgid "Binary - do not edit"
 msgstr "二进制 - 无法编辑"
 
-#: libraries/classes/InsertEdit.php:1584
-#: templates/display/import/import.twig:89
-#: templates/display/import/import.twig:119
+#: libraries/classes/InsertEdit.php:1584 templates/import.twig:78
+#: templates/import.twig:108
 msgid "The directory you set for upload work cannot be reached."
 msgstr "无法访问用于上传的文件夹。"
 
@@ -8847,11 +10033,11 @@ msgstr "按 TAB 键跳到下一个数值，或 CTRL+方向键 作随意移动."
 msgid "Column"
 msgstr "字段"
 
-#: libraries/classes/InsertEdit.php:2410 libraries/classes/Sql.php:1194
+#: libraries/classes/InsertEdit.php:2410 libraries/classes/Sql.php:1052
 msgid "Showing SQL query"
 msgstr "显示 SQL 查询"
 
-#: libraries/classes/InsertEdit.php:2436 libraries/classes/Sql.php:1172
+#: libraries/classes/InsertEdit.php:2436 libraries/classes/Sql.php:1030
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "插入的行 id: %1$d"
@@ -8878,8 +10064,8 @@ msgstr "%1$s (<code>%2$s</code> 附近)"
 
 #: libraries/classes/Menu.php:270
 #: libraries/classes/Navigation/Nodes/NodeTable.php:318
-#: libraries/classes/Util.php:1790 libraries/classes/Util.php:2527
-#: libraries/classes/Util.php:3210 libraries/classes/Util.php:3211
+#: libraries/classes/Util.php:1766 libraries/classes/Util.php:2503
+#: libraries/classes/Util.php:3186 libraries/classes/Util.php:3187
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/table/structure/display_structure.twig:281
@@ -8888,9 +10074,9 @@ msgstr "浏览"
 
 #: libraries/classes/Menu.php:289 libraries/classes/Menu.php:406
 #: libraries/classes/Navigation/Nodes/NodeTable.php:309
-#: libraries/classes/Util.php:1788 libraries/classes/Util.php:2513
-#: libraries/classes/Util.php:2530 libraries/classes/Util.php:3212
-#: libraries/classes/Util.php:3213 libraries/config.values.php:64
+#: libraries/classes/Util.php:1764 libraries/classes/Util.php:2489
+#: libraries/classes/Util.php:2506 libraries/classes/Util.php:3188
+#: libraries/classes/Util.php:3189 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179
 msgid "Search"
@@ -8898,8 +10084,8 @@ msgstr "搜索"
 
 #: libraries/classes/Menu.php:300
 #: libraries/classes/Navigation/Nodes/NodeTable.php:312
-#: libraries/classes/Util.php:1789 libraries/classes/Util.php:2531
-#: libraries/classes/Util.php:3214 libraries/classes/Util.php:3215
+#: libraries/classes/Util.php:1765 libraries/classes/Util.php:2507
+#: libraries/classes/Util.php:3190 libraries/classes/Util.php:3191
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -8908,8 +10094,8 @@ msgid "Insert"
 msgstr "插入"
 
 #: libraries/classes/Menu.php:327 libraries/classes/Menu.php:446
-#: libraries/classes/Server/Privileges.php:2964 libraries/classes/Util.php:2518
-#: libraries/classes/Util.php:2534 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2964 libraries/classes/Util.php:2494
+#: libraries/classes/Util.php:2510 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -8918,15 +10104,15 @@ msgid "Privileges"
 msgstr "权限"
 
 #: libraries/classes/Menu.php:337 libraries/classes/Menu.php:346
-#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1791
-#: libraries/classes/Util.php:2517 libraries/classes/Util.php:2535
+#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1767
+#: libraries/classes/Util.php:2493 libraries/classes/Util.php:2511
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "操作"
 
 #: libraries/classes/Menu.php:352 libraries/classes/Menu.php:472
-#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2522
-#: libraries/classes/Util.php:2536
+#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2498
+#: libraries/classes/Util.php:2512
 msgid "Tracking"
 msgstr "追踪"
 
@@ -8938,7 +10124,7 @@ msgstr "追踪"
 #: libraries/classes/Plugins/Export/ExportSql.php:2157
 #: libraries/classes/Plugins/Export/ExportTexytext.php:553
 #: libraries/classes/Plugins/Export/ExportXml.php:135
-#: libraries/classes/Util.php:2521 libraries/classes/Util.php:2537
+#: libraries/classes/Util.php:2497 libraries/classes/Util.php:2513
 #: templates/database/triggers/list.twig:6
 msgid "Triggers"
 msgstr "触发器"
@@ -8948,11 +10134,11 @@ msgstr "触发器"
 msgid "Database seems to be empty!"
 msgstr "数据库是空的！"
 
-#: libraries/classes/Menu.php:414 libraries/classes/Util.php:2514
+#: libraries/classes/Menu.php:414 libraries/classes/Util.php:2490
 msgid "Query"
 msgstr "查询"
 
-#: libraries/classes/Menu.php:452 libraries/classes/Util.php:2519
+#: libraries/classes/Menu.php:452 libraries/classes/Util.php:2495
 #: templates/database/routines/list.twig:6
 msgid "Routines"
 msgstr "程序"
@@ -8961,15 +10147,15 @@ msgstr "程序"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:24
 #: libraries/classes/Plugins/Export/ExportSql.php:1017
 #: libraries/classes/Plugins/Export/ExportXml.php:115
-#: libraries/classes/Util.php:2520 templates/database/events/index.twig:6
+#: libraries/classes/Util.php:2496 templates/database/events/index.twig:6
 msgid "Events"
 msgstr "事件"
 
-#: libraries/classes/Menu.php:479 libraries/classes/Util.php:2523
+#: libraries/classes/Menu.php:479 libraries/classes/Util.php:2499
 msgid "Designer"
 msgstr "设计器"
 
-#: libraries/classes/Menu.php:488 libraries/classes/Util.php:2524
+#: libraries/classes/Menu.php:488 libraries/classes/Util.php:2500
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "文本框列"
@@ -8979,12 +10165,12 @@ msgid "User accounts"
 msgstr "账户"
 
 #: libraries/classes/Menu.php:585 libraries/classes/Server/Status/Data.php:144
-#: libraries/classes/Util.php:2503 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:2479 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "二进制日志"
 
 #: libraries/classes/Menu.php:592 libraries/classes/Server/Status/Data.php:149
-#: libraries/classes/Util.php:2504
+#: libraries/classes/Util.php:2480
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -8992,21 +10178,21 @@ msgid "Replication"
 msgstr "复制"
 
 #: libraries/classes/Menu.php:598 libraries/classes/Server/Status/Data.php:217
-#: libraries/classes/Util.php:2505 libraries/config.values.php:159
+#: libraries/classes/Util.php:2481 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:178
 msgid "Variables"
 msgstr "变量"
 
-#: libraries/classes/Menu.php:603 libraries/classes/Util.php:2506
+#: libraries/classes/Menu.php:603 libraries/classes/Util.php:2482
 msgid "Charsets"
 msgstr "字符集"
 
-#: libraries/classes/Menu.php:608 libraries/classes/Util.php:2508
+#: libraries/classes/Menu.php:608 libraries/classes/Util.php:2484
 msgid "Engines"
 msgstr "引擎"
 
-#: libraries/classes/Menu.php:613 libraries/classes/Util.php:2507
+#: libraries/classes/Menu.php:613 libraries/classes/Util.php:2483
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "插件"
@@ -9461,108 +10647,69 @@ msgstr "此列表基于表数据的子集，并不一定准确。 "
 msgid "No partial dependencies found!"
 msgstr "找不到部分依赖关系！"
 
-#: libraries/classes/Operations.php:615
-#: templates/database/structure/check_all_tables.twig:19
-msgid "Analyze table"
-msgstr "分析表"
-
-#: libraries/classes/Operations.php:626
-#: templates/database/structure/check_all_tables.twig:20
-msgid "Check table"
-msgstr "检查表"
-
-#: libraries/classes/Operations.php:636
-#: templates/database/structure/check_all_tables.twig:21
-msgid "Checksum table"
-msgstr "校验值表"
-
-#: libraries/classes/Operations.php:645
-msgid "Defragment table"
-msgstr "整理表碎片"
-
-#: libraries/classes/Operations.php:654
-#, php-format
-msgid "Table %s has been flushed."
-msgstr "已强制更新表 %s。"
-
-#: libraries/classes/Operations.php:659
-msgid "Flush the table (FLUSH)"
-msgstr "刷新表 (FLUSH)"
-
-#: libraries/classes/Operations.php:669
-#: templates/database/structure/check_all_tables.twig:22
-#: templates/table/structure/display_table_stats.twig:62
-msgid "Optimize table"
-msgstr "优化表"
-
-#: libraries/classes/Operations.php:680
-#: templates/database/structure/check_all_tables.twig:23
-msgid "Repair table"
-msgstr "修复表"
-
-#: libraries/classes/Operations.php:696
+#: libraries/classes/Operations.php:604
 #: templates/table/structure/display_structure.twig:521
 msgid "Analyze"
 msgstr "分析"
 
-#: libraries/classes/Operations.php:697
+#: libraries/classes/Operations.php:605
 #: templates/table/structure/display_structure.twig:521
 msgid "Check"
 msgstr "检查"
 
-#: libraries/classes/Operations.php:698
+#: libraries/classes/Operations.php:606
 #: templates/table/structure/display_structure.twig:521
 msgid "Optimize"
 msgstr "优化"
 
-#: libraries/classes/Operations.php:699
+#: libraries/classes/Operations.php:607
 #: templates/table/structure/display_structure.twig:521
 msgid "Rebuild"
 msgstr "重建"
 
-#: libraries/classes/Operations.php:700
+#: libraries/classes/Operations.php:608
 #: templates/table/structure/display_structure.twig:521
 msgid "Repair"
 msgstr "修复"
 
-#: libraries/classes/Operations.php:701
+#: libraries/classes/Operations.php:609
 #: templates/table/structure/display_structure.twig:521
 msgid "Truncate"
 msgstr "清空"
 
-#: libraries/classes/Operations.php:714
+#: libraries/classes/Operations.php:622
 msgid "Coalesce"
 msgstr "联合"
 
-#: libraries/classes/Operations.php:1149
+#: libraries/classes/Operations.php:1057
 msgid "Can't move table to same one!"
 msgstr "目标数据表不能为源数据表！"
 
-#: libraries/classes/Operations.php:1151
+#: libraries/classes/Operations.php:1059
 msgid "Can't copy table to same one!"
 msgstr "目标数据表不能为源数据表！"
 
-#: libraries/classes/Operations.php:1186
+#: libraries/classes/Operations.php:1094
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "已将数据表 %s 移动到 %s。已调整权限。"
 
-#: libraries/classes/Operations.php:1193
+#: libraries/classes/Operations.php:1101
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "已将数据表 %s 复制为 %s。已调整权限。"
 
-#: libraries/classes/Operations.php:1201
+#: libraries/classes/Operations.php:1109
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "已将数据表 %s 移动到 %s。"
 
-#: libraries/classes/Operations.php:1205
+#: libraries/classes/Operations.php:1113
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "已将数据表 %s 复制为 %s。"
 
-#: libraries/classes/Operations.php:1229
+#: libraries/classes/Operations.php:1137
 msgid "The table name is empty!"
 msgstr "表名不能为空！"
 
@@ -9653,7 +10800,7 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "您已启用双因素身份验证，请确认您的登录信息。"
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:87
-#: templates/display/import/import.twig:209 templates/export.twig:94
+#: templates/export.twig:94 templates/import.twig:198
 msgid "Format:"
 msgstr "格式："
 
@@ -10185,27 +11332,27 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr "在导入时找到重复键时更新数据（添加ON DUPLICATE KEY UPDATE）"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:74
+#: libraries/classes/Plugins/Import/ImportCsv.php:75
 msgid "Name of the new table (optional):"
 msgstr "新表的名称（可选）："
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:83
+#: libraries/classes/Plugins/Import/ImportCsv.php:84
 msgid "Name of the new database (optional):"
 msgstr "新数据库的名称（可选）："
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:92
-#: libraries/classes/Plugins/Import/ImportCsv.php:110
+#: libraries/classes/Plugins/Import/ImportCsv.php:93
+#: libraries/classes/Plugins/Import/ImportCsv.php:111
 msgid "Import these many number of rows (optional):"
 msgstr "导入这些行（可选）："
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:100
-#: libraries/classes/Plugins/Import/ImportOds.php:67
+#: libraries/classes/Plugins/Import/ImportCsv.php:101
+#: libraries/classes/Plugins/Import/ImportOds.php:68
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr "文件首行包含数据表的字段名 <i>(若未选此项，首行将被认为是数据)</i>"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:117
+#: libraries/classes/Plugins/Import/ImportCsv.php:118
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -10214,30 +11361,30 @@ msgstr ""
 "若文件每行的数据和数据库中的顺序不一致，请在此列出对应的字段名。字段名间用半"
 "角逗号分隔且不能用引号括起。"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:125
+#: libraries/classes/Plugins/Import/ImportCsv.php:126
 msgid "Column names:"
 msgstr "字段名:"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:264
-#: libraries/classes/Plugins/Import/ImportCsv.php:634
+#: libraries/classes/Plugins/Import/ImportCsv.php:265
+#: libraries/classes/Plugins/Import/ImportCsv.php:635
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "CSV 输入的第 %d 行格式有错。"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:497
+#: libraries/classes/Plugins/Import/ImportCsv.php:498
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV 输入的第 %d 行字段数有错。"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:652
-#: libraries/classes/Plugins/Import/ImportCsv.php:667
-#: libraries/classes/Plugins/Import/ImportCsv.php:678
-#: libraries/classes/Plugins/Import/ImportCsv.php:687
+#: libraries/classes/Plugins/Import/ImportCsv.php:653
+#: libraries/classes/Plugins/Import/ImportCsv.php:668
+#: libraries/classes/Plugins/Import/ImportCsv.php:679
+#: libraries/classes/Plugins/Import/ImportCsv.php:688
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "导入 CSV 文件 %s 时有无效参数"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:807
+#: libraries/classes/Plugins/Import/ImportCsv.php:808
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -10246,79 +11393,79 @@ msgstr ""
 "无效字段 (%s)！请检查字段名是否拼写正确，使用半角逗号分隔，并且不要用引号括"
 "起。"
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:71
+#: libraries/classes/Plugins/Import/ImportLdi.php:72
 msgid "Column names: "
 msgstr "字段名: "
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:109
+#: libraries/classes/Plugins/Import/ImportLdi.php:113
 msgid "This plugin does not support compressed imports!"
 msgstr "该插件不支持导入文件！"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:56
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:57
 msgid "MediaWiki Table"
 msgstr "MediaWiki 表"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:290
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:291
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "mediawiki输入在此行存在格式错误:<br>%s。"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:81
+#: libraries/classes/Plugins/Import/ImportOds.php:82
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "导入百分数为小数 <i>(如: 12.00% 将被导入为 .12)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:87
+#: libraries/classes/Plugins/Import/ImportOds.php:88
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "导入货币 <i>(如: $5.00 将被导入为 5.00)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:154
-#: libraries/classes/Plugins/Import/ImportXml.php:113
-#: libraries/classes/Plugins/Import/ImportXml.php:177
+#: libraries/classes/Plugins/Import/ImportOds.php:155
+#: libraries/classes/Plugins/Import/ImportXml.php:114
+#: libraries/classes/Plugins/Import/ImportXml.php:178
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr "该 XML 文件有错误或者不完整。请修复错误后重试。"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:165
+#: libraries/classes/Plugins/Import/ImportOds.php:166
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "无法解析OpenDocument电子表格！"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:63
+#: libraries/classes/Plugins/Import/ImportShp.php:65
 msgid "ESRI Shape File"
 msgstr "ESRI 图形文件"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:95
-#: libraries/classes/Plugins/Import/ImportShp.php:174
+#: libraries/classes/Plugins/Import/ImportShp.php:104
+#: libraries/classes/Plugins/Import/ImportShp.php:183
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "导入 ESRI 图形文件时出错: \"%s\"。"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:204
+#: libraries/classes/Plugins/Import/ImportShp.php:213
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial 扩展不支持 ESRI 类型 \"%s\"。"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:252
+#: libraries/classes/Plugins/Import/ImportShp.php:261
 msgid "The imported file does not contain any data!"
 msgstr "文件为空，无数据！"
 
-#: libraries/classes/Plugins/Import/ImportSql.php:66
+#: libraries/classes/Plugins/Import/ImportSql.php:67
 msgid "SQL compatibility mode:"
 msgstr "SQL 兼容模式："
 
-#: libraries/classes/Plugins/Import/ImportSql.php:78
+#: libraries/classes/Plugins/Import/ImportSql.php:79
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "不要给零值使用自增 (<code>AUTO_INCREMENT</code>)"
 
-#: libraries/classes/Plugins/Import/ImportXml.php:47
+#: libraries/classes/Plugins/Import/ImportXml.php:48
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:671
+#: libraries/classes/Plugins.php:705
 msgid "This format has no options"
 msgstr "该格式没有选项"
 
-#: libraries/classes/Plugins.php:687
+#: libraries/classes/Plugins.php:721
 msgid "Invalid authentication method set in configuration:"
 msgstr "配置文件中设置的认证方式无效："
 
@@ -10452,7 +11599,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
-#: libraries/classes/Util.php:814
+#: libraries/classes/Util.php:790
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%Y-%m-%d %H:%M:%S"
 
@@ -11248,16 +12395,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "没有更新的可用版本"
 
-#: libraries/classes/Sql.php:672
+#: libraries/classes/Sql.php:539
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "使用书签 \"%s\" 作为默认的查询。"
 
-#: libraries/classes/Sql.php:1191
+#: libraries/classes/Sql.php:1049
 msgid "Showing as PHP code"
 msgstr "显示为 PHP 代码"
 
-#: libraries/classes/Sql.php:1570
+#: libraries/classes/Sql.php:1445
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -11266,7 +12413,7 @@ msgstr ""
 "当前所选内容没有包含唯一字段。单元格编辑、复选框、编辑、复制和删除无法正常使"
 "用。%s"
 
-#: libraries/classes/Sql.php:1584
+#: libraries/classes/Sql.php:1459
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -11274,11 +12421,6 @@ msgid ""
 msgstr ""
 "当前所选内容没有包含唯一字段。单元格编辑、复选框、编辑、复制和删除可能会导致"
 "无法预料的情形发生。%s"
-
-#: libraries/classes/Sql.php:1621
-#, php-format
-msgid "Problems with indexes of table `%s`"
-msgstr "数据表 `%s` 的索引存在问题"
 
 #: libraries/classes/SqlQueryForm.php:148
 #, php-format
@@ -11320,6 +12462,11 @@ msgstr "%s 在该 MySQL 服务器上被禁止了。"
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "该 MySQL 服务器不支持 %s 存储引擎。"
+
+#: libraries/classes/Table/Maintenance.php:94
+#, php-format
+msgid "Problems with indexes of table `%s`"
+msgstr "数据表 `%s` 的索引存在问题"
 
 #: libraries/classes/Table.php:354
 msgid "Unknown table status:"
@@ -11851,166 +12998,166 @@ msgstr "最大限制：%s %s"
 
 #. l10n: Short month name
 #. l10n: Short month name for January
-#: libraries/classes/Util.php:771 templates/javascript/variables.twig:34
+#: libraries/classes/Util.php:747 templates/javascript/variables.twig:34
 msgid "Jan"
 msgstr "一月"
 
 #. l10n: Short month name
 #. l10n: Short month name for February
-#: libraries/classes/Util.php:773 templates/javascript/variables.twig:35
+#: libraries/classes/Util.php:749 templates/javascript/variables.twig:35
 msgid "Feb"
 msgstr "二月"
 
 #. l10n: Short month name
 #. l10n: Short month name for March
-#: libraries/classes/Util.php:775 templates/javascript/variables.twig:36
+#: libraries/classes/Util.php:751 templates/javascript/variables.twig:36
 msgid "Mar"
 msgstr "三月"
 
 #. l10n: Short month name
 #. l10n: Short month name for April
-#: libraries/classes/Util.php:777 templates/javascript/variables.twig:37
+#: libraries/classes/Util.php:753 templates/javascript/variables.twig:37
 msgid "Apr"
 msgstr "四月"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:779
+#: libraries/classes/Util.php:755
 msgctxt "Short month name"
 msgid "May"
 msgstr "五月"
 
 #. l10n: Short month name
 #. l10n: Short month name for June
-#: libraries/classes/Util.php:781 templates/javascript/variables.twig:39
+#: libraries/classes/Util.php:757 templates/javascript/variables.twig:39
 msgid "Jun"
 msgstr "六月"
 
 #. l10n: Short month name
 #. l10n: Short month name for July
-#: libraries/classes/Util.php:783 templates/javascript/variables.twig:40
+#: libraries/classes/Util.php:759 templates/javascript/variables.twig:40
 msgid "Jul"
 msgstr "七月"
 
 #. l10n: Short month name
 #. l10n: Short month name for August
-#: libraries/classes/Util.php:785 templates/javascript/variables.twig:41
+#: libraries/classes/Util.php:761 templates/javascript/variables.twig:41
 msgid "Aug"
 msgstr "八月"
 
 #. l10n: Short month name
 #. l10n: Short month name for September
-#: libraries/classes/Util.php:787 templates/javascript/variables.twig:42
+#: libraries/classes/Util.php:763 templates/javascript/variables.twig:42
 msgid "Sep"
 msgstr "九月"
 
 #. l10n: Short month name
 #. l10n: Short month name for October
-#: libraries/classes/Util.php:789 templates/javascript/variables.twig:43
+#: libraries/classes/Util.php:765 templates/javascript/variables.twig:43
 msgid "Oct"
 msgstr "十月"
 
 #. l10n: Short month name
 #. l10n: Short month name for November
-#: libraries/classes/Util.php:791 templates/javascript/variables.twig:44
+#: libraries/classes/Util.php:767 templates/javascript/variables.twig:44
 msgid "Nov"
 msgstr "十一月"
 
 #. l10n: Short month name
 #. l10n: Short month name for December
-#: libraries/classes/Util.php:793 templates/javascript/variables.twig:45
+#: libraries/classes/Util.php:769 templates/javascript/variables.twig:45
 msgid "Dec"
 msgstr "十二月"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:797
+#: libraries/classes/Util.php:773
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "周日"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:799 templates/javascript/variables.twig:58
+#: libraries/classes/Util.php:775 templates/javascript/variables.twig:58
 msgid "Mon"
 msgstr "周一"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:801 templates/javascript/variables.twig:59
+#: libraries/classes/Util.php:777 templates/javascript/variables.twig:59
 msgid "Tue"
 msgstr "周二"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:803 templates/javascript/variables.twig:60
+#: libraries/classes/Util.php:779 templates/javascript/variables.twig:60
 msgid "Wed"
 msgstr "周三"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:805 templates/javascript/variables.twig:61
+#: libraries/classes/Util.php:781 templates/javascript/variables.twig:61
 msgid "Thu"
 msgstr "周四"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:807 templates/javascript/variables.twig:62
+#: libraries/classes/Util.php:783 templates/javascript/variables.twig:62
 msgid "Fri"
 msgstr "周五"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:809 templates/javascript/variables.twig:63
+#: libraries/classes/Util.php:785 templates/javascript/variables.twig:63
 msgid "Sat"
 msgstr "周六"
 
-#: libraries/classes/Util.php:835
+#: libraries/classes/Util.php:811
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "下午"
 
-#: libraries/classes/Util.php:837
+#: libraries/classes/Util.php:813
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "上午"
 
-#: libraries/classes/Util.php:912
+#: libraries/classes/Util.php:888
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 天 %s 小时，%s 分 %s 秒"
 
-#: libraries/classes/Util.php:948
+#: libraries/classes/Util.php:924
 msgid "Missing parameter:"
 msgstr "缺少参数："
 
-#: libraries/classes/Util.php:2499
+#: libraries/classes/Util.php:2475
 msgid "Users"
 msgstr "用户"
 
-#: libraries/classes/Util.php:3121
+#: libraries/classes/Util.php:3097
 #: templates/database/multi_table_query/form.twig:59
 msgid "Sort"
 msgstr "排序"
 
-#: libraries/classes/Util.php:3219 libraries/classes/Util.php:3220
+#: libraries/classes/Util.php:3195 libraries/classes/Util.php:3196
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "清空"
 
-#: libraries/classes/Util.php:3225 libraries/classes/Util.php:3226
+#: libraries/classes/Util.php:3201 libraries/classes/Util.php:3202
 #: templates/database/routines/row.twig:32
 #: templates/database/routines/row.twig:42
 #: templates/database/routines/row.twig:46
 msgid "Execute"
 msgstr "执行"
 
-#: libraries/classes/ZipExtension.php:63 libraries/classes/ZipExtension.php:109
+#: libraries/classes/ZipExtension.php:71 libraries/classes/ZipExtension.php:117
 msgid "Error in ZIP archive:"
 msgstr "ZIP 包中有错误:"
 
-#: libraries/classes/ZipExtension.php:73
+#: libraries/classes/ZipExtension.php:81
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP 包中未找到文件！"
 
-#: libraries/common.inc.php:267
+#: libraries/common.inc.php:268
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "您应升级到 %s %s 或更高版本。"
 
-#: libraries/common.inc.php:299
+#: libraries/common.inc.php:300
 msgid "Error: Token mismatch"
 msgstr "错误：令牌不符"
 
@@ -12278,7 +13425,7 @@ msgid "Subpartitions:"
 msgstr "子分区："
 
 #: templates/columns_definitions/partitions.twig:76
-#: templates/table/operations/index.twig:384
+#: templates/table/operations/index.twig:436
 #: templates/table/structure/display_partitions.twig:24
 msgid "Partition"
 msgstr "分区"
@@ -12938,6 +14085,11 @@ msgstr "显示 SQL 查询"
 msgid "Exporting tables from \"%s\" database"
 msgstr "正在导出数据库“%s”中的数据表"
 
+#: templates/database/import/index.twig:3
+#, php-format
+msgid "Importing into the database \"%s\""
+msgstr "正在导入到数据库 \"%s\""
+
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 msgid "Multi-table query"
@@ -13318,7 +14470,7 @@ msgid "Show create"
 msgstr "显示创建"
 
 #: templates/database/structure/check_all_tables.twig:14
-#: templates/table/operations/index.twig:329
+#: templates/table/operations/index.twig:381
 #: templates/table/operations/view.twig:22
 msgid "Delete data or table"
 msgstr "删除数据或数据表"
@@ -13327,6 +14479,37 @@ msgstr "删除数据或数据表"
 #: templates/table/operations/index.twig:312
 msgid "Table maintenance"
 msgstr "表维护"
+
+#: templates/database/structure/check_all_tables.twig:19
+#: templates/table/maintenance/analyze.twig:3
+#: templates/table/operations/index.twig:317
+msgid "Analyze table"
+msgstr "分析表"
+
+#: templates/database/structure/check_all_tables.twig:20
+#: templates/table/maintenance/check.twig:3
+#: templates/table/operations/index.twig:326
+msgid "Check table"
+msgstr "检查表"
+
+#: templates/database/structure/check_all_tables.twig:21
+#: templates/table/maintenance/checksum.twig:3
+#: templates/table/operations/index.twig:334
+msgid "Checksum table"
+msgstr "校验值表"
+
+#: templates/database/structure/check_all_tables.twig:22
+#: templates/table/maintenance/optimize.twig:3
+#: templates/table/operations/index.twig:362
+#: templates/table/structure/display_table_stats.twig:62
+msgid "Optimize table"
+msgstr "优化表"
+
+#: templates/database/structure/check_all_tables.twig:23
+#: templates/table/maintenance/repair.twig:3
+#: templates/table/operations/index.twig:371
+msgid "Repair table"
+msgstr "修复表"
 
 #: templates/database/structure/check_all_tables.twig:25
 msgid "Prefix"
@@ -13473,162 +14656,6 @@ msgstr "追踪表"
 msgid "There are no triggers to display."
 msgstr "没有触发器。"
 
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "正在导入到当前服务器"
-
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "正在导入到数据库 \"%s\""
-
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "正在导入到数据表 \"%s\""
-
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "要导入的文件："
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "文件可能已压缩 (%s) 或未压缩。"
-
-#: templates/display/import/import.twig:58
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"压缩文件名必须以 <strong>.[格式].[压缩方式]</strong> 结尾。如：<strong>.sql."
-"zip</strong>"
-
-#: templates/display/import/import.twig:68
-#: templates/display/import/import.twig:101
-#: templates/preferences/manage/main.twig:22
-msgid "Browse your computer:"
-msgstr "从计算机中上传："
-
-#: templates/display/import/import.twig:73
-#, fuzzy
-#| msgid "Browse your computer:"
-msgid "Browse your computer"
-msgstr "从计算机中上传："
-
-#: templates/display/import/import.twig:79
-#: templates/display/import/import.twig:112
-msgid "You may also drag and drop a file on any page."
-msgstr "您可在各页面间拖放文件。"
-
-#: templates/display/import/import.twig:85
-#: templates/display/import/import.twig:115
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
-msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "从网站服务器上传文件夹 <b>%s</b> 中选择："
-
-#: templates/display/import/import.twig:91
-#, fuzzy
-#| msgid "File to import:"
-msgid "Select file to import"
-msgstr "要导入的文件："
-
-#: templates/display/import/import.twig:96
-#: templates/display/import/import.twig:126
-msgid "There are no files to upload!"
-msgstr "没有可上传的文件！"
-
-#: templates/display/import/import.twig:129
-msgid "File uploads are not allowed on this server."
-msgstr "此服务器禁止了文件上传。"
-
-#: templates/display/import/import.twig:135 templates/export.twig:336
-msgid "Character set of the file:"
-msgstr "文件的字符集："
-
-#: templates/display/import/import.twig:163
-msgid "Partial import:"
-msgstr "部分导入："
-
-#: templates/display/import/import.twig:168
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr "上一个导入操作超时，随后重新提交将会从 %d 处开始。"
-
-#: templates/display/import/import.twig:176
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"在导入时脚本若检测到接近PHP超时时限（即需要花费很长时间）则允许中断。<em>(这"
-"在导入大文件时是个很好的方法，不过这会中断事务)</em>"
-
-#: templates/display/import/import.twig:183
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "从第一个开始跳过这些数量的查询（对于SQL）："
-
-#: templates/display/import/import.twig:200
-msgid "Other options:"
-msgstr "其它选项："
-
-#: templates/display/import/import.twig:215 templates/export.twig:406
-msgid "Format-specific options:"
-msgstr "格式特定选项："
-
-#: templates/display/import/import.twig:217 templates/export.twig:408
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr "请下拉至所选格式并设置选项，其它格式请忽略。"
-
-#: templates/display/import/import.twig:226 templates/export.twig:416
-msgid "Encoding Conversion:"
-msgstr "编码转换："
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"上传的文件可能超过了最大大小，也可能是一个基于 webkit 浏览器 (Safari, Google "
-"Chrome, Arora 等) 的已知缺陷 (bug) 。"
-
-#: templates/display/import/javascript.twig:13
-#, php-format
-msgid "%s of %s"
-msgstr "%s 之 %s"
-
-#: templates/display/import/javascript.twig:14
-#, php-format
-msgid "%s/sec."
-msgstr "%s/秒。"
-
-#: templates/display/import/javascript.twig:15
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "大约 %MIN 分钟. 还剩下 %SEC 秒."
-
-#: templates/display/import/javascript.twig:16
-msgid "About %SEC sec. remaining."
-msgstr "约还需 %SEC 秒。"
-
-#: templates/display/import/javascript.twig:17
-msgid "The file is being processed, please be patient."
-msgstr "正在处理，请稍候。"
-
-#: templates/display/import/javascript.twig:29
-msgid "Uploading your import file…"
-msgstr "正在上传您的导入文件…"
-
-#: templates/display/import/javascript.twig:153
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr "正在上传文件，暂无详细信息，请稍候。"
-
 #: templates/display/results/sort_by_key.twig:3
 msgid "Sort by key:"
 msgstr "按索引排序："
@@ -13677,6 +14704,11 @@ msgstr "WKT 文本表达"
 #: templates/display/results/table.twig:168
 msgid "Well Known Binary"
 msgstr "WKB 二进制表达"
+
+#: templates/display/results/table.twig:242
+#: templates/sql/no_results_returned.twig:9
+msgid "Query results operations"
+msgstr "查询结果操作"
 
 #: templates/display/results/table.twig:252
 msgid "Copy to clipboard"
@@ -13858,6 +14890,10 @@ msgstr ""
 msgid "use this for future exports"
 msgstr "以后也使用此设置"
 
+#: templates/export.twig:336 templates/import.twig:124
+msgid "Character set of the file:"
+msgstr "文件的字符集："
+
 #: templates/export.twig:352
 msgid "Compression:"
 msgstr "压缩："
@@ -13886,6 +14922,20 @@ msgstr "直接显示为文本"
 #, php-format
 msgid "Skip tables larger than %s MiB"
 msgstr "跳过大于 %s MiB的数据表"
+
+#: templates/export.twig:406 templates/import.twig:204
+msgid "Format-specific options:"
+msgstr "格式特定选项："
+
+#: templates/export.twig:408 templates/import.twig:206
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr "请下拉至所选格式并设置选项，其它格式请忽略。"
+
+#: templates/export.twig:416 templates/import.twig:215
+msgid "Encoding Conversion:"
+msgstr "编码转换："
 
 #: templates/filter.twig:4 templates/server/status/processes/index.twig:7
 #: templates/server/status/variables/index.twig:8
@@ -14094,6 +15144,126 @@ msgstr "更新列表"
 #: templates/home/index.twig:208 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "授权"
+
+#: templates/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"上传的文件可能超过了最大大小，也可能是一个基于 webkit 浏览器 (Safari, Google "
+"Chrome, Arora 等) 的已知缺陷 (bug) 。"
+
+#: templates/import/javascript.twig:13
+#, php-format
+msgid "%s of %s"
+msgstr "%s 之 %s"
+
+#: templates/import/javascript.twig:14
+#, php-format
+msgid "%s/sec."
+msgstr "%s/秒。"
+
+#: templates/import/javascript.twig:15
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "大约 %MIN 分钟. 还剩下 %SEC 秒."
+
+#: templates/import/javascript.twig:16
+msgid "About %SEC sec. remaining."
+msgstr "约还需 %SEC 秒。"
+
+#: templates/import/javascript.twig:17
+msgid "The file is being processed, please be patient."
+msgstr "正在处理，请稍候。"
+
+#: templates/import/javascript.twig:29
+msgid "Uploading your import file…"
+msgstr "正在上传您的导入文件…"
+
+#: templates/import/javascript.twig:153
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr "正在上传文件，暂无详细信息，请稍候。"
+
+#: templates/import.twig:39
+msgid "File to import:"
+msgstr "要导入的文件："
+
+#: templates/import.twig:45
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr "文件可能已压缩 (%s) 或未压缩。"
+
+#: templates/import.twig:47
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+"压缩文件名必须以 <strong>.[格式].[压缩方式]</strong> 结尾。如：<strong>.sql."
+"zip</strong>"
+
+#: templates/import.twig:57 templates/import.twig:90
+#: templates/preferences/manage/main.twig:22
+msgid "Browse your computer:"
+msgstr "从计算机中上传："
+
+#: templates/import.twig:62
+#, fuzzy
+#| msgid "Browse your computer:"
+msgid "Browse your computer"
+msgstr "从计算机中上传："
+
+#: templates/import.twig:68 templates/import.twig:101
+msgid "You may also drag and drop a file on any page."
+msgstr "您可在各页面间拖放文件。"
+
+#: templates/import.twig:74 templates/import.twig:104
+#, fuzzy, php-format
+#| msgid "Select from the web server upload directory <b>%s</b>:"
+msgid "Select from the web server upload directory [strong]%s[/strong]:"
+msgstr "从网站服务器上传文件夹 <b>%s</b> 中选择："
+
+#: templates/import.twig:80
+#, fuzzy
+#| msgid "File to import:"
+msgid "Select file to import"
+msgstr "要导入的文件："
+
+#: templates/import.twig:85 templates/import.twig:115
+msgid "There are no files to upload!"
+msgstr "没有可上传的文件！"
+
+#: templates/import.twig:118
+msgid "File uploads are not allowed on this server."
+msgstr "此服务器禁止了文件上传。"
+
+#: templates/import.twig:152
+msgid "Partial import:"
+msgstr "部分导入："
+
+#: templates/import.twig:157
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr "上一个导入操作超时，随后重新提交将会从 %d 处开始。"
+
+#: templates/import.twig:165
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+"在导入时脚本若检测到接近PHP超时时限（即需要花费很长时间）则允许中断。<em>(这"
+"在导入大文件时是个很好的方法，不过这会中断事务)</em>"
+
+#: templates/import.twig:172
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr "从第一个开始跳过这些数量的查询（对于SQL）："
+
+#: templates/import.twig:189
+msgid "Other options:"
+msgstr "其它选项："
 
 #: templates/indexes.twig:39 templates/table/relation/common_form.twig:259
 #: templates/table/structure/display_structure.twig:441
@@ -14730,6 +15900,10 @@ msgstr "正在从当前服务器中导出数据库"
 msgid "Databases:"
 msgstr "数据库："
 
+#: templates/server/import/index.twig:3
+msgid "Importing into the current server"
+msgstr "正在导入到当前服务器"
+
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
 msgstr "插件"
@@ -15335,46 +16509,41 @@ msgstr ""
 "最好的系统调整方法是一次只修改一个设置，观察并测试您的数据库，如果没有显著的"
 "效果就撤销改变。"
 
-#. l10n: Advisor rules file
 #: templates/server/status/advisor/index.twig:55
-msgid "Rules file is not well formed, the following errors were found:"
-msgstr ""
-
-#: templates/server/status/advisor/index.twig:66
 #, fuzzy
 #| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
 msgstr "获取SQL调试信息时出错。"
 
-#: templates/server/status/advisor/index.twig:76
+#: templates/server/status/advisor/index.twig:65
 msgid "Possible performance issues"
 msgstr "可能存在的性能问题"
 
-#: templates/server/status/advisor/index.twig:89
+#: templates/server/status/advisor/index.twig:78
 #, fuzzy
 #| msgid "Issue"
 msgid "Issue:"
 msgstr "问题"
 
-#: templates/server/status/advisor/index.twig:92
+#: templates/server/status/advisor/index.twig:81
 #, fuzzy
 #| msgid "Recommendation"
 msgid "Recommendation:"
 msgstr "建议"
 
-#: templates/server/status/advisor/index.twig:95
+#: templates/server/status/advisor/index.twig:84
 #, fuzzy
 #| msgid "Justification"
 msgid "Justification:"
 msgstr "现状"
 
-#: templates/server/status/advisor/index.twig:98
+#: templates/server/status/advisor/index.twig:87
 #, fuzzy
 #| msgid "Used variable / formula"
 msgid "Used variable / formula:"
 msgstr "使用的变量/公式"
 
-#: templates/server/status/advisor/index.twig:101
+#: templates/server/status/advisor/index.twig:90
 #, fuzzy
 #| msgid "Test"
 msgid "Test:"
@@ -15836,27 +17005,27 @@ msgstr "让所有用户均可访问此书签"
 msgid "Detailed profile"
 msgstr "详细资料"
 
-#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:34
+#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:43
 msgid "State"
 msgstr "状态"
 
-#: templates/sql/profiling_chart.twig:29
+#: templates/sql/profiling_chart.twig:38
 msgid "Summary by state"
 msgstr "状态概要"
 
-#: templates/sql/profiling_chart.twig:38
+#: templates/sql/profiling_chart.twig:47
 msgid "Total Time"
 msgstr "总时间"
 
-#: templates/sql/profiling_chart.twig:42
+#: templates/sql/profiling_chart.twig:51
 msgid "% Time"
 msgstr "% 时间"
 
-#: templates/sql/profiling_chart.twig:46
+#: templates/sql/profiling_chart.twig:55
 msgid "Calls"
 msgstr "请求"
 
-#: templates/sql/profiling_chart.twig:50
+#: templates/sql/profiling_chart.twig:59
 msgid "ø Time"
 msgstr "ø 时间"
 
@@ -16070,6 +17239,11 @@ msgstr "-- 无 --"
 msgid "Spatial column"
 msgstr "空间字段"
 
+#: templates/table/import/index.twig:3
+#, php-format
+msgid "Importing into the table \"%s\""
+msgstr "正在导入到数据表 \"%s\""
+
 #: templates/table/index_form.twig:15
 msgid "Index name:"
 msgstr "索引名称："
@@ -16114,6 +17288,12 @@ msgstr "拖拽以重排顺序"
 msgid "Continue insertion with %s rows"
 msgstr "继续插入 %s 行"
 
+#: templates/table/maintenance/checksum.twig:13
+#, fuzzy
+#| msgid "Check"
+msgid "Checksum"
+msgstr "检查"
+
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
 msgstr "更改表的排序，根据"
@@ -16157,24 +17337,37 @@ msgstr "将数据表复制到(数据库名<b>.</b>数据表名)"
 msgid "Switch to copied table"
 msgstr "切换到复制的数据表"
 
-#: templates/table/operations/index.twig:338
+#: templates/table/operations/index.twig:342
+msgid "Defragment table"
+msgstr "整理表碎片"
+
+#: templates/table/operations/index.twig:350
+#, php-format
+msgid "Table %s has been flushed."
+msgstr "已强制更新表 %s。"
+
+#: templates/table/operations/index.twig:354
+msgid "Flush the table (FLUSH)"
+msgstr "刷新表 (FLUSH)"
+
+#: templates/table/operations/index.twig:390
 msgid "Empty the table (TRUNCATE)"
 msgstr "清空数据表 (TRUNCATE)"
 
-#: templates/table/operations/index.twig:357
+#: templates/table/operations/index.twig:409
 msgid "Delete the table (DROP)"
 msgstr "删除数据表 (DROP)"
 
-#: templates/table/operations/index.twig:378
+#: templates/table/operations/index.twig:430
 msgid "Partition maintenance"
 msgstr "分区维护"
 
-#: templates/table/operations/index.twig:404
+#: templates/table/operations/index.twig:456
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
 msgstr "删除分区"
 
-#: templates/table/operations/index.twig:417
+#: templates/table/operations/index.twig:469
 #, fuzzy
 #| msgid "Check referential integrity:"
 msgid "Check referential integrity"
@@ -16551,1165 +17744,23 @@ msgstr "字段名"
 msgid "Taking you to the target site."
 msgstr "带你到目标网站。"
 
-#: libraries/advisory_rules_generic.txt:49
-msgid "Uptime below one day"
-msgstr "运行时间少于一天"
-
-#: libraries/advisory_rules_generic.txt:52
-msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr "运行时间少于一天，性能调整建议可能不准确。"
-
-#: libraries/advisory_rules_generic.txt:53
-msgid ""
-"To have more accurate averages it is recommended to let the server run for "
-"longer than a day before running this analyzer"
-msgstr "要获得更加准确的数据，建议在运行分析器之前先让服务器运行至少一天"
-
-#: libraries/advisory_rules_generic.txt:54
-#, php-format
-msgid "The uptime is only %s"
-msgstr "运行时间只有 %s"
-
-#: libraries/advisory_rules_generic.txt:56
-msgid "Questions below 1,000"
-msgstr "内部查询少于 1000"
-
-#: libraries/advisory_rules_generic.txt:59
-msgid ""
-"Fewer than 1,000 questions have been run against this server. The "
-"recommendations may not be accurate."
-msgstr "内部查询少于 1000 。建议可能不准确。"
-
-#: libraries/advisory_rules_generic.txt:60
-msgid ""
-"Let the server run for a longer time until it has executed a greater amount "
-"of queries."
-msgstr "让服务器运行一段时间以使查询数超过该值。"
-
-#: libraries/advisory_rules_generic.txt:61
-#, php-format
-msgid "Current amount of Questions: %s"
-msgstr "当前内部查询数: %s"
-
-#: libraries/advisory_rules_generic.txt:63
-msgid "Percentage of slow queries"
-msgstr "慢查询率"
-
-#: libraries/advisory_rules_generic.txt:66
-msgid ""
-"There is a lot of slow queries compared to the overall amount of Queries."
-msgstr "慢查询的数量在所有查询中所占的比例很大。"
-
-#: libraries/advisory_rules_generic.txt:67
-#: libraries/advisory_rules_generic.txt:74
-msgid ""
-"You might want to increase {long_query_time} or optimize the queries listed "
-"in the slow query log"
-msgstr "你可能需要增加 {long_query_time} 值或优化在慢查询日志中所列出的查询"
-
-#: libraries/advisory_rules_generic.txt:68
-#, php-format
-msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr "慢查询率应低于 5%%，当前为 %s%%。"
-
-#: libraries/advisory_rules_generic.txt:70
-msgid "Slow query rate"
-msgstr "慢查询率"
-
-#: libraries/advisory_rules_generic.txt:73
-msgid ""
-"There is a high percentage of slow queries compared to the server uptime."
-msgstr "慢查询率过高。"
-
-#: libraries/advisory_rules_generic.txt:75
-#, php-format
-msgid ""
-"You have a slow query rate of %s per hour, you should have less than 1%% per "
-"hour."
-msgstr "当前慢查询率为 %s 每小时，此值不应高于 1%% 每小时。"
-
-#: libraries/advisory_rules_generic.txt:77
-msgid "Long query time"
-msgstr "慢查询时间"
-
-#: libraries/advisory_rules_generic.txt:80
-msgid ""
-"{long_query_time} is set to 10 seconds or more, thus only slow queries that "
-"take above 10 seconds are logged."
-msgstr ""
-"{long_query_time} 当前设为 10 秒或更长，因此超过 10 秒的查询才被记为慢查询。"
-
-#: libraries/advisory_rules_generic.txt:81
-msgid ""
-"It is suggested to set {long_query_time} to a lower value, depending on your "
-"environment. Usually a value of 1-5 seconds is suggested."
-msgstr "建议根据您的环境将 {long_query_time} 调短。通常建议设为 1-5 秒。"
-
-#: libraries/advisory_rules_generic.txt:82
-#, php-format
-msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time 当前被设为 %d 秒。"
-
-#: libraries/advisory_rules_generic.txt:84
-#: libraries/advisory_rules_generic.txt:91
-msgid "Slow query logging"
-msgstr "慢查询记录"
-
-#: libraries/advisory_rules_generic.txt:87
-#: libraries/advisory_rules_generic.txt:94
-msgid "The slow query log is disabled."
-msgstr "慢查询记录已禁用。"
-
-#: libraries/advisory_rules_generic.txt:88
-msgid ""
-"Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
-"help troubleshooting badly performing queries."
-msgstr ""
-"请将 {log_slow_queries} 设为 'ON' 来启用慢查询记录。这将有助于解决查询问题。"
-
-#: libraries/advisory_rules_generic.txt:89
-msgid "log_slow_queries is set to 'OFF'"
-msgstr "log_slow_queries 被设为 'OFF'"
-
-#: libraries/advisory_rules_generic.txt:95
-msgid ""
-"Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
-"help troubleshooting badly performing queries."
-msgstr ""
-"请将 {slow_query_log} 设为 'ON' 来启用慢查询记录。这将有助于解决查询问题。"
-
-#: libraries/advisory_rules_generic.txt:96
-msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log 被设为 'OFF'"
-
-#: libraries/advisory_rules_generic.txt:100
-msgid "Release Series"
-msgstr "发行版系列"
-
-#: libraries/advisory_rules_generic.txt:103
-msgid "The MySQL server version less than 5.1."
-msgstr "MySQL 服务器版本低于 5.1。"
-
-#: libraries/advisory_rules_generic.txt:104
-msgid ""
-"You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
-"even more so."
-msgstr "您应该升级到 MySQL 5.1 或 5.5，以获得新版本的更高性能。"
-
-#: libraries/advisory_rules_generic.txt:105
-#: libraries/advisory_rules_generic.txt:112
-#: libraries/advisory_rules_generic.txt:119
-#, php-format
-msgid "Current version: %s"
-msgstr "当前版本：%s"
-
-#: libraries/advisory_rules_generic.txt:107
-#: libraries/advisory_rules_generic.txt:114
-msgid "Minor Version"
-msgstr "子版本"
-
-#: libraries/advisory_rules_generic.txt:110
-msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "版本低于 5.1.30 (5.1 的第一个 GA 版本)。"
-
-#: libraries/advisory_rules_generic.txt:111
-msgid ""
-"You should upgrade, as recent versions of MySQL 5.1 have improved "
-"performance and MySQL 5.5 even more so."
-msgstr "您应该升级到最新的 MySQL 5.1 或 5.5，以获得新版本的更高性能。"
-
-#: libraries/advisory_rules_generic.txt:117
-msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr "版本低于 5.5.8 (5.5 的第一个 GA 版本)。"
-
-#: libraries/advisory_rules_generic.txt:118
-msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "您应升级到 MySQL 5.5 的稳定版本。"
-
-#: libraries/advisory_rules_generic.txt:121
-#: libraries/advisory_rules_generic.txt:128
-msgid "Distribution"
-msgstr "发行"
-
-#: libraries/advisory_rules_generic.txt:124
-msgid "Version is compiled from source, not a MySQL official binary."
-msgstr "从源代码编译，不是 MySQL 官方二进制。"
-
-#: libraries/advisory_rules_generic.txt:125
-msgid ""
-"If you did not compile from source, you may be using a package modified by a "
-"distribution. The MySQL manual only is accurate for official MySQL binaries, "
-"not any package distributions (such as RedHat, Debian/Ubuntu etc)."
-msgstr ""
-"如果您没有从源代码编译，您可能使用了再发行的修改版本。MySQL 手册仅适用于官方"
-"二进制，而非其它再发行包 (如 RedHat、Debian/Ubuntu 等等)。"
-
-#: libraries/advisory_rules_generic.txt:126
-msgid "'source' found in version_comment"
-msgstr "版本注释中含有 'source'"
-
-#: libraries/advisory_rules_generic.txt:131
-msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr "MySQL 手册仅适用于官方二进制。"
-
-#: libraries/advisory_rules_generic.txt:132
-msgid ""
-"Percona documentation is at <a href=\"https://www.percona.com/software/"
-"documentation/\">https://www.percona.com/software/documentation/</a>"
-msgstr ""
-"有关Percona的文档，请访问访问<a href=\"https://www.percona.com/software/"
-"documentation/\">https://www.percona.com/software/documentation/</a>"
-
-#: libraries/advisory_rules_generic.txt:133
-msgid "'percona' found in version_comment"
-msgstr "版本注释中含有 'percona'"
-
-#: libraries/advisory_rules_generic.txt:135
-msgid "MySQL Architecture"
-msgstr "MySQL 架构"
-
-#: libraries/advisory_rules_generic.txt:138
-msgid "MySQL is not compiled as a 64-bit package."
-msgstr "MySQL 没有以 64 位编译。"
-
-#: libraries/advisory_rules_generic.txt:139
-msgid ""
-"Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
-"so MySQL might not be able to access all of your memory. You might want to "
-"consider installing the 64-bit version of MySQL."
-msgstr ""
-"您的内存大小超过 3 GB (若服务器就在本地)，MySQL 可能无法访问所有内存。您需要"
-"考虑安装 64 位版本的 MySQL。"
-
-#: libraries/advisory_rules_generic.txt:140
-#, php-format
-msgid "Available memory on this host: %s"
-msgstr "此服务器上的可用内存: %s"
-
-#: libraries/advisory_rules_generic.txt:145
-msgid "Query caching method"
-msgstr "查询缓存模式"
-
-#: libraries/advisory_rules_generic.txt:148
-msgid "Suboptimal caching method."
-msgstr "最佳缓存模式。"
-
-#: libraries/advisory_rules_generic.txt:149
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
-msgid ""
-"You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple slaves."
-msgstr ""
-"您正在一台具有相当高流量的数据库中使用 MySQL 查询缓存。除非您有多台从服务器，"
-"使用 <a href=\"https://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html"
-"\">memcached</a> 代替 MySQL 查询缓存将更好。"
-
-#: libraries/advisory_rules_generic.txt:150
-#, php-format
-msgid ""
-"The query cache is enabled and the server receives %d queries per second. "
-"This rule fires if there is more than 100 queries per second."
-msgstr ""
-"查询缓存已启用且服务器每秒收到 %d 个查询。该规则在每秒超过 100 个查询时被触"
-"发。"
-
-#: libraries/advisory_rules_generic.txt:154
-msgid "Percentage of sorts that cause temporary tables"
-msgstr "使用临时表的排序率"
-
-#: libraries/advisory_rules_generic.txt:157
-#: libraries/advisory_rules_generic.txt:164
-msgid "Too many sorts are causing temporary tables."
-msgstr "过多排序引发临时表创建。"
-
-#: libraries/advisory_rules_generic.txt:158
-#: libraries/advisory_rules_generic.txt:165
-msgid ""
-"Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
-"depending on your system memory limits."
-msgstr ""
-"根据系统内存限制，考虑增加 {sort_buffer_size} 和/或 {read_rnd_buffer_size}。"
-
-#: libraries/advisory_rules_generic.txt:159
-#, php-format
-msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
-msgstr "%s%% 的排序引发临时表创建，该值应低于 10%%。"
-
-#: libraries/advisory_rules_generic.txt:161
-msgid "Rate of sorts that cause temporary tables"
-msgstr "排序使用临时表的创建率"
-
-#: libraries/advisory_rules_generic.txt:166
-#, php-format
-msgid ""
-"Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "临时表创建率: %s，该值应低于 1 每小时。"
-
-#: libraries/advisory_rules_generic.txt:168
-msgid "Sort rows"
-msgstr "行排序"
-
-#: libraries/advisory_rules_generic.txt:171
-msgid "There are lots of rows being sorted."
-msgstr "大量行被排序。"
-
-#: libraries/advisory_rules_generic.txt:172
-msgid ""
-"While there is nothing wrong with a high amount of row sorting, you might "
-"want to make sure that the queries which require a lot of sorting use "
-"indexed columns in the ORDER BY clause, as this will result in much faster "
-"sorting."
-msgstr ""
-"大量行排序不是什么错误，但您应确保需要大量排序的查询在 ORDER BY 中使用索引字"
-"段，这将使排序加快。"
-
-#: libraries/advisory_rules_generic.txt:173
-#, php-format
-msgid "Sorted rows average: %s"
-msgstr "行排序率: %s"
-
-#: libraries/advisory_rules_generic.txt:176
-msgid "Rate of joins without indexes"
-msgstr "无索引联合查询率"
-
-#: libraries/advisory_rules_generic.txt:179
-msgid "There are too many joins without indexes."
-msgstr "有太多的联合查询未使用索引。"
-
-#: libraries/advisory_rules_generic.txt:180
-msgid ""
-"This means that joins are doing full table scans. Adding indexes for the "
-"columns being used in the join conditions will greatly speed up table joins."
-msgstr ""
-"这意味着联合查询使用全表扫描。给联合条件所用的字段增加索引将极大提高查询速"
-"度。"
-
-#: libraries/advisory_rules_generic.txt:181
-#, php-format
-msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "表联合率: %s，该值应低于 1 每小时"
-
-#: libraries/advisory_rules_generic.txt:183
-msgid "Rate of reading first index entry"
-msgstr "首索引入口读取率"
-
-#: libraries/advisory_rules_generic.txt:186
-msgid "The rate of reading the first index entry is high."
-msgstr "读取第一个索引入口比例过高。"
-
-#: libraries/advisory_rules_generic.txt:187
-msgid ""
-"This usually indicates frequent full index scans. Full index scans are "
-"faster than table scans but require lots of CPU cycles in big tables, if "
-"those tables that have or had high volumes of UPDATEs and DELETEs, running "
-"'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index "
-"scans. Other than that full index scans can only be reduced by rewriting "
-"queries."
-msgstr ""
-"这通常说明频繁的全索引扫描。全索引扫描虽然比全表扫描快，但在大表中仍然需要一"
-"定 CPU 周期，如果这些表有或有过大量 UPDATE 和 DELETE，运行 'OPTIMIZE TABLE' "
-"可减少全索引扫描的次数以及提高速度。其它会减少全索引扫描的是重写查询。"
-
-#: libraries/advisory_rules_generic.txt:188
-#, php-format
-msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "索引扫描率: %s，该值应低于 1 每小时"
-
-#: libraries/advisory_rules_generic.txt:190
-msgid "Rate of reading fixed position"
-msgstr "固定位置读取率"
-
-#: libraries/advisory_rules_generic.txt:193
-msgid "The rate of reading data from a fixed position is high."
-msgstr "从固定位置读取数据的比例过高。"
-
-#: libraries/advisory_rules_generic.txt:194
-msgid ""
-"This indicates that many queries need to sort results and/or do a full table "
-"scan, including join queries that do not use indexes. Add indexes where "
-"applicable."
-msgstr ""
-"这说明很多查询需要结果排序且/或执行一次全表扫描，包括无索引的联合查询。请在合"
-"适的地方添加索引。"
-
-#: libraries/advisory_rules_generic.txt:195
-#, php-format
-msgid ""
-"Rate of reading fixed position average: %s, this value should be less than 1 "
-"per hour"
-msgstr "固定位置读取率: %s，该值应低于 1 每小时"
-
-#: libraries/advisory_rules_generic.txt:197
-msgid "Rate of reading next table row"
-msgstr "下一行读取率"
-
-#: libraries/advisory_rules_generic.txt:200
-msgid "The rate of reading the next table row is high."
-msgstr "读取下一行的比例过高。"
-
-#: libraries/advisory_rules_generic.txt:201
-msgid ""
-"This indicates that many queries are doing full table scans. Add indexes "
-"where applicable."
-msgstr "这说明很多查询都需要全表扫描。请在合适的地方添加索引。"
-
-#: libraries/advisory_rules_generic.txt:202
-#, php-format
-msgid ""
-"Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "下一行读取率: %s，该值应低于 1 每小时"
-
-#: libraries/advisory_rules_generic.txt:205
-msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "不同的 tmp_table_size 和 max_heap_table_size"
-
-#: libraries/advisory_rules_generic.txt:208
-msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "{tmp_table_size} 和 {max_heap_table_size} 不一致。"
-
-#: libraries/advisory_rules_generic.txt:209
-msgid ""
-"If you have deliberately changed one of either: The server uses the lower "
-"value of either to determine the maximum size of in-memory tables. So if you "
-"wish to increase the in-memory table limit you will have to increase the "
-"other value as well."
-msgstr ""
-"若您故意改变了其中一个值: 服务器使用较低的值来确定内存表的最大大小。如果您想"
-"增加内存表的大小您应该同时修改另一个值。"
-
-#: libraries/advisory_rules_generic.txt:210
-#, php-format
-msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr "当前值为 tmp_table_size: %s，max_heap_table_size: %s"
-
-#: libraries/advisory_rules_generic.txt:212
-msgid "Percentage of temp tables on disk"
-msgstr "磁盘临时表比例"
-
-#: libraries/advisory_rules_generic.txt:215
-#: libraries/advisory_rules_generic.txt:222
-msgid ""
-"Many temporary tables are being written to disk instead of being kept in "
-"memory."
-msgstr "很多临时表被创建在磁盘上而非内存中。"
-
-#: libraries/advisory_rules_generic.txt:216
-msgid ""
-"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-"some temporary tables are always being written to disk, independent of the "
-"value of these variables. To eliminate these you will have to rewrite your "
-"queries to avoid those conditions (Within a temporary table: Presence of a "
-"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the beginning of an <a href=\"https://www.facebook.com/note.php?"
-"note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
-msgstr ""
-"增加 {max_heap_table_size} 和 {tmp_table_size} 可能会有帮助。但有些临时表总是"
-"会写入硬盘，和这些变量无关。要避免这些，您需要重写您的查询来避免 <a href="
-"\"https://www.facebook.com/note.php?note_id=10150111255065841&comments"
-"\">Pythian 小组的文章</a>开头所提到的这些条件 (临时表内: 具有 BLOB 或 TEXT 字"
-"段或具有大于 512 字节的字段)"
-
-#: libraries/advisory_rules_generic.txt:217
-#, php-format
-msgid ""
-"%s%% of all temporary tables are being written to disk, this value should be "
-"below 25%%"
-msgstr "%s%% 的临时表被创建在磁盘上，该值应低于 25%%"
-
-#: libraries/advisory_rules_generic.txt:219
-msgid "Temp disk rate"
-msgstr "临时磁盘使用率"
-
-#: libraries/advisory_rules_generic.txt:223
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
-msgid ""
-"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-"some temporary tables are always being written to disk, independent of the "
-"value of these variables. To eliminate these you will have to rewrite your "
-"queries to avoid those conditions (Within a temporary table: Presence of a "
-"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
-"temporary-tables.html\">MySQL Documentation</a>"
-msgstr ""
-"增加 {max_heap_table_size} 和 {tmp_table_size} 可能会有帮助。但有些临时表总是"
-"会写入硬盘，和这些变量无关。要避免这些，您需要重写您的查询来避免 <a href="
-"\"https://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
-"\">MySQL 文档</a>中所提到的这些条件 (临时表内: 具有 BLOB 或 TEXT 字段或具有大"
-"于 512 字节的字段)"
-
-#: libraries/advisory_rules_generic.txt:224
-#, php-format
-msgid ""
-"Rate of temporary tables being written to disk: %s, this value should be "
-"less than 1 per hour"
-msgstr "临时表硬盘写入率: %s，该值应低于 1 每小时"
-
-#: libraries/advisory_rules_generic.txt:228
-msgid "MyISAM key buffer size"
-msgstr "MyISAM 索引缓存大小"
-
-#: libraries/advisory_rules_generic.txt:231
-msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr "索引缓存未初始化。MyISAM 索引不会被缓存。"
-
-#: libraries/advisory_rules_generic.txt:232
-msgid ""
-"Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
-"good start."
-msgstr "根据 MyISAM 索引大小设置 {key_buffer_size}。64M 通常可以满足普通需求。"
-
-#: libraries/advisory_rules_generic.txt:233
-msgid "key_buffer_size is 0"
-msgstr "key_buffer_size 为 0"
-
-#: libraries/advisory_rules_generic.txt:235
-#, php-format
-msgid "Max %% MyISAM key buffer ever used"
-msgstr "最大 %% MyISAM 索引缓存从未使用"
-
-#: libraries/advisory_rules_generic.txt:238
-#: libraries/advisory_rules_generic.txt:246
-#, php-format
-msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "MyISAM 索引缓存 %% 使用率低。"
-
-#: libraries/advisory_rules_generic.txt:239
-#: libraries/advisory_rules_generic.txt:247
-msgid ""
-"You may need to decrease the size of {key_buffer_size}, re-examine your "
-"tables to see if indexes have been removed, or examine queries and "
-"expectations about what indexes are being used."
-msgstr ""
-"您可能需要减小 {key_buffer_size} 的大小，重新检查您的表是否删除了索引或检查查"
-"询期望使用的索引。"
-
-#: libraries/advisory_rules_generic.txt:240
-#, php-format
-msgid ""
-"max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "最大 %% MyISAM 索引缓存从未使用: %s%%，该值应高于 95%%"
-
-#: libraries/advisory_rules_generic.txt:243
-msgid "Percentage of MyISAM key buffer used"
-msgstr "MyISAM 索引缓存使用百分比"
-
-#: libraries/advisory_rules_generic.txt:248
-#, php-format
-msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "MyISAM 索引缓存使用率: %s%%，该值应高于 95%%"
-
-#: libraries/advisory_rules_generic.txt:250
-msgid "Percentage of index reads from memory"
-msgstr "从内存读取索引的百分比"
-
-#: libraries/advisory_rules_generic.txt:253
-#, php-format
-msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr "%% 使用索引缓存的比例是低的。"
-
-#: libraries/advisory_rules_generic.txt:254
-msgid "You may need to increase {key_buffer_size}."
-msgstr "你需要增大 {key_buffer_size}。"
-
-#: libraries/advisory_rules_generic.txt:255
-#, php-format
-msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "从内存读取索引率: %s%%，该值应高于 95%%"
-
-#: libraries/advisory_rules_generic.txt:259
-msgid "Rate of table open"
-msgstr "表打开率"
-
-#: libraries/advisory_rules_generic.txt:262
-msgid "The rate of opening tables is high."
-msgstr "打开表的比例过高。"
-
-#: libraries/advisory_rules_generic.txt:263
-msgid ""
-"Opening tables requires disk I/O which is costly. Increasing "
-"{table_open_cache} might avoid this."
-msgstr "打开表需要很耗时的磁盘 I/O。增加 {table_open_cache} 避免多次打开。"
-
-#: libraries/advisory_rules_generic.txt:264
-#, php-format
-msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "已打开表的比率: %s，该值应低于 10 每小时"
-
-#: libraries/advisory_rules_generic.txt:266
-msgid "Percentage of used open files limit"
-msgstr "打开文件限制使用率"
-
-#: libraries/advisory_rules_generic.txt:269
-msgid ""
-"The number of open files is approaching the max number of open files.  You "
-"may get a \"Too many open files\" error."
-msgstr ""
-"打开文件的数量接近打开文件的最大数量。您可能会收到 \"过多打开的文件\" 错误。"
-
-#: libraries/advisory_rules_generic.txt:270
-#: libraries/advisory_rules_generic.txt:277
-msgid ""
-"Consider increasing {open_files_limit}, and check the error log when "
-"restarting after changing {open_files_limit}."
-msgstr ""
-"考虑增加 {open_files_limit}，并在修改 {open_files_limit} 重启后检查错误日志。"
-
-#: libraries/advisory_rules_generic.txt:271
-#, php-format
-msgid ""
-"The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr "打开的文件数量为最大数量的 %s%%。该值应低于 85%%"
-
-#: libraries/advisory_rules_generic.txt:273
-msgid "Rate of open files"
-msgstr "打开文件的比率"
-
-#: libraries/advisory_rules_generic.txt:276
-msgid "The rate of opening files is high."
-msgstr "当前打开文件数比率很高。"
-
-#: libraries/advisory_rules_generic.txt:278
-#, php-format
-msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "已打开文件的比率：%s,这个值应该低于5每小时"
-
-#: libraries/advisory_rules_generic.txt:280
-#, php-format
-msgid "Immediate table locks %%"
-msgstr "立即锁表 %%"
-
-#: libraries/advisory_rules_generic.txt:283
-#: libraries/advisory_rules_generic.txt:290
-msgid "Too many table locks were not granted immediately."
-msgstr "过多的锁表没有立即执行。"
-
-#: libraries/advisory_rules_generic.txt:284
-#: libraries/advisory_rules_generic.txt:291
-msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr "优化查询并/或使用 InnoDB 来减少锁等待。"
-
-#: libraries/advisory_rules_generic.txt:285
-#, php-format
-msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "立即锁表率: %s%%，该值应高于 95%%"
-
-#: libraries/advisory_rules_generic.txt:287
-msgid "Table lock wait rate"
-msgstr "锁表等待率"
-
-#: libraries/advisory_rules_generic.txt:292
-#, php-format
-msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr "锁表等待率: %s，该值应低于 1 每小时"
-
-#: libraries/advisory_rules_generic.txt:294
-msgid "Thread cache"
-msgstr "线程缓存"
-
-#: libraries/advisory_rules_generic.txt:297
-msgid ""
-"Thread cache is disabled, resulting in more overhead from new connections to "
-"MySQL."
-msgstr "线程缓存被禁用，有新连接到 MySQL 时将导致额外开销。"
-
-#: libraries/advisory_rules_generic.txt:298
-msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr "通过设置 {thread_cache_size} 大于 0 启用线程缓存。"
-
-#: libraries/advisory_rules_generic.txt:299
-msgid "The thread cache is set to 0"
-msgstr "线程缓存被设为 0"
-
-#: libraries/advisory_rules_generic.txt:301
-#, php-format
-msgid "Thread cache hit rate %%"
-msgstr "线程缓存命中率 %%"
-
-#: libraries/advisory_rules_generic.txt:304
-msgid "Thread cache is not efficient."
-msgstr "线程缓存效率低。"
-
-#: libraries/advisory_rules_generic.txt:305
-msgid "Increase {thread_cache_size}."
-msgstr "增加 {thread_cache_size}。"
-
-#: libraries/advisory_rules_generic.txt:306
-#, php-format
-msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "线程缓存命中率: %s%%，该值应高于 80%%"
-
-#: libraries/advisory_rules_generic.txt:308
-msgid "Threads that are slow to launch"
-msgstr "线程启动缓慢"
-
-#: libraries/advisory_rules_generic.txt:311
-msgid "There are too many threads that are slow to launch."
-msgstr "大量线程运行缓慢。"
-
-#: libraries/advisory_rules_generic.txt:312
-msgid ""
-"This generally happens in case of general system overload as it is pretty "
-"simple operations. You might want to monitor your system load carefully."
-msgstr "这通常是因为系统负载过高。您需要监控您的系统负载。"
-
-#: libraries/advisory_rules_generic.txt:313
-#, php-format
-msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr "%s 个线程启动时间超过 %s 秒，该数值应为 0"
-
-#: libraries/advisory_rules_generic.txt:315
-msgid "Slow launch time"
-msgstr "慢启动时间"
-
-#: libraries/advisory_rules_generic.txt:318
-msgid "Slow_launch_time is above 2s."
-msgstr "Slow_launch_time 大于 2 秒。"
-
-#: libraries/advisory_rules_generic.txt:319
-msgid ""
-"Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
-"to launch."
-msgstr "设置 {slow_launch_time} 为 1 秒或 2 秒以正确计算启动慢的线程数。"
-
-#: libraries/advisory_rules_generic.txt:320
-#, php-format
-msgid "slow_launch_time is set to %s"
-msgstr "slow_launch_time 已设为 %s"
-
-#: libraries/advisory_rules_generic.txt:324
-msgid "Percentage of used connections"
-msgstr "已用连接率"
-
-#: libraries/advisory_rules_generic.txt:327
-msgid ""
-"The maximum amount of used connections is getting close to the value of "
-"{max_connections}."
-msgstr "最大已用连接数接近 {max_connections}。"
-
-#: libraries/advisory_rules_generic.txt:328
-msgid ""
-"Increase {max_connections}, or decrease {wait_timeout} so that connections "
-"that do not close database handlers properly get killed sooner. Make sure "
-"the code closes database handlers properly."
-msgstr ""
-"增加 {max_connections}，或减少 {wait_timeout} 以使没有正常关闭连接的连接更快"
-"被杀死。确保代码中正常关闭数据库连接。"
-
-#: libraries/advisory_rules_generic.txt:329
-#, php-format
-msgid ""
-"Max_used_connections is at %s%% of max_connections, it should be below 80%%"
-msgstr "Max_used_connections 为 max_connections 的 %s%%，该值应低于 80%%"
-
-#: libraries/advisory_rules_generic.txt:331
-msgid "Percentage of aborted connections"
-msgstr "已中止连接率"
-
-#: libraries/advisory_rules_generic.txt:334
-#: libraries/advisory_rules_generic.txt:341
-msgid "Too many connections are aborted."
-msgstr "太多连接已中止。"
-
-#: libraries/advisory_rules_generic.txt:335
-#: libraries/advisory_rules_generic.txt:342
-msgid ""
-"Connections are usually aborted when they cannot be authorized. <a href="
-"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
-"aborted_connects/\">This article</a> might help you track down the source."
-msgstr ""
-"连接通常因为无法被授权而中止。<a href=\"https://www.percona.com/"
-"blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">这篇文章"
-"</a>对您追踪来源可能有所帮助。"
-
-#: libraries/advisory_rules_generic.txt:336
-#, php-format
-msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr "%s%% 的连接已中止。该值应低于 1%%"
-
-#: libraries/advisory_rules_generic.txt:338
-msgid "Rate of aborted connections"
-msgstr "已中止连接的比例"
-
-#: libraries/advisory_rules_generic.txt:343
-#, php-format
-msgid ""
-"Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr "已中止连接率为 %s，该值应低于 1 每小时"
-
-#: libraries/advisory_rules_generic.txt:345
-msgid "Percentage of aborted clients"
-msgstr "已中止客户端比例"
-
-#: libraries/advisory_rules_generic.txt:348
-#: libraries/advisory_rules_generic.txt:355
-msgid "Too many clients are aborted."
-msgstr "太多的客户端已中止。"
-
-#: libraries/advisory_rules_generic.txt:349
-#: libraries/advisory_rules_generic.txt:356
-msgid ""
-"Clients are usually aborted when they did not close their connection to "
-"MySQL properly. This can be due to network issues or code not closing a "
-"database handler properly. Check your network and code."
-msgstr ""
-"客户端中止通常是因为它们没有正确关闭到 MySQL 服务器的连接。这可能由网络问题或"
-"代码中没有正确关闭数据库连接引起。请检查您的网络和代码。"
-
-#: libraries/advisory_rules_generic.txt:350
-#, php-format
-msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr "%s%% 的客户端已取消。此值不应高于 2%%"
-
-#: libraries/advisory_rules_generic.txt:352
-msgid "Rate of aborted clients"
-msgstr "客户端的取消率"
-
-#: libraries/advisory_rules_generic.txt:357
-#, php-format
-msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "客户端取消率为 %s，此值应低于 1 每小时"
-
-#: libraries/advisory_rules_generic.txt:361
-msgid "Is InnoDB disabled?"
-msgstr "InnoDB是否不可用？"
-
-#: libraries/advisory_rules_generic.txt:364
-msgid "You do not have InnoDB enabled."
-msgstr "您没有启用 InnoDB。"
-
-#: libraries/advisory_rules_generic.txt:365
-msgid "InnoDB is usually the better choice for table engines."
-msgstr "对于表引擎来说，InnoDB 是一个更好的选择。"
-
-#: libraries/advisory_rules_generic.txt:366
-msgid "have_innodb is set to 'value'"
-msgstr "have_innodb被设置为'value'"
-
-#: libraries/advisory_rules_generic.txt:368
-msgid "InnoDB log size"
-msgstr "InnoDB的日志大小"
-
-#: libraries/advisory_rules_generic.txt:371
-msgid ""
-"The InnoDB log file size is not an appropriate size, in relation to the "
-"InnoDB buffer pool."
-msgstr "InnoDB 日志文件大小不合适，此关系到 InnoDB 缓冲池。"
-
-#: libraries/advisory_rules_generic.txt:372
-#, php-format
-msgid ""
-"Especially on a system with a lot of writes to InnoDB tables you should set "
-"{innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However the "
-"bigger this value, the longer the recovery time will be when database "
-"crashes, so this value should not be set much higher than 256 MiB. Please "
-"note however that you cannot simply change the value of this variable. You "
-"need to shutdown the server, remove the InnoDB log files, set the new value "
-"in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
-msgstr ""
-"在一个 InnoDB 表写入很多的系统上您应该将 {innodb_log_file_size} 设为 "
-"{innodb_buffer_pool_size} 的 25%% 。因为该值越大，当数据库崩溃时恢复的时间就"
-"越长，所以该值不应高于 256 MB 。请注意您不能简单的修改该变量的值。您需要关闭"
-"服务器，删除 InnoDB 日志文件，在 my.cnf 中设置新的值，启动服务器，一切正常后"
-"再检查错误日志。参见<a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">这篇博客</a>"
-
-#: libraries/advisory_rules_generic.txt:373
-#, php-format
-msgid ""
-"Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
-"it should not be below 20%%"
-msgstr "您的 InnoDB 日志大小为 InnoDB 缓冲池大小的 %s%%，该值不应低于 20%%"
-
-#: libraries/advisory_rules_generic.txt:375
-msgid "Max InnoDB log size"
-msgstr "InnoDB日志最大大小"
-
-#: libraries/advisory_rules_generic.txt:378
-msgid "The InnoDB log file size is inadequately large."
-msgstr "InnoDB 日志文件大小设置的不够大。"
-
-#: libraries/advisory_rules_generic.txt:379
-#, php-format
-msgid ""
-"It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
-"of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down "
-"the recovery time after a database crash considerably. See also <a href="
-"\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
-"remove the InnoDB log files, set the new value in my.cnf, start the server, "
-"then check the error logs if everything went fine. See also <a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">this blog entry</a>"
-msgstr ""
-"通常将 {innodb_log_file_size} 设置为 {innodb_buffer_pool_size} 的 25%% 已经足"
-"够。过大的 {innodb_log_file_size} 将会严重减慢数据库崩溃后的恢复时间。参见<a "
-"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">这篇文章</a>。您首先需要关闭服务器，移除 InnoDB 日志"
-"文件，然后在 my.cnf 中设置新的值，最后启动服务器，并检查错误日志确定一切都正"
-"常。另见<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-"increase-innodblogfilesize-proper-way.html\">这篇博客</a>"
-
-#: libraries/advisory_rules_generic.txt:380
-#, php-format
-msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "你的InnoDB日志文件的绝对大小为%s MB"
-
-#: libraries/advisory_rules_generic.txt:382
-msgid "InnoDB buffer pool size"
-msgstr "InnoDB缓冲池大小"
-
-#: libraries/advisory_rules_generic.txt:385
-msgid "Your InnoDB buffer pool is fairly small."
-msgstr "你的 InnoDB 缓冲池相当小。"
-
-#: libraries/advisory_rules_generic.txt:386
-#, php-format
-msgid ""
-"The InnoDB buffer pool has a profound impact on performance for InnoDB "
-"tables. Assign all your remaining memory to this buffer. For database "
-"servers that use solely InnoDB as storage engine and have no other services "
-"(e.g. a web server) running, you may set this as high as 80%% of your "
-"available memory. If that is not the case, you need to carefully assess the "
-"memory consumption of your other services and non-InnoDB-Tables and set this "
-"variable accordingly. If it is set too high, your system will start "
-"swapping, which decreases performance significantly. See also <a href="
-"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">this article</a>"
-msgstr ""
-"InnoDB缓冲池对InnoDB表的性能有着深远的影响。将所有剩余内存分配给此缓冲区。对"
-"于仅使用InnoDB作为存储引擎并且没有其他服务（例如Web服务器）运行的数据库服务"
-"器，您可以将其设置为高达可用内存的80%%。如果不是这种情况，则需要仔细评估其他"
-"服务和非InnoDB-Tables的内存消耗，并相应地设置此变量。如果设置得太高，系统将开"
-"始使用交换内存，这会显着降低性能。另请参见<a href=\"https://www.percona.com/"
-"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">这篇文章</a>"
-
-#: libraries/advisory_rules_generic.txt:387
-#, php-format
-msgid ""
-"You are currently using %s%% of your memory for the InnoDB buffer pool. This "
-"rule fires if you are assigning less than 60%%, however this might be "
-"perfectly adequate for your system if you don't have much InnoDB tables or "
-"other services running on the same machine."
-msgstr ""
-"您当前的 InnoDB 缓冲池使用了内存的 %s%% 。此规则在您分配少于 60%% 时被触发，"
-"然而这也可能因为您没有太多 InnoDB 表所以这样足够或者服务器上还运行了其它服"
-"务。"
-
-#: libraries/advisory_rules_generic.txt:391
-msgid "MyISAM concurrent inserts"
-msgstr "MyISAM 并发插入"
-
-#: libraries/advisory_rules_generic.txt:394
-msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "设置 {concurrent_insert} 的值为1来启用（并发插入）"
-
-#: libraries/advisory_rules_generic.txt:395
-msgid ""
-"Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
-msgstr ""
-"设置 {concurrent_insert} 为 1 可以减少在相同表上的读取和写入冲突。参见 <a "
-"href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html"
-"\">MySQL 文档</a>"
-
-#: libraries/advisory_rules_generic.txt:396
-msgid "concurrent_insert is set to 0"
-msgstr "concurrent_insert 被设为 0"
-
-#: libraries/advisory_rules_mysql_before80003.txt:10
-msgid "Query cache disabled"
-msgstr "查询缓存已禁用"
-
-#: libraries/advisory_rules_mysql_before80003.txt:13
-msgid "The query cache is not enabled."
-msgstr "查询缓存没有启用。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:14
-msgid ""
-"The query cache is known to greatly improve performance if configured "
-"correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
-"and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
-"memcached, ignore this recommendation."
-msgstr ""
-"若正确设置查询缓存将带来性能上的极大提升。您可以通过设置 {query_cache_size} "
-"为 2 位数的 MB 值和设置 {query_cache_type} 为 'ON'。<b>注意:</b> 若您正在使"
-"用 memcached，请忽略此建议。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:15
-msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr "query_cache_size 被设为 0 或 query_cache_type 被设为 'OFF'"
-
-#: libraries/advisory_rules_mysql_before80003.txt:17
-#, php-format
-msgid "Query cache efficiency (%%)"
-msgstr "查询缓存效率 (%%)"
-
-#: libraries/advisory_rules_mysql_before80003.txt:20
-msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr "查询缓存命中率低。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:21
-msgid "Consider increasing {query_cache_limit}."
-msgstr "请考虑增加 {query_cache_limit}。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:22
-#, php-format
-msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "当前查询缓存命中率为 %s%% 低于 20%%"
-
-#: libraries/advisory_rules_mysql_before80003.txt:24
-msgid "Query Cache usage"
-msgstr "查询缓存使用率"
-
-#: libraries/advisory_rules_mysql_before80003.txt:27
-#, php-format
-msgid "Less than 80%% of the query cache is being utilized."
-msgstr "查询缓存使用不到 80%%。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:28
-msgid ""
-"This might be caused by {query_cache_limit} being too low. Flushing the "
-"query cache might help as well."
-msgstr ""
-"这可能是因为 {query_cache_limit} 太低所导致。刷新查询缓存可能会有帮助。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:29
-#, php-format
-msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
-msgstr "当前空闲查询缓存内存为总查询缓存大小的 %s%%。此值应高于 80%%"
-
-#: libraries/advisory_rules_mysql_before80003.txt:31
-msgid "Query cache fragmentation"
-msgstr "查询缓存碎片"
-
-#: libraries/advisory_rules_mysql_before80003.txt:34
-msgid "The query cache is considerably fragmented."
-msgstr "查询缓存碎片化相当严重。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:35
-msgid ""
-"Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
-"This might be caused by many Query cache low memory prunes due to "
-"{query_cache_size} being too small. For a immediate but short lived fix you "
-"can flush the query cache (might lock the query cache for a long time). "
-"Carefully adjusting {query_cache_min_res_unit} to a lower value might help "
-"too, e.g. you can set it to the average size of your queries in the cache "
-"using this formula: (query_cache_size - qcache_free_memory) / "
-"qcache_queries_in_cache"
-msgstr ""
-"大量碎片很可能会增加 Qcache_lowmem_prunes 。这可能由 {query_cache_size} 过小"
-"而导致大量查询缓存低内存清理。刷新查询缓存 (可能锁住查询缓存很长时间) 可以临"
-"时解决这个问题。仔细调整 {query_cache_min_res_unit} 到一个更小的值将会有所帮"
-"助，如您可以使用下列公式来计算并设置您查询缓存大小平均值: (查询缓存大小 - 查"
-"询缓存剩余大小) / 查询缓存中的查询数量"
-
-#: libraries/advisory_rules_mysql_before80003.txt:36
-#, php-format
-msgid ""
-"The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
-"that the query cache is an alternating pattern of free and used blocks. This "
-"value should be below 20%%."
-msgstr ""
-"缓存碎片的数量已经到达至 %s%%，当到 100%% 的时候那就意味着已用空间和可用空间"
-"的界线已经不清楚了，这个值会下降 20%%."
-
-#: libraries/advisory_rules_mysql_before80003.txt:38
-msgid "Query cache low memory prunes"
-msgstr "查询缓存低内存清理"
-
-#: libraries/advisory_rules_mysql_before80003.txt:41
-msgid ""
-"Cached queries are removed due to low query cache memory from the query "
-"cache."
-msgstr "在查询缓存内存过低时会清理已缓存的查询。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:42
-msgid ""
-"You might want to increase {query_cache_size}, however keep in mind that the "
-"overhead of maintaining the cache is likely to increase with its size, so do "
-"this in small increments and monitor the results."
-msgstr ""
-"您可能需要增加 {query_cache_size}，但请注意增加它可能会导致的维护开销，所以请"
-"慢慢增加并观察结果。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:43
-#, php-format
-msgid ""
-"The ratio of removed queries to inserted queries is %s%%. The lower this "
-"value is, the better (This rules firing limit: 0.1%%)"
-msgstr "删除查询比插入查询的比例是 %s%%.这个比例越小越好。（警戒比例：0.1%%）"
-
-#: libraries/advisory_rules_mysql_before80003.txt:45
-msgid "Query cache max size"
-msgstr "查询缓存最大值"
-
-#: libraries/advisory_rules_mysql_before80003.txt:48
-msgid ""
-"The query cache size is above 128 MiB. Big query caches may cause "
-"significant overhead that is required to maintain the cache."
-msgstr "查询缓存超过 128 MB 。过大的查询缓存可能会引起额外的维护开销。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:49
-msgid ""
-"Depending on your environment, it might be performance increasing to reduce "
-"this value."
-msgstr "根据您的环境，减小该值可能会带来性能上的提升。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:50
-#, php-format
-msgid "Current query cache size: %s"
-msgstr "当前查询缓存大小: %s"
-
-#: libraries/advisory_rules_mysql_before80003.txt:52
-msgid "Query cache min result size"
-msgstr "查询缓存结果最小大小"
-
-#: libraries/advisory_rules_mysql_before80003.txt:55
-msgid ""
-"The max size of the result set in the query cache is the default of 1 MiB."
-msgstr "查询缓存结果最大大小已设为默认值 1 MB 。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:56
-msgid ""
-"Changing {query_cache_limit} (usually by increasing) may increase "
-"efficiency. This variable determines the maximum size a query result may "
-"have to be inserted into the query cache. If there are many query results "
-"above 1 MiB that are well cacheable (many reads, little writes) then "
-"increasing {query_cache_limit} will increase efficiency. Whereas in the case "
-"of many query results being above 1 MiB that are not very well cacheable "
-"(often invalidated due to table updates) increasing {query_cache_limit} "
-"might reduce efficiency."
-msgstr ""
-"修改 {query_cache_limit} (通常是增加) 可能提升效率。该变量决定可能要插入到查"
-"询缓存中查询结果的最大大小。若多数超过 1 MB 的查询结果能很好的缓存 (多读、少"
-"写) 则增加 {query_cache_limit} 将会提升效率。若多数超过 1 MB 的查询结果不能很"
-"好的缓存 (通常因为表更新而失效) 增加 {query_cache_limit} 将会降低效率。"
-
-#: libraries/advisory_rules_mysql_before80003.txt:57
-msgid "query_cache_limit is set to 1 MiB"
-msgstr "query_cache_limit 已被设为 1 MB"
+#~ msgid ""
+#~ "Error in reading file: The file '%s' does not exist or is not readable!"
+#~ msgstr "文件读取失败，%s不存在或不可读，请检查！"
+
+#~ msgid ""
+#~ "Invalid rule declaration on line %1$s, expected line %2$s of previous "
+#~ "rule."
+#~ msgstr "第 %1$s 行的规则声明无效，该行应是上一规则的 %2$s 声明。"
+
+#~ msgid "Invalid rule declaration on line %s."
+#~ msgstr "第 %s 行的规则声明无效。"
+
+#~ msgid "Unexpected characters on line %s."
+#~ msgstr "第 %s 行有不应出现的字符。"
+
+#~ msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
+#~ msgstr "第 %1$s 行有不应出现的字符。应是制表符，而不是“%2$s”。"
 
 #~ msgid "View dump (schema) of database"
 #~ msgstr "查看数据库的转储（大纲）"

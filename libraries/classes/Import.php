@@ -16,6 +16,7 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use function abs;
 use function count;
 use function explode;
+use function function_exists;
 use function htmlspecialchars;
 use function implode;
 use function is_array;
@@ -41,7 +42,6 @@ use function strtoupper;
 use function substr;
 use function time;
 use function trim;
-use function unlink;
 
 /**
  * Library that provides common import functions that are used by import plugins
@@ -385,17 +385,13 @@ class Import
     /**
      * Returns next part of imported file/buffer
      *
-     * @param int $size size of buffer to read
-     *                  (this is maximal size function will return)
+     * @param int $size size of buffer to read (this is maximal size function will return)
      *
      * @return string|bool part of file/buffer
-     *
-     * @access public
      */
-    public function getNextChunk(int $size = 32768)
+    public function getNextChunk(?File $importHandle = null, int $size = 32768)
     {
-        global $import_handle, $charset_conversion, $charset_of_file,
-            $read_multiply;
+        global $charset_conversion, $charset_of_file, $read_multiply;
 
         // Add some progression while reading large amount of data
         if ($read_multiply <= 8) {
@@ -433,8 +429,12 @@ class Import
             return $r;
         }
 
-        $result = $import_handle->read($size);
-        $GLOBALS['finished'] = $import_handle->eof();
+        if ($importHandle === null) {
+            return false;
+        }
+
+        $result = $importHandle->read($size);
+        $GLOBALS['finished'] = $importHandle->eof();
         $GLOBALS['offset'] += $size;
 
         if ($charset_conversion) {
@@ -1428,35 +1428,6 @@ class Import
     }
 
     /**
-     * Stops the import on (mostly upload/file related) error
-     *
-     * @param Message $error_message The error message
-     *
-     * @access public
-     */
-    public function stop(Message $error_message): void
-    {
-        global $import_handle, $file_to_unlink;
-
-        // Close open handles
-        if ($import_handle !== false && $import_handle !== null) {
-            $import_handle->close();
-        }
-
-        // Delete temporary file
-        if ($file_to_unlink != '') {
-            unlink($file_to_unlink);
-        }
-        $msg = $error_message->getDisplay();
-        $_SESSION['Import_message']['message'] = $msg;
-
-        $response = Response::getInstance();
-        $response->setRequestStatus(false);
-        $response->addJSON('message', $msg);
-        $response->addHTML($msg);
-    }
-
-    /**
      * Handles request for Simulation of UPDATE/DELETE queries.
      */
     public function handleSimulateDmlRequest(): void
@@ -1811,5 +1782,55 @@ class Import
         $result = $GLOBALS['dbi']->tryQuery($check_query);
 
         return $GLOBALS['dbi']->numRows($result) == 1;
+    }
+
+    /** @return string[] */
+    public static function getCompressions(): array
+    {
+        global $cfg;
+
+        $compressions = [];
+
+        if ($cfg['GZipDump'] && function_exists('gzopen')) {
+            $compressions[] = 'gzip';
+        }
+        if ($cfg['BZipDump'] && function_exists('bzopen')) {
+            $compressions[] = 'bzip2';
+        }
+        if ($cfg['ZipDump'] && function_exists('zip_open')) {
+            $compressions[] = 'zip';
+        }
+
+        return $compressions;
+    }
+
+    /**
+     * @param array $importList List of plugin instances.
+     *
+     * @return false|string
+     */
+    public static function getLocalFiles(array $importList)
+    {
+        $fileListing = new FileListing();
+
+        $extensions = '';
+        foreach ($importList as $importPlugin) {
+            if (! empty($extensions)) {
+                $extensions .= '|';
+            }
+            $extensions .= $importPlugin->getProperties()->getExtension();
+        }
+
+        $matcher = '@\.(' . $extensions . ')(\.(' . $fileListing->supportedDecompressions() . '))?$@';
+
+        $active = isset($GLOBALS['timeout_passed'], $GLOBALS['local_import_file']) && $GLOBALS['timeout_passed']
+            ? $GLOBALS['local_import_file']
+            : '';
+
+        return $fileListing->getFileSelectOptions(
+            Util::userDir($GLOBALS['cfg']['UploadDir'] ?? ''),
+            $matcher,
+            $active
+        );
     }
 }

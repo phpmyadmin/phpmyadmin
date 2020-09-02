@@ -50,7 +50,7 @@ class BinlogController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $pmaThemeImage;
+        global $cfg, $PMA_Theme;
 
         $params = [
             'log' => $_POST['log'] ?? null,
@@ -122,7 +122,7 @@ class BinlogController extends AbstractController
             'next_params' => $nextParams,
             'has_icons' => Util::showIcons('TableNavigationLinksMode'),
             'is_full_query' => $isFullQuery,
-            'image_path' => $pmaThemeImage,
+            'image_path' => $PMA_Theme->getImgPath(),
         ]);
     }
 

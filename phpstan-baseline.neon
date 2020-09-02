@@ -1,31 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method PhpMyAdmin\\\\Advisor\\:\\:escapePercent\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Bookmark\\:\\:applyVariables\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, string\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/Bookmark.php
-
-		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
 			count: 2
 			path: libraries/classes/CentralColumns.php
@@ -121,17 +96,17 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:set\\(\\) expects string, int\\|string given\\.$#"
-			count: 2
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
 			message: "#^Parameter \\#2 \\$type of function settype expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, int\\|string\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Config/FormDisplay.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:set\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
 
@@ -261,11 +236,6 @@ parameters:
 			path: libraries/classes/Controllers/ExportController.php
 
 		-
-			message: "#^Parameter \\#1 \\$error_message of method PhpMyAdmin\\\\Import\\:\\:stop\\(\\) expects PhpMyAdmin\\\\Message, PhpMyAdmin\\\\Message\\|null given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/ImportController.php
-
-		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ImportController.php
@@ -311,11 +281,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/PrivilegesController.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_strtolower expects string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Status/ProcessesController.php
-
-		-
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
 			count: 7
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
@@ -357,11 +322,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ChartController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ChartController.php
 
@@ -551,11 +511,6 @@ parameters:
 			path: libraries/classes/Database/Qbe.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Database\\\\Qbe\\:\\:getMasterTable\\(\\) should return string but returns int\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Database/Qbe.php
-
-		-
 			message: "#^Parameter \\#1 \\$mode of method PhpMyAdmin\\\\Database\\\\Routines\\:\\:getEditorForm\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Routines.php
@@ -592,11 +547,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\Query\\\\Cache\\:\\:cacheTableData\\(\\) expects bool\\|string, array\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/DatabaseInterface.php
-
-		-
-			message: "#^Parameter \\#1 \\$column of method PhpMyAdmin\\\\Index\\:\\:hasColumn\\(\\) expects string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
 
@@ -1026,7 +976,7 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Argument of an invalid type \\(array\\)\\|object supplied for foreach, only iterables are supported\\.$#"
+			message: "#^Argument of an invalid type array\\|object supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Footer.php
 
@@ -2261,7 +2211,7 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Parameter \\#1 \\$foreigners of method PhpMyAdmin\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects array, \\(array\\)\\|true given\\.$#"
+			message: "#^Parameter \\#1 \\$foreigners of method PhpMyAdmin\\\\Relation\\:\\:searchColumnInForeigners\\(\\) expects array, array\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
 
@@ -2467,11 +2417,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$canonicalPath of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getDefault\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Setup/ConfigGenerator.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Setup/ConfigGenerator.php
 
@@ -3036,69 +2981,9 @@ parameters:
 			path: test/classes/TrackingTest.php
 
 		-
-			message: "#^Offset 0 does not exist on array\\|null\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$newvalue of function ini_set expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Cannot access property \\$version on stdClass\\|null\\.$#"
-			count: 1
-			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Cannot access property \\$date on stdClass\\|null\\.$#"
-			count: 1
-			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Offset 'version' does not exist on array\\|null\\.$#"
-			count: 3
-			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function fopen expects string, string\\|false given\\.$#"
-			count: 2
-			path: test/classes/ZipExtensionTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fwrite expects resource, resource\\|false given\\.$#"
-			count: 2
-			path: test/classes/ZipExtensionTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$str of function fwrite expects string, bool\\|string given\\.$#"
-			count: 2
-			path: test/classes/ZipExtensionTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fclose expects resource, resource\\|false given\\.$#"
-			count: 2
-			path: test/classes/ZipExtensionTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$source of method ZipArchive\\:\\:open\\(\\) expects string, string\\|false given\\.$#"
-			count: 2
-			path: test/classes/ZipExtensionTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function unlink expects string, string\\|false given\\.$#"
-			count: 2
-			path: test/classes/ZipExtensionTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"
 			count: 1
 			path: test/selenium/CreateRemoveUserTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/selenium/Database/QueryByExampleTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$element of method PhpMyAdmin\\\\Tests\\\\Selenium\\\\TestBase\\:\\:moveto\\(\\) expects Facebook\\\\WebDriver\\\\Remote\\\\RemoteWebElement, Facebook\\\\WebDriver\\\\WebDriverElement given\\.$#"

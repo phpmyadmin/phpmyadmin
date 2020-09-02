@@ -46,7 +46,7 @@ final class TrackingController extends AbstractController
 
     public function index(): void
     {
-        global $pmaThemeImage, $text_dir, $url_query, $url_params, $msg;
+        global $text_dir, $url_query, $url_params, $msg, $PMA_Theme;
         global $data, $entries, $filter_ts_from, $filter_ts_to, $filter_users, $selection_schema;
         global $selection_data, $selection_both, $sql_result;
 
@@ -224,7 +224,7 @@ final class TrackingController extends AbstractController
          */
         $html .= $this->tracking->getHtmlForMainPage(
             $url_params,
-            $pmaThemeImage,
+            $PMA_Theme->getImgPath(),
             $text_dir
         );
 

@@ -398,39 +398,11 @@ class ThemeManager
         return $retval;
     }
 
-    /**
-     * Theme initialization
-     *
-     * @return void
-     *
-     * @access public
-     */
-    public static function initializeTheme()
+    public static function initializeTheme(): ?Theme
     {
-        $tmanager = self::getInstance();
+        $themeManager = self::getInstance();
 
-        /**
-         * the theme object
-         *
-         * @global Theme $GLOBALS['PMA_Theme']
-         */
-        $GLOBALS['PMA_Theme'] = $tmanager->theme;
-
-        // BC
-
-        /**
-         * the theme path
-         *
-         * @global string $GLOBALS['pmaThemePath']
-         */
-        $GLOBALS['pmaThemePath']    = $GLOBALS['PMA_Theme']->getPath();
-
-        /**
-         * the theme image path
-         *
-         * @global string $GLOBALS['pmaThemeImage']
-         */
-        $GLOBALS['pmaThemeImage']   = $GLOBALS['PMA_Theme']->getImgPath();
+        return $themeManager->theme;
     }
 
     /**

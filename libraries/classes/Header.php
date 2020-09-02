@@ -376,7 +376,7 @@ class Header
      */
     public function getDisplay(): string
     {
-        global $db, $table;
+        global $db, $table, $PMA_Theme;
 
         if ($this->headerIsSent || ! $this->isEnabled) {
             return '';
@@ -395,7 +395,7 @@ class Header
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
         $uniqueValue = $GLOBALS['PMA_Config']->getThemeUniqueValue();
-        $themePath = $GLOBALS['pmaThemePath'];
+        $themePath = $PMA_Theme->getPath();
         $version = self::getVersionParameter();
 
         // The user preferences have been merged at this point
@@ -703,14 +703,14 @@ class Header
 
     private function getVariablesForJavaScript(): string
     {
-        global $cfg, $pmaThemeImage;
+        global $cfg, $PMA_Theme;
 
         $maxInputVars = ini_get('max_input_vars');
         $maxInputVarsValue = $maxInputVars === false || $maxInputVars === '' ? 'false' : (int) $maxInputVars;
 
         return $this->template->render('javascript/variables', [
             'first_day_of_calendar' => $cfg['FirstDayOfCalendar'],
-            'pma_theme_image' => $pmaThemeImage,
+            'theme_image_path' => $PMA_Theme->getImgPath(),
             'max_input_vars' => $maxInputVarsValue,
         ]);
     }

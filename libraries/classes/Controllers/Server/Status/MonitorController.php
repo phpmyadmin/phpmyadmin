@@ -37,6 +37,8 @@ class MonitorController extends AbstractController
 
     public function index(): void
     {
+        global $PMA_Theme;
+
         Common::server();
 
         $this->addScriptFiles([
@@ -72,7 +74,7 @@ class MonitorController extends AbstractController
         }
 
         $this->render('server/status/monitor/index', [
-            'image_path' => $GLOBALS['pmaThemeImage'],
+            'image_path' => $PMA_Theme->getImgPath(),
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,
         ]);

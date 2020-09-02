@@ -68,9 +68,9 @@
              style="width:{{ visualization_settings['width'] }}px;height:{{ visualization_settings['height'] }}px;">
             {{ visualization|raw }}
         </div>
-      <div id="openlayersmap"></div>
-        <input type="hidden" id="pmaThemeImage" value="{{ pma_theme_image }}">
-          <script language="javascript" type="text/javascript">
+        <div id="openlayersmap"></div>
+        <input type="hidden" id="themeImagePath" value="{{ theme_image_path }}">
+        <script language="javascript" type="text/javascript">
             function drawOpenLayers()
             {
                 {{ draw_ol|raw }}

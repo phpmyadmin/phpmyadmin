@@ -2,7 +2,7 @@
   <legend>{% trans %}New{% context %}Create new trigger{% endtrans %}</legend>
   <div class='wrap'>
     {% if has_privilege %}
-      <a class="ajax add_anchor" href="{{ url('/database/triggers', {'db': db, 'table': table, 'add_item': true}) }}" onclick="$.datepicker.initialized = false;">
+      <a class="ajax add_anchor" href="{{ url('/database/triggers', {'db': db, 'table': table, 'add_item': true}) }}">
         {{ get_icon('b_trigger_add') }}
         {% trans 'Add trigger' %}
       </a>

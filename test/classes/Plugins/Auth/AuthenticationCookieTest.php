@@ -154,7 +154,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->with()
             ->will($this->returnValue($mockHeader));
 
-        $GLOBALS['pmaThemeImage'] = 'test';
         $GLOBALS['cfg']['Servers'] = [
             1,
             2,
@@ -283,7 +282,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = false;
 
-        $GLOBALS['pmaThemeImage'] = 'test';
         $GLOBALS['cfg']['Lang'] = '';
         $GLOBALS['cfg']['AllowArbitraryServer'] = false;
         $GLOBALS['cfg']['Servers'] = [1];
@@ -362,7 +360,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = false;
 
-        $GLOBALS['pmaThemeImage'] = 'test';
         $GLOBALS['cfg']['Lang'] = '';
         $GLOBALS['cfg']['AllowArbitraryServer'] = false;
         $GLOBALS['cfg']['Servers'] = [1];

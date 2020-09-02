@@ -10,7 +10,6 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
@@ -84,11 +83,7 @@ class OptionsTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        /** @var ExportPlugin[] $exportList */
-        $exportList = Plugins::getPlugins('export', 'libraries/classes/Plugins/Export/', [
-            'export_type' => $export_type,
-            'single_table' => true,
-        ]);
+        $exportList = Plugins::getExport($export_type, true);
         $dropdown = Plugins::getChoice('Export', 'what', $exportList, 'format');
 
         //Call the test function

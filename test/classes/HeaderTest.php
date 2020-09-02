@@ -34,7 +34,6 @@ class HeaderTest extends AbstractTestCase
         }
         $GLOBALS['server'] = 0;
         $GLOBALS['message'] = 'phpmyadminmessage';
-        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'db';

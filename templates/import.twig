@@ -1,14 +1,17 @@
+{{ page_settings_error_html|raw }}
+{{ page_settings_html|raw }}
+
 <iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" class="hide"></iframe>
 <div id="import_form_status" class="hide"></div>
 <div id="importmain" class="container-fluid">
-    <img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock" class="hide">
+    <img src="{{ theme_image_path }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock" class="hide">
 
     <script type="text/javascript">
         //<![CDATA[
-        {% include 'display/import/javascript.twig' with {
+        {% include 'import/javascript.twig' with {
             'upload_id': upload_id,
             'handler': handler,
-            'pma_theme_image': pma_theme_image
+            'theme_image_path': theme_image_path
         } only %}
         //]]>
     </script>
@@ -23,26 +26,12 @@
             target="import_upload_iframe"
         {%- endif %}>
 
-        <input type="hidden" name="{{ id_key }}" value="{{ upload_id }}">
-        {% if import_type == 'server' %}
-            {{ get_hidden_inputs('', '', 1) }}
-        {% elseif import_type == 'database' %}
-            {{ get_hidden_inputs(db, '', 1) }}
-        {% else %}
-            {{ get_hidden_inputs(db, table, 1) }}
-        {% endif %}
-        <input type="hidden" name="import_type" value="{{ import_type }}">
+        {{ get_hidden_inputs(hidden_inputs) }}
 
         <div class="exportoptions" id="header">
             <h2>
                 {{ get_image('b_import', 'Import'|trans) }}
-                {% if import_type == 'server' %}
-                    {% trans 'Importing into the current server' %}
-                {% elseif import_type == 'database' %}
-                    {{ 'Importing into the database "%s"'|trans|format(db) }}
-                {% else %}
-                    {{ 'Importing into the table "%s"'|trans|format(table) }}
-                {% endif %}
+                {% block title %}{% endblock %}
             </h2>
         </div>
 

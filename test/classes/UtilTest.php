@@ -552,7 +552,6 @@ class UtilTest extends AbstractTestCase
         parent::setGlobalConfig();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
-        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['server'] = 1;
@@ -581,7 +580,6 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['cfg'] = ['ServerDefault' => 1];
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
-        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['db'] = 'dbDatabase';
         $GLOBALS['table'] = 'tblTable';
         $GLOBALS['field'] = 'test_field';
@@ -1060,6 +1058,7 @@ class UtilTest extends AbstractTestCase
     public function testFormatByteDown(float $a, int $b, int $c, array $e): void
     {
         $result = Util::formatByteDown($a, $b, $c);
+        $this->assertIsArray($result);
         $result[0] = trim($result[0]);
         $this->assertSame($e, $result);
     }
@@ -1193,7 +1192,7 @@ class UtilTest extends AbstractTestCase
         $this->assertFormatNumber($a, $b, $c, $d);
 
         // Test with various precisions
-        $old_precision = ini_get('precision');
+        $old_precision = (string) ini_get('precision');
         try {
             ini_set('precision', '20');
             $this->assertFormatNumber($a, $b, $c, $d);

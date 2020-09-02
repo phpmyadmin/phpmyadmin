@@ -1407,32 +1407,4 @@ class Core
          */
         $dbi->connect(DatabaseInterface::CONNECT_USER, null, DatabaseInterface::CONNECT_CONTROL);
     }
-
-    public static function checkProfiling(Response $response): void
-    {
-        /**
-         * check if profiling was requested and remember it
-         * (note: when $cfg['ServerDefault'] = 0, constant is not defined)
-         */
-        if (isset($_REQUEST['profiling']) && Util::profilingSupported()) {
-            $_SESSION['profiling'] = true;
-        } elseif (isset($_REQUEST['profiling_form'])) {
-            // the checkbox was unchecked
-            unset($_SESSION['profiling']);
-        }
-
-        if (! isset($_SESSION['profiling'])) {
-            return;
-        }
-
-        // Inclusion of profiling scripts is needed on various pages like sql, tbl_sql, db_sql, tbl_select
-        $scripts = $response->getHeader()->getScripts();
-        $scripts->addFiles([
-            'chart.js',
-            'vendor/jqplot/jquery.jqplot.js',
-            'vendor/jqplot/plugins/jqplot.pieRenderer.js',
-            'vendor/jqplot/plugins/jqplot.highlighter.js',
-            'vendor/jquery/jquery.tablesorter.js',
-        ]);
-    }
 }

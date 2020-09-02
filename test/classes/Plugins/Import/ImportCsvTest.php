@@ -48,8 +48,6 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['compression'] = 'none';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'Xml';
-        $GLOBALS['import_handle'] = new File($GLOBALS['import_file']);
-        $GLOBALS['import_handle']->open();
 
         //separator for csv
         $GLOBALS['csv_terminated'] = "\015";
@@ -108,8 +106,11 @@ class ImportCsvTest extends AbstractTestCase
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
 
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->open();
+
         //Test function called
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
 
         //asset that all sql are executed
         $this->assertStringContainsString(
@@ -137,13 +138,16 @@ class ImportCsvTest extends AbstractTestCase
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
 
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->open();
+
         $GLOBALS['import_file'] = 'test/test_data/db_test_partial_import.csv';
         $_REQUEST['csv_new_tbl_name'] = 'ImportTestTable';
         $_REQUEST['csv_new_db_name'] = 'ImportTestDb';
         $_REQUEST['csv_partial_import'] = 5;
 
         //Test function called
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
 
         //asset that all sql are executed
         $this->assertStringContainsString(
@@ -195,8 +199,11 @@ class ImportCsvTest extends AbstractTestCase
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
 
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->open();
+
         //Test function called
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
 
         //asset that all sql are executed
         $this->assertStringContainsString(

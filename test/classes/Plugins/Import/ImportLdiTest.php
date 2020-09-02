@@ -48,8 +48,6 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['import_text'] = 'ImportLdi_Test';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'csv';
-        $GLOBALS['import_handle'] = new File($GLOBALS['import_file']);
-        $GLOBALS['import_handle']->open();
 
         //setting for Ldi
         $GLOBALS['cfg']['Import']['ldi_replace'] = false;
@@ -161,8 +159,11 @@ class ImportLdiTest extends AbstractTestCase
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
 
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->open();
+
         //Test function called
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
 
         //asset that all sql are executed
         $this->assertStringContainsString(
@@ -231,8 +232,11 @@ class ImportLdiTest extends AbstractTestCase
         $ldi_new_line = 'newline_mark';
         $skip_queries = true;
 
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->open();
+
         //Test function called
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
 
         //asset that all sql are executed
         //replace

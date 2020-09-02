@@ -296,7 +296,7 @@
       {# Footer buttons #}
       {% if is_drop_allowed %}
         {% include 'select_all.twig' with {
-          'pma_theme_image': pma_theme_image,
+          'theme_image_path': theme_image_path,
           'text_dir': text_dir,
           'form_name': 'dbStatsForm'
         } only %}

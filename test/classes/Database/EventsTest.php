@@ -23,6 +23,7 @@ class EventsTest extends AbstractTestCase
         parent::setUp();
         parent::setGlobalConfig();
         parent::setLanguage();
+        parent::setTheme();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['server'] = 0;

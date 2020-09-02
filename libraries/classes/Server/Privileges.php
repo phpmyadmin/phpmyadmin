@@ -2111,14 +2111,14 @@ class Privileges
      * Get HTML for display the users overview
      * (if less than 50 users, display them immediately)
      *
-     * @param array  $result        ran sql query
-     * @param array  $db_rights     user's database rights array
-     * @param string $pmaThemeImage a image source link
-     * @param string $text_dir      text directory
+     * @param array  $result         ran sql query
+     * @param array  $db_rights      user's database rights array
+     * @param string $themeImagePath a image source link
+     * @param string $text_dir       text directory
      *
      * @return string HTML snippet
      */
-    public function getUsersOverview($result, array $db_rights, $pmaThemeImage, $text_dir)
+    public function getUsersOverview($result, array $db_rights, $themeImagePath, $text_dir)
     {
         global $is_grantuser, $is_createuser;
 
@@ -2179,7 +2179,7 @@ class Privileges
         return $this->template->render('server/privileges/users_overview', [
             'menus_work' => $cfgRelation['menuswork'],
             'user_group_count' => $user_group_count,
-            'pma_theme_image' => $pmaThemeImage,
+            'theme_image_path' => $themeImagePath,
             'text_dir' => $text_dir,
             'initial' => $_GET['initial'] ?? '',
             'hosts' => $hosts,
@@ -3037,12 +3037,12 @@ class Privileges
     /**
      * Get HTML snippet for display user overview page
      *
-     * @param string $pmaThemeImage a image source link
-     * @param string $text_dir      text directory
+     * @param string $themeImagePath a image source link
+     * @param string $text_dir       text directory
      *
      * @return string
      */
-    public function getHtmlForUserOverview($pmaThemeImage, $text_dir)
+    public function getHtmlForUserOverview($themeImagePath, $text_dir)
     {
         global $is_createuser;
 
@@ -3150,7 +3150,7 @@ class Privileges
                 $usersOverview = $this->getUsersOverview(
                     $res,
                     $db_rights,
-                    $pmaThemeImage,
+                    $themeImagePath,
                     $text_dir
                 );
             }

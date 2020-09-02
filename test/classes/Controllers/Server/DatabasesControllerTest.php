@@ -27,6 +27,7 @@ class DatabasesControllerTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
+        parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;
@@ -34,7 +35,6 @@ class DatabasesControllerTest extends AbstractTestCase
         $GLOBALS['table'] = '';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['pmaThemeImage'] = 'image';
         $GLOBALS['text_dir'] = 'text_dir';
     }
 

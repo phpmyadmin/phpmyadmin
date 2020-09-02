@@ -11,7 +11,6 @@ use PhpMyAdmin\Database\Designer\DesignerTable;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -130,13 +129,7 @@ class Designer
      */
     public function getHtmlForSchemaExport($db, $page)
     {
-        /* Scan for schema plugins */
-        /** @var SchemaPlugin[] $export_list */
-        $export_list = Plugins::getPlugins(
-            'schema',
-            'libraries/classes/Plugins/Schema/',
-            null
-        );
+        $export_list = Plugins::getSchema();
 
         /* Fail if we didn't find any schema plugin */
         if (empty($export_list)) {

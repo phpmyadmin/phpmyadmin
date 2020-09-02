@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <h2>
+    {% trans 'Optimize table' %}
+    {{ show_mysql_docu('OPTIMIZE_TABLE') }}
+  </h2>
+
+  {{ message|raw }}
+
+  {% for name, table in rows %}
+    <div class="card mb-3">
+      <div class="card-header">{{ name }}</div>
+
+      <ul class="list-group list-group-flush">
+        {% for row in table %}
+          <li class="list-group-item">
+            {% if row.Op|lower != 'optimize' %}
+              <span class="badge badge-secondary">{{ row.Op|title }}</span>
+            {% endif %}
+
+            {% set badge_variation %}
+              {%- if row.Msg_type|lower == 'error' -%}
+                badge-danger
+              {%- elseif row.Msg_type|lower == 'warning' -%}
+                badge-warning
+              {%- elseif row.Msg_type|lower == 'info' or row.Msg_type|lower == 'note' -%}
+                badge-info
+              {%- else -%}
+                badge-secondary
+              {%- endif -%}
+            {% endset %}
+            <span class="badge {{ badge_variation }}">{{ row.Msg_type|title }}</span>
+
+            {{ row.Msg_text }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>

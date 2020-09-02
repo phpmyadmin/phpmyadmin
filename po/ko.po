@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-08-16 18:48-0300\n"
+"POT-Creation-Date: 2020-08-31 19:04-0300\n"
 "PO-Revision-Date: 2020-07-16 11:41+0000\n"
 "Last-Translator: junseong kim <anima94@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -15,75 +15,1321 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.2-dev\n"
 
-#: libraries/classes/Advisor.php:319
+#: libraries/advisory_rules_generic.php:9
+msgid "Uptime below one day"
+msgstr "업타임이 1일 미만임"
+
+#: libraries/advisory_rules_generic.php:12
+msgid "Uptime is less than 1 day, performance tuning may not be accurate."
+msgstr ""
+"업타임이 1일 미만인 관계로 정보 부족으로 인해 성능 최적화가 부정확할 수 있습"
+"니다."
+
+#: libraries/advisory_rules_generic.php:14
+msgid ""
+"To have more accurate averages it is recommended to let the server run for "
+"longer than a day before running this analyzer"
+msgstr ""
+"더 정확한 평균값을 계산하기 위해 서버를 하루 이상 가동하신 후 이 아날라이저"
+"를 사용하시는 것을 권장합니다"
+
+#: libraries/advisory_rules_generic.php:17
+#, php-format
+msgid "The uptime is only %s"
+msgstr "업타임이 %s 밖에 되지 않습니다"
+
+#: libraries/advisory_rules_generic.php:22
+msgid "Questions below 1,000"
+msgstr "질문 수가 1,000 미만"
+
+#: libraries/advisory_rules_generic.php:26
+msgid ""
+"Fewer than 1,000 questions have been run against this server. The "
+"recommendations may not be accurate."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:30
+msgid ""
+"Let the server run for a longer time until it has executed a greater amount "
+"of queries."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:32
+#, fuzzy, php-format
+#| msgid "Connections"
+msgid "Current amount of Questions: %s"
+msgstr "연결 수"
+
+#: libraries/advisory_rules_generic.php:37
+msgid "Percentage of slow queries"
+msgstr "지연된 쿼리 비율"
+
+#: libraries/advisory_rules_generic.php:41
+msgid ""
+"There is a lot of slow queries compared to the overall amount of Queries."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:43
+#: libraries/advisory_rules_generic.php:57
+msgid ""
+"You might want to increase {long_query_time} or optimize the queries listed "
+"in the slow query log"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:46
+#, php-format
+msgid "The slow query rate should be below 5%%, your value is %s%%."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:51
+msgid "Slow query rate"
+msgstr "속도저하 쿼리 비율"
+
+#: libraries/advisory_rules_generic.php:55
+msgid ""
+"There is a high percentage of slow queries compared to the server uptime."
+msgstr "서버의 업타임에 비해 느린 쿼리의 비율이 높습니다."
+
+#: libraries/advisory_rules_generic.php:60
+#, php-format
+msgid ""
+"You have a slow query rate of %s per hour, you should have less than 1%% per "
+"hour."
+msgstr ""
+"느린 쿼리의 비율이 시간당 %s입니다. 이 비율은 시간당 1%% 미만이어야 합니다."
+
+#: libraries/advisory_rules_generic.php:65
+msgid "Long query time"
+msgstr "긴 쿼리 시간"
+
+#: libraries/advisory_rules_generic.php:69
+msgid ""
+"{long_query_time} is set to 10 seconds or more, thus only slow queries that "
+"take above 10 seconds are logged."
+msgstr ""
+"{long_query_time}은 10초 이상으로 설정하여, 10초 이상 걸리는 쿼리만 로깅됩니"
+"다."
+
+#: libraries/advisory_rules_generic.php:73
+msgid ""
+"It is suggested to set {long_query_time} to a lower value, depending on your "
+"environment. Usually a value of 1-5 seconds is suggested."
+msgstr ""
+"환경에 따라서 {long_query_time} 값을 낮게 설정하세요. 일반적으로 1-5초가 적당"
+"합니다."
+
+#: libraries/advisory_rules_generic.php:76
+#, php-format
+msgid "long_query_time is currently set to %ds."
+msgstr "long_query_time이 %d초로 설정되었습니다."
+
+#: libraries/advisory_rules_generic.php:81
+#: libraries/advisory_rules_generic.php:94
+msgid "Slow query logging"
+msgstr "지연 쿼리 로깅"
+
+#: libraries/advisory_rules_generic.php:85
+#: libraries/advisory_rules_generic.php:98
+msgid "The slow query log is disabled."
+msgstr "느린 쿼리에 대한 로깅이 비활성화 상태입니다."
+
+#: libraries/advisory_rules_generic.php:87
+msgid ""
+"Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
+"help troubleshooting badly performing queries."
+msgstr ""
+"{log_slow_queries}를 'ON' 으로 설정하면 느린 쿼리에 대해 로깅할 수 있습니다. "
+"이는 성능에 악영향을 주는 쿼리 문제를 해결하는데 도움이 될 겁니다."
+
+#: libraries/advisory_rules_generic.php:90
+msgid "log_slow_queries is set to 'OFF'"
+msgstr "log_slow_queries가 OFF로 설정되어 있습니다"
+
+#: libraries/advisory_rules_generic.php:100
+msgid ""
+"Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
+"help troubleshooting badly performing queries."
+msgstr ""
+"{slow_query_log} 설정을 'ON'으로 하여 느린 쿼리를 로깅할 수 있습니다. 이는 성"
+"능이 느린 쿼리를 고치는 데 이용할 수 있습니다."
+
+#: libraries/advisory_rules_generic.php:103
+msgid "slow_query_log is set to 'OFF'"
+msgstr "slow_query_log가 'OFF'로 설정됨"
+
+#: libraries/advisory_rules_generic.php:108
+msgid "Release Series"
+msgstr "릴리즈 시리즈"
+
+#: libraries/advisory_rules_generic.php:111
+msgid "The MySQL server version less than 5.1."
+msgstr "MySQL 서버 버전이 5.1 미만입니다."
+
+#: libraries/advisory_rules_generic.php:113
+msgid ""
+"You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
+"even more so."
+msgstr ""
+"MySQL 5.1 이상으로 업그레이드 하세요. 성능이 향상되었습니다. MySQL 5.5는 더 "
+"향상되었습니다."
+
+#: libraries/advisory_rules_generic.php:115
+#: libraries/advisory_rules_generic.php:129
+#: libraries/advisory_rules_generic.php:140
+#, php-format
+msgid "Current version: %s"
+msgstr "현재 버전: %s"
+
+#: libraries/advisory_rules_generic.php:120
+#: libraries/advisory_rules_generic.php:134
+msgid "Minor Version"
+msgstr "마이너 버전"
+
+#: libraries/advisory_rules_generic.php:124
+msgid "Version less than 5.1.30 (the first GA release of 5.1)."
+msgstr "버전이 5.1.30 (5.1의 첫 번째 안정 버전) 미만입니다."
+
+#: libraries/advisory_rules_generic.php:126
+msgid ""
+"You should upgrade, as recent versions of MySQL 5.1 have improved "
+"performance and MySQL 5.5 even more so."
+msgstr ""
+"최신 버전의 MySQL(5.1 또는 5.5)로 업그레이드하여 성능을 향상하길 권장합니다."
+
+#: libraries/advisory_rules_generic.php:138
+msgid "Version less than 5.5.8 (the first GA release of 5.5)."
+msgstr "버전 5.5.8 미만 (5.5버전의 첫 일반 배포판)."
+
+#: libraries/advisory_rules_generic.php:139
+#, fuzzy
+#| msgid "You should upgrade, to a stable version of MySQL 5.5"
+msgid "You should upgrade, to a stable version of MySQL 5.5."
+msgstr "MySQL 5.5 안정 버전으로 업그레이드하시는 것을 권장합니다"
+
+#: libraries/advisory_rules_generic.php:145
+#: libraries/advisory_rules_generic.php:158
+msgid "Distribution"
+msgstr "배포"
+
+#: libraries/advisory_rules_generic.php:148
+msgid "Version is compiled from source, not a MySQL official binary."
+msgstr "MySQL 공식 바이너리가 아닌 소스에서 컴파일된 버전입니다."
+
+#: libraries/advisory_rules_generic.php:150
+msgid ""
+"If you did not compile from source, you may be using a package modified by a "
+"distribution. The MySQL manual only is accurate for official MySQL binaries, "
+"not any package distributions (such as RedHat, Debian/Ubuntu etc)."
+msgstr ""
+"만약 소스파일을 컴파일하지 않았다면, 레드햇이나 데비안, 우분투 등에서 수정된 "
+"패키지를 설치한 것일 수 있습니다. MySQL 메뉴얼은 MySQL 공식 바이너리에 대해서"
+"만 정확성을 보장합니다."
+
+#: libraries/advisory_rules_generic.php:154
+msgid "'source' found in version_comment"
+msgstr "버전 코멘트에 'source'라는 문자가 있음"
+
+#: libraries/advisory_rules_generic.php:161
+msgid "The MySQL manual only is accurate for official MySQL binaries."
+msgstr "MySQL 메뉴얼은 MySQL 공식 바이너리에 대해서만 정확성을 보장합니다."
+
+#: libraries/advisory_rules_generic.php:163
+msgid ""
+"Percona documentation is at <a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a>"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:166
+msgid "'percona' found in version_comment"
+msgstr "version_comment에서 percona가 발견되었습니다"
+
+#: libraries/advisory_rules_generic.php:170
+msgid "MySQL Architecture"
+msgstr "MySQL 아키텍쳐"
+
+#: libraries/advisory_rules_generic.php:174
+msgid "MySQL is not compiled as a 64-bit package."
+msgstr "MySQL이 64비트 패키지로 컴파일되지 않았습니다."
+
+#: libraries/advisory_rules_generic.php:176
+msgid ""
+"Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
+"so MySQL might not be able to access all of your memory. You might want to "
+"consider installing the 64-bit version of MySQL."
+msgstr ""
+"(서버가 localhost에 있다고 간주할 시)시스템의 RAM 용량이 3GiB이상이어서 MySQL"
+"이 메모리를 전부 사용하지 못할 수 있습니다. 64비트 버전의 MySQL을 설치하시는 "
+"것을 고려하시기 바랍니다."
+
+#: libraries/advisory_rules_generic.php:180
+#, php-format
+msgid "Available memory on this host: %s"
+msgstr "사용할 수 있는 메모리: %s"
+
+#: libraries/advisory_rules_generic.php:186
+msgid "Query caching method"
+msgstr "쿼리 캐시 방법"
+
+#: libraries/advisory_rules_generic.php:190
+msgid "Suboptimal caching method."
+msgstr "차선 캐싱 방법입니다."
+
+#: libraries/advisory_rules_generic.php:192
+#, fuzzy
+#| msgid ""
+#| "You are using the MySQL Query cache with a fairly high traffic database. "
+#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
+#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
+#| "Query cache, especially if you have multiple slaves."
+msgid ""
+"You are using the MySQL Query cache with a fairly high traffic database. It "
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
+"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
+"cache, especially if you have multiple slaves."
+msgstr ""
+"꽤 많은 트래픽을 쓰는 데이터베이스에 MySQL 쿼리 캐시를 사용중입니다. MySQL 쿼"
+"리 캐시 대신 <a href=\"https://dev.mysql.com/doc/refman/5.5/en/ha-memcached."
+"html\">memcached</a>를 사용하는게 나을 수 있습니다. 만약 다수의 slave가 있다"
+"면 더욱 권장합니다."
+
+#: libraries/advisory_rules_generic.php:198
+#, php-format
+msgid ""
+"The query cache is enabled and the server receives %d queries per second. "
+"This rule fires if there is more than 100 queries per second."
+msgstr ""
+"쿼리 캐시를 사용할 수 있고, 서버가 초당 %d Query를 받습니다. 이 규칙은 초당 "
+"100개 이상의 쿼리가 있으면 불에 탑니다."
+
+#: libraries/advisory_rules_generic.php:206
+msgid "Percentage of sorts that cause temporary tables"
+msgstr "정렬로 인해 임시 테이블을 사용하게 되는 비율"
+
+#: libraries/advisory_rules_generic.php:210
+#: libraries/advisory_rules_generic.php:223
+msgid "Too many sorts are causing temporary tables."
+msgstr "너무 많은 정렬로 인해 임시 테이블의 사용이 발생합니다."
+
+#: libraries/advisory_rules_generic.php:212
+#: libraries/advisory_rules_generic.php:225
+msgid ""
+"Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
+"depending on your system memory limits."
+msgstr ""
+"시스템의 메모리의 최대값을 고려해서 {sort_buffer_size} 나 "
+"{read_rnd_buffer_size} 값을 증가시키세요."
+
+#: libraries/advisory_rules_generic.php:215
+#, php-format
+msgid ""
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
+msgstr ""
+"정렬 연산의 %s%%가 임시 테이블을 생성합니다. 이 값은 10%% 미만인 것이 좋습니"
+"다."
+
+#: libraries/advisory_rules_generic.php:220
+msgid "Rate of sorts that cause temporary tables"
+msgstr "임시 테이블을 생성하는 정렬의 비율"
+
+#: libraries/advisory_rules_generic.php:228
+#, php-format
+msgid ""
+"Temporary tables average: %s, this value should be less than 1 per hour."
+msgstr "임시 테이블 평균: %s, 이 값은 시간당 1보다 작아야합니다."
+
+#: libraries/advisory_rules_generic.php:233
+msgid "Sort rows"
+msgstr "행 정렬"
+
+#: libraries/advisory_rules_generic.php:236
+msgid "There are lots of rows being sorted."
+msgstr "정렬중인 로우가 많습니다."
+
+#: libraries/advisory_rules_generic.php:238
+msgid ""
+"While there is nothing wrong with a high amount of row sorting, you might "
+"want to make sure that the queries which require a lot of sorting use "
+"indexed columns in the ORDER BY clause, as this will result in much faster "
+"sorting."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:242
+#, php-format
+msgid "Sorted rows average: %s"
+msgstr "행 정렬 평균: %s"
+
+#: libraries/advisory_rules_generic.php:248
+msgid "Rate of joins without indexes"
+msgstr "인덱스 없는 조인 비율"
+
+#: libraries/advisory_rules_generic.php:251
+msgid "There are too many joins without indexes."
+msgstr "인덱스 없는 조인이 너무 많습니다."
+
+#: libraries/advisory_rules_generic.php:253
+#, fuzzy
+#| msgid ""
+#| "This means that joins are doing full table scans. Adding indexes for the "
+#| "columns being used in the join conditions will greatly speed up table "
+#| "joins"
+msgid ""
+"This means that joins are doing full table scans. Adding indexes for the "
+"columns being used in the join conditions will greatly speed up table joins."
+msgstr ""
+"이는 조인시 전체 테이블 스캔이 일어난다는 것을 뜻합니다. 질의의 조인 컨디션"
+"에 사용되는 열들에 인덱스들을 추가함으로서 속도를 크게 개선할 수 있습니다"
+
+#: libraries/advisory_rules_generic.php:256
+#, php-format
+msgid "Table joins average: %s, this value should be less than 1 per hour"
+msgstr "테이블 조인 평균: %s, 이 값은 시간당 1미만이어야 합니다"
+
+#: libraries/advisory_rules_generic.php:261
+msgid "Rate of reading first index entry"
+msgstr "첫 번째 인덱스 항목을 읽는 비율"
+
+#: libraries/advisory_rules_generic.php:264
+msgid "The rate of reading the first index entry is high."
+msgstr "첫 번째 인덱스 항목을 읽는 비율이 높습니다."
+
+#: libraries/advisory_rules_generic.php:266
+msgid ""
+"This usually indicates frequent full index scans. Full index scans are "
+"faster than table scans but require lots of CPU cycles in big tables, if "
+"those tables that have or had high volumes of UPDATEs and DELETEs, running "
+"'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index "
+"scans. Other than that full index scans can only be reduced by rewriting "
+"queries."
+msgstr ""
+"전체 인덱스 스캔이 자주 발생할 경우 이렇게 됩니다. 전체 인덱스 스캔은 테이블 "
+"스캔보다는 빠르지만 큰 테이블에서는 CPU 자원을 많이 씁니다. 이런 테이블들이 "
+"대용량의 UPDATE와 DELETE를 했거나 하는 중이라면, 'OPTIMIZE TABLE'을 수행하여 "
+"전체 인덱스 스캔 속도를 높이거나 횟수를 줄일 수 있습니다. 그 외에 리라이트"
+"(rewrite) 쿼리에 의해 전체 인덱스 스캔이 줄어들 수 있습니다."
+
+#: libraries/advisory_rules_generic.php:272
+#, php-format
+msgid "Index scans average: %s, this value should be less than 1 per hour"
+msgstr "인덱스 스캔 평균: %s, 이 값은 시간당 1미만이어야 합니다"
+
+#: libraries/advisory_rules_generic.php:277
+msgid "Rate of reading fixed position"
+msgstr "고정위치 읽기 비율"
+
+#: libraries/advisory_rules_generic.php:280
+msgid "The rate of reading data from a fixed position is high."
+msgstr "고정된 위치에서 데이터를 읽는 비율이 높습니다."
+
+#: libraries/advisory_rules_generic.php:282
+msgid ""
+"This indicates that many queries need to sort results and/or do a full table "
+"scan, including join queries that do not use indexes. Add indexes where "
+"applicable."
+msgstr ""
+"많은 쿼리들이 결과를 정렬하거나 전체 테이블 스캔이 필요함을 의미합니다. 인덱"
+"스를 쓰지 않는 조인 쿼리도 포함됩니다. 인덱스를 적절히 추가하세요."
+
+#: libraries/advisory_rules_generic.php:285
+#, php-format
+msgid ""
+"Rate of reading fixed position average: %s, this value should be less than 1 "
+"per hour"
+msgstr ""
+"고정된 위치의 데이터를 읽는 비율 평균: %s, 이 값은 시간당 1 미만이어야 합니다"
+
+#: libraries/advisory_rules_generic.php:290
+msgid "Rate of reading next table row"
+msgstr "다음 행 읽는 비율"
+
+#: libraries/advisory_rules_generic.php:293
+msgid "The rate of reading the next table row is high."
+msgstr "다음 행 읽는 비율이 높습니다."
+
+#: libraries/advisory_rules_generic.php:295
+msgid ""
+"This indicates that many queries are doing full table scans. Add indexes "
+"where applicable."
+msgstr ""
+"이는 많은 수의 질의문들이 전체 테이블 스캔을 요구했다는 것을 뜻합니다. 적절"
+"한 위치에 인덱스를 추가하시기 바랍니다."
+
+#: libraries/advisory_rules_generic.php:297
+#, php-format
+msgid ""
+"Rate of reading next table row: %s, this value should be less than 1 per hour"
+msgstr "다음 행 읽기 비율: %s, 이 값은 시간당 1 미만이어야 합니다"
+
+#: libraries/advisory_rules_generic.php:303
+msgid "Different tmp_table_size and max_heap_table_size"
+msgstr "Different tmp_table_size와 max_heap_table_size가 다름"
+
+#: libraries/advisory_rules_generic.php:306
+msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
+msgstr "{tmp_table_size} 와 {max_heap_table_size}의 값이 다릅니다."
+
+#: libraries/advisory_rules_generic.php:308
+msgid ""
+"If you have deliberately changed one of either: The server uses the lower "
+"value of either to determine the maximum size of in-memory tables. So if you "
+"wish to increase the in-memory table limit you will have to increase the "
+"other value as well."
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:312
+#, php-format
+msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
+msgstr "현재 tmp_table_size의 값: %s, max_heap_table_size: %s"
+
+#: libraries/advisory_rules_generic.php:318
+msgid "Percentage of temp tables on disk"
+msgstr "디스크상의 임시 테이블 비율"
+
+#: libraries/advisory_rules_generic.php:322
+#: libraries/advisory_rules_generic.php:343
+msgid ""
+"Many temporary tables are being written to disk instead of being kept in "
+"memory."
+msgstr ""
+"많은 임시 테이블들이 메모리에만 저장되지 않고 디스크에 기록되고 있습니다."
+
+#: libraries/advisory_rules_generic.php:324
+msgid ""
+"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+"some temporary tables are always being written to disk, independent of the "
+"value of these variables. To eliminate these you will have to rewrite your "
+"queries to avoid those conditions (Within a temporary table: Presence of a "
+"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
+"mentioned in the beginning of an <a href=\"https://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
+msgstr ""
+"{max_heap_table_size}값과 {tmp_table_size}값을 올리는 것이 도움이 될 수 있습"
+"니다. 하지만 일부 임시 테이블들은 이 변수값들과는 상관 없이 언제나 반드시 디"
+"스크에 기록됩니다. 이러한 문제를 방지하기 위해 질의문을 다시 작성하셔야 할 "
+"수 있습니다. (BLOB이나 TEXT형 열이 존재하거나 512바이트 이상의 크기의 열이 존"
+"재하는 경우) 이에 대한 내용은 <a href=\"https://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Pythian Group가 작성한 문서</a>에 기술되"
+"어 있습니다"
+
+#: libraries/advisory_rules_generic.php:333
+#, php-format
+msgid ""
+"%s%% of all temporary tables are being written to disk, this value should be "
+"below 25%%"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:339
+msgid "Temp disk rate"
+msgstr "임시 디스크 비율"
+
+#: libraries/advisory_rules_generic.php:345
+#, fuzzy
+#| msgid ""
+#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+#| "some temporary tables are always being written to disk, independent of "
+#| "the value of these variables. To eliminate these you will have to rewrite "
+#| "your queries to avoid those conditions (Within a temporary table: "
+#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
+#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
+#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
+msgid ""
+"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+"some temporary tables are always being written to disk, independent of the "
+"value of these variables. To eliminate these you will have to rewrite your "
+"queries to avoid those conditions (Within a temporary table: Presence of a "
+"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
+"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
+"temporary-tables.html\">MySQL Documentation</a>"
+msgstr ""
+"{max_heap_table_size}값과 {tmp_table_size}값을 올리는 것이 도움이 될 수 있습"
+"니다. 하지만 일부 임시 테이블들은 이 변수값들과는 상관 없이 언제나 반드시 디"
+"스크에 기록됩니다. 이러한 문제를 방지하기 위해 질의문을 다시 작성하셔야 할 "
+"수 있습니다. (BLOB나 TEXT형 열이 존재하거나 512바이트 이상의 크기의 열이 존재"
+"하는 경우) 자세한 사항은  <a href=\"https://dev.mysql.com/doc/refman/5.5/en/"
+"internal-temporary-tables.html\">MySQL문서</a>에 기술되어 있습니다"
+
+#: libraries/advisory_rules_generic.php:354
+#, php-format
+msgid ""
+"Rate of temporary tables being written to disk: %s, this value should be "
+"less than 1 per hour"
+msgstr ""
+"임시테이블이 디스크에 저장되는 비율: %s, 이 값은 시간당 1 이하가 좋습니다"
+
+#: libraries/advisory_rules_generic.php:361
+msgid "MyISAM key buffer size"
+msgstr "MyISAM 키 버퍼 크기"
+
+#: libraries/advisory_rules_generic.php:364
+msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
+msgstr "키 버퍼가 초기화되지 않았습니다. MyISAM 인덱스가 캐시되지 않습니다."
+
+#: libraries/advisory_rules_generic.php:366
+msgid ""
+"Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
+"good start."
+msgstr ""
+"MyISAM 인덱스의 크기에 따라 {key_buffer_size}를 설정하십시오. 초기값은 64M를 "
+"권장합니다."
+
+#: libraries/advisory_rules_generic.php:368
+msgid "key_buffer_size is 0"
+msgstr "key_buffer_size가 0입니다"
+
+#: libraries/advisory_rules_generic.php:373
+#, fuzzy, no-php-format
+msgid "Max % MyISAM key buffer ever used"
+msgstr "사용된 적 있는 MyISAM 키 버퍼 최대 비율(%%)"
+
+#: libraries/advisory_rules_generic.php:378
+#: libraries/advisory_rules_generic.php:395
+#, fuzzy, no-php-format
+#| msgid "MyISAM key buffer (index cache) %% used is low."
+msgid "MyISAM key buffer (index cache) % used is low."
+msgstr "MyISAM 키 버퍼 (인덱스 캐시) 사용률이 낮습니다."
+
+#: libraries/advisory_rules_generic.php:380
+#: libraries/advisory_rules_generic.php:397
+msgid ""
+"You may need to decrease the size of {key_buffer_size}, re-examine your "
+"tables to see if indexes have been removed, or examine queries and "
+"expectations about what indexes are being used."
+msgstr ""
+"{key_buffer_size} 크기를 줄여야 할 수도 있으며, 인덱스가 제거된 적이 있는지 "
+"테이블을 다시 검사하거나, 쿼리를 검사하여 어떤 인덱스들이 사용될지 예상하시"
+"기 바랍니다."
+
+#: libraries/advisory_rules_generic.php:384
+#, fuzzy, php-format
+msgid ""
+"max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
+msgstr ""
+"사용된 적 있는 MyISAM 키 버퍼 최대 비율 (%%): %s%%, 이 값은 95%% 이상이어야 "
+"합니다."
+
+#: libraries/advisory_rules_generic.php:389
+msgid "Percentage of MyISAM key buffer used"
+msgstr "사용된 MyISAM 키 버퍼 비율"
+
+#: libraries/advisory_rules_generic.php:401
+#, php-format
+msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
+msgstr "MyISAM 키 버퍼 사용 비율(%%): %s%%, 이 값은 95%% 이상이어야 합니다"
+
+#: libraries/advisory_rules_generic.php:406
+msgid "Percentage of index reads from memory"
+msgstr "메모리에서 읽은 인덱스 비율"
+
+#: libraries/advisory_rules_generic.php:411
+#, fuzzy, no-php-format
+#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+msgid "The % of indexes that use the MyISAM key buffer is low."
+msgstr "MyISAM 키 버퍼를 사용하는 인덱스의 비율(%%)이 낮습니다."
+
+#: libraries/advisory_rules_generic.php:412
+msgid "You may need to increase {key_buffer_size}."
+msgstr "{Key_buffer_size}를 증가시켜야 합니다."
+
+#: libraries/advisory_rules_generic.php:413
+#, php-format
+msgid "Index reads from memory: %s%%, this value should be above 95%%"
+msgstr "메모리에서 읽은 인덱스: %s%%, 이 값은 95%% 이상이어야 합니다"
+
+#: libraries/advisory_rules_generic.php:419
+msgid "Rate of table open"
+msgstr "열린 테이블 비율"
+
+#: libraries/advisory_rules_generic.php:422
+msgid "The rate of opening tables is high."
+msgstr "열려있는 테이블의 비율이 너무 높습니다."
+
+#: libraries/advisory_rules_generic.php:424
+msgid ""
+"Opening tables requires disk I/O which is costly. Increasing "
+"{table_open_cache} might avoid this."
+msgstr ""
+"테이블을 여는 데에는 디스크 입출력이 요구되어 시간이 많이 소모됩니다."
+"{table_open_cache}값을 올리는 것이 해결에 도움이 될 수 있습니다."
+
+#: libraries/advisory_rules_generic.php:427
+#, php-format
+msgid "Opened table rate: %s, this value should be less than 10 per hour"
+msgstr "열린 테이블 비율: %s, 이 값은 시간당 10보다 작아야 합니다"
+
+#: libraries/advisory_rules_generic.php:432
+msgid "Percentage of used open files limit"
+msgstr "사용된 열린 파일 한도의 비율"
+
+#: libraries/advisory_rules_generic.php:436
+#, fuzzy
+#| msgid ""
+#| "The number of open files is approaching the max number of open files.  "
+#| "You may get a \"Too many open files\" error."
+msgid ""
+"The number of open files is approaching the max number of open files. You "
+"may get a \"Too many open files\" error."
+msgstr ""
+"열린 파일들의 수가 최대 한계치에 근접하고 있습니다. \"Too many open files\" "
+"오류가 발생할 수 있습니다."
+
+#: libraries/advisory_rules_generic.php:440
+#: libraries/advisory_rules_generic.php:453
+msgid ""
+"Consider increasing {open_files_limit}, and check the error log when "
+"restarting after changing {open_files_limit}."
+msgstr ""
+"{open_files_limit}를 증가시키는 것을 고려하시기 바라며, {open_files_limit} 값"
+"을 변경하고 재시작한 뒤 에러 로그를 확인하십시오."
+
+#: libraries/advisory_rules_generic.php:443
+#, php-format
+msgid ""
+"The number of opened files is at %s%% of the limit. It should be below 85%%"
+msgstr "열린 파일은 한계치의 %s%%입니다. 이 수치는 85%% 미만이어야 합니다"
+
+#: libraries/advisory_rules_generic.php:448
+msgid "Rate of open files"
+msgstr "열린 파일 비율"
+
+#: libraries/advisory_rules_generic.php:451
+msgid "The rate of opening files is high."
+msgstr "열려있는 파일의 비율이 너무 높습니다."
+
+#: libraries/advisory_rules_generic.php:456
+#, php-format
+msgid "Opened files rate: %s, this value should be less than 5 per hour"
+msgstr "열린 파일 비율: %s, 이 값은 시간당 5 미만이어야 합니다"
+
+#: libraries/advisory_rules_generic.php:462
+#, fuzzy, no-php-format
+#| msgid "Immediate table locks %%"
+msgid "Immediate table locks %"
+msgstr "즉시 잠겨진 테이블 비율 %%"
+
+#: libraries/advisory_rules_generic.php:466
+#: libraries/advisory_rules_generic.php:476
+msgid "Too many table locks were not granted immediately."
+msgstr "즉시 승인되지 않는 테이블 락이 너무 많습니다."
+
+#: libraries/advisory_rules_generic.php:467
+#: libraries/advisory_rules_generic.php:477
+msgid "Optimize queries and/or use InnoDB to reduce lock wait."
+msgstr ""
+"쿼리를 최적화하거나 혹은 InnoDB를 사용함으로서 락대기 시간을 감소시킬 수 있습"
+"니다."
+
+#: libraries/advisory_rules_generic.php:468
+#, php-format
+msgid "Immediate table locks: %s%%, this value should be above 95%%"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:473
+msgid "Table lock wait rate"
+msgstr "테이블락 대기 비율"
+
+#: libraries/advisory_rules_generic.php:478
+#, php-format
+msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
+msgstr "테이블락 대기 비율: %s, 이 값은 시간당 1 미만이어야 합니다"
+
+#: libraries/advisory_rules_generic.php:483
+msgid "Thread cache"
+msgstr "스레드 캐시"
+
+#: libraries/advisory_rules_generic.php:486
+msgid ""
+"Thread cache is disabled, resulting in more overhead from new connections to "
+"MySQL."
+msgstr ""
+"스레드 캐시가 비활성화 상태이므로 , MySQL의 새로운 연결은 좀 더 많ᅟ은 과부하"
+"가 발생합니다."
+
+#: libraries/advisory_rules_generic.php:487
+msgid "Enable the thread cache by setting {thread_cache_size} > 0."
+msgstr ""
+"{thread_cache_size}를 0 이상으로 설정하여 스레드 캐시를 활성화할 수 있습니다."
+
+#: libraries/advisory_rules_generic.php:488
+msgid "The thread cache is set to 0"
+msgstr "스레드 캐시가 0으로 설정되어 있습니다"
+
+#: libraries/advisory_rules_generic.php:493
+#, fuzzy, no-php-format
+#| msgid "Thread cache hit rate %%"
+msgid "Thread cache hit rate %"
+msgstr "쓰레드 캐시 히트율 %%"
+
+#: libraries/advisory_rules_generic.php:497
+msgid "Thread cache is not efficient."
+msgstr "스레드 캐시가 비효율적입니다."
+
+#: libraries/advisory_rules_generic.php:498
+msgid "Increase {thread_cache_size}."
+msgstr "{thread_cache_size}를 증가시켜야합니다."
+
+#: libraries/advisory_rules_generic.php:499
+#, php-format
+msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
+msgstr "쓰레드 캐시 히트율이 %s%%이며, 정상적인 경우 80%% 이상입니다"
+
+#: libraries/advisory_rules_generic.php:504
+msgid "Threads that are slow to launch"
+msgstr "시작하는데 너무 오래 걸리는 스레드"
+
+#: libraries/advisory_rules_generic.php:508
+msgid "There are too many threads that are slow to launch."
+msgstr "실행이 느린 스레드가 너무 많습니다."
+
+#: libraries/advisory_rules_generic.php:510
+msgid ""
+"This generally happens in case of general system overload as it is pretty "
+"simple operations. You might want to monitor your system load carefully."
+msgstr ""
+"이는 간단한 작업이기 때문에 주로 시스템에 과부하가 걸리는 경우에 발생합니다. "
+"시스템에 걸리는 부하를 모니터하시는 것이 도움이 될 수 있습니다."
+
+#: libraries/advisory_rules_generic.php:513
+#, php-format
+msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
+msgstr "%s 스레드(들)이 시작에 %s초 이상 걸렸으며, 이는 0이 되어야 합니다"
+
+#: libraries/advisory_rules_generic.php:518
+msgid "Slow launch time"
+msgstr ""
+
+#: libraries/advisory_rules_generic.php:521
+msgid "Slow_launch_time is above 2s."
+msgstr "Slow_launch_time가 2 초를 초과함."
+
+#: libraries/advisory_rules_generic.php:523
+msgid ""
+"Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
+"to launch."
+msgstr ""
+"시작에 오래 걸리는 스레드의 갯수를 정확히 세기 위해서는 {slow_launch_time} 값"
+"을 1초나 2초로 설정하십시오."
+
+#: libraries/advisory_rules_generic.php:525
+#, php-format
+msgid "slow_launch_time is set to %s"
+msgstr "slow_launch_time이 %s로 설정되어 있습니다"
+
+#: libraries/advisory_rules_generic.php:531
+msgid "Percentage of used connections"
+msgstr "사용된 연결의 비율"
+
+#: libraries/advisory_rules_generic.php:535
+msgid ""
+"The maximum amount of used connections is getting close to the value of "
+"{max_connections}."
+msgstr "사용된 연결의 최대값이 {max_connections} 값에 근접하고 있습니다."
+
+#: libraries/advisory_rules_generic.php:538
+msgid ""
+"Increase {max_connections}, or decrease {wait_timeout} so that connections "
+"that do not close database handlers properly get killed sooner. Make sure "
+"the code closes database handlers properly."
+msgstr ""
+"{max_connections}를 증가시키거나 {wait_timeout}을 줄임으로서 데이터베이스 핸"
+"들러를 올바르게 닫지 않는 연결들이 빨리 제거될 수 있도록 하십시오. 코드에서 "
+"데이터베이스 핸들러를 올바르게 닫는지 확인하십시오."
+
+#: libraries/advisory_rules_generic.php:542
+#, php-format
+msgid ""
+"Max_used_connections is at %s%% of max_connections, it should be below 80%%"
+msgstr ""
+"max_used_connections이 max_connections의 %s%% 입니다. 80%% 미만을 권장합니다"
+
+#: libraries/advisory_rules_generic.php:547
+msgid "Percentage of aborted connections"
+msgstr "종료된 연결의 비율"
+
+#: libraries/advisory_rules_generic.php:550
+#: libraries/advisory_rules_generic.php:564
+msgid "Too many connections are aborted."
+msgstr "너무 많은 연결이 종료되었습니다."
+
+#: libraries/advisory_rules_generic.php:552
+#: libraries/advisory_rules_generic.php:566
+msgid ""
+"Connections are usually aborted when they cannot be authorized. <a href="
+"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">This article</a> might help you track down the source."
+msgstr ""
+"연결 강제종료는 보통 인증이 실패할 경우 발생합니다. <a href=\"https://www."
+"percona.com/blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/"
+"\">이 게시물</a>이 원인을 추적하는 데 도움을 줄 수 있습니다."
+
+#: libraries/advisory_rules_generic.php:556
+#, php-format
+msgid "%s%% of all connections are aborted. This value should be below 1%%"
+msgstr "전체 연결 중 %s%%가 중지되었습니다. 이 값은 1%% 미만이어야 합니다"
+
+#: libraries/advisory_rules_generic.php:561
+msgid "Rate of aborted connections"
+msgstr "종료된 연결 비율"
+
+#: libraries/advisory_rules_generic.php:570
+#, php-format
+msgid ""
+"Aborted connections rate is at %s, this value should be less than 1 per hour"
+msgstr "중지된 연결 비율이 %s 입니다. 이 값은 시간당 1 미만이어야 합니다"
+
+#: libraries/advisory_rules_generic.php:575
+msgid "Percentage of aborted clients"
+msgstr "종료된 클라이언트 비율"
+
+#: libraries/advisory_rules_generic.php:578
+#: libraries/advisory_rules_generic.php:592
+msgid "Too many clients are aborted."
+msgstr "너무 많은 클라이언트가 종료되었습니다."
+
+#: libraries/advisory_rules_generic.php:580
+#: libraries/advisory_rules_generic.php:594
+msgid ""
+"Clients are usually aborted when they did not close their connection to "
+"MySQL properly. This can be due to network issues or code not closing a "
+"database handler properly. Check your network and code."
+msgstr ""
+"MySQL 커넥션을 확실히 닫아주지 않으면 다음 접속시 거부당할 수 있습니다. 네트"
+"웍 문제이거나 코드상에서의 DB 핸들러가 적절하게 연결을 닫아주지 않아서 이런 "
+"문제가 발생합니다. 네트웍 상태와 소스 코드를 확인해보세요."
+
+#: libraries/advisory_rules_generic.php:584
+#, php-format
+msgid "%s%% of all clients are aborted. This value should be below 2%%"
+msgstr "%s%% 의 연결이 모두 거부당했습니다. 값을 2%% 이하로 설정해보세요"
+
+#: libraries/advisory_rules_generic.php:589
+msgid "Rate of aborted clients"
+msgstr "종료된 클라이언트 비율"
+
+#: libraries/advisory_rules_generic.php:598
+#, php-format
+msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
+msgstr "접속 실패율이 %s 입니다. 이 값은 시간당 1 미만이어야 합니다"
+
+#: libraries/advisory_rules_generic.php:604
+msgid "Is InnoDB disabled?"
+msgstr "InnoDB를 비활성화할까요?"
+
+#: libraries/advisory_rules_generic.php:608
+msgid "You do not have InnoDB enabled."
+msgstr "InnoDB가 활성화되지 않았습니다."
+
+#: libraries/advisory_rules_generic.php:609
+msgid "InnoDB is usually the better choice for table engines."
+msgstr "테이블엔진 선택에서 일반적으로 InnoDB는 가장 좋은 선택입니다."
+
+#: libraries/advisory_rules_generic.php:610
+msgid "have_innodb is set to 'value'"
+msgstr "have_innodb가 'value'로 설정되었습니다"
+
+#: libraries/advisory_rules_generic.php:614
+msgid "InnoDB log size"
+msgstr "InnoDB 로그 크기"
+
+#: libraries/advisory_rules_generic.php:619
+msgid ""
+"The InnoDB log file size is not an appropriate size, in relation to the "
+"InnoDB buffer pool."
+msgstr "InnoDB 로그 파일 크기가 InnoDB 버퍼풀과 비교해서 적합하지 않습니다."
+
+#: libraries/advisory_rules_generic.php:622
+#, fuzzy, no-php-format
+#| msgid ""
+#| "Especially on a system with a lot of writes to InnoDB tables you should "
+#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
+#| "the bigger this value, the longer the recovery time will be when database "
+#| "crashes, so this value should not be set much higher than 256 MiB. Please "
+#| "note however that you cannot simply change the value of this variable. "
+#| "You need to shutdown the server, remove the InnoDB log files, set the new "
+#| "value in my.cnf, start the server, then check the error logs if "
+#| "everything went fine. See also <a href=\"https://"
+#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+msgid ""
+"Especially on a system with a lot of writes to InnoDB tables you should set "
+"{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
+"bigger this value, the longer the recovery time will be when database "
+"crashes, so this value should not be set much higher than 256 MiB. Please "
+"note however that you cannot simply change the value of this variable. You "
+"need to shutdown the server, remove the InnoDB log files, set the new value "
+"in my.cnf, start the server, then check the error logs if everything went "
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+msgstr ""
+"특히, InnoDB 테이블에 쓰기가 많은 시스템이라면, {innodb_log_file_size}를 "
+"{innodb_buffer_pool_size}의 25%%로 설정하는 것이 좋습니다. 하지만, "
+"{innodb_log_file_size}값을 크게 할 수록, 데이터베이스가 크러시한 경우의 복구 "
+"시간이 길어집니다. 그러므로, 이 값이 256 MiB를 많이 초과하지 않도록 설정하는 "
+"게 좋습니다. 또한 주의할 점은, 이 값은 간단히 변경할 수 없습니다. 먼저 서버"
+"를 완전히 종료한 후, InnoDB 로그 파일을 제거하고, my.cnf에 새 값을 설정한 후 "
+"서버를 재시작하여, 에러 로그에 이상이 없는지 확인하는 절차를 거치세요. 참고: "
+"<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">Increase innodb_log_file_size: the "
+"proper way</a> (영어)"
+
+#: libraries/advisory_rules_generic.php:633
+#, php-format
+msgid ""
+"Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
+"it should not be below 20%%"
+msgstr ""
+"InnoDB 로그 크기가 InnoDB 버퍼 풀 크기의 %s%% 입니다. 이 값은 20%% 이상이어"
+"야 합니다"
+
+#: libraries/advisory_rules_generic.php:640
+msgid "Max InnoDB log size"
+msgstr "InnoDB 로그 최대크기"
+
+#: libraries/advisory_rules_generic.php:644
+msgid "The InnoDB log file size is inadequately large."
+msgstr "InnoDB 로그 파일크기가 비정상적으로 큽니다."
+
+#: libraries/advisory_rules_generic.php:646
+#, fuzzy, no-php-format
+#| msgid ""
+#| "Especially on a system with a lot of writes to InnoDB tables you should "
+#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
+#| "the bigger this value, the longer the recovery time will be when database "
+#| "crashes, so this value should not be set much higher than 256 MiB. Please "
+#| "note however that you cannot simply change the value of this variable. "
+#| "You need to shutdown the server, remove the InnoDB log files, set the new "
+#| "value in my.cnf, start the server, then check the error logs if "
+#| "everything went fine. See also <a href=\"https://"
+#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+msgid ""
+"It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
+"{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
+"recovery time after a database crash considerably. See also <a href="
+"\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
+"remove the InnoDB log files, set the new value in my.cnf, start the server, "
+"then check the error logs if everything went fine. See also <a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">this blog entry</a>"
+msgstr ""
+"특히, InnoDB 테이블에 쓰기가 많은 시스템이라면, {innodb_log_file_size}를 "
+"{innodb_buffer_pool_size}의 25%%로 설정하는 것이 좋습니다. 하지만, "
+"{innodb_log_file_size}값을 크게 할 수록, 데이터베이스가 크러시한 경우의 복구 "
+"시간이 길어집니다. 그러므로, 이 값이 256 MiB를 많이 초과하지 않도록 설정하는 "
+"게 좋습니다. 또한 주의할 점은, 이 값은 간단히 변경할 수 없습니다. 먼저 서버"
+"를 완전히 종료한 후, InnoDB 로그 파일을 제거하고, my.cnf에 새 값을 설정한 후 "
+"서버를 재시작하여, 에러 로그에 이상이 없는지 확인하는 절차를 거치세요. 참고: "
+"<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">Increase innodb_log_file_size: the "
+"proper way</a> (영어)"
+
+#: libraries/advisory_rules_generic.php:656
+#, php-format
+msgid "Your absolute InnoDB log size is %s MiB"
+msgstr "InnoDB 로그 절대크기는 %s MiB 입니다"
+
+#: libraries/advisory_rules_generic.php:661
+msgid "InnoDB buffer pool size"
+msgstr "InnoDB 버퍼풀 크기"
+
+#: libraries/advisory_rules_generic.php:665
+msgid "Your InnoDB buffer pool is fairly small."
+msgstr "InnoDB 버퍼풀이 너무 작습니다."
+
+#: libraries/advisory_rules_generic.php:667
+#, fuzzy, no-php-format
+#| msgid ""
+#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
+#| "tables. Assign all your remaining memory to this buffer. For database "
+#| "servers that use solely InnoDB as storage engine and have no other "
+#| "services (e.g. a web server) running, you may set this as high as 80%% of "
+#| "your available memory. If that is not the case, you need to carefully "
+#| "assess the memory consumption of your other services and non-InnoDB-"
+#| "Tables and set this variable accordingly. If it is set too high, your "
+#| "system will start swapping, which decreases performance significantly. "
+#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
+#| "innodb_buffer_pool_size/\">this article</a>"
+msgid ""
+"The InnoDB buffer pool has a profound impact on performance for InnoDB "
+"tables. Assign all your remaining memory to this buffer. For database "
+"servers that use solely InnoDB as storage engine and have no other services "
+"(e.g. a web server) running, you may set this as high as 80% of your "
+"available memory. If that is not the case, you need to carefully assess the "
+"memory consumption of your other services and non-InnoDB-Tables and set this "
+"variable accordingly. If it is set too high, your system will start "
+"swapping, which decreases performance significantly. See also <a href="
+"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
+"\">this article</a>"
+msgstr ""
+"InnoDB 버퍼 풀은 InnoDB 테이블의 성능에 심각한 영향을 줍니다. 남은 메모리 전"
+"체를 이 버퍼에 할당하십시오. 이 서버에 InnoDB를 스토리지 엔진으로만 사용하"
+"고, 다른 서비스(예: 웹 서버)가 없다면, 이 값을 사용가능한 메모리의 80%% 정도"
+"로 높게 설정하는 것도 괜찮습니다. 그런 상황이 아니라면, 다른 서비스 및 InnoDB"
+"가 아닌 테이블들의 메모리 사용량을 신중히 가늠하여 이 값을 설정하세요. 만약 "
+"이 값을 너무 높게 설정하면, 시스템은 스와핑을 하게 되고, 성능이 급격하게 떨어"
+"집니다. <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">이 글</a> 또한 참고하세요"
+
+#: libraries/advisory_rules_generic.php:677
+#, php-format
+msgid ""
+"You are currently using %s%% of your memory for the InnoDB buffer pool. This "
+"rule fires if you are assigning less than 60%%, however this might be "
+"perfectly adequate for your system if you don't have much InnoDB tables or "
+"other services running on the same machine."
+msgstr ""
+"현재, InnoDB 버퍼 풀에 할당된 메모리의 %s%%를 사용하고 있습니다. 60%%이하를 "
+"할당했다면 이 규칙이 실행됩니다. 단, InnoDB 테이블이 많이 없거나, 다른 서비스"
+"가 현재 서버에 실행중일 경우에는 이 값이 매우 적절할 수 있습니다."
+
+#: libraries/advisory_rules_generic.php:687
+msgid "MyISAM concurrent inserts"
+msgstr "MyISAM으로 동시 입력"
+
+#: libraries/advisory_rules_generic.php:690
+msgid "Enable {concurrent_insert} by setting it to 1"
+msgstr "{concurrent_insert}를 1로 설정하여 활성화합니다"
+
+#: libraries/advisory_rules_generic.php:692
+msgid ""
+"Setting {concurrent_insert} to 1 reduces contention between readers and "
+"writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
+msgstr ""
+"{concurrent_insert}를 1로 설정하면 주어진 테이블에서의 읽기/쓰기간 경합"
+"(contention)을 줄일 수 있습니다. 참고: <a href=\"https://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">MySQL 문서</a>"
+
+#: libraries/advisory_rules_generic.php:696
+msgid "concurrent_insert is set to 0"
+msgstr "concurrent_insert가 0으로 설정되었습니다"
+
+#: libraries/advisory_rules_mysql_before80003.php:9
+msgid "Query cache disabled"
+msgstr "쿼리 캐시가 비활성화되어 있습니다"
+
+#: libraries/advisory_rules_mysql_before80003.php:12
+msgid "The query cache is not enabled."
+msgstr "질의(쿼리)캐시가 활성화되어 있지 않습니다."
+
+#: libraries/advisory_rules_mysql_before80003.php:14
+msgid ""
+"The query cache is known to greatly improve performance if configured "
+"correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
+"and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
+"memcached, ignore this recommendation."
+msgstr ""
+"쿼리 캐시는, 설정이 올바르다는 전제 하에, 성능을 크게 향상시킬수 있습니다. "
+"{query_cache_size}를 2자리의 MiB 값으로, {query_cache_type}를 'ON'으로 설정하"
+"여 쿼리 캐시를 활성화 할 수 있습니다. <b>참고:</b> 만약 memcached를 사용중이"
+"라면 이 내용은 무시하십시오."
+
+#: libraries/advisory_rules_mysql_before80003.php:18
+msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
+msgstr ""
+"query_cache_size가 0으로 설정되어 있거나 query_cache_type가 'OFF' 로 설정되"
+"어 있습니다"
+
+#: libraries/advisory_rules_mysql_before80003.php:23
+#, fuzzy, no-php-format
+#| msgid "Query cache efficiency (%%)"
+msgid "Query cache efficiency (%)"
+msgstr "질의 캐시 효율 (%%)"
+
+#: libraries/advisory_rules_mysql_before80003.php:27
+msgid "Query cache not running efficiently, it has a low hit rate."
+msgstr "쿼리 캐시가 능률적으로 실행중이지 않습니다, 낮은 적중률을 가집니다."
+
+#: libraries/advisory_rules_mysql_before80003.php:28
+msgid "Consider increasing {query_cache_limit}."
+msgstr "{query_cache_limit}를 증가시키는것을 고려하세요."
+
+#: libraries/advisory_rules_mysql_before80003.php:29
+#, php-format
+msgid "The current query cache hit rate of %s%% is below 20%%"
+msgstr "현재 쿼리 캐시 히트 율은 20%%아래의 %s%%입니다"
+
+#: libraries/advisory_rules_mysql_before80003.php:34
+msgid "Query Cache usage"
+msgstr "질의(쿼리) 캐시 사용(율)"
+
+#: libraries/advisory_rules_mysql_before80003.php:39
+#, fuzzy, no-php-format
+#| msgid "Less than 80%% of the query cache is being utilized."
+msgid "Less than 80% of the query cache is being utilized."
+msgstr "쿼리 캐시의 80%% 미만이 활용되고 있습니다."
+
+#: libraries/advisory_rules_mysql_before80003.php:41
+msgid ""
+"This might be caused by {query_cache_limit} being too low. Flushing the "
+"query cache might help as well."
+msgstr ""
+"이것은 {query_cache_limit}이 너무 낮아 발생했을 수 있습니다. 질의 캐시를 비우"
+"는게 도움이 될 수 있습니다."
+
+#: libraries/advisory_rules_mysql_before80003.php:45
+#, php-format
+msgid ""
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
+msgstr ""
+"전체 쿼리 캐시 크기(Size)에서 남은 쿼리 캐시 메모리의 현재 비율은 %s%% 입니"
+"다. 80%%보다 높아야 됩니다"
+
+#: libraries/advisory_rules_mysql_before80003.php:52
+msgid "Query cache fragmentation"
+msgstr "쿼리 캐시 분열(단편화)"
+
+#: libraries/advisory_rules_mysql_before80003.php:56
+msgid "The query cache is considerably fragmented."
+msgstr "쿼리 캐시가 상당히 단편화(분열)되었음."
+
+#: libraries/advisory_rules_mysql_before80003.php:58
+msgid ""
+"Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
+"This might be caused by many Query cache low memory prunes due to "
+"{query_cache_size} being too small. For a immediate but short lived fix you "
+"can flush the query cache (might lock the query cache for a long time). "
+"Carefully adjusting {query_cache_min_res_unit} to a lower value might help "
+"too, e.g. you can set it to the average size of your queries in the cache "
+"using this formula: (query_cache_size - qcache_free_memory) / "
+"qcache_queries_in_cache"
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:66
+#, php-format
+msgid ""
+"The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
+"that the query cache is an alternating pattern of free and used blocks. This "
+"value should be below 20%%."
+msgstr ""
+
+#: libraries/advisory_rules_mysql_before80003.php:73
+#, fuzzy
+#| msgid "Query cache used"
+msgid "Query cache low memory prunes"
+msgstr "질의 캐시 사용됨"
+
+#: libraries/advisory_rules_mysql_before80003.php:77
+msgid ""
+"Cached queries are removed due to low query cache memory from the query "
+"cache."
+msgstr "질의 캐시 메모리가 부족해 캐시되었던 질의가 삭제되었습니다."
+
+#: libraries/advisory_rules_mysql_before80003.php:79
+msgid ""
+"You might want to increase {query_cache_size}, however keep in mind that the "
+"overhead of maintaining the cache is likely to increase with its size, so do "
+"this in small increments and monitor the results."
+msgstr ""
+"{query_cache_size}를 늘려야 될 경우가 있을겁니다. 하지만 캐시 크기를 늘리면 "
+"캐시 유지 오버헤드가 같이 증가할 수 있습니다. 그러므로 양을 조금씩 늘리면서 "
+"모니터링하세요."
+
+#: libraries/advisory_rules_mysql_before80003.php:84
+#, php-format
+msgid ""
+"The ratio of removed queries to inserted queries is %s%%. The lower this "
+"value is, the better (This rules firing limit: 0.1%%)"
+msgstr ""
+"추가된 쿼리에 대한 제거된 쿼리의 비율이 %s%%입니다. 이 값은 작을수록 좋습니"
+"다. (규칙 동작 기준: 0.1%%)"
+
+#: libraries/advisory_rules_mysql_before80003.php:91
+msgid "Query cache max size"
+msgstr "쿼리 캐시의 최대 크기"
+
+#: libraries/advisory_rules_mysql_before80003.php:96
+msgid ""
+"The query cache size is above 128 MiB. Big query caches may cause "
+"significant overhead that is required to maintain the cache."
+msgstr ""
+"질의 캐시크기가 128 MB 보다 큽니다. 질의 캐시가 크면 캐시를 유지하기 위한 관"
+"리가 발생해 효율이 나빠질 수 있습니다."
+
+#: libraries/advisory_rules_mysql_before80003.php:100
+msgid ""
+"Depending on your environment, it might be performance increasing to reduce "
+"this value."
+msgstr "이 값을 감소시켜 성능을 향상할 수 있음(환경에 따라 다름)."
+
+#: libraries/advisory_rules_mysql_before80003.php:102
+#, php-format
+msgid "Current query cache size: %s"
+msgstr "쿼리 캐시의 크기: %s"
+
+#: libraries/advisory_rules_mysql_before80003.php:107
+msgid "Query cache min result size"
+msgstr "쿼리 캐시 최소 결과 크기"
+
+#: libraries/advisory_rules_mysql_before80003.php:111
+msgid ""
+"The max size of the result set in the query cache is the default of 1 MiB."
+msgstr "쿼리 캐시의 결과 셋의 최대 크기가 기본값인 1 MiB 입니다."
+
+#: libraries/advisory_rules_mysql_before80003.php:113
+msgid ""
+"Changing {query_cache_limit} (usually by increasing) may increase "
+"efficiency. This variable determines the maximum size a query result may "
+"have to be inserted into the query cache. If there are many query results "
+"above 1 MiB that are well cacheable (many reads, little writes) then "
+"increasing {query_cache_limit} will increase efficiency. Whereas in the case "
+"of many query results being above 1 MiB that are not very well cacheable "
+"(often invalidated due to table updates) increasing {query_cache_limit} "
+"might reduce efficiency."
+msgstr ""
+"{query_cache_limit}를 변경(일반적으로 증가)하여 효율을 높일 수 있습니다. 이 "
+"값은 쿼리 캐시에 넣을 수 있는 쿼리 결과의 최댓값을 결정합니다. 만약 1 MiB 이"
+"상의 캐시될 가능성이 높은 쿼리 결과(많은 읽기, 적은 쓰기)가 많다면, "
+"{query_cache_limit}를 증가하는 것이 효율을 높일 수 있습니다. 반면, 1 MiB 이상"
+"의 캐시될 가능성이 낮은 쿼리 결과(테이블 업데이트로 캐시가 무효화된다던가)가 "
+"많은 경우, {query_cache_limit}를 증가시키는 것은 효율을 낮출 수도 있습니다."
+
+#: libraries/advisory_rules_mysql_before80003.php:120
+msgid "query_cache_limit is set to 1 MiB"
+msgstr "query_cache_limit가 1Mib로 설정되었습니다"
+
+#: libraries/classes/Advisor.php:232
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "수치 계산 중 오류 발생 : %s"
 
-#: libraries/classes/Advisor.php:348
+#: libraries/classes/Advisor.php:259
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "규칙 '%s'에 대한 precondition 계산 실패."
 
-#: libraries/classes/Advisor.php:365
+#: libraries/classes/Advisor.php:279
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "규칙 '%s'에 대한 값 계산 실패."
 
-#: libraries/classes/Advisor.php:384
+#: libraries/classes/Advisor.php:298
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "규칙 '%s'에 대한 테스트를 실행 못 함."
 
-#: libraries/classes/Advisor.php:467
+#: libraries/classes/Advisor.php:326
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "규칙 '%s'를 변환하는데 실패했습니다."
 
-#: libraries/classes/Advisor.php:588
-#, php-format
-msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr "파일 읽기 오류: 파일 '%s'는 존재하지 않거나 읽을 수 없는 상태입니다!"
-
-#: libraries/classes/Advisor.php:623
-#, php-format
-msgid ""
-"Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
-msgstr "%1$s 행의 규칙이 잘못됨, 이전 규칙의 %2$s 행일 수 있음."
-
-#: libraries/classes/Advisor.php:642
-#, php-format
-msgid "Invalid rule declaration on line %s."
-msgstr "%s 행에 잘못된 규칙 선언."
-
-#: libraries/classes/Advisor.php:651
-#, php-format
-msgid "Unexpected characters on line %s."
-msgstr "%s 라인에 알 수 없는 문자가 있습니다."
-
-#: libraries/classes/Advisor.php:665
-#, php-format
-msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr ""
-"%1$s 행에 알 수 없는 문자가 있습니다. 탭 문자가 있어야 하지만, \"%2$s\"가 있"
-"습니다."
-
-#: libraries/classes/Advisor.php:706
+#: libraries/classes/Advisor.php:404
 msgid "per second"
 msgstr "초당"
 
-#: libraries/classes/Advisor.php:709
+#: libraries/classes/Advisor.php:407
 msgid "per minute"
 msgstr "분당"
 
-#: libraries/classes/Advisor.php:712
+#: libraries/classes/Advisor.php:410
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
 msgid "per hour"
 msgstr "시간당"
 
-#: libraries/classes/Advisor.php:715
+#: libraries/classes/Advisor.php:413
 msgid "per day"
 msgstr "하루당"
 
@@ -110,11 +1356,11 @@ msgstr "검색:"
 #: templates/database/operations/index.twig:190
 #: templates/database/operations/index.twig:230
 #: templates/database/search/main.twig:74
-#: templates/display/import/import.twig:232
 #: templates/display/results/table.twig:175 templates/export.twig:422
 #: templates/gis_data_editor_form.twig:211 templates/header_location.twig:18
-#: templates/login/form.twig:85 templates/login/form.twig:87
-#: templates/login/form.twig:90 templates/preferences/manage/main.twig:46
+#: templates/import.twig:221 templates/login/form.twig:85
+#: templates/login/form.twig:87 templates/login/form.twig:90
+#: templates/preferences/manage/main.twig:46
 #: templates/preferences/manage/main.twig:108
 #: templates/server/binlog/index.twig:34
 #: templates/server/privileges/add_user.twig:36
@@ -137,7 +1383,7 @@ msgstr "검색:"
 #: templates/table/operations/index.twig:88
 #: templates/table/operations/index.twig:217
 #: templates/table/operations/index.twig:306
-#: templates/table/operations/index.twig:409
+#: templates/table/operations/index.twig:461
 #: templates/table/operations/view.twig:16
 #: templates/table/relation/common_form.twig:318
 #: templates/table/search/index.twig:160
@@ -166,7 +1412,7 @@ msgid "Description"
 msgstr "설명"
 
 #: libraries/classes/BrowseForeigners.php:331
-#: libraries/classes/Html/Generator.php:1283 libraries/classes/Language.php:212
+#: libraries/classes/Html/Generator.php:1284 libraries/classes/Language.php:212
 #: libraries/classes/Pdf.php:92
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:532
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
@@ -219,10 +1465,10 @@ msgstr "아니오"
 #: libraries/classes/Config/Descriptions.php:889
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:385
 #: libraries/classes/Display/Results.php:3213
-#: libraries/classes/Html/Generator.php:757
-#: libraries/classes/Html/Generator.php:1019
-#: libraries/classes/Server/UserGroups.php:125 libraries/classes/Util.php:3221
-#: libraries/classes/Util.php:3222 templates/console/bookmark_content.twig:7
+#: libraries/classes/Html/Generator.php:758
+#: libraries/classes/Html/Generator.php:1020
+#: libraries/classes/Server/UserGroups.php:125 libraries/classes/Util.php:3197
+#: libraries/classes/Util.php:3198 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:281
 #: templates/database/central_columns/main.twig:403
@@ -722,7 +1968,7 @@ msgid "No databases selected."
 msgstr "데이터베이스를 선택하지 않았습니다."
 
 #: libraries/classes/Common.php:179
-#: libraries/classes/Controllers/Table/OperationsController.php:276
+#: libraries/classes/Controllers/Table/OperationsController.php:264
 msgid "No collation provided."
 msgstr "데이터 정렬이 제공되지 않음."
 
@@ -1104,14 +2350,14 @@ msgstr "첫 줄에 열 이름을 넣기"
 #: libraries/classes/Config/Descriptions.php:224
 #: libraries/classes/Config/Descriptions.php:432
 #: libraries/classes/Config/Descriptions.php:443
-#: libraries/classes/Plugins/Import/ImportCsv.php:669
+#: libraries/classes/Plugins/Import/ImportCsv.php:670
 msgid "Columns enclosed with"
 msgstr "열을 시작하는 문자"
 
 #: libraries/classes/Config/Descriptions.php:225
 #: libraries/classes/Config/Descriptions.php:433
 #: libraries/classes/Config/Descriptions.php:444
-#: libraries/classes/Plugins/Import/ImportCsv.php:680
+#: libraries/classes/Plugins/Import/ImportCsv.php:681
 msgid "Columns escaped with"
 msgstr "특수 문자 구분에 사용된 문자"
 
@@ -1133,13 +2379,13 @@ msgstr "열 내의 CRLF 문자를 제거하기"
 #: libraries/classes/Config/Descriptions.php:228
 #: libraries/classes/Config/Descriptions.php:437
 #: libraries/classes/Config/Descriptions.php:449
-#: libraries/classes/Plugins/Import/ImportCsv.php:654
+#: libraries/classes/Plugins/Import/ImportCsv.php:655
 msgid "Columns terminated with"
 msgstr "열을 종료하는 문자"
 
 #: libraries/classes/Config/Descriptions.php:229
 #: libraries/classes/Config/Descriptions.php:431
-#: libraries/classes/Plugins/Import/ImportCsv.php:689
+#: libraries/classes/Plugins/Import/ImportCsv.php:690
 msgid "Lines terminated with"
 msgstr "행을 종료하는 문자"
 
@@ -1463,7 +2709,7 @@ msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:337
 #: libraries/classes/Config/Descriptions.php:403 libraries/classes/Menu.php:527
-#: libraries/classes/Util.php:2496 libraries/config.values.php:155
+#: libraries/classes/Util.php:2472 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:8
 #: templates/server/privileges/user_properties.twig:20
@@ -1610,8 +2856,8 @@ msgstr "데이터베이스 변경 추적 기능. phpMyAdmin 설정 저장공간�
 #: libraries/classes/Config/Descriptions.php:385 libraries/classes/Menu.php:285
 #: libraries/classes/Menu.php:402 libraries/classes/Menu.php:532
 #: libraries/classes/Navigation/Nodes/NodeTable.php:315
-#: libraries/classes/Util.php:1787 libraries/classes/Util.php:2497
-#: libraries/classes/Util.php:2512 libraries/classes/Util.php:2529
+#: libraries/classes/Util.php:1763 libraries/classes/Util.php:2473
+#: libraries/classes/Util.php:2488 libraries/classes/Util.php:2505
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -1757,8 +3003,8 @@ msgstr "일부분만 가져오기: 인터럽트 허용"
 
 #: libraries/classes/Config/Descriptions.php:434
 #: libraries/classes/Config/Descriptions.php:445
-#: libraries/classes/Plugins/Import/ImportCsv.php:132
-#: libraries/classes/Plugins/Import/ImportLdi.php:77
+#: libraries/classes/Plugins/Import/ImportCsv.php:133
+#: libraries/classes/Plugins/Import/ImportLdi.php:78
 msgid "Do not abort on INSERT error"
 msgstr "INSERT 에러시 종료하지 않기"
 
@@ -1785,7 +3031,7 @@ msgid "Format of imported file"
 msgstr "가져올 파일의 형식"
 
 #: libraries/classes/Config/Descriptions.php:446
-#: libraries/classes/Plugins/Import/ImportLdi.php:83
+#: libraries/classes/Plugins/Import/ImportLdi.php:84
 msgid "Use LOCAL keyword"
 msgstr "LOCAL 키워드 사용"
 
@@ -1794,7 +3040,7 @@ msgid "Column names in first row"
 msgstr "첫행에 컬럼명 출력"
 
 #: libraries/classes/Config/Descriptions.php:451
-#: libraries/classes/Plugins/Import/ImportOds.php:75
+#: libraries/classes/Plugins/Import/ImportOds.php:76
 msgid "Do not import empty rows"
 msgstr "가져오기시 비어있는 행 제외"
 
@@ -3060,12 +4306,12 @@ msgid "Skip locked tables"
 msgstr "잠긴 테이블 건너뛰기"
 
 #: libraries/classes/Config/Descriptions.php:890
-#: libraries/classes/Html/Generator.php:721
+#: libraries/classes/Html/Generator.php:722
 msgid "Explain SQL"
 msgstr "SQL 해석"
 
 #: libraries/classes/Config/Descriptions.php:891
-#: libraries/classes/Export.php:603 libraries/classes/Html/Generator.php:801
+#: libraries/classes/Export.php:603 libraries/classes/Html/Generator.php:802
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
 #: templates/server/status/variables/index.twig:12
@@ -3073,7 +4319,7 @@ msgid "Refresh"
 msgstr "다시 보기"
 
 #: libraries/classes/Config/Descriptions.php:892
-#: libraries/classes/Html/Generator.php:786
+#: libraries/classes/Html/Generator.php:787
 msgid "Create PHP code"
 msgstr "PHP 코드 보기"
 
@@ -3191,6 +4437,7 @@ msgstr "테이블이 선택되었을 때 브라우저 윈도우의 제목."
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/user_properties.twig:37
 #: templates/server/privileges/user_properties.twig:82
+#: templates/table/maintenance/checksum.twig:12
 #: templates/table/operations/index.twig:67
 #: templates/table/operations/index.twig:244
 #: templates/table/relation/common_form.twig:36
@@ -3481,7 +4728,7 @@ msgstr "최대 %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:194
 #: libraries/classes/Engines/Pbxt.php:168
-#: libraries/classes/Html/Generator.php:885
+#: libraries/classes/Html/Generator.php:886
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:202 templates/home/index.twig:183
 #: templates/server/variables/index.twig:17
@@ -3499,8 +4746,8 @@ msgid "Disabled"
 msgstr "사용불가"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:319
-#: libraries/classes/Controllers/Database/StructureController.php:1707
-#: libraries/classes/Controllers/Database/StructureController.php:1790
+#: libraries/classes/Controllers/Database/StructureController.php:1451
+#: libraries/classes/Controllers/Database/StructureController.php:1534
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:495
 #: libraries/classes/Controllers/Table/DeleteController.php:27
 #: libraries/classes/Controllers/Table/StructureController.php:482
@@ -3619,8 +4866,8 @@ msgstr "사용자 지정"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:57
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
-#: libraries/classes/Util.php:1786 libraries/classes/Util.php:2511
-#: libraries/classes/Util.php:2528 libraries/classes/Util.php:3216
+#: libraries/classes/Util.php:1762 libraries/classes/Util.php:2487
+#: libraries/classes/Util.php:2504 libraries/classes/Util.php:3192
 #: libraries/config.values.php:60 libraries/config.values.php:74
 #: libraries/config.values.php:165 libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -3663,9 +4910,9 @@ msgstr "OpenDocument 형식"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:422
 #: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1614
-#: libraries/classes/Util.php:2500 libraries/classes/Util.php:2515
-#: libraries/classes/Util.php:2532 libraries/classes/Util.php:3223
-#: libraries/classes/Util.php:3224 templates/database/events/index.twig:55
+#: libraries/classes/Util.php:2476 libraries/classes/Util.php:2491
+#: libraries/classes/Util.php:2508 libraries/classes/Util.php:3199
+#: libraries/classes/Util.php:3200 templates/database/events/index.twig:55
 #: templates/database/events/index.twig:87
 #: templates/database/events/index.twig:88
 #: templates/database/events/row.twig:33
@@ -3708,9 +4955,9 @@ msgstr "LOAD DATA문을 이용한 CSV 들여오기"
 #: libraries/classes/Config/Forms/User/ImportForm.php:65
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:305
 #: libraries/classes/Menu.php:316 libraries/classes/Menu.php:432
-#: libraries/classes/Menu.php:565 libraries/classes/Util.php:2501
-#: libraries/classes/Util.php:2516 libraries/classes/Util.php:2533
-#: templates/display/import/import.twig:38 templates/preferences/header.twig:48
+#: libraries/classes/Menu.php:565 libraries/classes/Util.php:2477
+#: libraries/classes/Util.php:2492 libraries/classes/Util.php:2509
+#: templates/import.twig:33 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
 msgid "Import"
@@ -3996,21 +5243,29 @@ msgstr ""
 msgid "Showing rows %1$s - %2$s."
 msgstr "%1$s - %2$s행 표시 중."
 
-#: libraries/classes/Controllers/Database/ExportController.php:78
+#: libraries/classes/Controllers/Database/ExportController.php:77
 #: libraries/classes/Controllers/Database/TrackingController.php:125
-#: libraries/classes/Controllers/ExportController.php:457
+#: libraries/classes/Controllers/ExportController.php:461
 #: libraries/classes/Database/Qbe.php:359
 #: templates/database/structure/index.twig:19
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "데이터베이스에 테이블이 없습니다."
 
-#: libraries/classes/Controllers/Database/ExportController.php:156
-#: libraries/classes/Controllers/Server/ExportController.php:72
-#: libraries/classes/Controllers/Table/ExportController.php:128
+#: libraries/classes/Controllers/Database/ExportController.php:151
+#: libraries/classes/Controllers/Server/ExportController.php:67
+#: libraries/classes/Controllers/Table/ExportController.php:123
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "내보내기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
+
+#: libraries/classes/Controllers/Database/ImportController.php:53
+#: libraries/classes/Controllers/ImportController.php:619
+#: libraries/classes/Controllers/Server/ImportController.php:41
+#: libraries/classes/Controllers/Table/ImportController.php:45
+msgid "Could not load import plugins, please check your installation!"
+msgstr ""
+"가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:97
 #: libraries/classes/Controllers/Table/CreateController.php:76
@@ -4054,20 +5309,20 @@ msgid "Favorite List is full!"
 msgstr "즐겨찾기 목록이 가득 찼습니다!"
 
 #: libraries/classes/Controllers/Database/StructureController.php:550
-#: templates/table/operations/index.twig:356
+#: templates/table/operations/index.twig:408
 #: templates/table/operations/view.twig:27
 #, php-format
 msgid "View %s has been dropped."
 msgstr "뷰 %s가 제거되었습니다."
 
 #: libraries/classes/Controllers/Database/StructureController.php:551
-#: templates/table/operations/index.twig:356
+#: templates/table/operations/index.twig:408
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "테이블 %s를 삭제했습니다."
 
 #: libraries/classes/Controllers/Database/StructureController.php:607
-#: templates/table/operations/index.twig:335
+#: templates/table/operations/index.twig:387
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "테이블 %s 을 비웠습니다."
@@ -4095,11 +5350,11 @@ msgstr "알수없음"
 #: libraries/classes/Controllers/Database/StructureController.php:1339
 #: libraries/classes/Controllers/Database/StructureController.php:1369
 #: libraries/classes/Controllers/Database/StructureController.php:1420
-#: libraries/classes/Controllers/Database/StructureController.php:1449
-#: libraries/classes/Controllers/Database/StructureController.php:1501
-#: libraries/classes/Controllers/Database/StructureController.php:1552
-#: libraries/classes/Controllers/Database/StructureController.php:1603
-#: libraries/classes/Controllers/Database/StructureController.php:1654
+#: libraries/classes/Controllers/Table/MaintenanceController.php:47
+#: libraries/classes/Controllers/Table/MaintenanceController.php:82
+#: libraries/classes/Controllers/Table/MaintenanceController.php:120
+#: libraries/classes/Controllers/Table/MaintenanceController.php:156
+#: libraries/classes/Controllers/Table/MaintenanceController.php:191
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
@@ -4111,9 +5366,9 @@ msgstr "테이블이 선택되지 않았습니다."
 msgid "Success!"
 msgstr "성공!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1708
-#: libraries/classes/Controllers/Database/StructureController.php:1791
-#: libraries/classes/Controllers/Table/OperationsController.php:325
+#: libraries/classes/Controllers/Database/StructureController.php:1452
+#: libraries/classes/Controllers/Database/StructureController.php:1535
+#: libraries/classes/Controllers/Table/OperationsController.php:313
 #: libraries/classes/Controllers/Table/ReplaceController.php:391
 #: libraries/classes/Core.php:856 templates/preview_sql.twig:3
 msgid "No change"
@@ -4163,12 +5418,12 @@ msgstr "사용중 발생한 문제는 수동으로 제출해 주세요."
 msgid "You may want to refresh the page."
 msgstr "페이지를 새로고침 하세요."
 
-#: libraries/classes/Controllers/ExportController.php:240
+#: libraries/classes/Controllers/ExportController.php:241
 #: libraries/classes/Export.php:1347
 msgid "Bad type!"
 msgstr "잘못된 타입!"
 
-#: libraries/classes/Controllers/ExportController.php:342
+#: libraries/classes/Controllers/ExportController.php:346
 msgid "Bad parameters!"
 msgstr "잘못된 인자!"
 
@@ -4295,20 +5550,20 @@ msgstr ""
 "$cfg[]TempDir''(%s)에 액세스할 수 없음. phpMyAdmin은 템플릿을 캐시할 수 없으"
 "며 이로 인해 속도가 느려질 것이다."
 
-#: libraries/classes/Controllers/ImportController.php:114
+#: libraries/classes/Controllers/ImportController.php:113
 msgid "Incomplete params"
 msgstr "불완전한 인자"
 
-#: libraries/classes/Controllers/ImportController.php:139
+#: libraries/classes/Controllers/ImportController.php:138
 msgid "Succeeded"
 msgstr "성공함"
 
-#: libraries/classes/Controllers/ImportController.php:143
+#: libraries/classes/Controllers/ImportController.php:142
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid "Failed"
 msgstr "실패함"
 
-#: libraries/classes/Controllers/ImportController.php:245
+#: libraries/classes/Controllers/ImportController.php:244
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -4317,17 +5572,17 @@ msgstr ""
 "너무 큰 파일을 업로드하려고 시도했습니다. 제한을 해결하기 위해서는 "
 "%sdocumentation%s를 참조하여 주십시오."
 
-#: libraries/classes/Controllers/ImportController.php:425
-#: libraries/classes/Controllers/ImportController.php:643
+#: libraries/classes/Controllers/ImportController.php:423
+#: libraries/classes/Controllers/ImportController.php:659
 msgid "Showing bookmark"
 msgstr "북마크 보이기"
 
-#: libraries/classes/Controllers/ImportController.php:449
-#: libraries/classes/Controllers/ImportController.php:639
+#: libraries/classes/Controllers/ImportController.php:447
+#: libraries/classes/Controllers/ImportController.php:655
 msgid "The bookmark has been deleted."
 msgstr "북마크를 제거했습니다."
 
-#: libraries/classes/Controllers/ImportController.php:546
+#: libraries/classes/Controllers/ImportController.php:561
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -4336,26 +5591,20 @@ msgstr ""
 "가져올 데이터가 없습니다. 파일이 지정되지 않았거나 파일 크기가 PHP 설정의 최"
 "대 파일 크기를 초과했을 수 있습니다. [doc@faq1-16]FAQ 1.16[/doc] 참조."
 
-#: libraries/classes/Controllers/ImportController.php:603
-#: libraries/classes/Display/Import.php:62
-msgid "Could not load import plugins, please check your installation!"
-msgstr ""
-"가져오기 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
-
-#: libraries/classes/Controllers/ImportController.php:646
-#: libraries/classes/Controllers/SqlController.php:355
-#: libraries/classes/Sql.php:1382
+#: libraries/classes/Controllers/ImportController.php:662
+#: libraries/classes/Controllers/SqlController.php:371
+#: libraries/classes/Sql.php:1257
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "북마크 %s가 생성되었습니다."
 
-#: libraries/classes/Controllers/ImportController.php:656
+#: libraries/classes/Controllers/ImportController.php:672
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "가져오기를 성공적으로 마쳤습니다. %d 쿼리가 실행되었습니다."
 
-#: libraries/classes/Controllers/ImportController.php:687
+#: libraries/classes/Controllers/ImportController.php:703
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -4364,7 +5613,7 @@ msgstr ""
 "스크립트 시간 제한이 초과되었습니다. 이어서 하시려면 같은 파일을 다시 전송해 "
 "주세요 (%s, %s)."
 
-#: libraries/classes/Controllers/ImportController.php:697
+#: libraries/classes/Controllers/ImportController.php:713
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -4372,8 +5621,8 @@ msgstr ""
 "파싱된 데이터가 없지만, 이것은 보통 phpMyAdmin이 php 시간 제한을 늘리지 않고"
 "는 이 가져오기를 마칠 수 없음을 뜻합니다."
 
-#: libraries/classes/Controllers/ImportController.php:771
-#: libraries/classes/Controllers/SqlController.php:166
+#: libraries/classes/Controllers/ImportController.php:787
+#: libraries/classes/Controllers/SqlController.php:168
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" 구문은 허락되지 않습니다."
 
@@ -4619,7 +5868,7 @@ msgid "Matched rows:"
 msgstr "일치하는 행:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:115
-#: libraries/classes/Html/Generator.php:991 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:992 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL 질의:"
 
@@ -4690,13 +5939,13 @@ msgstr "기타"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
-#: libraries/classes/Util.php:630 libraries/classes/Util.php:662
+#: libraries/classes/Util.php:606 libraries/classes/Util.php:638
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
-#: libraries/classes/Util.php:628 libraries/classes/Util.php:660
+#: libraries/classes/Util.php:604 libraries/classes/Util.php:636
 msgid "."
 msgstr "."
 
@@ -4804,45 +6053,45 @@ msgstr "프로세스"
 
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:182
-#: libraries/classes/Util.php:540
+#: libraries/classes/Util.php:516
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:183
-#: libraries/classes/Util.php:542
+#: libraries/classes/Util.php:518
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:184
-#: libraries/classes/Util.php:544
+#: libraries/classes/Util.php:520
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:185
-#: libraries/classes/Util.php:546
+#: libraries/classes/Util.php:522
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:186
-#: libraries/classes/Util.php:548
+#: libraries/classes/Util.php:524
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:187
-#: libraries/classes/Util.php:550
+#: libraries/classes/Util.php:526
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:188
-#: libraries/classes/Util.php:552
+#: libraries/classes/Util.php:528
 msgid "EiB"
 msgstr "EB"
 
@@ -4862,7 +6111,7 @@ msgid "Traffic"
 msgstr "소통량"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
-#: libraries/classes/Menu.php:570 libraries/classes/Util.php:2502
+#: libraries/classes/Menu.php:570 libraries/classes/Util.php:2478
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "설정"
@@ -5089,7 +6338,7 @@ msgstr "SQL 해석"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:268
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Menu.php:537 libraries/classes/Util.php:2498
+#: libraries/classes/Menu.php:537 libraries/classes/Util.php:2474
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:18
 #: templates/database/events/index.twig:18
@@ -5343,9 +6592,8 @@ msgstr "문자셋 변경 중"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:352
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16
-#: templates/display/import/import.twig:204 templates/sql/query.twig:131
-#: templates/table/delete/confirm.twig:25
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:193
+#: templates/sql/query.twig:131 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "외래 키(foreign key) 점검 사용"
 
@@ -5429,7 +6677,7 @@ msgstr "%d는 올바른 행번호가 아닙니다."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 #: libraries/classes/Controllers/Table/ChangeController.php:200
-#: libraries/classes/Controllers/Table/SearchController.php:356
+#: libraries/classes/Controllers/Table/SearchController.php:353
 #: libraries/classes/Controllers/Table/ZoomSearchController.php:389
 #: libraries/classes/Controllers/Table/ZoomSearchController.php:431
 #: templates/sql/relational_column_dropdown.twig:3
@@ -5557,7 +6805,7 @@ msgstr "부분 의존성이 선택되지 않았습니다!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:591
-#: libraries/classes/Export.php:598 libraries/classes/Html/Generator.php:1095
+#: libraries/classes/Export.php:598 libraries/classes/Html/Generator.php:1096
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:307
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -5693,7 +6941,7 @@ msgstr "무시"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 #: libraries/classes/Display/Results.php:3217
-#: libraries/classes/Html/Generator.php:70
+#: libraries/classes/Html/Generator.php:71
 #: templates/display/results/table.twig:214
 #: templates/display/results/table.twig:215
 msgid "Copy"
@@ -6091,9 +7339,9 @@ msgid "up to date"
 msgstr "최신버전"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
-#: libraries/classes/Display/Results.php:4625
 #: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:284 templates/view_create.twig:11
+#: templates/display/results/table.twig:284
+#: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "뷰 생성"
 
@@ -7414,7 +8662,7 @@ msgstr "기본 서버"
 msgid "End of line"
 msgstr "줄 끝"
 
-#: libraries/classes/Controllers/SqlController.php:362
+#: libraries/classes/Controllers/SqlController.php:378
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
@@ -7423,14 +8671,14 @@ msgstr "북마크 %s가 생성되었습니다."
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:134
 #: libraries/classes/Controllers/Table/StructureController.php:1023
-#: libraries/classes/Controllers/Table/StructureController.php:1245
+#: libraries/classes/Controllers/Table/StructureController.php:1242
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "테이블 %1$s 가 성공적으로 수정되었습니다."
 
 #: libraries/classes/Controllers/Table/ChangeController.php:312
-#: libraries/classes/Controllers/Table/DeleteController.php:96
-#: libraries/classes/Controllers/Table/ExportController.php:157
+#: libraries/classes/Controllers/Table/DeleteController.php:93
+#: libraries/classes/Controllers/Table/ExportController.php:152
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No row selected."
@@ -7462,6 +8710,11 @@ msgstr "테이블 %s 가 이미 존재합니다!"
 
 #: libraries/classes/Controllers/Table/DeleteController.php:52
 #: libraries/classes/Controllers/Table/FindReplaceController.php:180
+#: libraries/classes/Controllers/Table/MaintenanceController.php:62
+#: libraries/classes/Controllers/Table/MaintenanceController.php:97
+#: libraries/classes/Controllers/Table/MaintenanceController.php:135
+#: libraries/classes/Controllers/Table/MaintenanceController.php:171
+#: libraries/classes/Controllers/Table/MaintenanceController.php:206
 #: libraries/classes/Controllers/Table/RelationController.php:275
 #: libraries/classes/Controllers/ViewOperationsController.php:75
 #: libraries/classes/Database/Routines.php:1534
@@ -7484,12 +8737,20 @@ msgstr "인덱스 없는 조인이 너무 많습니다."
 #: libraries/classes/Controllers/Table/GetFieldController.php:65
 #: libraries/classes/Database/Routines.php:1555
 #: libraries/classes/Import.php:159 libraries/classes/InsertEdit.php:225
-#: libraries/classes/Sql.php:1197
+#: libraries/classes/Sql.php:1055
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴)."
 
-#: libraries/classes/Controllers/Table/OperationsController.php:110
-#: libraries/classes/Controllers/Table/OperationsController.php:307
+#: libraries/classes/Controllers/Table/MaintenanceController.php:54
+#: libraries/classes/Controllers/Table/MaintenanceController.php:89
+#: libraries/classes/Controllers/Table/MaintenanceController.php:127
+#: libraries/classes/Controllers/Table/MaintenanceController.php:163
+#: libraries/classes/Controllers/Table/MaintenanceController.php:198
+msgid "Maintenance operations on multiple tables are disabled."
+msgstr ""
+
+#: libraries/classes/Controllers/Table/OperationsController.php:108
+#: libraries/classes/Controllers/Table/OperationsController.php:295
 #: libraries/classes/Controllers/Table/StructureController.php:126
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
 #: templates/database/structure/show_create.twig:32
@@ -7536,26 +8797,26 @@ msgid "Failed to get description of column %s!"
 msgstr "실제 줄 갯수 알아오기 실패."
 
 #: libraries/classes/Controllers/Table/StructureController.php:1015
-#: libraries/classes/Controllers/Table/StructureController.php:1296
+#: libraries/classes/Controllers/Table/StructureController.php:1293
 #: libraries/classes/Tracking.php:795
 msgid "Query error"
 msgstr "질의 오류"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1239
+#: libraries/classes/Controllers/Table/StructureController.php:1236
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "테이블 %1$s 가 성공적으로 수정되었습니다. 권한이 조정되었습니다."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1478
+#: libraries/classes/Controllers/Table/StructureController.php:1475
 #: templates/table/structure/display_structure.twig:286
 msgid "Change"
 msgstr "변경"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1479
-#: libraries/classes/Controllers/Table/StructureController.php:1480
-#: libraries/classes/Operations.php:712 libraries/classes/Util.php:3217
-#: libraries/classes/Util.php:3218 templates/database/events/index.twig:64
+#: libraries/classes/Controllers/Table/StructureController.php:1476
+#: libraries/classes/Controllers/Table/StructureController.php:1477
+#: libraries/classes/Operations.php:620 libraries/classes/Util.php:3193
+#: libraries/classes/Util.php:3194 templates/database/events/index.twig:64
 #: templates/database/events/index.twig:70
 #: templates/database/events/index.twig:90
 #: templates/database/events/index.twig:91
@@ -7579,9 +8840,9 @@ msgstr "변경"
 msgid "Drop"
 msgstr "삭제"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1481
-#: libraries/classes/Controllers/Table/StructureController.php:1486
-#: libraries/classes/Controllers/Table/StructureController.php:1542
+#: libraries/classes/Controllers/Table/StructureController.php:1478
+#: libraries/classes/Controllers/Table/StructureController.php:1483
+#: libraries/classes/Controllers/Table/StructureController.php:1539
 #: templates/columns_definitions/column_indexes.twig:4
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:294
@@ -7589,9 +8850,9 @@ msgstr "삭제"
 msgid "Primary"
 msgstr "기본"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1482
-#: libraries/classes/Controllers/Table/StructureController.php:1487
-#: libraries/classes/Controllers/Table/StructureController.php:1547
+#: libraries/classes/Controllers/Table/StructureController.php:1479
+#: libraries/classes/Controllers/Table/StructureController.php:1484
+#: libraries/classes/Controllers/Table/StructureController.php:1544
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_indexes.twig:12
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -7601,8 +8862,8 @@ msgstr "기본"
 msgid "Index"
 msgstr "인덱스"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1483
-#: libraries/classes/Controllers/Table/StructureController.php:1488
+#: libraries/classes/Controllers/Table/StructureController.php:1480
+#: libraries/classes/Controllers/Table/StructureController.php:1485
 #: templates/columns_definitions/column_indexes.twig:8
 #: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:17
 #: templates/table/relation/common_form.twig:237
@@ -7612,25 +8873,25 @@ msgstr "인덱스"
 msgid "Unique"
 msgstr "고유값"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1484
-#: libraries/classes/Controllers/Table/StructureController.php:1489
+#: libraries/classes/Controllers/Table/StructureController.php:1481
+#: libraries/classes/Controllers/Table/StructureController.php:1486
 #: templates/columns_definitions/column_indexes.twig:20
 #: templates/table/structure/display_structure.twig:303
 msgid "Spatial"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/StructureController.php:1485
-#: libraries/classes/Controllers/Table/StructureController.php:1490
+#: libraries/classes/Controllers/Table/StructureController.php:1482
+#: libraries/classes/Controllers/Table/StructureController.php:1487
 #: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/display_structure.twig:306
 msgid "Fulltext"
 msgstr "Fulltext"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1491
+#: libraries/classes/Controllers/Table/StructureController.php:1488
 msgid "Distinct values"
 msgstr "중복되지 않은 값"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1809
+#: libraries/classes/Controllers/Table/StructureController.php:1806
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -7671,13 +8932,13 @@ msgid "View name can not be empty!"
 msgstr "뷰 이름은 비워둘 수 없습니다!"
 
 #: libraries/classes/Controllers/ViewOperationsController.php:78
-#: libraries/classes/Html/Generator.php:967 libraries/classes/Import.php:140
+#: libraries/classes/Html/Generator.php:968 libraries/classes/Import.php:140
 #: libraries/classes/InsertEdit.php:1583 libraries/classes/Message.php:197
 #: templates/error/generic.twig:37 templates/javascript/variables.twig:108
 msgid "Error"
 msgstr "오류"
 
-#: libraries/classes/Core.php:359
+#: libraries/classes/Core.php:359 libraries/classes/ZipExtension.php:60
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s 확장기능이 설치되지 않았습니다. PHP의 설정을 확인하십시오."
@@ -7785,7 +9046,7 @@ msgstr "오류: 내부 릴레이션을 제거할 수 없습니다!"
 msgid "Internal relationship has been removed."
 msgstr "내부 릴레이션이 제거되었습니다."
 
-#: libraries/classes/Database/Designer.php:144
+#: libraries/classes/Database/Designer.php:137
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "개요 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
@@ -7816,7 +9077,7 @@ msgstr "쿼리 실행 실패: \"%s\""
 #: libraries/classes/Database/Triggers.php:144
 #: libraries/classes/Database/Triggers.php:169
 #: libraries/classes/Database/Triggers.php:550
-#: libraries/classes/Html/Generator.php:1039
+#: libraries/classes/Html/Generator.php:1040
 msgid "MySQL said: "
 msgstr "MySQL 메시지: "
 
@@ -8069,11 +9330,11 @@ msgstr "방향"
 #: libraries/classes/Plugins/Export/ExportXml.php:89
 #: libraries/classes/Plugins/Export/ExportYaml.php:43
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:31
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:60
-#: libraries/classes/Plugins/Import/ImportOds.php:52
-#: libraries/classes/Plugins/Import/ImportShp.php:66
-#: libraries/classes/Plugins/Import/ImportSql.php:45
-#: libraries/classes/Plugins/Import/ImportXml.php:51
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:61
+#: libraries/classes/Plugins/Import/ImportOds.php:53
+#: libraries/classes/Plugins/Import/ImportShp.php:68
+#: libraries/classes/Plugins/Import/ImportSql.php:46
+#: libraries/classes/Plugins/Import/ImportXml.php:52
 #: templates/console/display.twig:7 templates/console/display.twig:140
 #: templates/database/designer/database_tables.twig:114
 #: templates/display/results/table.twig:107
@@ -8375,31 +9636,31 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
 #: libraries/classes/Display/Results.php:911
-#: libraries/classes/Html/Generator.php:1295
-#: libraries/classes/Html/Generator.php:1298
+#: libraries/classes/Html/Generator.php:1296
+#: libraries/classes/Html/Generator.php:1299
 msgctxt "First page"
 msgid "Begin"
 msgstr "처음"
 
 #: libraries/classes/Display/Results.php:918
-#: libraries/classes/Html/Generator.php:1296
-#: libraries/classes/Html/Generator.php:1299
+#: libraries/classes/Html/Generator.php:1297
+#: libraries/classes/Html/Generator.php:1300
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "이전"
 
 #: libraries/classes/Display/Results.php:946
-#: libraries/classes/Html/Generator.php:1328
-#: libraries/classes/Html/Generator.php:1335
+#: libraries/classes/Html/Generator.php:1329
+#: libraries/classes/Html/Generator.php:1336
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "다음"
 
 #: libraries/classes/Display/Results.php:976
-#: libraries/classes/Html/Generator.php:1329
-#: libraries/classes/Html/Generator.php:1336
+#: libraries/classes/Html/Generator.php:1330
+#: libraries/classes/Html/Generator.php:1337
 msgctxt "Last page"
 msgid "End"
 msgstr "마지막"
@@ -8415,8 +9676,8 @@ msgid "Full texts"
 msgstr "전체 텍스트"
 
 #: libraries/classes/Display/Results.php:1942
-#: libraries/classes/Display/Results.php:1968 libraries/classes/Util.php:3137
-#: libraries/classes/Util.php:3160 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1968 libraries/classes/Util.php:3113
+#: libraries/classes/Util.php:3136 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:61
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:114
@@ -8429,8 +9690,8 @@ msgid "Descending"
 msgstr "내림차순"
 
 #: libraries/classes/Display/Results.php:1950
-#: libraries/classes/Display/Results.php:1960 libraries/classes/Util.php:3129
-#: libraries/classes/Util.php:3152 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1960 libraries/classes/Util.php:3105
+#: libraries/classes/Util.php:3128 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:60
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:112
@@ -8471,17 +9732,12 @@ msgstr "총 %1$d개 중 현재 쿼리에 %2$d개"
 msgid "%d total"
 msgstr "합계 %d"
 
-#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1203
+#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1061
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "질의 실행시간 %01.4f 초."
 
-#: libraries/classes/Display/Results.php:4614
-#: templates/display/results/table.twig:242
-msgid "Query results operations"
-msgstr "쿼리 결과 처리방법"
-
-#: libraries/classes/Display/Results.php:4867
+#: libraries/classes/Display/Results.php:4831
 msgid "Link not found!"
 msgstr "링크를 찾을 수 없습니다!"
 
@@ -8851,64 +10107,64 @@ msgstr "덤프 파일이 %s에 저장되었습니다."
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
-#: libraries/classes/File.php:285
+#: libraries/classes/File.php:286
 msgid "File was not an uploaded file."
 msgstr "파일은 업로드된 파일이 아닙니다."
 
-#: libraries/classes/File.php:325
+#: libraries/classes/File.php:326
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "php.ini 파일에 지정된 upload_max_filesize 값보다 더 큰 파일이 업로드되었습니"
 "다."
 
-#: libraries/classes/File.php:331
+#: libraries/classes/File.php:332
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr "HTML 폼에 지정된 MAX_FILE_SIZE 값보다 더 큰 파일이 업로드되었습니다."
 
-#: libraries/classes/File.php:337
+#: libraries/classes/File.php:338
 msgid "The uploaded file was only partially uploaded."
 msgstr "파일업로드가 완전하지 않게 실행되었습니다."
 
-#: libraries/classes/File.php:341
+#: libraries/classes/File.php:342
 msgid "Missing a temporary folder."
 msgstr "임시 폴더가 없습니다."
 
-#: libraries/classes/File.php:344
+#: libraries/classes/File.php:345
 msgid "Failed to write file to disk."
 msgstr "디스크 쓰기에 실패했습니다."
 
-#: libraries/classes/File.php:347
+#: libraries/classes/File.php:348
 msgid "File upload stopped by extension."
 msgstr "확장프로그램 때문에 파일 업로드가 중지되었습니다."
 
-#: libraries/classes/File.php:350
+#: libraries/classes/File.php:351
 msgid "Unknown error in file upload."
 msgstr "파일 업로드 중에 알 수 없는 오류가 발생했습니다."
 
-#: libraries/classes/File.php:498
+#: libraries/classes/File.php:499
 msgid "File is a symbolic link"
 msgstr "파일은 심볼릭 링크입니다"
 
-#: libraries/classes/File.php:504 libraries/classes/File.php:603
+#: libraries/classes/File.php:505 libraries/classes/File.php:604
 msgid "File could not be read!"
 msgstr "파일을 읽을 수 없습니다!"
 
-#: libraries/classes/File.php:547
+#: libraries/classes/File.php:548
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "업로드된 파일을 이동시킬 수 없습니다. [doc@faq1-11]FAQ 1.11[/doc] 참조."
 
-#: libraries/classes/File.php:567
+#: libraries/classes/File.php:568
 msgid "Error while moving uploaded file."
 msgstr "업로드된 파일을 이동하는 중에 오류가 발생하였습니다."
 
-#: libraries/classes/File.php:576
+#: libraries/classes/File.php:577
 msgid "Cannot read uploaded file."
 msgstr "업로드한 파일을 읽을 수 없습니다."
 
-#: libraries/classes/File.php:654
+#: libraries/classes/File.php:655
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -8940,80 +10196,80 @@ msgstr "새 창으로 phpMyAdmin 열기"
 msgid "Print view"
 msgstr "인쇄용 보기"
 
-#: libraries/classes/Html/Generator.php:157
+#: libraries/classes/Html/Generator.php:158
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "데이터베이스 \"%s\" 로 이동."
 
-#: libraries/classes/Html/Generator.php:183
+#: libraries/classes/Html/Generator.php:184
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 기능은 알려진 버그가 있습니다. %s 문서를 참조하십시오"
 
-#: libraries/classes/Html/Generator.php:296
+#: libraries/classes/Html/Generator.php:297
 msgid "SSL is not being used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:301
+#: libraries/classes/Html/Generator.php:302
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:303
+#: libraries/classes/Html/Generator.php:304
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:306
+#: libraries/classes/Html/Generator.php:307
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:429
+#: libraries/classes/Html/Generator.php:430
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:430
+#: libraries/classes/Html/Generator.php:431
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:732
+#: libraries/classes/Html/Generator.php:733
 msgid "Skip Explain SQL"
 msgstr "SQL 해석 생략"
 
-#: libraries/classes/Html/Generator.php:740
+#: libraries/classes/Html/Generator.php:741
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "%s의 분석 설명"
 
-#: libraries/classes/Html/Generator.php:770
+#: libraries/classes/Html/Generator.php:771
 msgid "Without PHP code"
 msgstr "PHP 코드 없이 보기"
 
-#: libraries/classes/Html/Generator.php:777
+#: libraries/classes/Html/Generator.php:778
 #: templates/database/multi_table_query/form.twig:170
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "쿼리 실행"
 
-#: libraries/classes/Html/Generator.php:822 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:823 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "프로파일링"
 
-#: libraries/classes/Html/Generator.php:836
+#: libraries/classes/Html/Generator.php:837
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "인라인 편집"
 
-#: libraries/classes/Html/Generator.php:974
+#: libraries/classes/Html/Generator.php:975
 msgid "Static analysis:"
 msgstr "정적 분석 :"
 
-#: libraries/classes/Html/Generator.php:977
+#: libraries/classes/Html/Generator.php:978
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "분석 중에 %d개의 오류가 발생했습니다."
 
-#: libraries/classes/Import.php:325 libraries/classes/Sql.php:1211
+#: libraries/classes/Import.php:325 libraries/classes/Sql.php:1069
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -9060,11 +10316,11 @@ msgstr "%s 의 구조"
 msgid "Go to view: %s"
 msgstr "뷰로 이동: %s"
 
-#: libraries/classes/Import.php:1465
+#: libraries/classes/Import.php:1437
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: libraries/classes/Import.php:1692
+#: libraries/classes/Import.php:1664
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -9092,9 +10348,8 @@ msgstr "컬럼의 길이 때문에,<br />이 컬럼을 편집할 수 없을 수�
 msgid "Binary - do not edit"
 msgstr "바이너리 - 편집 금지"
 
-#: libraries/classes/InsertEdit.php:1584
-#: templates/display/import/import.twig:89
-#: templates/display/import/import.twig:119
+#: libraries/classes/InsertEdit.php:1584 templates/import.twig:78
+#: templates/import.twig:108
 msgid "The directory you set for upload work cannot be reached."
 msgstr "설정한 업로드 디렉토리에 접근할 수 없습니다."
 
@@ -9187,11 +10442,11 @@ msgstr "TAB 키나 CTRL+화살표로 값 사이를 이동할 수 있습니다."
 msgid "Column"
 msgstr "컬럼명"
 
-#: libraries/classes/InsertEdit.php:2410 libraries/classes/Sql.php:1194
+#: libraries/classes/InsertEdit.php:2410 libraries/classes/Sql.php:1052
 msgid "Showing SQL query"
 msgstr "SQL 쿼리 보기"
 
-#: libraries/classes/InsertEdit.php:2436 libraries/classes/Sql.php:1172
+#: libraries/classes/InsertEdit.php:2436 libraries/classes/Sql.php:1030
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "삽입된 행의 id: %1$d"
@@ -9218,8 +10473,8 @@ msgstr "%1$s (<code>%2$s</code> 근처)"
 
 #: libraries/classes/Menu.php:270
 #: libraries/classes/Navigation/Nodes/NodeTable.php:318
-#: libraries/classes/Util.php:1790 libraries/classes/Util.php:2527
-#: libraries/classes/Util.php:3210 libraries/classes/Util.php:3211
+#: libraries/classes/Util.php:1766 libraries/classes/Util.php:2503
+#: libraries/classes/Util.php:3186 libraries/classes/Util.php:3187
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/table/structure/display_structure.twig:281
@@ -9228,9 +10483,9 @@ msgstr "보기"
 
 #: libraries/classes/Menu.php:289 libraries/classes/Menu.php:406
 #: libraries/classes/Navigation/Nodes/NodeTable.php:309
-#: libraries/classes/Util.php:1788 libraries/classes/Util.php:2513
-#: libraries/classes/Util.php:2530 libraries/classes/Util.php:3212
-#: libraries/classes/Util.php:3213 libraries/config.values.php:64
+#: libraries/classes/Util.php:1764 libraries/classes/Util.php:2489
+#: libraries/classes/Util.php:2506 libraries/classes/Util.php:3188
+#: libraries/classes/Util.php:3189 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179
 msgid "Search"
@@ -9238,8 +10493,8 @@ msgstr "검색"
 
 #: libraries/classes/Menu.php:300
 #: libraries/classes/Navigation/Nodes/NodeTable.php:312
-#: libraries/classes/Util.php:1789 libraries/classes/Util.php:2531
-#: libraries/classes/Util.php:3214 libraries/classes/Util.php:3215
+#: libraries/classes/Util.php:1765 libraries/classes/Util.php:2507
+#: libraries/classes/Util.php:3190 libraries/classes/Util.php:3191
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -9248,8 +10503,8 @@ msgid "Insert"
 msgstr "삽입"
 
 #: libraries/classes/Menu.php:327 libraries/classes/Menu.php:446
-#: libraries/classes/Server/Privileges.php:2964 libraries/classes/Util.php:2518
-#: libraries/classes/Util.php:2534 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2964 libraries/classes/Util.php:2494
+#: libraries/classes/Util.php:2510 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -9258,15 +10513,15 @@ msgid "Privileges"
 msgstr "권한"
 
 #: libraries/classes/Menu.php:337 libraries/classes/Menu.php:346
-#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1791
-#: libraries/classes/Util.php:2517 libraries/classes/Util.php:2535
+#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1767
+#: libraries/classes/Util.php:2493 libraries/classes/Util.php:2511
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "테이블 작업"
 
 #: libraries/classes/Menu.php:352 libraries/classes/Menu.php:472
-#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2522
-#: libraries/classes/Util.php:2536
+#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2498
+#: libraries/classes/Util.php:2512
 msgid "Tracking"
 msgstr "SQL 명령어 트래킹"
 
@@ -9278,7 +10533,7 @@ msgstr "SQL 명령어 트래킹"
 #: libraries/classes/Plugins/Export/ExportSql.php:2157
 #: libraries/classes/Plugins/Export/ExportTexytext.php:553
 #: libraries/classes/Plugins/Export/ExportXml.php:135
-#: libraries/classes/Util.php:2521 libraries/classes/Util.php:2537
+#: libraries/classes/Util.php:2497 libraries/classes/Util.php:2513
 #: templates/database/triggers/list.twig:6
 msgid "Triggers"
 msgstr "트리거"
@@ -9288,11 +10543,11 @@ msgstr "트리거"
 msgid "Database seems to be empty!"
 msgstr "데이터베이스가 비어있는 것 같습니다!"
 
-#: libraries/classes/Menu.php:414 libraries/classes/Util.php:2514
+#: libraries/classes/Menu.php:414 libraries/classes/Util.php:2490
 msgid "Query"
 msgstr "질의 마법사"
 
-#: libraries/classes/Menu.php:452 libraries/classes/Util.php:2519
+#: libraries/classes/Menu.php:452 libraries/classes/Util.php:2495
 #: templates/database/routines/list.twig:6
 msgid "Routines"
 msgstr "루틴"
@@ -9301,15 +10556,15 @@ msgstr "루틴"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:24
 #: libraries/classes/Plugins/Export/ExportSql.php:1017
 #: libraries/classes/Plugins/Export/ExportXml.php:115
-#: libraries/classes/Util.php:2520 templates/database/events/index.twig:6
+#: libraries/classes/Util.php:2496 templates/database/events/index.twig:6
 msgid "Events"
 msgstr "이벤트"
 
-#: libraries/classes/Menu.php:479 libraries/classes/Util.php:2523
+#: libraries/classes/Menu.php:479 libraries/classes/Util.php:2499
 msgid "Designer"
 msgstr "디자이너"
 
-#: libraries/classes/Menu.php:488 libraries/classes/Util.php:2524
+#: libraries/classes/Menu.php:488 libraries/classes/Util.php:2500
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "중심 열"
@@ -9319,12 +10574,12 @@ msgid "User accounts"
 msgstr "사용자 계정"
 
 #: libraries/classes/Menu.php:585 libraries/classes/Server/Status/Data.php:144
-#: libraries/classes/Util.php:2503 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:2479 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "바이너리 로그"
 
 #: libraries/classes/Menu.php:592 libraries/classes/Server/Status/Data.php:149
-#: libraries/classes/Util.php:2504
+#: libraries/classes/Util.php:2480
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -9332,21 +10587,21 @@ msgid "Replication"
 msgstr "복제"
 
 #: libraries/classes/Menu.php:598 libraries/classes/Server/Status/Data.php:217
-#: libraries/classes/Util.php:2505 libraries/config.values.php:159
+#: libraries/classes/Util.php:2481 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:178
 msgid "Variables"
 msgstr "환경설정값"
 
-#: libraries/classes/Menu.php:603 libraries/classes/Util.php:2506
+#: libraries/classes/Menu.php:603 libraries/classes/Util.php:2482
 msgid "Charsets"
 msgstr "문자셋"
 
-#: libraries/classes/Menu.php:608 libraries/classes/Util.php:2508
+#: libraries/classes/Menu.php:608 libraries/classes/Util.php:2484
 msgid "Engines"
 msgstr "엔진"
 
-#: libraries/classes/Menu.php:613 libraries/classes/Util.php:2507
+#: libraries/classes/Menu.php:613 libraries/classes/Util.php:2483
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "플러그인"
@@ -9792,108 +11047,69 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: libraries/classes/Operations.php:615
-#: templates/database/structure/check_all_tables.twig:19
-msgid "Analyze table"
-msgstr "테이블 분석"
-
-#: libraries/classes/Operations.php:626
-#: templates/database/structure/check_all_tables.twig:20
-msgid "Check table"
-msgstr "테이블 검사"
-
-#: libraries/classes/Operations.php:636
-#: templates/database/structure/check_all_tables.twig:21
-msgid "Checksum table"
-msgstr "체크섬 테이블"
-
-#: libraries/classes/Operations.php:645
-msgid "Defragment table"
-msgstr "테이블 단편화 제거"
-
-#: libraries/classes/Operations.php:654
-#, php-format
-msgid "Table %s has been flushed."
-msgstr "테이블 %s을 플러시 했습니다."
-
-#: libraries/classes/Operations.php:659
-msgid "Flush the table (FLUSH)"
-msgstr "테이블 갱신 (캐시 삭제)"
-
-#: libraries/classes/Operations.php:669
-#: templates/database/structure/check_all_tables.twig:22
-#: templates/table/structure/display_table_stats.twig:62
-msgid "Optimize table"
-msgstr "테이블 최적화"
-
-#: libraries/classes/Operations.php:680
-#: templates/database/structure/check_all_tables.twig:23
-msgid "Repair table"
-msgstr "테이블 복구"
-
-#: libraries/classes/Operations.php:696
+#: libraries/classes/Operations.php:604
 #: templates/table/structure/display_structure.twig:521
 msgid "Analyze"
 msgstr "분석"
 
-#: libraries/classes/Operations.php:697
+#: libraries/classes/Operations.php:605
 #: templates/table/structure/display_structure.twig:521
 msgid "Check"
 msgstr "검사"
 
-#: libraries/classes/Operations.php:698
+#: libraries/classes/Operations.php:606
 #: templates/table/structure/display_structure.twig:521
 msgid "Optimize"
 msgstr "옵티마이저"
 
-#: libraries/classes/Operations.php:699
+#: libraries/classes/Operations.php:607
 #: templates/table/structure/display_structure.twig:521
 msgid "Rebuild"
 msgstr "리빌드"
 
-#: libraries/classes/Operations.php:700
+#: libraries/classes/Operations.php:608
 #: templates/table/structure/display_structure.twig:521
 msgid "Repair"
 msgstr "복구"
 
-#: libraries/classes/Operations.php:701
+#: libraries/classes/Operations.php:609
 #: templates/table/structure/display_structure.twig:521
 msgid "Truncate"
 msgstr "초기화"
 
-#: libraries/classes/Operations.php:714
+#: libraries/classes/Operations.php:622
 msgid "Coalesce"
 msgstr "병합"
 
-#: libraries/classes/Operations.php:1149
+#: libraries/classes/Operations.php:1057
 msgid "Can't move table to same one!"
 msgstr "같은 테이블이 있어 옮길 수 없음!"
 
-#: libraries/classes/Operations.php:1151
+#: libraries/classes/Operations.php:1059
 msgid "Can't copy table to same one!"
 msgstr "같은 테이블이 있어 복사할 수 없음!"
 
-#: libraries/classes/Operations.php:1186
+#: libraries/classes/Operations.php:1094
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "테이블 %s 을 %s 로 옮겼습니다. 권한설정을 조정하였습니다."
 
-#: libraries/classes/Operations.php:1193
+#: libraries/classes/Operations.php:1101
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "%s 테이블을 %s 으로 복사하였습니다. 권한설정을 조정하였습니다."
 
-#: libraries/classes/Operations.php:1201
+#: libraries/classes/Operations.php:1109
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "테이블 %s 을 %s 로 옮겼습니다."
 
-#: libraries/classes/Operations.php:1205
+#: libraries/classes/Operations.php:1113
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "%s 테이블이 %s 으로 복사되었습니다."
 
-#: libraries/classes/Operations.php:1229
+#: libraries/classes/Operations.php:1137
 msgid "The table name is empty!"
 msgstr "테이블명이 없습니다!"
 
@@ -9988,7 +11204,7 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:87
-#: templates/display/import/import.twig:209 templates/export.twig:94
+#: templates/export.twig:94 templates/import.twig:198
 msgid "Format:"
 msgstr "형식:"
 
@@ -10548,59 +11764,59 @@ msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:74
+#: libraries/classes/Plugins/Import/ImportCsv.php:75
 msgid "Name of the new table (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:83
+#: libraries/classes/Plugins/Import/ImportCsv.php:84
 msgid "Name of the new database (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:92
-#: libraries/classes/Plugins/Import/ImportCsv.php:110
+#: libraries/classes/Plugins/Import/ImportCsv.php:93
+#: libraries/classes/Plugins/Import/ImportCsv.php:111
 msgid "Import these many number of rows (optional):"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:100
-#: libraries/classes/Plugins/Import/ImportOds.php:67
+#: libraries/classes/Plugins/Import/ImportCsv.php:101
+#: libraries/classes/Plugins/Import/ImportOds.php:68
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:117
+#: libraries/classes/Plugins/Import/ImportCsv.php:118
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:125
+#: libraries/classes/Plugins/Import/ImportCsv.php:126
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column names:"
 msgstr "열(컬럼) 이름: "
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:264
-#: libraries/classes/Plugins/Import/ImportCsv.php:634
+#: libraries/classes/Plugins/Import/ImportCsv.php:265
+#: libraries/classes/Plugins/Import/ImportCsv.php:635
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "%d 행에 잘못된 형식."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:497
+#: libraries/classes/Plugins/Import/ImportCsv.php:498
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "%d 행에 잘못된 컬럼 수."
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:652
-#: libraries/classes/Plugins/Import/ImportCsv.php:667
-#: libraries/classes/Plugins/Import/ImportCsv.php:678
-#: libraries/classes/Plugins/Import/ImportCsv.php:687
+#: libraries/classes/Plugins/Import/ImportCsv.php:653
+#: libraries/classes/Plugins/Import/ImportCsv.php:668
+#: libraries/classes/Plugins/Import/ImportCsv.php:679
+#: libraries/classes/Plugins/Import/ImportCsv.php:688
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV를 가져오기 위한 파라미터가 잘못됨: %s"
 
-#: libraries/classes/Plugins/Import/ImportCsv.php:807
+#: libraries/classes/Plugins/Import/ImportCsv.php:808
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -10609,35 +11825,35 @@ msgstr ""
 "지정한 컬럼(%s)이 잘못되었습니다. 각 컬럼의 이름에 대해, 오타가 없는지, 콤마"
 "로 구분되어 있는지 확인하시고, 컬럼 이름을 따옴표로 묶지 않도록 하세요."
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:71
+#: libraries/classes/Plugins/Import/ImportLdi.php:72
 msgid "Column names: "
 msgstr "열(컬럼) 이름: "
 
-#: libraries/classes/Plugins/Import/ImportLdi.php:109
+#: libraries/classes/Plugins/Import/ImportLdi.php:113
 msgid "This plugin does not support compressed imports!"
 msgstr "이 플러그인은 압축파일의 가져오기를 지원하지 않습니다!"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:56
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:57
 msgid "MediaWiki Table"
 msgstr "MediaWiki 테이블"
 
-#: libraries/classes/Plugins/Import/ImportMediawiki.php:290
+#: libraries/classes/Plugins/Import/ImportMediawiki.php:291
 #, fuzzy, php-format
 #| msgid "Invalid format of mediawiki input on line: <br />%s."
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "잘못된 mediawiki 입력 행:<br />%s."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:81
+#: libraries/classes/Plugins/Import/ImportOds.php:82
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "퍼센테이지를 소수로 변경<i>(예: 12.00% 를 .12 로)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:87
+#: libraries/classes/Plugins/Import/ImportOds.php:88
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "통화 단위 제거 <i>(예: $5.00 를 5.00 로)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:154
-#: libraries/classes/Plugins/Import/ImportXml.php:113
-#: libraries/classes/Plugins/Import/ImportXml.php:177
+#: libraries/classes/Plugins/Import/ImportOds.php:155
+#: libraries/classes/Plugins/Import/ImportXml.php:114
+#: libraries/classes/Plugins/Import/ImportXml.php:178
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -10645,46 +11861,46 @@ msgstr ""
 "해당 XML 파일의 포멧이 잘못되었거나 미완성 상태입니다. 문제점을 수정한 후 재"
 "시도 하세요."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:165
+#: libraries/classes/Plugins/Import/ImportOds.php:166
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Open Document 스프레드시트 형식을 해석할 수 없습니다!"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:63
+#: libraries/classes/Plugins/Import/ImportShp.php:65
 msgid "ESRI Shape File"
 msgstr "ESRI Shapefile"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:95
-#: libraries/classes/Plugins/Import/ImportShp.php:174
+#: libraries/classes/Plugins/Import/ImportShp.php:104
+#: libraries/classes/Plugins/Import/ImportShp.php:183
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "ESRI 형태의 파일을 가져오는 도중 에러가 발생했습니다: \"%s\"."
 
-#: libraries/classes/Plugins/Import/ImportShp.php:204
+#: libraries/classes/Plugins/Import/ImportShp.php:213
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportShp.php:252
+#: libraries/classes/Plugins/Import/ImportShp.php:261
 msgid "The imported file does not contain any data!"
 msgstr "가져온 파일에 아무런 데이터도 없습니다!"
 
-#: libraries/classes/Plugins/Import/ImportSql.php:66
+#: libraries/classes/Plugins/Import/ImportSql.php:67
 msgid "SQL compatibility mode:"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportSql.php:78
+#: libraries/classes/Plugins/Import/ImportSql.php:79
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr ""
 
-#: libraries/classes/Plugins/Import/ImportXml.php:47
+#: libraries/classes/Plugins/Import/ImportXml.php:48
 msgid "XML"
 msgstr "XML"
 
-#: libraries/classes/Plugins.php:671
+#: libraries/classes/Plugins.php:705
 msgid "This format has no options"
 msgstr "이 형식은 옵션이 없음"
 
-#: libraries/classes/Plugins.php:687
+#: libraries/classes/Plugins.php:721
 msgid "Invalid authentication method set in configuration:"
 msgstr "설정 파일에 잘못된 인증 방식 설정되어 있습니다.:"
 
@@ -10811,7 +12027,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
-#: libraries/classes/Util.php:814
+#: libraries/classes/Util.php:790
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%y-%m-%d %H:%M"
 
@@ -11641,16 +12857,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "더 최신의 안정 버전이 없음"
 
-#: libraries/classes/Sql.php:672
+#: libraries/classes/Sql.php:539
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:1191
+#: libraries/classes/Sql.php:1049
 msgid "Showing as PHP code"
 msgstr "PHP 코드 보기"
 
-#: libraries/classes/Sql.php:1570
+#: libraries/classes/Sql.php:1445
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Grid edit, checkbox, Edit, "
@@ -11662,7 +12878,7 @@ msgstr ""
 "이 테이블에는 유일 속성을 가진 컬럼이 없습니다. 격자창 편집, 체크박스, 편집, "
 "복사, 삭제 기능을 사용할 수 없습니다."
 
-#: libraries/classes/Sql.php:1584
+#: libraries/classes/Sql.php:1459
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Grid edit, checkbox, Edit, "
@@ -11673,11 +12889,6 @@ msgid ""
 msgstr ""
 "이 테이블에는 유일 속성을 가진 컬럼이 없습니다. 격자창 편집, 체크박스, 편집, "
 "복사, 삭제 기능을 사용할 수 없습니다."
-
-#: libraries/classes/Sql.php:1621
-#, php-format
-msgid "Problems with indexes of table `%s`"
-msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:148
 #, fuzzy, php-format
@@ -11720,6 +12931,11 @@ msgstr "%s 는 이 MySQL 서버에서 비활성화되었습니다."
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "이 MySQL 서버는 %s 스토리지 엔진을 지원하지 않습니다."
+
+#: libraries/classes/Table/Maintenance.php:94
+#, php-format
+msgid "Problems with indexes of table `%s`"
+msgstr ""
 
 #: libraries/classes/Table.php:354
 msgid "Unknown table status:"
@@ -12276,78 +13492,78 @@ msgstr "최대: %s%s"
 
 #. l10n: Short month name
 #. l10n: Short month name for January
-#: libraries/classes/Util.php:771 templates/javascript/variables.twig:34
+#: libraries/classes/Util.php:747 templates/javascript/variables.twig:34
 msgid "Jan"
 msgstr "1월"
 
 #. l10n: Short month name
 #. l10n: Short month name for February
-#: libraries/classes/Util.php:773 templates/javascript/variables.twig:35
+#: libraries/classes/Util.php:749 templates/javascript/variables.twig:35
 msgid "Feb"
 msgstr "2월"
 
 #. l10n: Short month name
 #. l10n: Short month name for March
-#: libraries/classes/Util.php:775 templates/javascript/variables.twig:36
+#: libraries/classes/Util.php:751 templates/javascript/variables.twig:36
 msgid "Mar"
 msgstr "3월"
 
 #. l10n: Short month name
 #. l10n: Short month name for April
-#: libraries/classes/Util.php:777 templates/javascript/variables.twig:37
+#: libraries/classes/Util.php:753 templates/javascript/variables.twig:37
 msgid "Apr"
 msgstr "4월"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:779
+#: libraries/classes/Util.php:755
 msgctxt "Short month name"
 msgid "May"
 msgstr "5월"
 
 #. l10n: Short month name
 #. l10n: Short month name for June
-#: libraries/classes/Util.php:781 templates/javascript/variables.twig:39
+#: libraries/classes/Util.php:757 templates/javascript/variables.twig:39
 msgid "Jun"
 msgstr "6월"
 
 #. l10n: Short month name
 #. l10n: Short month name for July
-#: libraries/classes/Util.php:783 templates/javascript/variables.twig:40
+#: libraries/classes/Util.php:759 templates/javascript/variables.twig:40
 msgid "Jul"
 msgstr "7월"
 
 #. l10n: Short month name
 #. l10n: Short month name for August
-#: libraries/classes/Util.php:785 templates/javascript/variables.twig:41
+#: libraries/classes/Util.php:761 templates/javascript/variables.twig:41
 msgid "Aug"
 msgstr "8월"
 
 #. l10n: Short month name
 #. l10n: Short month name for September
-#: libraries/classes/Util.php:787 templates/javascript/variables.twig:42
+#: libraries/classes/Util.php:763 templates/javascript/variables.twig:42
 msgid "Sep"
 msgstr "9월"
 
 #. l10n: Short month name
 #. l10n: Short month name for October
-#: libraries/classes/Util.php:789 templates/javascript/variables.twig:43
+#: libraries/classes/Util.php:765 templates/javascript/variables.twig:43
 msgid "Oct"
 msgstr "10월"
 
 #. l10n: Short month name
 #. l10n: Short month name for November
-#: libraries/classes/Util.php:791 templates/javascript/variables.twig:44
+#: libraries/classes/Util.php:767 templates/javascript/variables.twig:44
 msgid "Nov"
 msgstr "11월"
 
 #. l10n: Short month name
 #. l10n: Short month name for December
-#: libraries/classes/Util.php:793 templates/javascript/variables.twig:45
+#: libraries/classes/Util.php:769 templates/javascript/variables.twig:45
 msgid "Dec"
 msgstr "12월"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:797
+#: libraries/classes/Util.php:773
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
@@ -12355,89 +13571,89 @@ msgid "Sun"
 msgstr "일"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:799 templates/javascript/variables.twig:58
+#: libraries/classes/Util.php:775 templates/javascript/variables.twig:58
 msgid "Mon"
 msgstr "월"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:801 templates/javascript/variables.twig:59
+#: libraries/classes/Util.php:777 templates/javascript/variables.twig:59
 msgid "Tue"
 msgstr "화"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:803 templates/javascript/variables.twig:60
+#: libraries/classes/Util.php:779 templates/javascript/variables.twig:60
 msgid "Wed"
 msgstr "수"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:805 templates/javascript/variables.twig:61
+#: libraries/classes/Util.php:781 templates/javascript/variables.twig:61
 msgid "Thu"
 msgstr "목"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:807 templates/javascript/variables.twig:62
+#: libraries/classes/Util.php:783 templates/javascript/variables.twig:62
 msgid "Fri"
 msgstr "금"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:809 templates/javascript/variables.twig:63
+#: libraries/classes/Util.php:785 templates/javascript/variables.twig:63
 msgid "Sat"
 msgstr "토"
 
-#: libraries/classes/Util.php:835
+#: libraries/classes/Util.php:811
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "오후"
 
-#: libraries/classes/Util.php:837
+#: libraries/classes/Util.php:813
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "오전"
 
-#: libraries/classes/Util.php:912
+#: libraries/classes/Util.php:888
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s일 %s시간 %s분 %s초"
 
-#: libraries/classes/Util.php:948
+#: libraries/classes/Util.php:924
 msgid "Missing parameter:"
 msgstr "매개 변수 누락:"
 
-#: libraries/classes/Util.php:2499
+#: libraries/classes/Util.php:2475
 msgid "Users"
 msgstr "사용자"
 
-#: libraries/classes/Util.php:3121
+#: libraries/classes/Util.php:3097
 #: templates/database/multi_table_query/form.twig:59
 msgid "Sort"
 msgstr "정렬"
 
-#: libraries/classes/Util.php:3219 libraries/classes/Util.php:3220
+#: libraries/classes/Util.php:3195 libraries/classes/Util.php:3196
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "비우기"
 
-#: libraries/classes/Util.php:3225 libraries/classes/Util.php:3226
+#: libraries/classes/Util.php:3201 libraries/classes/Util.php:3202
 #: templates/database/routines/row.twig:32
 #: templates/database/routines/row.twig:42
 #: templates/database/routines/row.twig:46
 msgid "Execute"
 msgstr "실행하기"
 
-#: libraries/classes/ZipExtension.php:63 libraries/classes/ZipExtension.php:109
+#: libraries/classes/ZipExtension.php:71 libraries/classes/ZipExtension.php:117
 msgid "Error in ZIP archive:"
 msgstr "ZIP 압축파일 오류:"
 
-#: libraries/classes/ZipExtension.php:73
+#: libraries/classes/ZipExtension.php:81
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP 압축 안에서 파일을 발견하지 못했습니다!"
 
-#: libraries/common.inc.php:267
+#: libraries/common.inc.php:268
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "%s를 %s 이상으로 업그레이드 하십시오."
 
-#: libraries/common.inc.php:299
+#: libraries/common.inc.php:300
 msgid "Error: Token mismatch"
 msgstr "오류: 토큰 불일치"
 
@@ -12726,7 +13942,7 @@ msgid "Subpartitions:"
 msgstr "파티션 있음"
 
 #: templates/columns_definitions/partitions.twig:76
-#: templates/table/operations/index.twig:384
+#: templates/table/operations/index.twig:436
 #: templates/table/structure/display_partitions.twig:24
 #, fuzzy
 #| msgid "Partition %s"
@@ -13458,6 +14674,11 @@ msgstr "SQL 쿼리 보기"
 msgid "Exporting tables from \"%s\" database"
 msgstr "데이터베이스 %s에서 테이블을 추출"
 
+#: templates/database/import/index.twig:3
+#, php-format
+msgid "Importing into the database \"%s\""
+msgstr "\"%s\" 데이터베이스로 가져오기"
+
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
 #, fuzzy
@@ -13873,7 +15094,7 @@ msgid "Show create"
 msgstr "색깔 보기"
 
 #: templates/database/structure/check_all_tables.twig:14
-#: templates/table/operations/index.twig:329
+#: templates/table/operations/index.twig:381
 #: templates/table/operations/view.twig:22
 msgid "Delete data or table"
 msgstr "데이터나 테이블 삭제"
@@ -13882,6 +15103,37 @@ msgstr "데이터나 테이블 삭제"
 #: templates/table/operations/index.twig:312
 msgid "Table maintenance"
 msgstr "테이블 유지보수"
+
+#: templates/database/structure/check_all_tables.twig:19
+#: templates/table/maintenance/analyze.twig:3
+#: templates/table/operations/index.twig:317
+msgid "Analyze table"
+msgstr "테이블 분석"
+
+#: templates/database/structure/check_all_tables.twig:20
+#: templates/table/maintenance/check.twig:3
+#: templates/table/operations/index.twig:326
+msgid "Check table"
+msgstr "테이블 검사"
+
+#: templates/database/structure/check_all_tables.twig:21
+#: templates/table/maintenance/checksum.twig:3
+#: templates/table/operations/index.twig:334
+msgid "Checksum table"
+msgstr "체크섬 테이블"
+
+#: templates/database/structure/check_all_tables.twig:22
+#: templates/table/maintenance/optimize.twig:3
+#: templates/table/operations/index.twig:362
+#: templates/table/structure/display_table_stats.twig:62
+msgid "Optimize table"
+msgstr "테이블 최적화"
+
+#: templates/database/structure/check_all_tables.twig:23
+#: templates/table/maintenance/repair.twig:3
+#: templates/table/operations/index.twig:371
+msgid "Repair table"
+msgstr "테이블 복구"
 
 #: templates/database/structure/check_all_tables.twig:25
 #, fuzzy
@@ -14034,176 +15286,6 @@ msgstr "테이블 추적"
 msgid "There are no triggers to display."
 msgstr "표시할 트리거가 없습니다."
 
-#: templates/display/import/import.twig:40
-msgid "Importing into the current server"
-msgstr "현재 서버로 가져오기"
-
-#: templates/display/import/import.twig:42
-#, php-format
-msgid "Importing into the database \"%s\""
-msgstr "\"%s\" 데이터베이스로 가져오기"
-
-#: templates/display/import/import.twig:44
-#, php-format
-msgid "Importing into the table \"%s\""
-msgstr "\"%s\" 테이블로 가져오기"
-
-#: templates/display/import/import.twig:50
-msgid "File to import:"
-msgstr "가져올 파일:"
-
-#: templates/display/import/import.twig:56
-#, php-format
-msgid "File may be compressed (%s) or uncompressed."
-msgstr "파일은 압축되지 않았거나 %s로 압축된 파일들이 허용됩니다."
-
-#: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
-msgid ""
-"A compressed file's name must end in <strong>.[format].[compression]</"
-"strong>. Example: <strong>.sql.zip</strong>"
-msgstr ""
-"압축된 파일의 이름은 <b>.[포맷].[압축 확장자]</b> 로 끝나야 합니다. 예: <b>."
-"sql.zip</b>"
-
-#: templates/display/import/import.twig:68
-#: templates/display/import/import.twig:101
-#: templates/preferences/manage/main.twig:22
-msgid "Browse your computer:"
-msgstr "업로드 파일:"
-
-#: templates/display/import/import.twig:73
-#, fuzzy
-#| msgid "Browse your computer:"
-msgid "Browse your computer"
-msgstr "업로드 파일:"
-
-#: templates/display/import/import.twig:79
-#: templates/display/import/import.twig:112
-msgid "You may also drag and drop a file on any page."
-msgstr ""
-
-#: templates/display/import/import.twig:85
-#: templates/display/import/import.twig:115
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
-msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "웹 서버 업로드 디렉토리중 <b>%s</b>에서 선택:"
-
-#: templates/display/import/import.twig:91
-#, fuzzy
-#| msgid "File to import:"
-msgid "Select file to import"
-msgstr "가져올 파일:"
-
-#: templates/display/import/import.twig:96
-#: templates/display/import/import.twig:126
-msgid "There are no files to upload!"
-msgstr "업로드할 파일이 없습니다!"
-
-#: templates/display/import/import.twig:129
-msgid "File uploads are not allowed on this server."
-msgstr "이 서버에서는 파일 업로드가 허용되지 않습니다."
-
-#: templates/display/import/import.twig:135 templates/export.twig:336
-msgid "Character set of the file:"
-msgstr "파일 문자셋:"
-
-#: templates/display/import/import.twig:163
-msgid "Partial import:"
-msgstr "일부분만 가져오기:"
-
-#: templates/display/import/import.twig:168
-#, php-format
-msgid ""
-"Previous import timed out, after resubmitting will continue from position %d."
-msgstr ""
-
-#: templates/display/import/import.twig:176
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
-msgid ""
-"Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <em>(This might be a good way to import large "
-"files, however it can break transactions.)</em>"
-msgstr ""
-"PHP 실행 시간 제한이 근접하였을 때 가져오기를 일시 중지하기. <i>(대용량의 파"
-"일들을 가져올 때 유용합니다. 하지만 트랜잭션이 유지되지 않을 수 있습니다.)</"
-"i>"
-
-#: templates/display/import/import.twig:183
-#, fuzzy
-#| msgid "Number of rows to skip, starting from the first row:"
-msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "스킵할 열의 수(첫 번째 열부터가 기준):"
-
-#: templates/display/import/import.twig:200
-#, fuzzy
-#| msgid "Options"
-msgid "Other options:"
-msgstr "옵션"
-
-#: templates/display/import/import.twig:215 templates/export.twig:406
-msgid "Format-specific options:"
-msgstr "형식 특정 옵션 :"
-
-#: templates/display/import/import.twig:217 templates/export.twig:408
-msgid ""
-"Scroll down to fill in the options for the selected format and ignore the "
-"options for other formats."
-msgstr ""
-
-#: templates/display/import/import.twig:226 templates/export.twig:416
-msgid "Encoding Conversion:"
-msgstr "인코딩 변환:"
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-"업로드중인 파일의 용량이 최대 업로드 허용 용량보다 크거나 웹킷 기반 브라우저 "
-"(사파리, 구글 크롬, Arora 등)의 버그일 수 있습니다."
-
-#: templates/display/import/javascript.twig:13
-#, php-format
-msgid "%s of %s"
-msgstr ""
-
-#: templates/display/import/javascript.twig:14
-#, php-format
-msgid "%s/sec."
-msgstr ""
-
-#: templates/display/import/javascript.twig:15
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "약 %MIN 분 %SEC 초 남음."
-
-#: templates/display/import/javascript.twig:16
-msgid "About %SEC sec. remaining."
-msgstr "약 %SEC 초 남음."
-
-#: templates/display/import/javascript.twig:17
-msgid "The file is being processed, please be patient."
-msgstr "파일이 처리되는 중입니다. 잠시 기다려 주십시오."
-
-#: templates/display/import/javascript.twig:29
-msgid "Uploading your import file…"
-msgstr "당신의 가져오기 파일을 업로드하는 중…"
-
-#: templates/display/import/javascript.twig:153
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-
 #: templates/display/results/sort_by_key.twig:3
 #, fuzzy
 #| msgid "Sort by key"
@@ -14254,6 +15336,11 @@ msgstr "잘 알려진 텍스트"
 #: templates/display/results/table.twig:168
 msgid "Well Known Binary"
 msgstr "잘 알려진 바이너리"
+
+#: templates/display/results/table.twig:242
+#: templates/sql/no_results_returned.twig:9
+msgid "Query results operations"
+msgstr "쿼리 결과 처리방법"
 
 #: templates/display/results/table.twig:252
 msgid "Copy to clipboard"
@@ -14445,6 +15532,10 @@ msgstr ""
 msgid "use this for future exports"
 msgstr "추후 내보내기에 이것을 사용"
 
+#: templates/export.twig:336 templates/import.twig:124
+msgid "Character set of the file:"
+msgstr "파일 문자셋:"
+
 #: templates/export.twig:352
 msgid "Compression:"
 msgstr "압축:"
@@ -14473,6 +15564,20 @@ msgstr "출력를 텍스트로 표시"
 #, php-format
 msgid "Skip tables larger than %s MiB"
 msgstr ""
+
+#: templates/export.twig:406 templates/import.twig:204
+msgid "Format-specific options:"
+msgstr "형식 특정 옵션 :"
+
+#: templates/export.twig:408 templates/import.twig:206
+msgid ""
+"Scroll down to fill in the options for the selected format and ignore the "
+"options for other formats."
+msgstr ""
+
+#: templates/export.twig:416 templates/import.twig:215
+msgid "Encoding Conversion:"
+msgstr "인코딩 변환:"
 
 #: templates/filter.twig:4 templates/server/status/processes/index.twig:7
 #: templates/server/status/variables/index.twig:8
@@ -14688,6 +15793,140 @@ msgstr "변경 목록"
 #: templates/home/index.twig:208 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "라이선스"
+
+#: templates/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"업로드중인 파일의 용량이 최대 업로드 허용 용량보다 크거나 웹킷 기반 브라우저 "
+"(사파리, 구글 크롬, Arora 등)의 버그일 수 있습니다."
+
+#: templates/import/javascript.twig:13
+#, php-format
+msgid "%s of %s"
+msgstr ""
+
+#: templates/import/javascript.twig:14
+#, php-format
+msgid "%s/sec."
+msgstr ""
+
+#: templates/import/javascript.twig:15
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "약 %MIN 분 %SEC 초 남음."
+
+#: templates/import/javascript.twig:16
+msgid "About %SEC sec. remaining."
+msgstr "약 %SEC 초 남음."
+
+#: templates/import/javascript.twig:17
+msgid "The file is being processed, please be patient."
+msgstr "파일이 처리되는 중입니다. 잠시 기다려 주십시오."
+
+#: templates/import/javascript.twig:29
+msgid "Uploading your import file…"
+msgstr "당신의 가져오기 파일을 업로드하는 중…"
+
+#: templates/import/javascript.twig:153
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+
+#: templates/import.twig:39
+msgid "File to import:"
+msgstr "가져올 파일:"
+
+#: templates/import.twig:45
+#, php-format
+msgid "File may be compressed (%s) or uncompressed."
+msgstr "파일은 압축되지 않았거나 %s로 압축된 파일들이 허용됩니다."
+
+#: templates/import.twig:47
+#, fuzzy
+#| msgid ""
+#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
+#| "Example: <b>.sql.zip</b>"
+msgid ""
+"A compressed file's name must end in <strong>.[format].[compression]</"
+"strong>. Example: <strong>.sql.zip</strong>"
+msgstr ""
+"압축된 파일의 이름은 <b>.[포맷].[압축 확장자]</b> 로 끝나야 합니다. 예: <b>."
+"sql.zip</b>"
+
+#: templates/import.twig:57 templates/import.twig:90
+#: templates/preferences/manage/main.twig:22
+msgid "Browse your computer:"
+msgstr "업로드 파일:"
+
+#: templates/import.twig:62
+#, fuzzy
+#| msgid "Browse your computer:"
+msgid "Browse your computer"
+msgstr "업로드 파일:"
+
+#: templates/import.twig:68 templates/import.twig:101
+msgid "You may also drag and drop a file on any page."
+msgstr ""
+
+#: templates/import.twig:74 templates/import.twig:104
+#, fuzzy, php-format
+#| msgid "Select from the web server upload directory <b>%s</b>:"
+msgid "Select from the web server upload directory [strong]%s[/strong]:"
+msgstr "웹 서버 업로드 디렉토리중 <b>%s</b>에서 선택:"
+
+#: templates/import.twig:80
+#, fuzzy
+#| msgid "File to import:"
+msgid "Select file to import"
+msgstr "가져올 파일:"
+
+#: templates/import.twig:85 templates/import.twig:115
+msgid "There are no files to upload!"
+msgstr "업로드할 파일이 없습니다!"
+
+#: templates/import.twig:118
+msgid "File uploads are not allowed on this server."
+msgstr "이 서버에서는 파일 업로드가 허용되지 않습니다."
+
+#: templates/import.twig:152
+msgid "Partial import:"
+msgstr "일부분만 가져오기:"
+
+#: templates/import.twig:157
+#, php-format
+msgid ""
+"Previous import timed out, after resubmitting will continue from position %d."
+msgstr ""
+
+#: templates/import.twig:165
+#, fuzzy
+#| msgid ""
+#| "Allow the interruption of an import in case the script detects it is "
+#| "close to the PHP timeout limit. <i>(This might be a good way to import "
+#| "large files, however it can break transactions.)</i>"
+msgid ""
+"Allow the interruption of an import in case the script detects it is close "
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
+msgstr ""
+"PHP 실행 시간 제한이 근접하였을 때 가져오기를 일시 중지하기. <i>(대용량의 파"
+"일들을 가져올 때 유용합니다. 하지만 트랜잭션이 유지되지 않을 수 있습니다.)</"
+"i>"
+
+#: templates/import.twig:172
+#, fuzzy
+#| msgid "Number of rows to skip, starting from the first row:"
+msgid "Skip this number of queries (for SQL) starting from the first one:"
+msgstr "스킵할 열의 수(첫 번째 열부터가 기준):"
+
+#: templates/import.twig:189
+#, fuzzy
+#| msgid "Options"
+msgid "Other options:"
+msgstr "옵션"
 
 #: templates/indexes.twig:39 templates/table/relation/common_form.twig:259
 #: templates/table/structure/display_structure.twig:441
@@ -15375,6 +16614,10 @@ msgstr "현재 서버에서 데이터베이스를 내보내기"
 msgid "Databases:"
 msgstr "데이터베이스:"
 
+#: templates/server/import/index.twig:3
+msgid "Importing into the current server"
+msgstr "현재 서버로 가져오기"
+
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
 msgstr "플러그인"
@@ -16030,46 +17273,41 @@ msgstr ""
 "스의 성능을 관찰하거나 벤치마크한 후 확실한 효과가 관찰되지 않으면 설정을 되"
 "돌리는 식으로 진행하시는 것이 권장됩니다."
 
-#. l10n: Advisor rules file
 #: templates/server/status/advisor/index.twig:55
-msgid "Rules file is not well formed, the following errors were found:"
-msgstr ""
-
-#: templates/server/status/advisor/index.twig:66
 #, fuzzy
 #| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
 msgstr "SQL 디버그 정보를 가져오는 중 오류가 발생하였습니다."
 
-#: templates/server/status/advisor/index.twig:76
+#: templates/server/status/advisor/index.twig:65
 msgid "Possible performance issues"
 msgstr "가능한 성능 문제"
 
-#: templates/server/status/advisor/index.twig:89
+#: templates/server/status/advisor/index.twig:78
 #, fuzzy
 #| msgid "Issue"
 msgid "Issue:"
 msgstr "이슈"
 
-#: templates/server/status/advisor/index.twig:92
+#: templates/server/status/advisor/index.twig:81
 #, fuzzy
 #| msgid "Recommendation"
 msgid "Recommendation:"
 msgstr "추천"
 
-#: templates/server/status/advisor/index.twig:95
+#: templates/server/status/advisor/index.twig:84
 #, fuzzy
 #| msgid "Justification"
 msgid "Justification:"
 msgstr "인증"
 
-#: templates/server/status/advisor/index.twig:98
+#: templates/server/status/advisor/index.twig:87
 #, fuzzy
 #| msgid "Used variable / formula"
 msgid "Used variable / formula:"
 msgstr "사용된 변수 / 수식"
 
-#: templates/server/status/advisor/index.twig:101
+#: templates/server/status/advisor/index.twig:90
 #, fuzzy
 #| msgid "Test"
 msgid "Test:"
@@ -16562,29 +17800,29 @@ msgstr ""
 msgid "Detailed profile"
 msgstr "데이터 파일 증가량"
 
-#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:34
+#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:43
 msgid "State"
 msgstr "상태"
 
-#: templates/sql/profiling_chart.twig:29
+#: templates/sql/profiling_chart.twig:38
 msgid "Summary by state"
 msgstr ""
 
-#: templates/sql/profiling_chart.twig:38
+#: templates/sql/profiling_chart.twig:47
 msgid "Total Time"
 msgstr "전체 시간"
 
-#: templates/sql/profiling_chart.twig:42
+#: templates/sql/profiling_chart.twig:51
 msgid "% Time"
 msgstr "% 시간"
 
-#: templates/sql/profiling_chart.twig:46
+#: templates/sql/profiling_chart.twig:55
 #, fuzzy
 #| msgid "Close"
 msgid "Calls"
 msgstr "닫기"
 
-#: templates/sql/profiling_chart.twig:50
+#: templates/sql/profiling_chart.twig:59
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
@@ -16812,6 +18050,11 @@ msgstr "-없음-"
 msgid "Spatial column"
 msgstr "연관된 행 표시"
 
+#: templates/table/import/index.twig:3
+#, php-format
+msgid "Importing into the table \"%s\""
+msgstr "\"%s\" 테이블로 가져오기"
+
 #: templates/table/index_form.twig:15
 msgid "Index name:"
 msgstr "인덱스 이름:"
@@ -16864,6 +18107,12 @@ msgstr "재정렬하려면 드래그하세요."
 msgid "Continue insertion with %s rows"
 msgstr "%s 개의 행을 추가로 삽입"
 
+#: templates/table/maintenance/checksum.twig:13
+#, fuzzy
+#| msgid "Check"
+msgid "Checksum"
+msgstr "검사"
+
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
 msgstr "다음 순서대로 테이블 정렬(변경)"
@@ -16907,24 +18156,37 @@ msgstr "테이블 복사 (데이터베이스명<b>.</b>테이블명)"
 msgid "Switch to copied table"
 msgstr "복사한 테이블로 옮겨감"
 
-#: templates/table/operations/index.twig:338
+#: templates/table/operations/index.twig:342
+msgid "Defragment table"
+msgstr "테이블 단편화 제거"
+
+#: templates/table/operations/index.twig:350
+#, php-format
+msgid "Table %s has been flushed."
+msgstr "테이블 %s을 플러시 했습니다."
+
+#: templates/table/operations/index.twig:354
+msgid "Flush the table (FLUSH)"
+msgstr "테이블 갱신 (캐시 삭제)"
+
+#: templates/table/operations/index.twig:390
 msgid "Empty the table (TRUNCATE)"
 msgstr "테이블 내용 비우기(TRUNCATE)"
 
-#: templates/table/operations/index.twig:357
+#: templates/table/operations/index.twig:409
 msgid "Delete the table (DROP)"
 msgstr "테이블 삭제(DROP)"
 
-#: templates/table/operations/index.twig:378
+#: templates/table/operations/index.twig:430
 msgid "Partition maintenance"
 msgstr "파티션 유지 보수"
 
-#: templates/table/operations/index.twig:404
+#: templates/table/operations/index.twig:456
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
 msgstr "파티셔닝 삭제"
 
-#: templates/table/operations/index.twig:417
+#: templates/table/operations/index.twig:469
 #, fuzzy
 #| msgid "Check referential integrity:"
 msgid "Check referential integrity"
@@ -17316,1247 +18578,26 @@ msgstr "열(칼럼) 이름"
 msgid "Taking you to the target site."
 msgstr "해당 사이트로 가는 중."
 
-#: libraries/advisory_rules_generic.txt:49
-msgid "Uptime below one day"
-msgstr "업타임이 1일 미만임"
-
-#: libraries/advisory_rules_generic.txt:52
-msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
-"업타임이 1일 미만인 관계로 정보 부족으로 인해 성능 최적화가 부정확할 수 있습"
-"니다."
-
-#: libraries/advisory_rules_generic.txt:53
-msgid ""
-"To have more accurate averages it is recommended to let the server run for "
-"longer than a day before running this analyzer"
-msgstr ""
-"더 정확한 평균값을 계산하기 위해 서버를 하루 이상 가동하신 후 이 아날라이저"
-"를 사용하시는 것을 권장합니다"
-
-#: libraries/advisory_rules_generic.txt:54
-#, php-format
-msgid "The uptime is only %s"
-msgstr "업타임이 %s 밖에 되지 않습니다"
-
-#: libraries/advisory_rules_generic.txt:56
-msgid "Questions below 1,000"
-msgstr "질문 수가 1,000 미만"
-
-#: libraries/advisory_rules_generic.txt:59
-msgid ""
-"Fewer than 1,000 questions have been run against this server. The "
-"recommendations may not be accurate."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:60
-msgid ""
-"Let the server run for a longer time until it has executed a greater amount "
-"of queries."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:61
-#, fuzzy, php-format
-#| msgid "Connections"
-msgid "Current amount of Questions: %s"
-msgstr "연결 수"
-
-#: libraries/advisory_rules_generic.txt:63
-msgid "Percentage of slow queries"
-msgstr "지연된 쿼리 비율"
-
-#: libraries/advisory_rules_generic.txt:66
-msgid ""
-"There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:67
-#: libraries/advisory_rules_generic.txt:74
-msgid ""
-"You might want to increase {long_query_time} or optimize the queries listed "
-"in the slow query log"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:68
-#, php-format
-msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:70
-msgid "Slow query rate"
-msgstr "속도저하 쿼리 비율"
-
-#: libraries/advisory_rules_generic.txt:73
-msgid ""
-"There is a high percentage of slow queries compared to the server uptime."
-msgstr "서버의 업타임에 비해 느린 쿼리의 비율이 높습니다."
-
-#: libraries/advisory_rules_generic.txt:75
-#, php-format
-msgid ""
-"You have a slow query rate of %s per hour, you should have less than 1%% per "
-"hour."
-msgstr ""
-"느린 쿼리의 비율이 시간당 %s입니다. 이 비율은 시간당 1%% 미만이어야 합니다."
-
-#: libraries/advisory_rules_generic.txt:77
-msgid "Long query time"
-msgstr "긴 쿼리 시간"
-
-#: libraries/advisory_rules_generic.txt:80
-msgid ""
-"{long_query_time} is set to 10 seconds or more, thus only slow queries that "
-"take above 10 seconds are logged."
-msgstr ""
-"{long_query_time}은 10초 이상으로 설정하여, 10초 이상 걸리는 쿼리만 로깅됩니"
-"다."
-
-#: libraries/advisory_rules_generic.txt:81
-msgid ""
-"It is suggested to set {long_query_time} to a lower value, depending on your "
-"environment. Usually a value of 1-5 seconds is suggested."
-msgstr ""
-"환경에 따라서 {long_query_time} 값을 낮게 설정하세요. 일반적으로 1-5초가 적당"
-"합니다."
-
-#: libraries/advisory_rules_generic.txt:82
-#, php-format
-msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time이 %d초로 설정되었습니다."
-
-#: libraries/advisory_rules_generic.txt:84
-#: libraries/advisory_rules_generic.txt:91
-msgid "Slow query logging"
-msgstr "지연 쿼리 로깅"
-
-#: libraries/advisory_rules_generic.txt:87
-#: libraries/advisory_rules_generic.txt:94
-msgid "The slow query log is disabled."
-msgstr "느린 쿼리에 대한 로깅이 비활성화 상태입니다."
-
-#: libraries/advisory_rules_generic.txt:88
-msgid ""
-"Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
-"help troubleshooting badly performing queries."
-msgstr ""
-"{log_slow_queries}를 'ON' 으로 설정하면 느린 쿼리에 대해 로깅할 수 있습니다. "
-"이는 성능에 악영향을 주는 쿼리 문제를 해결하는데 도움이 될 겁니다."
-
-#: libraries/advisory_rules_generic.txt:89
-msgid "log_slow_queries is set to 'OFF'"
-msgstr "log_slow_queries가 OFF로 설정되어 있습니다"
-
-#: libraries/advisory_rules_generic.txt:95
-msgid ""
-"Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
-"help troubleshooting badly performing queries."
-msgstr ""
-"{slow_query_log} 설정을 'ON'으로 하여 느린 쿼리를 로깅할 수 있습니다. 이는 성"
-"능이 느린 쿼리를 고치는 데 이용할 수 있습니다."
-
-#: libraries/advisory_rules_generic.txt:96
-msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log가 'OFF'로 설정됨"
-
-#: libraries/advisory_rules_generic.txt:100
-msgid "Release Series"
-msgstr "릴리즈 시리즈"
-
-#: libraries/advisory_rules_generic.txt:103
-msgid "The MySQL server version less than 5.1."
-msgstr "MySQL 서버 버전이 5.1 미만입니다."
-
-#: libraries/advisory_rules_generic.txt:104
-msgid ""
-"You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
-"even more so."
-msgstr ""
-"MySQL 5.1 이상으로 업그레이드 하세요. 성능이 향상되었습니다. MySQL 5.5는 더 "
-"향상되었습니다."
-
-#: libraries/advisory_rules_generic.txt:105
-#: libraries/advisory_rules_generic.txt:112
-#: libraries/advisory_rules_generic.txt:119
-#, php-format
-msgid "Current version: %s"
-msgstr "현재 버전: %s"
-
-#: libraries/advisory_rules_generic.txt:107
-#: libraries/advisory_rules_generic.txt:114
-msgid "Minor Version"
-msgstr "마이너 버전"
-
-#: libraries/advisory_rules_generic.txt:110
-msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "버전이 5.1.30 (5.1의 첫 번째 안정 버전) 미만입니다."
-
-#: libraries/advisory_rules_generic.txt:111
-msgid ""
-"You should upgrade, as recent versions of MySQL 5.1 have improved "
-"performance and MySQL 5.5 even more so."
-msgstr ""
-"최신 버전의 MySQL(5.1 또는 5.5)로 업그레이드하여 성능을 향상하길 권장합니다."
-
-#: libraries/advisory_rules_generic.txt:117
-msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr "버전 5.5.8 미만 (5.5버전의 첫 일반 배포판)."
-
-#: libraries/advisory_rules_generic.txt:118
-#, fuzzy
-#| msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "MySQL 5.5 안정 버전으로 업그레이드하시는 것을 권장합니다"
-
-#: libraries/advisory_rules_generic.txt:121
-#: libraries/advisory_rules_generic.txt:128
-msgid "Distribution"
-msgstr "배포"
-
-#: libraries/advisory_rules_generic.txt:124
-msgid "Version is compiled from source, not a MySQL official binary."
-msgstr "MySQL 공식 바이너리가 아닌 소스에서 컴파일된 버전입니다."
-
-#: libraries/advisory_rules_generic.txt:125
-msgid ""
-"If you did not compile from source, you may be using a package modified by a "
-"distribution. The MySQL manual only is accurate for official MySQL binaries, "
-"not any package distributions (such as RedHat, Debian/Ubuntu etc)."
-msgstr ""
-"만약 소스파일을 컴파일하지 않았다면, 레드햇이나 데비안, 우분투 등에서 수정된 "
-"패키지를 설치한 것일 수 있습니다. MySQL 메뉴얼은 MySQL 공식 바이너리에 대해서"
-"만 정확성을 보장합니다."
-
-#: libraries/advisory_rules_generic.txt:126
-msgid "'source' found in version_comment"
-msgstr "버전 코멘트에 'source'라는 문자가 있음"
-
-#: libraries/advisory_rules_generic.txt:131
-msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr "MySQL 메뉴얼은 MySQL 공식 바이너리에 대해서만 정확성을 보장합니다."
-
-#: libraries/advisory_rules_generic.txt:132
-msgid ""
-"Percona documentation is at <a href=\"https://www.percona.com/software/"
-"documentation/\">https://www.percona.com/software/documentation/</a>"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:133
-msgid "'percona' found in version_comment"
-msgstr "version_comment에서 percona가 발견되었습니다"
-
-#: libraries/advisory_rules_generic.txt:135
-msgid "MySQL Architecture"
-msgstr "MySQL 아키텍쳐"
-
-#: libraries/advisory_rules_generic.txt:138
-msgid "MySQL is not compiled as a 64-bit package."
-msgstr "MySQL이 64비트 패키지로 컴파일되지 않았습니다."
-
-#: libraries/advisory_rules_generic.txt:139
-msgid ""
-"Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
-"so MySQL might not be able to access all of your memory. You might want to "
-"consider installing the 64-bit version of MySQL."
-msgstr ""
-"(서버가 localhost에 있다고 간주할 시)시스템의 RAM 용량이 3GiB이상이어서 MySQL"
-"이 메모리를 전부 사용하지 못할 수 있습니다. 64비트 버전의 MySQL을 설치하시는 "
-"것을 고려하시기 바랍니다."
-
-#: libraries/advisory_rules_generic.txt:140
-#, php-format
-msgid "Available memory on this host: %s"
-msgstr "사용할 수 있는 메모리: %s"
-
-#: libraries/advisory_rules_generic.txt:145
-msgid "Query caching method"
-msgstr "쿼리 캐시 방법"
-
-#: libraries/advisory_rules_generic.txt:148
-msgid "Suboptimal caching method."
-msgstr "차선 캐싱 방법입니다."
-
-#: libraries/advisory_rules_generic.txt:149
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
-msgid ""
-"You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple slaves."
-msgstr ""
-"꽤 많은 트래픽을 쓰는 데이터베이스에 MySQL 쿼리 캐시를 사용중입니다. MySQL 쿼"
-"리 캐시 대신 <a href=\"https://dev.mysql.com/doc/refman/5.5/en/ha-memcached."
-"html\">memcached</a>를 사용하는게 나을 수 있습니다. 만약 다수의 slave가 있다"
-"면 더욱 권장합니다."
-
-#: libraries/advisory_rules_generic.txt:150
-#, php-format
-msgid ""
-"The query cache is enabled and the server receives %d queries per second. "
-"This rule fires if there is more than 100 queries per second."
-msgstr ""
-"쿼리 캐시를 사용할 수 있고, 서버가 초당 %d Query를 받습니다. 이 규칙은 초당 "
-"100개 이상의 쿼리가 있으면 불에 탑니다."
-
-#: libraries/advisory_rules_generic.txt:154
-msgid "Percentage of sorts that cause temporary tables"
-msgstr "정렬로 인해 임시 테이블을 사용하게 되는 비율"
-
-#: libraries/advisory_rules_generic.txt:157
-#: libraries/advisory_rules_generic.txt:164
-msgid "Too many sorts are causing temporary tables."
-msgstr "너무 많은 정렬로 인해 임시 테이블의 사용이 발생합니다."
-
-#: libraries/advisory_rules_generic.txt:158
-#: libraries/advisory_rules_generic.txt:165
-msgid ""
-"Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
-"depending on your system memory limits."
-msgstr ""
-"시스템의 메모리의 최대값을 고려해서 {sort_buffer_size} 나 "
-"{read_rnd_buffer_size} 값을 증가시키세요."
-
-#: libraries/advisory_rules_generic.txt:159
-#, php-format
-msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
-msgstr ""
-"정렬 연산의 %s%%가 임시 테이블을 생성합니다. 이 값은 10%% 미만인 것이 좋습니"
-"다."
-
-#: libraries/advisory_rules_generic.txt:161
-msgid "Rate of sorts that cause temporary tables"
-msgstr "임시 테이블을 생성하는 정렬의 비율"
-
-#: libraries/advisory_rules_generic.txt:166
-#, php-format
-msgid ""
-"Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "임시 테이블 평균: %s, 이 값은 시간당 1보다 작아야합니다."
-
-#: libraries/advisory_rules_generic.txt:168
-msgid "Sort rows"
-msgstr "행 정렬"
-
-#: libraries/advisory_rules_generic.txt:171
-msgid "There are lots of rows being sorted."
-msgstr "정렬중인 로우가 많습니다."
-
-#: libraries/advisory_rules_generic.txt:172
-msgid ""
-"While there is nothing wrong with a high amount of row sorting, you might "
-"want to make sure that the queries which require a lot of sorting use "
-"indexed columns in the ORDER BY clause, as this will result in much faster "
-"sorting."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:173
-#, php-format
-msgid "Sorted rows average: %s"
-msgstr "행 정렬 평균: %s"
-
-#: libraries/advisory_rules_generic.txt:176
-msgid "Rate of joins without indexes"
-msgstr "인덱스 없는 조인 비율"
-
-#: libraries/advisory_rules_generic.txt:179
-msgid "There are too many joins without indexes."
-msgstr "인덱스 없는 조인이 너무 많습니다."
-
-#: libraries/advisory_rules_generic.txt:180
-#, fuzzy
-#| msgid ""
-#| "This means that joins are doing full table scans. Adding indexes for the "
-#| "columns being used in the join conditions will greatly speed up table "
-#| "joins"
-msgid ""
-"This means that joins are doing full table scans. Adding indexes for the "
-"columns being used in the join conditions will greatly speed up table joins."
-msgstr ""
-"이는 조인시 전체 테이블 스캔이 일어난다는 것을 뜻합니다. 질의의 조인 컨디션"
-"에 사용되는 열들에 인덱스들을 추가함으로서 속도를 크게 개선할 수 있습니다"
-
-#: libraries/advisory_rules_generic.txt:181
-#, php-format
-msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "테이블 조인 평균: %s, 이 값은 시간당 1미만이어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:183
-msgid "Rate of reading first index entry"
-msgstr "첫 번째 인덱스 항목을 읽는 비율"
-
-#: libraries/advisory_rules_generic.txt:186
-msgid "The rate of reading the first index entry is high."
-msgstr "첫 번째 인덱스 항목을 읽는 비율이 높습니다."
-
-#: libraries/advisory_rules_generic.txt:187
-msgid ""
-"This usually indicates frequent full index scans. Full index scans are "
-"faster than table scans but require lots of CPU cycles in big tables, if "
-"those tables that have or had high volumes of UPDATEs and DELETEs, running "
-"'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index "
-"scans. Other than that full index scans can only be reduced by rewriting "
-"queries."
-msgstr ""
-"전체 인덱스 스캔이 자주 발생할 경우 이렇게 됩니다. 전체 인덱스 스캔은 테이블 "
-"스캔보다는 빠르지만 큰 테이블에서는 CPU 자원을 많이 씁니다. 이런 테이블들이 "
-"대용량의 UPDATE와 DELETE를 했거나 하는 중이라면, 'OPTIMIZE TABLE'을 수행하여 "
-"전체 인덱스 스캔 속도를 높이거나 횟수를 줄일 수 있습니다. 그 외에 리라이트"
-"(rewrite) 쿼리에 의해 전체 인덱스 스캔이 줄어들 수 있습니다."
-
-#: libraries/advisory_rules_generic.txt:188
-#, php-format
-msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "인덱스 스캔 평균: %s, 이 값은 시간당 1미만이어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:190
-msgid "Rate of reading fixed position"
-msgstr "고정위치 읽기 비율"
-
-#: libraries/advisory_rules_generic.txt:193
-msgid "The rate of reading data from a fixed position is high."
-msgstr "고정된 위치에서 데이터를 읽는 비율이 높습니다."
-
-#: libraries/advisory_rules_generic.txt:194
-msgid ""
-"This indicates that many queries need to sort results and/or do a full table "
-"scan, including join queries that do not use indexes. Add indexes where "
-"applicable."
-msgstr ""
-"많은 쿼리들이 결과를 정렬하거나 전체 테이블 스캔이 필요함을 의미합니다. 인덱"
-"스를 쓰지 않는 조인 쿼리도 포함됩니다. 인덱스를 적절히 추가하세요."
-
-#: libraries/advisory_rules_generic.txt:195
-#, php-format
-msgid ""
-"Rate of reading fixed position average: %s, this value should be less than 1 "
-"per hour"
-msgstr ""
-"고정된 위치의 데이터를 읽는 비율 평균: %s, 이 값은 시간당 1 미만이어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:197
-msgid "Rate of reading next table row"
-msgstr "다음 행 읽는 비율"
-
-#: libraries/advisory_rules_generic.txt:200
-msgid "The rate of reading the next table row is high."
-msgstr "다음 행 읽는 비율이 높습니다."
-
-#: libraries/advisory_rules_generic.txt:201
-msgid ""
-"This indicates that many queries are doing full table scans. Add indexes "
-"where applicable."
-msgstr ""
-"이는 많은 수의 질의문들이 전체 테이블 스캔을 요구했다는 것을 뜻합니다. 적절"
-"한 위치에 인덱스를 추가하시기 바랍니다."
-
-#: libraries/advisory_rules_generic.txt:202
-#, php-format
-msgid ""
-"Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "다음 행 읽기 비율: %s, 이 값은 시간당 1 미만이어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:205
-msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "Different tmp_table_size와 max_heap_table_size가 다름"
-
-#: libraries/advisory_rules_generic.txt:208
-msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr "{tmp_table_size} 와 {max_heap_table_size}의 값이 다릅니다."
-
-#: libraries/advisory_rules_generic.txt:209
-msgid ""
-"If you have deliberately changed one of either: The server uses the lower "
-"value of either to determine the maximum size of in-memory tables. So if you "
-"wish to increase the in-memory table limit you will have to increase the "
-"other value as well."
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:210
-#, php-format
-msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr "현재 tmp_table_size의 값: %s, max_heap_table_size: %s"
-
-#: libraries/advisory_rules_generic.txt:212
-msgid "Percentage of temp tables on disk"
-msgstr "디스크상의 임시 테이블 비율"
-
-#: libraries/advisory_rules_generic.txt:215
-#: libraries/advisory_rules_generic.txt:222
-msgid ""
-"Many temporary tables are being written to disk instead of being kept in "
-"memory."
-msgstr ""
-"많은 임시 테이블들이 메모리에만 저장되지 않고 디스크에 기록되고 있습니다."
-
-#: libraries/advisory_rules_generic.txt:216
-msgid ""
-"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-"some temporary tables are always being written to disk, independent of the "
-"value of these variables. To eliminate these you will have to rewrite your "
-"queries to avoid those conditions (Within a temporary table: Presence of a "
-"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the beginning of an <a href=\"https://www.facebook.com/note.php?"
-"note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
-msgstr ""
-"{max_heap_table_size}값과 {tmp_table_size}값을 올리는 것이 도움이 될 수 있습"
-"니다. 하지만 일부 임시 테이블들은 이 변수값들과는 상관 없이 언제나 반드시 디"
-"스크에 기록됩니다. 이러한 문제를 방지하기 위해 질의문을 다시 작성하셔야 할 "
-"수 있습니다. (BLOB이나 TEXT형 열이 존재하거나 512바이트 이상의 크기의 열이 존"
-"재하는 경우) 이에 대한 내용은 <a href=\"https://www.facebook.com/note.php?"
-"note_id=10150111255065841&comments\">Pythian Group가 작성한 문서</a>에 기술되"
-"어 있습니다"
-
-#: libraries/advisory_rules_generic.txt:217
-#, php-format
-msgid ""
-"%s%% of all temporary tables are being written to disk, this value should be "
-"below 25%%"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:219
-msgid "Temp disk rate"
-msgstr "임시 디스크 비율"
-
-#: libraries/advisory_rules_generic.txt:223
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
-msgid ""
-"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-"some temporary tables are always being written to disk, independent of the "
-"value of these variables. To eliminate these you will have to rewrite your "
-"queries to avoid those conditions (Within a temporary table: Presence of a "
-"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
-"temporary-tables.html\">MySQL Documentation</a>"
-msgstr ""
-"{max_heap_table_size}값과 {tmp_table_size}값을 올리는 것이 도움이 될 수 있습"
-"니다. 하지만 일부 임시 테이블들은 이 변수값들과는 상관 없이 언제나 반드시 디"
-"스크에 기록됩니다. 이러한 문제를 방지하기 위해 질의문을 다시 작성하셔야 할 "
-"수 있습니다. (BLOB나 TEXT형 열이 존재하거나 512바이트 이상의 크기의 열이 존재"
-"하는 경우) 자세한 사항은  <a href=\"https://dev.mysql.com/doc/refman/5.5/en/"
-"internal-temporary-tables.html\">MySQL문서</a>에 기술되어 있습니다"
-
-#: libraries/advisory_rules_generic.txt:224
-#, php-format
-msgid ""
-"Rate of temporary tables being written to disk: %s, this value should be "
-"less than 1 per hour"
-msgstr ""
-"임시테이블이 디스크에 저장되는 비율: %s, 이 값은 시간당 1 이하가 좋습니다"
-
-#: libraries/advisory_rules_generic.txt:228
-msgid "MyISAM key buffer size"
-msgstr "MyISAM 키 버퍼 크기"
-
-#: libraries/advisory_rules_generic.txt:231
-msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr "키 버퍼가 초기화되지 않았습니다. MyISAM 인덱스가 캐시되지 않습니다."
-
-#: libraries/advisory_rules_generic.txt:232
-msgid ""
-"Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
-"good start."
-msgstr ""
-"MyISAM 인덱스의 크기에 따라 {key_buffer_size}를 설정하십시오. 초기값은 64M를 "
-"권장합니다."
-
-#: libraries/advisory_rules_generic.txt:233
-msgid "key_buffer_size is 0"
-msgstr "key_buffer_size가 0입니다"
-
-#: libraries/advisory_rules_generic.txt:235
-#, fuzzy, php-format
-msgid "Max %% MyISAM key buffer ever used"
-msgstr "사용된 적 있는 MyISAM 키 버퍼 최대 비율(%%)"
-
-#: libraries/advisory_rules_generic.txt:238
-#: libraries/advisory_rules_generic.txt:246
-#, php-format
-msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "MyISAM 키 버퍼 (인덱스 캐시) 사용률이 낮습니다."
-
-#: libraries/advisory_rules_generic.txt:239
-#: libraries/advisory_rules_generic.txt:247
-msgid ""
-"You may need to decrease the size of {key_buffer_size}, re-examine your "
-"tables to see if indexes have been removed, or examine queries and "
-"expectations about what indexes are being used."
-msgstr ""
-"{key_buffer_size} 크기를 줄여야 할 수도 있으며, 인덱스가 제거된 적이 있는지 "
-"테이블을 다시 검사하거나, 쿼리를 검사하여 어떤 인덱스들이 사용될지 예상하시"
-"기 바랍니다."
-
-#: libraries/advisory_rules_generic.txt:240
-#, fuzzy, php-format
-msgid ""
-"max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr ""
-"사용된 적 있는 MyISAM 키 버퍼 최대 비율 (%%): %s%%, 이 값은 95%% 이상이어야 "
-"합니다."
-
-#: libraries/advisory_rules_generic.txt:243
-msgid "Percentage of MyISAM key buffer used"
-msgstr "사용된 MyISAM 키 버퍼 비율"
-
-#: libraries/advisory_rules_generic.txt:248
-#, php-format
-msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "MyISAM 키 버퍼 사용 비율(%%): %s%%, 이 값은 95%% 이상이어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:250
-msgid "Percentage of index reads from memory"
-msgstr "메모리에서 읽은 인덱스 비율"
-
-#: libraries/advisory_rules_generic.txt:253
-#, php-format
-msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr "MyISAM 키 버퍼를 사용하는 인덱스의 비율(%%)이 낮습니다."
-
-#: libraries/advisory_rules_generic.txt:254
-msgid "You may need to increase {key_buffer_size}."
-msgstr "{Key_buffer_size}를 증가시켜야 합니다."
-
-#: libraries/advisory_rules_generic.txt:255
-#, php-format
-msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "메모리에서 읽은 인덱스: %s%%, 이 값은 95%% 이상이어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:259
-msgid "Rate of table open"
-msgstr "열린 테이블 비율"
-
-#: libraries/advisory_rules_generic.txt:262
-msgid "The rate of opening tables is high."
-msgstr "열려있는 테이블의 비율이 너무 높습니다."
-
-#: libraries/advisory_rules_generic.txt:263
-msgid ""
-"Opening tables requires disk I/O which is costly. Increasing "
-"{table_open_cache} might avoid this."
-msgstr ""
-"테이블을 여는 데에는 디스크 입출력이 요구되어 시간이 많이 소모됩니다."
-"{table_open_cache}값을 올리는 것이 해결에 도움이 될 수 있습니다."
-
-#: libraries/advisory_rules_generic.txt:264
-#, php-format
-msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "열린 테이블 비율: %s, 이 값은 시간당 10보다 작아야 합니다"
-
-#: libraries/advisory_rules_generic.txt:266
-msgid "Percentage of used open files limit"
-msgstr "사용된 열린 파일 한도의 비율"
-
-#: libraries/advisory_rules_generic.txt:269
-msgid ""
-"The number of open files is approaching the max number of open files.  You "
-"may get a \"Too many open files\" error."
-msgstr ""
-"열린 파일들의 수가 최대 한계치에 근접하고 있습니다. \"Too many open files\" "
-"오류가 발생할 수 있습니다."
-
-#: libraries/advisory_rules_generic.txt:270
-#: libraries/advisory_rules_generic.txt:277
-msgid ""
-"Consider increasing {open_files_limit}, and check the error log when "
-"restarting after changing {open_files_limit}."
-msgstr ""
-"{open_files_limit}를 증가시키는 것을 고려하시기 바라며, {open_files_limit} 값"
-"을 변경하고 재시작한 뒤 에러 로그를 확인하십시오."
-
-#: libraries/advisory_rules_generic.txt:271
-#, php-format
-msgid ""
-"The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr "열린 파일은 한계치의 %s%%입니다. 이 수치는 85%% 미만이어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:273
-msgid "Rate of open files"
-msgstr "열린 파일 비율"
-
-#: libraries/advisory_rules_generic.txt:276
-msgid "The rate of opening files is high."
-msgstr "열려있는 파일의 비율이 너무 높습니다."
-
-#: libraries/advisory_rules_generic.txt:278
-#, php-format
-msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "열린 파일 비율: %s, 이 값은 시간당 5 미만이어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:280
-#, php-format
-msgid "Immediate table locks %%"
-msgstr "즉시 잠겨진 테이블 비율 %%"
-
-#: libraries/advisory_rules_generic.txt:283
-#: libraries/advisory_rules_generic.txt:290
-msgid "Too many table locks were not granted immediately."
-msgstr "즉시 승인되지 않는 테이블 락이 너무 많습니다."
-
-#: libraries/advisory_rules_generic.txt:284
-#: libraries/advisory_rules_generic.txt:291
-msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
-"쿼리를 최적화하거나 혹은 InnoDB를 사용함으로서 락대기 시간을 감소시킬 수 있습"
-"니다."
-
-#: libraries/advisory_rules_generic.txt:285
-#, php-format
-msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:287
-msgid "Table lock wait rate"
-msgstr "테이블락 대기 비율"
-
-#: libraries/advisory_rules_generic.txt:292
-#, php-format
-msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr "테이블락 대기 비율: %s, 이 값은 시간당 1 미만이어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:294
-msgid "Thread cache"
-msgstr "스레드 캐시"
-
-#: libraries/advisory_rules_generic.txt:297
-msgid ""
-"Thread cache is disabled, resulting in more overhead from new connections to "
-"MySQL."
-msgstr ""
-"스레드 캐시가 비활성화 상태이므로 , MySQL의 새로운 연결은 좀 더 많ᅟ은 과부하"
-"가 발생합니다."
-
-#: libraries/advisory_rules_generic.txt:298
-msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
-"{thread_cache_size}를 0 이상으로 설정하여 스레드 캐시를 활성화할 수 있습니다."
-
-#: libraries/advisory_rules_generic.txt:299
-msgid "The thread cache is set to 0"
-msgstr "스레드 캐시가 0으로 설정되어 있습니다"
-
-#: libraries/advisory_rules_generic.txt:301
-#, php-format
-msgid "Thread cache hit rate %%"
-msgstr "쓰레드 캐시 히트율 %%"
-
-#: libraries/advisory_rules_generic.txt:304
-msgid "Thread cache is not efficient."
-msgstr "스레드 캐시가 비효율적입니다."
-
-#: libraries/advisory_rules_generic.txt:305
-msgid "Increase {thread_cache_size}."
-msgstr "{thread_cache_size}를 증가시켜야합니다."
-
-#: libraries/advisory_rules_generic.txt:306
-#, php-format
-msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "쓰레드 캐시 히트율이 %s%%이며, 정상적인 경우 80%% 이상입니다"
-
-#: libraries/advisory_rules_generic.txt:308
-msgid "Threads that are slow to launch"
-msgstr "시작하는데 너무 오래 걸리는 스레드"
-
-#: libraries/advisory_rules_generic.txt:311
-msgid "There are too many threads that are slow to launch."
-msgstr "실행이 느린 스레드가 너무 많습니다."
-
-#: libraries/advisory_rules_generic.txt:312
-msgid ""
-"This generally happens in case of general system overload as it is pretty "
-"simple operations. You might want to monitor your system load carefully."
-msgstr ""
-"이는 간단한 작업이기 때문에 주로 시스템에 과부하가 걸리는 경우에 발생합니다. "
-"시스템에 걸리는 부하를 모니터하시는 것이 도움이 될 수 있습니다."
-
-#: libraries/advisory_rules_generic.txt:313
-#, php-format
-msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr "%s 스레드(들)이 시작에 %s초 이상 걸렸으며, 이는 0이 되어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:315
-msgid "Slow launch time"
-msgstr ""
-
-#: libraries/advisory_rules_generic.txt:318
-msgid "Slow_launch_time is above 2s."
-msgstr "Slow_launch_time가 2 초를 초과함."
-
-#: libraries/advisory_rules_generic.txt:319
-msgid ""
-"Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
-"to launch."
-msgstr ""
-"시작에 오래 걸리는 스레드의 갯수를 정확히 세기 위해서는 {slow_launch_time} 값"
-"을 1초나 2초로 설정하십시오."
-
-#: libraries/advisory_rules_generic.txt:320
-#, php-format
-msgid "slow_launch_time is set to %s"
-msgstr "slow_launch_time이 %s로 설정되어 있습니다"
-
-#: libraries/advisory_rules_generic.txt:324
-msgid "Percentage of used connections"
-msgstr "사용된 연결의 비율"
-
-#: libraries/advisory_rules_generic.txt:327
-msgid ""
-"The maximum amount of used connections is getting close to the value of "
-"{max_connections}."
-msgstr "사용된 연결의 최대값이 {max_connections} 값에 근접하고 있습니다."
-
-#: libraries/advisory_rules_generic.txt:328
-msgid ""
-"Increase {max_connections}, or decrease {wait_timeout} so that connections "
-"that do not close database handlers properly get killed sooner. Make sure "
-"the code closes database handlers properly."
-msgstr ""
-"{max_connections}를 증가시키거나 {wait_timeout}을 줄임으로서 데이터베이스 핸"
-"들러를 올바르게 닫지 않는 연결들이 빨리 제거될 수 있도록 하십시오. 코드에서 "
-"데이터베이스 핸들러를 올바르게 닫는지 확인하십시오."
-
-#: libraries/advisory_rules_generic.txt:329
-#, php-format
-msgid ""
-"Max_used_connections is at %s%% of max_connections, it should be below 80%%"
-msgstr ""
-"max_used_connections이 max_connections의 %s%% 입니다. 80%% 미만을 권장합니다"
-
-#: libraries/advisory_rules_generic.txt:331
-msgid "Percentage of aborted connections"
-msgstr "종료된 연결의 비율"
-
-#: libraries/advisory_rules_generic.txt:334
-#: libraries/advisory_rules_generic.txt:341
-msgid "Too many connections are aborted."
-msgstr "너무 많은 연결이 종료되었습니다."
-
-#: libraries/advisory_rules_generic.txt:335
-#: libraries/advisory_rules_generic.txt:342
-msgid ""
-"Connections are usually aborted when they cannot be authorized. <a href="
-"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
-"aborted_connects/\">This article</a> might help you track down the source."
-msgstr ""
-"연결 강제종료는 보통 인증이 실패할 경우 발생합니다. <a href=\"https://www."
-"percona.com/blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/"
-"\">이 게시물</a>이 원인을 추적하는 데 도움을 줄 수 있습니다."
-
-#: libraries/advisory_rules_generic.txt:336
-#, php-format
-msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr "전체 연결 중 %s%%가 중지되었습니다. 이 값은 1%% 미만이어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:338
-msgid "Rate of aborted connections"
-msgstr "종료된 연결 비율"
-
-#: libraries/advisory_rules_generic.txt:343
-#, php-format
-msgid ""
-"Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr "중지된 연결 비율이 %s 입니다. 이 값은 시간당 1 미만이어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:345
-msgid "Percentage of aborted clients"
-msgstr "종료된 클라이언트 비율"
-
-#: libraries/advisory_rules_generic.txt:348
-#: libraries/advisory_rules_generic.txt:355
-msgid "Too many clients are aborted."
-msgstr "너무 많은 클라이언트가 종료되었습니다."
-
-#: libraries/advisory_rules_generic.txt:349
-#: libraries/advisory_rules_generic.txt:356
-msgid ""
-"Clients are usually aborted when they did not close their connection to "
-"MySQL properly. This can be due to network issues or code not closing a "
-"database handler properly. Check your network and code."
-msgstr ""
-"MySQL 커넥션을 확실히 닫아주지 않으면 다음 접속시 거부당할 수 있습니다. 네트"
-"웍 문제이거나 코드상에서의 DB 핸들러가 적절하게 연결을 닫아주지 않아서 이런 "
-"문제가 발생합니다. 네트웍 상태와 소스 코드를 확인해보세요."
-
-#: libraries/advisory_rules_generic.txt:350
-#, php-format
-msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr "%s%% 의 연결이 모두 거부당했습니다. 값을 2%% 이하로 설정해보세요"
-
-#: libraries/advisory_rules_generic.txt:352
-msgid "Rate of aborted clients"
-msgstr "종료된 클라이언트 비율"
-
-#: libraries/advisory_rules_generic.txt:357
-#, php-format
-msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "접속 실패율이 %s 입니다. 이 값은 시간당 1 미만이어야 합니다"
-
-#: libraries/advisory_rules_generic.txt:361
-msgid "Is InnoDB disabled?"
-msgstr "InnoDB를 비활성화할까요?"
-
-#: libraries/advisory_rules_generic.txt:364
-msgid "You do not have InnoDB enabled."
-msgstr "InnoDB가 활성화되지 않았습니다."
-
-#: libraries/advisory_rules_generic.txt:365
-msgid "InnoDB is usually the better choice for table engines."
-msgstr "테이블엔진 선택에서 일반적으로 InnoDB는 가장 좋은 선택입니다."
-
-#: libraries/advisory_rules_generic.txt:366
-msgid "have_innodb is set to 'value'"
-msgstr "have_innodb가 'value'로 설정되었습니다"
-
-#: libraries/advisory_rules_generic.txt:368
-msgid "InnoDB log size"
-msgstr "InnoDB 로그 크기"
-
-#: libraries/advisory_rules_generic.txt:371
-msgid ""
-"The InnoDB log file size is not an appropriate size, in relation to the "
-"InnoDB buffer pool."
-msgstr "InnoDB 로그 파일 크기가 InnoDB 버퍼풀과 비교해서 적합하지 않습니다."
-
-#: libraries/advisory_rules_generic.txt:372
-#, php-format
-msgid ""
-"Especially on a system with a lot of writes to InnoDB tables you should set "
-"{innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However the "
-"bigger this value, the longer the recovery time will be when database "
-"crashes, so this value should not be set much higher than 256 MiB. Please "
-"note however that you cannot simply change the value of this variable. You "
-"need to shutdown the server, remove the InnoDB log files, set the new value "
-"in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
-msgstr ""
-"특히, InnoDB 테이블에 쓰기가 많은 시스템이라면, {innodb_log_file_size}를 "
-"{innodb_buffer_pool_size}의 25%%로 설정하는 것이 좋습니다. 하지만, "
-"{innodb_log_file_size}값을 크게 할 수록, 데이터베이스가 크러시한 경우의 복구 "
-"시간이 길어집니다. 그러므로, 이 값이 256 MiB를 많이 초과하지 않도록 설정하는 "
-"게 좋습니다. 또한 주의할 점은, 이 값은 간단히 변경할 수 없습니다. 먼저 서버"
-"를 완전히 종료한 후, InnoDB 로그 파일을 제거하고, my.cnf에 새 값을 설정한 후 "
-"서버를 재시작하여, 에러 로그에 이상이 없는지 확인하는 절차를 거치세요. 참고: "
-"<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">Increase innodb_log_file_size: the "
-"proper way</a> (영어)"
-
-#: libraries/advisory_rules_generic.txt:373
-#, php-format
-msgid ""
-"Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
-"it should not be below 20%%"
-msgstr ""
-"InnoDB 로그 크기가 InnoDB 버퍼 풀 크기의 %s%% 입니다. 이 값은 20%% 이상이어"
-"야 합니다"
-
-#: libraries/advisory_rules_generic.txt:375
-msgid "Max InnoDB log size"
-msgstr "InnoDB 로그 최대크기"
-
-#: libraries/advisory_rules_generic.txt:378
-msgid "The InnoDB log file size is inadequately large."
-msgstr "InnoDB 로그 파일크기가 비정상적으로 큽니다."
-
-#: libraries/advisory_rules_generic.txt:379
-#, fuzzy, php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
-msgid ""
-"It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
-"of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down "
-"the recovery time after a database crash considerably. See also <a href="
-"\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">this Article</a>. You need to shutdown the server, "
-"remove the InnoDB log files, set the new value in my.cnf, start the server, "
-"then check the error logs if everything went fine. See also <a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">this blog entry</a>"
-msgstr ""
-"특히, InnoDB 테이블에 쓰기가 많은 시스템이라면, {innodb_log_file_size}를 "
-"{innodb_buffer_pool_size}의 25%%로 설정하는 것이 좋습니다. 하지만, "
-"{innodb_log_file_size}값을 크게 할 수록, 데이터베이스가 크러시한 경우의 복구 "
-"시간이 길어집니다. 그러므로, 이 값이 256 MiB를 많이 초과하지 않도록 설정하는 "
-"게 좋습니다. 또한 주의할 점은, 이 값은 간단히 변경할 수 없습니다. 먼저 서버"
-"를 완전히 종료한 후, InnoDB 로그 파일을 제거하고, my.cnf에 새 값을 설정한 후 "
-"서버를 재시작하여, 에러 로그에 이상이 없는지 확인하는 절차를 거치세요. 참고: "
-"<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">Increase innodb_log_file_size: the "
-"proper way</a> (영어)"
-
-#: libraries/advisory_rules_generic.txt:380
-#, php-format
-msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "InnoDB 로그 절대크기는 %s MiB 입니다"
-
-#: libraries/advisory_rules_generic.txt:382
-msgid "InnoDB buffer pool size"
-msgstr "InnoDB 버퍼풀 크기"
-
-#: libraries/advisory_rules_generic.txt:385
-msgid "Your InnoDB buffer pool is fairly small."
-msgstr "InnoDB 버퍼풀이 너무 작습니다."
-
-#: libraries/advisory_rules_generic.txt:386
-#, php-format
-msgid ""
-"The InnoDB buffer pool has a profound impact on performance for InnoDB "
-"tables. Assign all your remaining memory to this buffer. For database "
-"servers that use solely InnoDB as storage engine and have no other services "
-"(e.g. a web server) running, you may set this as high as 80%% of your "
-"available memory. If that is not the case, you need to carefully assess the "
-"memory consumption of your other services and non-InnoDB-Tables and set this "
-"variable accordingly. If it is set too high, your system will start "
-"swapping, which decreases performance significantly. See also <a href="
-"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">this article</a>"
-msgstr ""
-"InnoDB 버퍼 풀은 InnoDB 테이블의 성능에 심각한 영향을 줍니다. 남은 메모리 전"
-"체를 이 버퍼에 할당하십시오. 이 서버에 InnoDB를 스토리지 엔진으로만 사용하"
-"고, 다른 서비스(예: 웹 서버)가 없다면, 이 값을 사용가능한 메모리의 80%% 정도"
-"로 높게 설정하는 것도 괜찮습니다. 그런 상황이 아니라면, 다른 서비스 및 InnoDB"
-"가 아닌 테이블들의 메모리 사용량을 신중히 가늠하여 이 값을 설정하세요. 만약 "
-"이 값을 너무 높게 설정하면, 시스템은 스와핑을 하게 되고, 성능이 급격하게 떨어"
-"집니다. <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">이 글</a> 또한 참고하세요"
-
-#: libraries/advisory_rules_generic.txt:387
-#, php-format
-msgid ""
-"You are currently using %s%% of your memory for the InnoDB buffer pool. This "
-"rule fires if you are assigning less than 60%%, however this might be "
-"perfectly adequate for your system if you don't have much InnoDB tables or "
-"other services running on the same machine."
-msgstr ""
-"현재, InnoDB 버퍼 풀에 할당된 메모리의 %s%%를 사용하고 있습니다. 60%%이하를 "
-"할당했다면 이 규칙이 실행됩니다. 단, InnoDB 테이블이 많이 없거나, 다른 서비스"
-"가 현재 서버에 실행중일 경우에는 이 값이 매우 적절할 수 있습니다."
-
-#: libraries/advisory_rules_generic.txt:391
-msgid "MyISAM concurrent inserts"
-msgstr "MyISAM으로 동시 입력"
-
-#: libraries/advisory_rules_generic.txt:394
-msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "{concurrent_insert}를 1로 설정하여 활성화합니다"
-
-#: libraries/advisory_rules_generic.txt:395
-msgid ""
-"Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
-msgstr ""
-"{concurrent_insert}를 1로 설정하면 주어진 테이블에서의 읽기/쓰기간 경합"
-"(contention)을 줄일 수 있습니다. 참고: <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\">MySQL 문서</a>"
-
-#: libraries/advisory_rules_generic.txt:396
-msgid "concurrent_insert is set to 0"
-msgstr "concurrent_insert가 0으로 설정되었습니다"
-
-#: libraries/advisory_rules_mysql_before80003.txt:10
-msgid "Query cache disabled"
-msgstr "쿼리 캐시가 비활성화되어 있습니다"
-
-#: libraries/advisory_rules_mysql_before80003.txt:13
-msgid "The query cache is not enabled."
-msgstr "질의(쿼리)캐시가 활성화되어 있지 않습니다."
-
-#: libraries/advisory_rules_mysql_before80003.txt:14
-msgid ""
-"The query cache is known to greatly improve performance if configured "
-"correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
-"and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
-"memcached, ignore this recommendation."
-msgstr ""
-"쿼리 캐시는, 설정이 올바르다는 전제 하에, 성능을 크게 향상시킬수 있습니다. "
-"{query_cache_size}를 2자리의 MiB 값으로, {query_cache_type}를 'ON'으로 설정하"
-"여 쿼리 캐시를 활성화 할 수 있습니다. <b>참고:</b> 만약 memcached를 사용중이"
-"라면 이 내용은 무시하십시오."
-
-#: libraries/advisory_rules_mysql_before80003.txt:15
-msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
-"query_cache_size가 0으로 설정되어 있거나 query_cache_type가 'OFF' 로 설정되"
-"어 있습니다"
-
-#: libraries/advisory_rules_mysql_before80003.txt:17
-#, php-format
-msgid "Query cache efficiency (%%)"
-msgstr "질의 캐시 효율 (%%)"
-
-#: libraries/advisory_rules_mysql_before80003.txt:20
-msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr "쿼리 캐시가 능률적으로 실행중이지 않습니다, 낮은 적중률을 가집니다."
-
-#: libraries/advisory_rules_mysql_before80003.txt:21
-msgid "Consider increasing {query_cache_limit}."
-msgstr "{query_cache_limit}를 증가시키는것을 고려하세요."
-
-#: libraries/advisory_rules_mysql_before80003.txt:22
-#, php-format
-msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "현재 쿼리 캐시 히트 율은 20%%아래의 %s%%입니다"
-
-#: libraries/advisory_rules_mysql_before80003.txt:24
-msgid "Query Cache usage"
-msgstr "질의(쿼리) 캐시 사용(율)"
-
-#: libraries/advisory_rules_mysql_before80003.txt:27
-#, php-format
-msgid "Less than 80%% of the query cache is being utilized."
-msgstr "쿼리 캐시의 80%% 미만이 활용되고 있습니다."
-
-#: libraries/advisory_rules_mysql_before80003.txt:28
-msgid ""
-"This might be caused by {query_cache_limit} being too low. Flushing the "
-"query cache might help as well."
-msgstr ""
-"이것은 {query_cache_limit}이 너무 낮아 발생했을 수 있습니다. 질의 캐시를 비우"
-"는게 도움이 될 수 있습니다."
-
-#: libraries/advisory_rules_mysql_before80003.txt:29
-#, php-format
-msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
-msgstr ""
-"전체 쿼리 캐시 크기(Size)에서 남은 쿼리 캐시 메모리의 현재 비율은 %s%% 입니"
-"다. 80%%보다 높아야 됩니다"
-
-#: libraries/advisory_rules_mysql_before80003.txt:31
-msgid "Query cache fragmentation"
-msgstr "쿼리 캐시 분열(단편화)"
-
-#: libraries/advisory_rules_mysql_before80003.txt:34
-msgid "The query cache is considerably fragmented."
-msgstr "쿼리 캐시가 상당히 단편화(분열)되었음."
-
-#: libraries/advisory_rules_mysql_before80003.txt:35
-msgid ""
-"Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
-"This might be caused by many Query cache low memory prunes due to "
-"{query_cache_size} being too small. For a immediate but short lived fix you "
-"can flush the query cache (might lock the query cache for a long time). "
-"Carefully adjusting {query_cache_min_res_unit} to a lower value might help "
-"too, e.g. you can set it to the average size of your queries in the cache "
-"using this formula: (query_cache_size - qcache_free_memory) / "
-"qcache_queries_in_cache"
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:36
-#, php-format
-msgid ""
-"The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
-"that the query cache is an alternating pattern of free and used blocks. This "
-"value should be below 20%%."
-msgstr ""
-
-#: libraries/advisory_rules_mysql_before80003.txt:38
-#, fuzzy
-#| msgid "Query cache used"
-msgid "Query cache low memory prunes"
-msgstr "질의 캐시 사용됨"
-
-#: libraries/advisory_rules_mysql_before80003.txt:41
-msgid ""
-"Cached queries are removed due to low query cache memory from the query "
-"cache."
-msgstr "질의 캐시 메모리가 부족해 캐시되었던 질의가 삭제되었습니다."
-
-#: libraries/advisory_rules_mysql_before80003.txt:42
-msgid ""
-"You might want to increase {query_cache_size}, however keep in mind that the "
-"overhead of maintaining the cache is likely to increase with its size, so do "
-"this in small increments and monitor the results."
-msgstr ""
-"{query_cache_size}를 늘려야 될 경우가 있을겁니다. 하지만 캐시 크기를 늘리면 "
-"캐시 유지 오버헤드가 같이 증가할 수 있습니다. 그러므로 양을 조금씩 늘리면서 "
-"모니터링하세요."
-
-#: libraries/advisory_rules_mysql_before80003.txt:43
-#, php-format
-msgid ""
-"The ratio of removed queries to inserted queries is %s%%. The lower this "
-"value is, the better (This rules firing limit: 0.1%%)"
-msgstr ""
-"추가된 쿼리에 대한 제거된 쿼리의 비율이 %s%%입니다. 이 값은 작을수록 좋습니"
-"다. (규칙 동작 기준: 0.1%%)"
-
-#: libraries/advisory_rules_mysql_before80003.txt:45
-msgid "Query cache max size"
-msgstr "쿼리 캐시의 최대 크기"
-
-#: libraries/advisory_rules_mysql_before80003.txt:48
-msgid ""
-"The query cache size is above 128 MiB. Big query caches may cause "
-"significant overhead that is required to maintain the cache."
-msgstr ""
-"질의 캐시크기가 128 MB 보다 큽니다. 질의 캐시가 크면 캐시를 유지하기 위한 관"
-"리가 발생해 효율이 나빠질 수 있습니다."
-
-#: libraries/advisory_rules_mysql_before80003.txt:49
-msgid ""
-"Depending on your environment, it might be performance increasing to reduce "
-"this value."
-msgstr "이 값을 감소시켜 성능을 향상할 수 있음(환경에 따라 다름)."
-
-#: libraries/advisory_rules_mysql_before80003.txt:50
-#, php-format
-msgid "Current query cache size: %s"
-msgstr "쿼리 캐시의 크기: %s"
-
-#: libraries/advisory_rules_mysql_before80003.txt:52
-msgid "Query cache min result size"
-msgstr "쿼리 캐시 최소 결과 크기"
-
-#: libraries/advisory_rules_mysql_before80003.txt:55
-msgid ""
-"The max size of the result set in the query cache is the default of 1 MiB."
-msgstr "쿼리 캐시의 결과 셋의 최대 크기가 기본값인 1 MiB 입니다."
-
-#: libraries/advisory_rules_mysql_before80003.txt:56
-msgid ""
-"Changing {query_cache_limit} (usually by increasing) may increase "
-"efficiency. This variable determines the maximum size a query result may "
-"have to be inserted into the query cache. If there are many query results "
-"above 1 MiB that are well cacheable (many reads, little writes) then "
-"increasing {query_cache_limit} will increase efficiency. Whereas in the case "
-"of many query results being above 1 MiB that are not very well cacheable "
-"(often invalidated due to table updates) increasing {query_cache_limit} "
-"might reduce efficiency."
-msgstr ""
-"{query_cache_limit}를 변경(일반적으로 증가)하여 효율을 높일 수 있습니다. 이 "
-"값은 쿼리 캐시에 넣을 수 있는 쿼리 결과의 최댓값을 결정합니다. 만약 1 MiB 이"
-"상의 캐시될 가능성이 높은 쿼리 결과(많은 읽기, 적은 쓰기)가 많다면, "
-"{query_cache_limit}를 증가하는 것이 효율을 높일 수 있습니다. 반면, 1 MiB 이상"
-"의 캐시될 가능성이 낮은 쿼리 결과(테이블 업데이트로 캐시가 무효화된다던가)가 "
-"많은 경우, {query_cache_limit}를 증가시키는 것은 효율을 낮출 수도 있습니다."
-
-#: libraries/advisory_rules_mysql_before80003.txt:57
-msgid "query_cache_limit is set to 1 MiB"
-msgstr "query_cache_limit가 1Mib로 설정되었습니다"
+#~ msgid ""
+#~ "Error in reading file: The file '%s' does not exist or is not readable!"
+#~ msgstr ""
+#~ "파일 읽기 오류: 파일 '%s'는 존재하지 않거나 읽을 수 없는 상태입니다!"
+
+#~ msgid ""
+#~ "Invalid rule declaration on line %1$s, expected line %2$s of previous "
+#~ "rule."
+#~ msgstr "%1$s 행의 규칙이 잘못됨, 이전 규칙의 %2$s 행일 수 있음."
+
+#~ msgid "Invalid rule declaration on line %s."
+#~ msgstr "%s 행에 잘못된 규칙 선언."
+
+#~ msgid "Unexpected characters on line %s."
+#~ msgstr "%s 라인에 알 수 없는 문자가 있습니다."
+
+#~ msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
+#~ msgstr ""
+#~ "%1$s 행에 알 수 없는 문자가 있습니다. 탭 문자가 있어야 하지만, \"%2$s\"가 "
+#~ "있습니다."
 
 #~ msgid "View dump (schema) of database"
 #~ msgstr "데이터베이스의 덤프(스키마) 데이터 보기"

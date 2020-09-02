@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Html;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Lexer;
@@ -209,6 +210,8 @@ class Generator
      */
     public static function toggleButton($action, $select_name, array $options, $callback): string
     {
+        global $PMA_Theme;
+
         $template = new Template();
         // Do the logic first
         $link = $action . '&amp;' . urlencode($select_name) . '=';
@@ -226,7 +229,7 @@ class Generator
         return $template->render(
             'toggle_button',
             [
-                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'theme_image_path' => $PMA_Theme->getImgPath(),
                 'text_dir' => $GLOBALS['text_dir'],
                 'link_on' => $link_on,
                 'link_off' => $link_off,
@@ -815,7 +818,7 @@ class Generator
 
             // avoid displaying a Profiling checkbox that could
             // be checked, which would reexecute an INSERT, for example
-            if (! empty($refresh_link) && Util::profilingSupported()) {
+            if (! empty($refresh_link) && Profiling::isSupported($GLOBALS['dbi'])) {
                 $retval .= '<input type="hidden" name="profiling_form" value="1">';
                 $retval .= '<input type="checkbox" name="profiling" id="profilingCheckbox" class="autosubmit"';
                 $retval .= isset($_SESSION['profiling']) ? ' checked' : '';

@@ -603,7 +603,7 @@ class CentralColumnsTest extends AbstractTestCase
         $db = 'phpmyadmin';
         $total_rows = 50;
         $pos = 26;
-        $pmaThemeImage = 'pmaThemeImage';
+        $themeImagePath = 'themeImagePath';
         $text_dir = 'text_dir';
         $max_rows = (int) $GLOBALS['cfg']['MaxRows'];
         // test for not empty table
@@ -611,7 +611,7 @@ class CentralColumnsTest extends AbstractTestCase
             $db,
             $total_rows,
             $pos,
-            $pmaThemeImage,
+            $themeImagePath,
             $text_dir
         );
         $this->assertStringContainsString(
@@ -668,7 +668,7 @@ class CentralColumnsTest extends AbstractTestCase
             $db,
             $total_rows,
             $pos,
-            $pmaThemeImage,
+            $themeImagePath,
             $text_dir
         );
         $this->assertStringContainsString('<span>-', $result);
@@ -726,9 +726,9 @@ class CentralColumnsTest extends AbstractTestCase
      */
     public function testGetTableFooter(): void
     {
-        $pmaThemeImage = 'pmaThemeImage';
+        $themeImagePath = 'themeImagePath';
         $text_dir = 'text_dir';
-        $result = $this->centralColumns->getTableFooter($pmaThemeImage, $text_dir);
+        $result = $this->centralColumns->getTableFooter($themeImagePath, $text_dir);
         $this->assertStringContainsString(
             '<input type="checkbox" id="tableslistcontainer_checkall" class="checkall_box"',
             $result

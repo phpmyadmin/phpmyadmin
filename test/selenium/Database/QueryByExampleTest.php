@@ -113,7 +113,7 @@ class QueryByExampleTest extends TestBase
             . "\nFROM `test_table`"
             . "\nWHERE ((`test_table`.`id` > 1) AND (`test_table`.`val` < 6))"
             . "\nORDER BY `test_table`.`val` ASC, `test_table`.`id` DESC";
-        $actual = trim($this->waitForElement('id', 'textSqlquery')->getAttribute('value'));
+        $actual = trim((string) $this->waitForElement('id', 'textSqlquery')->getAttribute('value'));
 
         /* Compare generated query */
         $this->assertEquals(

@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for Advisor class
- */
 
 declare(strict_types=1);
 
@@ -10,65 +7,13 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Advisor;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
-/**
- * Tests behaviour of PMA_Advisor class
- */
 class AdvisorTest extends AbstractTestCase
 {
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     */
     protected function setUp(): void
     {
         parent::setUp();
         parent::setGlobalConfig();
         $GLOBALS['server'] = 1;
-    }
-
-    /**
-     * Tests string escaping
-     *
-     * @param string $text     Text to escape
-     * @param string $expected Expected output
-     *
-     * @dataProvider escapeStrings
-     */
-    public function testEscape(string $text, string $expected): void
-    {
-        $this->assertEquals(Advisor::escapePercent($text), $expected);
-    }
-
-    public function escapeStrings(): array
-    {
-        return [
-            [
-                '80%',
-                '80%%',
-            ],
-            [
-                '%s%',
-                '%s%%',
-            ],
-            [
-                '80% foo',
-                '80%% foo',
-            ],
-            [
-                '%s% foo',
-                '%s%% foo',
-            ],
-        ];
-    }
-
-    /**
-     * test for parseRulesFile
-     */
-    public function testParse(): void
-    {
-        $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
-        $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
-        $this->assertEquals($parseResult['errors'], []);
     }
 
     /**
@@ -112,25 +57,12 @@ class AdvisorTest extends AbstractTestCase
     }
 
     /**
-     * test for Advisor::timespanFormat
-     */
-    public function testAdvisorTimespanFormat(): void
-    {
-        $result = Advisor::timespanFormat(1200);
-        $this->assertEquals('0 days, 0 hours, 20 minutes and 0 seconds', $result);
-
-        $result = Advisor::timespanFormat(100);
-        $this->assertEquals('0 days, 0 hours, 1 minutes and 40 seconds', $result);
-    }
-
-    /**
      * Test for adding rule
      *
      * @param array       $rule     Rule to test
      * @param array       $expected Expected rendered rule in fired/errors list
      * @param string|null $error    Expected error string (null if none error expected)
      *
-     * @depends testParse
      * @dataProvider rulesProvider
      */
     public function testAddRule(array $rule, array $expected, ?string $error): void
@@ -138,8 +70,10 @@ class AdvisorTest extends AbstractTestCase
         parent::loadDefaultConfig();
         parent::setLanguage();
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
-        $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
-        $this->assertEquals($parseResult['errors'], []);
+        $parseResult = include ROOT_PATH . 'libraries/advisory_rules_generic.php';
+        $this->assertIsArray($parseResult);
+        $this->assertArrayHasKey(0, $parseResult);
+        $this->assertIsArray($parseResult[0]);
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();
@@ -158,6 +92,7 @@ class AdvisorTest extends AbstractTestCase
         return [
             [
                 [
+                    'id' => 'Basic',
                     'justification' => 'foo',
                     'name' => 'Basic',
                     'issue' => 'issue',
@@ -174,6 +109,7 @@ class AdvisorTest extends AbstractTestCase
             ],
             [
                 [
+                    'id' => 'Variable',
                     'justification' => 'foo',
                     'name' => 'Variable',
                     'issue' => 'issue',
@@ -191,13 +127,16 @@ class AdvisorTest extends AbstractTestCase
             ],
             [
                 [
-                    'justification' => '%s foo | value',
+                    'id' => 'Format',
+                    'justification' => '%s foo',
+                    'justification_formula' => 'value',
                     'name' => 'Format',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
                 ],
                 [
                     'justification' => '0 foo',
+                    'justification_formula' => 'value',
                     'id' => 'Format',
                     'name' => 'Format',
                     'issue' => 'issue',
@@ -207,13 +146,16 @@ class AdvisorTest extends AbstractTestCase
             ],
             [
                 [
-                    'justification' => '%s% foo | value',
+                    'id' => 'Percent',
+                    'justification' => '%s%% foo',
+                    'justification_formula' => 'value',
                     'name' => 'Percent',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
                 ],
                 [
                     'justification' => '0% foo',
+                    'justification_formula' => 'value',
                     'id' => 'Percent',
                     'name' => 'Percent',
                     'issue' => 'issue',
@@ -223,13 +165,16 @@ class AdvisorTest extends AbstractTestCase
             ],
             [
                 [
-                    'justification' => '%s% %d foo | value, value',
+                    'id' => 'Double',
+                    'justification' => '%s%% %d foo',
+                    'justification_formula' => 'value, value',
                     'name' => 'Double',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
                 ],
                 [
                     'justification' => '0% 0 foo',
+                    'justification_formula' => 'value, value',
                     'id' => 'Double',
                     'name' => 'Double',
                     'issue' => 'issue',
@@ -239,6 +184,7 @@ class AdvisorTest extends AbstractTestCase
             ],
             [
                 [
+                    'id' => 'Quotes',
                     'justification' => '"\'foo',
                     'name' => 'Quotes',
                     'issue' => 'issue',
@@ -255,7 +201,8 @@ class AdvisorTest extends AbstractTestCase
             ],
             [
                 [
-                    'justification' => 'foo | fsafdsa',
+                    'justification' => 'foo',
+                    'justification_formula' => 'fsafdsa',
                     'name' => 'Failure',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
@@ -267,13 +214,16 @@ class AdvisorTest extends AbstractTestCase
             ],
             [
                 [
-                    'justification' => 'Version string (%s) | value',
+                    'id' => 'Distribution',
+                    'justification' => 'Version string (%s)',
+                    'justification_formula' => 'value',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="https://example.com/">web</a>',
                 ],
                 [
                     'justification' => 'Version string (0)',
+                    'justification_formula' => 'value',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
@@ -284,13 +234,16 @@ class AdvisorTest extends AbstractTestCase
             ],
             [
                 [
-                    'justification' => 'Timestamp (%s) | ADVISOR_timespanFormat(1377027)',
+                    'id' => 'Distribution',
+                    'justification' => 'Timestamp (%s)',
+                    'justification_formula' => 'ADVISOR_timespanFormat(1377027)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="https://example.com/">web</a>',
                 ],
                 [
                     'justification' => 'Timestamp (15 days, 22 hours, 30 minutes and 27 seconds)',
+                    'justification_formula' => 'ADVISOR_timespanFormat(1377027)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
@@ -301,13 +254,16 @@ class AdvisorTest extends AbstractTestCase
             ],
             [
                 [
-                    'justification' => 'Memory: %s | ADVISOR_formatByteDown(1000000, 2, 2)',
+                    'id' => 'Distribution',
+                    'justification' => 'Memory: %s',
+                    'justification_formula' => 'ADVISOR_formatByteDown(1000000, 2, 2)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="https://example.com/">web</a>',
                 ],
                 [
                     'justification' => 'Memory: 0.95 MiB',
+                    'justification_formula' => 'ADVISOR_formatByteDown(1000000, 2, 2)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
@@ -318,13 +274,16 @@ class AdvisorTest extends AbstractTestCase
             ],
             [
                 [
-                    'justification' => 'Time: %s | ADVISOR_bytime(0.02, 2)',
+                    'id' => 'Distribution',
+                    'justification' => 'Time: %s',
+                    'justification_formula' => 'ADVISOR_bytime(0.02, 2)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="https://example.com/">web</a>',
                 ],
                 [
                     'justification' => 'Time: 1.2 per minute',
+                    'justification_formula' => 'ADVISOR_bytime(0.02, 2)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
@@ -335,7 +294,9 @@ class AdvisorTest extends AbstractTestCase
             ],
             [
                 [
-                    'justification' => 'Current version: %s | value',
+                    'id' => 'Minor Version',
+                    'justification' => 'Current version: %s',
+                    'justification_formula' => 'value',
                     'name' => 'Minor Version',
                     'precondition' => '! fired(\'Release Series\')',
                     'issue' => 'Version less than 5.1.30',
@@ -345,6 +306,7 @@ class AdvisorTest extends AbstractTestCase
                 ],
                 [
                     'justification' => 'Current version: 0',
+                    'justification_formula' => 'value',
                     'name' => 'Minor Version',
                     'issue' => 'Version less than 5.1.30',
                     'recommendation' => 'You should upgrade',

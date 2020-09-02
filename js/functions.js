@@ -4,7 +4,7 @@
 /* global DatabaseStructure */ // js/database/structure.js
 /* global mysqlDocBuiltin, mysqlDocKeyword */ // js/doclinks.js
 /* global Indexes */ // js/indexes.js
-/* global firstDayOfCalendar, maxInputVars, mysqlDocTemplate, pmaThemeImage */ // templates/javascript/variables.twig
+/* global firstDayOfCalendar, maxInputVars, mysqlDocTemplate, themeImagePath */ // templates/javascript/variables.twig
 /* global MicroHistory */ // js/microhistory.js
 /* global sprintf */ // js/vendor/sprintf.js
 /* global Int32Array */ // ES6
@@ -128,7 +128,7 @@ Functions.addDatepicker = function ($thisElement, type, options) {
         minute: currentDateTime.getMinutes(),
         second: currentDateTime.getSeconds(),
         showOn: 'button',
-        buttonImage: pmaThemeImage + 'b_calendar.png',
+        buttonImage: themeImagePath + 'b_calendar.png',
         buttonImageOnly: true,
         stepMinutes: 1,
         stepHours: 1,
@@ -1249,7 +1249,7 @@ Functions.insertQuery = function (queryType) {
         if (codeMirrorEditor) {
             $('#querymessage').html(Messages.strFormatting +
                 '&nbsp;<img class="ajaxIcon" src="' +
-                pmaThemeImage + 'ajax_clock_small.gif" alt="">');
+                themeImagePath + 'ajax_clock_small.gif" alt="">');
             var params = {
                 'ajax_request': true,
                 'sql': codeMirrorEditor.getValue(),

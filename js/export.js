@@ -1028,4 +1028,28 @@ AJAX.registerOnload('export.js', function () {
         );
         $('#column_alias_name').val('');
     });
+
+    var setSelectOptions = function (doCheck) {
+        Functions.setSelectOptions('dump', 'db_select[]', doCheck);
+    };
+
+    $('#db_select_all').on('click', function (e) {
+        e.preventDefault();
+        setSelectOptions(true);
+    });
+
+    $('#db_unselect_all').on('click', function (e) {
+        e.preventDefault();
+        setSelectOptions(false);
+    });
+
+    $('#buttonGo').on('click', function () {
+        var timeLimit = parseInt($(this).attr('data-exec-time-limit'));
+
+        // If the time limit set is zero,
+        // then time out won't occur so no need to check for time out.
+        if (timeLimit > 0) {
+            Export.checkTimeOut(timeLimit);
+        }
+    });
 });

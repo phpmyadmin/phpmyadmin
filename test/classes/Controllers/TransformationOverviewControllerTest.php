@@ -24,8 +24,9 @@ class TransformationOverviewControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
+        parent::setTheme();
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;

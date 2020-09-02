@@ -206,6 +206,8 @@ class StructureController extends AbstractController
 
     public function browse(): void
     {
+        global $PMA_Theme;
+
         if (empty($_POST['selected_fld'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
@@ -215,7 +217,7 @@ class StructureController extends AbstractController
 
         $this->displayTableBrowseForSelectedColumns(
             $GLOBALS['goto'],
-            $GLOBALS['pmaThemeImage']
+            $PMA_Theme->getImgPath()
         );
     }
 
@@ -1031,12 +1033,12 @@ class StructureController extends AbstractController
     /**
      * Function to display table browse for selected columns
      *
-     * @param string $goto          goto page url
-     * @param string $pmaThemeImage URI of the pma theme image
+     * @param string $goto           goto page url
+     * @param string $themeImagePath URI of the pma theme image
      *
      * @return void
      */
-    protected function displayTableBrowseForSelectedColumns($goto, $pmaThemeImage)
+    protected function displayTableBrowseForSelectedColumns($goto, $themeImagePath)
     {
         $GLOBALS['active_page'] = Url::getFromRoute('/sql');
         $fields = [];
@@ -1068,15 +1070,12 @@ class StructureController extends AbstractController
                 null, // sql_query_for_bookmark
                 null, // extra_data
                 null, // message_to_show
-                null, // message
                 null, // sql_data
                 $goto, // goto
-                $pmaThemeImage, // pmaThemeImage
+                $themeImagePath,
                 null, // disp_query
                 null, // disp_message
-                null, // query_type
                 $sql_query, // sql_query
-                null, // selectedTables
                 null // complete_query
             )
         );
@@ -1456,7 +1455,7 @@ class StructureController extends AbstractController
         array $fields,
         array $columns_with_index
     ) {
-        global $route, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine;
+        global $route, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine, $PMA_Theme;
 
         // prepare comments
         $comments_map = [];
@@ -1600,7 +1599,7 @@ class StructureController extends AbstractController
             'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
             'mysql_int_version' => $this->dbi->getVersion(),
             'is_mariadb' => $this->dbi->isMariaDB(),
-            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+            'theme_image_path' => $PMA_Theme->getImgPath(),
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),

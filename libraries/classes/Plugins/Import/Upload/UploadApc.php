@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
-use PhpMyAdmin\Display\ImportAjax;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Plugins\UploadInterface;
 use function array_key_exists;
 use function trim;
@@ -55,7 +55,7 @@ class UploadApc implements UploadInterface
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (! ImportAjax::apcCheck() || $ret['finished']) {
+        if (! Ajax::apcCheck() || $ret['finished']) {
             return $ret;
         }
         $status = apc_fetch('upload_' . $id);

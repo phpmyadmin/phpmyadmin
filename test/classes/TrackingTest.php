@@ -154,7 +154,7 @@ class TrackingTest extends AbstractTestCase
     {
         $last_version = 3;
         $url_params = [];
-        $pmaThemeImage = 'themePath/img';
+        $themeImagePath = 'themePath/img';
         $text_dir = 'ltr';
 
         // Mock dbi
@@ -202,7 +202,7 @@ class TrackingTest extends AbstractTestCase
 
         $html = $this->tracking->getHtmlForMainPage(
             $url_params,
-            $pmaThemeImage,
+            $themeImagePath,
             $text_dir,
             $last_version
         );
@@ -276,7 +276,7 @@ class TrackingTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $html = $this->tracking->getHtmlForMainPage(
             $url_params,
-            $pmaThemeImage,
+            $themeImagePath,
             $text_dir,
             $last_version
         );

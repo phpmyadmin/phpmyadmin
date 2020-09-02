@@ -24,11 +24,11 @@ class BrowseForeignersTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::setTheme();
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['MaxRows'] = 25;
         $GLOBALS['cfg']['RepeatCells'] = 100;
         $GLOBALS['cfg']['ShowAll'] = false;
-        $GLOBALS['pmaThemeImage'] = '';
         $this->browseForeigners = new BrowseForeigners(new Template());
     }
 
