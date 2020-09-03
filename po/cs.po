@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-07-18 20:41+0000\n"
+"PO-Revision-Date: 2020-09-04 20:36+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/"
-">\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -9919,18 +9919,6 @@ msgstr ""
 "musí být prázdný."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -9945,14 +9933,14 @@ msgid ""
 msgstr ""
 "JEN PRO LINUX: Spustí externí program, na jeho standardní vstup pošle obsah "
 "pole a zobrazí výstup programu. Výchozí je program Tidy, který zformátuje "
-"kód HTML. Z bezpečnostních důvodů musíte jména povolených programů zapsat do "
-"souboru libraries/classes/Plugins/Transformations/Output/Text_Plain_External."
-"php. První parametr je číslo programu, který má být spuštěn, a druhý "
-"parametr udává parametry tohoto programu. Třetí parametr určuje, zda mají "
-"být ve výstupu nahrazeny HTML entity (např. pro zobrazení zdrojového kódu "
-"HTML) (výchozí je 1, tedy převádět na entity), čtvrtý (při nastavení na 1) "
-"zajistí přidání parametru NOWRAP k vypisovanému textu, čímž se zachová "
-"formátování (výchozí je 1)."
+"kód HTML. Z bezpečnostních důvodů musíte jména povolených programů zapsat do "
+"souboru libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php. První parametr je číslo programu, který "
+"má být spuštěn. Druhý parametr ponechte z historických důvodů prázdný. Třetí "
+"parametr určuje, zda mají být ve výstupu nahrazeny HTML entity (např. pro "
+"zobrazení zdrojového kódu HTML) (výchozí je 1, tedy převádět na entity), "
+"čtvrtý (při nastavení na 1) zajistí přidání parametru NOWRAP k vypisovanému "
+"textu, čímž se zachová formátování (výchozí je 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
 #, php-format
@@ -9961,6 +9949,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Používáte pole voleb příkazového řádku externí transformace, jehož použití "
+"je z bezpečnostních důvodů zastaralé. Přidejte všechny volby příkazového "
+"řádku přímo do definice v %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -14259,10 +14250,8 @@ msgstr "Chybné jméno tabulky"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Probíhá příliš mnoho spojení tabulek bez využití klíčů."
+msgstr "Na vašem požadavku došlo k problému."
 
 #: tbl_replace.php:258
 #, php-format
