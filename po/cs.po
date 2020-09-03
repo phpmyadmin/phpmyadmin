@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-31 19:04-0300\n"
-"PO-Revision-Date: 2020-07-18 20:41+0000\n"
+"PO-Revision-Date: 2020-09-04 20:36+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -581,17 +581,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size je 0"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče"
+msgstr "Maximální procento využití vyrovnávací paměti MyISAM pro klíče"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "Využití mezipaměti klíčů MyISAM je příliš nízké %%."
+msgstr "Procento využití mezipaměti klíčů MyISAM je příliš nízké."
 
 #: libraries/advisory_rules_generic.php:380
 #: libraries/advisory_rules_generic.php:397
@@ -628,8 +626,7 @@ msgid "Percentage of index reads from memory"
 msgstr "Procento čtení klíčů z paměti"
 
 #: libraries/advisory_rules_generic.php:411
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr ""
 "Procento klíčů, které používají vyrovnávací paměť klíčů MyISAM, je příliš "
@@ -672,16 +669,12 @@ msgid "Percentage of used open files limit"
 msgstr "Využití limitu na otevřené soubory v procentech"
 
 #: libraries/advisory_rules_generic.php:436
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
-"Počet otevřených souborů se blíží maximu možného. V případě jeho dosažení "
-"dostanete chybu „Příliš mnoho otevřených souborů“."
+"Počet otevřených souborů se blíží maximální možné hodnotě. Může dojít k "
+"chybě „Příliš mnoho otevřených souborů“."
 
 #: libraries/advisory_rules_generic.php:440
 #: libraries/advisory_rules_generic.php:453
@@ -715,8 +708,7 @@ msgstr ""
 "Četnost otevírání souborů: %s, tato hodnota by měla být menší než 5 za hodinu"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
 msgstr "Procento okamžitého získání zámku tabulky"
 
@@ -767,10 +759,9 @@ msgid "The thread cache is set to 0"
 msgstr "Velikost mezipaměti vláken je nastavena na 0"
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "Úspěšnost mezipaměti vláken %%"
+msgstr "Procento úspěšnosti mezipaměti vláken"
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -1149,10 +1140,9 @@ msgstr ""
 "'OFF'"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Úspěšnost mezipaměti dotazů (%%)"
+msgstr "Úspěšnost mezipaměti dotazů (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1172,10 +1162,9 @@ msgid "Query Cache usage"
 msgstr "Využití mezipaměti dotazů"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "Je využíváno méně než 80%% mezipaměti."
+msgstr "Je využíváno méně než 80% mezipaměti."
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -6135,10 +6124,8 @@ msgstr "Žádná"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
-msgstr "SQL-dotaz"
+msgstr "SQL dotaz"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:200
 msgid "Resume monitor"
@@ -8795,7 +8782,7 @@ msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 #: libraries/classes/Controllers/Table/MaintenanceController.php:163
 #: libraries/classes/Controllers/Table/MaintenanceController.php:198
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Operace pro údržbu na více tabulkách jsou vypnuté."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:108
 #: libraries/classes/Controllers/Table/OperationsController.php:295
@@ -14639,12 +14626,10 @@ msgid "Event scheduler status"
 msgstr "Stav plánovače událostí"
 
 #: templates/database/export/index.twig:62
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr ", @DATABASE@ bude nahrazen jménem databáze"
+msgstr "Název serveru bude @SERVER@ a název databáze bude @DATABASE@."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5
@@ -15348,10 +15333,8 @@ msgid "Update"
 msgstr "Aktualizovat"
 
 #: templates/export.twig:53
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
-msgstr "Zobrazuji SQL dotaz"
+msgstr "Zobrazit SQL dotaz"
 
 #: templates/export.twig:72
 msgid "Export method:"
@@ -15606,10 +15589,9 @@ msgid "no branch"
 msgstr "žádná větev"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s z větve %2$s"
+msgstr "z větve %s"
 
 #: templates/home/git_info.twig:25
 #, fuzzy, php-format
@@ -16474,10 +16456,8 @@ msgid "Unknown storage engine."
 msgstr "Neznámé úložiště."
 
 #: templates/server/export/index.twig:32
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ bude nahrazen jménem server"
+msgstr "Název serveru bude @SERVER@."
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -17780,12 +17760,12 @@ msgid "Save chart as image"
 msgstr "Uložit graf jako obrázek"
 
 #: templates/table/export/index.twig:8
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr ", @DATABASE@ bude nahrazen jménem databáze"
+msgstr ""
+"Název serveru bude @SERVER@, název databáze bude @DATABASE@ a název tabulky "
+"bude @TABLE@."
 
 #: templates/table/export/index.twig:5
 #, php-format
@@ -17898,10 +17878,8 @@ msgid "Continue insertion with %s rows"
 msgstr "Pokračovat ve vkládání s %s řádky"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "Zkontrolovat"
+msgstr "Kontrolní součet"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
