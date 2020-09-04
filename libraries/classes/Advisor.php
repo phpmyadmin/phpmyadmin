@@ -22,7 +22,7 @@ use function vsprintf;
 /**
  * A simple rules engine, that executes the rules in the advisory_rules files.
  */
-final class Advisor
+class Advisor
 {
     private const GENERIC_RULES_FILE = 'libraries/advisory_rules_generic.php';
     private const BEFORE_MYSQL80003_RULES_FILE = 'libraries/advisory_rules_mysql_before80003.php';
