@@ -283,7 +283,7 @@ class GisMultiLineString extends GisGeometry
      * @param string $spatial    GIS MULTILINESTRING object
      * @param int    $srid       Spatial reference ID
      * @param string $label      Label for the GIS MULTILINESTRING object
-     * @param string $line_color Color for the GIS MULTILINESTRING object
+     * @param array  $line_color Color for the GIS MULTILINESTRING object
      * @param array  $scale_data Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
@@ -292,16 +292,24 @@ class GisMultiLineString extends GisGeometry
      */
     public function prepareRowAsOl($spatial, $srid, $label, $line_color, array $scale_data)
     {
-        $style_options = [
-            'strokeColor' => $line_color,
-            'strokeWidth' => 2,
-            'label'       => $label,
-            'fontSize'    => 10,
+        $stroke_style = [
+            'color' => $line_color,
+            'width' => 2,
         ];
+
+        $row =  'var style = new ol.style.Style({'
+            . 'stroke: new ol.style.Stroke(' . json_encode($stroke_style) . ')';
+        if ($label) {
+            $text_style = ['text' => $label];
+            $row .= ', text: new ol.style.Text(' . json_encode($text_style) . ')';
+        }
+
+        $row.= '});';
+
         if ($srid == 0) {
             $srid = 4326;
         }
-        $row = $this->getBoundsForOl($srid, $scale_data);
+        $row .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng
@@ -313,10 +321,11 @@ class GisMultiLineString extends GisGeometry
         // Separate each linestring
         $linestirngs = explode('),(', $multilinestirng);
 
-        return $row . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . 'new OpenLayers.Geometry.MultiLineString('
-            . $this->getLineArrayForOpenLayers($linestirngs, $srid)
-            . '), null, ' . json_encode($style_options) . '));';
+        return $row . $this->getLineArrayForOpenLayers($linestirngs, $srid)
+            . 'var multiLineString = new ol.geom.MultiLineString(arr);'
+            . 'var feature = new ol.Feature({geometry: multiLineString});'
+            . 'feature.setStyle(style);'
+            . 'vectorLayer.addFeature(feature);';
     }
 
     /**

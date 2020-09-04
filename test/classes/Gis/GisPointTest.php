@@ -146,8 +146,8 @@ class GisPointTest extends GisGeomTestCase
                 null,
                 [
                     'srid' => '124',
-                    0      => [
-                        'POINT'    => [
+                    0 => [
+                        'POINT' => [
                             'x' => '5.02',
                             'y' => '8.45',
                         ],
@@ -160,7 +160,7 @@ class GisPointTest extends GisGeomTestCase
                 [
                     2 => [
                         'gis_type' => 'POINT',
-                        'POINT'    => [
+                        'POINT' => [
                             'x' => '5.02',
                             'y' => '8.45',
                         ],
@@ -354,7 +354,7 @@ class GisPointTest extends GisGeomTestCase
      * @param string $spatial     GIS POINT object
      * @param int    $srid        spatial reference ID
      * @param string $label       label for the GIS POINT object
-     * @param string $point_color color for the GIS POINT object
+     * @param array  $point_color color for the GIS POINT object
      * @param array  $scale_data  array containing data related to scaling
      * @param string $output      expected output
      *
@@ -364,7 +364,7 @@ class GisPointTest extends GisGeomTestCase
         string $spatial,
         int $srid,
         string $label,
-        string $point_color,
+        array $point_color,
         array $scale_data,
         string $output
     ): void {
@@ -392,23 +392,29 @@ class GisPointTest extends GisGeomTestCase
                 'POINT(12 35)',
                 4326,
                 'Ol',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.'
-                . 'LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject())); bound.extend(new OpenLayers.LonLat'
-                . '(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject()));vectorLayer.addFeatures(new Open'
-                . 'Layers.Feature.Vector((new OpenLayers.Geometry.Point(12,35)).'
-                . 'transform(new OpenLayers.Projection("EPSG:4326"), map.get'
-                . 'ProjectionObject()), null, {"pointRadius":3,"fillColor":"#ffffff"'
-                . ',"strokeColor":"#B02EE0","strokeWidth":2,"label":"Ol","labelY'
-                . 'Offset":-8,"fontSize":10}));',
+                'var fill = new ol.style.Fill({"color":"white"});'
+                . 'var stroke = new ol.style.Stroke({"color":[176'
+                . ',46,224],"width":2});var style = new ol.style.'
+                . 'Style({image: new ol.style.Circle({fill: fill,'
+                . 'stroke: stroke,radius: 3}),fill: fill,stroke: '
+                . 'stroke,text: new ol.style.Text({"text":"Ol","o'
+                . 'ffsetY":-9})});var minLoc = [0, 0];var maxLoc '
+                . '= [1, 1];var ext = ol.extent.boundingExtent([m'
+                . 'inLoc, maxLoc]);ext = ol.proj.transformExtent('
+                . 'ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'E'
+                . 'PSG:3857\'));map.getView().fit(ext, map.getSiz'
+                . 'e());var point = new ol.Feature({geometry: (ne'
+                . 'w ol.geom.Point([12,35]).transform(ol.proj.get'
+                . '("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))});'
+                . 'point.setStyle(style);vectorLayer.addFeature(p'
+                . 'oint);',
             ],
         ];
     }

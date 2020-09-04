@@ -358,7 +358,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      * @param string $spatial    string to parse
      * @param int    $srid       SRID
      * @param string $label      field label
-     * @param string $line_color line color
+     * @param array  $line_color line color
      * @param array  $scale_data scaling parameters
      * @param string $output     expected output
      *
@@ -368,7 +368,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         string $spatial,
         int $srid,
         string $label,
-        string $line_color,
+        array $line_color,
         array $scale_data,
         string $output
     ): void {
@@ -397,41 +397,46 @@ class GisGeometryCollectionTest extends AbstractTestCase
                     . '(20 30,35 32,30 20,20 30)))',
                 4326,
                 'Ol',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.'
-                . 'LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326'
-                . '"), map.getProjectionObject())); bound.extend(new OpenLayer'
-                . 's.LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:43'
-                . '26"), map.getProjectionObject()));vectorLayer.addFeatures(n'
-                . 'ew OpenLayers.Feature.Vector(new OpenLayers.Geometry.Polygo'
-                . 'n(new Array(new OpenLayers.Geometry.LinearRing(new Array((n'
-                . 'ew OpenLayers.Geometry.Point(35,10)).transform(new OpenLaye'
-                . 'rs.Projection("EPSG:4326"), map.getProjectionObject()), (ne'
-                . 'w OpenLayers.Geometry.Point(10,20)).transform(new OpenLayer'
-                . 's.Projection("EPSG:4326"), map.getProjectionObject()), (new'
-                . ' OpenLayers.Geometry.Point(15,40)).transform(new OpenLayers.'
-                . 'Projection("EPSG:4326"), map.getProjectionObject()), (new O'
-                . 'penLayers.Geometry.Point(45,45)).transform(new OpenLayers.P'
-                . 'rojection("EPSG:4326"), map.getProjectionObject()), (new Op'
-                . 'enLayers.Geometry.Point(35,10)).transform(new OpenLayers.Pr'
-                . 'ojection("EPSG:4326"), map.getProjectionObject()))), new Op'
-                . 'enLayers.Geometry.LinearRing(new Array((new OpenLayers.Geom'
-                . 'etry.Point(20,30)).transform(new OpenLayers.Projection("EPS'
-                . 'G:4326"), map.getProjectionObject()), (new OpenLayers.Geome'
-                . 'try.Point(35,32)).transform(new OpenLayers.Projection("EPSG'
-                . ':4326"), map.getProjectionObject()), (new OpenLayers.Geomet'
-                . 'ry.Point(30,20)).transform(new OpenLayers.Projection("EPSG:'
-                . '4326"), map.getProjectionObject()), (new OpenLayers.Geometry'
-                . '.Point(20,30)).transform(new OpenLayers.Projection("EPSG:43'
-                . '26"), map.getProjectionObject()))))), null, {"strokeColor":'
-                . '"#000000","strokeWidth":0.5,"fillColor":"#B02EE0","fillOpac'
-                . 'ity":0.8,"label":"Ol","fontSize":10}));',
+                'var style = new ol.style.Style({fill: new ol.style.Fill({"c'
+                . 'olor":[176,46,224,0.8]}),stroke: new ol.style.Stroke({"co'
+                . 'lor":[0,0,0],"width":0.5}),text: new ol.style.Text({"text'
+                . '":"Ol"})});var minLoc = [0, 0];var maxLoc = [1, 1];var ex'
+                . 't = ol.extent.boundingExtent([minLoc, maxLoc]);ext = ol.p'
+                . 'roj.transformExtent(ext, ol.proj.get("EPSG:4326"), ol.pro'
+                . 'j.get(\'EPSG:3857\'));map.getView().fit(ext, map.getSize('
+                . '));var arr = [];var lineArr = [];var line = new ol.geom.L'
+                . 'inearRing(new Array((new ol.geom.Point([35,10]).transform'
+                . '(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).g'
+                . 'etCoordinates(), (new ol.geom.Point([10,20]).transform(ol'
+                . '.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getC'
+                . 'oordinates(), (new ol.geom.Point([15,40]).transform(ol.pr'
+                . 'oj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoor'
+                . 'dinates(), (new ol.geom.Point([45,45]).transform(ol.proj.'
+                . 'get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordin'
+                . 'ates(), (new ol.geom.Point([35,10]).transform(ol.proj.get'
+                . '("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinate'
+                . 's()));var coord = line.getCoordinates();for (var i = 0; i < coord.length; '
+                . 'index++) lineArr.push(coord[i]);arr.push(lineArr);var lineArr = '
+                . '[];var line = new ol.geom.LinearRing(new Array((new ol.ge'
+                . 'om.Point([20,30]).transform(ol.proj.get("EPSG:4326"), ol.'
+                . 'proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.'
+                . 'Point([35,32]).transform(ol.proj.get("EPSG:4326"), ol.pro'
+                . 'j.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Poi'
+                . 'nt([30,20]).transform(ol.proj.get("EPSG:4326"), ol.proj.g'
+                . 'et(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point('
+                . '[20,30]).transform(ol.proj.get("EPSG:4326"), ol.proj.get('
+                . '\'EPSG:3857\'))).getCoordinates()));var coord = line.getC'
+                . 'oordinates();for (var i = 0; i < coord.length; index++) lineArr.push(coord[i]);ar'
+                . 'r.push(lineArr);var polygon = new ol.geom.Polygon(arr);va'
+                . 'r feature = new ol.Feature({geometry: polygon});feature.s'
+                . 'etStyle(style);vectorLayer.addFeature(feature);',
             ],
         ];
     }

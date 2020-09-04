@@ -26,6 +26,7 @@
     "jquery-validation": "1.19.2",
     "jquery.event.drag": "2.2.2",
     "js-cookie": "2.2.1",
+    "ol": "6.4.3",
     "popper.js": "^1.16.1",
     "sass": "^1.26.3",
     "stickyfilljs": "2.1.0",

@@ -347,7 +347,7 @@ class GisMultiPointTest extends GisGeomTestCase
      * @param string $spatial     GIS MULTIPOINT object
      * @param int    $srid        spatial reference ID
      * @param string $label       label for the GIS MULTIPOINT object
-     * @param string $point_color color for the GIS MULTIPOINT object
+     * @param array  $point_color color for the GIS MULTIPOINT object
      * @param array  $scale_data  array containing data related to scaling
      * @param string $output      expected output
      *
@@ -357,7 +357,7 @@ class GisMultiPointTest extends GisGeomTestCase
         string $spatial,
         int $srid,
         string $label,
-        string $point_color,
+        array $point_color,
         array $scale_data,
         string $output
     ): void {
@@ -385,33 +385,30 @@ class GisMultiPointTest extends GisGeomTestCase
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
                 4326,
                 'Ol',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.Lon'
-                . 'Lat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject())); bound.extend(new OpenLayers.LonLat'
-                . '(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.'
-                . 'getProjectionObject()));vectorLayer.addFeatures(new OpenLayers.'
-                . 'Feature.Vector(new OpenLayers.Geometry.MultiPoint(new Array(('
-                . 'new OpenLayers.Geometry.Point(12,35)).transform(new OpenLayers.'
-                . 'Projection("EPSG:4326"), map.getProjectionObject()), (new Open'
-                . 'Layers.Geometry.Point(48,75)).transform(new OpenLayers.Projec'
-                . 'tion("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.'
-                . 'Geometry.Point(69,23)).transform(new OpenLayers.Projection("'
-                . 'EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry'
-                . '.Point(25,45)).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject()), (new OpenLayers.Geometry.Point(14,53)'
-                . ').transform(new OpenLayers.Projection("EPSG:4326"), map.getProjec'
-                . 'tionObject()), (new OpenLayers.Geometry.Point(35,78)).transform'
-                . '(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject('
-                . ')))), null, {"pointRadius":3,"fillColor":"#ffffff","strokeColor"'
-                . ':"#B02EE0","strokeWidth":2,"label":"Ol","labelYOffset":-8,'
-                . '"fontSize":10}));',
+                'var fill = new ol.style.Fill({"color":"white"});var stroke = new ol.style.Stroke({'
+                . '"color":[176,46,224],"width":2});var style = new ol.style.Style({image: new ol.s'
+                . 'tyle.Circle({fill: fill,stroke: stroke,radius: 3}),fill: fill,stroke: stroke,tex'
+                . 't: new ol.style.Text({"text":"Ol","offsetY":-9})});var minLoc = [0, 0];var maxLo'
+                . 'c = [1, 1];var ext = ol.extent.boundingExtent([minLoc, maxLoc]);ext = ol.proj.tr'
+                . 'ansformExtent(ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.get'
+                . 'View().fit(ext, map.getSize());var multiPoint = new ol.geom.MultiPoint(new Array'
+                . '((new ol.geom.Point([12,35]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'E'
+                . 'PSG:3857\'))).getCoordinates(), (new ol.geom.Point([48,75]).transform(ol.proj.ge'
+                . 't("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Poin'
+                . 't([69,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getC'
+                . 'oordinates(), (new ol.geom.Point([25,45]).transform(ol.proj.get("EPSG:4326"), ol'
+                . '.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([14,53]).transfo'
+                . 'rm(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new'
+                . ' ol.geom.Point([35,78]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3'
+                . '857\'))).getCoordinates()));var feature = new ol.Feature({geometry: multiPoint})'
+                . ';feature.setStyle(style);vectorLayer.addFeature(feature);',
             ],
         ];
     }

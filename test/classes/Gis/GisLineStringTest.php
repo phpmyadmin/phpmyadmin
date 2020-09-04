@@ -338,7 +338,7 @@ class GisLineStringTest extends GisGeomTestCase
      * @param string $spatial    GIS LINESTRING object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS LINESTRING object
-     * @param string $line_color color for the GIS LINESTRING object
+     * @param array  $line_color color for the GIS LINESTRING object
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
@@ -348,7 +348,7 @@ class GisLineStringTest extends GisGeomTestCase
         string $spatial,
         int $srid,
         string $label,
-        string $line_color,
+        array $line_color,
         array $scale_data,
         string $output
     ): void {
@@ -376,32 +376,28 @@ class GisLineStringTest extends GisGeomTestCase
                 'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
                 4326,
                 'Ol',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.'
-                . 'LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject())); bound.extend(new OpenLayers.LonLat'
-                . '(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.get'
-                . 'ProjectionObject()));vectorLayer.addFeatures(new OpenLayers.Feat'
-                . 'ure.Vector(new OpenLayers.Geometry.LineString(new Array((new Open'
-                . 'Layers.Geometry.Point(12,35)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geome'
-                . 'try.Point(48,75)).transform(new OpenLayers.Projection("EPSG:4326"'
-                . '), map.getProjectionObject()), (new OpenLayers.Geometry.Point(69'
-                . ',23)).transform(new OpenLayers.Projection("EPSG:4326"), map.'
-                . 'getProjectionObject()), (new OpenLayers.Geometry.Point(25,45)).'
-                . 'transform(new OpenLayers.Projection("EPSG:4326"), map.'
-                . 'getProjectionObject()), (new OpenLayers.Geometry.Point(14,53)).'
-                . 'transform(new OpenLayers.Projection("EPSG:4326"), map.get'
-                . 'ProjectionObject()), (new OpenLayers.Geometry.Point(35,78)).'
-                . 'transform(new OpenLayers.Projection("EPSG:4326"), map.'
-                . 'getProjectionObject()))), null, {"strokeColor":"#B02EE0",'
-                . '"strokeWidth":2,"label":"Ol","fontSize":10}));',
+                'var style = new ol.style.Style({stroke: new ol.style.Stroke({"color":[176,46,224],'
+                . '"width":2}), text: new ol.style.Text({"text":"Ol"})});var minLoc = [0, 0];var ma'
+                . 'xLoc = [1, 1];var ext = ol.extent.boundingExtent([minLoc, maxLoc]);ext = ol.proj'
+                . '.transformExtent(ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.'
+                . 'getView().fit(ext, map.getSize());var line = new ol.Feature({geometry: new ol.ge'
+                . 'om.LineString(new Array((new ol.geom.Point([12,35]).transform(ol.proj.get("EPSG:'
+                . '4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([48,75'
+                . ']).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinat'
+                . 'es(), (new ol.geom.Point([69,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.ge'
+                . 't(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([25,45]).transform(ol.pr'
+                . 'oj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom'
+                . '.Point([14,53]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))'
+                . '.getCoordinates(), (new ol.geom.Point([35,78]).transform(ol.proj.get("EPSG:4326"'
+                . '), ol.proj.get(\'EPSG:3857\'))).getCoordinates()))});line.setStyle(style);vector'
+                . 'Layer.addFeature(line);',
             ],
         ];
     }

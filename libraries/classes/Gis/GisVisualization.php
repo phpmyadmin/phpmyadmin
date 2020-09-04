@@ -62,6 +62,29 @@ class GisVisualization
             '#4C489B',
             '#87C9BF',
         ],
+
+
+        // Hex values for abovementioned colours
+        'colors_hex' => [
+            [176, 46, 224],
+            [224, 100, 46],
+            [224, 214, 46],
+            [46, 151, 224],
+            [188, 224, 46],
+            [224, 46, 117],
+            [92, 224, 46],
+            [224, 176, 46],
+            [0, 34, 224],
+            [114, 108, 177],
+            [72, 26, 54],
+            [186, 198, 88],
+            [18, 114, 36],
+            [130, 81, 25],
+            [35, 140, 116],
+            [76, 72, 155],
+            [135, 201, 191],
+        ],
+
         // The width of the GIS visualization.
         'width'  => 600,
         // The height of the GIS visualization.
@@ -459,39 +482,31 @@ class GisVisualization
     {
         $this->init();
         $scale_data = $this->scaleDataSet($this->data);
-        $output
-            = 'if (typeof OpenLayers !== "undefined") {'
-            . 'var options = {'
-            . 'projection: new OpenLayers.Projection("EPSG:900913"),'
-            . 'displayProjection: new OpenLayers.Projection("EPSG:4326"),'
-            . 'units: "m",'
-            . 'numZoomLevels: 18,'
-            . 'maxResolution: 156543.0339,'
-            . 'maxExtent: new OpenLayers.Bounds('
-            . '-20037508, -20037508, 20037508, 20037508),'
-            . 'restrictedExtent: new OpenLayers.Bounds('
-            . '-20037508, -20037508, 20037508, 20037508)'
-            . '};'
-            . 'var map = new OpenLayers.Map("openlayersmap", options);'
-            . 'var layerNone = new OpenLayers.Layer.Boxes('
-            . '"None", {isBaseLayer: true});'
-            . 'var layerOSM = new OpenLayers.Layer.OSM("OSM",'
-            . '['
-            . '"https://a.tile.openstreetmap.org/${z}/${x}/${y}.png",'
-            . '"https://b.tile.openstreetmap.org/${z}/${x}/${y}.png",'
-            . '"https://c.tile.openstreetmap.org/${z}/${x}/${y}.png"'
-            . ']);'
-            . 'map.addLayers([layerOSM,layerNone]);'
-            . 'var vectorLayer = new OpenLayers.Layer.Vector("Data");'
-            . 'var bound;';
-        $output .= $this->prepareDataSet($this->data, $scale_data, 'ol', '');
-        $output .= 'map.addLayer(vectorLayer);'
-            . 'map.zoomToExtent(bound);'
-            . 'if (map.getZoom() < 2) {'
-            . 'map.zoomTo(2);'
-            . '}'
-            . 'map.addControl(new OpenLayers.Control.LayerSwitcher());'
-            . 'map.addControl(new OpenLayers.Control.MousePosition());'
+        $output = 'if (typeof ol !== "undefined") {'
+            . 'var olCss = "js/vendor/openlayers/theme/ol.css";'
+            . '$(\'head\').append(\'<link rel="stylesheet" type="text/css" href=\'+olCss+\'>\');'
+            . 'var vectorLayer = new ol.source.Vector({});'
+            . 'var map = new ol.Map({'
+            . 'target: \'openlayersmap\','
+            . 'layers: ['
+            . 'new ol.layer.Tile({'
+            . 'source: new ol.source.OSM()'
+            . '}),'
+            . 'new ol.layer.Vector({'
+            . 'source: vectorLayer'
+            . '})'
+            . '],'
+            . 'view: new ol.View({'
+            . 'center: ol.proj.fromLonLat([37.41, 8.82]),'
+            . 'zoom: 4'
+            . '}),'
+            . 'controls: [new ol.control.MousePosition({'
+            . 'coordinateFormat: ol.coordinate.createStringXY(4),'
+            . 'projection: \'EPSG:4326\'}),'
+            . 'new ol.control.Zoom,'
+            . 'new ol.control.Attribution]'
+            . '});';
+        $output .= $this->prepareDataSet($this->data, $scale_data, 'ol', '')
             . '}';
 
         return $output;
@@ -741,7 +756,7 @@ class GisVisualization
                     $row[$this->settings['spatialColumn']],
                     $row['srid'],
                     $label,
-                    $this->settings['colors'][$index],
+                    $this->settings['colors_hex'][$index],
                     $scale_data
                 );
             }

@@ -422,7 +422,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param string $spatial    GIS MULTILINESTRING object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS MULTILINESTRING object
-     * @param string $line_color color for the GIS MULTILINESTRING object
+     * @param array  $line_color color for the GIS MULTILINESTRING object
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
@@ -432,7 +432,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         string $spatial,
         int $srid,
         string $label,
-        string $line_color,
+        array $line_color,
         array $scale_data,
         string $output
     ): void {
@@ -460,33 +460,32 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
                 4326,
                 'Ol',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.'
-                . 'LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject())); bound.extend(new OpenLayers.LonLat'
-                . '(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.'
-                . 'getProjectionObject()));vectorLayer.addFeatures(new OpenLayers.'
-                . 'Feature.Vector(new OpenLayers.Geometry.MultiLineString(new Arr'
-                . 'ay(new OpenLayers.Geometry.LineString(new Array((new OpenLayers.'
-                . 'Geometry.Point(36,14)).transform(new OpenLayers.Projection("EPSG:'
-                . '4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Po'
-                . 'int(47,23)).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject()), (new OpenLayers.Geometry.Point(62,75)'
-                . ').transform(new OpenLayers.Projection("EPSG:4326"), map.getProjec'
-                . 'tionObject()))), new OpenLayers.Geometry.LineString(new Array(('
-                . 'new OpenLayers.Geometry.Point(36,10)).transform(new OpenLayers.'
-                . 'Projection("EPSG:4326"), map.getProjectionObject()), (new Open'
-                . 'Layers.Geometry.Point(17,23)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geo'
-                . 'metry.Point(178,53)).transform(new OpenLayers.Projection("EPSG:'
-                . '4326"), map.getProjectionObject()))))), null, {"strokeColor":"'
-                . '#B02EE0","strokeWidth":2,"label":"Ol","fontSize":10}));',
+                'var style = new ol.style.Style({stroke: new ol.style.Stroke({"color":[176,46,224],'
+                . '"width":2}), text: new ol.style.Text({"text":"Ol"})});var minLoc = [0, 0];var ma'
+                . 'xLoc = [1, 1];var ext = ol.extent.boundingExtent([minLoc, maxLoc]);ext = ol.proj'
+                . '.transformExtent(ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.'
+                . 'getView().fit(ext, map.getSize());var arr = [];var lineArr = [];var line = new o'
+                . 'l.geom.LineString(new Array((new ol.geom.Point([36,14]).transform(ol.proj.get("E'
+                . 'PSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([4'
+                . '7,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoord'
+                . 'inates(), (new ol.geom.Point([62,75]).transform(ol.proj.get("EPSG:4326"), ol.pro'
+                . 'j.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordinates();for (var i = 0;'
+                . ' i < coord.length; index++) lineArr.push(coord[i]);arr.push(lineArr);var lineArr = [];var lin'
+                . 'e = new ol.geom.LineString(new Array((new ol.geom.Point([36,10]).transform(ol.pr'
+                . 'oj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom'
+                . '.Point([17,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))'
+                . '.getCoordinates(), (new ol.geom.Point([178,53]).transform(ol.proj.get("EPSG:4326'
+                . '"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordina'
+                . 'tes();for (var i = 0; i < coord.length; index++) lineArr.push(coord[i]);arr.push(lineArr);va'
+                . 'r multiLineString = new ol.geom.MultiLineString(arr);var feature = new ol.Feature({geometry:'
+                . ' multiLineString});feature.setStyle(style);vectorLayer.addFeature(feature);',
             ],
         ];
     }

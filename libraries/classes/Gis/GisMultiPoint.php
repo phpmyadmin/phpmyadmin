@@ -252,7 +252,7 @@ class GisMultiPoint extends GisGeometry
      * @param string $spatial     GIS MULTIPOINT object
      * @param int    $srid        Spatial reference ID
      * @param string $label       Label for the GIS MULTIPOINT object
-     * @param string $point_color Color for the GIS MULTIPOINT object
+     * @param array  $point_color Color for the GIS MULTIPOINT object
      * @param array  $scale_data  Array containing data related to scaling
      *
      * @return string JavaScript related to a row in the GIS dataset
@@ -266,19 +266,36 @@ class GisMultiPoint extends GisGeometry
         $point_color,
         array $scale_data
     ) {
-        $style_options = [
-            'pointRadius'  => 3,
-            'fillColor'    => '#ffffff',
-            'strokeColor'  => $point_color,
-            'strokeWidth'  => 2,
-            'label'        => $label,
-            'labelYOffset' => -8,
-            'fontSize'     => 10,
+        $fill_style = ['color' => 'white'];
+        $stroke_style = [
+            'color' => $point_color,
+            'width' => 2,
         ];
+        $result = 'var fill = new ol.style.Fill(' . json_encode($fill_style) . ');'
+            . 'var stroke = new ol.style.Stroke(' . json_encode($stroke_style) . ');'
+            . 'var style = new ol.style.Style({'
+            . 'image: new ol.style.Circle({'
+            . 'fill: fill,'
+            . 'stroke: stroke,'
+            . 'radius: 3'
+            . '}),'
+            . 'fill: fill,'
+            . 'stroke: stroke';
+
+        if ($label) {
+            $text_style = [
+                'text' => $label,
+                'offsetY' => -9,
+            ];
+            $result .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
+        }
+
+        $result.= '});';
+
         if ($srid == 0) {
             $srid = 4326;
         }
-        $result = $this->getBoundsForOl($srid, $scale_data);
+        $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint
@@ -289,10 +306,11 @@ class GisMultiPoint extends GisGeometry
             );
         $points_arr = $this->extractPoints($multipoint, null);
 
-        return $result . 'vectorLayer.addFeatures(new OpenLayers.Feature.Vector('
-            . 'new OpenLayers.Geometry.MultiPoint('
-            . $this->getPointsArrayForOpenLayers($points_arr, $srid)
-            . '), null, ' . json_encode($style_options) . '));';
+        return $result . 'var multiPoint = new ol.geom.MultiPoint('
+            . $this->getPointsArrayForOpenLayers($points_arr, $srid) . ');'
+            . 'var feature = new ol.Feature({geometry: multiPoint});'
+            . 'feature.setStyle(style);'
+            . 'vectorLayer.addFeature(feature);';
     }
 
     /**
@@ -420,7 +438,7 @@ class GisMultiPoint extends GisGeometry
                 continue;
             }
 
-            $ol_array .= $this->getPointForOpenLayers($point, $srid) . ', ';
+            $ol_array .= $this->getPointForOpenLayers($point, $srid) . '.getCoordinates(), ';
         }
 
         $olArrayLength = mb_strlen($ol_array);

@@ -597,7 +597,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @param string $spatial    GIS POLYGON object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS POLYGON object
-     * @param string $fill_color color for the GIS POLYGON object
+     * @param array  $fill_color color for the GIS POLYGON object
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
@@ -607,7 +607,7 @@ class GisPolygonTest extends GisGeomTestCase
         string $spatial,
         int $srid,
         string $label,
-        string $fill_color,
+        array $fill_color,
         array $scale_data,
         string $output
     ): void {
@@ -635,30 +635,28 @@ class GisPolygonTest extends GisGeomTestCase
                 'POLYGON((123 0,23 30,17 63,123 0))',
                 4326,
                 'Ol',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.Lon'
-                . 'Lat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject())); bound.extend(new OpenLayers.'
-                . 'LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject()));vectorLayer.addFeatures(new Open'
-                . 'Layers.Feature.Vector(new OpenLayers.Geometry.Polygon(new Array'
-                . '(new OpenLayers.Geometry.LinearRing(new Array((new OpenLayers.'
-                . 'Geometry.Point(123,0)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.'
-                . 'Geometry.Point(23,30)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.'
-                . 'Geometry.Point(17,63)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.'
-                . 'Geometry.Point(123,0)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()))))), null, {"stroke'
-                . 'Color":"#000000","strokeWidth":0.5,"fillColor":"#B02EE0",'
-                . '"fillOpacity":0.8,"label":"Ol","fontSize":10}));',
+                'var style = new ol.style.Style({fill: new ol.style.Fill({"color":[176,46,224,0.8]'
+                . '}),stroke: new ol.style.Stroke({"color":[0,0,0],"width":0.5}),text: new ol.styl'
+                . 'e.Text({"text":"Ol"})});var minLoc = [0, 0];var maxLoc = [1, 1];var ext = ol.ex'
+                . 'tent.boundingExtent([minLoc, maxLoc]);ext = ol.proj.transformExtent(ext, ol.pro'
+                . 'j.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.getView().fit(ext, map.getS'
+                . 'ize());var arr = [];var lineArr = [];var line = new ol.geom.LinearRing(new Arra'
+                . 'y((new ol.geom.Point([123,0]).transform(ol.proj.get("EPSG:4326"), ol.proj.get('
+                . '\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([23,30]).transform(ol.pro'
+                . 'j.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom'
+                . '.Point([17,63]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))'
+                . ').getCoordinates(), (new ol.geom.Point([123,0]).transform(ol.proj.get("EPSG:432'
+                . '6"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordi'
+                . 'nates();for (var i = 0; i < coord.length; index++) lineArr.push(coord[i]);arr.push(lineArr);'
+                . 'var polygon = new ol.geom.Polygon(arr);var feature = new ol.Feature({geometry: polygon});f'
+                . 'eature.setStyle(style);vectorLayer.addFeature(feature);',
             ],
         ];
     }

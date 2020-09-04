@@ -315,13 +315,12 @@ class GisGeometryTest extends AbstractTestCase
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); '
-                    . 'bound.extend(new OpenLayers.LonLat(0, 0).transform('
-                    . 'new OpenLayers.Projection("EPSG:4326"), '
-                    . 'map.getProjectionObject())); '
-                    . 'bound.extend(new OpenLayers.LonLat(1, 1).transform('
-                    . 'new OpenLayers.Projection("EPSG:4326"), '
-                    . 'map.getProjectionObject()));',
+                'var minLoc = [0, 0];var maxLoc = [1, 1];'
+                . 'var ext = ol.extent.boundingExtent([min'
+                . 'Loc, maxLoc]);ext = ol.proj.transformEx'
+                . 'tent(ext, ol.proj.get("EPSG:4326"), ol.'
+                . 'proj.get(\'EPSG:3857\'));map.getView().'
+                . 'fit(ext, map.getSize());',
             ],
 
         ];
@@ -363,14 +362,14 @@ class GisGeometryTest extends AbstractTestCase
             [
                 ['Triangle'],
                 4326,
-                'new Array('
-                    . 'new OpenLayers.Geometry.Polygon('
-                    . 'new Array('
-                    . 'new OpenLayers.Geometry.LinearRing('
-                    . 'new Array('
-                    . '(new OpenLayers.Geometry.Point(0,0)).transform('
-                    . 'new OpenLayers.Projection("EPSG:4326"), '
-                    . 'map.getProjectionObject()))))))',
+                'var polygonArray = [];var arr = [];var lineArr = [];'
+                . 'var line = new ol.geom.LinearRing(new Array((new ol'
+                . '.geom.Point([0,0]).transform(ol.proj.get("EPSG:4326'
+                . '"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()))'
+                . ';var coord = line.getCoordinates();for (var i = 0; i < coord.length; index++)'
+                . ' lineArr.push(coord[i]);arr.push(lineArr);var pol'
+                . 'ygon = new ol.geom.Polygon(arr);polygonArray.push(p'
+                . 'olygon);',
             ],
         ];
     }
