@@ -654,8 +654,8 @@ class GisPolygonTest extends GisGeomTestCase
                 . '.Point([17,63]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))'
                 . ').getCoordinates(), (new ol.geom.Point([123,0]).transform(ol.proj.get("EPSG:432'
                 . '6"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordi'
-                . 'nates();coord.forEach(item => lineArr.push(item));arr.push(lineArr);var polygon'
-                . ' = new ol.geom.Polygon(arr);var feature = new ol.Feature({geometry: polygon});f'
+                . 'nates();for (var i = 0; i < coord.length; index++) lineArr.push(coord[i]);arr.push(lineArr);'
+                . 'var polygon = new ol.geom.Polygon(arr);var feature = new ol.Feature({geometry: polygon});f'
                 . 'eature.setStyle(style);vectorLayer.addFeature(feature);',
             ],
         ];

@@ -343,7 +343,7 @@ abstract class GisGeometry
                 $is_line_string
             ) . ';';
             $ol_array .= 'var coord = line.getCoordinates();';
-            $ol_array .= 'coord.forEach(item => lineArr.push(item));';
+            $ol_array .= 'for (var i = 0; i < coord.length; index++) lineArr.push(coord[i]);';
             $ol_array .= 'arr.push(lineArr);';
         }
 
