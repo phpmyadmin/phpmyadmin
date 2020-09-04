@@ -59,7 +59,7 @@ class ScriptsTest extends AbstractTestCase
         $actual = $this->object->getDisplay();
 
         $this->assertStringContainsString(
-            'src="js/common.js?v=' . PMA_VERSION . '"',
+            'src="js/dist/common.js?v=' . PMA_VERSION . '"',
             $actual
         );
         $this->assertStringContainsString(
