@@ -7,7 +7,6 @@
 /* global firstDayOfCalendar, maxInputVars, mysqlDocTemplate, themeImagePath */ // templates/javascript/variables.twig
 /* global MicroHistory */ // js/microhistory.js
 /* global sprintf */ // js/vendor/sprintf.js
-/* global Int32Array */ // ES6
 /* global zxcvbn */ // js/vendor/zxcvbn.js
 
 /**
