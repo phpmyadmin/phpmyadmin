@@ -17,6 +17,7 @@ use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Operations;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
@@ -1059,7 +1060,15 @@ class StructureController extends AbstractController
             $db,
         ] = ParseAnalyze::sqlQuery($sql_query, $db);
 
-        $sql = new Sql();
+        $sql = new Sql(
+            $this->dbi,
+            $this->relation,
+            $this->relationCleanup,
+            new Operations($this->dbi, $this->relation),
+            $this->transformations,
+            $this->template
+        );
+
         $this->response->addHTML(
             $sql->executeQueryAndGetQueryResponse(
                 $analyzed_sql_results ?? '',

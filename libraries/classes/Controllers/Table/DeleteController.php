@@ -5,7 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Common;
+use PhpMyAdmin\Operations;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function is_array;
@@ -22,7 +26,15 @@ class DeleteController extends AbstractController
         $original_sql_query = $_POST['original_sql_query'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
-        $sql = new Sql();
+        $relation = new Relation($this->dbi);
+        $sql = new Sql(
+            $this->dbi,
+            $relation,
+            new RelationCleanup($this->dbi, $relation),
+            new Operations($this->dbi, $relation),
+            new Transformations(),
+            $this->template
+        );
 
         if ($mult_btn === __('Yes')) {
             $default_fk_check_value = Util::handleDisableFKCheckInit();

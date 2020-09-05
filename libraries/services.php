@@ -159,6 +159,14 @@ return [
         ],
         'sql' => [
             'class' => PhpMyAdmin\Sql::class,
+            'arguments' => [
+                '@dbi',
+                '@relation',
+                '@relation_cleanup',
+                '@operations',
+                '@transformations',
+                '@template',
+            ],
         ],
         'sql_query_form' => [
             'class' => PhpMyAdmin\SqlQueryForm::class,

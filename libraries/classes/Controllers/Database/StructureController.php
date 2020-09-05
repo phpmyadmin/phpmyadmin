@@ -25,6 +25,7 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_search;
@@ -1562,7 +1563,15 @@ class StructureController extends AbstractController
         }
 
         if (! empty($_REQUEST['pos'])) {
-            $sql = new Sql();
+            $sql = new Sql(
+                $this->dbi,
+                $this->relation,
+                $this->relationCleanup,
+                $this->operations,
+                new Transformations(),
+                $this->template
+            );
+
             $_REQUEST['pos'] = $sql->calculatePosForLastPage($db, $table, $_REQUEST['pos']);
         }
 

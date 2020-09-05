@@ -7,8 +7,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Operations;
 use PhpMyAdmin\ParseAnalyze;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Transformations;
 use stdClass;
 
 /**
@@ -46,7 +51,15 @@ class SqlTest extends AbstractTestCase
         $GLOBALS['cfg']['enable_drag_drop_import'] = true;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        $this->sql = new Sql();
+        $relation = new Relation($GLOBALS['dbi']);
+        $this->sql = new Sql(
+            $GLOBALS['dbi'],
+            $relation,
+            new RelationCleanup($GLOBALS['dbi'], $relation),
+            new Operations($GLOBALS['dbi'], $relation),
+            new Transformations(),
+            new Template()
+        );
     }
 
     /**

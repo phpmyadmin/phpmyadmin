@@ -7,11 +7,14 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 use function in_array;
 use function intval;
@@ -260,7 +263,15 @@ class SearchController extends AbstractController
         /**
          * Add this to ensure following procedures included running correctly.
          */
-        $sql = new Sql();
+        $sql = new Sql(
+            $this->dbi,
+            $this->relation,
+            new RelationCleanup($this->dbi, $this->relation),
+            new Operations($this->dbi, $this->relation),
+            new Transformations(),
+            $this->template
+        );
+
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile

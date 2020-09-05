@@ -287,7 +287,6 @@ class SqlController extends AbstractController
         // If the $currentValue was truncated, we should fetch the correct full values from the table.
         if ($fullValues && ! empty($whereClause)) {
             $currentValue = $this->sql->getFullValuesForSetColumn(
-                $this->dbi,
                 $db,
                 $table,
                 $column,

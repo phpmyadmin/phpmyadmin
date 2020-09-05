@@ -2431,7 +2431,17 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Sql\\:\\:getNumberOfRowsAffectedOrChanged\\(\\) should return int but returns bool\\|int\\|string\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
 			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Menu\\:\\:setTable\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Parameter \\#2 \\$error of method PhpMyAdmin\\\\Sql\\:\\:handleQueryExecuteError\\(\\) expects string, string\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -2453,6 +2463,11 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$message_to_show of method PhpMyAdmin\\\\Sql\\:\\:getMessageForNoRowsReturned\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Offset 0 does not exist on array\\|null\\.$#"
+			count: 2
 			path: libraries/classes/Sql.php
 
 		-
@@ -2507,6 +2522,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Sql\\:\\:hasCurrentDbChanged\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 

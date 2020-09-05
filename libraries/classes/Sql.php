@@ -1,7 +1,4 @@
 <?php
-/**
- * Set of functions for the SQL executor
- */
 
 declare(strict_types=1);
 
@@ -41,6 +38,9 @@ use function ucwords;
  */
 class Sql
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /** @var Relation */
     private $relation;
 
@@ -56,15 +56,20 @@ class Sql
     /** @var Template */
     private $template;
 
-    public function __construct()
-    {
-        /** @var DatabaseInterface $dbi */
-        $dbi = $GLOBALS['dbi'];
-        $this->relation = new Relation($dbi);
-        $this->relationCleanup = new RelationCleanup($dbi, $this->relation);
-        $this->operations = new Operations($dbi, $this->relation);
-        $this->transformations = new Transformations();
-        $this->template = new Template();
+    public function __construct(
+        DatabaseInterface $dbi,
+        Relation $relation,
+        RelationCleanup $relationCleanup,
+        Operations $operations,
+        Transformations $transformations,
+        Template $template
+    ) {
+        $this->dbi = $dbi;
+        $this->relation = $relation;
+        $this->relationCleanup = $relationCleanup;
+        $this->operations = $operations;
+        $this->transformations = $transformations;
+        $this->template = $template;
     }
 
     /**
@@ -178,7 +183,7 @@ class Sql
      */
     private function resultSetContainsUniqueKey($db, $table, array $fields_meta)
     {
-        $columns = $GLOBALS['dbi']->getColumns($db, $table);
+        $columns = $this->dbi->getColumns($db, $table);
         $resultSetColumnNames = [];
         foreach ($fields_meta as $oneMeta) {
             $resultSetColumnNames[] = $oneMeta->name;
@@ -296,13 +301,12 @@ class Sql
      * Get value of a column for a specific row (marked by $whereClause)
      */
     public function getFullValuesForSetColumn(
-        DatabaseInterface $dbi,
         string $db,
         string $table,
         string $column,
         string $whereClause
     ): string {
-        $row = $dbi->fetchSingleRow(sprintf(
+        $row = $this->dbi->fetchSingleRow(sprintf(
             'SELECT `%s` FROM `%s`.`%s` WHERE %s',
             $column,
             $db,
@@ -328,9 +332,9 @@ class Sql
      */
     public function getValuesForColumn($db, $table, $column)
     {
-        $field_info_query = QueryGenerator::getColumnsSql($db, $table, $GLOBALS['dbi']->escapeString($column));
+        $field_info_query = QueryGenerator::getColumnsSql($db, $table, $this->dbi->escapeString($column));
 
-        $field_info_result = $GLOBALS['dbi']->fetchResult(
+        $field_info_result = $this->dbi->fetchResult(
             $field_info_query,
             null,
             null,
@@ -488,7 +492,7 @@ class Sql
      */
     public function findRealEndOfRows($db, $table)
     {
-        $unlim_num_rows = $GLOBALS['dbi']->getTable($db, $table)->countRecords(true);
+        $unlim_num_rows = $this->dbi->getTable($db, $table)->countRecords(true);
         $_SESSION['tmpval']['pos'] = $this->getStartPosToDisplayRow($unlim_num_rows);
 
         return $unlim_num_rows;
@@ -505,7 +509,7 @@ class Sql
     public function getDefaultSqlQueryForBrowse($db, $table)
     {
         $bookmark = Bookmark::get(
-            $GLOBALS['dbi'],
+            $this->dbi,
             $GLOBALS['cfg']['Server']['user'],
             $db,
             $table,
@@ -606,7 +610,7 @@ class Sql
         // Should we replace bookmark?
         if ($bkm_replace) {
             $bookmarks = Bookmark::getList(
-                $GLOBALS['dbi'],
+                $this->dbi,
                 $GLOBALS['cfg']['Server']['user'],
                 $db
             );
@@ -620,7 +624,7 @@ class Sql
         }
 
         $bookmark = Bookmark::createBookmark(
-            $GLOBALS['dbi'],
+            $this->dbi,
             $GLOBALS['cfg']['Server']['user'],
             $bfields,
             isset($_POST['bkm_all_users'])
@@ -643,7 +647,7 @@ class Sql
         // Measure query time.
         $querytime_before = array_sum(explode(' ', microtime()));
 
-        $result = @$GLOBALS['dbi']->tryQuery(
+        $result = @$this->dbi->tryQuery(
             $full_sql_query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
@@ -670,9 +674,9 @@ class Sql
     private function getNumberOfRowsAffectedOrChanged($is_affected, $result)
     {
         if (! $is_affected) {
-            $num_rows = $result ? @$GLOBALS['dbi']->numRows($result) : 0;
+            $num_rows = $result ? @$this->dbi->numRows($result) : 0;
         } else {
-            $num_rows = @$GLOBALS['dbi']->affectedRows();
+            $num_rows = @$this->dbi->affectedRows();
         }
 
         return $num_rows;
@@ -689,7 +693,7 @@ class Sql
     private function hasCurrentDbChanged($db): bool
     {
         if (strlen($db) > 0) {
-            $current_db = $GLOBALS['dbi']->fetchValue('SELECT DATABASE()');
+            $current_db = $this->dbi->fetchValue('SELECT DATABASE()');
 
             // $current_db is false, except when a USE statement was sent
             return ($current_db != false) && ($db !== $current_db);
@@ -774,7 +778,7 @@ class Sql
             // due to $find_real_end == true
             if ($justBrowsing) {
                 // Get row count (is approximate for InnoDB)
-                $unlim_num_rows = $GLOBALS['dbi']->getTable($db, $table)->countRecords();
+                $unlim_num_rows = $this->dbi->getTable($db, $table)->countRecords();
                 /**
                  * @todo Can we know at this point that this is InnoDB,
                  *       (in this case there would be no need for getting
@@ -787,7 +791,7 @@ class Sql
                      * @todo In countRecords(), MaxExactCount is also verified,
                      *       so can we avoid checking it twice?
                      */
-                    $unlim_num_rows = $GLOBALS['dbi']->getTable($db, $table)
+                    $unlim_num_rows = $this->dbi->getTable($db, $table)
                         ->countRecords(true);
                 }
             } else {
@@ -814,9 +818,9 @@ class Sql
                 }
 
                 // Running the count query.
-                $GLOBALS['dbi']->tryQuery($count_query);
+                $this->dbi->tryQuery($count_query);
 
-                $unlim_num_rows = $GLOBALS['dbi']->fetchValue('SELECT FOUND_ROWS()');
+                $unlim_num_rows = $this->dbi->fetchValue('SELECT FOUND_ROWS()');
             } // end else "just browsing"
         } else {// not $is_select
             $unlim_num_rows = 0;
@@ -858,7 +862,7 @@ class Sql
             $num_rows = 0;
             $unlim_num_rows = 0;
         } else { // If we don't ask to see the php code
-            Profiling::enable($GLOBALS['dbi']);
+            Profiling::enable($this->dbi);
 
             [
                 $result,
@@ -866,7 +870,7 @@ class Sql
             ] = $this->executeQueryAndMeasureTime($full_sql_query);
 
             // Displays an error message if required and stop parsing the script
-            $error = $GLOBALS['dbi']->getError();
+            $error = $this->dbi->getError();
             if ($error && $GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
                 $extra_data['error'] = $error;
             } elseif ($error) {
@@ -894,7 +898,7 @@ class Sql
                 $result
             );
 
-            $profiling_results = Profiling::getInformation($GLOBALS['dbi']);
+            $profiling_results = Profiling::getInformation($this->dbi);
 
             $justBrowsing = self::isJustBrowsing(
                 $analyzed_sql_results,
@@ -999,7 +1003,7 @@ class Sql
             } else {
                 $message = Message::getMessageForInsertedRows($num_rows);
             }
-            $insert_id = $GLOBALS['dbi']->insertId();
+            $insert_id = $this->dbi->insertId();
             if ($insert_id != 0) {
                 // insert_id is id of FIRST record inserted in one insert,
                 // so if we inserted multiple rows, we had to increment this
@@ -1216,8 +1220,8 @@ class Sql
      */
     private function getResponseForGridEdit($result): void
     {
-        $row = $GLOBALS['dbi']->fetchRow($result);
-        $field_flags = $GLOBALS['dbi']->fieldFlags($result, 0);
+        $row = $this->dbi->fetchRow($result);
+        $field_flags = $this->dbi->fieldFlags($result, 0);
         if (stripos($field_flags, DisplayResults::BINARY_FIELD) !== false) {
             $row[0] = bin2hex($row[0]);
         }
@@ -1274,8 +1278,6 @@ class Sql
         array $analyzed_sql_results,
         $is_limited_display = false
     ) {
-        /** @var DatabaseInterface $dbi */
-        $dbi = $GLOBALS['dbi'];
         $printview = isset($_POST['printview']) && $_POST['printview'] == '1' ? '1' : null;
         $table_html = '';
         $browse_dist = ! empty($_POST['is_browse_distinct']);
@@ -1283,12 +1285,12 @@ class Sql
         if ($analyzed_sql_results['is_procedure']) {
             do {
                 if (! isset($result)) {
-                    $result = $dbi->storeResult();
+                    $result = $this->dbi->storeResult();
                 }
-                $num_rows = $dbi->numRows($result);
+                $num_rows = $this->dbi->numRows($result);
 
                 if ($result !== false && $num_rows > 0) {
-                    $fields_meta = $dbi->getFieldsMeta($result);
+                    $fields_meta = $this->dbi->getFieldsMeta($result);
                     if (! is_array($fields_meta)) {
                         $fields_cnt = 0;
                     } else {
@@ -1335,12 +1337,12 @@ class Sql
                     );
                 }
 
-                $dbi->freeResult($result);
-            } while ($dbi->moreResults() && $dbi->nextResult());
+                $this->dbi->freeResult($result);
+            } while ($this->dbi->moreResults() && $this->dbi->nextResult());
         } else {
             $fields_meta = [];
             if (isset($result) && ! is_bool($result)) {
-                $fields_meta = $dbi->getFieldsMeta($result);
+                $fields_meta = $this->dbi->getFieldsMeta($result);
             }
             $fields_cnt = count($fields_meta);
             $_SESSION['is_multi_query'] = false;
@@ -1374,7 +1376,7 @@ class Sql
                     $is_limited_display
                 );
             }
-            $dbi->freeResult($result);
+            $this->dbi->freeResult($result);
         }
 
         return $table_html;
@@ -1497,7 +1499,7 @@ class Sql
 
         // Gets the list of fields properties
         if (isset($result) && $result) {
-            $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+            $fields_meta = $this->dbi->getFieldsMeta($result);
         } else {
             $fields_meta = [];
         }
@@ -1804,7 +1806,7 @@ class Sql
         }
 
         $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
-        $GLOBALS['dbi']->selectDb($db);
+        $this->dbi->selectDb($db);
 
         [
             $result,
@@ -1823,8 +1825,8 @@ class Sql
             $extra_data ?? null
         );
 
-        if ($GLOBALS['dbi']->moreResults()) {
-            $GLOBALS['dbi']->nextResult();
+        if ($this->dbi->moreResults()) {
+            $this->dbi->nextResult();
         }
 
         $warning_messages = $this->operations->getWarningMessagesArray();

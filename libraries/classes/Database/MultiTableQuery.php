@@ -8,9 +8,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Operations;
 use PhpMyAdmin\ParseAnalyze;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use function array_keys;
 use function md5;
@@ -110,7 +114,16 @@ class MultiTableQuery
         [,$db] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
         $goto = Url::getFromRoute('/database/multi-table-query');
-        $sql = new Sql();
+
+        $relation = new Relation($GLOBALS['dbi']);
+        $sql = new Sql(
+            $GLOBALS['dbi'],
+            $relation,
+            new RelationCleanup($GLOBALS['dbi'], $relation),
+            new Operations($GLOBALS['dbi'], $relation),
+            new Transformations(),
+            new Template()
+        );
 
         return $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results

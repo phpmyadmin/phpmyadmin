@@ -7,11 +7,14 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function stripos;
@@ -102,7 +105,16 @@ class QueryByExampleController extends AbstractController
                 $hasMessageToDisplay = true;
             } else {
                 $goto = Url::getFromRoute('/database/sql');
-                $sql = new Sql();
+
+                $sql = new Sql(
+                    $this->dbi,
+                    $this->relation,
+                    new RelationCleanup($this->dbi, $this->relation),
+                    new Operations($this->dbi, $this->relation),
+                    new Transformations(),
+                    $this->template
+                );
+
                 $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
                     null, // analyzed_sql_results
                     false, // is_gotofile

@@ -2327,8 +2327,15 @@
       <code>$result</code>
       <code>$result</code>
     </InvalidArgument>
-    <InvalidScalarArgument occurrences="3">
+    <InvalidReturnStatement occurrences="1">
+      <code>$num_rows</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>int</code>
+    </InvalidReturnType>
+    <InvalidScalarArgument occurrences="4">
       <code>''</code>
+      <code>$error</code>
       <code>$num_rows</code>
       <code>$num_rows</code>
     </InvalidScalarArgument>
@@ -2342,8 +2349,10 @@
       <code>$result</code>
       <code>$fields_meta</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="25">
-      <code>$db</code>
+    <PossiblyInvalidOperand occurrences="1">
+      <code>$insert_id</code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullArgument occurrences="24">
       <code>$table</code>
       <code>$db</code>
       <code>$db</code>
@@ -2351,6 +2360,7 @@
       <code>$_POST['purge'] ?? null</code>
       <code>$message_to_show ?? null</code>
       <code>$url_query</code>
+      <code>$row[0]</code>
       <code>$printview</code>
       <code>$printview</code>
       <code>$result</code>
@@ -2361,14 +2371,17 @@
       <code>$db</code>
       <code>$table</code>
       <code>$db</code>
+      <code>$db</code>
       <code>$sql_query_for_bookmark ?? null</code>
       <code>$extra_data ?? null</code>
-      <code>$db</code>
       <code>$table</code>
       <code>$result ?? null</code>
-      <code>$db</code>
       <code>$table</code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="2">
+      <code>$row[0]</code>
+      <code>$row[0]</code>
+    </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/SqlQueryForm.php">
     <PossiblyFalseArgument occurrences="1">
