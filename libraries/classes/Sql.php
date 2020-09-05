@@ -68,26 +68,6 @@ class Sql
     }
 
     /**
-     * Parses and analyzes the given SQL query.
-     *
-     * @param string $sql_query SQL query
-     * @param string $db        DB name
-     *
-     * @return mixed
-     */
-    public function parseAndAnalyze($sql_query, $db = null)
-    {
-        if ($db === null && isset($GLOBALS['db']) && strlen($GLOBALS['db'])) {
-            $db = $GLOBALS['db'];
-        }
-        [
-            $analyzed_sql_results,,
-        ] = ParseAnalyze::sqlQuery($sql_query, $db);
-
-        return $analyzed_sql_results;
-    }
-
-    /**
      * Handle remembered sorting order, only for single table query
      *
      * @param string $db                   database name
