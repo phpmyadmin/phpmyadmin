@@ -6,6 +6,7 @@ filter:
   excluded_paths:
     - build/
     - js/vendor/
+    - js/dist/
     - node_modules/
     - tmp/
     - vendor/

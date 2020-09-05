@@ -769,7 +769,8 @@ var AJAX = {
             var self = this;
 
             script.type = 'text/javascript';
-            script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(CommonParams.get('PMA_VERSION'));
+            var file = name.indexOf('vendor/') !== -1 ? name : 'dist/' + name;
+            script.src = 'js/' + file + '?' + 'v=' + encodeURIComponent(CommonParams.get('PMA_VERSION'));
             script.async = false;
             script.onload = function () {
                 self.done(name, callback);

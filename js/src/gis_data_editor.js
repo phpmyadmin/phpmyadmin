@@ -100,7 +100,7 @@ function loadJSAndGISEditor (value, field, type, inputName) {
     var smallScripts = ['js/vendor/jquery/jquery.svg.js',
         'js/vendor/jquery/jquery.mousewheel.js',
         'js/vendor/jquery/jquery.event.drag-2.2.js',
-        'js/table/gis_visualization.js'];
+        'js/dist/table/gis_visualization.js'];
 
     for (var i = 0; i < smallScripts.length; i++) {
         script = document.createElement('script');
