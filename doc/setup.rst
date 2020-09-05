@@ -683,8 +683,7 @@ Handbook covers this topic in the chapter `Validating other keys on your public
 keyring`_. The most reliable method is to meet the developer in person and
 exchange key fingerprints, however, you can also rely on the web of trust. This way
 you can trust the key transitively though signatures of others, who have met
-the developer in person. For example, you can see how `Isaac's key links to
-Linus's key`_.
+the developer in person.
 
 Once the key is trusted, the warning will not occur:
 
@@ -704,8 +703,6 @@ clear error regardless of the fact that the key is trusted or not:
     gpg: BAD signature from "Isaac Bennetch <bennetch@gmail.com>" [unknown]
 
 .. _Validating other keys on your public keyring: https://www.gnupg.org/gph/en/manual.html#AEN335
-
-.. _Isaac's key links to Linus's key: https://pgp.cs.uu.nl/paths/79be3e4300411886/to/ce752f178259bd92.html
 
 .. index::
     single: Configuration storage
