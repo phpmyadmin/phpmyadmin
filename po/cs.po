@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-31 19:04-0300\n"
-"PO-Revision-Date: 2020-09-04 20:36+0000\n"
+"PO-Revision-Date: 2020-09-07 10:36+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -945,18 +945,7 @@ msgstr ""
 "Velikost záznamu InnoDB neodpovídá velikosti vyrovnávací paměti InnoDB."
 
 #: libraries/advisory_rules_generic.php:622
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -968,16 +957,16 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Obzvláště na systémech s hodně zápisy do InnoDB je vhodné nastavit "
-"{innodb_log_file_size} na 25%% {innodb_buffer_pool_size}. Na druhou stranu, "
-"čím větší je hodnota, tím déle bude trvat obnova databáze v případě "
-"problému, takže není vhodné mít tuto hodnotu nastaveno na více než 256 MiB. "
-"Prosím uvědomte si, že tato hodnota nemůže být přímo změněna. Musí být "
-"ukončen server, odstraněny záznamy InnoDB a až poté změněna hodnota v my.cnf "
-"a znovu spuštěn server. Poté zkontrolujte chybové záznamy MySQL, jestli "
-"všechno proběhlo v pořádku. Více viz <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">zápisek v blogu</a>"
+"Obzvláště na systémech s velkým počtem zápisů do InnoDB je vhodné nastavit "
+"{innodb_log_file_size} na 25% {innodb_buffer_pool_size}. Nicméně čím je tato "
+"hodnota větší, tím déle bude trvat obnova databáze v případě problému, proto "
+"není vhodné nastavovat tuto hodnotu na více než 256 MiB. Zároveň mějte na "
+"paměti, že tuto hodnotu nelze změnit bez provedení dalších kroků. Je třeba "
+"vypnout server, odstranit logovací soubory InnoDB, nastavit novou hodnotu v "
+"my.cnf, spustit server a v logovacích souborech MySQL zkontrolovat, zda vše "
+"proběhlo v pořádku. Další informace naleznete v <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">tomto článku na blogu</a>"
 
 #: libraries/advisory_rules_generic.php:633
 #, php-format
@@ -997,17 +986,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Velikost záznamového souboru je příliš velká."
 
 #: libraries/advisory_rules_generic.php:646
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1019,16 +998,16 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Obvykle je dostačující mít nastavené {innodb_log_file_size} na 25%% "
-"velikosti {innodb_buffer_pool_size}. Příliš velká {innodb_log_file_size} "
-"zpomaluje obnovení databáze v případě jejího pádu nebo problémů s hardware. "
-"Více informací naleznete v <a href=\"https://www.percona.com/blog/2006/07/03/"
-"choosing-proper-innodb_log_file_size/\">tomto článku</a>. Prosím uvědomte "
-"si, že tato hodnota nemůže být přímo změněna. Musí být ukončen server, "
-"odstraněny záznamy InnoDB a až poté změněna hodnota v my.cnf a znovu spuštěn "
-"server. Poté zkontrolujte chybové záznamy MySQL, jestli všechno proběhlo v "
-"pořádku. Více viz <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">zápisek v blogu</a>"
+"Hodnotu {innodb_log_file_size} obvykle stačí nastavit na 25% velikosti "
+"{innodb_buffer_pool_size}. Velmi vysoká hodnota {innodb_log_file_size} "
+"výrazně zpomaluje obnovu databáze v případě problému. Další informace "
+"naleznete v <a href=\"https://www.percona.com/blog/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">tomto článku</a>. Je třeba vypnout "
+"server, odstranit logovací soubory InnoDB, nastavit novou hodnotu v my.cnf, "
+"spustit server a v logovacích souborech MySQL zkontrolovat, zda vše proběhlo "
+"v pořádku. Další informace naleznete v <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">tomto článku na blogu</a>"
 
 #: libraries/advisory_rules_generic.php:656
 #, php-format
@@ -1044,18 +1023,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Nastavená vyrovnávací paměť InnoDB je poměrně malá."
 
 #: libraries/advisory_rules_generic.php:667
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1068,15 +1036,15 @@ msgid ""
 "\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
 "\">this article</a>"
 msgstr ""
-"Velikost vyrovnávací paměti InnoDB má výrazný efekt na výkon InnoDB tabulek. "
-"Přiřaďte jí proto zbývající volnou paměť. Pro servery, které používají "
-"výhradně InnoDB a neposkytují žádné další služby (např. webserver), ji "
-"můžete nastavit až na 80%% velikosti paměti. Pokud to není váš případ, "
-"pečlivě zvažte spotřebu paměti ostatními službami a podle toho nastavte tuto "
-"hodnotu. Pokud ji nastavíte příliš velkou, váš systém začne využívat "
-"odkládací paměť, což výrazně zhorší jeho celkový výkon. Více informací "
-"naleznete v <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">tomto článku</a>"
+"Velikost vyrovnávací paměti InnoDB má výrazný dopad na výkon tabulek InnoDB. "
+"Přiřaďte jí proto veškerou zbývající volnou paměť. Pro servery, které "
+"používají výhradně InnoDB a neposkytují žádné další služby (např. webserver)"
+", ji můžete nastavit až na 80% dostupné paměti. Pokud to není váš případ, "
+"nastavte tuto hodnotu po pečlivém zvážení požadavků na paměť pro další "
+"služby a tabulky jiné než InnoDB. Při nastavení příliš vysoké hodnoty začne "
+"systém využívat odkládací paměť, což výrazně zhorší jeho celkový výkon. Více "
+"informací naleznete v <a href=\"https://www.percona.com/blog/2007/11/03/"
+"choosing-innodb_buffer_pool_size/\">tomto článku</a>"
 
 #: libraries/advisory_rules_generic.php:677
 #, php-format
@@ -12275,8 +12243,6 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Převede IP adresu (IPv4/IPv6) do binárního formátu"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
@@ -13517,6 +13483,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"Určeno pro ukládání adres IPv6 i adres IPv4 za předpokladu konvenčního "
+"mapování adres IPv4 na adresy IPv6"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
@@ -15419,21 +15387,16 @@ msgid "File name template:"
 msgstr "Šablona pro jméno souboru:"
 
 #: templates/export.twig:324
-#, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
-"libovolné řetězce pro formátování data a času. Dále budou provedena "
-"následující nahrazení: %3$s. Jakýkoliv jiný text zůstane zachován beze "
-"změny. Více podrobností je ve %4$sFAQ%5$s."
+"Tato hodnota se interpretuje pomocí funkce 'strftime', takže můžete použít "
+"libovolné řetězce pro formátování data a času. Dále budou provedeny "
+"následující transformace: %s. Jakýkoliv jiný text zůstane zachován beze "
+"změny. Více podrobností viz FAQ 6.27."
 
 #: templates/export.twig:329
 msgid "use this for future exports"
@@ -15594,16 +15557,14 @@ msgid "from %s branch"
 msgstr "z větve %s"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "zapsal %2$s dne %1$s"
+msgstr "dne %s zapsal %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "vytvořil %2$s dne %1$s"
+msgstr "dne %s vytvořil %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
