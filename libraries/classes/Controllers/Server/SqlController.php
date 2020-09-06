@@ -37,7 +37,12 @@ class SqlController extends AbstractController
 
     public function index(): void
     {
-        $this->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
+        $this->addScriptFiles([
+            'makegrid.js',
+            'vendor/jquery/jquery.uitablefilter.js',
+            'vendor/stickyfill.min.js',
+            'sql.js',
+        ]);
 
         $pageSettings = new PageSettings('Sql');
         $this->response->addHTML($pageSettings->getErrorHTML());
