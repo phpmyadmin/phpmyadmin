@@ -14,16 +14,12 @@
             add_unique_anchor
         {%- elseif action == 'Spatial' %}
             add_spatial_anchor
-        {%- endif %}" href="{{ url('/table/structure/add-key') }}" data-post="{{ url_query|raw }}&amp;sql_query=
-        {{- ('ALTER TABLE ' ~
-            backquote(table) ~
-            (is_primary ? (primary ? ' DROP PRIMARY KEY,')) ~
-            ' ' ~
-            syntax ~
-            '(' ~
-            backquote(row['Field']) ~
-            ');')|url_encode -}}
-            &amp;message_to_show={{ message|format(row['Field']|e)|url_encode }}">
+        {%- endif %}" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+        'db': db,
+        'table': table,
+        'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ (is_primary ? (primary ? ' DROP PRIMARY KEY,')) ~ ' ' ~ syntax ~ '(' ~ backquote(row['Field']) ~ ');',
+        'message_to_show': message|format(row['Field']|e)
+    }) }}">
         {{ titles[action]|raw }}
     </a>
 {% endif %}

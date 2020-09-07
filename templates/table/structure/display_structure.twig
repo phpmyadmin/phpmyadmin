@@ -100,21 +100,24 @@
             <td class="nowrap">{{ row['Extra']|upper }}</td>
             {% if not tbl_is_view and not db_is_system_schema %}
                 <td class="edit text-center print_ignore">
-                    <a class="change_column_anchor ajax" href="{{ url('/table/structure/change', url_params|merge({
+                    <a class="change_column_anchor ajax" href="{{ url('/table/structure/change', {
                       'db': db,
                       'table': table,
                       'field': row['Field'],
                       'change_column': 1
-                    })) }}">
+                    }) }}">
                         {{ titles['Change']|raw }}
                     </a>
                 </td>
                 <td class="drop text-center print_ignore">
-                    <a class="drop_column_anchor ajax" href="{{ url('/sql') }}" data-post="{{ url_query }}&amp;sql_query=
-                        {{- ('ALTER TABLE ' ~ backquote(table)
-                            ~ ' DROP ' ~ backquote(row['Field']) ~ ';')|url_encode -}}
-                        &amp;dropped_column={{ row['Field']|url_encode }}&amp;purge=1&amp;message_to_show=
-                        {{- ('Column %s has been dropped.'|trans|format(row['Field']|e))|url_encode }}">
+                    <a class="drop_column_anchor ajax" href="{{ url('/sql') }}" data-post="{{ get_common({
+                      'db': db,
+                      'table': table,
+                      'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP ' ~ backquote(row['Field']) ~ ';',
+                      'dropped_column': row['Field'],
+                      'purge': true,
+                      'message_to_show': 'Column %s has been dropped.'|trans|format(row['Field']|e)
+                    }) }}">
                         {{ titles['Drop']|raw }}
                     </a>
                 </td>
@@ -136,7 +139,6 @@
                             'class': 'primary nowrap',
                             'has_field': primary and primary.hasColumn(field_name),
                             'has_link_class': true,
-                            'url_query': url_query,
                             'primary': primary,
                             'syntax': 'ADD PRIMARY KEY',
                             'message': 'A primary key has been added on %s.'|trans,
@@ -144,6 +146,7 @@
                             'titles': titles,
                             'row': row,
                             'is_primary': true,
+                            'db': db,
                             'table': table
                         } only %}
 
@@ -154,7 +157,6 @@
                             'class': 'add_unique unique nowrap',
                             'has_field': field_name in columns_with_unique_index,
                             'has_link_class': false,
-                            'url_query': url_query,
                             'primary': primary,
                             'syntax': 'ADD UNIQUE',
                             'message': 'An index has been added on %s.'|trans,
@@ -162,6 +164,7 @@
                             'titles': titles,
                             'row': row,
                             'is_primary': false,
+                            'db': db,
                             'table': table
                         } only %}
 
@@ -172,7 +175,6 @@
                             'class': 'add_index nowrap',
                             'has_field': false,
                             'has_link_class': false,
-                            'url_query': url_query,
                             'primary': primary,
                             'syntax': 'ADD INDEX',
                             'message': 'An index has been added on %s.'|trans,
@@ -180,6 +182,7 @@
                             'titles': titles,
                             'row': row,
                             'is_primary': false,
+                            'db': db,
                             'table': table
                         } only %}
 
@@ -201,7 +204,6 @@
                             'has_field': type not in spatial_types and
                                 (tbl_storage_engine == 'MYISAM' or mysql_int_version >= 50705),
                             'has_link_class': false,
-                            'url_query': url_query,
                             'primary': primary,
                             'syntax': 'ADD SPATIAL',
                             'message': 'An index has been added on %s.'|trans,
@@ -209,6 +211,7 @@
                             'titles': titles,
                             'row': row,
                             'is_primary': false,
+                            'db': db,
                             'table': table
                         } only %}
 
@@ -220,12 +223,12 @@
                                 or tbl_storage_engine == 'MARIA'
                                 or (tbl_storage_engine == 'INNODB' and mysql_int_version >= 50604)
                             ) and ('text' in type or 'char' in type) %}
-                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="{{ url('/table/structure/add-key') }}"
-                                data-post="{{- url_query|raw }}&amp;sql_query=
-                                {{- ('ALTER TABLE ' ~ backquote(table)
-                                    ~ ' ADD FULLTEXT(' ~ backquote(row['Field'])
-                                    ~ ');')|url_encode }}&amp;message_to_show=
-                                {{- ('An index has been added on %s.'|trans|format(row['Field']|e))|url_encode }}">
+                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD FULLTEXT(' ~ backquote(row['Field']) ~ ');',
+                              'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
+                            }) }}">
                                 {{ titles['IdxFulltext']|raw }}
                             </a>
                         {% else %}
@@ -235,13 +238,16 @@
 
                         {# Distinct value action #}
                         <li class="browse nowrap">
-                            <a href="{{ url('/sql') }}" data-post="{{ url_query|raw }}&amp;sql_query=
-                                {{- ('SELECT COUNT(*) AS ' ~ backquote('Rows'|trans)
-                                    ~ ', ' ~ backquote(row['Field'])
-                                    ~ ' FROM ' ~ backquote(table)
-                                    ~ ' GROUP BY ' ~ backquote(row['Field'])
-                                    ~ ' ORDER BY ' ~ backquote(row['Field']))|url_encode -}}
-                                &amp;is_browse_distinct=1">
+                            <a href="{{ url('/sql') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'SELECT COUNT(*) AS ' ~ backquote('Rows'|trans)
+                                ~ ', ' ~ backquote(row['Field'])
+                                ~ ' FROM ' ~ backquote(table)
+                                ~ ' GROUP BY ' ~ backquote(row['Field'])
+                                ~ ' ORDER BY ' ~ backquote(row['Field']),
+                              'is_browse_distinct': true
+                            }) }}">
                                 {{ titles['DistinctValues']|raw }}
                             </a>
                         </li>
@@ -340,32 +346,35 @@
     {% if not tbl_is_view and not db_is_system_schema %}
         {# Only display propose table structure for MySQL < 8.0 #}
         {% if mysql_int_version < 80000 or is_mariadb %}
-          <a href="{{ url('/sql') }}" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
-              {{- ('SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
-              " style="margin-right: 0;">
-              {{ get_icon(
-                  'b_tblanalyse',
-                  'Propose table structure'|trans,
-                  true
-              ) }}
+          <a class="mr-0" href="{{ url('/sql') }}" data-post="{{ get_common({
+            'db': db,
+            'table': table,
+            'sql_query': 'SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()',
+            'session_max_rows': 'all'
+          }) }}">
+            {{ get_icon(
+              'b_tblanalyse',
+              'Propose table structure'|trans,
+              true
+            ) }}
           </a>
           {{ show_mysql_docu('procedure_analyse') }}
         {% endif %}
         {% if is_active %}
-            <a href="{{ url('/table/tracking', url_params) }}">
+            <a href="{{ url('/table/tracking', {'db': db, 'table': table}) }}">
                 {{ get_icon('eye', 'Track table'|trans, true) }}
             </a>
         {% endif %}
         <a href="#" id="move_columns_anchor">
             {{ get_icon('b_move', 'Move columns'|trans, true) }}
         </a>
-        <a href="{{ url('/normalization', url_params) }}">
+        <a href="{{ url('/normalization', {'db': db, 'table': table}) }}">
             {{ get_icon('normalize', 'Normalize'|trans, true) }}
         </a>
     {% endif %}
     {% if tbl_is_view and not db_is_system_schema %}
         {% if is_active %}
-            <a href="{{ url('/table/tracking', url_params) }}">
+            <a href="{{ url('/table/tracking', {'db': db, 'table': table}) }}">
                 {{ get_icon('eye', 'Track view'|trans, true) }}
             </a>
         {% endif %}
@@ -431,7 +440,11 @@
                 {% set columns_count = index.getColumnCount() %}
                 <tr class="noclick">
                 <td rowspan="{{ columns_count }}" class="edit_index print_ignore ajax">
-                  <a class="ajax" href="{{ url('/table/indexes') }}" data-post="{{ get_common(url_params|merge({'index': index.getName()}), '') }}">
+                  <a class="ajax" href="{{ url('/table/indexes') }}" data-post="{{ get_common({
+                    'db': db,
+                    'table': table,
+                    'index': index.getName()
+                  }, '') }}">
                     {{ get_icon('b_edit', 'Edit'|trans) }}
                   </a>
                 </td>
@@ -450,7 +463,7 @@
 
                   <input type="hidden" class="drop_primary_key_index_msg" value="{{ index_params.sql_query|js_format(false) }}">
                   {{ link_or_button(
-                    url('/sql', url_params|merge(index_params)),
+                    url('/sql', index_params|merge({'db': db, 'table': table})),
                     get_icon('b_drop', 'Drop'|trans),
                     {'class': 'drop_primary_key_index_anchor ajax'}
                   ) }}
@@ -534,13 +547,9 @@
             {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Partitions' %}"
         {%- endif %}>
 
-        {% set remove_sql = 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING' %}
-        {% set remove_url = url('/sql') ~ url_query ~ '&sql_query=' ~ remove_sql|url_encode %}
-
         {% include 'table/structure/display_partitions.twig' with {
             'db': db,
             'table': table,
-            'url_query': url_query,
             'partitions': partitions,
             'partition_method': first_partition.getMethod(),
             'partition_expression': first_partition.getExpression(),
@@ -549,8 +558,7 @@
             'sub_partition_method': has_sub_partitions ? first_sub_partition.getMethod(),
             'sub_partition_expression': has_sub_partitions ? first_sub_partition.getExpression(),
             'action_icons': action_icons,
-            'range_or_list': range_or_list,
-            'remove_url': remove_url
+            'range_or_list': range_or_list
         } only %}
     {% else %}
         {% include 'table/structure/display_partitions.twig' with {

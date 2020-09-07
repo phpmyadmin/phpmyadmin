@@ -63,9 +63,6 @@ class StructureController extends AbstractController
     /** @var Table  The table object */
     protected $table_obj;
 
-    /** @var string  The URL query string */
-    protected $url_query;
-
     /** @var CreateAddField */
     private $createAddField;
 
@@ -106,13 +103,12 @@ class StructureController extends AbstractController
         $this->transformations = $transformations;
         $this->relationCleanup = $relationCleanup;
 
-        $this->url_query = Url::getCommonRaw(['db' => $db, 'table' => $table]);
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
     }
 
     public function index(): void
     {
-        global $reread_info, $showtable, $url_params;
+        global $reread_info, $showtable;
         global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
 
         $this->dbi->selectDb($this->db);
@@ -144,14 +140,7 @@ class StructureController extends AbstractController
 
         $cfgRelation = $this->relation->getRelationsParam();
 
-        $url_params = [];
-
         Common::table();
-
-        $url_params['goto'] = Url::getFromRoute('/table/structure');
-        $url_params['back'] = Url::getFromRoute('/table/structure');
-
-        $this->url_query = Url::getCommonRaw($url_params);
 
         $primary = Index::getPrimary($this->table, $this->db);
         $columns_with_index = $this->dbi
@@ -174,7 +163,6 @@ class StructureController extends AbstractController
         $this->response->addHTML($this->displayStructure(
             $cfgRelation,
             $columns_with_unique_index,
-            $url_params,
             $primary,
             $fields,
             $columns_with_index
@@ -1447,8 +1435,6 @@ class StructureController extends AbstractController
      *
      * @param array       $cfgRelation               current relation parameters
      * @param array       $columns_with_unique_index Columns with unique index
-     * @param mixed       $url_params                Contains an associative
-     *                                               array with url params
      * @param Index|false $primary_index             primary index or false if
      *                                               no one exists
      * @param array       $fields                    Fields
@@ -1459,7 +1445,6 @@ class StructureController extends AbstractController
     protected function displayStructure(
         array $cfgRelation,
         array $columns_with_unique_index,
-        $url_params,
         $primary_index,
         array $fields,
         array $columns_with_index
@@ -1573,10 +1558,6 @@ class StructureController extends AbstractController
         $engine = $this->table_obj->getStorageEngine();
 
         return $this->template->render('table/structure/display_structure', [
-            'url_params' => [
-                'db' => $this->db,
-                'table' => $this->table,
-            ],
             'collations' => $collations,
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
             'indexes' => Index::getFromTable($this->table, $this->db),
@@ -1588,7 +1569,6 @@ class StructureController extends AbstractController
             'db_is_system_schema' => $db_is_system_schema,
             'tbl_is_view' => $tbl_is_view,
             'mime_map' => $mime_map,
-            'url_query' => $this->url_query,
             'titles' => $titles,
             'tbl_storage_engine' => $tbl_storage_engine,
             'primary' => $primary_index,
@@ -1727,10 +1707,8 @@ class StructureController extends AbstractController
         }
 
         return $this->template->render('table/structure/display_table_stats', [
-            'url_params' => [
-                'db' => $GLOBALS['db'],
-                'table' => $GLOBALS['table'],
-            ],
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
             'cfg_relation' => $this->relation->getRelationsParam(),
             'showtable' => $showtable,
@@ -1738,7 +1716,6 @@ class StructureController extends AbstractController
             'tbl_is_view' => $tbl_is_view,
             'db_is_system_schema' => $db_is_system_schema,
             'tbl_storage_engine' => $tbl_storage_engine,
-            'url_query' => $this->url_query,
             'table_collation' => $tableCollation,
             'is_innodb' => $is_innodb,
             'mergetable' => $mergetable,
@@ -1755,7 +1732,6 @@ class StructureController extends AbstractController
             'effect_unit' => $effect_unit,
             'tot_size' => $tot_size,
             'tot_unit' => $tot_unit,
-            'table' => $GLOBALS['table'],
         ]);
     }
 

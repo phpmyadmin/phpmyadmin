@@ -76,13 +76,12 @@
                         <td>{{ partition.getComment() }}</td>
                         {% for action, icon in action_icons %}
                             <td>
-                                <a href="{{ url('/table/structure/partitioning') }}" data-post="{{ url_query -}}
-                                    &amp;partition_maintenance=1&amp;sql_query=
-                                    {{- ("ALTER TABLE " ~ backquote(table) ~ " " ~ action
-                                        ~ " PARTITION " ~ partition.getName())|url_encode }}"
-                                    id="partition_action_{{ action }}"
-                                    name="partition_action_{{ action }}"
-                                    class="ajax">
+                                <a id="partition_action_{{ action }}" class="ajax" href="{{ url('/table/structure/partitioning') }}" data-post="{{ get_common({
+                                  'db': db,
+                                  'table': table,
+                                  'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ' ~ action ~ ' PARTITION ' ~ partition.getName(),
+                                  'partition_maintenance': true
+                                }) }}">
                                     {{ icon|raw }}
                                 </a>
                             </td>
@@ -134,7 +133,13 @@
             {% if partitions is empty %}
                 <input class="btn btn-secondary" type="submit" value="{% trans 'Partition table' %}">
             {% else %}
-                {{ link_or_button(remove_url, 'Remove partitioning'|trans, {
+                {{ link_or_button(
+                  url('/sql', {
+                    'db': db,
+                    'table': table,
+                    'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING'
+                  }),
+                  'Remove partitioning'|trans, {
                     'class': 'button ajax',
                     'id': 'remove_partitioning'
                 }) }}
