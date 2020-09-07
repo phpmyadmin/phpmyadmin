@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-08-31 19:13+0000\n"
-"Last-Translator: Mingun <Alexander_Sergey@mail.ru>\n"
+"PO-Revision-Date: 2020-09-07 11:45+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ru/>\n"
 "Language: ru\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.2.1-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -15747,9 +15747,9 @@ msgstr[2] "%1$s соответствий в таблице <strong>%2$s</strong>
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong>Итого:</strong> <em>%s</em> соответствие"
-msgstr[1] "<strong>Итого:</strong> <em>%s</em> соответствия"
-msgstr[2] "<strong>Итого:</strong> <em>%s</em> соответствий"
+msgstr[0] "<strong>Итого:</strong> <em>%count%</em> соответствие"
+msgstr[1] "<strong>Итого:</strong> <em>%count%</em> соответствия"
+msgstr[2] "<strong>Итого:</strong> <em>%count%</em> соответствий"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 msgid ""
