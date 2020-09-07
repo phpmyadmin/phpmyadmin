@@ -101,6 +101,8 @@ phpMyAdmin - ChangeLog
 - issue #15328 Fix no message after import of zipped shapefile without php-zip
 - issue #14326 Fix PHP error when exporting without php-zip
 - issue #16318 Fix Profiling doesn't sum the number of calls
+- issue #16319 Fixed a Russian translation mistake on search results total text
+- issue #15634 Only use session_set_cookie_params once on PHP >= 7.3.0 versions for single signon auth
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page

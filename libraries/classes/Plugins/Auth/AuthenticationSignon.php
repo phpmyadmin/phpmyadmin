@@ -95,15 +95,15 @@ class AuthenticationSignon extends AuthenticationPlugin
 
         if (version_compare(PHP_VERSION, '7.3.0', '>=')) {
             session_set_cookie_params($sessionCookieParams);
+        } else {
+            session_set_cookie_params(
+                $sessionCookieParams['lifetime'],
+                $sessionCookieParams['path'],
+                $sessionCookieParams['domain'],
+                $sessionCookieParams['secure'],
+                $sessionCookieParams['httponly']
+            );
         }
-
-        session_set_cookie_params(
-            $sessionCookieParams['lifetime'],
-            $sessionCookieParams['path'],
-            $sessionCookieParams['domain'],
-            $sessionCookieParams['secure'],
-            $sessionCookieParams['httponly']
-        );
     }
 
     /**
