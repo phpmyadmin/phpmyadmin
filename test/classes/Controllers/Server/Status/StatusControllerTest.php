@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\Server\Status\StatusController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
+use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -144,11 +145,16 @@ class StatusControllerTest extends AbstractTestCase
             new ReplicationGui(new Replication(), $template)
         );
 
-        $GLOBALS['master_variables'] = [];
-        $GLOBALS['slave_variables'] = [];
+        $primaryVariables = ReplicationInfo::$primaryVariables;
+        $replicaVariables = ReplicationInfo::$replicaVariables;
+        ReplicationInfo::$primaryVariables = [];
+        ReplicationInfo::$replicaVariables = [];
 
         $controller->index();
         $html = $response->getHTMLResult();
+
+        ReplicationInfo::$primaryVariables = $primaryVariables;
+        ReplicationInfo::$replicaVariables = $replicaVariables;
 
         $traffic = $bytesReceived + $bytesSent;
         $trafficHtml = 'Network traffic since startup: ' . $traffic . ' B';

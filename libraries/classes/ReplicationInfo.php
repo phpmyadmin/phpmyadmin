@@ -9,12 +9,56 @@ use function explode;
 
 final class ReplicationInfo
 {
+    /** @var string[] */
+    public static $primaryVariables = [
+        'File',
+        'Position',
+        'Binlog_Do_DB',
+        'Binlog_Ignore_DB',
+    ];
+
+    /** @var string[] */
+    public static $replicaVariables = [
+        'Slave_IO_State',
+        'Master_Host',
+        'Master_User',
+        'Master_Port',
+        'Connect_Retry',
+        'Master_Log_File',
+        'Read_Master_Log_Pos',
+        'Relay_Log_File',
+        'Relay_Log_Pos',
+        'Relay_Master_Log_File',
+        'Slave_IO_Running',
+        'Slave_SQL_Running',
+        'Replicate_Do_DB',
+        'Replicate_Ignore_DB',
+        'Replicate_Do_Table',
+        'Replicate_Ignore_Table',
+        'Replicate_Wild_Do_Table',
+        'Replicate_Wild_Ignore_Table',
+        'Last_Errno',
+        'Last_Error',
+        'Skip_Counter',
+        'Exec_Master_Log_Pos',
+        'Relay_Log_Space',
+        'Until_Condition',
+        'Until_Log_File',
+        'Until_Log_Pos',
+        'Master_SSL_Allowed',
+        'Master_SSL_CA_File',
+        'Master_SSL_CA_Path',
+        'Master_SSL_Cert',
+        'Master_SSL_Cipher',
+        'Master_SSL_Key',
+        'Seconds_Behind_Master',
+    ];
+
     public static function load(): void
     {
         global $dbi, $url_params;
         global $server_master_replication, $server_slave_replication, $server_slave_multi_replication;
         global $replication_info;
-        global $master_variables, $slave_variables, $slave_variables_alerts, $slave_variables_oks;
 
         /**
          * get master replication from server
@@ -46,71 +90,6 @@ final class ReplicationInfo
          * get slave replication from server
          */
         $server_slave_replication = $dbi->fetchResult('SHOW SLAVE STATUS');
-
-        /**
-         * define variables for master status
-         */
-        $master_variables = [
-            'File',
-            'Position',
-            'Binlog_Do_DB',
-            'Binlog_Ignore_DB',
-        ];
-
-        /**
-         * Define variables for slave status
-         */
-        $slave_variables  = [
-            'Slave_IO_State',
-            'Master_Host',
-            'Master_User',
-            'Master_Port',
-            'Connect_Retry',
-            'Master_Log_File',
-            'Read_Master_Log_Pos',
-            'Relay_Log_File',
-            'Relay_Log_Pos',
-            'Relay_Master_Log_File',
-            'Slave_IO_Running',
-            'Slave_SQL_Running',
-            'Replicate_Do_DB',
-            'Replicate_Ignore_DB',
-            'Replicate_Do_Table',
-            'Replicate_Ignore_Table',
-            'Replicate_Wild_Do_Table',
-            'Replicate_Wild_Ignore_Table',
-            'Last_Errno',
-            'Last_Error',
-            'Skip_Counter',
-            'Exec_Master_Log_Pos',
-            'Relay_Log_Space',
-            'Until_Condition',
-            'Until_Log_File',
-            'Until_Log_Pos',
-            'Master_SSL_Allowed',
-            'Master_SSL_CA_File',
-            'Master_SSL_CA_Path',
-            'Master_SSL_Cert',
-            'Master_SSL_Cipher',
-            'Master_SSL_Key',
-            'Seconds_Behind_Master',
-        ];
-        /**
-         * define important variables, which need to be watched for
-         * correct running of replication in slave mode
-         *
-         * @usedby PhpMyAdmin\ReplicationGui->getHtmlForReplicationStatusTable()
-         */
-        // TODO change to regexp or something, to allow for negative match.
-        // To e.g. highlight 'Last_Error'
-        $slave_variables_alerts = [
-            'Slave_IO_Running' => 'No',
-            'Slave_SQL_Running' => 'No',
-        ];
-        $slave_variables_oks = [
-            'Slave_IO_Running' => 'Yes',
-            'Slave_SQL_Running' => 'Yes',
-        ];
 
         $replication_info = [
             'master' => self::getPrimaryInfo($server_master_replication),

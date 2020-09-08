@@ -252,19 +252,22 @@ class ReplicationGui
         $isHidden = false,
         $hasTitle = true
     ): string {
-        global $master_variables, $slave_variables;
-        global $master_variables_alerts, $slave_variables_alerts;
-        global $master_variables_oks, $slave_variables_oks;
         global $server_master_replication, $server_slave_replication;
 
-        $replicationVariables = $master_variables;
-        $variablesAlerts = $master_variables_alerts;
-        $variablesOks = $master_variables_oks;
+        $replicationVariables = ReplicationInfo::$primaryVariables;
+        $variablesAlerts = null;
+        $variablesOks = null;
         $serverReplication = $server_master_replication;
         if ($type === 'slave') {
-            $replicationVariables = $slave_variables;
-            $variablesAlerts = $slave_variables_alerts;
-            $variablesOks = $slave_variables_oks;
+            $replicationVariables = ReplicationInfo::$replicaVariables;
+            $variablesAlerts = [
+                'Slave_IO_Running' => 'No',
+                'Slave_SQL_Running' => 'No',
+            ];
+            $variablesOks = [
+                'Slave_IO_Running' => 'Yes',
+                'Slave_SQL_Running' => 'Yes',
+            ];
             $serverReplication = $server_slave_replication;
         }
 

@@ -109,12 +109,8 @@ class ReplicationGuiTest extends AbstractTestCase
      */
     public function testGetHtmlForMasterReplication(): void
     {
-        global $master_variables_alerts;
-        global $master_variables_oks;
         global $strReplicationStatus_master;
 
-        $master_variables_alerts = null;
-        $master_variables_oks = null;
         $strReplicationStatus_master = null;
 
         //Call the test function
@@ -135,7 +131,7 @@ class ReplicationGuiTest extends AbstractTestCase
             '<div id="replication_master_section"',
             $html
         );
-        //$master_variables
+
         $this->assertStringContainsString(
             'Binlog_Do_DB',
             $html
