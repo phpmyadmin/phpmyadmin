@@ -37,7 +37,6 @@ class ProcessesControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['replication_info']['master']['status'] = true;
         $GLOBALS['replication_info']['slave']['status'] = true;
-        $GLOBALS['replication_types'] = [];
 
         $serverStatus = [
             'Aborted_clients' => '0',

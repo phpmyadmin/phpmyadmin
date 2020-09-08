@@ -34,7 +34,6 @@ class StatusControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['replication_info']['master']['status'] = true;
         $GLOBALS['replication_info']['slave']['status'] = true;
-        $GLOBALS['replication_types'] = [];
 
         $serverStatus = [
             'Aborted_clients' => '0',
@@ -144,6 +143,9 @@ class StatusControllerTest extends AbstractTestCase
             $data,
             new ReplicationGui(new Replication(), $template)
         );
+
+        $GLOBALS['master_variables'] = [];
+        $GLOBALS['slave_variables'] = [];
 
         $controller->index();
         $html = $response->getHTMLResult();

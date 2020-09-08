@@ -13,7 +13,7 @@ final class ReplicationInfo
     {
         global $dbi, $url_params;
         global $server_master_replication, $server_slave_replication, $server_slave_multi_replication;
-        global $replication_types, $replication_info;
+        global $replication_info;
         global $master_variables, $slave_variables, $slave_variables_alerts, $slave_variables_oks;
 
         /**
@@ -46,14 +46,6 @@ final class ReplicationInfo
          * get slave replication from server
          */
         $server_slave_replication = $dbi->fetchResult('SHOW SLAVE STATUS');
-
-        /**
-         * replication types
-         */
-        $replication_types = [
-            'master',
-            'slave',
-        ];
 
         /**
          * define variables for master status

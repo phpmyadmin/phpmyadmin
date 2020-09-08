@@ -244,10 +244,10 @@ class StatusController extends AbstractController
 
     private function getReplicationInfo(): string
     {
-        global $replication_info, $replication_types;
+        global $replication_info;
 
         $output = '';
-        foreach ($replication_types as $type) {
+        foreach (['master', 'slave'] as $type) {
             if (! isset($replication_info[$type]['status'])
                 || ! $replication_info[$type]['status']
             ) {

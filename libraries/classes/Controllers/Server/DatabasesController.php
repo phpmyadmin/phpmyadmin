@@ -89,7 +89,7 @@ class DatabasesController extends AbstractController
     public function index(): void
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
-        global $replication_info, $replication_types, $db_to_create, $text_dir, $PMA_Theme;
+        global $replication_info, $db_to_create, $text_dir, $PMA_Theme;
 
         $params = [
             'statistics' => $_REQUEST['statistics'] ?? null,
@@ -130,7 +130,7 @@ class DatabasesController extends AbstractController
             'sort_order' => $this->sortOrder,
         ];
 
-        $databases = $this->getDatabases($replication_types ?? []);
+        $databases = $this->getDatabases();
 
         $charsetsList = [];
         if ($cfg['ShowCreateDb'] && $is_create_db_priv) {
@@ -374,11 +374,9 @@ class DatabasesController extends AbstractController
     /**
      * Returns database list
      *
-     * @param array $replicationTypes replication types
-     *
      * @return array
      */
-    private function getDatabases(array $replicationTypes): array
+    private function getDatabases(): array
     {
         global $cfg, $replication_info;
 
@@ -393,7 +391,7 @@ class DatabasesController extends AbstractController
                     'status' => $replication_info['slave']['status'],
                 ],
             ];
-            foreach ($replicationTypes as $type) {
+            foreach (['master', 'slave'] as $type) {
                 if (! $replication_info[$type]['status']) {
                     continue;
                 }

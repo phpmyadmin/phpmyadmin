@@ -36,7 +36,6 @@ class MonitorControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['replication_info']['master']['status'] = true;
         $GLOBALS['replication_info']['slave']['status'] = true;
-        $GLOBALS['replication_types'] = [];
 
         $this->data = new Data();
     }
