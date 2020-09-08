@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use function count;
 use function explode;
+use function sprintf;
 
 final class ReplicationInfo
 {
@@ -56,45 +57,64 @@ final class ReplicationInfo
 
     public static function load(): void
     {
-        global $dbi, $url_params;
+        global $url_params;
         global $server_master_replication, $server_slave_replication, $server_slave_multi_replication;
         global $replication_info;
 
-        /**
-         * get master replication from server
-         */
-        $server_master_replication = $dbi->fetchResult('SHOW MASTER STATUS');
+        $server_master_replication = self::getPrimaryStatus();
 
-        /**
-         * set selected master server
-         */
         if (! empty($_POST['master_connection'])) {
-            /**
-             * check for multi-master replication functionality
-             */
-            $server_slave_multi_replication = $dbi->fetchResult(
-                'SHOW ALL SLAVES STATUS'
-            );
+            $server_slave_multi_replication = self::getMultiPrimaryStatus();
+
             if ($server_slave_multi_replication) {
-                $dbi->query(
-                    "SET @@default_master_connection = '"
-                    . $dbi->escapeString(
-                        $_POST['master_connection']
-                    ) . "'"
-                );
+                self::setDefaultPrimaryConnection($_POST['master_connection']);
                 $url_params['master_connection'] = $_POST['master_connection'];
             }
         }
 
-        /**
-         * get slave replication from server
-         */
-        $server_slave_replication = $dbi->fetchResult('SHOW SLAVE STATUS');
+        $server_slave_replication = self::getReplicaStatus();
 
         $replication_info = [
             'master' => self::getPrimaryInfo($server_master_replication),
             'slave' => self::getReplicaInfo($server_slave_replication),
         ];
+    }
+
+    /**
+     * @return array
+     */
+    private static function getPrimaryStatus()
+    {
+        global $dbi;
+
+        return $dbi->fetchResult('SHOW MASTER STATUS');
+    }
+
+    /**
+     * @return array
+     */
+    private static function getReplicaStatus()
+    {
+        global $dbi;
+
+        return $dbi->fetchResult('SHOW SLAVE STATUS');
+    }
+
+    /**
+     * @return array
+     */
+    private static function getMultiPrimaryStatus()
+    {
+        global $dbi;
+
+        return $dbi->fetchResult('SHOW ALL SLAVES STATUS');
+    }
+
+    private static function setDefaultPrimaryConnection(string $connection): void
+    {
+        global $dbi;
+
+        $dbi->query(sprintf('SET @@default_master_connection = \'%s\'', $dbi->escapeString($connection)));
     }
 
     private static function fill(array $status, string $key): array
