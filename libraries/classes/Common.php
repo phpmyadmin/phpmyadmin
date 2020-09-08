@@ -16,7 +16,7 @@ final class Common
 {
     public static function server(): void
     {
-        global $db, $table, $url_query, $viewing_mode, $err_url, $is_grantuser, $is_createuser, $dbi;
+        global $db, $table, $viewing_mode, $err_url, $is_grantuser, $is_createuser, $dbi;
 
         /**
          * Handles some variables that may have been sent by the calling script
@@ -28,11 +28,6 @@ final class Common
             $db = '';
             $table = '';
         }
-
-        /**
-         * Set parameters for links
-         */
-        $url_query = Url::getCommon();
 
         /**
          * Defines the urls to return to in case of error in a sql statement
@@ -53,7 +48,7 @@ final class Common
     public static function database(): void
     {
         global $cfg, $db, $is_show_stats, $db_is_system_schema, $err_url;
-        global $message, $dbi, $url_query, $errno, $is_db, $err_url_0;
+        global $message, $dbi, $errno, $is_db, $err_url_0;
 
         Util::checkParameters(['db']);
 
@@ -180,27 +175,15 @@ final class Common
                 );
             }
         }
-
-        /**
-         * Set parameters for links
-         */
-        $url_query = Url::getCommon(['db' => $db]);
     }
 
     public static function table(): void
     {
-        global $db, $table, $db_is_system_schema, $url_query, $url_params, $cfg, $dbi, $err_url, $err_url_0, $route;
+        global $db, $table, $db_is_system_schema, $url_params, $cfg, $err_url, $err_url_0, $route;
 
         Util::checkParameters(['db', 'table']);
 
         $db_is_system_schema = Utilities::isSystemSchema($db);
-
-        /**
-         * Set parameters for links
-         *
-         * @deprecated
-         */
-        $url_query = Url::getCommon(['db' => $db, 'table' => $table]);
 
         /**
          * Set parameters for links

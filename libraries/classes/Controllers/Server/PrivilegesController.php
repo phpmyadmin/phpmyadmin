@@ -18,7 +18,6 @@ use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function header;
 use function implode;
@@ -50,7 +49,7 @@ class PrivilegesController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $err_url, $message, $text_dir, $url_query, $post_patterns, $PMA_Theme;
+        global $db, $table, $err_url, $message, $text_dir, $post_patterns, $PMA_Theme;
         global $username, $hostname, $dbname, $tablename, $routinename, $db_and_table, $dbname_is_wildcard;
         global $queries, $password, $ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error;
         global $itemType, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema;
@@ -411,10 +410,6 @@ class PrivilegesController extends AbstractController
          */
         if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] === 'db') {
             $db = $_REQUEST['db'] = $_GET['checkprivsdb'];
-
-            $url_query .= Url::getCommon([
-                'goto' => Url::getFromRoute('/database/operations'),
-            ], '&');
 
             // Gets the database structure
             $sub_part = '_structure';

@@ -42,7 +42,7 @@ class TrackingController extends AbstractController
 
     public function index(): void
     {
-        global $db, $text_dir, $url_query, $url_params, $tables, $num_tables, $PMA_Theme;
+        global $db, $text_dir, $url_params, $tables, $num_tables, $PMA_Theme;
         global $total_num_tables, $sub_part, $is_show_stats, $pos, $data, $cfg;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname;
 
@@ -55,7 +55,6 @@ class TrackingController extends AbstractController
 
         $url_params['goto'] = Url::getFromRoute('/table/tracking');
         $url_params['back'] = Url::getFromRoute('/database/tracking');
-        $url_query .= Url::getCommon($url_params, '&');
 
         // Get the database structure
         $sub_part = '_structure';

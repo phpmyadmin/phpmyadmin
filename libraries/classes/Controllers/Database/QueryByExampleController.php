@@ -39,7 +39,7 @@ class QueryByExampleController extends AbstractController
 
     public function index(): void
     {
-        global $db, $url_query, $savedSearchList, $savedSearch, $currentSearchId, $PMA_Theme;
+        global $db, $savedSearchList, $savedSearch, $currentSearchId, $PMA_Theme;
         global $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
         global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_params;
 
@@ -139,7 +139,6 @@ class QueryByExampleController extends AbstractController
         Common::database();
 
         $url_params['goto'] = Url::getFromRoute('/database/qbe');
-        $url_query .= Url::getCommon($url_params, '&');
 
         [
             $tables,

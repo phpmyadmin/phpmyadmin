@@ -123,7 +123,7 @@ AJAX.registerOnload('server/databases.js', function () {
                 Navigation.reload();
 
                 // make ajax request to load db structure page - taken from ajax.js
-                var dbStructUrl = data.url_query;
+                var dbStructUrl = data.url;
                 dbStructUrl = dbStructUrl.replace(/amp;/ig, '');
                 var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
                 if (! (history && history.pushState)) {

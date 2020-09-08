@@ -198,9 +198,6 @@ class Results
         /** string */
         'printview' => null,
 
-        /** string URL query */
-        'url_query' => null,
-
         /** array column names to highlight */
         'highlight_columns' => null,
 
@@ -385,7 +382,6 @@ class Results
      * @param bool     $is_show        statement contains SHOW
      * @param array    $showtable      table definitions
      * @param string   $printview      print view was requested
-     * @param string   $url_query      URL query
      * @param bool     $editable       whether the results set is editable
      * @param bool     $is_browse_dist whether browsing distinct values
      *
@@ -408,7 +404,6 @@ class Results
         $is_show,
         $showtable,
         $printview,
-        $url_query,
         $editable,
         $is_browse_dist
     ) {
@@ -428,7 +423,6 @@ class Results
         $this->properties['is_show'] = $is_show;
         $this->properties['showtable'] = $showtable;
         $this->properties['printview'] = $printview;
-        $this->properties['url_query'] = $url_query;
         $this->properties['editable'] = $editable;
         $this->properties['is_browse_distinct'] = $is_browse_dist;
     }
@@ -4196,7 +4190,6 @@ class Results
             'table' => $this->properties['table'],
             'unique_id' => $this->properties['unique_id'],
             'sql_query' => $this->properties['sql_query'],
-            'url_query' => $this->properties['url_query'],
             'goto' => $this->properties['goto'],
             'unlim_num_rows' => $this->properties['unlim_num_rows'],
             'displaywork' => $GLOBALS['cfgRelation']['displaywork'],
@@ -4623,7 +4616,6 @@ class Results
         $geometry_found = false;
 
         // Export link
-        // (the url_query has extra parameters that won't be used to export)
         // (the single_table parameter is used in \PhpMyAdmin\Export->getDisplay()
         //  to hide the SQL and the structure export dialogs)
         // If the parser found a PROCEDURE clause

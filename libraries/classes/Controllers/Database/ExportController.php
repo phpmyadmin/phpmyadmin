@@ -40,7 +40,7 @@ final class ExportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $url_query, $sub_part, $url_params, $sql_query;
+        global $db, $table, $sub_part, $url_params, $sql_query;
         global $tables, $num_tables, $total_num_tables, $is_show_stats, $db_is_system_schema, $tooltip_truename;
         global $tooltip_aliasname, $pos, $table_select, $unlim_num_rows;
 
@@ -57,7 +57,6 @@ final class ExportController extends AbstractController
         Common::database();
 
         $url_params['goto'] = Url::getFromRoute('/database/export');
-        $url_query .= Url::getCommon($url_params, '&');
 
         [
             $tables,

@@ -2352,21 +2352,19 @@
     <PossiblyInvalidOperand occurrences="1">
       <code>$insert_id</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument occurrences="24">
+    <PossiblyNullArgument occurrences="22">
       <code>$table</code>
       <code>$db</code>
       <code>$db</code>
       <code>$table</code>
       <code>$_POST['purge'] ?? null</code>
       <code>$message_to_show ?? null</code>
-      <code>$url_query</code>
       <code>$row[0]</code>
       <code>$printview</code>
       <code>$printview</code>
       <code>$result</code>
       <code>$sql_data ?? null</code>
       <code>$disp_message ?? null</code>
-      <code>$url_query</code>
       <code>$showtable</code>
       <code>$db</code>
       <code>$table</code>

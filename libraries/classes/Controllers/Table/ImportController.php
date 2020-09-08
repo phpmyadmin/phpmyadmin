@@ -22,7 +22,7 @@ final class ImportController extends AbstractController
 {
     public function index(): void
     {
-        global $db, $max_upload_size, $table, $url_query, $url_params, $SESSION_KEY, $cfg, $PMA_Theme;
+        global $db, $max_upload_size, $table, $url_params, $SESSION_KEY, $cfg, $PMA_Theme;
 
         $pageSettings = new PageSettings('Import');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
@@ -34,7 +34,6 @@ final class ImportController extends AbstractController
 
         $url_params['goto'] = Url::getFromRoute('/table/import');
         $url_params['back'] = Url::getFromRoute('/table/import');
-        $url_query .= Url::getCommon($url_params, '&');
 
         [$SESSION_KEY, $uploadId] = Ajax::uploadProgressSetup();
 

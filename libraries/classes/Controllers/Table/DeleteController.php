@@ -19,8 +19,7 @@ class DeleteController extends AbstractController
 {
     public function rows(): void
     {
-        global $db, $goto, $sql_query, $table, $disp_message, $disp_query, $PMA_Theme;
-        global $active_page, $url_query;
+        global $db, $goto, $sql_query, $table, $disp_message, $disp_query, $PMA_Theme, $active_page;
 
         $mult_btn = $_POST['mult_btn'] ?? '';
         $original_sql_query = $_POST['original_sql_query'] ?? '';
@@ -67,7 +66,6 @@ class DeleteController extends AbstractController
 
         $_url_params = $GLOBALS['url_params'];
         $_url_params['goto'] = Url::getFromRoute('/table/sql');
-        $url_query = Url::getCommon($_url_params);
 
         if (isset($original_sql_query)) {
             $sql_query = $original_sql_query;

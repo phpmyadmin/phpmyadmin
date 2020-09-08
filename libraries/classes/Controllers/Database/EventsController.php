@@ -9,7 +9,6 @@ use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function strlen;
 
@@ -34,7 +33,7 @@ final class EventsController extends AbstractController
     public function index(): void
     {
         global $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $text_dir, $PMA_Theme;
-        global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_query;
+        global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
 
         if (! $this->response->isAjax()) {
             Common::database();
@@ -52,7 +51,6 @@ final class EventsController extends AbstractController
             ] = Util::getDbInfo($db, $sub_part ?? '');
         } elseif (strlen($db) > 0) {
             $this->dbi->selectDb($db);
-            $url_query = $url_query ?? Url::getCommon(['db' => $db]);
         }
 
         /**

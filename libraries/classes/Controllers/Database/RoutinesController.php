@@ -13,7 +13,6 @@ use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function in_array;
 use function strlen;
@@ -42,7 +41,7 @@ class RoutinesController extends AbstractController
     public function index(): void
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats;
-        global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_query;
+        global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
         global $errors, $titles;
 
         $params = ['type' => $_REQUEST['type'] ?? null];
@@ -71,23 +70,8 @@ class RoutinesController extends AbstractController
                     $pos,
                 ] = Util::getDbInfo($db, $sub_part ?? '');
             }
-        } else {
-            /**
-             * Since we did not include some libraries, we need
-             * to manually select the required database and
-             * create the missing $url_query variable
-             */
-            if (strlen($db) > 0) {
-                $this->dbi->selectDb($db);
-                if (! isset($url_query)) {
-                    $url_query = Url::getCommon(
-                        [
-                            'db' => $db,
-                            'table' => $table,
-                        ]
-                    );
-                }
-            }
+        } elseif (strlen($db) > 0) {
+            $this->dbi->selectDb($db);
         }
 
         /**

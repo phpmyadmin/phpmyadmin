@@ -48,7 +48,7 @@ class ExportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $url_query, $url_params, $table, $replaces;
+        global $db, $url_params, $table, $replaces;
         global $sql_query, $where_clause, $num_tables, $unlim_num_rows;
 
         $pageSettings = new PageSettings('Export');
@@ -66,7 +66,6 @@ class ExportController extends AbstractController
             'goto' => Url::getFromRoute('/table/export'),
             'back' => Url::getFromRoute('/table/export'),
         ];
-        $url_query .= Url::getCommon($url_params, '&');
 
         $message = '';
 

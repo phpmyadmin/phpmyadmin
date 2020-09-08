@@ -248,7 +248,7 @@ class DatabasesController extends AbstractController
             $json = [
                 'message' => $message,
                 'sql_query' => Generator::getMessage('', $sqlQuery, 'success'),
-                'url_query' => $scriptName . Url::getCommon(
+                'url' => $scriptName . Url::getCommon(
                     ['db' => $params['new_db']],
                     strpos($scriptName, '?') === false ? '?' : '&'
                 ),

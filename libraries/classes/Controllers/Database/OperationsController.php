@@ -70,7 +70,7 @@ class OperationsController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $db, $server, $url_query, $sql_query, $move, $message, $tables_full;
+        global $cfg, $db, $server, $sql_query, $move, $message, $tables_full;
         global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $url_params, $tables;
         global $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema, $tooltip_truename;
         global $db_collation, $tooltip_aliasname, $pos, $is_information_schema, $single_table, $num_tables;
@@ -267,7 +267,6 @@ class OperationsController extends AbstractController
         Common::database();
 
         $url_params['goto'] = Url::getFromRoute('/database/operations');
-        $url_query .= Url::getCommon($url_params, '&');
 
         // Gets the database structure
         $sub_part = '_structure';
@@ -324,7 +323,7 @@ class OperationsController extends AbstractController
             );
             $message->addParamHtml(
                 '<a href="' . Url::getFromRoute('/check-relations')
-                . '" data-post="' . $url_query . '">'
+                . '" data-post="' . Url::getCommon(['db' => $db]) . '">'
             );
             $message->addParamHtml('</a>');
             /* Show error if user has configured something, notice elsewhere */

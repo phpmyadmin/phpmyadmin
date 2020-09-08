@@ -14,7 +14,7 @@ class SearchController extends AbstractController
 {
     public function index(): void
     {
-        global $cfg, $db, $err_url, $url_query, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;
+        global $cfg, $db, $err_url, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;
         global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
 
         $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
@@ -31,7 +31,6 @@ class SearchController extends AbstractController
             );
         }
         $url_params['goto'] = Url::getFromRoute('/database/search');
-        $url_query .= Url::getCommon($url_params, '&');
 
         // Create a database search instance
         $databaseSearch = new Search($this->dbi, $db, $this->template);

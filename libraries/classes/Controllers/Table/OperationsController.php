@@ -66,7 +66,7 @@ class OperationsController extends AbstractController
 
     public function index(): void
     {
-        global $url_query, $url_params, $reread_info, $tbl_is_view, $tbl_storage_engine;
+        global $url_params, $reread_info, $tbl_is_view, $tbl_storage_engine;
         global $show_comment, $tbl_collation, $table_info_num_rows, $row_format, $auto_increment, $create_options;
         global $table_alters, $warning_messages, $lowerCaseNames, $db, $table, $reload, $result;
         global $new_tbl_storage_engine, $sql_query, $message_to_show, $columns, $hideOrderTable, $indexes;
@@ -90,7 +90,6 @@ class OperationsController extends AbstractController
          */
         Common::table();
         $url_params['goto'] = $url_params['back'] = Url::getFromRoute('/table/operations');
-        $url_query .= Url::getCommon($url_params, '&');
 
         /**
          * Gets relation settings

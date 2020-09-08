@@ -37,7 +37,7 @@ final class SqlController extends AbstractController
 
     public function index(): void
     {
-        global $url_query, $err_url, $goto, $back;
+        global $err_url, $goto, $back;
 
         $this->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 
@@ -55,10 +55,6 @@ final class SqlController extends AbstractController
          */
         $goto = Url::getFromRoute('/table/sql');
         $back = Url::getFromRoute('/table/sql');
-        $url_query .= Url::getCommon([
-            'goto' => $goto,
-            'back' => $back,
-        ], '&');
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
             $_GET['sql_query'] ?? true,

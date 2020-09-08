@@ -28,7 +28,7 @@ class ChartController extends AbstractController
      */
     public function index(): void
     {
-        global $db, $table, $cfg, $sql_query, $url_query;
+        global $db, $table, $cfg, $sql_query;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
         ) {
@@ -131,7 +131,6 @@ class ChartController extends AbstractController
          * Displays the page
          */
         $this->render('table/chart/tbl_chart', [
-            'url_query' => $url_query,
             'url_params' => $url_params,
             'keys' => $keys,
             'fields_meta' => $fields_meta,

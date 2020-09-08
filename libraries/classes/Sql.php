@@ -1096,8 +1096,6 @@ class Sql
         $sql_query,
         ?string $complete_query
     ) {
-        global $url_query;
-
         if ($this->isDeleteTransformationInfo($analyzed_sql_results)) {
             $this->deleteTransformationInfo($db, $table, $analyzed_sql_results);
         }
@@ -1142,8 +1140,6 @@ class Sql
             return $queryMessage;
         }
 
-        $url_query = $url_query ?? null;
-
         $displayParts = [
             'edit_lnk' => null,
             'del_lnk' => null,
@@ -1157,7 +1153,6 @@ class Sql
         $sqlQueryResultsTable = $this->getHtmlForSqlQueryResultsTable(
             $displayResultsObject,
             $themeImagePath,
-            $url_query,
             $displayParts,
             false,
             0,
@@ -1175,10 +1170,7 @@ class Sql
             $scripts->addFile('sql.js');
 
             $profiling = $this->getDetailedProfilingStats($profiling_results);
-            $profilingChart = $this->template->render('sql/profiling_chart', [
-                'url_query' => $url_query ?? Url::getCommon(['db' => $db]),
-                'profiling' => $profiling,
-            ]);
+            $profilingChart = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
         }
 
         $bookmark = '';
@@ -1252,7 +1244,6 @@ class Sql
      *
      * @param DisplayResults   $displayResultsObject instance of DisplayResult
      * @param string           $themeImagePath       theme image uri
-     * @param string           $url_query            url query
      * @param array            $displayParts         the parts to display
      * @param bool             $editable             whether the result table is
      *                                               editable or not
@@ -1268,7 +1259,6 @@ class Sql
     private function getHtmlForSqlQueryResultsTable(
         $displayResultsObject,
         $themeImagePath,
-        $url_query,
         array $displayParts,
         $editable,
         $unlim_num_rows,
@@ -1314,7 +1304,6 @@ class Sql
                         $analyzed_sql_results['is_show'],
                         $showtable,
                         $printview,
-                        $url_query,
                         $editable,
                         $browse_dist
                     );
@@ -1363,7 +1352,6 @@ class Sql
                 $analyzed_sql_results['is_show'],
                 $showtable,
                 $printview,
-                $url_query,
                 $editable,
                 $browse_dist
             );
@@ -1489,7 +1477,8 @@ class Sql
         $sql_query,
         ?string $complete_query
     ) {
-        global $showtable, $url_query;
+        global $showtable;
+
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
         if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true) {
@@ -1506,7 +1495,6 @@ class Sql
 
         // Should be initialized these parameters before parsing
         $showtable = $showtable ?? null;
-        $url_query = $url_query ?? null;
 
         $response = Response::getInstance();
         $header   = $response->getHeader();
@@ -1604,10 +1592,7 @@ class Sql
         $profilingChartHtml = '';
         if (! empty($profiling_results)) {
             $profiling = $this->getDetailedProfilingStats($profiling_results);
-            $profilingChartHtml = $this->template->render('sql/profiling_chart', [
-                'url_query' => $url_query ?? Url::getCommon(['db' => $db]),
-                'profiling' => $profiling,
-            ]);
+            $profilingChartHtml = $this->template->render('sql/profiling_chart', ['profiling' => $profiling]);
         }
 
         $missingUniqueColumnMessage = $this->getMessageIfMissingColumnIndex(
@@ -1622,7 +1607,6 @@ class Sql
         $tableHtml = $this->getHtmlForSqlQueryResultsTable(
             $displayResultsObject,
             $themeImagePath,
-            $url_query,
             $displayParts,
             $editable,
             $unlim_num_rows,
