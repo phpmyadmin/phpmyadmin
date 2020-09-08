@@ -120,107 +120,58 @@ final class ReplicationInfo
             'Slave_SQL_Running' => 'Yes',
         ];
 
-        // check which replication is available and
-        // set $server_{master/slave}_status and assign values
-
-        // replication info is more easily passed to functions
-        $replication_info = [];
-
-        foreach ($replication_types as $type) {
-            if (count(${'server_' . $type . '_replication'}) > 0) {
-                $replication_info[$type]['status'] = true;
-            } else {
-                $replication_info[$type]['status'] = false;
-            }
-            if (! $replication_info[$type]['status']) {
-                continue;
-            }
-
-            if ($type === 'master') {
-                self::fill(
-                    $type,
-                    'Do_DB',
-                    $server_master_replication[0],
-                    'Binlog_Do_DB'
-                );
-
-                self::fill(
-                    $type,
-                    'Ignore_DB',
-                    $server_master_replication[0],
-                    'Binlog_Ignore_DB'
-                );
-            } elseif ($type === 'slave') {
-                self::fill(
-                    $type,
-                    'Do_DB',
-                    $server_slave_replication[0],
-                    'Replicate_Do_DB'
-                );
-
-                self::fill(
-                    $type,
-                    'Ignore_DB',
-                    $server_slave_replication[0],
-                    'Replicate_Ignore_DB'
-                );
-
-                self::fill(
-                    $type,
-                    'Do_Table',
-                    $server_slave_replication[0],
-                    'Replicate_Do_Table'
-                );
-
-                self::fill(
-                    $type,
-                    'Ignore_Table',
-                    $server_slave_replication[0],
-                    'Replicate_Ignore_Table'
-                );
-
-                self::fill(
-                    $type,
-                    'Wild_Do_Table',
-                    $server_slave_replication[0],
-                    'Replicate_Wild_Do_Table'
-                );
-
-                self::fill(
-                    $type,
-                    'Wild_Ignore_Table',
-                    $server_slave_replication[0],
-                    'Replicate_Wild_Ignore_Table'
-                );
-            }
-        }
+        $replication_info = [
+            'master' => self::getPrimaryInfo($server_master_replication),
+            'slave' => self::getReplicaInfo($server_slave_replication),
+        ];
     }
 
-    /**
-     * Fill global replication_info variable.
-     *
-     * @param string $type               Type: master, slave
-     * @param string $replicationInfoKey Key in replication_info variable
-     * @param array  $mysqlInfo          MySQL data about replication
-     * @param string $mysqlKey           MySQL key
-     *
-     * @return array
-     */
-    private static function fill(
-        $type,
-        $replicationInfoKey,
-        array $mysqlInfo,
-        $mysqlKey
-    ) {
-        global $replication_info;
+    private static function fill(array $status, string $key): array
+    {
+        if (empty($status[0][$key])) {
+            return [];
+        }
 
-        $replication_info[$type][$replicationInfoKey] = empty($mysqlInfo[$mysqlKey])
-            ? []
-            : explode(
-                ',',
-                $mysqlInfo[$mysqlKey]
-            );
+        return explode(',', $status[0][$key]);
+    }
 
-        return $replication_info[$type][$replicationInfoKey];
+    private static function getPrimaryInfo(array $status): array
+    {
+        $primaryInfo = ['status' => false];
+
+        if (count($status) > 0) {
+            $primaryInfo['status'] = true;
+        }
+
+        if (! $primaryInfo['status']) {
+            return $primaryInfo;
+        }
+
+        $primaryInfo['Do_DB'] = self::fill($status, 'Binlog_Do_DB');
+        $primaryInfo['Ignore_DB'] = self::fill($status, 'Binlog_Ignore_DB');
+
+        return $primaryInfo;
+    }
+
+    private static function getReplicaInfo(array $status): array
+    {
+        $replicaInfo = ['status' => false];
+
+        if (count($status) > 0) {
+            $replicaInfo['status'] = true;
+        }
+
+        if (! $replicaInfo['status']) {
+            return $replicaInfo;
+        }
+
+        $replicaInfo['Do_DB'] = self::fill($status, 'Replicate_Do_DB');
+        $replicaInfo['Ignore_DB'] = self::fill($status, 'Replicate_Ignore_DB');
+        $replicaInfo['Do_Table'] = self::fill($status, 'Replicate_Do_Table');
+        $replicaInfo['Ignore_Table'] = self::fill($status, 'Replicate_Ignore_Table');
+        $replicaInfo['Wild_Do_Table'] = self::fill($status, 'Replicate_Wild_Do_Table');
+        $replicaInfo['Wild_Ignore_Table'] = self::fill($status, 'Replicate_Wild_Ignore_Table');
+
+        return $replicaInfo;
     }
 }
