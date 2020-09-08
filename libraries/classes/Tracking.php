@@ -92,29 +92,6 @@ class Tracking
     }
 
     /**
-     * Function to get html for activate/deactivate tracking
-     *
-     * @param string $action      activate|deactivate
-     * @param string $urlQuery    url query
-     * @param int    $lastVersion last version
-     *
-     * @return string HTML
-     */
-    public function getHtmlForActivateDeactivateTracking(
-        $action,
-        $urlQuery,
-        $lastVersion
-    ) {
-        return $this->template->render('table/tracking/activate_deactivate', [
-            'action' => $action,
-            'url_query' => $urlQuery,
-            'last_version' => $lastVersion,
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-        ]);
-    }
-
-    /**
      * Function to get the list versions of the table
      */
     public function getListOfVersionsOfTable(): array
