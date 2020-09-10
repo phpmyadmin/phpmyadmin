@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-08-18 20:33+0000\n"
+"PO-Revision-Date: 2020-09-10 08:41+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -16637,7 +16637,7 @@ msgstr "Yavaş sorgu oranı"
 #: libraries/advisory_rules_generic.txt:73
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr "Sunucu çalışma zamanına nazaran yavaş sorguların yüzdesi yüksek."
+msgstr "Sunucu çalışma süresine kıyasla yüksek oranda yavaş sorgular var."
 
 #: libraries/advisory_rules_generic.txt:75
 #, php-format
