@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-31 19:04-0300\n"
-"PO-Revision-Date: 2020-08-30 19:38+0000\n"
+"PO-Revision-Date: 2020-09-11 14:36+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.2.1-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -8982,7 +8982,7 @@ msgstr "MySQL não retornou nenhum registo."
 #: libraries/classes/Controllers/Table/MaintenanceController.php:163
 #: libraries/classes/Controllers/Table/MaintenanceController.php:198
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Operações de manutenção em várias tabelas estão desativadas."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:108
 #: libraries/classes/Controllers/Table/OperationsController.php:295
@@ -18158,10 +18158,8 @@ msgid "Continue insertion with %s rows"
 msgstr "Continuar a inserção com %s linhas"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "Verificar"
+msgstr "Soma de verificação"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
