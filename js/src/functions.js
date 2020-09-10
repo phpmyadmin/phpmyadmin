@@ -1296,8 +1296,8 @@ Functions.insertQuery = function (queryType) {
                 editDis += ',';
             }
             columnsList += myListBox.options[i].value;
-            valDis += '[value-' + NbSelect + ']';
-            editDis += myListBox.options[i].value + '=[value-' + NbSelect + ']';
+            valDis += '\'[value-' + NbSelect + ']\'';
+            editDis += myListBox.options[i].value + '=\'[value-' + NbSelect + ']\'';
         }
         if (queryType === 'selectall') {
             query = 'SELECT * FROM `' + table + '` WHERE 1';
