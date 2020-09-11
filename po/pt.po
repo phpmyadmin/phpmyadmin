@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-31 19:04-0300\n"
-"PO-Revision-Date: 2020-09-11 14:36+0000\n"
+"PO-Revision-Date: 2020-09-12 15:36+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -600,17 +600,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size é 0"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "%% máxima do buffer de chaves MyISAM usada"
+msgstr "% máxima do buffer de chaves MyISAM usada"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "%% do buffer de chaves MyISAM (cache de índices) usada é baixa."
+msgstr "% do buffer de chaves MyISAM (cache de índices) usada é baixa."
 
 #: libraries/advisory_rules_generic.php:380
 #: libraries/advisory_rules_generic.php:397
@@ -647,8 +645,7 @@ msgid "Percentage of index reads from memory"
 msgstr "Porcentagem de leituras de índice da memória"
 
 #: libraries/advisory_rules_generic.php:411
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
 msgstr "A percentagem de índices que usam o buffer de chaves MyISAM é baixa."
 
@@ -689,17 +686,12 @@ msgid "Percentage of used open files limit"
 msgstr "Porcentagem do limite de ficheiros abertos"
 
 #: libraries/advisory_rules_generic.php:436
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
-"A quantidade de ficheiros abertos está aproximando a quantidade máxima de "
-"ficheiros abertos. Você pode acabar tendo um erro \"Demais ficheiros abertos"
-"\"."
+"A quantidade de ficheiros abertos está a aproximar a quantidade máxima de "
+"ficheiros abertos. Pode acabar a ter um erro \"Demais ficheiros abertos\"."
 
 #: libraries/advisory_rules_generic.php:440
 #: libraries/advisory_rules_generic.php:453
@@ -733,10 +725,9 @@ msgstr ""
 "Taxa de ficheiros abertos: %s. Este valor deveria ser menor do que 5 por hora"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "Blocos de tabela imediatos %%"
+msgstr "Blocos de tabela imediatos %"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -786,10 +777,9 @@ msgid "The thread cache is set to 0"
 msgstr "O cache de threads está definido como 0"
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "Taxa de acessos a threads %%"
+msgstr "Taxa de acessos a threads %"
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -990,18 +980,7 @@ msgstr ""
 "buffer reservado do InnoDB."
 
 #: libraries/advisory_rules_generic.php:622
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -1013,17 +992,17 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Você deve colocar {innodb_log_file_size} a 25%% de "
-"{innodb_buffer_pool_size}, especialmente num sistema com muitos pedidos de "
-"escrita para tabelas InnoDB. No entanto, quanto maior for este valor, maior "
-"o tempo de recuperação quando a base de dados falha (Crash), por isso não "
-"deve colocar esse valor muito acima de 256 MiB. No entanto, por favor note "
-"que não pode simplesmente alterar o valor desta variável. Necessita de "
-"desligar o servidor, remover os ficheiros do log do InnoDB, definir o novo "
-"valor no my.cnf, iniciar o servidor, e de seguida verificar os logs de erros "
-"para verificar se não ocorreu nenhum problema. Veja também <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">este tópico de um blog (Em Inglês)</a>"
+"Deve configurar {innodb_log_file_size} a 25% de {innodb_buffer_pool_size}, "
+"especialmente num sistema com muitos pedidos de escrita para tabelas InnoDB. "
+"No entanto, quanto maior este valor for, maior o tempo de recuperação quando "
+"a base de dados falha (Crash), por isso não deve configurar esse valor muito "
+"acima de 256 MiB. No entanto, por favor note que não pode simplesmente "
+"alterar o valor desta variável. Necessita de desligar o servidor, remover os "
+"ficheiros do log do InnoDB, definir o novo valor no my.cnf, iniciar o "
+"servidor, e de seguida verificar os logs de erros para verificar se não "
+"ocorreu nenhum problema. Veja também <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">este tópico de um blog (Em Inglês)</a>"
 
 #: libraries/advisory_rules_generic.php:633
 #, php-format
@@ -1043,17 +1022,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "O tamanho do ficheiro de registo InnoDB é inadequadamente grande."
 
 #: libraries/advisory_rules_generic.php:646
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1065,16 +1034,15 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Habitualmente é suficiente definir {innodb_log_file_size} para 25%% do "
-"tamanho de {innodb_buffer_pool_size}. Um {innodb_log_file_size} muito grande "
-"diminui consideravelmente o tempo de recuperação após uma falha da banco de "
-"dados. Veja também <a href=\"https://www.percona.com/blog/2006/07/03/"
-"choosing-proper-innodb_log_file_size/\">este Artigo</a> . Você precisa "
-"desligar o servidor, remover os ficheiros de registo do InnoDB, definir o "
-"novo valor em my.cnf, iniciar o servidor e verificar nos registos de erros "
-"se tudo correu bem. Veja também <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">neste blog</a>"
+"Habitualmente é suficiente definir {innodb_log_file_size} a 25% do tamanho "
+"de {innodb_buffer_pool_size}. Um {innodb_log_file_size} muito grande diminui "
+"consideravelmente o tempo de recuperação após uma falha da banco de dados. "
+"Veja também <a href=\"https://www.percona.com/blog/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">este Artigo</a> . Deve desligar o "
+"servidor, remover os ficheiros de registo do InnoDB, definir o novo valor em "
+"my.cnf, iniciar o servidor e verificar nos registos de erros se tudo correu "
+"bem. Veja também <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">neste blog</a>"
 
 #: libraries/advisory_rules_generic.php:656
 #, php-format
@@ -1090,18 +1058,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "O seu Buffer Pool InnoDB é muito pequeno."
 
 #: libraries/advisory_rules_generic.php:667
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1114,18 +1071,18 @@ msgid ""
 "\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
 "\">this article</a>"
 msgstr ""
-"O buffer pool do InnoDB possui um profundo impacto na performance de tabelas "
+"O buffer pool do InnoDB possui um profundo impacto no desempenho de tabelas "
 "InnoDB. Atribua toda a sua memória restante a este buffer. Para servidores "
 "de bancos de dados que usam somente o InnoDB como mecanismo de armazenamento "
 "e não possuem nenhum outro serviço executando (por exemplo, servidor Web), "
-"você deve atribuir até 80%% da memória disponível. Se este não for o caso, "
-"você deve avaliar cuidadosamente o consumo de memória dos outros serviços e "
-"tabelas não-InnoDB e atribuir o valor desta variável de acordo com o "
-"consumo. Tenha cuidado, pois ao atribuir valores muito altos, seu sistema "
-"começará a fazer swap (aproveitamento de espaço em disco para função de "
-"memória), o que diminuirá o desempenho significativamente. Veja também <a "
-"href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">este artigo</a>"
+"deve atribuir até 80% da memória disponível. Se este não for o caso, deve "
+"avaliar cuidadosamente o consumo de memória dos outros serviços e tabelas "
+"não-InnoDB e atribuir o valor desta variável de acordo com o consumo. Tenha "
+"cuidado, pois ao atribuir valores muito altos, o seu sistema começará a "
+"fazer swap (aproveitamento de espaço em disco para função de memória), o que "
+"diminuirá o desempenho significativamente. Veja também <a href=\"https://www."
+"percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">este "
+"artigo</a>"
 
 #: libraries/advisory_rules_generic.php:677
 #, php-format
@@ -1189,10 +1146,9 @@ msgstr ""
 "'OFF'"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Eficiência do cache de consulta (%%)"
+msgstr "Eficiência do cache de consulta (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1214,10 +1170,9 @@ msgid "Query Cache usage"
 msgstr "Utilização da cache de comandos"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "Menos de 80%% do cache de query está sendo utilizado."
+msgstr "Menos de 80% do cache de query está a ser utilizado."
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -2423,7 +2378,7 @@ msgstr "Compressão"
 #: libraries/classes/Plugins/Export/ExportOdt.php:127
 #: libraries/classes/Plugins/Export/ExportTexytext.php:82
 msgid "Put columns names in the first row"
-msgstr "Colocar os nomes das colunas na primeira linha"
+msgstr "Pôr os nomes das colunas na primeira linha"
 
 #: libraries/classes/Config/Descriptions.php:224
 #: libraries/classes/Config/Descriptions.php:432
@@ -5661,7 +5616,7 @@ msgid ""
 "templates and will be slow because of this."
 msgstr ""
 "A $cfg['TempDir'] (%s 1) não se encontra acessível. phpMyAdmin não "
-"conseguirá colocar os modelos em cache e devido a isso irá ser mais lento."
+"conseguirá pôr os modelos no cache e devido a isso irá ser mais lento."
 
 #: libraries/classes/Controllers/ImportController.php:113
 msgid "Incomplete params"
@@ -7029,7 +6984,7 @@ msgstr "Cada ponto representa um registo (linha) de dados."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:464
 msgid "Hovering over a point will show its label."
-msgstr "Colocar o cursor por cima de um ponto irá mostrar a sua legenda."
+msgstr "Poisar o cursor por cima de um ponto irá mostrar a sua legenda."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:466
 msgid "To zoom in, select a section of the plot with the mouse."
@@ -14286,9 +14241,9 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Se o tipo de campo é \"enum\" ou \"set\", por favor entre com valores usando "
-"este formato: 'a','b','c'…<br>Se você precisar colocar uma barra contrária "
-"(\"\\\") ou aspas simples (\"'\") entre esses valores, coloque uma barra "
-"contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
+"este formato: 'a','b','c'…<br>Se precisar colocar uma barra contrária (\"\\\""
+") ou aspas simples (\"'\") entre esses valores, ponha uma barra contrária "
+"antes (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
