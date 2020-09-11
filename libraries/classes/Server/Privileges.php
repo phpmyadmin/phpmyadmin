@@ -272,42 +272,42 @@ class Privileges
             [
                 'Delete',
                 'DELETE',
-                $GLOBALS['strPrivDescDelete'],
+                __('Allows deleting data.'),
             ],
             [
                 'Create',
                 'CREATE',
-                $GLOBALS['strPrivDescCreateTbl'],
+                __('Allows creating new tables.'),
             ],
             [
                 'Drop',
                 'DROP',
-                $GLOBALS['strPrivDescDropTbl'],
+                __('Allows dropping tables.'),
             ],
             [
                 'Index',
                 'INDEX',
-                $GLOBALS['strPrivDescIndex'],
+                __('Allows creating and dropping indexes.'),
             ],
             [
                 'Alter',
                 'ALTER',
-                $GLOBALS['strPrivDescAlter'],
+                __('Allows altering the structure of existing tables.'),
             ],
             [
                 'Create View',
                 'CREATE_VIEW',
-                $GLOBALS['strPrivDescCreateView'],
+                __('Allows creating new views.'),
             ],
             [
                 'Show view',
                 'SHOW_VIEW',
-                $GLOBALS['strPrivDescShowView'],
+                __('Allows performing SHOW CREATE VIEW queries.'),
             ],
             [
                 'Trigger',
                 'TRIGGER',
-                $GLOBALS['strPrivDescTrigger'],
+                __('Allows creating and dropping triggers.'),
             ],
         ];
     }

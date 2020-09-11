@@ -54,16 +54,6 @@ class PrivilegesController extends AbstractController
         global $queries, $password, $ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error;
         global $itemType, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema;
         global $tooltip_truename, $tooltip_aliasname, $pos, $title, $export, $grants, $one_grant, $url_dbname;
-        global $strPrivDescAllPrivileges, $strPrivDescAlter, $strPrivDescAlterRoutine, $strPrivDescCreateDb,
-               $strPrivDescCreateRoutine, $strPrivDescCreateTbl, $strPrivDescCreateTmpTable,
-               $strPrivDescCreateView, $strPrivDescDelete, $strPrivDescDeleteHistoricalRows, $strPrivDescDropDb,
-               $strPrivDescDropTbl, $strPrivDescEvent, $strPrivDescExecute, $strPrivDescFile,
-               $strPrivDescGrantTbl, $strPrivDescIndex, $strPrivDescInsert, $strPrivDescLockTables,
-               $strPrivDescMaxConnections, $strPrivDescMaxQuestions, $strPrivDescMaxUpdates,
-               $strPrivDescProcess, $strPrivDescReferences, $strPrivDescReload, $strPrivDescReplClient,
-               $strPrivDescReplSlave, $strPrivDescSelect, $strPrivDescShowDb, $strPrivDescShowView,
-               $strPrivDescShutdown, $strPrivDescSuper, $strPrivDescTrigger, $strPrivDescUpdate,
-               $strPrivDescMaxUserConnections, $strPrivDescUsage, $strPrivDescCreateUser;
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
         $checkUserPrivileges->getPrivileges();
@@ -114,67 +104,6 @@ class PrivilegesController extends AbstractController
         Core::setPostAsGlobal($post_patterns);
 
         Common::server();
-
-        /**
-         * Messages are built using the message name
-         */
-        $strPrivDescAllPrivileges = __('Includes all privileges except GRANT.');
-        $strPrivDescAlter = __('Allows altering the structure of existing tables.');
-        $strPrivDescAlterRoutine = __('Allows altering and dropping stored routines.');
-        $strPrivDescCreateDb = __('Allows creating new databases and tables.');
-        $strPrivDescCreateRoutine = __('Allows creating stored routines.');
-        $strPrivDescCreateTbl = __('Allows creating new tables.');
-        $strPrivDescCreateTmpTable = __('Allows creating temporary tables.');
-        $strPrivDescCreateUser = __('Allows creating, dropping and renaming user accounts.');
-        $strPrivDescCreateView = __('Allows creating new views.');
-        $strPrivDescDelete = __('Allows deleting data.');
-        $strPrivDescDeleteHistoricalRows = __('Allows deleting historical rows.');
-        $strPrivDescDropDb = __('Allows dropping databases and tables.');
-        $strPrivDescDropTbl = __('Allows dropping tables.');
-        $strPrivDescEvent = __('Allows to set up events for the event scheduler.');
-        $strPrivDescExecute = __('Allows executing stored routines.');
-        $strPrivDescFile = __('Allows importing data from and exporting data into files.');
-        $strPrivDescGrantTbl = __(
-            'Allows user to give to other users or remove from other users the privileges '
-            . 'that user possess yourself.'
-        );
-        $strPrivDescIndex = __('Allows creating and dropping indexes.');
-        $strPrivDescInsert = __('Allows inserting and replacing data.');
-        $strPrivDescLockTables = __('Allows locking tables for the current thread.');
-        $strPrivDescMaxConnections = __(
-            'Limits the number of new connections the user may open per hour.'
-        );
-        $strPrivDescMaxQuestions = __(
-            'Limits the number of queries the user may send to the server per hour.'
-        );
-        $strPrivDescMaxUpdates = __(
-            'Limits the number of commands that change any table or database '
-            . 'the user may execute per hour.'
-        );
-        $strPrivDescMaxUserConnections = __(
-            'Limits the number of simultaneous connections the user may have.'
-        );
-        $strPrivDescProcess = __('Allows viewing processes of all users.');
-        $strPrivDescReferences = __('Has no effect in this MySQL version.');
-        $strPrivDescReload = __(
-            'Allows reloading server settings and flushing the server\'s caches.'
-        );
-        $strPrivDescReplClient = __(
-            'Allows the user to ask where the slaves / masters are.'
-        );
-        $strPrivDescReplSlave = __('Needed for the replication slaves.');
-        $strPrivDescSelect = __('Allows reading data.');
-        $strPrivDescShowDb = __('Gives access to the complete list of databases.');
-        $strPrivDescShowView = __('Allows performing SHOW CREATE VIEW queries.');
-        $strPrivDescShutdown = __('Allows shutting down the server.');
-        $strPrivDescSuper = __(
-            'Allows connecting, even if maximum number of connections is reached; '
-            . 'required for most administrative operations like setting global variables '
-            . 'or killing threads of other users.'
-        );
-        $strPrivDescTrigger = __('Allows creating and dropping triggers.');
-        $strPrivDescUpdate = __('Allows changing data.');
-        $strPrivDescUsage = __('No privileges.');
 
         $_add_user_error = false;
         /**

@@ -120,7 +120,6 @@ class PrivilegesTest extends AbstractTestCase
         $GLOBALS['is_grantuser'] = true;
         $GLOBALS['is_createuser'] = true;
         $GLOBALS['is_reload_priv'] = true;
-        $GLOBALS['strPrivDescDeleteHistoricalRows'] = 'strPrivDescDeleteHistoricalRows';
     }
 
     /**
@@ -245,21 +244,12 @@ class PrivilegesTest extends AbstractTestCase
      */
     public function testGetTableGrantsArray(): void
     {
-        $GLOBALS['strPrivDescDelete'] = 'strPrivDescDelete';
-        $GLOBALS['strPrivDescCreateTbl'] = 'strPrivDescCreateTbl';
-        $GLOBALS['strPrivDescDropTbl'] = 'strPrivDescDropTbl';
-        $GLOBALS['strPrivDescIndex'] = 'strPrivDescIndex';
-        $GLOBALS['strPrivDescAlter'] = 'strPrivDescAlter';
-        $GLOBALS['strPrivDescCreateView'] = 'strPrivDescCreateView';
-        $GLOBALS['strPrivDescShowView'] = 'strPrivDescShowView';
-        $GLOBALS['strPrivDescTrigger'] = 'strPrivDescTrigger';
-
         $ret = $this->serverPrivileges->getTableGrantsArray();
         $this->assertEquals(
             [
                 'Delete',
                 'DELETE',
-                $GLOBALS['strPrivDescDelete'],
+                __('Allows deleting data.'),
             ],
             $ret[0]
         );
@@ -267,7 +257,7 @@ class PrivilegesTest extends AbstractTestCase
             [
                 'Create',
                 'CREATE',
-                $GLOBALS['strPrivDescCreateTbl'],
+                __('Allows creating new tables.'),
             ],
             $ret[1]
         );
