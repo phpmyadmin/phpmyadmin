@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-08-30 19:38+0000\n"
+"PO-Revision-Date: 2020-09-12 12:16+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-0/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.2.1-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1701,7 +1701,7 @@ msgstr "Cada ponto representa um registo (linha) de dados."
 
 #: js/messages.php:510
 msgid "Hovering over a point will show its label."
-msgstr "Colocar o cursor por cima de um ponto irá mostrar a sua legenda."
+msgstr "Poisar o cursor por cima de um ponto irá mostrar a sua legenda."
 
 #: js/messages.php:512
 msgid "To zoom in, select a section of the plot with the mouse."
@@ -3613,7 +3613,7 @@ msgstr "Compressão"
 #: libraries/classes/Plugins/Export/ExportOdt.php:133
 #: libraries/classes/Plugins/Export/ExportTexytext.php:90
 msgid "Put columns names in the first row"
-msgstr "Colocar os nomes das colunas na primeira linha"
+msgstr "Pôr os nomes das colunas na primeira linha"
 
 #: libraries/classes/Config/Descriptions.php:194
 #: libraries/classes/Config/Descriptions.php:401
@@ -6473,7 +6473,7 @@ msgid ""
 "templates and will be slow because of this."
 msgstr ""
 "A $cfg['TempDir'] (%s 1) não se encontra acessível. phpMyAdmin não "
-"conseguirá colocar os modelos em cache e devido a isso irá ser mais lento."
+"conseguirá pôr os modelos no cache e devido a isso irá ser mais lento."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:204
 #, php-format
@@ -13670,9 +13670,9 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Se o tipo de campo é \"enum\" ou \"set\", por favor entre com valores usando "
-"este formato: 'a','b','c'…<br>Se você precisar colocar uma barra contrária "
-"(\"\\\") ou aspas simples (\"'\") entre esses valores, coloque uma barra "
-"contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
+"este formato: 'a','b','c'…<br>Se precisar colocar uma barra contrária (\"\\\""
+") ou aspas simples (\"'\") entre esses valores, ponha uma barra contrária "
+"antes (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
