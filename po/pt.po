@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-08-30 19:36+0000\n"
+"PO-Revision-Date: 2020-09-12 15:36+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.2.1-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -871,7 +871,7 @@ msgid ""
 "templates and will be slow because of this."
 msgstr ""
 "A $cfg['TempDir'] (%s 1) não se encontra acessível. phpMyAdmin não "
-"conseguirá colocar os modelos em cache e devido a isso irá ser mais lento."
+"conseguirá pôr os modelos no cache e devido a isso irá ser mais lento."
 
 #: js/messages.php:42
 msgid "Confirm"
@@ -2189,7 +2189,7 @@ msgstr "Cada ponto representa um registo (linha) de dados."
 
 #: js/messages.php:501
 msgid "Hovering over a point will show its label."
-msgstr "Colocar o cursor por cima de um ponto irá mostrar a sua legenda."
+msgstr "Poisar o cursor por cima de um ponto irá mostrar a sua legenda."
 
 #: js/messages.php:503
 msgid "To zoom in, select a section of the plot with the mouse."
@@ -4002,7 +4002,7 @@ msgstr "Compressão"
 #: libraries/classes/Plugins/Export/ExportOdt.php:129
 #: libraries/classes/Plugins/Export/ExportTexytext.php:86
 msgid "Put columns names in the first row"
-msgstr "Colocar os nomes das colunas na primeira linha"
+msgstr "Pôr os nomes das colunas na primeira linha"
 
 #: libraries/classes/Config/Descriptions.php:264
 #: libraries/classes/Config/Descriptions.php:633
