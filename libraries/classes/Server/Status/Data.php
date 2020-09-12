@@ -58,6 +58,14 @@ class Data
     /** @var bool */
     public $dataLoaded;
 
+    /** @var ReplicationInfo */
+    private $replicationInfo;
+
+    public function getReplicationInfo(): ReplicationInfo
+    {
+        return $this->replicationInfo;
+    }
+
     /**
      * An empty setter makes the above properties read-only
      *
@@ -163,6 +171,9 @@ class Data
      */
     private function getLinks()
     {
+        $primaryInfo = $this->replicationInfo->getPrimaryInfo();
+        $replicaInfo = $this->replicationInfo->getReplicaInfo();
+
         $links = [];
         // variable or section name => (name => url)
 
@@ -178,7 +189,7 @@ class Data
             ], ''),
         ];
 
-        if ($GLOBALS['replication_info']['master']['status']) {
+        if ($primaryInfo['status']) {
             $links['repl'][__('Show slave hosts')] = [
                 'url' => Url::getFromRoute('/sql'),
                 'params' => Url::getCommon([
@@ -191,7 +202,7 @@ class Data
                 'params' => '',
             ];
         }
-        if ($GLOBALS['replication_info']['slave']['status']) {
+        if ($replicaInfo['status']) {
             $links['repl'][__('Show slave status')] = [
                 'url' => '#replication_slave',
                 'params' => '',
@@ -338,11 +349,8 @@ class Data
 
     public function __construct()
     {
-        global $replication_info;
-
-        if (! isset($replication_info)) {
-            ReplicationInfo::load();
-        }
+        $this->replicationInfo = new ReplicationInfo($GLOBALS['dbi']);
+        $this->replicationInfo->load($_POST['master_connection'] ?? null);
 
         $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
 

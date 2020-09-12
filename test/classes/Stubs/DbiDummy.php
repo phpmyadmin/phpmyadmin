@@ -1968,6 +1968,55 @@ class DbiDummy implements DbiExtension
                     . ' WHERE `id` = 1 AND `username` = \'user\';',
                 'result' => [],
             ],
+            [
+                'query' => 'SHOW SLAVE HOSTS',
+                'columns' => ['Server_id', 'Host'],
+                'result' => [
+                    ['Server_id1', 'Host1'],
+                    ['Server_id2', 'Host2'],
+                ],
+            ],
+            [
+                'query' => 'SHOW ALL SLAVES STATUS',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW COLUMNS FROM `mysql`.`user`',
+                'columns' => ['Field', 'Type', 'Null'],
+                'result' => [['host', 'char(60)', 'NO']],
+            ],
+            [
+                'query' => 'SHOW INDEXES FROM `mysql`.`user`',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT USER();',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW PROCESSLIST',
+                'columns' => ['Id', 'User', 'Host', 'db', 'Command', 'Time', 'State', 'Info'],
+                'result' => [['Id1', 'User1', 'Host1', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
+            ],
+            [
+                'query' => 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ORDER BY `db` ASC',
+                'columns' => ['Id', 'User', 'Host', 'db', 'Command', 'Time', 'State', 'Info'],
+                'result' => [['Id1', 'User1', 'Host1', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
+            ],
+            [
+                'query' => 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ORDER BY `Host` DESC',
+                'columns' => ['Id', 'User', 'Host', 'db', 'Command', 'Time', 'State', 'Info'],
+                'result' => [['Id1', 'User1', 'Host1', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
+            ],
+            [
+                'query' => 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ORDER BY `process` DESC',
+                'columns' => ['Id', 'User', 'Host', 'db', 'Command', 'Time', 'State', 'Info'],
+                'result' => [['Id1', 'User1', 'Host1', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
+            ],
+            [
+                'query' => 'SELECT UNIX_TIMESTAMP() - 36000',
+                'result' => [],
+            ],
         ];
         /**
          * Current database.

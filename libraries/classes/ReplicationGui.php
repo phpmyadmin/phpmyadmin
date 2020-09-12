@@ -252,14 +252,17 @@ class ReplicationGui
         $isHidden = false,
         $hasTitle = true
     ): string {
-        global $server_master_replication, $server_slave_replication;
+        global $dbi;
 
-        $replicationVariables = ReplicationInfo::$primaryVariables;
+        $replicationInfo = new ReplicationInfo($dbi);
+        $replicationInfo->load($_POST['master_connection'] ?? null);
+
+        $replicationVariables = $replicationInfo->primaryVariables;
         $variablesAlerts = null;
         $variablesOks = null;
-        $serverReplication = $server_master_replication;
+        $serverReplication = $replicationInfo->getPrimaryStatus();
         if ($type === 'slave') {
-            $replicationVariables = ReplicationInfo::$replicaVariables;
+            $replicationVariables = $replicationInfo->replicaVariables;
             $variablesAlerts = [
                 'Slave_IO_Running' => 'No',
                 'Slave_SQL_Running' => 'No',
@@ -268,7 +271,7 @@ class ReplicationGui
                 'Slave_IO_Running' => 'Yes',
                 'Slave_SQL_Running' => 'Yes',
             ];
-            $serverReplication = $server_slave_replication;
+            $serverReplication = $replicationInfo->getReplicaStatus();
         }
 
         $variables = [];

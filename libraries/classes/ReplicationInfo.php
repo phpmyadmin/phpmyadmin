@@ -11,7 +11,7 @@ use function sprintf;
 final class ReplicationInfo
 {
     /** @var string[] */
-    public static $primaryVariables = [
+    public $primaryVariables = [
         'File',
         'Position',
         'Binlog_Do_DB',
@@ -19,7 +19,7 @@ final class ReplicationInfo
     ];
 
     /** @var string[] */
-    public static $replicaVariables = [
+    public $replicaVariables = [
         'Slave_IO_State',
         'Master_Host',
         'Master_User',
@@ -55,66 +55,83 @@ final class ReplicationInfo
         'Seconds_Behind_Master',
     ];
 
-    public static function load(): void
+    /** @var array */
+    private $primaryStatus;
+
+    /** @var array */
+    private $replicaStatus;
+
+    /** @var array */
+    private $multiPrimaryStatus;
+
+    /** @var array */
+    private $primaryInfo;
+
+    /** @var array */
+    private $replicaInfo;
+
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    public function __construct(DatabaseInterface $dbi)
+    {
+        $this->dbi = $dbi;
+    }
+
+    public function load(?string $connection = null): void
     {
         global $url_params;
-        global $server_master_replication, $server_slave_replication, $server_slave_multi_replication;
-        global $replication_info;
 
-        $server_master_replication = self::getPrimaryStatus();
+        $this->setPrimaryStatus();
 
-        if (! empty($_POST['master_connection'])) {
-            $server_slave_multi_replication = self::getMultiPrimaryStatus();
+        if (! empty($connection)) {
+            $this->setMultiPrimaryStatus();
 
-            if ($server_slave_multi_replication) {
-                self::setDefaultPrimaryConnection($_POST['master_connection']);
-                $url_params['master_connection'] = $_POST['master_connection'];
+            if ($this->multiPrimaryStatus) {
+                $this->setDefaultPrimaryConnection($connection);
+                $url_params['master_connection'] = $connection;
             }
         }
 
-        $server_slave_replication = self::getReplicaStatus();
+        $this->setReplicaStatus();
+        $this->setPrimaryInfo();
+        $this->setReplicaInfo();
+    }
 
-        $replication_info = [
-            'master' => self::getPrimaryInfo($server_master_replication),
-            'slave' => self::getReplicaInfo($server_slave_replication),
-        ];
+    private function setPrimaryStatus(): void
+    {
+        $this->primaryStatus = $this->dbi->fetchResult('SHOW MASTER STATUS');
     }
 
     /**
      * @return array
      */
-    private static function getPrimaryStatus()
+    public function getPrimaryStatus()
     {
-        global $dbi;
+        return $this->primaryStatus;
+    }
 
-        return $dbi->fetchResult('SHOW MASTER STATUS');
+    private function setReplicaStatus(): void
+    {
+        $this->replicaStatus = $this->dbi->fetchResult('SHOW SLAVE STATUS');
     }
 
     /**
      * @return array
      */
-    private static function getReplicaStatus()
+    public function getReplicaStatus()
     {
-        global $dbi;
-
-        return $dbi->fetchResult('SHOW SLAVE STATUS');
+        return $this->replicaStatus;
     }
 
-    /**
-     * @return array
-     */
-    private static function getMultiPrimaryStatus()
+    private function setMultiPrimaryStatus(): void
     {
-        global $dbi;
-
-        return $dbi->fetchResult('SHOW ALL SLAVES STATUS');
+        $this->multiPrimaryStatus = $this->dbi->fetchResult('SHOW ALL SLAVES STATUS');
     }
 
-    private static function setDefaultPrimaryConnection(string $connection): void
+    private function setDefaultPrimaryConnection(string $connection): void
     {
-        global $dbi;
-
-        $dbi->query(sprintf('SET @@default_master_connection = \'%s\'', $dbi->escapeString($connection)));
+        $this->dbi->query(sprintf('SET @@default_master_connection = \'%s\'', $this->dbi->escapeString($connection)));
     }
 
     private static function fill(array $status, string $key): array
@@ -126,43 +143,55 @@ final class ReplicationInfo
         return explode(',', $status[0][$key]);
     }
 
-    private static function getPrimaryInfo(array $status): array
+    private function setPrimaryInfo(): void
     {
-        $primaryInfo = ['status' => false];
+        $this->primaryInfo = ['status' => false];
 
-        if (count($status) > 0) {
-            $primaryInfo['status'] = true;
+        if (count($this->primaryStatus) > 0) {
+            $this->primaryInfo['status'] = true;
         }
 
-        if (! $primaryInfo['status']) {
-            return $primaryInfo;
+        if (! $this->primaryInfo['status']) {
+            return;
         }
 
-        $primaryInfo['Do_DB'] = self::fill($status, 'Binlog_Do_DB');
-        $primaryInfo['Ignore_DB'] = self::fill($status, 'Binlog_Ignore_DB');
-
-        return $primaryInfo;
+        $this->primaryInfo['Do_DB'] = self::fill($this->primaryStatus, 'Binlog_Do_DB');
+        $this->primaryInfo['Ignore_DB'] = self::fill($this->primaryStatus, 'Binlog_Ignore_DB');
     }
 
-    private static function getReplicaInfo(array $status): array
+    /**
+     * @return array
+     */
+    public function getPrimaryInfo(): array
     {
-        $replicaInfo = ['status' => false];
+        return $this->primaryInfo;
+    }
 
-        if (count($status) > 0) {
-            $replicaInfo['status'] = true;
+    private function setReplicaInfo(): void
+    {
+        $this->replicaInfo = ['status' => false];
+
+        if (count($this->replicaStatus) > 0) {
+            $this->replicaInfo['status'] = true;
         }
 
-        if (! $replicaInfo['status']) {
-            return $replicaInfo;
+        if (! $this->replicaInfo['status']) {
+            return;
         }
 
-        $replicaInfo['Do_DB'] = self::fill($status, 'Replicate_Do_DB');
-        $replicaInfo['Ignore_DB'] = self::fill($status, 'Replicate_Ignore_DB');
-        $replicaInfo['Do_Table'] = self::fill($status, 'Replicate_Do_Table');
-        $replicaInfo['Ignore_Table'] = self::fill($status, 'Replicate_Ignore_Table');
-        $replicaInfo['Wild_Do_Table'] = self::fill($status, 'Replicate_Wild_Do_Table');
-        $replicaInfo['Wild_Ignore_Table'] = self::fill($status, 'Replicate_Wild_Ignore_Table');
+        $this->replicaInfo['Do_DB'] = self::fill($this->replicaStatus, 'Replicate_Do_DB');
+        $this->replicaInfo['Ignore_DB'] = self::fill($this->replicaStatus, 'Replicate_Ignore_DB');
+        $this->replicaInfo['Do_Table'] = self::fill($this->replicaStatus, 'Replicate_Do_Table');
+        $this->replicaInfo['Ignore_Table'] = self::fill($this->replicaStatus, 'Replicate_Ignore_Table');
+        $this->replicaInfo['Wild_Do_Table'] = self::fill($this->replicaStatus, 'Replicate_Wild_Do_Table');
+        $this->replicaInfo['Wild_Ignore_Table'] = self::fill($this->replicaStatus, 'Replicate_Wild_Ignore_Table');
+    }
 
-        return $replicaInfo;
+    /**
+     * @return array
+     */
+    public function getReplicaInfo(): array
+    {
+        return $this->replicaInfo;
     }
 }

@@ -67,8 +67,6 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['replication_info']['master']['status'] = false;
-        $GLOBALS['replication_info']['slave']['status'] = false;
 
         if (! defined('PMA_USR_BROWSER_AGENT')) {
             define('PMA_USR_BROWSER_AGENT', 'Other');
@@ -553,7 +551,7 @@ class StructureControllerTest extends AbstractTestCase
         //no tables
         $_REQUEST['db'] = 'my_unique_test_db';
         $tablesProperty->setValue($controller, []);
-        $result = $method->invoke($controller);
+        $result = $method->invoke($controller, ['status' => false]);
         $this->assertStringContainsString($_REQUEST['db'], $result);
         $this->assertStringNotContainsString('id="overhead"', $result);
 
@@ -571,7 +569,7 @@ class StructureControllerTest extends AbstractTestCase
                 'Data_free' => 10000,
             ],
         ]);
-        $result = $method->invoke($controller);
+        $result = $method->invoke($controller, ['status' => false]);
 
         $this->assertStringContainsString($_REQUEST['db'], $result);
         $this->assertStringContainsString('id="overhead"', $result);
