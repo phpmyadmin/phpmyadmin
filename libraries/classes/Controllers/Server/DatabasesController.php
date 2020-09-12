@@ -89,7 +89,7 @@ class DatabasesController extends AbstractController
     public function index(): void
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
-        global $replication_info, $replication_types, $db_to_create, $text_dir, $PMA_Theme;
+        global $db_to_create, $text_dir, $PMA_Theme;
 
         $params = [
             'statistics' => $_REQUEST['statistics'] ?? null,
@@ -101,7 +101,12 @@ class DatabasesController extends AbstractController
         $this->addScriptFiles(['server/databases.js']);
 
         Common::server();
-        ReplicationInfo::load();
+
+        $replicationInfo = new ReplicationInfo($this->dbi);
+        $replicationInfo->load($_POST['master_connection'] ?? null);
+
+        $primaryInfo = $replicationInfo->getPrimaryInfo();
+        $replicaInfo = $replicationInfo->getReplicaInfo();
 
         $this->setSortDetails($params['sort_by'], $params['sort_order']);
         $this->hasStatistics = ! empty($params['statistics']);
@@ -130,7 +135,7 @@ class DatabasesController extends AbstractController
             'sort_order' => $this->sortOrder,
         ];
 
-        $databases = $this->getDatabases($replication_types ?? []);
+        $databases = $this->getDatabases($primaryInfo, $replicaInfo);
 
         $charsetsList = [];
         if ($cfg['ShowCreateDb'] && $is_create_db_priv) {
@@ -171,8 +176,8 @@ class DatabasesController extends AbstractController
             'pos' => $this->position,
             'url_params' => $urlParams,
             'max_db_list' => $cfg['MaxDbList'],
-            'has_master_replication' => $replication_info['master']['status'],
-            'has_slave_replication' => $replication_info['slave']['status'],
+            'has_master_replication' => $primaryInfo['status'],
+            'has_slave_replication' => $replicaInfo['status'],
             'is_drop_allowed' => $this->dbi->isSuperuser() || $cfg['AllowUserDropDatabase'],
             'theme_image_path' => $PMA_Theme->getImgPath(),
             'text_dir' => $text_dir,
@@ -372,49 +377,45 @@ class DatabasesController extends AbstractController
     }
 
     /**
-     * Returns database list
-     *
-     * @param array $replicationTypes replication types
+     * @param array $primaryInfo
+     * @param array $replicaInfo
      *
      * @return array
      */
-    private function getDatabases(array $replicationTypes): array
+    private function getDatabases($primaryInfo, $replicaInfo): array
     {
-        global $cfg, $replication_info;
+        global $cfg;
 
         $databases = [];
         $totalStatistics = $this->getStatisticsColumns();
         foreach ($this->databases as $database) {
             $replication = [
-                'master' => [
-                    'status' => $replication_info['master']['status'],
-                ],
-                'slave' => [
-                    'status' => $replication_info['slave']['status'],
-                ],
+                'master' => ['status' => $primaryInfo['status']],
+                'slave' => ['status' => $replicaInfo['status']],
             ];
-            foreach ($replicationTypes as $type) {
-                if (! $replication_info[$type]['status']) {
-                    continue;
+
+            if ($primaryInfo['status']) {
+                $key = array_search($database['SCHEMA_NAME'], $primaryInfo['Ignore_DB']);
+                $replication['master']['is_replicated'] = false;
+
+                if (strlen((string) $key) === 0) {
+                    $key = array_search($database['SCHEMA_NAME'], $primaryInfo['Do_DB']);
+
+                    if (strlen((string) $key) > 0 || count($primaryInfo['Do_DB']) === 0) {
+                        $replication['master']['is_replicated'] = true;
+                    }
                 }
+            }
 
-                $key = array_search(
-                    $database['SCHEMA_NAME'],
-                    $replication_info[$type]['Ignore_DB']
-                );
-                if (strlen((string) $key) > 0) {
-                    $replication[$type]['is_replicated'] = false;
-                } else {
-                    $key = array_search(
-                        $database['SCHEMA_NAME'],
-                        $replication_info[$type]['Do_DB']
-                    );
+            if ($replicaInfo['status']) {
+                $key = array_search($database['SCHEMA_NAME'], $replicaInfo['Ignore_DB']);
+                $replication['slave']['is_replicated'] = false;
 
-                    if (strlen((string) $key) > 0
-                        || count($replication_info[$type]['Do_DB']) === 0
-                    ) {
-                        // if ($key != null) did not work for index "0"
-                        $replication[$type]['is_replicated'] = true;
+                if (strlen((string) $key) === 0) {
+                    $key = array_search($database['SCHEMA_NAME'], $replicaInfo['Do_DB']);
+
+                    if (strlen((string) $key) > 0 || count($replicaInfo['Do_DB']) === 0) {
+                        $replication['slave']['is_replicated'] = true;
                     }
                 }
             }

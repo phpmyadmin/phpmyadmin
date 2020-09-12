@@ -39,9 +39,11 @@ class StatusController extends AbstractController
 
     public function index(): void
     {
-        global $replication_info;
-
         Common::server();
+
+        $replicationInfo = $this->data->getReplicationInfo();
+        $primaryInfo = $replicationInfo->getPrimaryInfo();
+        $replicaInfo = $replicationInfo->getReplicaInfo();
 
         $traffic = [];
         $connections = [];
@@ -62,11 +64,11 @@ class StatusController extends AbstractController
 
             $connections = $this->getConnectionsInfo();
 
-            // display replication information
-            if ($replication_info['master']['status']
-                || $replication_info['slave']['status']
-            ) {
-                $replication = $this->getReplicationInfo();
+            if ($primaryInfo['status']) {
+                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable('master');
+            }
+            if ($replicaInfo['status']) {
+                $replication .= $this->replicationGui->getHtmlForReplicationStatusTable('slave');
             }
         }
 
@@ -77,8 +79,8 @@ class StatusController extends AbstractController
             'start_time' => $startTime ?? null,
             'traffic' => $traffic,
             'connections' => $connections,
-            'is_master' => $replication_info['master']['status'],
-            'is_slave' => $replication_info['slave']['status'],
+            'is_master' => $primaryInfo['status'],
+            'is_slave' => $replicaInfo['status'],
             'replication' => $replication,
         ]);
     }
@@ -240,23 +242,5 @@ class StatusController extends AbstractController
                 'percentage' => Util::formatNumber(100, 0, 2) . '%',
             ],
         ];
-    }
-
-    private function getReplicationInfo(): string
-    {
-        global $replication_info, $replication_types;
-
-        $output = '';
-        foreach ($replication_types as $type) {
-            if (! isset($replication_info[$type]['status'])
-                || ! $replication_info[$type]['status']
-            ) {
-                continue;
-            }
-
-            $output .= $this->replicationGui->getHtmlForReplicationStatusTable($type);
-        }
-
-        return $output;
     }
 }

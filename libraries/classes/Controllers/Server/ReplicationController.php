@@ -38,7 +38,7 @@ class ReplicationController extends AbstractController
 
     public function index(): void
     {
-        global $replication_info, $server_slave_replication, $url_params;
+        global $url_params;
 
         $params = [
             'url_params' => $_POST['url_params'] ?? null,
@@ -48,7 +48,12 @@ class ReplicationController extends AbstractController
         ];
 
         Common::server();
-        ReplicationInfo::load();
+
+        $replicationInfo = new ReplicationInfo($this->dbi);
+        $replicationInfo->load($_POST['master_connection'] ?? null);
+
+        $primaryInfo = $replicationInfo->getPrimaryInfo();
+        $replicaInfo = $replicationInfo->getReplicaInfo();
 
         $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn.js']);
 
@@ -62,7 +67,7 @@ class ReplicationController extends AbstractController
 
         $errorMessages = $this->replicationGui->getHtmlForErrorMessage();
 
-        if ($replication_info['master']['status']) {
+        if ($primaryInfo['status']) {
             $masterReplicationHtml = $this->replicationGui->getHtmlForMasterReplication();
         }
 
@@ -71,8 +76,8 @@ class ReplicationController extends AbstractController
         } else {
             if (! isset($params['repl_clear_scr'])) {
                 $slaveConfigurationHtml = $this->replicationGui->getHtmlForSlaveConfiguration(
-                    $replication_info['slave']['status'],
-                    $server_slave_replication
+                    $replicaInfo['status'],
+                    $replicationInfo->getReplicaStatus()
                 );
             }
             if (isset($params['sl_configure'])) {
@@ -84,7 +89,7 @@ class ReplicationController extends AbstractController
             'url_params' => $url_params,
             'is_super_user' => $this->dbi->isSuperuser(),
             'error_messages' => $errorMessages,
-            'is_master' => $replication_info['master']['status'],
+            'is_master' => $primaryInfo['status'],
             'master_configure' => $params['mr_configure'],
             'slave_configure' => $params['sl_configure'],
             'clear_screen' => $params['repl_clear_scr'],

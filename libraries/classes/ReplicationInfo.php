@@ -6,221 +6,192 @@ namespace PhpMyAdmin;
 
 use function count;
 use function explode;
+use function sprintf;
 
 final class ReplicationInfo
 {
-    public static function load(): void
+    /** @var string[] */
+    public $primaryVariables = [
+        'File',
+        'Position',
+        'Binlog_Do_DB',
+        'Binlog_Ignore_DB',
+    ];
+
+    /** @var string[] */
+    public $replicaVariables = [
+        'Slave_IO_State',
+        'Master_Host',
+        'Master_User',
+        'Master_Port',
+        'Connect_Retry',
+        'Master_Log_File',
+        'Read_Master_Log_Pos',
+        'Relay_Log_File',
+        'Relay_Log_Pos',
+        'Relay_Master_Log_File',
+        'Slave_IO_Running',
+        'Slave_SQL_Running',
+        'Replicate_Do_DB',
+        'Replicate_Ignore_DB',
+        'Replicate_Do_Table',
+        'Replicate_Ignore_Table',
+        'Replicate_Wild_Do_Table',
+        'Replicate_Wild_Ignore_Table',
+        'Last_Errno',
+        'Last_Error',
+        'Skip_Counter',
+        'Exec_Master_Log_Pos',
+        'Relay_Log_Space',
+        'Until_Condition',
+        'Until_Log_File',
+        'Until_Log_Pos',
+        'Master_SSL_Allowed',
+        'Master_SSL_CA_File',
+        'Master_SSL_CA_Path',
+        'Master_SSL_Cert',
+        'Master_SSL_Cipher',
+        'Master_SSL_Key',
+        'Seconds_Behind_Master',
+    ];
+
+    /** @var array */
+    private $primaryStatus;
+
+    /** @var array */
+    private $replicaStatus;
+
+    /** @var array */
+    private $multiPrimaryStatus;
+
+    /** @var array */
+    private $primaryInfo;
+
+    /** @var array */
+    private $replicaInfo;
+
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    public function __construct(DatabaseInterface $dbi)
     {
-        global $dbi, $url_params;
-        global $server_master_replication, $server_slave_replication, $server_slave_multi_replication;
-        global $replication_types, $replication_info;
-        global $master_variables, $slave_variables, $slave_variables_alerts, $slave_variables_oks;
+        $this->dbi = $dbi;
+    }
 
-        /**
-         * get master replication from server
-         */
-        $server_master_replication = $dbi->fetchResult('SHOW MASTER STATUS');
+    public function load(?string $connection = null): void
+    {
+        global $url_params;
 
-        /**
-         * set selected master server
-         */
-        if (! empty($_POST['master_connection'])) {
-            /**
-             * check for multi-master replication functionality
-             */
-            $server_slave_multi_replication = $dbi->fetchResult(
-                'SHOW ALL SLAVES STATUS'
-            );
-            if ($server_slave_multi_replication) {
-                $dbi->query(
-                    "SET @@default_master_connection = '"
-                    . $dbi->escapeString(
-                        $_POST['master_connection']
-                    ) . "'"
-                );
-                $url_params['master_connection'] = $_POST['master_connection'];
+        $this->setPrimaryStatus();
+
+        if (! empty($connection)) {
+            $this->setMultiPrimaryStatus();
+
+            if ($this->multiPrimaryStatus) {
+                $this->setDefaultPrimaryConnection($connection);
+                $url_params['master_connection'] = $connection;
             }
         }
 
-        /**
-         * get slave replication from server
-         */
-        $server_slave_replication = $dbi->fetchResult('SHOW SLAVE STATUS');
+        $this->setReplicaStatus();
+        $this->setPrimaryInfo();
+        $this->setReplicaInfo();
+    }
 
-        /**
-         * replication types
-         */
-        $replication_types = [
-            'master',
-            'slave',
-        ];
-
-        /**
-         * define variables for master status
-         */
-        $master_variables = [
-            'File',
-            'Position',
-            'Binlog_Do_DB',
-            'Binlog_Ignore_DB',
-        ];
-
-        /**
-         * Define variables for slave status
-         */
-        $slave_variables  = [
-            'Slave_IO_State',
-            'Master_Host',
-            'Master_User',
-            'Master_Port',
-            'Connect_Retry',
-            'Master_Log_File',
-            'Read_Master_Log_Pos',
-            'Relay_Log_File',
-            'Relay_Log_Pos',
-            'Relay_Master_Log_File',
-            'Slave_IO_Running',
-            'Slave_SQL_Running',
-            'Replicate_Do_DB',
-            'Replicate_Ignore_DB',
-            'Replicate_Do_Table',
-            'Replicate_Ignore_Table',
-            'Replicate_Wild_Do_Table',
-            'Replicate_Wild_Ignore_Table',
-            'Last_Errno',
-            'Last_Error',
-            'Skip_Counter',
-            'Exec_Master_Log_Pos',
-            'Relay_Log_Space',
-            'Until_Condition',
-            'Until_Log_File',
-            'Until_Log_Pos',
-            'Master_SSL_Allowed',
-            'Master_SSL_CA_File',
-            'Master_SSL_CA_Path',
-            'Master_SSL_Cert',
-            'Master_SSL_Cipher',
-            'Master_SSL_Key',
-            'Seconds_Behind_Master',
-        ];
-        /**
-         * define important variables, which need to be watched for
-         * correct running of replication in slave mode
-         *
-         * @usedby PhpMyAdmin\ReplicationGui->getHtmlForReplicationStatusTable()
-         */
-        // TODO change to regexp or something, to allow for negative match.
-        // To e.g. highlight 'Last_Error'
-        $slave_variables_alerts = [
-            'Slave_IO_Running' => 'No',
-            'Slave_SQL_Running' => 'No',
-        ];
-        $slave_variables_oks = [
-            'Slave_IO_Running' => 'Yes',
-            'Slave_SQL_Running' => 'Yes',
-        ];
-
-        // check which replication is available and
-        // set $server_{master/slave}_status and assign values
-
-        // replication info is more easily passed to functions
-        $replication_info = [];
-
-        foreach ($replication_types as $type) {
-            if (count(${'server_' . $type . '_replication'}) > 0) {
-                $replication_info[$type]['status'] = true;
-            } else {
-                $replication_info[$type]['status'] = false;
-            }
-            if (! $replication_info[$type]['status']) {
-                continue;
-            }
-
-            if ($type === 'master') {
-                self::fill(
-                    $type,
-                    'Do_DB',
-                    $server_master_replication[0],
-                    'Binlog_Do_DB'
-                );
-
-                self::fill(
-                    $type,
-                    'Ignore_DB',
-                    $server_master_replication[0],
-                    'Binlog_Ignore_DB'
-                );
-            } elseif ($type === 'slave') {
-                self::fill(
-                    $type,
-                    'Do_DB',
-                    $server_slave_replication[0],
-                    'Replicate_Do_DB'
-                );
-
-                self::fill(
-                    $type,
-                    'Ignore_DB',
-                    $server_slave_replication[0],
-                    'Replicate_Ignore_DB'
-                );
-
-                self::fill(
-                    $type,
-                    'Do_Table',
-                    $server_slave_replication[0],
-                    'Replicate_Do_Table'
-                );
-
-                self::fill(
-                    $type,
-                    'Ignore_Table',
-                    $server_slave_replication[0],
-                    'Replicate_Ignore_Table'
-                );
-
-                self::fill(
-                    $type,
-                    'Wild_Do_Table',
-                    $server_slave_replication[0],
-                    'Replicate_Wild_Do_Table'
-                );
-
-                self::fill(
-                    $type,
-                    'Wild_Ignore_Table',
-                    $server_slave_replication[0],
-                    'Replicate_Wild_Ignore_Table'
-                );
-            }
-        }
+    private function setPrimaryStatus(): void
+    {
+        $this->primaryStatus = $this->dbi->fetchResult('SHOW MASTER STATUS');
     }
 
     /**
-     * Fill global replication_info variable.
-     *
-     * @param string $type               Type: master, slave
-     * @param string $replicationInfoKey Key in replication_info variable
-     * @param array  $mysqlInfo          MySQL data about replication
-     * @param string $mysqlKey           MySQL key
-     *
      * @return array
      */
-    private static function fill(
-        $type,
-        $replicationInfoKey,
-        array $mysqlInfo,
-        $mysqlKey
-    ) {
-        global $replication_info;
+    public function getPrimaryStatus()
+    {
+        return $this->primaryStatus;
+    }
 
-        $replication_info[$type][$replicationInfoKey] = empty($mysqlInfo[$mysqlKey])
-            ? []
-            : explode(
-                ',',
-                $mysqlInfo[$mysqlKey]
-            );
+    private function setReplicaStatus(): void
+    {
+        $this->replicaStatus = $this->dbi->fetchResult('SHOW SLAVE STATUS');
+    }
 
-        return $replication_info[$type][$replicationInfoKey];
+    /**
+     * @return array
+     */
+    public function getReplicaStatus()
+    {
+        return $this->replicaStatus;
+    }
+
+    private function setMultiPrimaryStatus(): void
+    {
+        $this->multiPrimaryStatus = $this->dbi->fetchResult('SHOW ALL SLAVES STATUS');
+    }
+
+    private function setDefaultPrimaryConnection(string $connection): void
+    {
+        $this->dbi->query(sprintf('SET @@default_master_connection = \'%s\'', $this->dbi->escapeString($connection)));
+    }
+
+    private static function fill(array $status, string $key): array
+    {
+        if (empty($status[0][$key])) {
+            return [];
+        }
+
+        return explode(',', $status[0][$key]);
+    }
+
+    private function setPrimaryInfo(): void
+    {
+        $this->primaryInfo = ['status' => false];
+
+        if (count($this->primaryStatus) > 0) {
+            $this->primaryInfo['status'] = true;
+        }
+
+        if (! $this->primaryInfo['status']) {
+            return;
+        }
+
+        $this->primaryInfo['Do_DB'] = self::fill($this->primaryStatus, 'Binlog_Do_DB');
+        $this->primaryInfo['Ignore_DB'] = self::fill($this->primaryStatus, 'Binlog_Ignore_DB');
+    }
+
+    /**
+     * @return array
+     */
+    public function getPrimaryInfo(): array
+    {
+        return $this->primaryInfo;
+    }
+
+    private function setReplicaInfo(): void
+    {
+        $this->replicaInfo = ['status' => false];
+
+        if (count($this->replicaStatus) > 0) {
+            $this->replicaInfo['status'] = true;
+        }
+
+        if (! $this->replicaInfo['status']) {
+            return;
+        }
+
+        $this->replicaInfo['Do_DB'] = self::fill($this->replicaStatus, 'Replicate_Do_DB');
+        $this->replicaInfo['Ignore_DB'] = self::fill($this->replicaStatus, 'Replicate_Ignore_DB');
+        $this->replicaInfo['Do_Table'] = self::fill($this->replicaStatus, 'Replicate_Do_Table');
+        $this->replicaInfo['Ignore_Table'] = self::fill($this->replicaStatus, 'Replicate_Ignore_Table');
+        $this->replicaInfo['Wild_Do_Table'] = self::fill($this->replicaStatus, 'Replicate_Wild_Do_Table');
+        $this->replicaInfo['Wild_Ignore_Table'] = self::fill($this->replicaStatus, 'Replicate_Wild_Ignore_Table');
+    }
+
+    /**
+     * @return array
+     */
+    public function getReplicaInfo(): array
+    {
+        return $this->replicaInfo;
     }
 }

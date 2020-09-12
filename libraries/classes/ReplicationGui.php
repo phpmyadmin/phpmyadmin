@@ -252,20 +252,26 @@ class ReplicationGui
         $isHidden = false,
         $hasTitle = true
     ): string {
-        global $master_variables, $slave_variables;
-        global $master_variables_alerts, $slave_variables_alerts;
-        global $master_variables_oks, $slave_variables_oks;
-        global $server_master_replication, $server_slave_replication;
+        global $dbi;
 
-        $replicationVariables = $master_variables;
-        $variablesAlerts = $master_variables_alerts;
-        $variablesOks = $master_variables_oks;
-        $serverReplication = $server_master_replication;
+        $replicationInfo = new ReplicationInfo($dbi);
+        $replicationInfo->load($_POST['master_connection'] ?? null);
+
+        $replicationVariables = $replicationInfo->primaryVariables;
+        $variablesAlerts = null;
+        $variablesOks = null;
+        $serverReplication = $replicationInfo->getPrimaryStatus();
         if ($type === 'slave') {
-            $replicationVariables = $slave_variables;
-            $variablesAlerts = $slave_variables_alerts;
-            $variablesOks = $slave_variables_oks;
-            $serverReplication = $server_slave_replication;
+            $replicationVariables = $replicationInfo->replicaVariables;
+            $variablesAlerts = [
+                'Slave_IO_Running' => 'No',
+                'Slave_SQL_Running' => 'No',
+            ];
+            $variablesOks = [
+                'Slave_IO_Running' => 'Yes',
+                'Slave_SQL_Running' => 'Yes',
+            ];
+            $serverReplication = $replicationInfo->getReplicaStatus();
         }
 
         $variables = [];

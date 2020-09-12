@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ReplicationInfo;
@@ -52,54 +51,7 @@ class ReplicationGuiTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['url_params'] = [];
 
-        ReplicationInfo::load();
-
         $this->replicationGui = new ReplicationGui(new Replication(), new Template());
-
-        //$_SESSION
-
-        //Mock DBI
-
-        $slave_host = [
-            [
-                'Server_id' => 'Server_id1',
-                'Host' => 'Host1',
-            ],
-            [
-                'Server_id' => 'Server_id2',
-                'Host' => 'Host2',
-            ],
-        ];
-
-        $fetchResult = [
-            [
-                'SHOW SLAVE HOSTS',
-                null,
-                null,
-                DatabaseInterface::CONNECT_USER,
-                0,
-                $slave_host,
-            ],
-        ];
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValueMap($fetchResult));
-
-        $fields_info = [
-            'Host' => [
-                'Field' => 'host',
-                'Type' => 'char(60)',
-                'Null' => 'NO',
-            ],
-        ];
-        $dbi->expects($this->any())->method('getColumns')
-            ->will($this->returnValue($fields_info));
-
-        $GLOBALS['dbi'] = $dbi;
     }
 
     /**
@@ -109,15 +61,6 @@ class ReplicationGuiTest extends AbstractTestCase
      */
     public function testGetHtmlForMasterReplication(): void
     {
-        global $master_variables_alerts;
-        global $master_variables_oks;
-        global $strReplicationStatus_master;
-
-        $master_variables_alerts = null;
-        $master_variables_oks = null;
-        $strReplicationStatus_master = null;
-
-        //Call the test function
         $html = $this->replicationGui->getHtmlForMasterReplication();
 
         //validate 1: Master replication
@@ -135,7 +78,7 @@ class ReplicationGuiTest extends AbstractTestCase
             '<div id="replication_master_section"',
             $html
         );
-        //$master_variables
+
         $this->assertStringContainsString(
             'Binlog_Do_DB',
             $html
@@ -144,7 +87,7 @@ class ReplicationGuiTest extends AbstractTestCase
             'Binlog_Ignore_DB',
             $html
         );
-        //$server_master_replication
+
         $this->assertStringContainsString(
             'master-bin.000030',
             $html
@@ -208,12 +151,13 @@ class ReplicationGuiTest extends AbstractTestCase
      */
     public function testGetHtmlForSlaveConfiguration(): void
     {
-        global $server_slave_replication;
+        $replicationInfo = new ReplicationInfo($GLOBALS['dbi']);
+        $replicationInfo->load();
 
         //Call the test function
         $html = $this->replicationGui->getHtmlForSlaveConfiguration(
             true,
-            $server_slave_replication
+            $replicationInfo->getReplicaStatus()
         );
 
         //legend

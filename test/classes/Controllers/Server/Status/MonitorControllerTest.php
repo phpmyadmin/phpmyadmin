@@ -25,8 +25,8 @@ class MonitorControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
-        parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
+        parent::setTheme();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -34,9 +34,6 @@ class MonitorControllerTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['replication_info']['master']['status'] = true;
-        $GLOBALS['replication_info']['slave']['status'] = true;
-        $GLOBALS['replication_types'] = [];
 
         $this->data = new Data();
     }

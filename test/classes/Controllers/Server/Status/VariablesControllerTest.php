@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Controllers\Server\Status\VariablesController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -24,8 +23,8 @@ class VariablesControllerTest extends AbstractTestCase
         parent::setUp();
         parent::defineVersionConstants();
         parent::setGlobalConfig();
-        parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
+        parent::setTheme();
 
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
@@ -34,88 +33,6 @@ class VariablesControllerTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['replication_info']['master']['status'] = true;
-        $GLOBALS['replication_info']['slave']['status'] = true;
-        $GLOBALS['replication_types'] = [];
-
-        $serverStatus = [
-            'Aborted_clients' => '0',
-            'Aborted_connects' => '0',
-            'Com_delete_multi' => '0',
-            'Com_create_function' => '0',
-            'Com_empty_query' => '0',
-        ];
-
-        $serverVariables = [
-            'auto_increment_increment' => '1',
-            'auto_increment_offset' => '1',
-            'automatic_sp_privileges' => 'ON',
-            'back_log' => '50',
-            'big_tables' => 'OFF',
-        ];
-
-        $fetchResult = [
-            [
-                'SHOW GLOBAL STATUS',
-                0,
-                1,
-                DatabaseInterface::CONNECT_USER,
-                0,
-                $serverStatus,
-            ],
-            [
-                'SHOW GLOBAL VARIABLES',
-                0,
-                1,
-                DatabaseInterface::CONNECT_USER,
-                0,
-                $serverVariables,
-            ],
-            [
-                "SELECT concat('Com_', variable_name), variable_value "
-                . 'FROM data_dictionary.GLOBAL_STATEMENTS',
-                0,
-                1,
-                DatabaseInterface::CONNECT_USER,
-                0,
-                $serverStatus,
-            ],
-        ];
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(0))
-            ->method('tryQuery')
-            ->with('SHOW GLOBAL STATUS')
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->at(1))
-            ->method('fetchRow')
-            ->will($this->returnValue(['Aborted_clients', '0']));
-        $dbi->expects($this->at(2))
-            ->method('fetchRow')
-            ->will($this->returnValue(['Aborted_connects', '0']));
-        $dbi->expects($this->at(3))
-            ->method('fetchRow')
-            ->will($this->returnValue(['Com_delete_multi', '0']));
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->will($this->returnValue(['Com_create_function', '0']));
-        $dbi->expects($this->at(5))
-            ->method('fetchRow')
-            ->will($this->returnValue(['Com_empty_query', '0']));
-        $dbi->expects($this->at(6))
-            ->method('fetchRow')
-            ->will($this->returnValue(null));
-
-        $dbi->expects($this->at(7))->method('freeResult');
-
-        $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValueMap($fetchResult));
-
-        $GLOBALS['dbi'] = $dbi;
 
         $this->data = new Data();
     }
