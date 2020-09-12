@@ -1,0 +1,19 @@
+<p>{% trans 'Quick steps to set up advanced features:' %}</p>
+
+<ul>
+  <li>
+    {{ 'Create the needed tables with the <code>%screate_tables.sql</code>.'|trans|format(sql_dir|e)|raw }}
+    {{ show_docu('setup', 'linked-tables') }}
+  </li>
+  <li>
+    {% trans 'Create a pma user and give access to these tables.' %}
+    {{ show_docu('config', 'cfg_Servers_controluser') }}
+  </li>
+  <li>
+    {% trans 'Enable advanced features in configuration file (<code>config.inc.php</code>), for example by starting from <code>config.sample.inc.php</code>.' %}
+    {{ show_docu('setup', 'quick-install') }}
+  </li>
+  <li>
+    {% trans 'Re-login to phpMyAdmin to load the updated configuration file.' %}
+  </li>
+</ul>
