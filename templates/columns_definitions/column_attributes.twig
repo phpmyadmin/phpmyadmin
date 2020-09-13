@@ -122,18 +122,10 @@
     {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
-    {# column comments #}
-    {% include 'columns_definitions/column_comment.twig' with {
-        'column_number': column_number,
-        'ci': ci,
-        'ci_offset': ci_offset,
-        'max_length': max_length,
-        'value': column_meta['Field'] is defined
-            and comments_map is iterable
-            and comments_map[column_meta['Field']] is defined
-            ? comments_map[column_meta['Field']]|e
-    } only %}
-    {% set ci = ci + 1 %}
+  <textarea id="field_{{ column_number }}_{{ ci - ci_offset }}" rows="1" name="field_comments[{{ column_number }}]" maxlength="{{ max_length }}">
+    {{- column_meta['Field'] is defined and comments_map is iterable and comments_map[column_meta['Field']] is defined ? comments_map[column_meta['Field']] -}}
+  </textarea>
+  {% set ci = ci + 1 %}
 </td>
  {# column virtuality #}
 {% if is_virtual_columns_supported %}
