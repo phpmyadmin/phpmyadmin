@@ -12,13 +12,9 @@
   </td>
 
   <td name="col_type" class="nowrap">
-    {% include 'columns_definitions/column_type.twig' with {
-      'column_number': row_num,
-      'ci': 1,
-      'ci_offset': 0,
-      'column_meta': [],
-      'type_upper': row['col_type']|upper
-    } only %}
+    <select class="column_type" name="field_type[{{ row_num }}]" id="field_{{ row_num }}_1">
+      {{ get_supported_datatypes(true, row['col_type']|upper) }}
+    </select>
   </td>
 
   <td class="nowrap" name="col_length">

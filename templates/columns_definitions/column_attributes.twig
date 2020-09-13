@@ -18,15 +18,11 @@
     {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
-    {# column type #}
-    {% include 'columns_definitions/column_type.twig' with {
-        'column_number': column_number,
-        'ci': ci,
-        'ci_offset': ci_offset,
-        'column_meta': column_meta,
-        'type_upper': type_upper
-    } only %}
-    {% set ci = ci + 1 %}
+  <select class="column_type" name="field_type[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}"
+    {{- column_meta['column_status'] is defined and not column_meta['column_status']['isEditable'] ? ' disabled' }}>
+    {{ get_supported_datatypes(true, type_upper) }}
+  </select>
+  {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
     {# column length #}

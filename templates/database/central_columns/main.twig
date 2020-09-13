@@ -63,13 +63,9 @@
                             } only %}
                         </td>
                         <td name="col_type" class="nowrap">
-                            {% include 'columns_definitions/column_type.twig' with {
-                                'column_number': 0,
-                                'ci': 1,
-                                'ci_offset': 0,
-                                'type_upper': '',
-                                'column_meta': {}
-                            } only %}
+                          <select class="column_type" name="field_type[0]" id="field_0_1">
+                            {{ get_supported_datatypes(true) }}
+                          </select>
                         </td>
                         <td class="nowrap" name="col_length">
                             {% include 'columns_definitions/column_length.twig' with {
@@ -299,14 +295,10 @@
                                 } only %}
                             </td>
                             <td name = "col_type" class="nowrap">
-                                <span>{{ row['col_type'] }}</span>
-                                {% include 'columns_definitions/column_type.twig' with {
-                                    'column_number': row_num,
-                                    'ci': 1,
-                                    'ci_offset': 0,
-                                    'type_upper': types_upper[row_num],
-                                    'column_meta': {}
-                                } only %}
+                              <span>{{ row['col_type'] }}</span>
+                              <select class="column_type" name="field_type[{{ row_num }}]" id="field_{{ row_num }}_1">
+                                {{ get_supported_datatypes(true, types_upper[row_num]) }}
+                              </select>
                             </td>
                             <td class="nowrap" name="col_length">
                                 <span>{{ (row['col_length']?(row['col_length']):'') }}</span>
