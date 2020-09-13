@@ -40,7 +40,13 @@
                 {% endif %}
 
                 {% if server > 0 %}
-                  {{ change_password is not empty ? change_password|raw }}
+                  {% if has_change_password_link %}
+                    <li id="li_change_password" class="list-group-item">
+                      <a href="{{ url('/user-password') }}" id="change_password_anchor" class="ajax">
+                        {{ get_icon('s_passwd', 'Change password'|trans, true) }}
+                      </a>
+                    </li>
+                  {% endif %}
 
                   <li id="li_select_mysql_collation" class="list-group-item">
                     <form class="disableAjax" method="post" action="{{ url('/collation-connection') }}">
@@ -67,8 +73,13 @@
                       {% endif %}
                     </form>
                   </li>
+
+                  <li id="li_user_preferences" class="list-group-item">
+                    <a href="{{ url('/preferences/manage') }}">
+                      {{ get_icon('b_tblops', 'More settings'|trans, true) }}
+                    </a>
+                  </li>
                 {% endif %}
-                {{ user_preferences is not empty ? user_preferences|raw }}
               </ul>
             </div>
           {% endif %}
@@ -136,7 +147,7 @@
           </div>
         {% endif %}
 
-        {% if web_server is not empty or php_info is not empty %}
+        {% if web_server is not empty or show_php_info %}
           <div class="card mt-4">
             <div class="card-header">
               {% trans 'Web server' %}
@@ -162,8 +173,12 @@
                   {{ web_server.php_version }}
                 </li>
               {% endif %}
-              {% if php_info is not empty %}
-                {{ php_info|raw }}
+              {% if show_php_info %}
+                <li class="list-group-item">
+                  <a href="{{ url('/phpinfo') }}" target="_blank" rel="noopener noreferrer">
+                    {% trans 'Show PHP information' %}
+                  </a>
+                </li>
               {% endif %}
             </ul>
           </div>

@@ -109,23 +109,6 @@ class HomeController extends AbstractController
                 $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
                 $checkUserPrivileges->getPrivileges();
 
-                if (($cfg['Server']['auth_type'] !== 'config') && $cfg['ShowChgPassword']) {
-                    $changePassword = $this->template->render('list/item', [
-                        'content' => Generator::getImage('s_passwd') . ' ' . __(
-                            'Change password'
-                        ),
-                        'id' => 'li_change_password',
-                        'class' => 'list-group-item',
-                        'url' => [
-                            'href' => Url::getFromRoute('/user-password'),
-                            'target' => null,
-                            'id' => 'change_password_anchor',
-                            'class' => 'ajax',
-                        ],
-                        'mysql_help_page' => null,
-                    ]);
-                }
-
                 $charsets = Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
                 $collations = Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
                 $charsetsList = [];
@@ -146,21 +129,6 @@ class HomeController extends AbstractController
                         'collations' => $collationsList,
                     ];
                 }
-
-                $userPreferences = $this->template->render('list/item', [
-                    'content' => Generator::getImage('b_tblops') . ' ' . __(
-                        'More settings'
-                    ),
-                    'id' => 'li_user_preferences',
-                    'class' => 'list-group-item',
-                    'url' => [
-                        'href' => Url::getFromRoute('/preferences/manage'),
-                        'target' => null,
-                        'id' => null,
-                        'class' => null,
-                    ],
-                    'mysql_help_page' => null,
-                ]);
             }
         }
 
@@ -217,20 +185,6 @@ class HomeController extends AbstractController
                 $webServer['php_version'] = PHP_VERSION;
             }
         }
-        if ($cfg['ShowPhpInfo']) {
-            $phpInfo = $this->template->render('list/item', [
-                'content' => __('Show PHP information'),
-                'id' => null,
-                'class' => 'list-group-item',
-                'url' => [
-                    'href' => Url::getFromRoute('/phpinfo'),
-                    'target' => '_blank',
-                    'id' => null,
-                    'class' => null,
-                ],
-                'mysql_help_page' => null,
-            ]);
-        }
 
         $relation = new Relation($this->dbi);
         if ($server > 0) {
@@ -278,14 +232,13 @@ class HomeController extends AbstractController
             'is_demo' => $cfg['DBG']['demo'],
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
-            'change_password' => $changePassword ?? '',
+            'has_change_password_link' => $cfg['Server']['auth_type'] !== 'config' && $cfg['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
             'language_selector' => $languageSelector,
             'theme_selection' => $themeSelection,
-            'user_preferences' => $userPreferences ?? '',
             'database_server' => $databaseServer,
             'web_server' => $webServer,
-            'php_info' => $phpInfo ?? '',
+            'show_php_info' => $cfg['ShowPhpInfo'],
             'is_version_checked' => $cfg['VersionCheck'],
             'phpmyadmin_version' => PMA_VERSION,
             'config_storage_message' => $configStorageMessage ?? '',

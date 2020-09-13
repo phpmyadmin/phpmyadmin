@@ -91,23 +91,7 @@ class FormDisplayTemplate
      */
     public function displayTabsTop(array $tabs): string
     {
-        $items = [];
-        foreach ($tabs as $tabId => $tabName) {
-            $items[] = [
-                'content' => htmlspecialchars($tabName),
-                'url' => [
-                    'href' => '#' . $tabId,
-                ],
-            ];
-        }
-
-        $htmlOutput = $this->template->render('list/unordered', [
-            'class' => 'tabs responsivetable row',
-            'items' => $items,
-        ]);
-        $htmlOutput .= '<div class="tabs_contents col">';
-
-        return $htmlOutput;
+        return $this->template->render('config/form_display/tabs_top', ['tabs' => $tabs]);
     }
 
     /**

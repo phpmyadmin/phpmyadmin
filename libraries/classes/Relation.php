@@ -403,29 +403,7 @@ class Relation
             $retval .= '</table>' . "\n";
 
             if (! $cfgRelation['allworks']) {
-                $retval .= '<p>' . __('Quick steps to set up advanced features:')
-                    . '</p>';
-
-                $items = [];
-                $items[] = sprintf(
-                    __(
-                        'Create the needed tables with the '
-                        . '<code>%screate_tables.sql</code>.'
-                    ),
-                    htmlspecialchars(SQL_DIR)
-                ) . ' ' . MySQLDocumentation::showDocumentation('setup', 'linked-tables');
-                $items[] = __('Create a pma user and give access to these tables.') . ' '
-                    . MySQLDocumentation::showDocumentation('config', 'cfg_Servers_controluser');
-                $items[] = __(
-                    'Enable advanced features in configuration file '
-                    . '(<code>config.inc.php</code>), for example by '
-                    . 'starting from <code>config.sample.inc.php</code>.'
-                ) . ' ' . MySQLDocumentation::showDocumentation('setup', 'quick-install');
-                $items[] = __(
-                    'Re-login to phpMyAdmin to load the updated configuration file.'
-                );
-
-                $retval .= $this->template->render('list/unordered', ['items' => $items]);
+                $retval .= $this->template->render('relation/diagnostic_info', ['sql_dir' => SQL_DIR]);
             }
         }
 
