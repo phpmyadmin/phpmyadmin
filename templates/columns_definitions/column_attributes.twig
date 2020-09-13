@@ -83,13 +83,8 @@
     {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
-    {# column NULL #}
-    {% include 'columns_definitions/column_null.twig' with {
-        'column_number': column_number,
-        'ci': ci,
-        'ci_offset': ci_offset,
-        'column_meta': column_meta
-    } only %}
+    <input name="field_null[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="YES" class="allow_null"
+      {{- column_meta['Null'] is not empty and column_meta['Null'] != 'NO' and column_meta['Null'] != 'NOT NULL' ? ' checked' }}>
     {% set ci = ci + 1 %}
 </td>
 {% if change_column is defined and change_column is not empty %}

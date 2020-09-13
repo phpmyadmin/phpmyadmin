@@ -116,12 +116,7 @@
                             } only %}
                         </td>
                         <td class="nowrap" name="col_isNull">
-                            {% include 'columns_definitions/column_null.twig' with {
-                                'column_number': 0,
-                                'ci': 6,
-                                'ci_offset': 0,
-                                'column_meta': {}
-                            } only %}
+                          <input name="field_null[0]" id="field_0_6" type="checkbox" value="YES" class="allow_null">
                         </td>
                         <td class="nowrap" name="col_extra">
                             {% include 'columns_definitions/column_extra.twig' with {
@@ -368,14 +363,8 @@
                             </td>
                             <td class="nowrap" name="col_isNull">
                                 <span>{{ row['col_isNull'] ? 'Yes' | trans : 'No' | trans }}</span>
-                                {% include 'columns_definitions/column_null.twig' with {
-                                    'column_number': row_num,
-                                    'ci': 6,
-                                    'ci_offset': 0,
-                                    'column_meta': {
-                                        'Null': row['col_isNull']
-                                    }
-                                } only %}
+                                <input name="field_null[{{ row_num }}]" id="field_{{ row_num }}_6" type="checkbox" value="YES" class="allow_null"
+                                  {{- row['col_isNull'] is not empty and row['col_isNull'] != 'NO' and row['col_isNull'] != 'NOT NULL' ? ' checked' }}>
                             </td>
                             <td class="nowrap" name="col_extra">
                                 <span>{{ row['col_extra'] }}</span>
