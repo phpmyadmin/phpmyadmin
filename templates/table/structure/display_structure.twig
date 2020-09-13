@@ -132,61 +132,52 @@
                                 <a href="#" class="tab nowrap">{{ get_icon('b_more', 'More'|trans) }}</a>
                                 <ul>
                         {% endif %}
-                        {# Add primary #}
-                        {% include 'table/structure/action_row_in_structure_table.twig' with {
-                            'type': type,
-                            'tbl_storage_engine': tbl_storage_engine,
-                            'class': 'primary nowrap',
-                            'has_field': primary and primary.hasColumn(field_name),
-                            'has_link_class': true,
-                            'primary': primary,
-                            'syntax': 'ADD PRIMARY KEY',
-                            'message': 'A primary key has been added on %s.'|trans,
-                            'action': 'Primary',
-                            'titles': titles,
-                            'row': row,
-                            'is_primary': true,
-                            'db': db,
-                            'table': table
-                        } only %}
 
-                        {# Add unique #}
-                        {% include 'table/structure/action_row_in_structure_table.twig' with {
-                            'type': type,
-                            'tbl_storage_engine': tbl_storage_engine,
-                            'class': 'add_unique unique nowrap',
-                            'has_field': field_name in columns_with_unique_index,
-                            'has_link_class': false,
-                            'primary': primary,
-                            'syntax': 'ADD UNIQUE',
-                            'message': 'An index has been added on %s.'|trans,
-                            'action': 'Unique',
-                            'titles': titles,
-                            'row': row,
-                            'is_primary': false,
-                            'db': db,
-                            'table': table
-                        } only %}
+                        <li class="primary nowrap">
+                          {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (primary and primary.hasColumn(field_name)) %}
+                            {{ get_icon('bd_primary', 'Primary'|trans) }}
+                          {% else %}
+                            <a rel="samepage" class="ajax add_key print_ignore add_primary_key_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ (primary ? ' DROP PRIMARY KEY,') ~ ' ADD PRIMARY KEY(' ~ backquote(row['Field']) ~ ');',
+                              'message_to_show': 'A primary key has been added on %s.'|trans|format(row['Field']|e)
+                            }) }}">
+                              {{ get_icon('b_primary', 'Primary'|trans) }}
+                            </a>
+                          {% endif %}
+                        </li>
 
-                        {# Add index #}
-                        {% include 'table/structure/action_row_in_structure_table.twig' with {
-                            'type': type,
-                            'tbl_storage_engine': tbl_storage_engine,
-                            'class': 'add_index nowrap',
-                            'has_field': false,
-                            'has_link_class': false,
-                            'primary': primary,
-                            'syntax': 'ADD INDEX',
-                            'message': 'An index has been added on %s.'|trans,
-                            'action': 'Index',
-                            'titles': titles,
-                            'row': row,
-                            'is_primary': false,
-                            'db': db,
-                            'table': table
-                        } only %}
+                        <li class="add_unique unique nowrap">
+                          {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or field_name in columns_with_unique_index %}
+                            {{ get_icon('bd_unique', 'Unique'|trans) }}
+                          {% else %}
+                            <a rel="samepage" class="ajax add_key print_ignore add_unique_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD UNIQUE(' ~ backquote(row['Field']) ~ ');',
+                              'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
+                            }) }}">
+                              {{ get_icon('b_unique', 'Unique'|trans) }}
+                            </a>
+                          {% endif %}
+                        </li>
 
-                        {# Add spatial #}
+                        <li class="add_index nowrap">
+                          {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' %}
+                            {{ get_icon('bd_index', 'Index'|trans) }}
+                          {% else %}
+                            <a rel="samepage" class="ajax add_key print_ignore add_index_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD INDEX(' ~ backquote(row['Field']) ~ ');',
+                              'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
+                            }) }}">
+                              {{ get_icon('b_index', 'Index'|trans) }}
+                            </a>
+                          {% endif %}
+                        </li>
+
                         {% set spatial_types = [
                             'geometry',
                             'point',
@@ -197,23 +188,20 @@
                             'multipolygon',
                             'geomtrycollection'
                         ] %}
-                        {% include 'table/structure/action_row_in_structure_table.twig' with {
-                            'type': type,
-                            'tbl_storage_engine': tbl_storage_engine,
-                            'class': 'spatial nowrap',
-                            'has_field': type not in spatial_types and
-                                (tbl_storage_engine == 'MYISAM' or mysql_int_version >= 50705),
-                            'has_link_class': false,
-                            'primary': primary,
-                            'syntax': 'ADD SPATIAL',
-                            'message': 'An index has been added on %s.'|trans,
-                            'action': 'Spatial',
-                            'titles': titles,
-                            'row': row,
-                            'is_primary': false,
-                            'db': db,
-                            'table': table
-                        } only %}
+                        <li class="spatial nowrap">
+                          {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (type not in spatial_types and (tbl_storage_engine == 'MYISAM' or mysql_int_version >= 50705)) %}
+                            {{ get_icon('bd_spatial', 'Spatial'|trans) }}
+                          {% else %}
+                            <a rel="samepage" class="ajax add_key print_ignore add_spatial_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD SPATIAL(' ~ backquote(row['Field']) ~ ');',
+                              'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
+                            }) }}">
+                              {{ get_icon('b_spatial', 'Spatial'|trans) }}
+                            </a>
+                          {% endif %}
+                        </li>
 
                         {# FULLTEXT is possible on TEXT, CHAR and VARCHAR #}
                         <li class="fulltext nowrap">
