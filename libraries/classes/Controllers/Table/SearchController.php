@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
@@ -360,12 +359,6 @@ class SearchController extends AbstractController
     {
         $selected_operator = ($_POST['criteriaColumnOperators'][$search_index] ?? '');
         $entered_value = ($_POST['criteriaValues'] ?? '');
-        $titles = [
-            'Browse' => Generator::getIcon(
-                'b_browse',
-                __('Browse foreign values')
-            ),
-        ];
         //Gets column's type and collation
         $type = $this->columnTypes[$column_index];
         $collation = $this->columnCollations[$column_index];
@@ -421,7 +414,6 @@ class SearchController extends AbstractController
             'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
             'criteria_values' => $entered_value,
             'db' => $this->db,
-            'titles' => $titles,
             'in_fbs' => true,
         ]);
 

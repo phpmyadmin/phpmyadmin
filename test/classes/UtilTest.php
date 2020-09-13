@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
@@ -1995,37 +1994,6 @@ class UtilTest extends AbstractTestCase
         $this->assertEquals(Util::getPageFromPosition(1, 1), 2);
         $this->assertEquals(Util::getPageFromPosition(1, 2), 1);
         $this->assertEquals(Util::getPageFromPosition(1, 6), 1);
-    }
-
-    /**
-     * Test for PhpMyAdmin\Util::buildActionTitles
-     */
-    public function testBuildActionTitles(): void
-    {
-        $GLOBALS['cfg'] = ['ActionLinksMode' => 'both'];
-
-        $titles = [];
-        $titles['Browse']     = Generator::getIcon('b_browse', __('Browse'));
-        $titles['NoBrowse']   = Generator::getIcon('bd_browse', __('Browse'));
-        $titles['Search']     = Generator::getIcon('b_select', __('Search'));
-        $titles['NoSearch']   = Generator::getIcon('bd_select', __('Search'));
-        $titles['Insert']     = Generator::getIcon('b_insrow', __('Insert'));
-        $titles['NoInsert']   = Generator::getIcon('bd_insrow', __('Insert'));
-        $titles['Structure']  = Generator::getIcon('b_props', __('Structure'));
-        $titles['Drop']       = Generator::getIcon('b_drop', __('Drop'));
-        $titles['NoDrop']     = Generator::getIcon('bd_drop', __('Drop'));
-        $titles['Empty']      = Generator::getIcon('b_empty', __('Empty'));
-        $titles['NoEmpty']    = Generator::getIcon('bd_empty', __('Empty'));
-        $titles['Edit']       = Generator::getIcon('b_edit', __('Edit'));
-        $titles['NoEdit']     = Generator::getIcon('bd_edit', __('Edit'));
-        $titles['Export']     = Generator::getIcon('b_export', __('Export'));
-        $titles['NoExport']   = Generator::getIcon('bd_export', __('Export'));
-        $titles['Execute']    = Generator::getIcon('b_nextpage', __('Execute'));
-        $titles['NoExecute']  = Generator::getIcon('bd_nextpage', __('Execute'));
-        $titles['Favorite']   = Generator::getIcon('b_favorite', '');
-        $titles['NoFavorite'] = Generator::getIcon('b_no_favorite', '');
-
-        $this->assertEquals($titles, Util::buildActionTitles());
     }
 
     /**

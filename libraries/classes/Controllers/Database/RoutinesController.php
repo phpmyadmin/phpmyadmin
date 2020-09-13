@@ -42,7 +42,7 @@ class RoutinesController extends AbstractController
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
-        global $errors, $titles;
+        global $errors;
 
         $params = ['type' => $_REQUEST['type'] ?? null];
 
@@ -73,11 +73,6 @@ class RoutinesController extends AbstractController
         } elseif (strlen($db) > 0) {
             $this->dbi->selectDb($db);
         }
-
-        /**
-         * Create labels for the list
-         */
-        $titles = Util::buildActionTitles();
 
         /**
          * Keep a list of errors that occurred while

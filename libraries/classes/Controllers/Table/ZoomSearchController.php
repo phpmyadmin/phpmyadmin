@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table\Search;
@@ -382,13 +381,6 @@ class ZoomSearchController extends AbstractController
         }
         unset($tmpData);
 
-        //Displays form for point data and scatter plot
-        $titles = [
-            'Browse' => Generator::getIcon(
-                'b_browse',
-                __('Browse foreign values')
-            ),
-        ];
         $column_names_hashes = [];
 
         foreach ($this->columnNames as $columnName) {
@@ -403,7 +395,6 @@ class ZoomSearchController extends AbstractController
             'foreigners' => $this->foreigners,
             'column_null_flags' => $this->columnNullFlags,
             'column_types' => $this->columnTypes,
-            'titles' => $titles,
             'goto' => $goto,
             'data' => $data,
             'data_json' => json_encode($data),
@@ -425,12 +416,6 @@ class ZoomSearchController extends AbstractController
     {
         $selected_operator = ($_POST['criteriaColumnOperators'][$search_index] ?? '');
         $entered_value = ($_POST['criteriaValues'] ?? '');
-        $titles = [
-            'Browse' => Generator::getIcon(
-                'b_browse',
-                __('Browse foreign values')
-            ),
-        ];
         //Gets column's type and collation
         $type = $this->columnTypes[$column_index];
         $collation = $this->columnCollations[$column_index];
@@ -486,7 +471,6 @@ class ZoomSearchController extends AbstractController
             'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
             'criteria_values' => $entered_value,
             'db' => $this->db,
-            'titles' => $titles,
             'in_fbs' => true,
         ]);
 

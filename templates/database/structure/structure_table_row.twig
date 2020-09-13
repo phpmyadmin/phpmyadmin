@@ -34,38 +34,36 @@
                 'db_table_name_hash': db_table_name_hash,
                 'fav_params': fav_params,
                 'already_favorite': already_favorite,
-                'titles': titles
             } only %}
         </td>
     {% endif %}
 
     <td class="text-center print_ignore">
         <a href="{{ url('/sql', table_url_params|merge({'pos': 0})) }}">
-            {{ browse_table_title|raw }}
+          {{ may_have_rows ? get_icon('b_browse', 'Browse'|trans) : get_icon('bd_browse', 'Browse'|trans) }}
         </a>
-
     </td>
     <td class="text-center print_ignore">
         <a href="{{ url('/table/structure', table_url_params) }}">
-            {{ titles['Structure']|raw }}
+          {{ get_icon('b_props', 'Structure'|trans) }}
         </a>
     </td>
     <td class="text-center print_ignore">
         <a href="{{ url('/table/search', table_url_params) }}">
-            {{ search_table_title|raw }}
+          {{ may_have_rows ? get_icon('b_select', 'Search'|trans) : get_icon('bd_select', 'Search'|trans) }}
         </a>
     </td>
 
     {% if not db_is_system_schema %}
         <td class="insert_table text-center print_ignore">
-            <a href="{{ url('/table/change', table_url_params) }}">{{ titles['Insert']|raw }}</a>
+            <a href="{{ url('/table/change', table_url_params) }}">{{ get_icon('b_insrow', 'Insert'|trans) }}</a>
         </td>
         {% if table_is_view %}
             <td class="text-center print_ignore">
                 <a href="{{ url('/view/create', {
                     'db': db,
                     'table': current_table['TABLE_NAME']
-                }) }}">{{ titles['Edit']|raw }}</a>
+                }) }}">{{ get_icon('b_edit', 'Edit'|trans) }}</a>
             </td>
         {% else %}
           <td class="text-center print_ignore">
@@ -73,7 +71,7 @@
                   'sql_query': empty_table_sql_query,
                   'message_to_show': empty_table_message_to_show
                 }), '') }}">
-                    {{ empty_table_title|raw }}
+                  {{ may_have_rows ? get_icon('b_empty', 'Empty'|trans) : get_icon('bd_empty', 'Empty'|trans) }}
                 </a>
           </td>
         {% endif %}
@@ -86,7 +84,7 @@
                   'sql_query': drop_query,
                   'message_to_show': drop_message
                 }), '') }}">
-                {{ titles['Drop']|raw }}
+                {{ get_icon('b_drop', 'Drop'|trans) }}
             </a>
         </td>
     {% endif %}

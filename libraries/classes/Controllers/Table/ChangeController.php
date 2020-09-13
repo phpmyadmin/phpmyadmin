@@ -60,7 +60,7 @@ class ChangeController extends AbstractController
         global $result, $rows, $found_unique_key, $after_insert, $comments_map, $table_columns;
         global $chg_evt_handler, $timestamp_seen, $columns_cnt, $tabindex, $tabindex_for_function;
         global $tabindex_for_null, $tabindex_for_value, $o_rows, $biggest_max_file_size, $has_blob_field;
-        global $titles, $jsvkey, $vkey, $current_result, $repopulate, $checked;
+        global $jsvkey, $vkey, $current_result, $repopulate, $checked;
 
         $pageSettings = new PageSettings('Edit');
         $this->response->addHTML($pageSettings->getErrorHTML());
@@ -197,8 +197,6 @@ class ChangeController extends AbstractController
 
         $html_output .= Url::getHiddenInputs($_form_params);
 
-        $titles['Browse'] = Generator::getIcon('b_browse', __('Browse foreign values'));
-
         // user can toggle the display of Function column and column types
         // (currently does not work for multi-edits)
         if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
@@ -257,7 +255,6 @@ class ChangeController extends AbstractController
                 $table,
                 $db,
                 $row_id,
-                $titles,
                 $biggest_max_file_size,
                 $text_dir,
                 $repopulate,
