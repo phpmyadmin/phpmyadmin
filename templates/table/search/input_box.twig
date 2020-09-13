@@ -24,7 +24,7 @@
             {{- get_common({'db': db, 'table': table}, '') -}}
             &amp;field={{ column_name|url_encode }}&amp;fieldkey=
             {{- column_index }}&amp;fromsearch=1">
-            {{ titles['Browse']|replace({"'": "\\'"})|raw }}
+            {{ get_icon('b_browse', 'Browse foreign values'|trans) }}
         </a>
     {% endif %}
 {% elseif column_type in get_gis_datatypes() %}

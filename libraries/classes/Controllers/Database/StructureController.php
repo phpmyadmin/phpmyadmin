@@ -249,7 +249,6 @@ class StructureController extends AbstractController
             return;
         }
         $changes = true;
-        $titles = Util::buildActionTitles();
         $favoriteTable = $parameters['favorite_table'] ?? '';
         $alreadyFavorite = $this->checkFavoriteTable($favoriteTable);
 
@@ -300,7 +299,6 @@ class StructureController extends AbstractController
             'db_table_name_hash' => md5($this->db . '.' . $favoriteTable),
             'fav_params' => $favoriteParams,
             'already_favorite' => $alreadyFavorite,
-            'titles' => $titles,
         ]);
 
         $this->response->addJSON($json);
@@ -540,7 +538,6 @@ class StructureController extends AbstractController
              * the code easier to read without this operator.
              */
             $may_have_rows = $current_table['TABLE_ROWS'] > 0 || $table_is_view;
-            $titles = Util::buildActionTitles();
 
             if (! $this->dbIsSystemSchema) {
                 $drop_query = sprintf(
@@ -601,8 +598,7 @@ class StructureController extends AbstractController
                 'input_class' => implode(' ', $input_class),
                 'table_is_view' => $table_is_view,
                 'current_table' => $current_table,
-                'browse_table_title' => $may_have_rows ? $titles['Browse'] : $titles['NoBrowse'],
-                'search_table_title' => $may_have_rows ? $titles['Search'] : $titles['NoSearch'],
+                'may_have_rows' => $may_have_rows,
                 'browse_table_label_title' => htmlspecialchars($current_table['TABLE_COMMENT']),
                 'browse_table_label_truename' => $truename,
                 'empty_table_sql_query' => 'TRUNCATE ' . Util::backquote(
@@ -616,12 +612,10 @@ class StructureController extends AbstractController
                         )
                     )
                 ),
-                'empty_table_title' => $may_have_rows ? $titles['Empty'] : $titles['NoEmpty'],
                 'tracking_icon' => $this->getTrackingIcon($truename),
                 'server_slave_status' => $replicaInfo['status'],
                 'table_url_params' => $tableUrlParams,
                 'db_is_system_schema' => $this->dbIsSystemSchema,
-                'titles' => $titles,
                 'drop_query' => $drop_query,
                 'drop_message' => $drop_message,
                 'collation' => $collationDefinition,

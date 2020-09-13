@@ -106,7 +106,7 @@
                       'field': row['Field'],
                       'change_column': 1
                     }) }}">
-                        {{ titles['Change']|raw }}
+                      {{ get_icon('b_edit', 'Change'|trans) }}
                     </a>
                 </td>
                 <td class="drop text-center print_ignore">
@@ -118,7 +118,7 @@
                       'purge': true,
                       'message_to_show': 'Column %s has been dropped.'|trans|format(row['Field']|e)
                     }) }}">
-                        {{ titles['Drop']|raw }}
+                      {{ get_icon('b_drop', 'Drop'|trans) }}
                     </a>
                 </td>
             {% endif %}
@@ -217,10 +217,10 @@
                               'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD FULLTEXT(' ~ backquote(row['Field']) ~ ');',
                               'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
                             }) }}">
-                                {{ titles['IdxFulltext']|raw }}
+                              {{ get_icon('b_ftext', 'Fulltext'|trans) }}
                             </a>
                         {% else %}
-                            {{ titles['NoIdxFulltext']|raw }}
+                          {{ get_icon('bd_ftext', 'Fulltext'|trans) }}
                         {% endif %}
                         </li>
 
@@ -236,7 +236,7 @@
                                 ~ ' ORDER BY ' ~ backquote(row['Field']),
                               'is_browse_distinct': true
                             }) }}">
-                                {{ titles['DistinctValues']|raw }}
+                              {{ get_icon('b_browse', 'Distinct values'|trans) }}
                             </a>
                         </li>
                         {% if central_columns_work %}

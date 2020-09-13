@@ -1467,23 +1467,6 @@ class StructureController extends AbstractController
             $this->table
         );
 
-        $titles = [
-            'Change' => Generator::getIcon('b_edit', __('Change')),
-            'Drop' => Generator::getIcon('b_drop', __('Drop')),
-            'NoDrop' => Generator::getIcon('b_drop', __('Drop')),
-            'Primary' => Generator::getIcon('b_primary', __('Primary')),
-            'Index' => Generator::getIcon('b_index', __('Index')),
-            'Unique' => Generator::getIcon('b_unique', __('Unique')),
-            'Spatial' => Generator::getIcon('b_spatial', __('Spatial')),
-            'IdxFulltext' => Generator::getIcon('b_ftext', __('Fulltext')),
-            'NoPrimary' => Generator::getIcon('bd_primary', __('Primary')),
-            'NoIndex' => Generator::getIcon('bd_index', __('Index')),
-            'NoUnique' => Generator::getIcon('bd_unique', __('Unique')),
-            'NoSpatial' => Generator::getIcon('bd_spatial', __('Spatial')),
-            'NoIdxFulltext' => Generator::getIcon('bd_ftext', __('Fulltext')),
-            'DistinctValues' => Generator::getIcon('b_browse', __('Distinct values')),
-        ];
-
         /**
          * Displays Space usage and row statistics
          */
@@ -1569,7 +1552,6 @@ class StructureController extends AbstractController
             'db_is_system_schema' => $db_is_system_schema,
             'tbl_is_view' => $tbl_is_view,
             'mime_map' => $mime_map,
-            'titles' => $titles,
             'tbl_storage_engine' => $tbl_storage_engine,
             'primary' => $primary_index,
             'columns_with_unique_index' => $columns_with_unique_index,

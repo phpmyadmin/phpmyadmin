@@ -1108,9 +1108,8 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetForeignLink(): void
     {
-        $column = $titles = [];
+        $column = [];
         $column['Field'] = 'f';
-        $titles['Browse'] = "'";
         $GLOBALS['cfg']['ServerDefault'] = 2;
         $result = $this->callFunction(
             $this->insertEdit,
@@ -1130,7 +1129,6 @@ class InsertEditTest extends AbstractTestCase
                     'db',
                 ],
                 8,
-                $titles,
                 false,
             ]
         );
@@ -4084,7 +4082,6 @@ class InsertEditTest extends AbstractTestCase
                 'table',
                 'db',
                 0,
-                [],
                 0,
                 '',
                 '',
@@ -4167,7 +4164,6 @@ class InsertEditTest extends AbstractTestCase
                 'table',
                 'db',
                 0,
-                [],
                 0,
                 '',
                 '',
@@ -4239,7 +4235,6 @@ class InsertEditTest extends AbstractTestCase
             'table',
             'db',
             0,
-            [],
             0,
             '',
             [],
@@ -4325,7 +4320,6 @@ class InsertEditTest extends AbstractTestCase
             'table',
             'db',
             0,
-            [],
             0,
             '',
             [],
@@ -4385,7 +4379,6 @@ class InsertEditTest extends AbstractTestCase
             'table',
             'db',
             0,
-            [],
             0,
             '',
             [],

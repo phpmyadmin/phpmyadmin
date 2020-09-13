@@ -680,9 +680,6 @@ class InsertEdit
      * @param array  $foreignData           data about the foreign keys
      * @param array  $paramTableDbArray     array containing $table and $db
      * @param int    $rownumber             the row number
-     * @param array  $titles                An HTML IMG tag for a particular icon from
-     *                                      a theme, which may be an actual file or
-     *                                      an icon from a sprite
      * @param string $text_dir              text direction
      * @param string $special_chars_encoded replaced char if the string starts
      *                                      with a \r\n pair (0x0d0a) add an extra \n
@@ -714,7 +711,6 @@ class InsertEdit
         array $foreignData,
         array $paramTableDbArray,
         $rownumber,
-        array $titles,
         $text_dir,
         $special_chars_encoded,
         $vkey,
@@ -742,7 +738,6 @@ class InsertEdit
                 $data,
                 $paramTableDbArray,
                 $rownumber,
-                $titles,
                 $readOnly
             );
         } elseif (is_array($foreignData['disp_row'])) {
@@ -880,9 +875,6 @@ class InsertEdit
      * @param string $data                 data to edit
      * @param array  $paramTableDbArray    array containing $table and $db
      * @param int    $rownumber            the row number
-     * @param array  $titles               An HTML IMG tag for a particular icon from
-     *                                     a theme, which may be an actual file or
-     *                                     an icon from a sprite
      * @param bool   $readOnly             is column read only or not
      *
      * @return string                       an html snippet
@@ -898,7 +890,6 @@ class InsertEdit
         $data,
         array $paramTableDbArray,
         $rownumber,
-        array $titles,
         $readOnly
     ) {
         [$table, $db] = $paramTableDbArray;
@@ -929,7 +920,7 @@ class InsertEdit
                 ],
                 ''
             ) . '">'
-            . str_replace("'", "\'", $titles['Browse']) . '</a>';
+            . Generator::getIcon('b_browse', __('Browse foreign values')) . '</a>';
 
         return $html_output;
     }
@@ -3219,7 +3210,6 @@ class InsertEdit
      * @param string $table                 table
      * @param string $db                    database
      * @param int    $row_id                row id
-     * @param array  $titles                titles
      * @param int    $biggest_max_file_size biggest max file size
      * @param string $default_char_editing  default char editing mode which is stored
      *                                      in the config.inc.php script
@@ -3252,7 +3242,6 @@ class InsertEdit
         $table,
         $db,
         $row_id,
-        array $titles,
         $biggest_max_file_size,
         $default_char_editing,
         $text_dir,
@@ -3492,7 +3481,6 @@ class InsertEdit
                     $db,
                 ],
                 $row_id,
-                $titles,
                 $text_dir,
                 $special_chars_encoded,
                 $vkey,
@@ -3533,7 +3521,6 @@ class InsertEdit
      * @param string $table                 table
      * @param string $db                    database
      * @param int    $row_id                row id
-     * @param array  $titles                titles
      * @param int    $biggest_max_file_size biggest max file size
      * @param string $text_dir              text direction
      * @param array  $repopulate            the data to be repopulated
@@ -3563,7 +3550,6 @@ class InsertEdit
         $table,
         $db,
         $row_id,
-        array $titles,
         $biggest_max_file_size,
         $text_dir,
         array $repopulate,
@@ -3618,7 +3604,6 @@ class InsertEdit
                 $table,
                 $db,
                 $row_id,
-                $titles,
                 $biggest_max_file_size,
                 $default_char_editing,
                 $text_dir,
