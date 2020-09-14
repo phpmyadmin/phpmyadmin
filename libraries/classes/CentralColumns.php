@@ -764,47 +764,10 @@ class CentralColumns
      */
     private function getHtmlForEditTableRow(array $row, int $row_num): string
     {
-        $tableHtml = '<tr>'
-            . '<input name="orig_col_name[' . $row_num . ']" type="hidden" '
-            . 'value="' . htmlspecialchars($row['col_name']) . '">'
-            . '<td name="col_name" class="nowrap">'
-            . $this->template->render('columns_definitions/column_name', [
-                'column_number' => $row_num,
-                'ci' => 0,
-                'ci_offset' => 0,
-                'column_meta' => [
-                    'Field' => $row['col_name'],
-                ],
-                'cfg_relation' => ['centralcolumnswork' => false],
-                'max_rows' => $this->maxRows,
-            ])
-            . '</td>';
-        $tableHtml .=
-            '<td name = "col_type" class="nowrap">'
-            . $this->template->render('columns_definitions/column_type', [
-                'column_number' => $row_num,
-                'ci' => 1,
-                'ci_offset' => 0,
-                'type_upper' => mb_strtoupper($row['col_type']),
-                'column_meta' => [],
-            ])
-            . '</td>';
-        $tableHtml .=
-            '<td class="nowrap" name="col_length">'
-            . $this->template->render('columns_definitions/column_length', [
-                'column_number' => $row_num,
-                'ci' => 2,
-                'ci_offset' => 0,
-                'length_values_input_size' => 8,
-                'length_to_display' => $row['col_length'],
-            ])
-            . '</td>';
         $meta = [];
         if (! isset($row['col_default']) || $row['col_default'] == '') {
             $meta['DefaultType'] = 'NONE';
-        } elseif ($row['col_default'] === 'CURRENT_TIMESTAMP'
-            || $row['col_default'] === 'current_timestamp()'
-        ) {
+        } elseif ($row['col_default'] === 'CURRENT_TIMESTAMP' || $row['col_default'] === 'current_timestamp()') {
             $meta['DefaultType'] = 'CURRENT_TIMESTAMP';
         } elseif ($row['col_default'] === 'NULL') {
             $meta['DefaultType'] = $row['col_default'];
@@ -812,77 +775,20 @@ class CentralColumns
             $meta['DefaultType'] = 'USER_DEFINED';
             $meta['DefaultValue'] = $row['col_default'];
         }
-        $tableHtml .=
-            '<td class="nowrap" name="col_default">'
-            . $this->template->render('columns_definitions/column_default', [
-                'column_number' => $row_num,
-                'ci' => 3,
-                'ci_offset' => 0,
-                'type_upper' => mb_strtoupper((string) $row['col_default']),
-                'column_meta' => $meta,
-                'char_editing' => $this->charEditing,
-            ])
-            . '</td>';
-        $tableHtml .= '<td name="collation" class="nowrap">';
-        $tableHtml .= '<select lang="en" dir="ltr" name="field_collation[' . $row_num . ']"';
-        $tableHtml .= ' id="field_' . $row_num . '_4">' . "\n";
-        $tableHtml .= '<option value=""></option>' . "\n";
 
         $charsets = Charsets::getCharsets($this->dbi, $this->disableIs);
         $collations = Charsets::getCollations($this->dbi, $this->disableIs);
-        /** @var Charset $charset */
-        foreach ($charsets as $charset) {
-            $tableHtml .= '<optgroup label="' . $charset->getName()
-                . '" title="' . $charset->getDescription() . '">' . "\n";
-            /** @var Collation $collation */
-            foreach ($collations[$charset->getName()] as $collation) {
-                $tableHtml .= '<option value="' . $collation->getName()
-                    . '" title="' . $collation->getDescription() . '"'
-                    . ($row['col_collation'] == $collation->getName() ? ' selected' : '') . '>'
-                    . $collation->getName() . '</option>' . "\n";
-            }
-            $tableHtml .= '</optgroup>' . "\n";
-        }
-        $tableHtml .= '</select>' . "\n";
-        $tableHtml .= '</td>';
-        $tableHtml .=
-            '<td class="nowrap" name="col_attribute">'
-            . $this->template->render('columns_definitions/column_attribute', [
-                'column_number' => $row_num,
-                'ci' => 5,
-                'ci_offset' => 0,
-                'extracted_columnspec' => [
-                    'attribute' => $row['col_attribute'],
-                ],
-                'column_meta' => [],
-                'submit_attribute' => false,
-                'attribute_types' => $this->dbi->types->getAttributes(),
-            ])
-            . '</td>';
-        $tableHtml .=
-            '<td class="nowrap" name="col_isNull">'
-            . $this->template->render('columns_definitions/column_null', [
-                'column_number' => $row_num,
-                'ci' => 6,
-                'ci_offset' => 0,
-                'column_meta' => [
-                    'Null' => $row['col_isNull'],
-                ],
-            ])
-            . '</td>';
 
-        $tableHtml .=
-            '<td class="nowrap" name="col_extra">'
-            . $this->template->render('columns_definitions/column_extra', [
-                'column_number' => $row_num,
-                'ci' => 7,
-                'ci_offset' => 0,
-                'column_meta' => ['Extra' => $row['col_extra']],
-            ])
-            . '</td>';
-        $tableHtml .= '</tr>';
-
-        return $tableHtml;
+        return $this->template->render('database/central_columns/edit_table_row', [
+            'row_num' => $row_num,
+            'row' => $row,
+            'max_rows' => $this->maxRows,
+            'meta' => $meta,
+            'char_editing' => $this->charEditing,
+            'charsets' => $charsets,
+            'collations' => $collations,
+            'attribute_types' => $this->dbi->types->getAttributes(),
+        ]);
     }
 
     /**

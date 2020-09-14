@@ -1,0 +1,90 @@
+<tr>
+  <input name="orig_col_name[{{ row_num }}]" type="hidden" value="{{ row['col_name'] }}">
+  <td name="col_name" class="nowrap">
+    {% include 'columns_definitions/column_name.twig' with {
+      'column_number': row_num,
+      'ci': 0,
+      'ci_offset': 0,
+      'column_meta': {'Field': row['col_name']},
+      'cfg_relation': {'centralcolumnswork': false},
+      'max_rows': max_rows
+    } only %}
+  </td>
+
+  <td name="col_type" class="nowrap">
+    {% include 'columns_definitions/column_type.twig' with {
+      'column_number': row_num,
+      'ci': 1,
+      'ci_offset': 0,
+      'column_meta': [],
+      'type_upper': row['col_type']|upper
+    } only %}
+  </td>
+
+  <td class="nowrap" name="col_length">
+    {% include 'columns_definitions/column_length.twig' with {
+      'column_number': row_num,
+      'ci': 2,
+      'ci_offset': 0,
+      'length_values_input_size': 8,
+      'length_to_display': row['col_length']
+    } only %}
+  </td>
+
+  <td class="nowrap" name="col_default">
+    {% include 'columns_definitions/column_default.twig' with {
+      'column_number': row_num,
+      'ci': 3,
+      'ci_offset': 0,
+      'column_meta': meta,
+      'type_upper': row['col_default']|upper,
+      'default_value': '',
+      'char_editing': char_editing
+    } only %}
+  </td>
+
+  <td name="collation" class="nowrap">
+    <select lang="en" dir="ltr" name="field_collation[{{ row_num }}]" id="field_{{ row_num }}_4">
+      <option value=""></option>
+      {% for charset in charsets %}
+        <optgroup label="{{ charset.getName() }}" title="{{ charset.getDescription() }}">
+          {% for collation in collations[charset.getName()] %}
+            <option value="{{ collation.getName() }}" title="{{ collation.getDescription() }}"{{ row['col_collation'] == collation.getName() ? ' selected' }}>
+              {{ collation.getName() }}
+            </option>
+          {% endfor %}
+        </optgroup>
+      {% endfor %}
+    </select>
+  </td>
+
+  <td class="nowrap" name="col_attribute">
+    {% include 'columns_definitions/column_attribute.twig' with {
+      'column_number': row_num,
+      'ci': 5,
+      'ci_offset': 0,
+      'column_meta': [],
+      'extracted_columnspec': {'attribute': row['col_attribute']},
+      'submit_attribute': false,
+      'attribute_types': attribute_types
+    } only %}
+  </td>
+
+  <td class="nowrap" name="col_isNull">
+    {% include 'columns_definitions/column_null.twig' with {
+      'column_number': row_num,
+      'ci': 6,
+      'ci_offset': 0,
+      'column_meta': {'Null': row['col_isNull']}
+    } only %}
+  </td>
+
+  <td class="nowrap" name="col_extra">
+    {% include 'columns_definitions/column_extra.twig' with {
+      'column_number': row_num,
+      'ci': 7,
+      'ci_offset': 0,
+      'column_meta': {'Extra': row['col_extra']}
+    } only %}
+  </td>
+</tr>
