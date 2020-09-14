@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-31 19:04-0300\n"
 "PO-Revision-Date: 2020-09-16 06:21+0000\n"
-"Last-Translator: SH DM <shahin.shdm@gmail.com>\n"
+"Last-Translator: eshesh <eshqali@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fa/>\n"
 "Language: fa\n"
@@ -21,29 +21,32 @@ msgstr "آپتایم زیر یک روز"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "آپ‌تایم کمتر از یک روز است، بهبود کارایی ممکن است دقیق انجام نشود."
 
 #: libraries/advisory_rules_generic.php:14
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"برای آنکه میانگین، دقیق‌تر گرفته شود، توصیه می‌کنیم که اجازه دهید سرور بیش "
+"از یک روزقبل از اجرای این آنالیزور در حال اجرا باشد."
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "آپتایم فقط %s است!"
 
 #: libraries/advisory_rules_generic.php:22
-#, fuzzy
 msgid "Questions below 1,000"
-msgstr "فارسي"
+msgstr "سوالات کمتر از ۱۰۰۰ تا هستند."
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"کمتر از ۱۰۰۰ سوال در مقابل این سرور اجرا شده‌اند؛ بنابراین ممکن است توصیه‌ها "
+"دقیق نباشند."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
@@ -54,9 +57,9 @@ msgstr ""
 "زمان بیشتری در اجرا باشد."
 
 #: libraries/advisory_rules_generic.php:32
-#, fuzzy, php-format
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "نسخه سرور"
+msgstr "تعداد سوالات در حال حاضر: %s"
 
 #: libraries/advisory_rules_generic.php:37
 msgid "Percentage of slow queries"
@@ -65,7 +68,7 @@ msgstr "درصد کوئری های کند"
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "تعداد کوئری‌‌های کُند نسبت به کل کوئری‌ها زیاد است."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:57
