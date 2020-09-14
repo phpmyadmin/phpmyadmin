@@ -25,15 +25,12 @@
   {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
-    {# column length #}
-    {% include 'columns_definitions/column_length.twig' with {
-        'column_number': column_number,
-        'ci': ci,
-        'ci_offset': ci_offset,
-        'length_values_input_size': length_values_input_size,
-        'length_to_display': length
-    } only %}
-    {% set ci = ci + 1 %}
+  <input id="field_{{ column_number }}_{{ ci - ci_offset }}" type="text" name="field_length[{{ column_number }}]" size="
+    {{- length_values_input_size }}" value="{{ length }}" class="textfield">
+  <p class="enum_notice" id="enum_notice_{{ column_number }}_{{ ci - ci_offset }}">
+    <a href="#" class="open_enum_editor">{% trans 'Edit ENUM/SET values' %}</a>
+  </p>
+  {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
     {# column default #}

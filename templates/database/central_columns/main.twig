@@ -68,13 +68,10 @@
                           </select>
                         </td>
                         <td class="nowrap" name="col_length">
-                            {% include 'columns_definitions/column_length.twig' with {
-                                'column_number': 0,
-                                'ci': 2,
-                                'ci_offset': 0,
-                                'length_values_input_size': 8,
-                                'length_to_display': ''
-                            } only %}
+                          <input id="field_0_2" type="text" name="field_length[0]" size="8" value="" class="textfield">
+                          <p class="enum_notice" id="enum_notice_0_2">
+                            <a href="#" class="open_enum_editor">{% trans 'Edit ENUM/SET values' %}</a>
+                          </p>
                         </td>
                         <td class="nowrap" name="col_default">
                             {% include 'columns_definitions/column_default.twig' with {
@@ -301,14 +298,11 @@
                               </select>
                             </td>
                             <td class="nowrap" name="col_length">
-                                <span>{{ (row['col_length']?(row['col_length']):'') }}</span>
-                                {% include 'columns_definitions/column_length.twig' with {
-                                    'column_number': row_num,
-                                    'ci': 2,
-                                    'ci_offset': 0,
-                                    'length_values_input_size': 8,
-                                    'length_to_display': row['col_length']
-                                } only %}
+                              <span>{{ (row['col_length']?(row['col_length']):'') }}</span>
+                              <input id="field_{{ row_num }}_2" type="text" name="field_length[{{ row_num }}]" size="8" value="{{ row['col_length'] }}" class="textfield">
+                              <p class="enum_notice" id="enum_notice_{{ row_num }}_2">
+                                <a href="#" class="open_enum_editor">{% trans 'Edit ENUM/SET values' %}</a>
+                              </p>
                             </td>
                             <td class="nowrap" name="col_default">
                                 {% if row['col_default'] is defined %}

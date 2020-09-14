@@ -18,13 +18,10 @@
   </td>
 
   <td class="nowrap" name="col_length">
-    {% include 'columns_definitions/column_length.twig' with {
-      'column_number': row_num,
-      'ci': 2,
-      'ci_offset': 0,
-      'length_values_input_size': 8,
-      'length_to_display': row['col_length']
-    } only %}
+    <input id="field_{{ row_num }}_2" type="text" name="field_length[{{ row_num }}]" size="8" value="{{ row['col_length'] }}" class="textfield">
+    <p class="enum_notice" id="enum_notice_{{ row_num }}_2">
+      <a href="#" class="open_enum_editor">{% trans 'Edit ENUM/SET values' %}</a>
+    </p>
   </td>
 
   <td class="nowrap" name="col_default">
