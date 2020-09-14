@@ -115,12 +115,7 @@
                           <input name="field_null[0]" id="field_0_6" type="checkbox" value="YES" class="allow_null">
                         </td>
                         <td class="nowrap" name="col_extra">
-                            {% include 'columns_definitions/column_extra.twig' with {
-                                'column_number': 0,
-                                'ci': 7,
-                                'ci_offset': 0,
-                                'column_meta': {}
-                            } only %}
+                          <input name="col_extra[0]" id="field_0_7" type="checkbox" value="auto_increment">
                         </td>
                         <td>
                             <input id="add_column_save" class="btn btn-primary" type="submit" value="Save">
@@ -367,15 +362,9 @@
                                   {{- row['col_isNull'] is not empty and row['col_isNull'] != 'NO' and row['col_isNull'] != 'NOT NULL' ? ' checked' }}>
                             </td>
                             <td class="nowrap" name="col_extra">
-                                <span>{{ row['col_extra'] }}</span>
-                                {% include 'columns_definitions/column_extra.twig' with {
-                                    'column_number': row_num,
-                                    'ci': 7,
-                                    'ci_offset': 0,
-                                    'column_meta': {
-                                        'Extra': row['col_extra']
-                                    }
-                                } only %}
+                              <span>{{ row['col_extra'] }}</span>
+                              <input name="col_extra[{{ row_num }}]" id="field_{{ row_num }}_7" type="checkbox" value="auto_increment"
+                                {{- row['col_extra'] is not empty and row['col_extra'] == 'auto_increment' ? ' checked' }}>
                             </td>
                         </tr>
                         {% set row_num = row_num + 1 %}

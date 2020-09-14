@@ -79,11 +79,7 @@
   </td>
 
   <td class="nowrap" name="col_extra">
-    {% include 'columns_definitions/column_extra.twig' with {
-      'column_number': row_num,
-      'ci': 7,
-      'ci_offset': 0,
-      'column_meta': {'Extra': row['col_extra']}
-    } only %}
+    <input name="col_extra[{{ row_num }}]" id="field_{{ row_num }}_7" type="checkbox" value="auto_increment"
+      {{- row['col_extra'] is not empty and row['col_extra'] == 'auto_increment' }}>
   </td>
 </tr>
