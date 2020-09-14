@@ -74,14 +74,17 @@
                           </p>
                         </td>
                         <td class="nowrap" name="col_default">
-                            {% include 'columns_definitions/column_default.twig' with {
-                                'column_number': 0,
-                                'ci': 3,
-                                'ci_offset': 0,
-                                'type_upper': '',
-                                'column_meta': {},
-                                'char_editing': char_editing,
-                            } only %}
+                          <select name="field_default_type[0]" id="field_0_3" class="default_type">
+                            <option value="NONE">{% trans %}None{% context %}for default{% endtrans %}</option>
+                            <option value="USER_DEFINED">{% trans 'As defined:' %}</option>
+                            <option value="NULL">NULL</option>
+                            <option value="CURRENT_TIMESTAMP">CURRENT_TIMESTAMP</option>
+                          </select>
+                          {% if char_editing == 'textarea' %}
+                            <textarea name="field_default_value[0]" cols="15" class="textfield default_value"></textarea>
+                          {% else %}
+                            <input type="text" name="field_default_value[0]" size="12" value="" class="textfield default_value">
+                          {% endif %}
                         </td>
                         <td name="collation" class="nowrap">
                           <select lang="en" dir="ltr" name="field_collation[0]" id="field_0_4">
@@ -305,19 +308,30 @@
                               </p>
                             </td>
                             <td class="nowrap" name="col_default">
-                                {% if row['col_default'] is defined %}
-                                    <span>{{ row['col_default'] }}</span>
-                                {% else %}
-                                    <span>None</span>
-                                {% endif %}
-                                {% include 'columns_definitions/column_default.twig' with {
-                                    'column_number': row_num,
-                                    'ci': 3,
-                                    'ci_offset': 0,
-                                    'type_upper': types_upper[row_num],
-                                    'column_meta': rows_meta[row_num],
-                                    'char_editing': char_editing,
-                                } only %}
+                              {% if row['col_default'] is defined %}
+                                <span>{{ row['col_default'] }}</span>
+                              {% else %}
+                                <span>{% trans 'None' %}</span>
+                              {% endif %}
+                              <select name="field_default_type[{{ row_num }}]" id="field_{{ row_num }}_3" class="default_type">
+                                <option value="NONE"{{ rows_meta[row_num]['DefaultType'] is defined and rows_meta[row_num]['DefaultType'] == 'NONE' ? ' selected' }}>
+                                  {% trans %}None{% context %}for default{% endtrans %}
+                                </option>
+                                <option value="USER_DEFINED"{{ rows_meta[row_num]['DefaultType'] is defined and rows_meta[row_num]['DefaultType'] == 'USER_DEFINED' ? ' selected' }}>
+                                  {% trans 'As defined:' %}
+                                </option>
+                                <option value="NULL"{{ rows_meta[row_num]['DefaultType'] is defined and rows_meta[row_num]['DefaultType'] == 'NULL' ? ' selected' }}>
+                                  NULL
+                                </option>
+                                <option value="CURRENT_TIMESTAMP"{{ rows_meta[row_num]['DefaultType'] is defined and rows_meta[row_num]['DefaultType'] == 'CURRENT_TIMESTAMP' ? ' selected' }}>
+                                  CURRENT_TIMESTAMP
+                                </option>
+                              </select>
+                              {% if char_editing == 'textarea' %}
+                                <textarea name="field_default_value[{{ row_num }}]" cols="15" class="textfield default_value"></textarea>
+                              {% else %}
+                                <input type="text" name="field_default_value[{{ row_num }}]" size="12" value="" class="textfield default_value">
+                              {% endif %}
                             </td>
                             <td name="collation" class="nowrap">
                                 <span>{{ row['col_collation'] }}</span>

@@ -33,17 +33,26 @@
   {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
-    {# column default #}
-    {% include 'columns_definitions/column_default.twig' with {
-        'column_number': column_number,
-        'ci': ci,
-        'ci_offset': ci_offset,
-        'column_meta': column_meta,
-        'type_upper': type_upper,
-        'default_value': default_value,
-        'char_editing': char_editing
-    } only %}
-    {% set ci = ci + 1 %}
+  <select name="field_default_type[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="default_type">
+    <option value="NONE"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'NONE' ? ' selected' }}>
+      {% trans %}None{% context %}for default{% endtrans %}
+    </option>
+    <option value="USER_DEFINED"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'USER_DEFINED' ? ' selected' }}>
+      {% trans 'As defined:' %}
+    </option>
+    <option value="NULL"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'NULL' ? ' selected' }}>
+      NULL
+    </option>
+    <option value="CURRENT_TIMESTAMP"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'CURRENT_TIMESTAMP' ? ' selected' }}>
+      CURRENT_TIMESTAMP
+    </option>
+  </select>
+  {% if char_editing == 'textarea' %}
+    <textarea name="field_default_value[{{ column_number }}]" cols="15" class="textfield default_value">{{ default_value }}</textarea>
+  {% else %}
+    <input type="text" name="field_default_value[{{ column_number }}]" size="12" value="{{ default_value }}" class="textfield default_value">
+  {% endif %}
+  {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
   {# column collation #}
