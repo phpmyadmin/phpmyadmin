@@ -105,14 +105,9 @@
     </td>
 {% endif %}
 <td class="text-center">
-    {# column auto_increment #}
-    {% include 'columns_definitions/column_auto_increment.twig' with {
-        'column_number': column_number,
-        'ci': ci,
-        'ci_offset': ci_offset,
-        'column_meta': column_meta
-    } only %}
-    {% set ci = ci + 1 %}
+  <input name="field_extra[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="AUTO_INCREMENT"
+    {{- column_meta['Extra'] is defined and column_meta['Extra']|lower == 'auto_increment' ? ' checked' }}>
+  {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
   <textarea id="field_{{ column_number }}_{{ ci - ci_offset }}" rows="1" name="field_comments[{{ column_number }}]" maxlength="{{ max_length }}">
