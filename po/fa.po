@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-31 19:04-0300\n"
-"PO-Revision-Date: 2020-05-20 00:15+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-09-16 06:21+0000\n"
+"Last-Translator: SH DM <shahin.shdm@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fa/>\n"
 "Language: fa\n"
@@ -13,11 +13,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "آپتایم زیر یک روز"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
@@ -50,6 +50,8 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"به سرور اجازه دهید تا زمانی که تعداد بیشتری کوئری اجرا کرده است برای مدت "
+"زمان بیشتری در اجرا باشد."
 
 #: libraries/advisory_rules_generic.php:32
 #, fuzzy, php-format
@@ -57,9 +59,8 @@ msgid "Current amount of Questions: %s"
 msgstr "نسخه سرور"
 
 #: libraries/advisory_rules_generic.php:37
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "پرس و جوي SQL"
+msgstr "درصد کوئری های کند"
 
 #: libraries/advisory_rules_generic.php:41
 msgid ""
