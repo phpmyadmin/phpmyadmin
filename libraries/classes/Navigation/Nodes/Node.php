@@ -156,7 +156,7 @@ class Node
             }
         } else {
             foreach ($this->children as $child) {
-                if ($child->name == $name) {
+                if ($child->name == $name && $child->isNew === false) {
                     return $child;
                 }
             }
