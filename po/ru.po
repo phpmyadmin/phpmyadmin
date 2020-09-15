@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-09-07 11:45+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-09-16 06:21+0000\n"
+"Last-Translator: Irina <irinaabissinian@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "ru/>\n"
 "Language: ru\n"
@@ -1947,10 +1947,8 @@ msgid "%d object(s) created."
 msgstr "создано %d объект(ов)."
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Названия столбцов"
+msgstr "Название столбца"
 
 #: js/messages.php:592 libraries/classes/SqlQueryForm.php:433
 msgid "Submit"
@@ -10015,10 +10013,8 @@ msgstr "Отобразить комментарии"
 #: libraries/classes/Plugins/Export/ExportLatex.php:156
 #: libraries/classes/Plugins/Export/ExportOdt.php:116
 #: libraries/classes/Plugins/Export/ExportSql.php:132
-#, fuzzy
-#| msgid "Display MIME types"
 msgid "Display media (MIME) types"
-msgstr "Отобразить MIME типы"
+msgstr "Отобразить MIME-типы"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
@@ -10653,18 +10649,6 @@ msgstr ""
 "строки."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:31
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10678,15 +10662,15 @@ msgid ""
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "ТОЛЬКО LINUX: Запускает внешнее приложение и подает ему на ввод данные поля. "
-"Возвращает обычный вывод приложения. По-умолчанию используется Tidy "
-"(форматирование HTML-кода). По соображениям безопасности необходимо вручную "
+"Возвращает обычный вывод приложения. По умолчанию используется Tidy ("
+"форматирование HTML-кода). По соображениям безопасности необходимо вручную "
 "отредактировать файл libraries/classes/Plugins/Transformations/Output/"
 "Text_Plain_External.php, вписав доступные программы. Первый параметр задает "
 "номер используемой программы, во втором параметре передаются параметры "
 "собственно программы. При установке третьего параметра в 1 данные вывода "
-"будут преобразованы функцией htmlspecialchars() (по-умолчанию, 1). При "
-"установке четвёртого параметра в 1 будут предотвращены переносы строк и "
-"данные будут выведены в одну строку (по-умолчанию, 1)."
+"будут преобразованы функцией htmlspecialchars() (по умолчанию 1). При "
+"установке четвёртого параметра в 1 будут предотвращены переносы строк, и "
+"данные будут выведены в одну строку (по умолчанию 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -13909,10 +13893,9 @@ msgid "See table structure"
 msgstr "Отобразить структуру таблицы"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Выбрать все"
+msgstr "Выбрать \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -15286,26 +15269,20 @@ msgid "Author"
 msgstr "Автор"
 
 #: templates/server/plugins/index.twig:37
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "включено"
+msgstr "отключено"
 
 #: templates/server/plugins/index.twig:39
 msgid "disabled"
 msgstr "отключено"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
-msgstr "Удаление"
+msgstr "удаление"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Удалить"
+msgstr "удалено"
 
 #: templates/server/privileges/add_user_fieldset.twig:2
 msgctxt "Create new user"
@@ -16407,10 +16384,8 @@ msgid "Edit partitioning"
 msgstr "Редактировать разбиение"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type:"
-msgstr "MIME-тип"
+msgstr "MIME-тип:"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
