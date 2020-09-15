@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-31 19:04-0300\n"
-"PO-Revision-Date: 2020-09-07 11:45+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-09-16 06:21+0000\n"
+"Last-Translator: Irina <irinaabissinian@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
@@ -296,19 +296,13 @@ msgid "Suboptimal caching method."
 msgstr "Оптимальный метод кеширования."
 
 #: libraries/advisory_rules_generic.php:192
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
-"Вы используете механизм кеширования запросов MySQL с базой данных имеющей "
+"Вы используете механизм кеширования запросов MySQL с базой данных, имеющей "
 "достаточно объемный трафик. Стоит обратить внимание на возможность "
 "использования <a href=\"https://dev.mysql.com/doc/refman/5.5/en/ha-memcached."
 "html\">memcached</a> вместо механизма кеширования запросов MySQL, в "
@@ -565,15 +559,6 @@ msgid "Temp disk rate"
 msgstr "Соотношение временных таблиц на диске"
 
 #: libraries/advisory_rules_generic.php:345
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -585,12 +570,12 @@ msgid ""
 msgstr ""
 "Может помочь увеличение значений переменных {max_heap_table_size} и "
 "{tmp_table_size}. Однако некоторые временные таблицы всегда будут "
-"записываться на диск, в независимости от значений данных переменных. Для "
-"исправления данной проблемы, в должны переписать запросы таким образом, "
+"записываться на диск, вне зависимости от значений данных переменных. Для "
+"исправления данной проблемы вы должны переписать запросы таким образом, "
 "чтобы исключить условия (Внутри временной таблицы: Наличие столбца BLOB или "
-"TEXT, или наличие столбца более чем 512 байт) упомянутые в <a href=\"https://"
-"dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
-"\">Документации MySQL</a>"
+"TEXT, или наличие столбца более, чем 512 байт), упомянутые в <a href=\"https"
+"://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html\""
+">Документации MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:354
 #, php-format
@@ -1012,18 +997,7 @@ msgstr ""
 "пула InnoDB."
 
 #: libraries/advisory_rules_generic.php:622
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -1035,14 +1009,14 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"В особенности на системах с большим количеством записей в таблицы InnoDB, "
+"В особенности на системах с большим количеством записей в таблицы InnoDB "
 "необходимо установить {innodb_log_file_size} в 25%% от "
 "{innodb_buffer_pool_size}. Однако, чем больше данное значение, тем дольше "
 "времени займет восстановление базы данных после сбоя, поэтому оно не должно "
 "быть существенно выше 256 MiB. Пожалуйста, обратите внимание, что нельзя "
 "просто изменить данное значение переменной. Вы должны остановить сервер, "
 "удалить файлы журналов InnoDB, установить новое значение в my.cnf, запустить "
-"сервер, и проверить журналы ошибок на предмет отсутствия проблем. Так же "
+"сервер и проверить журналы ошибок на предмет отсутствия проблем. Также "
 "смотрите <a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
 "increase-innodblogfilesize-proper-way.html\">данную запись блога</a>"
 
@@ -1064,17 +1038,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Размер файла журнала InnoDB неадекватно велик."
 
 #: libraries/advisory_rules_generic.php:646
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1091,10 +1055,10 @@ msgstr ""
 "заметно замедляет восстановление после сбоя. Смотрите <a href=\"https://www."
 "percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">данную "
 "статью</a>. Необходимо остановить сервер, удалить файлы журналов InnoDB, "
-"установить новое значение в my.cnf, запустить сервер, и проверить журнал "
-"ошибок на предмет наличия проблем. Смотрите так же <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">данную запись блога</a>"
+"установить новое значение в my.cnf, запустить сервер и проверить журнал "
+"ошибок на предмет наличия проблем. Смотрите также <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">данную запись блога</a>"
 
 #: libraries/advisory_rules_generic.php:656
 #, php-format
@@ -1110,18 +1074,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Буферный пул InnoDB имеет маленький размер."
 
 #: libraries/advisory_rules_generic.php:667
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1138,13 +1091,13 @@ msgstr ""
 "InnoDB. Отведите под данный буфер всю свободную память. Для сервера баз "
 "данных, который использует исключительно тип таблиц InnoDB и не предназначен "
 "для работы каких-либо иных служб (например, веб-сервера), вы можете "
-"установить данное значение вплоть до 80%% от доступной памяти. В ином "
+"установить данное значение вплоть до 80%% от доступной памяти. В другом "
 "случае, вы должны внимательно оценить потребление памяти другими службами и "
 "не InnoDB таблицами, соответственно установив данную переменную. При слишком "
-"высоком значении переменной, ваша система начнет использовать файл подкачки, "
-"что значительно уменьшит ее производительность. Смотрите так же <a href="
-"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
-"\">данную статью</a>"
+"высоком значении переменной ваша система начнет использовать файл подкачки, "
+"что значительно уменьшит ее производительность. Смотрите также <a href="
+"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\""
+">данную статью</a>"
 
 #: libraries/advisory_rules_generic.php:677
 #, php-format
@@ -2729,7 +2682,7 @@ msgstr "Проверка внешних ключей"
 
 #: libraries/classes/Config/Descriptions.php:316
 msgid "First day of calendar"
-msgstr ""
+msgstr "Первый день календаря"
 
 #: libraries/classes/Config/Descriptions.php:317
 msgid "Browse mode"
@@ -7256,10 +7209,8 @@ msgid "%d object(s) created."
 msgstr "создано %d объект(ов)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:547
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Названия столбцов"
+msgstr "Название столбца"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 #: templates/sql/query.twig:165
@@ -10459,11 +10410,11 @@ msgstr "Используется SSL"
 
 #: libraries/classes/Html/Generator.php:430
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "password_hash() PHP-функции с настройками по умолчанию."
 
 #: libraries/classes/Html/Generator.php:431
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "password_hash() PHP-функции"
 
 #: libraries/classes/Html/Generator.php:733
 msgid "Skip Explain SQL"
@@ -11740,10 +11691,8 @@ msgstr "Экспорт заголовков таблиц"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:267
 #: libraries/classes/Plugins/Export/ExportTexytext.php:192
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "Дамп данных таблицы"
+msgstr "Дамп данных результата запроса"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:98
 msgid "Report title:"
@@ -12338,18 +12287,6 @@ msgstr ""
 "строки."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -12363,15 +12300,15 @@ msgid ""
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "ТОЛЬКО LINUX: Запускает внешнее приложение и подает ему на ввод данные поля. "
-"Возвращает обычный вывод приложения. По-умолчанию используется Tidy "
-"(форматирование HTML-кода). По соображениям безопасности необходимо вручную "
+"Возвращает обычный вывод приложения. По умолчанию используется Tidy ("
+"форматирование HTML-кода). По соображениям безопасности необходимо вручную "
 "отредактировать файл libraries/classes/Plugins/Transformations/Output/"
 "Text_Plain_External.php, вписав доступные программы. Первый параметр задает "
 "номер используемой программы, во втором параметре передаются параметры "
 "собственно программы. При установке третьего параметра в 1 данные вывода "
-"будут преобразованы функцией htmlspecialchars() (по-умолчанию, 1). При "
-"установке четвёртого параметра в 1 будут предотвращены переносы строк и "
-"данные будут выведены в одну строку (по-умолчанию, 1)."
+"будут преобразованы функцией htmlspecialchars() (по умолчанию 1). При "
+"установке четвёртого параметра в 1 будут предотвращены переносы строк, и "
+"данные будут выведены в одну строку (по умолчанию 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:124
 #, php-format
@@ -12506,12 +12443,10 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Преобразует IP адрес из формата IPv4/IPv6 в бинарный"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
-msgstr "Преобразует IP адрес из формата IPv4/IPv6 в бинарный"
+msgstr "Преобразует IP-адрес из формата IPv4/IPv6 в бинарный."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -14602,10 +14537,9 @@ msgid "See table structure"
 msgstr "Отобразить структуру таблицы"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Выбрать все"
+msgstr "Выбрать \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -14879,19 +14813,15 @@ msgid "Event scheduler status"
 msgstr "Статус планировщика событий"
 
 #: templates/database/export/index.twig:62
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr ", @DATABASE@ будет замещено именем базы данных"
+msgstr "@DATABASE@ будет замещено именем базы данных."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
-msgstr "Отображает SQL-запрос"
+msgstr "Экспорт запроса"
 
 #: templates/database/export/index.twig:7
 #, php-format
@@ -14988,16 +14918,12 @@ msgstr "Имя новой базы данных"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:291
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
 "Для выполнения данного действия у вас недостаточно прав; пожалуйста, "
-"обратитесь к документации"
+"обратитесь к документации."
 
 #: templates/database/operations/index.twig:89
 msgid "Remove database"
@@ -15129,10 +15055,8 @@ msgid "Ins:"
 msgstr "Вставить:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "И:"
+msgstr "И"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -15168,16 +15092,12 @@ msgid "Modify:"
 msgstr "Изменить:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Добавить/удалить критерий"
+msgstr "Добавить/удалить критерии:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Добавить/удалить столбцы"
+msgstr "Добавить/удалить столбцы:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
@@ -15357,10 +15277,8 @@ msgid "Make consistent with central list"
 msgstr "Привести в соответствие с центральным списком"
 
 #: templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Параметры"
+msgstr "Параметры:"
 
 #: templates/database/structure/copy_form.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -15608,10 +15526,8 @@ msgid "Update"
 msgstr "Обновление"
 
 #: templates/export.twig:53
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
-msgstr "Отображает SQL-запрос"
+msgstr "Отображать SQL-запрос"
 
 #: templates/export.twig:72
 msgid "Export method:"
@@ -15696,12 +15612,7 @@ msgid "File name template:"
 msgstr "Шаблон имени файла:"
 
 #: templates/export.twig:324
-#, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
@@ -16039,10 +15950,8 @@ msgid "Browse your computer:"
 msgstr "Обзор вашего компьютера:"
 
 #: templates/import.twig:62
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "Обзор вашего компьютера:"
+msgstr "Обзор вашего компьютера"
 
 #: templates/import.twig:68 templates/import.twig:101
 msgid "You may also drag and drop a file on any page."
@@ -16054,10 +15963,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Выберите из каталога загрузки сервера [strong]%s[/strong]:"
 
 #: templates/import.twig:80
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "Импортируемый файл:"
+msgstr "Выбрать файл для импорта"
 
 #: templates/import.twig:85 templates/import.twig:115
 msgid "There are no files to upload!"
@@ -16123,11 +16030,8 @@ msgstr "none"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
-#, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgid "Prev"
-msgstr "Предыдущий"
+msgstr "Пред"
 
 #. l10n: Next month. Display text for next month link in calendar
 #: templates/javascript/variables.twig:17
@@ -16440,16 +16344,12 @@ msgid "phpMyAdmin documentation"
 msgstr "Документация phpMyAdmin"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "Документация"
+msgstr "Документация MariaDB"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "Документация"
+msgstr "Документация MySQL"
 
 #: templates/navigation/main.twig:44 templates/navigation/main.twig:45
 msgid "Navigation panel settings"
@@ -16752,10 +16652,8 @@ msgid "Unknown storage engine."
 msgstr "Неизвестный механизм хранилища."
 
 #: templates/server/export/index.twig:32
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ будет замещено именем сервера"
+msgstr "@SERVER@ будет именем сервера."
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -16851,10 +16749,8 @@ msgid "User group"
 msgstr "Группа пользователей"
 
 #: templates/server/privileges/choose_user_group.twig:6
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "Группа пользователей"
+msgstr "Группа пользователей:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -17418,44 +17314,32 @@ msgstr ""
 "к исходным настройкам, если не было замечено улучшений в работе."
 
 #: templates/server/status/advisor/index.twig:55
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
-msgstr "В процессе получения информации по отладке SQL произошла ошибка."
+msgstr "В процессе получения информации по отладке SQL произошла ошибка:"
 
 #: templates/server/status/advisor/index.twig:65
 msgid "Possible performance issues"
 msgstr "Возможные проблемы производительности"
 
 #: templates/server/status/advisor/index.twig:78
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "Проблема"
+msgstr "Проблема:"
 
 #: templates/server/status/advisor/index.twig:81
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "Рекомендация"
+msgstr "Рекомендация:"
 
 #: templates/server/status/advisor/index.twig:84
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "Обоснование"
+msgstr "Обоснование:"
 
 #: templates/server/status/advisor/index.twig:87
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "Использованная переменная / формула"
+msgstr "Использованная переменная / формула:"
 
 #: templates/server/status/advisor/index.twig:90
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "Тест"
+msgstr "Тест:"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -17983,10 +17867,8 @@ msgid "Rollback when finished"
 msgstr "Откат после завершения"
 
 #: templates/sql/query.twig:149
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "Закладка"
+msgstr "Закладка:"
 
 #: templates/sql/query.twig:156
 msgid "shared"
@@ -18093,12 +17975,12 @@ msgid "Save chart as image"
 msgstr "Сохранить диаграмму как изображение"
 
 #: templates/table/export/index.twig:8
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr ", @DATABASE@ будет замещено именем базы данных"
+msgstr ""
+"@SERVER@ будет именем сервера, @DATABASE@ будет именем базы данных и @TABLE@ "
+"будет именем таблицы."
 
 #: templates/table/export/index.twig:5
 #, php-format
@@ -18292,10 +18174,8 @@ msgid "Remove partitioning"
 msgstr "Удалить разбиение"
 
 #: templates/table/operations/index.twig:469
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "Проверить целостность данных:"
+msgstr "Проверить целостность данных"
 
 #: templates/table/operations/view.twig:11
 msgid "Rename view to"
@@ -18373,10 +18253,9 @@ msgstr "Выбор отображаемого столбца:"
 
 #: templates/table/relation/common_form.twig:315
 #: templates/table/structure/display_structure.twig:497
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "Создать индекс для &nbsp;%s&nbsp;столбца/ов"
+msgstr "Создать индекс для %s столбцов"
 
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
@@ -18643,7 +18522,7 @@ msgstr "Строка навигации по таблице"
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(текущий)"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media types"
