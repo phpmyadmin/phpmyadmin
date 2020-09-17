@@ -210,16 +210,9 @@
         {% set ci = ci + 1 %}
     </td>
     <td class="text-center">
-        {# column Transformation options #}
-        {% include 'columns_definitions/transformation_option.twig' with {
-            'column_number': column_number,
-            'ci': ci,
-            'ci_offset': ci_offset,
-            'column_meta': column_meta,
-            'mime_map': mime_map,
-            'type_prefix': ''
-        } only %}
-        {% set ci = ci + 1 %}
+      <input id="field_{{ column_number }}_{{ ci - ci_offset }}" type="text" name="field_transformation_options[{{ column_number }}]" size="16" class="textfield" value="
+        {{- column_meta['Field'] is defined and mime_map[column_meta['Field']]['transformation_options'] is defined ? mime_map[column_meta['Field']]['transformation_options'] }}">
+      {% set ci = ci + 1 %}
     </td>
     <td class="text-center">
         {# Column Input transformation #}
@@ -235,15 +228,8 @@
         {% set ci = ci + 1 %}
     </td>
     <td class="text-center">
-        {# column Input transformation options #}
-        {% include 'columns_definitions/transformation_option.twig' with {
-            'column_number': column_number,
-            'ci': ci,
-            'ci_offset': ci_offset,
-            'column_meta': column_meta,
-            'mime_map': mime_map,
-            'type_prefix': 'input_'
-        } only %}
-        {% set ci = ci + 1 %}
+      <input id="field_{{ column_number }}_{{ ci - ci_offset }}" type="text" name="field_input_transformation_options[{{ column_number }}]" size="16" class="textfield" value="
+        {{- column_meta['Field'] is defined and mime_map[column_meta['Field']]['input_transformation_options'] is defined ? mime_map[column_meta['Field']]['input_transformation_options'] }}">
+      {% set ci = ci + 1 %}
     </td>
 {% endif %}
