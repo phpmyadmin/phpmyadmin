@@ -110,11 +110,9 @@ class Linux extends Base
             $mem[$idx] = intval($value);
         }
 
-        $mem['MemUsed'] = $mem['MemTotal']
-            - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
-
-        $mem['SwapUsed'] = $mem['SwapTotal']
-            - $mem['SwapFree'] - $mem['SwapCached'];
+        /** @var array<string, int> $mem */
+        $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
+        $mem['SwapUsed'] = $mem['SwapTotal'] - $mem['SwapFree'] - $mem['SwapCached'];
 
         return $mem;
     }

@@ -311,32 +311,18 @@ class Util
     /**
      * returns array with tables of given db with extended information and grouped
      *
-     * @param string   $db           name of db
-     * @param string   $tables       name of tables
-     * @param int      $limit_offset list offset
-     * @param int|bool $limit_count  max tables to return
+     * @param string $db
      *
-     * @return array    (recursive) grouped table list
+     * @return array (recursive) grouped table list
      */
-    public static function getTableList(
-        $db,
-        $tables = null,
-        $limit_offset = 0,
-        $limit_count = false
-    ): array {
+    public static function getTableList($db): array
+    {
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
-        if ($tables === null) {
-            $tables = $GLOBALS['dbi']->getTablesFull(
-                $db,
-                '',
-                false,
-                $limit_offset,
-                $limit_count
-            );
-            if ($GLOBALS['cfg']['NaturalOrder']) {
-                uksort($tables, 'strnatcasecmp');
-            }
+        $tables = $GLOBALS['dbi']->getTablesFull($db);
+
+        if ($GLOBALS['cfg']['NaturalOrder']) {
+            uksort($tables, 'strnatcasecmp');
         }
 
         if (count($tables) < 1) {

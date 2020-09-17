@@ -692,7 +692,7 @@ class LanguageManager
     private $available_locales;
 
     /** @var array */
-    private $available_languages;
+    private $available_languages = [];
 
     /** @var bool */
     private $lang_failed_cfg = false;
