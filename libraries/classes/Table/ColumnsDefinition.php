@@ -126,7 +126,6 @@ final class ColumnsDefinition
             $available_mime = $transformations->getAvailableMimeTypes();
         }
 
-        // this will be used on templates/columns_definitions/transformation.twig
         $mime_types = [
             'input_transformation',
             'transformation',

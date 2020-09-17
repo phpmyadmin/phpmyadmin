@@ -197,17 +197,20 @@
         {% set ci = ci + 1 %}
     </td>
     <td class="text-center">
-        {# Column Browser transformation #}
-        {% include 'columns_definitions/transformation.twig' with {
-            'column_number': column_number,
-            'ci': ci,
-            'ci_offset': ci_offset,
-            'column_meta': column_meta,
-            'available_mime': available_mime,
-            'mime_map': mime_map,
-            'type': 'transformation'
-        } only %}
-        {% set ci = ci + 1 %}
+      <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_transformation[{{ column_number }}]">
+        <option value="" title="{% trans 'None' %}"></option>
+        {% if available_mime['transformation'] is defined and available_mime['transformation'] is iterable %}
+          {% for mimekey, transform in available_mime['transformation'] %}
+            {% set parts = transform|split(':') %}
+            <option value="{{ available_mime['transformation_file'][mimekey] }}" title="{{ get_description(available_mime['transformation_file'][mimekey]) }}"
+              {{- column_meta['Field'] is defined and mime_map[column_meta['Field']]['transformation'] is defined
+                and mime_map[column_meta['Field']]['transformation'] matches '@' ~ available_mime['transformation_file_quoted'][mimekey] ~ '3?@i' ? ' selected'}}>
+              {{ get_name(available_mime['transformation_file'][mimekey]) ~ ' (' ~ parts[0]|lower ~ ':' ~ parts[1] ~ ')' }}
+            </option>
+          {% endfor %}
+        {% endif %}
+      </select>
+      {% set ci = ci + 1 %}
     </td>
     <td class="text-center">
       <input id="field_{{ column_number }}_{{ ci - ci_offset }}" type="text" name="field_transformation_options[{{ column_number }}]" size="16" class="textfield" value="
@@ -215,17 +218,20 @@
       {% set ci = ci + 1 %}
     </td>
     <td class="text-center">
-        {# Column Input transformation #}
-        {% include 'columns_definitions/transformation.twig' with {
-            'column_number': column_number,
-            'ci': ci,
-            'ci_offset': ci_offset,
-            'column_meta': column_meta,
-            'available_mime': available_mime,
-            'mime_map': mime_map,
-            'type': 'input_transformation'
-        } only %}
-        {% set ci = ci + 1 %}
+      <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_input_transformation[{{ column_number }}]">
+        <option value="" title="{% trans 'None' %}"></option>
+        {% if available_mime['input_transformation'] is defined and available_mime['input_transformation'] is iterable %}
+          {% for mimekey, transform in available_mime['input_transformation'] %}
+            {% set parts = transform|split(':') %}
+            <option value="{{ available_mime['input_transformation_file'][mimekey] }}" title="{{ get_description(available_mime['input_transformation_file'][mimekey]) }}"
+              {{- column_meta['Field'] is defined and mime_map[column_meta['Field']]['input_transformation'] is defined
+                and mime_map[column_meta['Field']]['input_transformation'] matches '@' ~ available_mime['input_transformation_file_quoted'][mimekey] ~ '3?@i' ? ' selected' }}>
+              {{ get_name(available_mime['input_transformation_file'][mimekey]) ~ ' (' ~ parts[0]|lower ~ ':' ~ parts[1] ~ ')' }}
+            </option>
+          {% endfor %}
+        {% endif %}
+      </select>
+      {% set ci = ci + 1 %}
     </td>
     <td class="text-center">
       <input id="field_{{ column_number }}_{{ ci - ci_offset }}" type="text" name="field_input_transformation_options[{{ column_number }}]" size="16" class="textfield" value="
