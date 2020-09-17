@@ -92,13 +92,11 @@
 {% if change_column is defined and change_column is not empty %}
     {# column Adjust privileges, Only for 'Edit' Column(s) #}
     <td class="text-center">
-        {% include 'columns_definitions/column_adjust_privileges.twig' with {
-            'column_number': column_number,
-            'ci': ci,
-            'ci_offset': ci_offset,
-            'privs_available': privs_available
-        } only %}
-        {% set ci = ci + 1 %}
+      <input name="field_adjust_privileges[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="NULL" class="allow_null"
+        {%- if privs_available %} checked>
+        {%- else %} title="{% trans "You don't have sufficient privileges to perform this operation; Please refer to the documentation for more details" %}" disabled>
+        {%- endif %}
+      {% set ci = ci + 1 %}
     </td>
 {% endif %}
 {% if not is_backup %}
