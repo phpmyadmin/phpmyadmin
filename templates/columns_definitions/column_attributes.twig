@@ -142,16 +142,20 @@
  {# column virtuality #}
 {% if is_virtual_columns_supported %}
     <td class="text-center">
-        {% include 'columns_definitions/column_virtuality.twig' with {
-            'column_number': column_number,
-            'ci': ci,
-            'ci_offset': ci_offset,
-            'column_meta': column_meta,
-            'char_editing': char_editing,
-            'expression': column_meta['Expression'] is defined ? column_meta['Expression'],
-            'options': options
-        } only %}
-        {% set ci = ci + 1 %}
+      <select name="field_virtuality[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="virtuality">
+        {% for key, value in options %}
+          <option value="{{ key }}"{{ column_meta['Extra'] is defined and key != '' and column_meta['Extra']|slice(0, key|length) is same as (key) ? ' selected' }}>
+            {{ value }}
+          </option>
+        {% endfor %}
+      </select>
+
+      {% if char_editing == 'textarea' %}
+        <textarea name="field_expression[{{ column_number }}]" cols="15" class="textfield expression">{{ column_meta['Expression'] is defined ? column_meta['Expression'] }}</textarea>
+      {% else %}
+        <input type="text" name="field_expression[{{ column_number }}]" size="12" value="{{ column_meta['Expression'] is defined ? column_meta['Expression'] }}" placeholder="{% trans 'Expression' %}" class="textfield expression">
+      {% endif %}
+      {% set ci = ci + 1 %}
     </td>
 {% endif %}
 {# move column #}
