@@ -185,16 +185,19 @@
 
 {% if cfg_relation['mimework'] and browse_mime and cfg_relation['commwork'] %}
     <td class="text-center">
-        {# Column Mime-type #}
-        {% include 'columns_definitions/mime_type.twig' with {
-            'column_number': column_number,
-            'ci': ci,
-            'ci_offset': ci_offset,
-            'column_meta': column_meta,
-            'available_mime': available_mime,
-            'mime_map': mime_map
-        } only %}
-        {% set ci = ci + 1 %}
+      <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_mimetype[{{ column_number }}]">
+        <option value="">&nbsp;</option>
+        {% if available_mime['mimetype'] is defined and available_mime['mimetype'] is iterable %}
+          {% for media_type in available_mime['mimetype'] %}
+            <option value="{{ media_type|replace({'/': '_'}) }}"
+              {{- column_meta['Field'] is defined and mime_map[column_meta['Field']]['mimetype'] is defined
+                and mime_map[column_meta['Field']]['mimetype'] == media_type|replace({'/': '_'}) ? ' selected' }}>
+              {{ media_type|lower }}
+            </option>
+          {% endfor %}
+        {% endif %}
+      </select>
+      {% set ci = ci + 1 %}
     </td>
     <td class="text-center">
       <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_transformation[{{ column_number }}]">
