@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-07-18 20:41+0000\n"
+"PO-Revision-Date: 2020-09-18 20:36+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-0/cs/"
-">\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-0/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -2768,7 +2768,7 @@ msgstr "Nepodařilo se přidat sloupce!"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
-"Nemohu odstranit sloupec(ce) %1$s ,protože se v centrálním listu nenacházejí!"
+"Nelze odstranit sloupec %1$s, protože se v centrálním seznamu nenachází!"
 
 #: libraries/classes/CentralColumns.php:495
 msgid "Could not remove columns!"
@@ -5151,7 +5151,7 @@ msgstr "URL pro přihlášení"
 #: libraries/classes/Config/Descriptions.php:714
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
-"Socket na kterém poslouchá MySQL server, ponechte prázdné pro výchozí "
+"Socket, na kterém poslouchá MySQL server. Ponechte prázdné pro výchozí "
 "hodnotu."
 
 #: libraries/classes/Config/Descriptions.php:715
@@ -8130,10 +8130,10 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
-"Nejvyšší velikost datového logu. Výchozí hodnota je 64MB. PBXT může vytvořit "
-"až 32000 datových logů, které jsou používany všemi tabulkami. Hodnota této "
-"proměnné tedy může být zvýšena, aby se zvýšilo celkové množství dat, které "
-"může být uloženo v databázi."
+"Maximální velikost datového logu. Výchozí hodnota je 64MB. PBXT může "
+"vytvořit až 32000 datových logů, které jsou používány všemi tabulkami. "
+"Hodnota této proměnné tedy může být zvýšena, aby se zvýšilo celkové množství "
+"dat, které může být uloženo v databázi."
 
 #: libraries/classes/Engines/Pbxt.php:97
 msgid "Garbage threshold"
@@ -10618,7 +10618,7 @@ msgid ""
 "string)."
 msgstr ""
 "Přidá k hodnotě text. První parametr bude přidaný na začátek, druhý na konec "
-"(v jednoduchých uvozovkách, výchozí je prázdný řetezec)."
+"(v jednoduchých uvozovkách, výchozí je prázdný řetězec)."
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:33
 msgid ""
@@ -10906,7 +10906,7 @@ msgstr ""
 #: libraries/classes/Relation.php:405
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
-"Prosím přihlašte se znovu , aby se projevily změny v konfiguračním souboru."
+"Prosím přihlašte se znovu, aby se projevily změny v konfiguračním souboru."
 
 #: libraries/classes/Relation.php:1857
 msgid "no description"
@@ -14390,7 +14390,7 @@ msgstr "Částečný import:"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
-"Předchozí ímport vyčerpal veškerý čas, po dalším odeslání bude import "
+"Předchozí import vyčerpal veškerý čas, po dalším odeslání bude import "
 "pokračovat od pozice %d."
 
 #: templates/display/import/import.twig:138
