@@ -63,32 +63,28 @@
                             } only %}
                         </td>
                         <td name="col_type" class="nowrap">
-                            {% include 'columns_definitions/column_type.twig' with {
-                                'column_number': 0,
-                                'ci': 1,
-                                'ci_offset': 0,
-                                'type_upper': '',
-                                'column_meta': {}
-                            } only %}
+                          <select class="column_type" name="field_type[0]" id="field_0_1">
+                            {{ get_supported_datatypes(true) }}
+                          </select>
                         </td>
                         <td class="nowrap" name="col_length">
-                            {% include 'columns_definitions/column_length.twig' with {
-                                'column_number': 0,
-                                'ci': 2,
-                                'ci_offset': 0,
-                                'length_values_input_size': 8,
-                                'length_to_display': ''
-                            } only %}
+                          <input id="field_0_2" type="text" name="field_length[0]" size="8" value="" class="textfield">
+                          <p class="enum_notice" id="enum_notice_0_2">
+                            <a href="#" class="open_enum_editor">{% trans 'Edit ENUM/SET values' %}</a>
+                          </p>
                         </td>
                         <td class="nowrap" name="col_default">
-                            {% include 'columns_definitions/column_default.twig' with {
-                                'column_number': 0,
-                                'ci': 3,
-                                'ci_offset': 0,
-                                'type_upper': '',
-                                'column_meta': {},
-                                'char_editing': char_editing,
-                            } only %}
+                          <select name="field_default_type[0]" id="field_0_3" class="default_type">
+                            <option value="NONE">{% trans %}None{% context %}for default{% endtrans %}</option>
+                            <option value="USER_DEFINED">{% trans 'As defined:' %}</option>
+                            <option value="NULL">NULL</option>
+                            <option value="CURRENT_TIMESTAMP">CURRENT_TIMESTAMP</option>
+                          </select>
+                          {% if char_editing == 'textarea' %}
+                            <textarea name="field_default_value[0]" cols="15" class="textfield default_value"></textarea>
+                          {% else %}
+                            <input type="text" name="field_default_value[0]" size="12" value="" class="textfield default_value">
+                          {% endif %}
                         </td>
                         <td name="collation" class="nowrap">
                           <select lang="en" dir="ltr" name="field_collation[0]" id="field_0_4">
@@ -116,20 +112,10 @@
                             } only %}
                         </td>
                         <td class="nowrap" name="col_isNull">
-                            {% include 'columns_definitions/column_null.twig' with {
-                                'column_number': 0,
-                                'ci': 6,
-                                'ci_offset': 0,
-                                'column_meta': {}
-                            } only %}
+                          <input name="field_null[0]" id="field_0_6" type="checkbox" value="YES" class="allow_null">
                         </td>
                         <td class="nowrap" name="col_extra">
-                            {% include 'columns_definitions/column_extra.twig' with {
-                                'column_number': 0,
-                                'ci': 7,
-                                'ci_offset': 0,
-                                'column_meta': {}
-                            } only %}
+                          <input name="col_extra[0]" id="field_0_7" type="checkbox" value="auto_increment">
                         </td>
                         <td>
                             <input id="add_column_save" class="btn btn-primary" type="submit" value="Save">
@@ -304,39 +290,43 @@
                                 } only %}
                             </td>
                             <td name = "col_type" class="nowrap">
-                                <span>{{ row['col_type'] }}</span>
-                                {% include 'columns_definitions/column_type.twig' with {
-                                    'column_number': row_num,
-                                    'ci': 1,
-                                    'ci_offset': 0,
-                                    'type_upper': types_upper[row_num],
-                                    'column_meta': {}
-                                } only %}
+                              <span>{{ row['col_type'] }}</span>
+                              <select class="column_type" name="field_type[{{ row_num }}]" id="field_{{ row_num }}_1">
+                                {{ get_supported_datatypes(true, types_upper[row_num]) }}
+                              </select>
                             </td>
                             <td class="nowrap" name="col_length">
-                                <span>{{ (row['col_length']?(row['col_length']):'') }}</span>
-                                {% include 'columns_definitions/column_length.twig' with {
-                                    'column_number': row_num,
-                                    'ci': 2,
-                                    'ci_offset': 0,
-                                    'length_values_input_size': 8,
-                                    'length_to_display': row['col_length']
-                                } only %}
+                              <span>{{ (row['col_length']?(row['col_length']):'') }}</span>
+                              <input id="field_{{ row_num }}_2" type="text" name="field_length[{{ row_num }}]" size="8" value="{{ row['col_length'] }}" class="textfield">
+                              <p class="enum_notice" id="enum_notice_{{ row_num }}_2">
+                                <a href="#" class="open_enum_editor">{% trans 'Edit ENUM/SET values' %}</a>
+                              </p>
                             </td>
                             <td class="nowrap" name="col_default">
-                                {% if row['col_default'] is defined %}
-                                    <span>{{ row['col_default'] }}</span>
-                                {% else %}
-                                    <span>None</span>
-                                {% endif %}
-                                {% include 'columns_definitions/column_default.twig' with {
-                                    'column_number': row_num,
-                                    'ci': 3,
-                                    'ci_offset': 0,
-                                    'type_upper': types_upper[row_num],
-                                    'column_meta': rows_meta[row_num],
-                                    'char_editing': char_editing,
-                                } only %}
+                              {% if row['col_default'] is defined %}
+                                <span>{{ row['col_default'] }}</span>
+                              {% else %}
+                                <span>{% trans 'None' %}</span>
+                              {% endif %}
+                              <select name="field_default_type[{{ row_num }}]" id="field_{{ row_num }}_3" class="default_type">
+                                <option value="NONE"{{ rows_meta[row_num]['DefaultType'] is defined and rows_meta[row_num]['DefaultType'] == 'NONE' ? ' selected' }}>
+                                  {% trans %}None{% context %}for default{% endtrans %}
+                                </option>
+                                <option value="USER_DEFINED"{{ rows_meta[row_num]['DefaultType'] is defined and rows_meta[row_num]['DefaultType'] == 'USER_DEFINED' ? ' selected' }}>
+                                  {% trans 'As defined:' %}
+                                </option>
+                                <option value="NULL"{{ rows_meta[row_num]['DefaultType'] is defined and rows_meta[row_num]['DefaultType'] == 'NULL' ? ' selected' }}>
+                                  NULL
+                                </option>
+                                <option value="CURRENT_TIMESTAMP"{{ rows_meta[row_num]['DefaultType'] is defined and rows_meta[row_num]['DefaultType'] == 'CURRENT_TIMESTAMP' ? ' selected' }}>
+                                  CURRENT_TIMESTAMP
+                                </option>
+                              </select>
+                              {% if char_editing == 'textarea' %}
+                                <textarea name="field_default_value[{{ row_num }}]" cols="15" class="textfield default_value"></textarea>
+                              {% else %}
+                                <input type="text" name="field_default_value[{{ row_num }}]" size="12" value="" class="textfield default_value">
+                              {% endif %}
                             </td>
                             <td name="collation" class="nowrap">
                                 <span>{{ row['col_collation'] }}</span>
@@ -368,25 +358,13 @@
                             </td>
                             <td class="nowrap" name="col_isNull">
                                 <span>{{ row['col_isNull'] ? 'Yes' | trans : 'No' | trans }}</span>
-                                {% include 'columns_definitions/column_null.twig' with {
-                                    'column_number': row_num,
-                                    'ci': 6,
-                                    'ci_offset': 0,
-                                    'column_meta': {
-                                        'Null': row['col_isNull']
-                                    }
-                                } only %}
+                                <input name="field_null[{{ row_num }}]" id="field_{{ row_num }}_6" type="checkbox" value="YES" class="allow_null"
+                                  {{- row['col_isNull'] is not empty and row['col_isNull'] != 'NO' and row['col_isNull'] != 'NOT NULL' ? ' checked' }}>
                             </td>
                             <td class="nowrap" name="col_extra">
-                                <span>{{ row['col_extra'] }}</span>
-                                {% include 'columns_definitions/column_extra.twig' with {
-                                    'column_number': row_num,
-                                    'ci': 7,
-                                    'ci_offset': 0,
-                                    'column_meta': {
-                                        'Extra': row['col_extra']
-                                    }
-                                } only %}
+                              <span>{{ row['col_extra'] }}</span>
+                              <input name="col_extra[{{ row_num }}]" id="field_{{ row_num }}_7" type="checkbox" value="auto_increment"
+                                {{- row['col_extra'] is not empty and row['col_extra'] == 'auto_increment' ? ' checked' }}>
                             </td>
                         </tr>
                         {% set row_num = row_num + 1 %}
