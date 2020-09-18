@@ -1268,10 +1268,12 @@ class Sql
         $browse_dist = ! empty($_POST['is_browse_distinct']);
 
         if ($analyzed_sql_results['is_procedure']) {
+            $multiLoop = false;
             do {
-                if (! isset($result)) {
+                if (! isset($result) || $multiLoop) {
                     $result = $this->dbi->storeResult();
                 }
+                $multiLoop = true;
                 $num_rows = $this->dbi->numRows($result);
 
                 if ($result !== false && $num_rows > 0) {
@@ -1805,7 +1807,7 @@ class Sql
             $extra_data ?? null
         );
 
-        if ($this->dbi->moreResults()) {
+        if ($this->dbi->moreResults() && $analyzed_sql_results['is_procedure'] === false) {
             $this->dbi->nextResult();
         }
 
