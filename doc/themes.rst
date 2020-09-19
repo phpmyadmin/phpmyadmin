@@ -52,7 +52,7 @@ metadata. Currently it consists of:
 
 .. describe:: version
 
-    Theme version, can be quite arbirary and does not have to match phpMyAdmin version.
+    Theme version, can be quite arbitrary and does not have to match phpMyAdmin version.
 
     **This field is required.**
 
