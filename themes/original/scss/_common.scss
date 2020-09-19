@@ -2574,6 +2574,10 @@ table.show_create {
   z-index: 100;
 }
 
+textarea {
+  resize: both;
+}
+
 #pma_console {
   position: relative;
   margin-#{$left}: 240px;
