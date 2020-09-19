@@ -97,10 +97,10 @@ class CentralColumnsController extends AbstractController
         ]);
 
         if (isset($_POST['edit_central_columns_page'])) {
-            $this->response->addHTML($this->editPage([
+            $this->editPage([
                 'selected_fld' => $_POST['selected_fld'] ?? null,
                 'db' => $_POST['db'] ?? null,
-            ]));
+            ]);
 
             return;
         }
@@ -279,15 +279,15 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return string HTML
      */
-    public function editPage(array $params): string
+    public function editPage(array $params): void
     {
-        return $this->centralColumns->getHtmlForEditingPage(
+        $rows = $this->centralColumns->getHtmlForEditingPage(
             $params['selected_fld'],
             $params['db']
         );
+
+        $this->render('database/central_columns/edit', ['rows' => $rows]);
     }
 
     /**

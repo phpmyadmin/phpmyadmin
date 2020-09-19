@@ -491,29 +491,6 @@ class CentralColumnsTest extends AbstractTestCase
             ],
             'phpmyadmin'
         );
-        $this->assertStringContainsString(
-            '<form',
-            $result
-        );
-        $header_cells = [
-            __('Name'),
-            __('Type'),
-            __('Length/Values'),
-            __('Default'),
-            __('Collation'),
-            __('Attributes'),
-            __('Null'),
-            __('A_I'),
-        ];
-        $this->assertStringContainsString(
-            $this->callFunction(
-                $this->centralColumns,
-                CentralColumns::class,
-                'getEditTableHeader',
-                [$header_cells]
-            ),
-            $result
-        );
         $list_detail_cols = $this->callFunction(
             $this->centralColumns,
             CentralColumns::class,
@@ -534,10 +511,6 @@ class CentralColumnsTest extends AbstractTestCase
                     0,
                 ]
             ),
-            $result
-        );
-        $this->assertStringContainsString(
-            $this->callFunction($this->centralColumns, CentralColumns::class, 'getEditTableFooter', []),
             $result
         );
     }

@@ -733,19 +733,6 @@ class CentralColumns
     }
 
     /**
-     * Function generate and return the table header for
-     * multiple edit central columns page
-     *
-     * @param array $headers headers list
-     *
-     * @return string html for table header in central columns multi edit page
-     */
-    private function getEditTableHeader(array $headers): string
-    {
-        return $this->template->render('database/central_columns/edit_table_header', ['headers' => $headers]);
-    }
-
-    /**
      * build html for editing a row in central columns table
      *
      * @param array $row     array contains complete information of a
@@ -849,20 +836,6 @@ class CentralColumns
     }
 
     /**
-     * function generate and return the table footer for
-     * multiple edit central columns page
-     *
-     * @return string html for table footer in central columns multi edit page
-     */
-    private function getEditTableFooter(): string
-    {
-        return '<fieldset class="tblFooters">'
-            . '<input class="btn btn-primary" type="submit" '
-            . 'name="save_multi_central_column_edit" value="' . __('Save') . '">'
-            . '</fieldset>';
-    }
-
-    /**
      * Column `col_extra` is used to store both extra and attributes for a column.
      * This method separates them.
      *
@@ -903,18 +876,7 @@ class CentralColumns
      */
     public function getHtmlForEditingPage(array $selected_fld, string $selected_db): string
     {
-        $html = '<form id="multi_edit_central_columns">';
-        $header_cells = [
-            __('Name'),
-            __('Type'),
-            __('Length/Values'),
-            __('Default'),
-            __('Collation'),
-            __('Attributes'),
-            __('Null'),
-            __('A_I'),
-        ];
-        $html .= $this->getEditTableHeader($header_cells);
+        $html = '';
         $selected_fld_safe = [];
         foreach ($selected_fld as $key) {
             $selected_fld_safe[] = $this->dbi->escapeString($key);
@@ -931,9 +893,6 @@ class CentralColumns
             $html .= $tableHtmlRow;
             $row_num++;
         }
-        $html .= '</table>';
-        $html .= $this->getEditTableFooter();
-        $html .= '</form>';
 
         return $html;
     }
