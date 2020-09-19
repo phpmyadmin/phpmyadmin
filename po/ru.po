@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-09-20 00:19+0200\n"
-"PO-Revision-Date: 2020-09-16 06:21+0000\n"
-"Last-Translator: Irina <irinaabissinian@gmail.com>\n"
+"POT-Creation-Date: 2020-08-31 19:04-0300\n"
+"PO-Revision-Date: 2020-09-19 23:24+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
@@ -15506,7 +15506,7 @@ msgid "File name template:"
 msgstr "Шаблон имени файла:"
 
 #: templates/export.twig:324
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
