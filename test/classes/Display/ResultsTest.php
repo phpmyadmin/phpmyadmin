@@ -946,7 +946,7 @@ class ResultsTest extends AbstractTestCase
                 '',
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
-                . 'class="grid_edit ">foo bar baz</td>' . "\n",
+                . 'class="grid_edit pre_wrap">foo bar baz</td>' . "\n",
             ],
         ];
     }
