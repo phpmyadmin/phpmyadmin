@@ -679,17 +679,6 @@ class CentralColumnsTest extends AbstractTestCase
     }
 
     /**
-     * Test for configErrorMessage
-     */
-    public function testConfigErrorMessage(): void
-    {
-        $this->assertInstanceOf(
-            Message::class,
-            $this->callFunction($this->centralColumns, CentralColumns::class, 'configErrorMessage', [])
-        );
-    }
-
-    /**
      * Test for findExistingColNames
      */
     public function testFindExistingColNames(): void

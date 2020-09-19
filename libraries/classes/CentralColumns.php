@@ -235,20 +235,6 @@ class CentralColumns
     }
 
     /**
-     * return error message to be displayed if central columns
-     * configuration storage is not completely configured
-     */
-    private function configErrorMessage(): Message
-    {
-        return Message::error(
-            __(
-                'The configuration storage is not ready for the central list'
-                . ' of columns feature.'
-            )
-        );
-    }
-
-    /**
      * build the insert query for central columns list given PMA storage
      * db, central_columns table, column name and corresponding definition to be added
      *
@@ -315,7 +301,9 @@ class CentralColumns
     ) {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
-            return $this->configErrorMessage();
+            return Message::error(
+                __('The configuration storage is not ready for the central list of columns feature.')
+            );
         }
         $db = $_POST['db'];
         $pmadb = $cfgCentralColumns['db'];
@@ -437,7 +425,9 @@ class CentralColumns
     ) {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
-            return $this->configErrorMessage();
+            return Message::error(
+                __('The configuration storage is not ready for the central list of columns feature.')
+            );
         }
         $pmadb = $cfgCentralColumns['db'];
         $central_list_table = $cfgCentralColumns['table'];
@@ -658,7 +648,9 @@ class CentralColumns
     ) {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
-            return $this->configErrorMessage();
+            return Message::error(
+                __('The configuration storage is not ready for the central list of columns feature.')
+            );
         }
         $centralTable = $cfgCentralColumns['table'];
         $this->dbi->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
