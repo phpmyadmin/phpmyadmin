@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-08-31 19:04-0300\n"
+"POT-Creation-Date: 2020-09-20 00:19+0200\n"
 "PO-Revision-Date: 2020-09-19 03:36+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -964,9 +964,9 @@ msgstr ""
 "paměti, že tuto hodnotu nelze změnit bez provedení dalších kroků. Je třeba "
 "vypnout server, odstranit logovací soubory InnoDB, nastavit novou hodnotu v "
 "my.cnf, spustit server a v logovacích souborech MySQL zkontrolovat, zda vše "
-"proběhlo v pořádku. Další informace naleznete v <a href=\"https"
-"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">tomto článku na blogu</a>"
+"proběhlo v pořádku. Další informace naleznete v <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">tomto článku na blogu</a>"
 
 #: libraries/advisory_rules_generic.php:633
 #, php-format
@@ -1001,13 +1001,13 @@ msgstr ""
 "Hodnotu {innodb_log_file_size} obvykle stačí nastavit na 25% velikosti "
 "{innodb_buffer_pool_size}. Velmi vysoká hodnota {innodb_log_file_size} "
 "výrazně zpomaluje obnovu databáze v případě problému. Další informace "
-"naleznete v <a href=\"https://www.percona.com/blog/2006/07/03/"
-"choosing-proper-innodb_log_file_size/\">tomto článku</a>. Je třeba vypnout "
-"server, odstranit logovací soubory InnoDB, nastavit novou hodnotu v my.cnf, "
-"spustit server a v logovacích souborech MySQL zkontrolovat, zda vše proběhlo "
-"v pořádku. Další informace naleznete v <a href=\"https"
-"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">tomto článku na blogu</a>"
+"naleznete v <a href=\"https://www.percona.com/blog/2006/07/03/choosing-"
+"proper-innodb_log_file_size/\">tomto článku</a>. Je třeba vypnout server, "
+"odstranit logovací soubory InnoDB, nastavit novou hodnotu v my.cnf, spustit "
+"server a v logovacích souborech MySQL zkontrolovat, zda vše proběhlo v "
+"pořádku. Další informace naleznete v <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">tomto článku na blogu</a>"
 
 #: libraries/advisory_rules_generic.php:656
 #, php-format
@@ -1038,13 +1038,13 @@ msgid ""
 msgstr ""
 "Velikost vyrovnávací paměti InnoDB má výrazný dopad na výkon tabulek InnoDB. "
 "Přiřaďte jí proto veškerou zbývající volnou paměť. Pro servery, které "
-"používají výhradně InnoDB a neposkytují žádné další služby (např. webserver)"
-", ji můžete nastavit až na 80% dostupné paměti. Pokud to není váš případ, "
-"nastavte tuto hodnotu po pečlivém zvážení požadavků na paměť pro další "
-"služby a tabulky jiné než InnoDB. Při nastavení příliš vysoké hodnoty začne "
-"systém využívat odkládací paměť, což výrazně zhorší jeho celkový výkon. Více "
-"informací naleznete v <a href=\"https://www.percona.com/blog/2007/11/03/"
-"choosing-innodb_buffer_pool_size/\">tomto článku</a>"
+"používají výhradně InnoDB a neposkytují žádné další služby (např. "
+"webserver), ji můžete nastavit až na 80% dostupné paměti. Pokud to není váš "
+"případ, nastavte tuto hodnotu po pečlivém zvážení požadavků na paměť pro "
+"další služby a tabulky jiné než InnoDB. Při nastavení příliš vysoké hodnoty "
+"začne systém využívat odkládací paměť, což výrazně zhorší jeho celkový "
+"výkon. Více informací naleznete v <a href=\"https://www.percona.com/"
+"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">tomto článku</a>"
 
 #: libraries/advisory_rules_generic.php:677
 #, php-format
@@ -1325,14 +1325,14 @@ msgstr "Vyhledat:"
 
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:319
-#: libraries/classes/Controllers/Server/PrivilegesController.php:389
+#: libraries/classes/Controllers/Server/PrivilegesController.php:317
 #: libraries/classes/Database/Routines.php:1079
 #: libraries/classes/Database/Routines.php:1795
 #: libraries/classes/Database/Triggers.php:462
-#: libraries/classes/InsertEdit.php:1987 libraries/classes/InsertEdit.php:2021
+#: libraries/classes/InsertEdit.php:1978 libraries/classes/InsertEdit.php:2012
 #: libraries/classes/Normalization.php:260
-#: libraries/classes/Normalization.php:972 libraries/classes/Tracking.php:353
-#: libraries/classes/Tracking.php:506
+#: libraries/classes/Normalization.php:972 libraries/classes/Tracking.php:330
+#: libraries/classes/Tracking.php:483
 #: templates/columns_definitions/column_definitions_form.twig:43
 #: templates/database/create_table.twig:21
 #: templates/database/events/editor_form.twig:107
@@ -1373,8 +1373,8 @@ msgstr "Vyhledat:"
 #: templates/table/operations/view.twig:16
 #: templates/table/relation/common_form.twig:318
 #: templates/table/search/index.twig:160
-#: templates/table/structure/display_structure.twig:397
-#: templates/table/structure/display_structure.twig:500
+#: templates/table/structure/display_structure.twig:394
+#: templates/table/structure/display_structure.twig:501
 #: templates/table/zoom_search/index.twig:154 templates/view_create.twig:116
 msgid "Go"
 msgstr "Proveď"
@@ -1383,7 +1383,7 @@ msgstr "Proveď"
 #: libraries/classes/BrowseForeigners.php:223
 #: templates/database/data_dictionary/index.twig:65 templates/indexes.twig:15
 #: templates/table/relation/common_form.twig:235
-#: templates/table/structure/display_structure.twig:417
+#: templates/table/structure/display_structure.twig:414
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
 msgstr "Název klíče"
@@ -1398,7 +1398,7 @@ msgid "Description"
 msgstr "Popis"
 
 #: libraries/classes/BrowseForeigners.php:331
-#: libraries/classes/Html/Generator.php:1284 libraries/classes/Language.php:212
+#: libraries/classes/Html/Generator.php:1286 libraries/classes/Language.php:212
 #: libraries/classes/Pdf.php:92
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:532
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
@@ -1448,24 +1448,25 @@ msgstr "ANO"
 msgid "NO"
 msgstr "NE"
 
-#: libraries/classes/CentralColumns.php:954
-#: libraries/classes/CentralColumns.php:955
+#: libraries/classes/CentralColumns.php:860
+#: libraries/classes/CentralColumns.php:861
 #: libraries/classes/Config/Descriptions.php:889
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:385
-#: libraries/classes/Display/Results.php:3213
-#: libraries/classes/Html/Generator.php:758
-#: libraries/classes/Html/Generator.php:1020
-#: libraries/classes/Server/UserGroups.php:125 libraries/classes/Util.php:3197
-#: libraries/classes/Util.php:3198 templates/console/bookmark_content.twig:7
-#: templates/console/display.twig:31 templates/console/display.twig:175
-#: templates/database/central_columns/main.twig:281
-#: templates/database/central_columns/main.twig:403
-#: templates/database/central_columns/main.twig:404
+#: libraries/classes/Display/Results.php:3207
+#: libraries/classes/Html/Generator.php:760
+#: libraries/classes/Html/Generator.php:1022
+#: libraries/classes/Server/UserGroups.php:125
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:175
+#: templates/database/central_columns/main.twig:267
+#: templates/database/central_columns/main.twig:381
+#: templates/database/central_columns/main.twig:382
 #: templates/database/events/index.twig:43
 #: templates/database/events/index.twig:46
 #: templates/database/events/row.twig:20 templates/database/events/row.twig:23
 #: templates/database/routines/row.twig:18
 #: templates/database/routines/row.twig:21
+#: templates/database/structure/structure_table_row.twig:66
 #: templates/database/triggers/row.twig:22
 #: templates/database/triggers/row.twig:25
 #: templates/display/results/table.twig:210
@@ -1473,19 +1474,19 @@ msgstr "NE"
 #: templates/server/variables/index.twig:42
 #: templates/server/variables/index.twig:45 templates/setup/home/index.twig:57
 #: templates/table/relation/common_form.twig:253
-#: templates/table/structure/display_structure.twig:435
+#: templates/table/structure/display_structure.twig:436
 msgid "Edit"
 msgstr "Upravit"
 
-#: libraries/classes/CentralColumns.php:960
-#: libraries/classes/CentralColumns.php:961
+#: libraries/classes/CentralColumns.php:866
+#: libraries/classes/CentralColumns.php:867
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:386
-#: libraries/classes/Display/Results.php:3282
+#: libraries/classes/Display/Results.php:3276
 #: libraries/classes/Server/UserGroups.php:134
-#: libraries/classes/Tracking.php:279 templates/console/bookmark_content.twig:7
-#: templates/database/central_columns/main.twig:284
-#: templates/database/central_columns/main.twig:407
-#: templates/database/central_columns/main.twig:408
+#: libraries/classes/Tracking.php:256 templates/console/bookmark_content.twig:7
+#: templates/database/central_columns/main.twig:270
+#: templates/database/central_columns/main.twig:385
+#: templates/database/central_columns/main.twig:386
 #: templates/database/designer/main.twig:390
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
@@ -1495,9 +1496,9 @@ msgstr "Upravit"
 msgid "Delete"
 msgstr "Odstranit"
 
-#: libraries/classes/CentralColumns.php:977
+#: libraries/classes/CentralColumns.php:883
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:445
-#: libraries/classes/InsertEdit.php:1896
+#: libraries/classes/InsertEdit.php:1887
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:48
@@ -1506,7 +1507,7 @@ msgstr "Odstranit"
 msgid "Save"
 msgstr "Uložit"
 
-#: libraries/classes/CentralColumns.php:1024
+#: libraries/classes/CentralColumns.php:930
 #: libraries/classes/Database/Routines.php:931
 #: libraries/classes/Database/Routines.php:1707
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:486
@@ -1515,7 +1516,7 @@ msgstr "Uložit"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:406
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/main.twig:17
-#: templates/database/central_columns/main.twig:236
+#: templates/database/central_columns/main.twig:222
 #: templates/database/create_table.twig:11
 #: templates/database/events/index.twig:17
 #: templates/database/operations/index.twig:33
@@ -1525,7 +1526,7 @@ msgstr "Uložit"
 msgid "Name"
 msgstr "Název"
 
-#: libraries/classes/CentralColumns.php:1025
+#: libraries/classes/CentralColumns.php:931
 #: libraries/classes/Database/Routines.php:902
 #: libraries/classes/Database/Routines.php:932
 #: libraries/classes/Database/Routines.php:1708
@@ -1542,7 +1543,7 @@ msgstr "Název"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:744
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/main.twig:21
-#: templates/database/central_columns/main.twig:240
+#: templates/database/central_columns/main.twig:226
 #: templates/database/data_dictionary/index.twig:17
 #: templates/database/data_dictionary/index.twig:66
 #: templates/database/events/index.twig:20
@@ -1553,20 +1554,20 @@ msgstr "Název"
 #: templates/table/relation/common_form.twig:236
 #: templates/table/search/index.twig:39
 #: templates/table/structure/display_structure.twig:23
-#: templates/table/structure/display_structure.twig:418
+#: templates/table/structure/display_structure.twig:415
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/zoom_search/index.twig:39
 msgid "Type"
 msgstr "Typ"
 
-#: libraries/classes/CentralColumns.php:1026
+#: libraries/classes/CentralColumns.php:932
 #: libraries/classes/Database/Routines.php:933
 #: templates/columns_definitions/table_fields_definitions.twig:16
 msgid "Length/Values"
 msgstr "Délka/Množina"
 
-#: libraries/classes/CentralColumns.php:1027
+#: libraries/classes/CentralColumns.php:933
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:296
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:394
 #: libraries/classes/Plugins/Export/ExportLatex.php:553
@@ -1579,7 +1580,7 @@ msgstr "Délka/Množina"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:747
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/main.twig:29
-#: templates/database/central_columns/main.twig:248
+#: templates/database/central_columns/main.twig:234
 #: templates/database/data_dictionary/index.twig:19
 #: templates/database/structure/body_for_table_summary.twig:52
 #: templates/server/replication/slave_configuration.twig:9
@@ -1588,15 +1589,15 @@ msgstr "Délka/Množina"
 msgid "Default"
 msgstr "Výchozí"
 
-#: libraries/classes/CentralColumns.php:1028
+#: libraries/classes/CentralColumns.php:934
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/database/central_columns/main.twig:33
-#: templates/database/central_columns/main.twig:252
+#: templates/database/central_columns/main.twig:238
 #: templates/database/data_dictionary/index.twig:71
 #: templates/database/operations/index.twig:199
 #: templates/database/operations/index.twig:203
 #: templates/database/structure/table_header.twig:31
-#: templates/home/index.twig:55 templates/indexes.twig:21
+#: templates/home/index.twig:61 templates/indexes.twig:21
 #: templates/server/collations/index.twig:13
 #: templates/server/databases/index.twig:41
 #: templates/server/databases/index.twig:126
@@ -1604,15 +1605,15 @@ msgstr "Výchozí"
 #: templates/table/relation/common_form.twig:241
 #: templates/table/search/index.twig:40
 #: templates/table/structure/display_structure.twig:24
-#: templates/table/structure/display_structure.twig:423
-#: templates/table/structure/display_table_stats.twig:102
+#: templates/table/structure/display_structure.twig:420
+#: templates/table/structure/display_table_stats.twig:106
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/table/zoom_search/index.twig:40
 msgid "Collation"
 msgstr "Porovnávání"
 
-#: libraries/classes/CentralColumns.php:1029
+#: libraries/classes/CentralColumns.php:935
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:712
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:745
 #: templates/columns_definitions/table_fields_definitions.twig:27
@@ -1620,8 +1621,8 @@ msgstr "Porovnávání"
 msgid "Attributes"
 msgstr "Vlastnosti"
 
-#: libraries/classes/CentralColumns.php:1030
-#: libraries/classes/InsertEdit.php:2014
+#: libraries/classes/CentralColumns.php:936
+#: libraries/classes/InsertEdit.php:2005
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:293
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:391
 #: libraries/classes/Plugins/Export/ExportLatex.php:552
@@ -1634,21 +1635,21 @@ msgstr "Vlastnosti"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:746
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/database/central_columns/main.twig:41
-#: templates/database/central_columns/main.twig:260
+#: templates/database/central_columns/main.twig:246
 #: templates/database/data_dictionary/index.twig:18
 #: templates/database/data_dictionary/index.twig:72 templates/indexes.twig:22
 #: templates/table/relation/common_form.twig:242
 #: templates/table/structure/display_structure.twig:26
-#: templates/table/structure/display_structure.twig:424
+#: templates/table/structure/display_structure.twig:421
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:33
 msgid "Null"
 msgstr "Nulový"
 
-#: libraries/classes/CentralColumns.php:1031
+#: libraries/classes/CentralColumns.php:937
 #: templates/database/central_columns/main.twig:45
-#: templates/database/central_columns/main.twig:264
+#: templates/database/central_columns/main.twig:250
 msgid "A_I"
 msgstr "A_I"
 
@@ -1945,15 +1946,15 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamština"
 
-#: libraries/classes/Common.php:110
+#: libraries/classes/Common.php:105
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:338
-#: libraries/classes/Controllers/Server/DatabasesController.php:288
+#: libraries/classes/Controllers/Server/DatabasesController.php:293
 #: libraries/classes/DbTableExists.php:45
 msgid "No databases selected."
 msgstr "Nebyla vybrána žádná databáze."
 
-#: libraries/classes/Common.php:179
-#: libraries/classes/Controllers/Table/OperationsController.php:264
+#: libraries/classes/Common.php:174
+#: libraries/classes/Controllers/Table/OperationsController.php:263
 msgid "No collation provided."
 msgstr "Není uvedeno kódování."
 
@@ -2297,7 +2298,7 @@ msgstr "Znaková sada souboru"
 
 #: libraries/classes/Config/Descriptions.php:221
 #: libraries/classes/Config/Descriptions.php:237 templates/sql/query.twig:41
-#: templates/table/structure/display_table_stats.twig:78
+#: templates/table/structure/display_table_stats.twig:82
 msgid "Format"
 msgstr "Formát"
 
@@ -2682,7 +2683,7 @@ msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:337
 #: libraries/classes/Config/Descriptions.php:403 libraries/classes/Menu.php:527
-#: libraries/classes/Util.php:2472 libraries/config.values.php:155
+#: libraries/classes/Util.php:2458 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:8
 #: templates/server/privileges/user_properties.twig:20
@@ -2721,11 +2722,11 @@ msgid "Servers display options."
 msgstr "Nastavení zobrazení serverů."
 
 #: libraries/classes/Config/Descriptions.php:345
-#: libraries/classes/Controllers/Server/DatabasesController.php:477
+#: libraries/classes/Controllers/Server/DatabasesController.php:478
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Plugins/Export/ExportXml.php:130
-#: libraries/classes/Server/Status/Data.php:151
+#: libraries/classes/Server/Status/Data.php:159
 #: templates/database/export/index.twig:23
 #: templates/database/structure/show_create.twig:6
 msgid "Tables"
@@ -2834,8 +2835,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:385 libraries/classes/Menu.php:285
 #: libraries/classes/Menu.php:402 libraries/classes/Menu.php:532
 #: libraries/classes/Navigation/Nodes/NodeTable.php:315
-#: libraries/classes/Util.php:1763 libraries/classes/Util.php:2473
-#: libraries/classes/Util.php:2488 libraries/classes/Util.php:2505
+#: libraries/classes/Util.php:1749 libraries/classes/Util.php:2459
+#: libraries/classes/Util.php:2474 libraries/classes/Util.php:2491
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -4271,12 +4272,12 @@ msgid "Skip locked tables"
 msgstr "Přeskočit zamčené tabulky"
 
 #: libraries/classes/Config/Descriptions.php:890
-#: libraries/classes/Html/Generator.php:722
+#: libraries/classes/Html/Generator.php:724
 msgid "Explain SQL"
 msgstr "Vysvětlit SQL"
 
 #: libraries/classes/Config/Descriptions.php:891
-#: libraries/classes/Export.php:603 libraries/classes/Html/Generator.php:802
+#: libraries/classes/Export.php:603 libraries/classes/Html/Generator.php:804
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
 #: templates/server/status/variables/index.twig:12
@@ -4284,7 +4285,7 @@ msgid "Refresh"
 msgstr "Obnovit"
 
 #: libraries/classes/Config/Descriptions.php:892
-#: libraries/classes/Html/Generator.php:787
+#: libraries/classes/Html/Generator.php:789
 msgid "Create PHP code"
 msgstr "Vytvořit PHP kód"
 
@@ -4677,40 +4678,40 @@ msgstr "Komprimovaný export nebude fungovat kvůli chybějící funkci %s."
 msgid "maximum %s"
 msgstr "maximálně %s"
 
-#: libraries/classes/Config/FormDisplayTemplate.php:194
+#: libraries/classes/Config/FormDisplayTemplate.php:178
 #: libraries/classes/Engines/Pbxt.php:168
-#: libraries/classes/Html/Generator.php:886
+#: libraries/classes/Html/Generator.php:888
 #: libraries/classes/Html/MySQLDocumentation.php:49
-#: libraries/classes/Sanitize.php:202 templates/home/index.twig:183
+#: libraries/classes/Sanitize.php:202 templates/home/index.twig:198
 #: templates/server/variables/index.twig:17
 msgid "Documentation"
 msgstr "Dokumentace"
 
-#: libraries/classes/Config/FormDisplayTemplate.php:271
+#: libraries/classes/Config/FormDisplayTemplate.php:255
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr "Tato volba není přístupná, nebude použita ve vašich nastaveních."
 
-#: libraries/classes/Config/FormDisplayTemplate.php:273
+#: libraries/classes/Config/FormDisplayTemplate.php:257
 #: libraries/classes/Relation.php:150 libraries/classes/Relation.php:158
 #: libraries/config.values.php:145 libraries/config.values.php:188
 msgid "Disabled"
 msgstr "Vypnuto"
 
-#: libraries/classes/Config/FormDisplayTemplate.php:319
-#: libraries/classes/Controllers/Database/StructureController.php:1451
-#: libraries/classes/Controllers/Database/StructureController.php:1534
+#: libraries/classes/Config/FormDisplayTemplate.php:303
+#: libraries/classes/Controllers/Database/StructureController.php:1452
+#: libraries/classes/Controllers/Database/StructureController.php:1535
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:495
-#: libraries/classes/Controllers/Table/DeleteController.php:27
-#: libraries/classes/Controllers/Table/StructureController.php:482
-#: libraries/classes/Controllers/Table/StructureController.php:500
-#: libraries/classes/Controllers/Table/StructureController.php:547
+#: libraries/classes/Controllers/Table/DeleteController.php:38
+#: libraries/classes/Controllers/Table/StructureController.php:473
+#: libraries/classes/Controllers/Table/StructureController.php:491
+#: libraries/classes/Controllers/Table/StructureController.php:538
 #: libraries/classes/IndexColumn.php:138 libraries/classes/Index.php:525
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:658
 #: libraries/classes/Plugins/Export/ExportLatex.php:636
 #: libraries/classes/Plugins/Export/ExportOdt.php:809
 #: libraries/classes/Plugins/Export/ExportTexytext.php:628
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:798
-#: templates/database/central_columns/main.twig:370
+#: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
 #: templates/database/data_dictionary/index.twig:83
 #: templates/database/privileges/index.twig:69
@@ -4729,7 +4730,7 @@ msgstr "Vypnuto"
 #: templates/table/privileges/index.twig:73
 #: templates/table/relation/common_form.twig:278
 #: templates/table/structure/display_structure.twig:81
-#: templates/table/structure/display_structure.twig:460
+#: templates/table/structure/display_structure.twig:461
 #: templates/table/structure/drop_confirm.twig:19
 #: templates/table/structure/primary.twig:22
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -4738,7 +4739,7 @@ msgstr "Vypnuto"
 msgid "Yes"
 msgstr "Ano"
 
-#: libraries/classes/Config/FormDisplayTemplate.php:319
+#: libraries/classes/Config/FormDisplayTemplate.php:303
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:349
 #: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:498
 #: libraries/classes/Index.php:526
@@ -4747,7 +4748,7 @@ msgstr "Ano"
 #: libraries/classes/Plugins/Export/ExportOdt.php:808
 #: libraries/classes/Plugins/Export/ExportTexytext.php:628
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:797
-#: templates/database/central_columns/main.twig:370
+#: templates/database/central_columns/main.twig:360
 #: templates/database/data_dictionary/index.twig:39
 #: templates/database/data_dictionary/index.twig:83
 #: templates/database/privileges/index.twig:69
@@ -4766,7 +4767,7 @@ msgstr "Ano"
 #: templates/table/privileges/index.twig:73
 #: templates/table/relation/common_form.twig:278
 #: templates/table/structure/display_structure.twig:81
-#: templates/table/structure/display_structure.twig:460
+#: templates/table/structure/display_structure.twig:461
 #: templates/table/structure/drop_confirm.twig:20
 #: templates/table/structure/primary.twig:23
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -4775,16 +4776,16 @@ msgstr "Ano"
 msgid "No"
 msgstr "Ne"
 
-#: libraries/classes/Config/FormDisplayTemplate.php:366
+#: libraries/classes/Config/FormDisplayTemplate.php:350
 #, php-format
 msgid "Set value: %s"
 msgstr "Nastavena hodnota: %s"
 
-#: libraries/classes/Config/FormDisplayTemplate.php:371
+#: libraries/classes/Config/FormDisplayTemplate.php:355
 msgid "Restore default value"
 msgstr "Obnovit výchozí hodnotu"
 
-#: libraries/classes/Config/FormDisplayTemplate.php:384
+#: libraries/classes/Config/FormDisplayTemplate.php:368
 msgid "Allow users to customize this value"
 msgstr "Povolit uživatelům změnit tuto hodnotu"
 
@@ -4817,13 +4818,14 @@ msgstr "Vlastní"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:57
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
-#: libraries/classes/Util.php:1762 libraries/classes/Util.php:2487
-#: libraries/classes/Util.php:2504 libraries/classes/Util.php:3192
-#: libraries/config.values.php:60 libraries/config.values.php:74
-#: libraries/config.values.php:165 libraries/config.values.php:175
+#: libraries/classes/Util.php:1748 libraries/classes/Util.php:2473
+#: libraries/classes/Util.php:2490 libraries/config.values.php:60
+#: libraries/config.values.php:74 libraries/config.values.php:165
+#: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
 #: templates/database/central_columns/edit_table_header.twig:2
 #: templates/database/export/index.twig:24
+#: templates/database/structure/structure_table_row.twig:48
 #: templates/server/privileges/privileges_table.twig:328
 #: templates/table/tracking/structure_snapshot_columns.twig:1
 msgid "Structure"
@@ -4833,7 +4835,7 @@ msgstr "Struktura"
 #: libraries/classes/Config/Forms/User/ExportForm.php:106
 #: libraries/classes/Config/Forms/User/ExportForm.php:131
 #: libraries/classes/Config/Forms/User/ExportForm.php:137
-#: libraries/classes/Controllers/Server/DatabasesController.php:487
+#: libraries/classes/Controllers/Server/DatabasesController.php:488
 #: templates/database/export/index.twig:25
 #: templates/server/privileges/privileges_table.twig:254
 #: templates/table/structure/display_table_stats.twig:17
@@ -4861,9 +4863,8 @@ msgstr "Text OpenDocument"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:422
 #: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1614
-#: libraries/classes/Util.php:2476 libraries/classes/Util.php:2491
-#: libraries/classes/Util.php:2508 libraries/classes/Util.php:3199
-#: libraries/classes/Util.php:3200 templates/database/events/index.twig:55
+#: libraries/classes/Util.php:2462 libraries/classes/Util.php:2477
+#: libraries/classes/Util.php:2494 templates/database/events/index.twig:55
 #: templates/database/events/index.twig:87
 #: templates/database/events/index.twig:88
 #: templates/database/events/row.twig:33
@@ -4880,7 +4881,7 @@ msgstr "Text OpenDocument"
 #: templates/database/triggers/row.twig:35
 #: templates/display/results/table.twig:223
 #: templates/display/results/table.twig:224
-#: templates/display/results/table.twig:262 templates/export.twig:8
+#: templates/display/results/table.twig:258 templates/export.twig:8
 #: templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
@@ -4906,8 +4907,8 @@ msgstr "CSV pomocí LOAD DATA"
 #: libraries/classes/Config/Forms/User/ImportForm.php:65
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:305
 #: libraries/classes/Menu.php:316 libraries/classes/Menu.php:432
-#: libraries/classes/Menu.php:565 libraries/classes/Util.php:2477
-#: libraries/classes/Util.php:2492 libraries/classes/Util.php:2509
+#: libraries/classes/Menu.php:565 libraries/classes/Util.php:2463
+#: libraries/classes/Util.php:2478 libraries/classes/Util.php:2495
 #: templates/import.twig:33 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -5186,8 +5187,8 @@ msgstr "Soubor %s nebyl nalezen, více informací naleznete na stránce %s."
 msgid "Showing rows %1$s - %2$s."
 msgstr "Zobrazeny záznamy %1$s - %2$s."
 
-#: libraries/classes/Controllers/Database/ExportController.php:77
-#: libraries/classes/Controllers/Database/TrackingController.php:125
+#: libraries/classes/Controllers/Database/ExportController.php:76
+#: libraries/classes/Controllers/Database/TrackingController.php:124
 #: libraries/classes/Controllers/ExportController.php:461
 #: libraries/classes/Database/Qbe.php:359
 #: templates/database/structure/index.twig:19
@@ -5195,9 +5196,9 @@ msgstr "Zobrazeny záznamy %1$s - %2$s."
 msgid "No tables found in database."
 msgstr "V databázi nebyly nalezeny žádné tabulky."
 
-#: libraries/classes/Controllers/Database/ExportController.php:151
+#: libraries/classes/Controllers/Database/ExportController.php:150
 #: libraries/classes/Controllers/Server/ExportController.php:67
-#: libraries/classes/Controllers/Table/ExportController.php:123
+#: libraries/classes/Controllers/Table/ExportController.php:122
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Nepodařilo se nahrát pluginy pro export, zkontrolujte prosím vaší instalaci!"
@@ -5205,7 +5206,7 @@ msgstr ""
 #: libraries/classes/Controllers/Database/ImportController.php:53
 #: libraries/classes/Controllers/ImportController.php:619
 #: libraries/classes/Controllers/Server/ImportController.php:41
-#: libraries/classes/Controllers/Table/ImportController.php:45
+#: libraries/classes/Controllers/Table/ImportController.php:44
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nepodařilo se nahrát pluginy pro import, zkontrolujte prosím vaší instalaci!"
@@ -5231,7 +5232,7 @@ msgstr "Databáze %1$s byla přejmenována na %2$s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Databáze %1$s byla zkopírována do %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:321
+#: libraries/classes/Controllers/Database/OperationsController.php:320
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -5246,31 +5247,31 @@ msgstr ""
 msgid "Access denied!"
 msgstr "Přístup odepřen!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:275
+#: libraries/classes/Controllers/Database/StructureController.php:280
 msgid "Favorite List is full!"
 msgstr "Seznam oblíbených je plný!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:550
+#: libraries/classes/Controllers/Database/StructureController.php:553
 #: templates/table/operations/index.twig:408
 #: templates/table/operations/view.twig:27
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Pohled %s byl odstraněn."
 
-#: libraries/classes/Controllers/Database/StructureController.php:551
+#: libraries/classes/Controllers/Database/StructureController.php:554
 #: templates/table/operations/index.twig:408
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabulka %s byla odstraněna."
 
-#: libraries/classes/Controllers/Database/StructureController.php:607
+#: libraries/classes/Controllers/Database/StructureController.php:609
 #: templates/table/operations/index.twig:387
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabulka %s byla vyprázdněna."
 
 #: libraries/classes/Controllers/Database/StructureController.php:779
-#: libraries/classes/Display/Results.php:4421
+#: libraries/classes/Display/Results.php:4414
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5278,20 +5279,20 @@ msgid ""
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:1016
+#: libraries/classes/Controllers/Database/StructureController.php:1017
 msgid "unknown"
 msgstr "neznámý"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1157
-#: libraries/classes/Controllers/Database/StructureController.php:1173
-#: libraries/classes/Controllers/Database/StructureController.php:1214
-#: libraries/classes/Controllers/Database/StructureController.php:1247
-#: libraries/classes/Controllers/Database/StructureController.php:1270
-#: libraries/classes/Controllers/Database/StructureController.php:1293
-#: libraries/classes/Controllers/Database/StructureController.php:1316
-#: libraries/classes/Controllers/Database/StructureController.php:1339
-#: libraries/classes/Controllers/Database/StructureController.php:1369
-#: libraries/classes/Controllers/Database/StructureController.php:1420
+#: libraries/classes/Controllers/Database/StructureController.php:1158
+#: libraries/classes/Controllers/Database/StructureController.php:1174
+#: libraries/classes/Controllers/Database/StructureController.php:1215
+#: libraries/classes/Controllers/Database/StructureController.php:1248
+#: libraries/classes/Controllers/Database/StructureController.php:1271
+#: libraries/classes/Controllers/Database/StructureController.php:1294
+#: libraries/classes/Controllers/Database/StructureController.php:1317
+#: libraries/classes/Controllers/Database/StructureController.php:1340
+#: libraries/classes/Controllers/Database/StructureController.php:1370
+#: libraries/classes/Controllers/Database/StructureController.php:1421
 #: libraries/classes/Controllers/Table/MaintenanceController.php:47
 #: libraries/classes/Controllers/Table/MaintenanceController.php:82
 #: libraries/classes/Controllers/Table/MaintenanceController.php:120
@@ -5300,37 +5301,37 @@ msgstr "neznámý"
 msgid "No table selected."
 msgstr "Nebyla vybrána žádná tabulka."
 
-#: libraries/classes/Controllers/Database/StructureController.php:1255
-#: libraries/classes/Controllers/Database/StructureController.php:1278
-#: libraries/classes/Controllers/Database/StructureController.php:1301
+#: libraries/classes/Controllers/Database/StructureController.php:1256
+#: libraries/classes/Controllers/Database/StructureController.php:1279
+#: libraries/classes/Controllers/Database/StructureController.php:1302
 msgid "Success!"
 msgstr "Úspěch!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1452
-#: libraries/classes/Controllers/Database/StructureController.php:1535
-#: libraries/classes/Controllers/Table/OperationsController.php:313
+#: libraries/classes/Controllers/Database/StructureController.php:1453
+#: libraries/classes/Controllers/Database/StructureController.php:1536
+#: libraries/classes/Controllers/Table/OperationsController.php:312
 #: libraries/classes/Controllers/Table/ReplaceController.php:391
 #: libraries/classes/Core.php:856 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Žádná změna"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:78
-#: libraries/classes/Controllers/Database/TrackingController.php:98
+#: libraries/classes/Controllers/Database/TrackingController.php:77
+#: libraries/classes/Controllers/Database/TrackingController.php:97
 msgid "Tracking data deleted successfully."
 msgstr "Sledovací údaje byly úspěšně smazány."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:85
+#: libraries/classes/Controllers/Database/TrackingController.php:84
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
 "Verze %1$s vytvořena pro vybrané tabulky a jejich sledování je zapnuté."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:115
+#: libraries/classes/Controllers/Database/TrackingController.php:114
 msgid "No tables selected."
 msgstr "Nebyly vybrány žádné tabulky."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:154
+#: libraries/classes/Controllers/Database/TrackingController.php:153
 msgid "Database Log"
 msgstr "Záznam databáze"
 
@@ -5377,23 +5378,7 @@ msgstr ""
 "Odhlásil jste se z jednoho serveru. Pro úplné odhlášení z phpMyAdminu se "
 "musíte odhlásit ze všech serverů."
 
-#: libraries/classes/Controllers/HomeController.php:115
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
-#: libraries/classes/Controllers/UserPasswordController.php:78
-#: templates/server/privileges/change_password.twig:10
-msgid "Change password"
-msgstr "Změnit heslo"
-
-#: libraries/classes/Controllers/HomeController.php:152
-#: templates/preferences/manage/main.twig:56
-msgid "More settings"
-msgstr "Více nastavení"
-
-#: libraries/classes/Controllers/HomeController.php:222
-msgid "Show PHP information"
-msgstr "Zobrazit informace o PHP"
-
-#: libraries/classes/Controllers/HomeController.php:242
+#: libraries/classes/Controllers/HomeController.php:196
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5402,14 +5387,14 @@ msgstr ""
 "Úložiště nastavení phpMyAdmina není plně dostupné, některé z rozšířených "
 "funkcí phpMyAdmina nelze používat. %sZjistěte proč%s. "
 
-#: libraries/classes/Controllers/HomeController.php:249
+#: libraries/classes/Controllers/HomeController.php:203
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Nebo alternativně jděte do oddílu 'Operace' u jakékoli databáze, kde je "
 "možné rovněž toto nastavit."
 
-#: libraries/classes/Controllers/HomeController.php:368
+#: libraries/classes/Controllers/HomeController.php:321
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5419,7 +5404,7 @@ msgstr ""
 "vícebajtovou znakovou sadu. Bez rozšíření mbstring neumí phpMyAdmin správně "
 "rozdělovat řetězce a proto to může mít nečekané následky."
 
-#: libraries/classes/Controllers/HomeController.php:383
+#: libraries/classes/Controllers/HomeController.php:336
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5427,7 +5412,7 @@ msgstr ""
 "Rozšíření curl nebylo nalezeno a allow_url_fopen je vypnuto. Kvůli tomuto "
 "jsou některé funkce, jako hlášení chyb a kontrola verze, vypnuty."
 
-#: libraries/classes/Controllers/HomeController.php:398
+#: libraries/classes/Controllers/HomeController.php:351
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5439,7 +5424,7 @@ msgstr ""
 "a]) je menší než platnost cookie nastavená v phpMyAdminovi. Z tohoto důvodu "
 "bude vaše přihlášení neplatné dříve, než jak je nastaveno v phpMyAdminovi."
 
-#: libraries/classes/Controllers/HomeController.php:417
+#: libraries/classes/Controllers/HomeController.php:370
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5448,7 +5433,7 @@ msgstr ""
 "phpMyAdminovi. Z tohoto důvodu vaše přihlášení vyprší dříve než je nastavené "
 "v phpMyAdminovi."
 
-#: libraries/classes/Controllers/HomeController.php:435
+#: libraries/classes/Controllers/HomeController.php:388
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -5458,17 +5443,17 @@ msgstr ""
 "snadno napadnutelný; tuto slabinu zabezpečení byste měli skutečně napravit "
 "změnou hesla pro správce 'pma'."
 
-#: libraries/classes/Controllers/HomeController.php:451
+#: libraries/classes/Controllers/HomeController.php:404
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Nastavte klíč pro šifrování cookies (blowfish_secret) v konfiguračním "
 "souboru (config.inc.php)."
 
-#: libraries/classes/Controllers/HomeController.php:458
+#: libraries/classes/Controllers/HomeController.php:411
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr "Tajné heslo v konfiguraci (blowfish_secret) je příliš krátké."
 
-#: libraries/classes/Controllers/HomeController.php:472
+#: libraries/classes/Controllers/HomeController.php:425
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5480,7 +5465,7 @@ msgstr ""
 "phpMyAdmin nastaven. Pokud tak neučiníte, může být váš server ohrožen cizími "
 "lidmi přistupujícími k vašemu nastavení."
 
-#: libraries/classes/Controllers/HomeController.php:492
+#: libraries/classes/Controllers/HomeController.php:445
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5489,7 +5474,7 @@ msgstr ""
 "Server používá Suhosin. Prosím podívejte se do %sdokumentace%s pro popis "
 "problémů, které tím mohou být způsobeny."
 
-#: libraries/classes/Controllers/HomeController.php:507
+#: libraries/classes/Controllers/HomeController.php:460
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5541,8 +5526,8 @@ msgstr ""
 "[doc@faq1-16]FAQ 1.16[/doc]."
 
 #: libraries/classes/Controllers/ImportController.php:662
-#: libraries/classes/Controllers/SqlController.php:371
-#: libraries/classes/Sql.php:1257
+#: libraries/classes/Controllers/SqlController.php:370
+#: libraries/classes/Sql.php:1233
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Byl vytvořen oblíbený dotaz %s."
@@ -5747,7 +5732,7 @@ msgid "Save & close"
 msgstr "Uložit a zavřít"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:93
-#: libraries/classes/InsertEdit.php:1985
+#: libraries/classes/InsertEdit.php:1976
 #: templates/config/form_display/fieldset_bottom.twig:9
 #: templates/preferences/manage/main.twig:114
 #: templates/preferences/manage/main.twig:122
@@ -5805,7 +5790,7 @@ msgid "Please select column(s) for the index."
 msgstr "Prosím zvolte které pole chcete přidat do klíče."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:110
-#: libraries/classes/InsertEdit.php:1983
+#: libraries/classes/InsertEdit.php:1974
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/table/index_form.twig:233
 #: templates/table/relation/common_form.twig:214
@@ -5821,7 +5806,7 @@ msgid "Matched rows:"
 msgstr "Odpovídající záznamy:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:115
-#: libraries/classes/Html/Generator.php:992 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:994 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL dotaz:"
 
@@ -5859,7 +5844,7 @@ msgid "Removing Selected Users"
 msgstr "Odstraňuji vybrané uživatele"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:130
-#: libraries/classes/Tracking.php:257 libraries/classes/Tracking.php:664
+#: libraries/classes/Tracking.php:234 libraries/classes/Tracking.php:641
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:47
 msgid "Close"
@@ -5884,19 +5869,19 @@ msgstr "Šablona byla smazána."
 #. l10n: Other, small valued, queries
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:74
-#: libraries/classes/Server/Status/Data.php:155
+#: libraries/classes/Server/Status/Data.php:163
 msgid "Other"
 msgstr "Ostatní"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:141
-#: libraries/classes/Util.php:606 libraries/classes/Util.php:638
+#: libraries/classes/Util.php:592 libraries/classes/Util.php:624
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
-#: libraries/classes/Util.php:604 libraries/classes/Util.php:636
+#: libraries/classes/Util.php:590 libraries/classes/Util.php:622
 msgid "."
 msgstr ","
 
@@ -6004,45 +5989,45 @@ msgstr "Procesy"
 
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:182
-#: libraries/classes/Util.php:516
+#: libraries/classes/Util.php:502
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:183
-#: libraries/classes/Util.php:518
+#: libraries/classes/Util.php:504
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:184
-#: libraries/classes/Util.php:520
+#: libraries/classes/Util.php:506
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:185
-#: libraries/classes/Util.php:522
+#: libraries/classes/Util.php:508
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:186
-#: libraries/classes/Util.php:524
+#: libraries/classes/Util.php:510
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:187
-#: libraries/classes/Util.php:526
+#: libraries/classes/Util.php:512
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:188
-#: libraries/classes/Util.php:528
+#: libraries/classes/Util.php:514
 msgid "EiB"
 msgstr "EiB"
 
@@ -6062,7 +6047,7 @@ msgid "Traffic"
 msgstr "Provoz"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
-#: libraries/classes/Menu.php:570 libraries/classes/Util.php:2478
+#: libraries/classes/Menu.php:570 libraries/classes/Util.php:2464
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Nastavení"
@@ -6076,11 +6061,13 @@ msgid "Please add at least one variable to the series!"
 msgstr "Prosím přidejte do série alespoň jednu hodnotu!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
-#: libraries/classes/Display/Results.php:1320
+#: libraries/classes/Display/Results.php:1314
 #: libraries/classes/Plugins/Export/ExportSql.php:2309
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 #: libraries/config.values.php:111
-#: templates/columns_definitions/transformation.twig:4
+#: templates/columns_definitions/column_attributes.twig:208
+#: templates/columns_definitions/column_attributes.twig:229
+#: templates/database/central_columns/main.twig:309
 #: templates/database/designer/main.twig:590 templates/export.twig:355
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:204
@@ -6290,7 +6277,7 @@ msgstr "Vysvětlení dotazu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:268
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Menu.php:537 libraries/classes/Util.php:2474
+#: libraries/classes/Menu.php:537 libraries/classes/Util.php:2460
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:18
 #: templates/database/events/index.twig:18
@@ -6628,11 +6615,9 @@ msgid "%d is not valid row number."
 msgstr "%d není platné číslo řádku."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#: libraries/classes/Controllers/Table/ChangeController.php:200
-#: libraries/classes/Controllers/Table/SearchController.php:353
-#: libraries/classes/Controllers/Table/ZoomSearchController.php:389
-#: libraries/classes/Controllers/Table/ZoomSearchController.php:431
+#: libraries/classes/InsertEdit.php:923
 #: templates/sql/relational_column_dropdown.twig:3
+#: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
 msgstr "Projít hodnoty cizích klíčů"
 
@@ -6755,7 +6740,7 @@ msgstr "Nebyly vybrány žádné částečné závislosti!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:591
-#: libraries/classes/Export.php:598 libraries/classes/Html/Generator.php:1096
+#: libraries/classes/Export.php:598 libraries/classes/Html/Generator.php:1098
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:307
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6884,13 +6869,13 @@ msgstr "Obsah datového bodu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:482
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:657
-#: libraries/classes/ErrorHandler.php:399 libraries/classes/InsertEdit.php:3140
+#: libraries/classes/ErrorHandler.php:399 libraries/classes/InsertEdit.php:3131
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "Ignorovat"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:483
-#: libraries/classes/Display/Results.php:3217
+#: libraries/classes/Display/Results.php:3211
 #: libraries/classes/Html/Generator.php:71
 #: templates/display/results/table.twig:214
 #: templates/display/results/table.twig:215
@@ -7172,7 +7157,7 @@ msgid "cancel"
 msgstr "zrušit"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:582
-#: libraries/classes/Controllers/Server/Status/StatusController.php:213
+#: libraries/classes/Controllers/Server/Status/StatusController.php:215
 msgid "Aborted"
 msgstr "Přerušené"
 
@@ -7196,8 +7181,8 @@ msgstr "Nejdříve zvolte databázi"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:590
 #: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
-#: templates/display/results/table.twig:245
-#: templates/table/structure/display_structure.twig:339
+#: templates/display/results/table.twig:241
+#: templates/table/structure/display_structure.twig:333
 msgid "Print"
 msgstr "Vytisknout"
 
@@ -7230,8 +7215,15 @@ msgstr "Vytvořit heslo"
 msgid "Generate"
 msgstr "Vytvořit"
 
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
+#: libraries/classes/Controllers/UserPasswordController.php:78
+#: templates/home/index.twig:46
+#: templates/server/privileges/change_password.twig:10
+msgid "Change password"
+msgstr "Změnit heslo"
+
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:610
-#: templates/table/structure/display_structure.twig:129
+#: templates/table/structure/display_structure.twig:132
 msgid "More"
 msgstr "Více"
 
@@ -7279,7 +7271,7 @@ msgstr "aktuální"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:631
 #: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:284
+#: templates/display/results/table.twig:280
 #: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "Vytvořit pohled"
@@ -7458,7 +7450,7 @@ msgid "Hide"
 msgstr "Skrýt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
-#: libraries/classes/Controllers/Table/ChangeController.php:205
+#: libraries/classes/Controllers/Table/ChangeController.php:203
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -7506,12 +7498,12 @@ msgstr "Dvoufaktorová autentizace byla odstraněna."
 msgid "Two-factor authentication has been configured."
 msgstr "Dvoufaktorová autentizace byla nastavena."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:240
+#: libraries/classes/Controllers/Server/DatabasesController.php:245
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Byla vytvořena databáze %1$s."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:320
+#: libraries/classes/Controllers/Server/DatabasesController.php:325
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -7519,342 +7511,49 @@ msgstr[0] "%1$d databáze byla úspěšně zrušena."
 msgstr[1] "%1$d databáze byly úspěšně zrušena."
 msgstr[2] "%1$d databází bylo úspěšně zrušeno."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:482
+#: libraries/classes/Controllers/Server/DatabasesController.php:483
 #: libraries/classes/Import.php:151
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
-#: templates/table/structure/display_structure.twig:239
-#: templates/table/structure/display_table_stats.twig:113
+#: templates/table/structure/display_structure.twig:231
+#: templates/table/structure/display_table_stats.twig:117
 msgid "Rows"
 msgstr "Řádků"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:492
+#: libraries/classes/Controllers/Server/DatabasesController.php:493
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
 #: templates/table/relation/common_form.twig:223
-#: templates/table/structure/display_structure.twig:405
+#: templates/table/structure/display_structure.twig:402
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
 msgid "Indexes"
 msgstr "Klíče"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:497
-#: libraries/classes/Controllers/Server/Status/StatusController.php:140
-#: libraries/classes/Controllers/Server/Status/StatusController.php:229
+#: libraries/classes/Controllers/Server/DatabasesController.php:498
+#: libraries/classes/Controllers/Server/Status/StatusController.php:142
+#: libraries/classes/Controllers/Server/Status/StatusController.php:231
 #: libraries/classes/Engines/Innodb.php:139
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Celkem"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:502
+#: libraries/classes/Controllers/Server/DatabasesController.php:503
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "Navíc"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:122
-#: libraries/classes/Server/Privileges.php:253
-msgid "Includes all privileges except GRANT."
-msgstr "Všechna oprávnění kromě GRANT."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:123
-#: libraries/classes/Server/Privileges.php:387
-#: templates/server/privileges/privileges_table.twig:161
-#: templates/server/privileges/privileges_table.twig:164
-#: templates/server/privileges/privileges_table.twig:356
-#: templates/server/privileges/privileges_table.twig:359
-msgid "Allows altering the structure of existing tables."
-msgstr "Umožňuje měnit strukturu existujících tabulek."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:124
-#: libraries/classes/Server/Privileges.php:477
-#: templates/server/privileges/privileges_table.twig:443
-#: templates/server/privileges/privileges_table.twig:446
-msgid "Allows altering and dropping stored routines."
-msgstr "Umožňuje měnit a rušit uložené procedury."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:125
-#: libraries/classes/Server/Privileges.php:347
-#: templates/server/privileges/privileges_table.twig:335
-#: templates/server/privileges/privileges_table.twig:343
-msgid "Allows creating new databases and tables."
-msgstr "Umožňuje vytvářet nové databáze a tabulky."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:126
-#: libraries/classes/Server/Privileges.php:472
-#: templates/server/privileges/privileges_table.twig:430
-#: templates/server/privileges/privileges_table.twig:433
-msgid "Allows creating stored routines."
-msgstr "Umožňuje vytvářet uložené procedury."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:127
-#: templates/server/privileges/privileges_table.twig:112
-#: templates/server/privileges/privileges_table.twig:115
-#: templates/server/privileges/privileges_table.twig:337
-#: templates/server/privileges/privileges_table.twig:345
-msgid "Allows creating new tables."
-msgstr "Umožňuje vytvářet nové tabulky."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:128
-#: libraries/classes/Server/Privileges.php:406
-#: templates/server/privileges/privileges_table.twig:404
-#: templates/server/privileges/privileges_table.twig:407
-msgid "Allows creating temporary tables."
-msgstr "Umožňuje vytvářet dočasné tabulky."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:129
-#: libraries/classes/Server/Privileges.php:482
-#: templates/server/privileges/privileges_table.twig:682
-#: templates/server/privileges/privileges_table.twig:685
-msgid "Allows creating, dropping and renaming user accounts."
-msgstr "Umožňuje vytvářet, rušit a přejmenovávat účty uživatelů."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:130
-#: libraries/classes/Server/Privileges.php:426
-#: libraries/classes/Server/Privileges.php:442
-#: templates/server/privileges/privileges_table.twig:173
-#: templates/server/privileges/privileges_table.twig:176
-#: templates/server/privileges/privileges_table.twig:470
-#: templates/server/privileges/privileges_table.twig:473
-#: templates/server/privileges/privileges_table.twig:485
-#: templates/server/privileges/privileges_table.twig:488
-msgid "Allows creating new views."
-msgstr "Umožňuje vytvářet nové pohledy."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:131
-#: libraries/classes/Server/Privileges.php:342
-#: templates/server/privileges/privileges_table.twig:100
-#: templates/server/privileges/privileges_table.twig:103
-#: templates/server/privileges/privileges_table.twig:299
-#: templates/server/privileges/privileges_table.twig:302
-msgid "Allows deleting data."
-msgstr "Umožňuje mazat data."
-
-#. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Controllers/Server/PrivilegesController.php:132
-#: libraries/classes/Server/Privileges.php:460
-#: libraries/classes/Server/Privileges.php:467
-#: templates/server/privileges/privileges_table.twig:210
-#: templates/server/privileges/privileges_table.twig:214
-msgid "Allows deleting historical rows."
-msgstr "Umožňuje mazání historických řádků."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:133
-#: libraries/classes/Server/Privileges.php:352
-#: templates/server/privileges/privileges_table.twig:383
-#: templates/server/privileges/privileges_table.twig:391
-msgid "Allows dropping databases and tables."
-msgstr "Umožňuje odstranit databáze a tabulky."
-
 #: libraries/classes/Controllers/Server/PrivilegesController.php:134
-#: templates/server/privileges/privileges_table.twig:124
-#: templates/server/privileges/privileges_table.twig:127
-#: templates/server/privileges/privileges_table.twig:385
-#: templates/server/privileges/privileges_table.twig:393
-msgid "Allows dropping tables."
-msgstr "Umožňuje odstranit tabulky."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:135
-#: libraries/classes/Server/Privileges.php:431
-#: templates/server/privileges/privileges_table.twig:500
-#: templates/server/privileges/privileges_table.twig:503
-msgid "Allows to set up events for the event scheduler."
-msgstr "Umožňuje plánovat úlohy pomocí plánovače."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:136
-#: libraries/classes/Server/Privileges.php:487
-#: templates/server/privileges/privileges_table.twig:456
-#: templates/server/privileges/privileges_table.twig:459
-msgid "Allows executing stored routines."
-msgstr "Umožňuje spouštět uložené procedury."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:137
-#: libraries/classes/Server/Privileges.php:372
-#: templates/server/privileges/privileges_table.twig:313
-#: templates/server/privileges/privileges_table.twig:316
-msgid "Allows importing data from and exporting data into files."
-msgstr "Umožňuje importovat a exportovat data z/do souborů na serveru."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:139
-#: templates/server/privileges/privileges_table.twig:136
-#: templates/server/privileges/privileges_table.twig:140
-#: templates/server/privileges/privileges_table.twig:614
-#: templates/server/privileges/privileges_table.twig:618
-msgid ""
-"Allows user to give to other users or remove from other users the privileges "
-"that user possess yourself."
-msgstr ""
-"Umožňuje uživateli přidávat nebo odebírat ostatním uživatelům oprávnění, "
-"která sám vlastní."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:142
-#: libraries/classes/Server/Privileges.php:382
-#: templates/server/privileges/privileges_table.twig:149
-#: templates/server/privileges/privileges_table.twig:152
-#: templates/server/privileges/privileges_table.twig:369
-#: templates/server/privileges/privileges_table.twig:372
-msgid "Allows creating and dropping indexes."
-msgstr "Umožňuje vytvářet a odstraňovat klíče."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:143
-#: libraries/classes/Server/Privileges.php:332
-#: templates/server/privileges/privileges_table.twig:36
-#: templates/server/privileges/privileges_table.twig:273
-#: templates/server/privileges/privileges_table.twig:276
-msgid "Allows inserting and replacing data."
-msgstr "Umožňuje vkládat a přepisovat data."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:144
-#: libraries/classes/Server/Privileges.php:411
-#: templates/server/privileges/privileges_table.twig:629
-#: templates/server/privileges/privileges_table.twig:632
-msgid "Allows locking tables for the current thread."
-msgstr "Umožňuje zamknout tabulku pro aktuální vlákno."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:146
-#: templates/server/privileges/privileges_table.twig:730
-#: templates/server/privileges/privileges_table.twig:737
-msgid "Limits the number of new connections the user may open per hour."
-msgstr ""
-"Omezuje počet nových připojení, která může uživatel vytvořit za hodinu."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:149
-#: templates/server/privileges/privileges_table.twig:704
-#: templates/server/privileges/privileges_table.twig:711
-msgid "Limits the number of queries the user may send to the server per hour."
-msgstr "Omezuje, kolik dotazů může uživatel odeslat serveru za hodinu."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:152
-#: templates/server/privileges/privileges_table.twig:717
-#: templates/server/privileges/privileges_table.twig:724
-msgid ""
-"Limits the number of commands that change any table or database the user may "
-"execute per hour."
-msgstr ""
-"Omezuje, kolik dotazů měnících nějakou tabulku nebo databázi může uživatel "
-"spustit za hodinu."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:156
-#: templates/server/privileges/privileges_table.twig:743
-#: templates/server/privileges/privileges_table.twig:750
-msgid "Limits the number of simultaneous connections the user may have."
-msgstr "Omezuje počet současných připojení uživatele."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:158
-#: libraries/classes/Server/Privileges.php:367
-#: templates/server/privileges/privileges_table.twig:562
-#: templates/server/privileges/privileges_table.twig:565
-msgid "Allows viewing processes of all users."
-msgstr "Umožňuje prohlížet procesy všech uživatelů."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:159
-#: libraries/classes/Server/Privileges.php:377
-#: templates/server/privileges/privileges_table.twig:78
-#: templates/server/privileges/privileges_table.twig:642
-#: templates/server/privileges/privileges_table.twig:645
-msgid "Has no effect in this MySQL version."
-msgstr "Nemá žádný vliv v této verzi MySQL."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:161
-#: libraries/classes/Server/Privileges.php:357
-#: templates/server/privileges/privileges_table.twig:575
-#: templates/server/privileges/privileges_table.twig:578
-msgid "Allows reloading server settings and flushing the server's caches."
-msgstr ""
-"Umožňuje znovu načíst nastavení a vyprázdnění vyrovnávacích pamětí MySQL "
-"serveru."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:164
-#: libraries/classes/Server/Privileges.php:421
-#: templates/server/privileges/privileges_table.twig:656
-#: templates/server/privileges/privileges_table.twig:659
-msgid "Allows the user to ask where the slaves / masters are."
-msgstr "Umožní uživateli zjistit, kde je hlavní / pomocný server."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:166
-#: libraries/classes/Server/Privileges.php:416
-#: templates/server/privileges/privileges_table.twig:669
-#: templates/server/privileges/privileges_table.twig:672
-msgid "Needed for the replication slaves."
-msgstr "Potřebné pro replikaci pomocných serverů."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:167
-#: libraries/classes/Server/Privileges.php:327
-#: templates/server/privileges/privileges_table.twig:15
-#: templates/server/privileges/privileges_table.twig:260
-#: templates/server/privileges/privileges_table.twig:263
-msgid "Allows reading data."
-msgstr "Umožňuje vybírat data."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:168
-#: libraries/classes/Server/Privileges.php:392
-#: templates/server/privileges/privileges_table.twig:601
-#: templates/server/privileges/privileges_table.twig:604
-msgid "Gives access to the complete list of databases."
-msgstr "Umožňuje přístup k úplnému seznamu databází."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:169
-#: libraries/classes/Server/Privileges.php:447
-#: libraries/classes/Server/Privileges.php:453
-#: templates/server/privileges/privileges_table.twig:185
-#: templates/server/privileges/privileges_table.twig:188
-#: templates/server/privileges/privileges_table.twig:417
-#: templates/server/privileges/privileges_table.twig:420
-msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Umožňuje spuštění dotazu SHOW CREATE VIEW."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:170
-#: libraries/classes/Server/Privileges.php:362
-#: templates/server/privileges/privileges_table.twig:588
-#: templates/server/privileges/privileges_table.twig:591
-msgid "Allows shutting down the server."
-msgstr "Umožňuje vypnout server."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:172
-#: libraries/classes/Server/Privileges.php:398
-#: templates/server/privileges/privileges_table.twig:548
-#: templates/server/privileges/privileges_table.twig:552
-msgid ""
-"Allows connecting, even if maximum number of connections is reached; "
-"required for most administrative operations like setting global variables or "
-"killing threads of other users."
-msgstr ""
-"Umožňuje připojení, i když je dosažen maximální počet připojení. Potřebné "
-"pro většinu operací pro správu serveru jako nastavování globálních "
-"proměnných a zabíjení vláken jiných uživatelů."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:176
-#: libraries/classes/Server/Privileges.php:436
-#: templates/server/privileges/privileges_table.twig:197
-#: templates/server/privileges/privileges_table.twig:200
-#: templates/server/privileges/privileges_table.twig:513
-#: templates/server/privileges/privileges_table.twig:516
-msgid "Allows creating and dropping triggers."
-msgstr "Umožňuje vytváření a mazání spouští."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:177
-#: libraries/classes/Server/Privileges.php:337
-#: templates/server/privileges/privileges_table.twig:57
-#: templates/server/privileges/privileges_table.twig:286
-#: templates/server/privileges/privileges_table.twig:289
-msgid "Allows changing data."
-msgstr "Umožňuje měnit data."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:178
-#: libraries/classes/Server/Privileges.php:243
-msgid "No privileges."
-msgstr "Žádná oprávnění."
-
-#: libraries/classes/Controllers/Server/PrivilegesController.php:206
 #: libraries/classes/Controllers/Server/UserGroupsController.php:49
 msgid "No Privileges"
 msgstr "Nemáte oprávnění"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:214
+#: libraries/classes/Controllers/Server/PrivilegesController.php:142
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nemáte oprávnění ke správě uživatelů!"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:228
+#: libraries/classes/Controllers/Server/PrivilegesController.php:156
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -7862,7 +7561,7 @@ msgstr ""
 "Nezměnilo se uživatelské jméno a název počítače. Chcete-li změnit pouze "
 "heslo, použijte kartu 'Změnit heslo'."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:487
+#: libraries/classes/Controllers/Server/PrivilegesController.php:411
 msgid "User has been added."
 msgstr "Uživatel byl přidán."
 
@@ -7905,24 +7604,24 @@ msgid "Progress"
 msgstr "Postup"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:159
-#: libraries/classes/Server/Status/Data.php:138
+#: libraries/classes/Server/Status/Data.php:146
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:21
 msgid "SQL query"
 msgstr "SQL-dotaz"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:102
+#: libraries/classes/Controllers/Server/Status/StatusController.php:104
 msgid "Received"
 msgstr "Přijato"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:121
+#: libraries/classes/Controllers/Server/Status/StatusController.php:123
 msgid "Sent"
 msgstr "Odesláno"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:188
+#: libraries/classes/Controllers/Server/Status/StatusController.php:190
 msgid "Max. concurrent connections"
 msgstr "Maximum současných připojení"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:197
+#: libraries/classes/Controllers/Server/Status/StatusController.php:199
 msgid "Failed attempts"
 msgstr "Nepovedených pokusů"
 
@@ -8671,21 +8370,21 @@ msgstr "Výchozí server"
 msgid "End of line"
 msgstr "Konec řádku"
 
-#: libraries/classes/Controllers/SqlController.php:378
+#: libraries/classes/Controllers/SqlController.php:377
 msgid "Bookmark not created!"
 msgstr "Nepodařilo se uložit oblíbený dotaz!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:134
-#: libraries/classes/Controllers/Table/StructureController.php:1023
-#: libraries/classes/Controllers/Table/StructureController.php:1242
+#: libraries/classes/Controllers/Table/StructureController.php:1014
+#: libraries/classes/Controllers/Table/StructureController.php:1241
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabulka %1$s byla úspěšně změněna."
 
-#: libraries/classes/Controllers/Table/ChangeController.php:312
-#: libraries/classes/Controllers/Table/DeleteController.php:93
-#: libraries/classes/Controllers/Table/ExportController.php:152
+#: libraries/classes/Controllers/Table/ChangeController.php:309
+#: libraries/classes/Controllers/Table/DeleteController.php:103
+#: libraries/classes/Controllers/Table/ExportController.php:151
 msgid "No row selected."
 msgstr "Nebyl vybrán žádný řádek."
 
@@ -8698,7 +8397,7 @@ msgstr "Nebyl zadán SQL dotaz pro načtení dat."
 msgid "No numeric columns present in the table to plot."
 msgstr "Ve zvolené tabulce nejsou žádná číselná pole pro vykreslení do grafu."
 
-#: libraries/classes/Controllers/Table/ChartController.php:183
+#: libraries/classes/Controllers/Table/ChartController.php:182
 msgid "No data to display"
 msgstr "Nebyla nalezena žádná data"
 
@@ -8713,7 +8412,7 @@ msgstr "Databáze '%s' neexistuje."
 msgid "Table %s already exists!"
 msgstr "Tabulka %s již existuje!"
 
-#: libraries/classes/Controllers/Table/DeleteController.php:52
+#: libraries/classes/Controllers/Table/DeleteController.php:63
 #: libraries/classes/Controllers/Table/FindReplaceController.php:180
 #: libraries/classes/Controllers/Table/MaintenanceController.php:62
 #: libraries/classes/Controllers/Table/MaintenanceController.php:97
@@ -8723,7 +8422,7 @@ msgstr "Tabulka %s již existuje!"
 #: libraries/classes/Controllers/Table/RelationController.php:275
 #: libraries/classes/Controllers/ViewOperationsController.php:75
 #: libraries/classes/Database/Routines.php:1534
-#: libraries/classes/Display/Results.php:4088 libraries/classes/Message.php:177
+#: libraries/classes/Display/Results.php:4082 libraries/classes/Message.php:177
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Váš SQL-dotaz byl úspěšně vykonán."
@@ -8740,7 +8439,7 @@ msgstr "Na vašem požadavku došlo k problému."
 #: libraries/classes/Controllers/Table/GetFieldController.php:65
 #: libraries/classes/Database/Routines.php:1555
 #: libraries/classes/Import.php:159 libraries/classes/InsertEdit.php:225
-#: libraries/classes/Sql.php:1055
+#: libraries/classes/Sql.php:1039
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 
@@ -8752,13 +8451,13 @@ msgstr "MySQL vrátil prázdný výsledek (tj. nulový počet řádků)."
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr "Operace pro údržbu na více tabulkách jsou vypnuté."
 
-#: libraries/classes/Controllers/Table/OperationsController.php:108
-#: libraries/classes/Controllers/Table/OperationsController.php:295
-#: libraries/classes/Controllers/Table/StructureController.php:126
+#: libraries/classes/Controllers/Table/OperationsController.php:107
+#: libraries/classes/Controllers/Table/OperationsController.php:294
+#: libraries/classes/Controllers/Table/StructureController.php:123
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
 #: templates/database/structure/show_create.twig:32
-#: templates/database/structure/structure_table_row.twig:124
-#: templates/database/structure/structure_table_row.twig:188
+#: templates/database/structure/structure_table_row.twig:122
+#: templates/database/structure/structure_table_row.twig:186
 msgid "View"
 msgstr "Pohled"
 
@@ -8775,125 +8474,64 @@ msgstr "Interní vztahy byly úspěšně aktualizovány."
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Řádek: %1$s, Sloupec: %2$s, Chyba: %3$s"
 
-#: libraries/classes/Controllers/Table/StructureController.php:211
-#: libraries/classes/Controllers/Table/StructureController.php:234
-#: libraries/classes/Controllers/Table/StructureController.php:250
-#: libraries/classes/Controllers/Table/StructureController.php:283
-#: libraries/classes/Controllers/Table/StructureController.php:317
-#: libraries/classes/Controllers/Table/StructureController.php:356
-#: libraries/classes/Controllers/Table/StructureController.php:395
-#: libraries/classes/Controllers/Table/StructureController.php:434
-#: libraries/classes/Controllers/Table/StructureController.php:474
-#: libraries/classes/Controllers/Table/StructureController.php:540
-#: libraries/classes/Controllers/Table/StructureController.php:584
+#: libraries/classes/Controllers/Table/StructureController.php:202
+#: libraries/classes/Controllers/Table/StructureController.php:225
+#: libraries/classes/Controllers/Table/StructureController.php:241
+#: libraries/classes/Controllers/Table/StructureController.php:274
+#: libraries/classes/Controllers/Table/StructureController.php:308
+#: libraries/classes/Controllers/Table/StructureController.php:347
+#: libraries/classes/Controllers/Table/StructureController.php:386
+#: libraries/classes/Controllers/Table/StructureController.php:425
+#: libraries/classes/Controllers/Table/StructureController.php:465
+#: libraries/classes/Controllers/Table/StructureController.php:531
+#: libraries/classes/Controllers/Table/StructureController.php:575
 msgid "No column selected."
 msgstr "Nebyl vybrán žádný sloupec."
 
-#: libraries/classes/Controllers/Table/StructureController.php:722
+#: libraries/classes/Controllers/Table/StructureController.php:713
 msgid "The columns have been moved successfully."
 msgstr "Vybraná pole byla úspěšně přesunuta."
 
-#: libraries/classes/Controllers/Table/StructureController.php:761
+#: libraries/classes/Controllers/Table/StructureController.php:752
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "Chyba při čtení popisu sloupce %s!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1015
-#: libraries/classes/Controllers/Table/StructureController.php:1293
-#: libraries/classes/Tracking.php:795
+#: libraries/classes/Controllers/Table/StructureController.php:1006
+#: libraries/classes/Controllers/Table/StructureController.php:1292
+#: libraries/classes/Tracking.php:772
 msgid "Query error"
 msgstr "Chyba dotazu"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1236
+#: libraries/classes/Controllers/Table/StructureController.php:1235
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabulka %1$s byla úspěšně změněna. Práva byla upravena."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1475
-#: templates/table/structure/display_structure.twig:286
-msgid "Change"
-msgstr "Změnit"
-
-#: libraries/classes/Controllers/Table/StructureController.php:1476
-#: libraries/classes/Controllers/Table/StructureController.php:1477
-#: libraries/classes/Operations.php:620 libraries/classes/Util.php:3193
-#: libraries/classes/Util.php:3194 templates/database/events/index.twig:64
-#: templates/database/events/index.twig:70
-#: templates/database/events/index.twig:90
-#: templates/database/events/index.twig:91
-#: templates/database/events/row.twig:43 templates/database/events/row.twig:49
-#: templates/database/routines/list.twig:37
-#: templates/database/routines/list.twig:38
-#: templates/database/routines/parameter_row.twig:51
-#: templates/database/routines/row.twig:70
-#: templates/database/structure/check_all_tables.twig:16
-#: templates/database/triggers/list.twig:40
-#: templates/database/triggers/list.twig:41
-#: templates/database/triggers/row.twig:45
-#: templates/database/triggers/row.twig:51 templates/indexes.twig:51
-#: templates/server/databases/index.twig:304
-#: templates/server/databases/index.twig:305
-#: templates/table/relation/common_form.twig:271
-#: templates/table/relation/foreign_key_row.twig:26
-#: templates/table/structure/display_structure.twig:289
-#: templates/table/structure/display_structure.twig:453
-#: templates/table/structure/display_structure.twig:530
-msgid "Drop"
-msgstr "Odstranit"
-
-#: libraries/classes/Controllers/Table/StructureController.php:1478
-#: libraries/classes/Controllers/Table/StructureController.php:1483
-#: libraries/classes/Controllers/Table/StructureController.php:1539
-#: templates/columns_definitions/column_indexes.twig:4
+#: libraries/classes/Controllers/Table/StructureController.php:1518
+#: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
-#: templates/table/structure/display_structure.twig:294
+#: templates/table/structure/display_structure.twig:138
+#: templates/table/structure/display_structure.twig:146
+#: templates/table/structure/display_structure.twig:288
 #: templates/table/tracking/structure_snapshot_columns.twig:25
 msgid "Primary"
 msgstr "Primární"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1479
-#: libraries/classes/Controllers/Table/StructureController.php:1484
-#: libraries/classes/Controllers/Table/StructureController.php:1544
+#: libraries/classes/Controllers/Table/StructureController.php:1523
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
-#: templates/columns_definitions/column_indexes.twig:12
+#: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
-#: templates/table/structure/display_structure.twig:300
+#: templates/table/structure/display_structure.twig:168
+#: templates/table/structure/display_structure.twig:176
+#: templates/table/structure/display_structure.twig:294
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/tracking/structure_snapshot_columns.twig:27
 msgid "Index"
 msgstr "Klíč"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1480
-#: libraries/classes/Controllers/Table/StructureController.php:1485
-#: templates/columns_definitions/column_indexes.twig:8
-#: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:17
-#: templates/table/relation/common_form.twig:237
-#: templates/table/structure/display_structure.twig:297
-#: templates/table/structure/display_structure.twig:419
-#: templates/table/tracking/structure_snapshot_indexes.twig:7
-msgid "Unique"
-msgstr "Unikátní"
-
-#: libraries/classes/Controllers/Table/StructureController.php:1481
-#: libraries/classes/Controllers/Table/StructureController.php:1486
-#: templates/columns_definitions/column_indexes.twig:20
-#: templates/table/structure/display_structure.twig:303
-msgid "Spatial"
-msgstr "Prostorový"
-
-#: libraries/classes/Controllers/Table/StructureController.php:1482
-#: libraries/classes/Controllers/Table/StructureController.php:1487
-#: templates/columns_definitions/column_indexes.twig:16
-#: templates/table/structure/display_structure.twig:306
-msgid "Fulltext"
-msgstr "Fulltext"
-
-#: libraries/classes/Controllers/Table/StructureController.php:1488
-msgid "Distinct values"
-msgstr "Odlišné hodnoty"
-
-#: libraries/classes/Controllers/Table/StructureController.php:1806
+#: libraries/classes/Controllers/Table/StructureController.php:1775
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -8906,15 +8544,15 @@ msgstr[2] "Názvy \"%s\" jsou rezervovaným klíčovým slovem MySQL."
 msgid "Tracking of %s is activated."
 msgstr "Je zapnuté sledování %s."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:148
+#: libraries/classes/Controllers/Table/TrackingController.php:147
 msgid "Tracking versions deleted successfully."
 msgstr "Verze sledování byly úspěšně smazány."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:153
+#: libraries/classes/Controllers/Table/TrackingController.php:152
 msgid "No versions selected."
 msgstr "Nebyly vybrány žádné verze."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:184
+#: libraries/classes/Controllers/Table/TrackingController.php:183
 msgid "SQL statements executed."
 msgstr "SQL příkazy byly provedeny."
 
@@ -8932,8 +8570,8 @@ msgid "View name can not be empty!"
 msgstr "Název pohledu nemůže být prázdný!"
 
 #: libraries/classes/Controllers/ViewOperationsController.php:78
-#: libraries/classes/Html/Generator.php:968 libraries/classes/Import.php:140
-#: libraries/classes/InsertEdit.php:1583 libraries/classes/Message.php:197
+#: libraries/classes/Html/Generator.php:970 libraries/classes/Import.php:140
+#: libraries/classes/InsertEdit.php:1574 libraries/classes/Message.php:197
 #: templates/error/generic.twig:37 templates/javascript/variables.twig:108
 msgid "Error"
 msgstr "Chyba"
@@ -9061,7 +8699,7 @@ msgstr "Následující dotaz selhal: „%s“"
 #: libraries/classes/Database/Triggers.php:144
 #: libraries/classes/Database/Triggers.php:169
 #: libraries/classes/Database/Triggers.php:550
-#: libraries/classes/Html/Generator.php:1040
+#: libraries/classes/Html/Generator.php:1042
 msgid "MySQL said: "
 msgstr "MySQL hlásí: "
 
@@ -9320,7 +8958,7 @@ msgstr "Směr"
 #: templates/database/designer/database_tables.twig:114
 #: templates/display/results/table.twig:107
 #: templates/table/search/index.twig:99
-#: templates/table/structure/display_table_stats.twig:91
+#: templates/table/structure/display_table_stats.twig:95
 msgid "Options"
 msgstr "Nastavení"
 
@@ -9404,7 +9042,7 @@ msgstr "Přístup k SQL datům"
 #: templates/database/structure/table_header.twig:46 templates/indexes.twig:23
 #: templates/table/relation/common_form.twig:243
 #: templates/table/structure/display_partitions.twig:31
-#: templates/table/structure/display_structure.twig:425
+#: templates/table/structure/display_structure.twig:422
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
 msgid "Comment"
@@ -9478,7 +9116,7 @@ msgid "Function"
 msgstr "Funkce"
 
 #: libraries/classes/Database/Routines.php:1712
-#: libraries/classes/InsertEdit.php:2015
+#: libraries/classes/InsertEdit.php:2006
 #: templates/database/designer/main.twig:486
 #: templates/database/designer/main.twig:651
 #: templates/database/designer/main.twig:857
@@ -9622,49 +9260,49 @@ msgstr ""
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Server vyžaduje připojení SSL, bylo automaticky zapnuto."
 
-#: libraries/classes/Display/Results.php:911
-#: libraries/classes/Html/Generator.php:1296
-#: libraries/classes/Html/Generator.php:1299
+#: libraries/classes/Display/Results.php:905
+#: libraries/classes/Html/Generator.php:1298
+#: libraries/classes/Html/Generator.php:1301
 msgctxt "First page"
 msgid "Begin"
 msgstr "První"
 
-#: libraries/classes/Display/Results.php:918
-#: libraries/classes/Html/Generator.php:1297
-#: libraries/classes/Html/Generator.php:1300
+#: libraries/classes/Display/Results.php:912
+#: libraries/classes/Html/Generator.php:1299
+#: libraries/classes/Html/Generator.php:1302
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Předchozí"
 
-#: libraries/classes/Display/Results.php:946
-#: libraries/classes/Html/Generator.php:1329
-#: libraries/classes/Html/Generator.php:1336
+#: libraries/classes/Display/Results.php:940
+#: libraries/classes/Html/Generator.php:1331
+#: libraries/classes/Html/Generator.php:1338
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "Následující"
 
-#: libraries/classes/Display/Results.php:976
-#: libraries/classes/Html/Generator.php:1330
-#: libraries/classes/Html/Generator.php:1337
+#: libraries/classes/Display/Results.php:970
+#: libraries/classes/Html/Generator.php:1332
+#: libraries/classes/Html/Generator.php:1339
 msgctxt "Last page"
 msgid "End"
 msgstr "Poslední"
 
-#: libraries/classes/Display/Results.php:1545
+#: libraries/classes/Display/Results.php:1539
 #: templates/display/results/table.twig:114
 msgid "Partial texts"
 msgstr "Zkrácené texty"
 
-#: libraries/classes/Display/Results.php:1549
+#: libraries/classes/Display/Results.php:1543
 #: templates/display/results/table.twig:118
 msgid "Full texts"
 msgstr "Celé texty"
 
-#: libraries/classes/Display/Results.php:1942
-#: libraries/classes/Display/Results.php:1968 libraries/classes/Util.php:3113
-#: libraries/classes/Util.php:3136 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1936
+#: libraries/classes/Display/Results.php:1962 libraries/classes/Util.php:3099
+#: libraries/classes/Util.php:3122 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:61
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:114
@@ -9676,9 +9314,9 @@ msgstr "Celé texty"
 msgid "Descending"
 msgstr "Sestupně"
 
-#: libraries/classes/Display/Results.php:1950
-#: libraries/classes/Display/Results.php:1960 libraries/classes/Util.php:3105
-#: libraries/classes/Util.php:3128 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1944
+#: libraries/classes/Display/Results.php:1954 libraries/classes/Util.php:3091
+#: libraries/classes/Util.php:3114 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:60
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:112
@@ -9690,41 +9328,41 @@ msgstr "Sestupně"
 msgid "Ascending"
 msgstr "Vzestupně"
 
-#: libraries/classes/Display/Results.php:3258
-#: libraries/classes/Display/Results.php:3273
+#: libraries/classes/Display/Results.php:3252
+#: libraries/classes/Display/Results.php:3267
 msgid "The row has been deleted."
 msgstr "Řádek byl smazán."
 
-#: libraries/classes/Display/Results.php:3305
+#: libraries/classes/Display/Results.php:3299
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Ukončit"
 
-#: libraries/classes/Display/Results.php:4012
+#: libraries/classes/Display/Results.php:4006
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Počet nemusí být přesný, viz [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4433
+#: libraries/classes/Display/Results.php:4426
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Zobrazeny záznamy %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4447
+#: libraries/classes/Display/Results.php:4440
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d celkem, %2$d v dotazu"
 
-#: libraries/classes/Display/Results.php:4452
+#: libraries/classes/Display/Results.php:4445
 #, php-format
 msgid "%d total"
 msgstr "%d celkem"
 
-#: libraries/classes/Display/Results.php:4464 libraries/classes/Sql.php:1061
+#: libraries/classes/Display/Results.php:4457 libraries/classes/Sql.php:1045
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Dotaz trval %01.4f sekund."
 
-#: libraries/classes/Display/Results.php:4831
+#: libraries/classes/Display/Results.php:4823
 msgid "Link not found!"
 msgstr "Odkaz nebyl nalezen!"
 
@@ -9770,7 +9408,7 @@ msgid "Buffer Pool"
 msgstr "Vyrovnávací paměť"
 
 #: libraries/classes/Engines/Innodb.php:112
-#: libraries/classes/Server/Status/Data.php:221
+#: libraries/classes/Server/Status/Data.php:232
 msgid "InnoDB Status"
 msgstr "Stav InnoDB"
 
@@ -10205,69 +9843,69 @@ msgstr "Přejít na databázi „%s“."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funkčnost %s je omezena známou chybou, viz %s"
 
-#: libraries/classes/Html/Generator.php:297
+#: libraries/classes/Html/Generator.php:299
 msgid "SSL is not being used"
 msgstr "SSL se nepoužívá"
 
-#: libraries/classes/Html/Generator.php:302
+#: libraries/classes/Html/Generator.php:304
 msgid "SSL is used with disabled verification"
 msgstr "SSL se používá se zakázaným ověřením"
 
-#: libraries/classes/Html/Generator.php:304
+#: libraries/classes/Html/Generator.php:306
 msgid "SSL is used without certification authority"
 msgstr "SSL se používá bez certifikační autority"
 
-#: libraries/classes/Html/Generator.php:307
+#: libraries/classes/Html/Generator.php:309
 msgid "SSL is used"
 msgstr "SSL se používá"
 
-#: libraries/classes/Html/Generator.php:430
+#: libraries/classes/Html/Generator.php:432
 msgid "The PHP function password_hash() with default options."
 msgstr "PHP funkce password_hash() s výchozími volbami."
 
-#: libraries/classes/Html/Generator.php:431
+#: libraries/classes/Html/Generator.php:433
 msgid "password_hash() PHP function"
 msgstr "PHP funkce password_hash()"
 
-#: libraries/classes/Html/Generator.php:733
+#: libraries/classes/Html/Generator.php:735
 msgid "Skip Explain SQL"
 msgstr "Bez vysvětlení SQL"
 
-#: libraries/classes/Html/Generator.php:741
+#: libraries/classes/Html/Generator.php:743
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "Analyzovat výstup příkazu EXPLAIN na %s"
 
-#: libraries/classes/Html/Generator.php:771
+#: libraries/classes/Html/Generator.php:773
 msgid "Without PHP code"
 msgstr "Bez PHP kódu"
 
-#: libraries/classes/Html/Generator.php:778
+#: libraries/classes/Html/Generator.php:780
 #: templates/database/multi_table_query/form.twig:170
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "Provést dotaz"
 
-#: libraries/classes/Html/Generator.php:823 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:825 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Profilování"
 
-#: libraries/classes/Html/Generator.php:837
+#: libraries/classes/Html/Generator.php:839
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Upravit zde v řádku"
 
-#: libraries/classes/Html/Generator.php:975
+#: libraries/classes/Html/Generator.php:977
 msgid "Static analysis:"
 msgstr "Statická analýza:"
 
-#: libraries/classes/Html/Generator.php:978
+#: libraries/classes/Html/Generator.php:980
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Při analýze bylo nalezeno %d chyb."
 
-#: libraries/classes/Import.php:325 libraries/classes/Sql.php:1069
+#: libraries/classes/Import.php:325 libraries/classes/Sql.php:1053
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK nastal]"
 
@@ -10339,20 +9977,20 @@ msgstr ""
 msgid "Binary"
 msgstr "Binární"
 
-#: libraries/classes/InsertEdit.php:797
+#: libraries/classes/InsertEdit.php:792
 msgid "Because of its length,<br> this column might not be editable."
 msgstr "Toto pole možná nepůjde<br> kvůli délce upravit."
 
-#: libraries/classes/InsertEdit.php:1423
+#: libraries/classes/InsertEdit.php:1414
 msgid "Binary - do not edit"
 msgstr "Binární - neupravujte"
 
-#: libraries/classes/InsertEdit.php:1584 templates/import.twig:78
+#: libraries/classes/InsertEdit.php:1575 templates/import.twig:78
 #: templates/import.twig:108
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Adresář určený pro upload souborů nemohl být otevřen."
 
-#: libraries/classes/InsertEdit.php:1589
+#: libraries/classes/InsertEdit.php:1580
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:26
 #: templates/server/privileges/privileges_table.twig:47
@@ -10362,55 +10000,55 @@ msgstr "Adresář určený pro upload souborů nemohl být otevřen."
 msgid "Or"
 msgstr "Nebo"
 
-#: libraries/classes/InsertEdit.php:1590
+#: libraries/classes/InsertEdit.php:1581
 msgid "web server upload directory:"
 msgstr "soubor z adresáře pro upload:"
 
-#: libraries/classes/InsertEdit.php:1792
+#: libraries/classes/InsertEdit.php:1783
 #: templates/table/search/input_box.twig:37
 msgid "Edit/Insert"
 msgstr "Upravit/Vložit"
 
-#: libraries/classes/InsertEdit.php:1860
+#: libraries/classes/InsertEdit.php:1851
 msgid "and then"
 msgstr "a poté"
 
-#: libraries/classes/InsertEdit.php:1899
+#: libraries/classes/InsertEdit.php:1890
 msgid "Insert as new row"
 msgstr "Vložit jako nový řádek"
 
-#: libraries/classes/InsertEdit.php:1902
+#: libraries/classes/InsertEdit.php:1893
 msgid "Insert as new row and ignore errors"
 msgstr "Vložit jako nový řádek a ignorovat chyby"
 
-#: libraries/classes/InsertEdit.php:1905
+#: libraries/classes/InsertEdit.php:1896
 msgid "Show insert query"
 msgstr "Zobrazit dotaz pro vložení"
 
-#: libraries/classes/InsertEdit.php:1926
+#: libraries/classes/InsertEdit.php:1917
 msgid "Go back to previous page"
 msgstr "Návrat na předchozí stránku"
 
-#: libraries/classes/InsertEdit.php:1929
+#: libraries/classes/InsertEdit.php:1920
 msgid "Insert another new row"
 msgstr "Vložit další řádek"
 
-#: libraries/classes/InsertEdit.php:1934
+#: libraries/classes/InsertEdit.php:1925
 msgid "Go back to this page"
 msgstr "Návrat na tuto stránku"
 
-#: libraries/classes/InsertEdit.php:1957
+#: libraries/classes/InsertEdit.php:1948
 msgid "Edit next row"
 msgstr "Upravit následující řádek"
 
-#: libraries/classes/InsertEdit.php:1977
+#: libraries/classes/InsertEdit.php:1968
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Použijte klávesu TAB pro pohyb mezi hodnotami nebo CTRL+šipky po pohyb všemi "
 "směry."
 
-#: libraries/classes/InsertEdit.php:2005
+#: libraries/classes/InsertEdit.php:1996
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:33
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:287
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:385
@@ -10435,7 +10073,7 @@ msgstr ""
 #: templates/table/relation/foreign_key_row.twig:118
 #: templates/table/relation/foreign_key_row.twig:128
 #: templates/table/search/index.twig:38
-#: templates/table/structure/display_structure.twig:421
+#: templates/table/structure/display_structure.twig:418
 #: templates/table/tracking/structure_snapshot_columns.twig:6
 #: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/zoom_search/index.twig:38
@@ -10443,11 +10081,11 @@ msgstr ""
 msgid "Column"
 msgstr "Pole"
 
-#: libraries/classes/InsertEdit.php:2410 libraries/classes/Sql.php:1052
+#: libraries/classes/InsertEdit.php:2401 libraries/classes/Sql.php:1036
 msgid "Showing SQL query"
 msgstr "Zobrazuji SQL dotaz"
 
-#: libraries/classes/InsertEdit.php:2436 libraries/classes/Sql.php:1030
+#: libraries/classes/InsertEdit.php:2427 libraries/classes/Sql.php:1014
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID vloženého řádku: %1$d"
@@ -10476,38 +10114,38 @@ msgstr "%1$s (poblíž <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:270
 #: libraries/classes/Navigation/Nodes/NodeTable.php:318
-#: libraries/classes/Util.php:1766 libraries/classes/Util.php:2503
-#: libraries/classes/Util.php:3186 libraries/classes/Util.php:3187
+#: libraries/classes/Util.php:1752 libraries/classes/Util.php:2489
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
-#: templates/table/structure/display_structure.twig:281
+#: templates/database/structure/structure_table_row.twig:43
+#: templates/table/structure/display_structure.twig:275
 msgid "Browse"
 msgstr "Projít"
 
 #: libraries/classes/Menu.php:289 libraries/classes/Menu.php:406
 #: libraries/classes/Navigation/Nodes/NodeTable.php:309
-#: libraries/classes/Util.php:1764 libraries/classes/Util.php:2489
-#: libraries/classes/Util.php:2506 libraries/classes/Util.php:3188
-#: libraries/classes/Util.php:3189 libraries/config.values.php:64
+#: libraries/classes/Util.php:1750 libraries/classes/Util.php:2475
+#: libraries/classes/Util.php:2492 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179
+#: templates/database/structure/structure_table_row.twig:53
 msgid "Search"
 msgstr "Vyhledávání"
 
 #: libraries/classes/Menu.php:300
 #: libraries/classes/Navigation/Nodes/NodeTable.php:312
-#: libraries/classes/Util.php:1765 libraries/classes/Util.php:2507
-#: libraries/classes/Util.php:3190 libraries/classes/Util.php:3191
+#: libraries/classes/Util.php:1751 libraries/classes/Util.php:2493
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
+#: templates/database/structure/structure_table_row.twig:59
 #: templates/sql/query.twig:76
 msgid "Insert"
 msgstr "Vložit"
 
 #: libraries/classes/Menu.php:327 libraries/classes/Menu.php:446
-#: libraries/classes/Server/Privileges.php:2964 libraries/classes/Util.php:2494
-#: libraries/classes/Util.php:2510 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2964 libraries/classes/Util.php:2480
+#: libraries/classes/Util.php:2496 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -10516,15 +10154,15 @@ msgid "Privileges"
 msgstr "Oprávnění"
 
 #: libraries/classes/Menu.php:337 libraries/classes/Menu.php:346
-#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1767
-#: libraries/classes/Util.php:2493 libraries/classes/Util.php:2511
+#: libraries/classes/Menu.php:437 libraries/classes/Util.php:1753
+#: libraries/classes/Util.php:2479 libraries/classes/Util.php:2497
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Úpravy"
 
 #: libraries/classes/Menu.php:352 libraries/classes/Menu.php:472
-#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2498
-#: libraries/classes/Util.php:2512
+#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2484
+#: libraries/classes/Util.php:2498
 msgid "Tracking"
 msgstr "Sledování"
 
@@ -10536,7 +10174,7 @@ msgstr "Sledování"
 #: libraries/classes/Plugins/Export/ExportSql.php:2157
 #: libraries/classes/Plugins/Export/ExportTexytext.php:553
 #: libraries/classes/Plugins/Export/ExportXml.php:135
-#: libraries/classes/Util.php:2497 libraries/classes/Util.php:2513
+#: libraries/classes/Util.php:2483 libraries/classes/Util.php:2499
 #: templates/database/triggers/list.twig:6
 msgid "Triggers"
 msgstr "Spouště"
@@ -10546,11 +10184,11 @@ msgstr "Spouště"
 msgid "Database seems to be empty!"
 msgstr "Databáze se zdá být prázdná!"
 
-#: libraries/classes/Menu.php:414 libraries/classes/Util.php:2490
+#: libraries/classes/Menu.php:414 libraries/classes/Util.php:2476
 msgid "Query"
 msgstr "Dotaz"
 
-#: libraries/classes/Menu.php:452 libraries/classes/Util.php:2495
+#: libraries/classes/Menu.php:452 libraries/classes/Util.php:2481
 #: templates/database/routines/list.twig:6
 msgid "Routines"
 msgstr "Rutiny"
@@ -10559,15 +10197,15 @@ msgstr "Rutiny"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:24
 #: libraries/classes/Plugins/Export/ExportSql.php:1017
 #: libraries/classes/Plugins/Export/ExportXml.php:115
-#: libraries/classes/Util.php:2496 templates/database/events/index.twig:6
+#: libraries/classes/Util.php:2482 templates/database/events/index.twig:6
 msgid "Events"
 msgstr "Události"
 
-#: libraries/classes/Menu.php:479 libraries/classes/Util.php:2499
+#: libraries/classes/Menu.php:479 libraries/classes/Util.php:2485
 msgid "Designer"
 msgstr "Návrhář"
 
-#: libraries/classes/Menu.php:488 libraries/classes/Util.php:2500
+#: libraries/classes/Menu.php:488 libraries/classes/Util.php:2486
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Centrální sloupce"
@@ -10576,35 +10214,35 @@ msgstr "Centrální sloupce"
 msgid "User accounts"
 msgstr "Uživatelské účty"
 
-#: libraries/classes/Menu.php:585 libraries/classes/Server/Status/Data.php:144
-#: libraries/classes/Util.php:2479 templates/server/binlog/index.twig:3
+#: libraries/classes/Menu.php:585 libraries/classes/Server/Status/Data.php:152
+#: libraries/classes/Util.php:2465 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Binární log"
 
-#: libraries/classes/Menu.php:592 libraries/classes/Server/Status/Data.php:149
-#: libraries/classes/Util.php:2480
+#: libraries/classes/Menu.php:592 libraries/classes/Server/Status/Data.php:157
+#: libraries/classes/Util.php:2466
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
 msgid "Replication"
 msgstr "Replikace"
 
-#: libraries/classes/Menu.php:598 libraries/classes/Server/Status/Data.php:217
-#: libraries/classes/Util.php:2481 libraries/config.values.php:159
+#: libraries/classes/Menu.php:598 libraries/classes/Server/Status/Data.php:228
+#: libraries/classes/Util.php:2467 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:178
 msgid "Variables"
 msgstr "Proměnné"
 
-#: libraries/classes/Menu.php:603 libraries/classes/Util.php:2482
+#: libraries/classes/Menu.php:603 libraries/classes/Util.php:2468
 msgid "Charsets"
 msgstr "Znakové sady"
 
-#: libraries/classes/Menu.php:608 libraries/classes/Util.php:2484
+#: libraries/classes/Menu.php:608 libraries/classes/Util.php:2470
 msgid "Engines"
 msgstr "Úložiště"
 
-#: libraries/classes/Menu.php:613 libraries/classes/Util.php:2483
+#: libraries/classes/Menu.php:613 libraries/classes/Util.php:2469
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Rozšíření"
@@ -11098,34 +10736,60 @@ msgid "No partial dependencies found!"
 msgstr "Žádné částečné závislosti nenalezeny!"
 
 #: libraries/classes/Operations.php:604
-#: templates/table/structure/display_structure.twig:521
+#: templates/table/structure/display_structure.twig:522
 msgid "Analyze"
 msgstr "Analyzovat"
 
 #: libraries/classes/Operations.php:605
-#: templates/table/structure/display_structure.twig:521
+#: templates/table/structure/display_structure.twig:522
 msgid "Check"
 msgstr "Zkontrolovat"
 
 #: libraries/classes/Operations.php:606
-#: templates/table/structure/display_structure.twig:521
+#: templates/table/structure/display_structure.twig:522
 msgid "Optimize"
 msgstr "Optimalizovat"
 
 #: libraries/classes/Operations.php:607
-#: templates/table/structure/display_structure.twig:521
+#: templates/table/structure/display_structure.twig:522
 msgid "Rebuild"
 msgstr "Přestavět"
 
 #: libraries/classes/Operations.php:608
-#: templates/table/structure/display_structure.twig:521
+#: templates/table/structure/display_structure.twig:522
 msgid "Repair"
 msgstr "Opravit"
 
 #: libraries/classes/Operations.php:609
-#: templates/table/structure/display_structure.twig:521
+#: templates/table/structure/display_structure.twig:522
 msgid "Truncate"
 msgstr "Vyprázdnit"
+
+#: libraries/classes/Operations.php:620 templates/database/events/index.twig:64
+#: templates/database/events/index.twig:70
+#: templates/database/events/index.twig:90
+#: templates/database/events/index.twig:91
+#: templates/database/events/row.twig:43 templates/database/events/row.twig:49
+#: templates/database/routines/list.twig:37
+#: templates/database/routines/list.twig:38
+#: templates/database/routines/parameter_row.twig:51
+#: templates/database/routines/row.twig:70
+#: templates/database/structure/check_all_tables.twig:16
+#: templates/database/structure/structure_table_row.twig:87
+#: templates/database/triggers/list.twig:40
+#: templates/database/triggers/list.twig:41
+#: templates/database/triggers/row.twig:45
+#: templates/database/triggers/row.twig:51 templates/indexes.twig:51
+#: templates/server/databases/index.twig:304
+#: templates/server/databases/index.twig:305
+#: templates/table/relation/common_form.twig:271
+#: templates/table/relation/foreign_key_row.twig:26
+#: templates/table/structure/display_structure.twig:121
+#: templates/table/structure/display_structure.twig:283
+#: templates/table/structure/display_structure.twig:454
+#: templates/table/structure/display_structure.twig:531
+msgid "Drop"
+msgstr "Odstranit"
 
 #: libraries/classes/Operations.php:622
 msgid "Coalesce"
@@ -11466,7 +11130,7 @@ msgstr "Vytvořeno:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:760
 #: libraries/classes/Plugins/Export/ExportXml.php:256
-#: templates/home/index.twig:118
+#: templates/home/index.twig:129
 msgid "Server version:"
 msgstr "Verze serveru:"
 
@@ -12074,7 +11738,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
-#: libraries/classes/Util.php:790
+#: libraries/classes/Util.php:776
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%a %d. %b %Y, %H:%M"
 
@@ -12472,38 +12136,11 @@ msgstr "Zapamatování nastavení návrháře"
 msgid "Saving export templates"
 msgstr "Ukládání exportních šablon"
 
-#: libraries/classes/Relation.php:406
-msgid "Quick steps to set up advanced features:"
-msgstr "Stručný návod pro zapnutí rozšířených funkcí:"
-
-#: libraries/classes/Relation.php:412
-#, php-format
-msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
-"Vytvořte potřebné tabulky pomocí skriptu <code>%screate_tables.sql</code>."
-
-#: libraries/classes/Relation.php:417
-msgid "Create a pma user and give access to these tables."
-msgstr "Vytvořte uživatele pma a přidělte mu oprávnění na tyto tabulky."
-
-#: libraries/classes/Relation.php:420
-msgid ""
-"Enable advanced features in configuration file (<code>config.inc.php</"
-"code>), for example by starting from <code>config.sample.inc.php</code>."
-msgstr ""
-"Zapněte rozšířené funkce v konfiguračním souboru (<code>config.inc.php</"
-"code>), můžete se inspirovat v <code>config.sample.inc.php</code>."
-
-#: libraries/classes/Relation.php:425
-msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
-"Prosím přihlašte se znovu, aby se projevily změny v konfiguračním souboru."
-
-#: libraries/classes/Relation.php:1867
+#: libraries/classes/Relation.php:1845
 msgid "no description"
 msgstr "žádný popisek"
 
-#: libraries/classes/Relation.php:2067
+#: libraries/classes/Relation.php:2045
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
@@ -12513,7 +12150,7 @@ msgstr ""
 "Úložiště nastavení phpMyAdmina můžete nastavit v libovolné databázi na kartě "
 "'Operace'."
 
-#: libraries/classes/Relation.php:2189
+#: libraries/classes/Relation.php:2167
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
@@ -12522,18 +12159,18 @@ msgstr ""
 "%sVytvořit%s databázi s názvem 'phpmyadmin' a nastavit ji jako úložiště "
 "nastavení phpMyAdmina."
 
-#: libraries/classes/Relation.php:2197
+#: libraries/classes/Relation.php:2175
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "%sVytvořit%s úložiště nastavení phpMyAdmina v aktuální databázi."
 
-#: libraries/classes/Relation.php:2205
+#: libraries/classes/Relation.php:2183
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "%sVytvořit%s chybějící tabulky v úložišti nastavení phpMyAdmina."
 
-#: libraries/classes/ReplicationGui.php:435
+#: libraries/classes/ReplicationGui.php:441
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
@@ -12541,59 +12178,59 @@ msgstr ""
 "Připojení k serveru je zakázáno, povolte prosím $cfg['AllowArbitraryServer'] "
 "v konfiguraci phpMyAdmina."
 
-#: libraries/classes/ReplicationGui.php:446
+#: libraries/classes/ReplicationGui.php:452
 msgid "Replication started successfully."
 msgstr "Replikace byla úspěšně spuštěna."
 
-#: libraries/classes/ReplicationGui.php:447
+#: libraries/classes/ReplicationGui.php:453
 msgid "Error starting replication."
 msgstr "Chyba při spuštění replikace."
 
-#: libraries/classes/ReplicationGui.php:450
+#: libraries/classes/ReplicationGui.php:456
 msgid "Replication stopped successfully."
 msgstr "Replikace byla úspěšně zastavena."
 
-#: libraries/classes/ReplicationGui.php:451
+#: libraries/classes/ReplicationGui.php:457
 msgid "Error stopping replication."
 msgstr "Chyba při zastavování replikace."
 
-#: libraries/classes/ReplicationGui.php:454
+#: libraries/classes/ReplicationGui.php:460
 msgid "Replication resetting successfully."
 msgstr "Replikace byla úspěšně obnovena."
 
-#: libraries/classes/ReplicationGui.php:455
+#: libraries/classes/ReplicationGui.php:461
 msgid "Error resetting replication."
 msgstr "Chyba při obnovování replikace."
 
-#: libraries/classes/ReplicationGui.php:458
+#: libraries/classes/ReplicationGui.php:464
 msgid "Success."
 msgstr "Úspěch."
 
-#: libraries/classes/ReplicationGui.php:459
+#: libraries/classes/ReplicationGui.php:465
 msgid "Error."
 msgstr "Chyba."
 
-#: libraries/classes/ReplicationGui.php:507
+#: libraries/classes/ReplicationGui.php:513
 msgid "Unknown error"
 msgstr "Neznámá chyba"
 
-#: libraries/classes/ReplicationGui.php:520
+#: libraries/classes/ReplicationGui.php:526
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "Nepodařilo se připojit k nadřízenému %s."
 
-#: libraries/classes/ReplicationGui.php:531
+#: libraries/classes/ReplicationGui.php:537
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 "Nepodařilo se zjistit pozici v logu na nadřízeném serveru. Pravděpodobně je "
 "na něm problém s přístupovými právy."
 
-#: libraries/classes/ReplicationGui.php:549
+#: libraries/classes/ReplicationGui.php:555
 msgid "Unable to change master!"
 msgstr "Nepodařilo se změnit nadřízeného!"
 
-#: libraries/classes/ReplicationGui.php:553
+#: libraries/classes/ReplicationGui.php:559
 #, php-format
 msgid "Master server changed successfully to %s."
 msgstr "Nadřízený server bych úspěšně změněn na %s."
@@ -12631,6 +12268,234 @@ msgstr "Chybějící informace pro načtení vyhledávání."
 #: libraries/classes/SavedSearches.php:430
 msgid "Error while loading the search."
 msgstr "Chyba při nahrávání vyhledávání."
+
+#: libraries/classes/Server/Privileges.php:243
+msgid "No privileges."
+msgstr "Žádná oprávnění."
+
+#: libraries/classes/Server/Privileges.php:253
+msgid "Includes all privileges except GRANT."
+msgstr "Všechna oprávnění kromě GRANT."
+
+#: libraries/classes/Server/Privileges.php:275
+#: libraries/classes/Server/Privileges.php:342
+#: templates/server/privileges/privileges_table.twig:100
+#: templates/server/privileges/privileges_table.twig:103
+#: templates/server/privileges/privileges_table.twig:299
+#: templates/server/privileges/privileges_table.twig:302
+msgid "Allows deleting data."
+msgstr "Umožňuje mazat data."
+
+#: libraries/classes/Server/Privileges.php:280
+#: templates/server/privileges/privileges_table.twig:112
+#: templates/server/privileges/privileges_table.twig:115
+#: templates/server/privileges/privileges_table.twig:337
+#: templates/server/privileges/privileges_table.twig:345
+msgid "Allows creating new tables."
+msgstr "Umožňuje vytvářet nové tabulky."
+
+#: libraries/classes/Server/Privileges.php:285
+#: templates/server/privileges/privileges_table.twig:124
+#: templates/server/privileges/privileges_table.twig:127
+#: templates/server/privileges/privileges_table.twig:385
+#: templates/server/privileges/privileges_table.twig:393
+msgid "Allows dropping tables."
+msgstr "Umožňuje odstranit tabulky."
+
+#: libraries/classes/Server/Privileges.php:290
+#: libraries/classes/Server/Privileges.php:382
+#: templates/server/privileges/privileges_table.twig:149
+#: templates/server/privileges/privileges_table.twig:152
+#: templates/server/privileges/privileges_table.twig:369
+#: templates/server/privileges/privileges_table.twig:372
+msgid "Allows creating and dropping indexes."
+msgstr "Umožňuje vytvářet a odstraňovat klíče."
+
+#: libraries/classes/Server/Privileges.php:295
+#: libraries/classes/Server/Privileges.php:387
+#: templates/server/privileges/privileges_table.twig:161
+#: templates/server/privileges/privileges_table.twig:164
+#: templates/server/privileges/privileges_table.twig:356
+#: templates/server/privileges/privileges_table.twig:359
+msgid "Allows altering the structure of existing tables."
+msgstr "Umožňuje měnit strukturu existujících tabulek."
+
+#: libraries/classes/Server/Privileges.php:300
+#: libraries/classes/Server/Privileges.php:426
+#: libraries/classes/Server/Privileges.php:442
+#: templates/server/privileges/privileges_table.twig:173
+#: templates/server/privileges/privileges_table.twig:176
+#: templates/server/privileges/privileges_table.twig:470
+#: templates/server/privileges/privileges_table.twig:473
+#: templates/server/privileges/privileges_table.twig:485
+#: templates/server/privileges/privileges_table.twig:488
+msgid "Allows creating new views."
+msgstr "Umožňuje vytvářet nové pohledy."
+
+#: libraries/classes/Server/Privileges.php:305
+#: libraries/classes/Server/Privileges.php:447
+#: libraries/classes/Server/Privileges.php:453
+#: templates/server/privileges/privileges_table.twig:185
+#: templates/server/privileges/privileges_table.twig:188
+#: templates/server/privileges/privileges_table.twig:417
+#: templates/server/privileges/privileges_table.twig:420
+msgid "Allows performing SHOW CREATE VIEW queries."
+msgstr "Umožňuje spuštění dotazu SHOW CREATE VIEW."
+
+#: libraries/classes/Server/Privileges.php:310
+#: libraries/classes/Server/Privileges.php:436
+#: templates/server/privileges/privileges_table.twig:197
+#: templates/server/privileges/privileges_table.twig:200
+#: templates/server/privileges/privileges_table.twig:513
+#: templates/server/privileges/privileges_table.twig:516
+msgid "Allows creating and dropping triggers."
+msgstr "Umožňuje vytváření a mazání spouští."
+
+#: libraries/classes/Server/Privileges.php:327
+#: templates/server/privileges/privileges_table.twig:15
+#: templates/server/privileges/privileges_table.twig:260
+#: templates/server/privileges/privileges_table.twig:263
+msgid "Allows reading data."
+msgstr "Umožňuje vybírat data."
+
+#: libraries/classes/Server/Privileges.php:332
+#: templates/server/privileges/privileges_table.twig:36
+#: templates/server/privileges/privileges_table.twig:273
+#: templates/server/privileges/privileges_table.twig:276
+msgid "Allows inserting and replacing data."
+msgstr "Umožňuje vkládat a přepisovat data."
+
+#: libraries/classes/Server/Privileges.php:337
+#: templates/server/privileges/privileges_table.twig:57
+#: templates/server/privileges/privileges_table.twig:286
+#: templates/server/privileges/privileges_table.twig:289
+msgid "Allows changing data."
+msgstr "Umožňuje měnit data."
+
+#: libraries/classes/Server/Privileges.php:347
+#: templates/server/privileges/privileges_table.twig:335
+#: templates/server/privileges/privileges_table.twig:343
+msgid "Allows creating new databases and tables."
+msgstr "Umožňuje vytvářet nové databáze a tabulky."
+
+#: libraries/classes/Server/Privileges.php:352
+#: templates/server/privileges/privileges_table.twig:383
+#: templates/server/privileges/privileges_table.twig:391
+msgid "Allows dropping databases and tables."
+msgstr "Umožňuje odstranit databáze a tabulky."
+
+#: libraries/classes/Server/Privileges.php:357
+#: templates/server/privileges/privileges_table.twig:575
+#: templates/server/privileges/privileges_table.twig:578
+msgid "Allows reloading server settings and flushing the server's caches."
+msgstr ""
+"Umožňuje znovu načíst nastavení a vyprázdnění vyrovnávacích pamětí MySQL "
+"serveru."
+
+#: libraries/classes/Server/Privileges.php:362
+#: templates/server/privileges/privileges_table.twig:588
+#: templates/server/privileges/privileges_table.twig:591
+msgid "Allows shutting down the server."
+msgstr "Umožňuje vypnout server."
+
+#: libraries/classes/Server/Privileges.php:367
+#: templates/server/privileges/privileges_table.twig:562
+#: templates/server/privileges/privileges_table.twig:565
+msgid "Allows viewing processes of all users."
+msgstr "Umožňuje prohlížet procesy všech uživatelů."
+
+#: libraries/classes/Server/Privileges.php:372
+#: templates/server/privileges/privileges_table.twig:313
+#: templates/server/privileges/privileges_table.twig:316
+msgid "Allows importing data from and exporting data into files."
+msgstr "Umožňuje importovat a exportovat data z/do souborů na serveru."
+
+#: libraries/classes/Server/Privileges.php:377
+#: templates/server/privileges/privileges_table.twig:78
+#: templates/server/privileges/privileges_table.twig:642
+#: templates/server/privileges/privileges_table.twig:645
+msgid "Has no effect in this MySQL version."
+msgstr "Nemá žádný vliv v této verzi MySQL."
+
+#: libraries/classes/Server/Privileges.php:392
+#: templates/server/privileges/privileges_table.twig:601
+#: templates/server/privileges/privileges_table.twig:604
+msgid "Gives access to the complete list of databases."
+msgstr "Umožňuje přístup k úplnému seznamu databází."
+
+#: libraries/classes/Server/Privileges.php:398
+#: templates/server/privileges/privileges_table.twig:548
+#: templates/server/privileges/privileges_table.twig:552
+msgid ""
+"Allows connecting, even if maximum number of connections is reached; "
+"required for most administrative operations like setting global variables or "
+"killing threads of other users."
+msgstr ""
+"Umožňuje připojení, i když je dosažen maximální počet připojení. Potřebné "
+"pro většinu operací pro správu serveru jako nastavování globálních "
+"proměnných a zabíjení vláken jiných uživatelů."
+
+#: libraries/classes/Server/Privileges.php:406
+#: templates/server/privileges/privileges_table.twig:404
+#: templates/server/privileges/privileges_table.twig:407
+msgid "Allows creating temporary tables."
+msgstr "Umožňuje vytvářet dočasné tabulky."
+
+#: libraries/classes/Server/Privileges.php:411
+#: templates/server/privileges/privileges_table.twig:629
+#: templates/server/privileges/privileges_table.twig:632
+msgid "Allows locking tables for the current thread."
+msgstr "Umožňuje zamknout tabulku pro aktuální vlákno."
+
+#: libraries/classes/Server/Privileges.php:416
+#: templates/server/privileges/privileges_table.twig:669
+#: templates/server/privileges/privileges_table.twig:672
+msgid "Needed for the replication slaves."
+msgstr "Potřebné pro replikaci pomocných serverů."
+
+#: libraries/classes/Server/Privileges.php:421
+#: templates/server/privileges/privileges_table.twig:656
+#: templates/server/privileges/privileges_table.twig:659
+msgid "Allows the user to ask where the slaves / masters are."
+msgstr "Umožní uživateli zjistit, kde je hlavní / pomocný server."
+
+#: libraries/classes/Server/Privileges.php:431
+#: templates/server/privileges/privileges_table.twig:500
+#: templates/server/privileges/privileges_table.twig:503
+msgid "Allows to set up events for the event scheduler."
+msgstr "Umožňuje plánovat úlohy pomocí plánovače."
+
+#. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
+#: libraries/classes/Server/Privileges.php:460
+#: libraries/classes/Server/Privileges.php:467
+#: templates/server/privileges/privileges_table.twig:210
+#: templates/server/privileges/privileges_table.twig:214
+msgid "Allows deleting historical rows."
+msgstr "Umožňuje mazání historických řádků."
+
+#: libraries/classes/Server/Privileges.php:472
+#: templates/server/privileges/privileges_table.twig:430
+#: templates/server/privileges/privileges_table.twig:433
+msgid "Allows creating stored routines."
+msgstr "Umožňuje vytvářet uložené procedury."
+
+#: libraries/classes/Server/Privileges.php:477
+#: templates/server/privileges/privileges_table.twig:443
+#: templates/server/privileges/privileges_table.twig:446
+msgid "Allows altering and dropping stored routines."
+msgstr "Umožňuje měnit a rušit uložené procedury."
+
+#: libraries/classes/Server/Privileges.php:482
+#: templates/server/privileges/privileges_table.twig:682
+#: templates/server/privileges/privileges_table.twig:685
+msgid "Allows creating, dropping and renaming user accounts."
+msgstr "Umožňuje vytvářet, rušit a přejmenovávat účty uživatelů."
+
+#: libraries/classes/Server/Privileges.php:487
+#: templates/server/privileges/privileges_table.twig:456
+#: templates/server/privileges/privileges_table.twig:459
+msgid "Allows executing stored routines."
+msgstr "Umožňuje spouštět uložené procedury."
 
 #: libraries/classes/Server/Privileges.php:789
 #: libraries/classes/Server/Privileges.php:863
@@ -12783,69 +12648,69 @@ msgstr "Uživatel byl přidán."
 msgid "Current server:"
 msgstr "Aktuální server:"
 
-#: libraries/classes/Server/Status/Data.php:141
+#: libraries/classes/Server/Status/Data.php:149
 msgid "Handler"
 msgstr "Obslužné rutiny"
 
-#: libraries/classes/Server/Status/Data.php:142
+#: libraries/classes/Server/Status/Data.php:150
 msgid "Query cache"
 msgstr "Mezipaměť dotazů"
 
-#: libraries/classes/Server/Status/Data.php:143
+#: libraries/classes/Server/Status/Data.php:151
 msgid "Threads"
 msgstr "Počet vláken"
 
-#: libraries/classes/Server/Status/Data.php:145
+#: libraries/classes/Server/Status/Data.php:153
 msgid "Temporary data"
 msgstr "Dočasná data"
 
-#: libraries/classes/Server/Status/Data.php:146
+#: libraries/classes/Server/Status/Data.php:154
 msgid "Delayed inserts"
 msgstr "Odložené inserty"
 
-#: libraries/classes/Server/Status/Data.php:147
+#: libraries/classes/Server/Status/Data.php:155
 msgid "Key cache"
 msgstr "Mezipaměť klíčů"
 
-#: libraries/classes/Server/Status/Data.php:148
+#: libraries/classes/Server/Status/Data.php:156
 msgid "Joins"
 msgstr "Použité výběry"
 
-#: libraries/classes/Server/Status/Data.php:150
+#: libraries/classes/Server/Status/Data.php:158
 msgid "Sorting"
 msgstr "Řazení"
 
-#: libraries/classes/Server/Status/Data.php:152
+#: libraries/classes/Server/Status/Data.php:160
 msgid "Transaction coordinator"
 msgstr "Koordinátor transakcí"
 
-#: libraries/classes/Server/Status/Data.php:153
+#: libraries/classes/Server/Status/Data.php:161
 #: templates/server/binlog/index.twig:27
 msgid "Files"
 msgstr "Soubory"
 
-#: libraries/classes/Server/Status/Data.php:169
+#: libraries/classes/Server/Status/Data.php:180
 msgid "Flush (close) all tables"
 msgstr "Zavřít všechny tabulky"
 
-#: libraries/classes/Server/Status/Data.php:173
+#: libraries/classes/Server/Status/Data.php:184
 msgid "Show open tables"
 msgstr "Zobrazit otevřené tabulky"
 
-#: libraries/classes/Server/Status/Data.php:182
+#: libraries/classes/Server/Status/Data.php:193
 msgid "Show slave hosts"
 msgstr "Zobrazit podřízené servery"
 
-#: libraries/classes/Server/Status/Data.php:189
+#: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/master_replication.twig:8
 msgid "Show master status"
 msgstr "Zobrazit stav nadřízeného"
 
-#: libraries/classes/Server/Status/Data.php:195
+#: libraries/classes/Server/Status/Data.php:206
 msgid "Show slave status"
 msgstr "Zobrazit stav podřízených serverů"
 
-#: libraries/classes/Server/Status/Data.php:203
+#: libraries/classes/Server/Status/Data.php:214
 msgid "Flush query cache"
 msgstr "Vyprázdnit mezipaměť dotazů"
 
@@ -12894,16 +12759,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Není dostupná žádná novější verze"
 
-#: libraries/classes/Sql.php:539
+#: libraries/classes/Sql.php:523
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Pro procházení databáze je použit oblíbený dotaz „%s\"."
 
-#: libraries/classes/Sql.php:1049
+#: libraries/classes/Sql.php:1033
 msgid "Showing as PHP code"
 msgstr "Zobrazuji jako PHP kód"
 
-#: libraries/classes/Sql.php:1445
+#: libraries/classes/Sql.php:1415
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12912,7 +12777,7 @@ msgstr ""
 "Aktuální výběr neobsahuje unikátní klíč. Editování v mřížce, zaškrtávací "
 "políčka nebo odkazy na editaci a mazání proto nejsou k dispozici. %s"
 
-#: libraries/classes/Sql.php:1459
+#: libraries/classes/Sql.php:1429
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13068,99 +12933,99 @@ msgstr "Vzhled:"
 msgid "No valid image path for theme %s found!"
 msgstr "Nebyla nalezena platná cesta k obrázkům pro vzhled %s!"
 
-#: libraries/classes/Tracking.php:256
+#: libraries/classes/Tracking.php:233
 #: templates/database/tracking/tables.twig:78
 #: templates/table/tracking/main.twig:73
 msgid "Tracking report"
 msgstr "Informace o sledování"
 
-#: libraries/classes/Tracking.php:260
+#: libraries/classes/Tracking.php:237
 msgid "Tracking statements"
 msgstr "Sledování příkazů"
 
-#: libraries/classes/Tracking.php:275
+#: libraries/classes/Tracking.php:252
 msgid "Delete tracking data row from report"
 msgstr "Odstranit tyto informace o sledování této tabulky"
 
-#: libraries/classes/Tracking.php:286
+#: libraries/classes/Tracking.php:263
 msgid "No data"
 msgstr "Nejsou k dispozici žádná data"
 
-#: libraries/classes/Tracking.php:338
+#: libraries/classes/Tracking.php:315
 #: templates/database/operations/index.twig:136
 #: templates/database/structure/copy_form.twig:19
 #: templates/table/operations/index.twig:253
 msgid "Structure only"
 msgstr "Pouze strukturu"
 
-#: libraries/classes/Tracking.php:341
+#: libraries/classes/Tracking.php:318
 #: templates/database/operations/index.twig:148
 #: templates/database/structure/copy_form.twig:29
 #: templates/table/operations/index.twig:265
 msgid "Data only"
 msgstr "Jen data"
 
-#: libraries/classes/Tracking.php:344
+#: libraries/classes/Tracking.php:321
 #: templates/database/operations/index.twig:142
 #: templates/database/structure/copy_form.twig:24
 #: templates/table/operations/index.twig:259
 msgid "Structure and data"
 msgstr "Strukturu a data"
 
-#: libraries/classes/Tracking.php:409 libraries/classes/Tracking.php:476
+#: libraries/classes/Tracking.php:386 libraries/classes/Tracking.php:453
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "Zobrazit %1$s mezi daty %2$s a %3$s od uživatele %4$s %5$s"
 
-#: libraries/classes/Tracking.php:497
+#: libraries/classes/Tracking.php:474
 msgid "SQL dump (file download)"
 msgstr "Výpis SQL (stáhnout soubor)"
 
-#: libraries/classes/Tracking.php:499
+#: libraries/classes/Tracking.php:476
 msgid "SQL dump"
 msgstr "Výpis SQL"
 
-#: libraries/classes/Tracking.php:502
+#: libraries/classes/Tracking.php:479
 msgid "This option will replace your table and contained data."
 msgstr "Tato volba nahradí vaší tabulku a data, která obsahuje."
 
-#: libraries/classes/Tracking.php:504
+#: libraries/classes/Tracking.php:481
 msgid "SQL execution"
 msgstr "Provedení SQL"
 
-#: libraries/classes/Tracking.php:508
+#: libraries/classes/Tracking.php:485
 #, php-format
 msgid "Export as %s"
 msgstr "Exportovat jako %s"
 
-#: libraries/classes/Tracking.php:546
+#: libraries/classes/Tracking.php:523
 msgid "Data manipulation statement"
 msgstr "Příkaz pro úpravu dat"
 
-#: libraries/classes/Tracking.php:582
+#: libraries/classes/Tracking.php:559
 msgid "Data definition statement"
 msgstr "Příkaz pro definici dat"
 
-#: libraries/classes/Tracking.php:663
+#: libraries/classes/Tracking.php:640
 #: templates/database/tracking/tables.twig:89
 #: templates/table/tracking/main.twig:80
 msgid "Structure snapshot"
 msgstr "Snímek struktury"
 
-#: libraries/classes/Tracking.php:683
+#: libraries/classes/Tracking.php:660
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "Snímek verze %s (SQL kód)"
 
-#: libraries/classes/Tracking.php:749
+#: libraries/classes/Tracking.php:726
 msgid "Tracking data definition successfully deleted"
 msgstr "Uložené příkazy pro změnu struktury byly úspěšně smazány"
 
-#: libraries/classes/Tracking.php:759
+#: libraries/classes/Tracking.php:736
 msgid "Tracking data manipulation successfully deleted"
 msgstr "Uložené příkazy pro změnu dat byly úspěšně smazány"
 
-#: libraries/classes/Tracking.php:815
+#: libraries/classes/Tracking.php:792
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -13168,46 +13033,46 @@ msgstr ""
 "Záznam můžete spustit vytvořením a použitím dočasné databáze. Prosím ověřte, "
 "že na tuto operací máte oprávnění."
 
-#: libraries/classes/Tracking.php:819
+#: libraries/classes/Tracking.php:796
 msgid "Comment out these two lines if you do not need them."
 msgstr "Zakomentujte následující dva řádky pokud je nepotřebujete."
 
-#: libraries/classes/Tracking.php:829
+#: libraries/classes/Tracking.php:806
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 "SQL příkazy byly exportovány. Prosím zkopírujte si je, nebo je spusťte."
 
-#: libraries/classes/Tracking.php:877
+#: libraries/classes/Tracking.php:854
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "Záznamy o sledování tabulky `%s`"
 
-#: libraries/classes/Tracking.php:908
+#: libraries/classes/Tracking.php:885
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "Sledování pro %1$s bylo zapnuto ve verzi %2$s."
 
-#: libraries/classes/Tracking.php:911
+#: libraries/classes/Tracking.php:888
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Sledování pro %1$s bylo vypnuto ve verzi %2$s."
 
-#: libraries/classes/Tracking.php:1005
+#: libraries/classes/Tracking.php:982
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "Verze %1$s z %2$s byla odstraněna."
 
-#: libraries/classes/Tracking.php:1036
+#: libraries/classes/Tracking.php:1013
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Verze %1$s vytvořena, sledování pro %2$s je zapnuté."
 
-#: libraries/classes/Tracking.php:1146 libraries/classes/Tracking.php:1284
+#: libraries/classes/Tracking.php:1123 libraries/classes/Tracking.php:1261
 #: templates/table/tracking/main.twig:10 templates/table/tracking/main.twig:53
 msgid "active"
 msgstr "zapnuté"
 
-#: libraries/classes/Tracking.php:1149 libraries/classes/Tracking.php:1279
+#: libraries/classes/Tracking.php:1126 libraries/classes/Tracking.php:1256
 #: templates/table/tracking/main.twig:12 templates/table/tracking/main.twig:56
 msgid "not active"
 msgstr "není zapnuté"
@@ -13520,151 +13385,139 @@ msgstr "Maximální velikost: %s%s"
 
 #. l10n: Short month name
 #. l10n: Short month name for January
-#: libraries/classes/Util.php:747 templates/javascript/variables.twig:34
+#: libraries/classes/Util.php:733 templates/javascript/variables.twig:34
 msgid "Jan"
 msgstr "led"
 
 #. l10n: Short month name
 #. l10n: Short month name for February
-#: libraries/classes/Util.php:749 templates/javascript/variables.twig:35
+#: libraries/classes/Util.php:735 templates/javascript/variables.twig:35
 msgid "Feb"
 msgstr "úno"
 
 #. l10n: Short month name
 #. l10n: Short month name for March
-#: libraries/classes/Util.php:751 templates/javascript/variables.twig:36
+#: libraries/classes/Util.php:737 templates/javascript/variables.twig:36
 msgid "Mar"
 msgstr "bře"
 
 #. l10n: Short month name
 #. l10n: Short month name for April
-#: libraries/classes/Util.php:753 templates/javascript/variables.twig:37
+#: libraries/classes/Util.php:739 templates/javascript/variables.twig:37
 msgid "Apr"
 msgstr "dub"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:755
+#: libraries/classes/Util.php:741
 msgctxt "Short month name"
 msgid "May"
 msgstr "kvě"
 
 #. l10n: Short month name
 #. l10n: Short month name for June
-#: libraries/classes/Util.php:757 templates/javascript/variables.twig:39
+#: libraries/classes/Util.php:743 templates/javascript/variables.twig:39
 msgid "Jun"
 msgstr "čen"
 
 #. l10n: Short month name
 #. l10n: Short month name for July
-#: libraries/classes/Util.php:759 templates/javascript/variables.twig:40
+#: libraries/classes/Util.php:745 templates/javascript/variables.twig:40
 msgid "Jul"
 msgstr "čec"
 
 #. l10n: Short month name
 #. l10n: Short month name for August
-#: libraries/classes/Util.php:761 templates/javascript/variables.twig:41
+#: libraries/classes/Util.php:747 templates/javascript/variables.twig:41
 msgid "Aug"
 msgstr "srp"
 
 #. l10n: Short month name
 #. l10n: Short month name for September
-#: libraries/classes/Util.php:763 templates/javascript/variables.twig:42
+#: libraries/classes/Util.php:749 templates/javascript/variables.twig:42
 msgid "Sep"
 msgstr "zář"
 
 #. l10n: Short month name
 #. l10n: Short month name for October
-#: libraries/classes/Util.php:765 templates/javascript/variables.twig:43
+#: libraries/classes/Util.php:751 templates/javascript/variables.twig:43
 msgid "Oct"
 msgstr "říj"
 
 #. l10n: Short month name
 #. l10n: Short month name for November
-#: libraries/classes/Util.php:767 templates/javascript/variables.twig:44
+#: libraries/classes/Util.php:753 templates/javascript/variables.twig:44
 msgid "Nov"
 msgstr "lis"
 
 #. l10n: Short month name
 #. l10n: Short month name for December
-#: libraries/classes/Util.php:769 templates/javascript/variables.twig:45
+#: libraries/classes/Util.php:755 templates/javascript/variables.twig:45
 msgid "Dec"
 msgstr "pro"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:773
+#: libraries/classes/Util.php:759
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Ned"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:775 templates/javascript/variables.twig:58
+#: libraries/classes/Util.php:761 templates/javascript/variables.twig:58
 msgid "Mon"
 msgstr "Pon"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:777 templates/javascript/variables.twig:59
+#: libraries/classes/Util.php:763 templates/javascript/variables.twig:59
 msgid "Tue"
 msgstr "Úte"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:779 templates/javascript/variables.twig:60
+#: libraries/classes/Util.php:765 templates/javascript/variables.twig:60
 msgid "Wed"
 msgstr "Stř"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:781 templates/javascript/variables.twig:61
+#: libraries/classes/Util.php:767 templates/javascript/variables.twig:61
 msgid "Thu"
 msgstr "Čtv"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:783 templates/javascript/variables.twig:62
+#: libraries/classes/Util.php:769 templates/javascript/variables.twig:62
 msgid "Fri"
 msgstr "Pát"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:785 templates/javascript/variables.twig:63
+#: libraries/classes/Util.php:771 templates/javascript/variables.twig:63
 msgid "Sat"
 msgstr "Sob"
 
-#: libraries/classes/Util.php:811
+#: libraries/classes/Util.php:797
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "odp."
 
-#: libraries/classes/Util.php:813
+#: libraries/classes/Util.php:799
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "dop."
 
-#: libraries/classes/Util.php:888
+#: libraries/classes/Util.php:874
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dnů, %s hodin, %s minut a %s sekund"
 
-#: libraries/classes/Util.php:924
+#: libraries/classes/Util.php:910
 msgid "Missing parameter:"
 msgstr "Chybějící parametr:"
 
-#: libraries/classes/Util.php:2475
+#: libraries/classes/Util.php:2461
 msgid "Users"
 msgstr "Uživatelé"
 
-#: libraries/classes/Util.php:3097
+#: libraries/classes/Util.php:3083
 #: templates/database/multi_table_query/form.twig:59
 msgid "Sort"
 msgstr "Řadit"
-
-#: libraries/classes/Util.php:3195 libraries/classes/Util.php:3196
-#: templates/database/structure/check_all_tables.twig:15
-msgid "Empty"
-msgstr "Vyprázdnit"
-
-#: libraries/classes/Util.php:3201 libraries/classes/Util.php:3202
-#: templates/database/routines/row.twig:32
-#: templates/database/routines/row.twig:42
-#: templates/database/routines/row.twig:46
-msgid "Execute"
-msgstr "Spustit"
 
 #: libraries/classes/ZipExtension.php:71 libraries/classes/ZipExtension.php:117
 msgid "Error in ZIP archive:"
@@ -13832,7 +13685,29 @@ msgstr "Chybná data"
 msgid "Wrong data or no validation for %s"
 msgstr "Chybná data nebo chybějící ověření pro %s"
 
-#: templates/columns_definitions/column_adjust_privileges.twig:15
+#: templates/columns_definitions/column_attributes.twig:31
+#: templates/database/central_columns/edit_table_row.twig:23
+#: templates/database/central_columns/main.twig:73
+#: templates/database/central_columns/main.twig:302
+msgid "Edit ENUM/SET values"
+msgstr "Upravit hodnoty ENUM/SET"
+
+#: templates/columns_definitions/column_attributes.twig:38
+#: templates/database/central_columns/edit_table_row.twig:30
+#: templates/database/central_columns/main.twig:78
+#: templates/database/central_columns/main.twig:313
+msgctxt "for default"
+msgid "None"
+msgstr "Žádná"
+
+#: templates/columns_definitions/column_attributes.twig:41
+#: templates/database/central_columns/edit_table_row.twig:33
+#: templates/database/central_columns/main.twig:79
+#: templates/database/central_columns/main.twig:316
+msgid "As defined:"
+msgstr "Dle zadání:"
+
+#: templates/columns_definitions/column_attributes.twig:97
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
@@ -13840,14 +13715,45 @@ msgstr ""
 "Nemáte dostatečná práva k provedení této akce; Prohlédněte si dokumentaci "
 "pro více detailů"
 
-#: templates/columns_definitions/column_default.twig:3
-msgctxt "for default"
-msgid "None"
-msgstr "Žádná"
+#: templates/columns_definitions/column_attributes.twig:111
+#: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:17
+#: templates/table/relation/common_form.twig:237
+#: templates/table/structure/display_structure.twig:153
+#: templates/table/structure/display_structure.twig:161
+#: templates/table/structure/display_structure.twig:291
+#: templates/table/structure/display_structure.twig:416
+#: templates/table/tracking/structure_snapshot_indexes.twig:7
+msgid "Unique"
+msgstr "Unikátní"
 
-#: templates/columns_definitions/column_default.twig:5
-msgid "As defined:"
-msgstr "Dle zadání:"
+#: templates/columns_definitions/column_attributes.twig:119
+#: templates/table/structure/display_structure.twig:220
+#: templates/table/structure/display_structure.twig:223
+#: templates/table/structure/display_structure.twig:300
+msgid "Fulltext"
+msgstr "Fulltext"
+
+#: templates/columns_definitions/column_attributes.twig:123
+#: templates/table/structure/display_structure.twig:193
+#: templates/table/structure/display_structure.twig:201
+#: templates/table/structure/display_structure.twig:297
+msgid "Spatial"
+msgstr "Prostorový"
+
+#: templates/columns_definitions/column_attributes.twig:156
+#: templates/table/structure/display_partitions.twig:26
+msgid "Expression"
+msgstr "Výraz"
+
+#: templates/columns_definitions/column_attributes.twig:177
+msgid "first"
+msgstr "první"
+
+#: templates/columns_definitions/column_attributes.twig:182
+#: templates/table/structure/display_structure.twig:390
+#, php-format
+msgid "after %s"
+msgstr "po %s"
 
 #: templates/columns_definitions/column_definitions_form.twig:23
 msgid "Table name"
@@ -13855,7 +13761,7 @@ msgstr "Jméno tabulky"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:212 templates/export.twig:244
+#: templates/database/central_columns/main.twig:198 templates/export.twig:244
 #: templates/export.twig:258 templates/export.twig:272
 msgid "Add"
 msgstr "Přidat"
@@ -13891,10 +13797,6 @@ msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
 msgstr "Online transakce"
 
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr "Upravit hodnoty ENUM/SET"
-
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
 msgid "Referenced by %s."
@@ -13907,21 +13809,6 @@ msgstr "Jedná se o cizí klíč."
 #: templates/columns_definitions/column_name.twig:39
 msgid "Pick from Central Columns"
 msgstr "Vybrat z centrálních sloupců"
-
-#: templates/columns_definitions/column_virtuality.twig:28
-#: templates/table/structure/display_partitions.twig:26
-msgid "Expression"
-msgstr "Výraz"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "první"
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/display_structure.twig:393
-#, php-format
-msgid "after %s"
-msgstr "po %s"
 
 #: templates/columns_definitions/partitions.twig:17
 msgid "Partition by:"
@@ -14202,47 +14089,47 @@ msgid "Add new column"
 msgstr "Přidat nový sloupec"
 
 #: templates/database/central_columns/main.twig:25
-#: templates/database/central_columns/main.twig:244
+#: templates/database/central_columns/main.twig:230
 msgid "Length/Value"
 msgstr "Délka/Hodnota"
 
 #: templates/database/central_columns/main.twig:37
-#: templates/database/central_columns/main.twig:256
+#: templates/database/central_columns/main.twig:242
 msgid "Attribute"
 msgstr "Vlastnost"
 
-#: templates/database/central_columns/main.twig:145
+#: templates/database/central_columns/main.twig:131
 msgid "The central list of columns for the current database is empty"
 msgstr "Centrální seznam sloupců pro aktuální databázi je prázdný"
 
-#: templates/database/central_columns/main.twig:182
+#: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:62
 msgid "Filter rows"
 msgstr "Filtrovat řádky"
 
-#: templates/database/central_columns/main.twig:183
+#: templates/database/central_columns/main.twig:169
 #: templates/display/results/table.twig:64
 msgid "Search this table"
 msgstr "Vyhledávání v této tabulce"
 
-#: templates/database/central_columns/main.twig:194
-#: templates/table/structure/display_structure.twig:378
+#: templates/database/central_columns/main.twig:180
+#: templates/table/structure/display_structure.twig:375
 msgid "Add column"
 msgstr "Přidat sloupec"
 
-#: templates/database/central_columns/main.twig:203
+#: templates/database/central_columns/main.twig:189
 msgid "Select a table"
 msgstr "Zvolte tabulku"
 
-#: templates/database/central_columns/main.twig:210
+#: templates/database/central_columns/main.twig:196
 msgid "Select a column."
 msgstr "Zvolte sloupec."
 
-#: templates/database/central_columns/main.twig:229
+#: templates/database/central_columns/main.twig:215
 msgid "Click to sort."
 msgstr "Klikněte pro seřazení."
 
-#: templates/database/central_columns/main.twig:234
+#: templates/database/central_columns/main.twig:220
 #: templates/database/events/index.twig:19
 #: templates/database/privileges/index.twig:22
 #: templates/database/routines/list.twig:18
@@ -14259,7 +14146,7 @@ msgstr "Klikněte pro seřazení."
 #: templates/table/relation/common_form.twig:234
 #: templates/table/structure/display_partitions.twig:33
 #: templates/table/structure/display_structure.twig:35
-#: templates/table/structure/display_structure.twig:416
+#: templates/table/structure/display_structure.twig:413
 #: templates/table/tracking/main.twig:32
 #: templates/table/tracking/report_table.twig:8
 msgid "Action"
@@ -14284,21 +14171,21 @@ msgstr "Komentář k databázi:"
 
 #: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:18
 #: templates/table/relation/common_form.twig:238
-#: templates/table/structure/display_structure.twig:420
+#: templates/table/structure/display_structure.twig:417
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr "Zabaleno"
 
 #: templates/database/data_dictionary/index.twig:70 templates/indexes.twig:20
 #: templates/table/relation/common_form.twig:240
-#: templates/table/structure/display_structure.twig:422
+#: templates/table/structure/display_structure.twig:419
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr "Mohutnost"
 
 #: templates/database/data_dictionary/index.twig:110 templates/indexes.twig:85
 #: templates/table/relation/common_form.twig:305
-#: templates/table/structure/display_structure.twig:487
+#: templates/table/structure/display_structure.twig:488
 msgid "No index defined!"
 msgstr "Není definován žádný klíč!"
 
@@ -14903,6 +14790,12 @@ msgstr "Nebyly nalezeny žádné rutiny."
 msgid "Returns"
 msgstr "Vrací"
 
+#: templates/database/routines/row.twig:32
+#: templates/database/routines/row.twig:42
+#: templates/database/routines/row.twig:46
+msgid "Execute"
+msgstr "Spustit"
+
 #: templates/database/search/main.twig:5
 msgid "Search in database"
 msgstr "Vyhledávání v databázi"
@@ -14992,6 +14885,11 @@ msgstr "Zobrazit SQL pro vytvoření"
 msgid "Delete data or table"
 msgstr "Odstranit data nebo tabulku"
 
+#: templates/database/structure/check_all_tables.twig:15
+#: templates/database/structure/structure_table_row.twig:74
+msgid "Empty"
+msgstr "Vyprázdnit"
+
 #: templates/database/structure/check_all_tables.twig:18
 #: templates/table/operations/index.twig:312
 msgid "Table maintenance"
@@ -15018,7 +14916,7 @@ msgstr "Tabulka kontrolních součtů"
 #: templates/database/structure/check_all_tables.twig:22
 #: templates/table/maintenance/optimize.twig:3
 #: templates/table/operations/index.twig:362
-#: templates/table/structure/display_table_stats.twig:62
+#: templates/table/structure/display_table_stats.twig:66
 msgid "Optimize table"
 msgstr "Optimalizovat tabulku"
 
@@ -15088,7 +14986,7 @@ msgstr "Není replikováno"
 msgid "Replicated"
 msgstr "Replikováno"
 
-#: templates/database/structure/structure_table_row.twig:225
+#: templates/database/structure/structure_table_row.twig:223
 msgid "in use"
 msgstr "právě se používá"
 
@@ -15106,17 +15004,17 @@ msgid "Size"
 msgstr "Velikost"
 
 #: templates/database/structure/table_header.twig:51
-#: templates/table/structure/display_table_stats.twig:148
+#: templates/table/structure/display_table_stats.twig:152
 msgid "Creation"
 msgstr "Vytvořeno"
 
 #: templates/database/structure/table_header.twig:56
-#: templates/table/structure/display_table_stats.twig:155
+#: templates/table/structure/display_table_stats.twig:159
 msgid "Last update"
 msgstr "Poslední změna"
 
 #: templates/database/structure/table_header.twig:61
-#: templates/table/structure/display_table_stats.twig:162
+#: templates/table/structure/display_table_stats.twig:166
 msgid "Last check"
 msgstr "Poslední kontrola"
 
@@ -15163,7 +15061,7 @@ msgstr "Nesledované tabulky"
 #: templates/database/tracking/tables.twig:140
 #: templates/database/tracking/tables.twig:153
 #: templates/database/tracking/tables.twig:154
-#: templates/table/structure/display_structure.twig:356
+#: templates/table/structure/display_structure.twig:353
 msgid "Track table"
 msgstr "Sledovat tabulku"
 
@@ -15220,21 +15118,21 @@ msgstr "Text (WKT)"
 msgid "Well Known Binary"
 msgstr "Binární (WKB)"
 
-#: templates/display/results/table.twig:242
+#: templates/display/results/table.twig:238
 #: templates/sql/no_results_returned.twig:9
 msgid "Query results operations"
 msgstr "Operace s výsledky dotazu"
 
-#: templates/display/results/table.twig:252
+#: templates/display/results/table.twig:248
 msgid "Copy to clipboard"
 msgstr "Zkopírovat do schránky"
 
-#: templates/display/results/table.twig:268
-#: templates/table/chart/tbl_chart.twig:10
+#: templates/display/results/table.twig:264
+#: templates/table/chart/tbl_chart.twig:7
 msgid "Display chart"
 msgstr "Zobrazit graf"
 
-#: templates/display/results/table.twig:275
+#: templates/display/results/table.twig:271
 msgid "Visualize GIS data"
 msgstr "Zobrazit data GIS"
 
@@ -15580,80 +15478,88 @@ msgstr ""
 msgid "General settings"
 msgstr "Obecná nastavení"
 
-#: templates/home/index.twig:50
+#: templates/home/index.twig:56
 msgid "Server connection collation:"
 msgstr "Porovnávání pro toto připojení k serveru:"
 
-#: templates/home/index.twig:78
+#: templates/home/index.twig:79 templates/preferences/manage/main.twig:56
+msgid "More settings"
+msgstr "Více nastavení"
+
+#: templates/home/index.twig:89
 msgid "Appearance settings"
 msgstr "Nastavení vzhledu"
 
-#: templates/home/index.twig:102
+#: templates/home/index.twig:113
 msgid "Database server"
 msgstr "Databázový server"
 
-#: templates/home/index.twig:106 templates/login/form.twig:37
+#: templates/home/index.twig:117 templates/login/form.twig:37
 #: templates/menu/breadcrumbs.twig:7
 msgid "Server:"
 msgstr "Server:"
 
-#: templates/home/index.twig:110
+#: templates/home/index.twig:121
 msgid "Server type:"
 msgstr "Typ serveru:"
 
-#: templates/home/index.twig:114
+#: templates/home/index.twig:125
 msgid "Server connection:"
 msgstr "Připojení k serveru:"
 
-#: templates/home/index.twig:122
+#: templates/home/index.twig:133
 msgid "Protocol version:"
 msgstr "Verze protokolu:"
 
-#: templates/home/index.twig:126
+#: templates/home/index.twig:137
 msgid "User:"
 msgstr "Uživatel:"
 
-#: templates/home/index.twig:130
+#: templates/home/index.twig:141
 msgid "Server charset:"
 msgstr "Znaková sada:"
 
-#: templates/home/index.twig:142
+#: templates/home/index.twig:153
 msgid "Web server"
 msgstr "Webový server"
 
-#: templates/home/index.twig:150
+#: templates/home/index.twig:161
 msgid "Database client version:"
 msgstr "Verze databázového klienta:"
 
-#: templates/home/index.twig:154
+#: templates/home/index.twig:165
 msgid "PHP extension:"
 msgstr "Rozšíření PHP:"
 
-#: templates/home/index.twig:161
+#: templates/home/index.twig:172
 msgid "PHP version:"
 msgstr "Verze PHP:"
 
-#: templates/home/index.twig:178
+#: templates/home/index.twig:179
+msgid "Show PHP information"
+msgstr "Zobrazit informace o PHP"
+
+#: templates/home/index.twig:193
 msgid "Version information:"
 msgstr "Informace o verzi:"
 
-#: templates/home/index.twig:188
+#: templates/home/index.twig:203
 msgid "Official Homepage"
 msgstr "Oficiální stránka phpMyAdmina"
 
-#: templates/home/index.twig:193
+#: templates/home/index.twig:208
 msgid "Contribute"
 msgstr "Přispějte"
 
-#: templates/home/index.twig:198
+#: templates/home/index.twig:213
 msgid "Get support"
 msgstr "Získejte podporu"
 
-#: templates/home/index.twig:203
+#: templates/home/index.twig:218
 msgid "List of changes"
 msgstr "Seznam změn"
 
-#: templates/home/index.twig:208 templates/server/plugins/index.twig:30
+#: templates/home/index.twig:223 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Licence"
 
@@ -15779,12 +15685,12 @@ msgid "Other options:"
 msgstr "Další možnosti:"
 
 #: templates/indexes.twig:39 templates/table/relation/common_form.twig:259
-#: templates/table/structure/display_structure.twig:441
+#: templates/table/structure/display_structure.twig:442
 msgid "The primary key has been dropped."
 msgstr "Primární klíč byl odstraněn."
 
 #: templates/indexes.twig:44 templates/table/relation/common_form.twig:264
-#: templates/table/structure/display_structure.twig:446
+#: templates/table/structure/display_structure.twig:447
 #, php-format
 msgid "Index %s has been dropped."
 msgstr "Klíč %s byl odstraněn."
@@ -16309,6 +16215,33 @@ msgstr ""
 msgid "You have enabled two factor authentication."
 msgstr "Povolili jste dvoufaktorovou autentizaci."
 
+#: templates/relation/diagnostic_info.twig:1
+msgid "Quick steps to set up advanced features:"
+msgstr "Stručný návod pro zapnutí rozšířených funkcí:"
+
+#: templates/relation/diagnostic_info.twig:5
+#, php-format
+msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
+msgstr ""
+"Vytvořte potřebné tabulky pomocí skriptu <code>%screate_tables.sql</code>."
+
+#: templates/relation/diagnostic_info.twig:9
+msgid "Create a pma user and give access to these tables."
+msgstr "Vytvořte uživatele pma a přidělte mu oprávnění na tyto tabulky."
+
+#: templates/relation/diagnostic_info.twig:13
+msgid ""
+"Enable advanced features in configuration file (<code>config.inc.php</"
+"code>), for example by starting from <code>config.sample.inc.php</code>."
+msgstr ""
+"Zapněte rozšířené funkce v konfiguračním souboru (<code>config.inc.php</"
+"code>), můžete se inspirovat v <code>config.sample.inc.php</code>."
+
+#: templates/relation/diagnostic_info.twig:17
+msgid "Re-login to phpMyAdmin to load the updated configuration file."
+msgstr ""
+"Prosím přihlašte se znovu, aby se projevily změny v konfiguračním souboru."
+
 #: templates/server/binlog/index.twig:10
 msgid "Select binary log to view"
 msgstr "Zvolte binární log pro zobrazení"
@@ -16704,6 +16637,17 @@ msgctxt "None privileges"
 msgid "None"
 msgstr "Žádná"
 
+#: templates/server/privileges/privileges_table.twig:136
+#: templates/server/privileges/privileges_table.twig:140
+#: templates/server/privileges/privileges_table.twig:614
+#: templates/server/privileges/privileges_table.twig:618
+msgid ""
+"Allows user to give to other users or remove from other users the privileges "
+"that user possess yourself."
+msgstr ""
+"Umožňuje uživateli přidávat nebo odebírat ostatním uživatelům oprávnění, "
+"která sám vlastní."
+
 #: templates/server/privileges/privileges_table.twig:231
 msgid "Global"
 msgstr "Globální"
@@ -16732,6 +16676,31 @@ msgstr "Omezení zdrojů"
 #: templates/server/privileges/privileges_table.twig:698
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "Poznámka: Nastavení těchto parametrů na 0 (nulu) odstraní omezení."
+
+#: templates/server/privileges/privileges_table.twig:704
+#: templates/server/privileges/privileges_table.twig:711
+msgid "Limits the number of queries the user may send to the server per hour."
+msgstr "Omezuje, kolik dotazů může uživatel odeslat serveru za hodinu."
+
+#: templates/server/privileges/privileges_table.twig:717
+#: templates/server/privileges/privileges_table.twig:724
+msgid ""
+"Limits the number of commands that change any table or database the user may "
+"execute per hour."
+msgstr ""
+"Omezuje, kolik dotazů měnících nějakou tabulku nebo databázi může uživatel "
+"spustit za hodinu."
+
+#: templates/server/privileges/privileges_table.twig:730
+#: templates/server/privileges/privileges_table.twig:737
+msgid "Limits the number of new connections the user may open per hour."
+msgstr ""
+"Omezuje počet nových připojení, která může uživatel vytvořit za hodinu."
+
+#: templates/server/privileges/privileges_table.twig:743
+#: templates/server/privileges/privileges_table.twig:750
+msgid "Limits the number of simultaneous connections the user may have."
+msgstr "Omezuje počet současných připojení uživatele."
 
 #: templates/server/privileges/privileges_table.twig:759
 msgid "Does not require SSL-encrypted connections."
@@ -17632,91 +17601,91 @@ msgstr "Počáteční řádek:"
 msgid "Use this value"
 msgstr "Použít tuto hodnotu"
 
-#: templates/table/chart/tbl_chart.twig:15
+#: templates/table/chart/tbl_chart.twig:12
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Pruhový"
 
-#: templates/table/chart/tbl_chart.twig:19
+#: templates/table/chart/tbl_chart.twig:16
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Sloupcový"
 
-#: templates/table/chart/tbl_chart.twig:23
+#: templates/table/chart/tbl_chart.twig:20
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Čárový"
 
-#: templates/table/chart/tbl_chart.twig:27
+#: templates/table/chart/tbl_chart.twig:24
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Křivkový"
 
-#: templates/table/chart/tbl_chart.twig:31
+#: templates/table/chart/tbl_chart.twig:28
 msgctxt "Chart type"
 msgid "Area"
 msgstr "Plošný"
 
-#: templates/table/chart/tbl_chart.twig:35
+#: templates/table/chart/tbl_chart.twig:32
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Koláčový"
 
-#: templates/table/chart/tbl_chart.twig:39
+#: templates/table/chart/tbl_chart.twig:36
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "Časový"
 
-#: templates/table/chart/tbl_chart.twig:43
+#: templates/table/chart/tbl_chart.twig:40
 msgctxt "Chart type"
 msgid "Scatter"
 msgstr "Bodový"
 
-#: templates/table/chart/tbl_chart.twig:48
+#: templates/table/chart/tbl_chart.twig:45
 msgid "Stacked"
 msgstr "Složený"
 
-#: templates/table/chart/tbl_chart.twig:51
+#: templates/table/chart/tbl_chart.twig:48
 msgid "Chart title:"
 msgstr "Název grafu:"
 
-#: templates/table/chart/tbl_chart.twig:56
+#: templates/table/chart/tbl_chart.twig:53
 msgid "X-Axis:"
 msgstr "Osa X:"
 
-#: templates/table/chart/tbl_chart.twig:71
+#: templates/table/chart/tbl_chart.twig:68
 msgid "Series:"
 msgstr "Série:"
 
-#: templates/table/chart/tbl_chart.twig:100
+#: templates/table/chart/tbl_chart.twig:97
 msgid "X-Axis label:"
 msgstr "Popis osy X:"
 
-#: templates/table/chart/tbl_chart.twig:102
+#: templates/table/chart/tbl_chart.twig:99
 msgid "X Values"
 msgstr "Hodnoty X"
 
-#: templates/table/chart/tbl_chart.twig:105
+#: templates/table/chart/tbl_chart.twig:102
 msgid "Y-Axis label:"
 msgstr "Popis osy Y:"
 
-#: templates/table/chart/tbl_chart.twig:107
+#: templates/table/chart/tbl_chart.twig:104
 msgid "Y Values"
 msgstr "Hodnoty Y"
 
-#: templates/table/chart/tbl_chart.twig:113
+#: templates/table/chart/tbl_chart.twig:110
 msgid "Series names are in a column"
 msgstr "Názvy řad jsou ve sloupci"
 
-#: templates/table/chart/tbl_chart.twig:116
+#: templates/table/chart/tbl_chart.twig:113
 msgid "Series column:"
 msgstr "Sloupec řady:"
 
-#: templates/table/chart/tbl_chart.twig:130
+#: templates/table/chart/tbl_chart.twig:127
 msgid "Value Column:"
 msgstr "Sloupec hodnoty:"
 
-#: templates/table/chart/tbl_chart.twig:151
+#: templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
 msgstr "Uložit graf jako obrázek"
 
@@ -17905,7 +17874,7 @@ msgid "Partition maintenance"
 msgstr "Údržba oddílů"
 
 #: templates/table/operations/index.twig:456
-#: templates/table/structure/display_partitions.twig:137
+#: templates/table/structure/display_partitions.twig:140
 msgid "Remove partitioning"
 msgstr "Zrušit dělení"
 
@@ -17986,7 +17955,7 @@ msgid "Choose column to display:"
 msgstr "Zvolte která pole zobrazit:"
 
 #: templates/table/relation/common_form.twig:315
-#: templates/table/structure/display_structure.twig:497
+#: templates/table/structure/display_structure.twig:498
 #, php-format
 msgid "Create an index on %s columns"
 msgstr "Vytvořit index na %s sloupcích"
@@ -18021,7 +17990,7 @@ msgid "Display order:"
 msgstr "Seřadit podle:"
 
 #: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:534
+#: templates/table/structure/display_structure.twig:535
 msgid "Partitions"
 msgstr "Oddíly"
 
@@ -18045,11 +18014,11 @@ msgstr "Délka řádku"
 msgid "Index length"
 msgstr "Délka klíče"
 
-#: templates/table/structure/display_partitions.twig:135
+#: templates/table/structure/display_partitions.twig:134
 msgid "Partition table"
 msgstr "Rozdělit tabulku"
 
-#: templates/table/structure/display_partitions.twig:141
+#: templates/table/structure/display_partitions.twig:146
 #: templates/table/structure/partition_definition_form.twig:5
 msgid "Edit partitioning"
 msgstr "Upravit rozdělení"
@@ -18064,66 +18033,75 @@ msgctxt "None for default"
 msgid "None"
 msgstr "Žádná"
 
+#: templates/table/structure/display_structure.twig:109
+#: templates/table/structure/display_structure.twig:280
+msgid "Change"
+msgstr "Změnit"
+
 #: templates/table/structure/display_structure.twig:117
 #, php-format
 msgid "Column %s has been dropped."
 msgstr "Pole %s bylo odstraněno."
 
-#: templates/table/structure/display_structure.twig:140
+#: templates/table/structure/display_structure.twig:143
 #, php-format
 msgid "A primary key has been added on %s."
 msgstr "Na poli %s byl vytvořen primární klíč."
 
 #: templates/table/structure/display_structure.twig:158
-#: templates/table/structure/display_structure.twig:176
-#: templates/table/structure/display_structure.twig:205
-#: templates/table/structure/display_structure.twig:228
+#: templates/table/structure/display_structure.twig:173
+#: templates/table/structure/display_structure.twig:198
+#: templates/table/structure/display_structure.twig:217
 #, php-format
 msgid "An index has been added on %s."
 msgstr "Na poli %s byl vytvořen klíč."
 
-#: templates/table/structure/display_structure.twig:252
-#: templates/table/structure/display_structure.twig:314
+#: templates/table/structure/display_structure.twig:239
+msgid "Distinct values"
+msgstr "Odlišné hodnoty"
+
+#: templates/table/structure/display_structure.twig:246
+#: templates/table/structure/display_structure.twig:308
 msgid "Remove from central columns"
 msgstr "Odstranit z centrálních sloupců"
 
-#: templates/table/structure/display_structure.twig:256
-#: templates/table/structure/display_structure.twig:311
+#: templates/table/structure/display_structure.twig:250
+#: templates/table/structure/display_structure.twig:305
 msgid "Add to central columns"
 msgstr "Přidat do centrálních sloupců"
 
-#: templates/table/structure/display_structure.twig:322
-#: templates/table/structure/display_structure.twig:360
+#: templates/table/structure/display_structure.twig:316
+#: templates/table/structure/display_structure.twig:357
 msgid "Move columns"
 msgstr "Přesunout pole"
 
-#: templates/table/structure/display_structure.twig:323
+#: templates/table/structure/display_structure.twig:317
 msgid "Move the columns by dragging them up and down."
 msgstr "Přesuňte sloupce tažením nahoru nebo dolů."
 
-#: templates/table/structure/display_structure.twig:335
+#: templates/table/structure/display_structure.twig:329
 #: templates/view_create.twig:13
 msgid "Edit view"
 msgstr "Upravit pohled"
 
-#: templates/table/structure/display_structure.twig:346
+#: templates/table/structure/display_structure.twig:343
 msgid "Propose table structure"
 msgstr "Navrhnout strukturu tabulky"
 
-#: templates/table/structure/display_structure.twig:363
+#: templates/table/structure/display_structure.twig:360
 msgid "Normalize"
 msgstr "Normalizovat"
 
-#: templates/table/structure/display_structure.twig:369
+#: templates/table/structure/display_structure.twig:366
 msgid "Track view"
 msgstr "Sledovat pohled"
 
-#: templates/table/structure/display_structure.twig:383
+#: templates/table/structure/display_structure.twig:380
 #, php-format
 msgid "Add %s column(s)"
 msgstr "Přidat %s polí"
 
-#: templates/table/structure/display_structure.twig:388
+#: templates/table/structure/display_structure.twig:385
 msgid "at beginning of table"
 msgstr "na začátku tabulky"
 
@@ -18135,31 +18113,31 @@ msgstr "Využití místa"
 msgid "Effective"
 msgstr "Efektivní"
 
-#: templates/table/structure/display_table_stats.twig:74
+#: templates/table/structure/display_table_stats.twig:78
 msgid "Row statistics"
 msgstr "Statistika řádků"
 
-#: templates/table/structure/display_table_stats.twig:80
+#: templates/table/structure/display_table_stats.twig:84
 msgid "static"
 msgstr "statický"
 
-#: templates/table/structure/display_table_stats.twig:82
+#: templates/table/structure/display_table_stats.twig:86
 msgid "dynamic"
 msgstr "dynamický"
 
-#: templates/table/structure/display_table_stats.twig:93
+#: templates/table/structure/display_table_stats.twig:97
 msgid "partitioned"
 msgstr "používá oddíly"
 
-#: templates/table/structure/display_table_stats.twig:122
+#: templates/table/structure/display_table_stats.twig:126
 msgid "Row length"
 msgstr "Délka řádku"
 
-#: templates/table/structure/display_table_stats.twig:134
+#: templates/table/structure/display_table_stats.twig:138
 msgid "Row size"
 msgstr "Velikost řádku"
 
-#: templates/table/structure/display_table_stats.twig:141
+#: templates/table/structure/display_table_stats.twig:145
 msgid "Next autoindex"
 msgstr "Další automatický klíč"
 
