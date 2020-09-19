@@ -9,7 +9,6 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
-use PhpMyAdmin\Html\Generator;
 use function array_unique;
 use function bin2hex;
 use function ceil;
@@ -855,35 +854,6 @@ class CentralColumns
         $this->handleColumnExtra($columns_list);
 
         return $columns_list;
-    }
-
-    /**
-     * Get HTML for "check all" check box with "with selected" dropdown
-     *
-     * @param string $themeImagePath pma theme image url
-     * @param string $text_dir       url for text directory
-     */
-    public function getTableFooter(string $themeImagePath, string $text_dir): string
-    {
-        $html_output = $this->template->render('select_all', [
-            'theme_image_path' => $themeImagePath,
-            'text_dir' => $text_dir,
-            'form_name' => 'tableslistcontainer',
-        ]);
-
-        $html_output .= '<button class="btn btn-link mult_submit change_central_columns" type="submit"'
-            . ' name="edit_central_columns" value="edit central columns"'
-            . ' title="' . __('Edit') . '">' . "\n"
-            . Generator::getIcon('b_edit', __('Edit'))
-            . '</button>' . "\n";
-
-        $html_output .= '<button class="btn btn-link mult_submit" type="submit"'
-            . ' name="delete_central_columns" value="remove_from_central_columns"'
-            . ' title="' . __('Delete') . '">' . "\n"
-            . Generator::getIcon('b_drop', __('Delete'))
-            . '</button>' . "\n";
-
-        return $html_output;
     }
 
     /**

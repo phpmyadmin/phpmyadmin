@@ -722,25 +722,6 @@ class CentralColumnsTest extends AbstractTestCase
     }
 
     /**
-     * Test for getTableFooter
-     */
-    public function testGetTableFooter(): void
-    {
-        $themeImagePath = 'themeImagePath';
-        $text_dir = 'text_dir';
-        $result = $this->centralColumns->getTableFooter($themeImagePath, $text_dir);
-        $this->assertStringContainsString(
-            '<input type="checkbox" id="tableslistcontainer_checkall" class="checkall_box"',
-            $result
-        );
-        $this->assertStringContainsString('With selected:', $result);
-        $this->assertStringContainsString(
-            '<button class="btn btn-link mult_submit change_central_columns"',
-            $result
-        );
-    }
-
-    /**
      * Test for getHtmlForColumnDropdown
      */
     public function testGetHtmlForColumnDropdown(): void
