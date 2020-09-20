@@ -60,28 +60,9 @@ class RelationControllerTest extends AbstractTestCase
             }
         };
 
-        $indexes = [
-            [
-                'Schema' => 'Schema1',
-                'Key_name' => 'Key_name1',
-                'Column_name' => 'Column_name1',
-            ],
-            [
-                'Schema' => 'Schema2',
-                'Key_name' => 'Key_name2',
-                'Column_name' => 'Column_name2',
-            ],
-            [
-                'Schema' => 'Schema3',
-                'Key_name' => 'Key_name3',
-                'Column_name' => 'Column_name3',
-            ],
-        ];
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->any())->method('getTableIndexes')
-            ->will($this->returnValue($indexes));
 
         $GLOBALS['dbi'] = $dbi;
 

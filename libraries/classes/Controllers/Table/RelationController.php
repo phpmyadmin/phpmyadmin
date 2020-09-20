@@ -172,7 +172,6 @@ final class RelationController extends AbstractController
 
         // common form
         $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
-        $foreignKeySupported = Util::isForeignKeySupported($storageEngine);
         $this->render('table/relation/common_form', [
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
             'db' => $this->db,
@@ -191,9 +190,6 @@ final class RelationController extends AbstractController
             'databases' => $GLOBALS['dblist']->databases,
             'dbi' => $this->dbi,
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-            'foreignKeySupported' => $foreignKeySupported,
-            'indexes' => $foreignKeySupported ? Index::getFromTable($this->table, $this->db) : null,
-            'indexes_duplicates' => $foreignKeySupported ? Index::findDuplicates($this->table, $this->db) : null,
             'route' => $route,
         ]);
     }
