@@ -799,13 +799,27 @@ class CentralColumns
             $meta['DefaultType'] = 'USER_DEFINED';
             $meta['DefaultValue'] = $row['col_default'];
         }
+
+        $defaultValue = '';
+        $typeUpper = mb_strtoupper((string) $row['col_type']);
+
+        // For a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default value
+        if (isset($meta['DefaultValue'])) {
+            $defaultValue = $meta['DefaultValue'];
+        }
+        if ($typeUpper == 'BIT') {
+            $defaultValue = Util::convertBitDefaultValue($meta['DefaultValue']);
+        } elseif ($typeUpper == 'BINARY' || $typeUpper == 'VARBINARY') {
+            $defaultValue = bin2hex($meta['DefaultValue']);
+        }
+
         $tableHtml .=
             '<td class="nowrap" name="col_default">'
             . $this->template->render('columns_definitions/column_default', [
                 'column_number' => $row_num,
                 'ci' => 3,
                 'ci_offset' => 0,
-                'type_upper' => mb_strtoupper((string) $row['col_default']),
+                'default_value' => $defaultValue,
                 'column_meta' => $meta,
                 'char_editing' => $this->charEditing,
             ])
@@ -1143,6 +1157,7 @@ class CentralColumns
         $tables = $this->dbi->getTables($db);
         $rows_list = $this->getColumnsList($db, $pos, $max_rows);
 
+        $defaultValues = [];
         $rows_meta = [];
         $types_upper = [];
         $row_num = 0;
@@ -1150,19 +1165,27 @@ class CentralColumns
             $rows_meta[$row_num] = [];
             if (! isset($row['col_default']) || $row['col_default'] == '') {
                 $rows_meta[$row_num]['DefaultType'] = 'NONE';
+            } elseif ($row['col_default'] == 'CURRENT_TIMESTAMP' || $row['col_default'] == 'current_timestamp()') {
+                $rows_meta[$row_num]['DefaultType'] = 'CURRENT_TIMESTAMP';
+            } elseif ($row['col_default'] == 'NULL') {
+                $rows_meta[$row_num]['DefaultType'] = $row['col_default'];
             } else {
-                if ($row['col_default'] == 'CURRENT_TIMESTAMP'
-                    || $row['col_default'] == 'current_timestamp()'
-                ) {
-                    $rows_meta[$row_num]['DefaultType'] = 'CURRENT_TIMESTAMP';
-                } elseif ($row['col_default'] == 'NULL') {
-                    $rows_meta[$row_num]['DefaultType'] = $row['col_default'];
-                } else {
-                    $rows_meta[$row_num]['DefaultType'] = 'USER_DEFINED';
-                    $rows_meta[$row_num]['DefaultValue'] = $row['col_default'];
-                }
+                $rows_meta[$row_num]['DefaultType'] = 'USER_DEFINED';
+                $rows_meta[$row_num]['DefaultValue'] = $row['col_default'];
             }
             $types_upper[$row_num] = mb_strtoupper((string) $row['col_type']);
+
+            // For a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default value
+            $defaultValues[$row_num] = '';
+            if (isset($rows_meta[$row_num]['DefaultValue'])) {
+                $defaultValues[$row_num] = $rows_meta[$row_num]['DefaultValue'];
+            }
+            if ($types_upper[$row_num] == 'BIT') {
+                $defaultValues[$row_num] = Util::convertBitDefaultValue($rows_meta[$row_num]['DefaultValue']);
+            } elseif ($types_upper[$row_num] == 'BINARY' || $types_upper[$row_num] == 'VARBINARY') {
+                $defaultValues[$row_num] = bin2hex($rows_meta[$row_num]['DefaultValue']);
+            }
+
             $row_num++;
         }
 
@@ -1198,6 +1221,7 @@ class CentralColumns
             "tables" => $tables,
             "rows_list" => $rows_list,
             "rows_meta" => $rows_meta,
+            "default_values" => $defaultValues,
             "types_upper" => $types_upper,
             "pmaThemeImage" => $pmaThemeImage,
             "text_dir" => $text_dir,

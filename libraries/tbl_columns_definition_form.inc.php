@@ -462,7 +462,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     if (isset($columnMeta['DefaultValue'])) {
         $default_value = $columnMeta['DefaultValue'];
     }
-    if ($type_upper == 'BIN)') {
+    if ($type_upper == 'BIT') {
         $default_value = Util::convertBitDefaultValue($columnMeta['DefaultValue']);
     } elseif ($type_upper == 'BINARY' || $type_upper == 'VARBINARY') {
         $default_value = bin2hex($columnMeta['DefaultValue']);
