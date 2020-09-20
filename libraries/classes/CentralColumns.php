@@ -11,6 +11,7 @@ use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Html\Generator;
 use function array_unique;
+use function bin2hex;
 use function ceil;
 use function count;
 use function explode;
@@ -782,11 +783,12 @@ class CentralColumns
         // For a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default value
         if (isset($meta['DefaultValue'])) {
             $defaultValue = $meta['DefaultValue'];
-        }
-        if ($typeUpper == 'BIT') {
-            $defaultValue = Util::convertBitDefaultValue($meta['DefaultValue']);
-        } elseif ($typeUpper == 'BINARY' || $typeUpper == 'VARBINARY') {
-            $defaultValue = bin2hex($meta['DefaultValue']);
+
+            if ($typeUpper == 'BIT') {
+                $defaultValue = Util::convertBitDefaultValue($meta['DefaultValue']);
+            } elseif ($typeUpper == 'BINARY' || $typeUpper == 'VARBINARY') {
+                $defaultValue = bin2hex($meta['DefaultValue']);
+            }
         }
 
         $charsets = Charsets::getCharsets($this->dbi, $this->disableIs);
@@ -1099,11 +1101,12 @@ class CentralColumns
             $defaultValues[$row_num] = '';
             if (isset($rows_meta[$row_num]['DefaultValue'])) {
                 $defaultValues[$row_num] = $rows_meta[$row_num]['DefaultValue'];
-            }
-            if ($types_upper[$row_num] == 'BIT') {
-                $defaultValues[$row_num] = Util::convertBitDefaultValue($rows_meta[$row_num]['DefaultValue']);
-            } elseif ($types_upper[$row_num] == 'BINARY' || $types_upper[$row_num] == 'VARBINARY') {
-                $defaultValues[$row_num] = bin2hex($rows_meta[$row_num]['DefaultValue']);
+
+                if ($types_upper[$row_num] == 'BIT') {
+                    $defaultValues[$row_num] = Util::convertBitDefaultValue($rows_meta[$row_num]['DefaultValue']);
+                } elseif ($types_upper[$row_num] == 'BINARY' || $types_upper[$row_num] == 'VARBINARY') {
+                    $defaultValues[$row_num] = bin2hex($rows_meta[$row_num]['DefaultValue']);
+                }
             }
 
             $row_num++;
