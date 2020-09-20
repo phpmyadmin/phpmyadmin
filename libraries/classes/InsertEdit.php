@@ -2597,6 +2597,9 @@ class InsertEdit
             $current_value = mb_substr($current_value, 1, -1);
             // Remove escaping apostrophes
             $current_value = str_replace("''", "'", $current_value);
+            // Remove backslash-escaped apostrophes
+            $current_value = str_replace("\'", "'", $current_value);
+
             return $multi_edit_funcs[$key] . '(' . $current_value . ')';
         } elseif (! in_array($multi_edit_funcs[$key], $func_no_param)
             || ($current_value != "''"
