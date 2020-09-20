@@ -62,6 +62,8 @@ phpMyAdmin - ChangeLog
 - issue #16355 Make textareas both sides resizable
 - issue #16366 Fix column definition form not showing default value
 - issue #16342 Fixed multi-table query (db_multi_table_query.php) alias show the same alias for all columns
+- issue #15109 Fixed using ST_GeomFromText + GUI on insert throws an error
+- issue #16325 Fixed editing Geometry data throws error on using the GUI
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
