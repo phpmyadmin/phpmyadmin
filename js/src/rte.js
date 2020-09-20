@@ -133,10 +133,11 @@ RTE.COMMON = {
             }
 
             exportAnchors.each(function () {
+                var dropStatement = $(this).parents('tr').find('.drop_sql')[0].innerHTML;
                 $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
                     returnCount++;
                     if (data.success === true) {
-                        combined.message += '\n' + data.message + '\n';
+                        combined.message += '\n' + dropStatement + ';\n' + data.message + '\n';
                         if (returnCount === count) {
                             showExport(combined);
                         }
