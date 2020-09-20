@@ -784,7 +784,7 @@ class CentralColumns
         if (isset($meta['DefaultValue'])) {
             $defaultValue = $meta['DefaultValue'];
 
-            if ($typeUpper == 'BIT') {
+            if ($typeUpper === 'BIT') {
                 $defaultValue = Util::convertBitDefaultValue($meta['DefaultValue']);
             } elseif ($typeUpper == 'BINARY' || $typeUpper == 'VARBINARY') {
                 $defaultValue = bin2hex($meta['DefaultValue']);
@@ -1087,7 +1087,7 @@ class CentralColumns
             $rows_meta[$row_num] = [];
             if (! isset($row['col_default']) || $row['col_default'] == '') {
                 $rows_meta[$row_num]['DefaultType'] = 'NONE';
-            } elseif ($row['col_default'] == 'CURRENT_TIMESTAMP' || $row['col_default'] == 'current_timestamp()') {
+            } elseif ($row['col_default'] === 'CURRENT_TIMESTAMP' || $row['col_default'] === 'current_timestamp()') {
                 $rows_meta[$row_num]['DefaultType'] = 'CURRENT_TIMESTAMP';
             } elseif ($row['col_default'] == 'NULL') {
                 $rows_meta[$row_num]['DefaultType'] = $row['col_default'];
@@ -1102,9 +1102,9 @@ class CentralColumns
             if (isset($rows_meta[$row_num]['DefaultValue'])) {
                 $defaultValues[$row_num] = $rows_meta[$row_num]['DefaultValue'];
 
-                if ($types_upper[$row_num] == 'BIT') {
+                if ($types_upper[$row_num] === 'BIT') {
                     $defaultValues[$row_num] = Util::convertBitDefaultValue($rows_meta[$row_num]['DefaultValue']);
-                } elseif ($types_upper[$row_num] == 'BINARY' || $types_upper[$row_num] == 'VARBINARY') {
+                } elseif ($types_upper[$row_num] === 'BINARY' || $types_upper[$row_num] === 'VARBINARY') {
                     $defaultValues[$row_num] = bin2hex($rows_meta[$row_num]['DefaultValue']);
                 }
             }
