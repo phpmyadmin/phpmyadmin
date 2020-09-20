@@ -91,7 +91,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
             query += '`' + Functions.escapeBacktick(columns[0][1]) + '`';
         }
         if (columns[0][2] !== '') {
-            query += ' AS ' + columns[0][2];
+            query += ' AS `' + Functions.escapeBacktick(columns[0][2]) + '`';
         }
         for (var i = 1; i < columns.length; i++) {
             query += ', `' + Functions.escapeBacktick(columns[i][0]) + '`.';
@@ -101,7 +101,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 query += '`' + Functions.escapeBacktick(columns[i][1]) + '`';
             }
             if (columns[i][2] !== '') {
-                query += ' AS `' + Functions.escapeBacktick(columns[0][2]) + '`';
+                query += ' AS `' + Functions.escapeBacktick(columns[i][2]) + '`';
             }
         }
         query += '\nFROM ';
