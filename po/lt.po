@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-09-20 00:19+0200\n"
-"PO-Revision-Date: 2020-08-07 16:00+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-09-21 15:40+0000\n"
+"Last-Translator: Kornelijus Tvarijanavičius <kornelitvari@protonmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lt/>\n"
 "Language: lt\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6092,34 +6092,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Jūs ruošiatės SUNAIKINTI visą lentelę!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:41
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "Ištrinti šios lentelės sekimo duomenis"
+msgstr "Ištrinti šios lentelės sekimo duomenis?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:42
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "Ištrinti šios lentelės sekimo duomenis"
+msgstr "Ištrinti šių lentelių sekimo duomenis?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "Ištrinti šios lentelės sekimo duomenis"
+msgstr "Ištrinti šios versijos sekimo duomenis?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:44
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "Ištrinti šios lentelės sekimo duomenis"
+msgstr "Ištrinti šių versijų sekimo duomenis?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
-#, fuzzy
-#| msgid "Delete tracking data row from report"
 msgid "Delete entry from tracking report?"
-msgstr "Ištrinti sekimo duomenis iš ataskaitos"
+msgstr "Ištrinti įrašą iš sekimo ataskaitos?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:46
 msgid "Deleting tracking data"
@@ -7219,10 +7209,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
-#, fuzzy, php-format
-#| msgid "Variable"
+#, php-format
 msgid "Variable %d:"
-msgstr "Kintamasis"
+msgstr "Kintamasis %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 #: libraries/classes/Normalization.php:1045
@@ -7409,16 +7398,12 @@ msgid "Range search"
 msgstr "Paieška"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:451
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column maximum:"
-msgstr "Stulpelių vardai: "
+msgstr "Stulpelių maksimumas:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:452
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column minimum:"
-msgstr "Stulpelių vardai: "
+msgstr "Stulpelių minimumas:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:453
 #, fuzzy
@@ -7999,10 +7984,8 @@ msgid "Copying failed!"
 msgstr "Kopijuojama duomenų bazė"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:680
-#, fuzzy
-#| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "Rodyti šią užklausą vėl"
+msgstr "Rodyti šią užklausą vėl?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 #, fuzzy
@@ -9037,7 +9020,7 @@ msgstr ""
 #: libraries/classes/Import.php:159 libraries/classes/InsertEdit.php:225
 #: libraries/classes/Sql.php:1039
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL gražino tuščią rezultatų rinkinį (nėra eilučių)."
+msgstr "MySQL grąžino tuščią rezultatų rinkinį (nėra eilučių)."
 
 #: libraries/classes/Controllers/Table/MaintenanceController.php:54
 #: libraries/classes/Controllers/Table/MaintenanceController.php:89
@@ -9072,7 +9055,7 @@ msgstr "Vidinis sąryšis įdėtas"
 #: libraries/classes/Controllers/Table/ReplaceController.php:277
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Eilutė: %1$s, Stulpelis: %2$s, Klaida: %3$s"
 
 #: libraries/classes/Controllers/Table/StructureController.php:202
 #: libraries/classes/Controllers/Table/StructureController.php:225
@@ -9085,10 +9068,8 @@ msgstr ""
 #: libraries/classes/Controllers/Table/StructureController.php:465
 #: libraries/classes/Controllers/Table/StructureController.php:531
 #: libraries/classes/Controllers/Table/StructureController.php:575
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Nepasirinkti įrašai"
+msgstr "Nepasirinktas stulpelis."
 
 #: libraries/classes/Controllers/Table/StructureController.php:713
 #, fuzzy
@@ -15592,10 +15573,8 @@ msgstr "Importuojama į duomenų bazę „%s“"
 
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "užklausa vykdoma"
+msgstr "Daugialentelė užklausa"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
