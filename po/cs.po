@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-09-18 20:36+0000\n"
+"PO-Revision-Date: 2020-09-22 02:59+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-0/cs/>"
 "\n"
@@ -1505,8 +1505,9 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"Žádné sloupce v centrálním seznamu. Ujistěte se, že centrální sloupcový "
-"seznam pro databázi %s má sloupce, které se nenacházejí v aktuální tabulce."
+"V centrálním seznamu nejsou žádné sloupce. Ujistěte se, že centrální seznam "
+"sloupců pro databázi %s obsahuje sloupce, které se nenacházejí v aktuální "
+"tabulce."
 
 #: js/messages.php:446
 msgid "See more"
@@ -2752,12 +2753,12 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
-"Nastavení úložiště není připraveno pro centrální list sloupcových vlastností."
+"Nastavení úložiště není připraveno pro funkci centrálního seznamu sloupců."
 
 #: libraries/classes/CentralColumns.php:388
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr "Nemohu přidat %1$s protože se již v centrálním listu nacházejí!"
+msgstr "Nelze přidat %1$s, protože se již v centrálním seznamu nacházejí!"
 
 #: libraries/classes/CentralColumns.php:404
 msgid "Could not add columns!"
@@ -5030,7 +5031,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:669
 msgid "Central columns table"
-msgstr "Centrální sloupcová tabulka"
+msgstr "Tabulka centrálních sloupců"
 
 #: libraries/classes/Config/Descriptions.php:671
 msgid ""
@@ -9049,7 +9050,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:228
 msgid "Show me the central list of columns that are not already in this table"
-msgstr "Ukaž mi centrální list sloupců, které ještě nejsou v této tabulce"
+msgstr "Zobrazit centrální seznam sloupců, které ještě nejsou v této tabulce"
 
 #: libraries/classes/Normalization.php:231
 msgid ""
