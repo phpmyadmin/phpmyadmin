@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-09-20 00:19+0200\n"
-"PO-Revision-Date: 2020-09-21 15:40+0000\n"
+"PO-Revision-Date: 2020-09-22 02:59+0000\n"
 "Last-Translator: Kornelijus Tvarijanavičius <kornelitvari@protonmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lt/>\n"
@@ -1219,10 +1219,9 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: libraries/classes/Advisor.php:232
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Klaida sudarinėjant PDF:"
+msgstr "Klaida vertinant: %s"
 
 #: libraries/classes/Advisor.php:259
 #, php-format
@@ -7264,17 +7263,13 @@ msgid "Add primary key"
 msgstr "Pridėti pirminį raktą"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:413
-#, fuzzy
-#| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Stulpeliui %s sukurtas PIRMINIS raktas."
+msgstr "Pridėtas pirminis raktas."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:414
 #: libraries/classes/Normalization.php:287
-#, fuzzy
-#| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Sekimo ataskaita"
+msgstr "Perkeliame jus į sekantį žingsnį…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:415
 #, php-format
@@ -7286,10 +7281,8 @@ msgstr ""
 #: libraries/classes/Normalization.php:605
 #: libraries/classes/Normalization.php:699
 #: libraries/classes/Normalization.php:767
-#, fuzzy
-#| msgid "End of line"
 msgid "End of step"
-msgstr "Eilutės galas"
+msgstr "Žingsnio pabaiga"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:417
 msgid "Second step of normalization (2NF)"
@@ -19357,7 +19350,7 @@ msgstr "Defragmentuoti lentelę"
 #: templates/table/operations/index.twig:350
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Lentelės buferis  %s išvalytas."
+msgstr "Lentelės buferis %s išvalytas."
 
 #: templates/table/operations/index.twig:354
 msgid "Flush the table (FLUSH)"
