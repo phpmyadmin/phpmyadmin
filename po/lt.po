@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-09-21 15:40+0000\n"
+"PO-Revision-Date: 2020-09-22 02:59+0000\n"
 "Last-Translator: Kornelijus Tvarijanavičius <kornelitvari@protonmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/lt/>\n"
@@ -2109,16 +2109,12 @@ msgid "Add primary key"
 msgstr "Pridėti pirminį raktą"
 
 #: js/messages.php:447
-#, fuzzy
-#| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "Stulpeliui %s sukurtas PIRMINIS raktas."
+msgstr "Pridėtas pirminis raktas."
 
 #: js/messages.php:448 libraries/classes/Normalization.php:242
-#, fuzzy
-#| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "Sekimo ataskaita"
+msgstr "Perkeliame jus į sekantį žingsnį…"
 
 #: js/messages.php:450
 #, php-format
@@ -2129,10 +2125,8 @@ msgstr ""
 #: libraries/classes/Normalization.php:557
 #: libraries/classes/Normalization.php:643
 #: libraries/classes/Normalization.php:707
-#, fuzzy
-#| msgid "End of line"
 msgid "End of step"
-msgstr "Eilutės galas"
+msgstr "Žingsnio pabaiga"
 
 #: js/messages.php:452
 msgid "Second step of normalization (2NF)"
@@ -3249,10 +3243,9 @@ msgid "Error"
 msgstr "Klaida"
 
 #: libraries/classes/Advisor.php:259
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Klaida sudarinėjant PDF:"
+msgstr "Klaida vertinant: %s"
 
 #: libraries/classes/Advisor.php:290
 #, php-format
@@ -9860,7 +9853,7 @@ msgstr "Defragmentuoti lentelę"
 #: libraries/classes/Operations.php:1451
 #, php-format
 msgid "Table %s has been flushed."
-msgstr "Lentelės buferis  %s išvalytas."
+msgstr "Lentelės buferis %s išvalytas."
 
 #: libraries/classes/Operations.php:1457
 msgid "Flush the table (FLUSH)"
