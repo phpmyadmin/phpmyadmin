@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-08-07 16:00+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Lithuanian <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-0/lt/>\n"
+"PO-Revision-Date: 2020-09-21 15:40+0000\n"
+"Last-Translator: Kornelijus Tvarijanavičius <kornelitvari@protonmail.com>\n"
+"Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-0/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -124,10 +124,8 @@ msgid "You have to choose at least one column to display!"
 msgstr "Pasirinkite bent vieną stulpelį išvedimui!"
 
 #: db_qbe.php:159 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "užklausa vykdoma"
+msgstr "Daugialentelė užklausa"
 
 #: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
 #, fuzzy
@@ -319,19 +317,19 @@ msgstr "Ištrinti šios lentelės sekimo duomenis?"
 
 #: js/messages.php:58
 msgid "Delete tracking data for these tables?"
-msgstr "Ištrinti ši7 lentelių sekimo duomenis?"
+msgstr "Ištrinti šių lentelių sekimo duomenis?"
 
 #: js/messages.php:60
 msgid "Delete tracking data for this version?"
-msgstr "Ištrinti šios lentelės sekimo duomenis?"
+msgstr "Ištrinti šios versijos sekimo duomenis?"
 
 #: js/messages.php:62
 msgid "Delete tracking data for these versions?"
-msgstr "Ištrinti šios lentelės sekimo duomenis?"
+msgstr "Ištrinti šių versijų sekimo duomenis?"
 
 #: js/messages.php:63
 msgid "Delete entry from tracking report?"
-msgstr "Ištrinti sekimo duomenis iš ataskaitos?"
+msgstr "Ištrinti įrašą iš sekimo ataskaitos?"
 
 #: js/messages.php:64
 msgid "Deleting tracking data"
@@ -1751,7 +1749,7 @@ msgstr "Paieška"
 
 #: js/messages.php:497
 msgid "Column maximum:"
-msgstr "Stulpelių kamsimumas:"
+msgstr "Stulpelių maksimumas:"
 
 #: js/messages.php:498
 msgid "Column minimum:"
@@ -7950,10 +7948,8 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: libraries/classes/Controllers/Table/StructureController.php:294
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No column selected."
-msgstr "Nepasirinkti įrašai"
+msgstr "Nepasirinktas stulpelis."
 
 #: libraries/classes/Controllers/Table/StructureController.php:511
 #, fuzzy
@@ -14358,7 +14354,7 @@ msgstr ""
 #: tbl_replace.php:266
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Eilutė: %1$s, Stulpelis: %2$s, Klaida: %3$s"
 
 #: tbl_row_action.php:76
 #, fuzzy
