@@ -2204,6 +2204,59 @@ class Util
     }
 
     /**
+     * Checks if the current user has a specific procedure privilege and returns true if the
+     * user indeed has that privilege or false if they don't.
+     *
+     * @param string $priv    The privilege to check
+     * @param array  $routine an array containing Routine information. It must have two keys
+     *                        name and type. For example: ['name' => 'MyProcedure',
+     *                                                     'type' => 'PROCEDURE']
+     * @param string $db      db name to which routine belongs
+     *
+     * @example currentUserHasSpecificProcPrivilege(
+     *                             'EXECUTE', ['name' => 'MyProcedure', 'type' => 'PROCEDURE']
+     *  );
+     *  Checks if the currently logged in user has the 'EXECUTE' privilege on 'MyProcedure'
+     */
+    public static function currentUserHasSpecificProcPrivilege(string $priv, array $routine, string $db): bool
+    {
+        global $dbi;
+
+        // Get the username for the current user in the format
+        // required to use in the information schema database.
+        [$user, $host] = $dbi->getCurrentUserAndHost();
+
+        // MySQL is started with --skip-grant-tables
+        if ($user === '') {
+            return true;
+        }
+
+        // Prepare the query
+        $query = 'SELECT 1 FROM `mysql`.`procs_priv`'
+               . " WHERE Host= '%s'"
+               . " AND Db='%s'"
+               . " AND User='%s'"
+               . " AND Routine_name='%s'"
+               . " AND Routine_type='%s'"
+               . " AND Proc_priv LIKE '%s'";
+
+        // Check specific routine privileges.
+        $userPrivileges = $dbi->fetchValue(
+            sprintf(
+                $query,
+                $host,
+                $db,
+                $user,
+                $routine['name'],
+                 $routine['type'],
+                '%' . $priv . '%'// Contain the privilege
+            )
+        );
+
+        return $userPrivileges === '1';
+    }
+
+    /**
      * Checks if the current user has a specific privilege and returns true if the
      * user indeed has that privilege or false if they don't. This function must
      * only be used for features that are available since MySQL 5, because it

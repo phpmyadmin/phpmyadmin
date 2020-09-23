@@ -1801,7 +1801,8 @@ class Routines
             $routine['type'],
             $routine['name']
         );
-        $hasExecutePrivilege = Util::currentUserHasPrivilege('EXECUTE', $db);
+        $hasExecutePrivilege = Util::currentUserHasPrivilege('EXECUTE', $db)
+            || Util::currentUserHasSpecificProcPrivilege('EXECUTE', $routine, $db);
         $executeAction = '';
 
         if ($definition !== null) {
