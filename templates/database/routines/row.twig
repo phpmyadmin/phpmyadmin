@@ -1,4 +1,4 @@
-<tr{% if row_class is not empty %} class="{{ row_class }}"{% endif %}>
+<tr{% if row_class is not empty %} class="{{ row_class }}"{% endif %} data-filter-row="{{ routine.name|upper }}">
   <td>
     <input type="checkbox" class="checkall" name="item_name[]" value="{{ routine.name }}">
   </td>
