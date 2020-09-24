@@ -193,13 +193,12 @@ AJAX.registerOnload('database/central_columns.js', function () {
     $('#table-select').on('change', function () {
         var selectValue = $(this).val();
         var defaultColumnSelect = $('#column-select').find('option').first();
-        var href = 'index.php?route=/database/central-columns';
+        var href = 'index.php?route=/database/central-columns/populate';
         var params = {
             'ajax_request' : true,
             'server' : CommonParams.get('server'),
             'db' : CommonParams.get('db'),
-            'selectedTable' : selectValue,
-            'populateColumns' : true
+            'selectedTable' : selectValue
         };
         $('#column-select').html('<option value="">' + Messages.strLoading + '</option>');
         if (selectValue !== '') {

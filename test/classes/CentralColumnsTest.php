@@ -596,21 +596,10 @@ class CentralColumnsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for getHtmlForColumnDropdown
-     */
-    public function testGetHtmlForColumnDropdown(): void
+    public function testGetColumnsNotInCentralList(): void
     {
-        $db = 'PMA_db';
-        $selected_tbl = 'PMA_table';
-        $result = $this->centralColumns->getHtmlForColumnDropdown(
-            $db,
-            $selected_tbl
-        );
-        $this->assertEquals(
-            '<option value="id">id</option><option value="col1">col1</option>'
-            . '<option value="col2">col2</option>',
-            $result
-        );
+        $columns = $this->centralColumns->getColumnsNotInCentralList('PMA_db', 'PMA_table');
+        $this->assertIsArray($columns);
+        $this->assertEquals(['id', 'col1', 'col2'], $columns);
     }
 }

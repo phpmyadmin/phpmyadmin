@@ -69,13 +69,6 @@ class CentralColumnsController extends AbstractController
                 'collation' => $_POST['collation'] ?? null,
             ]);
         }
-        if (isset($_POST['populateColumns'])) {
-            $this->response->addHTML($this->populateColumns([
-                'selectedTable' => $_POST['selectedTable'],
-            ]));
-
-            return;
-        }
         if (isset($_POST['getColumnList'])) {
             $this->response->addJSON('message', $this->getColumnList([
                 'cur_table' => $_POST['cur_table'] ?? null,
@@ -198,17 +191,10 @@ class CentralColumnsController extends AbstractController
         );
     }
 
-    /**
-     * @param array $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function populateColumns(array $params): string
+    public function populateColumns(): void
     {
-        return $this->centralColumns->getHtmlForColumnDropdown(
-            $this->db,
-            $params['selectedTable']
-        );
+        $columns = $this->centralColumns->getColumnsNotInCentralList($this->db, $_POST['selectedTable']);
+        $this->render('database/central_columns/populate_columns', ['columns' => $columns]);
     }
 
     /**

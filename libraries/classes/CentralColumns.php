@@ -936,34 +936,24 @@ class CentralColumns
     }
 
     /**
-     * build dropdown select html to select column in selected table,
-     * include only columns which are not already in central list
-     *
-     * @param string $db           current database to which selected table belongs
-     * @param string $selected_tbl selected table
-     *
-     * @return string html to select column
+     * @return string[]
      */
-    public function getHtmlForColumnDropdown($db, $selected_tbl)
+    public function getColumnsNotInCentralList(string $db, string $table): array
     {
-        $existing_cols = $this->getFromTable($db, $selected_tbl);
+        $existingColumns = $this->getFromTable($db, $table);
         $this->dbi->selectDb($db);
-        $columns = (array) $this->dbi->getColumnNames(
-            $db,
-            $selected_tbl
-        );
-        $selectColHtml = '';
-        foreach ($columns as $column) {
-            if (in_array($column, $existing_cols)) {
+        $columnNames = (array) $this->dbi->getColumnNames($db, $table);
+        $columns = [];
+
+        foreach ($columnNames as $column) {
+            if (in_array($column, $existingColumns)) {
                 continue;
             }
 
-            $selectColHtml .= '<option value="' . htmlspecialchars($column) . '">'
-                . htmlspecialchars($column)
-                . '</option>';
+            $columns[] = $column;
         }
 
-        return $selectColHtml;
+        return $columns;
     }
 
     /**
