@@ -9,13 +9,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Types;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use function array_slice;
-use function ceil;
 
 /**
  * tests for PhpMyAdmin\CentralColumns
@@ -566,89 +562,6 @@ class CentralColumnsTest extends AbstractTestCase
                 'table1'
             )
         );
-    }
-
-    /**
-     * Test for getHtmlForMain
-     */
-    public function testGetHtmlForMain(): void
-    {
-        $db = 'phpmyadmin';
-        $total_rows = 50;
-        $pos = 26;
-        $themeImagePath = 'themeImagePath';
-        $text_dir = 'text_dir';
-        $max_rows = (int) $GLOBALS['cfg']['MaxRows'];
-        // test for not empty table
-        $result = $this->centralColumns->getHtmlForMain(
-            $db,
-            $total_rows,
-            $pos,
-            $themeImagePath,
-            $text_dir
-        );
-        $this->assertStringContainsString(
-            '<form action="index.php?route=/database/central-columns',
-            $result
-        );
-        $this->assertStringContainsString(
-            '" method="post">',
-            $result
-        );
-        $this->assertStringContainsString(
-            Url::getHiddenInputs(
-                'phpmyadmin'
-            ),
-            $result
-        );
-        $this->assertStringContainsString(
-            '<input class="btn btn-secondary ajax" type="submit" name="navig" value="&lt">',
-            $result
-        );
-        $this->assertStringContainsString(
-            Util::pageselector(
-                'pos',
-                $max_rows,
-                ($pos / $max_rows) + 1,
-                (int) ceil($total_rows / $max_rows)
-            ),
-            $result
-        );
-        $this->assertStringContainsString('<span>+', $result);
-        $this->assertStringContainsString('class="new_central_col hide"', $result);
-        $this->assertStringContainsString(__('Filter rows') . ':', $result);
-        $this->assertStringContainsString(__('Add column'), $result);
-        $this->assertStringContainsString(__('Click to sort.'), $result);
-        $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
-        $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
-        $editSelectedButton = '            <button class="btn btn-link mult_submit change_central_columns"'
-            . ' type="submit" name="edit_central_columns"' . "\n"
-            . '                    value="edit central columns" title="' . __('Edit') . '">' . "\n"
-            . '                ' . Generator::getIcon('b_edit', __('Edit')) . "\n"
-            . '            </button>' . "\n";
-
-        $deleteSelectedButton = '            <button class="btn btn-link mult_submit" type="submit"'
-            . ' name="delete_central_columns"' . "\n"
-            . '                    value="remove_from_central_columns" title="' . __('Delete') . '">' . "\n"
-            . '                ' . Generator::getIcon('b_drop', __('Delete')) . "\n"
-            . '            </button>' . "\n";
-
-        $this->assertStringContainsString($editSelectedButton, $result);
-        $this->assertStringContainsString($deleteSelectedButton, $result);
-        // test for empty table
-        $total_rows = 0;
-        $result = $this->centralColumns->getHtmlForMain(
-            $db,
-            $total_rows,
-            $pos,
-            $themeImagePath,
-            $text_dir
-        );
-        $this->assertStringContainsString('<span>-', $result);
-        $this->assertStringContainsString('class="new_central_col"', $result);
-        $this->assertStringContainsString(__('Add column'), $result);
-        $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
-        $this->assertStringContainsString(__('The central list of columns for the current database is empty'), $result);
     }
 
     /**

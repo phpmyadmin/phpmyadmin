@@ -967,7 +967,7 @@ class CentralColumns
     }
 
     /**
-     * build html for adding a new user defined column to central list
+     * Adding a new user defined column to central list
      *
      * @param string $db             current database
      * @param int    $total_rows     number of rows in central columns
@@ -975,16 +975,15 @@ class CentralColumns
      * @param string $themeImagePath table footer theme image directorie
      * @param string $text_dir       table footer arrow direction
      *
-     * @return string html of the form to let user add a new user defined column to the
-     *                list
+     * @return array
      */
-    public function getHtmlForMain(
+    public function getTemplateVariablesForMain(
         string $db,
         int $total_rows,
         int $pos,
         string $themeImagePath,
         string $text_dir
-    ): string {
+    ): array {
         $max_rows = $this->maxRows;
         $attribute_types = $this->dbi->types->getAttributes();
 
@@ -1053,7 +1052,7 @@ class CentralColumns
             ];
         }
 
-        return $this->template->render('database/central_columns/main', [
+        return [
             'db' => $db,
             'total_rows' => $total_rows,
             'max_rows' => $max_rows,
@@ -1070,6 +1069,6 @@ class CentralColumns
             'theme_image_path' => $themeImagePath,
             'text_dir' => $text_dir,
             'charsets' => $charsetsList,
-        ]);
+        ];
     }
 }

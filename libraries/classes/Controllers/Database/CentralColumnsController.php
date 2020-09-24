@@ -130,10 +130,10 @@ class CentralColumnsController extends AbstractController
             ]);
         }
 
-        $this->response->addHTML($this->main([
+        $this->main([
             'pos' => $_POST['pos'] ?? null,
             'total_rows' => $_POST['total_rows'] ?? null,
-        ]));
+        ]);
 
         $pos = 0;
         if (Core::isValid($_POST['pos'], 'integer')) {
@@ -156,10 +156,8 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return string HTML
      */
-    public function main(array $params): string
+    public function main(array $params): void
     {
         global $text_dir, $PMA_Theme;
 
@@ -176,13 +174,15 @@ class CentralColumnsController extends AbstractController
             $pos = (int) $params['pos'];
         }
 
-        return $this->centralColumns->getHtmlForMain(
+        $variables = $this->centralColumns->getTemplateVariablesForMain(
             $this->db,
             $totalRows,
             $pos,
             $PMA_Theme->getImgPath(),
             $text_dir
         );
+
+        $this->render('database/central_columns/main', $variables);
     }
 
     /**
