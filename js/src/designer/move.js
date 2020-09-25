@@ -579,7 +579,8 @@ DesignerMove.addTableToTablesList = function (index, tableDom) {
         $(this).attr('title', function (i, currentvalue) {
             return currentvalue === Messages.strHide ? Messages.strShow : Messages.strHide;
         });
-        DesignerMove.visibleTab(this, 'designer_table_' + $(this).val());
+        var tableName = $(this).val().replace('check_visible_','');
+        DesignerMove.visibleTab(this, 'designer_table_' + tableName);
     });
     var $tablesCounter = $('#tables_counter');
     $tablesCounter.text(parseInt($tablesCounter.text(), 10) + 1);
