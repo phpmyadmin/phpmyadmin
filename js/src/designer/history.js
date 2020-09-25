@@ -175,47 +175,34 @@ DesignerHistory.historyDelete = function (index) {
  *
 **/
 
+function changeStyle (type) {
+    var id = 'query_' + type;
+    document.getElementById(id).style.left =  '530px';
+    document.getElementById(id).style.top  = '130px';
+    document.getElementById(id).style.position  = 'absolute';
+    document.getElementById(id).style.zIndex = '103';
+    document.getElementById(id).style.visibility = 'visible';
+    document.getElementById(id).style.display = 'block';
+}
+
 DesignerHistory.historyEdit = function (index) {
     gIndex = index;
     var type = historyArray[index].getType();
     if (type === 'Where') {
         document.getElementById('eQuery').value = historyArray[index].getObj().getQuery();
         document.getElementById('erel_opt').value = historyArray[index].getObj().getRelationOperator();
-        document.getElementById('query_where').style.left =  '530px';
-        document.getElementById('query_where').style.top  = '130px';
-        document.getElementById('query_where').style.position  = 'absolute';
-        document.getElementById('query_where').style.zIndex = '103';
-        document.getElementById('query_where').style.visibility = 'visible';
-        document.getElementById('query_where').style.display = 'block';
-    }
-    if (type === 'Having') {
+        changeStyle('where');
+    } else if (type === 'Having') {
         document.getElementById('hQuery').value = historyArray[index].getObj().getQuery();
         document.getElementById('hrel_opt').value = historyArray[index].getObj().getRelationOperator();
         document.getElementById('hoperator').value = historyArray[index].getObj().getOperator();
-        document.getElementById('query_having').style.left =  '530px';
-        document.getElementById('query_having').style.top  = '130px';
-        document.getElementById('query_having').style.position  = 'absolute';
-        document.getElementById('query_having').style.zIndex = '103';
-        document.getElementById('query_having').style.visibility = 'visible';
-        document.getElementById('query_having').style.display = 'block';
-    }
-    if (type === 'Rename') {
+        changeStyle('having');
+    } else if (type === 'Rename') {
         document.getElementById('e_rename').value = historyArray[index].getObj().getRenameTo();
-        document.getElementById('query_rename_to').style.left =  '530px';
-        document.getElementById('query_rename_to').style.top  = '130px';
-        document.getElementById('query_rename_to').style.position  = 'absolute';
-        document.getElementById('query_rename_to').style.zIndex = '103';
-        document.getElementById('query_rename_to').style.visibility = 'visible';
-        document.getElementById('query_rename_to').style.display = 'block';
-    }
-    if (type === 'Aggregate') {
+        changeStyle('rename_to');
+    } else if (type === 'Aggregate') {
         document.getElementById('e_operator').value = historyArray[index].getObj().getOperator();
-        document.getElementById('query_Aggregate').style.left = '530px';
-        document.getElementById('query_Aggregate').style.top  = '130px';
-        document.getElementById('query_Aggregate').style.position  = 'absolute';
-        document.getElementById('query_Aggregate').style.zIndex = '103';
-        document.getElementById('query_Aggregate').style.visibility = 'visible';
-        document.getElementById('query_Aggregate').style.display = 'block';
+        changeStyle('Aggregate');
     }
 };
 
