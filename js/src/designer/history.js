@@ -674,16 +674,18 @@ DesignerHistory.queryFrom = function () {
                 for (key2 in contr[K][key]) {// table name
                     parts = key2.split('.');
                     if (DesignerHistory.found(a, parts[1]) > 0) {
-                        for (key3 in contr[K][key][key2]) {
-                            parts1 = contr[K][key][key2][key3][0].split('.');
+                        var contrKey2 = contr[K][key][key2];
+                        for (key3 in contrKey2) {
+                            var contrKey3 = contrKey2[key3];
+                            parts1 = contrKey3[0].split('.');
                             if (DesignerHistory.found(b, parts1[1]) > 0) {
                                 if (DesignerHistory.found(constraintsAdded, key) > 0) {
                                     query += ' AND ' + '`' + parts[1] + '`.`' + key3 + '` = ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` ';
+                                    query += '`' + parts1[1] + '`.`' + contrKey3[1] + '` ';
                                 } else {
                                     query += '\n' + 'LEFT JOIN ';
                                     query += '`' + parts[1] + '` ON ';
-                                    query += '`' + parts1[1] + '`.`' + contr[K][key][key2][key3][1] + '` = ';
+                                    query += '`' + parts1[1] + '`.`' + contrKey3[1] + '` = ';
                                     query += '`' + parts[1] + '`.`' + key3 + '` ';
                                     constraintsAdded.push(key);
                                 }
