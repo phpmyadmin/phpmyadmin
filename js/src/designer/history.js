@@ -445,7 +445,7 @@ DesignerHistory.unique = function (arrayName) {
                 continue uniquetop;
             }
         }
-        newArray[newArrayLength] = arrayName[i];
+        newArray.append(arrayName[i]);
     }
     return newArray;
 };
