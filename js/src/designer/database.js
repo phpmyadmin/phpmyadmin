@@ -16,6 +16,23 @@ var DesignerOfflineDB = (function () {
     var designerDB = {};
     var datastore = null;
 
+    function getTransaction (table) {
+        return datastore.transaction([table], 'readwrite');
+    }
+
+    function getObjStore (table) {
+        var transaction = getTransaction(table);
+        var objStore = transaction.objectStore(table);
+        return objStore;
+    }
+
+    function getCursorRequest (transaction, table) {
+        var objStore = transaction.objectStore(table);
+        var keyRange = IDBKeyRange.lowerBound(0);
+        var cursorRequest = objStore.openCursor(keyRange);
+        return cursorRequest;
+    }
+
     designerDB.open = function (callback) {
         var version = 1;
         var request = window.indexedDB.open('pma_designer', version);
@@ -50,9 +67,7 @@ var DesignerOfflineDB = (function () {
     };
 
     designerDB.loadObject = function (table, id, callback) {
-        var db = datastore;
-        var transaction = db.transaction([table], 'readwrite');
-        var objStore = transaction.objectStore(table);
+        var objStore = getObjStore(table);
         var cursorRequest = objStore.get(parseInt(id));
 
         cursorRequest.onsuccess = function (e) {
@@ -63,11 +78,8 @@ var DesignerOfflineDB = (function () {
     };
 
     designerDB.loadAllObjects = function (table, callback) {
-        var db = datastore;
-        var transaction = db.transaction([table], 'readwrite');
-        var objStore = transaction.objectStore(table);
-        var keyRange = IDBKeyRange.lowerBound(0);
-        var cursorRequest = objStore.openCursor(keyRange);
+        var transaction = getTransaction(table);
+        var cursorRequest = getCursorRequest(transaction, table);
         var results = [];
 
         transaction.oncomplete = function () {
@@ -87,11 +99,8 @@ var DesignerOfflineDB = (function () {
     };
 
     designerDB.loadFirstObject = function (table, callback) {
-        var db = datastore;
-        var transaction = db.transaction([table], 'readwrite');
-        var objStore = transaction.objectStore(table);
-        var keyRange = IDBKeyRange.lowerBound(0);
-        var cursorRequest = objStore.openCursor(keyRange);
+        var transaction = getTransaction(table);
+        var cursorRequest = getCursorRequest(transaction, table);
         var firstResult = null;
 
         transaction.oncomplete = function () {
@@ -110,9 +119,7 @@ var DesignerOfflineDB = (function () {
     };
 
     designerDB.addObject = function (table, obj, callback) {
-        var db = datastore;
-        var transaction = db.transaction([table], 'readwrite');
-        var objStore = transaction.objectStore(table);
+        var objStore = getObjStore(table);
         var request = objStore.put(obj);
 
         request.onsuccess = function (e) {
@@ -125,9 +132,7 @@ var DesignerOfflineDB = (function () {
     };
 
     designerDB.deleteObject = function (table, id, callback) {
-        var db = datastore;
-        var transaction = db.transaction([table], 'readwrite');
-        var objStore = transaction.objectStore(table);
+        var objStore = getObjStore(table);
         var request = objStore.delete(parseInt(id));
 
         request.onsuccess = function () {
