@@ -9,13 +9,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Types;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use function array_slice;
-use function ceil;
 
 /**
  * tests for PhpMyAdmin\CentralColumns
@@ -491,29 +487,6 @@ class CentralColumnsTest extends AbstractTestCase
             ],
             'phpmyadmin'
         );
-        $this->assertStringContainsString(
-            '<form',
-            $result
-        );
-        $header_cells = [
-            __('Name'),
-            __('Type'),
-            __('Length/Values'),
-            __('Default'),
-            __('Collation'),
-            __('Attributes'),
-            __('Null'),
-            __('A_I'),
-        ];
-        $this->assertStringContainsString(
-            $this->callFunction(
-                $this->centralColumns,
-                CentralColumns::class,
-                'getEditTableHeader',
-                [$header_cells]
-            ),
-            $result
-        );
         $list_detail_cols = $this->callFunction(
             $this->centralColumns,
             CentralColumns::class,
@@ -534,10 +507,6 @@ class CentralColumnsTest extends AbstractTestCase
                     0,
                 ]
             ),
-            $result
-        );
-        $this->assertStringContainsString(
-            $this->callFunction($this->centralColumns, CentralColumns::class, 'getEditTableFooter', []),
             $result
         );
     }
@@ -596,100 +565,6 @@ class CentralColumnsTest extends AbstractTestCase
     }
 
     /**
-     * Test for getHtmlForMain
-     */
-    public function testGetHtmlForMain(): void
-    {
-        $db = 'phpmyadmin';
-        $total_rows = 50;
-        $pos = 26;
-        $themeImagePath = 'themeImagePath';
-        $text_dir = 'text_dir';
-        $max_rows = (int) $GLOBALS['cfg']['MaxRows'];
-        // test for not empty table
-        $result = $this->centralColumns->getHtmlForMain(
-            $db,
-            $total_rows,
-            $pos,
-            $themeImagePath,
-            $text_dir
-        );
-        $this->assertStringContainsString(
-            '<form action="index.php?route=/database/central-columns',
-            $result
-        );
-        $this->assertStringContainsString(
-            '" method="post">',
-            $result
-        );
-        $this->assertStringContainsString(
-            Url::getHiddenInputs(
-                'phpmyadmin'
-            ),
-            $result
-        );
-        $this->assertStringContainsString(
-            '<input class="btn btn-secondary ajax" type="submit" name="navig" value="&lt">',
-            $result
-        );
-        $this->assertStringContainsString(
-            Util::pageselector(
-                'pos',
-                $max_rows,
-                ($pos / $max_rows) + 1,
-                (int) ceil($total_rows / $max_rows)
-            ),
-            $result
-        );
-        $this->assertStringContainsString('<span>+', $result);
-        $this->assertStringContainsString('class="new_central_col hide"', $result);
-        $this->assertStringContainsString(__('Filter rows') . ':', $result);
-        $this->assertStringContainsString(__('Add column'), $result);
-        $this->assertStringContainsString(__('Click to sort.'), $result);
-        $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
-        $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
-        $editSelectedButton = '            <button class="btn btn-link mult_submit change_central_columns"'
-            . ' type="submit" name="edit_central_columns"' . "\n"
-            . '                    value="edit central columns" title="' . __('Edit') . '">' . "\n"
-            . '                ' . Generator::getIcon('b_edit', __('Edit')) . "\n"
-            . '            </button>' . "\n";
-
-        $deleteSelectedButton = '            <button class="btn btn-link mult_submit" type="submit"'
-            . ' name="delete_central_columns"' . "\n"
-            . '                    value="remove_from_central_columns" title="' . __('Delete') . '">' . "\n"
-            . '                ' . Generator::getIcon('b_drop', __('Delete')) . "\n"
-            . '            </button>' . "\n";
-
-        $this->assertStringContainsString($editSelectedButton, $result);
-        $this->assertStringContainsString($deleteSelectedButton, $result);
-        // test for empty table
-        $total_rows = 0;
-        $result = $this->centralColumns->getHtmlForMain(
-            $db,
-            $total_rows,
-            $pos,
-            $themeImagePath,
-            $text_dir
-        );
-        $this->assertStringContainsString('<span>-', $result);
-        $this->assertStringContainsString('class="new_central_col"', $result);
-        $this->assertStringContainsString(__('Add column'), $result);
-        $this->assertStringContainsString(Url::getHiddenInputs($db), $result);
-        $this->assertStringContainsString(__('The central list of columns for the current database is empty'), $result);
-    }
-
-    /**
-     * Test for configErrorMessage
-     */
-    public function testConfigErrorMessage(): void
-    {
-        $this->assertInstanceOf(
-            Message::class,
-            $this->callFunction($this->centralColumns, CentralColumns::class, 'configErrorMessage', [])
-        );
-    }
-
-    /**
      * Test for findExistingColNames
      */
     public function testFindExistingColNames(): void
@@ -721,40 +596,10 @@ class CentralColumnsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for getTableFooter
-     */
-    public function testGetTableFooter(): void
+    public function testGetColumnsNotInCentralList(): void
     {
-        $themeImagePath = 'themeImagePath';
-        $text_dir = 'text_dir';
-        $result = $this->centralColumns->getTableFooter($themeImagePath, $text_dir);
-        $this->assertStringContainsString(
-            '<input type="checkbox" id="tableslistcontainer_checkall" class="checkall_box"',
-            $result
-        );
-        $this->assertStringContainsString('With selected:', $result);
-        $this->assertStringContainsString(
-            '<button class="btn btn-link mult_submit change_central_columns"',
-            $result
-        );
-    }
-
-    /**
-     * Test for getHtmlForColumnDropdown
-     */
-    public function testGetHtmlForColumnDropdown(): void
-    {
-        $db = 'PMA_db';
-        $selected_tbl = 'PMA_table';
-        $result = $this->centralColumns->getHtmlForColumnDropdown(
-            $db,
-            $selected_tbl
-        );
-        $this->assertEquals(
-            '<option value="id">id</option><option value="col1">col1</option>'
-            . '<option value="col2">col2</option>',
-            $result
-        );
+        $columns = $this->centralColumns->getColumnsNotInCentralList('PMA_db', 'PMA_table');
+        $this->assertIsArray($columns);
+        $this->assertEquals(['id', 'col1', 'col2'], $columns);
     }
 }

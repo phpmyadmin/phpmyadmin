@@ -118,7 +118,10 @@ return static function (RouteCollector $routes): void {
     $routes->get('/changelog', [ChangeLogController::class, 'index']);
     $routes->addRoute(['GET', 'POST'], '/check-relations', [CheckRelationsController::class, 'index']);
     $routes->addGroup('/database', static function (RouteCollector $routes): void {
-        $routes->addRoute(['GET', 'POST'], '/central-columns', [CentralColumnsController::class, 'index']);
+        $routes->addGroup('/central-columns', static function (RouteCollector $routes): void {
+            $routes->addRoute(['GET', 'POST'], '', [CentralColumnsController::class, 'index']);
+            $routes->post('/populate', [CentralColumnsController::class, 'populateColumns']);
+        });
         $routes->get('/data-dictionary', [DataDictionaryController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/designer', [DesignerController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/events', [EventsController::class, 'index']);

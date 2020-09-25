@@ -9,7 +9,6 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
-use PhpMyAdmin\Html\Generator;
 use function array_unique;
 use function bin2hex;
 use function ceil;
@@ -236,20 +235,6 @@ class CentralColumns
     }
 
     /**
-     * return error message to be displayed if central columns
-     * configuration storage is not completely configured
-     */
-    private function configErrorMessage(): Message
-    {
-        return Message::error(
-            __(
-                'The configuration storage is not ready for the central list'
-                . ' of columns feature.'
-            )
-        );
-    }
-
-    /**
      * build the insert query for central columns list given PMA storage
      * db, central_columns table, column name and corresponding definition to be added
      *
@@ -316,7 +301,9 @@ class CentralColumns
     ) {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
-            return $this->configErrorMessage();
+            return Message::error(
+                __('The configuration storage is not ready for the central list of columns feature.')
+            );
         }
         $db = $_POST['db'];
         $pmadb = $cfgCentralColumns['db'];
@@ -438,7 +425,9 @@ class CentralColumns
     ) {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
-            return $this->configErrorMessage();
+            return Message::error(
+                __('The configuration storage is not ready for the central list of columns feature.')
+            );
         }
         $pmadb = $cfgCentralColumns['db'];
         $central_list_table = $cfgCentralColumns['table'];
@@ -659,7 +648,9 @@ class CentralColumns
     ) {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
-            return $this->configErrorMessage();
+            return Message::error(
+                __('The configuration storage is not ready for the central list of columns feature.')
+            );
         }
         $centralTable = $cfgCentralColumns['table'];
         $this->dbi->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
@@ -739,19 +730,6 @@ class CentralColumns
         }
 
         return true;
-    }
-
-    /**
-     * Function generate and return the table header for
-     * multiple edit central columns page
-     *
-     * @param array $headers headers list
-     *
-     * @return string html for table header in central columns multi edit page
-     */
-    private function getEditTableHeader(array $headers): string
-    {
-        return $this->template->render('database/central_columns/edit_table_header', ['headers' => $headers]);
     }
 
     /**
@@ -858,49 +836,6 @@ class CentralColumns
     }
 
     /**
-     * Get HTML for "check all" check box with "with selected" dropdown
-     *
-     * @param string $themeImagePath pma theme image url
-     * @param string $text_dir       url for text directory
-     */
-    public function getTableFooter(string $themeImagePath, string $text_dir): string
-    {
-        $html_output = $this->template->render('select_all', [
-            'theme_image_path' => $themeImagePath,
-            'text_dir' => $text_dir,
-            'form_name' => 'tableslistcontainer',
-        ]);
-
-        $html_output .= '<button class="btn btn-link mult_submit change_central_columns" type="submit"'
-            . ' name="edit_central_columns" value="edit central columns"'
-            . ' title="' . __('Edit') . '">' . "\n"
-            . Generator::getIcon('b_edit', __('Edit'))
-            . '</button>' . "\n";
-
-        $html_output .= '<button class="btn btn-link mult_submit" type="submit"'
-            . ' name="delete_central_columns" value="remove_from_central_columns"'
-            . ' title="' . __('Delete') . '">' . "\n"
-            . Generator::getIcon('b_drop', __('Delete'))
-            . '</button>' . "\n";
-
-        return $html_output;
-    }
-
-    /**
-     * function generate and return the table footer for
-     * multiple edit central columns page
-     *
-     * @return string html for table footer in central columns multi edit page
-     */
-    private function getEditTableFooter(): string
-    {
-        return '<fieldset class="tblFooters">'
-            . '<input class="btn btn-primary" type="submit" '
-            . 'name="save_multi_central_column_edit" value="' . __('Save') . '">'
-            . '</fieldset>';
-    }
-
-    /**
      * Column `col_extra` is used to store both extra and attributes for a column.
      * This method separates them.
      *
@@ -941,18 +876,7 @@ class CentralColumns
      */
     public function getHtmlForEditingPage(array $selected_fld, string $selected_db): string
     {
-        $html = '<form id="multi_edit_central_columns">';
-        $header_cells = [
-            __('Name'),
-            __('Type'),
-            __('Length/Values'),
-            __('Default'),
-            __('Collation'),
-            __('Attributes'),
-            __('Null'),
-            __('A_I'),
-        ];
-        $html .= $this->getEditTableHeader($header_cells);
+        $html = '';
         $selected_fld_safe = [];
         foreach ($selected_fld as $key) {
             $selected_fld_safe[] = $this->dbi->escapeString($key);
@@ -969,9 +893,6 @@ class CentralColumns
             $html .= $tableHtmlRow;
             $row_num++;
         }
-        $html .= '</table>';
-        $html .= $this->getEditTableFooter();
-        $html .= '</form>';
 
         return $html;
     }
@@ -1015,38 +936,28 @@ class CentralColumns
     }
 
     /**
-     * build dropdown select html to select column in selected table,
-     * include only columns which are not already in central list
-     *
-     * @param string $db           current database to which selected table belongs
-     * @param string $selected_tbl selected table
-     *
-     * @return string html to select column
+     * @return string[]
      */
-    public function getHtmlForColumnDropdown($db, $selected_tbl)
+    public function getColumnsNotInCentralList(string $db, string $table): array
     {
-        $existing_cols = $this->getFromTable($db, $selected_tbl);
+        $existingColumns = $this->getFromTable($db, $table);
         $this->dbi->selectDb($db);
-        $columns = (array) $this->dbi->getColumnNames(
-            $db,
-            $selected_tbl
-        );
-        $selectColHtml = '';
-        foreach ($columns as $column) {
-            if (in_array($column, $existing_cols)) {
+        $columnNames = (array) $this->dbi->getColumnNames($db, $table);
+        $columns = [];
+
+        foreach ($columnNames as $column) {
+            if (in_array($column, $existingColumns)) {
                 continue;
             }
 
-            $selectColHtml .= '<option value="' . htmlspecialchars($column) . '">'
-                . htmlspecialchars($column)
-                . '</option>';
+            $columns[] = $column;
         }
 
-        return $selectColHtml;
+        return $columns;
     }
 
     /**
-     * build html for adding a new user defined column to central list
+     * Adding a new user defined column to central list
      *
      * @param string $db             current database
      * @param int    $total_rows     number of rows in central columns
@@ -1054,16 +965,15 @@ class CentralColumns
      * @param string $themeImagePath table footer theme image directorie
      * @param string $text_dir       table footer arrow direction
      *
-     * @return string html of the form to let user add a new user defined column to the
-     *                list
+     * @return array
      */
-    public function getHtmlForMain(
+    public function getTemplateVariablesForMain(
         string $db,
         int $total_rows,
         int $pos,
         string $themeImagePath,
         string $text_dir
-    ): string {
+    ): array {
         $max_rows = $this->maxRows;
         $attribute_types = $this->dbi->types->getAttributes();
 
@@ -1132,7 +1042,7 @@ class CentralColumns
             ];
         }
 
-        return $this->template->render('database/central_columns/main', [
+        return [
             'db' => $db,
             'total_rows' => $total_rows,
             'max_rows' => $max_rows,
@@ -1149,6 +1059,6 @@ class CentralColumns
             'theme_image_path' => $themeImagePath,
             'text_dir' => $text_dir,
             'charsets' => $charsetsList,
-        ]);
+        ];
     }
 }

@@ -69,13 +69,6 @@ class CentralColumnsController extends AbstractController
                 'collation' => $_POST['collation'] ?? null,
             ]);
         }
-        if (isset($_POST['populateColumns'])) {
-            $this->response->addHTML($this->populateColumns([
-                'selectedTable' => $_POST['selectedTable'],
-            ]));
-
-            return;
-        }
         if (isset($_POST['getColumnList'])) {
             $this->response->addJSON('message', $this->getColumnList([
                 'cur_table' => $_POST['cur_table'] ?? null,
@@ -97,10 +90,10 @@ class CentralColumnsController extends AbstractController
         ]);
 
         if (isset($_POST['edit_central_columns_page'])) {
-            $this->response->addHTML($this->editPage([
+            $this->editPage([
                 'selected_fld' => $_POST['selected_fld'] ?? null,
                 'db' => $_POST['db'] ?? null,
-            ]));
+            ]);
 
             return;
         }
@@ -130,10 +123,10 @@ class CentralColumnsController extends AbstractController
             ]);
         }
 
-        $this->response->addHTML($this->main([
+        $this->main([
             'pos' => $_POST['pos'] ?? null,
             'total_rows' => $_POST['total_rows'] ?? null,
-        ]));
+        ]);
 
         $pos = 0;
         if (Core::isValid($_POST['pos'], 'integer')) {
@@ -156,10 +149,8 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return string HTML
      */
-    public function main(array $params): string
+    public function main(array $params): void
     {
         global $text_dir, $PMA_Theme;
 
@@ -176,13 +167,15 @@ class CentralColumnsController extends AbstractController
             $pos = (int) $params['pos'];
         }
 
-        return $this->centralColumns->getHtmlForMain(
+        $variables = $this->centralColumns->getTemplateVariablesForMain(
             $this->db,
             $totalRows,
             $pos,
             $PMA_Theme->getImgPath(),
             $text_dir
         );
+
+        $this->render('database/central_columns/main', $variables);
     }
 
     /**
@@ -198,17 +191,10 @@ class CentralColumnsController extends AbstractController
         );
     }
 
-    /**
-     * @param array $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function populateColumns(array $params): string
+    public function populateColumns(): void
     {
-        return $this->centralColumns->getHtmlForColumnDropdown(
-            $this->db,
-            $params['selectedTable']
-        );
+        $columns = $this->centralColumns->getColumnsNotInCentralList($this->db, $_POST['selectedTable']);
+        $this->render('database/central_columns/populate_columns', ['columns' => $columns]);
     }
 
     /**
@@ -279,15 +265,15 @@ class CentralColumnsController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     *
-     * @return string HTML
      */
-    public function editPage(array $params): string
+    public function editPage(array $params): void
     {
-        return $this->centralColumns->getHtmlForEditingPage(
+        $rows = $this->centralColumns->getHtmlForEditingPage(
             $params['selected_fld'],
             $params['db']
         );
+
+        $this->render('database/central_columns/edit', ['rows' => $rows]);
     }
 
     /**
