@@ -1445,6 +1445,8 @@ DesignerMove.smallTab = function (t, reload) {
     } else {
         id.style.display = '';
         idThis.innerHTML = 'v';
+        $('#key_SB_all').removeClass('M_butt_Selected_down');
+        $('#key_SB_all').addClass('M_butt');
     }
     if (reload) {
         DesignerMove.reload();
