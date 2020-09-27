@@ -1395,6 +1395,8 @@ DesignerMove.smallTabAll = function (idThis) {
         icon.alt = '>';
         icon.src = icon.dataset.right;
         valueSent = 'v';
+        $('#key_SB_all').addClass('M_butt_Selected_down');
+        $('#key_SB_all').removeClass('M_butt');
     } else {
         $('.designer_tab .small_tab,.small_tab2').each(function (index, element) {
             if ($(element).text() !== 'v') {
@@ -1404,10 +1406,10 @@ DesignerMove.smallTabAll = function (idThis) {
         icon.alt = 'v';
         icon.src = icon.dataset.down;
         valueSent = '>';
+        $('#key_SB_all').removeClass('M_butt_Selected_down');
+        $('#key_SB_all').addClass('M_butt');
     }
     DesignerMove.saveValueInConfig('small_big_all', valueSent);
-    $('#key_SB_all').toggleClass('M_butt_Selected_down');
-    $('#key_SB_all').toggleClass('M_butt');
     DesignerMove.reload();
 };
 
@@ -1445,6 +1447,8 @@ DesignerMove.smallTab = function (t, reload) {
     } else {
         id.style.display = '';
         idThis.innerHTML = 'v';
+    }
+    if ($('#key_SB_all').hasClass('M_butt_Selected_down')) {
         $('#key_SB_all').removeClass('M_butt_Selected_down');
         $('#key_SB_all').addClass('M_butt');
     }
