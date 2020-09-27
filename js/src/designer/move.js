@@ -591,9 +591,8 @@ DesignerMove.addOtherDbTables = function () {
     buttonOptions[Messages.strGo] = function () {
         var db = $('#add_table_from').val();
         var table = $('#add_table').val();
-
         // Check if table already imported or not.
-        var $table = $('[id="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
+        var $table = $('[table_name="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
         if ($table.length !== 0) {
             Functions.ajaxShowMessage(
                 Functions.sprintf(Messages.strTableAlreadyExists, db + '.' + table),
