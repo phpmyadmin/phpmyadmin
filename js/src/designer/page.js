@@ -26,14 +26,14 @@ DesignerPage.saveToNewPage = function (db, pageName, tablePositions, callback) {
                 if (tablePositions.length === tblCords.length) {
                     page.tblCords = tblCords;
                     DesignerOfflineDB.addObject('pdf_pages', page);
+                    if (typeof callback !== 'undefined') {
+                        callback(page);
+                    }
                 }
             };
             for (var pos = 0; pos < tablePositions.length; pos++) {
                 tablePositions[pos].pdfPgNr = page.pgNr;
                 DesignerPage.saveTablePositions(tablePositions[pos], saveCallback);
-            }
-            if (typeof callback !== 'undefined') {
-                callback(page);
             }
         }
     });
