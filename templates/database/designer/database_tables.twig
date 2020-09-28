@@ -88,7 +88,7 @@
                     db_base64="{{ db_base64 }}"
                     table_name_base64="{{ table_name_base64 }}"
                     col_name_base64="{{ col_name_base64 }}"
-                    is_pk_or_unique="{{ designerColumn.getIsPkOrUnique() ? 0 : 1 }}" >
+                    is_pk_or_unique="{{ designerColumn.getIsPkOrUnique() ? 1 : 0 }}" >
                     {% if has_query %}
                         <td class="select_all">
                             <input class="select_all_store_col"
