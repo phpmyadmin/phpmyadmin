@@ -16,12 +16,19 @@ use function base64_encode;
  */
 class DesignerForeignKey implements JsonSerializable
 {
+    /** @var string */
     private $foreignKeyDatabaseName;
+    /** @var string */
     private $foreignKeyTableName;
+    /** @var string */
     private $foreignKeyColumnName;
+    /** @var string */
     private $foreignKeyName;
+    /** @var string */
     private $sourceDatabaseName;
+    /** @var string */
     private $sourceTableName;
+    /** @var string */
     private $sourceColumnName;
 
     /**
