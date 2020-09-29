@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-09-29 09:42+0000\n"
+"PO-Revision-Date: 2020-09-29 09:44+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "eo/>\n"
@@ -1502,8 +1502,6 @@ msgid "Chart"
 msgstr ""
 
 #: js/messages.php:299 libraries/classes/Display/Export.php:579
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Datumbazo"
@@ -13826,7 +13824,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Select page"
 msgid "Select \"%s\""
-msgstr "Elektu paĝon"
+msgstr "Elektu %s"
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
@@ -14158,10 +14156,9 @@ msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create"
+#, php-format
 msgid "Create %s"
-msgstr "Krei"
+msgstr "Krei %s"
 
 #: templates/database/tracking/tracked_tables.twig:2
 msgid "Tracked tables"
