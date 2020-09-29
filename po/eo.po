@@ -5887,16 +5887,12 @@ msgstr "Datumbazo"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:276
 #: templates/export.twig:185
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabelo"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:277
 #: templates/export.twig:198
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolumno"
