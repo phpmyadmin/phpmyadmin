@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-09-22 14:26+0000\n"
-"Last-Translator: Robin van der Vliet <info@robinvandervliet.nl>\n"
+"PO-Revision-Date: 2020-09-29 09:42+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "eo/>\n"
 "Language: eo\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
-msgstr "Malbona speco!"
+msgstr ""
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -1103,7 +1103,7 @@ msgstr "Alia"
 #: js/messages.php:161 libraries/classes/Util.php:1353
 #: libraries/classes/Util.php:1384
 msgid ","
-msgstr "  "
+msgstr " "
 
 #. l10n: Decimal separator
 #: js/messages.php:163 libraries/classes/Util.php:1351
