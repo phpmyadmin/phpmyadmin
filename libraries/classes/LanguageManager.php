@@ -516,6 +516,13 @@ class LanguageManager
             'pt[-_]br|portuguese (brazil)',
             'pt_BR',
         ],
+        'rcf' => [
+            'rcf',
+            'R&eacute;union Creole',
+            'Kr&eacute;ol',
+            'rcf|creole (reunion)',
+            '',
+        ],
         'ro' => [
             'ro',
             'Romanian',

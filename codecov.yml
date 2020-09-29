@@ -1,3 +1,2 @@
-comment:
-  layout: header, changes, diff
-coverage: {}
+github_checks:
+  annotations: false
