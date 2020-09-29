@@ -1507,15 +1507,11 @@ msgid "Database"
 msgstr "Datumbazo"
 
 #: js/messages.php:300 libraries/classes/Display/Export.php:591
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabelo"
 
 #: js/messages.php:301 libraries/classes/Display/Export.php:602
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolumno"
