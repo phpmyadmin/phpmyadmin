@@ -959,15 +959,11 @@ msgid "Database"
 msgstr "Datumbazo"
 
 #: js/messages.php:304 libraries/classes/Display/Export.php:603
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabelo"
 
 #: js/messages.php:305 libraries/classes/Display/Export.php:614
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolumno"
