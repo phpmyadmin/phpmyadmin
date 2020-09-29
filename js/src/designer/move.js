@@ -347,7 +347,7 @@ DesignerMove.reload = function () {
         }
         for (var foreignKeyId in scriptContr.foreignKeys) {
             var foreignKey = scriptContr.foreignKeys[foreignKeyId];
-            if (document.getElementById('check_vis_' + foreignKey.tableUuid).checked) {
+            if (!document.getElementById('check_vis_' + foreignKey.tableUuid).checked) {
                 continue; // if hide
             }
             var x = designerMove(foreignKey);
