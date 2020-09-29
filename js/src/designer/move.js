@@ -1519,9 +1519,9 @@ DesignerMove.canvasClick = function (id, event) {
                     'rgb(255,0,0)');
 
                 selected = 1; // Rect(x1-sm_x,y1-sm_y,10,10,"rgba(0,255,0,1)");
-                Key0 = foreignKey.tableName;
+                Key0 = foreignKey.dbName + '.' + foreignKey.tableName;
                 Key1 = foreignKey.colName;
-                Key2 = scriptContr.table.tableName;
+                Key2 =  scriptContr.table.dbName + '.' + scriptContr.table.tableName;
                 Key3 = foreignKey.fkName;
                 Key = contrId;
             } else {
