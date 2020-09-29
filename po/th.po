@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2019-11-21 14:33+0000\n"
-"Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-0/th/"
-">\n"
+"PO-Revision-Date: 2020-09-29 04:19+0000\n"
+"Last-Translator: Wat Sujito <pcomputerpp1@gmail.com>\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-0/th/>"
+"\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1894,8 +1894,6 @@ msgid "%d object(s) created."
 msgstr "สร้างวัตถุจำนวน %d วัตถุแล้ว"
 
 #: js/messages.php:591
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "ชื่อคอลัมน์"
 
@@ -18315,7 +18313,7 @@ msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.txt:15
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 
 #: libraries/advisory_rules_mysql_before80003.txt:17
 #, php-format
@@ -18323,39 +18321,45 @@ msgid "Query cache efficiency (%%)"
 msgstr "ประสิทธิภาพของ หน่วยความจำของชุดคำสั่ง (%%)"
 
 #: libraries/advisory_rules_mysql_before80003.txt:20
+#, fuzzy
 msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
+msgstr "แคชการค้นหาทำงานไม่เต็มประสิทธิภาพ แต่มีอัตราการเข้าชมต่ำ"
 
 #: libraries/advisory_rules_mysql_before80003.txt:21
+#, fuzzy
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "พิจารณาเพิ่ม {query_cache_limit}."
 
 #: libraries/advisory_rules_mysql_before80003.txt:22
-#, php-format
+#, fuzzy, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "อัตราการเข้าถึงแคชแบบสอบถามปัจจุบันของ % s%% ต่ำกว่า 20%%"
 
 #: libraries/advisory_rules_mysql_before80003.txt:24
 msgid "Query Cache usage"
 msgstr "การใช้งาน หน่วยความจำของชุดคำสั่ง"
 
 #: libraries/advisory_rules_mysql_before80003.txt:27
-#, php-format
+#, fuzzy, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "น้อยกว่า 80%% กำลังใช้แคชแบบสอบถาม"
 
 #: libraries/advisory_rules_mysql_before80003.txt:28
+#, fuzzy
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"อาจเกิดจาก {query_cache_limit} ต่ำเกินไป การล้างแคชแบบสอบถามอาจช่วยได้เช่นกัน"
 
 #: libraries/advisory_rules_mysql_before80003.txt:29
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
+"อัตราส่วนปัจจุบันของหน่วยความจำแคชแบบสอบถามว่างต่อขนาดแคชแบบสอบถามทั้งหมดคือ "
+"% s%%. ควรจะสูงกว่า 80%%"
 
 #: libraries/advisory_rules_mysql_before80003.txt:31
 #, fuzzy
@@ -18382,12 +18386,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.txt:36
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"แคชถูกแยกส่วนโดย % s%% กับ 100%%การแยกส่วนหมายความว่าแคชแบบสอบถามเป็นรูปแบบสล"
+"ับกันของบล็อกที่ว่างและใช้แล้ว ค่านี้ควรต่ำกว่า 20%%."
 
 #: libraries/advisory_rules_mysql_before80003.txt:38
 #, fuzzy
@@ -18396,24 +18402,33 @@ msgid "Query cache low memory prunes"
 msgstr "คำสั่งที่ถูกรันไปในหน่วยความจำแล้ว"
 
 #: libraries/advisory_rules_mysql_before80003.txt:41
+#, fuzzy
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr ""
+"คิวรีที่แคชจะถูกลบออกเนื่องจากมีหน่วยความจำแคชแบบสอบถามเหลือน้อยจากแคชของคิวร"
+"ี"
 
 #: libraries/advisory_rules_mysql_before80003.txt:42
+#, fuzzy
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"คุณอาจต้องการเพิ่ม {query_cache_size} อย่างไรก็ตามโปรดทราบว่าค่าใช้จ่ายในการด"
+"ูแลแคชมีแนวโน้มที่จะเพิ่มขึ้นตามขนาดของมันดังนั้นให้ทำทีละน้อยและตรวจสอบผลลัพ"
+"ธ์"
 
 #: libraries/advisory_rules_mysql_before80003.txt:43
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"อัตราส่วนของการสืบค้นที่ถูกลบออกไปยังการค้นหาที่แทรกคือ%%. "
+"ยิ่งค่านี้ต่ำเท่าไรก็ยิ่งดี(This rules firing limit: 0.1%%)"
 
 #: libraries/advisory_rules_mysql_before80003.txt:45
 #, fuzzy
@@ -18421,16 +18436,20 @@ msgid "Query cache max size"
 msgstr "ชนิดคำค้น"
 
 #: libraries/advisory_rules_mysql_before80003.txt:48
+#, fuzzy
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"ขนาดแคชของแบบสอบถามสูงกว่า 128 MiB "
+"แคชแบบสอบถามขนาดใหญ่อาจทำให้เกิดค่าใช้จ่ายที่สำคัญซึ่งจำเป็นในการรักษาแคช"
 
 #: libraries/advisory_rules_mysql_before80003.txt:49
+#, fuzzy
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
-msgstr ""
+msgstr "ขึ้นอยู่กับสภาพแวดล้อมของคุณประสิทธิภาพอาจเพิ่มขึ้นเพื่อลดค่านี้"
 
 #: libraries/advisory_rules_mysql_before80003.txt:50
 #, fuzzy, php-format
@@ -18442,12 +18461,13 @@ msgstr "รุ่นที่ใช้: %s"
 #, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "ผลลัพธ์ SQL"
+msgstr "ขนาดผลลัพธ์ขั้นต่ำของแคชคิวรี"
 
 #: libraries/advisory_rules_mysql_before80003.txt:55
+#, fuzzy
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
-msgstr ""
+msgstr "ขนาดสูงสุดของผลลัพธ์ที่ตั้งค่าในแคชแบบสอบถามคือค่าเริ่มต้นของ 1 MiB"
 
 #: libraries/advisory_rules_mysql_before80003.txt:56
 msgid ""
