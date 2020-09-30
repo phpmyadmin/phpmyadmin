@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-09-12 12:16+0000\n"
+"PO-Revision-Date: 2020-09-30 23:11+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-0/pt/>\n"
@@ -2701,7 +2701,7 @@ msgstr "Falha de teste de execução de regra '%s'."
 #: libraries/classes/Advisor.php:421
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr "Falha ao formatar linha pela regra '%s'."
+msgstr "Falha ao formatar a cadeia pela regra '%s'."
 
 #: libraries/classes/Advisor.php:544
 #, php-format
@@ -7531,8 +7531,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"Activou a função mbstring.func_overload na sua configuração PHP. Esta opção "
-"é incompatível com o phpMyAdmin e pode causar alguns danos aos dados!"
+"Ativou a função mbstring.func_overload na sua configuração PHP. Esta opção é "
+"incompatível com o phpMyAdmin e pode causar alguns danos aos dados!"
 
 #: libraries/classes/Core.php:1252
 msgid ""
@@ -7844,8 +7844,8 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"Esse valor é interpretado usando %1$sstrftime%2$s, então você pode usar as "
-"strings de formatação de tempo. Adicionalmente a seguinte transformação "
+"Esse valor é interpretado a usar %1$sstrftime%2$s, então pode usar as "
+"cadeias de formatação de tempo. Adicionalmente a seguinte transformação "
 "ocorrerá: %3$s. Outros textos serão mantidos como estão. Veja a %4$sFAQ%5$s "
 "para detalhes."
 
@@ -9223,7 +9223,7 @@ msgstr "Nenhuma coluna"
 #: normalization.php:40
 msgctxt "string types"
 msgid "String"
-msgstr "Segmento"
+msgstr "Cadeia"
 
 #: libraries/classes/Normalization.php:246
 msgid "split into "
@@ -14845,7 +14845,7 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Escolhe \"GeomFromText\" da coluna \"Função\" e cola a lista de caracteres "
+"Escolha \"GeomFromText\" da coluna \"Função\" e cola a cadeia de caracteres "
 "abaixo no campo \"Valor\"."
 
 #: templates/header.twig:43 templates/login/header.twig:11
@@ -14948,8 +14948,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
-"Por favor, escaneie o código QR na aplicação de autenticação por dois "
-"fatores do seu aparelho e informe o código gerado por ele."
+"Por favor, escaneie o código QR na app de autenticação por dois fatores do "
+"seu aparelho e informe o código gerado por ele."
 
 #: templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
@@ -16331,11 +16331,11 @@ msgstr "Localizar e substituir (pré-visualização)"
 
 #: templates/table/search/replace_preview.twig:18
 msgid "Original string"
-msgstr "Segmento original"
+msgstr "Cadeia original"
 
 #: templates/table/search/replace_preview.twig:19
 msgid "Replaced string"
-msgstr "Segmento de substituição"
+msgstr "Cadeia substituida"
 
 #: templates/table/search/replace_preview.twig:37
 msgid "Replace"
