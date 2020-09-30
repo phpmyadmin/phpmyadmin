@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-09-20 00:19+0200\n"
-"PO-Revision-Date: 2020-08-21 12:50+0000\n"
-"Last-Translator: Monsta <discordgg5@gmail.com>\n"
+"PO-Revision-Date: 2020-10-03 11:34+0000\n"
+"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.2.1-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: libraries/advisory_rules_generic.php:9
@@ -175,8 +175,8 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Aktifkan logging query  dengan menetapkan {slow_query_log} ke 'ON'. Ini akan "
-"membantu pemecahan masalah buruk melakukan query."
+"Aktifkan logging query dengan menetapkan {slow_query_log} ke 'ON'. Ini akan "
+"membantu pemecahan masalah pada query yang bekerja buruk."
 
 #: libraries/advisory_rules_generic.php:103
 #, fuzzy
@@ -733,12 +733,13 @@ msgid "The rate of opening tables is high."
 msgstr "Tingkat pembukaan tabel tinggi."
 
 #: libraries/advisory_rules_generic.php:424
+#, fuzzy
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
 "Membuka tabel membutuhkan disk I/O (baca-tulis) yang mana kurang "
-"menguntungkan. Meningkatkan  {table_open_cache} mungkin menghindari hal ini."
+"menguntungkan. Meningkatkan {table_open_cache} mungkin menghindari hal ini."
 
 #: libraries/advisory_rules_generic.php:427
 #, php-format
@@ -864,10 +865,9 @@ msgid "Increase {thread_cache_size}."
 msgstr "Tingkatkan {thread_cache_size}."
 
 #: libraries/advisory_rules_generic.php:499
-#, fuzzy, php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "hit-rate cache thread:  %s%%, seharusnya nilai ini diatas 80%%"
+msgstr "hit-rate cache thread: %s%%, seharusnya nilai ini diatas 80%%"
 
 #: libraries/advisory_rules_generic.php:504
 #, fuzzy
@@ -1193,10 +1193,10 @@ msgstr ""
 "memiliki layanan lain yang berjalan(misalnya web server), Anda dapat "
 "mengatur ini setinggi 80%% dari memori yang tersedia. Jika tidak, Anda perlu "
 "hati-hati menilai pemakaian memori dari layanan lain dan non-InnoDB-Tabel "
-"dan menyesuaikan pengaturan  variabel ini. Jika diatur terlalu tinggi, "
-"sistem anda akan mulai swapping, yang menurunkan kinerja secara signifikan. "
-"Lihat juga <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">Artikel ini</a>"
+"dan menyesuaikan pengaturan variabel ini. Jika diatur terlalu tinggi, sistem "
+"anda akan mulai swapping, yang menurunkan kinerja secara signifikan. Lihat "
+"juga <a href=\"https://www.percona.com/blog/2007/11/03/"
+"choosing-innodb_buffer_pool_size/\">Artikel ini</a>"
 
 #: libraries/advisory_rules_generic.php:677
 #, php-format
@@ -1382,7 +1382,7 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"Rasio query dihapus untuk pertanyaan dimasukkan adalah  %s%%. Semakin rendah "
+"Rasio query dihapus untuk pertanyaan dimasukkan adalah %s%%. Semakin rendah "
 "nilai ini, semakin baik (ini aturan menembak limit: 0.1%%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:91
@@ -1439,7 +1439,7 @@ msgstr ""
 "meningkatkan efisiensi. Variabel ini menentukan ukuran maksimum hasil query "
 "mungkin harus dimasukkan ke dalam cache query. Jika ada banyak hasil query "
 "di atas 1 MiB yang baik disimpan di cache (banyak membaca, menulis sedikit) "
-"kemudian meningkat  {query_cache_limit} akan meningkatkan efisiensi. "
+"kemudian meningkat {query_cache_limit} akan meningkatkan efisiensi. "
 "Sedangkan dalam kasus banyak hasil query berada di atas 1 MiB yang tidak "
 "sangat baik disimpan di cache (sering batal karena update tabel) meningkat  "
 "{query_cache_limit} mungkin mengurangi efisiensi."
@@ -4036,9 +4036,9 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"Anda dapat menggunakan karakter wildcard MySQL  (% dan _), lewati jika Anda "
-"ingin menggunakan contoh literal, sebagai contohnya gunakan [kbd]'my\\_db'[/"
-"kbd] dan bukan [kbd]'my_db'[/kbd]."
+"Anda dapat menggunakan karakter wildcard MySQL (% dan _), lewati jika Anda "
+"ingin menggunakan contoh literal, sebagai contohnya gunakan [kbd]'my\\_db"
+"'[/kbd] dan bukan [kbd]'my_db'[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:726
 msgid "Show only listed databases"
@@ -4065,19 +4065,14 @@ msgid "PDF schema: pages table"
 msgstr "Skema PDF: tabel halaman"
 
 #: libraries/classes/Config/Descriptions.php:734
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Database digunakan untuk relasi, bookmark, dan fitur PDF. Lihat [a@https://"
-"wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]  untuk informasi lengkap. Biarkan "
-"kosong agar tanpa dukungan tersebut. Disarankan: [kbd]phpmyadmin[/kbd]."
+"Database digunakan untuk relasi, bookmark, dan fitur PDF. Lihat [doc@linked-"
+"tables]pmadb[/doc] untuk informasi lengkap. Biarkan kosong agar tanpa "
+"dukungan tersebut. Disarankan: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:738
 #: templates/database/operations/index.twig:127
@@ -4544,7 +4539,7 @@ msgstr "Menahan kotak kueri"
 #| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
-"Izinkan untuk menampilkan basis data dan tabel statistik  (misalnya, "
+"Izinkan untuk menampilkan basis data dan tabel statistik (misalnya, "
 "penggunaan ruang memori)."
 
 #: libraries/classes/Config/Descriptions.php:884
@@ -5000,7 +4995,7 @@ msgstr "proses impor terkompres tidak akan berjalan karena fungsi %s hilang."
 #: libraries/classes/Config/FormDisplay.php:924
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
-msgstr "proses ekspor terkompres tidak akan berjalan karena fungsi  %s hilang."
+msgstr "proses ekspor terkompres tidak akan berjalan karena fungsi %s hilang."
 
 #: libraries/classes/Config/FormDisplay.php:943
 #, php-format
@@ -5360,8 +5355,8 @@ msgstr ""
 "Anda mengatur [kbd]config[/kbd] tipe otentikasi dan termasuk username dan "
 "password untuk login otomatis, yang mana bukan pilihan yang tepat untuk host "
 "selalu aktif. Siapapun yang mengetahui atau menebak URL phpMyAdmin anda "
-"dapat langsung  mengakses panel phpMyAdmin anda. Set type%s "
-"%sauthentication  ke [kbd]cookie[/kbd] atau [kbd]http[/kbd]."
+"dapat langsung mengakses panel phpMyAdmin anda. Set type%s %sauthentication  "
+"ke [kbd]cookie[/kbd] atau [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:228
 msgid "You allow for connecting to the server without a password."
@@ -8966,7 +8961,7 @@ msgstr "MySQL memberikan hasil kosong (atau nol baris)."
 #: libraries/classes/Controllers/Table/MaintenanceController.php:163
 #: libraries/classes/Controllers/Table/MaintenanceController.php:198
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Operasi pemeliharaan pada beberapa tabel dinonaktifkan."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:107
 #: libraries/classes/Controllers/Table/OperationsController.php:294
@@ -9441,7 +9436,7 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
-"Tidak ada rutinitas ditemukan dengan nama %1$s  dalam database %2$s. Anda "
+"Tidak ada rutinitas ditemukan dengan nama %1$s dalam database %2$s. Anda "
 "mungkin tidak memiliki otoritas untuk menyunting rutinitas ini"
 
 #: libraries/classes/Database/Routines.php:261
@@ -10284,7 +10279,7 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentasi dan informasi lebih lanjut mengenai PBXT dapat ditemukan pada %s "
-"Halaman PrimeBase XT  %s."
+"Halaman PrimeBase XT %s."
 
 #: libraries/classes/ErrorHandler.php:98
 msgid "Too many error messages, some are not displayed."
@@ -12660,7 +12655,7 @@ msgid ""
 "Google Authenticator or Authy."
 msgstr ""
 "Gunakan aplikasi HOTP dan TOTP seperti FreeOTP, Google Authenticator atau "
-"layanan penyedia otentikasi  lainnya (tambahkan keamanan akun melalui kode)."
+"layanan penyedia otentikasi lainnya (tambahkan keamanan akun melalui kode)."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:206
 msgid "Hardware Security Key (FIDO U2F)"
@@ -13940,7 +13935,7 @@ msgid ""
 "64)"
 msgstr ""
 "Sebuah tipe bit-field (M), menyimpan M dari bit tiap nilai (standar adalah "
-"1, maksimum adalah  64)"
+"1, maksimum adalah 64)"
 
 #: libraries/classes/Types.php:261
 msgid ""
@@ -14033,9 +14028,9 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
-"Sebuah kolom TEXT dengan panjang maksimum  4,294,967,295 atau 4GiB (2^32 - "
-"1) karakter, disimpan dengan awalan empat byte menunjukkan panjang nilai "
-"dalam byte"
+"Sebuah kolom TEXT dengan panjang maksimum 4,294,967,295 atau 4GiB (2^32 - 1) "
+"karakter, disimpan dengan awalan empat byte menunjukkan panjang nilai dalam "
+"byte"
 
 #: libraries/classes/Types.php:335
 msgid ""
@@ -16296,7 +16291,7 @@ msgid ""
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
 "Nilai ini ditafsir menggunakan %1$sstrftime%2$s, sehingga Anda dapat "
-"menggunakan  format string waktu. Tambahan ditransformasi  sehingga menjadi: "
+"menggunakan format string waktu. Tambahan ditransformasi  sehingga menjadi: "
 "%3$s. Teks lain akan disimpan seperti biasa. Lihat %4$sFAQ%5$s untuk rincian."
 
 #: templates/export.twig:329
