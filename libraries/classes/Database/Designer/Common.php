@@ -189,7 +189,7 @@ class Common
                             $dbName,
                             $one_key['ref_table_name'],
                             $one_key['ref_index_list'][$index],
-                            $one_key['constraint'],
+                            $one_key['index_list'][$index],
                             $designerTable->getDatabaseName(),
                             $designerTable->getTableName(),
                             $one_field
