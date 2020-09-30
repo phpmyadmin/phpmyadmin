@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-09-20 00:19+0200\n"
-"PO-Revision-Date: 2020-09-12 15:36+0000\n"
+"PO-Revision-Date: 2020-09-30 23:11+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -1345,7 +1345,7 @@ msgstr "Falha de teste de execução de regra '%s'."
 #: libraries/classes/Advisor.php:326
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr "Falha ao formatar linha pela regra '%s'."
+msgstr "Falha ao formatar a cadeia pela regra '%s'."
 
 #: libraries/classes/Advisor.php:404
 msgid "per second"
@@ -7622,7 +7622,7 @@ msgstr "Nenhuma coluna"
 #: libraries/classes/Types.php:788
 msgctxt "string types"
 msgid "String"
-msgstr "Segmento"
+msgstr "Cadeia"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:93
 msgid "phpMyAdmin configuration snippet"
@@ -8773,8 +8773,8 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"Activou a função mbstring.func_overload na sua configuração PHP. Esta opção "
-"é incompatível com o phpMyAdmin e pode causar alguns danos aos dados!"
+"Ativou a função mbstring.func_overload na sua configuração PHP. Esta opção é "
+"incompatível com o phpMyAdmin e pode causar alguns danos aos dados!"
 
 #: libraries/classes/Core.php:1246
 msgid ""
@@ -15674,7 +15674,7 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Escolhe \"GeomFromText\" da coluna \"Função\" e cola a lista de caracteres "
+"Escolha \"GeomFromText\" da coluna \"Função\" e cola a cadeia de caracteres "
 "abaixo no campo \"Valor\"."
 
 #: templates/header.twig:41 templates/login/header.twig:13
@@ -16183,8 +16183,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
-"Por favor, escaneie o código QR na aplicação de autenticação por dois "
-"fatores do seu aparelho e informe o código gerado por ele."
+"Por favor, escaneie o código QR na app de autenticação por dois fatores do "
+"seu aparelho e informe o código gerado por ele."
 
 #: templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
@@ -18006,11 +18006,11 @@ msgstr "Localizar e substituir (pré-visualização)"
 
 #: templates/table/find_replace/replace_preview.twig:18
 msgid "Original string"
-msgstr "Segmento original"
+msgstr "Cadeia original"
 
 #: templates/table/find_replace/replace_preview.twig:19
 msgid "Replaced string"
-msgstr "Segmento de substituição"
+msgstr "Cadeia substituida"
 
 #: templates/table/find_replace/replace_preview.twig:37
 msgid "Replace"
