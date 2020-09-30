@@ -110,6 +110,8 @@ class Routines
             );
         }
 
+        echo $this->template->render('filter', ['filter_value' => '']);
+
         echo $this->template->render('database/routines/list', [
             'db' => $db,
             'table' => $table,
