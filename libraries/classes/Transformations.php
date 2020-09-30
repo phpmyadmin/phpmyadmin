@@ -84,7 +84,7 @@ class Transformations
             } elseif (isset($trimmed[0]) && $trimmed[0] == "'") {
                 // '...,
                 $trimmed = ltrim($option);
-                $rtrimmed = null;
+                $rtrimmed = '';
                 while (($option = array_shift($transformOptions)) !== null) {
                     // ...,
                     $trimmed .= ',' . $option;
@@ -263,7 +263,7 @@ class Transformations
             ' ',
             '',
             ucwords(
-                preg_replace('/([0-9_]+)/', '$1 ', $value)
+                (string) preg_replace('/([0-9_]+)/', '$1 ', $value)
             )
         );
     }

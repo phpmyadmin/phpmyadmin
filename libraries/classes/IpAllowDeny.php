@@ -157,10 +157,10 @@ class IpAllowDeny
         $is_range = mb_strpos($test_range, '[') > -1;
         $is_single = ! $is_cidr && ! $is_range;
 
-        $ip_hex = bin2hex(inet_pton($ip_to_test));
+        $ip_hex = bin2hex((string) inet_pton($ip_to_test));
 
         if ($is_single) {
-            $range_hex = bin2hex(inet_pton($test_range));
+            $range_hex = bin2hex((string) inet_pton($test_range));
 
             return hash_equals($ip_hex, $range_hex);
         }
@@ -179,9 +179,9 @@ class IpAllowDeny
 
                 // get the first and last allowed IPs
                 $first_ip  = str_replace($range_match[0], $range_start, $test_range);
-                $first_hex = bin2hex(inet_pton($first_ip));
+                $first_hex = bin2hex((string) inet_pton($first_ip));
                 $last_ip   = str_replace($range_match[0], $range_end, $test_range);
-                $last_hex  = bin2hex(inet_pton($last_ip));
+                $last_hex  = bin2hex((string) inet_pton($last_ip));
 
                 // check if the IP to test is within the range
                 $result = ($ip_hex >= $first_hex && $ip_hex <= $last_hex);
@@ -196,7 +196,7 @@ class IpAllowDeny
 
             // Parse the address into a binary string
             $first_bin = inet_pton($first_ip);
-            $first_hex = bin2hex($first_bin);
+            $first_hex = bin2hex((string) $first_bin);
 
             $flexbits = 128 - (int) $subnet;
 

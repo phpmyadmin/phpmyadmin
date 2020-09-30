@@ -229,7 +229,7 @@ class Validator
         $socket = empty($socket) ? null : $socket;
         $port = empty($port) ? null : $port;
 
-        $conn = @mysqli_connect($host, $user, $pass, null, $port, $socket);
+        $conn = @mysqli_connect($host, $user, (string) $pass, '', $port, (string) $socket);
         if (! $conn) {
             $error = __('Could not connect to the database server!');
         } else {

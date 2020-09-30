@@ -92,7 +92,7 @@ class Git
 
             $git_location = $git;
         } elseif (is_file($git)) {
-            $contents = file_get_contents($git);
+            $contents = (string) file_get_contents($git);
             $gitmatch = [];
             // Matches expected format
             if (! preg_match(

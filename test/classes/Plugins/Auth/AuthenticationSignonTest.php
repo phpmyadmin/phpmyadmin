@@ -428,7 +428,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             'samesite' => '',
         ];
         // php did not set 'samesite' attribute in session_get_cookie_params since not yet implemented
-        if (version_compare(phpversion(), '7.3.0', '<')) {
+        if (version_compare((string) phpversion(), '7.3.0', '<')) {
             unset($defaultOptions['samesite']);
         }
 

@@ -170,7 +170,7 @@ class GisMultiPolygon extends GisGeometry
                 1,
                 $points_arr[2],
                 $points_arr[3],
-                trim($label),
+                trim((string) $label),
                 $black
             );
         }
@@ -249,7 +249,7 @@ class GisMultiPolygon extends GisGeometry
         if (isset($label_point)) {
             $pdf->SetXY($label_point[0], $label_point[1]);
             $pdf->SetFontSize(5);
-            $pdf->Cell(0, 0, trim($label));
+            $pdf->Cell(0, 0, trim((string) $label));
         }
 
         return $pdf;

@@ -223,7 +223,7 @@ class VersionInformation
             $myVersion = $this->getMySQLVersion();
         }
 
-        if ($myVersion !== null && $operator !== null) {
+        if ($myVersion !== null && $version !== null && $operator !== null) {
             return version_compare($myVersion, $version, $operator);
         }
 

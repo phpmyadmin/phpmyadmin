@@ -152,7 +152,7 @@ class File
      */
     public function delete(): bool
     {
-        return unlink($this->getName());
+        return unlink((string) $this->getName());
     }
 
     /**
@@ -183,7 +183,7 @@ class File
      */
     public function setName(?string $name): void
     {
-        $this->name = trim($name);
+        $this->name = trim((string) $name);
     }
 
     /**
@@ -208,15 +208,15 @@ class File
         }
 
         if (function_exists('file_get_contents')) {
-            $this->content = file_get_contents($this->getName());
+            $this->content = file_get_contents((string) $this->getName());
 
             return $this->content;
         }
 
-        $size = filesize($this->getName());
+        $size = filesize((string) $this->getName());
 
         if ($size) {
-            $handle = fopen($this->getName(), 'rb');
+            $handle = fopen((string) $this->getName(), 'rb');
             $this->content = fread($handle, $size);
             fclose($handle);
         }
@@ -495,7 +495,7 @@ class File
         $this->setName(
             Util::userDir($GLOBALS['cfg']['UploadDir']) . Core::securePath($name)
         );
-        if (@is_link($this->getName())) {
+        if (@is_link((string) $this->getName())) {
             $this->error_message = Message::error(__('File is a symbolic link'));
             $this->setName(null);
 
@@ -551,16 +551,16 @@ class File
             return false;
         }
 
-        $new_file_to_upload = tempnam(
+        $new_file_to_upload = (string) tempnam(
             $tmp_subdir,
-            basename($this->getName())
+            basename((string) $this->getName())
         );
 
         // suppress warnings from being displayed, but not from being logged
         // any file access outside of open_basedir will issue a warning
         ob_start();
         $move_uploaded_file_result = move_uploaded_file(
-            $this->getName(),
+            (string) $this->getName(),
             $new_file_to_upload
         );
         ob_end_clean();
@@ -597,7 +597,7 @@ class File
         // suppress warnings from being displayed, but not from being logged
         // f.e. any file access outside of open_basedir will issue a warning
         ob_start();
-        $file = fopen($this->getName(), 'rb');
+        $file = fopen((string) $this->getName(), 'rb');
         ob_end_clean();
 
         if (! $file) {
@@ -666,7 +666,7 @@ class File
     public function open(): bool
     {
         if (! $this->decompress) {
-            $this->handle = @fopen($this->getName(), 'r');
+            $this->handle = @fopen((string) $this->getName(), 'r');
         }
 
         switch ($this->getCompression()) {
@@ -688,7 +688,7 @@ class File
                     return false;
                 }
 
-                $this->handle = @gzopen($this->getName(), 'r');
+                $this->handle = @gzopen((string) $this->getName(), 'r');
                 break;
             case 'application/zip':
                 if ($GLOBALS['cfg']['ZipDump'] && function_exists('zip_open')) {
@@ -699,7 +699,7 @@ class File
 
                 return false;
             case 'none':
-                $this->handle = @fopen($this->getName(), 'r');
+                $this->handle = @fopen((string) $this->getName(), 'r');
                 break;
             default:
                 $this->errorUnsupported();

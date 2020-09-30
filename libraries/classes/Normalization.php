@@ -592,7 +592,7 @@ class Normalization
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
                     Message::rawError(
-                        $this->dbi->getError()
+                        (string) $this->dbi->getError()
                     ),
                     '<br><br>'
                 );
@@ -754,7 +754,7 @@ class Normalization
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
                     Message::rawError(
-                        $this->dbi->getError()
+                        (string) $this->dbi->getError()
                     ),
                     '<br><br>'
                 );
@@ -830,7 +830,7 @@ class Normalization
                 $message = Message::error(__('Error in processing!'));
                 $message->addMessage(
                     Message::rawError(
-                        $this->dbi->getError()
+                        (string) $this->dbi->getError()
                     ),
                     '<br><br>'
                 );

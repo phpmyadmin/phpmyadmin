@@ -6,11 +6,6 @@ parameters:
 			path: libraries/classes/Charsets.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, bool\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/CheckUserPrivileges.php
-
-		-
 			message: "#^Parameter \\#1 \\$new_error_level of function error_reporting expects int, int\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Config.php
@@ -22,11 +17,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$source_mtime \\(int\\) does not accept int\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Config.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function strtolower expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
 
@@ -81,11 +71,6 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Parameter \\#2 \\$type of function settype expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Config/FormDisplay.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Config/FormDisplay.php
@@ -126,22 +111,7 @@ parameters:
 			path: libraries/classes/Config/Validator.php
 
 		-
-			message: "#^Parameter \\#3 \\$passwd of function mysqli_connect expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Config/Validator.php
-
-		-
-			message: "#^Parameter \\#4 \\$dbname of function mysqli_connect expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Config/Validator.php
-
-		-
 			message: "#^Parameter \\#5 \\$port of function mysqli_connect expects int, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Config/Validator.php
-
-		-
-			message: "#^Parameter \\#6 \\$socket of function mysqli_connect expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Config/Validator.php
 
@@ -159,11 +129,6 @@ parameters:
 			message: "#^Parameter \\#5 \\$foreign_limit of method PhpMyAdmin\\\\Relation\\:\\:getForeignData\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/BrowseForeignersController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/ChangeLogController.php
 
 		-
 			message: "#^Parameter \\#1 \\$state of method PhpMyAdmin\\\\Response\\:\\:setRequestStatus\\(\\) expects bool, bool\\|string\\|null given\\.$#"
@@ -256,11 +221,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/CollationsController.php
 
 		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/DatabasesController.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/PrivilegesController.php
@@ -311,11 +271,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ChartController.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_strtolower expects string, array\\<string\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/FindReplaceController.php
-
-		-
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
@@ -326,22 +281,12 @@ parameters:
 			path: libraries/classes/Controllers/Table/ReplaceController.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_strtolower expects string, array\\<string\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/SearchController.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Table\\\\SearchController\\:\\:getColumnMinMax\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
 			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:displayHtmlForColumnChange\\(\\) expects array, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:error\\(\\) expects string, string\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
 
@@ -359,11 +304,6 @@ parameters:
 			message: "#^Cannot cast ''\\|int to int\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function mb_strtolower expects string, array\\<string\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
 			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
@@ -406,17 +346,7 @@ parameters:
 			path: libraries/classes/Controllers/TransformationWrapperController.php
 
 		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/ViewCreateController.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Core\\:\\:securePath\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, int\\<1, max\\>\\|int\\<min, \\-1\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
 
@@ -449,16 +379,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:getColumnCreationStatements\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/CreateAddField.php
-
-		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
-			count: 2
-			path: libraries/classes/Database/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:error\\(\\) expects string, bool\\|string given\\.$#"
-			count: 2
-			path: libraries/classes/Database/CentralColumns.php
 
 		-
 			message: "#^Parameter \\#1 \\$message of method PhpMyAdmin\\\\Message\\:\\:addText\\(\\) expects string, bool\\|string given\\.$#"
@@ -676,11 +596,6 @@ parameters:
 			path: libraries/classes/Encoding.php
 
 		-
-			message: "#^Parameter \\#1 \\$filename of function fopen expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Encoding.php
-
-		-
 			message: "#^Parameter \\#1 \\$fp of function feof expects resource, resource\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
@@ -706,19 +621,9 @@ parameters:
 			path: libraries/classes/Encoding.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:kanjiFileConv\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Encoding.php
-
-		-
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Engines/Innodb.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Engines/Pbxt.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Engines\\\\Pbxt\\:\\:resolveTypeSize\\(\\) should return array but returns array\\|null\\.$#"
@@ -732,11 +637,6 @@ parameters:
 
 		-
 			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Error.php
-
-		-
-			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Error.php
 
@@ -786,47 +686,7 @@ parameters:
 			path: libraries/classes/Export.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|null given\\.$#"
-			count: 2
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Parameter \\#2 \\$str of function fwrite expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
 			message: "#^Parameter \\#3 \\$what of static method PhpMyAdmin\\\\Encoding\\:\\:convertString\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function mb_strlen expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Parameter \\#2 \\$str of function fwrite expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of function gzencode expects string, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 
@@ -846,33 +706,8 @@ parameters:
 			path: libraries/classes/Export.php
 
 		-
-			message: "#^Parameter \\#1 \\$filename of function unlink expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function file_get_contents expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$content \\(string\\) does not accept string\\|false\\.$#"
 			count: 2
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function filesize expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function fopen expects string, string\\|null given\\.$#"
-			count: 4
 			path: libraries/classes/File.php
 
 		-
@@ -882,31 +717,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$fp of function fclose expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function is_link expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$path of function basename expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$path of function move_uploaded_file expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#2 \\$new_path of function move_uploaded_file expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\File\\:\\:setName\\(\\) expects string\\|null, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/File.php
 
@@ -922,11 +732,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$file of function bzopen expects resource\\|string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$filename of function gzopen expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/File.php
 
@@ -963,11 +768,6 @@ parameters:
 		-
 			message: "#^Offset 0 does not exist on array\\|null\\.$#"
 			count: 2
-			path: libraries/classes/Font.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function mb_strlen expects string, string\\|null given\\.$#"
-			count: 1
 			path: libraries/classes/Font.php
 
 		-
@@ -1091,11 +891,6 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
-			count: 2
-			path: libraries/classes/Gis/GisMultiPolygon.php
-
-		-
 			message: "#^Parameter \\#1 \\$srid of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:getBoundsForOl\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
@@ -1181,21 +976,6 @@ parameters:
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function base64_encode expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Gis/GisVisualization.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Git.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function nl2br expects string, array\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Html/Generator.php
-
-		-
 			message: "#^Parameter \\#3 \\$length of function substr expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Import.php
@@ -1256,11 +1036,6 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
-			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, string\\|false given\\.$#"
-			count: 5
-			path: libraries/classes/IpAllowDeny.php
-
-		-
 			message: "#^Parameter \\#2 \\$ipToTest of method PhpMyAdmin\\\\IpAllowDeny\\:\\:ipMaskTest\\(\\) expects string, string\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/IpAllowDeny.php
@@ -1316,11 +1091,6 @@ parameters:
 			path: libraries/classes/Normalization.php
 
 		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
-			count: 3
-			path: libraries/classes/Normalization.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Normalization.php
@@ -1339,11 +1109,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\OutputBuffering\\:\\:\\$content \\(string\\) does not accept string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/OutputBuffering.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|null given\\.$#"
-			count: 2
-			path: libraries/classes/Plugins.php
 
 		-
 			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Plugins\\:\\:getString\\(\\) expects string, string\\|null given\\.$#"
@@ -1384,21 +1149,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportCodegen.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function ucfirst expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportCodegen.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportCodegen\\:\\:cgMakeIdentifier\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportCodegen.php
 
 		-
 			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
@@ -1562,11 +1312,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$text of method PhpMyAdmin\\\\Plugins\\\\Import\\\\ImportOds\\:\\:getValue\\(\\) expects array, SimpleXMLElement given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function rtrim expects string, float\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
@@ -2221,24 +1966,9 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Parameter \\#2 \\$str of function explode expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Core\\:\\:sanitizeMySQLHost\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Replication.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:success\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/ReplicationGui.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:error\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/ReplicationGui.php
 
 		-
 			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
@@ -2252,11 +1982,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$subject of function preg_replace_callback expects array\\|string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sanitize.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sanitize.php
 
@@ -2366,11 +2091,6 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
-			count: 6
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Offset 'password' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
@@ -2399,11 +2119,6 @@ parameters:
 			message: "#^Cannot call method Get\\(\\) on COM\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/SysInfo/WindowsNt.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, int\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Server/UserGroups.php
 
 		-
 			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
@@ -2566,16 +2281,6 @@ parameters:
 			path: libraries/classes/StorageEngine.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept null\\.$#"
 			count: 2
 			path: libraries/classes/Table.php
@@ -2586,22 +2291,7 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
-			count: 2
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, int given\\.$#"
-			count: 1
-			path: libraries/classes/Table.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function substr expects string, string\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/Table.php
 
@@ -2626,11 +2316,6 @@ parameters:
 			path: libraries/classes/ThemeManager.php
 
 		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/ThemeManager.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\ThemeManager\\:\\:\\$active_theme \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
@@ -2638,11 +2323,6 @@ parameters:
 		-
 			message: "#^Parameter \\#3 \\$version of static method PhpMyAdmin\\\\Tracker\\:\\:deactivateTracking\\(\\) expects string, int given\\.$#"
 			count: 1
-			path: libraries/classes/Tracker.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function rtrim expects string, string\\|false given\\.$#"
-			count: 2
 			path: libraries/classes/Tracker.php
 
 		-
@@ -2671,18 +2351,8 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function mb_substr expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Transformations.php
-
-		-
 			message: "#^Parameter \\#1 \\$classname of function class_exists expects string, PhpMyAdmin\\\\Plugins\\\\TransformationsInterface given\\.$#"
 			count: 2
-			path: libraries/classes/Transformations.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function ucwords expects string, string\\|null given\\.$#"
-			count: 1
 			path: libraries/classes/Transformations.php
 
 		-
@@ -2716,37 +2386,12 @@ parameters:
 			path: libraries/classes/VersionInformation.php
 
 		-
-			message: "#^Parameter \\#2 \\$version2 of function version_compare expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/VersionInformation.php
-
-		-
-			message: "#^Parameter \\#2 \\$str2 of function strcmp expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/ZipExtension.php
-
-		-
-			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, string\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/ZipExtension.php
-
-		-
 			message: "#^Parameter \\#2 \\$start of function substr expects int, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/ZipExtension.php
 
 		-
 			message: "#^Argument of an invalid type array\\|false supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/ZipExtension.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function substr expects string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/ZipExtension.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/ZipExtension.php
 
@@ -2766,19 +2411,9 @@ parameters:
 			path: test/classes/Config/DescriptionTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function strip_tags expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/ConfigTest.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/ConfigTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/CoreTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:numRows\\(\\) expects mysqli_result, false given\\.$#"
@@ -2794,11 +2429,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$fp of function fclose expects resource, resource\\|false given\\.$#"
 			count: 1
 			path: test/classes/EncodingTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$data of function bin2hex expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/FileTest.php
 
 		-
 			message: "#^Call to an undefined method object\\:\\:generateParams\\(\\)\\.$#"
@@ -2871,16 +2501,6 @@ parameters:
 			path: test/classes/Navigation/Nodes/NodeColumnTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$version1 of function version_compare expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of function htmlspecialchars_decode expects string, string\\|false given\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$subgroupHeader of method PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertySubgroup\\:\\:setSubgroupHeader\\(\\) expects PhpMyAdmin\\\\Properties\\\\PropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/Groups/OptionsPropertySubgroupTest.php
@@ -2899,11 +2519,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:removeProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
 
 		-
 			message: "#^Call to function is_bool\\(\\) with object will always evaluate to false\\.$#"

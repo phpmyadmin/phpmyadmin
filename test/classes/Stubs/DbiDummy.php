@@ -82,7 +82,7 @@ class DbiDummy implements DbiExtension
      */
     public function realQuery($query, $link = null, $options = 0)
     {
-        $query = trim(preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
+        $query = trim((string) preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
         for ($i = 0, $nb = count($this->queries); $i < $nb; $i++) {
             if ($this->queries[$i]['query'] != $query) {
                 continue;

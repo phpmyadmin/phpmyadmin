@@ -92,7 +92,7 @@ class FindReplaceController extends AbstractController
             // set column name
             $this->columnNames[] = $row['Field'];
 
-            $type = $row['Type'];
+            $type = (string) $row['Type'];
             // reformat mysql query output
             if (strncasecmp($type, 'set', 3) == 0
                 || strncasecmp($type, 'enum', 4) == 0

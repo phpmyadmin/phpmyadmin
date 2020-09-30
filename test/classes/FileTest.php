@@ -49,7 +49,7 @@ class FileTest extends AbstractTestCase
      */
     public function testBinaryContent(string $file): void
     {
-        $data = '0x' . bin2hex(file_get_contents($file));
+        $data = '0x' . bin2hex((string) file_get_contents($file));
         $file = new File($file);
         $this->assertEquals($data, $file->getContent());
     }

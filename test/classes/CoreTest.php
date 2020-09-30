@@ -1296,7 +1296,7 @@ class CoreTest extends AbstractNetworkTestCase
         $printed = ob_get_contents();
         ob_end_clean();
 
-        $this->assertGreaterThan(0, mb_strpos($printed, $warn));
+        $this->assertGreaterThan(0, mb_strpos((string) $printed, $warn));
     }
 
     /**

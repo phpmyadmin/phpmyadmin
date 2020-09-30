@@ -603,7 +603,7 @@ class Tracker
                 $ddl_date_from = $date;
                 $first_iteration = false;
             }
-            $statement = rtrim(mb_strstr($log_entry, "\n"));
+            $statement = rtrim((string) mb_strstr($log_entry, "\n"));
 
             $ddlog[] = [
                 'date' => $date,
@@ -637,7 +637,7 @@ class Tracker
                 $dml_date_from = $date;
                 $first_iteration = false;
             }
-            $statement = rtrim(mb_strstr($log_entry, "\n"));
+            $statement = rtrim((string) mb_strstr($log_entry, "\n"));
 
             $dmlog[] = [
                 'date' => $date,

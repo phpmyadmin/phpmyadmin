@@ -3507,11 +3507,11 @@ class Privileges
         ) {
             $_POST['createdb-1'] = $_POST['createdb-2']
                 = $_POST['createdb-3'] = null;
-            $message = Message::rawError($this->dbi->getError());
+            $message = Message::rawError((string) $this->dbi->getError());
         } elseif ($alter_real_sql_query !== '' && ! $this->dbi->tryQuery($alter_real_sql_query)) {
             $_POST['createdb-1'] = $_POST['createdb-2']
                 = $_POST['createdb-3'] = null;
-            $message = Message::rawError($this->dbi->getError());
+            $message = Message::rawError((string) $this->dbi->getError());
         } else {
             $sql_query .= $alter_sql_query;
             $message = Message::success(__('You have added a new user.'));
@@ -3525,7 +3525,7 @@ class Privileges
                 ) . ';';
             $sql_query .= $q;
             if (! $this->dbi->tryQuery($q)) {
-                $message = Message::rawError($this->dbi->getError());
+                $message = Message::rawError((string) $this->dbi->getError());
             }
 
             /**
@@ -3544,7 +3544,7 @@ class Privileges
                 . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
             $sql_query .= $q;
             if (! $this->dbi->tryQuery($q)) {
-                $message = Message::rawError($this->dbi->getError());
+                $message = Message::rawError((string) $this->dbi->getError());
             }
         }
 
@@ -3560,7 +3560,7 @@ class Privileges
                 . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
             $sql_query .= $q;
             if (! $this->dbi->tryQuery($q)) {
-                $message = Message::rawError($this->dbi->getError());
+                $message = Message::rawError((string) $this->dbi->getError());
             }
         }
 
@@ -3574,7 +3574,7 @@ class Privileges
             . '\'@\'' . $this->dbi->escapeString($hostname) . '\';';
             $sql_query .= $q;
             if (! $this->dbi->tryQuery($q)) {
-                $message = Message::rawError($this->dbi->getError());
+                $message = Message::rawError((string) $this->dbi->getError());
             }
         }
 

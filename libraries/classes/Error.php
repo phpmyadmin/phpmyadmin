@@ -526,7 +526,7 @@ class Error extends Message
 
         $Ahere = explode(
             DIRECTORY_SEPARATOR,
-            realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..')
+            (string) realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..')
         );
         $Adest = explode(DIRECTORY_SEPARATOR, $dest);
 

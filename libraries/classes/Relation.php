@@ -2002,7 +2002,7 @@ class Relation
     public function getDefaultPmaTableNames()
     {
         $pma_tables = [];
-        $create_tables_file = file_get_contents(
+        $create_tables_file = (string) file_get_contents(
             SQL_DIR . 'create_tables.sql'
         );
 

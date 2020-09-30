@@ -432,8 +432,8 @@ class ReplicationGui
 
         $refresh = false;
         $result = false;
-        $messageSuccess = null;
-        $messageError = null;
+        $messageSuccess = '';
+        $messageError = '';
 
         if (isset($_POST['slave_changemaster']) && ! $GLOBALS['cfg']['AllowArbitraryServer']) {
             $_SESSION['replication']['sr_action_status'] = 'error';

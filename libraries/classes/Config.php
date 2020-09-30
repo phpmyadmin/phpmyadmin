@@ -886,7 +886,7 @@ class Config
         $this->set('enable_upload', true);
         // if set "php_admin_value file_uploads Off" in httpd.conf
         // ini_get() also returns the string "Off" in this case:
-        if (strtolower(ini_get('file_uploads')) !== 'off') {
+        if (strtolower((string) ini_get('file_uploads')) !== 'off') {
             return;
         }
 

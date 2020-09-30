@@ -302,7 +302,7 @@ class ConfigTest extends AbstractTestCase
         /* Get GD version string from phpinfo output */
         ob_start();
         phpinfo(INFO_MODULES); /* Only modules */
-        $a = strip_tags(ob_get_contents());
+        $a = strip_tags((string) ob_get_contents());
         ob_end_clean();
 
         if (! preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {

@@ -642,7 +642,7 @@ class Table
 
             if (! empty($extra)) {
                 if ($virtuality) {
-                    $extra = trim(preg_replace('~^\s*AUTO_INCREMENT\s*~is', ' ', $extra));
+                    $extra = trim((string) preg_replace('~^\s*AUTO_INCREMENT\s*~is', ' ', $extra));
                 }
 
                 $query .= ' ' . $extra;
@@ -1027,7 +1027,7 @@ class Table
                 $GLOBALS['message'] = Message::rawError(
                     sprintf(
                         __('Target database `%s` was not found!'),
-                        htmlspecialchars($target_db)
+                        htmlspecialchars((string) $target_db)
                     )
                 );
             }
@@ -1912,7 +1912,7 @@ class Table
             );
             $message->addMessage(
                 Message::rawError(
-                    $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
+                    (string) $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
                 ),
                 '<br><br>'
             );
@@ -1948,7 +1948,7 @@ class Table
                 );
                 $message->addMessage(
                     Message::rawError(
-                        $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
+                        (string) $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
                     ),
                     '<br><br>'
                 );
@@ -2177,7 +2177,7 @@ class Table
         ) as $row) {
             if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
                 $tmp[2] = mb_substr(
-                    preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]),
+                    (string) preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]),
                     1
                 );
                 $columns[$row['Field']] = $tmp[1] . '('
@@ -2596,7 +2596,7 @@ class Table
             if (! isset($_POST['preview_sql'])) {
                 $display_query .= $create_query . "\n";
                 $this->dbi->tryQuery($create_query);
-                $tmp_error_create = $this->dbi->getError();
+                $tmp_error_create = (string) $this->dbi->getError();
                 if (! empty($tmp_error_create)) {
                     $seen_error = true;
 

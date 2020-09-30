@@ -288,7 +288,7 @@ class CheckUserPrivileges
                             $dbname_to_test
                         )
                     )
-                    && mb_substr($this->dbi->getError(), 1, 4) != 1044)
+                    && mb_substr((string) $this->dbi->getError(), 1, 4) != 1044)
                 ) {
                     /**
                      * Do not handle the underscore wildcard

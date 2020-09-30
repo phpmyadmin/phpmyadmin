@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Engines;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Util;
+use function is_string;
 use function preg_match;
 use function sprintf;
 
@@ -144,7 +145,7 @@ class Pbxt extends StorageEngine
      */
     public function resolveTypeSize($formatted_size)
     {
-        if (preg_match('/^[0-9]+[a-zA-Z]+$/', $formatted_size)) {
+        if (is_string($formatted_size) && preg_match('/^[0-9]+[a-zA-Z]+$/', $formatted_size)) {
             $value = Util::extractValueFromFormattedSize(
                 $formatted_size
             );

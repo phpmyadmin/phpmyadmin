@@ -90,7 +90,7 @@ class ZipExtension
         /* Is the the zip really an ODS file? */
         $ods_mime = 'application/vnd.oasis.opendocument.spreadsheet';
         $first_zip_entry = $this->zip->getFromIndex(0);
-        if (! strcmp($ods_mime, $first_zip_entry)) {
+        if (! strcmp($ods_mime, (string) $first_zip_entry)) {
             $specific_entry = '/^content\.xml$/';
         }
 
@@ -106,7 +106,7 @@ class ZipExtension
 
         /* Return the correct contents, not just the first entry */
         for ($i = 0; $i < $this->zip->numFiles; $i++) {
-            if (@preg_match($specific_entry, $this->zip->getNameIndex($i))) {
+            if (preg_match($specific_entry, (string) $this->zip->getNameIndex($i))) {
                 $file_data = $this->zip->getFromIndex($i);
                 break;
             }
@@ -144,7 +144,7 @@ class ZipExtension
 
         if ($res === true) {
             for ($i = 0; $i < $this->zip->numFiles; $i++) {
-                if (preg_match($regex, $this->zip->getNameIndex($i))) {
+                if (preg_match($regex, (string) $this->zip->getNameIndex($i))) {
                     $filename = $this->zip->getNameIndex($i);
                     $this->zip->close();
 
@@ -270,8 +270,8 @@ class ZipExtension
 
             $unc_len = strlen($dump);
             $crc = crc32($dump);
-            $zdata = gzcompress($dump);
-            $zdata = substr(substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
+            $zdata = (string) gzcompress($dump);
+            $zdata = substr((string) substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
             $c_len = strlen($zdata);
             $fr = "\x50\x4b\x03\x04"
                 . "\x14\x00"        // ver needed to extract

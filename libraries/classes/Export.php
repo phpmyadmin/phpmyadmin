@@ -30,6 +30,7 @@ use function is_array;
 use function is_file;
 use function is_numeric;
 use function is_object;
+use function is_string;
 use function is_writable;
 use function mb_strlen;
 use function mb_strpos;
@@ -133,7 +134,7 @@ class Export
         if ($GLOBALS['buffer_needed']) {
             $dump_buffer .= $line;
             if ($GLOBALS['onfly_compression']) {
-                $dump_buffer_len += strlen($line);
+                $dump_buffer_len += strlen((string) $line);
 
                 if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                     if ($GLOBALS['output_charset_conversion']) {
@@ -151,10 +152,10 @@ class Export
                         $dump_buffer = gzencode($dump_buffer);
                     }
                     if ($GLOBALS['save_on_server']) {
-                        $write_result = @fwrite($GLOBALS['file_handle'], $dump_buffer);
+                        $write_result = @fwrite($GLOBALS['file_handle'], (string) $dump_buffer);
                         // Here, use strlen rather than mb_strlen to get the length
                         // in bytes to compare against the number of bytes written.
-                        if ($write_result != strlen($dump_buffer)) {
+                        if ($write_result != strlen((string) $dump_buffer)) {
                             $GLOBALS['message'] = Message::error(
                                 __('Insufficient space to save the file %s.')
                             );
@@ -183,16 +184,16 @@ class Export
                     $line
                 );
             }
-            if ($GLOBALS['save_on_server'] && mb_strlen($line) > 0) {
+            if ($GLOBALS['save_on_server'] && mb_strlen((string) $line) > 0) {
                 if ($GLOBALS['file_handle'] !== null) {
-                    $write_result = @fwrite($GLOBALS['file_handle'], $line);
+                    $write_result = @fwrite($GLOBALS['file_handle'], (string) $line);
                 } else {
                     $write_result = false;
                 }
                 // Here, use strlen rather than mb_strlen to get the length
                 // in bytes to compare against the number of bytes written.
                 if (! $write_result
-                    || $write_result != strlen($line)
+                    || $write_result != strlen((string) $line)
                 ) {
                     $GLOBALS['message'] = Message::error(
                         __('Insufficient space to save the file %s.')
@@ -212,7 +213,7 @@ class Export
             }
         } else {
             // We export as html - replace special chars
-            echo htmlspecialchars($line);
+            echo htmlspecialchars((string) $line);
         }
 
         return true;
@@ -257,7 +258,7 @@ class Export
      */
     public function getMemoryLimit(): int
     {
-        $memory_limit = trim(ini_get('memory_limit'));
+        $memory_limit = trim((string) ini_get('memory_limit'));
         $memory_limit_num = (int) substr($memory_limit, 0, -1);
         $lowerLastChar = strtolower(substr($memory_limit, -1));
         // 2 MB as default
@@ -510,7 +511,7 @@ class Export
             $zipExtension = new ZipExtension();
             $filename = substr($filename, 0, -4); // remove extension (.zip)
             $dump_buffer = $zipExtension->createFile($dump_buffer, $filename);
-        } elseif ($compression === 'gzip' && $this->gzencodeNeeded()) {
+        } elseif ($compression === 'gzip' && $this->gzencodeNeeded() && is_string($dump_buffer)) {
             // without the optional parameter level because it bugs
             $dump_buffer = gzencode($dump_buffer);
         }

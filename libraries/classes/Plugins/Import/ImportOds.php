@@ -293,7 +293,7 @@ class ImportOds extends ImportPlugin
                     } else {
                         // MySQL column names can't end with a space
                         // character.
-                        $col_names[] = rtrim($value);
+                        $col_names[] = rtrim((string) $value);
                     }
 
                     ++$col_count;

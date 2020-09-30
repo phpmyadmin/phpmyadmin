@@ -378,7 +378,7 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test'
             )
         );
-        $result = htmlspecialchars_decode(ob_get_clean());
+        $result = htmlspecialchars_decode((string) ob_get_clean());
 
         $this->assertEquals(
             '<h2>Dumping data for table testTable</h2>' .

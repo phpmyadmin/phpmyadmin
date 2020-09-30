@@ -212,7 +212,7 @@ class Font
 
         $text  = str_replace(' ', '', $text);//remove the " "'s
         //all other chars
-        $count += mb_strlen(preg_replace('/[a-z0-9]/i', '', $text)) * 0.3;
+        $count += mb_strlen((string) preg_replace('/[a-z0-9]/i', '', $text)) * 0.3;
 
         $modifier = 1;
         $font = mb_strtolower($font);

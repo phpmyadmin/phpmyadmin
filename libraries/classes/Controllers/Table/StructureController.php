@@ -705,7 +705,7 @@ class StructureController extends AbstractController
         } else { // move column
             $this->dbi->tryQuery($sql_query);
             $tmp_error = $this->dbi->getError();
-            if ($tmp_error) {
+            if (is_string($tmp_error)) {
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error($tmp_error));
             } else {

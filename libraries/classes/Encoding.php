@@ -297,7 +297,7 @@ class Encoding
         if ($enc == '' && $kana == '') {
             return $file;
         }
-        $tmpfname = tempnam($GLOBALS['PMA_Config']->getUploadTempDir(), $enc);
+        $tmpfname = (string) tempnam($GLOBALS['PMA_Config']->getUploadTempDir(), $enc);
         $fpd      = fopen($tmpfname, 'wb');
         $fps      = fopen($file, 'r');
         self::kanjiChangeOrder();

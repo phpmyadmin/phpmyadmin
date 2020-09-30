@@ -124,7 +124,7 @@ class ViewCreateController extends AbstractController
 
             if (! $this->dbi->tryQuery($sql_query)) {
                 if (! isset($_POST['ajax_dialog'])) {
-                    $message = Message::rawError($this->dbi->getError());
+                    $message = Message::rawError((string) $this->dbi->getError());
 
                     return;
                 }

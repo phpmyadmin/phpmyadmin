@@ -395,7 +395,7 @@ class CentralColumns
                     $message = Message::error(__('Could not add columns!'));
                     $message->addMessage(
                         Message::rawError(
-                            $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
+                            (string) $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
                         )
                     );
                     break;
@@ -494,7 +494,7 @@ class CentralColumns
             $message->addHtml('<br>' . htmlspecialchars($cols) . '<br>');
             $message->addMessage(
                 Message::rawError(
-                    $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
+                    (string) $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
                 )
             );
         }
@@ -567,7 +567,7 @@ class CentralColumns
 
             if ($message === true) {
                 $message = Message::error(
-                    $this->dbi->getError()
+                    (string) $this->dbi->getError()
                 );
             } else {
                 $message->addText(
@@ -682,7 +682,7 @@ class CentralColumns
         }
         if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             return Message::error(
-                $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
+                (string) $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
             );
         }
 

@@ -448,7 +448,7 @@ class GisVisualization
         $output = ob_get_clean();
 
         // base64 encode
-        $encoded = base64_encode($output);
+        $encoded = base64_encode((string) $output);
 
         return '<img src="data:image/png;base64,' . $encoded . '">';
     }

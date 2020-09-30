@@ -173,7 +173,7 @@ class ThemeManager
             trigger_error(
                 sprintf(
                     __('Theme %s not found!'),
-                    htmlspecialchars($theme)
+                    htmlspecialchars((string) $theme)
                 ),
                 E_USER_ERROR
             );

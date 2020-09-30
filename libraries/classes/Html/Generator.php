@@ -924,7 +924,7 @@ class Generator
 
         // Checking for any server errors.
         if (empty($server_msg)) {
-            $server_msg = $GLOBALS['dbi']->getError();
+            $server_msg = (string) $GLOBALS['dbi']->getError();
         }
 
         // Finding the query that failed, if not specified.
@@ -1031,10 +1031,10 @@ class Generator
 
         // Display server's error.
         if (! empty($server_msg)) {
-            $server_msg = preg_replace(
+            $server_msg = (string) preg_replace(
                 "@((\015\012)|(\015)|(\012)){3,}@",
                 "\n\n",
-                $server_msg
+                (string) $server_msg
             );
 
             // Adds a link to MySQL documentation.

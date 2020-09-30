@@ -199,7 +199,7 @@ class ExportCodegen extends ExportPlugin
     public static function cgMakeIdentifier($str, $ucfirst = true)
     {
         // remove unsafe characters
-        $str = preg_replace('/[^\p{L}\p{Nl}_]/u', '', $str);
+        $str = (string) preg_replace('/[^\p{L}\p{Nl}_]/u', '', $str);
         // make sure first character is a letter or _
         if (! preg_match('/^\pL/u', $str)) {
             $str = '_' . $str;

@@ -56,7 +56,7 @@ class ChangeLogController extends AbstractController
         /**
          * Whole changelog in variable.
          */
-        $changelog = htmlspecialchars($changelog);
+        $changelog = htmlspecialchars((string) $changelog);
 
         $github_url = 'https://github.com/phpmyadmin/phpmyadmin/';
         $faq_url = 'https://docs.phpmyadmin.net/en/latest/faq.html';

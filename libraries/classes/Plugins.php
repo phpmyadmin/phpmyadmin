@@ -303,7 +303,7 @@ class Plugins
         $hidden = null;
         foreach ($list as $plugin) {
             $elem = explode('\\', get_class($plugin));
-            $plugin_name = array_pop($elem);
+            $plugin_name = (string) array_pop($elem);
             unset($elem);
             $plugin_name = mb_strtolower(
                 mb_substr(
@@ -668,7 +668,7 @@ class Plugins
             }
 
             $elem = explode('\\', get_class($plugin));
-            $plugin_name = array_pop($elem);
+            $plugin_name = (string) array_pop($elem);
             unset($elem);
             $plugin_name = mb_strtolower(
                 mb_substr(
