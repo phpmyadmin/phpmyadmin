@@ -1,21 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
-			count: 2
-			path: libraries/classes/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:error\\(\\) expects string, bool\\|string given\\.$#"
-			count: 2
-			path: libraries/classes/CentralColumns.php
-
-		-
-			message: "#^Parameter \\#1 \\$message of method PhpMyAdmin\\\\Message\\:\\:addText\\(\\) expects string, bool\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/CentralColumns.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between array\\<int, string\\> and false will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Charsets.php
@@ -464,6 +449,21 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:getColumnCreationStatements\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/CreateAddField.php
+
+		-
+			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Message\\:\\:rawError\\(\\) expects string, bool\\|string given\\.$#"
+			count: 2
+			path: libraries/classes/Database/CentralColumns.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\Message\\:\\:error\\(\\) expects string, bool\\|string given\\.$#"
+			count: 2
+			path: libraries/classes/Database/CentralColumns.php
+
+		-
+			message: "#^Parameter \\#1 \\$message of method PhpMyAdmin\\\\Message\\:\\:addText\\(\\) expects string, bool\\|string given\\.$#"
+			count: 1
+			path: libraries/classes/Database/CentralColumns.php
 
 		-
 			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>, \\?'DTN' \\=\\> array\\<int, string\\>, \\?'SCN' \\=\\> array\\<int, string\\>, \\?'STN' \\=\\> array\\<int, string\\>\\)\\.$#"

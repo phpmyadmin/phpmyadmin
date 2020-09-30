@@ -20,7 +20,7 @@ return [
             'arguments' => [CONFIG_FILE],
         ],
         'central_columns' => [
-            'class' => PhpMyAdmin\CentralColumns::class,
+            'class' => PhpMyAdmin\Database\CentralColumns::class,
             'arguments' => ['@dbi'],
         ],
         'check_user_privileges' => [

@@ -1,21 +1,16 @@
 <?php
-/**
- * tests for PhpMyAdmin\CentralColumns
- */
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Database;
 
-use PhpMyAdmin\CentralColumns;
+use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 use function array_slice;
 
-/**
- * tests for PhpMyAdmin\CentralColumns
- */
 class CentralColumnsTest extends AbstractTestCase
 {
     /** @var CentralColumns */

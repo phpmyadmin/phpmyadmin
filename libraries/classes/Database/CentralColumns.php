@@ -1,14 +1,17 @@
 <?php
-/**
- * Functions for displaying user preferences pages
- */
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Database;
 
+use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
 use function array_unique;
 use function bin2hex;
 use function ceil;
@@ -23,9 +26,6 @@ use function mb_strtoupper;
 use function sprintf;
 use function trim;
 
-/**
- * PhpMyAdmin\CentralColumns class
- */
 class CentralColumns
 {
     /**
