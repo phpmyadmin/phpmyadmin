@@ -1473,6 +1473,7 @@ class Sql
                 if (is_array($profiling_results)) {
                     $header   = $response->getHeader();
                     $scripts  = $header->getScripts();
+                    $scripts->addFile('vendor/stickyfill.min.js');
                     $scripts->addFile('sql.js');
                     $html_output .= $this->getHtmlForProfilingChart(
                         $url_query,
@@ -1933,6 +1934,7 @@ class Sql
         $tableMaintenanceHtml = '';
         if (isset($_POST['table_maintenance'])) {
             $scripts->addFile('makegrid.js');
+            $scripts->addFile('vendor/stickyfill.min.js');
             $scripts->addFile('sql.js');
             if (isset($message)) {
                 $message = is_string($message) ? Message::success($message) : $message;
@@ -1962,6 +1964,7 @@ class Sql
 
         if (! isset($_POST['printview']) || $_POST['printview'] != '1') {
             $scripts->addFile('makegrid.js');
+            $scripts->addFile('vendor/stickyfill.min.js');
             $scripts->addFile('sql.js');
             unset($GLOBALS['message']);
             //we don't need to buffer the output in getMessage here.

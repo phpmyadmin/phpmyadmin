@@ -228,6 +228,7 @@ class SearchController extends AbstractController
                 ->addFiles(
                     [
                         'makegrid.js',
+                        'vendor/stickyfill.min.js',
                         'sql.js',
                         'table/select.js',
                         'table/change.js',
@@ -260,6 +261,7 @@ class SearchController extends AbstractController
                 ->addFiles(
                     [
                         'makegrid.js',
+                        'vendor/stickyfill.min.js',
                         'sql.js',
                         'vendor/jqplot/jquery.jqplot.js',
                         'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
