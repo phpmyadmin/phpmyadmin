@@ -1,6 +1,6 @@
 <?php
 /**
- * Single signon for phpMyAdmin
+ * Single signon for phpMyAdmin.
  *
  * This is just example how to use session based single signon with
  * phpMyAdmin, it is not intended to be perfect code and look, only
