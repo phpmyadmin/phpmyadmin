@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-09-30 23:11+0000\n"
+"PO-Revision-Date: 2020-10-03 11:34+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-0/pt/>\n"
@@ -2021,7 +2021,7 @@ msgid ""
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 "Esta tabela não contém uma coluna exclusiva. Funções relacionados com a "
-"edição da tabela, checkbox, Editar, Copiar e Eliminar links podem não "
+"edição da tabela, checkbox, Editar, Copiar e Eliminar ligações podem não "
 "funcionar depois de guardar."
 
 #: js/messages.php:618
@@ -12373,7 +12373,7 @@ msgstr "Libertar a cache da consulta"
 #: libraries/classes/Server/UserGroups.php:34
 #, php-format
 msgid "Users of '%s' user group"
-msgstr "Usuários do grupo '%s'"
+msgstr "Utilizadores do grupo '%s'"
 
 #: libraries/classes/Server/UserGroups.php:47
 msgid "No users were found belonging to this user group."
@@ -12698,7 +12698,7 @@ msgstr "Rastreando instruções"
 
 #: libraries/classes/Tracking.php:294
 msgid "Delete tracking data row from report"
-msgstr "Excluir dados de rastreamento desta coluna do relatório"
+msgstr "Apagar dados de rastreamento desta coluna do relatório"
 
 #: libraries/classes/Tracking.php:305
 msgid "No data"
@@ -14364,7 +14364,7 @@ msgstr "Actualizado"
 #: templates/database/tracking/tables.twig:56
 #: templates/database/tracking/tables.twig:101
 msgid "Delete tracking"
-msgstr "Excluir rastreamento"
+msgstr "Apagar rastreamento"
 
 #: templates/database/tracking/tables.twig:67
 msgid "Versions"
@@ -15050,7 +15050,7 @@ msgstr ""
 
 #: templates/preferences/autoload.twig:13
 msgid "Delete settings"
-msgstr "Excluir configurações"
+msgstr "Apagar configurações"
 
 #: templates/preferences/forms/main.twig:4
 msgid "Cannot save settings, submitted form contains errors!"
@@ -15401,7 +15401,7 @@ msgid ""
 msgstr ""
 "Certifique-se de que tem um ID de servidor único no seu ficheiro de "
 "configuração (my.cnf). Senão, favor adicionar a seguinte linha dentro da "
-"seção [mysqld]:"
+"secção [mysqld]:"
 
 #: templates/server/replication/change_master.twig:26
 msgid "Port:"
@@ -15476,7 +15476,7 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
-"Agora adicione as seguintes linhas ao final da seção [mysqld] no seu my.cnf "
+"Agora adicione as seguintes linhas ao final da secção [mysqld] no seu my.cnf "
 "e por favor reinicie o servidor MySQL em seguida."
 
 #: templates/server/replication/master_configuration.twig:21
@@ -16544,7 +16544,7 @@ msgstr "Próximo auto-índice"
 
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
 msgid "Delete version"
-msgstr "Excluir versão"
+msgstr "Apagar versão"
 
 #: templates/table/tracking/main.twig:107
 #, php-format
