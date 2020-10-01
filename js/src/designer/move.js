@@ -594,11 +594,19 @@ DesignerMove.addOtherDbTables = function () {
         // Check if table already imported or not.
         var $table = $('[table_name="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
         if ($table.length !== 0) {
-            Functions.ajaxShowMessage(
-                Functions.sprintf(Messages.strTableAlreadyExists, db + '.' + table),
-                undefined,
-                'error'
-            );
+            if ($table.parents()[2].style.display == 'none') {
+                $table.parents()[2].style.display = 'block';
+                // To enable table to be saved to page
+                var key = $table.parents()[2].id.replace('designer_table_', '');
+                document.getElementById('check_vis_' + key).checked = true;
+                $(this).dialog('close');
+            } else {
+                Functions.ajaxShowMessage(
+                    Functions.sprintf(Messages.strTableAlreadyExists, db + '.' + table),
+                    undefined,
+                    'error'
+                );
+            }
             return;
         }
 
