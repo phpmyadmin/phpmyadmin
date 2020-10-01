@@ -56,7 +56,7 @@ class ZipExtensionTest extends AbstractTestCase
     public function provideTestGetContents(): array
     {
         return [
-            [
+            'null as specific entry' => [
                 './test/test_data/test.zip',
                 null,
                 [
@@ -64,11 +64,19 @@ class ZipExtensionTest extends AbstractTestCase
                     'data' => 'TEST FILE' . "\n",
                 ],
             ],
-            [
+            'an existent specific entry' => [
                 './test/test_data/test.zip',
-                'test',
+                '/test.file/',
                 [
-                    'error' => 'Error in ZIP archive: Could not find "test"',
+                    'error' => '',
+                    'data' => 'TEST FILE' . "\n",
+                ],
+            ],
+            'a nonexistent specific entry' => [
+                './test/test_data/test.zip',
+                '/foobar/',
+                [
+                    'error' => 'Error in ZIP archive: Could not find "/foobar/"',
                     'data' => '',
                 ],
             ],
