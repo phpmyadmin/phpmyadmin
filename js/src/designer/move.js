@@ -594,7 +594,7 @@ DesignerMove.addOtherDbTables = function () {
         // Check if table already imported or not.
         var $table = $('[table_name="' + encodeURIComponent(db) + '.' + encodeURIComponent(table) + '"]');
         if ($table.length !== 0) {
-            if ($table.parents()[2].style.display == 'none') {
+            if ($table.parents()[2].style.display === 'none') {
                 $table.parents()[2].style.display = 'block';
                 // To enable table to be saved to page
                 var key = $table.parents()[2].id.replace('designer_table_', '');
@@ -1587,7 +1587,8 @@ DesignerMove.hideTabAll = function (idThis) {
     }
 
     $('#container-form #id_scroll_tab input[class=scroll_tab_checkbox]:checkbox').each(function () {
-        var elementCheckBox = $(document.getElementById('designer_table_' + this.value));
+        var tableName = this.value.replace('check_visible_', '');
+        var elementCheckBox = $(document.getElementById('designer_table_' + tableName));
         if (idThis.alt === 'v') {
             this.checked = true;
             elementCheckBox.show();
