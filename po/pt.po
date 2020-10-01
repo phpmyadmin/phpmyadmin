@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-09-30 23:11+0000\n"
+"PO-Revision-Date: 2020-10-03 11:34+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/pt/>\n"
@@ -2442,7 +2442,7 @@ msgid ""
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 "Esta tabela não contém uma coluna exclusiva. Funções relacionados com a "
-"edição da tabela, checkbox, Editar, Copiar e Eliminar links podem não "
+"edição da tabela, checkbox, Editar, Copiar e Eliminar ligações podem não "
 "funcionar depois de guardar."
 
 #: js/messages.php:609
@@ -10531,7 +10531,7 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
-"Agora adicione as seguintes linhas ao final da seção [mysqld] no seu my.cnf "
+"Agora adicione as seguintes linhas ao final da secção [mysqld] no seu my.cnf "
 "e por favor reinicie o servidor MySQL em seguida."
 
 #: libraries/classes/ReplicationGui.php:126
@@ -10661,7 +10661,7 @@ msgid ""
 msgstr ""
 "Certifique-se de que tem um ID de servidor único no seu ficheiro de "
 "configuração (my.cnf). Senão, favor adicionar a seguinte linha dentro da "
-"seção [mysqld]:"
+"secção [mysqld]:"
 
 #: libraries/classes/ReplicationGui.php:420
 #: libraries/classes/ReplicationGui.php:795
@@ -13039,7 +13039,7 @@ msgstr "A quantidade de processos que não estão dormindo."
 #: libraries/classes/Server/UserGroups.php:32
 #, php-format
 msgid "Users of '%s' user group"
-msgstr "Usuários do grupo '%s'"
+msgstr "Utilizadores do grupo '%s'"
 
 #: libraries/classes/Server/UserGroups.php:45
 msgid "No users were found belonging to this user group."
@@ -13380,7 +13380,7 @@ msgstr "Actualizado"
 
 #: libraries/classes/Tracking.php:170 libraries/classes/Tracking.php:234
 msgid "Delete version"
-msgstr "Excluir versão"
+msgstr "Apagar versão"
 
 #: libraries/classes/Tracking.php:171 libraries/classes/Tracking.php:334
 #: templates/database/tracking/tracked_tables.twig:76
@@ -13398,7 +13398,7 @@ msgstr "Rastreando instruções"
 
 #: libraries/classes/Tracking.php:350
 msgid "Delete tracking data row from report"
-msgstr "Excluir dados de rastreamento desta coluna do relatório"
+msgstr "Apagar dados de rastreamento desta coluna do relatório"
 
 #: libraries/classes/Tracking.php:361
 msgid "No data"
@@ -15196,7 +15196,7 @@ msgstr "Última versão"
 #: templates/database/tracking/tracked_tables.twig:54
 #: templates/database/tracking/tracked_tables.twig:99
 msgid "Delete tracking"
-msgstr "Excluir rastreamento"
+msgstr "Apagar rastreamento"
 
 #: templates/database/tracking/tracked_tables.twig:65
 msgid "Versions"
@@ -16336,7 +16336,7 @@ msgstr ""
 
 #: templates/prefs_autoload.twig:13
 msgid "Delete settings"
-msgstr "Excluir configurações"
+msgstr "Apagar configurações"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
