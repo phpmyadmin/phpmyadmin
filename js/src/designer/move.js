@@ -1632,8 +1632,9 @@ DesignerMove.noHaveConstr = function (idThis) {
         idThis.src = idThis.dataset.down;
     }
     $('#container-form #id_scroll_tab input[class=scroll_tab_checkbox]:checkbox').each(function () {
-        if (!DesignerMove.inArrayK(this.value, a)) {
-            var elementCheckBox = $(document.getElementById('designer_table_' + this.value));
+        var tableName = this.value.replace('check_visible_', '');
+        if (!DesignerMove.inArrayK(tableName, a)) {
+            var elementCheckBox = $(document.getElementById('designer_table_' + tableName));
             if (idThis.alt === 'v') {
                 this.checked = true;
                 elementCheckBox.show();
