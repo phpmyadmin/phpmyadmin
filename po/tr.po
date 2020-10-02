@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-09-10 08:41+0000\n"
+"PO-Revision-Date: 2020-10-03 11:34+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -4698,7 +4698,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:707
 msgid "Recall user name"
-msgstr "Kullanıcı adını hatırla"
+msgstr "Kullanıcı adını geri çağır"
 
 #: libraries/classes/Config/Descriptions.php:710
 msgid ""
@@ -5205,7 +5205,7 @@ msgstr "Eğer kullanılmayacaksa boş bırakın."
 
 #: libraries/classes/Config/Descriptions.php:971
 msgid "Host authorization order"
-msgstr "Anamakine izin düzeni"
+msgstr "Anamakine yetkilendirme düzeni"
 
 #: libraries/classes/Config/Descriptions.php:973
 msgid "Leave blank for defaults."
@@ -5213,7 +5213,7 @@ msgstr "Varsayılan için boş bırakın."
 
 #: libraries/classes/Config/Descriptions.php:975
 msgid "Host authorization rules"
-msgstr "Anamakine izin kuralları"
+msgstr "Anamakine yetkilendirme kuralları"
 
 #: libraries/classes/Config/Descriptions.php:977
 msgid "Allow logins without a password"
@@ -5364,7 +5364,7 @@ msgstr "SQL sorgu geçmişi tablosu"
 
 #: libraries/classes/Config/Descriptions.php:1056
 msgid "Hostname where MySQL server is running."
-msgstr "MySQL sunucusunun çalıştığı anamakine."
+msgstr "MySQL sunucusunun çalıştığı anamakine adı."
 
 #: libraries/classes/Config/Descriptions.php:1058
 msgid "Server hostname"
@@ -9124,7 +9124,7 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin MySQL sunucusuna bağlanmayı denedi, abcak sunucu bağlantıyı "
+"phpMyAdmin MySQL sunucusuna bağlanmayı denedi, ancak sunucu bağlantıyı "
 "reddetti. Yapılandırma dosyanızdaki anamakine (host), kullanıcı adı ve "
 "parolayı denetlemelisiniz ve MySQL sunucusu yöneticisi tarafından verilen "
 "bilgiye uyduğundan emin olun."
@@ -11630,7 +11630,7 @@ msgstr "Kullanıcıları görüntülemek için yetersiz yetki."
 #: libraries/classes/Server/Privileges.php:2619
 #: libraries/classes/Server/Privileges.php:3993
 msgid "No user found."
-msgstr "Kullanıcı bulunamadı."
+msgstr "Bulunan kullanıcı yok."
 
 #: libraries/classes/Server/Privileges.php:2650
 #: libraries/classes/Server/Privileges.php:2986
@@ -14151,7 +14151,7 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
-"Kullanıcı adı ve anabilgisayar adı değişmedi. Sadece parolayı değiştirmek "
+"Kullanıcı adı ve anamakine adı değişmedi. Sadece parolayı değiştirmek "
 "istiyorsanız, 'Parolayı değiştir' sekmesi kullanılmalıdır."
 
 #: server_status.php:35
