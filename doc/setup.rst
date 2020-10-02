@@ -234,6 +234,26 @@ You can configure several phpMyAdmin features using environment variables:
 
     .. seealso:: :config:option:`$cfg['PmaAbsoluteUri']`
 
+.. envvar:: HIDE_PHP_VERSION
+
+    If defined, this option will hide the PHP version (`expose_php = Off`).
+    Set to any value (such as `HIDE_PHP_VERSION=true`).
+
+.. envvar:: UPLOAD_LIMIT
+
+    If set, this option will override the default value for apache and php-fpm (this will change ``upload_max_filesize`` and ``post_max_size`` values).
+
+    .. note:: Format as `[0-9+](K,M,G)` default value is `2048K`
+
+.. envvar:: PMA_CONFIG_BASE64
+
+    If set, this option will override the default `config.inc.php` with the base64 decoded contents of the variable.
+
+.. envvar:: PMA_USER_CONFIG_BASE64
+
+    If set, this option will override the default `config.user.inc.php` with the base64 decoded contents of the variable.
+
+
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
 
