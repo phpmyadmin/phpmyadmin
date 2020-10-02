@@ -53,6 +53,7 @@ $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('makegrid.js');
 // Needed for generation of Inline Edit anchors
+$scripts->addFile('vendor/stickyfill.min.js');
 $scripts->addFile('sql.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
