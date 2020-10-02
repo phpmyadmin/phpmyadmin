@@ -245,7 +245,7 @@ Server connection settings
         The :config:option:`$cfg['Servers']` array starts with
         $cfg['Servers'][1]. Do not use $cfg['Servers'][0]. If you want more
         than one server, just copy following section (including $i
-        incrementation) serveral times. There is no need to define full server
+        increment) several times. There is no need to define full server
         array, just define values you need to change.
 
 .. config:option:: $cfg['Servers'][$i]['host']
@@ -2225,7 +2225,7 @@ Main panel
     :type: boolean
     :default: true
 
-    Defines whether to display informations about the current Git revision (if
+    Defines whether to display information about the current Git revision (if
     applicable) on the main panel.
 
 .. config:option:: $cfg['MysqlMinVersion']
@@ -3223,7 +3223,7 @@ Various display setting
 
     Contains names of configuration options (keys in ``$cfg`` array) that
     users can't set through user preferences. For possible values, refer
-    to clases under :file:`libraries/classes/Config/Forms/User/`.
+    to classes under :file:`libraries/classes/Config/Forms/User/`.
 
 .. config:option:: $cfg['UserprefsDeveloperTab']
 
@@ -3580,9 +3580,9 @@ Google Cloud SQL with SSL
 +++++++++++++++++++++++++
 
 To connect to Google Could SQL, you currently need to disable certificate
-verification. This is caused by the certficate being issued for CN matching
+verification. This is caused by the certificate being issued for CN matching
 your instance name, but you connect to an IP address and PHP tries to match
-these two. With verfication you end up with error message like:
+these two. With verification you end up with error message like:
 
 .. code-block:: text
 

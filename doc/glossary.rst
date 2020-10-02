@@ -175,7 +175,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/ISP>
 
     ISO
-      International Standards Organisation
+      International Standards Organization
 
     JPEG
       a most commonly used standard method of lossy compression for photographic images.
