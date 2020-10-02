@@ -536,9 +536,6 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="libraries/classes/Core.php">
-    <FalsableReturnStatement occurrences="1">
-      <code>getenv($var_name)</code>
-    </FalsableReturnStatement>
     <InvalidOperand occurrences="1">
       <code>$matches[1]</code>
     </InvalidOperand>
@@ -548,10 +545,6 @@
       <code>$i</code>
       <code>$i</code>
     </LoopInvalidation>
-    <PossiblyFalseArgument occurrences="2">
-      <code>mb_strpos($_page . '?', '?')</code>
-      <code>mb_strpos($page . '?', '?')</code>
-    </PossiblyFalseArgument>
     <TypeDoesNotContainType occurrences="1">
       <code>is_string($data)</code>
     </TypeDoesNotContainType>

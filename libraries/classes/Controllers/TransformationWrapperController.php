@@ -172,6 +172,9 @@ class TransformationWrapperController extends AbstractController
             // it sets the resize parameter to jpeg or png
 
             $srcImage = imagecreatefromstring($row[$transform_key]);
+            if ($srcImage === false) {
+                return;
+            }
             $srcWidth = imagesx($srcImage);
             $srcHeight = imagesy($srcImage);
 
@@ -192,6 +195,11 @@ class TransformationWrapperController extends AbstractController
 
             if ($_REQUEST['resize']) {
                 $destImage = imagecreatetruecolor($destWidth, $destHeight);
+                if ($destImage === false) {
+                    imagedestroy($srcImage);
+
+                    return;
+                }
 
                 // ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0,
                 // $destWidth, $destHeight, $srcWidth, $srcHeight);

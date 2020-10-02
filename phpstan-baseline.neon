@@ -311,56 +311,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$im of function imagesx expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/TransformationWrapperController.php
-
-		-
-			message: "#^Parameter \\#1 \\$im of function imagesy expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/TransformationWrapperController.php
-
-		-
-			message: "#^Parameter \\#1 \\$dst_im of function imagecopyresampled expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/TransformationWrapperController.php
-
-		-
-			message: "#^Parameter \\#2 \\$src_im of function imagecopyresampled expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/TransformationWrapperController.php
-
-		-
-			message: "#^Parameter \\#1 \\$im of function imagejpeg expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/TransformationWrapperController.php
-
-		-
-			message: "#^Parameter \\#1 \\$im of function imagepng expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/TransformationWrapperController.php
-
-		-
-			message: "#^Parameter \\#1 \\$im of function imagedestroy expects resource, resource\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/TransformationWrapperController.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Core\\:\\:securePath\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
-			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Core.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Core\\:\\:getenv\\(\\) should return string but returns string\\|false\\.$#"
-			count: 2
-			path: libraries/classes/Core.php
-
-		-
 			message: "#^Comparison operation \"\\<\" between 1 and 43 is always true\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
@@ -369,16 +319,6 @@ parameters:
 			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\(\\?'scheme' \\=\\> string, 'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Core\\:\\:mimeDefaultFunction\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\CreateAddField\\:\\:getColumnCreationStatements\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/CreateAddField.php
 
 		-
 			message: "#^Parameter \\#1 \\$message of method PhpMyAdmin\\\\Message\\:\\:addText\\(\\) expects string, bool\\|string given\\.$#"

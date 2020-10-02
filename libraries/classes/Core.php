@@ -238,16 +238,12 @@ class Core
      * like a cookie or form.
      *
      * @param string $path The path to check
-     *
-     * @return string  The secured path
-     *
-     * @access public
      */
     public static function securePath(string $path): string
     {
         // change .. to .
-        return preg_replace('@\.\.*@', '.', $path);
-    } // end function
+        return (string) preg_replace('@\.\.*@', '.', $path);
+    }
 
     /**
      * displays the given error message on phpMyAdmin error page in foreign language,
@@ -470,7 +466,7 @@ class Core
         $_page = mb_substr(
             $page,
             0,
-            mb_strpos($page . '?', '?')
+            (int) mb_strpos($page . '?', '?')
         );
         if (in_array($_page, $allowList)) {
             return true;
@@ -480,7 +476,7 @@ class Core
         $_page = mb_substr(
             $_page,
             0,
-            mb_strpos($_page . '?', '?')
+            (int) mb_strpos($_page . '?', '?')
         );
 
         return in_array($_page, $allowList);
@@ -507,13 +503,13 @@ class Core
         }
 
         if (getenv($var_name)) {
-            return getenv($var_name);
+            return (string) getenv($var_name);
         }
 
         if (function_exists('apache_getenv')
             && apache_getenv($var_name, true)
         ) {
-            return apache_getenv($var_name, true);
+            return (string) apache_getenv($var_name, true);
         }
 
         return '';
@@ -841,7 +837,7 @@ class Core
         $buffer = htmlspecialchars($buffer);
         $buffer = str_replace('  ', ' &nbsp;', $buffer);
 
-        return preg_replace("@((\015\012)|(\015)|(\012))@", '<br>' . "\n", $buffer);
+        return (string) preg_replace("@((\015\012)|(\015)|(\012))@", '<br>' . "\n", $buffer);
     }
 
     /**
