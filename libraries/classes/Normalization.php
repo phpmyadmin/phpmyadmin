@@ -19,6 +19,7 @@ use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function intval;
+use function is_array;
 use function json_encode;
 use function mb_strtoupper;
 use function sort;
@@ -87,6 +88,9 @@ class Normalization
         if ($colTypeCategory !== 'all') {
             $types = $this->dbi->types->getColumns();
             $columnTypeList = $types[$colTypeCategory];
+            if (! is_array($columnTypeList)) {
+                $columnTypeList = [];
+            }
         }
         $this->dbi->selectDb($db);
         $columns = $this->dbi->getColumns(
@@ -1044,7 +1048,7 @@ class Normalization
             $html .= '<span class="displayblock">'
                 . '<input type="button" class="btn btn-secondary pickPd" value="' . __('Pick') . '">'
                 . '<span class="determinants">'
-                . htmlspecialchars(str_replace('`', '', $dependon)) . '</span> -> '
+                . htmlspecialchars(str_replace('`', '', (string) $dependon)) . '</span> -> '
                 . '<span class="dependents">'
                 . htmlspecialchars(str_replace('`', '', implode(', ', $colList)))
                 . '</span>'

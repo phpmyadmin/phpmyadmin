@@ -600,7 +600,7 @@ class Import
         return (int) substr(
             $last_cumulative_size,
             0,
-            strpos($last_cumulative_size, ',')
+            (int) strpos($last_cumulative_size, ',')
         );
     }
 

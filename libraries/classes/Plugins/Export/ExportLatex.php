@@ -663,7 +663,7 @@ class ExportLatex extends ExportPlugin
             }
             $local_buffer = self::texEscape($local_buffer);
             if ($row['Key'] === 'PRI') {
-                $pos = mb_strpos($local_buffer, "\000");
+                $pos = (int) mb_strpos($local_buffer, "\000");
                 $local_buffer = '\\textit{'
                     .
                     mb_substr($local_buffer, 0, $pos)
@@ -671,7 +671,7 @@ class ExportLatex extends ExportPlugin
                     mb_substr($local_buffer, $pos);
             }
             if (in_array($field_name, $unique_keys)) {
-                $pos = mb_strpos($local_buffer, "\000");
+                $pos = (int) mb_strpos($local_buffer, "\000");
                 $local_buffer = '\\textbf{'
                     .
                     mb_substr($local_buffer, 0, $pos)

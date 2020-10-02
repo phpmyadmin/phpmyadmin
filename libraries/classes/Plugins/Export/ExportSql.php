@@ -880,7 +880,7 @@ class ExportSql extends ExportPlugin
                 . mb_substr(
                     $collation,
                     0,
-                    mb_strpos($collation, '_')
+                    (int) mb_strpos($collation, '_')
                 )
                 . ' COLLATE ' . $collation;
         } else {
@@ -2657,25 +2657,25 @@ class ExportSql extends ExportPlugin
         // 5. No KEY and INDEX inside CREATE TABLE
         // 6. DOUBLE field doesn't exists, we will use FLOAT instead
 
-        $create_query = preg_replace(
+        $create_query = (string) preg_replace(
             '/^CREATE TABLE IF NOT EXISTS/',
             'CREATE TABLE',
-            $create_query
+            (string) $create_query
         );
         // first we need  to replace all lines ended with '" DATE ...,\n'
         // last preg_replace preserve us from situation with date text
         // inside DEFAULT field value
-        $create_query = preg_replace(
+        $create_query = (string) preg_replace(
             "/\" date DEFAULT NULL(,)?\n/",
             '" datetime DEFAULT NULL$1' . "\n",
             $create_query
         );
-        $create_query = preg_replace(
+        $create_query = (string) preg_replace(
             "/\" date NOT NULL(,)?\n/",
             '" datetime NOT NULL$1' . "\n",
             $create_query
         );
-        $create_query = preg_replace(
+        $create_query = (string) preg_replace(
             '/" date NOT NULL DEFAULT \'([^\'])/',
             '" datetime NOT NULL DEFAULT \'$1',
             $create_query
@@ -2684,17 +2684,17 @@ class ExportSql extends ExportPlugin
         // next we need to replace all lines ended with ') UNSIGNED ...,'
         // last preg_replace preserve us from situation with unsigned text
         // inside DEFAULT field value
-        $create_query = preg_replace(
+        $create_query = (string) preg_replace(
             "/\) unsigned NOT NULL(,)?\n/",
             ') NOT NULL$1' . "\n",
             $create_query
         );
-        $create_query = preg_replace(
+        $create_query = (string) preg_replace(
             "/\) unsigned DEFAULT NULL(,)?\n/",
             ') DEFAULT NULL$1' . "\n",
             $create_query
         );
-        $create_query = preg_replace(
+        $create_query = (string) preg_replace(
             '/\) unsigned NOT NULL DEFAULT \'([^\'])/',
             ') NOT NULL DEFAULT \'$1',
             $create_query
@@ -2704,17 +2704,17 @@ class ExportSql extends ExportPlugin
         // '" INT|TINYINT([0-9]{1,}) ...,' last preg_replace preserve us
         // from situation with int([0-9]{1,}) text inside DEFAULT field
         // value
-        $create_query = preg_replace(
+        $create_query = (string) preg_replace(
             '/" (int|tinyint|smallint|bigint)\([0-9]+\) DEFAULT NULL(,)?\n/',
             '" $1 DEFAULT NULL$2' . "\n",
             $create_query
         );
-        $create_query = preg_replace(
+        $create_query = (string) preg_replace(
             '/" (int|tinyint|smallint|bigint)\([0-9]+\) NOT NULL(,)?\n/',
             '" $1 NOT NULL$2' . "\n",
             $create_query
         );
-        $create_query = preg_replace(
+        $create_query = (string) preg_replace(
             '/" (int|tinyint|smallint|bigint)\([0-9]+\) NOT NULL DEFAULT \'([^\'])/',
             '" $1 NOT NULL DEFAULT \'$2',
             $create_query
@@ -2724,18 +2724,18 @@ class ExportSql extends ExportPlugin
         // '" FLOAT|DOUBLE([0-9,]{1,}) ...,'
         // last preg_replace preserve us from situation with
         // float([0-9,]{1,}) text inside DEFAULT field value
-        $create_query = preg_replace(
+        $create_query = (string) preg_replace(
             '/" (float|double)(\([0-9]+,[0-9,]+\))? DEFAULT NULL(,)?\n/',
             '" float DEFAULT NULL$3' . "\n",
             $create_query
         );
-        $create_query = preg_replace(
+        $create_query = (string) preg_replace(
             '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL(,)?\n/',
             '" float NOT NULL$3' . "\n",
             $create_query
         );
 
-        return preg_replace(
+        return (string) preg_replace(
             '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL DEFAULT \'([^\'])/',
             '" float NOT NULL DEFAULT \'$3',
             $create_query
@@ -2905,7 +2905,7 @@ class ExportSql extends ExportPlugin
             || $statement->options->has('VIEW')
         ) {
             // Repalcing the body.
-            for ($i = 0, $count = count($statement->body); $i < $count; ++$i) {
+            for ($i = 0, $count = count((array) $statement->body); $i < $count; ++$i) {
 
                 /**
                  * Token parsed at this moment.

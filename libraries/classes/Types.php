@@ -705,7 +705,7 @@ class Types
      * VARCHAR, TINYINT, TEXT and DATE are listed first, based on
      * estimated popularity.
      *
-     * @return string[]
+     * @return array
      */
     public function getColumns(): array
     {

@@ -183,6 +183,7 @@ class EncodingTest extends AbstractTestCase
         $file_str = '教育漢字常用漢字';
         $filename = 'test.kanji';
         $file = fopen($filename, 'w');
+        $this->assertNotFalse($file);
         fwrite($file, $file_str);
         fclose($file);
         $GLOBALS['kanji_encoding_list'] = 'ASCII,EUC-JP,SJIS,JIS';

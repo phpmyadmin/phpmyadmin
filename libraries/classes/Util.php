@@ -2964,6 +2964,9 @@ class Util
     public static function requestString($value): string
     {
         while (is_array($value) || is_object($value)) {
+            if (is_object($value)) {
+                $value = (array) $value;
+            }
             $value = reset($value);
         }
 

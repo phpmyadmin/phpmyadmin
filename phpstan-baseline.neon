@@ -976,11 +976,6 @@ parameters:
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
-			message: "#^Parameter \\#3 \\$length of function substr expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Import.php
-
-		-
 			message: "#^Parameter \\#1 \\$last_cumulative_size of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, int\\|string given\\.$#"
 			count: 3
 			path: libraries/classes/Import.php
@@ -1081,17 +1076,7 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/NodeTable.php
 
 		-
-			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, array\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Normalization.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Normalization\\:\\:getHtmlContentsFor1NFStep3\\(\\) should return array\\<string\\> but returns array\\<string, string\\|false\\>\\.$#"
-			count: 1
-			path: libraries/classes/Normalization.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, int\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Normalization.php
 
@@ -1166,16 +1151,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportJson.php
 
 		-
-			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Export/ExportLatex.php
-
-		-
-			message: "#^Parameter \\#2 \\$start of function mb_substr expects int, int\\|false given\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Export/ExportLatex.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportOds.php
@@ -1192,11 +1167,6 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
@@ -1226,21 +1196,6 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
-			count: 12
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportSql\\:\\:makeCreateTableMSSQLCompatible\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Token\\:\\:\\$token \\(string\\) does not accept array\\|string\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportSql.php
@@ -1264,11 +1219,6 @@ parameters:
 			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportYaml.php
-
-		-
-			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\<1, max\\>\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/Helpers/TableProperty.php
 
 		-
 			message: "#^Cannot call method addProperty\\(\\) on PhpMyAdmin\\\\Properties\\\\Options\\\\Groups\\\\OptionsPropertyMainGroup\\|void\\.$#"
@@ -1946,11 +1896,6 @@ parameters:
 			path: libraries/classes/Relation.php
 
 		-
-			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, string\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Relation.php
-
-		-
 			message: "#^Offset 'comment' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Relation.php
@@ -1979,16 +1924,6 @@ parameters:
 			message: "#^Instanceof between string and PhpMyAdmin\\\\Message will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Response.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace_callback expects array\\|string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sanitize.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:sanitizeMessage\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Sanitize.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:sanitizeFilename\\(\\) should return string but returns string\\|null\\.$#"
@@ -2081,11 +2016,6 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
@@ -2094,16 +2024,6 @@ parameters:
 			message: "#^Offset 'password' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Parameter \\#3 \\$length of function mb_substr expects int\\|null, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Server/Status/Monitor.php
-
-		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 2
-			path: libraries/classes/Server/Status/Monitor.php
 
 		-
 			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:tryQuery\\(\\) expects string, string\\|null given\\.$#"
@@ -2366,16 +2286,6 @@ parameters:
 			path: libraries/classes/Types.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Types\\:\\:getColumns\\(\\) should return array\\<string\\> but returns array\\<int\\|string, array\\<int, string\\>\\|string\\>\\.$#"
-			count: 1
-			path: libraries/classes/Types.php
-
-		-
-			message: "#^Parameter \\#1 \\$array_arg of function reset expects array, array\\|object given\\.$#"
-			count: 1
-			path: libraries/classes/Util.php
-
-		-
 			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Utils/HttpRequest.php
@@ -2386,19 +2296,9 @@ parameters:
 			path: libraries/classes/VersionInformation.php
 
 		-
-			message: "#^Parameter \\#2 \\$start of function substr expects int, int\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/ZipExtension.php
-
-		-
 			message: "#^Argument of an invalid type array\\|false supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/ZipExtension.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function preg_replace expects array\\|string, string\\|null given\\.$#"
-			count: 1
-			path: setup/index.php
 
 		-
 			message: "#^Cannot call method save\\(\\) on PhpMyAdmin\\\\Bookmark\\|false\\.$#"
@@ -2419,16 +2319,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:numRows\\(\\) expects mysqli_result, false given\\.$#"
 			count: 1
 			path: test/classes/Dbal/DbiMysqliTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fwrite expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: test/classes/EncodingTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fclose expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: test/classes/EncodingTest.php
 
 		-
 			message: "#^Call to an undefined method object\\:\\:generateParams\\(\\)\\.$#"

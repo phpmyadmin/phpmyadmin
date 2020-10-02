@@ -2970,7 +2970,7 @@ class Privileges
                 $export_username = mb_substr(
                     $export_user,
                     0,
-                    mb_strpos($export_user, '&')
+                    (int) mb_strpos($export_user, '&')
                 );
                 $export_hostname = mb_substr(
                     $export_user,

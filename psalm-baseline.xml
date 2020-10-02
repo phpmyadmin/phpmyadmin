@@ -1041,9 +1041,6 @@
     <ParadoxicalCondition occurrences="1">
       <code>$error</code>
     </ParadoxicalCondition>
-    <PossiblyFalseArgument occurrences="1">
-      <code>strpos($last_cumulative_size, ',')</code>
-    </PossiblyFalseArgument>
     <PossiblyFalseOperand occurrences="3">
       <code>$decPos</code>
       <code>strpos($last_cumulative_size, ',')</code>
@@ -1188,11 +1185,6 @@
       <code>$this-&gt;realParent()-&gt;realName</code>
     </PossiblyInvalidPropertyFetch>
   </file>
-  <file src="libraries/classes/Normalization.php">
-    <InvalidArgument occurrences="1">
-      <code>$columnTypeList</code>
-    </InvalidArgument>
-  </file>
   <file src="libraries/classes/OpenDocument.php">
     <InvalidReturnStatement occurrences="1">
       <code>$zipExtension-&gt;createFile($data, $name)</code>
@@ -1290,12 +1282,6 @@
       <code>$do_mime</code>
       <code>$do_relation</code>
     </ParamNameMismatch>
-    <PossiblyFalseArgument occurrences="4">
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$pos</code>
-      <code>$pos</code>
-    </PossiblyFalseArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportMediawiki.php">
     <ParamNameMismatch occurrences="3">
@@ -1346,12 +1332,6 @@
   </file>
   <file src="libraries/classes/Plugins/Export/ExportSql.php">
     <InvalidArgument occurrences="5"/>
-    <PossiblyFalseArgument occurrences="1">
-      <code>mb_strpos($collation, '_')</code>
-    </PossiblyFalseArgument>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$statement-&gt;body</code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidOperand occurrences="1"/>
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>Context::escape($alias)</code>
@@ -2175,9 +2155,6 @@
       <code>$authentication_plugin</code>
       <code>$result['password']</code>
     </NullableReturnStatement>
-    <PossiblyFalseArgument occurrences="1">
-      <code>mb_strpos($export_user, '&amp;')</code>
-    </PossiblyFalseArgument>
     <PossiblyFalseOperand occurrences="6">
       <code>mb_strpos($row1['Type'], '(')</code>
       <code>mb_strpos($row1['Type'], '(')</code>
@@ -2209,12 +2186,6 @@
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_POST['pred_dbname']</code>
     </PossiblyUndefinedArrayOffset>
-  </file>
-  <file src="libraries/classes/Server/Status/Monitor.php">
-    <PossiblyFalseArgument occurrences="1">
-      <code>mb_strpos($row['sql_text'], ' ')</code>
-    </PossiblyFalseArgument>
-    <PossiblyNullArgument occurrences="2"/>
   </file>
   <file src="libraries/classes/Server/SysInfo/SunOs.php">
     <ForbiddenCode occurrences="1">
@@ -2443,12 +2414,6 @@
     </PropertyTypeCoercion>
   </file>
   <file src="libraries/classes/Types.php">
-    <InvalidReturnStatement occurrences="1">
-      <code>$ret</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>string[]</code>
-    </InvalidReturnType>
     <PossiblyInvalidArgument occurrences="1">
       <code>$ret[_pgettext('string types', 'String')]</code>
     </PossiblyInvalidArgument>
@@ -2482,9 +2447,8 @@
       <code>mb_strpos($value, '.')</code>
       <code>mb_strrpos($columnspec, ')')</code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidArgument occurrences="2">
+    <PossiblyInvalidArgument occurrences="1">
       <code>$table</code>
-      <code>$value</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayAccess occurrences="2">
       <code>$group[$group_name]['tab' . $sep . 'count']</code>
@@ -2532,10 +2496,5 @@
     <MoreSpecificReturnType occurrences="1">
       <code>stdClass|null</code>
     </MoreSpecificReturnType>
-  </file>
-  <file src="libraries/classes/ZipExtension.php">
-    <PossiblyFalseArgument occurrences="1">
-      <code>$ext_pos</code>
-    </PossiblyFalseArgument>
   </file>
 </files>

@@ -171,10 +171,8 @@ class Sanitize
      * @param string $message the message
      * @param bool   $escape  whether to escape html in result
      * @param bool   $safe    whether string is safe (can keep < and > chars)
-     *
-     * @return string   the sanitized message
      */
-    public static function sanitizeMessage(string $message, $escape = false, $safe = false)
+    public static function sanitizeMessage(string $message, $escape = false, $safe = false): string
     {
         if (! $safe) {
             $message = strtr($message, ['<' => '&lt;', '>' => '&gt;']);
@@ -208,12 +206,12 @@ class Sanitize
         $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
 
         /* Find and replace all links */
-        $message = preg_replace_callback($pattern, static function (array $match) {
+        $message = (string) preg_replace_callback($pattern, static function (array $match) {
             return self::replaceBBLink($match);
         }, $message);
 
         /* Replace documentation links */
-        $message = preg_replace_callback(
+        $message = (string) preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
             static function (array $match) {
                 return self::replaceDocLink($match);
@@ -223,7 +221,7 @@ class Sanitize
 
         /* Possibly escape result */
         if ($escape) {
-            $message = htmlspecialchars((string) $message);
+            $message = htmlspecialchars($message);
         }
 
         return $message;

@@ -226,7 +226,7 @@ class ZipExtension
         if (is_string($data) && is_string($name)) {
             $data = [$name => $data];
         } elseif (is_array($data) && is_string($name)) {
-            $ext_pos = strpos($name, '.');
+            $ext_pos = (int) strpos($name, '.');
             $extension = substr($name, $ext_pos);
             $newData = [];
             foreach ($data as $key => $value) {
