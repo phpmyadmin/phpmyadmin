@@ -158,12 +158,12 @@ the release tarballs and is available at
 Installing using Docker
 +++++++++++++++++++++++
 
-phpMyAdmin comes with a `Docker image`_, which you can easily deploy. You can
+phpMyAdmin comes with a `Docker official image`_, which you can easily deploy. You can
 download it using:
 
 .. code-block:: sh
 
-    docker pull phpmyadmin/phpmyadmin
+    docker pull phpmyadmin
 
 The phpMyAdmin server will listen on port 80. It supports several ways of
 configuring the link to the database server, either by Docker's link feature
@@ -1162,4 +1162,4 @@ manually or after a period of inactivity). `Issue 11898 <https://github.com/phpm
 
 .. _Composer tool: https://getcomposer.org/
 .. _Packagist: https://packagist.org/
-.. _Docker image: https://hub.docker.com/r/phpmyadmin/phpmyadmin/
+.. _Docker official image: https://hub.docker.com/_/phpmyadmin
