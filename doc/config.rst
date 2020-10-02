@@ -1889,8 +1889,8 @@ Cookie authentication options
     :type: string
     :default: ``''``
 
-    The public key for the reCaptcha service that can be obtained from
-    https://www.google.com/recaptcha/admin/create.
+    The public key for the reCaptcha service that can be obtained from the
+    "Admin Console" on https://www.google.com/recaptcha/about/.
 
     .. seealso:: <https://developers.google.com/recaptcha/docs/v3>
 
@@ -1901,8 +1901,8 @@ Cookie authentication options
     :type: string
     :default: ``''``
 
-    The private key for the reCaptcha service that can be obtained from
-    https://www.google.com/recaptcha/admin/create.
+    The private key for the reCaptcha service that can be obtained from the
+    "Admin Console" on https://www.google.com/recaptcha/about/.
 
     .. seealso:: <https://developers.google.com/recaptcha/docs/v3>
 
