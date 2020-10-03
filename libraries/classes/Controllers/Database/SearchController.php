@@ -17,7 +17,12 @@ class SearchController extends AbstractController
         global $cfg, $db, $err_url, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;
         global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
 
-        $this->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
+        $this->addScriptFiles([
+            'database/search.js',
+            'vendor/stickyfill.min.js',
+            'sql.js',
+            'makegrid.js',
+        ]);
 
         Common::database();
 

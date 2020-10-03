@@ -18,7 +18,7 @@ Server
 1.1 My server is crashing each time a specific action is required or phpMyAdmin sends a blank page or a page full of cryptic characters to my browser, what can I do?
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Try to set the :config:option:`$cfg['OBGzip']`  directive to ``false`` in your
+Try to set the :config:option:`$cfg['OBGzip']` directive to ``false`` in your
 :file:`config.inc.php` file and the ``zlib.output_compression`` directive to
 ``Off`` in your php configuration file.
 

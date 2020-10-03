@@ -88,7 +88,13 @@ final class ReplaceController extends AbstractController
          */
         $goto_include = false;
 
-        $this->addScriptFiles(['makegrid.js', 'sql.js', 'indexes.js', 'gis_data_editor.js']);
+        $this->addScriptFiles([
+            'makegrid.js',
+            'vendor/stickyfill.min.js',
+            'sql.js',
+            'indexes.js',
+            'gis_data_editor.js',
+        ]);
 
         // check whether insert row mode, if so include /table/change
         $this->insertEdit->isInsertRow();

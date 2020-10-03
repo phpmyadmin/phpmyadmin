@@ -158,12 +158,12 @@ the release tarballs and is available at
 Installing using Docker
 +++++++++++++++++++++++
 
-phpMyAdmin comes with a `Docker image`_, which you can easily deploy. You can
+phpMyAdmin comes with a `Docker official image`_, which you can easily deploy. You can
 download it using:
 
 .. code-block:: sh
 
-    docker pull phpmyadmin/phpmyadmin
+    docker pull phpmyadmin
 
 The phpMyAdmin server will listen on port 80. It supports several ways of
 configuring the link to the database server, either by Docker's link feature
@@ -233,6 +233,26 @@ You can configure several phpMyAdmin features using environment variables:
     proxy makes phpMyAdmin available.
 
     .. seealso:: :config:option:`$cfg['PmaAbsoluteUri']`
+
+.. envvar:: HIDE_PHP_VERSION
+
+    If defined, this option will hide the PHP version (`expose_php = Off`).
+    Set to any value (such as `HIDE_PHP_VERSION=true`).
+
+.. envvar:: UPLOAD_LIMIT
+
+    If set, this option will override the default value for apache and php-fpm (this will change ``upload_max_filesize`` and ``post_max_size`` values).
+
+    .. note:: Format as `[0-9+](K,M,G)` default value is `2048K`
+
+.. envvar:: PMA_CONFIG_BASE64
+
+    If set, this option will override the default `config.inc.php` with the base64 decoded contents of the variable.
+
+.. envvar:: PMA_USER_CONFIG_BASE64
+
+    If set, this option will override the default `config.user.inc.php` with the base64 decoded contents of the variable.
+
 
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
@@ -1142,4 +1162,4 @@ manually or after a period of inactivity). `Issue 11898 <https://github.com/phpm
 
 .. _Composer tool: https://getcomposer.org/
 .. _Packagist: https://packagist.org/
-.. _Docker image: https://hub.docker.com/r/phpmyadmin/phpmyadmin/
+.. _Docker official image: https://hub.docker.com/_/phpmyadmin

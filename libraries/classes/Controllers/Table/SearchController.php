@@ -187,6 +187,7 @@ class SearchController extends AbstractController
 
         $this->addScriptFiles([
             'makegrid.js',
+            'vendor/stickyfill.min.js',
             'sql.js',
             'table/select.js',
             'table/change.js',
