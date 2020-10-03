@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
@@ -71,60 +70,6 @@ class Routines
         $this->dbi = $dbi;
         $this->template = $template;
         $this->response = $response;
-    }
-
-    /**
-     * Main function for the routines functionality
-     *
-     * @param string $type 'FUNCTION' for functions,
-     *                     'PROCEDURE' for procedures,
-     *                     null for both
-     *
-     * @return void
-     */
-    public function main($type)
-    {
-        global $db, $table, $text_dir, $PMA_Theme;
-
-        /**
-         * Process all requests
-         */
-        $this->handleEditor();
-        $this->handleExecute();
-        $this->export();
-        /**
-         * Display a list of available routines
-         */
-        if (! Core::isValid($type, ['FUNCTION', 'PROCEDURE'])) {
-            $type = null;
-        }
-
-        $items = $this->dbi->getRoutines($db, $type);
-        $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
-
-        $rows = '';
-        foreach ($items as $item) {
-            $rows .= $this->getRow(
-                $item,
-                $isAjax ? 'ajaxInsert hide' : ''
-            );
-        }
-
-        echo $this->template->render('filter', ['filter_value' => '']);
-
-        echo $this->template->render('database/routines/list', [
-            'db' => $db,
-            'table' => $table,
-            'items' => $items,
-            'rows' => $rows,
-            'select_all_arrow_src' => $PMA_Theme->getImgPath() . 'arrow_' . $text_dir . '.png',
-        ]);
-
-        echo $this->template->render('database/routines/footer', [
-            'db' => $db,
-            'table' => $table,
-            'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', $db, $table),
-        ]);
     }
 
     /**
@@ -1814,7 +1759,7 @@ class Routines
      *
      * @return string HTML code of a row for the list of routines
      */
-    private function getRow(array $routine, $rowClass = '')
+    public function getRow(array $routine, $rowClass = '')
     {
         global $db, $table;
 
@@ -1925,7 +1870,7 @@ class Routines
         return $errors;
     }
 
-    private function export(): void
+    public function export(): void
     {
         global $db;
 

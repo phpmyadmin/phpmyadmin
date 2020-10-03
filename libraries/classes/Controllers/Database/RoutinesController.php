@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Common;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
@@ -42,9 +43,9 @@ class RoutinesController extends AbstractController
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
-        global $errors;
+        global $errors, $PMA_Theme, $text_dir;
 
-        $params = ['type' => $_REQUEST['type'] ?? null];
+        $type = $_REQUEST['type'] ?? null;
 
         $this->checkUserPrivileges->getPrivileges();
 
@@ -81,6 +82,30 @@ class RoutinesController extends AbstractController
         $errors = [];
 
         $routines = new Routines($this->dbi, $this->template, $this->response);
-        $routines->main($params['type']);
+
+        $routines->handleEditor();
+        $routines->handleExecute();
+        $routines->export();
+
+        if (! Core::isValid($type, ['FUNCTION', 'PROCEDURE'])) {
+            $type = null;
+        }
+
+        $items = $this->dbi->getRoutines($db, $type);
+        $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
+
+        $rows = '';
+        foreach ($items as $item) {
+            $rows .= $routines->getRow($item, $isAjax ? 'ajaxInsert hide' : '');
+        }
+
+        $this->render('database/routines/index', [
+            'db' => $db,
+            'table' => $table,
+            'items' => $items,
+            'rows' => $rows,
+            'select_all_arrow_src' => $PMA_Theme->getImgPath() . 'arrow_' . $text_dir . '.png',
+            'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', $db, $table),
+        ]);
     }
 }

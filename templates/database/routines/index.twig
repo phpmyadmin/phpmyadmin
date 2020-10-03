@@ -1,3 +1,15 @@
+<div class="row">
+  <div class="col-12">
+    <fieldset id="tableFilter">
+      <legend>{% trans "Filters" %}</legend>
+      <div class="formelement">
+        <label for="filterText">{% trans "Containing the word:" %}</label>
+        <input name="filterText" type="text" id="filterText" value="">
+      </div>
+    </fieldset>
+  </div>
+</div>
+
 <form id="rteListForm" class="ajax" action="{{ url('/database/routines') }}">
   {{ get_hidden_inputs(db, table) }}
 
@@ -41,3 +53,19 @@
     {% endif %}
   </fieldset>
 </form>
+
+<fieldset class="left">
+  <legend>{% trans %}New{% context %}Create new routine{% endtrans %}</legend>
+  <div class='wrap'>
+    {% if has_privilege %}
+      <a class="ajax add_anchor" href="{{ url('/database/routines', {'db': db, 'table': table, 'add_item': true}) }}">
+        {{ get_icon('b_routine_add') }}
+        {% trans 'Add routine' %}
+      </a>
+    {% else %}
+      {{ get_icon('bd_routine_add') }}
+      {% trans 'Add routine' %}
+    {% endif %}
+    {{ show_mysql_docu('CREATE_PROCEDURE') }}
+  </div>
+</fieldset>
