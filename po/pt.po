@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-10-03 11:34+0000\n"
+"PO-Revision-Date: 2020-10-04 21:34+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/pt/>\n"
@@ -359,7 +359,7 @@ msgstr "Acesso Negado!"
 
 #: db_tracking.php:55 db_tracking.php:80
 msgid "Tracking data deleted successfully."
-msgstr "Dados de tracking excluídos com sucesso."
+msgstr "Dados de tracking apagados com sucesso."
 
 #: db_tracking.php:64
 #, php-format
@@ -2442,8 +2442,8 @@ msgid ""
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 "Esta tabela não contém uma coluna exclusiva. Funções relacionados com a "
-"edição da tabela, checkbox, Editar, Copiar e Eliminar ligações podem não "
-"funcionar depois de guardar."
+"edição da tabela, checkbox, Editar, Copiar e Apagar ligações podem não "
+"funcionar depois de gravar."
 
 #: js/messages.php:609
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
@@ -8335,8 +8335,8 @@ msgstr[1] "%1$d linha(s) afectadas."
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d linhas excluída."
-msgstr[1] "%1$d linhas(s) excluídas."
+msgstr[0] "%1$d linha apagada."
+msgstr[1] "%1$d linhas apagadas."
 
 #: libraries/classes/Message.php:285
 #, php-format
@@ -13162,7 +13162,7 @@ msgid ""
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 "A seleção atual não contém uma coluna exclusiva. Os recursos de edição de "
-"grade, caixa de seleção, Editar, Copiar e Excluir não estão disponíveis. %s"
+"grade, caixa de seleção, Editar, Copiar e Apagar não estão disponíveis. %s"
 
 #: libraries/classes/Sql.php:1827
 #, php-format
@@ -13485,7 +13485,7 @@ msgstr "Rastreamento para %1$s foi desativado na versão %2$s."
 #: libraries/classes/Tracking.php:986
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "Versão %1$s de %2$s foi excluída."
+msgstr "Versão %1$s de %2$s foi apagada."
 
 #: libraries/classes/Tracking.php:1017
 #, php-format
@@ -14479,7 +14479,7 @@ msgstr "Rastreamento de %s está ativo."
 
 #: tbl_tracking.php:103
 msgid "Tracking versions deleted successfully."
-msgstr "Controle(s) de versão(ões) excluída(s) com sucesso."
+msgstr "Controle(s) de versão(ões) apagada(s) com sucesso."
 
 #: tbl_tracking.php:108
 msgid "No versions selected."
@@ -15573,8 +15573,8 @@ msgid ""
 "team for debugging the error."
 msgstr ""
 "Este relatório automaticamente inclui dados sobre o erro e informações sobre "
-"configurações relevantes. Ele será enviado à equipe do phpMyAdmin para que "
-"ela possa depurar o erro."
+"configurações relevantes. Ele será enviado à equipa do phpMyAdmin para poder "
+"depurar o erro."
 
 #: templates/error/report_form.twig:12
 msgid ""
