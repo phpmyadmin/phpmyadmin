@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2018-01-26 23:38+0000\n"
-"Last-Translator: Edgars Sūnākslis <edgars.sunakslis@gmail.com>\n"
-"Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/lv/>\n"
+"PO-Revision-Date: 2020-10-04 21:34+0000\n"
+"Last-Translator: Ingvars Vitenburgs <ingvarsvitenburgs@gmail.com>\n"
+"Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
+"lv/>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -123,15 +123,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Ir jāizvēlas vismaz viena kolonna, ko attēlot!"
 
 #: db_qbe.php:159 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "vaicājumā"
+msgstr "Vairāku tabulu vaicājums"
 
 #: db_qbe.php:163 templates/database/multi_table_query/form.twig:3
-#, fuzzy
 msgid "Query by example"
-msgstr "Vaicājuma tips"
+msgstr "Vaicājums pēc parauga"
 
 #: db_qbe.php:182
 #, php-format
@@ -147,18 +144,18 @@ msgstr "Pieeja aizliegta!"
 
 #: db_tracking.php:62 db_tracking.php:82
 msgid "Tracking data deleted successfully."
-msgstr "Atsekošanas dati veiksmīgi dzēsti."
+msgstr "Izsekošanas dati dzēsti veiksmīgi."
 
 #: db_tracking.php:69
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
-"Versija %1$s iezīmētajām tabulām tika izveidota, to atsekošana ir aktīva."
+"Versija %1$s izvēlētajām tabulām tika izveidota, sekošana tām ir aktīva."
 
 #: db_tracking.php:95
 msgid "No tables selected."
-msgstr "Nav izvēlēta tabula."
+msgstr "Nav izvēlētas tabulas."
 
 #: db_tracking.php:128
 msgid "Database Log"
@@ -174,7 +171,7 @@ msgstr ""
 
 #: error_report.php:84
 msgid "Thank you for submitting this report."
-msgstr "Paldies, ka iesniedzāt kļūdu atskaiti."
+msgstr "Paldies, ka iesniedzāt šo atskaiti."
 
 #: error_report.php:88
 msgid ""
@@ -186,7 +183,7 @@ msgstr ""
 
 #: error_report.php:93
 msgid "If you experience any problems please submit a bug report manually."
-msgstr "Ja Jums rodas problēmas, lūdzu manuāli iesniedziet kļūdu atskaiti."
+msgstr "Ja Jums rodas problēmas, lūdzu manuāli iesniedzat kļūdu atskaiti."
 
 #: error_report.php:97
 msgid "You may want to refresh the page."
@@ -202,7 +199,7 @@ msgstr "Izdevās"
 
 #: import.php:90 js/messages.php:628
 msgid "Failed"
-msgstr "Kļūda"
+msgstr "Neizdevās"
 
 #: import.php:94
 msgid "Incomplete params"
@@ -214,16 +211,16 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Visticamāk jūs mēģinājāt augšupielādēt failu, kas ir par lielu. Risinājumu "
-"droši vien var atrast %sdokumentācijā%s."
+"Visticamāk jūs mēģinājāt augšupielādēt failu, kas ir par lielu. Lūdzu lasiet "
+"%sdokumentāciju%s, lai atrastu atrisinājumu."
 
 #: import.php:396 import.php:602
 msgid "Showing bookmark"
-msgstr "Rāda grāmatzīmi"
+msgstr "Rādu grāmatzīmi"
 
 #: import.php:417 import.php:598
 msgid "The bookmark has been deleted."
-msgstr "Ieraksts tika dzēsts."
+msgstr "Grāmatzīme tika izdzēsta."
 
 #: import.php:510
 msgid ""
@@ -242,7 +239,7 @@ msgstr "Nevar ielādēt importētos spraudņus, lūdzu pārbaudiet savu instalā
 #: import.php:605 libraries/classes/Sql.php:707 libraries/classes/Sql.php:1534
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "Grāmatzīme %s ir izveidota."
+msgstr "Grāmatzīme %s tika izveidota."
 
 #: import.php:615
 #, php-format
@@ -301,6 +298,8 @@ msgstr "Jūs taisaties LIKVIDĒT veselu datubāzi!"
 #: js/messages.php:51
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Nevar pārsaukt datubāzi tajā pašā nosaukumā. Nomainat nosaukumu un mēģiniet "
+"vēlreiz"
 
 #: js/messages.php:53
 msgid "You are about to DESTROY a complete table!"
@@ -308,51 +307,39 @@ msgstr "Jūs taisaties LIKVIDĒT veselu tabulu!"
 
 #: js/messages.php:55
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Jūs taisaties LIKVIDĒT veselu tabulu!"
+msgstr "Jūs taisaties SAMAZINĀT veselu tabulu!"
 
 #: js/messages.php:56
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete tracking data for this table?"
-msgstr "Dati tabulai"
+msgstr "Izdzēst sekošanas datus šai tabulai?"
 
 #: js/messages.php:58
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete tracking data for these tables?"
-msgstr "Dati tabulai"
+msgstr "Izdzēst sekošanas datus šīm tabulām?"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data for this version?"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Izdzēst sekošanas datus šai versijai?"
 
 #: js/messages.php:62
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data for these versions?"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Izdzēst sekošanas datus šīm versijām?"
 
 #: js/messages.php:63
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete entry from tracking report?"
-msgstr "Ļauj ievietot un mainīt datus."
+msgstr "Izdzēst ierastu no sekošanas atskaites?"
 
 #: js/messages.php:64
 msgid "Deleting tracking data"
-msgstr "Atsekošanas datu dzēšana"
+msgstr "Dzēšu sekošanas datus"
 
 #: js/messages.php:65
 msgid "Dropping Primary Key/Index"
-msgstr "Noņem primāro Atslēgu/Indeksu"
+msgstr "Noņemu primāro atslēgu/indeksu"
 
 #: js/messages.php:66
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Dropping Foreign key."
-msgstr "Nepārbaudīt ārējās atslēgas"
+msgstr "Noņemu svešu atslēgu."
 
 #: js/messages.php:68
 msgid "This operation could take a long time. Proceed anyway?"
@@ -364,38 +351,33 @@ msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
 
 #: js/messages.php:72
-#, fuzzy, php-format
-#| msgid "Do you really want to delete user group \"%s\"?"
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties dzēst meklējumu \"%s\"?"
 
 #: js/messages.php:74
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr ""
+msgstr "Jums ir nesaglabātas izmaiņas; vai tiešām vēlaties pamest šo lapu?"
 
 #: js/messages.php:76
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Jūs mēģināt samazināt rindu skaitu, bet jau esat ievadījis datus rindās, "
+"kuras izzudīs. Vai vēlaties turpināt?"
 
 #: js/messages.php:78
-#, fuzzy
-#| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties atsaukt izvēlēto(s) lietotāju(s)?"
 
 #: js/messages.php:80
-#, fuzzy
-#| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties dzēst šo centrālo kollonu?"
 
 #: js/messages.php:82
-#, fuzzy
-#| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties dzēst izvēlētās lietas?"
 
 #: js/messages.php:84
 msgid ""
@@ -404,22 +386,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:88
-#, fuzzy
-#| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties SAMAZINĀT izvēlētās partīcijas?"
 
 #: js/messages.php:90
-#, fuzzy
-#| msgid "Do you really want to delete user group \"%s\"?"
 msgid "Do you really want to remove partitioning?"
-msgstr "Vai Jūs tiešām vēlaties dzēst lietotāju grupu \"%s\"?"
+msgstr "Vai Jūs tiešām vēlaties noņemt partīciju izmantošanu?"
 
 #: js/messages.php:91
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Vai Jūs tiešām gribat izpildīt \"%s\"?"
+msgstr "Vai Jūs tiešām gribat RESET SLAVE?"
 
 #: js/messages.php:93
 msgid ""
