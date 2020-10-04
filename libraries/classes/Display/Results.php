@@ -570,7 +570,7 @@ class Results
                 if ($displayParts['text_btn'] == '1') {
                     break;
                 }
-            } // end if
+            }
 
             // Always display print view link
             $displayParts['pview_lnk'] = (string) '1';
@@ -579,7 +579,7 @@ class Results
             }
 
             $prev_table = $fields_meta[$i]->table;
-        } // end for
+        }
 
         if ($prev_table == '') { // no table for any of the columns
             // don't display links
@@ -631,7 +631,7 @@ class Results
             $displayParts = $this->setDisplayPartsForShow($displayParts);
         } else {
             $displayParts = $this->setDisplayPartsForSelect($displayParts);
-        } // end if..elseif...else
+        }
 
         // 3. Gets the total number of rows if it is unknown
         if (isset($unlim_num_rows) && $unlim_num_rows != '') {
@@ -664,7 +664,7 @@ class Results
             ) {
                 $displayParts['sort_lnk'] = (string) '0';
             }
-        } // end if (3)
+        }
 
         return [
             $displayParts,
@@ -1090,10 +1090,10 @@ class Results
                     . '">        '
                     . htmlspecialchars((string) $fields_meta[$i]->name)
                     . $comments . '    </th>';
-            } // end else
+            }
 
             $this->properties['display_params'] = $display_params;
-        } // end for
+        }
 
         return $html;
     }
@@ -2503,7 +2503,7 @@ class Results
                                 $clause_is_unique,
                                 $url_sql_query
                             );
-                } // end if (1.2.1)
+                }
 
                 // 1.2.2 Delete/Kill link(s)
                 [$del_url, $del_str, $js_conf]
@@ -2544,8 +2544,8 @@ class Results
                         'is_ajax' => Response::getInstance()->isAjax(),
                         'js_conf' => $js_conf ?? '',
                     ]);
-                } // end if (1.3)
-            } // end if (1)
+                }
+            }
 
             // 2. Displays the rows' values
             if ($this->properties['mime_map'] === null) {
@@ -2587,12 +2587,12 @@ class Results
                         'js_conf' => $js_conf ?? '',
                     ]);
                 }
-            } // end if (3)
+            }
 
             $table_body_html .= '</tr>';
             $table_body_html .= "\n";
             $row_no++;
-        } // end while
+        }
 
         return $table_body_html;
     }
@@ -2787,9 +2787,9 @@ class Results
                                 $mime_map[$orgFullColName]['mimetype']
                             );
                         }
-                    } // end if file_exists
-                } // end if transformation is set
-            } // end if mime/transformation works.
+                    }
+                }
+            }
 
             // Check whether the field needs to display with syntax highlighting
 
@@ -2959,7 +2959,7 @@ class Results
             }
 
             $this->properties['display_params'] = $display_params;
-        } // end for
+        }
 
         return $row_values_html;
     }
@@ -4026,7 +4026,7 @@ class Results
         $pos_prev = 0;
         if ($displayParts['nav_bar'] == '1') {
             [$pos_next, $pos_prev] = $this->getOffsets();
-        } // end if
+        }
 
         // 1.3 Extract sorting expressions.
         //     we need $sort_expression and $sort_expression_nodirection
@@ -4139,7 +4139,7 @@ class Results
                     $this->properties['db'],
                 ];
             }
-        } // end if
+        }
         // end 2b
 
         // 3. ----- Prepare the results table -----
@@ -4923,7 +4923,7 @@ class Results
                 );
             } else {
                 $dispval = '';
-            } // end if... else...
+            }
 
             if (isset($printview) && ($printview == '1')) {
                 $result .= ($transformation_plugin != $default_function

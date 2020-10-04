@@ -449,7 +449,7 @@ class DatabaseInterface implements DbalInterface
                     $tables[$one_database_name] = $one_database_tables;
                 }
             }
-        } // end (get information from table schema)
+        }
 
         // If permissions are wrong on even one database directory,
         // information_schema does not return any table info for any database
@@ -2195,7 +2195,8 @@ class DatabaseInterface implements DbalInterface
              */
             foreach ($result as $value) {
                 if (strlen($value->orgtable) === 0 ||
-                        mb_strtolower($value->orgtable) !== mb_strtolower($value->table)) {
+                        mb_strtolower($value->orgtable) !== mb_strtolower($value->table)
+                ) {
                     continue;
                 }
 

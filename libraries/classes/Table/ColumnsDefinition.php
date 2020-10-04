@@ -489,7 +489,7 @@ final class ColumnsDefinition
                 'available_mime' => $available_mime,
                 'mime_map' => $mime_map ?? [],
             ];
-        } // end for
+        }
 
         $partitionDetails = TablePartitionDefinition::getDetails();
 

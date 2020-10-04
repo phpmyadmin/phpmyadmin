@@ -109,7 +109,7 @@ final class Common
                 }
                 exit;
             }
-        } // end if (ensures db exists)
+        }
 
         /**
          * Changes database charset if requested by the user

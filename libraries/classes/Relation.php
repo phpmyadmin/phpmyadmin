@@ -96,7 +96,7 @@ class Relation
                 $options,
                 $cache_affected_rows
             );
-        } // end if... else...
+        }
 
         if ($result) {
             return $result;
@@ -1369,7 +1369,7 @@ class Relation
                 $reloptions[] = $reloption . '>'
                     . $key . '</option>';
             }
-        } // end foreach
+        }
 
         return $reloptions;
     }
@@ -1409,10 +1409,10 @@ class Relation
                 $value  = $relrow[$foreign_display];
             } else {
                 $value = '';
-            } // end if ($foreign_display)
+            }
 
             $foreign[$key] = $value;
-        } // end foreach
+        }
 
         // put the dropdown sections in correct order
         $top = [];
@@ -2215,7 +2215,7 @@ class Relation
         } else {
             $have_rel = false;
             $res_rel = [];
-        } // end if
+        }
 
         return [
             $res_rel,

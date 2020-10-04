@@ -283,7 +283,7 @@ class ImportMediawiki extends ImportPlugin
 
                         // Add the cell to the row
                         $cur_temp_line[] = $cell;
-                    } // foreach $cells
+                    }
                 } else {
                     // If it's none of the above, then the current line has a bad
                     // format
@@ -293,8 +293,8 @@ class ImportMediawiki extends ImportPlugin
                     $message->addParam($cur_buffer_line);
                     $error = true;
                 }
-            } // End treating full buffer lines
-        } // while - finished parsing buffer
+            }
+        }
     }
 
     /**
@@ -498,7 +498,7 @@ class ImportMediawiki extends ImportPlugin
                     }
                 }
             }
-        } // end for each character in $subject
+        }
 
         return $cleaned;
     }

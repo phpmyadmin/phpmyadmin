@@ -2087,7 +2087,7 @@ class InsertEdit
                     : bin2hex(
                         $current_row[$column['Field']]
                     );
-            } // end if
+            }
             $special_chars = htmlspecialchars($current_row[$column['Field']]);
 
             //We need to duplicate the first \n or otherwise we will lose
@@ -2096,7 +2096,7 @@ class InsertEdit
                 = Util::duplicateFirstNewline($special_chars);
 
             $data = $current_row[$column['Field']];
-        } // end if... else...
+        }
 
         //when copying row, it is useful to empty auto-increment column
         // to prevent duplicate key error
@@ -2627,7 +2627,7 @@ class InsertEdit
                                 $curr_cell_edited_values[$column_name],
                                 $transform_options
                             );
-                }   // end of loop for each transformation cell
+                }
             }
         }
 
@@ -2922,7 +2922,7 @@ class InsertEdit
             ) {
                 $current_value = "''";
             }
-        }  // end else (column value in the form)
+        }
 
         return $current_value;
     }
@@ -3302,7 +3302,7 @@ class InsertEdit
 
         if ($GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
             $html_output .= $this->getHtmlForInsertEditColumnType($column);
-        } //End if
+        }
 
         // Get a list of GIS data types.
         $gis_data_types = Util::getGISDatatypes();
@@ -3609,7 +3609,7 @@ class InsertEdit
                 $column_mime,
                 $where_clause
             );
-        } // end for
+        }
         $o_rows++;
 
         return $html_output . '  </tbody>'

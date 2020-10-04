@@ -104,7 +104,7 @@ class CreateAddField
             );
             $previousField = $i;
             $definitions[] = $definition;
-        } // end for
+        }
 
         return $definitions;
     }

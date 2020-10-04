@@ -1914,7 +1914,7 @@ class ExportSql extends ExportPlugin
         Context::$MODE = $old_mode;
 
         return $warning . $schema_create . ($add_semicolon ? ';' . $crlf : '');
-    } // end of the 'getTableDef()' function
+    }
 
     /**
      * Returns $table's comments, relations etc.
@@ -2049,7 +2049,7 @@ class ExportSql extends ExportPlugin
         }
 
         return $schema_create;
-    } // end of the '_getTableComments()' function
+    }
 
     /**
      * Outputs a raw query
@@ -2246,7 +2246,7 @@ class ExportSql extends ExportPlugin
                     . $this->exportComment();
                 // export a stand-in definition to resolve view dependencies
                 $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
-        } // end switch
+        }
 
         // this one is built by getTableDef() to use in table copy/move
         // but not in the case of export
@@ -2540,8 +2540,8 @@ class ExportSql extends ExportPlugin
                     $values[] = '\''
                         . $GLOBALS['dbi']->escapeString($row[$j])
                         . '\'';
-                } // end if
-            } // end for
+                }
+            }
 
             // should we make update?
             if (isset($GLOBALS['sql_type'])
@@ -2607,7 +2607,7 @@ class ExportSql extends ExportPlugin
             ) {
                 return false;
             }
-        } // end while
+        }
 
         if ($current_row > 0) {
             if (! $this->export->outputHandler(';' . $crlf)) {
@@ -2637,7 +2637,7 @@ class ExportSql extends ExportPlugin
         $GLOBALS['dbi']->freeResult($result);
 
         return true;
-    } // end of the 'exportData()' function
+    }
 
     /**
      * Make a create table statement compatible with MSSQL

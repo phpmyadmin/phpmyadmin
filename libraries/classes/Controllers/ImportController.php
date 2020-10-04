@@ -459,7 +459,7 @@ final class ImportController extends AbstractController
 
                     break;
             }
-        } // end bookmarks reading
+        }
 
         // Do no run query if we show PHP code
         if (isset($show_as_php)) {
@@ -791,7 +791,7 @@ final class ImportController extends AbstractController
                     );
 
                     return;
-                } // end if
+                }
 
                 if ($table != $table_from_sql && ! empty($table_from_sql)) {
                     $table = $table_from_sql;

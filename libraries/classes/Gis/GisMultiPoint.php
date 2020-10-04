@@ -290,7 +290,7 @@ class GisMultiPoint extends GisGeometry
             $result .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
-        $result.= '});';
+        $result .= '});';
 
         if ($srid == 0) {
             $srid = 4326;

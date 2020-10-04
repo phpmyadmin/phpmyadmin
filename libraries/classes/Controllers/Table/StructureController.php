@@ -1143,7 +1143,7 @@ class StructureController extends AbstractController
 
             $adjust_privileges[$_POST['field_orig'][$i]]
                 = $_POST['field_name'][$i];
-        } // end for
+        }
 
         if (count($changes) > 0 || isset($_POST['preview_sql'])) {
             // Builds the primary keys statements and updates the table

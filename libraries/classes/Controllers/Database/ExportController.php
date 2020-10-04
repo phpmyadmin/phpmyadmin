@@ -77,7 +77,7 @@ final class ExportController extends AbstractController
             );
 
             return;
-        } // end if
+        }
 
         if (! empty($_POST['selected_tbl']) && empty($table_select)) {
             $table_select = $_POST['selected_tbl'];

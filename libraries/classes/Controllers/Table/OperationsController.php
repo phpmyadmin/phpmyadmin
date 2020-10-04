@@ -272,7 +272,7 @@ class OperationsController extends AbstractController
          */
         if (isset($_POST['submitorderby']) && ! empty($_POST['order_field'])) {
             [$sql_query, $result] = $this->operations->getQueryAndResultForReorderingTable();
-        } // end if
+        }
 
         /**
          * A partition operation has been requested by the user
@@ -281,7 +281,7 @@ class OperationsController extends AbstractController
             && ! empty($_POST['partition_operation'])
         ) {
             [$sql_query, $result] = $this->operations->getQueryAndResultForPartition();
-        } // end if
+        }
 
         if ($reread_info) {
             // to avoid showing the old value (for example the AUTO_INCREMENT) after

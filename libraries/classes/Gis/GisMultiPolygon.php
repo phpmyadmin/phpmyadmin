@@ -352,7 +352,7 @@ class GisMultiPolygon extends GisGeometry
             $row .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
 
-        $row.= '});';
+        $row .= '});';
 
         if ($srid == 0) {
             $srid = 4326;

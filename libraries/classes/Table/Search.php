@@ -57,7 +57,7 @@ final class Search
                 ', ',
                 Util::backquote($_POST['columnsToDisplay'])
             );
-        } // end if
+        }
 
         $sql_query .= ' FROM '
             . Util::backquote($_POST['table']);
@@ -69,7 +69,7 @@ final class Search
             $sql_query .= ' ORDER BY '
                 . Util::backquote($_POST['orderByColumn'])
                 . ' ' . $_POST['order'];
-        } // end if
+        }
 
         return $sql_query;
     }
@@ -116,7 +116,7 @@ final class Search
             }
 
             $fullWhereClause[] = $whereClause;
-        } // end foreach
+        }
 
         if (! empty($fullWhereClause)) {
             return ' WHERE ' . implode(' AND ', $fullWhereClause);
@@ -236,7 +236,7 @@ final class Search
                     $where = '(' . $where . ')';
                 }
             }
-        } // end if
+        }
 
         return $where;
     }

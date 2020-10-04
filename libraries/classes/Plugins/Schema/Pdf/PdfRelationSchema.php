@@ -263,8 +263,8 @@ class PdfRelationSchema extends ExportRelationSchema
                         );
                     }
                 }
-            } // end while
-        } // end while
+            }
+        }
 
         if ($seen_a_relation) {
             $this->drawRelations();
@@ -448,18 +448,20 @@ class PdfRelationSchema extends ExportRelationSchema
                 $l * $gridSize + $topSpace
             );
             // Avoid duplicates
-            if ($l > 0
-                && $l <= intval(($innerHeight - $labelHeight) / $gridSize)
+            if ($l <= 0
+                || $l > intval(($innerHeight - $labelHeight) / $gridSize)
             ) {
-                $this->diagram->SetXY(0, $l * $gridSize + $topSpace);
-                $label = (string) sprintf(
-                    '%.0f',
-                    ($l * $gridSize + $topSpace - $this->topMargin)
-                    * $this->scale + $this->yMin
-                );
-                $this->diagram->Cell($labelWidth, $labelHeight, ' ' . $label);
-            } // end if
-        } // end for
+                continue;
+            }
+
+            $this->diagram->SetXY(0, $l * $gridSize + $topSpace);
+            $label = (string) sprintf(
+                '%.0f',
+                ($l * $gridSize + $topSpace - $this->topMargin)
+                * $this->scale + $this->yMin
+            );
+            $this->diagram->Cell($labelWidth, $labelHeight, ' ' . $label);
+        }
         // Draws vertical lines
         for ($j = 0, $size = intval($this->diagram->getPageWidth() / $gridSize); $j <= $size; $j++) {
             $this->diagram->line(
@@ -813,8 +815,8 @@ class PdfRelationSchema extends ExportRelationSchema
                     $links[6] = $foreignTable[$foreigner['foreign_field']];
                 }
                 $this->diagram->row($diagram_row, $links);
-            } // end foreach
+            }
             $this->diagram->SetFont($this->ff, '', 14);
-        } //end each
+        }
     }
 }

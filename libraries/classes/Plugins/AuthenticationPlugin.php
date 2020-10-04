@@ -313,13 +313,13 @@ abstract class AuthenticationPlugin
                 } else {
                     $allowDeny_forbidden = true;
                 }
-            } // end if ... elseif ... elseif
+            }
 
             // Ejects the user if banished
             if ($allowDeny_forbidden) {
                 $this->showFailure('allow-denied');
             }
-        } // end if
+        }
 
         // is root allowed?
         if (! $cfg['Server']['AllowRoot'] && $cfg['Server']['user'] === 'root') {

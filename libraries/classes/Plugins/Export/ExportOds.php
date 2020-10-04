@@ -252,9 +252,9 @@ class ExportOds extends ExportPlugin
                     )
                     . '</text:p>'
                     . '</table:table-cell>';
-            } // end for
+            }
             $GLOBALS['ods_buffer'] .= '</table:table-row>';
-        } // end if
+        }
 
         // Format the data
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
@@ -329,9 +329,9 @@ class ExportOds extends ExportPlugin
                         . '</text:p>'
                         . '</table:table-cell>';
                 }
-            } // end for
+            }
             $GLOBALS['ods_buffer'] .= '</table:table-row>';
-        } // end while
+        }
         $GLOBALS['dbi']->freeResult($result);
 
         $GLOBALS['ods_buffer'] .= '</table:table>';

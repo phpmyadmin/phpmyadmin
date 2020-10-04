@@ -821,7 +821,7 @@ class Sql
                 $this->dbi->tryQuery($count_query);
 
                 $unlim_num_rows = $this->dbi->fetchValue('SELECT FOUND_ROWS()');
-            } // end else "just browsing"
+            }
         } else {// not $is_select
             $unlim_num_rows = 0;
         }
@@ -888,7 +888,7 @@ class Sql
                     $_POST['bkm_label'],
                     isset($_POST['bkm_replace'])
                 );
-            } // end store bookmarks
+            }
 
             // Gets the number of rows affected/returned
             // (This must be done immediately after the query because

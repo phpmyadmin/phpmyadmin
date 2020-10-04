@@ -260,13 +260,13 @@ class Search
                     . "'"
                     . $automatic_wildcard . $search_word . $automatic_wildcard
                     . "'";
-            } // end for
+            }
             if (count($likeClausesPerColumn) <= 0) {
                 continue;
             }
 
             $likeClauses[] = implode(' OR ', $likeClausesPerColumn);
-        } // end for
+        }
         // Use 'OR' if 'at least one word' is to be searched, else use 'AND'
         $implode_str  = ($this->criteriaSearchType == 1 ? ' OR ' : ' AND ');
         if (empty($likeClauses)) {

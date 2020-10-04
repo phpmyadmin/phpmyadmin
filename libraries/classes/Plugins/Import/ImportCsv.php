@@ -189,7 +189,7 @@ class ImportCsv extends AbstractImportCsv
         if (isset($_REQUEST['csv_partial_import']) && $_REQUEST['csv_partial_import'] > 0) {
             $max_lines = $_REQUEST['csv_partial_import'];
         }
-        $max_lines_constraint = $max_lines+1;
+        $max_lines_constraint = $max_lines + 1;
         // if the first row has to be counted as column names, include one more row in the max lines
         if (isset($_REQUEST['csv_col_names'])) {
             $max_lines_constraint++;
@@ -555,12 +555,12 @@ class ImportCsv extends AbstractImportCsv
                     $finished = 1;
                     break;
                 }
-            } // End of parser loop
+            }
             if ($max_lines > 0 && $line == $max_lines_constraint) {
                 $finished = 1;
                 break;
             }
-        } // End of import loop
+        }
 
         if ($this->getAnalyze()) {
             /* Fill out all rows */

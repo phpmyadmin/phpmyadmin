@@ -560,7 +560,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             }
 
             return false;
-        } // end if
+        }
 
         return true;
     }
@@ -818,7 +818,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             || ! is_string($data['mac'])
             || ! is_string($data['iv'])
             || ! is_string($data['payload'])
-            ) {
+        ) {
             return false;
         }
 

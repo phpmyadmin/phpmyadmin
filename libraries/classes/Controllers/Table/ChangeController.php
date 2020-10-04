@@ -261,7 +261,7 @@ class ChangeController extends AbstractController
                 $repopulate,
                 $where_clause_array
             );
-        } // end foreach on multi-edit
+        }
 
         $this->addScriptFiles($GLOBALS['plugin_scripts']);
 

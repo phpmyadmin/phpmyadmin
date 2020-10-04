@@ -3764,7 +3764,8 @@ class Privileges
                 );
             } else {
                 if (! (($serverType === 'MariaDB' && $isMariaDBPwdPluginActive)
-                    || ($serverType === 'MySQL' || $serverType === 'Percona Server') && $serverVersion >= 80011)) {
+                    || ($serverType === 'MySQL' || $serverType === 'Percona Server') && $serverVersion >= 80011)
+                ) {
                     $hashedPassword = $this->getHashedPassword($_POST['pma_pw']);
                 } else {
                     // MariaDB with validation plugin needs cleartext password

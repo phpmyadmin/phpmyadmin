@@ -271,7 +271,8 @@ class Core
          */
         if (isset($GLOBALS['dbi'], $GLOBALS['PMA_Config']) && $GLOBALS['dbi'] !== null
             && $GLOBALS['PMA_Config']->get('is_setup') === false
-            && Response::getInstance()->isAjax()) {
+            && Response::getInstance()->isAjax()
+        ) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', Message::error($error_message));
@@ -435,7 +436,7 @@ class Core
         }
 
         return (int) $size;
-    } // end getRealSize()
+    }
 
     /**
      * Checks given $page against given $allowList and returns true if valid
@@ -1059,7 +1060,7 @@ class Core
 
         // We could not parse header
         return false;
-    } // end of the 'getIp()' function
+    }
 
     /**
      * Sanitizes MySQL hostname

@@ -516,7 +516,7 @@ class Types
                 ];
 
                 if (($isMariaDB && $serverVersion < 100012)
-                || $serverVersion < 50603
+                    || $serverVersion < 50603
                 ) {
                     $ret = array_diff($ret, ['INET6_NTOA']);
                 }
@@ -596,7 +596,7 @@ class Types
                     'YEARWEEK',
                 ];
                 if (($isMariaDB && $serverVersion < 100012)
-                || $serverVersion < 50603
+                    || $serverVersion < 50603
                 ) {
                     $ret = array_diff($ret, ['INET6_ATON']);
                 }
@@ -780,7 +780,8 @@ class Types
         ];
 
         if (($isMariaDB && $serverVersion > 100207)
-            || (! $isMariaDB && $serverVersion >= 50708)) {
+            || (! $isMariaDB && $serverVersion >= 50708)
+        ) {
             $ret['JSON'] = ['JSON'];
         }
 

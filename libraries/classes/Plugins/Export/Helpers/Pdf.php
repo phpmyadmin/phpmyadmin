@@ -561,7 +561,7 @@ class Pdf extends PdfLib
             $have_rel = ! empty($res_rel);
         } else {
             $have_rel = false;
-        } // end if
+        }
 
         //column count and table heading
 
@@ -895,5 +895,5 @@ class Pdf extends PdfLib
         $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
         $this->morepagestable($this->FontSizePt);
         $GLOBALS['dbi']->freeResult($this->results);
-    } // end of mysqlReport function
-} // end of Pdf class
+    }
+}

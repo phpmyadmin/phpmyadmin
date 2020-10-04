@@ -474,7 +474,7 @@ final class ExportController extends AbstractController
                 );
                 echo $html;
                 unset($html);
-            } // end download
+            }
         }
 
         try {
@@ -665,7 +665,7 @@ final class ExportController extends AbstractController
             echo $this->export->getHtmlForDisplayedExportFooter($back_button, $refreshButton);
 
             return;
-        } // end if
+        }
 
         // Convert the charset if required.
         if ($output_charset_conversion) {

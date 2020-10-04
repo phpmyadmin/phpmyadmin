@@ -113,7 +113,7 @@ class Select
                     . ($selected ? ' selected="selected"' : '') . '>'
                     . htmlspecialchars($label) . '</option>' . "\n";
             }
-        } // end while
+        }
 
         if ($not_only_options) {
             $retval .= '</select>';

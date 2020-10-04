@@ -219,7 +219,7 @@ class ExportYaml extends ExportPlugin
         $GLOBALS['dbi']->freeResult($result);
 
         return true;
-    } // end getTableYAML
+    }
 
     /**
      * Outputs result raw query in YAML format

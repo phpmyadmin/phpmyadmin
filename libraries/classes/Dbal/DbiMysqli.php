@@ -179,17 +179,18 @@ class DbiMysqli implements DbiExtension
              */
             $error_number = $mysqli->connect_errno;
             $error_message = $mysqli->connect_error;
-            if (! $server['ssl'] && ($error_number == 3159 ||
-                (($error_number == 2001 || $error_number == 9002)
-                    && stripos($error_message, 'SSL Connection is required') !== false))
+            if (! $server['ssl']
+                && ($error_number == 3159
+                    || (($error_number == 2001 || $error_number == 9002)
+                        && stripos($error_message, 'SSL Connection is required') !== false))
             ) {
-                    trigger_error(
-                        __('SSL connection enforced by server, automatically enabling it.'),
-                        E_USER_WARNING
-                    );
-                    $server['ssl'] = true;
+                trigger_error(
+                    __('SSL connection enforced by server, automatically enabling it.'),
+                    E_USER_WARNING
+                );
+                $server['ssl'] = true;
 
-                    return self::connect($user, $password, $server);
+                return self::connect($user, $password, $server);
             }
 
             return false;

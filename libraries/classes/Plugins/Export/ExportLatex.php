@@ -438,7 +438,7 @@ class ExportLatex extends ExportPlugin
         $GLOBALS['dbi']->freeResult($result);
 
         return true;
-    } // end getTableLaTeX
+    }
 
     /**
      * Outputs result raw query
@@ -684,12 +684,12 @@ class ExportLatex extends ExportPlugin
             if (! $this->export->outputHandler($buffer)) {
                 return false;
             }
-        } // end while
+        }
 
         $buffer = ' \\end{longtable}' . $crlf;
 
         return $this->export->outputHandler($buffer);
-    } // end of the 'exportStructure' method
+    }
 
     /**
      * Escapes some special characters for use in TeX/LaTeX

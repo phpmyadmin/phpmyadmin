@@ -237,12 +237,12 @@ class ExportHtmlword extends ExportPlugin
                 $schema_insert .= '<td class="print"><strong>'
                     . htmlspecialchars($col_as)
                     . '</strong></td>';
-            } // end for
+            }
             $schema_insert .= '</tr>';
             if (! $this->export->outputHandler($schema_insert)) {
                 return false;
             }
-        } // end if
+        }
 
         // Format the data
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
@@ -258,12 +258,12 @@ class ExportHtmlword extends ExportPlugin
                 $schema_insert .= '<td class="print">'
                     . htmlspecialchars((string) $value)
                     . '</td>';
-            } // end for
+            }
             $schema_insert .= '</tr>';
             if (! $this->export->outputHandler($schema_insert)) {
                 return false;
             }
-        } // end while
+        }
         $GLOBALS['dbi']->freeResult($result);
 
         return $this->export->outputHandler('</table>');
@@ -464,7 +464,7 @@ class ExportHtmlword extends ExportPlugin
             }
 
             $schema_insert .= '</tr>';
-        } // end foreach
+        }
 
         $schema_insert .= '</table>';
 
@@ -602,7 +602,7 @@ class ExportHtmlword extends ExportPlugin
                 . '</h2>';
                 // export a stand-in definition to resolve view dependencies
                 $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
-        } // end switch
+        }
 
         return $this->export->outputHandler($dump);
     }

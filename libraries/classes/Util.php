@@ -525,8 +525,8 @@ class Util
                 $value = round($value / (pow(1024, $d) / $dh)) / $dh;
                 $unit = $byteUnits[$d];
                 break 1;
-            } // end if
-        } // end for
+            }
+        }
 
         if ($unit != $byteUnits[0]) {
             // if the unit is not bytes (as represented in current language)
@@ -542,7 +542,7 @@ class Util
             trim($return_value),
             $unit,
         ];
-    } // end of the 'formatByteDown' function
+    }
 
     /**
      * Formats $value to the given length and appends SI prefixes
@@ -678,7 +678,7 @@ class Util
         }
 
         return $sign . $formattedValue . ' ' . $unit;
-    } // end of the 'formatNumber' function
+    }
 
     /**
      * Returns the number of bytes when a formatted size is given
@@ -813,7 +813,7 @@ class Util
         }
 
         return $ret;
-    } // end of the 'localisedDate()' function
+    }
 
     /**
      * Splits a URL string by parameter
@@ -1076,7 +1076,7 @@ class Util
             } else {
                 $con_key = self::backquote($meta->table) . '.'
                     . self::backquote($meta->orgname);
-            } // end if... else...
+            }
             $condition = ' ' . $con_key . ' ';
 
             [$con_val, $condition] = self::getConditionValue(
@@ -1104,7 +1104,7 @@ class Util
 
             $nonprimary_condition .= $condition;
             $nonprimary_condition_array[$con_key] = $con_val;
-        } // end for
+        }
 
         // Correction University of Virginia 19991216:
         // prefer primary or unique keys for condition,
@@ -1130,7 +1130,7 @@ class Util
             $clause_is_unique,
             $condition_array,
         ];
-    } // end function
+    }
 
     /**
      * Generate the charset query part
@@ -1296,7 +1296,7 @@ class Util
         $gotopage .= ' </select>';
 
         return $gotopage;
-    } // end function
+    }
 
     /**
      * Calculate page number through position
@@ -1659,7 +1659,7 @@ class Util
                 // Enable foreign key checks
                 $GLOBALS['dbi']->setVariable('FOREIGN_KEY_CHECKS', 'ON');
             }
-        } // else do nothing, go with default
+        }
 
         return $default_fk_check_value;
     }
@@ -1961,7 +1961,7 @@ class Util
         }
 
         return $retval;
-    } // end getSupportedDatatypes()
+    }
 
     /**
      * Returns a list of datatypes that are not (yet) handled by PMA.
@@ -2523,7 +2523,8 @@ class Util
     public static function addMicroseconds($value)
     {
         if (empty($value) || $value === 'CURRENT_TIMESTAMP'
-            || $value === 'current_timestamp()') {
+            || $value === 'current_timestamp()'
+        ) {
             return $value;
         }
 
@@ -2639,7 +2640,7 @@ class Util
 
             $indexes_data[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
                 = $row['Sub_part'];
-        } // end while
+        }
 
         return [
             $primary,
@@ -2904,7 +2905,7 @@ class Util
                             'TABLE_COMMENT' => '',
                         ];
                     }
-                } // end while
+                }
                 if (count($names) > 0) {
                     $tables = array_merge(
                         $tables,

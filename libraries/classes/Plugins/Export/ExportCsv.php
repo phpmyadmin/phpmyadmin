@@ -154,7 +154,7 @@ class ExportCsv extends ExportPlugin
                     ],
                     $csv_terminated
                 );
-            } // end if
+            }
             $csv_separator = str_replace('\\t', "\011", $csv_separator);
         }
 
@@ -265,12 +265,12 @@ class ExportCsv extends ExportPlugin
                         . $csv_enclosed;
                 }
                 $schema_insert .= $csv_separator;
-            } // end for
+            }
             $schema_insert = trim(mb_substr($schema_insert, 0, -1));
             if (! $this->export->outputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
-        } // end if
+        }
 
         // Format the data
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
@@ -331,12 +331,12 @@ class ExportCsv extends ExportPlugin
                 }
 
                 $schema_insert .= $csv_separator;
-            } // end for
+            }
 
             if (! $this->export->outputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
-        } // end while
+        }
         $GLOBALS['dbi']->freeResult($result);
 
         return true;

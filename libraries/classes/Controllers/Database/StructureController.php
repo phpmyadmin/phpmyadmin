@@ -1017,7 +1017,7 @@ class StructureController extends AbstractController
                     $formatted_size =  __('unknown');
                     $unit          =  '';
                 }
-        } // end switch
+        }
 
         if ($current_table['TABLE_TYPE'] === 'VIEW'
             || $current_table['TABLE_TYPE'] === 'SYSTEM VIEW'

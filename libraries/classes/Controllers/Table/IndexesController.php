@@ -63,7 +63,7 @@ class IndexesController extends AbstractController
             }
         } elseif (isset($_POST['create_index'])) {
             $add_fields = $_POST['added_fields'];
-        } // end preparing form values
+        }
 
         // Get fields and stores their name/type
         if (isset($_POST['create_edit_table'])) {

@@ -174,7 +174,7 @@ class Export
                 if ($time_start >= $time_now + 30) {
                     $time_start = $time_now;
                     header('X-pmaPing: Pong');
-                } // end if
+                }
             }
         } elseif ($GLOBALS['asfile']) {
             if ($GLOBALS['output_charset_conversion']) {
@@ -206,7 +206,7 @@ class Export
                 if ($time_start >= $time_now + 30) {
                     $time_start = $time_now;
                     header('X-pmaPing: Pong');
-                } // end if
+                }
             } else {
                 // We export as file - output normally
                 echo $line;
@@ -692,7 +692,7 @@ class Export
             }
 
             $this->saveObjectInBuffer($current_db);
-        } // end foreach database
+        }
     }
 
     /**

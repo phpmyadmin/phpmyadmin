@@ -270,16 +270,19 @@ class Designer
                 } else {
                     $columns_type[$table_column_name] = 'designer/Field_small';
                     if (strpos($tab_column[$table_name]['TYPE'][$j], 'char') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'text') !== false) {
+                        || strpos($tab_column[$table_name]['TYPE'][$j], 'text') !== false
+                    ) {
                         $columns_type[$table_column_name] .= '_char';
                     } elseif (strpos($tab_column[$table_name]['TYPE'][$j], 'int') !== false
                         || strpos($tab_column[$table_name]['TYPE'][$j], 'float') !== false
                         || strpos($tab_column[$table_name]['TYPE'][$j], 'double') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'decimal') !== false) {
+                        || strpos($tab_column[$table_name]['TYPE'][$j], 'decimal') !== false
+                    ) {
                         $columns_type[$table_column_name] .= '_int';
                     } elseif (strpos($tab_column[$table_name]['TYPE'][$j], 'date') !== false
                         || strpos($tab_column[$table_name]['TYPE'][$j], 'time') !== false
-                        || strpos($tab_column[$table_name]['TYPE'][$j], 'year') !== false) {
+                        || strpos($tab_column[$table_name]['TYPE'][$j], 'year') !== false
+                    ) {
                         $columns_type[$table_column_name] .= '_date';
                     }
                 }
@@ -349,16 +352,19 @@ class Designer
                 } else {
                     $columnsType[$tableColumnName] = 'designer/Field_small';
                     if (strpos($tabColumn[$tableName]['TYPE'][$j], 'char') !== false
-                        || strpos($tabColumn[$tableName]['TYPE'][$j], 'text') !== false) {
+                        || strpos($tabColumn[$tableName]['TYPE'][$j], 'text') !== false
+                    ) {
                         $columnsType[$tableColumnName] .= '_char';
                     } elseif (strpos($tabColumn[$tableName]['TYPE'][$j], 'int') !== false
                         || strpos($tabColumn[$tableName]['TYPE'][$j], 'float') !== false
                         || strpos($tabColumn[$tableName]['TYPE'][$j], 'double') !== false
-                        || strpos($tabColumn[$tableName]['TYPE'][$j], 'decimal') !== false) {
+                        || strpos($tabColumn[$tableName]['TYPE'][$j], 'decimal') !== false
+                    ) {
                         $columnsType[$tableColumnName] .= '_int';
                     } elseif (strpos($tabColumn[$tableName]['TYPE'][$j], 'date') !== false
                         || strpos($tabColumn[$tableName]['TYPE'][$j], 'time') !== false
-                        || strpos($tabColumn[$tableName]['TYPE'][$j], 'year') !== false) {
+                        || strpos($tabColumn[$tableName]['TYPE'][$j], 'year') !== false
+                    ) {
                         $columnsType[$tableColumnName] .= '_date';
                     }
                 }

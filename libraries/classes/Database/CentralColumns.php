@@ -548,7 +548,8 @@ class CentralColumns
                 $query .= ' ' . $column['col_extra'];
                 if ($column['col_default']) {
                     if ($column['col_default'] !== 'CURRENT_TIMESTAMP'
-                        && $column['col_default'] !== 'current_timestamp()') {
+                        && $column['col_default'] !== 'current_timestamp()'
+                    ) {
                         $query .= ' DEFAULT \'' . $this->dbi->escapeString(
                             (string) $column['col_default']
                         ) . '\'';

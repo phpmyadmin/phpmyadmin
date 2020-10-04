@@ -402,7 +402,7 @@ class Tracking
             );
             $html .= $temp;
             unset($temp);
-        } //endif
+        }
 
         /*
          *  Secondly, list tracked data manipulation statements
@@ -677,7 +677,7 @@ class Tracking
 
         if (count($indexes) > 0) {
             $html .= $this->getHtmlForIndexes($indexes);
-        } // endif
+        }
         $html .= '<br><hr><br>';
 
         return $html;

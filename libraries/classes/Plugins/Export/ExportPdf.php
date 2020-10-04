@@ -232,7 +232,7 @@ class ExportPdf extends ExportPlugin
         $pdf->mysqlReport($sql_query);
 
         return true;
-    } // end of the 'PMA_exportData()' function
+    }
 
     /**
      * Outputs result of raw query in PDF format
@@ -311,7 +311,7 @@ class ExportPdf extends ExportPlugin
                 break;
             case 'stand_in':
                 $purpose = __('Stand in');
-        } // end switch
+        }
 
         $attr = [
             'currentDb'    => $db,
@@ -358,7 +358,7 @@ class ExportPdf extends ExportPlugin
                  * Yet to develop this function
                  * $pdf->getTableDefStandIn($db, $table, $crlf);
                  */
-        } // end switch
+        }
 
         return true;
     }

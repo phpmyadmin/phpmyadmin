@@ -348,7 +348,7 @@ final class ReplaceController extends AbstractController
                 }
 
                 $multi_edit_columns[$key] = null;
-            } //end of foreach
+            }
 
             // temporarily store rows not inserted
             // so that they can be populated again.
@@ -531,7 +531,7 @@ final class ReplaceController extends AbstractController
                             $relation_field_value
                         );
                     }
-                }   // end of loop for each relation cell
+                }
             }
             if (isset($_POST['do_transformations'])
                 && $_POST['do_transformations'] == true
@@ -561,7 +561,7 @@ final class ReplaceController extends AbstractController
                             $type
                         );
                     }
-                }   // end of loop for each $mime_map
+                }
             }
 
             // Need to check the inline edited value can be truncated by MySQL

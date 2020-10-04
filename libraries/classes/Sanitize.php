@@ -279,7 +279,7 @@ class Sanitize
         return $add_backquotes
             ? Util::backquote($a_string)
             : $a_string;
-    } // end of the 'jsFormat' function
+    }
 
     /**
      * escapes a string to be inserted as string a JavaScript block

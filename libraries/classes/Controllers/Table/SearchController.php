@@ -172,7 +172,7 @@ class SearchController extends AbstractController
                 = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
                 ? $row['Collation']
                 : '';
-        } // end for
+        }
 
         // Retrieve foreign keys
         $this->foreigners = $this->relation->getForeigners($this->db, $this->table);

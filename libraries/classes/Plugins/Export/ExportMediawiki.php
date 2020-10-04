@@ -259,7 +259,7 @@ class ExportMediawiki extends ExportPlugin
 
                 $output .= '|}' . str_repeat($this->exportCRLF(), 2);
                 break;
-        } // end switch
+        }
 
         return $this->export->outputHandler($output);
     }

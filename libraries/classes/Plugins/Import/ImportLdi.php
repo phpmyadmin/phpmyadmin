@@ -171,7 +171,7 @@ class ImportLdi extends AbstractImportCsv
                 $sql .= Util::backquote(
                     trim($tmp[$i], " \t\r\n\0\x0B`")
                 );
-            } // end for
+            }
             $sql .= ')';
         }
 

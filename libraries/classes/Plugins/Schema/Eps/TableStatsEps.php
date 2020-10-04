@@ -127,7 +127,8 @@ class TableStatsEps extends TableStats
                 $this->getTitle(),
                 $font,
                 (int) $fontSize
-            )) {
+            )
+        ) {
             $this->width += 7;
         }
     }

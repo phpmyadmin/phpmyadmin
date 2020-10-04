@@ -24,12 +24,14 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Williamdes\MariaDBMySQLKBS\KBException;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
+use const ENT_COMPAT;
 use function addslashes;
 use function array_key_exists;
 use function ceil;
 use function count;
 use function explode;
 use function floor;
+use function htmlentities;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
@@ -398,7 +400,8 @@ class Generator
         foreach ($functions as $function) {
             $retval .= '<option';
             if (isset($foreignData['foreign_link']) && $foreignData['foreign_link'] !== false
-                && $default_function === $function) {
+                && $default_function === $function
+            ) {
                 $retval .= ' selected="selected"';
             }
             $retval .= '>' . $function . '</option>' . "\n";
@@ -722,7 +725,7 @@ class Generator
                             '_blank'
                         ) . '&nbsp;]';
                 }
-            } //show explain
+            }
 
             $url_params['sql_query'] = $sql_query;
             $url_params['show_query'] = 1;
@@ -769,7 +772,7 @@ class Generator
                 }
             } else {
                 $php_link = '';
-            } //show as php
+            }
 
             // Refresh query
             if (! empty($cfg['SQLQuery']['Refresh'])
@@ -781,7 +784,7 @@ class Generator
                     . self::linkOrButton($refresh_link, __('Refresh')) . '&nbsp;]';
             } else {
                 $refresh_link = '';
-            } //refresh
+            }
 
             $retval .= '<div class="sqlOuter">';
             $retval .= $query_base;

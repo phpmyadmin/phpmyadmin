@@ -302,7 +302,7 @@ class UserGroups
             $tabDetail['in_array'] = (in_array($tab, $selected) ? ' checked="checked"' : '');
             $tabDetail['tab'] = $tab;
             $tabDetail['tab_name'] = $tabName;
-            $tabDetails[] =$tabDetail;
+            $tabDetails[] = $tabDetail;
         }
         $template = new Template();
 

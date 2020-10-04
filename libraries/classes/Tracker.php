@@ -879,7 +879,7 @@ class Tracker
                 case 'CREATE DATABASE':
                     self::createDatabaseVersion($dbname, '1', $query);
                     break;
-            } // end switch
+            }
         }
 
         // If version exists
