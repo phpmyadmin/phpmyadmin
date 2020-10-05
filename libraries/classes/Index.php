@@ -225,11 +225,13 @@ class Index
      */
     private static function loadIndexes($table, $schema)
     {
+        global $dbi;
+
         if (isset(self::$registry[$schema][$table])) {
             return true;
         }
 
-        $_raw_indexes = $GLOBALS['dbi']->getTableIndexes($schema, $table);
+        $_raw_indexes = $dbi->getTableIndexes($schema, $table);
         foreach ($_raw_indexes as $_each_index) {
             $_each_index['Schema'] = $schema;
             $keyName = $_each_index['Key_name'];

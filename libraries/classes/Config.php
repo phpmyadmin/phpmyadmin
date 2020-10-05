@@ -506,6 +506,8 @@ class Config
      */
     private function setConnectionCollation(): void
     {
+        global $dbi;
+
         $collation_connection = $this->get('DefaultConnectionCollation');
         if (empty($collation_connection)
             || $collation_connection == $GLOBALS['collation_connection']
@@ -513,7 +515,7 @@ class Config
             return;
         }
 
-        $GLOBALS['dbi']->setCollation($collation_connection);
+        $dbi->setCollation($collation_connection);
     }
 
     /**

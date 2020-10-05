@@ -215,13 +215,15 @@ class Bookmark
      */
     public static function getParams(string $user)
     {
+        global $dbi;
+
         static $cfgBookmark = null;
 
         if ($cfgBookmark !== null) {
             return $cfgBookmark;
         }
 
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = new Relation($dbi);
         $cfgRelation = $relation->getRelationsParam();
         if ($cfgRelation['bookmarkwork']) {
             $cfgBookmark = [

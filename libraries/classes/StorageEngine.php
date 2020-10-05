@@ -99,16 +99,17 @@ class StorageEngine
      */
     public static function getStorageEngines()
     {
+        global $dbi;
+
         static $storage_engines = null;
 
         if ($storage_engines == null) {
-            $storage_engines
-                = $GLOBALS['dbi']->fetchResult('SHOW STORAGE ENGINES', 'Engine');
-            if ($GLOBALS['dbi']->getVersion() >= 50708) {
+            $storage_engines = $dbi->fetchResult('SHOW STORAGE ENGINES', 'Engine');
+            if ($dbi->getVersion() >= 50708) {
                 $disabled = (string) Util::cacheGet(
                     'disabled_storage_engines',
-                    static function () {
-                        return $GLOBALS['dbi']->fetchValue(
+                    static function () use ($dbi) {
+                        return $dbi->fetchValue(
                             'SELECT @@disabled_storage_engines'
                         );
                     }
@@ -290,6 +291,8 @@ class StorageEngine
      */
     public function getVariablesStatus()
     {
+        global $dbi;
+
         $variables = $this->getVariables();
         $like = $this->getVariablesLikePattern();
 
@@ -302,8 +305,8 @@ class StorageEngine
         $mysql_vars = [];
 
         $sql_query = 'SHOW GLOBAL VARIABLES ' . $like . ';';
-        $res = $GLOBALS['dbi']->query($sql_query);
-        while ($row = $GLOBALS['dbi']->fetchAssoc($res)) {
+        $res = $dbi->query($sql_query);
+        while ($row = $dbi->fetchAssoc($res)) {
             if (isset($variables[$row['Variable_name']])) {
                 $mysql_vars[$row['Variable_name']]
                     = $variables[$row['Variable_name']];
@@ -325,7 +328,7 @@ class StorageEngine
             $mysql_vars[$row['Variable_name']]['type']
                 = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
         }
-        $GLOBALS['dbi']->freeResult($res);
+        $dbi->freeResult($res);
 
         return $mysql_vars;
     }

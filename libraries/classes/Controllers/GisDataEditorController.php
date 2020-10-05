@@ -27,7 +27,7 @@ class GisDataEditorController extends AbstractController
     public function index(): void
     {
         global $gis_data, $gis_types, $start, $geom_type, $gis_obj, $srid, $wkt, $wkt_with_zero, $PMA_Theme;
-        global $result, $visualizationSettings, $data, $visualization, $open_layers, $geom_count;
+        global $result, $visualizationSettings, $data, $visualization, $open_layers, $geom_count, $dbi;
 
         if (! isset($_POST['field'])) {
             return;
@@ -95,8 +95,8 @@ class GisDataEditorController extends AbstractController
             'width' => 450,
             'height' => 300,
             'spatialColumn' => 'wkt',
-            'mysqlVersion' => $GLOBALS['dbi']->getVersion(),
-            'isMariaDB' => $GLOBALS['dbi']->isMariaDB(),
+            'mysqlVersion' => $dbi->getVersion(),
+            'isMariaDB' => $dbi->isMariaDB(),
         ];
         $data = [
             [

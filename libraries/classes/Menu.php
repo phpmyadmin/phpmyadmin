@@ -53,9 +53,11 @@ class Menu
      */
     public function __construct($db, $table)
     {
+        global $dbi;
+
         $this->db = $db;
         $this->table = $table;
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relation = new Relation($dbi);
         $this->template = new Template();
     }
 

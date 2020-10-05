@@ -111,16 +111,18 @@ class MultiTableQuery
      */
     public static function displayResults($sqlQuery, $db, $themeImagePath): string
     {
+        global $dbi;
+
         [,$db] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
         $goto = Url::getFromRoute('/database/multi-table-query');
 
-        $relation = new Relation($GLOBALS['dbi']);
+        $relation = new Relation($dbi);
         $sql = new Sql(
-            $GLOBALS['dbi'],
+            $dbi,
             $relation,
-            new RelationCleanup($GLOBALS['dbi'], $relation),
-            new Operations($GLOBALS['dbi'], $relation),
+            new RelationCleanup($dbi, $relation),
+            new Operations($dbi, $relation),
             new Transformations(),
             new Template()
         );

@@ -70,9 +70,11 @@ class Import
 
     public function __construct()
     {
+        global $dbi;
+
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+        $checkUserPrivileges = new CheckUserPrivileges($dbi);
         $checkUserPrivileges->getPrivileges();
     }
 
@@ -117,11 +119,9 @@ class Import
      */
     public function executeQuery(string $sql, string $full, array &$sql_data): void
     {
-        global $sql_query, $my_die, $error, $reload,
-            $result, $msg,
-            $cfg, $sql_query_disabled, $db;
+        global $sql_query, $my_die, $error, $reload, $result, $msg, $cfg, $sql_query_disabled, $db, $dbi;
 
-        $result = $GLOBALS['dbi']->tryQuery($sql);
+        $result = $dbi->tryQuery($sql);
 
         // USE query changes the database, son need to track
         // while running multiple queries
@@ -134,7 +134,7 @@ class Import
             }
             $my_die[] = [
                 'sql' => $full,
-                'error' => $GLOBALS['dbi']->getError(),
+                'error' => $dbi->getError(),
             ];
 
             $msg .= __('Error');
@@ -145,8 +145,8 @@ class Import
                 return;
             }
         } else {
-            $a_num_rows = (int) @$GLOBALS['dbi']->numRows($result);
-            $a_aff_rows = (int) @$GLOBALS['dbi']->affectedRows();
+            $a_num_rows = (int) @$dbi->numRows($result);
+            $a_aff_rows = (int) @$dbi->affectedRows();
             if ($a_num_rows > 0) {
                 $msg .= __('Rows') . ': ' . $a_num_rows;
             } elseif ($a_aff_rows > 0) {
@@ -1055,7 +1055,8 @@ class Import
         ?array $options = null,
         array &$sql_data
     ): void {
-        global $import_notice;
+        global $import_notice, $dbi;
+
         /* Needed to quell the beast that is Message */
         $import_notice = null;
 
@@ -1245,7 +1246,7 @@ class Import
                         }
 
                         $tempSQLStr .= $is_varchar ? "'" : '';
-                        $tempSQLStr .= $GLOBALS['dbi']->escapeString(
+                        $tempSQLStr .= $dbi->escapeString(
                             (string) $tables[$i][self::ROWS][$j][$k]
                         );
                         $tempSQLStr .= $is_varchar ? "'" : '';
@@ -1431,6 +1432,8 @@ class Import
      */
     public function handleSimulateDmlRequest(): void
     {
+        global $dbi;
+
         $response = Response::getInstance();
         $error = false;
         $error_msg = __('Only single-table UPDATE and DELETE queries can be simulated.');
@@ -1473,7 +1476,7 @@ class Import
 
             // Get the matched rows for the query.
             $result = $this->getMatchedRows($analyzed_sql_results);
-            $error = $GLOBALS['dbi']->getError();
+            $error = $dbi->getError();
 
             if ($error) {
                 break;
@@ -1640,11 +1643,13 @@ class Import
      */
     public function executeMatchedRowQuery(string $matched_row_query): int
     {
-        $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+        global $dbi;
+
+        $dbi->selectDb($GLOBALS['db']);
         // Execute the query.
-        $result = $GLOBALS['dbi']->tryQuery($matched_row_query);
+        $result = $dbi->tryQuery($matched_row_query);
         // Count the number of rows in the result set.
-        $result = $GLOBALS['dbi']->numRows($result);
+        $result = $dbi->numRows($result);
 
         return $result;
     }
@@ -1656,6 +1661,8 @@ class Import
      */
     public function handleRollbackRequest(string $sql_query): void
     {
+        global $dbi;
+
         $sql_delimiter = $_POST['sql_delimiter'];
         $queries = explode($sql_delimiter, $sql_query);
         $error = false;
@@ -1673,7 +1680,7 @@ class Import
                 continue;
             }
 
-            $global_error = $GLOBALS['dbi']->getError();
+            $global_error = $dbi->getError();
             if ($global_error) {
                 $error = $global_error;
             } else {
@@ -1691,7 +1698,7 @@ class Import
         }
 
         // If everything fine, START a transaction.
-        $GLOBALS['dbi']->query('START TRANSACTION');
+        $dbi->query('START TRANSACTION');
     }
 
     /**
@@ -1738,6 +1745,8 @@ class Import
      */
     public function isTableTransactional(string $table): bool
     {
+        global $dbi;
+
         $table = explode('.', $table);
         if (count($table) === 2) {
             $db = Util::unQuote($table[0]);
@@ -1752,7 +1761,7 @@ class Import
             . '.' . Util::backquote($table) . ' '
             . 'LIMIT 1';
 
-        $result = $GLOBALS['dbi']->tryQuery($check_table_query);
+        $result = $dbi->tryQuery($check_table_query);
 
         if (! $result) {
             return false;
@@ -1778,9 +1787,9 @@ class Import
             . implode('", "', $transactional_engines)
             . '")';
 
-        $result = $GLOBALS['dbi']->tryQuery($check_query);
+        $result = $dbi->tryQuery($check_query);
 
-        return $GLOBALS['dbi']->numRows($result) == 1;
+        return $dbi->numRows($result) == 1;
     }
 
     /** @return string[] */

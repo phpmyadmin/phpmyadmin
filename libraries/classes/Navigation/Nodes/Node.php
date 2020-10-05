@@ -114,6 +114,8 @@ class Node
      */
     public function __construct($name, $type = self::OBJECT, $isGroup = false)
     {
+        global $dbi;
+
         if (strlen((string) $name)) {
             $this->name = $name;
             $this->realName = $name;
@@ -122,7 +124,7 @@ class Node
             $this->type = self::CONTAINER;
         }
         $this->isGroup = (bool) $isGroup;
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relation = new Relation($dbi);
     }
 
     /**

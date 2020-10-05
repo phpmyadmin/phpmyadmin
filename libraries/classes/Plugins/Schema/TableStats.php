@@ -96,6 +96,8 @@ abstract class TableStats
         $tableDimension,
         $offline
     ) {
+        global $dbi;
+
         $this->diagram    = $diagram;
         $this->db         = $db;
         $this->pageNumber = $pageNumber;
@@ -106,7 +108,7 @@ abstract class TableStats
 
         $this->offline    = $offline;
 
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relation = new Relation($dbi);
         $this->font = new Font();
 
         // checks whether the table exists
@@ -127,13 +129,15 @@ abstract class TableStats
      */
     protected function validateTableAndLoadFields()
     {
+        global $dbi;
+
         $sql = 'DESCRIBE ' . Util::backquote($this->tableName);
-        $result = $GLOBALS['dbi']->tryQuery(
+        $result = $dbi->tryQuery(
             $sql,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        if (! $result || ! $GLOBALS['dbi']->numRows($result)) {
+        if (! $result || ! $dbi->numRows($result)) {
             $this->showMissingTableError();
         }
 
@@ -148,7 +152,7 @@ abstract class TableStats
             }
             $this->fields = array_keys($all_columns);
         } else {
-            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+            while ($row = $dbi->fetchRow($result)) {
                 $this->fields[] = $row[0];
             }
         }
@@ -202,16 +206,18 @@ abstract class TableStats
      */
     protected function loadPrimaryKey()
     {
-        $result = $GLOBALS['dbi']->query(
+        global $dbi;
+
+        $result = $dbi->query(
             'SHOW INDEX FROM ' . Util::backquote($this->tableName) . ';',
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        if ($GLOBALS['dbi']->numRows($result) <= 0) {
+        if ($dbi->numRows($result) <= 0) {
             return;
         }
 
-        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+        while ($row = $dbi->fetchAssoc($result)) {
             if ($row['Key_name'] !== 'PRIMARY') {
                 continue;
             }

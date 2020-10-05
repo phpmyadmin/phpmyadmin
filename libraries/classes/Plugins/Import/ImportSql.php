@@ -40,12 +40,14 @@ class ImportSql extends ImportPlugin
      */
     protected function setProperties()
     {
+        global $dbi;
+
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText('SQL');
         $importPluginProperties->setExtension('sql');
         $importPluginProperties->setOptionsText(__('Options'));
 
-        $compats = $GLOBALS['dbi']->getCompatibilities();
+        $compats = $dbi->getCompatibilities();
         if (count($compats) > 0) {
             $values = [];
             foreach ($compats as $val) {
@@ -105,10 +107,10 @@ class ImportSql extends ImportPlugin
      */
     public function doImport(?File $importHandle = null, array &$sql_data = [])
     {
-        global $error, $timeout_passed;
+        global $error, $timeout_passed, $dbi;
 
         // Handle compatibility options.
-        $this->setSQLMode($GLOBALS['dbi'], $_REQUEST);
+        $this->setSQLMode($dbi, $_REQUEST);
 
         $bq = new BufferedQuery();
         if (isset($_POST['sql_delimiter'])) {

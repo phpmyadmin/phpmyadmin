@@ -47,19 +47,21 @@ class ImportLdi extends AbstractImportCsv
      */
     protected function setProperties()
     {
+        global $dbi;
+
         if ($GLOBALS['cfg']['Import']['ldi_local_option'] === 'auto') {
             $GLOBALS['cfg']['Import']['ldi_local_option'] = false;
 
-            $result = $GLOBALS['dbi']->tryQuery(
+            $result = $dbi->tryQuery(
                 'SELECT @@local_infile;'
             );
-            if ($result != false && $GLOBALS['dbi']->numRows($result) > 0) {
-                $tmp = $GLOBALS['dbi']->fetchRow($result);
+            if ($result != false && $dbi->numRows($result) > 0) {
+                $tmp = $dbi->fetchRow($result);
                 if ($tmp[0] === 'ON') {
                     $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
                 }
             }
-            $GLOBALS['dbi']->freeResult($result);
+            $dbi->freeResult($result);
             unset($result);
         }
 
@@ -95,7 +97,7 @@ class ImportLdi extends AbstractImportCsv
      */
     public function doImport(?File $importHandle = null, array &$sql_data = [])
     {
-        global $finished, $import_file, $charset_conversion, $table;
+        global $finished, $import_file, $charset_conversion, $table, $dbi;
         global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,
                $ldi_enclosed, $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
 
@@ -121,7 +123,7 @@ class ImportLdi extends AbstractImportCsv
         if (isset($ldi_local_option)) {
             $sql .= ' LOCAL';
         }
-        $sql .= ' INFILE \'' . $GLOBALS['dbi']->escapeString($import_file)
+        $sql .= ' INFILE \'' . $dbi->escapeString($import_file)
             . '\'';
         if (isset($ldi_replace)) {
             $sql .= ' REPLACE';
@@ -135,11 +137,11 @@ class ImportLdi extends AbstractImportCsv
         }
         if (strlen((string) $ldi_enclosed) > 0) {
             $sql .= ' ENCLOSED BY \''
-                . $GLOBALS['dbi']->escapeString($ldi_enclosed) . '\'';
+                . $dbi->escapeString($ldi_enclosed) . '\'';
         }
         if (strlen((string) $ldi_escaped) > 0) {
             $sql .= ' ESCAPED BY \''
-                . $GLOBALS['dbi']->escapeString($ldi_escaped) . '\'';
+                . $dbi->escapeString($ldi_escaped) . '\'';
         }
         if (strlen((string) $ldi_new_line) > 0) {
             if ($ldi_new_line === 'auto') {

@@ -518,6 +518,8 @@ class PdfRelationSchema extends ExportRelationSchema
      */
     public function dataDictionaryDoc(array $alltables)
     {
+        global $dbi;
+
          // TOC
         $this->diagram->AddPage($this->orientation);
         $this->diagram->Cell(0, 9, __('Table of contents'), 1, 0, 'C');
@@ -550,7 +552,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->customLinks['doc'][$table]['-']
             );
             // $this->diagram->Ln(1);
-            $fields = $GLOBALS['dbi']->getColumns($this->db, $table);
+            $fields = $dbi->getColumns($this->db, $table);
             foreach ($fields as $row) {
                 $this->diagram->SetX(20);
                 $field_name = $row['Field'];
@@ -621,7 +623,7 @@ class PdfRelationSchema extends ExportRelationSchema
             /**
              * Gets table information
              */
-            $showtable = $GLOBALS['dbi']->getTable($this->db, $table)
+            $showtable = $dbi->getTable($this->db, $table)
                 ->getStatusInfo();
             $show_comment = $showtable['Comment'] ?? '';
             $create_time  = isset($showtable['Create_time'])
@@ -643,7 +645,7 @@ class PdfRelationSchema extends ExportRelationSchema
             /**
              * Gets fields properties
              */
-            $columns = $GLOBALS['dbi']->getColumns($this->db, $table);
+            $columns = $dbi->getColumns($this->db, $table);
 
             // Find which tables are related with the current one and write it in
             // an array

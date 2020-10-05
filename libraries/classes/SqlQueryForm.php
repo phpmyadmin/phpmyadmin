@@ -58,6 +58,8 @@ class SqlQueryForm
         $display_tab = false,
         $delimiter = ';'
     ) {
+        global $dbi;
+
         if (! $display_tab) {
             $display_tab = 'full';
         }
@@ -94,7 +96,7 @@ class SqlQueryForm
         if ($display_tab === 'full') {
             if ($cfgBookmark) {
                 $bookmark_list = Bookmark::getList(
-                    $GLOBALS['dbi'],
+                    $dbi,
                     $GLOBALS['cfg']['Server']['user'],
                     $GLOBALS['db']
                 );
@@ -141,6 +143,8 @@ class SqlQueryForm
      */
     public function init($query)
     {
+        global $dbi;
+
         $columns_list    = [];
         if (strlen($GLOBALS['db']) === 0) {
             // prepare for server related
@@ -177,7 +181,7 @@ class SqlQueryForm
             // Get the list and number of fields
             // we do a try_query here, because we could be in the query window,
             // trying to synchronize and the table has not yet been created
-            $columns_list = $GLOBALS['dbi']->getColumns(
+            $columns_list = $dbi->getColumns(
                 $db,
                 $GLOBALS['table'],
                 null,

@@ -209,6 +209,8 @@ class ExportJson extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -235,17 +237,17 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        $result = $GLOBALS['dbi']->query(
+        $result = $dbi->query(
             $sql_query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
-        $columns_cnt = $GLOBALS['dbi']->numFields($result);
-        $fieldsMeta = $GLOBALS['dbi']->getFieldsMeta($result);
+        $columns_cnt = $dbi->numFields($result);
+        $fieldsMeta = $dbi->getFieldsMeta($result);
 
         $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $col_as = $GLOBALS['dbi']->fieldName($result, $i);
+            $col_as = $dbi->fieldName($result, $i);
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
@@ -253,7 +255,7 @@ class ExportJson extends ExportPlugin
         }
 
         $record_cnt = 0;
-        while ($record = $GLOBALS['dbi']->fetchRow($result)) {
+        while ($record = $dbi->fetchRow($result)) {
             $record_cnt++;
 
             // Output table name as comment if this is the first record of the table
@@ -286,7 +288,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        $GLOBALS['dbi']->freeResult($result);
+        $dbi->freeResult($result);
 
         return true;
     }
@@ -302,6 +304,8 @@ class ExportJson extends ExportPlugin
      */
     public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
     {
+        global $dbi;
+
         $buffer = $this->encode(
             [
                 'type' => 'raw',
@@ -314,21 +318,21 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        $result = $GLOBALS['dbi']->query(
+        $result = $dbi->query(
             $sql_query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
-        $columns_cnt = $GLOBALS['dbi']->numFields($result);
+        $columns_cnt = $dbi->numFields($result);
 
         $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $col_as = $GLOBALS['dbi']->fieldName($result, $i);
+            $col_as = $dbi->fieldName($result, $i);
             $columns[$i] = stripslashes($col_as);
         }
 
         $record_cnt = 0;
-        while ($record = $GLOBALS['dbi']->fetchRow($result)) {
+        while ($record = $dbi->fetchRow($result)) {
             $record_cnt++;
 
             if ($record_cnt > 1) {
@@ -356,7 +360,7 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        $GLOBALS['dbi']->freeResult($result);
+        $dbi->freeResult($result);
 
         return true;
     }

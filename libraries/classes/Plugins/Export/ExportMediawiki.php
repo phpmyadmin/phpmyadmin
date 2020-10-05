@@ -190,6 +190,8 @@ class ExportMediawiki extends ExportPlugin
         $dates = false,
         array $aliases = []
     ) {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -197,7 +199,7 @@ class ExportMediawiki extends ExportPlugin
         $output = '';
         switch ($export_mode) {
             case 'create_table':
-                $columns = $GLOBALS['dbi']->getColumns($db, $table);
+                $columns = $dbi->getColumns($db, $table);
                 $columns = array_values($columns);
                 $row_cnt = count($columns);
 
@@ -284,6 +286,8 @@ class ExportMediawiki extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -309,7 +313,7 @@ class ExportMediawiki extends ExportPlugin
         // Add the table headers
         if (isset($GLOBALS['mediawiki_headers'])) {
             // Get column names
-            $column_names = $GLOBALS['dbi']->getColumnNames($db, $table);
+            $column_names = $dbi->getColumnNames($db, $table);
 
             // Add column names as table headers
             if ($column_names !== null) {
@@ -329,14 +333,14 @@ class ExportMediawiki extends ExportPlugin
         }
 
         // Get the table data from the database
-        $result = $GLOBALS['dbi']->query(
+        $result = $dbi->query(
             $sql_query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
-        $fields_cnt = $GLOBALS['dbi']->numFields($result);
+        $fields_cnt = $dbi->numFields($result);
 
-        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+        while ($row = $dbi->fetchRow($result)) {
             $output .= '|-' . $this->exportCRLF();
 
             // Use '|' for separating table columns

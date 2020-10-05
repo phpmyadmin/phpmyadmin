@@ -275,6 +275,8 @@ class SavedSearches
      */
     public function save()
     {
+        global $dbi;
+
         if ($this->getSearchName() == null) {
             $message = Message::error(
                 __('Please provide a name for this bookmarked search.')
@@ -307,7 +309,7 @@ class SavedSearches
         //If it's an insert.
         if ($this->getId() === null) {
             $wheres = [
-                "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName())
+                "search_name = '" . $dbi->escapeString($this->getSearchName())
                 . "'",
             ];
             $existingSearches = $this->getList($wheres);
@@ -326,10 +328,10 @@ class SavedSearches
             $sqlQuery = 'INSERT INTO ' . $savedSearchesTbl
                 . '(`username`, `db_name`, `search_name`, `search_data`)'
                 . ' VALUES ('
-                . "'" . $GLOBALS['dbi']->escapeString($this->getUsername()) . "',"
-                . "'" . $GLOBALS['dbi']->escapeString($this->getDbname()) . "',"
-                . "'" . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "',"
-                . "'" . $GLOBALS['dbi']->escapeString(json_encode($this->getCriterias()))
+                . "'" . $dbi->escapeString($this->getUsername()) . "',"
+                . "'" . $dbi->escapeString($this->getDbname()) . "',"
+                . "'" . $dbi->escapeString($this->getSearchName()) . "',"
+                . "'" . $dbi->escapeString(json_encode($this->getCriterias()))
                 . "')";
 
             $result = (bool) $this->relation->queryAsControlUser($sqlQuery);
@@ -337,7 +339,7 @@ class SavedSearches
                 return false;
             }
 
-            $this->setId($GLOBALS['dbi']->insertId());
+            $this->setId($dbi->insertId());
 
             return true;
         }
@@ -345,7 +347,7 @@ class SavedSearches
         //Else, it's an update.
         $wheres = [
             'id != ' . $this->getId(),
-            "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "'",
+            "search_name = '" . $dbi->escapeString($this->getSearchName()) . "'",
         ];
         $existingSearches = $this->getList($wheres);
 
@@ -362,9 +364,9 @@ class SavedSearches
 
         $sqlQuery = 'UPDATE ' . $savedSearchesTbl
             . "SET `search_name` = '"
-            . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "', "
+            . $dbi->escapeString($this->getSearchName()) . "', "
             . "`search_data` = '"
-            . $GLOBALS['dbi']->escapeString(json_encode($this->getCriterias())) . "' "
+            . $dbi->escapeString(json_encode($this->getCriterias())) . "' "
             . 'WHERE id = ' . $this->getId();
 
         return (bool) $this->relation->queryAsControlUser($sqlQuery);
@@ -377,6 +379,8 @@ class SavedSearches
      */
     public function delete()
     {
+        global $dbi;
+
         if ($this->getId() == null) {
             $message = Message::error(
                 __('Missing information to delete the search.')
@@ -393,7 +397,7 @@ class SavedSearches
             . Util::backquote($this->config['cfgRelation']['savedsearches']);
 
         $sqlQuery = 'DELETE FROM ' . $savedSearchesTbl
-            . "WHERE id = '" . $GLOBALS['dbi']->escapeString((string) $this->getId()) . "'";
+            . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "'";
 
         return (bool) $this->relation->queryAsControlUser($sqlQuery);
     }
@@ -405,6 +409,8 @@ class SavedSearches
      */
     public function load()
     {
+        global $dbi;
+
         if ($this->getId() == null) {
             $message = Message::error(
                 __('Missing information to load the search.')
@@ -421,10 +427,10 @@ class SavedSearches
             . Util::backquote($this->config['cfgRelation']['savedsearches']);
         $sqlQuery = 'SELECT id, search_name, search_data '
             . 'FROM ' . $savedSearchesTbl . ' '
-            . "WHERE id = '" . $GLOBALS['dbi']->escapeString((string) $this->getId()) . "' ";
+            . "WHERE id = '" . $dbi->escapeString((string) $this->getId()) . "' ";
 
         $resList = $this->relation->queryAsControlUser($sqlQuery);
-        $oneResult = $GLOBALS['dbi']->fetchArray($resList);
+        $oneResult = $dbi->fetchArray($resList);
 
         if ($oneResult === false) {
             $message = Message::error(__('Error while loading the search.'));
@@ -450,6 +456,8 @@ class SavedSearches
      */
     public function getList(array $wheres = [])
     {
+        global $dbi;
+
         if ($this->getUsername() == null
             || $this->getDbname() == null
         ) {
@@ -462,8 +470,8 @@ class SavedSearches
         $sqlQuery = 'SELECT id, search_name '
             . 'FROM ' . $savedSearchesTbl . ' '
             . 'WHERE '
-            . "username = '" . $GLOBALS['dbi']->escapeString($this->getUsername()) . "' "
-            . "AND db_name = '" . $GLOBALS['dbi']->escapeString($this->getDbname()) . "' ";
+            . "username = '" . $dbi->escapeString($this->getUsername()) . "' "
+            . "AND db_name = '" . $dbi->escapeString($this->getDbname()) . "' ";
 
         foreach ($wheres as $where) {
             $sqlQuery .= 'AND ' . $where . ' ';
@@ -474,7 +482,7 @@ class SavedSearches
         $resList = $this->relation->queryAsControlUser($sqlQuery);
 
         $list = [];
-        while ($oneResult = $GLOBALS['dbi']->fetchArray($resList)) {
+        while ($oneResult = $dbi->fetchArray($resList)) {
             $list[$oneResult['id']] = $oneResult['search_name'];
         }
 

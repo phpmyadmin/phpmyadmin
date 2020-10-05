@@ -351,11 +351,13 @@ class ImportMediawiki extends ImportPlugin
      */
     private function setTableName(&$table_name)
     {
+        global $dbi;
+
         if (! empty($table_name)) {
             return;
         }
 
-        $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
+        $result = $dbi->fetchResult('SHOW TABLES');
         // todo check if the name below already exists
         $table_name = 'TABLE ' . (count($result) + 1);
     }

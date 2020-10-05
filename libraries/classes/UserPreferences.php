@@ -33,7 +33,9 @@ class UserPreferences
 
     public function __construct()
     {
-        $this->relation = new Relation($GLOBALS['dbi']);
+        global $dbi;
+
+        $this->relation = new Relation($dbi);
         $this->template = new Template();
     }
 
@@ -70,6 +72,8 @@ class UserPreferences
      */
     public function load()
     {
+        global $dbi;
+
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['userconfigwork']) {
             // no pmadb table, use session storage
@@ -92,9 +96,9 @@ class UserPreferences
         $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts'
             . ' FROM ' . $query_table
             . ' WHERE `username` = \''
-            . $GLOBALS['dbi']->escapeString($cfgRelation['user'])
+            . $dbi->escapeString($cfgRelation['user'])
             . '\'';
-        $row = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
+        $row = $dbi->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
 
         return [
             'config_data' => $row ? json_decode($row['config_data'], true) : [],
@@ -112,6 +116,8 @@ class UserPreferences
      */
     public function save(array $config_array)
     {
+        global $dbi;
+
         $cfgRelation = $this->relation->getRelationsParam();
         $server = $GLOBALS['server'] ?? $GLOBALS['cfg']['ServerDefault'];
         $cache_key = 'server_' . $server;
@@ -133,10 +139,10 @@ class UserPreferences
             . Util::backquote($cfgRelation['userconfig']);
         $query = 'SELECT `username` FROM ' . $query_table
             . ' WHERE `username` = \''
-            . $GLOBALS['dbi']->escapeString($cfgRelation['user'])
+            . $dbi->escapeString($cfgRelation['user'])
             . '\'';
 
-        $has_config = $GLOBALS['dbi']->fetchValue(
+        $has_config = $dbi->fetchValue(
             $query,
             0,
             0,
@@ -146,26 +152,26 @@ class UserPreferences
         if ($has_config) {
             $query = 'UPDATE ' . $query_table
                 . ' SET `timevalue` = NOW(), `config_data` = \''
-                . $GLOBALS['dbi']->escapeString($config_data)
+                . $dbi->escapeString($config_data)
                 . '\''
                 . ' WHERE `username` = \''
-                . $GLOBALS['dbi']->escapeString($cfgRelation['user'])
+                . $dbi->escapeString($cfgRelation['user'])
                 . '\'';
         } else {
             $query = 'INSERT INTO ' . $query_table
                 . ' (`username`, `timevalue`,`config_data`) '
                 . 'VALUES (\''
-                . $GLOBALS['dbi']->escapeString($cfgRelation['user']) . '\', NOW(), '
-                . '\'' . $GLOBALS['dbi']->escapeString($config_data) . '\')';
+                . $dbi->escapeString($cfgRelation['user']) . '\', NOW(), '
+                . '\'' . $dbi->escapeString($config_data) . '\')';
         }
         if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             unset($_SESSION['cache'][$cache_key]['userprefs']);
         }
-        if (! $GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
             $message->addMessage(
                 Message::rawError(
-                    $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)
+                    $dbi->getError(DatabaseInterface::CONNECT_CONTROL)
                 ),
                 '<br><br>'
             );

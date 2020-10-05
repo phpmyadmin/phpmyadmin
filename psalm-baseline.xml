@@ -2350,6 +2350,9 @@
       <code>mb_strpos($log_entry, "\n")</code>
       <code>mb_strpos($log_entry, "\n")</code>
     </PossiblyFalseOperand>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$version ?? ''</code>
+    </PossiblyInvalidArgument>
     <PossiblyInvalidPropertyFetch occurrences="4">
       <code>$statement-&gt;body[2]-&gt;value</code>
       <code>$statement-&gt;body[3]-&gt;value</code>
@@ -2376,6 +2379,12 @@
       <code>$class_name</code>
       <code>$class_name</code>
     </InvalidArgument>
+    <PossiblyNullArgument occurrences="1">
+      <code>$row['comment']</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$row['comment']</code>
+    </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Twig/I18n/NodeTrans.php">
     <PossiblyNullArgument occurrences="5">

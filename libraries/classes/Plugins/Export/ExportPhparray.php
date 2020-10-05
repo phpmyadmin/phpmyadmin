@@ -172,20 +172,22 @@ class ExportPhparray extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        $result = $GLOBALS['dbi']->query(
+        $result = $dbi->query(
             $sql_query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
 
-        $columns_cnt = $GLOBALS['dbi']->numFields($result);
+        $columns_cnt = $dbi->numFields($result);
         $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $col_as = $GLOBALS['dbi']->fieldName($result, $i);
+            $col_as = $dbi->fieldName($result, $i);
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
@@ -223,7 +225,7 @@ class ExportPhparray extends ExportPlugin
             . $this->commentString(Util::backquote($table_alias)) . ' */' . $crlf;
         $buffer .= '$' . $tablefixed . ' = array(';
 
-        while ($record = $GLOBALS['dbi']->fetchRow($result)) {
+        while ($record = $dbi->fetchRow($result)) {
             $record_cnt++;
 
             if ($record_cnt == 1) {
@@ -246,7 +248,7 @@ class ExportPhparray extends ExportPlugin
             return false;
         }
 
-        $GLOBALS['dbi']->freeResult($result);
+        $dbi->freeResult($result);
 
         return true;
     }

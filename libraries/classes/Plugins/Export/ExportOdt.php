@@ -241,22 +241,22 @@ class ExportOdt extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
-        global $what;
+        global $what, $dbi;
 
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         // Gets the data from the database
-        $result = $GLOBALS['dbi']->query(
+        $result = $dbi->query(
             $sql_query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
-        $fields_cnt = $GLOBALS['dbi']->numFields($result);
-        $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+        $fields_cnt = $dbi->numFields($result);
+        $fields_meta = $dbi->getFieldsMeta($result);
         $field_flags = [];
         for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_flags[$j] = $GLOBALS['dbi']->fieldFlags($result, $j);
+            $field_flags[$j] = $dbi->fieldFlags($result, $j);
         }
 
         $GLOBALS['odt_buffer']
@@ -276,7 +276,7 @@ class ExportOdt extends ExportPlugin
         if (isset($GLOBALS[$what . '_columns'])) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             for ($i = 0; $i < $fields_cnt; $i++) {
-                $col_as = $GLOBALS['dbi']->fieldName($result, $i);
+                $col_as = $dbi->fieldName($result, $i);
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
@@ -293,7 +293,7 @@ class ExportOdt extends ExportPlugin
         }
 
         // Format the data
-        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+        while ($row = $dbi->fetchRow($result)) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if ($fields_meta[$j]->type === 'geometry') {
@@ -337,7 +337,7 @@ class ExportOdt extends ExportPlugin
             }
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
         }
-        $GLOBALS['dbi']->freeResult($result);
+        $dbi->freeResult($result);
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
 
@@ -370,13 +370,15 @@ class ExportOdt extends ExportPlugin
      */
     public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
     {
+        global $dbi;
+
         $db_alias = $db;
         $view_alias = $view;
         $this->initAlias($aliases, $db_alias, $view_alias);
         /**
          * Gets fields properties
          */
-        $GLOBALS['dbi']->selectDb($db);
+        $dbi->selectDb($db);
 
         /**
          * Displays the table structure
@@ -404,7 +406,7 @@ class ExportOdt extends ExportPlugin
             . '</table:table-cell>'
             . '</table:table-row>';
 
-        $columns = $GLOBALS['dbi']->getColumns($db, $view);
+        $columns = $dbi->getColumns($db, $view);
         foreach ($columns as $column) {
             $col_as = $column['Field'] ?? null;
             if (! empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
@@ -457,7 +459,7 @@ class ExportOdt extends ExportPlugin
         $view = false,
         array $aliases = []
     ) {
-        global $cfgRelation;
+        global $cfgRelation, $dbi;
 
         $db_alias = $db;
         $table_alias = $table;
@@ -465,7 +467,7 @@ class ExportOdt extends ExportPlugin
         /**
          * Gets fields properties
          */
-        $GLOBALS['dbi']->selectDb($db);
+        $dbi->selectDb($db);
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
@@ -523,7 +525,7 @@ class ExportOdt extends ExportPlugin
         }
         $GLOBALS['odt_buffer'] .= '</table:table-row>';
 
-        $columns = $GLOBALS['dbi']->getColumns($db, $table);
+        $columns = $dbi->getColumns($db, $table);
         foreach ($columns as $column) {
             $col_as = $field_name = $column['Field'];
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
@@ -606,6 +608,8 @@ class ExportOdt extends ExportPlugin
      */
     protected function getTriggers($db, $table, array $aliases = [])
     {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -628,7 +632,7 @@ class ExportOdt extends ExportPlugin
             . '</table:table-cell>'
             . '</table:table-row>';
 
-        $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+        $triggers = $dbi->getTriggers($db, $table);
 
         foreach ($triggers as $trigger) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
@@ -695,6 +699,8 @@ class ExportOdt extends ExportPlugin
         $dates = false,
         array $aliases = []
     ) {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -721,7 +727,7 @@ class ExportOdt extends ExportPlugin
                 );
                 break;
             case 'triggers':
-                $triggers = $GLOBALS['dbi']->getTriggers($db, $table, $aliases);
+                $triggers = $dbi->getTriggers($db, $table, $aliases);
                 if ($triggers) {
                     $GLOBALS['odt_buffer']
                     .= '<text:h text:outline-level="2" text:style-name="Heading_2"'

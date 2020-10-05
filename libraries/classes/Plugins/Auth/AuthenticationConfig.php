@@ -72,8 +72,10 @@ class AuthenticationConfig extends AuthenticationPlugin
      */
     public function showFailure($failure)
     {
+        global $dbi;
+
         parent::showFailure($failure);
-        $conn_error = $GLOBALS['dbi']->getError();
+        $conn_error = $dbi->getError();
         if (! $conn_error) {
             $conn_error = __('Cannot connect: invalid settings.');
         }

@@ -525,8 +525,8 @@ class Table
         $columns_with_index = null,
         $oldColumnName = null
     ) {
-        /** @var DatabaseInterface $dbi */
-        $dbi = $GLOBALS['dbi'];
+        global $dbi;
+
         $is_timestamp = mb_stripos($type, 'TIMESTAMP') !== false;
 
         $query = Util::backquote($name) . ' ' . $type;
@@ -902,8 +902,8 @@ class Table
         array $where_fields,
         array $new_fields
     ) {
-        /** @var DatabaseInterface $dbi */
-        $dbi = $GLOBALS['dbi'];
+        global $dbi;
+
         $relation = new Relation($dbi);
         $last_id = -1;
 
@@ -994,9 +994,7 @@ class Table
         $move,
         $mode
     ) {
-        global $err_url;
-        /** @var DatabaseInterface $dbi */
-        $dbi = $GLOBALS['dbi'];
+        global $err_url, $dbi;
 
         $relation = new Relation($dbi);
 

@@ -247,7 +247,9 @@ class Results
      */
     public function __construct($db, $table, $server, $goto, $sql_query)
     {
-        $this->relation = new Relation($GLOBALS['dbi']);
+        global $dbi;
+
+        $this->relation = new Relation($dbi);
         $this->transformations = new Transformations();
         $this->template = new Template();
 
@@ -610,6 +612,8 @@ class Results
      */
     private function setDisplayPartsAndTotal(array $displayParts)
     {
+        global $dbi;
+
         $the_total = 0;
 
         // 1. Following variables are needed for use in isset/empty or
@@ -640,7 +644,7 @@ class Results
             || ($displayParts['sort_lnk'] == '1')
             && (strlen($db) > 0 && strlen($table) > 0)
         ) {
-            $the_total = $GLOBALS['dbi']->getTable($db, $table)->countRecords();
+            $the_total = $dbi->getTable($db, $table)->countRecords();
         }
 
         // if for COUNT query, number of rows returned more than 1
@@ -1461,6 +1465,8 @@ class Results
      */
     private function getDataForResettingColumnOrder(array $analyzedSqlResults): array
     {
+        global $dbi;
+
         if (! $this->isSelect($analyzedSqlResults)) {
             return [];
         }
@@ -1472,7 +1478,7 @@ class Results
         $tableCreateTime = '';
         $table = new Table($this->properties['table'], $this->properties['db']);
         if (! $table->isView()) {
-            $tableCreateTime = $GLOBALS['dbi']->getTable(
+            $tableCreateTime = $dbi->getTable(
                 $this->properties['db'],
                 $this->properties['table']
             )->getStatusInfo('Create_time');
@@ -2363,8 +2369,10 @@ class Results
         array $analyzed_sql_results,
         $is_limited_display = false
     ) {
-        global $row; // mostly because of browser transformations,
-                     // to make the row-data accessible in a plugin
+        global $dbi;
+
+        // Mostly because of browser transformations, to make the row-data accessible in a plugin.
+        global $row;
 
         $table_body_html = '';
 
@@ -2425,7 +2433,7 @@ class Results
         // delete/edit options correctly for tables without keys.
 
         $whereClauseMap = $this->properties['whereClauseMap'];
-        while ($row = $GLOBALS['dbi']->fetchRow($dt_result)) {
+        while ($row = $dbi->fetchRow($dt_result)) {
             // add repeating headers
             if (($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0)
                 && ! $row_no % $_SESSION['tmpval']['repeat_cells']
@@ -3243,6 +3251,8 @@ class Results
         $del_lnk,
         array $row
     ) {
+        global $dbi;
+
         $goto = $this->properties['goto'];
 
         if ($del_lnk === self::DELETE_ROW) { // delete row case
@@ -3285,7 +3295,7 @@ class Results
 
             $lnk_goto = Url::getFromRoute('/sql', $_url_params);
 
-            $kill = $GLOBALS['dbi']->getKillQuery((int) $row[0]);
+            $kill = $dbi->getKillQuery((int) $row[0]);
 
             $_url_params = [
                 'db'        => 'mysql',
@@ -3666,10 +3676,12 @@ class Results
         &$dt_result,
         $col_index
     ) {
+        global $dbi;
+
         $original_length = 0;
 
         $is_analyse = $this->properties['is_analyse'];
-        $field_flags = $GLOBALS['dbi']->fieldFlags($dt_result, $col_index);
+        $field_flags = $dbi->fieldFlags($dt_result, $col_index);
 
         $bIsText = is_object($transformation_plugin)
             && strpos($transformation_plugin->getMIMEType(), 'Text')
@@ -3780,7 +3792,7 @@ class Results
             || $bool_nowrap ? ' nowrap' : '';
 
         $where_comparison = ' = \''
-            . $GLOBALS['dbi']->escapeString($column)
+            . $dbi->escapeString($column)
             . '\'';
 
         return $this->getRowData(
@@ -4252,6 +4264,8 @@ class Results
         &$dt_result,
         $sort_expression_nodirection
     ) {
+        global $dbi;
+
         $fields_meta = $this->properties['fields_meta']; // To use array indexes
 
         if (empty($sort_expression_nodirection)) {
@@ -4285,7 +4299,7 @@ class Results
         }
 
         // fetch first row of the result set
-        $row = $GLOBALS['dbi']->fetchRow($dt_result);
+        $row = $dbi->fetchRow($dt_result);
 
         // initializing default arguments
         $default_function = [
@@ -4322,8 +4336,8 @@ class Results
         );
 
         // fetch last row of the result set
-        $GLOBALS['dbi']->dataSeek($dt_result, $this->properties['num_rows'] - 1);
-        $row = $GLOBALS['dbi']->fetchRow($dt_result);
+        $dbi->dataSeek($dt_result, $this->properties['num_rows'] - 1);
+        $row = $dbi->fetchRow($dt_result);
 
         // check for non printable sorted row data
         $meta = $fields_meta[$sorted_column_index];
@@ -4351,7 +4365,7 @@ class Results
         );
 
         // reset to first row for the loop in getTableBody()
-        $GLOBALS['dbi']->dataSeek($dt_result, 0);
+        $dbi->dataSeek($dt_result, 0);
 
         // we could also use here $sort_expression_nodirection
         return ' [' . htmlspecialchars($sort_column)
@@ -4605,7 +4619,7 @@ class Results
         array $displayParts,
         array $analyzed_sql_results
     ): array {
-        global $printview;
+        global $printview, $dbi;
 
         $_url_params = [
             'db'        => $this->properties['db'],
@@ -4647,7 +4661,7 @@ class Results
              * the script it calls do not fail
              */
             if (empty($_url_params['table']) && ! empty($_url_params['db'])) {
-                $_url_params['table'] = $GLOBALS['dbi']->fetchValue('SHOW TABLES');
+                $_url_params['table'] = $dbi->fetchValue('SHOW TABLES');
                 /* No result (probably no database selected) */
                 if ($_url_params['table'] === false) {
                     unset($_url_params['table']);
@@ -4802,6 +4816,8 @@ class Results
      */
     private function getFromForeign(array $map, $meta, $where_comparison)
     {
+        global $dbi;
+
         $dispsql = 'SELECT '
             . Util::backquote($map[$meta->name][2])
             . ' FROM '
@@ -4812,19 +4828,19 @@ class Results
             . Util::backquote($map[$meta->name][1])
             . $where_comparison;
 
-        $dispresult = $GLOBALS['dbi']->tryQuery(
+        $dispresult = $dbi->tryQuery(
             $dispsql,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
 
-        if ($dispresult && $GLOBALS['dbi']->numRows($dispresult) > 0) {
-            [$dispval] = $GLOBALS['dbi']->fetchRow($dispresult, 0);
+        if ($dispresult && $dbi->numRows($dispresult) > 0) {
+            [$dispval] = $dbi->fetchRow($dispresult, 0);
         } else {
             $dispval = __('Link not found!');
         }
 
-        $GLOBALS['dbi']->freeResult($dispresult);
+        $dbi->freeResult($dispresult);
 
         return $dispval;
     }

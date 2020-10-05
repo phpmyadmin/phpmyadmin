@@ -223,12 +223,14 @@ class ExportCodegen extends ExportPlugin
      */
     private function handleNHibernateCSBody($db, $table, $crlf, array $aliases = [])
     {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $lines = [];
 
-        $result = $GLOBALS['dbi']->query(
+        $result = $dbi->query(
             sprintf(
                 'DESC %s.%s',
                 Util::backquote($db),
@@ -238,14 +240,14 @@ class ExportCodegen extends ExportPlugin
         if ($result) {
             /** @var TableProperty[] $tableProperties */
             $tableProperties = [];
-            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+            while ($row = $dbi->fetchRow($result)) {
                 $col_as = $this->getAlias($aliases, $row[0], 'col', $db, $table);
                 if (! empty($col_as)) {
                     $row[0] = $col_as;
                 }
                 $tableProperties[] = new TableProperty($row);
             }
-            $GLOBALS['dbi']->freeResult($result);
+            $dbi->freeResult($result);
             $lines[] = 'using System;';
             $lines[] = 'using System.Collections;';
             $lines[] = 'using System.Collections.Generic;';
@@ -330,6 +332,8 @@ class ExportCodegen extends ExportPlugin
         $crlf,
         array $aliases = []
     ) {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -341,7 +345,7 @@ class ExportCodegen extends ExportPlugin
         $lines[] = '    <class '
             . 'name="' . self::cgMakeIdentifier($table_alias) . '" '
             . 'table="' . self::cgMakeIdentifier($table_alias) . '">';
-        $result = $GLOBALS['dbi']->query(
+        $result = $dbi->query(
             sprintf(
                 'DESC %s.%s',
                 Util::backquote($db),
@@ -349,7 +353,7 @@ class ExportCodegen extends ExportPlugin
             )
         );
         if ($result) {
-            while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+            while ($row = $dbi->fetchRow($result)) {
                 $col_as = $this->getAlias($aliases, $row[0], 'col', $db, $table);
                 if (! empty($col_as)) {
                     $row[0] = $col_as;
@@ -375,7 +379,7 @@ class ExportCodegen extends ExportPlugin
                     );
                 }
             }
-            $GLOBALS['dbi']->freeResult($result);
+            $dbi->freeResult($result);
         }
         $lines[] = '    </class>';
         $lines[] = '</hibernate-mapping>';

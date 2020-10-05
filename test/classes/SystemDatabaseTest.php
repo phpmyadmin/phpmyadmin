@@ -88,7 +88,7 @@ class SystemDatabaseTest extends AbstractTestCase
         $db = 'PMA_db';
         $ret = $this->sysDb->getExistingTransformationData($db);
 
-        //validate that is the same as $GLOBALS['dbi']->tryQuery
+        //validate that is the same as $dbi->tryQuery
         $this->assertEquals(
             'executeResult2',
             $ret

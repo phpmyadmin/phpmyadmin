@@ -196,7 +196,7 @@ class ExportHtmlword extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
-        global $what;
+        global $what, $dbi;
 
         $db_alias = $db;
         $table_alias = $table;
@@ -218,18 +218,18 @@ class ExportHtmlword extends ExportPlugin
         }
 
         // Gets the data from the database
-        $result = $GLOBALS['dbi']->query(
+        $result = $dbi->query(
             $sql_query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
-        $fields_cnt = $GLOBALS['dbi']->numFields($result);
+        $fields_cnt = $dbi->numFields($result);
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['htmlword_columns'])) {
             $schema_insert = '<tr class="print-category">';
             for ($i = 0; $i < $fields_cnt; $i++) {
-                $col_as = $GLOBALS['dbi']->fieldName($result, $i);
+                $col_as = $dbi->fieldName($result, $i);
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
@@ -245,7 +245,7 @@ class ExportHtmlword extends ExportPlugin
         }
 
         // Format the data
-        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+        while ($row = $dbi->fetchRow($result)) {
             $schema_insert = '<tr class="print-category">';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (! isset($row[$j]) || $row[$j] === null) {
@@ -264,7 +264,7 @@ class ExportHtmlword extends ExportPlugin
                 return false;
             }
         }
-        $GLOBALS['dbi']->freeResult($result);
+        $dbi->freeResult($result);
 
         return $this->export->outputHandler('</table>');
     }
@@ -281,6 +281,8 @@ class ExportHtmlword extends ExportPlugin
      */
     public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
     {
+        global $dbi;
+
         $schema_insert = '<table class="w-100" cellspacing="1">'
             . '<tr class="print-category">'
             . '<th class="print">'
@@ -301,7 +303,7 @@ class ExportHtmlword extends ExportPlugin
          * Get the unique keys in the view
          */
         $unique_keys = [];
-        $keys = $GLOBALS['dbi']->getTableIndexes($db, $view);
+        $keys = $dbi->getTableIndexes($db, $view);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
@@ -310,7 +312,7 @@ class ExportHtmlword extends ExportPlugin
             $unique_keys[] = $key['Column_name'];
         }
 
-        $columns = $GLOBALS['dbi']->getColumns($db, $view);
+        $columns = $dbi->getColumns($db, $view);
         foreach ($columns as $column) {
             $col_as = $column['Field'];
             if (! empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
@@ -357,6 +359,8 @@ class ExportHtmlword extends ExportPlugin
         $view = false,
         array $aliases = []
     ) {
+        global $dbi;
+
         // set $cfgRelation here, because there is a chance that it's modified
         // since the class initialization
         global $cfgRelation;
@@ -366,7 +370,7 @@ class ExportHtmlword extends ExportPlugin
         /**
          * Gets fields properties
          */
-        $GLOBALS['dbi']->selectDb($db);
+        $dbi->selectDb($db);
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
@@ -412,12 +416,12 @@ class ExportHtmlword extends ExportPlugin
         }
         $schema_insert .= '</tr>';
 
-        $columns = $GLOBALS['dbi']->getColumns($db, $table);
+        $columns = $dbi->getColumns($db, $table);
         /**
          * Get the unique keys in the table
          */
         $unique_keys = [];
-        $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
+        $keys = $dbi->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
@@ -481,6 +485,8 @@ class ExportHtmlword extends ExportPlugin
      */
     protected function getTriggers($db, $table)
     {
+        global $dbi;
+
         $dump = '<table class="w-100" cellspacing="1">';
         $dump .= '<tr class="print-category">';
         $dump .= '<th class="print">' . __('Name') . '</th>';
@@ -489,7 +495,7 @@ class ExportHtmlword extends ExportPlugin
         $dump .= '<td class="print"><strong>' . __('Definition') . '</strong></td>';
         $dump .= '</tr>';
 
-        $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+        $triggers = $dbi->getTriggers($db, $table);
 
         foreach ($triggers as $trigger) {
             $dump .= '<tr class="print-category">';
@@ -549,6 +555,8 @@ class ExportHtmlword extends ExportPlugin
         $dates = false,
         array $aliases = []
     ) {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -573,7 +581,7 @@ class ExportHtmlword extends ExportPlugin
                 break;
             case 'triggers':
                 $dump = '';
-                $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+                $triggers = $dbi->getTriggers($db, $table);
                 if ($triggers) {
                     $dump .= '<h2>'
                     . __('Triggers') . ' ' . htmlspecialchars($table_alias)

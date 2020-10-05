@@ -121,13 +121,15 @@ class Innodb extends StorageEngine
      */
     public function getPageBufferpool()
     {
+        global $dbi;
+
         // The following query is only possible because we know
         // that we are on MySQL 5 here (checked above)!
         // side note: I love MySQL 5 for this. :-)
         $sql = 'SHOW STATUS'
             . ' WHERE Variable_name LIKE \'Innodb\\_buffer\\_pool\\_%\''
             . ' OR Variable_name = \'Innodb_page_size\';';
-        $status = $GLOBALS['dbi']->fetchResult($sql, 0, 1);
+        $status = $dbi->fetchResult($sql, 0, 1);
 
         $output = '<table class="data" id="table_innodb_bufferpool_usage">' . "\n"
             . '    <caption class="tblHeaders">' . "\n"
@@ -300,8 +302,10 @@ class Innodb extends StorageEngine
      */
     public function getPageStatus()
     {
+        global $dbi;
+
         return '<pre id="pre_innodb_status">' . "\n"
-            . htmlspecialchars((string) $GLOBALS['dbi']->fetchValue(
+            . htmlspecialchars((string) $dbi->fetchValue(
                 'SHOW ENGINE INNODB STATUS;',
                 0,
                 'Status'
@@ -326,7 +330,9 @@ class Innodb extends StorageEngine
      */
     public function getInnodbPluginVersion()
     {
-        return $GLOBALS['dbi']->fetchValue('SELECT @@innodb_version;');
+        global $dbi;
+
+        return $dbi->fetchValue('SELECT @@innodb_version;');
     }
 
     /**
@@ -338,7 +344,9 @@ class Innodb extends StorageEngine
      */
     public function getInnodbFileFormat()
     {
-        return $GLOBALS['dbi']->fetchValue(
+        global $dbi;
+
+        return $dbi->fetchValue(
             "SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';",
             0,
             1
@@ -354,7 +362,9 @@ class Innodb extends StorageEngine
      */
     public function supportsFilePerTable()
     {
-        return $GLOBALS['dbi']->fetchValue(
+        global $dbi;
+
+        return $dbi->fetchValue(
             "SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';",
             0,
             1

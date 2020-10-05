@@ -87,11 +87,13 @@ class Replication
         $start = true,
         $link = null
     ) {
+        global $dbi;
+
         if ($stop) {
             $this->slaveControl('STOP', null, $link);
         }
 
-        $out = $GLOBALS['dbi']->tryQuery(
+        $out = $dbi->tryQuery(
             'CHANGE MASTER TO ' .
             'MASTER_HOST=\'' . $host . '\',' .
             'MASTER_PORT=' . ($port * 1) . ',' .
@@ -127,6 +129,8 @@ class Replication
         $port = null,
         $socket = null
     ) {
+        global $dbi;
+
         $server = [];
         $server['user'] = $user;
         $server['password'] = $password;
@@ -136,7 +140,7 @@ class Replication
 
         // 5th parameter set to true means that it's an auxiliary connection
         // and we must not go back to login page if it fails
-        return $GLOBALS['dbi']->connect(DatabaseInterface::CONNECT_AUXILIARY, $server);
+        return $dbi->connect(DatabaseInterface::CONNECT_AUXILIARY, $server);
     }
 
     /**
@@ -149,7 +153,9 @@ class Replication
      */
     public function slaveBinLogMaster($link = null)
     {
-        $data = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS', null, null, $link);
+        global $dbi;
+
+        $data = $dbi->fetchResult('SHOW MASTER STATUS', null, null, $link);
         $output = [];
 
         if (! empty($data)) {

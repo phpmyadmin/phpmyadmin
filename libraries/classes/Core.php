@@ -258,6 +258,8 @@ class Core
         string $error_message,
         $message_args = null
     ): void {
+        global $dbi;
+
         /* Use format string if applicable */
         if (is_string($message_args)) {
             $error_message = sprintf($error_message, $message_args);
@@ -269,7 +271,7 @@ class Core
          * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
          */
-        if (isset($GLOBALS['dbi'], $GLOBALS['PMA_Config']) && $GLOBALS['dbi'] !== null
+        if (isset($dbi, $GLOBALS['PMA_Config']) && $dbi !== null
             && $GLOBALS['PMA_Config']->get('is_setup') === false
             && Response::getInstance()->isAjax()
         ) {
@@ -391,14 +393,16 @@ class Core
      */
     public static function getTableCount(string $db): int
     {
-        $tables = $GLOBALS['dbi']->tryQuery(
+        global $dbi;
+
+        $tables = $dbi->tryQuery(
             'SHOW TABLES FROM ' . Util::backquote($db) . ';',
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
         if ($tables) {
-            $num_tables = $GLOBALS['dbi']->numRows($tables);
-            $GLOBALS['dbi']->freeResult($tables);
+            $num_tables = $dbi->numRows($tables);
+            $dbi->freeResult($tables);
         } else {
             $num_tables = 0;
         }

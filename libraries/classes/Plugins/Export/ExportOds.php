@@ -215,22 +215,22 @@ class ExportOds extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
-        global $what;
+        global $what, $dbi;
 
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         // Gets the data from the database
-        $result = $GLOBALS['dbi']->query(
+        $result = $dbi->query(
             $sql_query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
-        $fields_cnt = $GLOBALS['dbi']->numFields($result);
-        $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+        $fields_cnt = $dbi->numFields($result);
+        $fields_meta = $dbi->getFieldsMeta($result);
         $field_flags = [];
         for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_flags[$j] = $GLOBALS['dbi']->fieldFlags($result, $j);
+            $field_flags[$j] = $dbi->fieldFlags($result, $j);
         }
 
         $GLOBALS['ods_buffer']
@@ -240,7 +240,7 @@ class ExportOds extends ExportPlugin
         if (isset($GLOBALS[$what . '_columns'])) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             for ($i = 0; $i < $fields_cnt; $i++) {
-                $col_as = $GLOBALS['dbi']->fieldName($result, $i);
+                $col_as = $dbi->fieldName($result, $i);
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
@@ -257,7 +257,7 @@ class ExportOds extends ExportPlugin
         }
 
         // Format the data
-        while ($row = $GLOBALS['dbi']->fetchRow($result)) {
+        while ($row = $dbi->fetchRow($result)) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if ($fields_meta[$j]->type === 'geometry') {
@@ -332,7 +332,7 @@ class ExportOds extends ExportPlugin
             }
             $GLOBALS['ods_buffer'] .= '</table:table-row>';
         }
-        $GLOBALS['dbi']->freeResult($result);
+        $dbi->freeResult($result);
 
         $GLOBALS['ods_buffer'] .= '</table:table>';
 

@@ -65,14 +65,14 @@ class UserPassword
      */
     public function changePassword($password): string
     {
-        global $auth_plugin;
+        global $auth_plugin, $dbi;
 
         $hashing_function = $this->changePassHashingFunction();
 
-        [$username, $hostname] = $GLOBALS['dbi']->getCurrentUserAndHost();
+        [$username, $hostname] = $dbi->getCurrentUserAndHost();
 
         $serverType = Util::getServerType();
-        $serverVersion = $GLOBALS['dbi']->getVersion();
+        $serverVersion = $dbi->getVersion();
 
         if (isset($_POST['authentication_plugin'])
             && ! empty($_POST['authentication_plugin'])
@@ -92,8 +92,8 @@ class UserPassword
         if ($serverType === 'MySQL'
             && $serverVersion >= 50706
         ) {
-            $sql_query = 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
-                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname)
+            $sql_query = 'ALTER USER \'' . $dbi->escapeString($username)
+                . '\'@\'' . $dbi->escapeString($hostname)
                 . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
                 . ($password == '' ? '\'\'' : '\'***\'');
         } elseif (($serverType === 'MySQL'
@@ -110,7 +110,7 @@ class UserPassword
             } else {
                 $value = 0;
             }
-            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = ' . $value . ';');
+            $dbi->tryQuery('SET `old_passwords` = ' . $value . ';');
         }
 
         $this->changePassUrlParamsAndSubmitQuery(
@@ -167,18 +167,20 @@ class UserPassword
         $hashing_function,
         $orig_auth_plugin
     ) {
+        global $dbi;
+
         $err_url = Url::getFromRoute('/user-password');
 
         $serverType = Util::getServerType();
-        $serverVersion = $GLOBALS['dbi']->getVersion();
+        $serverVersion = $dbi->getVersion();
 
         if ($serverType === 'MySQL' && $serverVersion >= 50706) {
-            $local_query = 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
-                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\''
+            $local_query = 'ALTER USER \'' . $dbi->escapeString($username)
+                . '\'@\'' . $dbi->escapeString($hostname) . '\''
                 . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '
                 . ($password == ''
                 ? '\'\''
-                : '\'' . $GLOBALS['dbi']->escapeString($password) . '\'');
+                : '\'' . $dbi->escapeString($password) . '\'');
         } elseif ($serverType === 'MariaDB'
             && $serverVersion >= 50200
             && $serverVersion < 100100
@@ -187,11 +189,11 @@ class UserPassword
             if ($orig_auth_plugin === 'mysql_native_password') {
                 // Set the hashing method used by PASSWORD()
                 // to be 'mysql_native_password' type
-                $GLOBALS['dbi']->tryQuery('SET old_passwords = 0;');
+                $dbi->tryQuery('SET old_passwords = 0;');
             } elseif ($orig_auth_plugin === 'sha256_password') {
                 // Set the hashing method used by PASSWORD()
                 // to be 'sha256_password' type
-                $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
+                $dbi->tryQuery('SET `old_passwords` = 2;');
             }
 
             $hashedPassword = $this->serverPrivileges->getHashedPassword($_POST['pma_pw']);
@@ -200,17 +202,17 @@ class UserPassword
                 . " `authentication_string` = '" . $hashedPassword
                 . "', `Password` = '', "
                 . " `plugin` = '" . $orig_auth_plugin . "'"
-                . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username)
-                . "' AND Host = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
+                . " WHERE `User` = '" . $dbi->escapeString($username)
+                . "' AND Host = '" . $dbi->escapeString($hostname) . "';";
         } else {
             $local_query = 'SET password = ' . ($password == ''
                 ? '\'\''
                 : $hashing_function . '(\''
-                    . $GLOBALS['dbi']->escapeString($password) . '\')');
+                    . $dbi->escapeString($password) . '\')');
         }
-        if (! @$GLOBALS['dbi']->tryQuery($local_query)) {
+        if (! @$dbi->tryQuery($local_query)) {
             Generator::mysqlDie(
-                $GLOBALS['dbi']->getError(),
+                $dbi->getError(),
                 $sql_query,
                 false,
                 $err_url
@@ -218,7 +220,7 @@ class UserPassword
         }
 
         // Flush privileges after successful password change
-        $GLOBALS['dbi']->tryQuery('FLUSH PRIVILEGES;');
+        $dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     public function getFormForChangePassword(?string $username, ?string $hostname): string

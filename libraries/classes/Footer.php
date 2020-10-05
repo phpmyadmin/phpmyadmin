@@ -65,11 +65,13 @@ class Footer
      */
     public function __construct()
     {
+        global $dbi;
+
         $this->template = new Template();
         $this->isEnabled = true;
         $this->scripts = new Scripts();
         $this->isMinimal = false;
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relation = new Relation($dbi);
     }
 
     /**
@@ -251,11 +253,13 @@ class Footer
      */
     private function setHistory(): void
     {
+        global $dbi;
+
         if (Core::isValid($_REQUEST['no_history'])
             || ! empty($GLOBALS['error_message'])
             || empty($GLOBALS['sql_query'])
-            || ! isset($GLOBALS['dbi'])
-            || ! $GLOBALS['dbi']->isUserType('logged')
+            || ! isset($dbi)
+            || ! $dbi->isUserType('logged')
         ) {
             return;
         }

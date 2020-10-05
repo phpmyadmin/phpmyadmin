@@ -184,6 +184,8 @@ abstract class AuthenticationPlugin
      */
     public function getErrorMessage($failure)
     {
+        global $dbi;
+
         if ($failure === 'empty-denied') {
             return __(
                 'Login without a password is forbidden by configuration'
@@ -203,7 +205,7 @@ abstract class AuthenticationPlugin
             );
         }
 
-        $dbi_error = $GLOBALS['dbi']->getError();
+        $dbi_error = $dbi->getError();
         if (! empty($dbi_error)) {
             return htmlspecialchars($dbi_error);
         }

@@ -79,8 +79,7 @@ class ImportShp extends ImportPlugin
      */
     public function doImport(?File $importHandle = null, array &$sql_data = [])
     {
-        global $db, $error, $finished,
-               $import_file, $local_import_file, $message;
+        global $db, $error, $finished, $import_file, $local_import_file, $message, $dbi;
 
         $GLOBALS['finished'] = false;
 
@@ -273,7 +272,7 @@ class ImportShp extends ImportPlugin
 
         // Set table name based on the number of tables
         if (strlen((string) $db) > 0) {
-            $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
+            $result = $dbi->fetchResult('SHOW TABLES');
             $table_name = 'TABLE ' . (count($result) + 1);
         } else {
             $table_name = 'TBL_NAME';

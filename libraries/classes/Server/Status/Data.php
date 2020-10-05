@@ -349,26 +349,28 @@ class Data
 
     public function __construct()
     {
-        $this->replicationInfo = new ReplicationInfo($GLOBALS['dbi']);
+        global $dbi;
+
+        $this->replicationInfo = new ReplicationInfo($dbi);
         $this->replicationInfo->load($_POST['master_connection'] ?? null);
 
         $this->selfUrl = basename($GLOBALS['PMA_PHP_SELF']);
 
         // get status from server
-        $server_status_result = $GLOBALS['dbi']->tryQuery('SHOW GLOBAL STATUS');
+        $server_status_result = $dbi->tryQuery('SHOW GLOBAL STATUS');
         $server_status = [];
         if ($server_status_result === false) {
             $this->dataLoaded = false;
         } else {
             $this->dataLoaded = true;
-            while ($arr = $GLOBALS['dbi']->fetchRow($server_status_result)) {
+            while ($arr = $dbi->fetchRow($server_status_result)) {
                 $server_status[$arr[0]] = $arr[1];
             }
-            $GLOBALS['dbi']->freeResult($server_status_result);
+            $dbi->freeResult($server_status_result);
         }
 
         // for some calculations we require also some server settings
-        $server_variables = $GLOBALS['dbi']->fetchResult(
+        $server_variables = $dbi->fetchResult(
             'SHOW GLOBAL VARIABLES',
             0,
             1

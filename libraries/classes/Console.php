@@ -42,8 +42,10 @@ class Console
      */
     public function __construct()
     {
+        global $dbi;
+
         $this->isEnabled = true;
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relation = new Relation($dbi);
         $this->template = new Template();
     }
 
@@ -73,11 +75,13 @@ class Console
      */
     public static function getBookmarkContent(): string
     {
+        global $dbi;
+
         $template = new Template();
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         if ($cfgBookmark) {
             $bookmarks = Bookmark::getList(
-                $GLOBALS['dbi'],
+                $dbi,
                 $GLOBALS['cfg']['Server']['user']
             );
             $count_bookmarks = count($bookmarks);

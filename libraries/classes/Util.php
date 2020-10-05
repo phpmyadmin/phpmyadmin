@@ -225,6 +225,8 @@ class Util
      */
     public static function getMySQLDocuURL(string $link, string $anchor = ''): string
     {
+        global $dbi;
+
         // Fixup for newly used names:
         $link = str_replace('_', '-', mb_strtolower($link));
 
@@ -233,8 +235,8 @@ class Util
         }
         $mysql = '5.5';
         $lang = 'en';
-        if (isset($GLOBALS['dbi'])) {
-            $serverVersion = $GLOBALS['dbi']->getVersion();
+        if (isset($dbi)) {
+            $serverVersion = $dbi->getVersion();
             if ($serverVersion >= 80000) {
                 $mysql = '8.0';
             } elseif ($serverVersion >= 50700) {
@@ -284,6 +286,8 @@ class Util
      */
     private static function checkRowCount($db, array $table)
     {
+        global $dbi;
+
         $rowCount = 0;
 
         if ($table['Rows'] === null) {
@@ -299,7 +303,7 @@ class Util
             $tbl_is_view = $table['TABLE_TYPE'] === 'VIEW';
 
             if ($tbl_is_view || Utilities::isSystemSchema($db)) {
-                $rowCount = $GLOBALS['dbi']
+                $rowCount = $dbi
                     ->getTable($db, $table['Name'])
                     ->countRecords();
             }
@@ -317,9 +321,11 @@ class Util
      */
     public static function getTableList($db): array
     {
+        global $dbi;
+
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
-        $tables = $GLOBALS['dbi']->getTablesFull($db);
+        $tables = $dbi->getTablesFull($db);
 
         if ($GLOBALS['cfg']['NaturalOrder']) {
             uksort($tables, 'strnatcasecmp');
@@ -940,6 +946,8 @@ class Util
         string $conditionKey,
         string $condition
     ): array {
+        global $dbi;
+
         if ($row === null) {
             return ['IS NULL', $condition];
         }
@@ -986,7 +994,7 @@ class Util
                 . self::printableBitValue((int) $row, (int) $meta->length) . "'";
         } else {
             $conditionValue = '= \''
-                . $GLOBALS['dbi']->escapeString($row) . '\'';
+                . $dbi->escapeString($row) . '\'';
         }
 
         return [$conditionValue, $condition];
@@ -1014,6 +1022,8 @@ class Util
         $restrict_to_table = false,
         array $expressions = []
     ): array {
+        global $dbi;
+
         $primary_key          = '';
         $unique_key           = '';
         $nonprimary_condition = '';
@@ -1054,7 +1064,7 @@ class Util
             // because there is some caching in the function).
             if (isset($meta->orgtable)
                 && ($meta->table != $meta->orgtable)
-                && ! $GLOBALS['dbi']->getTable($GLOBALS['db'], $meta->table)->isView()
+                && ! $dbi->getTable($GLOBALS['db'], $meta->table)->isView()
             ) {
                 $meta->table = $meta->orgtable;
             }
@@ -1082,7 +1092,7 @@ class Util
             [$con_val, $condition] = self::getConditionValue(
                 $row[$i] ?? null,
                 $meta,
-                $GLOBALS['dbi']->fieldFlags($handle, $i),
+                $dbi->fieldFlags($handle, $i),
                 $fields_cnt,
                 $con_key,
                 $condition
@@ -1607,6 +1617,8 @@ class Util
      */
     public static function isForeignKeySupported($engine): bool
     {
+        global $dbi;
+
         $engine = strtoupper((string) $engine);
         if (($engine === 'INNODB') || ($engine === 'PBXT')) {
             return true;
@@ -1614,7 +1626,7 @@ class Util
 
         if ($engine === 'NDBCLUSTER' || $engine === 'NDB') {
             $ndbver = strtolower(
-                $GLOBALS['dbi']->fetchValue('SELECT @@ndb_version_string')
+                $dbi->fetchValue('SELECT @@ndb_version_string')
             );
             if (substr($ndbver, 0, 4) === 'ndb-') {
                 $ndbver = substr($ndbver, 4);
@@ -1631,6 +1643,8 @@ class Util
      */
     public static function isForeignKeyCheck(): bool
     {
+        global $dbi;
+
         if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
             return true;
         }
@@ -1639,7 +1653,7 @@ class Util
             return false;
         }
 
-        return $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
+        return $dbi->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
     }
 
     /**
@@ -1649,15 +1663,16 @@ class Util
      */
     public static function handleDisableFKCheckInit()
     {
-        $default_fk_check_value
-            = $GLOBALS['dbi']->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
+        global $dbi;
+
+        $default_fk_check_value = $dbi->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
         if (isset($_REQUEST['fk_checks'])) {
             if (empty($_REQUEST['fk_checks'])) {
                 // Disable foreign key checks
-                $GLOBALS['dbi']->setVariable('FOREIGN_KEY_CHECKS', 'OFF');
+                $dbi->setVariable('FOREIGN_KEY_CHECKS', 'OFF');
             } else {
                 // Enable foreign key checks
-                $GLOBALS['dbi']->setVariable('FOREIGN_KEY_CHECKS', 'ON');
+                $dbi->setVariable('FOREIGN_KEY_CHECKS', 'ON');
             }
         }
 
@@ -1671,7 +1686,9 @@ class Util
      */
     public static function handleDisableFKCheckCleanup($default_fk_check_value): void
     {
-        $GLOBALS['dbi']->setVariable(
+        global $dbi;
+
+        $dbi->setVariable(
             'FOREIGN_KEY_CHECKS',
             $default_fk_check_value ? 'ON' : 'OFF'
         );
@@ -1687,11 +1704,13 @@ class Util
      */
     public static function asWKT($data, $includeSRID = false)
     {
+        global $dbi;
+
         // Convert to WKT format
         $hex = bin2hex($data);
         $spatialAsText = 'ASTEXT';
         $spatialSrid = 'SRID';
-        if ($GLOBALS['dbi']->getVersion() >= 50600) {
+        if ($dbi->getVersion() >= 50600) {
             $spatialAsText = 'ST_ASTEXT';
             $spatialSrid = 'ST_SRID';
         }
@@ -1700,17 +1719,17 @@ class Util
             $wktsql .= ', ' . $spatialSrid . "(x'" . $hex . "')";
         }
 
-        $wktresult  = $GLOBALS['dbi']->tryQuery(
+        $wktresult  = $dbi->tryQuery(
             $wktsql
         );
-        $wktarr     = $GLOBALS['dbi']->fetchRow($wktresult, 0);
+        $wktarr     = $dbi->fetchRow($wktresult, 0);
         $wktval     = $wktarr[0] ?? null;
 
         if ($includeSRID) {
             $srid = $wktarr[1] ?? null;
             $wktval = "'" . $wktval . "'," . $srid;
         }
-        @$GLOBALS['dbi']->freeResult($wktresult);
+        @$dbi->freeResult($wktresult);
 
         return $wktval;
     }
@@ -1838,6 +1857,8 @@ class Util
         $escape = null,
         array $updates = []
     ) {
+        global $dbi;
+
         /* Content */
         $vars = [];
         $vars['http_host'] = Core::getenv('HTTP_HOST');
@@ -1901,7 +1922,7 @@ class Util
 
         /* Fetch columns list if required */
         if (mb_strpos($string, '@COLUMNS@') !== false) {
-            $columns_list = $GLOBALS['dbi']->getColumns(
+            $columns_list = $dbi->getColumns(
                 $GLOBALS['db'],
                 $GLOBALS['table']
             );
@@ -1939,11 +1960,13 @@ class Util
      */
     public static function getSupportedDatatypes($html = false, $selected = '')
     {
+        global $dbi;
+
         if ($html) {
             $retval = Generator::getSupportedDatatypes($selected);
         } else {
             $retval = [];
-            foreach ($GLOBALS['dbi']->types->getColumns() as $value) {
+            foreach ($dbi->types->getColumns() as $value) {
                 if (is_array($value)) {
                     foreach ($value as $subvalue) {
                         if ($subvalue === '-') {
@@ -2044,6 +2067,8 @@ class Util
         $binary = true,
         $display = false
     ): array {
+        global $dbi;
+
         $funcs = [];
         if ($display) {
             $funcs[] = ['display' => ' '];
@@ -2159,7 +2184,7 @@ class Util
             }
 
             $spatialPrefix = '';
-            if ($GLOBALS['dbi']->getVersion() >= 50601) {
+            if ($dbi->getVersion() >= 50601) {
                 // If MySQL version is greater than or equal 5.6.1,
                 // use the ST_ prefix.
                 $spatialPrefix = 'ST_';
@@ -2255,9 +2280,11 @@ class Util
      */
     public static function currentUserHasPrivilege(string $priv, ?string $db = null, ?string $tbl = null): bool
     {
+        global $dbi;
+
         // Get the username for the current user in the format
         // required to use in the information schema database.
-        [$user, $host] = $GLOBALS['dbi']->getCurrentUserAndHost();
+        [$user, $host] = $dbi->getCurrentUserAndHost();
 
         // MySQL is started with --skip-grant-tables
         if ($user === '') {
@@ -2275,7 +2302,7 @@ class Util
                . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
 
         // Check global privileges first.
-        $user_privileges = $GLOBALS['dbi']->fetchValue(
+        $user_privileges = $dbi->fetchValue(
             sprintf(
                 $query,
                 'USER_PRIVILEGES',
@@ -2295,13 +2322,13 @@ class Util
         }
 
         $query .= " AND '%s' LIKE `TABLE_SCHEMA`";
-        $schema_privileges = $GLOBALS['dbi']->fetchValue(
+        $schema_privileges = $dbi->fetchValue(
             sprintf(
                 $query,
                 'SCHEMA_PRIVILEGES',
                 $username,
                 $priv,
-                $GLOBALS['dbi']->escapeString($db)
+                $dbi->escapeString($db)
             )
         );
         if ($schema_privileges) {
@@ -2313,14 +2340,14 @@ class Util
             // need to escape wildcards in db and table names, see bug #3518484
             $tbl = str_replace(['%', '_'], ['\%', '\_'], $tbl);
             $query .= " AND TABLE_NAME='%s'";
-            $table_privileges = $GLOBALS['dbi']->fetchValue(
+            $table_privileges = $dbi->fetchValue(
                 sprintf(
                     $query,
                     'TABLE_PRIVILEGES',
                     $username,
                     $priv,
-                    $GLOBALS['dbi']->escapeString($db),
-                    $GLOBALS['dbi']->escapeString($tbl)
+                    $dbi->escapeString($db),
+                    $dbi->escapeString($tbl)
                 )
             );
             if ($table_privileges) {
@@ -2344,11 +2371,13 @@ class Util
      */
     public static function getServerType()
     {
-        if ($GLOBALS['dbi']->isMariaDB()) {
+        global $dbi;
+
+        if ($dbi->isMariaDB()) {
             return 'MariaDB';
         }
 
-        if ($GLOBALS['dbi']->isPercona()) {
+        if ($dbi->isPercona()) {
             return 'Percona Server';
         }
 
@@ -2582,7 +2611,9 @@ class Util
      */
     public static function getCollateForIS()
     {
-        $names = $GLOBALS['dbi']->getLowerCaseNames();
+        global $dbi;
+
+        $names = $dbi->getLowerCaseNames();
         if ($names === '0') {
             return 'COLLATE utf8_bin';
         }
@@ -2657,8 +2688,10 @@ class Util
      */
     public static function isVirtualColumnsSupported()
     {
+        global $dbi;
+
         $serverType = self::getServerType();
-        $serverVersion = $GLOBALS['dbi']->getVersion();
+        $serverVersion = $dbi->getVersion();
 
         return in_array($serverType, ['MySQL', 'Percona Server']) && $serverVersion >= 50705
              || ($serverType === 'MariaDB' && $serverVersion >= 50200);
@@ -2675,7 +2708,7 @@ class Util
      */
     public static function getDbInfo($db, ?string $sub_part)
     {
-        global $cfg;
+        global $cfg, $dbi;
 
         /**
          * limits for table list
@@ -2716,15 +2749,15 @@ class Util
 
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($cfg['SkipLockedTables'] === true) {
-            $db_info_result = $GLOBALS['dbi']->query(
+            $db_info_result = $dbi->query(
                 'SHOW OPEN TABLES FROM ' . self::backquote($db) . ' WHERE In_use > 0;'
             );
 
             // Blending out tables in use
-            if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
+            if ($db_info_result && $dbi->numRows($db_info_result) > 0) {
                 $tables = self::getTablesWhenOpen($db, $db_info_result);
             } elseif ($db_info_result) {
-                $GLOBALS['dbi']->freeResult($db_info_result);
+                $dbi->freeResult($db_info_result);
             }
         }
 
@@ -2772,7 +2805,7 @@ class Util
                     $tbl_group = $_REQUEST['tbl_group'];
                     // include the table with the exact name of the group if such
                     // exists
-                    $groupTable = $GLOBALS['dbi']->getTablesFull(
+                    $groupTable = $dbi->getTablesFull(
                         $db,
                         $tbl_group,
                         false,
@@ -2789,7 +2822,7 @@ class Util
                 // all tables in db
                 // - get the total number of tables
                 //  (needed for proper working of the MaxTableList feature)
-                $tables = $GLOBALS['dbi']->getTables($db);
+                $tables = $dbi->getTables($db);
                 $total_num_tables = count($tables);
                 if (! (isset($sub_part) && $sub_part === '_export')) {
                     // fetch the details for a possible limited subset
@@ -2799,7 +2832,7 @@ class Util
             }
             $tables = array_merge(
                 $groupTable,
-                $GLOBALS['dbi']->getTablesFull(
+                $dbi->getTablesFull(
                     $db,
                     $groupWithSeparator !== false ? $groupWithSeparator : '',
                     $groupWithSeparator !== false,
@@ -2850,13 +2883,15 @@ class Util
      */
     public static function getTablesWhenOpen($db, $db_info_result): array
     {
+        global $dbi;
+
         $sot_cache = [];
         $tables = [];
 
-        while ($tmp = $GLOBALS['dbi']->fetchAssoc($db_info_result)) {
+        while ($tmp = $dbi->fetchAssoc($db_info_result)) {
             $sot_cache[$tmp['Table']] = true;
         }
-        $GLOBALS['dbi']->freeResult($db_info_result);
+        $dbi->freeResult($db_info_result);
 
         // is there at least one "in use" table?
         if (count($sot_cache) > 0) {
@@ -2884,16 +2919,16 @@ class Util
                     $tblGroupSql .= " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
                 }
             }
-            $db_info_result = $GLOBALS['dbi']->query(
+            $db_info_result = $dbi->query(
                 'SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql,
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
             unset($tblGroupSql, $whereAdded);
 
-            if ($db_info_result && $GLOBALS['dbi']->numRows($db_info_result) > 0) {
+            if ($db_info_result && $dbi->numRows($db_info_result) > 0) {
                 $names = [];
-                while ($tmp = $GLOBALS['dbi']->fetchRow($db_info_result)) {
+                while ($tmp = $dbi->fetchRow($db_info_result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
                         $names[] = $tmp[0];
                     } else { // table in use
@@ -2909,14 +2944,14 @@ class Util
                 if (count($names) > 0) {
                     $tables = array_merge(
                         $tables,
-                        $GLOBALS['dbi']->getTablesFull($db, $names)
+                        $dbi->getTablesFull($db, $names)
                     );
                 }
                 if ($GLOBALS['cfg']['NaturalOrder']) {
                     uksort($tables, 'strnatcasecmp');
                 }
             } elseif ($db_info_result) {
-                $GLOBALS['dbi']->freeResult($db_info_result);
+                $dbi->freeResult($db_info_result);
             }
             unset($sot_cache);
         }

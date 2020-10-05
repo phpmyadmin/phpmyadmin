@@ -352,6 +352,8 @@ class Response
      */
     private function ajaxResponse()
     {
+        global $dbi;
+
         /* Avoid wrapping in case we're disabled */
         if ($this->isDisabled) {
             echo $this->getDisplay();
@@ -378,7 +380,7 @@ class Response
                 $this->addJSON('title', '<title>' . $this->getHeader()->getPageTitle() . '</title>');
             }
 
-            if (isset($GLOBALS['dbi'])) {
+            if (isset($dbi)) {
                 $menuHash = $this->getHeader()->getMenu()->getHash();
                 $this->addJSON('menuHash', $menuHash);
                 $hashes = [];

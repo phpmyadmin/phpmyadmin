@@ -255,7 +255,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * this function DOES NOT check authentication - it just checks/provides
      * authentication credentials required to connect to the MySQL server
-     * usually with $GLOBALS['dbi']->connect()
+     * usually with $dbi->connect()
      *
      * it returns false if something is missing - which usually leads to
      * showLoginForm() which displays login form

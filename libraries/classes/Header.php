@@ -216,7 +216,7 @@ class Header
      */
     public function getJsParams(): array
     {
-        global $db, $table;
+        global $db, $table, $dbi;
 
         $pftext = $_SESSION['tmpval']['pftext'] ?? '';
 
@@ -248,7 +248,7 @@ class Header
             'confirm' => $GLOBALS['cfg']['Confirm'],
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
-            'logged_in' => isset($GLOBALS['dbi']) ? $GLOBALS['dbi']->isUserType('logged') : false,
+            'logged_in' => isset($dbi) ? $dbi->isUserType('logged') : false,
             'is_https' => $GLOBALS['PMA_Config']->isHttps(),
             'rootPath' => $GLOBALS['PMA_Config']->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
@@ -376,7 +376,7 @@ class Header
      */
     public function getDisplay(): string
     {
-        global $db, $table, $PMA_Theme;
+        global $db, $table, $PMA_Theme, $dbi;
 
         if ($this->headerIsSent || ! $this->isEnabled) {
             return '';
@@ -427,8 +427,8 @@ class Header
         if ($this->menuEnabled && $GLOBALS['server'] > 0) {
             $nav = new Navigation(
                 $this->template,
-                new Relation($GLOBALS['dbi']),
-                $GLOBALS['dbi']
+                new Relation($dbi),
+                $dbi
             );
             $navigation = $nav->getDisplay();
         }

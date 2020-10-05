@@ -115,6 +115,8 @@ class Pdf extends PdfLib
         $diskcache = false,
         $pdfa = false
     ) {
+        global $dbi;
+
         parent::__construct(
             $orientation,
             $unit,
@@ -124,7 +126,7 @@ class Pdf extends PdfLib
             $diskcache,
             $pdfa
         );
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relation = new Relation($dbi);
         $this->transformations = new Transformations();
     }
 
@@ -272,6 +274,8 @@ class Pdf extends PdfLib
      */
     public function morepagestable($lineheight = 8)
     {
+        global $dbi;
+
         // some things to set and 'remember'
         $l = $this->lMargin;
         $startheight = $h = $this->dataY;
@@ -288,7 +292,7 @@ class Pdf extends PdfLib
         $tmpheight = [];
         $maxpage = $this->page;
 
-        while ($data = $GLOBALS['dbi']->fetchRow($this->results)) {
+        while ($data = $dbi->fetchRow($this->results)) {
             $this->page = $currpage;
             // write the horizontal borders
             $this->Line($l, $h, $fullwidth + $l, $h);
@@ -385,7 +389,9 @@ class Pdf extends PdfLib
      */
     public function getTriggers($db, $table)
     {
-        $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+        global $dbi;
+
+        $triggers = $dbi->getTriggers($db, $table);
         if ($triggers === []) {
             return; //prevents printing blank trigger list for any table
         }
@@ -529,6 +535,8 @@ class Pdf extends PdfLib
         $view = false,
         array $aliases = []
     ) {
+        global $dbi;
+
         // set $cfgRelation here, because there is a chance that it's modified
         // since the class initialization
         global $cfgRelation;
@@ -545,7 +553,7 @@ class Pdf extends PdfLib
         /**
          * Gets fields properties
          */
-        $GLOBALS['dbi']->selectDb($db);
+        $dbi->selectDb($db);
 
         /**
          * All these three checks do_relation, do_comment and do_mime is
@@ -616,7 +624,7 @@ class Pdf extends PdfLib
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
 
-        $columns = $GLOBALS['dbi']->getColumns($db, $table);
+        $columns = $dbi->getColumns($db, $table);
 
         // some things to set and 'remember'
         $l = $this->lMargin;
@@ -742,6 +750,8 @@ class Pdf extends PdfLib
      */
     public function mysqlReport($query)
     {
+        global $dbi;
+
         unset(
             $this->tablewidths,
             $this->colTitles,
@@ -754,13 +764,13 @@ class Pdf extends PdfLib
         /**
          * Pass 1 for column widths
          */
-        $this->results = $GLOBALS['dbi']->query(
+        $this->results = $dbi->query(
             $query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
-        $this->numFields = $GLOBALS['dbi']->numFields($this->results);
-        $this->fields = $GLOBALS['dbi']->getFieldsMeta($this->results);
+        $this->numFields = $dbi->numFields($this->results);
+        $this->fields = $dbi->getFieldsMeta($this->results);
 
         // sColWidth = starting col width (an average size width)
         $availableWidth = $this->w - $this->lMargin - $this->rMargin;
@@ -833,7 +843,7 @@ class Pdf extends PdfLib
         /**
          * @todo force here a LIMIT to avoid reading all rows
          */
-        while ($row = $GLOBALS['dbi']->fetchRow($this->results)) {
+        while ($row = $dbi->fetchRow($this->results)) {
             foreach ($colFits as $key => $val) {
                 $stringWidth = $this->GetStringWidth($row[$key]) + 6;
                 if ($adjustingMode && ($stringWidth > $this->sColWidth)) {
@@ -881,11 +891,11 @@ class Pdf extends PdfLib
 
         ksort($this->tablewidths);
 
-        $GLOBALS['dbi']->freeResult($this->results);
+        $dbi->freeResult($this->results);
 
         // Pass 2
 
-        $this->results = $GLOBALS['dbi']->query(
+        $this->results = $dbi->query(
             $query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
@@ -894,6 +904,6 @@ class Pdf extends PdfLib
         $this->AddPage();
         $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
         $this->morepagestable($this->FontSizePt);
-        $GLOBALS['dbi']->freeResult($this->results);
+        $dbi->freeResult($this->results);
     }
 }

@@ -206,8 +206,7 @@ class ExportLatex extends ExportPlugin
      */
     public function exportHeader()
     {
-        global $crlf;
-        global $cfg;
+        global $crlf, $cfg, $dbi;
 
         $head = '% phpMyAdmin LaTeX Dump' . $crlf
             . '% version ' . PMA_VERSION . $crlf
@@ -220,7 +219,7 @@ class ExportLatex extends ExportPlugin
         $head .= $crlf
             . '% ' . __('Generation Time:') . ' '
             . Util::localisedDate() . $crlf
-            . '% ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . $crlf
+            . '% ' . __('Server version:') . ' ' . $dbi->getVersionString() . $crlf
             . '% ' . __('PHP Version:') . ' ' . PHP_VERSION . $crlf;
 
         return $this->export->outputHandler($head);
@@ -303,21 +302,23 @@ class ExportLatex extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        $result = $GLOBALS['dbi']->tryQuery(
+        $result = $dbi->tryQuery(
             $sql_query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
 
-        $columns_cnt = $GLOBALS['dbi']->numFields($result);
+        $columns_cnt = $dbi->numFields($result);
         $columns = [];
         $columns_alias = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $columns[$i] = $col_as = $GLOBALS['dbi']->fieldName($result, $i);
+            $columns[$i] = $col_as = $dbi->fieldName($result, $i);
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
@@ -403,7 +404,7 @@ class ExportLatex extends ExportPlugin
         }
 
         // print the whole table
-        while ($record = $GLOBALS['dbi']->fetchAssoc($result)) {
+        while ($record = $dbi->fetchAssoc($result)) {
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
@@ -435,7 +436,7 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        $GLOBALS['dbi']->freeResult($result);
+        $dbi->freeResult($result);
 
         return true;
     }
@@ -490,6 +491,8 @@ class ExportLatex extends ExportPlugin
         $dates = false,
         array $aliases = []
     ) {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -505,7 +508,7 @@ class ExportLatex extends ExportPlugin
          * Get the unique keys in the table
          */
         $unique_keys = [];
-        $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
+        $keys = $dbi->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] != 0) {
                 continue;
@@ -517,7 +520,7 @@ class ExportLatex extends ExportPlugin
         /**
          * Gets fields properties
          */
-        $GLOBALS['dbi']->selectDb($db);
+        $dbi->selectDb($db);
 
         // Check if we can use Relations
         [$res_rel, $have_rel] = $this->relation->getRelationsAndStatus(
@@ -612,7 +615,7 @@ class ExportLatex extends ExportPlugin
             return false;
         }
 
-        $fields = $GLOBALS['dbi']->getColumns($db, $table);
+        $fields = $dbi->getColumns($db, $table);
         foreach ($fields as $row) {
             $extracted_columnspec = Util::extractColumnSpec($row['Type']);
             $type = $extracted_columnspec['print_type'];

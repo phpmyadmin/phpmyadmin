@@ -71,9 +71,11 @@ class ReplicationGui
      */
     public function getHtmlForMasterReplication()
     {
+        global $dbi;
+
         if (! isset($_POST['repl_clear_scr'])) {
             $masterStatusTable = $this->getHtmlForReplicationStatusTable('master', true, false);
-            $slaves = $GLOBALS['dbi']->fetchResult('SHOW SLAVE HOSTS', null, null);
+            $slaves = $dbi->fetchResult('SHOW SLAVE HOSTS', null, null);
 
             $urlParams = $GLOBALS['url_params'];
             $urlParams['mr_adduser'] = true;
@@ -121,7 +123,9 @@ class ReplicationGui
         $serverSlaveStatus,
         array $serverSlaveReplication
     ) {
-        $serverSlaveMultiReplication = $GLOBALS['dbi']->fetchResult(
+        global $dbi;
+
+        $serverSlaveMultiReplication = $dbi->fetchResult(
             'SHOW ALL SLAVES STATUS'
         );
         if ($serverSlaveStatus) {
@@ -330,7 +334,9 @@ class ReplicationGui
      */
     public function getUsernameHostnameLength()
     {
-        $fields_info = $GLOBALS['dbi']->getColumns('mysql', 'user');
+        global $dbi;
+
+        $fields_info = $dbi->getColumns('mysql', 'user');
         $username_length = 16;
         $hostname_length = 41;
         foreach ($fields_info as $val) {
@@ -362,6 +368,8 @@ class ReplicationGui
      */
     public function getHtmlForReplicationMasterAddSlaveUser()
     {
+        global $dbi;
+
         [
             $usernameLength,
             $hostnameLength,
@@ -376,7 +384,7 @@ class ReplicationGui
             $username = $GLOBALS['new_username'] ?? $_POST['username'];
         }
 
-        $currentUser = $GLOBALS['dbi']->fetchValue('SELECT USER();');
+        $currentUser = $dbi->fetchValue('SELECT USER();');
         if (! empty($currentUser)) {
             $userHost = str_replace(
                 "'",
@@ -573,12 +581,14 @@ class ReplicationGui
      */
     public function handleRequestForSlaveServerControl()
     {
+        global $dbi;
+
         if (empty($_POST['sr_slave_control_parm'])) {
             $_POST['sr_slave_control_parm'] = null;
         }
         if ($_POST['sr_slave_action'] === 'reset') {
             $qStop = $this->replication->slaveControl('STOP', null, DatabaseInterface::CONNECT_USER);
-            $qReset = $GLOBALS['dbi']->tryQuery('RESET SLAVE;');
+            $qReset = $dbi->tryQuery('RESET SLAVE;');
             $qStart = $this->replication->slaveControl('START', null, DatabaseInterface::CONNECT_USER);
 
             $result = $qStop !== false && $qStop !== -1 &&
@@ -604,13 +614,15 @@ class ReplicationGui
      */
     public function handleRequestForSlaveSkipError()
     {
+        global $dbi;
+
         $count = 1;
         if (isset($_POST['sr_skip_errors_count'])) {
             $count = $_POST['sr_skip_errors_count'] * 1;
         }
 
         $qStop = $this->replication->slaveControl('STOP', null, DatabaseInterface::CONNECT_USER);
-        $qSkip = $GLOBALS['dbi']->tryQuery(
+        $qSkip = $dbi->tryQuery(
             'SET GLOBAL SQL_SLAVE_SKIP_COUNTER = ' . $count . ';'
         );
         $qStart = $this->replication->slaveControl('START', null, DatabaseInterface::CONNECT_USER);

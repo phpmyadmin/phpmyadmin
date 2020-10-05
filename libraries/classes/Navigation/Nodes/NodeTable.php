@@ -94,25 +94,27 @@ class NodeTable extends NodeDatabaseChild
      */
     public function getPresence($type = '', $searchClause = '')
     {
+        global $dbi;
+
         $retval = 0;
         $db = $this->realParent()->realName;
         $table = $this->realName;
         switch ($type) {
             case 'columns':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                    $db = $GLOBALS['dbi']->escapeString($db);
-                    $table = $GLOBALS['dbi']->escapeString($table);
+                    $db = $dbi->escapeString($db);
+                    $table = $dbi->escapeString($table);
                     $query = 'SELECT COUNT(*) ';
                     $query .= 'FROM `INFORMATION_SCHEMA`.`COLUMNS` ';
                     $query .= "WHERE `TABLE_NAME`='" . $table . "' ";
                     $query .= "AND `TABLE_SCHEMA`='" . $db . "'";
-                    $retval = (int) $GLOBALS['dbi']->fetchValue($query);
+                    $retval = (int) $dbi->fetchValue($query);
                 } else {
                     $db = Util::backquote($db);
                     $table = Util::backquote($table);
                     $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db . '';
-                    $retval = (int) $GLOBALS['dbi']->numRows(
-                        $GLOBALS['dbi']->tryQuery($query)
+                    $retval = (int) $dbi->numRows(
+                        $dbi->tryQuery($query)
                     );
                 }
                 break;
@@ -120,27 +122,27 @@ class NodeTable extends NodeDatabaseChild
                 $db = Util::backquote($db);
                 $table = Util::backquote($table);
                 $query = 'SHOW INDEXES FROM ' . $table . ' FROM ' . $db;
-                $retval = (int) $GLOBALS['dbi']->numRows(
-                    $GLOBALS['dbi']->tryQuery($query)
+                $retval = (int) $dbi->numRows(
+                    $dbi->tryQuery($query)
                 );
                 break;
             case 'triggers':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                    $db = $GLOBALS['dbi']->escapeString($db);
-                    $table = $GLOBALS['dbi']->escapeString($table);
+                    $db = $dbi->escapeString($db);
+                    $table = $dbi->escapeString($table);
                     $query = 'SELECT COUNT(*) ';
                     $query .= 'FROM `INFORMATION_SCHEMA`.`TRIGGERS` ';
                     $query .= 'WHERE `EVENT_OBJECT_SCHEMA` '
                     . Util::getCollateForIS() . "='" . $db . "' ";
                     $query .= 'AND `EVENT_OBJECT_TABLE` '
                     . Util::getCollateForIS() . "='" . $table . "'";
-                    $retval = (int) $GLOBALS['dbi']->fetchValue($query);
+                    $retval = (int) $dbi->fetchValue($query);
                 } else {
                     $db = Util::backquote($db);
-                    $table = $GLOBALS['dbi']->escapeString($table);
+                    $table = $dbi->escapeString($table);
                     $query = 'SHOW TRIGGERS FROM ' . $db . " WHERE `Table` = '" . $table . "'";
-                    $retval = (int) $GLOBALS['dbi']->numRows(
-                        $GLOBALS['dbi']->tryQuery($query)
+                    $retval = (int) $dbi->numRows(
+                        $dbi->tryQuery($query)
                     );
                 }
                 break;
@@ -165,6 +167,8 @@ class NodeTable extends NodeDatabaseChild
      */
     public function getData($type, $pos, $searchClause = '')
     {
+        global $dbi;
+
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $retval = [];
         $db = $this->realParent()->realName;
@@ -172,8 +176,8 @@ class NodeTable extends NodeDatabaseChild
         switch ($type) {
             case 'columns':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                    $db = $GLOBALS['dbi']->escapeString($db);
-                    $table = $GLOBALS['dbi']->escapeString($table);
+                    $db = $dbi->escapeString($db);
+                    $table = $dbi->escapeString($table);
                     $query = 'SELECT `COLUMN_NAME` AS `name` ';
                     $query .= ',`COLUMN_KEY` AS `key` ';
                     $query .= ',`DATA_TYPE` AS `type` ';
@@ -184,21 +188,21 @@ class NodeTable extends NodeDatabaseChild
                     $query .= "AND `TABLE_SCHEMA`='" . $db . "' ";
                     $query .= 'ORDER BY `COLUMN_NAME` ASC ';
                     $query .= 'LIMIT ' . intval($pos) . ', ' . $maxItems;
-                    $retval = $GLOBALS['dbi']->fetchResult($query);
+                    $retval = $dbi->fetchResult($query);
                     break;
                 }
 
                 $db = Util::backquote($db);
                 $table = Util::backquote($table);
                 $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db;
-                $handle = $GLOBALS['dbi']->tryQuery($query);
+                $handle = $dbi->tryQuery($query);
                 if ($handle === false) {
                     break;
                 }
 
                 $count = 0;
-                if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                if ($dbi->dataSeek($handle, $pos)) {
+                    while ($arr = $dbi->fetchArray($handle)) {
                         if ($count >= $maxItems) {
                             break;
                         }
@@ -218,13 +222,13 @@ class NodeTable extends NodeDatabaseChild
                 $db = Util::backquote($db);
                 $table = Util::backquote($table);
                 $query = 'SHOW INDEXES FROM ' . $table . ' FROM ' . $db;
-                $handle = $GLOBALS['dbi']->tryQuery($query);
+                $handle = $dbi->tryQuery($query);
                 if ($handle === false) {
                     break;
                 }
 
                 $count = 0;
-                while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                while ($arr = $dbi->fetchArray($handle)) {
                     if (in_array($arr['Key_name'], $retval)) {
                         continue;
                     }
@@ -237,8 +241,8 @@ class NodeTable extends NodeDatabaseChild
                 break;
             case 'triggers':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-                    $db = $GLOBALS['dbi']->escapeString($db);
-                    $table = $GLOBALS['dbi']->escapeString($table);
+                    $db = $dbi->escapeString($db);
+                    $table = $dbi->escapeString($table);
                     $query = 'SELECT `TRIGGER_NAME` AS `name` ';
                     $query .= 'FROM `INFORMATION_SCHEMA`.`TRIGGERS` ';
                     $query .= 'WHERE `EVENT_OBJECT_SCHEMA` '
@@ -247,21 +251,21 @@ class NodeTable extends NodeDatabaseChild
                     . Util::getCollateForIS() . "='" . $table . "' ";
                     $query .= 'ORDER BY `TRIGGER_NAME` ASC ';
                     $query .= 'LIMIT ' . intval($pos) . ', ' . $maxItems;
-                    $retval = $GLOBALS['dbi']->fetchResult($query);
+                    $retval = $dbi->fetchResult($query);
                     break;
                 }
 
                 $db = Util::backquote($db);
-                $table = $GLOBALS['dbi']->escapeString($table);
+                $table = $dbi->escapeString($table);
                 $query = 'SHOW TRIGGERS FROM ' . $db . " WHERE `Table` = '" . $table . "'";
-                $handle = $GLOBALS['dbi']->tryQuery($query);
+                $handle = $dbi->tryQuery($query);
                 if ($handle === false) {
                     break;
                 }
 
                 $count = 0;
-                if ($GLOBALS['dbi']->dataSeek($handle, $pos)) {
-                    while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
+                if ($dbi->dataSeek($handle, $pos)) {
+                    while ($arr = $dbi->fetchArray($handle)) {
                         if ($count >= $maxItems) {
                             break;
                         }

@@ -259,14 +259,16 @@ class GisVisualization
      */
     private function fetchRawData()
     {
-        $modified_result = $GLOBALS['dbi']->tryQuery($this->modifiedSql);
+        global $dbi;
+
+        $modified_result = $dbi->tryQuery($this->modifiedSql);
 
         if ($modified_result === false) {
             return [];
         }
 
         $data = [];
-        while ($row = $GLOBALS['dbi']->fetchAssoc($modified_result)) {
+        while ($row = $dbi->fetchAssoc($modified_result)) {
             $data[] = $row;
         }
 
