@@ -21,7 +21,7 @@ class NormalizationTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'

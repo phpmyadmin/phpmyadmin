@@ -66,7 +66,7 @@ class Pdf extends PdfLib
     private $colFits;
 
     /** @var array */
-    private $display_column;
+    private $displayColumn;
 
     /** @var int */
     private $numFields;
@@ -395,7 +395,7 @@ class Pdf extends PdfLib
             $this->colTitles,
             $this->titleWidth,
             $this->colFits,
-            $this->display_column,
+            $this->displayColumn,
             $this->colAlign
         );
 
@@ -414,7 +414,7 @@ class Pdf extends PdfLib
 
         for ($columns_cnt = 0; $columns_cnt < 4; $columns_cnt++) {
             $this->colAlign[$columns_cnt] = 'L';
-            $this->display_column[$columns_cnt] = true;
+            $this->displayColumn[$columns_cnt] = true;
         }
 
         // Starting to fill table with required info
@@ -538,7 +538,7 @@ class Pdf extends PdfLib
             $this->colTitles,
             $this->titleWidth,
             $this->colFits,
-            $this->display_column,
+            $this->displayColumn,
             $this->colAlign
         );
 
@@ -576,26 +576,26 @@ class Pdf extends PdfLib
 
         for ($columns_cnt = 0; $columns_cnt < 4; $columns_cnt++) {
             $this->colAlign[$columns_cnt] = 'L';
-            $this->display_column[$columns_cnt] = true;
+            $this->displayColumn[$columns_cnt] = true;
         }
 
         if ($do_relation && $have_rel) {
             $this->colTitles[$columns_cnt] = __('Links to');
-            $this->display_column[$columns_cnt] = true;
+            $this->displayColumn[$columns_cnt] = true;
             $this->colAlign[$columns_cnt] = 'L';
             $this->tablewidths[$columns_cnt] = 120;
             $columns_cnt++;
         }
         if ($do_comments /*&& $cfgRelation['commwork']*/) {
             $this->colTitles[$columns_cnt] = __('Comments');
-            $this->display_column[$columns_cnt] = true;
+            $this->displayColumn[$columns_cnt] = true;
             $this->colAlign[$columns_cnt] = 'L';
             $this->tablewidths[$columns_cnt] = 120;
             $columns_cnt++;
         }
         if ($do_mime && $cfgRelation['mimework']) {
             $this->colTitles[$columns_cnt] = __('Media type');
-            $this->display_column[$columns_cnt] = true;
+            $this->displayColumn[$columns_cnt] = true;
             $this->colAlign[$columns_cnt] = 'L';
             $this->tablewidths[$columns_cnt] = 120;
             $columns_cnt++;
@@ -747,7 +747,7 @@ class Pdf extends PdfLib
             $this->colTitles,
             $this->titleWidth,
             $this->colFits,
-            $this->display_column,
+            $this->displayColumn,
             $this->colAlign
         );
 
@@ -791,7 +791,7 @@ class Pdf extends PdfLib
                 $colFits[$i] = $stringWidth;
             }
             $this->colTitles[$i] = $col_as;
-            $this->display_column[$i] = true;
+            $this->displayColumn[$i] = true;
 
             switch ($this->fields[$i]->type) {
                 case 'int':
@@ -806,7 +806,7 @@ class Pdf extends PdfLib
                  * but show the field's name and [BLOB]
                  */
                     if (stripos($this->fields[$i]->flags, 'BINARY') !== false) {
-                        $this->display_column[$i] = false;
+                        $this->displayColumn[$i] = false;
                         unset($this->colTitles[$i]);
                     }
                     $this->colAlign[$i] = 'L';
@@ -872,7 +872,7 @@ class Pdf extends PdfLib
             if (! array_key_exists($i, $colFits)) {
                 $this->tablewidths[$i] = $this->sColWidth + $surplusToAdd;
             }
-            if ($this->display_column[$i] != false) {
+            if ($this->displayColumn[$i] != false) {
                 continue;
             }
 

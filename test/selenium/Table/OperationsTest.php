@@ -26,7 +26,7 @@ class OperationsTest extends TestBase
         // MYISAM ENGINE to allow for column-based order selection
         // while table also has a PRIMARY key
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
@@ -109,13 +109,13 @@ class OperationsTest extends TestBase
         $this->waitForElement(
             'xpath',
             "//div[@class='alert alert-success' and "
-            . "contains(., 'Table `" . $this->database_name
+            . "contains(., 'Table `" . $this->databaseName
             . '`.`test_table` has been '
-            . 'moved to `' . $this->database_name . "`.`test_table2`.')]"
+            . 'moved to `' . $this->databaseName . "`.`test_table2`.')]"
         );
 
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'SHOW TABLES LIKE \'test_table2\'',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
@@ -148,7 +148,7 @@ class OperationsTest extends TestBase
         );
 
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'SHOW TABLES LIKE \'test_table2\'',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
@@ -174,13 +174,13 @@ class OperationsTest extends TestBase
         $this->waitForElement(
             'xpath',
             "//div[@class='alert alert-success' and "
-            . "contains(., 'Table `" . $this->database_name
+            . "contains(., 'Table `" . $this->databaseName
             . '`.`test_table` has been '
-            . 'copied to `' . $this->database_name . "`.`test_table2`.')]"
+            . 'copied to `' . $this->databaseName . "`.`test_table2`.')]"
         );
 
         $this->dbQuery(
-            'SELECT COUNT(*) as c FROM `' . $this->database_name . '`.test_table2',
+            'SELECT COUNT(*) as c FROM `' . $this->databaseName . '`.test_table2',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('2', $this->getCellByTableClass('table_results', 1, 1));
@@ -208,7 +208,7 @@ class OperationsTest extends TestBase
         );
 
         $this->dbQuery(
-            'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->database_name . '`.test_table',
+            'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->databaseName . '`.test_table',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
@@ -241,7 +241,7 @@ class OperationsTest extends TestBase
         );
 
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'SHOW TABLES',
             function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));

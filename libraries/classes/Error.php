@@ -126,7 +126,7 @@ class Error extends Message
      *
      * @var bool
      */
-    protected $hide_location = false;
+    protected $hideLocation = false;
 
     /**
      * @param int    $errno   error number
@@ -211,7 +211,7 @@ class Error extends Message
      */
     public function setHideLocation(bool $hide): void
     {
-        $this->hide_location = $hide;
+        $this->hideLocation = $hide;
     }
 
     /**
@@ -501,7 +501,7 @@ class Error extends Message
      */
     public function isUserError(): bool
     {
-        return $this->hide_location ||
+        return $this->hideLocation ||
             ($this->getNumber() & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED));
     }
 

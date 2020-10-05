@@ -26,7 +26,7 @@ class EventsTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
@@ -36,7 +36,7 @@ class EventsTest extends TestBase
             . 'SET GLOBAL event_scheduler="ON";'
         );
         $this->login();
-        $this->navigateDatabase($this->database_name);
+        $this->navigateDatabase($this->databaseName);
 
         // Let the Database page load
         $this->waitAjax();
@@ -61,10 +61,10 @@ class EventsTest extends TestBase
         $end = date('Y-m-d H:i:s', strtotime('+1 day'));
 
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'CREATE EVENT `test_event` ON SCHEDULE EVERY 1 MINUTE_SECOND STARTS '
             . "'" . $start . "' ENDS '" . $end . "' ON COMPLETION NOT PRESERVE ENABLE "
-            . 'DO UPDATE `' . $this->database_name
+            . 'DO UPDATE `' . $this->databaseName
             . '`.`test_table` SET val = val + 1',
             null,
             function (): void {
@@ -103,7 +103,7 @@ class EventsTest extends TestBase
 
         $this->waitForElement('name', 'item_interval_value')->click()->clear()->sendKeys('1');
 
-        $proc = 'UPDATE ' . $this->database_name . '.`test_table` SET val=val+1';
+        $proc = 'UPDATE ' . $this->databaseName . '.`test_table` SET val=val+1';
         $this->typeInTextArea($proc);
 
         $action = $this->webDriver->action();
@@ -140,11 +140,11 @@ class EventsTest extends TestBase
         );
 
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
-            . 'SHOW EVENTS WHERE Db=\'' . $this->database_name . '\' AND Name=\'test_event\';',
+            'USE `' . $this->databaseName . '`;'
+            . 'SHOW EVENTS WHERE Db=\'' . $this->databaseName . '\' AND Name=\'test_event\';',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals($this->database_name, $this->getCellByTableClass('table_results', 1, 1));
+                $this->assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
                 $this->assertEquals('test_event', $this->getCellByTableClass('table_results', 1, 2));
                 $this->assertEquals('RECURRING', $this->getCellByTableClass('table_results', 1, 5));
             }
@@ -152,7 +152,7 @@ class EventsTest extends TestBase
 
         sleep(2);
         $this->dbQuery(
-            'SELECT val FROM `' . $this->database_name . '`.`test_table`',
+            'SELECT val FROM `' . $this->databaseName . '`.`test_table`',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | <number>
@@ -194,7 +194,7 @@ class EventsTest extends TestBase
 
         sleep(2);
         $this->dbQuery(
-            'SELECT val FROM `' . $this->database_name . '`.`test_table`',
+            'SELECT val FROM `' . $this->databaseName . '`.`test_table`',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 4
@@ -229,8 +229,8 @@ class EventsTest extends TestBase
         $this->waitAjaxMessage();
 
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
-            . 'SHOW EVENTS WHERE Db=\'' . $this->database_name . '\' AND Name=\'test_event\';',
+            'USE `' . $this->databaseName . '`;'
+            . 'SHOW EVENTS WHERE Db=\'' . $this->databaseName . '\' AND Name=\'test_event\';',
             function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
             }

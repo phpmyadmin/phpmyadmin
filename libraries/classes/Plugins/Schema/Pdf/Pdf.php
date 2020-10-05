@@ -63,13 +63,7 @@ class Pdf extends PdfLib
     public $scale;
 
     /** @var array */
-    public $PMA_links;
-
-    /** @var array */
-    public $Outlines = [];
-
-    /** @var mixed */
-    public $def_outlines;
+    public $customLinks;
 
     /** @var array */
     public $widths;

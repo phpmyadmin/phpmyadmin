@@ -69,7 +69,7 @@ class ManageController extends AbstractController
         global $cf, $error, $filename, $json, $PMA_Config, $lang, $max_upload_size;
         global $new_config, $config, $return_url, $form_display, $all_ok, $params, $query, $route;
 
-        $cf = new ConfigFile($PMA_Config->base_settings);
+        $cf = new ConfigFile($PMA_Config->baseSettings);
         $this->userPreferences->pageInit($cf);
 
         $error = '';

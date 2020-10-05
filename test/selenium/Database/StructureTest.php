@@ -23,7 +23,7 @@ class StructureTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
@@ -38,7 +38,7 @@ class StructureTest extends TestBase
         );
 
         $this->login();
-        $this->navigateDatabase($this->database_name);
+        $this->navigateDatabase($this->databaseName);
 
         // Let the Database page load
         $this->waitAjax();
@@ -68,7 +68,7 @@ class StructureTest extends TestBase
         );
 
         $this->dbQuery(
-            'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->database_name . '`.`test_table`',
+            'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->databaseName . '`.`test_table`',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | 5
@@ -100,7 +100,7 @@ class StructureTest extends TestBase
         );
 
         $this->dbQuery(
-            'SHOW TABLES FROM `' . $this->database_name . '`;',
+            'SHOW TABLES FROM `' . $this->databaseName . '`;',
             function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
             }

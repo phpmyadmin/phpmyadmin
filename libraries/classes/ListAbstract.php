@@ -20,7 +20,7 @@ use function in_array;
 abstract class ListAbstract extends ArrayObject
 {
     /** @var mixed   empty item */
-    protected $item_empty = '';
+    protected $itemEmpty = '';
 
     /**
      * defines what is an empty item (0, '', false or null)
@@ -29,7 +29,7 @@ abstract class ListAbstract extends ArrayObject
      */
     public function getEmpty()
     {
-        return $this->item_empty;
+        return $this->itemEmpty;
     }
 
     /**

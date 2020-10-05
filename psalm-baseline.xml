@@ -242,11 +242,6 @@
       <code>$sub_part</code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Controllers/Database/RoutinesController.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$params['type']</code>
-    </PossiblyNullArgument>
-  </file>
   <file src="libraries/classes/Controllers/Database/SqlFormatController.php">
     <PossiblyNullArgument occurrences="1">
       <code>$query</code>
@@ -1114,7 +1109,7 @@
   </file>
   <file src="libraries/classes/LanguageManager.php">
     <MissingConstructor occurrences="1">
-      <code>$available_locales</code>
+      <code>$availableLocales</code>
     </MissingConstructor>
   </file>
   <file src="libraries/classes/Menu.php">
@@ -1688,9 +1683,9 @@
       <code>$this-&gt;tablewidth</code>
     </PossiblyNullPropertyAssignmentValue>
     <PossiblyNullPropertyFetch occurrences="3">
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
     </PossiblyNullPropertyFetch>
     <PossiblyNullReference occurrences="92">
       <code>AddLink</code>
@@ -1881,15 +1876,15 @@
       <code>setWidths</code>
     </PossiblyUndefinedMethod>
     <UndefinedPropertyAssignment occurrences="4">
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
     </UndefinedPropertyAssignment>
     <UndefinedPropertyFetch occurrences="3">
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
     </UndefinedPropertyFetch>
   </file>
   <file src="libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php">
@@ -1928,12 +1923,12 @@
       <code>setXyScale</code>
     </PossiblyUndefinedMethod>
     <UndefinedPropertyAssignment occurrences="2">
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
     </UndefinedPropertyAssignment>
     <UndefinedPropertyFetch occurrences="2">
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
-      <code>$this-&gt;diagram-&gt;PMA_links</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
+      <code>$this-&gt;diagram-&gt;customLinks</code>
     </UndefinedPropertyFetch>
   </file>
   <file src="libraries/classes/Plugins/Schema/RelationStats.php">

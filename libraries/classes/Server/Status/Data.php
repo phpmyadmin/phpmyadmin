@@ -35,7 +35,7 @@ class Data
     public $variables;
 
     /** @var array */
-    public $used_queries;
+    public $usedQueries;
 
     /** @var array */
     public $allocationMap;
@@ -44,7 +44,7 @@ class Data
     public $links;
 
     /** @var bool */
-    public $db_isLocal;
+    public $dbIsLocal;
 
     /** @var mixed */
     public $section;
@@ -419,7 +419,7 @@ class Data
         unset($used_queries['Com_admin_commands']);
 
         // Set all class properties
-        $this->db_isLocal = false;
+        $this->dbIsLocal = false;
         // can be null if $cfg['ServerDefault'] = 0;
         $serverHostToLower = mb_strtolower(
             (string) $GLOBALS['cfg']['Server']['host']
@@ -428,12 +428,12 @@ class Data
             || $GLOBALS['cfg']['Server']['host'] === '127.0.0.1'
             || $GLOBALS['cfg']['Server']['host'] === '::1'
         ) {
-            $this->db_isLocal = true;
+            $this->dbIsLocal = true;
         }
         $this->status = $server_status;
         $this->sections = $sections;
         $this->variables = $server_variables;
-        $this->used_queries = $used_queries;
+        $this->usedQueries = $used_queries;
         $this->allocationMap = $allocationMap;
         $this->links = $links;
         $this->sectionUsed = $sectionUsed;

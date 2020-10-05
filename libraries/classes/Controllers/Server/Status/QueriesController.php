@@ -32,7 +32,7 @@ class QueriesController extends AbstractController
 
         if ($this->data->dataLoaded) {
             $hourFactor = 3600 / $this->data->status['Uptime'];
-            $usedQueries = $this->data->used_queries;
+            $usedQueries = $this->data->usedQueries;
             $totalQueries = array_sum($usedQueries);
 
             $stats = [

@@ -23,7 +23,7 @@ class TriggersTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
@@ -39,7 +39,7 @@ class TriggersTest extends TestBase
 
         $this->login();
 
-        $this->navigateDatabase($this->database_name);
+        $this->navigateDatabase($this->databaseName);
     }
 
     /**
@@ -48,10 +48,10 @@ class TriggersTest extends TestBase
     private function triggerSQL(): void
     {
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'CREATE TRIGGER `test_trigger` '
             . 'AFTER INSERT ON `test_table` FOR EACH ROW'
-            . ' UPDATE `' . $this->database_name
+            . ' UPDATE `' . $this->databaseName
             . '`.`test_table2` SET val = val + 1',
             null,
             function (): void {
@@ -94,7 +94,7 @@ class TriggersTest extends TestBase
             'INSERT'
         );
 
-        $proc = 'UPDATE ' . $this->database_name . '.`test_table2` SET val=val+1';
+        $proc = 'UPDATE ' . $this->databaseName . '.`test_table2` SET val=val+1';
         $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
@@ -113,7 +113,7 @@ class TriggersTest extends TestBase
         );
 
         $this->dbQuery(
-            'SHOW TRIGGERS FROM `' . $this->database_name . '`;',
+            'SHOW TRIGGERS FROM `' . $this->databaseName . '`;',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 $this->assertEquals('test_trigger', $this->getCellByTableClass('table_results', 1, 1));
@@ -122,11 +122,11 @@ class TriggersTest extends TestBase
 
         // test trigger
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'INSERT INTO `test_table` (val) VALUES (1);'
         );
         $this->dbQuery(
-            'SELECT val FROM `' . $this->database_name . '`.`test_table2`;',
+            'SELECT val FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | 3
@@ -156,7 +156,7 @@ class TriggersTest extends TestBase
         $this->byPartialLinkText('Edit')->click();
 
         $this->waitForElement('className', 'rte_form');
-        $proc = 'UPDATE ' . $this->database_name . '.`test_table2` SET val=val+10';
+        $proc = 'UPDATE ' . $this->databaseName . '.`test_table2` SET val=val+10';
         $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
@@ -169,11 +169,11 @@ class TriggersTest extends TestBase
 
         // test trigger
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'INSERT INTO `test_table` (val) VALUES (1);'
         );
         $this->dbQuery(
-            'SELECT val FROM `' . $this->database_name . '`.`test_table2`;',
+            'SELECT val FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | 12
@@ -210,11 +210,11 @@ class TriggersTest extends TestBase
 
         // test trigger
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'INSERT INTO `test_table` (val) VALUES (1);'
         );
         $this->dbQuery(
-            'SELECT val FROM `' . $this->database_name . '`.`test_table2`;',
+            'SELECT val FROM `' . $this->databaseName . '`.`test_table2`;',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | 2
@@ -223,7 +223,7 @@ class TriggersTest extends TestBase
         );
 
         $this->dbQuery(
-            'SHOW TRIGGERS FROM `' . $this->database_name . '`;',
+            'SHOW TRIGGERS FROM `' . $this->databaseName . '`;',
             function (): void {
                 $this->assertfalse($this->isElementPresent('className', 'table_results'));
             }

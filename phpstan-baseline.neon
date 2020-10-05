@@ -11,12 +11,12 @@ parameters:
 			path: libraries/classes/Config.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$default_source_mtime \\(int\\) does not accept int\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$defaultSourceMtime \\(int\\) does not accept int\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$source_mtime \\(int\\) does not accept int\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$sourceMtime \\(int\\) does not accept int\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
 
@@ -1476,7 +1476,7 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: "#^Cannot access property \\$PMA_links on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
+			message: "#^Cannot access property \\$customLinks on PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\|null\\.$#"
 			count: 15
 			path: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -1676,7 +1676,7 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: "#^Access to an undefined property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$PMA_links\\.$#"
+			message: "#^Access to an undefined property PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\Dia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\Eps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\Pdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\Svg\\:\\:\\$customLinks\\.$#"
 			count: 6
 			path: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php
 
@@ -2156,12 +2156,12 @@ parameters:
 			path: libraries/classes/Table.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$mtime_info \\(int\\) does not accept int\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$mtimeInfo \\(int\\) does not accept int\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Theme.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$filesize_info \\(int\\) does not accept int\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$filesizeInfo \\(int\\) does not accept int\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Theme.php
 
@@ -2176,7 +2176,7 @@ parameters:
 			path: libraries/classes/ThemeManager.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\ThemeManager\\:\\:\\$active_theme \\(string\\) does not accept string\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\ThemeManager\\:\\:\\$activeTheme \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
 
@@ -2401,7 +2401,7 @@ parameters:
 			path: test/classes/TableTest.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$mtime_info \\(int\\) does not accept int\\|false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\Theme\\:\\:\\$mtimeInfo \\(int\\) does not accept int\\|false\\.$#"
 			count: 1
 			path: test/classes/ThemeTest.php
 

@@ -29,7 +29,7 @@ class OperationsTest extends TestBase
     {
         $this->gotoHomepage();
 
-        $this->navigateDatabase($this->database_name);
+        $this->navigateDatabase($this->databaseName);
         $this->expandMore();
         $this->waitForElement('partialLinkText', 'Operations')->click();
         $this->waitForElement(
@@ -70,7 +70,7 @@ class OperationsTest extends TestBase
     {
         $this->getToDBOperations();
 
-        $new_db_name = $this->database_name . 'rename';
+        $new_db_name = $this->databaseName . 'rename';
 
         $this->scrollIntoView('create_table_form_minimal');
         $this->byCssSelector('form#rename_db_form input[name=newname]')
@@ -97,13 +97,13 @@ class OperationsTest extends TestBase
         );
 
         $this->dbQuery(
-            'SHOW DATABASES LIKE \'' . $this->database_name . '\'',
+            'SHOW DATABASES LIKE \'' . $this->databaseName . '\'',
             function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
             }
         );
 
-        $this->database_name = $new_db_name;
+        $this->databaseName = $new_db_name;
     }
 
     /**
@@ -116,7 +116,7 @@ class OperationsTest extends TestBase
         $this->getToDBOperations();
 
         $this->reloadPage();// Reload or scrolling will not work ..
-        $new_db_name = $this->database_name . 'copy';
+        $new_db_name = $this->databaseName . 'copy';
         $this->byCssSelector('form#copy_db_form input[name=newname]')
             ->sendKeys($new_db_name);
 
@@ -126,7 +126,7 @@ class OperationsTest extends TestBase
         $this->waitForElement(
             'xpath',
             "//div[@class='alert alert-success' and contains(., 'Database "
-            . $this->database_name
+            . $this->databaseName
             . ' has been copied to ' . $new_db_name . "')]"
         );
 

@@ -75,17 +75,17 @@ class ServerSettingsTest extends TestBase
         $ele = $this->waitForElement('name', 'Servers-1-hide_db');
         $this->moveto($ele);
         $ele->clear();
-        $ele->sendKeys($this->database_name);
+        $ele->sendKeys($this->databaseName);
 
         $this->saveConfig();
         $this->assertFalse(
-            $this->isElementPresent('partialLinkText', $this->database_name)
+            $this->isElementPresent('partialLinkText', $this->databaseName)
         );
 
         $this->waitForElement('name', 'Servers-1-hide_db')->clear();
         $this->saveConfig();
         $this->assertTrue(
-            $this->isElementPresent('partialLinkText', $this->database_name)
+            $this->isElementPresent('partialLinkText', $this->databaseName)
         );
     }
 

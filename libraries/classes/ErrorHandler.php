@@ -48,14 +48,14 @@ class ErrorHandler
      *
      * @var bool
      */
-    protected $hide_location = false;
+    protected $hideLocation = false;
 
     /**
      * Initial error reporting state
      *
      * @var int
      */
-    protected $error_reporting = 0;
+    protected $errorReporting = 0;
 
     public function __construct()
     {
@@ -72,7 +72,7 @@ class ErrorHandler
             return;
         }
 
-        $this->error_reporting = error_reporting();
+        $this->errorReporting = error_reporting();
     }
 
     /**
@@ -120,7 +120,7 @@ class ErrorHandler
      */
     public function setHideLocation(bool $hide): void
     {
-        $this->hide_location = $hide;
+        $this->hideLocation = $hide;
     }
 
     /**
@@ -188,7 +188,7 @@ class ErrorHandler
             * user errors even in this case.
             */
             if (error_reporting() == 0 &&
-                $this->error_reporting != 0 &&
+                $this->errorReporting != 0 &&
                 ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0
             ) {
                 return;
@@ -236,7 +236,7 @@ class ErrorHandler
             $errfile,
             $errline
         );
-        $error->setHideLocation($this->hide_location);
+        $error->setHideLocation($this->hideLocation);
 
         // do not repeat errors
         $this->errors[$error->getHash()] = $error;

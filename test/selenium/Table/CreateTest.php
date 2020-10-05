@@ -26,7 +26,7 @@ class CreateTest extends TestBase
         $this->waitAjax();
 
         // go to specific database page
-        $this->waitForElement('partialLinkText', $this->database_name)->click();
+        $this->waitForElement('partialLinkText', $this->databaseName)->click();
     }
 
     /**

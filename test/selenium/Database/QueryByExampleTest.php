@@ -26,7 +26,7 @@ class QueryByExampleTest extends TestBase
         parent::setUp();
 
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
@@ -43,7 +43,7 @@ class QueryByExampleTest extends TestBase
      */
     public function testQueryByExample(): void
     {
-        $this->navigateDatabase($this->database_name);
+        $this->navigateDatabase($this->databaseName);
 
         $this->waitForElement('partialLinkText', 'Query')->click();
         $this->waitAjax();

@@ -27,9 +27,6 @@ use function sprintf;
  */
 class TableStatsPdf extends TableStats
 {
-    /** @var mixed */
-    public $nb_fiels;
-
     /** @var int */
     public $height;
 
@@ -180,11 +177,11 @@ class TableStatsPdf extends TableStats
         }
         if ($withDoc) {
             $this->diagram->SetLink(
-                $this->diagram->PMA_links['RT'][$this->tableName]['-'],
+                $this->diagram->customLinks['RT'][$this->tableName]['-'],
                 -1
             );
         } else {
-            $this->diagram->PMA_links['doc'][$this->tableName]['-'] = '';
+            $this->diagram->customLinks['doc'][$this->tableName]['-'] = '';
         }
 
         $this->diagram->cellScale(
@@ -195,7 +192,7 @@ class TableStatsPdf extends TableStats
             1,
             'C',
             $setColor,
-            $this->diagram->PMA_links['doc'][$this->tableName]['-']
+            $this->diagram->customLinks['doc'][$this->tableName]['-']
         );
         $this->diagram->setXScale($this->x);
         $this->diagram->SetFont($this->ff, '', $fontSize);
@@ -213,11 +210,11 @@ class TableStatsPdf extends TableStats
             }
             if ($withDoc) {
                 $this->diagram->SetLink(
-                    $this->diagram->PMA_links['RT'][$this->tableName][$field],
+                    $this->diagram->customLinks['RT'][$this->tableName][$field],
                     -1
                 );
             } else {
-                $this->diagram->PMA_links['doc'][$this->tableName][$field] = '';
+                $this->diagram->customLinks['doc'][$this->tableName][$field] = '';
             }
 
             $this->diagram->cellScale(
@@ -228,7 +225,7 @@ class TableStatsPdf extends TableStats
                 1,
                 'L',
                 $setColor,
-                $this->diagram->PMA_links['doc'][$this->tableName][$field]
+                $this->diagram->customLinks['doc'][$this->tableName][$field]
             );
             $this->diagram->setXScale($this->x);
             $this->diagram->SetFillColor(255);

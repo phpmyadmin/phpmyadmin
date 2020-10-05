@@ -21,7 +21,7 @@ class ExportTest extends TestBase
     {
         parent::setUp();
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
@@ -62,7 +62,7 @@ class ExportTest extends TestBase
      */
     public function testDbExport(string $plugin, array $expected): void
     {
-        $this->navigateDatabase($this->database_name);
+        $this->navigateDatabase($this->databaseName);
 
         $text = $this->doExport('db', $plugin);
 
@@ -82,7 +82,7 @@ class ExportTest extends TestBase
      */
     public function testTableExport(string $plugin, array $expected): void
     {
-        $this->dbQuery('INSERT INTO `' . $this->database_name . '`.`test_table` (val) VALUES (3);');
+        $this->dbQuery('INSERT INTO `' . $this->databaseName . '`.`test_table` (val) VALUES (3);');
 
         $this->navigateTable('test_table');
 
@@ -144,7 +144,7 @@ class ExportTest extends TestBase
             $this->scrollIntoView('databases_and_tables', 200);
             $this->byPartialLinkText('Unselect all')->click();
 
-            $this->byCssSelector('option[value="' . $this->database_name . '"]')->click();
+            $this->byCssSelector('option[value="' . $this->databaseName . '"]')->click();
         }
 
         if ($type === 'table') {

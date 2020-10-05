@@ -71,7 +71,7 @@ class PageSettings
         }
         $this->groupName = $formGroupName;
 
-        $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
+        $cf = new ConfigFile($GLOBALS['PMA_Config']->baseSettings);
         $this->userPreferences->pageInit($cf);
 
         $formDisplay = new $formClass($cf);

@@ -225,7 +225,7 @@ class Results
      *
      * @var array
      */
-    public $transformation_info;
+    public $transformationInfo;
 
     /** @var Relation */
     private $relation;
@@ -288,7 +288,7 @@ class Results
             Text_Plain_Link::class,
             'Text_Plain',
         ];
-        $this->transformation_info = [
+        $this->transformationInfo = [
             'information_schema' => [
                 'events' => ['event_definition' => $sql_highlighting_data],
                 'processlist' => ['info' => $sql_highlighting_data],
@@ -322,8 +322,8 @@ class Results
             return;
         }
 
-        $this->transformation_info[$cfgRelation['db']] = [];
-        $relDb = &$this->transformation_info[$cfgRelation['db']];
+        $this->transformationInfo[$cfgRelation['db']] = [];
+        $relDb = &$this->transformationInfo[$cfgRelation['db']];
         if (! empty($cfgRelation['history'])) {
             $relDb[$cfgRelation['history']] = ['sqlquery' => $sql_highlighting_data];
         }
@@ -2796,13 +2796,13 @@ class Results
             $dbLower = mb_strtolower($this->properties['db']);
             $tblLower = mb_strtolower($meta->orgtable);
             $nameLower = mb_strtolower($meta->orgname);
-            if (! empty($this->transformation_info[$dbLower][$tblLower][$nameLower])
+            if (! empty($this->transformationInfo[$dbLower][$tblLower][$nameLower])
                 && isset($row[$i])
                 && (trim($row[$i]) != '')
                 && ! $_SESSION['tmpval']['hide_transformation']
             ) {
-                include_once $this->transformation_info[$dbLower][$tblLower][$nameLower][0];
-                $transformation_plugin = new $this->transformation_info[$dbLower][$tblLower][$nameLower][1](null);
+                include_once $this->transformationInfo[$dbLower][$tblLower][$nameLower][0];
+                $transformation_plugin = new $this->transformationInfo[$dbLower][$tblLower][$nameLower][1](null);
 
                 $transform_options = $this->transformations->getOptions(
                     $mime_map[$orgFullColName]['transformation_options'] ?? ''
@@ -2814,7 +2814,7 @@ class Results
                 $meta->mimetype = str_replace(
                     '_',
                     '/',
-                    $this->transformation_info[$dbLower][$orgTable][$orgName][2]
+                    $this->transformationInfo[$dbLower][$orgTable][$orgName][2]
                 );
             }
 

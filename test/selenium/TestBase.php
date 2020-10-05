@@ -71,7 +71,7 @@ abstract class TestBase extends TestCase
      * @access public
      * @var string
      */
-    public $database_name;
+    public $databaseName;
 
     /**
      * The session Id (Browserstack)
@@ -156,9 +156,9 @@ abstract class TestBase extends TestCase
      */
     protected function createDatabase(): void
     {
-        $this->database_name = $this->getDbPrefix() . mb_substr(sha1((string) rand()), 0, 7);
+        $this->databaseName = $this->getDbPrefix() . mb_substr(sha1((string) rand()), 0, 7);
         $this->dbQuery(
-            'CREATE DATABASE IF NOT EXISTS `' . $this->database_name . '`; USE `' . $this->database_name . '`;'
+            'CREATE DATABASE IF NOT EXISTS `' . $this->databaseName . '`; USE `' . $this->databaseName . '`;'
         );
         static::$createDatabase = true;
     }
@@ -920,7 +920,7 @@ abstract class TestBase extends TestCase
      */
     public function navigateTable(string $table, bool $gotoHomepageRequired = false): void
     {
-        $this->navigateDatabase($this->database_name, $gotoHomepageRequired);
+        $this->navigateDatabase($this->databaseName, $gotoHomepageRequired);
 
         // go to table page
         $this->waitForElement(
@@ -1081,7 +1081,7 @@ abstract class TestBase extends TestCase
     protected function tearDown(): void
     {
         if (static::$createDatabase) {
-            $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->database_name . '`;');
+            $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->databaseName . '`;');
         }
         if (! $this->hasFailed()) {
             $this->markTestAs('passed', '');

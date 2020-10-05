@@ -22,7 +22,7 @@ class SqlQueryTest extends TestBase
         parent::setUp();
 
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `val` int(11) NOT NULL,'
@@ -79,7 +79,7 @@ class SqlQueryTest extends TestBase
      */
     public function testDatabaseSqlQuery(): void
     {
-        $this->navigateDatabase($this->database_name);
+        $this->navigateDatabase($this->databaseName);
 
         $this->waitForElement('partialLinkText', 'SQL')->click();
         $this->waitAjax();

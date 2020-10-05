@@ -106,7 +106,7 @@ class Encoding
      *
      * @var string
      */
-    private static $kanji_encodings = 'ASCII,SJIS,EUC-JP,JIS';
+    private static $kanjiEncodings = 'ASCII,SJIS,EUC-JP,JIS';
 
     /**
      * Initializes encoding engine detecting available backends.
@@ -224,7 +224,7 @@ class Encoding
      */
     public static function getKanjiEncodings(): string
     {
-        return self::$kanji_encodings;
+        return self::$kanjiEncodings;
     }
 
     /**
@@ -234,7 +234,7 @@ class Encoding
      */
     public static function setKanjiEncodings(string $value): void
     {
-        self::$kanji_encodings = $value;
+        self::$kanjiEncodings = $value;
     }
 
     /**
@@ -242,11 +242,11 @@ class Encoding
      */
     public static function kanjiChangeOrder(): void
     {
-        $parts = explode(',', self::$kanji_encodings);
+        $parts = explode(',', self::$kanjiEncodings);
         if ($parts[1] === 'EUC-JP') {
-            self::$kanji_encodings = 'ASCII,SJIS,EUC-JP,JIS';
+            self::$kanjiEncodings = 'ASCII,SJIS,EUC-JP,JIS';
         } else {
-            self::$kanji_encodings = 'ASCII,EUC-JP,SJIS,JIS';
+            self::$kanjiEncodings = 'ASCII,EUC-JP,SJIS,JIS';
         }
     }
 
@@ -265,7 +265,7 @@ class Encoding
             return $str;
         }
 
-        $string_encoding = mb_detect_encoding($str, self::$kanji_encodings);
+        $string_encoding = mb_detect_encoding($str, self::$kanjiEncodings);
         if ($string_encoding === false) {
             $string_encoding = 'utf-8';
         }

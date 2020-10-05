@@ -74,13 +74,13 @@ use function trim;
 class Config
 {
     /** @var string  default config source */
-    public $default_source = ROOT_PATH . 'libraries/config.default.php';
+    public $defaultSource = ROOT_PATH . 'libraries/config.default.php';
 
     /** @var array   default configuration settings */
     public $default = [];
 
     /** @var array   configuration settings, without user preferences applied */
-    public $base_settings = [];
+    public $baseSettings = [];
 
     /** @var array   configuration settings */
     public $settings = [];
@@ -89,22 +89,22 @@ class Config
     public $source = '';
 
     /** @var int     source modification time */
-    public $source_mtime = 0;
+    public $sourceMtime = 0;
 
     /** @var int */
-    public $default_source_mtime = 0;
+    public $defaultSourceMtime = 0;
 
     /** @var int */
-    public $set_mtime = 0;
+    public $setMtime = 0;
 
     /** @var bool */
-    public $error_config_file = false;
+    public $errorConfigFile = false;
 
     /** @var bool */
-    public $error_config_default_file = false;
+    public $errorConfigDefaultFile = false;
 
     /** @var array */
-    public $default_server = [];
+    public $defaultServer = [];
 
     /**
      * @var bool whether init is done or not
@@ -127,7 +127,7 @@ class Config
         // other settings, independent from config file, comes in
         $this->checkSystem();
 
-        $this->base_settings = $this->settings;
+        $this->baseSettings = $this->settings;
     }
 
     /**
@@ -384,8 +384,8 @@ class Config
 
         /** @var array<string,mixed> $cfg */
         $cfg = [];
-        if (! @file_exists($this->default_source)) {
-            $this->error_config_default_file = true;
+        if (! @file_exists($this->defaultSource)) {
+            $this->errorConfigDefaultFile = true;
 
             return false;
         }
@@ -397,7 +397,7 @@ class Config
 
         ob_start();
         $isConfigLoading = true;
-        $eval_result = include $this->default_source;
+        $eval_result = include $this->defaultSource;
         $isConfigLoading = false;
         ob_end_clean();
 
@@ -406,20 +406,20 @@ class Config
         }
 
         if ($eval_result === false) {
-            $this->error_config_default_file = true;
+            $this->errorConfigDefaultFile = true;
 
             return false;
         }
 
-        $this->default_source_mtime = filemtime($this->default_source);
+        $this->defaultSourceMtime = filemtime($this->defaultSource);
 
-        $this->default_server = $cfg['Servers'][1];
+        $this->defaultServer = $cfg['Servers'][1];
         unset($cfg['Servers']);
 
         $this->default = $cfg;
         $this->settings = array_replace_recursive($this->settings, $cfg);
 
-        $this->error_config_default_file = false;
+        $this->errorConfigDefaultFile = false;
 
         return true;
     }
@@ -467,10 +467,10 @@ class Config
         }
 
         if ($eval_result === false) {
-            $this->error_config_file = true;
+            $this->errorConfigFile = true;
         } else {
-            $this->error_config_file = false;
-            $this->source_mtime = filemtime($this->getSource());
+            $this->errorConfigFile = false;
+            $this->sourceMtime = filemtime($this->getSource());
         }
 
         /**
@@ -530,7 +530,7 @@ class Config
                 : 0);
         $cache_key = 'server_' . $server;
         if ($server > 0 && ! defined('PMA_MINIMUM_COMMON')) {
-            $config_mtime = max($this->default_source_mtime, $this->source_mtime);
+            $config_mtime = max($this->defaultSourceMtime, $this->sourceMtime);
             // cache user preferences, use database only when needed
             if (! isset($_SESSION['cache'][$cache_key]['userprefs'])
                 || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime
@@ -716,7 +716,7 @@ class Config
         }
 
         if (! @file_exists($this->getSource())) {
-            $this->source_mtime = 0;
+            $this->sourceMtime = 0;
 
             return false;
         }
@@ -732,7 +732,7 @@ class Config
                 fclose($handle);
             }
             if ($contents === false) {
-                $this->source_mtime = 0;
+                $this->sourceMtime = 0;
                 Core::fatalError(
                     sprintf(
                         function_exists('__')
@@ -771,7 +771,7 @@ class Config
             return;
         }
 
-        $this->source_mtime = 0;
+        $this->sourceMtime = 0;
         Core::fatalError(
             __(
                 'Wrong permissions on configuration file, '
@@ -786,16 +786,16 @@ class Config
      */
     public function checkErrors(): void
     {
-        if ($this->error_config_default_file) {
+        if ($this->errorConfigDefaultFile) {
             Core::fatalError(
                 sprintf(
                     __('Could not load default configuration from: %1$s'),
-                    $this->default_source
+                    $this->defaultSource
                 )
             );
         }
 
-        if (! $this->error_config_file) {
+        if (! $this->errorConfigFile) {
             return;
         }
 
@@ -841,7 +841,7 @@ class Config
         }
 
         $this->settings[$setting] = $value;
-        $this->set_mtime = time();
+        $this->setMtime = time();
     }
 
     /**
@@ -864,11 +864,11 @@ class Config
     public function getThemeUniqueValue(): int
     {
         return (int) (
-            $this->source_mtime +
-            $this->default_source_mtime +
+            $this->sourceMtime +
+            $this->defaultSourceMtime +
             $this->get('user_preferences_mtime') +
-            $GLOBALS['PMA_Theme']->mtime_info +
-            $GLOBALS['PMA_Theme']->filesize_info
+            $GLOBALS['PMA_Theme']->mtimeInfo +
+            $GLOBALS['PMA_Theme']->filesizeInfo
         );
     }
 
@@ -1013,8 +1013,8 @@ class Config
     public function enableBc(): void
     {
         $GLOBALS['cfg']             = $this->settings;
-        $GLOBALS['default_server']  = $this->default_server;
-        unset($this->default_server);
+        $GLOBALS['default_server']  = $this->defaultServer;
+        unset($this->defaultServer);
         $GLOBALS['is_upload']       = $this->get('enable_upload');
         $GLOBALS['max_upload_size'] = $this->get('max_upload_size');
         $GLOBALS['is_https']        = $this->get('is_https');
@@ -1354,7 +1354,7 @@ class Config
         // Do we have some server?
         if (! isset($this->settings['Servers']) || count($this->settings['Servers']) === 0) {
             // No server => create one with defaults
-            $this->settings['Servers'] = [1 => $this->default_server];
+            $this->settings['Servers'] = [1 => $this->defaultServer];
         } else {
             // We have server(s) => apply default configuration
             $new_servers = [];
@@ -1368,7 +1368,7 @@ class Config
                     );
                 }
 
-                $each_server = array_merge($this->default_server, $each_server);
+                $each_server = array_merge($this->defaultServer, $each_server);
 
                 // Final solution to bug #582890
                 // If we are using a socket connection

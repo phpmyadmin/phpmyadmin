@@ -109,21 +109,21 @@ class DatabaseInterface implements DbalInterface
     private $links;
 
     /** @var array Current user and host cache */
-    private $current_user;
+    private $currentUser;
 
     /** @var string|null lower_case_table_names value cache */
-    private $lower_case_table_names = null;
+    private $lowerCaseTableNames = null;
 
     /** @var bool Whether connection is MariaDB */
-    private $is_mariadb = false;
+    private $isMariaDb = false;
     /** @var bool Whether connection is Percona */
-    private $is_percona = false;
+    private $isPercona = false;
     /** @var int Server version as number */
-    private $version_int = 55000;
+    private $versionInt = 55000;
     /** @var string Server version */
-    private $version_str = '5.50.0';
+    private $versionString = '5.50.0';
     /** @var string Server version comment */
-    private $version_comment = '';
+    private $versionComment = '';
 
     /** @var Types MySQL types data */
     public $types;
@@ -145,7 +145,7 @@ class DatabaseInterface implements DbalInterface
             $this->links[self::CONNECT_USER] = 1;
             $this->links[self::CONNECT_CONTROL] = 2;
         }
-        $this->current_user = [];
+        $this->currentUser = [];
         $this->cache = new Cache();
         $this->types = new Types($this);
         $this->relation = new Relation($this);
@@ -1050,18 +1050,18 @@ class DatabaseInterface implements DbalInterface
         );
 
         if (is_array($version)) {
-            $this->version_str = $version['@@version'] ?? '';
-            $this->version_int = Utilities::versionToInt($this->version_str);
-            $this->version_comment = $version['@@version_comment'] ?? '';
-            if (stripos($this->version_str, 'mariadb') !== false) {
-                $this->is_mariadb = true;
+            $this->versionString = $version['@@version'] ?? '';
+            $this->versionInt = Utilities::versionToInt($this->versionString);
+            $this->versionComment = $version['@@version_comment'] ?? '';
+            if (stripos($this->versionString, 'mariadb') !== false) {
+                $this->isMariaDb = true;
             }
-            if (stripos($this->version_comment, 'percona') !== false) {
-                $this->is_percona = true;
+            if (stripos($this->versionComment, 'percona') !== false) {
+                $this->isPercona = true;
             }
         }
 
-        if ($this->version_int > 50503) {
+        if ($this->versionInt > 50503) {
             $default_charset = 'utf8mb4';
             $default_collation = 'utf8mb4_general_ci';
         } else {
@@ -1113,7 +1113,7 @@ class DatabaseInterface implements DbalInterface
 
         /* Loads closest context to this version. */
         Context::loadClosest(
-            ($this->is_mariadb ? 'MariaDb' : 'MySql') . $this->version_int
+            ($this->isMariaDb ? 'MariaDb' : 'MySql') . $this->versionInt
         );
 
         /**
@@ -1847,12 +1847,12 @@ class DatabaseInterface implements DbalInterface
      */
     public function getCurrentUserAndHost(): array
     {
-        if (count($this->current_user) === 0) {
+        if (count($this->currentUser) === 0) {
             $user = $this->getCurrentUser();
-            $this->current_user = explode('@', $user);
+            $this->currentUser = explode('@', $user);
         }
 
-        return $this->current_user;
+        return $this->currentUser;
     }
 
     /**
@@ -1862,13 +1862,13 @@ class DatabaseInterface implements DbalInterface
      */
     public function getLowerCaseNames()
     {
-        if ($this->lower_case_table_names === null) {
-            $this->lower_case_table_names = $this->fetchValue(
+        if ($this->lowerCaseTableNames === null) {
+            $this->lowerCaseTableNames = $this->fetchValue(
                 'SELECT @@lower_case_table_names'
             );
         }
 
-        return $this->lower_case_table_names;
+        return $this->lowerCaseTableNames;
     }
 
     /**
@@ -2370,7 +2370,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function getVersion(): int
     {
-        return $this->version_int;
+        return $this->versionInt;
     }
 
     /**
@@ -2378,7 +2378,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function getVersionString(): string
     {
-        return $this->version_str;
+        return $this->versionString;
     }
 
     /**
@@ -2386,7 +2386,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function getVersionComment(): string
     {
-        return $this->version_comment;
+        return $this->versionComment;
     }
 
     /**
@@ -2394,7 +2394,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function isMariaDB(): bool
     {
-        return $this->is_mariadb;
+        return $this->isMariaDb;
     }
 
     /**
@@ -2402,7 +2402,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function isPercona(): bool
     {
-        return $this->is_percona;
+        return $this->isPercona;
     }
 
     /**

@@ -18,7 +18,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      *
      * @var bool|string
      */
-    private $force_one;
+    private $forceOne;
     /**
      * Values
      *
@@ -52,7 +52,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     public function getForce()
     {
-        return $this->force_one;
+        return $this->forceOne;
     }
 
     /**
@@ -64,7 +64,7 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      */
     public function setForce($force)
     {
-        $this->force_one = $force;
+        $this->forceOne = $force;
     }
 
     /**

@@ -23,7 +23,7 @@ class Pdf extends TCPDF
     public $footerset;
 
     /** @var array */
-    public $Alias = [];
+    public $alias = [];
 
     /**
      * PDF font to use.
@@ -118,7 +118,7 @@ class Pdf extends TCPDF
             true,
             $this->CurrentFont
         );
-        $this->Alias[$name] = TCPDF_FONTS::UTF8ToUTF16BE(
+        $this->alias[$name] = TCPDF_FONTS::UTF8ToUTF16BE(
             $value,
             false,
             true,
@@ -135,10 +135,10 @@ class Pdf extends TCPDF
      */
     public function _putpages()
     {
-        if (count($this->Alias) > 0) {
+        if (count($this->alias) > 0) {
             $nbPages = count($this->pages);
             for ($n = 1; $n <= $nbPages; $n++) {
-                $this->pages[$n] = strtr($this->pages[$n], $this->Alias);
+                $this->pages[$n] = strtr($this->pages[$n], $this->alias);
             }
         }
         parent::_putpages();

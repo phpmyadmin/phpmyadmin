@@ -33,7 +33,7 @@ class CreateDropDatabaseTest extends TestBase
     public function testCreateDropDatabase(): void
     {
         $this->dbQuery(
-            'DROP DATABASE IF EXISTS `' . $this->database_name . '`;'
+            'DROP DATABASE IF EXISTS `' . $this->databaseName . '`;'
         );
 
         $this->waitForElement('partialLinkText', 'Databases')->click();
@@ -41,17 +41,17 @@ class CreateDropDatabaseTest extends TestBase
 
         $element = $this->waitForElement('id', 'text_create_db');
         $element->clear();
-        $element->sendKeys($this->database_name);
+        $element->sendKeys($this->databaseName);
 
         $this->byId('buttonGo')->click();
 
-        $this->waitForElement('linkText', 'Database: ' . $this->database_name);
+        $this->waitForElement('linkText', 'Database: ' . $this->databaseName);
 
         $this->dbQuery(
-            'SHOW DATABASES LIKE \'' . $this->database_name . '\';',
+            'SHOW DATABASES LIKE \'' . $this->databaseName . '\';',
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals($this->database_name, $this->getCellByTableClass('table_results', 1, 1));
+                $this->assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
             }
         );
 
@@ -71,7 +71,7 @@ class CreateDropDatabaseTest extends TestBase
         $this->scrollToBottom();
 
         $dbElement = $this->byCssSelector(
-            "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
+            "input[name='selected_dbs[]'][value='" . $this->databaseName . "']"
         );
         $this->scrollToElement($dbElement, 0, 20);
         $dbElement->click();
@@ -83,7 +83,7 @@ class CreateDropDatabaseTest extends TestBase
 
         $this->waitForElementNotPresent(
             'cssSelector',
-            "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
+            "input[name='selected_dbs[]'][value='" . $this->databaseName . "']"
         );
 
         $this->waitForElement(
@@ -92,7 +92,7 @@ class CreateDropDatabaseTest extends TestBase
         );
 
         $this->dbQuery(
-            'SHOW DATABASES LIKE \'' . $this->database_name . '\';',
+            'SHOW DATABASES LIKE \'' . $this->databaseName . '\';',
             function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
             }

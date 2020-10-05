@@ -52,7 +52,7 @@ class Tracker
      *
      * @var array
      */
-    protected static $tracking_cache = [];
+    protected static $trackingCache = [];
 
     /**
      * Actually enables tracking. This needs to be done after all
@@ -139,8 +139,8 @@ class Tracker
             return false;
         }
 
-        if (isset(self::$tracking_cache[$dbname][$tablename])) {
-            return self::$tracking_cache[$dbname][$tablename];
+        if (isset(self::$trackingCache[$dbname][$tablename])) {
+            return self::$trackingCache[$dbname][$tablename];
         }
         /* We need to avoid attempt to track any queries
          * from Relation::getRelationsParam
@@ -161,7 +161,7 @@ class Tracker
 
         $result = $GLOBALS['dbi']->fetchValue($sql_query, 0, 0, DatabaseInterface::CONNECT_CONTROL) == 1;
 
-        self::$tracking_cache[$dbname][$tablename] = $result;
+        self::$trackingCache[$dbname][$tablename] = $result;
 
         return $result;
     }

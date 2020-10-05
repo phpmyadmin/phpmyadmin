@@ -60,7 +60,7 @@ class ExportSql extends ExportPlugin
      *
      * @var bool
      */
-    private $sent_charset = false;
+    private $sentCharset = false;
 
     public function __construct()
     {
@@ -706,7 +706,7 @@ class ExportSql extends ExportPlugin
         }
 
         // restore connection settings
-        if ($this->sent_charset) {
+        if ($this->sentCharset) {
             $foot .= $crlf
                 . '/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;'
                 . $crlf
@@ -714,7 +714,7 @@ class ExportSql extends ExportPlugin
                 . $crlf
                 . '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;'
                 . $crlf;
-            $this->sent_charset = false;
+            $this->sentCharset = false;
         }
 
         /* Restore timezone */
@@ -823,7 +823,7 @@ class ExportSql extends ExportPlugin
                 . '/*!40101 SET @OLD_COLLATION_CONNECTION='
                 . '@@COLLATION_CONNECTION */;' . $crlf
                 . '/*!40101 SET NAMES ' . $set_names . ' */;' . $crlf . $crlf;
-            $this->sent_charset = true;
+            $this->sentCharset = true;
         }
 
         return $this->export->outputHandler($head);

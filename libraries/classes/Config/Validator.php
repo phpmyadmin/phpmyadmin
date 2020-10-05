@@ -87,7 +87,7 @@ class Validator
 
                     $uv[$i] = Core::arrayRead(
                         mb_substr($uv[$i], 6),
-                        $GLOBALS['PMA_Config']->base_settings
+                        $GLOBALS['PMA_Config']->baseSettings
                     );
                 }
             }

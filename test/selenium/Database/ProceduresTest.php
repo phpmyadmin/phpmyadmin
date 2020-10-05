@@ -44,7 +44,7 @@ class ProceduresTest extends TestBase
         }
 
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'CREATE TABLE `test_table` ('
             . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
             . ' `name` varchar(20) NOT NULL,'
@@ -55,7 +55,7 @@ class ProceduresTest extends TestBase
 
         $this->login();
 
-        $this->navigateDatabase($this->database_name);
+        $this->navigateDatabase($this->databaseName);
         $this->expandMore();
     }
 
@@ -107,7 +107,7 @@ class ProceduresTest extends TestBase
     private function procedureSQL(): void
     {
         $this->dbQuery(
-            'USE `' . $this->database_name . '`;'
+            'USE `' . $this->databaseName . '`;'
             . 'CREATE PROCEDURE `test_procedure`(IN `inp` VARCHAR(20), OUT `outp` INT)'
             . ' NOT DETERMINISTIC READS SQL DATA SQL SECURITY DEFINER SELECT char_'
             . 'length(inp) + count(*) FROM test_table INTO outp'
@@ -163,10 +163,10 @@ class ProceduresTest extends TestBase
         );
 
         $this->dbQuery(
-            "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'",
+            "SHOW PROCEDURE STATUS WHERE Db='" . $this->databaseName . "'",
             function (): void {
                 $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals($this->database_name, $this->getCellByTableClass('table_results', 1, 1));
+                $this->assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
             }
         );
 
@@ -230,7 +230,7 @@ class ProceduresTest extends TestBase
         $this->waitAjaxMessage();
 
         $this->dbQuery(
-            "SHOW PROCEDURE STATUS WHERE Db='" . $this->database_name . "'",
+            "SHOW PROCEDURE STATUS WHERE Db='" . $this->databaseName . "'",
             function (): void {
                 $this->assertFalse($this->isElementPresent('className', 'table_results'));
             }

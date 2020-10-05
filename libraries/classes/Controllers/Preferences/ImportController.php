@@ -50,7 +50,7 @@ class ImportController extends AbstractController
         global $cfg, $cf, $error, $tabHash, $hash;
         global $server, $PMA_Config, $route;
 
-        $cf = new ConfigFile($PMA_Config->base_settings);
+        $cf = new ConfigFile($PMA_Config->baseSettings);
         $this->userPreferences->pageInit($cf);
 
         $formDisplay = new ImportForm($cf, 1);

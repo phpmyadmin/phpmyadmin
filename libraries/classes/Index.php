@@ -76,7 +76,7 @@ class Index
     private $comment = '';
 
     /** @var int 0 if the index cannot contain duplicates, 1 if it can. */
-    private $non_unique = 0;
+    private $nonUnique = 0;
 
     /**
      * Indicates how the key is packed. NULL if it is not.
@@ -90,7 +90,7 @@ class Index
      *
      * @var int
      */
-    private $key_block_size = null;
+    private $keyBlockSize = null;
 
     /**
      * Parser option for the index
@@ -342,7 +342,7 @@ class Index
             $this->comment = $params['Index_comment'];
         }
         if (isset($params['Non_unique'])) {
-            $this->non_unique = $params['Non_unique'];
+            $this->nonUnique = $params['Non_unique'];
         }
         if (isset($params['Packed'])) {
             $this->packed = $params['Packed'];
@@ -357,13 +357,13 @@ class Index
         } elseif ($this->type === 'SPATIAL') {
             $this->choice = 'SPATIAL';
             $this->type = '';
-        } elseif ($this->non_unique == '0') {
+        } elseif ($this->nonUnique == '0') {
             $this->choice = 'UNIQUE';
         } else {
             $this->choice = 'INDEX';
         }
         if (isset($params['Key_block_size'])) {
-            $this->key_block_size = $params['Key_block_size'];
+            $this->keyBlockSize = $params['Key_block_size'];
         }
         if (! isset($params['Parser'])) {
             return;
@@ -409,7 +409,7 @@ class Index
      */
     public function getKeyBlockSize()
     {
-        return $this->key_block_size;
+        return $this->keyBlockSize;
     }
 
     /**
@@ -508,7 +508,7 @@ class Index
      */
     public function getNonUnique()
     {
-        return $this->non_unique;
+        return $this->nonUnique;
     }
 
     /**
@@ -532,7 +532,7 @@ class Index
             ];
         }
 
-        return $r[$this->non_unique];
+        return $r[$this->nonUnique];
     }
 
     /**
@@ -575,7 +575,6 @@ class Index
     public function getCompareData()
     {
         $data = [
-            // 'Non_unique'    => $this->non_unique,
             'Packed'        => $this->packed,
             'Index_choice'    => $this->choice,
         ];

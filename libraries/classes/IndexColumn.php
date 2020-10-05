@@ -16,7 +16,7 @@ class IndexColumn
     private $name = '';
 
     /** @var int The column sequence number in the index, starting with 1. */
-    private $seq_in_index = 1;
+    private $seqInIndex = 1;
 
     /**
      * @var string How the column is sorted in the index. “A” (Ascending) or
@@ -30,7 +30,7 @@ class IndexColumn
      *
      * @var int
      */
-    private $sub_part = null;
+    private $subPart = null;
 
     /**
      * Contains YES if the column may contain NULL.
@@ -72,7 +72,7 @@ class IndexColumn
             $this->name = $params['Column_name'];
         }
         if (isset($params['Seq_in_index'])) {
-            $this->seq_in_index = $params['Seq_in_index'];
+            $this->seqInIndex = $params['Seq_in_index'];
         }
         if (isset($params['Collation'])) {
             $this->collation = $params['Collation'];
@@ -81,7 +81,7 @@ class IndexColumn
             $this->cardinality = $params['Cardinality'];
         }
         if (isset($params['Sub_part'])) {
-            $this->sub_part = $params['Sub_part'];
+            $this->subPart = $params['Sub_part'];
         }
         if (! isset($params['Null'])) {
             return;
@@ -148,7 +148,7 @@ class IndexColumn
      */
     public function getSeqInIndex()
     {
-        return $this->seq_in_index;
+        return $this->seqInIndex;
     }
 
     /**
@@ -159,7 +159,7 @@ class IndexColumn
      */
     public function getSubPart()
     {
-        return $this->sub_part;
+        return $this->subPart;
     }
 
     /**
@@ -171,9 +171,9 @@ class IndexColumn
     {
         return [
             'Column_name'   => $this->name,
-            'Seq_in_index'  => $this->seq_in_index,
+            'Seq_in_index'  => $this->seqInIndex,
             'Collation'     => $this->collation,
-            'Sub_part'      => $this->sub_part,
+            'Sub_part'      => $this->subPart,
             'Null'          => $this->null,
         ];
     }

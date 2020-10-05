@@ -65,13 +65,13 @@ class File
      * @var Message|null the error message
      * @access protected
      */
-    protected $error_message = null;
+    protected $errorMessage = null;
 
     /**
      * @var bool whether the file is temporary or not
      * @access protected
      */
-    protected $is_temp = false;
+    protected $isTemp = false;
 
     /**
      * @var string type of compression
@@ -83,7 +83,7 @@ class File
     protected $offset = 0;
 
     /** @var int size of chunk to read with every step */
-    protected $chunk_size = 32768;
+    protected $chunkSize = 32768;
 
     /** @var resource|null file handle */
     protected $handle = null;
@@ -168,10 +168,10 @@ class File
     public function isTemp(?bool $is_temp = null): bool
     {
         if ($is_temp !== null) {
-            $this->is_temp = $is_temp;
+            $this->isTemp = $is_temp;
         }
 
-        return $this->is_temp;
+        return $this->isTemp;
     }
 
     /**
@@ -283,7 +283,7 @@ class File
 
         if (! $this->isUploaded()) {
             $this->setName(null);
-            $this->error_message = Message::error(__('File was not an uploaded file.'));
+            $this->errorMessage = Message::error(__('File was not an uploaded file.'));
 
             return false;
         }
@@ -322,33 +322,33 @@ class File
             case UPLOAD_ERR_NO_FILE:
                 break;
             case UPLOAD_ERR_INI_SIZE:
-                $this->error_message = Message::error(__(
+                $this->errorMessage = Message::error(__(
                     'The uploaded file exceeds the upload_max_filesize directive in '
                     . 'php.ini.'
                 ));
                 break;
             case UPLOAD_ERR_FORM_SIZE:
-                $this->error_message = Message::error(__(
+                $this->errorMessage = Message::error(__(
                     'The uploaded file exceeds the MAX_FILE_SIZE directive that was '
                     . 'specified in the HTML form.'
                 ));
                 break;
             case UPLOAD_ERR_PARTIAL:
-                $this->error_message = Message::error(__(
+                $this->errorMessage = Message::error(__(
                     'The uploaded file was only partially uploaded.'
                 ));
                 break;
             case UPLOAD_ERR_NO_TMP_DIR:
-                $this->error_message = Message::error(__('Missing a temporary folder.'));
+                $this->errorMessage = Message::error(__('Missing a temporary folder.'));
                 break;
             case UPLOAD_ERR_CANT_WRITE:
-                $this->error_message = Message::error(__('Failed to write file to disk.'));
+                $this->errorMessage = Message::error(__('Failed to write file to disk.'));
                 break;
             case UPLOAD_ERR_EXTENSION:
-                $this->error_message = Message::error(__('File upload stopped by extension.'));
+                $this->errorMessage = Message::error(__('File upload stopped by extension.'));
                 break;
             default:
-                $this->error_message = Message::error(__('Unknown error in file upload.'));
+                $this->errorMessage = Message::error(__('Unknown error in file upload.'));
         }
 
         return false;
@@ -431,7 +431,7 @@ class File
      */
     public function getError(): ?Message
     {
-        return $this->error_message;
+        return $this->errorMessage;
     }
 
     /**
@@ -443,7 +443,7 @@ class File
      */
     public function isError(): bool
     {
-        return $this->error_message !== null;
+        return $this->errorMessage !== null;
     }
 
     /**
@@ -461,14 +461,14 @@ class File
     {
         if ($this->setUploadedFromTblChangeRequest($key, $rownumber)) {
             // well done ...
-            $this->error_message = null;
+            $this->errorMessage = null;
 
             return true;
         }
 
         if ($this->setSelectedFromTblChangeRequest($key, $rownumber)) {
             // well done ...
-            $this->error_message = null;
+            $this->errorMessage = null;
 
             return true;
         }
@@ -496,13 +496,13 @@ class File
             Util::userDir($GLOBALS['cfg']['UploadDir']) . Core::securePath($name)
         );
         if (@is_link((string) $this->getName())) {
-            $this->error_message = Message::error(__('File is a symbolic link'));
+            $this->errorMessage = Message::error(__('File is a symbolic link'));
             $this->setName(null);
 
             return false;
         }
         if (! $this->isReadable()) {
-            $this->error_message = Message::error(__('File could not be read!'));
+            $this->errorMessage = Message::error(__('File could not be read!'));
             $this->setName(null);
 
             return false;
@@ -544,7 +544,7 @@ class File
         $tmp_subdir = $GLOBALS['PMA_Config']->getUploadTempDir();
         if ($tmp_subdir === null) {
             // cannot create directory or access, point user to FAQ 1.11
-            $this->error_message = Message::error(__(
+            $this->errorMessage = Message::error(__(
                 'Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc].'
             ));
 
@@ -565,7 +565,7 @@ class File
         );
         ob_end_clean();
         if (! $move_uploaded_file_result) {
-            $this->error_message = Message::error(__('Error while moving uploaded file.'));
+            $this->errorMessage = Message::error(__('Error while moving uploaded file.'));
 
             return false;
         }
@@ -574,7 +574,7 @@ class File
         $this->isTemp(true);
 
         if (! $this->isReadable()) {
-            $this->error_message = Message::error(__('Cannot read uploaded file.'));
+            $this->errorMessage = Message::error(__('Cannot read uploaded file.'));
 
             return false;
         }
@@ -601,7 +601,7 @@ class File
         ob_end_clean();
 
         if (! $file) {
-            $this->error_message = Message::error(__('File could not be read!'));
+            $this->errorMessage = Message::error(__('File could not be read!'));
 
             return false;
         }
@@ -650,7 +650,7 @@ class File
      */
     public function errorUnsupported(): void
     {
-        $this->error_message = Message::error(sprintf(
+        $this->errorMessage = Message::error(sprintf(
             __(
                 'You attempted to load file with unsupported compression (%s). '
                 . 'Either support for it is not implemented or disabled by your '
@@ -719,7 +719,7 @@ class File
     {
         $result = $this->zipExtension->getContents($this->getName(), $specific_entry);
         if (! empty($result['error'])) {
-            $this->error_message = Message::rawError($result['error']);
+            $this->errorMessage = Message::rawError($result['error']);
 
             return false;
         }
@@ -832,17 +832,17 @@ class File
      */
     public function getChunkSize(): int
     {
-        return $this->chunk_size;
+        return $this->chunkSize;
     }
 
     /**
      * Sets the chunk size
      *
-     * @param int $chunk_size the chunk size
+     * @param int $chunkSize the chunk size
      */
-    public function setChunkSize(int $chunk_size): void
+    public function setChunkSize(int $chunkSize): void
     {
-        $this->chunk_size = $chunk_size;
+        $this->chunkSize = $chunkSize;
     }
 
     /**
