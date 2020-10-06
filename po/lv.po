@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-09-20 00:19+0200\n"
-"PO-Revision-Date: 2020-06-03 13:41+0000\n"
-"Last-Translator: Uko Koknevics <TheZeus121@gmail.com>\n"
+"PO-Revision-Date: 2020-10-07 10:00+0000\n"
+"Last-Translator: Oskars <avereco@gmail.com>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
 "Language: lv\n"
@@ -13,59 +13,64 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Serveris darbojas mazāk par dienu"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Serveris darbojas mazāk par vienu dienu, veiktspējas pielāgošana var nebūt "
+"precīza."
 
 #: libraries/advisory_rules_generic.php:14
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Lai iegūtu precīzākas vidējās vērtības ir ieteicams ļaut serverim darboties "
+"ilgāk nekā dienu pirms analizatora darbināšanas"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Serveris darbojas tikai %s"
 
 #: libraries/advisory_rules_generic.php:22
-#, fuzzy
 msgid "Questions below 1,000"
-msgstr "Persiešu"
+msgstr "Vaicājumi zem 1000"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Mazāk nekā 1000 vaicājumi ir darbināti pret serveri. Ieteikumi var nebūt "
+"atbilstoši."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Ļaujiet serverim darboties ilgāku laiku līdz tas būs izpildījis lielāku "
+"daudzumu vaicājumu."
 
 #: libraries/advisory_rules_generic.php:32
-#, fuzzy, php-format
-#| msgid "Connections"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Konekcijas"
+msgstr "Tekošais vaicājumu daudzums: %s"
 
 #: libraries/advisory_rules_generic.php:37
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "Rādīt pilnos vaicājumus"
+msgstr "Lēnu vaicājumu daudzums procentos"
 
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Ir novēroti daudz lēnu vaicājumu salīdzinot ar kopējo vaicājumu skaitu."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:57
@@ -80,9 +85,8 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:51
-#, fuzzy
 msgid "Slow query rate"
-msgstr "SQL vaicājums"
+msgstr "Lēnu vaicājumu līmenis"
 
 #: libraries/advisory_rules_generic.php:55
 msgid ""
@@ -97,9 +101,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:65
-#, fuzzy
 msgid "Long query time"
-msgstr "SQL vaicājums"
+msgstr "Ilgu vaicājumu laiks"
 
 #: libraries/advisory_rules_generic.php:69
 msgid ""
@@ -120,16 +123,13 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:81
 #: libraries/advisory_rules_generic.php:94
-#, fuzzy
 msgid "Slow query logging"
-msgstr "SQL vaicājums"
+msgstr "Lēnu vaicājumu reģistrēšana"
 
 #: libraries/advisory_rules_generic.php:85
 #: libraries/advisory_rules_generic.php:98
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The slow query log is disabled."
-msgstr "Serveris neatbild"
+msgstr "Lēnu vaicājumu žurnāls ir izslēgts."
 
 #: libraries/advisory_rules_generic.php:87
 msgid ""
@@ -170,15 +170,14 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:115
 #: libraries/advisory_rules_generic.php:129
 #: libraries/advisory_rules_generic.php:140
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "Servera versija"
+msgstr "Tekošā versija"
 
 #: libraries/advisory_rules_generic.php:120
 #: libraries/advisory_rules_generic.php:134
-#, fuzzy
 msgid "Minor Version"
-msgstr "Persiešu"
+msgstr "Papildversija"
 
 #: libraries/advisory_rules_generic.php:124
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -195,10 +194,8 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:139
-#, fuzzy
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Jums ir jāuzliek %s %s vai jaunāks."
+msgstr "Jums ir jāatjauno versija uz MySQL 5.5."
 
 #: libraries/advisory_rules_generic.php:145
 #: libraries/advisory_rules_generic.php:158
@@ -259,9 +256,8 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:186
-#, fuzzy
 msgid "Query caching method"
-msgstr "Vaicājuma tips"
+msgstr "Vaicājuma kešatmiņas metode"
 
 #: libraries/advisory_rules_generic.php:190
 #, fuzzy
