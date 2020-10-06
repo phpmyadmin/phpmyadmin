@@ -618,13 +618,18 @@ DesignerMove.addOtherDbTables = function () {
             'server': CommonParams.get('server')
         }, function (data) {
             var $newTableDom = $(data.message);
+            var table = null;
+            for (var i = 0; i < $newTableDom.length; i++) {
+                if ($newTableDom[i].tagName === 'TABLE') {
+                    table = $newTableDom[i];
+                }
+            }
             $newTableDom.find('a').first().remove();
             var dbTableNameUrl = $($newTableDom).find('.small_tab_pref').attr('unique_id');
-            if (typeof dbTableNameUrl === 'string') { // Do not try to add if attr not found !
-                // TODO: Hacky fix ($newTableDom[10])
-                $('#container-form').append($newTableDom[10]);
-                DesignerMove.enableTableEvents(null, $newTableDom[10]);
-                DesignerMove.addTableToTablesList(null, $newTableDom[10]);
+            if (typeof dbTableNameUrl === 'string' && table) { // Do not try to add if attr not found !
+                $('#container-form').append(table);
+                DesignerMove.enableTableEvents(null, table);
+                DesignerMove.addTableToTablesList(null, table);
                 jTabs[dbTableNameUrl] = 1;
                 DesignerMove.markUnsaved();
             }
