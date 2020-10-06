@@ -130,6 +130,21 @@ DesignerPage.showNewPageTables = function (check) {
     DesignerMove.markUnsaved();
 };
 
+DesignerPage.getTableFromData = function (data) {
+    var $newTableDom = $(data.message);
+    $newTableDom.find('a').first().remove();
+    var table = null;
+    for (var i = 0; i < $newTableDom.length; i++) {
+        if ($newTableDom[i].tagName === 'TABLE') {
+            table = $newTableDom[i];
+            break;
+        }
+    }
+    var dbTableNameUrl = $($newTableDom).find('.small_tab_pref').attr('unique_id');
+
+    return [table, dbTableNameUrl];
+};
+
 DesignerPage.loadHtmlForPage = function (pageId) {
     DesignerPage.showNewPageTables(false);
     DesignerPage.loadPageObjects(pageId, function (page, tblCords) {
@@ -140,31 +155,32 @@ DesignerPage.loadHtmlForPage = function (pageId) {
             var table = document.getElementById('designer_table_' + tbId);
             var yCord = tblCords[t].y + 'px';
             var xCord = tblCords[t].x + 'px';
-            // FIXME: add if table
-            if(!table) {
-                $.post('index.php?route=/database/designer', {
-                    'ajax_request' : true,
-                    'dialog' : 'add_table',
-                    'db' : tblCords[t].dbName,
-                    'table' : tblCords[t].tableName,
-                    'server': CommonParams.get('server')
-                }, function (data) {
-                    var $newTableDom = $(data.message);
-                    $newTableDom.find('a').first().remove();
-                    var dbTableNameUrl = $($newTableDom).find('.small_tab_pref').attr('unique_id');
-                    if (typeof dbTableNameUrl === 'string') { // Do not try to add if attr not found !
-                        // TODO: Hacky fix ($newTableDom[10])
-                        table = $newTableDom[10];
-                        $('#container-form').append($newTableDom[10]);
-                        DesignerMove.enableTableEvents(null, $newTableDom[10]);
-                        DesignerMove.addTableToTablesList(null, $newTableDom[10]);
-                        table.style.top = yCord;
-                        table.style.left = xCord;
-
-                        var checkbox = document.getElementById('check_vis_' + tbId);
-                        checkbox.checked = true;
-                        var val = checkbox.value.replace('check_visible_','');
-                        DesignerMove.visibleTab(checkbox, 'designer_table_' + val);
+            if (!table) {
+                $.ajax({
+                    type: 'POST',
+                    async: false,
+                    url: 'index.php?route=/database/designer',
+                    data: {
+                        'ajax_request' : true,
+                        'dialog' : 'add_table',
+                        'db' : tblCords[t].dbName,
+                        'table' : tblCords[t].tableName,
+                        'server': CommonParams.get('server')
+                    },
+                    success: function (data) {
+                        var [table, dbTableNameUrl] = DesignerPage.getTableFromData(data);
+                        if (typeof dbTableNameUrl === 'string' && table) { // Do not try to add if attr not found !
+                            $('#container-form').append(table);
+                            DesignerMove.enableTableEvents(null, table);
+                            DesignerMove.addTableToTablesList(null, table);
+                            table.style.top = yCord;
+                            table.style.left = xCord;
+                            jTabs[dbTableNameUrl] = 1;
+                            var checkbox = document.getElementById('check_vis_' + tbId);
+                            checkbox.checked = true;
+                            var val = checkbox.value.replace('check_visible_','');
+                            DesignerMove.visibleTab(checkbox, 'designer_table_' + val);
+                        }
                     }
                 });
             } else {

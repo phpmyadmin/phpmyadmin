@@ -609,7 +609,6 @@ DesignerMove.addOtherDbTables = function () {
             }
             return;
         }
-
         $.post('index.php?route=/database/designer', {
             'ajax_request' : true,
             'dialog' : 'add_table',
@@ -617,15 +616,7 @@ DesignerMove.addOtherDbTables = function () {
             'table' : table,
             'server': CommonParams.get('server')
         }, function (data) {
-            var $newTableDom = $(data.message);
-            var table = null;
-            for (var i = 0; i < $newTableDom.length; i++) {
-                if ($newTableDom[i].tagName === 'TABLE') {
-                    table = $newTableDom[i];
-                }
-            }
-            $newTableDom.find('a').first().remove();
-            var dbTableNameUrl = $($newTableDom).find('.small_tab_pref').attr('unique_id');
+            var [table, dbTableNameUrl] = DesignerPage.getTableFromData(data);
             if (typeof dbTableNameUrl === 'string' && table) { // Do not try to add if attr not found !
                 $('#container-form').append(table);
                 DesignerMove.enableTableEvents(null, table);
