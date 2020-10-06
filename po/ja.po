@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-09-20 00:19+0200\n"
-"PO-Revision-Date: 2020-07-08 06:46+0000\n"
-"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
+"PO-Revision-Date: 2020-10-06 07:42+0000\n"
+"Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
 "Language: ja\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -614,17 +614,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size は 0 です"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "使われていた %%MyISAM キーバッファの最大比率"
+msgstr "これまでに使用した % MyISAM キー バッファの最大比率"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "MyISAM キーバッファ%%（インデックスキャッシュ）の使用率が低いです。"
+msgstr "MyISAM キー バッファ%（インデックス キャッシュ）の使用率が低いです。"
 
 #: libraries/advisory_rules_generic.php:380
 #: libraries/advisory_rules_generic.php:397
