@@ -376,7 +376,7 @@ RTE.COMMON = {
                 var $elm = $('textarea[name=item_definition]').last();
                 var linterOptions = {};
                 linterOptions[that.editorType + '_editor'] = true;
-                that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, null, linterOptions);
+                that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'both', linterOptions);
 
                 // Execute item-specific code
                 that.postDialogShow(data);
