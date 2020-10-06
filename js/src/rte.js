@@ -131,23 +131,26 @@ RTE.COMMON = {
             if (count === 0) {
                 Functions.ajaxShowMessage(Messages.NoExportable);
             }
-
+            var p = $.when();
             exportAnchors.each(function () {
-                $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
-                    returnCount++;
-                    if (data.success === true) {
-                        combined.message += '\n' + data.message + '\n';
-                        if (returnCount === count) {
-                            showExport(combined);
+                var h = $(this).attr('href');
+                p = p.then(function () {
+                    return $.get(h, { 'ajax_request': true }, function (data) {
+                        returnCount++;
+                        if (data.success === true) {
+                            combined.message += '\n' + data.message + '\n';
+                            if (returnCount === count) {
+                                showExport(combined);
+                            }
+                        } else {
+                            // complain even if one export is failing
+                            combined.success = false;
+                            combined.error += '\n' + data.error + '\n';
+                            if (returnCount === count) {
+                                showExport(combined);
+                            }
                         }
-                    } else {
-                        // complain even if one export is failing
-                        combined.success = false;
-                        combined.error += '\n' + data.error + '\n';
-                        if (returnCount === count) {
-                            showExport(combined);
-                        }
-                    }
+                    });
                 });
             });
         } else {
