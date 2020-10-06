@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-09-22 02:59+0000\n"
+"PO-Revision-Date: 2020-10-07 10:00+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-0/cs/>"
 "\n"
@@ -121,7 +121,7 @@ msgstr ""
 
 #: db_qbe.php:147
 msgid "You have to choose at least one column to display!"
-msgstr "Musíte zvolit alespoň jedno pole, které si přejete zobrazit!"
+msgstr "Musíte zvolit alespoň jeden sloupec, který si přejete zobrazit!"
 
 #: db_qbe.php:159 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
@@ -1861,7 +1861,7 @@ msgstr "Prosím zvolte primární nebo unikátní klíč!"
 #: js/messages.php:568 templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
-msgstr "Zvolte která pole zobrazit"
+msgstr "Vyberte sloupec, který se má zobrazit"
 
 #: js/messages.php:570
 msgid ""
@@ -1978,7 +1978,7 @@ msgstr "Klikněte pro označení."
 
 #: js/messages.php:608
 msgid "Double-click to copy column name."
-msgstr "Poklepejte pro zkopírování jména pole."
+msgstr "Poklepejte pro zkopírování názvu sloupce."
 
 #: js/messages.php:610
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
@@ -2063,11 +2063,12 @@ msgstr "Přejít na odkaz:"
 
 #: js/messages.php:654
 msgid "Copy column name."
-msgstr "Zkopírovat název pole."
+msgstr "Zkopírovat název sloupce."
 
 #: js/messages.php:656
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr "Klikněte pravým tlačítkem myši pro zkopírování názvu pole do schránky."
+msgstr ""
+"Klikněte pravým tlačítkem myši pro zkopírování názvu sloupce do schránky."
 
 #: js/messages.php:659
 msgid "Generate password"
@@ -3568,21 +3569,21 @@ msgstr "Komprese"
 #: libraries/classes/Plugins/Export/ExportOdt.php:133
 #: libraries/classes/Plugins/Export/ExportTexytext.php:90
 msgid "Put columns names in the first row"
-msgstr "Přidat jména polí na první řádek"
+msgstr "Přidat názvy sloupců na první řádek"
 
 #: libraries/classes/Config/Descriptions.php:194
 #: libraries/classes/Config/Descriptions.php:401
 #: libraries/classes/Config/Descriptions.php:412
 #: libraries/classes/Plugins/Import/ImportCsv.php:179
 msgid "Columns enclosed with"
-msgstr "Pole uzavřené do"
+msgstr "Sloupce uzavřené do"
 
 #: libraries/classes/Config/Descriptions.php:195
 #: libraries/classes/Config/Descriptions.php:402
 #: libraries/classes/Config/Descriptions.php:413
 #: libraries/classes/Plugins/Import/ImportCsv.php:190
 msgid "Columns escaped with"
-msgstr "Pole escapována"
+msgstr "Sloupce escapované"
 
 #: libraries/classes/Config/Descriptions.php:196
 #: libraries/classes/Config/Descriptions.php:202
@@ -3597,14 +3598,14 @@ msgstr "Nahradit NULL hodnoty"
 #: libraries/classes/Config/Descriptions.php:197
 #: libraries/classes/Config/Descriptions.php:203
 msgid "Remove CRLF characters within columns"
-msgstr "Odstranit znaky konců řádek z polí"
+msgstr "Odstranit ze sloupců znaky konce řádku"
 
 #: libraries/classes/Config/Descriptions.php:198
 #: libraries/classes/Config/Descriptions.php:406
 #: libraries/classes/Config/Descriptions.php:418
 #: libraries/classes/Plugins/Import/ImportCsv.php:164
 msgid "Columns terminated with"
-msgstr "Pole oddělené"
+msgstr "Sloupce ukončené"
 
 #: libraries/classes/Config/Descriptions.php:199
 #: libraries/classes/Config/Descriptions.php:400
@@ -3730,7 +3731,7 @@ msgstr "Přidat hodnotu AUTO_INCREMENT"
 
 #: libraries/classes/Config/Descriptions.php:240
 msgid "Enclose table and column names with backquotes"
-msgstr "Použít zpětné uvozovky u jmen tabulek a polí"
+msgstr "Používat zpětné uvozovky u názvů tabulek a sloupců"
 
 #: libraries/classes/Config/Descriptions.php:241
 #: libraries/classes/Config/Descriptions.php:425
@@ -4117,7 +4118,7 @@ msgstr "Struktura tabulky"
 #: libraries/classes/Config/Descriptions.php:365
 msgid "Settings for the table structure (list of columns)."
 msgstr ""
-"Zvolte co se má zobrazit při zobrazení struktury tabulky (seznam polí)."
+"Zvolte, co se má zobrazit při zobrazení struktury tabulky (seznam sloupců)."
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid "Tabs"
@@ -4248,7 +4249,7 @@ msgstr "Použít klíčové slovo LOCAL"
 
 #: libraries/classes/Config/Descriptions.php:419
 msgid "Column names in first row"
-msgstr "Jména polí na prvním řádku"
+msgstr "Názvy sloupců na prvním řádku"
 
 #: libraries/classes/Config/Descriptions.php:420
 #: libraries/classes/Plugins/Import/ImportOds.php:75
@@ -4294,11 +4295,12 @@ msgstr "Počet vkládaných řádků"
 #: libraries/classes/Config/Descriptions.php:431
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
-msgstr "Nejvyšší počet znaků zobrazeních v nečíselných polích při procházení."
+msgstr ""
+"Maximální počet znaků zobrazených v nečíselných sloupcích při procházení."
 
 #: libraries/classes/Config/Descriptions.php:432
 msgid "Limit column characters"
-msgstr "Omezení počtu znaků"
+msgstr "Omezení počtu znaků ve sloupci"
 
 #: libraries/classes/Config/Descriptions.php:434
 msgid ""
@@ -4686,8 +4688,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
-"[kbd]SMART[/kbd] - tj. řazení sestupně pro pole typu TIME, DATE, DATETIME a "
-"TIMESTAMP, v ostatních případech se použije vzestupné řazení."
+"[kbd]SMART[/kbd] - tj. řazení sestupně pro sloupce typu TIME, DATE, DATETIME "
+"a TIMESTAMP, v ostatních případech se použije vzestupné řazení."
 
 #: libraries/classes/Config/Descriptions.php:552
 msgid "Default sorting order"
@@ -4736,11 +4738,11 @@ msgstr "Jak zobrazit akční odkazy"
 
 #: libraries/classes/Config/Descriptions.php:570
 msgid "Disallow BLOB and BINARY columns from editing."
-msgstr "Zakáže úpravu polí BLOB a BINARY."
+msgstr "Zakáže úpravu sloupců typu BLOB a BINARY."
 
 #: libraries/classes/Config/Descriptions.php:571
 msgid "Protect binary columns"
-msgstr "Chránit binární pole"
+msgstr "Chránit binární sloupce"
 
 #: libraries/classes/Config/Descriptions.php:573
 msgid ""
@@ -4897,7 +4899,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
-msgstr "Tabulka informací o polích"
+msgstr "Tabulka informací o sloupcích"
 
 #: libraries/classes/Config/Descriptions.php:620
 msgid "Compress connection to MySQL server."
@@ -5184,12 +5186,12 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
-"Tabulka obsahující popisy polí, nechte prázdnou pro vypnutí této funkce, "
+"Tabulka obsahující popisy sloupců, nechte prázdné pro vypnutí této funkce, "
 "doporučené nastavení: [kbd]pma__table_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:724
 msgid "Display columns table"
-msgstr "Tabulka s popisem polí"
+msgstr "Tabulka s popisem sloupců"
 
 #: libraries/classes/Config/Descriptions.php:726
 msgid ""
@@ -7234,7 +7236,8 @@ msgstr "Nebyl zadán SQL dotaz pro načtení dat."
 
 #: libraries/classes/Controllers/Table/ChartController.php:174
 msgid "No numeric columns present in the table to plot."
-msgstr "Ve zvolené tabulce nejsou žádná číselná pole pro vykreslení do grafu."
+msgstr ""
+"Ve zvolené tabulce nejsou žádné číselné sloupce pro vykreslení do grafu."
 
 #: libraries/classes/Controllers/Table/ChartController.php:244
 msgid "No data to display"
@@ -7292,7 +7295,7 @@ msgstr "Nebyl vybrán žádný sloupec."
 
 #: libraries/classes/Controllers/Table/StructureController.php:511
 msgid "The columns have been moved successfully."
-msgstr "Vybraná pole byla úspěšně přesunuta."
+msgstr "Vybrané sloupce byly úspěšně přesunuty."
 
 #: libraries/classes/Controllers/Table/StructureController.php:551
 #, php-format
@@ -7528,7 +7531,7 @@ msgstr "Více informací naleznete %sv naší dokumentaci%s."
 #: libraries/classes/Database/Qbe.php:478
 #: templates/table/search/selection_form.twig:186
 msgid "Column:"
-msgstr "Pole:"
+msgstr "Sloupec:"
 
 #: libraries/classes/Database/Qbe.php:520
 msgid "Alias:"
@@ -8486,7 +8489,7 @@ msgstr "Zabaleno"
 #: templates/table/tracking/structure_snapshot_columns.twig:6
 #: templates/table/tracking/structure_snapshot_indexes.twig:9
 msgid "Column"
-msgstr "Pole"
+msgstr "Sloupec"
 
 #: libraries/classes/Index.php:721
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
@@ -8534,7 +8537,7 @@ msgstr "Binární"
 
 #: libraries/classes/InsertEdit.php:760
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Toto pole možná nepůjde<br> kvůli délce upravit."
+msgstr "Tento sloupec možná nepůjde<br> kvůli délce upravit."
 
 #: libraries/classes/InsertEdit.php:1378
 msgid "Binary - do not edit"
@@ -8939,7 +8942,7 @@ msgstr "Nelze načíst třídu \"%1$s\""
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:28
 #: libraries/classes/SqlQueryForm.php:285
 msgid "Columns"
-msgstr "Pole"
+msgstr "Sloupce"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:37
 msgctxt "Create new column"
@@ -9045,8 +9048,8 @@ msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
-"Máte nějaké sloupce, které mohu být rozděleny do více než jednoho sloupce? "
-"Například: adresa může být rozdělena na ulici, stát a PSČ."
+"Máte nějaké sloupce, které lze rozdělit na více sloupců? Například: adresa "
+"lze rozdělit na ulici, stát a PSČ."
 
 #: libraries/classes/Normalization.php:228
 msgid "Show me the central list of columns that are not already in this table"
@@ -9119,9 +9122,9 @@ msgid ""
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 "Nemáte skupinu sloupců, které při zkombinování tvoří další existující "
-"sloupec? Například, když máte sloupce jmeno, prijmeni a cele_jmeno, tak "
-"zkombinováním jmena a prijmeni dostaneme cele_jmeno, takže sloupec "
-"cele_jmeno je nepotřebný."
+"sloupec? Pokud máte například sloupce jmeno, prijmeni a cele_jmeno, tak "
+"zkombinováním sloupců jmeno a prijmeni získáte cele_jmeno, takže sloupec "
+"cele_jmeno je nadbytečný."
 
 #: libraries/classes/Normalization.php:326
 msgid ""
@@ -9153,7 +9156,7 @@ msgid ""
 "should be created."
 msgstr ""
 "Nemáte skupinu dvou nebo více sloupců, které jsou si významově blízké a "
-"opakují stejný atribut? Například, tabulka, která obsahuje data o knihách, "
+"opakují stejný atribut? Například tabulka, která obsahuje data o knihách, "
 "může obsahovat sloupce jako id_knihy, autor1, autor2, autor3 a další, které "
 "vytvářejí opakující se skupinu atributů (autoři). Pokud ano, měli byste "
 "vytvořit novou tabulku (id_knihy, autor)."
@@ -9709,17 +9712,17 @@ msgstr "Formát:"
 #: libraries/classes/Plugins/Export/ExportCsv.php:66
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:60
 msgid "Columns separated with:"
-msgstr "Pole oddělené:"
+msgstr "Sloupce oddělené:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:71
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:66
 msgid "Columns enclosed with:"
-msgstr "Pole uzavřené do:"
+msgstr "Sloupce uzavřené do:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:76
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:73
 msgid "Columns escaped with:"
-msgstr "Pole escapována:"
+msgstr "Sloupce escapované:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:81
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:80
@@ -9739,7 +9742,7 @@ msgstr "Nahradit NULL hodnoty:"
 #: libraries/classes/Plugins/Export/ExportCsv.php:91
 #: libraries/classes/Plugins/Export/ExportExcel.php:59
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Odstranit znaky konců řádek z polí"
+msgstr "Odstranit ze sloupců znaky konce řádku"
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:69
 msgid "Excel edition:"
@@ -9908,7 +9911,7 @@ msgstr "Zobrazit typy médií (MIME)"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
 msgid "Put columns names in the first row:"
-msgstr "Přidat jména polí na první řádek:"
+msgstr "Přidat názvy sloupců na první řádek:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:718
@@ -10037,8 +10040,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
-"Uzavřít název tabulky a polí do zpětných uvozovek <i>(Zabrání interpretaci "
-"názvů obsahujících speciální znaky nebo klíčová slova)</i>"
+"Uzavřít názvy tabulek a sloupců do zpětných uvozovek <i>(Zabrání "
+"interpretaci názvů obsahujících speciální znaky nebo klíčová slova)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:364
 msgid "Data creation options"
@@ -10111,7 +10114,7 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Vypisovat binární pole šestnáctkově <i>(například vypíše 0x616263 místo "
+"Vypisovat binární sloupce šestnáctkově <i>(například vypíše 0x616263 místo "
 "„abc“)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:477
@@ -10119,7 +10122,7 @@ msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"Vypisovat pole TIMESTAMP v UTC <i>(usnadní přenost polí TIMESTAMP mezi "
+"Vypisovat sloupce TIMESTAMP v UTC <i>(usnadní přenos sloupců TIMESTAMP mezi "
 "servery v různých časových pásmech)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:543
@@ -10262,8 +10265,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
-"První řádka souboru obsahuje jména polí <i>(pokud toto nezaškrtnete, první "
-"řádka bude součástí dat)</i>"
+"První řádek souboru obsahuje názvy sloupců <i>(pokud tuto volbu "
+"nezaškrtnete, první řádek bude součástí dat)</i>"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:110
 msgid ""
@@ -10271,9 +10274,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
-"Pokud pořadí polí v souboru není stejné jako pořadí v databázi, zadejte zde "
-"odpovídající jména polí. Jména musí být oddělena čárkami a nesmí být "
-"uzavřena do uvozovek."
+"Pokud není pořadí sloupců v souboru stejné jako pořadí v databázi, zadejte "
+"zde odpovídající názvy sloupců. Názvy sloupců musí být odděleny čárkami a "
+"nesmí být uzavřeny do uvozovek."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
 msgid "Column names:"
@@ -10293,8 +10296,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
-"Zadán chybný název pole (%s)! Ujistěte se, že jsou jména polí zapsána "
-"správně, oddělena čárkami a nejsou uzavřena v uvozovkách."
+"Zadán chybný název sloupce (%s)! Zkontrolujte, zda jsou názvy sloupců "
+"zapsány správně, odděleny čárkami a nejsou uzavřeny v uvozovkách."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:356
 #: libraries/classes/Plugins/Import/ImportCsv.php:763
@@ -10305,11 +10308,11 @@ msgstr "Chybný formát CSV dat na řádku %d."
 #: libraries/classes/Plugins/Import/ImportCsv.php:586
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Chybný počet polí v CSV datech na řádku %d."
+msgstr "Chybný počet sloupců v CSV datech na řádku %d."
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
 msgid "Column names: "
-msgstr "Názvy polí: "
+msgstr "Názvy sloupců: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:112
 msgid "This plugin does not support compressed imports!"
@@ -10525,9 +10528,9 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Zobrazí odkaz na stáhnutí dat. První parametr je jméno souboru, druhý jméno "
-"pole v tabulce obsahující jméno souboru. Pokud zadáte druhý parametr, první "
-"musí být prázdný."
+"Zobrazí odkaz na stažení binárních dat sloupce. První parametr je název "
+"souboru, druhý název sloupce v tabulce, který obsahuje název souboru. Pokud "
+"zadáte druhý parametr, první musí být prázdný."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:31
 msgid ""
@@ -10569,8 +10572,8 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Zachová původní formátování pole, tak jak je uloženo v databázi, bez použití "
-"htmlspecialchars(). Předpokládá se, že pole obsahuje platné HTML."
+"Zobrazí původní obsah sloupce tak, jak je uložen v databázi, bez použití "
+"funkce htmlspecialchars(). Předpokládá se, že sloupec obsahuje platné HTML."
 
 #: libraries/classes/Plugins/Transformations/Abs/HexTransformationsPlugin.php:31
 msgid ""
@@ -10665,8 +10668,8 @@ msgid ""
 "option is a URL prefix like \"https://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Zobrazí obrázek a odkaz z pole obsahujícího odkaz na obrázek. První parametr "
-"je prefix URL (například „https://www.example.com/“), druhý a třetí určuje "
+"Zobrazí obrázek a odkaz, sloupec obsahuje název souboru. První parametr je "
+"prefix URL (například „https://www.example.com/“), druhý a třetí určuje "
 "šířku a výšku obrázku."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php:32
@@ -10675,8 +10678,8 @@ msgid ""
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Zobrazí odkaz z pole obsahujícího odkaz. První parametr je prefix URL "
-"(například „https://www.example.com/“), druhý text odkazu."
+"Zobrazí odkaz, sloupec obsahuje název souboru. První parametr je prefix URL ("
+"například „https://www.example.com/“), druhý text odkazu."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:33
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
@@ -10822,7 +10825,7 @@ msgstr "Návrh a vytváření PDF"
 
 #: libraries/classes/Relation.php:212
 msgid "Displaying Column Comments"
-msgstr "Zobrazuji komentáře polí"
+msgstr "Zobrazuji komentáře ke sloupcům"
 
 #: libraries/classes/Relation.php:218
 msgid "Browser transformation"
@@ -10831,7 +10834,7 @@ msgstr "Transformace při prohlížení"
 #: libraries/classes/Relation.php:225
 msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
-"Podívejte se prosím do dokumentace, jak aktualizovat informace o polích v "
+"Podívejte se prosím do dokumentace, jak aktualizovat informace o sloupcích v "
 "tabulce column_info."
 
 #: libraries/classes/Relation.php:241 libraries/classes/SqlQueryForm.php:415
@@ -12783,7 +12786,7 @@ msgid ""
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
 "Textový sloupec s maximální délkou 16777215 (2²⁴ - 1) znaků, uložen s "
-"tříbajtovým číslem určující jeho délku"
+"tříbajtovým číslem určujícím jeho délku"
 
 #: libraries/classes/Types.php:330
 msgid ""
@@ -12792,7 +12795,7 @@ msgid ""
 "value in bytes"
 msgstr ""
 "Textový sloupec s maximální délkou 4294967295 nebo 4GiB (2³² - 1) znaků, "
-"uložen s čtyřbajtovým číslem určující jeho délku"
+"uložen s čtyřbajtovým číslem určujícím jeho délku"
 
 #: libraries/classes/Types.php:336
 msgid ""
@@ -12820,7 +12823,7 @@ msgid ""
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
 "Datový sloupec s maximální délkou 16777215 (2²⁴ - 1) znaků, uložen s "
-"tříbajtovým číslem určující jeho délku"
+"tříbajtovým číslem určujícím jeho délku"
 
 #: libraries/classes/Types.php:357
 msgid ""
@@ -12836,7 +12839,7 @@ msgid ""
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
 "Datový sloupec s maximální délkou 4294967295 nebo 4GiB (2³² - 1) znaků, "
-"uložen s čtyřbajtovým číslem určující jeho délku"
+"uložen s čtyřbajtovým číslem určujícím jeho délku"
 
 #: libraries/classes/Types.php:368
 msgid ""
@@ -13348,7 +13351,7 @@ msgstr "Přidat"
 
 #: templates/columns_definitions/column_definitions_form.twig:40
 msgid "column(s)"
-msgstr "pole"
+msgstr "sloupce"
 
 #: templates/columns_definitions/column_definitions_form.twig:73
 msgid "Collation:"
@@ -13467,7 +13470,7 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Pokud je pole typu „enum“ nebo „set“, zadávejte hodnoty v následujícím "
+"Pokud je sloupec typu „enum“ nebo „set“, zadávejte hodnoty v následujícím "
 "formátu: 'a','b','c'…<br>Pokud potřebujete mezi těmito hodnotami zadat "
 "zpětné lomítko („\\“) nebo jednoduché uvozovky („'“), napište před ně zpětné "
 "lomítko (například '\\\\xyz' nebo 'a\\'b')."
@@ -13486,7 +13489,7 @@ msgstr "Virtualita"
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
 msgid "Move column"
-msgstr "Přesunout pole"
+msgstr "Přesunout sloupec"
 
 #: templates/columns_definitions/table_fields_definitions.twig:76
 #: templates/columns_definitions/table_fields_definitions.twig:87
@@ -13719,7 +13722,7 @@ msgstr "Vytvořit tabulku"
 
 #: templates/database/create_table.twig:15
 msgid "Number of columns"
-msgstr "Počet polí"
+msgstr "Počet sloupců"
 
 #: templates/database/data_dictionary/index.twig:3
 msgid "Database comment:"
@@ -14014,7 +14017,7 @@ msgstr "Odznačit vše"
 
 #: templates/database/search/main.twig:56
 msgid "Inside column:"
-msgstr "Uvnitř pole:"
+msgstr "Uvnitř sloupce:"
 
 #: templates/database/search/results.twig:12
 #, php-format
@@ -15148,7 +15151,7 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 
 #: templates/server/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
-msgstr "Oprávnění pro jednotlivá pole"
+msgstr "Oprávnění pro jednotlivé sloupce"
 
 #: templates/server/privileges/privileges_summary.twig:54
 msgid "Add privileges on the following database(s):"
@@ -16091,7 +16094,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:200
 msgid "Choose column to display:"
-msgstr "Zvolte která pole zobrazit:"
+msgstr "Zvolte sloupec, který chcete zobrazit:"
 
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
@@ -16141,7 +16144,7 @@ msgstr "Provést „dotaz podle příkladu“ (zástupný znak: „%“)"
 
 #: templates/table/search/selection_form.twig:106
 msgid "Select columns (at least one):"
-msgstr "Zvolte pole (alespoň jedno):"
+msgstr "Zvolte sloupce (alespoň jeden):"
 
 #: templates/table/search/selection_form.twig:126
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -16222,7 +16225,7 @@ msgstr "Žádná"
 #: templates/table/structure/display_structure.twig:112
 #, php-format
 msgid "Column %s has been dropped."
-msgstr "Pole %s bylo odstraněno."
+msgstr "Sloupec %s byl odstraněn."
 
 #: templates/table/structure/display_structure.twig:135
 #, php-format
@@ -16250,7 +16253,7 @@ msgstr "Přidat do centrálních sloupců"
 #: templates/table/structure/display_structure.twig:363
 #: templates/table/structure/display_structure.twig:402
 msgid "Move columns"
-msgstr "Přesunout pole"
+msgstr "Přesunout sloupce"
 
 #: templates/table/structure/display_structure.twig:364
 msgid "Move the columns by dragging them up and down."
@@ -16276,7 +16279,7 @@ msgstr "Sledovat pohled"
 #: templates/table/structure/display_structure.twig:425
 #, php-format
 msgid "Add %s column(s)"
-msgstr "Přidat %s polí"
+msgstr "Přidat %s sloupců"
 
 #: templates/table/structure/display_structure.twig:430
 msgid "at beginning of table"
@@ -16398,7 +16401,7 @@ msgstr "Jméno pohledu"
 
 #: templates/view_create.twig:79
 msgid "Column names"
-msgstr "Názvy polí"
+msgstr "Názvy sloupců"
 
 #: url.php:50
 msgid "Taking you to the target site."
