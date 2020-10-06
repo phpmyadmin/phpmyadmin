@@ -96,7 +96,6 @@ class Tracking
      */
     public function getListOfVersionsOfTable(): array
     {
-        global $dbi;
         $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
         $sql_query = ' SELECT * FROM ' .
