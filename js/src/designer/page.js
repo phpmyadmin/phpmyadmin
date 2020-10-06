@@ -1,6 +1,6 @@
 /* global DesignerOfflineDB */ // js/designer/database.js
 // eslint-disable-next-line no-unused-vars
-/* global db, selectedPage:writable */ // js/designer/init.js
+/* global db, selectedPage:writable, jTabs */ // js/designer/init.js
 /* global DesignerMove */ // js/designer/move.js
 /* global DesignerObjects */ // js/designer/objects.js
 
@@ -167,6 +167,7 @@ DesignerPage.loadHtmlForPage = function (pageId) {
                         'table' : tblCords[t].tableName,
                         'server': CommonParams.get('server')
                     },
+                    // eslint-disable-next-line no-loop-func
                     success: function (data) {
                         var [table, dbTableNameUrl] = DesignerPage.getTableFromData(data);
                         if (typeof dbTableNameUrl === 'string' && table) { // Do not try to add if attr not found !
