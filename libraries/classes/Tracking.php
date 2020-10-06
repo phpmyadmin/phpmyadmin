@@ -96,6 +96,7 @@ class Tracking
      */
     public function getListOfVersionsOfTable(): array
     {
+        global $dbi;
         $relation = $this->relation;
         $cfgRelation = $relation->getRelationsParam();
         $sql_query = ' SELECT * FROM ' .
@@ -105,6 +106,7 @@ class Tracking
             "' " .
             " AND table_name = '" .
             $GLOBALS['dbi']->escapeString($GLOBALS['table']) . "' " .
+<<<<<<< HEAD
             ' ORDER BY version DESC ';
 
         $result = $relation->queryAsControlUser($sql_query);
@@ -114,6 +116,22 @@ class Tracking
         }
 
         return $result;
+=======
+<<<<<<< HEAD
+            " ORDER BY version DESC ";
+
+        return $relation->queryAsControlUser($sql_query);
+=======
+            ' ORDER BY version DESC ';
+
+        $result = $relation->queryAsControlUser($sql_query);
+        if (get_class($result) == "mysqli_result") {
+            return $result;
+        }
+
+        return [];
+>>>>>>> Fixes: https://github.com/phpmyadmin/phpmyadmin/issues/16032 and another minor fix when clicking tracking icon next to table name
+>>>>>>> Fixes: https://github.com/phpmyadmin/phpmyadmin/issues/16032 and another minor fix when clicking tracking icon next to table name
     }
 
     /**

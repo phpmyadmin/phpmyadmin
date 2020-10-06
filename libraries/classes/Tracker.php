@@ -843,11 +843,17 @@ class Tracker
         }
 
         // If we found a valid statement
+<<<<<<< HEAD
         if (! isset($result['identifier'])) {
             return;
         }
-
-        if (! self::isTracked($dbname, $result['tablename'])) {
+=======
+<<<<<<< HEAD
+        if (isset($result['identifier'])) {
+            if (! self::isTracked($dbname, $result['tablename'])) {
+                return;
+=======
+        if (! isset($result['identifier'])) {
             return;
         }
 
@@ -879,8 +885,86 @@ class Tracker
                 case 'CREATE DATABASE':
                     self::createDatabaseVersion($dbname, '1', $query);
                     break;
+>>>>>>> Fixes: https://github.com/phpmyadmin/phpmyadmin/issues/16032 and another minor fix when clicking tracking icon next to table name
+            }
+>>>>>>> Fixes: https://github.com/phpmyadmin/phpmyadmin/issues/16032 and another minor fix when clicking tracking icon next to table name
+
+        if (! self::isTracked($dbname, $result['tablename'])) {
+            return;
+        }
+
+        $version = self::getVersion(
+            $dbname,
+            $result['tablename'],
+            $result['identifier']
+        );
+
+<<<<<<< HEAD
+        // If version not exists and auto-creation is enabled
+        if ($GLOBALS['cfg']['Server']['tracking_version_auto_create'] == true
+            && $version == -1
+        ) {
+            // Create the version
+
+            switch ($result['identifier']) {
+                case 'CREATE TABLE':
+                    self::createVersion($dbname, $result['tablename'], '1');
+                    break;
+                case 'CREATE VIEW':
+                    self::createVersion(
+                        $dbname,
+                        $result['tablename'],
+                        '1',
+                        '',
+                        true
+                    );
+                    break;
+                case 'CREATE DATABASE':
+                    self::createDatabaseVersion($dbname, '1', $query);
+                    break;
             }
         }
+=======
+<<<<<<< HEAD
+            // If version not exists and auto-creation is enabled
+            if ($GLOBALS['cfg']['Server']['tracking_version_auto_create'] == true
+                && $version == -1
+            ) {
+                // Create the version
+
+                switch ($result['identifier']) {
+                    case 'CREATE TABLE':
+                        self::createVersion($dbname, $result['tablename'], '1');
+                        break;
+                    case 'CREATE VIEW':
+                        self::createVersion(
+                            $dbname,
+                            $result['tablename'],
+                            '1',
+                            '',
+                            true
+                        );
+                        break;
+                    case 'CREATE DATABASE':
+                        self::createDatabaseVersion($dbname, '1', $query);
+                        break;
+                } // end switch
+            }
+=======
+        if (! self::isTracked($dbname, $result['tablename'])) {
+            return;
+        }
+
+        if ($result['type'] === 'DDL') {
+            $save_to = 'schema_sql';
+        } elseif ($result['type'] === 'DML') {
+            $save_to = 'data_sql';
+        } else {
+            $save_to = '';
+        }
+        $date  = Util::date('Y-m-d H:i:s');
+>>>>>>> Fixes: https://github.com/phpmyadmin/phpmyadmin/issues/16032 and another minor fix when clicking tracking icon next to table name
+>>>>>>> Fixes: https://github.com/phpmyadmin/phpmyadmin/issues/16032 and another minor fix when clicking tracking icon next to table name
 
         // If version exists
         if ($version == -1) {
