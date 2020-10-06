@@ -48,6 +48,7 @@ phpMyAdmin - ChangeLog
 - issue #16337 Fix example insert/update query default values
 - issue #12961 Remove indexes from table relation
 - issue #13557 Use a full list of functions instead of a separated one on insert/edit page "Function" selector
+- issue #14795 Include routines in the export in a predictable order
 
 5.0.3 (not yet released)
 - issue #15983 Require twig ^2.9
