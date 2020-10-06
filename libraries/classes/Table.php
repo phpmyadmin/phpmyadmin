@@ -330,6 +330,7 @@ class Table
             || count($cachedResult) === 1
         ) {
             $this->dbi->getTablesFull($db, $table);
+            $cachedResult = $this->dbi->getCache()->getCachedTableContent([$db, $table]);
         }
 
         if ($cachedResult === null) {
