@@ -1780,6 +1780,18 @@ Cookie authentication options
         session and furthermore it makes impossible to recall user name from
         cookie.
 
+.. config:option:: $cfg['CookieSameSite']
+
+    :type: string
+    :default: ``'Strict'``
+
+    .. versionadded:: 5.1.0
+
+    It sets SameSite attribute of the Set-Cookie HTTP response header. This
+    can take values such as Lax, Strict or None.
+
+    .. seealso:: `rfc6265 bis <https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7>`_
+
 .. config:option:: $cfg['LoginCookieRecall']
 
     :type: boolean
