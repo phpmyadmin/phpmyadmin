@@ -132,6 +132,7 @@ class Tracking
 =======
             ' ORDER BY version DESC ';
 
+<<<<<<< HEAD
         $result = $relation->queryAsControlUser($sql_query);
 <<<<<<< HEAD
         if (get_class($result) == "mysqli_result") {
@@ -146,7 +147,13 @@ class Tracking
 =======
         return $result;
 >>>>>>> Fix Lint and psalm issue
+<<<<<<< HEAD
 >>>>>>> Fix Lint and psalm issue
+=======
+=======
+        return $relation->queryAsControlUser($sql_query);
+>>>>>>> Fix Lint
+>>>>>>> Fix Lint
     }
 
     /**
