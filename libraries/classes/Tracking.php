@@ -93,6 +93,15 @@ class Tracking
 
     /**
      * Function to get the list versions of the table
+<<<<<<< HEAD
+=======
+     *
+<<<<<<< HEAD
+     * @return array
+=======
+     * @return mysqli_result Result of executed SQL query
+>>>>>>> Fix Lint and psalm issue
+>>>>>>> Fix Lint and psalm issue
      */
     public function getListOfVersionsOfTable(): array
     {
@@ -124,13 +133,20 @@ class Tracking
             ' ORDER BY version DESC ';
 
         $result = $relation->queryAsControlUser($sql_query);
+<<<<<<< HEAD
         if (get_class($result) == "mysqli_result") {
             return $result;
         }
 
         return [];
 >>>>>>> Fixes: https://github.com/phpmyadmin/phpmyadmin/issues/16032 and another minor fix when clicking tracking icon next to table name
+<<<<<<< HEAD
 >>>>>>> Fixes: https://github.com/phpmyadmin/phpmyadmin/issues/16032 and another minor fix when clicking tracking icon next to table name
+=======
+=======
+        return $result;
+>>>>>>> Fix Lint and psalm issue
+>>>>>>> Fix Lint and psalm issue
     }
 
     /**
