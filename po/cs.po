@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-10-07 10:00+0000\n"
+"PO-Revision-Date: 2020-10-08 21:26+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-0/cs/>"
 "\n"
@@ -94,7 +94,7 @@ msgstr "Vybrat vše"
 
 #: db_operations.php:69 tbl_create.php:50
 msgid "The database name is empty!"
-msgstr "Jméno databáze je prázdné!"
+msgstr "Název databáze je prázdný!"
 
 #: db_operations.php:80
 msgid "Cannot copy database to the same name. Change the name and try again."
@@ -298,7 +298,7 @@ msgstr "Chystáte se ZRUŠIT celou databázi!"
 #: js/messages.php:51
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
-"Nemohu přejmenovat databázi na to samé jméno. Změňte jméno a zkuste to znovu"
+"Databázi nelze přejmenovat na stejný název. Změňte název a zkuste to znovu"
 
 #: js/messages.php:53
 msgid "You are about to DESTROY a complete table!"
@@ -532,7 +532,7 @@ msgstr "Nejprve zadejte dotaz SQL."
 
 #: js/messages.php:149
 msgid "The host name is empty!"
-msgstr "Jméno počítače je prázdné!"
+msgstr "Název počítače je prázdný!"
 
 #: js/messages.php:150
 msgid "The user name is empty!"
@@ -903,7 +903,7 @@ msgstr "Z obecného záznamu dotazů"
 
 #: js/messages.php:270
 msgid "The database name is not known for this query in the server's logs."
-msgstr "V záznamu server není pro tento dotaz známo jméno databáze."
+msgstr "V záznamech serveru není pro tento dotaz známý název databáze."
 
 #: js/messages.php:272
 msgid "Analysing logs"
@@ -1882,7 +1882,7 @@ msgstr "Přidat tabulky z jiných databází"
 
 #: js/messages.php:575
 msgid "Page name"
-msgstr "Jméno stránky"
+msgstr "Název stránky"
 
 #: js/messages.php:576 templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
@@ -1905,7 +1905,7 @@ msgstr "Odstranit stránku"
 
 #: js/messages.php:580 templates/database/designer/main.twig:10
 msgid "Untitled"
-msgstr "Beze jména"
+msgstr "Bez názvu"
 
 #: js/messages.php:581
 msgid "Please select a page to continue"
@@ -3619,15 +3619,15 @@ msgstr "Verze Excelu"
 
 #: libraries/classes/Config/Descriptions.php:204
 msgid "Database name template"
-msgstr "Vzor pro jméno databáze"
+msgstr "Vzor pro název databáze"
 
 #: libraries/classes/Config/Descriptions.php:205
 msgid "Server name template"
-msgstr "Vzor pro jméno serveru"
+msgstr "Vzor pro název serveru"
 
 #: libraries/classes/Config/Descriptions.php:206
 msgid "Table name template"
-msgstr "Vzor pro jméno tabulky"
+msgstr "Vzor pro název tabulky"
 
 #: libraries/classes/Config/Descriptions.php:210
 #: libraries/classes/Config/Descriptions.php:223
@@ -3721,7 +3721,7 @@ msgstr "Exportovat jako samostatné soubory"
 
 #: libraries/classes/Config/Descriptions.php:238
 msgid "Remember file name template"
-msgstr "Pamatovat si vzor pro jména souborů"
+msgstr "Pamatovat si vzor pro názvy souborů"
 
 #: libraries/classes/Config/Descriptions.php:239
 #: libraries/classes/Operations.php:249 libraries/classes/Operations.php:908
@@ -3987,7 +3987,7 @@ msgstr "Nastavení, která nelze zařadit jinam."
 
 #: libraries/classes/Config/Descriptions.php:323
 msgid "Page titles"
-msgstr "Jména stránek"
+msgstr "Titulky stránek"
 
 #: libraries/classes/Config/Descriptions.php:325
 msgid ""
@@ -4659,7 +4659,7 @@ msgstr "Zakázat klávesové zkratky"
 
 #: libraries/classes/Config/Descriptions.php:542
 msgid "Use natural order for sorting table and database names."
-msgstr "Použít přirozené řazení pro jména tabulek a databází."
+msgstr "Použít přirozené řazení pro názvy tabulek a databází."
 
 #: libraries/classes/Config/Descriptions.php:543
 msgid "Natural order"
@@ -4985,11 +4985,11 @@ msgstr "Tabulka pro historii SQL dotazů"
 
 #: libraries/classes/Config/Descriptions.php:651
 msgid "Hostname where MySQL server is running."
-msgstr "Jméno počítače, kde běží MySQL server."
+msgstr "Název počítače, na kterém běží MySQL server."
 
 #: libraries/classes/Config/Descriptions.php:652
 msgid "Server hostname"
-msgstr "Jméno serveru"
+msgstr "Název serveru"
 
 #: libraries/classes/Config/Descriptions.php:653
 msgid "Logout URL"
@@ -5089,7 +5089,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:689
 #: templates/server/databases/index.twig:33
 msgid "Database name"
-msgstr "Jméno databáze"
+msgstr "Název databáze"
 
 #: libraries/classes/Config/Descriptions.php:690
 msgid "Port on which MySQL server is listening, leave empty for default."
@@ -5145,7 +5145,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:712
 msgid "Signon session name"
-msgstr "Jméno signon session"
+msgstr "Název signon relace"
 
 #: libraries/classes/Config/Descriptions.php:713
 msgid "Signon URL"
@@ -5334,11 +5334,12 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
-"Přívětivý popis tohoto serveru. Pokud necháte prázdné, zobrazí se jeho jméno."
+"Uživatelsky přívětivý popis tohoto serveru. Pokud necháte prázdné, zobrazí "
+"se jeho název."
 
 #: libraries/classes/Config/Descriptions.php:785
 msgid "Verbose name of this server"
-msgstr "Dlouhé jméno tohoto serveru"
+msgstr "Dlouhý název tohoto serveru"
 
 #: libraries/classes/Config/Descriptions.php:786
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -6177,8 +6178,7 @@ msgstr ""
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr ""
-"Prázdné jméno signon sezení při použití přihlašování [kbd]signon[/kbd]!"
+msgstr "Prázdný název signon relace při použití přihlašování [kbd]signon[/kbd]!"
 
 #: libraries/classes/Config/Validator.php:287
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
@@ -8228,8 +8228,8 @@ msgstr "Nedostatek místa pro uložení souboru %s."
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"Soubor %s již na serveru existuje, změňte jméno souboru, nebo zvolte "
-"přepsání souboru."
+"Soubor %s již na serveru existuje, změňte název souboru nebo zvolte přepsání "
+"souboru."
 
 #: libraries/classes/Export.php:375 libraries/classes/Export.php:383
 #, php-format
@@ -8349,7 +8349,7 @@ msgstr "Následující tabulky byly vytvořeny nebo změněny. Teď můžete:"
 
 #: libraries/classes/Import.php:1264
 msgid "View a structure's contents by clicking on its name."
-msgstr "Obsah struktury se zobrazí po kliknutí na její jméno."
+msgstr "Obsah struktury se zobrazí po kliknutí na její název."
 
 #: libraries/classes/Import.php:1267
 msgid ""
@@ -9577,7 +9577,7 @@ msgstr "Tabulka %s byla zkopírována do %s."
 
 #: libraries/classes/Operations.php:2252
 msgid "The table name is empty!"
-msgstr "Jméno tabulky je prázdné!"
+msgstr "Název tabulky je prázdný!"
 
 #: libraries/classes/Pdf.php:155
 msgid "Error while creating PDF:"
@@ -9611,9 +9611,9 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 "phpMyAdmin se pokusil připojit k MySQL serveru, a ten odmítl připojení. "
-"Zkontrolujte jméno serveru, uživatelské jméno a heslo v souboru config.inc."
-"php a ujistěte se, že jsou totožné s těmi, které máte od administrátora "
-"MySQL serveru."
+"Zkontrolujte název serveru, uživatelské jméno a heslo v souboru "
+"config.inc.php a ujistěte se, že jsou totožné s těmi, které máte od "
+"administrátora MySQL serveru."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:155
 msgid "Retry to connect"
@@ -9641,7 +9641,7 @@ msgstr "Přihlášení"
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:202
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:212
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr "Můžete zadat jméno počítače nebo IP adresu a port oddělené mezerou."
+msgstr "Můžete zadat název počítače nebo IP adresu a port oddělené mezerou."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:205
 #: templates/home/index.twig:97
@@ -9958,7 +9958,7 @@ msgstr "Struktura:"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:86
 msgid "Export table names"
-msgstr "Exportovat jména tabulek"
+msgstr "Exportovat názvy tabulek"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:93
 msgid "Export table headers"
@@ -10547,7 +10547,7 @@ msgid ""
 msgstr ""
 "JEN PRO LINUX: Spustí externí program, na jeho standardní vstup pošle obsah "
 "pole a zobrazí výstup programu. Výchozí je program Tidy, který zformátuje "
-"kód HTML. Z bezpečnostních důvodů musíte jména povolených programů zapsat do "
+"kód HTML. Z bezpečnostních důvodů musíte názvy povolených programů zapsat do "
 "souboru libraries/classes/Plugins/Transformations/Abs/"
 "ExternalTransformationsPlugin.php. První parametr je číslo programu, který "
 "má být spuštěn. Druhý parametr ponechte z historických důvodů prázdný. Třetí "
@@ -11110,7 +11110,7 @@ msgstr "Zadavatel musí být ve tvaru \"uživatel@počítač\"!"
 
 #: libraries/classes/Rte/Events.php:613
 msgid "You must provide an event name!"
-msgstr "Musíte zadat jméno události!"
+msgstr "Musíte zadat název události!"
 
 #: libraries/classes/Rte/Events.php:628
 msgid "You must provide a valid interval value for the event."
@@ -11194,7 +11194,7 @@ msgstr "Byla změněna rutina %1$s."
 
 #: libraries/classes/Rte/Routines.php:925
 msgid "Routine name"
-msgstr "Jméno rutiny"
+msgstr "Název rutiny"
 
 #: libraries/classes/Rte/Routines.php:950
 msgid "Parameters"
@@ -11252,7 +11252,7 @@ msgstr "Přístup k SQL datům"
 
 #: libraries/classes/Rte/Routines.php:1165
 msgid "You must provide a routine name!"
-msgstr "Musíte zadat jméno rutiny!"
+msgstr "Musíte zadat název rutiny!"
 
 #: libraries/classes/Rte/Routines.php:1199
 #, php-format
@@ -11270,7 +11270,7 @@ msgstr ""
 
 #: libraries/classes/Rte/Routines.php:1249
 msgid "You must provide a name and a type for each routine parameter."
-msgstr "Pro každý parametr musíte zadat jeho jméno a typ."
+msgstr "Pro každý parametr rutiny musíte zadat jeho název a typ."
 
 #: libraries/classes/Rte/Routines.php:1269
 msgid "You must provide a valid return type for the routine."
@@ -11336,7 +11336,7 @@ msgstr "Spouštění"
 
 #: libraries/classes/Rte/Triggers.php:494
 msgid "You must provide a trigger name!"
-msgstr "Musíte zadat jméno spouště!"
+msgstr "Musíte zadat název spouště!"
 
 #: libraries/classes/Rte/Triggers.php:501
 msgid "You must provide a valid timing for the trigger!"
@@ -11348,7 +11348,7 @@ msgstr "Musíte zadat platnou událost pro spoušť!"
 
 #: libraries/classes/Rte/Triggers.php:516
 msgid "You must provide a valid table name!"
-msgstr "Musíte zadat platné jméno tabulky!"
+msgstr "Musíte zadat platný název tabulky!"
 
 #: libraries/classes/Rte/Triggers.php:522
 msgid "You must provide a trigger definition."
@@ -11910,7 +11910,7 @@ msgstr "Databáze pro uživatele"
 
 #: libraries/classes/Server/Privileges.php:2324
 msgid "Create database with same name and grant all privileges."
-msgstr "Vytvořit databázi stejného jména a přidělit všechna oprávnění."
+msgstr "Vytvořit databázi se stejným názvem a přidělit všechna oprávnění."
 
 #: libraries/classes/Server/Privileges.php:2332
 msgid "Grant all privileges on wildcard name (username\\_%)."
@@ -12355,7 +12355,7 @@ msgstr "Umožnit všem uživatelům používat tuto oblíbenou položku"
 
 #: libraries/classes/SqlQueryForm.php:338
 msgid "Replace existing bookmark of same name"
-msgstr "Přepsat existující oblíbený dotaz stejného jména"
+msgstr "Přepsat existující oblíbený dotaz se stejným názvem"
 
 #: libraries/classes/SqlQueryForm.php:352
 msgid "Delimiter"
@@ -12419,11 +12419,11 @@ msgstr "Cílová databáze „%s“ nebyla nalezena!"
 
 #: libraries/classes/Table.php:1559
 msgid "Invalid database:"
-msgstr "Chybné jméno databáze:"
+msgstr "Chybný název databáze:"
 
 #: libraries/classes/Table.php:1576
 msgid "Invalid table name:"
-msgstr "Chybné jméno tabulky:"
+msgstr "Chybný název tabulky:"
 
 #: libraries/classes/Table.php:1613
 #, php-format
@@ -12460,7 +12460,7 @@ msgstr ""
 
 #: libraries/classes/Table.php:2191
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Jméno primárního klíče musí být „PRIMARY“!"
+msgstr "Název primárního klíče musí být „PRIMARY“!"
 
 #: libraries/classes/Table.php:2202
 msgid "Can't rename index to PRIMARY!"
@@ -13295,7 +13295,7 @@ msgstr "Export tabulky"
 
 #: tbl_get_field.php:54
 msgid "Invalid table name"
-msgstr "Chybné jméno tabulky"
+msgstr "Chybný název tabulky"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:62
@@ -13339,7 +13339,7 @@ msgstr "Dle zadání:"
 
 #: templates/columns_definitions/column_definitions_form.twig:23
 msgid "Table name"
-msgstr "Jméno tabulky"
+msgstr "Název tabulky"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
@@ -13888,7 +13888,7 @@ msgstr "Přejmenovat na"
 #: templates/database/designer/main.twig:503
 #: templates/database/designer/main.twig:721
 msgid "New name"
-msgstr "Nové jméno"
+msgstr "Nový název"
 
 #: templates/database/designer/main.twig:512
 #: templates/database/designer/main.twig:918
@@ -14248,7 +14248,7 @@ msgstr "zagzipováno"
 
 #: templates/display/export/options_output_format.twig:3
 msgid "File name template:"
-msgstr "Šablona pro jméno souboru:"
+msgstr "Šablona pro název souboru:"
 
 #: templates/display/export/options_output_format.twig:11
 msgid "use this for future exports"
@@ -14322,7 +14322,7 @@ msgstr "Nová šablona:"
 
 #: templates/display/export/template_loading.twig:8
 msgid "Template name"
-msgstr "Jméno šablony"
+msgstr "Název šablony"
 
 #: templates/display/export/template_loading.twig:10
 #: templates/server/databases/index.twig:51
@@ -14545,7 +14545,7 @@ msgstr "Vyberte databázi:"
 
 #: templates/export/alias_add.twig:15
 msgid "New database name"
-msgstr "Nové jméno databáze"
+msgstr "Nový název databáze"
 
 #: templates/export/alias_add.twig:23
 msgid "Select table:"
@@ -14553,7 +14553,7 @@ msgstr "Vyberte tabulku:"
 
 #: templates/export/alias_add.twig:29
 msgid "New table name"
-msgstr "Nové jméno tabulky"
+msgstr "Nový název tabulky"
 
 #: templates/export/alias_add.twig:37
 msgid "Select column:"
@@ -15009,7 +15009,7 @@ msgstr "Zobrazit celé dotazy"
 
 #: templates/server/binlog/index.twig:84
 msgid "Log name"
-msgstr "Jméno logu"
+msgstr "Název logu"
 
 #: templates/server/binlog/index.twig:85
 msgid "Position"
@@ -15147,7 +15147,7 @@ msgstr "Odebrat uživatelům veškerá oprávnění a poté je odstranit z tabu
 #: templates/server/privileges/delete_user_fieldset.twig:10
 #: templates/server/privileges/delete_user_fieldset.twig:11
 msgid "Drop the databases that have the same names as the users."
-msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
+msgstr "Odstranit databáze se stejnými názvy jako jména uživatelů."
 
 #: templates/server/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
@@ -15597,7 +15597,7 @@ msgstr "Obvykle monitorované"
 
 #: templates/server/status/monitor/index.twig:163
 msgid "or type variable name:"
-msgstr "nebo zadejte jméno proměnné:"
+msgstr "nebo zadejte název proměnné:"
 
 #: templates/server/status/monitor/index.twig:170
 msgid "Display as differential value"
@@ -15992,12 +15992,12 @@ msgstr "Prostorový sloupec"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
-msgstr "Jméno klíče:"
+msgstr "Název indexu:"
 
 #: templates/table/index_form.twig:16
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
-msgstr "„PRIMARY“ <b>musí</b> být jméno <b>pouze</b> primárního klíče!"
+msgstr "„PRIMARY“ <b>musí</b> být název <b>pouze</b> primárního klíče!"
 
 #: templates/table/index_form.twig:34
 msgid "Index choice:"
@@ -16103,7 +16103,7 @@ msgstr "Omezení cizího klíče %s bylo odstraněno"
 
 #: templates/table/relation/foreign_key_row.twig:34
 msgid "Constraint name"
-msgstr "Jméno omezení"
+msgstr "Název omezení"
 
 #: templates/table/search/replace_preview.twig:13
 msgid "Find and replace - preview"
@@ -16397,7 +16397,7 @@ msgstr "Dostupné vstupní transformace"
 
 #: templates/view_create.twig:65
 msgid "VIEW name"
-msgstr "Jméno pohledu"
+msgstr "Název pohledu"
 
 #: templates/view_create.twig:79
 msgid "Column names"
