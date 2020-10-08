@@ -572,7 +572,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 . ', (new ol.geom.Point([16,75]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\''
                 . 'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([136,40]).transform(ol.proj.'
                 . 'get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = li'
-                . 'ne.getCoordinates();for (var i = 0; i < coord.length; index++) lineArr.push(coord[i]);arr.'
+                . 'ne.getCoordinates();for (var i = 0; i < coord.length; i++) lineArr.push(coord[i]);arr.'
                 . 'push(lineArr);var polygon = new ol.geom.Polygon(arr);polygonArray.push(polygon);var arr = [];v'
                 . 'ar lineArr = [];var line = new ol.geom.LinearRing(new Array((new ol.geom.Point(['
                 . '105,0]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoor'
@@ -581,7 +581,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 . 'ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol'
                 . '.geom.Point([105,0]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857'
                 . '\'))).getCoordinates()));var coord = line.getCoordinates();for (var i = 0; i < coord.length;'
-                . ' index++) lineArr.push(coord[i]);arr.push(lineArr);var polygon = new ol.geom.Polygon(arr);po'
+                . ' i++) lineArr.push(coord[i]);arr.push(lineArr);var polygon = new ol.geom.Polygon(arr);po'
                 . 'lygonArray.push(polygon);var multiPolygon = new ol.geom.MultiPolygon(polygonArra'
                 . 'y);var feature = new ol.Feature(multiPolygon);feature.setStyle(style);vectorLaye'
                 . 'r.addFeature(feature);',
