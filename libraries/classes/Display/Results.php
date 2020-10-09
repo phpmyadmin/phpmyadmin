@@ -3001,6 +3001,7 @@ class Results
             $_url_params = array(
                 'db'            => $this->__get('db'),
                 'table'         => $meta->orgtable,
+                'where_clause_sign' => Core::signSqlQuery($whereClauseMap[$row_no][$meta->orgtable]),
                 'where_clause'  => $whereClauseMap[$row_no][$meta->orgtable],
                 'transform_key' => $meta->orgname
             );

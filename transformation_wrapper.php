@@ -63,6 +63,12 @@ foreach ($request_params as $one_request_param) {
  */
 $GLOBALS['dbi']->selectDb($db);
 if (isset($where_clause)) {
+
+    if (! Core::checkSqlQuerySignature($where_clause, isset($_GET['where_clause_sign']) ? $_GET['where_clause_sign'] : '')) {
+        /* l10n: In case a SQL query did not pass a security check  */
+        Core::fatalError(__('There is an issue with your request.'));
+        exit;
+    }
     $result = $GLOBALS['dbi']->query(
         'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table)
         . ' WHERE ' . $where_clause . ';',
