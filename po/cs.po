@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-09-20 00:19+0200\n"
-"PO-Revision-Date: 2020-10-08 21:26+0000\n"
+"PO-Revision-Date: 2020-10-09 21:07+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -3077,21 +3077,21 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"Pokud je povoleno, dochází při odhlášení ke smazání cookies na všech "
-"serverech, pokud je zakázáno, maže se cookie pouze pro současný server. "
+"Pokud je povoleno, dochází při odhlášení ke smazání souborů cookie na všech "
+"serverech, pokud je zakázáno, smaže se cookie pouze pro aktuální server. "
 "Zakázání může způsobit, že se zapomenete odhlásit od ostatních serverů, "
 "pokud jich používáte více."
 
 #: libraries/classes/Config/Descriptions.php:469
 msgid "Delete all cookies on logout"
-msgstr "Smazat všechny cookies při odhlášení"
+msgstr "Smazat všechny soubory cookie při odhlášení"
 
 #: libraries/classes/Config/Descriptions.php:471
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Určuje, zda se má pamatovat předchozí přihlášení, při použití přihlašování "
+"Určuje, zda se má pamatovat předchozí přihlášení při použití přihlašování "
 "pomocí [kbd]cookie[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:474
@@ -3106,9 +3106,9 @@ msgid ""
 "recommended for non-trusted environments."
 msgstr ""
 "Určuje, jak dlouho (v sekundách) si má prohlížeč pamatovat přihlašovací "
-"cookie. Výchozí hodnota 0 znamená, že cookie bude držena jen pro existující "
-"sezení, čili, že bude smazána v okamžiku, kdy zavřete okno prohlížeče. Tato "
-"volba je doporučena pro nedůvěryhodná prostředí."
+"cookie. Výchozí hodnota 0 znamená, že bude cookie uchována jen pro stávající "
+"relaci, tj. bude smazána v okamžiku, kdy zavřete okno prohlížeče. Tato volba "
+"je doporučena pro nedůvěryhodná prostředí."
 
 #: libraries/classes/Config/Descriptions.php:481
 msgid "Login cookie store"
@@ -5049,9 +5049,10 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Neměl jste nastavený tajný klíč pro šifru blowfish (blowfish_secret) a "
-"povolené přihlašování pomocí [kbd]cookie[/kbd], takže byl Váš tajný klíč "
-"vygenerován. Klíč bude použit pro zašifrování cookies."
+"Je povoleno přihlašování pomocí [kbd]cookie[/kbd] a nebyl nastaven tajný "
+"klíč pro šifru blowfish (blowfish_secret), proto byl vygenerován "
+"automaticky. Tento klíč se používá k šifrování souborů cookie, nemusíte si "
+"ho pamatovat."
 
 #: libraries/classes/Config/ServerConfigChecks.php:383
 msgid "Key is too short, it should have at least 32 characters."
@@ -5447,7 +5448,7 @@ msgstr ""
 #: libraries/classes/Controllers/HomeController.php:404
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
-"Nastavte klíč pro šifrování cookies (blowfish_secret) v konfiguračním "
+"Nastavte klíč pro šifrování souborů cookie (blowfish_secret) v konfiguračním "
 "souboru (config.inc.php)."
 
 #: libraries/classes/Controllers/HomeController.php:411
@@ -6375,8 +6376,8 @@ msgid ""
 "reentering your credentials should help."
 msgstr ""
 "Při načítání nových dat server vrátil chybnou odpověď. Pravděpodobně to bylo "
-"způsobeno vypršeným sezením. Problém můžete vyřešit novým načtením stránky a "
-"přihlášením."
+"způsobeno vypršením platnosti relace. Problém můžete vyřešit novým načtením "
+"stránky a přihlášením."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:295
 msgid "Reload page"
@@ -10873,7 +10874,7 @@ msgstr "Zkusit se připojit znovu"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:178
 msgid "Your session has expired. Please log in again."
-msgstr "Vaše sezení vypršelo, prosím přihlaste se znovu."
+msgstr "Platnost vaší relace vypršela, přihlaste se prosím znovu."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:289
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
@@ -10893,7 +10894,7 @@ msgstr "Nemáte povolení se přihlásit k tomuto MySQL serveru!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:91
 msgid "Wrong username/password. Access denied."
-msgstr "Špatné uživatelské jméno nebo heslo. Přístup odepřen."
+msgstr "Chybné uživatelské jméno nebo heslo. Přístup odepřen."
 
 #: libraries/classes/Plugins/Auth/AuthenticationSignon.php:146
 msgid "Can not find signon authentication script:"
@@ -11520,7 +11521,7 @@ msgstr "Chybný počet sloupců v CSV datech na řádku %d."
 #: libraries/classes/Plugins/Import/ImportCsv.php:688
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr "Neznámý parametr pro import CSV: %s"
+msgstr "Chybný parametr pro import CSV: %s"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:808
 #, php-format
@@ -11608,7 +11609,7 @@ msgstr "Tento formát nemá žádná nastavení"
 
 #: libraries/classes/Plugins.php:721
 msgid "Invalid authentication method set in configuration:"
-msgstr "V nastavení máte špatnou přihlašovací metodu:"
+msgstr "V konfiguraci je nastavena neplatná metoda přihlášení:"
 
 #: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php:78
 #: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:94
@@ -16052,7 +16053,7 @@ msgid ""
 "import it for current session?"
 msgstr ""
 "Ve vašem prohlížeči je uloženo nastavení phpMyAdmina pro tuto doménu. "
-"Přejete si ho importovat do tohoto sezení?"
+"Přejete si ho importovat do aktuální relace?"
 
 #: templates/preferences/autoload.twig:13
 msgid "Delete settings"
@@ -16081,7 +16082,7 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
-"Vaše nastavení bude uchováno jen pro toto sezení. Pro trvalá nastavení "
+"Vaše nastavení bude uchováno jen pro aktuální relaci. Pro trvalá nastavení "
 "musíte nastavit %súložiště nastavení phpMyAdmina%s."
 
 #: templates/preferences/manage/error.twig:1
@@ -17441,7 +17442,7 @@ msgstr "Tato proměnná je pouze pro čtení a nelze ji upravovat"
 
 #: templates/server/variables/index.twig:70
 msgid "Session value"
-msgstr "Hodnota sezení"
+msgstr "Hodnota relace"
 
 #: templates/server/variables/index.twig:82
 #, php-format
