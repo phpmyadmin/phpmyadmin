@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-10-09 05:58+0000\n"
+"PO-Revision-Date: 2020-10-09 18:31+0000\n"
 "Last-Translator: P <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "bg/>\n"
@@ -1860,7 +1860,7 @@ msgid ""
 "confirmation before abandoning changes"
 msgstr ""
 "Показва, че сте направили промени в тази страница; ще бъде попитани за "
-"потвърждение преди да откажете промени"
+"потвърждение преди да откажете промените"
 
 #: js/messages.php:564
 msgid "Select referenced key"
@@ -1893,10 +1893,8 @@ msgstr ""
 
 #: js/messages.php:574 templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "В БД няма таблици."
+msgstr "Добавете таблици от други бази данни"
 
 #: js/messages.php:575
 msgid "Page name"
