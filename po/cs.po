@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-09-20 00:19+0200\n"
-"PO-Revision-Date: 2020-10-09 21:07+0000\n"
+"PO-Revision-Date: 2020-10-10 15:54+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -488,7 +488,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:312
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr "Současné hodnoty jsou tmp_table_size: %s, max_heap_table_size: %s"
+msgstr "Aktuální hodnoty jsou tmp_table_size: %s, max_heap_table_size: %s"
 
 #: libraries/advisory_rules_generic.php:318
 msgid "Percentage of temp tables on disk"
@@ -1054,10 +1054,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"V současné době používáte %s%% vaší paměti pro vyrovnávací paměť InnoDB. "
-"Tato kontrola je aktivní pokud je to méně než 60%%, ale vaše nastavení může "
-"být přesto správné, pokud nemáte mnoho InnoDB tabulek nebo na tomto počítači "
-"běží i další služby."
+"Aktuálně používáte pro vyrovnávací paměť InnoDB %s%% paměti. Toto pravidlo "
+"je aktivní když nastavíte méně než 60%%, nicméně pokud nemáte příliš mnoho "
+"InnoDB tabulek nebo na tomto počítači běží i další služby, může být takové "
+"nastavení zcela přiměřené."
 
 #: libraries/advisory_rules_generic.php:687
 msgid "MyISAM concurrent inserts"
@@ -1123,7 +1123,7 @@ msgstr "Zvažte zvýšení {query_cache_limit}."
 #: libraries/advisory_rules_mysql_before80003.php:29
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Současná úspěšnost mezipaměti %s%% je pod 20%%"
+msgstr "Aktuální úspěšnost mezipaměti %s%% je pod 20%%"
 
 #: libraries/advisory_rules_mysql_before80003.php:34
 msgid "Query Cache usage"
@@ -1148,8 +1148,7 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
-"V současné době je volno %s%% mezipaměti. Tato hodnota by se měla držet nad "
-"80%%"
+"Aktuálně je volných %s%% mezipaměti. Tato hodnota by se měla držet nad 80%%"
 
 #: libraries/advisory_rules_mysql_before80003.php:52
 msgid "Query cache fragmentation"
@@ -1240,7 +1239,7 @@ msgstr "Zmenšení vyrovnávací paměti může přinést zvýšení výkonu."
 #: libraries/advisory_rules_mysql_before80003.php:102
 #, php-format
 msgid "Current query cache size: %s"
-msgstr "Velikost mezipaměti dotazů: %s"
+msgstr "Aktuální velikost mezipaměti dotazů: %s"
 
 #: libraries/advisory_rules_mysql_before80003.php:107
 msgid "Query cache min result size"
@@ -2539,7 +2538,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:291
 #: libraries/classes/Plugins/Export/ExportSql.php:348
 msgid "Exclude definition of current user"
-msgstr "Vynechat definici současného uživatele"
+msgstr "Vynechat definici aktuálního uživatele"
 
 #: libraries/classes/Config/Descriptions.php:292
 #: libraries/classes/Plugins/Export/ExportSql.php:354
@@ -4491,8 +4490,7 @@ msgid ""
 msgstr ""
 "Uživatelské jméno pro přihlášení k serveru proxy. Ve výchozím nastavení není "
 "prováděno žádné ověřování. Pokud je zadáno uživatelské jméno, bude provedeno "
-"základní ověřování. V současné době nejsou podporovány žádné další typy "
-"ověřování."
+"základní ověřování. Aktuálně nejsou podporovány žádné další typy ověřování."
 
 #: libraries/classes/Config/Descriptions.php:953
 msgid "Proxy username"
@@ -7884,15 +7882,15 @@ msgstr "Počet provedených synchronizací fsync()."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:382
 msgid "The current number of pending fsync() operations."
-msgstr "Počet nevyřízených synchronizací fsync()."
+msgstr "Aktuální počet nevyřízených synchronizací fsync()."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:385
 msgid "The current number of pending reads."
-msgstr "Počet nevyřízených čtení."
+msgstr "Aktuální počet nevyřízených čtení."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:388
 msgid "The current number of pending writes."
-msgstr "Počet nevyřízených zápisů."
+msgstr "Aktuální počet nevyřízených zápisů."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:391
 msgid "The amount of data read so far, in bytes."
@@ -7976,7 +7974,7 @@ msgstr "Počet zapsaných stránek."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:446
 msgid "The number of row locks currently being waited for."
-msgstr "Počet zámků řádku, na které se v současné době čeká."
+msgstr "Počet zámků řádku, na které se aktuálně čeká."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:449
 msgid "The average time to acquire a row lock, in milliseconds."
@@ -8204,8 +8202,7 @@ msgstr "Počet spojení, které prováděly kompletní procházení první tabul
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:592
 msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr ""
-"Počet dočasných tabulek v současné době otevřených podřízeným serverem."
+msgstr "Počet dočasných tabulek aktuálně otevřených podřízeným serverem."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:596
 msgid ""
@@ -8813,7 +8810,7 @@ msgid ""
 msgstr ""
 "Pro server %2$d nelze použít časové pásmo \"%1$s\". Zkontrolujte prosím "
 "nastavení konfigurace [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
-"phpMyAdmin momentálně používá výchozí časové pásmo databázového serveru."
+"phpMyAdmin aktuálně používá výchozí časové pásmo databázového serveru."
 
 #: libraries/classes/DatabaseInterface.php:1146
 msgid "Failed to set configured collation connection!"
@@ -12642,7 +12639,7 @@ msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění uživatele přímo z tabulek MySQL. "
 "Pokud došlo k ruční úpravě těchto tabulek, může se jejich obsah lišit od "
 "oprávnění, která server právě používá. V tom případě je třeba znovu načíst "
-"oprávnění, k tomu však nemáte dostatečné oprávnění."
+"oprávnění, k tomu však aktuálně nemáte dostatečné oprávnění."
 
 #: libraries/classes/Server/Privileges.php:3517
 msgid "You have added a new user."
@@ -16957,7 +16954,7 @@ msgstr ""
 
 #: templates/server/replication/slave_configuration.twig:81
 msgid "Skip current error"
-msgstr "Přeskočit současnou chybu"
+msgstr "Přeskočit aktuální chybu"
 
 #: templates/server/replication/slave_configuration.twig:87
 #, php-format
