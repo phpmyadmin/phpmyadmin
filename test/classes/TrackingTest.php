@@ -426,7 +426,7 @@ class TrackingTest extends AbstractTestCase
     {
         $ret = $this->tracking->getListOfVersionsOfTable();
 
-        $this->assertIsArray($ret);
+        $this->assertNotFalse($ret);
     }
 
     /**

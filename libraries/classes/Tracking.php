@@ -93,27 +93,23 @@ class Tracking
 
     /**
      * Function to get the list versions of the table
+     *
+     * @return object|false
      */
-    public function getListOfVersionsOfTable(): array
+    public function getListOfVersionsOfTable()
     {
-        $relation = $this->relation;
-        $cfgRelation = $relation->getRelationsParam();
-        $sql_query = ' SELECT * FROM ' .
-            Util::backquote($cfgRelation['db']) . '.' .
-            Util::backquote($cfgRelation['tracking']) .
-            " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($GLOBALS['db']) .
-            "' " .
-            " AND table_name = '" .
-            $GLOBALS['dbi']->escapeString($GLOBALS['table']) . "' " .
-            ' ORDER BY version DESC ';
+        global $dbi, $db, $table;
 
-        $result = $relation->queryAsControlUser($sql_query);
+        $cfgRelation = $this->relation->getRelationsParam();
+        $query = sprintf(
+            'SELECT * FROM %s.%s WHERE db_name = \'%s\' AND table_name = \'%s\' ORDER BY version DESC',
+            Util::backquote($cfgRelation['db']),
+            Util::backquote($cfgRelation['tracking']),
+            $dbi->escapeString($db),
+            $dbi->escapeString($table)
+        );
 
-        if (! is_array($result)) {
-            return [];
-        }
-
-        return $result;
+        return $dbi->query($query, DatabaseInterface::CONNECT_CONTROL, 0, false);
     }
 
     /**
@@ -144,7 +140,7 @@ class Tracking
         $selectableTablesNumRows = $GLOBALS['dbi']->numRows($selectableTablesSqlResult);
 
         $versionSqlResult = $this->getListOfVersionsOfTable();
-        if ($lastVersion === null) {
+        if ($lastVersion === null && $versionSqlResult !== false) {
             $lastVersion = $this->getTableLastVersionNumber($versionSqlResult);
         }
         $GLOBALS['dbi']->dataSeek($versionSqlResult, 0);
@@ -175,7 +171,7 @@ class Tracking
     /**
      * Function to get the last version number of a table
      *
-     * @param array $sql_result sql result
+     * @param object $sql_result sql result
      *
      * @return int
      */
