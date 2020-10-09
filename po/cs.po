@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-10-08 21:26+0000\n"
+"PO-Revision-Date: 2020-10-09 21:07+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
@@ -809,7 +809,7 @@ msgstr ""
 #: index.php:577
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
-"Nastavte klíč pro šifrování cookies (blowfish_secret) v konfiguračním "
+"Nastavte klíč pro šifrování souborů cookie (blowfish_secret) v konfiguračním "
 "souboru (config.inc.php)."
 
 #: index.php:584
@@ -1634,8 +1634,8 @@ msgid ""
 "reentering your credentials should help."
 msgstr ""
 "Při načítání nových dat server vrátil chybnou odpověď. Pravděpodobně to bylo "
-"způsobeno vypršeným sezením. Problém můžete vyřešit novým načtením stránky a "
-"přihlášením."
+"způsobeno vypršením platnosti relace. Problém můžete vyřešit novým načtením "
+"stránky a přihlášením."
 
 #: js/messages.php:320
 msgid "Reload page"
@@ -4655,21 +4655,21 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
-"Pokud je povoleno, dochází při odhlášení ke smazání cookies na všech "
-"serverech, pokud je zakázáno, maže se cookie pouze pro současný server. "
+"Pokud je povoleno, dochází při odhlášení ke smazání souborů cookie na všech "
+"serverech, pokud je zakázáno, smaže se cookie pouze pro aktuální server. "
 "Zakázání může způsobit, že se zapomenete odhlásit od ostatních serverů, "
 "pokud jich používáte více."
 
 #: libraries/classes/Config/Descriptions.php:700
 msgid "Delete all cookies on logout"
-msgstr "Smazat všechny cookies při odhlášení"
+msgstr "Smazat všechny soubory cookie při odhlášení"
 
 #: libraries/classes/Config/Descriptions.php:703
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Určuje, zda se má pamatovat předchozí přihlášení, při použití přihlašování "
+"Určuje, zda se má pamatovat předchozí přihlášení při použití přihlašování "
 "pomocí [kbd]cookie[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:707
@@ -4684,9 +4684,9 @@ msgid ""
 "recommended for non-trusted environments."
 msgstr ""
 "Určuje, jak dlouho (v sekundách) si má prohlížeč pamatovat přihlašovací "
-"cookie. Výchozí hodnota 0 znamená, že cookie bude držena jen pro existující "
-"sezení, čili, že bude smazána v okamžiku, kdy zavřete okno prohlížeče. Tato "
-"volba je doporučena pro nedůvěryhodná prostředí."
+"cookie. Výchozí hodnota 0 znamená, že bude cookie uchována jen pro stávající "
+"relaci, tj. bude smazána v okamžiku, kdy zavřete okno prohlížeče. Tato volba "
+"je doporučena pro nedůvěryhodná prostředí."
 
 #: libraries/classes/Config/Descriptions.php:716
 msgid "Login cookie store"
@@ -6384,9 +6384,10 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Neměl jste nastavený tajný klíč pro šifru blowfish (blowfish_secret) a "
-"povolené přihlašování pomocí [kbd]cookie[/kbd], takže byl Váš tajný klíč "
-"vygenerován. Klíč bude použit pro zašifrování cookies."
+"Je povoleno přihlašování pomocí [kbd]cookie[/kbd] a nebyl nastaven tajný "
+"klíč pro šifru blowfish (blowfish_secret), proto byl vygenerován "
+"automaticky. Tento klíč se používá k šifrování souborů cookie, nemusíte si "
+"ho pamatovat."
 
 #: libraries/classes/Config/ServerConfigChecks.php:372
 msgid "Key is too short, it should have at least 32 characters."
@@ -9074,7 +9075,7 @@ msgstr "Zkusit se připojit znovu"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:134
 msgid "Your session has expired. Please log in again."
-msgstr "Vaše sezení vypršelo, prosím přihlaste se znovu."
+msgstr "Platnost vaší relace vypršela, přihlaste se prosím znovu."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:154
 msgid "Log in"
@@ -9111,7 +9112,7 @@ msgstr "Nemáte povolení se přihlásit k tomuto MySQL serveru!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
-msgstr "Špatné uživatelské jméno nebo heslo. Přístup odepřen."
+msgstr "Chybné uživatelské jméno nebo heslo. Přístup odepřen."
 
 #: libraries/classes/Plugins/Auth/AuthenticationSignon.php:135
 msgid "Can not find signon authentication script:"
@@ -9693,7 +9694,7 @@ msgstr "Názvy sloupců: "
 #: libraries/classes/Plugins/Import/ImportCsv.php:155
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr "Neznámý parametr pro import CSV: %s"
+msgstr "Chybný parametr pro import CSV: %s"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:207
 #, php-format
@@ -13749,7 +13750,7 @@ msgstr ""
 
 #: libraries/common.inc.php:344
 msgid "Invalid authentication method set in configuration:"
-msgstr "V nastavení máte špatnou přihlašovací metodu:"
+msgstr "V konfiguraci je nastavena neplatná metoda přihlášení:"
 
 #: libraries/common.inc.php:397
 #, php-format
@@ -13894,7 +13895,7 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
-"Vaše nastavení bude uchováno jen pro toto sezení. Pro trvalá nastavení "
+"Vaše nastavení bude uchováno jen pro aktuální relaci. Pro trvalá nastavení "
 "musíte nastavit %súložiště nastavení phpMyAdmina%s."
 
 #: navigation.php:24
@@ -15123,7 +15124,7 @@ msgstr "Zvolte typ výstupu relací"
 
 #: templates/server/variables/session_variable_row.twig:3
 msgid "Session value"
-msgstr "Hodnota sezení"
+msgstr "Hodnota relace"
 
 #: templates/columns_definitions/column_definitions_form.twig:23
 msgid "Table name"
@@ -16124,7 +16125,7 @@ msgid ""
 "import it for current session?"
 msgstr ""
 "Ve vašem prohlížeči je uloženo nastavení phpMyAdmina pro tuto doménu. "
-"Přejete si ho importovat do tohoto sezení?"
+"Přejete si ho importovat do aktuální relace?"
 
 #: templates/prefs_autoload.twig:13
 msgid "Delete settings"
