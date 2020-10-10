@@ -2061,6 +2061,40 @@ class DbiDummy implements DbiExtension
                 'columns' => ['Name'],
                 'result' => [['PMA_table']],
             ],
+            [
+                'query' => 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)',
+                'columns' => ['id'],
+                'result' => [['11'], ['12']],
+            ],
+            [
+                'query' => 'SELECT * FROM `table_1` WHERE `id` > 10',
+                'columns' => ['column'],
+                'result' => [['row1'], ['row2']],
+            ],
+            [
+                'query' => 'SELECT * FROM `PMA`.`table_1` LIMIT 1',
+                'columns' => ['column'],
+                'result' => [['table']],
+            ],
+            [
+                'query' => 'SELECT * FROM `PMA`.`table_2` LIMIT 1',
+                'columns' => ['column'],
+                'result' => [['table']],
+            ],
+            [
+                'query' => 'SELECT `ENGINE` FROM `information_schema`.`tables` WHERE `table_name` = "table_1"'
+                    . ' AND `table_schema` = "PMA" AND UPPER(`engine`)'
+                    . ' IN ("INNODB", "FALCON", "NDB", "INFINIDB", "TOKUDB", "XTRADB", "SEQUENCE", "BDB")',
+                'columns' => ['ENGINE'],
+                'result' => [['INNODB']],
+            ],
+            [
+                'query' => 'SELECT `ENGINE` FROM `information_schema`.`tables` WHERE `table_name` = "table_2"'
+                    . ' AND `table_schema` = "PMA" AND UPPER(`engine`)'
+                    . ' IN ("INNODB", "FALCON", "NDB", "INFINIDB", "TOKUDB", "XTRADB", "SEQUENCE", "BDB")',
+                'columns' => ['ENGINE'],
+                'result' => [['INNODB']],
+            ],
         ];
         /**
          * Current database.

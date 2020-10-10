@@ -7,14 +7,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Url;
 use const PHP_INT_MAX;
-use function implode;
-use function sprintf;
 use function time;
 
 /**
@@ -489,10 +486,6 @@ class ImportTest extends AbstractTestCase
     public function testPMAGetMatchedRows(): void
     {
         $GLOBALS['db'] = 'PMA';
-        //mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
 
         $updateQuery = 'UPDATE `table_1` '
             . 'SET `id` = 20 '
@@ -502,28 +495,6 @@ class ImportTest extends AbstractTestCase
         $deleteQuery = 'DELETE FROM `table_1` '
             . 'WHERE `id` > 10';
         $simulatedDeleteQuery = 'SELECT * FROM `table_1` WHERE `id` > 10';
-
-        $dbi->expects($this->any())
-            ->method('numRows')
-            ->with([])
-            ->will($this->returnValue(2));
-
-        $dbi->expects($this->any())
-            ->method('selectDb')
-            ->with('PMA')
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->at(1))
-            ->method('tryQuery')
-            ->with($simulatedUpdateQuery)
-            ->will($this->returnValue([]));
-
-        $dbi->expects($this->at(4))
-            ->method('tryQuery')
-            ->with($simulatedDeleteQuery)
-            ->will($this->returnValue([]));
-
-        $GLOBALS['dbi'] = $dbi;
 
         $this->simulatedQueryTest($updateQuery, $simulatedUpdateQuery);
         $this->simulatedQueryTest($deleteQuery, $simulatedDeleteQuery);
@@ -571,62 +542,6 @@ class ImportTest extends AbstractTestCase
     public function testPMACheckIfRollbackPossible(): void
     {
         $GLOBALS['db'] = 'PMA';
-        //mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        // List of Transactional Engines.
-        $transactional_engines = [
-            'INNODB',
-            'FALCON',
-            'NDB',
-            'INFINIDB',
-            'TOKUDB',
-            'XTRADB',
-            'SEQUENCE',
-            'BDB',
-        ];
-
-        $check_query = 'SELECT `ENGINE` FROM `information_schema`.`tables` '
-            . 'WHERE `table_name` = "%s" '
-            . 'AND `table_schema` = "%s" '
-            . 'AND UPPER(`engine`) IN ("'
-            . implode('", "', $transactional_engines)
-            . '")';
-
-        $check_table_query = 'SELECT * FROM `%s`.`%s` '
-            . 'LIMIT 1';
-
-        $dbi->expects($this->at(0))
-            ->method('tryQuery')
-            ->with(sprintf($check_table_query, 'PMA', 'table_1'))
-            ->will($this->returnValue(['table']));
-
-        $dbi->expects($this->at(1))
-            ->method('tryQuery')
-            ->with(sprintf($check_query, 'table_1', 'PMA'))
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->at(2))
-            ->method('numRows')
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->at(3))
-            ->method('tryQuery')
-            ->with(sprintf($check_table_query, 'PMA', 'table_2'))
-            ->will($this->returnValue(['table']));
-
-        $dbi->expects($this->at(4))
-            ->method('tryQuery')
-            ->with(sprintf($check_query, 'table_2', 'PMA'))
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->at(5))
-            ->method('numRows')
-            ->will($this->returnValue(1));
-
-        $GLOBALS['dbi'] = $dbi;
 
         $sqlQuery = 'UPDATE `table_1` AS t1, `table_2` t2 '
             . 'SET `table_1`.`id` = `table_2`.`id` '
