@@ -60,5 +60,4 @@ composer.lock
 /node_modules/
 phpstan.neon
 libraries/cache/
-# Dist files from 5.1
-/js/dist/**/*.js
+js/dist/
