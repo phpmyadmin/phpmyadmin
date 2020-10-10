@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.0.4 (not yet released)
+
 5.0.3 (2020-10-09)
 - issue #15983 Require twig ^2.9
 - issue        Fix option to import files locally appearing as not available
