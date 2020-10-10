@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.9.7 (not yet released)
+
 4.9.6 (2020-10-09)
 - issue        [security] Fix XSS vulnerability with the transformation feature (PMASA-2020-5)
 - issue        [security] Fix SQL injection vulnerability with search feature (PMASA-2020-6)
