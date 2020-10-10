@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:21-0300\n"
-"PO-Revision-Date: 2020-07-29 09:41+0000\n"
+"PO-Revision-Date: 2020-10-10 15:54+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -9899,18 +9899,6 @@ msgstr ""
 "jätma esimese valiku tühjaks."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -9924,15 +9912,15 @@ msgid ""
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
 "AINULT LINUXILE: Käivitab välise programmi ja söödab ta standardsisendisse "
-"veergude andmed. Tagastab programmi standardväljundi. Vaikimisi on Tidy, et "
-"luua loetav HTML kood. Turvalisuse tõttu pead sa käsitsi muutma faili "
+"veergude andmed. Tagastab programmi standardväljundi. Vaikeväärtus on Tidy, "
+"et luua loetav HTML kood. Turvalisuse tõttu pead sa käsitsi muutma faili "
 "libraries/classes/Plugins/Transformations/Output/Text_Plain_External.php ja "
 "loetlema võimalikud vahendid, mida kasutada. Esimene parameeter on "
-"kasutatava programmi number ja teine programmi enda parameetrid. Kolmas "
-"parameeter, kui ta on 1, teostab väljundi teisendamise funktsiooni "
-"htmlspecialchars() abil (vaikimisi on 1). Neljas parameeter, kui on 1, "
-"keelab ridade murdmise ja kindlustab, et väljund on täielikult ainult ühel "
-"real (vaikimisi on 1)."
+"kasutatava programmi number. Teine parameeter peaks ajaloolistel põhjustel "
+"olema tühi. Kolmas parameeter, kui ta on 1, teisendab väljundit "
+"funktsiooniga htmlspecialchars() (vaikeväärtus on 1). Neljas parameeter, kui "
+"on 1, keelab ridade murdmise ja kindlustab, et väljund on täielikult ainult "
+"ühel real (vaikeväärtus on 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
 #, php-format
@@ -9941,6 +9929,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Sa kasutad välise transformaatori käsurea parameetrite välja, mis ei ole "
+"turvalisuse kaalutlustel soovitatav. Lisa kõik käsurea parameetrid otse %s "
+"definitsiooni."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -14248,10 +14239,8 @@ msgstr "Vigane tabeli nimi"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Siin on liiga palju ilma indeksiteta liitmisi."
+msgstr "Sinu päring ei läbinud turvalisuse kontrolli."
 
 #: tbl_replace.php:258
 #, php-format
