@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-08-16 18:25-0300\n"
-"PO-Revision-Date: 2020-10-09 18:31+0000\n"
+"PO-Revision-Date: 2020-10-10 15:54+0000\n"
 "Last-Translator: P <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "bg/>\n"
@@ -2234,16 +2234,12 @@ msgid ""
 msgstr "Според настройките си, те се подава в момента, моля, бъдете търпеливи."
 
 #: js/messages.php:732
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Изтриването на страницата е успешно"
+msgstr "Успешно копирано!"
 
 #: js/messages.php:733
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Копиране БД"
+msgstr "Копирането пропадна!"
 
 #: js/messages.php:736
 msgid "Execute this query again?"
@@ -6114,7 +6110,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:901
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Частен ключ за reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:903
 msgid "Choose the default action when sending error reports."
@@ -6493,35 +6489,31 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:529
-#, fuzzy, php-format
-#| msgid ""
-#| "%sZip decompression%s requires functions (%s) which are unavailable on "
-#| "this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr "%sZip разархивиране%s изизква функцията (%s), която не е налична."
+msgstr ""
+"%1$sBzip2 компресирането и разархивирането%2$s изискват функции (%3$s), "
+"които не са достъпни на тази система."
 
 #: libraries/classes/Config/ServerConfigChecks.php:561
-#, fuzzy, php-format
-#| msgid ""
-#| "%sZip decompression%s requires functions (%s) which are unavailable on "
-#| "this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr "%sZip разархивиране%s изизква функцията (%s), която не е налична."
+msgstr ""
+"%1$sGzip архивирането и разархивирането%2$s изискват функции (%3$s), които "
+"не са достъпни на тази система."
 
 #: libraries/classes/Config/Validator.php:221
 #: libraries/classes/Config/Validator.php:228
 msgid "Could not connect to the database server!"
-msgstr "Невъзможност за свързване сървъра на базата данни!"
+msgstr "Невъзможно свързване със сървъра на базата данни!"
 
 #: libraries/classes/Config/Validator.php:263
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Тип удостоверяване"
+msgstr "Невалиден тип удостоверяване!"
 
 #: libraries/classes/Config/Validator.php:270
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -7447,10 +7439,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Setup/HomeController.php:84
-#, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration not saved!"
-msgstr "Конфигурацията запазена."
+msgstr "Конфигурацията не е запазена!"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:87
 msgid ""
@@ -7561,7 +7551,7 @@ msgstr "Колоните бяха преместени упешно."
 #, fuzzy, php-format
 #| msgid "Failed to get real row count."
 msgid "Failed to get description of column %s!"
-msgstr "Неточно преброяване на редовете."
+msgstr "Неуспешно получаване на описание на колона %s!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:784
 #: libraries/classes/Controllers/Table/StructureController.php:1091
@@ -7700,10 +7690,8 @@ msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY релация е добавена"
 
 #: libraries/classes/Database/Designer/Common.php:671
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Грешка: Релацията не е добавена."
+msgstr "Грешка: Не може да бъде добавена релация FOREIGN KEY !"
 
 #: libraries/classes/Database/Designer/Common.php:678
 msgid "Error: Missing index on column(s)."
@@ -7720,10 +7708,8 @@ msgid "Internal relationship has been added."
 msgstr "Добавена е вътрешна релация"
 
 #: libraries/classes/Database/Designer/Common.php:718
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
-msgstr "Грешка: Релацията не е добавена."
+msgstr "Грешка: Вътрешната релация не може да бъде добавена!"
 
 #: libraries/classes/Database/Designer/Common.php:758
 #, fuzzy
@@ -7732,10 +7718,8 @@ msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY релация е добавена"
 
 #: libraries/classes/Database/Designer/Common.php:765
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Грешка: Релацията не е добавена."
+msgstr "Грешка: Не може да бъде премахната релация FOREIGN KEY!"
 
 #: libraries/classes/Database/Designer/Common.php:792
 #, fuzzy
@@ -9378,7 +9362,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:286
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Добавете основен ключ (primary key) на съществуващата колона(-и)"
 
 #: libraries/classes/Normalization.php:291
 msgid ""
@@ -9584,7 +9568,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:921
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Трета стъпка на нормализацията (1NF+2NF+3NF)"
 
 #: libraries/classes/Normalization.php:932
 msgid ""
@@ -10114,7 +10098,7 @@ msgstr "Структура на таблица"
 #: libraries/classes/Plugins/Export/ExportSql.php:2127
 #: libraries/classes/Plugins/Export/ExportTexytext.php:546
 msgid "Structure for view"
-msgstr ""
+msgstr "Структура на изгледа"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:604
 #: libraries/classes/Plugins/Export/ExportOdt.php:755
@@ -10355,7 +10339,7 @@ msgstr "Вместо <code>INSERT</code> изрази, да се използв�
 
 #: libraries/classes/Plugins/Export/ExportSql.php:382
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "директиви <code>INSERT DELAYED</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:394
 #: libraries/classes/Plugins/Export/ExportSql.php:428
@@ -10574,7 +10558,7 @@ msgstr "Таблица"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:183
 msgid "Purpose:"
-msgstr ""
+msgstr "Цел:"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:53
 msgid ""
@@ -17227,22 +17211,25 @@ msgstr "Изтриване на таблицата (DROP)"
 
 #: libraries/advisory_rules_generic.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Активност под един ден"
 
 #: libraries/advisory_rules_generic.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Активността е под 1 ден, настройките за производителност може да не са точни."
 
 #: libraries/advisory_rules_generic.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"За да получите по-точни данни, препоръчително е да оставите сървъра да "
+"работи по-дълго от един ден преди да стартирате този анализатор"
 
 #: libraries/advisory_rules_generic.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Активността е само %s"
 
 #: libraries/advisory_rules_generic.txt:56
 msgid "Questions below 1,000"
@@ -17253,6 +17240,8 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"По-малко от 1,000 заявки са били изпратени до този сървър. Препоръките е "
+"възможно да не са точни."
 
 #: libraries/advisory_rules_generic.txt:60
 msgid ""
