@@ -104,6 +104,13 @@ class TransformationWrapperController extends AbstractController
          */
         $this->dbi->selectDb($db);
         if (isset($where_clause)) {
+            if (! Core::checkSqlQuerySignature($where_clause, $_GET['where_clause_sign'] ?? '')) {
+                /* l10n: In case a SQL query did not pass a security check  */
+                Core::fatalError(__('There is an issue with your request.'));
+
+                return;
+            }
+
             $result = $this->dbi->query(
                 'SELECT * FROM ' . Util::backquote($table)
                 . ' WHERE ' . $where_clause . ';',

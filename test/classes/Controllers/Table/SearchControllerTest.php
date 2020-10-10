@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\SearchController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table\Search;
@@ -181,6 +182,7 @@ class SearchControllerTest extends AbstractTestCase
         $_POST['db'] = 'PMA';
         $_POST['table'] = 'PMA_BookMark';
         $_POST['where_clause'] = '`col1` = 1';
+        $_POST['where_clause_sign'] = Core::signSqlQuery('`col1` = 1');
         $expected = [
             'col1' => 1,
             'col2' => 2,

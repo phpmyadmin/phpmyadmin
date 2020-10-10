@@ -3253,7 +3253,7 @@ class InsertEditTest extends AbstractTestCase
             '',
         ];
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $_POST['where_clause'] = 1;
+        $_POST['where_clause'] = '1';
         $transformation = ['transformation_options' => "'','option ,, quoted',abd"];
         $result = $this->insertEdit->transformEditedValues(
             'db',

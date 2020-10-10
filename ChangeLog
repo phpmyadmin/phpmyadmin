@@ -50,7 +50,9 @@ phpMyAdmin - ChangeLog
 - issue #13557 Use a full list of functions instead of a separated one on insert/edit page "Function" selector
 - issue #14795 Include routines in the export in a predictable order
 
-5.0.3 (not yet released)
+5.0.4 (not yet released)
+
+5.0.3 (2020-10-09)
 - issue #15983 Require twig ^2.9
 - issue        Fix option to import files locally appearing as not available
 - issue #16048 Fix to allow NULL as a default bit value
@@ -113,6 +115,8 @@ phpMyAdmin - ChangeLog
 - issue #16342 Fixed multi-table query (db_multi_table_query.php) alias show the same alias for all columns
 - issue #15109 Fixed using ST_GeomFromText + GUI on insert throws an error
 - issue #16325 Fixed editing Geometry data throws error on using the GUI
+- issue        [security] Fix XSS vulnerability with the transformation feature (PMASA-2020-5)
+- issue        [security] Fix SQL injection vulnerability with search feature (PMASA-2020-6)
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
@@ -244,6 +248,12 @@ phpMyAdmin - ChangeLog
 - issue #14732 Fixed can't rename primary key with auto increment
 - issue #15677 Fix show process-list triggers a php exception
 - issue #15697 Fix uncaught php error: "Call to a member function get() on null" in db_export.php when exporting a table from the list
+
+4.9.7 (not yet released)
+
+4.9.6 (2020-10-09)
+- issue        [security] Fix XSS vulnerability with the transformation feature (PMASA-2020-5)
+- issue        [security] Fix SQL injection vulnerability with search feature (PMASA-2020-6)
 
 4.9.5 (2020-03-20)
 - issue        [security] Fix SQL injection with certain usernames (PMASA-2020-2)

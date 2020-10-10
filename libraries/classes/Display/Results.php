@@ -2873,6 +2873,7 @@ class Results
             $_url_params = [
                 'db'            => $this->properties['db'],
                 'table'         => $meta->orgtable,
+                'where_clause_sign' => Core::signSqlQuery($whereClauseMap[$row_no][$meta->orgtable]),
                 'where_clause'  => $whereClauseMap[$row_no][$meta->orgtable],
                 'transform_key' => $meta->orgname,
             ];

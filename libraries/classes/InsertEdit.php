@@ -2603,6 +2603,7 @@ class InsertEdit
             $_url_params = [
                 'db'            => $db,
                 'table'         => $table,
+                'where_clause_sign' => Core::signSqlQuery($_POST['where_clause']),
                 'where_clause'  => $_POST['where_clause'],
                 'transform_key' => $column_name,
             ];
@@ -3430,6 +3431,7 @@ class InsertEdit
                         'db'            => $db,
                         'table'         => $table,
                         'transform_key' => $column['Field'],
+                        'where_clause_sign' => Core::signSqlQuery($where_clause),
                         'where_clause'  => $where_clause,
                     ];
                     $transformation_options['wrapper_link'] = Url::getCommon($_url_params);

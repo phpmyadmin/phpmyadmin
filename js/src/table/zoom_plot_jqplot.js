@@ -550,7 +550,8 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                 value[dataLabel], // for highlighter
                 // (may set an undefined value)
                 value.where_clause, // for click on point
-                key               // key from searchedData
+                key,               // key from searchedData
+                value.where_clause_sign
             ]);
         });
 
@@ -583,7 +584,8 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
                     'server' : CommonParams.get('server'),
                     'db' : CommonParams.get('db'),
                     'table' : CommonParams.get('table'),
-                    'where_clause' : data[3]
+                    'where_clause' : data[3],
+                    'where_clause_sign' : data[5]
                 };
 
                 $.post('index.php?route=/table/zoom-search', postParams, function (data) {
