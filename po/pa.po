@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.9.6\n"
+"Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-10-10 12:56-0300\n"
+"POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2017-08-22 09:47+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Punjabi <https://hosted.weblate.org/projects/phpmyadmin/"
