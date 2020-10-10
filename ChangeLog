@@ -196,6 +196,10 @@ phpMyAdmin - ChangeLog
 - issue #15677 Fix show process-list triggers a php exception
 - issue #15697 Fix uncaught php error: "Call to a member function get() on null" in db_export.php when exporting a table from the list
 
+4.9.6 (2020-10-09)
+- issue        [security] Fix XSS vulnerability with the transformation feature (PMASA-2020-5)
+- issue        [security] Fix SQL injection vulnerability with search feature (PMASA-2020-6)
+
 4.9.5 (2020-03-20)
 - issue        [security] Fix SQL injection with certain usernames (PMASA-2020-2)
 - issue        [security] Fix SQL injection in particular search situations (PMASA-2020-3)
