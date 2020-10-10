@@ -185,7 +185,7 @@ class Tracking
     /**
      * Function to get sql results for selectable tables
      *
-     * @return array
+     * @return mixed
      */
     public function getSqlResultForSelectableTables()
     {
@@ -1210,7 +1210,7 @@ class Tracking
                 && $value['is' . $sep . 'group']
             ) {
                 // Recursion step
-                $untracked_tables = array_merge($this->extractTableNames($value, $db), $untracked_tables);
+                $untracked_tables = array_merge($this->extractTableNames($value, $db, $testing), $untracked_tables);
             } else {
                 if (is_array($value) && ($testing || Tracker::getVersion($db, $value['Name']) == -1)) {
                     $untracked_tables[] = $value['Name'];

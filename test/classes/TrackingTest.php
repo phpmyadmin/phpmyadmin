@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
@@ -33,16 +32,20 @@ class TrackingTest extends AbstractTestCase
     {
         parent::setUp();
         parent::defineVersionConstants();
-        /**
-         * SET these to avoid undefined index error
-         */
+        parent::setTheme();
+
+        global $PMA_Config;
+
+        $PMA_Config->enableBc();
+
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'PMA_db';
         $GLOBALS['table'] = 'PMA_table';
-        $GLOBALS['cfg']['ServerDefault'] = 'server';
-        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
-        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
-        $GLOBALS['cfg']['NavigationTreeTableSeparator'] = '_';
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 
         $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
@@ -51,27 +54,8 @@ class TrackingTest extends AbstractTestCase
             'trackingwork' => true,
         ];
 
-        $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $fetchArray = ['version' => '10'];
-        $dbi->expects($this->any())
-            ->method('fetchArray')
-            ->will($this->returnValue($fetchArray));
-        $dbi->expects($this->any())
-            ->method('query')
-            ->will($this->returnValue(true));
-        $dbi->expects($this->any())
-            ->method('tryQuery')
-            ->will($this->returnValue(true));
-
-        $GLOBALS['dbi'] = $dbi;
-
         $template = new Template();
-        $this->tracking = new Tracking(new SqlQueryForm($template), $template, new Relation($dbi));
+        $this->tracking = new Tracking(new SqlQueryForm($template), $template, new Relation($GLOBALS['dbi']));
     }
 
     /**
@@ -121,6 +105,8 @@ class TrackingTest extends AbstractTestCase
      */
     public function testExtractTableNames(): void
     {
+        $GLOBALS['cfg']['NavigationTreeTableSeparator'] = '_';
+
         $table_list = [
             'hello_' => [
                 'is_group' => 1,
@@ -152,141 +138,28 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetHtmlForMain(): void
     {
-        $last_version = 3;
-        $url_params = [];
-        $themeImagePath = 'themePath/img';
-        $text_dir = 'ltr';
+        $html = $this->tracking->getHtmlForMainPage([], 'themePath/img', 'ltr');
 
-        // Mock dbi
-        $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $fetchArray = [
-            'tracking_active' => 1,
-            'version' => 1,
-            'db_name' => 'PMA_db',
-            'table_name' => 'PMA_table',
-            'date_created' => 'date_created',
-            'date_updated' => 'date_updated',
-        ];
-        // return fetchArray for selectable entries
-        for ($i = 2; $i < 6; $i++) {
-            $dbi->expects($this->at($i))
-                ->method('fetchArray')
-                ->will($this->returnValue($fetchArray));
-        }
-        $dbi->expects($this->at(6))
-            ->method('fetchArray')
-            ->will($this->returnValue(null));
-        // return fetchArray for Activate/Deactivate tracking
-        for ($i = 7; $i < 13; $i++) {
-            $dbi->expects($this->at($i))
-                ->method('fetchArray')
-                ->will($this->returnValue($fetchArray));
-        }
-        $dbi->expects($this->at(13))
-            ->method('fetchArray')
-            ->will($this->returnValue(null));
-
-        $dbi->method('numRows')
-            ->will($this->returnValue(1));
-
-        $GLOBALS['dbi'] = $dbi;
-
-        /* Here, we need to overwrite the object written in the setUp function because $dbi object is not the one mocked
-        at the beginning. */
-        $template = new Template();
-        $this->tracking = new Tracking(new SqlQueryForm($template), $template, new Relation($dbi));
-
-        $html = $this->tracking->getHtmlForMainPage(
-            $url_params,
-            $themeImagePath,
-            $text_dir,
-            $last_version
-        );
-
-        /*
-         * test selectables panel
-         */
+        $this->assertStringContainsString('PMA_db.PMA_table', $html);
+        $this->assertStringContainsString('<td>date_created</td>', $html);
+        $this->assertStringContainsString(__('Delete version'), $html);
+        $this->assertStringContainsString('<div id="div_create_version">', $html);
+        $this->assertStringContainsString(Url::getHiddenInputs($GLOBALS['db']), $html);
         $this->assertStringContainsString(
-            htmlspecialchars($fetchArray['db_name']) . '.' . htmlspecialchars($fetchArray['table_name']),
+            sprintf(
+                __('Create version %1$s of %2$s'),
+                2,
+                htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
+            ),
             $html
         );
-
-        /*
-         * test versions table
-         */
-         $this->assertStringContainsString(
-             '<td>date_created</td>',
-             $html
-         );
-         $this->assertStringContainsString(
-             __('Delete version'),
-             $html
-         );
-
-        /*
-         * test create panel
-         */
         $this->assertStringContainsString(
-            '<div id="div_create_version">',
+            '<input type="checkbox" name="delete" value="true"'
+                . ' checked="checked">' . "\n" . '            DELETE<br>',
             $html
         );
-
-        $this->assertStringContainsString(
-            Url::getHiddenInputs($GLOBALS['db']),
-            $html
-        );
-
-        $item = sprintf(
-            __('Create version %1$s of %2$s'),
-            $last_version + 1,
-            htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
-        );
-        $this->assertStringContainsString(
-            $item,
-            $html
-        );
-
-        $item = '<input type="checkbox" name="delete" value="true"'
-        . ' checked="checked">' . "\n" . '            DELETE<br>';
-        $this->assertStringContainsString(
-            $item,
-            $html
-        );
-
-        $this->assertStringContainsString(
-            __('Create version'),
-            $html
-        );
-
-        /*
-         * test deactivate/activate panel
-         */
-        $this->assertStringContainsString(
-            'Deactivate now',
-            $html
-        );
-        $fetchArray['tracking_active'] = 0;
-        $dbi->expects($this->at(9))
-            ->method('fetchArray')
-            ->will($this->returnValue($fetchArray));
-        $GLOBALS['dbi'] = $dbi;
-        $html = $this->tracking->getHtmlForMainPage(
-            $url_params,
-            $themeImagePath,
-            $text_dir,
-            $last_version
-        );
-        $this->assertStringContainsString(
-            'Activate now',
-            $html
-        );
-
-        //restore DBI
-        $GLOBALS['dbi'] = $dbi_old;
+        $this->assertStringContainsString(__('Create version'), $html);
+        $this->assertStringContainsString('Deactivate now', $html);
     }
 
     /**
@@ -296,7 +169,7 @@ class TrackingTest extends AbstractTestCase
      */
     public function testGetTableLastVersionNumber(): void
     {
-        $sql_result = 'sql_result';
+        $sql_result = $this->tracking->getSqlResultForSelectableTables();
         $last_version = $this->tracking->getTableLastVersionNumber($sql_result);
 
         $this->assertEquals(
@@ -314,9 +187,7 @@ class TrackingTest extends AbstractTestCase
     {
         $ret = $this->tracking->getSqlResultForSelectableTables();
 
-        $this->assertTrue(
-            $ret
-        );
+        $this->assertNotFalse($ret);
     }
 
     /**

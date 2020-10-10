@@ -2416,11 +2416,6 @@ parameters:
 			path: test/classes/TrackingTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$sql_result of method PhpMyAdmin\\\\Tracking\\:\\:getTableLastVersionNumber\\(\\) expects object, string given\\.$#"
-			count: 1
-			path: test/classes/TrackingTest.php
-
-		-
 			message: "#^Parameter \\#3 \\$selection_schema of method PhpMyAdmin\\\\Tracking\\:\\:getHtmlForTrackingReport\\(\\) expects bool, array given\\.$#"
 			count: 1
 			path: test/classes/TrackingTest.php

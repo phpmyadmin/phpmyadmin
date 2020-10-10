@@ -2017,6 +2017,50 @@ class DbiDummy implements DbiExtension
                 'query' => 'SELECT UNIX_TIMESTAMP() - 36000',
                 'result' => [],
             ],
+            [
+                'query' => 'SELECT MAX(version) FROM `pmadb`.`tracking` WHERE `db_name` = \'db\''
+                    . ' AND `table_name` = \'hello_world\'',
+                'columns' => ['version'],
+                'result' => [['10']],
+            ],
+            [
+                'query' => 'SELECT MAX(version) FROM `pmadb`.`tracking` WHERE `db_name` = \'db\''
+                    . ' AND `table_name` = \'hello_lovely_world\'',
+                'columns' => ['version'],
+                'result' => [['10']],
+            ],
+            [
+                'query' => 'SELECT MAX(version) FROM `pmadb`.`tracking` WHERE `db_name` = \'db\''
+                    . ' AND `table_name` = \'hello_lovely_world2\'',
+                'columns' => ['version'],
+                'result' => [['10']],
+            ],
+            [
+                'query' => 'SELECT DISTINCT db_name, table_name FROM `pmadb`.`tracking`'
+                    . ' WHERE db_name = \'PMA_db\' ORDER BY db_name, table_name',
+                'columns' => ['db_name', 'table_name', 'version'],
+                'result' => [['PMA_db', 'PMA_table', '10']],
+            ],
+            [
+                'query' => 'SELECT * FROM `pmadb`.`tracking` WHERE db_name = \'PMA_db\''
+                    . ' AND table_name = \'PMA_table\' ORDER BY version DESC',
+                'columns' => ['db_name', 'table_name', 'version', 'date_created', 'date_updated', 'tracking_active'],
+                'result' => [
+                    ['PMA_db', 'PMA_table', '1', 'date_created', 'date_updated', '1'],
+                    ['PMA_db', 'PMA_table', '2', 'date_created', 'date_updated', '0'],
+                ],
+            ],
+            [
+                'query' => 'SELECT tracking_active FROM `pmadb`.`tracking` WHERE db_name = \'PMA_db\''
+                    . ' AND table_name = \'PMA_table\' ORDER BY version DESC LIMIT 1',
+                'columns' => ['tracking_active'],
+                'result' => [['1']],
+            ],
+            [
+                'query' => 'SHOW TABLE STATUS FROM `PMA_db` WHERE `Name` LIKE \'PMA\_table%\'',
+                'columns' => ['Name'],
+                'result' => [['PMA_table']],
+            ],
         ];
         /**
          * Current database.
