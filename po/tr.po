@@ -1,9 +1,9 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.9.5\n"
+"Project-Id-Version: phpMyAdmin 4.9.6\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-08-16 18:21-0300\n"
+"POT-Creation-Date: 2020-10-10 12:56-0300\n"
 "PO-Revision-Date: 2020-10-03 11:34+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
@@ -53,7 +53,7 @@ msgid "Table comments:"
 msgstr "Tablo açıklamaları:"
 
 #: db_datadict.php:117 libraries/classes/Index.php:723
-#: libraries/classes/InsertEdit.php:1912
+#: libraries/classes/InsertEdit.php:1913
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:30
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:291
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:387
@@ -83,7 +83,7 @@ msgstr "Sütun"
 
 #: db_datadict.php:118 libraries/classes/CentralColumns.php:744
 #: libraries/classes/CentralColumns.php:1428 libraries/classes/Index.php:720
-#: libraries/classes/InsertEdit.php:306
+#: libraries/classes/InsertEdit.php:307
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:294
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:390
 #: libraries/classes/Plugins/Export/ExportLatex.php:527
@@ -110,7 +110,7 @@ msgstr "Türü"
 
 #: db_datadict.php:119 libraries/classes/CentralColumns.php:755
 #: libraries/classes/CentralColumns.php:1429 libraries/classes/Index.php:726
-#: libraries/classes/InsertEdit.php:1921
+#: libraries/classes/InsertEdit.php:1922
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:297
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:393
 #: libraries/classes/Plugins/Export/ExportLatex.php:528
@@ -489,8 +489,8 @@ msgstr "Geometri ekle"
 #: gis_data_editor.php:417 js/messages.php:354
 #: libraries/classes/BrowseForeigners.php:199
 #: libraries/classes/Display/ChangePassword.php:160
-#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1890
-#: libraries/classes/InsertEdit.php:1928
+#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1891
+#: libraries/classes/InsertEdit.php:1929
 #: libraries/classes/Normalization.php:216
 #: libraries/classes/Normalization.php:898 libraries/classes/Operations.php:67
 #: libraries/classes/Operations.php:133 libraries/classes/Operations.php:275
@@ -1032,7 +1032,7 @@ msgstr ""
 msgid "Save & close"
 msgstr "Kaydet ve kapat"
 
-#: js/messages.php:113 libraries/classes/InsertEdit.php:1894
+#: js/messages.php:113 libraries/classes/InsertEdit.php:1895
 #: prefs_manage.php:357 prefs_manage.php:368
 #: templates/config/form_display/fieldset_bottom.twig:9
 msgid "Reset"
@@ -1087,7 +1087,7 @@ msgstr "Şununla bileşik:"
 msgid "Please select column(s) for the index."
 msgstr "İndeks için lütfen sütun(ları) seçin."
 
-#: js/messages.php:130 libraries/classes/InsertEdit.php:1892
+#: js/messages.php:130 libraries/classes/InsertEdit.php:1893
 #: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/index_form.twig:216
 #: templates/table/relation/common_form.twig:188
@@ -1869,8 +1869,8 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Depolanan işlevin tanımı RETURN ifadesi içermek zorunda!"
 
 #: js/messages.php:403 libraries/classes/Config/Forms/User/ExportForm.php:140
-#: libraries/classes/Display/Results.php:4715
-#: libraries/classes/Display/Results.php:4996 libraries/classes/Menu.php:383
+#: libraries/classes/Display/Results.php:4716
+#: libraries/classes/Display/Results.php:4997 libraries/classes/Menu.php:383
 #: libraries/classes/Menu.php:491 libraries/classes/Menu.php:617
 #: libraries/classes/Rte/RteList.php:168
 #: libraries/classes/Server/Privileges.php:2418
@@ -1930,8 +1930,8 @@ msgstr "Sorgu kutusunu göster"
 #: js/messages.php:422 libraries/classes/CentralColumns.php:879
 #: libraries/classes/CentralColumns.php:1234
 #: libraries/classes/Config/Descriptions.php:1329
-#: libraries/classes/Display/Results.php:3340
-#: libraries/classes/Display/Results.php:4699 libraries/classes/Index.php:745
+#: libraries/classes/Display/Results.php:3341
+#: libraries/classes/Display/Results.php:4700 libraries/classes/Index.php:745
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:595
 #: libraries/classes/Util.php:1079 libraries/classes/Util.php:3351
 #: libraries/classes/Util.php:3352 setup/frames/index.inc.php:157
@@ -1944,8 +1944,8 @@ msgstr "Düzenle"
 
 #: js/messages.php:423 libraries/classes/CentralColumns.php:881
 #: libraries/classes/CentralColumns.php:1238
-#: libraries/classes/Display/Results.php:3409
-#: libraries/classes/Display/Results.php:4683
+#: libraries/classes/Display/Results.php:3410
+#: libraries/classes/Display/Results.php:4684
 #: libraries/classes/Server/UserGroups.php:143
 #: libraries/classes/SqlQueryForm.php:427 libraries/classes/Tracking.php:354
 #: setup/frames/index.inc.php:161
@@ -1963,8 +1963,8 @@ msgid "%d is not valid row number."
 msgstr "%d geçerli bir satır sayısı değil."
 
 #: js/messages.php:425
-#: libraries/classes/Controllers/Table/TableSearchController.php:365
-#: libraries/classes/Controllers/Table/TableSearchController.php:861
+#: libraries/classes/Controllers/Table/TableSearchController.php:368
+#: libraries/classes/Controllers/Table/TableSearchController.php:868
 #: libraries/classes/Sql.php:232 tbl_change.php:142
 msgid "Browse foreign values"
 msgstr "Dış değerlere gözat"
@@ -2124,7 +2124,7 @@ msgid "No dependencies selected!"
 msgstr "Seçilen bağımlılıklar yok!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
-#: libraries/classes/InsertEdit.php:1804
+#: libraries/classes/InsertEdit.php:1805
 #: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/server/variables/link_template.twig:2
 #: templates/table/gis_visualization/gis_visualization.twig:48
@@ -2211,13 +2211,13 @@ msgid "Data point content"
 msgstr "Veri imleci içeriği"
 
 #: js/messages.php:519 js/messages.php:687 js/messages.php:704
-#: libraries/classes/ErrorHandler.php:382 libraries/classes/InsertEdit.php:2977
+#: libraries/classes/ErrorHandler.php:382 libraries/classes/InsertEdit.php:2979
 #: templates/table/index_form.twig:141 templates/table/index_form.twig:177
 msgid "Ignore"
 msgstr "Yoksay"
 
-#: js/messages.php:520 libraries/classes/Display/Results.php:3343
-#: libraries/classes/Display/Results.php:4704
+#: js/messages.php:520 libraries/classes/Display/Results.php:3344
+#: libraries/classes/Display/Results.php:4705
 msgid "Copy"
 msgstr "Kopyala"
 
@@ -2475,7 +2475,7 @@ msgstr "Dosyaları buraya bırakın"
 msgid "Select database first"
 msgstr "Önce veritabanını seçin"
 
-#: js/messages.php:626 libraries/classes/Display/Results.php:4890
+#: js/messages.php:626 libraries/classes/Display/Results.php:4891
 #: libraries/classes/Util.php:3886
 #: templates/table/structure/optional_action_links.twig:1
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
@@ -2562,7 +2562,7 @@ msgstr ", son sağlam sürüm:"
 msgid "up to date"
 msgstr "güncel"
 
-#: js/messages.php:677 libraries/classes/Display/Results.php:4824
+#: js/messages.php:677 libraries/classes/Display/Results.php:4825
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "Görünüm oluştur"
@@ -2726,7 +2726,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "%s tablosu zaten var!"
 
-#: js/messages.php:756 libraries/classes/InsertEdit.php:288
+#: js/messages.php:756 libraries/classes/InsertEdit.php:289
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:54
 msgid "Hide"
 msgstr "Gizle"
@@ -3056,7 +3056,7 @@ msgid "Please enter a valid HEX input"
 msgstr "Lütfen geçerli bir ONALTILIK girdi değeri girin"
 
 #: js/messages.php:989 libraries/classes/Core.php:297
-#: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1495
+#: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1496
 #: libraries/classes/Message.php:191 libraries/classes/Util.php:542
 #: view_operations.php:72
 msgid "Error"
@@ -6590,7 +6590,7 @@ msgid "Table %s has been dropped."
 msgstr "%s tablosu kaldırıldı."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:797
-#: libraries/classes/Display/Results.php:4544
+#: libraries/classes/Display/Results.php:4545
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -6745,8 +6745,8 @@ msgid "Display column was successfully updated."
 msgstr "Sütun görüntüleme başarılı olarak güncellendi."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:275
-#: libraries/classes/Controllers/Table/TableSearchController.php:585
-#: libraries/classes/Display/Results.php:4200 libraries/classes/Message.php:172
+#: libraries/classes/Controllers/Table/TableSearchController.php:592
+#: libraries/classes/Display/Results.php:4201 libraries/classes/Message.php:172
 #: libraries/classes/Rte/Routines.php:1465
 #: libraries/classes/SqlQueryForm.php:93 tbl_row_action.php:142
 #: view_operations.php:69
@@ -6757,15 +6757,15 @@ msgstr "SQL sorgunuz başarılı olarak çalıştırıldı."
 msgid "Internal relationships were successfully updated."
 msgstr "İç ilişkiler başarılı olarak güncellendi."
 
-#: libraries/classes/Controllers/Table/TableSearchController.php:785
+#: libraries/classes/Controllers/Table/TableSearchController.php:792
 msgid "Table search"
 msgstr "Tablo arama"
 
-#: libraries/classes/Controllers/Table/TableSearchController.php:792
+#: libraries/classes/Controllers/Table/TableSearchController.php:799
 msgid "Zoom search"
 msgstr "Odaklı arama"
 
-#: libraries/classes/Controllers/Table/TableSearchController.php:797
+#: libraries/classes/Controllers/Table/TableSearchController.php:804
 #: templates/table/search/selection_form.twig:75
 msgid "Find and replace"
 msgstr "Bul ve değiştir"
@@ -7317,51 +7317,51 @@ msgstr "Büyükten Küçüğe"
 msgid "Ascending"
 msgstr "Küçükten Büyüğe"
 
-#: libraries/classes/Display/Results.php:3385
-#: libraries/classes/Display/Results.php:3400
+#: libraries/classes/Display/Results.php:3386
+#: libraries/classes/Display/Results.php:3401
 msgid "The row has been deleted."
 msgstr "Satır silindi."
 
-#: libraries/classes/Display/Results.php:3433
-#: libraries/classes/Display/Results.php:4683
+#: libraries/classes/Display/Results.php:3434
+#: libraries/classes/Display/Results.php:4684
 #: libraries/classes/Server/Status/Processes.php:279
 msgid "Kill"
 msgstr "Sonlandır"
 
-#: libraries/classes/Display/Results.php:4127
+#: libraries/classes/Display/Results.php:4128
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Yaklaşık olabilir. [doc@faq3-11]SSS 3.11[/doc]'e bakın."
 
-#: libraries/classes/Display/Results.php:4557
+#: libraries/classes/Display/Results.php:4558
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Gösterilen satır %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4572
+#: libraries/classes/Display/Results.php:4573
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d toplam, %2$d sorguda"
 
-#: libraries/classes/Display/Results.php:4577
+#: libraries/classes/Display/Results.php:4578
 #, php-format
 msgid "%d total"
 msgstr "toplam %d"
 
-#: libraries/classes/Display/Results.php:4589 libraries/classes/Sql.php:1435
+#: libraries/classes/Display/Results.php:4590 libraries/classes/Sql.php:1435
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Sorgu %01.4f saniye sürdü."
 
-#: libraries/classes/Display/Results.php:4688
-#: libraries/classes/Display/Results.php:4695 libraries/mult_submits.inc.php:57
+#: libraries/classes/Display/Results.php:4689
+#: libraries/classes/Display/Results.php:4696 libraries/mult_submits.inc.php:57
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
 #: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Seçilileri:"
 
-#: libraries/classes/Display/Results.php:4692
-#: libraries/classes/Display/Results.php:4694
+#: libraries/classes/Display/Results.php:4693
+#: libraries/classes/Display/Results.php:4695
 #: libraries/classes/Server/Privileges.php:1188
 #: libraries/classes/Server/Privileges.php:1189
 #: libraries/classes/Server/UserGroups.php:248
@@ -7372,24 +7372,24 @@ msgstr "Seçilileri:"
 msgid "Check all"
 msgstr "Tümünü işaretle"
 
-#: libraries/classes/Display/Results.php:4870
+#: libraries/classes/Display/Results.php:4871
 msgid "Copy to clipboard"
 msgstr "Panoya kopyala"
 
-#: libraries/classes/Display/Results.php:4921
+#: libraries/classes/Display/Results.php:4922
 msgid "Query results operations"
 msgstr "Sorgu sonuçları işlemleri"
 
-#: libraries/classes/Display/Results.php:5005
+#: libraries/classes/Display/Results.php:5006
 #: templates/table/chart/tbl_chart.twig:10
 msgid "Display chart"
 msgstr "Çizelge göster"
 
-#: libraries/classes/Display/Results.php:5027
+#: libraries/classes/Display/Results.php:5028
 msgid "Visualize GIS data"
 msgstr "GIS verisini görselleştir"
 
-#: libraries/classes/Display/Results.php:5212
+#: libraries/classes/Display/Results.php:5213
 msgid "Link not found!"
 msgstr "Bağlantı bulunamadı!"
 
@@ -7867,7 +7867,7 @@ msgstr "Sayfanın en üstüne kaydırmak için çubuğa tklayın"
 msgid "Javascript must be enabled past this point!"
 msgstr "Bu kısmı geçmek için Javascript etkinleştirilmek zorundadır!"
 
-#: libraries/classes/Import.php:130 libraries/classes/InsertEdit.php:178
+#: libraries/classes/Import.php:130 libraries/classes/InsertEdit.php:179
 #: libraries/classes/Rte/Routines.php:1486 libraries/classes/Sql.php:1429
 #: tbl_get_field.php:59
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -8013,83 +8013,83 @@ msgstr ""
 "İndeks %1$s ve %2$s eşit görünüyor ve bunlardan birinin silinmesi mümkün "
 "olabilir."
 
-#: libraries/classes/InsertEdit.php:304
+#: libraries/classes/InsertEdit.php:305
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:30
 #: libraries/classes/Rte/Routines.php:1626
 #: templates/table/search/table_header.twig:4
 msgid "Function"
 msgstr "İşlev"
 
-#: libraries/classes/InsertEdit.php:468
+#: libraries/classes/InsertEdit.php:469
 msgid "Binary"
 msgstr "İkili Değer"
 
-#: libraries/classes/InsertEdit.php:728
+#: libraries/classes/InsertEdit.php:729
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr "Uzunluğu nedeniyle,<br /> bu sütun düzenlenebilir olmayabilir."
 
-#: libraries/classes/InsertEdit.php:1336
+#: libraries/classes/InsertEdit.php:1337
 msgid "Binary - do not edit"
 msgstr "İkili değer - düzenlemeyin"
 
-#: libraries/classes/InsertEdit.php:1496 libraries/classes/Util.php:3313
+#: libraries/classes/InsertEdit.php:1497 libraries/classes/Util.php:3313
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Gönderme işi için ayarladığınız dizine ulaşılamıyor."
 
-#: libraries/classes/InsertEdit.php:1499 templates/table/search/options.twig:25
+#: libraries/classes/InsertEdit.php:1500 templates/table/search/options.twig:25
 #: templates/privileges/column_privileges.twig:17
 msgid "Or"
 msgstr "Veya"
 
-#: libraries/classes/InsertEdit.php:1500
+#: libraries/classes/InsertEdit.php:1501
 msgid "web server upload directory:"
 msgstr "web sunucusu gönderme dizini:"
 
-#: libraries/classes/InsertEdit.php:1702
+#: libraries/classes/InsertEdit.php:1703
 #: templates/table/search/input_box.twig:38
 msgid "Edit/Insert"
 msgstr "Düzenle/Ekle"
 
-#: libraries/classes/InsertEdit.php:1769
+#: libraries/classes/InsertEdit.php:1770
 msgid "and then"
 msgstr "ve ondan sonra"
 
-#: libraries/classes/InsertEdit.php:1807
+#: libraries/classes/InsertEdit.php:1808
 msgid "Insert as new row"
 msgstr "Yeni satır olarak ekle"
 
-#: libraries/classes/InsertEdit.php:1810
+#: libraries/classes/InsertEdit.php:1811
 msgid "Insert as new row and ignore errors"
 msgstr "Yeni satır olarak ekle ve hataları yoksay"
 
-#: libraries/classes/InsertEdit.php:1813
+#: libraries/classes/InsertEdit.php:1814
 msgid "Show insert query"
 msgstr "Ekleme sorgusunu göster"
 
-#: libraries/classes/InsertEdit.php:1833
+#: libraries/classes/InsertEdit.php:1834
 msgid "Go back to previous page"
 msgstr "Önceki sayfaya geri dön"
 
-#: libraries/classes/InsertEdit.php:1836
+#: libraries/classes/InsertEdit.php:1837
 msgid "Insert another new row"
 msgstr "Yeni başka bir satır ekle"
 
-#: libraries/classes/InsertEdit.php:1841
+#: libraries/classes/InsertEdit.php:1842
 msgid "Go back to this page"
 msgstr "Bu sayfaya geri dön"
 
-#: libraries/classes/InsertEdit.php:1864
+#: libraries/classes/InsertEdit.php:1865
 msgid "Edit next row"
 msgstr "Sonraki satırı düzenle"
 
-#: libraries/classes/InsertEdit.php:1884
+#: libraries/classes/InsertEdit.php:1885
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Değerden değere geçmek için TAB tuşunu veya herhangi bir yere gitmek için "
 "CTRL+ok tuşlarını kullanın."
 
-#: libraries/classes/InsertEdit.php:1922
+#: libraries/classes/InsertEdit.php:1923
 #: libraries/classes/ReplicationGui.php:552
 #: libraries/classes/Rte/Routines.php:1628
 #: libraries/classes/Server/Status/Variables.php:229
@@ -8103,11 +8103,11 @@ msgstr ""
 msgid "Value"
 msgstr "Değer"
 
-#: libraries/classes/InsertEdit.php:2295 libraries/classes/Sql.php:1426
+#: libraries/classes/InsertEdit.php:2296 libraries/classes/Sql.php:1426
 msgid "Showing SQL query"
 msgstr "SQL sorgusu gösteriliyor"
 
-#: libraries/classes/InsertEdit.php:2320 libraries/classes/Sql.php:1404
+#: libraries/classes/InsertEdit.php:2321 libraries/classes/Sql.php:1404
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Eklenen satır id: %1$d"
@@ -14383,7 +14383,7 @@ msgid "Invalid table name"
 msgstr "Geçersiz tablo adı"
 
 #. l10n: In case a SQL query did not pass a security check
-#: tbl_get_field.php:46
+#: tbl_get_field.php:46 transformation_wrapper.php:69
 msgid "There is an issue with your request."
 msgstr "İsteğinizle ilgili bir sorun var."
 
