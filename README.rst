@@ -8,7 +8,7 @@ https://www.phpmyadmin.net/
 Code status
 -----------
 
-.. image:: https://travis-ci.org/phpmyadmin/phpmyadmin.svg?branch=master
+.. image:: https://travis-ci.org/phpmyadmin/phpmyadmin.svg?branch=QA_5_0
     :alt: Build status
     :target: https://travis-ci.org/phpmyadmin/phpmyadmin
 

@@ -115,11 +115,15 @@ if (isset($_GET["message"]) && $_GET["message"]) {
         }
     }
 
-    echo $_SESSION['Import_message']['message'];
-    echo '<fieldset class="tblFooters">' , "\n";
-    echo '    [ <a href="' , $_SESSION['Import_message']['go_back_url']
-        . '">' , __('Back') , '</a> ]' , "\n";
-    echo '</fieldset>' , "\n";
+    if (isset($_SESSION['Import_message']['message'])) {
+        echo $_SESSION['Import_message']['message'];
+    }
+    if (isset($_SESSION['Import_message']['go_back_url'])) {
+        echo '<fieldset class="tblFooters">' , "\n";
+        echo '    [ <a href="' , $_SESSION['Import_message']['go_back_url']
+            . '">' , __('Back') , '</a> ]' , "\n";
+        echo '</fieldset>' , "\n";
+    }
 } else {
     ImportAjax::status($_GET["id"]);
 }

@@ -36,6 +36,7 @@ $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('makegrid.js');
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
+$scripts->addFile('vendor/stickyfill.min.js');
 $scripts->addFile('sql.js');
 
 $response->addHTML(

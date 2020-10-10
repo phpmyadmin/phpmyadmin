@@ -1298,8 +1298,10 @@ Navigation.ResizeHandler = function () {
      */
     this.mousemove = function (event) {
         event.preventDefault();
-        var pos = event.data.resize_handler.getPos(event);
-        event.data.resize_handler.setWidth(pos);
+        if (event.data && event.data.resize_handler) {
+            var pos = event.data.resize_handler.getPos(event);
+            event.data.resize_handler.setWidth(pos);
+        }
         if ($('.sticky_columns').length !== 0) {
             Sql.handleAllStickyColumns();
         }

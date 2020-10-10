@@ -33,7 +33,8 @@ class Font
                 "i",
                 "j",
                 "l",
-            ], "modifier" => 0.23,
+            ],
+            "modifier" => 0.23,
         ];
         //f
         $charLists[] = [
@@ -45,7 +46,8 @@ class Font
             "chars" => [
                 "t",
                 "I",
-            ], "modifier" => 0.28,
+            ],
+            "modifier" => 0.28,
         ];
         //r
         $charLists[] = [
@@ -104,7 +106,8 @@ class Font
                 "F",
                 "T",
                 "Z",
-            ], "modifier" => 0.61,
+            ],
+            "modifier" => 0.61,
         ];
         //ABEKPSVXY
         $charLists[] = [
@@ -140,14 +143,16 @@ class Font
                 "G",
                 "O",
                 "Q",
-            ], "modifier" => 0.78,
+            ],
+            "modifier" => 0.78,
         ];
         //mM
         $charLists[] = [
             "chars" => [
                 "m",
                 "M",
-            ], "modifier" => 0.84,
+            ],
+            "modifier" => 0.84,
         ];
         //W
         $charLists[] = [

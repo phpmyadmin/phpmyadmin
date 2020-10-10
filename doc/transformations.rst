@@ -45,12 +45,12 @@ Usage
 Go to your *tbl\_structure.php* page (i.e. reached through clicking on
 the 'Structure' link for a table). There click on "Change" (or change
 icon) and there you will see three new fields at the end of the line.
-They are called 'MIME-type', 'Browser transformation' and
+They are called ':term:`Media type`', 'Browser transformation' and
 'Transformation options'.
 
-* The field 'MIME-type' is a drop-down field. Select the MIME-type that
+* The field ':term:`Media type`' is a drop-down field. Select the :term:`Media type` that
   corresponds to the column's contents. Please note that transformations
-  are inactive as long as no MIME-type is selected.
+  are inactive as long as no :term:`Media type` is selected.
 * The field 'Browser transformation' is a drop-down field. You can
   choose from a hopefully growing amount of pre-defined transformations.
   See below for information on how to build your own transformation.
@@ -100,11 +100,11 @@ transformations always work. It makes no sense to apply a
 transformation to a mimetype the transform-function doesn't know to
 handle.
 
-There is a file called '*transformations.lib.php*' that provides some
+There is a file called ':file:`libraries/classes/Plugins/Transformations.php`' that provides some
 basic functions which can be included by any other transform function.
 
 The file name convention is ``[Mimetype]_[Subtype]_[Transformation
-Name].class.php``, while the abtract class that it extends has the
+Name].php``, while the abstract class that it extends has the
 name ``[Transformation Name]TransformationsPlugin``. All of the
 methods that have to be implemented by a transformations plug-in are:
 
@@ -118,8 +118,8 @@ getInfo() returns the transformation's description and possible
 options it may receive and applyTransformation() is the method that
 does the actual work of the transformation plug-in.
 
-Please see the libraries/classes/Plugins/Transformations/TEMPLATE and
-libraries/classes/Plugins/Transformations/TEMPLATE\_ABSTRACT files for adding
+Please see the :file:`libraries/classes/Plugins/Transformations/TEMPLATE` and
+:file:`libraries/classes/Plugins/Transformations/TEMPLATE\_ABSTRACT` files for adding
 your own transformation plug-in. You can also generate a new
 transformation plug-in (with or without the abstract transformation
 class), by using
@@ -139,5 +139,5 @@ The applyTransformation() method always gets passed three variables:
    <https://www.php.net/mysql_fetch_field>`_ are available in this
    variable and can be used to transform a column accordingly to
    unsigned/zerofill/not\_null/... properties. The $meta->mimetype
-   variable contains the original MIME-type of the column (i.e.
+   variable contains the original :term:`Media type` of the column (i.e.
    'text/plain', 'image/jpeg' etc.)

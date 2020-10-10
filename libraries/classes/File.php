@@ -13,6 +13,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\ZipExtension;
+use ZipArchive;
 
 /**
  * File wrapper class
@@ -98,7 +99,7 @@ class File
         }
 
         if (extension_loaded('zip')) {
-            $this->zipExtension = new ZipExtension();
+            $this->zipExtension = new ZipExtension(new ZipArchive());
         }
     }
 

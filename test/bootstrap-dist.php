@@ -99,6 +99,6 @@ session_start();
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
-$GLOBALS['PMA_Theme'] = Theme::load(ROOT_PATH . 'themes/pmahomme');
+$GLOBALS['PMA_Theme'] = Theme::load('./themes/pmahomme', ROOT_PATH . 'themes/pmahomme/');
 $_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';

@@ -29,9 +29,10 @@ $dependency_definitions = [
 
 /** @var Definition $definition */
 $definition = $containerBuilder->getDefinition(SearchController::class);
+$parameterBag = $containerBuilder->getParameterBag();
 array_map(
-    static function (string $parameterName, $value) use ($definition) {
-        $definition->replaceArgument($parameterName, $value);
+    static function (string $parameterName, $value) use ($definition, $parameterBag) {
+        $definition->replaceArgument($parameterName, $parameterBag->escapeValue($value));
     },
     array_keys($dependency_definitions),
     $dependency_definitions

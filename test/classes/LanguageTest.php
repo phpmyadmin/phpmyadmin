@@ -102,7 +102,12 @@ class LanguageTest extends PmaTestCase
 
         /* Ensure we have name for every language */
         foreach ($langs as $lang) {
-            $this->assertNotEquals($lang->getCode(), strtolower($lang->getEnglishName()));
+            $this->assertNotEquals(
+                $lang->getCode(),
+                strtolower($lang->getEnglishName()),
+                'Maybe this language does not exist in LanguageManager class'
+                . ', see: https://github.com/phpmyadmin/phpmyadmin/issues/16300.'
+            );
         }
     }
 

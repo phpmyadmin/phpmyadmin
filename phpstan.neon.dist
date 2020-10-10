@@ -51,10 +51,11 @@ parameters:
         - %rootDir%/../../../test/libraries/FilesTest.php
         - %rootDir%/../../../test/libraries/common/GetCheckboxTest.php
         - %rootDir%/../../../tmp/*
+        - %rootDir%/../../../twig-templates/*
         - %rootDir%/../../../vendor/*
         - %rootDir%/../../../node_modules/*
         - %rootDir%/../../../test/bootstrap-phpstan.php
-        - %rootDir%/../../../test/sami-config.php
+        - %rootDir%/../../../test/doctum-config.php
         - %rootDir%/../../../themes/*/css/*.css.php
         - %rootDir%/../../../examples/signon-script.php
         - %rootDir%/../../../examples/openid.php

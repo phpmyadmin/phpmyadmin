@@ -1810,7 +1810,7 @@ class Table
                 if ((
                     strpos($column['Extra'], 'GENERATED') === false
                     && strpos($column['Extra'], 'VIRTUAL') === false
-                    ) || $column['Extra'] === 'DEFAULT_GENERATED') {
+                    ) || strpos($column['Extra'], 'DEFAULT_GENERATED') !== false) {
                     $ret[] = $value;
                 }
             }

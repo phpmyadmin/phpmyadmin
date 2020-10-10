@@ -3162,11 +3162,10 @@ class DatabaseInterface
         }
 
         if (! self::checkDbExtension('mysqli')) {
-            $docUrl = Util::getDocuLink('faq', 'faqmysql');
             $docLink = sprintf(
                 __('See %sour documentation%s for more information.'),
-                '[a@' . $docUrl . '@documentation]',
-                '[/a]'
+                '[doc@faqmysql]',
+                '[/doc]'
             );
             Core::warnMissingExtension(
                 'mysqli',

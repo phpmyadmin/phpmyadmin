@@ -56,7 +56,7 @@ class Sanitize
             './server_privileges.php?',
             './tbl_structure.php?',
         ];
-        $is_setup = $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
+        $is_setup = Sanitize::isSetup();
         // Adjust path to setup script location
         if ($is_setup) {
             foreach ($valid_starts as $key => $value) {
@@ -82,6 +82,16 @@ class Sanitize
             }
         }
         return false;
+    }
+
+    /**
+     * Check if we are currently on a setup folder page
+     *
+     * @return bool
+     */
+    public static function isSetup(): bool
+    {
+        return $GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup');
     }
 
     /**
@@ -131,9 +141,11 @@ class Sanitize
     public static function replaceDocLink(array $found)
     {
         if (count($found) >= 4) {
+            /* doc@page@anchor pattern */
             $page = $found[1];
             $anchor = $found[3];
         } else {
+            /* doc@anchor pattern */
             $anchor = $found[1];
             if (strncmp('faq', $anchor, 3) == 0) {
                 $page = 'faq';
@@ -144,7 +156,7 @@ class Sanitize
                 $page = 'setup';
             }
         }
-        $link = Util::getDocuLink($page, $anchor);
+        $link = Util::getDocuLink($page, $anchor, Sanitize::isSetup() ? '../' : '');
         return '<a href="' . $link . '" target="documentation">';
     }
 

@@ -13,6 +13,9 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
@@ -225,6 +228,15 @@ if (isset($_GET['db']) && isset($_GET['table'])) {
     $view['as'] = $item['VIEW_DEFINITION'];
     $view['with'] = $item['CHECK_OPTION'];
     $view['algorithm'] = $item['ALGORITHM'];
+
+    if (empty($view['as']) && is_string($createView)) {
+        $parser = new Parser($createView);
+        /**
+         * @var CreateStatement $stmt
+         */
+        $stmt = $parser->statements[0];
+        $view['as'] = isset($stmt->body) ? TokensList::build($stmt->body) : $view['as'];
+    }
 }
 
 if (Core::isValid($_POST['view'], 'array')) {

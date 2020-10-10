@@ -96,7 +96,7 @@ In order to install from Git, you'll need a few supporting applications:
 * `Git <https://git-scm.com/downloads>`_ to download the source, or you can download the most recent source directly from `Github <https://codeload.github.com/phpmyadmin/phpmyadmin/zip/master>`_
 * `Composer <https://getcomposer.org/download/>`__
 * `Node.js <https://nodejs.org/en/download/>`_ (version 8 or higher)
-* `Yarn <https://legacy.yarnpkg.com/en/docs/install>`_
+* `Yarn <https://classic.yarnpkg.com/en/docs/install>`_
 
 You can clone current phpMyAdmin source from
 ``https://github.com/phpmyadmin/phpmyadmin.git``:
@@ -122,7 +122,7 @@ Finally, you'll need to use `Yarn`_ to install some JavaScript dependencies:
 
 .. code-block:: sh
 
-    yarn install
+    yarn install --production
 
 .. _composer:
 
@@ -158,12 +158,12 @@ the release tarballs and is available at
 Installing using Docker
 +++++++++++++++++++++++
 
-phpMyAdmin comes with a `Docker image`_, which you can easily deploy. You can
+phpMyAdmin comes with a `Docker official image`_, which you can easily deploy. You can
 download it using:
 
 .. code-block:: sh
 
-    docker pull phpmyadmin/phpmyadmin
+    docker pull phpmyadmin
 
 The phpMyAdmin server will listen on port 80. It supports several ways of
 configuring the link to the database server, either by Docker's link feature
@@ -233,6 +233,26 @@ You can configure several phpMyAdmin features using environment variables:
     proxy makes phpMyAdmin available.
 
     .. seealso:: :config:option:`$cfg['PmaAbsoluteUri']`
+
+.. envvar:: HIDE_PHP_VERSION
+
+    If defined, this option will hide the PHP version (`expose_php = Off`).
+    Set to any value (such as `HIDE_PHP_VERSION=true`).
+
+.. envvar:: UPLOAD_LIMIT
+
+    If set, this option will override the default value for apache and php-fpm (this will change ``upload_max_filesize`` and ``post_max_size`` values).
+
+    .. note:: Format as `[0-9+](K,M,G)` default value is `2048K`
+
+.. envvar:: PMA_CONFIG_BASE64
+
+    If set, this option will override the default `config.inc.php` with the base64 decoded contents of the variable.
+
+.. envvar:: PMA_USER_CONFIG_BASE64
+
+    If set, this option will override the default `config.user.inc.php` with the base64 decoded contents of the variable.
+
 
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
@@ -525,7 +545,7 @@ Or, if you prefer to not be prompted every time you log in:
     $i=0;
     $i++;
     $cfg['Servers'][$i]['user']          = 'root';
-    $cfg['Servers'][$i]['password']      = 'cbb74bc'; // use here your password
+    $cfg['Servers'][$i]['password']      = 'changeme'; // use here your password
     $cfg['Servers'][$i]['auth_type']     = 'config';
 
 .. warning::
@@ -683,8 +703,7 @@ Handbook covers this topic in the chapter `Validating other keys on your public
 keyring`_. The most reliable method is to meet the developer in person and
 exchange key fingerprints, however, you can also rely on the web of trust. This way
 you can trust the key transitively though signatures of others, who have met
-the developer in person. For example, you can see how `Isaac's key links to
-Linus's key`_.
+the developer in person.
 
 Once the key is trusted, the warning will not occur:
 
@@ -704,8 +723,6 @@ clear error regardless of the fact that the key is trusted or not:
     gpg: BAD signature from "Isaac Bennetch <bennetch@gmail.com>" [unknown]
 
 .. _Validating other keys on your public keyring: https://www.gnupg.org/gph/en/manual.html#AEN335
-
-.. _Isaac's key links to Linus's key: https://pgp.cs.uu.nl/paths/79be3e4300411886/to/ce752f178259bd92.html
 
 .. index::
     single: Configuration storage
@@ -1145,4 +1162,4 @@ manually or after a period of inactivity). `Issue 11898 <https://github.com/phpm
 
 .. _Composer tool: https://getcomposer.org/
 .. _Packagist: https://packagist.org/
-.. _Docker image: https://hub.docker.com/r/phpmyadmin/phpmyadmin/
+.. _Docker official image: https://hub.docker.com/_/phpmyadmin

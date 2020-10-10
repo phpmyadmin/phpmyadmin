@@ -56,6 +56,9 @@ class SqlQueryForm
         // query to show
         if (true === $query) {
             $query = $GLOBALS['sql_query'];
+            if (empty($query) && (isset($_GET['show_query']) || isset($_POST['show_query']))) {
+                $query = $_GET['sql_query'] ?? $_POST['sql_query'] ?? '';
+            }
         }
 
         // set enctype to multipart for file uploads

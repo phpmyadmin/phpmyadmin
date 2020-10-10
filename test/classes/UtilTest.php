@@ -472,6 +472,10 @@ class UtilTest extends PmaTestCase
     {
         return [
             [
+                null,
+                '',
+            ],
+            [
                 "b'",
                 "",
             ],

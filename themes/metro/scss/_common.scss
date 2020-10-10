@@ -487,6 +487,7 @@ table {
   td {
     padding: 0.6em;
     vertical-align: top;
+    touch-action: manipulation;
   }
 }
 
@@ -3117,12 +3118,17 @@ form.append_fields_form .tblFooters {
   border-#{$right}: 2px solid #a44;
 }
 
-.pma_table,
-.sticky_columns {
+.pma_table {
   th.draggable span {
     display: block;
     overflow: hidden;
   }
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
 }
 
 .pma_table {
@@ -3510,6 +3516,10 @@ table.show_create {
   bottom: 0;
   #{$left}: 0;
   z-index: 100;
+}
+
+textarea {
+  resize: both;
 }
 
 #pma_console {

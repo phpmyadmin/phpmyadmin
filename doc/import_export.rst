@@ -72,7 +72,7 @@ Open Document Spreadsheet (ODS)
 
 OpenDocument workbooks containing one or more spreadsheets can now be directly imported.
 
-When importing an ODS speadsheet, the spreadsheet must be named in a specific way in order to make the
+When importing an ODS spreadsheet, the spreadsheet must be named in a specific way in order to make the
 import as simple as possible.
 
 Table name
@@ -281,7 +281,7 @@ Google Docs can handle this format.
 OpenDocument Text
 -----------------
 
-New standard for text data which is being widely addopted. Most recent word
+New standard for text data which is being widely adopted. Most recent word
 processors (such as LibreOffice, OpenOffice, Microsoft Word, AbiWord or KWord)
 can handle this.
 

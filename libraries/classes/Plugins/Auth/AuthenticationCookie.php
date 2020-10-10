@@ -250,9 +250,15 @@ class AuthenticationCookie extends AuthenticationPlugin
         } else {
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
             , $GLOBALS['lang'] , '" async defer></script>';
-            echo '<input class="btn btn-primary g-recaptcha" data-sitekey="'
-            , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
-                . ' data-callback="Functions_recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go">';
+            if (isset($GLOBALS['cfg']['CaptchaMethod']) && $GLOBALS['cfg']['CaptchaMethod'] === 'checkbox') {
+                echo '<div class="g-recaptcha" data-sitekey="'
+                    . htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']) . '"></div>';
+                echo '<input class="btn btn-primary" value="' , __('Go') , '" type="submit" id="input_go">';
+            } else {
+                echo '<input class="btn btn-primary g-recaptcha" data-sitekey="'
+                , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
+                    . ' data-callback="Functions_recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go">';
+            }
         }
         $_form_params = [];
         if (! empty($GLOBALS['target'])) {
@@ -788,7 +794,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
     /**
      * Encryption using openssl's AES or phpseclib's AES
-     * (phpseclib uses mcrypt when it is available)
+     * (phpseclib uses anoher extension when it is available)
      *
      * @param string $data   original data
      * @param string $secret the secret
@@ -827,7 +833,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
     /**
      * Decryption using openssl's AES or phpseclib's AES
-     * (phpseclib uses mcrypt when it is available)
+     * (phpseclib uses anoher extension when it is available)
      *
      * @param string $encdata encrypted data
      * @param string $secret  the secret

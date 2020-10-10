@@ -17,7 +17,7 @@ use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PHPStan\Testing\TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for EnginesController class

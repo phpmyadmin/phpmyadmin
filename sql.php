@@ -44,6 +44,7 @@ $scripts = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('table/change.js');
 $scripts->addFile('indexes.js');
+$scripts->addFile('vendor/stickyfill.min.js');
 $scripts->addFile('gis_data_editor.js');
 $scripts->addFile('multi_column_sort.js');
 

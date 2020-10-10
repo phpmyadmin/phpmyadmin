@@ -417,6 +417,7 @@ table {
     margin: 0.1em;
     vertical-align: middle;
     text-shadow: 0 1px 0 #fff;
+    touch-action: manipulation;
   }
 }
 
@@ -2971,12 +2972,17 @@ input#auto_increment_opt {
   border-#{$right}: 2px solid #a44;
 }
 
-.pma_table,
-.sticky_columns {
+.pma_table {
   th.draggable span {
     display: block;
     overflow: hidden;
   }
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
 }
 
 .pma_table {
@@ -3397,6 +3403,10 @@ table.show_create {
   bottom: 0;
   #{$left}: 0;
   z-index: 100;
+}
+
+textarea {
+  resize: both;
 }
 
 #pma_console {

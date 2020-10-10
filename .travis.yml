@@ -9,6 +9,7 @@ stages:
   - name: "Other tests"
 
 install:
+  - nvm install 10
   - composer install --no-interaction
   - yarn install --non-interactive
 
@@ -25,13 +26,14 @@ script:
   - ./vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium
 
 after_script:
-  - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage clover || true ; fi
   - if [ -f php.log ] ; then cat php.log ; fi
   - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
   - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
   - if [ "$CI_MODE" = "selenium" ] ; then ~/browserstack/BrowserStackLocal --daemon stop; fi
 
-after_success: bash <(curl -s https://codecov.io/bash)
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -Ls https://coverage.codacy.com/get.sh)
 
 services:
   - mysql
@@ -96,6 +98,7 @@ jobs:
       name: "PHP nightly"
       env: CI_MODE=test
       install:
+        - nvm install 10
         - composer install --no-interaction --ignore-platform-reqs
         - yarn install --non-interactive
 
@@ -106,7 +109,7 @@ jobs:
       language: node_js
       node_js: 10
       before_install:
-        - brew link --force gettext
+        - export PATH="/usr/local/opt/gettext/bin:$PATH"
         - echo "memory_limit=-1" > /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - echo "pcre.jit=0" >> /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - mysql.server start
@@ -137,12 +140,16 @@ jobs:
         - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php74/php.ini ; done
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php74/php.ini
         - find . -type f -name "*.php" -print0 | xargs -0 sed -i ':a;N;$!ba;s/\r//g'
+      install:
+        - composer install --no-interaction
+        - yarn install --non-interactive
 
     - stage: "PHP Unit tests"
       php: 7.1
       name: "PHP 7.1 with dbase extension"
       env: CI_MODE=test
       install:
+        - nvm install 10
         - pecl channel-update pecl.php.net
         - pecl install dbase
         - php -m |grep -F 'dbase'
@@ -165,8 +172,8 @@ jobs:
       before_script: skip
       after_script: skip
       after_success: skip
-      install: composer global require "sami/sami:^4.0"
-      script: $HOME/.composer/vendor/bin/sami.php --no-interaction update ./test/sami-config.php
+      install: composer global require "code-lts/doctum:^5.0"
+      script: $HOME/.composer/vendor/bin/doctum.php --no-interaction update ./test/doctum-config.php
 
     - stage: "Other tests"
       name: "Build release"
@@ -174,6 +181,7 @@ jobs:
       after_script: skip
       after_success: skip
       install:
+        - nvm install 10
         - source ~/virtualenv/python3.6/bin/activate
         - pip install 'Sphinx'
       script: ./scripts/create-release.sh --ci
@@ -187,6 +195,7 @@ jobs:
         - TESTSUITE_URL=http://127.0.0.1:8000
       before_install: phpenv config-rm xdebug.ini
       install:
+        - nvm install 10
         - ./test/install-browserstack
         - composer install --no-interaction
         - yarn install --non-interactive

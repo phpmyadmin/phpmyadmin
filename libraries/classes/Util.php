@@ -443,12 +443,13 @@ class Util
     /**
      * Returns link to documentation.
      *
-     * @param string $page   Page in documentation
-     * @param string $anchor Optional anchor in page
+     * @param string $page       Page in documentation
+     * @param string $anchor     Optional anchor in page
+     * @param string $pathPrefix Optional path in case it is called in a folder (e.g. setup)
      *
      * @return string URL
      */
-    public static function getDocuLink($page, $anchor = '')
+    public static function getDocuLink($page, $anchor = '', string $pathPrefix = '')
     {
         /* Construct base URL */
         $url =  $page . '.html';
@@ -460,7 +461,7 @@ class Util
          * provide consistent URL for testsuite
          */
         if (! defined('TESTSUITE') && @file_exists(ROOT_PATH . 'doc/html/index.html')) {
-            return 'doc/html/' . $url;
+            return $pathPrefix . 'doc/html/' . $url;
         }
 
         return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);
@@ -2860,7 +2861,7 @@ class Util
      */
     public static function convertBitDefaultValue($bit_default_value)
     {
-        return preg_replace("/^b'(\d*)'?$/", '$1', htmlspecialchars_decode($bit_default_value, ENT_QUOTES), 1);
+        return preg_replace("/^b'(\d*)'?$/", '$1', htmlspecialchars_decode((string) $bit_default_value, ENT_QUOTES), 1);
     }
 
     /**
@@ -4995,5 +4996,25 @@ class Util
             }
         }
         return '';
+    }
+
+    /**
+     * Check if error reporting is available
+     * @return bool
+     */
+    public static function isErrorReportingAvailable(): bool
+    {
+        // issue #16256 - PHP 7.x does not return false for a core function
+        if (PHP_MAJOR_VERSION < 8) {
+            $disabled = ini_get('disable_functions');
+            if (is_string($disabled)) {
+                $disabled = explode(',', $disabled);
+                $disabled = array_map(function (string $part) {
+                    return trim($part);
+                }, $disabled);
+                return ! in_array('error_reporting', $disabled);
+            }
+        }
+        return function_exists('error_reporting');
     }
 }

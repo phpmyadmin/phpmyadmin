@@ -290,7 +290,7 @@ class ExportXml extends ExportPlugin
                     . Util::backquote($table),
                     0
                 );
-                $tbl = $result[$table][1];
+                $tbl = (string) $result[$table][1];
 
                 $is_view = $GLOBALS['dbi']->getTable($db, $table)
                     ->isView();

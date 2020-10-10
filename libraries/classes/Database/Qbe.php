@@ -1559,7 +1559,7 @@ class Qbe
         // Will include master tables and all tables that can be combined into
         // a cluster by their relation
         $finalized = [];
-        if (strlen($master) > 0) {
+        if (strlen((string) $master) > 0) {
             // Add master tables
             $finalized[$master] = '';
         }
@@ -1853,7 +1853,7 @@ class Qbe
         }
 
         foreach ($this->_savedSearchList as $id => $name) {
-            $html_output .= '<option value="' . htmlspecialchars($id)
+            $html_output .= '<option value="' . htmlspecialchars((string) $id)
                 . '" ' . (
                 $id == $currentSearchId
                     ? 'selected="selected" '

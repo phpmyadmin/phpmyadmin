@@ -250,6 +250,14 @@ abstract class TestBase extends TestCase
         $buildLocal = true;
         $buildId = 'Manual';
         $projectName = 'phpMyAdmin';
+        /**
+         * Usefull for browserstack
+         *
+         * @see https://github.com/phpmyadmin/phpmyadmin/pull/14595#issuecomment-418541475
+         * Reports the name of the test to browserstack
+         */
+        $className = substr(static::class, strlen('PhpMyAdmin\Tests\Selenium\\'));
+        $testName = $className . ': ' . $this->getName();
 
         if (getenv('BUILD_TAG')) {
             $buildId = getenv('BUILD_TAG');
@@ -261,41 +269,22 @@ abstract class TestBase extends TestCase
             $projectName = 'phpMyAdmin (Travis)';
         }
 
-        $capabilities->setCapability('project', $projectName);
-        $capabilities->setCapability('build', $buildId);
-        $capabilities->setCapability('browserstack.debug', false);
-
-        /**
-         * Usefull for browserstack
-         * @see https://github.com/phpmyadmin/phpmyadmin/pull/14595#issuecomment-418541475
-         * Reports the name of the test to browserstack
-         */
-        $capabilities->setCapability(
-            'name',
-            static::class . '__' . $this->getName()
-        );
-
         if ($buildLocal) {
             $capabilities->setCapability(
-                'browserstack.local',
-                $buildLocal
-            );
-            $capabilities->setCapability(
-                'browserstack.localIdentifier',
-                $buildId
-            );
-            $capabilities->setCapability(
-                'browserstack.debug',
-                true
-            );
-            $capabilities->setCapability(
-                'browserstack.console',
-                'verbose'
-            );
-
-            $capabilities->setCapability(
-                'browserstack.networkLogs',
-                true
+                'bstack:options',
+                [
+                    'os' => 'Windows',
+                    'osVersion' => '10',
+                    'resolution' => '1920x1080',
+                    'projectName' => $projectName,
+                    'sessionName' => $testName,
+                    'buildName' => $buildId,
+                    'localIdentifier' => $buildId,
+                    'local' => $buildLocal,
+                    'debug' => false,
+                    'consoleLogs' => 'verbose',
+                    'networkLogs' => true,
+                ]
             );
         }
     }
@@ -336,7 +325,11 @@ abstract class TestBase extends TestCase
                     );
                     $capabilities->setCapability(
                         'browser_version',
-                        '69.0' // Force chrome 69.0
+                        '80.0' // Force chrome 80.0
+                    );
+                    $capabilities->setCapability(
+                        'resolution',
+                        '1920x1080'
                     );
                 }
 
@@ -1020,17 +1013,22 @@ abstract class TestBase extends TestCase
 
     /**
      * Wait for AJAX completion
-     *
      * @return void
      */
-    public function waitAjax()
+    public function waitAjax(): void
     {
         /* Wait while code is loading */
-        while ($this->webDriver->executeScript(
-            'return AJAX.active;'
-        )) {
-            usleep(5000);
-        }
+        $this->webDriver->executeAsyncScript(
+            'var callback = arguments[arguments.length - 1];'
+            . 'function startWaitingForAjax() {'
+            . '    if (! AJAX.active) {'
+            . '        callback();'
+            . '    } else {'
+            . '        setTimeout(startWaitingForAjax, 200);'
+            . '    }'
+            . '}'
+            . 'startWaitingForAjax();'
+        );
     }
 
     /**

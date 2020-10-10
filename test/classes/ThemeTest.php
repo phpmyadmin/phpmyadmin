@@ -91,7 +91,7 @@ class ThemeTest extends PmaTestCase
      */
     public function testCheckImgPathFull()
     {
-        $this->object->setPath(ROOT_PATH . 'test/classes/_data/gen_version_info');
+        $this->object->setFsPath(ROOT_PATH . 'test/classes/_data/gen_version_info/');
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Test Theme', $this->object->getName());
         $this->assertEquals('5.0', $this->object->getVersion());
@@ -104,8 +104,8 @@ class ThemeTest extends PmaTestCase
      */
     public function testLoadInfo()
     {
-        $this->object->setPath(ROOT_PATH . 'themes/original');
-        $infofile = $this->object->getPath() . '/theme.json';
+        $this->object->setFsPath(ROOT_PATH . 'themes/original/');
+        $infofile = $this->object->getFsPath() . 'theme.json';
         $this->assertTrue($this->object->loadInfo());
 
         $this->assertEquals(
@@ -126,7 +126,7 @@ class ThemeTest extends PmaTestCase
      */
     public function testLoad()
     {
-        $newTheme = Theme::load(ROOT_PATH . 'themes/original');
+        $newTheme = Theme::load('./themes/original', ROOT_PATH . 'themes/original');
         $this->assertNotNull($newTheme);
     }
 
@@ -137,7 +137,7 @@ class ThemeTest extends PmaTestCase
      */
     public function testLoadNotExisted()
     {
-        $this->assertFalse(Theme::load('/path/to/nowhere'));
+        $this->assertFalse(Theme::load('/path/to/nowhere', '/path/to/nowhere'));
     }
 
     /**

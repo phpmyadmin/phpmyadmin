@@ -129,7 +129,7 @@ class NavigationTree
             $this->pos2Value[0] = (int) $_REQUEST['pos2_value'];
             if (isset($_REQUEST['pos3_name'])) {
                 $this->pos3Name[0] = $_REQUEST['pos3_name'];
-                $this->pos3Value[0] = $_REQUEST['pos3_value'];
+                $this->pos3Value[0] = (int) $_REQUEST['pos3_value'];
             }
         } else {
             if (isset($_POST['n0_aPath'])) {
@@ -140,11 +140,11 @@ class NavigationTree
                     );
                     $index = 'n' . $count . '_pos2_';
                     $this->pos2Name[$count] = $_POST[$index . 'name'];
-                    $this->pos2Value[$count] = $_POST[$index . 'value'];
+                    $this->pos2Value[$count] = (int) $_POST[$index . 'value'];
                     $index = 'n' . $count . '_pos3_';
                     if (isset($_POST[$index])) {
                         $this->pos3Name[$count] = $_POST[$index . 'name'];
-                        $this->pos3Value[$count] = $_POST[$index . 'value'];
+                        $this->pos3Value[$count] = (int) $_POST[$index . 'value'];
                     }
                     $count++;
                 }
@@ -327,7 +327,7 @@ class NavigationTree
                 $this->pos2Name[$key],
                 $this->pos2Value[$key],
                 isset($this->pos3Name[$key]) ? $this->pos3Name[$key] : '',
-                isset($this->pos3Value[$key]) ? $this->pos3Value[$key] : ''
+                isset($this->pos3Value[$key]) ? $this->pos3Value[$key] : 0
             );
         }
 
@@ -350,14 +350,8 @@ class NavigationTree
      *
      * @return Node|bool    The active node or false in case of failure, true if the path contains <= 1 items
      */
-    private function buildPathPart(array $path, $type2, $pos2, $type3, $pos3)
+    private function buildPathPart(array $path, $type2, int $pos2, $type3, int $pos3)
     {
-        if (empty($pos2)) {
-            $pos2 = 0;
-        }
-        if (empty($pos3)) {
-            $pos3 = 0;
-        }
 
         $retval = true;
         if (count($path) <= 1) {

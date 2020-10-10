@@ -352,6 +352,13 @@ class FormDisplayTemplate
                 $htmlOutput .= '</select>';
                 break;
             case 'list':
+                foreach ($value as $key => $v) {
+                    // This behavior can occur when using a 5.1 session
+                    // Implode can not use an array as a string.
+                    if (is_array($value)) {
+                        unset($value[$key]);
+                    }
+                }
                 $htmlOutput .= '<textarea cols="35" rows="5" ' . $nameId . $fieldClass
                 . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
                 break;

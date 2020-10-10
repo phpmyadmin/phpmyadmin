@@ -1420,7 +1420,7 @@ class Results
 
             $display_params['emptypre'] = $emptyPreCondition ? 4 : 0;
 
-            $button_html .= '<th class="column_action print_ignore" ' . $colspan
+            $button_html .= '<th class="column_action sticky print_ignore" ' . $colspan
                 . '>' . $full_or_partial_text_link . '</th>';
         } elseif ($leftOrBoth
             && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
@@ -1434,7 +1434,7 @@ class Results
         } elseif ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE) {
             // ... elseif display an empty column if the actions links are
             //  disabled to match the rest of the table
-            $button_html .= '<th class="column_action"></th>';
+            $button_html .= '<th class="column_action sticky"></th>';
         }
 
         $this->__set('display_params', $display_params);
@@ -2127,6 +2127,7 @@ class Results
         }
 
         $th_class[] = 'column_heading';
+        $th_class[] = 'sticky';
         if ($GLOBALS['cfg']['BrowsePointerEnable'] == true) {
             $th_class[] = 'pointer';
         }
@@ -2170,6 +2171,7 @@ class Results
         $draggable_html = '<th';
         $th_class = [];
         $th_class[] = 'draggable';
+        $th_class[] = 'sticky';
         $this->_getClassForNumericColumnType($fields_meta, $th_class);
         if ($col_visib && ! $col_visib_j) {
             $th_class[] = 'hide';
@@ -2928,6 +2930,7 @@ class Results
             $_url_params = [
                 'db'            => $this->__get('db'),
                 'table'         => $meta->orgtable,
+                'where_clause_sign' => Core::signSqlQuery($whereClauseMap[$row_no][$meta->orgtable]),
                 'where_clause'  => $whereClauseMap[$row_no][$meta->orgtable],
                 'transform_key' => $meta->orgname,
             ];
@@ -3966,14 +3969,17 @@ class Results
             $query['repeat_cells'] = $GLOBALS['cfg']['RepeatCells'];
         }
 
+        // The value can also be from _GET as described on issue #16146 when sorting results
+        $sessionMaxRows = $_GET['session_max_rows'] ?? $_POST['session_max_rows'] ?? '';
+
         // as this is a form value, the type is always string so we cannot
         // use Core::isValid($_POST['session_max_rows'], 'integer')
-        if (Core::isValid($_POST['session_max_rows'], 'numeric')) {
-            $query['max_rows'] = (int) $_POST['session_max_rows'];
-            unset($_POST['session_max_rows']);
-        } elseif ($_POST['session_max_rows'] == self::ALL_ROWS) {
+        if (Core::isValid($sessionMaxRows, 'numeric')) {
+            $query['max_rows'] = (int) $sessionMaxRows;
+            unset($_GET['session_max_rows'], $_POST['session_max_rows']);
+        } elseif ($sessionMaxRows === self::ALL_ROWS) {
             $query['max_rows'] = self::ALL_ROWS;
-            unset($_POST['session_max_rows']);
+            unset($_GET['session_max_rows'], $_POST['session_max_rows']);
         } elseif (empty($query['max_rows'])) {
             $query['max_rows'] = intval($GLOBALS['cfg']['MaxRows']);
         }

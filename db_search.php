@@ -35,6 +35,7 @@ $template = $containerBuilder->get('template');
 $header = $response->getHeader();
 $scripts = $header->getScripts();
 $scripts->addFile('database/search.js');
+$scripts->addFile('vendor/stickyfill.min.js');
 $scripts->addFile('sql.js');
 $scripts->addFile('makegrid.js');
 

@@ -163,15 +163,13 @@
         </fieldset>
 
         <fieldset>
-            {% apply spaceless %}
-                <textarea id="MultiSqlquery"
-                    cols="80"
-                    rows="4"
-                    style="float:left"
-                    name="sql_query"
-                    dir="ltr">
-                </textarea>
-            {% endapply %}
+              {# Keep the block without a space between the open and close tag #}
+              <textarea id="MultiSqlquery"
+                  cols="80"
+                  rows="4"
+                  style="float: left;"
+                  name="sql_query"
+                  dir="ltr"></textarea>
         </fieldset>
     </fieldset>
 

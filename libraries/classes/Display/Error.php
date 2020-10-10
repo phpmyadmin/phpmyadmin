@@ -12,9 +12,6 @@ namespace PhpMyAdmin\Display;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use Throwable;
-use Twig_Error_Loader;
-use Twig_Error_Runtime;
-use Twig_Error_Syntax;
 
 /**
  * Displays Error
@@ -32,9 +29,9 @@ class Error
      *
      * @return string
      * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public static function display(
         Template $template,

@@ -17,9 +17,6 @@ use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\UserPreferencesHeader;
 use Throwable;
-use Twig_Error_Loader;
-use Twig_Error_Runtime;
-use Twig_Error_Syntax;
 
 /**
  * tests for methods under PhpMyAdmin\UserPreferencesHeader class
@@ -48,9 +45,9 @@ class UserPreferencesHeaderTest extends PmaTestCase
      *
      * @return void
      * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function testGetContentWithSelectedTab(): void
     {
@@ -83,9 +80,9 @@ class UserPreferencesHeaderTest extends PmaTestCase
      *
      * @return void
      * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function testGetContentAfterSave(): void
     {
@@ -108,9 +105,9 @@ class UserPreferencesHeaderTest extends PmaTestCase
      *
      * @return void
      * @throws Throwable
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function testGetContentWithSessionStorage(): void
     {

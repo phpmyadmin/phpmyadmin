@@ -217,10 +217,13 @@ if (empty($export_plugin)) {
 /**
  * valid compression methods
  */
-$compression_methods = [
-    'zip',
-    'gzip',
-];
+$compression_methods = [];
+if ($GLOBALS['cfg']['ZipDump'] && function_exists('gzcompress')) {
+    $compression_methods[] = 'zip';
+}
+if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzencode')) {
+    $compression_methods[] = 'gzip';
+}
 
 /**
  * init and variable checking
@@ -285,7 +288,7 @@ if (isset($_POST['output_format']) && $_POST['output_format'] == 'sendit' && ! $
     $response->disable();
     //Disable all active buffers (see: ob_get_status(true) at this point)
     do {
-        if (ob_get_length() > 0) {
+        if (ob_get_length() > 0 || ob_get_level() > 0) {
             $hasBuffer = ob_end_clean();
         } else {
             $hasBuffer = false;

@@ -21,6 +21,7 @@ use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ZipExtension;
+use ZipArchive;
 
 /**
  * Handles the import for ESRI Shape files
@@ -43,7 +44,7 @@ class ImportShp extends ImportPlugin
         parent::__construct();
         $this->setProperties();
         if (extension_loaded('zip')) {
-            $this->zipExtension = new ZipExtension();
+            $this->zipExtension = new ZipExtension(new ZipArchive());
         }
     }
 

@@ -360,28 +360,32 @@ class ImportTest extends TestCase
                     2,
                     1,
                     '2,1',
-                ], '2.1',
+                ],
+                '2.1',
             ],
             [
                 [
                     2,
                     1,
                     '2,1',
-                ], '6.2',
+                ],
+                '6.2',
             ],
             [
                 [
                     3,
                     1,
                     '3,1',
-                ], '10.0',
+                ],
+                '10.0',
             ],
             [
                 [
                     4,
                     2,
                     '4,2',
-                ], '30.20',
+                ],
+                '30.20',
             ],
         ];
     }
@@ -654,5 +658,63 @@ class ImportTest extends TestCase
             . 'WHERE 1';
 
         $this->assertEquals(true, $this->import->checkIfRollbackPossible($sql_query));
+    }
+
+    /**
+     * Data provider for testSkipByteOrderMarksFromContents
+     *
+     * @return array[]
+     */
+    public function providerContentWithByteOrderMarks(): array
+    {
+        return [
+            [
+                "\xEF\xBB\xBF blabla上海",
+                ' blabla上海',
+            ],
+            [
+                "\xEF\xBB\xBF blabla",
+                " blabla",
+            ],
+            [
+                "\xEF\xBB\xBF blabla\xEF\xBB\xBF",
+                " blabla\xEF\xBB\xBF",
+            ],
+            [
+                "\xFE\xFF blabla",
+                " blabla",
+            ],
+            [
+                "\xFE\xFF blabla\xFE\xFF",
+                " blabla\xFE\xFF",
+            ],
+            [
+                "\xFF\xFE blabla",
+                " blabla",
+            ],
+            [
+                "\xFF\xFE blabla\xFF\xFE",
+                " blabla\xFF\xFE",
+            ],
+            [
+                "\xEF\xBB\xBF\x44\x52\x4F\x50\x20\x54\x41\x42\x4C\x45\x20\x49\x46\x20\x45\x58\x49\x53\x54\x53",
+                "DROP TABLE IF EXISTS",
+            ],
+        ];
+    }
+
+    /**
+     * Test for skipByteOrderMarksFromContents
+     *
+     * @param string $input         The contents to strip BOM
+     * @param string $cleanContents The contents cleaned
+     *
+     * @return void
+     *
+     * @dataProvider providerContentWithByteOrderMarks
+     */
+    public function testSkipByteOrderMarksFromContents(string $input, string $cleanContents): void
+    {
+        $this->assertEquals($cleanContents, $this->import->skipByteOrderMarksFromContents($input));
     }
 }

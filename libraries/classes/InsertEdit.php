@@ -1670,7 +1670,7 @@ class InsertEdit
                 $readOnly
             );
 
-            if (preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra']) && $column['Extra'] !== 'DEFAULT_GENERATED') {
+            if (preg_match('/(VIRTUAL|PERSISTENT|GENERATED)/', $column['Extra']) && strpos($column['Extra'], 'DEFAULT_GENERATED') === false) {
                 $html_output .= '<input type="hidden" name="virtual'
                     . $column_name_appendix . '" value="1">';
             }
@@ -2473,15 +2473,17 @@ class InsertEdit
         } else {
             $title = ' title="' . htmlspecialchars($relation_field_value) . '"';
         }
+        $sqlQuery = 'SELECT * FROM '
+            . Util::backquote($foreigner['foreign_db'])
+            . '.' . Util::backquote($foreigner['foreign_table'])
+            . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
+            . $where_comparison;
         $_url_params = [
             'db'    => $foreigner['foreign_db'],
             'table' => $foreigner['foreign_table'],
             'pos'   => '0',
-            'sql_query' => 'SELECT * FROM '
-                . Util::backquote($foreigner['foreign_db'])
-                . '.' . Util::backquote($foreigner['foreign_table'])
-                . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
-                . $where_comparison,
+            'sql_signature' => Core::signSqlQuery($sqlQuery),
+            'sql_query' => $sqlQuery,
         ];
         $output = '<a href="sql.php'
             . Url::getCommon($_url_params) . '"' . $title . '>';
@@ -2528,6 +2530,7 @@ class InsertEdit
             $_url_params = [
                 'db'            => $db,
                 'table'         => $table,
+                'where_clause_sign' => Core::signSqlQuery($_POST['where_clause']),
                 'where_clause'  => $_POST['where_clause'],
                 'transform_key' => $column_name,
             ];
@@ -2595,6 +2598,9 @@ class InsertEdit
             $current_value = mb_substr($current_value, 1, -1);
             // Remove escaping apostrophes
             $current_value = str_replace("''", "'", $current_value);
+            // Remove backslash-escaped apostrophes
+            $current_value = str_replace("\'", "'", $current_value);
+
             return $multi_edit_funcs[$key] . '(' . $current_value . ')';
         } elseif (! in_array($multi_edit_funcs[$key], $func_no_param)
             || ($current_value != "''"
@@ -3329,7 +3335,8 @@ class InsertEdit
                         'db'            => $db,
                         'table'         => $table,
                         'transform_key' => $column['Field'],
-                        'where_clause'  => $where_clause,
+                        'where_clause_sign' => Core::signSqlQuery($where_clause),
+                        'where_clause'  => $where_clause
                     ];
                     $transformation_options['wrapper_link']
                         = Url::getCommon($_url_params);
