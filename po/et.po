@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-09-20 00:19+0200\n"
-"PO-Revision-Date: 2020-07-29 09:41+0000\n"
+"PO-Revision-Date: 2020-10-10 15:54+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -588,17 +588,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size on 0"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "Suurim MyISAM võtme puhvri kasutuse %%"
+msgstr "Suurim MyISAM võtmepuhvri kasutuse %"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "MyISAM võtme puhvri (indeksi puhver) %% kasutus on madal."
+msgstr "MyISAM võtmepuhvri (indeksi puhver) % kasutus on madal."
 
 #: libraries/advisory_rules_generic.php:380
 #: libraries/advisory_rules_generic.php:397
@@ -634,10 +632,9 @@ msgid "Percentage of index reads from memory"
 msgstr "Mälust loetud indeksite protsent"
 
 #: libraries/advisory_rules_generic.php:411
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr "MyISAM võtme puhvrit kasutavate indeksite %% on madal."
+msgstr "MyISAM võtmepuhvrit kasutavate indeksite % on madal."
 
 #: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
@@ -675,16 +672,12 @@ msgid "Percentage of used open files limit"
 msgstr "Kasutatud avatud failide protsendi piirang"
 
 #: libraries/advisory_rules_generic.php:436
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
-"Avatud failide hulk läheneb maksimaalsele avatud failide hulgale.  Võid "
-"saada \"Liiga palju avatud faile\" vea."
+"Avatud failide hulk läheneb maksimaalsele avatud failide hulgale. Võid saada "
+"\"Liiga palju avatud faile\" vea."
 
 #: libraries/advisory_rules_generic.php:440
 #: libraries/advisory_rules_generic.php:453
@@ -716,10 +709,9 @@ msgstr ""
 "Avatud failide hulk: %s. See väärtus peaks ühe tunni kohta olema alla 5"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "Viivitamatu tabeli lukustamiste %%"
+msgstr "Viivitamatu tabeli lukustamiste %"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -771,10 +763,9 @@ msgid "The thread cache is set to 0"
 msgstr "Lõimu puhvriks on määratud 0"
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "Lõimu puhvri kasutushulga %%"
+msgstr "Lõimu puhvri kasutushulga %"
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -965,18 +956,7 @@ msgstr ""
 "InnoDB logifaili maht ei ole InnoDB puhvertsooni arvestades sobivas mahus."
 
 #: libraries/advisory_rules_generic.php:622
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -989,15 +969,15 @@ msgid ""
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Eriti süsteemides, kus on palju InnoDB tabelite kirjutamisi, peaksid "
-"{innodb_log_file_size} väärtuseks määrama 25%% {innodb_buffer_pool_size} "
+"{innodb_log_file_size} väärtuseks määrama 25% {innodb_buffer_pool_size} "
 "väärtusest. Siiski, mida suurem see väärtus on, seda pikem on andmebaasi "
 "rikkumisel selle taastamise aeg ja seetõttu ei tohiks selle väärtus olla "
 "palju suurem 256-st MiB-st. Kuid palun pane tähele, et sa ei saa niisama "
 "lihtsalt selle muutuja väärtust muuta. Sa pead sulgema serveri, kustutama "
 "InnoDB logi failid, määrama my.cnf failis uue väärtuse, käivitama serveri ja "
-"siis kontrollima logisid, et kas kõik läks hästi. Vaata ka <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">selle blogi sissekannet</a>"
+"siis kontrollima logisid, et kas kõik läks hästi. Vaata ka <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">selle blogi sissekannet</a>"
 
 #: libraries/advisory_rules_generic.php:633
 #, php-format
@@ -1017,17 +997,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB logi fail on liiga mahukas."
 
 #: libraries/advisory_rules_generic.php:646
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1039,15 +1009,15 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Tavaliselt piisab {innodb_log_file_size} väärtuseks 25%% "
+"Tavaliselt piisab {innodb_log_file_size} väärtuseks 25% "
 "{innodb_buffer_pool_size} mahust. Väga suur {innodb_log_file_size} aeglustab "
-"tunduvalt andmebaasi rikkumisel selle taastamist. Vaata ka <a href=\"https://"
-"www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">seda "
-"artiklit</a>. Sa pead sulgema serveri, kustutama InnoDB logi failid, määrama "
-"my.cnf failis uue väärtuse, käivitama serveri ja siis kontrollima vigade "
-"logisid, et kas kõik läks hästi. Vaata ka <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">selle blogi sissekannet</a>"
+"tunduvalt andmebaasi rikkumisel selle taastamist. Vaata ka <a href=\"https"
+"://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\""
+">seda artiklit</a>. Sa pead sulgema serveri, kustutama InnoDB logi failid, "
+"määrama my.cnf failis uue väärtuse, käivitama serveri ja siis kontrollima "
+"vigade logisid, et kas kõik läks hästi. Vaata ka <a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">selle blogi sissekannet</a>"
 
 #: libraries/advisory_rules_generic.php:656
 #, php-format
@@ -1063,18 +1033,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Sinu InnoDB puhvertsoon on üsna väike."
 
 #: libraries/advisory_rules_generic.php:667
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1088,14 +1047,14 @@ msgid ""
 "\">this article</a>"
 msgstr ""
 "InnoDB puhvertsoonil on suuri probleeme jõudlusega InnoDB tabelites. Eralda "
-"oma ülejäänud mälu sellele puhvrile. Sa võid 80%% vabast mälust eraldada "
+"oma ülejäänud mälu sellele puhvrile. Sa võid 80% vabast mälust eraldada "
 "andmebaasi serveritele, mis kasutavad varundusmootorina ainult InnoDB'd ja "
 "millel puuduvad muud teenused (nt veebiserver). Kui see nii ei ole, siis "
 "pead hoolikalt hindama teiste teenuste ja mitte-InnoDB tabelite mälu "
 "tarbimist ning vastavalt sellele määrama selle muutuja väärtuse. Kui see on "
 "määratud liiga kõrgeks, siis su süsteem hakkab andmeid saalima ning see "
-"vähendab jõudlust oluliselt. Vaata ka <a href=\"https://www.percona.com/"
-"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">seda artiklit</a>"
+"vähendab jõudlust oluliselt. Vaata ka <a href=\"https://www.percona.com/blog/"
+"2007/11/03/choosing-innodb_buffer_pool_size/\">seda artiklit</a>"
 
 #: libraries/advisory_rules_generic.php:677
 #, php-format
@@ -1159,10 +1118,9 @@ msgstr ""
 "määratud 'OFF'"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Päringu puhvri efektiivsus (%%)"
+msgstr "Päringu puhvri efektiivsus (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1182,10 +1140,9 @@ msgid "Query Cache usage"
 msgstr "Päringu puhvri kasutus"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "Kasutusel on alla 80%% päringu puhvrist."
+msgstr "Kasutusel on alla 80% päringu puhvrist."
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -8492,7 +8449,7 @@ msgstr "Vigane tabeli nimi"
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:52
 msgid "There is an issue with your request."
-msgstr "Su päring ei läbinud turvalisuse kontrolli."
+msgstr "Sinu päring ei läbinud turvalisuse kontrolli."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:65
 #: libraries/classes/Database/Routines.php:1555
@@ -8507,7 +8464,7 @@ msgstr "MySQL tagastas tühja tulemuse (s.t nulliread)."
 #: libraries/classes/Controllers/Table/MaintenanceController.php:163
 #: libraries/classes/Controllers/Table/MaintenanceController.php:198
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Mitme tabeli hooldustoimingud on keelatud."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:107
 #: libraries/classes/Controllers/Table/OperationsController.php:294
@@ -11965,8 +11922,6 @@ msgstr ""
 "Teisendab tekstina antud Interneti IPv4/IPv6 võrguaadressi binaarkujule"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
@@ -13410,6 +13365,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"Mõeldud IPv6 aadresside salvestamiseks, aga ka IPv4 aadressidele, eeldades "
+"tavapärast IPv4 aadresside vastendamist IPv6 aadressideks"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
@@ -14541,12 +14498,10 @@ msgid "Event scheduler status"
 msgstr "Sündmuse ajastaja staatus"
 
 #: templates/database/export/index.twig:62
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr ", @DATABASE@ saab andmebaasi nimeks"
+msgstr "Serveri nimeks saab @SERVER@ ja andmebaasi nimeks saab @DATABASE@."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5
@@ -15344,20 +15299,16 @@ msgid "File name template:"
 msgstr "Faili nime mall:"
 
 #: templates/export.twig:324
-#, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"Seda väärtust on tõlgendatud %1$sstrftime%2$s'ga ja seetõttu saad kasutada "
-"aja vormindamise sõne. Lisaks toimuvad järgnevad muudatused: %3$s. Ülejäänud "
-"tekst jääb nii nagu see on. Detailide lugemiseks vaata %4$sKKK%5$s'd."
+"Seda väärtust on tõlgendatakse funktsiooniga 'strftime', mis võimaldab "
+"kasutada aja vormindamise sõne. Lisaks toimuvad järgnevad muudatused: %s. "
+"Ülejäänud tekst jääb nii nagu see on. Detailide lugemiseks vaata KKK teemat 6"
+".27."
 
 #: templates/export.twig:329
 msgid "use this for future exports"
@@ -15514,22 +15465,19 @@ msgid "no branch"
 msgstr "haru puudub"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s harust %2$s"
+msgstr "harust %s"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "Lisas %2$s %1$s"
+msgstr "lisatud %s, lisaja %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "%2$s poolt loodud %1$s"
+msgstr "loodud %s, looja %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
@@ -16415,10 +16363,8 @@ msgid "Unknown storage engine."
 msgstr "Tundmatu salvestusmootor."
 
 #: templates/server/export/index.twig:32
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ saab serveri nimeks"
+msgstr "Serveri nimeks saab @SERVER@."
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -17758,12 +17704,12 @@ msgid "Save chart as image"
 msgstr "Salvesta graafik pildina"
 
 #: templates/table/export/index.twig:8
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr ", @DATABASE@ saab andmebaasi nimeks"
+msgstr ""
+"Serveri nimeks saab @SERVER@, andmebaasi nimeks @DATABASE@ ja tabeli nimeks "
+"@TABLE@."
 
 #: templates/table/export/index.twig:5
 #, php-format
@@ -17876,10 +17822,8 @@ msgid "Continue insertion with %s rows"
 msgstr "Jätka %s rea lisamist"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "Kontrolli"
+msgstr "Kontrollsumma"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
