@@ -58,3 +58,4 @@ composer.lock
 # NPM
 /node_modules/
 libraries/cache/
+js/dist/
