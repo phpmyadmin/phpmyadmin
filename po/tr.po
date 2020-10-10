@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 14:18-0300\n"
-"PO-Revision-Date: 2020-10-03 11:34+0000\n"
+"PO-Revision-Date: 2020-10-10 19:23+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -14207,8 +14207,6 @@ msgid "Create version"
 msgstr "Sürüm oluştur"
 
 #: templates/database/central_columns/edit.twig:13
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr "A_I"
