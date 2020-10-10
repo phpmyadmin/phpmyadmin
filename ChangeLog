@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-5.0.3 (not yet released)
+5.0.3 (2020-10-09)
 - issue #15983 Require twig ^2.9
 - issue        Fix option to import files locally appearing as not available
 - issue #16048 Fix to allow NULL as a default bit value
@@ -64,6 +64,8 @@ phpMyAdmin - ChangeLog
 - issue #16342 Fixed multi-table query (db_multi_table_query.php) alias show the same alias for all columns
 - issue #15109 Fixed using ST_GeomFromText + GUI on insert throws an error
 - issue #16325 Fixed editing Geometry data throws error on using the GUI
+- issue        [security] Fix XSS vulnerability with the transformation feature (PMASA-2020-5)
+- issue        [security] Fix SQL injection vulnerability with search feature (PMASA-2020-6)
 
 5.0.2 (2020-03-20)
 - issue        Fixed deprecation warning "implode(): Passing glue string after array is deprecated." function on export page
