@@ -531,6 +531,8 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      *
+     * @group 32bit-incompatible
+     *
      * @dataProvider providerTestGetRealSize
      */
     public function testGetRealSize($size, $expected): void
