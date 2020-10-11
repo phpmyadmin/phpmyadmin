@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\TableSearchController;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
@@ -342,6 +343,7 @@ class TableSearchControllerTest extends PmaTestCase
      */
     public function testGetDataRowAction()
     {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $meta_one = new stdClass();
         $meta_one->type = 'int';
         $meta_one->length = 11;
@@ -384,6 +386,7 @@ class TableSearchControllerTest extends PmaTestCase
         $_POST['db'] = 'PMA';
         $_POST['table'] = 'PMA_BookMark';
         $_POST['where_clause'] = '`col1` = 1';
+        $_POST['where_clause_sign'] = Core::signSqlQuery($_POST['where_clause']);
         $expected = array(
             'col1' => 1,
             'col2' => 2

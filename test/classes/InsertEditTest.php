@@ -2380,6 +2380,7 @@ class InsertEditTest extends TestCase
      */
     public function testTransformEditedValues()
     {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $edited_values = array(
             array('c' => 'cname')
         );
@@ -2957,6 +2958,7 @@ class InsertEditTest extends TestCase
      */
     public function testGetHtmlForInsertEditFormColumn()
     {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $o_rows = 0;
         $tabindex = 0;
         $GLOBALS['plugin_scripts'] = array();
