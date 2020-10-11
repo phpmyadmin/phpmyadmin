@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 14:18-0300\n"
-"PO-Revision-Date: 2020-10-10 15:54+0000\n"
+"PO-Revision-Date: 2020-10-11 17:09+0000\n"
 "Last-Translator: P <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
@@ -5704,6 +5704,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Опитвате се да намалите броя на редовете, но в тях има данни, които ще "
+"бъдата загубени. Искате ли да продължите?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:57
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -6383,19 +6385,15 @@ msgstr "База Данни"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:276
 #: templates/export.twig:185
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Таблица"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:277
 #: templates/export.twig:198
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
-msgstr "Kолона"
+msgstr "Колона"
 
 #. l10n: A collection of available filters
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:280
@@ -6472,16 +6470,12 @@ msgid "Please select the file you want to import."
 msgstr "Изберете файла, който искате да импортирате."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:308
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Моля, въведете валидно име на страница"
+msgstr "Моля, въведете валидно име на таблица."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:309
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Моля, въведете валидно име на страница"
+msgstr "Моля, въведете валидно име на БД."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:310
 msgid "No files available on server for import!"
@@ -6558,6 +6552,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Изглежда е загубена връзката със сървъра. Моля, проверете мрежовата връзка и "
+"състоянието на сървъра."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:339
 #, fuzzy
@@ -6709,13 +6705,16 @@ msgstr "Разглеждане на външни стойности"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr ""
+msgstr "Няма запазена заявка. Зарежда се заявката по подразбиране."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:391
+#, fuzzy
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Имате запазена заявка. Кликнете \"Зареждане на запазена заявка\" за да я "
+"заредите."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 #, php-format
@@ -6754,15 +6753,11 @@ msgid "Are you sure?"
 msgstr "Сигурни ли сте?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:406
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
-"Това действие може да промени дефиницията на накоя от колоните.<br/>Сифурни "
+"Това действие може да промени дефиницията на някоя от колоните.<br/>Сигурни "
 "ли сте, че искате да продължите?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:409
@@ -7111,7 +7106,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:530
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "value/subQuery е празна"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 #: templates/database/designer/main.twig:40
@@ -8766,10 +8761,8 @@ msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Грешка: Релацията не е добавена."
 
 #: libraries/classes/Database/Designer/Common.php:801
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Грешка: Релацията не е добавена."
+msgstr "Грешка: Вътрешната релация не можа да бъде премахната!"
 
 #: libraries/classes/Database/Designer/Common.php:807
 #, fuzzy
@@ -8852,10 +8845,8 @@ msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
 #: libraries/classes/Database/Events.php:402
-#, fuzzy
-#| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "Трябва да дадете име на събитието"
+msgstr "Трябва да дадете име на събитието!"
 
 #: libraries/classes/Database/Events.php:417
 msgid "You must provide a valid interval value for the event."
@@ -8928,10 +8919,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:1146
-#, fuzzy
-#| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
-msgstr "Неуспешно установяване на конфигурираната връзка за сверка/колация."
+msgstr "Неуспешно установяване на конфигурираната връзка за колация!"
 
 #: libraries/classes/DatabaseInterface.php:1894
 #, fuzzy
@@ -9249,10 +9238,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "Трябва да дадете валиден тип на данните при изход на процедурата."
 
 #: libraries/classes/Database/Routines.php:1251
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "Трябва да дадете име на процедурата"
+msgstr "Трябва да дадете име на процедурата!"
 
 #: libraries/classes/Database/Routines.php:1316
 msgid "You must provide a routine definition."
@@ -9399,22 +9386,16 @@ msgid "Event"
 msgstr "Действие"
 
 #: libraries/classes/Database/Triggers.php:495
-#, fuzzy
-#| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "Трябва да дадете име на тригера"
+msgstr "Трябва да дадете име на тригера!"
 
 #: libraries/classes/Database/Triggers.php:502
-#, fuzzy
-#| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Трябва да дадете график на тригера"
+msgstr "Трябва да дадете график на тригера!"
 
 #: libraries/classes/Database/Triggers.php:509
-#, fuzzy
-#| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "Трябва да дадете събитие на тригера"
+msgstr "Трябва да дадете събитие на тригера!"
 
 #: libraries/classes/Database/Triggers.php:517
 #, fuzzy
@@ -9705,6 +9686,9 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
+"Ако временният файл, използван за бързо създаване на индекс MyISAM, ще бъде "
+"по-голям от използването на 'key cache' с посочена тук стойност, то методът "
+"'key cache' ще бъде предпочетен."
 
 #: libraries/classes/Engines/Myisam.php:59
 msgid "Repair threads"
@@ -10527,10 +10511,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:66
-#, fuzzy, php-format
-#| msgid "Could not save configuration"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "Конфигурацията не може да бъде запазена"
+msgstr "Не може да бъде зареден класът \"%1$s\""
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
@@ -10842,10 +10825,8 @@ msgstr ""
 #: libraries/classes/Normalization.php:596
 #: libraries/classes/Normalization.php:758
 #: libraries/classes/Normalization.php:834
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing!"
-msgstr "Грешка при обработка на заявката"
+msgstr "Грешка при обработка!"
 
 #: libraries/classes/Normalization.php:643
 #, php-format
@@ -10865,10 +10846,8 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Избраните целеви таблици бяха синхронизирани с изходните."
 
 #: libraries/classes/Normalization.php:862
-#, fuzzy
-#| msgid "Sep"
 msgid "Step 3."
-msgstr "септ"
+msgstr "Стъпка 3."
 
 #: libraries/classes/Normalization.php:862
 msgid "Find transitive dependencies"
@@ -11080,10 +11059,8 @@ msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:359
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Невъзможен вход в MySQL сървъра"
+msgstr "Нямате право да влизате в този MySQL сървър!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:91
 msgid "Wrong username/password. Access denied."
@@ -11839,10 +11816,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportOds.php:166
-#, fuzzy
-#| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Open Document Spreadsheet"
+msgstr "Не може да се анализира електронна таблица на OpenDocument!"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:65
 msgid "ESRI Shape File"
@@ -11860,10 +11835,8 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportShp.php:261
-#, fuzzy
-#| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "Импортираният файл не съдържа никаква информация"
+msgstr "Импортираният файл не съдържа никаква информация!"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:67
 msgid "SQL compatibility mode:"
@@ -12268,16 +12241,13 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Неуспешно хардуерно удостоверяване!"
+msgstr "Неуспешно двуфакторно удостоверяване: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:78
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Неуспешно хардуерно удостоверяване!"
+msgstr "Неуспешно двуфакторно удостоверяване."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:132
 #, fuzzy
@@ -12561,10 +12531,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:555
-#, fuzzy
-#| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "Главният не може да бъде сменен"
+msgstr "Главният не може да бъде сменен!"
 
 #: libraries/classes/ReplicationGui.php:559
 #, fuzzy, php-format
@@ -14052,12 +14020,12 @@ msgid "As defined:"
 msgstr "Дефиниран като:"
 
 #: templates/columns_definitions/column_attributes.twig:97
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Не разполагате с права, за да се намирате тук!"
+msgstr ""
+"Нямате достатъчно права за извършване на тази операция; Моля, вижте "
+"документацията за повече подробности"
 
 #: templates/columns_definitions/column_attributes.twig:111
 #: templates/database/data_dictionary/index.twig:67 templates/indexes.twig:17
