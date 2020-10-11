@@ -118,6 +118,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
     public function testCreateDatabaseAction(): void
     {
+        parent::defineVersionConstants();
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
