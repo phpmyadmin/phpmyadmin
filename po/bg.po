@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2019-04-21 21:34+0000\n"
-"Last-Translator: Stanislav Panayotov <pcconsult@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"PO-Revision-Date: 2020-10-11 17:09+0000\n"
+"Last-Translator: P <plamen_mbx@yahoo.com>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -7223,10 +7223,8 @@ msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Грешка: Релацията не е добавена."
 
 #: libraries/classes/Database/Designer/Common.php:726
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Грешка: Релацията не е добавена."
+msgstr "Грешка: Вътрешната релация не можа да бъде премахната!"
 
 #: libraries/classes/Database/Designer/Common.php:730
 #, fuzzy
@@ -7367,10 +7365,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:1550
-#, fuzzy
-#| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
-msgstr "Неуспешно установяване на конфигурираната връзка за сверка/колация."
+msgstr "Неуспешно установяване на конфигурираната връзка за колация!"
 
 #: libraries/classes/DatabaseInterface.php:2177
 msgid ""
@@ -7821,6 +7817,9 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
+"Ако временният файл, използван за бързо създаване на индекс MyISAM, ще бъде "
+"по-голям от използването на 'key cache' с посочена тук стойност, то методът "
+"'key cache' ще бъде предпочетен."
 
 #: libraries/classes/Engines/Myisam.php:61
 msgid "Repair threads"
@@ -9035,10 +9034,8 @@ msgstr ""
 #: libraries/classes/Normalization.php:545
 #: libraries/classes/Normalization.php:695
 #: libraries/classes/Normalization.php:767
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing!"
-msgstr "Грешка при обработка на заявката"
+msgstr "Грешка при обработка!"
 
 #: libraries/classes/Normalization.php:591
 #, php-format
@@ -9129,12 +9126,12 @@ msgstr "Преименуване БД на"
 #: libraries/classes/Operations.php:878 libraries/classes/Operations.php:965
 #: libraries/classes/Operations.php:1324
 #: templates/columns_definitions/column_adjust_privileges.twig:15
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Не разполагате с права, за да се намирате тук!"
+msgstr ""
+"Нямате достатъчно права за извършване на тази операция; Моля, вижте "
+"документацията за повече подробности"
 
 #: libraries/classes/Operations.php:158
 #, php-format
@@ -9444,10 +9441,8 @@ msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:344
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Невъзможен вход в MySQL сървъра"
+msgstr "Нямате право да влизате в този MySQL сървър!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
@@ -10121,10 +10116,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportOds.php:163
-#, fuzzy
-#| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Open Document Spreadsheet"
+msgstr "Не може да се анализира електронна таблица на OpenDocument!"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:56
 msgid "ESRI Shape File"
@@ -10142,10 +10135,8 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportShp.php:238
-#, fuzzy
-#| msgid "The imported file does not contain any data"
 msgid "The imported file does not contain any data!"
-msgstr "Импортираният файл не съдържа никаква информация"
+msgstr "Импортираният файл не съдържа никаква информация!"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:68
 msgid "SQL compatibility mode:"
@@ -10531,16 +10522,13 @@ msgid "For testing purposes only!"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Неуспешно хардуерно удостоверяване!"
+msgstr "Неуспешно двуфакторно удостоверяване: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Неуспешно хардуерно удостоверяване!"
+msgstr "Неуспешно двуфакторно удостоверяване."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
@@ -11119,10 +11107,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:1025
-#, fuzzy
-#| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "Главният не може да бъде сменен"
+msgstr "Главният не може да бъде сменен!"
 
 #: libraries/classes/ReplicationGui.php:1029
 #, fuzzy, php-format
@@ -11226,10 +11212,8 @@ msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
 #: libraries/classes/Rte/Events.php:562
-#, fuzzy
-#| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "Трябва да дадете име на събитието"
+msgstr "Трябва да дадете име на събитието!"
 
 #: libraries/classes/Rte/Events.php:577
 msgid "You must provide a valid interval value for the event."
@@ -11365,10 +11349,8 @@ msgid "SQL data access"
 msgstr "Достъп до SQL данните"
 
 #: libraries/classes/Rte/Routines.php:1143
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "Трябва да дадете име на процедурата"
+msgstr "Трябва да дадете име на процедурата!"
 
 #: libraries/classes/Rte/Routines.php:1177
 #, php-format
@@ -11452,22 +11434,16 @@ msgid "Time"
 msgstr "Време"
 
 #: libraries/classes/Rte/Triggers.php:445
-#, fuzzy
-#| msgid "You must provide a trigger name"
 msgid "You must provide a trigger name!"
-msgstr "Трябва да дадете име на тригера"
+msgstr "Трябва да дадете име на тригера!"
 
 #: libraries/classes/Rte/Triggers.php:452
-#, fuzzy
-#| msgid "You must provide a valid timing for the trigger"
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Трябва да дадете график на тригера"
+msgstr "Трябва да дадете график на тригера!"
 
 #: libraries/classes/Rte/Triggers.php:459
-#, fuzzy
-#| msgid "You must provide a valid event for the trigger"
 msgid "You must provide a valid event for the trigger!"
-msgstr "Трябва да дадете събитие на тригера"
+msgstr "Трябва да дадете събитие на тригера!"
 
 #: libraries/classes/Rte/Triggers.php:467
 #, fuzzy
