@@ -3,10 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
 "PO-Revision-Date: 2020-10-11 17:09+0000\n"
 "Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
+=======
+"POT-Creation-Date: 2020-10-10 13:32-0300\n"
+"PO-Revision-Date: 2020-10-11 17:09+0000\n"
+"Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
+>>>>>>> QA_4_9
 "ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -9444,6 +9451,7 @@ msgstr "確認"
 msgid "Optimize"
 msgstr "最適化"
 
+<<<<<<< HEAD
 #: libraries/classes/Operations.php:1677
 #: templates/table/structure/display_structure.twig:464
 msgid "Rebuild"
@@ -9453,6 +9461,15 @@ msgstr "再構築"
 #: templates/table/structure/display_structure.twig:464
 msgid "Repair"
 msgstr "修復"
+=======
+#: libraries/classes/Plugins/Export/ExportSql.php:1789
+msgid "AUTO_INCREMENT for dumped tables"
+msgstr "ダンプしたテーブルの AUTO_INCREMENT"
+
+#: libraries/classes/Plugins/Export/ExportSql.php:1790
+msgid "AUTO_INCREMENT for table"
+msgstr "テーブルの AUTO_INCREMENT"
+>>>>>>> QA_4_9
 
 #: libraries/classes/Operations.php:1679
 #: templates/table/structure/display_structure.twig:464
@@ -9812,6 +9829,7 @@ msgstr "テーブル @TABLE@ の構造"
 msgid "Object creation options"
 msgstr "生成オプション"
 
+<<<<<<< HEAD
 #: libraries/classes/Plugins/Export/ExportLatex.php:125
 #: libraries/classes/Plugins/Export/ExportLatex.php:178
 msgid "Table caption:"
@@ -9821,6 +9839,38 @@ msgstr "テーブルのキャプション:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:184
 msgid "Table caption (continued):"
 msgstr "テーブルのキャプション (続き):"
+=======
+#: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
+msgid ""
+"LINUX ONLY: Launches an external application and feeds it the column data "
+"via standard input. Returns the standard output of the application. The "
+"default is Tidy, to pretty-print HTML code. For security reasons, you have "
+"to manually edit the file libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php and list the tools you want to make "
+"available. The first option is then the number of the program you want to "
+"use. The second option should be blank for historical reasons. The third "
+"option, if set to 1, will convert the output using htmlspecialchars() "
+"(Default 1). The fourth option, if set to 1, will prevent wrapping and "
+"ensure that the output appears all on one line (Default 1)."
+msgstr ""
+"LINUX のみ: 外部アプリケーションを起動して標準入力経由でカラムデータを渡します。アプリケーションの標準出力が返ります。デフォルトは Tidy "
+"です (これは HTML コードを綺麗にするためのものです)。セキュリティ上の理由から libraries/classes/Plugins/"
+"Transformations/Abs/ExternalTransformationsPlugin.php "
+"を自分で編集して利用したいツールを明記しておく必要があります。最初のオプションは利用したいプログラムの数です。2 "
+"つ目のオプションは歴史的な理由のため、空白のままにしてください。3 つ目のオプションが 1 に設定されている場合は htmlspecialchars() "
+"を用いて出力を変換します (デフォルトは 1 です)。4 つ目のオプションが 1 に設定されている場合は禁則処理をせず出力全体が 1 "
+"行に収まるようにします (デフォルトは 1 です)。"
+
+#: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
+#, php-format
+msgid ""
+"You are using the external transformation command line options field, which "
+"has been deprecated for security reasons. Add all command line options "
+"directly to the definition in %s."
+msgstr ""
+"セキュリティ上の問題のため廃止した外部変換コマンド ライン オプション フィールドを使用しようとしています。コマンド ライン オプションを %s "
+"の中の定義に直接に追加してください。"
+>>>>>>> QA_4_9
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:137
 #: libraries/classes/Plugins/Export/ExportLatex.php:190
@@ -14266,8 +14316,26 @@ msgstr "現在のサーバへのインポート"
 
 #: templates/display/import/import.twig:42
 #, php-format
+<<<<<<< HEAD
 msgid "Importing into the database \"%s\""
 msgstr "データベース \"%s\" へのインポート"
+=======
+msgid "Table %s already exists!"
+msgstr "テーブル %s は既に存在します!"
+
+#: tbl_export.php:45
+msgid "View dump (schema) of table"
+msgstr "テーブルのダンプ (スキーマ) 表示"
+
+#: tbl_get_field.php:38
+msgid "Invalid table name"
+msgstr "テーブル名が不正です"
+
+#. l10n: In case a SQL query did not pass a security check
+#: tbl_get_field.php:46 transformation_wrapper.php:69
+msgid "There is an issue with your request."
+msgstr "リクエストに問題があります。"
+>>>>>>> QA_4_9
 
 #: templates/display/import/import.twig:44
 #, php-format
