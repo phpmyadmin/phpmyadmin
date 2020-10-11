@@ -2,6 +2,8 @@ phpMyAdmin - ChangeLog
 ======================
 
 5.0.4 (not yet released)
+- issue #16245 Fix failed Zoom search clears existing values
+- issue        Fixed a PHP error when reporting a particular JS error
 
 5.0.3 (2020-10-09)
 - issue #15983 Require twig ^2.9
