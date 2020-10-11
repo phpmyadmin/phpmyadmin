@@ -3,17 +3,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-<<<<<<< HEAD
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
 "PO-Revision-Date: 2020-10-11 17:09+0000\n"
 "Last-Translator: P <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
-=======
-"POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-10-11 17:09+0000\n"
-"Last-Translator: P <plamen_mbx@yahoo.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
->>>>>>> QA_4_9
 "bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
@@ -6982,18 +6975,12 @@ msgstr ""
 msgid "The number of free pages."
 msgstr ""
 
-<<<<<<< HEAD
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:320
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
-=======
-#: libraries/classes/Database/Designer/Common.php:726
-msgid "Error: Internal relationship could not be removed!"
-msgstr "Грешка: Вътрешната релация не можа да бъде премахната!"
->>>>>>> QA_4_9
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:325
 msgid ""
@@ -7134,15 +7121,9 @@ msgstr ""
 msgid "The number of row locks currently being waited for."
 msgstr ""
 
-<<<<<<< HEAD
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:432
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr ""
-=======
-#: libraries/classes/DatabaseInterface.php:1550
-msgid "Failed to set configured collation connection!"
-msgstr "Неуспешно установяване на конфигурираната връзка за колация!"
->>>>>>> QA_4_9
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:435
 msgid "The total time spent in acquiring row locks, in milliseconds."
@@ -7413,9 +7394,6 @@ msgstr ""
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:632
 msgid "Thread cache hit rate (calculated value)"
 msgstr ""
-"Ако временният файл, използван за бързо създаване на индекс MyISAM, ще бъде "
-"по-голям от използването на 'key cache' с посочена тук стойност, то методът "
-"'key cache' ще бъде предпочетен."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:635
 msgid "The number of threads that are not sleeping."
@@ -8483,17 +8461,9 @@ msgstr "Web сървърът няма права за писане върху ф
 msgid "Dump has been saved to file %s."
 msgstr "Схемата беше запазена във файл %s."
 
-<<<<<<< HEAD
 #: libraries/classes/File.php:263
 msgid "File was not an uploaded file."
 msgstr "Файлът не е бил качен."
-=======
-#: libraries/classes/Normalization.php:545
-#: libraries/classes/Normalization.php:695
-#: libraries/classes/Normalization.php:767
-msgid "Error in processing!"
-msgstr "Грешка при обработка!"
->>>>>>> QA_4_9
 
 #: libraries/classes/File.php:305
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -8640,23 +8610,10 @@ msgstr ""
 msgid "Options"
 msgstr "Настройки"
 
-<<<<<<< HEAD
 #: libraries/classes/Import.php:1276
 #, php-format
 msgid "Go to database: %s"
 msgstr "Към БД: %s"
-=======
-#: libraries/classes/Operations.php:120 libraries/classes/Operations.php:259
-#: libraries/classes/Operations.php:878 libraries/classes/Operations.php:965
-#: libraries/classes/Operations.php:1324
-#: templates/columns_definitions/column_adjust_privileges.twig:15
-msgid ""
-"You don't have sufficient privileges to perform this operation; Please refer "
-"to the documentation for more details"
-msgstr ""
-"Нямате достатъчно права за извършване на тази операция; Моля, вижте "
-"документацията за повече подробности"
->>>>>>> QA_4_9
 
 #: libraries/classes/Import.php:1282 libraries/classes/Import.php:1325
 #, php-format
@@ -9048,15 +9005,9 @@ msgstr "Репликация"
 msgid "Variables"
 msgstr "Променливи"
 
-<<<<<<< HEAD
 #: libraries/classes/Menu.php:655 libraries/classes/Util.php:4206
 msgid "Charsets"
 msgstr "Знакови набори"
-=======
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:344
-msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Нямате право да влизате в този MySQL сървър!"
->>>>>>> QA_4_9
 
 #: libraries/classes/Menu.php:659 libraries/classes/Util.php:4208
 msgid "Engines"
@@ -9586,7 +9537,6 @@ msgid ""
 "primary key columns"
 msgstr ""
 
-<<<<<<< HEAD
 #: libraries/classes/Normalization.php:890
 msgid "Table is already in Third normal form!"
 msgstr ""
@@ -9596,11 +9546,6 @@ msgstr ""
 #| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
 msgstr "Скриване на действията за промяна на структурата"
-=======
-#: libraries/classes/Plugins/Import/ImportOds.php:163
-msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Не може да се анализира електронна таблица на OpenDocument!"
->>>>>>> QA_4_9
 
 #: libraries/classes/Normalization.php:916
 msgid "Select up to what step you want to normalize"
@@ -9620,17 +9565,11 @@ msgid ""
 "normalization"
 msgstr ""
 
-<<<<<<< HEAD
 #: libraries/classes/Normalization.php:998
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
-=======
-#: libraries/classes/Plugins/Import/ImportShp.php:238
-msgid "The imported file does not contain any data!"
-msgstr "Импортираният файл не съдържа никаква информация!"
->>>>>>> QA_4_9
 
 #: libraries/classes/Normalization.php:1014
 msgid "No partial dependencies found!"
@@ -9988,7 +9927,6 @@ msgstr "Грешно име/парола. Достъп отказан."
 msgid "Can not find signon authentication script:"
 msgstr ""
 
-<<<<<<< HEAD
 #: libraries/classes/Plugins/AuthenticationPlugin.php:191
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
@@ -9998,16 +9936,6 @@ msgstr "Входът без парола е забранен от конфигу
 #, php-format
 msgid "No activity within %s seconds; please log in again."
 msgstr "Няма активност през последните %s секунди; моля влезте отново."
-=======
-#: libraries/classes/Plugins/TwoFactorPlugin.php:70
-#, php-format
-msgid "Two-factor authentication failed: %s"
-msgstr "Неуспешно двуфакторно удостоверяване: %s"
-
-#: libraries/classes/Plugins/TwoFactorPlugin.php:74
-msgid "Two-factor authentication failed."
-msgstr "Неуспешно двуфакторно удостоверяване."
->>>>>>> QA_4_9
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:208
 #: libraries/classes/Plugins/AuthenticationPlugin.php:211
@@ -10591,15 +10519,9 @@ msgstr ""
 msgid "Structure for view %s exported as a table"
 msgstr ""
 
-<<<<<<< HEAD
 #: libraries/classes/Plugins/Export/ExportSql.php:2175
 msgid "(See below for the actual view)"
 msgstr ""
-=======
-#: libraries/classes/ReplicationGui.php:1025
-msgid "Unable to change master!"
-msgstr "Главният не може да бъде сменен!"
->>>>>>> QA_4_9
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2255
 #, fuzzy, php-format
@@ -10699,17 +10621,11 @@ msgstr ""
 msgid "MediaWiki Table"
 msgstr ""
 
-<<<<<<< HEAD
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
 #, fuzzy, php-format
 #| msgid "Invalid rule declaration on line %s."
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Невалидна декларация на правило на ред %s."
-=======
-#: libraries/classes/Rte/Events.php:562
-msgid "You must provide an event name!"
-msgstr "Трябва да дадете име на събитието!"
->>>>>>> QA_4_9
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -10868,17 +10784,11 @@ msgstr "Речник на данните"
 msgid "Order of the tables"
 msgstr "никое от горните"
 
-<<<<<<< HEAD
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:106
 #, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
 msgstr "Възходящо"
-=======
-#: libraries/classes/Rte/Routines.php:1143
-msgid "You must provide a routine name!"
-msgstr "Трябва да дадете име на процедурата!"
->>>>>>> QA_4_9
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:107
 #, fuzzy
@@ -11471,7 +11381,6 @@ msgstr "Събитието %1$s беше променено."
 msgid "Event %1$s has been created."
 msgstr "Събитието %1$s беше създадено."
 
-<<<<<<< HEAD
 #: libraries/classes/Rte/Events.php:234 libraries/classes/Rte/Routines.php:341
 #: libraries/classes/Rte/Triggers.php:206
 #, fuzzy
@@ -11496,19 +11405,6 @@ msgstr "Име на събитие"
 #: libraries/classes/Rte/Events.php:480 templates/server/binlog/index.twig:86
 msgid "Event type"
 msgstr "Тип на събитието"
-=======
-#: libraries/classes/Rte/Triggers.php:445
-msgid "You must provide a trigger name!"
-msgstr "Трябва да дадете име на тригера!"
-
-#: libraries/classes/Rte/Triggers.php:452
-msgid "You must provide a valid timing for the trigger!"
-msgstr "Трябва да дадете график на тригера!"
-
-#: libraries/classes/Rte/Triggers.php:459
-msgid "You must provide a valid event for the trigger!"
-msgstr "Трябва да дадете събитие на тригера!"
->>>>>>> QA_4_9
 
 #: libraries/classes/Rte/Events.php:501 libraries/classes/Rte/Routines.php:944
 #, php-format
