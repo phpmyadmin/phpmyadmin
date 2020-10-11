@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 14:18-0300\n"
-"PO-Revision-Date: 2020-10-06 07:42+0000\n"
+"PO-Revision-Date: 2020-10-11 17:09+0000\n"
 "Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -292,23 +292,15 @@ msgid "Suboptimal caching method."
 msgstr "準最適キャッシュ方式です。"
 
 #: libraries/advisory_rules_generic.php:192
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
-"MySQL のクエリキャッシュをかなり高いトラフィックのデータベースに対して使用し"
-"ています。MySQL のクエリキャッシュの代わりに <a href=\"https://dev.mysql.com/"
-"doc/refman/5.5/en/ha-memcached.html\">memcached</a> の使用を検討する価値があ"
-"ると思われます。これは、マルチスレーブを使用している場合は、特に推奨されま"
-"す。"
+"MySQL のクエリ キャッシュをかなり高いトラフィックのデータベースに対して使用しています。MySQL のクエリ キャッシュの代わりに <a href="
+"\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> "
+"の使用を検討する価値があると思われます。これは、マルチスレーブを使用している場合は、特に推奨します。"
 
 #: libraries/advisory_rules_generic.php:198
 #, php-format
@@ -556,15 +548,6 @@ msgid "Temp disk rate"
 msgstr "一時テーブルがディスク上に展開される割合"
 
 #: libraries/advisory_rules_generic.php:345
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -574,13 +557,11 @@ msgid ""
 "mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもし"
-"れません。しかしながら、これらの変数値に関わりなく、常にディスクに展開される"
-"一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカ"
-"ラムもしくは 512 バイトを超えるカラムを使わないように、クエリを書き直す必要が"
-"あるでしょう。このことは、<a href=\"https://dev.mysql.com/doc/refman/5.5/en/"
-"internal-temporary-tables.html\">MySQL ドキュメント</a>に詳しく記載されていま"
-"す"
+"{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもしれません。しかしながら、これらの変数値"
+"に関わりなく、常にディスクに展開される一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカラムもしくは 512 "
+"バイトを超えるカラムを使わないように、クエリを書き直す必要があるでしょう。このことは、<a href=\"https://dev.mysql.com/"
+"doc/refman/8.0/en/internal-temporary-tables.html\">MySQL "
+"ドキュメント</a>に詳しく記載しています"
 
 #: libraries/advisory_rules_generic.php:354
 #, php-format
@@ -659,10 +640,9 @@ msgid "Percentage of index reads from memory"
 msgstr "メモリから読み込まれるインデックスの比率"
 
 #: libraries/advisory_rules_generic.php:411
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr "MyISAM キーバッファを使用するインデックス%%の比率が低いです。"
+msgstr "MyISAM キー バッファを使用するインデックス % の比率が低いです。"
 
 #: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
@@ -702,16 +682,10 @@ msgid "Percentage of used open files limit"
 msgstr "開いているファイルの上限に対する比率"
 
 #: libraries/advisory_rules_generic.php:436
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
-msgstr ""
-"開いているファイルの数が最大になりつつあります。エラー「開いているファイルが"
-"多すぎます」になるかもしれません。"
+msgstr "開いているファイルの数が最大に近づいています。「開いているファイルが多すぎます」というエラーが表示されることがあります。"
 
 #: libraries/advisory_rules_generic.php:440
 #: libraries/advisory_rules_generic.php:453
@@ -746,10 +720,9 @@ msgstr ""
 "ます"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "速やかに行われたテーブルロック%%の比率"
+msgstr "速やかに行われたテーブルロック % の比率"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -804,10 +777,9 @@ msgid "The thread cache is set to 0"
 msgstr "スレッドキャッシュは 0 に設定されています"
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "スレッドキャッシュのヒット率%%"
+msgstr "スレッド キャッシュのヒット率 %"
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -1006,18 +978,7 @@ msgstr ""
 "があります。"
 
 #: libraries/advisory_rules_generic.php:622
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -1029,16 +990,14 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"特に、InnoDB のテーブルへの書き込みが多いシステムの場合には、"
-"{innodb_log_file_size} は {innodb_buffer_pool_size} の 25%% に設定するといい"
-"でしょう。しかしながら、この値が大きくなると、データベースが壊れたときの修復"
-"に時間がかかるようになります。そのため、この値は 256 MiB を超えないほうがいい"
-"と言われています。なお、この変数は簡単には変更できないので注意してください。"
-"サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定して、"
-"そうした後にサーバは起動し直す必要があります。そして、全ての設定が正しく設定"
-"できているのかを、エラーログで確認しなければなりません。<a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">こちらのブログ記事 (英語)</a> もご覧になってください"
+"特に、InnoDB のテーブルへの書き込みが多いシステムの場合には、{innodb_log_file_size} は "
+"{innodb_buffer_pool_size} の 25 % "
+"に設定するといいでしょう。しかしながら、この値が大きくなると、データベースが壊れたときの修復に時間がかかるようになります。そのため、この値は 256 "
+"MiB を超えないほうがいいと言われています。なお、この変数は簡単には変更できないので注意してください。サーバを停止させ、InnoDB "
+"ログファイルを削除し、my.cnf "
+"に新しい値を設定して、そうした後にサーバは起動し直す必要があります。そして、全ての設定が正しく設定できているのかを、エラーログで確認しなければなりません。"
+"<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧になってください"
 
 #: libraries/advisory_rules_generic.php:633
 #, php-format
@@ -1058,17 +1017,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB ログファイルの大きさが、十分にありません。"
 
 #: libraries/advisory_rules_generic.php:646
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1080,17 +1029,14 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"一般的には、innodb_log_file_size に {innodb_buffer_pool_size} の 25%% の値を"
-"設定すれば十分です。innodb_log_file_size の値が非常に大きい場合、データベース"
-"が多量に破損した後の修復に時間がかかるようになります。<a href=\"https://www."
-"percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">こちらの"
-"記事 (英語)</a> も参照してください。なお、この変数を変更するには、サーバを停"
-"止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定してから、サーバ"
-"を起動し直す必要があります。それから、全ての設定が正しく行えたかを確認するた"
-"めに、エラーログを確認しなければなりません。設定に関しては、<a href="
+"一般的には、innodb_log_file_size に {innodb_buffer_pool_size} の 25 % の値を設定すれば十分です。"
+"innodb_log_file_size の値が非常に大きい場合、データベースが多量に破損した後の修復に時間がかかるようになります。<a href="
+"\"https://www.percona.com/blog/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">こちらの記事 (英語)</a> "
+"も参照してください。なお、この変数を変更するには、サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定してから、サーバを起"
+"動し直す必要があります。それから、全ての設定が正しく行えたかを確認するために、エラーログを確認しなければなりません。設定に関しては、<a href="
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧くだ"
-"さい"
+"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧ください"
 
 #: libraries/advisory_rules_generic.php:656
 #, php-format
@@ -1106,18 +1052,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "ご使用されている InnoDB のバッファプールはかなり小さいです。"
 
 #: libraries/advisory_rules_generic.php:667
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1130,17 +1065,13 @@ msgid ""
 "\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
 "\">this article</a>"
 msgstr ""
-"InnoDB のバッファプールは、InnoDB テーブルのパフォーマンスに対して強い影響力"
-"を持っています。使用されていないメモリを全てこのバッファに割り当ててくださ"
-"い。ストレージエンジンとして InnoDB のみを使用しており、他のサービス (例え"
-"ば、ウェブサーバ) を稼動していないデータベースサーバに対しては、使用可能なメ"
-"モリの 80%% 以上にあたる大きな値をバッファプール変数に設定するといいでしょ"
-"う。そのような状況以外では、使用されている他のサービスや InnoDB ではないテー"
-"ブルの使用メモリ量を慎重に見極めながら、この変数を設定する必要があります。大"
-"きすぎる値を設定されてしまった場合、システムはメモリスワップをするようにな"
-"り、パフォーマンスは著しく低下するようになります。<a href=\"https://www."
-"percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">こちらの記事 "
-"(英語)</a> も参考にしてください"
+"InnoDB のバッファプールは、InnoDB "
+"テーブルのパフォーマンスに対して強い影響力を持っています。使用されていないメモリを全てこのバッファに割り当ててください。ストレージエンジンとして "
+"InnoDB のみを使用しており、他のサービス (例えば、ウェブサーバ) を稼動していないデータベースサーバに対しては、使用可能なメモリの 80 % "
+"以上にあたる大きな値をバッファプール変数に設定するといいでしょう。そのような状況以外では、使用されている他のサービスや InnoDB ではないテーブルの使"
+"用メモリ量を慎重に見極めながら、この変数を設定する必要があります。大きすぎる値を設定されてしまった場合、システムはメモリスワップをするようになり、パフォー"
+"マンスは著しく低下するようになります。<a href=\"https://www.percona.com/blog/2007/11/03/"
+"choosing-innodb_buffer_pool_size/\">こちらの記事 (英語)</a> も参考にしてください"
 
 #: libraries/advisory_rules_generic.php:677
 #, php-format
@@ -1204,10 +1135,9 @@ msgstr ""
 "れています"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "クエリキャッシュ効率 (%%)"
+msgstr "クエリ キャッシュ効率 (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1228,10 +1158,9 @@ msgid "Query Cache usage"
 msgstr "クエリキャッシュの使用状況"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "クエリキャッシュの利用率が 80%% 未満です。"
+msgstr "クエリ キャッシュの利用率が 80 % 未満です。"
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -3052,16 +2981,12 @@ msgid "Maximum tables"
 msgstr "テーブルの最大数"
 
 #: libraries/classes/Config/Descriptions.php:512
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"スクリプトが割り当てを許可されているバイト数。例：[kbd]32M[/kbd]（制限なしの"
-"場合は[kbd]-1[/kbd]、変更なしの場合は[kbd]0[/kbd]）。"
+"スクリプトが割り当てを許可されているバイト数。例：[kbd]32M[/kbd]（制限なしの場合は[kbd]-1[/kbd]、変更なしの場合は[kbd]0["
+"/kbd]）。"
 
 #: libraries/classes/Config/Descriptions.php:515
 msgid "Memory limit"
@@ -3111,16 +3036,11 @@ msgid "Logo link URL"
 msgstr "ロゴのリンク URL"
 
 #: libraries/classes/Config/Descriptions.php:531
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"リンク先のページをメインウィンドウ ([kbd]main[/kbd]) または新しいウィンドウ "
-"([kbd]new[/kbd]) で開く。"
+"リンク先のページをメイン ウィンドウ ([code]main[/code]) または新しいウィンドウ ([code]new[/code]) で開く。"
 
 #: libraries/classes/Config/Descriptions.php:534
 msgid "Logo link target"
@@ -4110,10 +4030,8 @@ msgid "Retain query box"
 msgstr "クエリボックスを保持する"
 
 #: libraries/classes/Config/Descriptions.php:883
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
-msgstr "データベースやテーブルの状態（領域の使用状況など）の表示を許可します。"
+msgstr "データベースとーブルの統計（例：領域の使用状況）の表示を許可します。"
 
 #: libraries/classes/Config/Descriptions.php:884
 msgid "Show statistics"
@@ -4409,14 +4327,12 @@ msgid "Private key for reCaptcha"
 msgstr "reCaptchaの秘密キー"
 
 #: libraries/classes/Config/Descriptions.php:963
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr "ドメインのreCaptchaサービスの秘密キーを入力してください。"
+msgstr "reCaptcha サービスのサイト認証 URL を入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "URL for reCaptcha siteverify"
-msgstr ""
+msgstr "reCaptcha サイト認証の URL"
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Choose the default action when sending error reports."
@@ -5168,10 +5084,8 @@ msgstr "不明"
 #: libraries/classes/Controllers/Table/MaintenanceController.php:120
 #: libraries/classes/Controllers/Table/MaintenanceController.php:156
 #: libraries/classes/Controllers/Table/MaintenanceController.php:191
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
-msgstr "テーブルが選択されていません。"
+msgstr "テーブルは未選択です。"
 
 #: libraries/classes/Controllers/Database/StructureController.php:1256
 #: libraries/classes/Controllers/Database/StructureController.php:1279
@@ -5947,8 +5861,6 @@ msgstr "なし"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "実行した SQL"
 
@@ -6851,7 +6763,7 @@ msgstr "暗号化キー"
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
-msgstr ""
+msgstr "HEX 関数は、16 進数の値を計算する間は、整数を文字列として扱います"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:505
 msgid ""
@@ -8334,7 +8246,7 @@ msgstr "返り値が空でした (行数 0)。"
 #: libraries/classes/Controllers/Table/MaintenanceController.php:163
 #: libraries/classes/Controllers/Table/MaintenanceController.php:198
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "複数テーブルの管理の操作は無効です。"
 
 #: libraries/classes/Controllers/Table/OperationsController.php:107
 #: libraries/classes/Controllers/Table/OperationsController.php:294
@@ -8711,11 +8623,10 @@ msgid "Export of event %s"
 msgstr "イベント %s をエクスポートする"
 
 #: libraries/classes/Database/Events.php:618
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "データベース %2$s に %1$s という名前のイベントはありません。"
+msgstr "リクエストの処理中にエラーが発生しました：データベース %2$s に %1$s という名前のイベントはありません。"
 
 #: libraries/classes/DatabaseInterface.php:1099
 #, php-format
@@ -9114,17 +9025,14 @@ msgid "Export of routine %s"
 msgstr "ルーチン %s のエクスポート"
 
 #: libraries/classes/Database/Routines.php:1914
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"データベース「%2$s」で「%1$s」のルーチンはありません。このルーチンを表示・エ"
-"クスポートする為に必要な権限がない可能性があります。"
+"リクエストの処理中にエラーが発生しました：データベース %2$s に %1$s "
+"という名前のルーチンはありません。このルーチンを表示またはエクスポートする為に必要な権限がない可能性があります。"
 
 #: libraries/classes/Database/Search.php:109
 #: templates/database/search/main.twig:19
@@ -9224,12 +9132,11 @@ msgid "Export of trigger %s"
 msgstr "トリガ %s をエクスポートする"
 
 #: libraries/classes/Database/Triggers.php:635
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "データベース %2$s に %1$s という名前のトリガはありません。"
+msgstr "リクエストの処理中にエラーが発生しました：データベース %2$s に %1$s という名前のトリガはありません。"
 
 #: libraries/classes/Dbal/DbiMysqli.php:188
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9720,7 +9627,7 @@ msgstr "ダンプをファイル %s に保存しました。"
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:990
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "このエクスポート方法では、生のクエリのエクスポートには対応していません。"
 
 #: libraries/classes/File.php:286
 msgid "File was not an uploaded file."
@@ -9842,11 +9749,11 @@ msgstr "SSLを使用されています"
 
 #: libraries/classes/Html/Generator.php:412
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "PHP 関数 password_hash() にデフォルトのオプションを指定します。"
 
 #: libraries/classes/Html/Generator.php:413
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "password_hash() PHP 関数"
 
 #: libraries/classes/Html/Generator.php:715
 msgid "Skip Explain SQL"
@@ -10895,7 +10802,7 @@ msgstr ""
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
-msgstr ""
+msgstr "%s 秒間、未操作のために自動的にログアウトされました。再度ログインすると、中断した所から作業を再開できるようになります。"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:213
 #: libraries/classes/Plugins/AuthenticationPlugin.php:216
@@ -11175,10 +11082,8 @@ msgstr "カラム名をエクスポートする"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:267
 #: libraries/classes/Plugins/Export/ExportTexytext.php:192
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "テーブルのデータのダンプ"
+msgstr "クエリ結果のデータのダンプ"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:98
 msgid "Report title:"
@@ -11189,10 +11094,8 @@ msgid "Dumping data"
 msgstr "データのダンプ"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:252
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
-msgstr "クエリの結果"
+msgstr "クエリ結果のデータ"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:310
 msgid "View structure"
@@ -11256,7 +11159,7 @@ msgstr "%s 値"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
-msgstr ""
+msgstr "簡易ビュー エクスポートの使用"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:381
 msgid ""
@@ -11410,11 +11313,11 @@ msgstr "テーブルのインデックス"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1888
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "ダンプしたテーブルのAUTO_INCREMENT"
+msgstr "ダンプしたテーブルの AUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1889
 msgid "AUTO_INCREMENT for table"
-msgstr "テーブルのAUTO_INCREMENT"
+msgstr "テーブルの AUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1965
 msgid "MEDIA TYPES FOR TABLE"
@@ -11795,9 +11698,8 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
-"セキュリティ上の問題のため廃止した外部変換コマンドラインオプションフィールド"
-"を使用しようとしています。コマンドラインオプションを%sの中の定義に直接に追加"
-"してください。"
+"セキュリティ上の問題のため廃止した外部変換コマンド ライン オプション フィールドを使用しようとしています。コマンド ライン オプションを %s "
+"の中の定義に直接に追加してください。"
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:27
 msgid ""
@@ -11920,13 +11822,10 @@ msgstr ""
 "( IPv 4 / IPv 6 )形式のインターネットネットワークアドレスをバイナリに変換する"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
-msgstr ""
-"( IPv 4 / IPv 6 )形式のインターネットネットワークアドレスをバイナリに変換する"
+msgstr "( IPv 4 / IPv 6 )形式のインターネット ネットワーク アドレスを長整数型に変換します。"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -13368,6 +13267,7 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"従来の IPv 4 アドレスから IPv 6 アドレスへのマッピングを想定した IPv 6 アドレスおよび IPv 4 アドレスの格納を目的としています"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
@@ -13802,21 +13702,17 @@ msgstr "接続:"
 #: templates/columns_definitions/column_definitions_form.twig:113
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:128
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Storage engine"
-msgstr "ストレージエンジン"
+msgstr "ストレージ エンジン"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
 msgstr "PARTITION 定義:"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "エクスポートをトランザクションで囲む"
+msgstr "オンライン トランザクション"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -14127,11 +14023,9 @@ msgid "Create version"
 msgstr "世代を作成する"
 
 #: templates/database/central_columns/edit.twig:13
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
-msgstr "オート・インクリメント"
+msgstr "A_I"
 
 #: templates/database/central_columns/main.twig:4
 msgid "Add new column"
@@ -14531,19 +14425,15 @@ msgid "Event scheduler status"
 msgstr "イベントスケジュールの状態"
 
 #: templates/database/export/index.twig:62
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr "、@DATABASE@ はデータベース名に"
+msgstr "@SERVER@ はサーバー名、@DATABASE@ はデータベース名になります。"
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
-msgstr "SQL クエリを表示"
+msgstr "生クエリのエクスポート"
 
 #: templates/database/export/index.twig:7
 #, php-format
@@ -14640,16 +14530,10 @@ msgstr "新しいデータベース名"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:291
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
-msgstr ""
-"この操作を実行する十分な特権がありません。詳細についてはドキュメンテーション"
-"を参照してください"
+msgstr "この操作を実行する十分な特権がありません；詳細についてはドキュメンテーションを参照してください。"
 
 #: templates/database/operations/index.twig:89
 msgid "Remove database"
@@ -14781,10 +14665,8 @@ msgid "Ins:"
 msgstr "挿入:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "および:"
+msgstr "および"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -14820,21 +14702,15 @@ msgid "Modify:"
 msgstr "修正："
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "条件行を追加・削除する"
+msgstr "条件行の追加または削除："
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "カラムを追加・削除する"
+msgstr "カラムの追加または削除："
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
 msgstr "利用するテーブル"
 
@@ -14863,8 +14739,6 @@ msgid "Returns"
 msgstr "返り値"
 
 #: templates/database/routines/index.twig:58
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
 msgstr "新規作成"
@@ -15024,10 +14898,8 @@ msgid "Make consistent with central list"
 msgstr "中央のリストと整合性にする"
 
 #: templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "オプション"
+msgstr "オプション："
 
 #: templates/database/structure/copy_form.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -15273,10 +15145,8 @@ msgid "Update"
 msgstr "更新"
 
 #: templates/export.twig:53
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
-msgstr "SQL クエリを表示"
+msgstr "SQL クエリの表示"
 
 #: templates/export.twig:72
 msgid "Export method:"
@@ -15361,21 +15231,14 @@ msgid "File name template:"
 msgstr "ファイル名のテンプレート:"
 
 #: templates/export.twig:324
-#, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
-"することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
-"す。）。その他のテキストはそのまま使われます。詳細については、%4$sFAQ%5$s を"
-"参照してください。"
+"この値は 'strftime' 関数を使用して解釈されるため、時刻の書式文字列を使用できます。さらに、次の変換が行われます：%s "
+"その他のテキストはそのまま使用されます。詳細については、FAQ 6.27 を参照してください。"
 
 #: templates/export.twig:329
 msgid "use this for future exports"
@@ -15523,22 +15386,19 @@ msgid "no branch"
 msgstr "ブランチ無し"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s (%2$s ブランチ)"
+msgstr "%s ブランチから"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "最終コミット: %1$s、%2$s により"
+msgstr "最終コミット：%s、%s により"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "パッチ作成: %1$s、%2$s により"
+msgstr "パッチ作成：%s、%s により"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
@@ -15707,26 +15567,21 @@ msgid "Browse your computer:"
 msgstr "アップロードファイル:"
 
 #: templates/import.twig:62
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "アップロードファイル:"
+msgstr "コンピュータの参照"
 
 #: templates/import.twig:68 templates/import.twig:101
 msgid "You may also drag and drop a file on any page."
 msgstr "ファイルを任意のページにドラッグアンドドロップすることもできます。"
 
 #: templates/import.twig:74 templates/import.twig:104
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "ウェブサーバ上のアップロードディレクトリ <b>%s</b> から選択する："
+msgstr "ウェブサーバ上のアップロード ディレクトリ [strong]%s[/strong] から選択："
 
 #: templates/import.twig:80
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "インポートするファイル:"
+msgstr "インポートするファイルの選択"
 
 #: templates/import.twig:85 templates/import.twig:115
 msgid "There are no files to upload!"
@@ -16101,16 +15956,12 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin のドキュメント"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "ドキュメント"
+msgstr "MariaDB ドキュメント"
 
 #: templates/navigation/main.twig:40 templates/navigation/main.twig:41
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "ドキュメント"
+msgstr "MySQL ドキュメント"
 
 #: templates/navigation/main.twig:44 templates/navigation/main.twig:45
 msgid "Navigation panel settings"
@@ -16440,10 +16291,8 @@ msgid "Unknown storage engine."
 msgstr "不明なストレージ エンジン。"
 
 #: templates/server/export/index.twig:32
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ はサーバ名に"
+msgstr "@SERVER@ はサーバー名になります。"
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -16536,10 +16385,8 @@ msgid "User group"
 msgstr "ユーザグループ"
 
 #: templates/server/privileges/choose_user_group.twig:6
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "ユーザグループ"
+msgstr "ユーザ グループ："
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -17125,44 +16972,32 @@ msgstr ""
 "変更した箇所を元に戻します。"
 
 #: templates/server/status/advisor/index.twig:55
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
-msgstr "SQL デバッグ情報を取得中にいくつかのエラーが発生しました。"
+msgstr "ルール式の実行中にエラーが発生しました："
 
 #: templates/server/status/advisor/index.twig:65
 msgid "Possible performance issues"
 msgstr "パフォーマンス的に検討が推奨される事象"
 
 #: templates/server/status/advisor/index.twig:78
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "事象"
+msgstr "問題："
 
 #: templates/server/status/advisor/index.twig:81
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "推奨設定"
+msgstr "推奨設定："
 
 #: templates/server/status/advisor/index.twig:84
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "判断理由"
+msgstr "判断理由："
 
 #: templates/server/status/advisor/index.twig:87
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "判断値の算出方法"
+msgstr "判断値の算出方法："
 
 #: templates/server/status/advisor/index.twig:90
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "判断基準"
+msgstr "判断基準："
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -17690,10 +17525,8 @@ msgid "Rollback when finished"
 msgstr "完了した後、ロールバック"
 
 #: templates/sql/query.twig:149
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "ブックマーク"
+msgstr "ブックマーク："
 
 #: templates/sql/query.twig:156
 msgid "shared"
@@ -17800,12 +17633,10 @@ msgid "Save chart as image"
 msgstr "グラフをイメージとして保存"
 
 #: templates/table/export/index.twig:8
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr "、@DATABASE@ はデータベース名に"
+msgstr "@SERVER@ はサーバー名、@DATABASE@ はデータベース名、@TABLE@ はテーブル名になります。"
 
 #: templates/table/export/index.twig:5
 #, php-format
@@ -17891,8 +17722,6 @@ msgid "Index choice:"
 msgstr "インデックスの選択:"
 
 #: templates/table/index_form.twig:52
-#, fuzzy
-#| msgid "Advanced Options"
 msgid "Advanced options"
 msgstr "高度なオプション"
 
@@ -17922,27 +17751,21 @@ msgid "Continue insertion with %s rows"
 msgstr "%s 行づつ挿入を行う"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "確認"
+msgstr "チェックサム"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
 msgstr "テーブルの並び順"
 
 #: templates/table/operations/index.twig:20
-#, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(1 回)"
 
 #: templates/table/operations/index.twig:50
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する:"
+msgstr "テーブルを（database.table）へ移動"
 
 #: templates/table/operations/index.twig:103
 msgid "Table options"
@@ -17961,10 +17784,8 @@ msgid "Change all column collations"
 msgstr "すべてのカラムの照合順序を変更する"
 
 #: templates/table/operations/index.twig:227
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "テーブルを (データベース)<b>.</b>(テーブル) にコピーする:"
+msgstr "テーブルを（database.table）にコピー"
 
 #: templates/table/operations/index.twig:300
 msgid "Switch to copied table"
@@ -18001,10 +17822,8 @@ msgid "Remove partitioning"
 msgstr "パーティションを削除"
 
 #: templates/table/operations/index.twig:469
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "参照整合性の確認:"
+msgstr "参照整合性の確認"
 
 #: templates/table/operations/view.twig:11
 msgid "Rename view to"
@@ -18225,10 +18044,9 @@ msgid "at beginning of table"
 msgstr "テーブルの先頭"
 
 #: templates/table/structure/display_structure.twig:498
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
-msgstr "%s つのカラムにインデックスを作成する"
+msgstr "%s カラムにインデックスを作成する"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
@@ -18349,15 +18167,13 @@ msgstr "クリックでオン／オフ切り替え"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
-msgstr "テーブルナビゲーションバー"
+msgstr "ナビゲーションの切り替え"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "（現在）"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media types"
