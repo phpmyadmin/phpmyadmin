@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2020-07-08 06:46+0000\n"
-"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
+"PO-Revision-Date: 2020-10-11 17:09+0000\n"
+"Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "ja/>\n"
 "Language: ja\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -10118,11 +10118,11 @@ msgstr "テーブルのインデックス"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1834
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "ダンプしたテーブルのAUTO_INCREMENT"
+msgstr "ダンプしたテーブルの AUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1835
 msgid "AUTO_INCREMENT for table"
-msgstr "テーブルのAUTO_INCREMENT"
+msgstr "テーブルの AUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1910
 msgid "MEDIA (MIME) TYPES FOR TABLE"
@@ -10490,9 +10490,8 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
-"セキュリティ上の問題のため廃止した外部変換コマンドラインオプションフィールド"
-"を使用しようとしています。コマンドラインオプションを%sの中の定義に直接に追加"
-"してください。"
+"セキュリティ上の問題のため廃止した外部変換コマンド ライン オプション フィールドを使用しようとしています。コマンド ライン オプションを %s "
+"の中の定義に直接に追加してください。"
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:31
 msgid ""
