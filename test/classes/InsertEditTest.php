@@ -2956,6 +2956,7 @@ class InsertEditTest extends TestCase
      */
     public function testTransformEditedValues()
     {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $edited_values = [
             ['c' => 'cname'],
         ];
@@ -2964,7 +2965,8 @@ class InsertEditTest extends TestCase
             '',
         ];
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $_POST['where_clause'] = 1;
+        $_POST['where_clause'] = '1';
+        $_POST['where_clause_sign'] = Core::signSqlQuery($_POST['where_clause']);
         $transformation = [
             'transformation_options' => "'','option ,, quoted',abd",
         ];
@@ -3768,6 +3770,7 @@ class InsertEditTest extends TestCase
      */
     public function testGetHtmlForInsertEditFormColumn()
     {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $o_rows = 0;
         $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
