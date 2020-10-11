@@ -224,6 +224,9 @@ rm -rf PMAStandard
 # Testsuite setup
 rm -f .travis.yml .coveralls.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
 
+# Remove Doctum config file
+rm -f test/doctum-config.php
+
 # Remove readme for github
 rm -f README.rst
 
