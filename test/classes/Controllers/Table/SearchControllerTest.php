@@ -137,6 +137,7 @@ class SearchControllerTest extends AbstractTestCase
      */
     public function testGetDataRowAction(): void
     {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
         $meta_one = new stdClass();
         $meta_one->type = 'int';
         $meta_one->length = 11;
@@ -182,7 +183,7 @@ class SearchControllerTest extends AbstractTestCase
         $_POST['db'] = 'PMA';
         $_POST['table'] = 'PMA_BookMark';
         $_POST['where_clause'] = '`col1` = 1';
-        $_POST['where_clause_sign'] = Core::signSqlQuery('`col1` = 1');
+        $_POST['where_clause_sign'] = Core::signSqlQuery($_POST['where_clause']);
         $expected = [
             'col1' => 1,
             'col2' => 2,
