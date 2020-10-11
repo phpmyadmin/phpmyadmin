@@ -17,6 +17,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Types;
 use stdClass;
+use function hash;
 
 /**
  * Tests for PMA_TableSearch

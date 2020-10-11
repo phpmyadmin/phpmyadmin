@@ -18,6 +18,7 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Url;
 use ReflectionProperty;
 use stdClass;
+use function hash;
 use function md5;
 use function sprintf;
 
