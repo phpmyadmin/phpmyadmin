@@ -1,52 +1,40 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Controllers\AbstractController
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
-/**
- * Base class for all of controller
- */
 abstract class AbstractController
 {
     /** @var Response */
     protected $response;
 
-    /** @var DatabaseInterface */
-    protected $dbi;
-
     /** @var Template */
     protected $template;
 
     /**
-     * @param Response          $response Response object
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template          $template Template that should be used
+     * @param Response $response
      */
-    public function __construct($response, $dbi, Template $template)
+    public function __construct($response, Template $template)
     {
         $this->response = $response;
-        $this->dbi = $dbi;
         $this->template = $template;
     }
 
     /**
-     * @param string $template Template path name.
-     * @param array  $data     Associative array of template variables.
+     * @param array<string, mixed> $templateData
      */
-    protected function render(string $template, array $data = []): void
+    protected function render(string $templatePath, array $templateData = []): void
     {
-        $this->response->addHTML($this->template->render($template, $data));
+        $this->response->addHTML($this->template->render($templatePath, $templateData));
     }
 
-    /** @param string[] $files */
+    /**
+     * @param string[] $files
+     */
     protected function addScriptFiles(array $files): void
     {
         $header = $this->response->getHeader();

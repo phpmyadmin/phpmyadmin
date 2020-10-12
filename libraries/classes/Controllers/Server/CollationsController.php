@@ -28,31 +28,24 @@ class CollationsController extends AbstractController
     private $collations;
 
     /**
-     * @param Response          $response   Response object
-     * @param DatabaseInterface $dbi        DatabaseInterface object
-     * @param Template          $template   Template object
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      * @param array|null        $charsets   Array of charsets
      * @param array|null        $collations Array of collations
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
+        $dbi,
         ?array $charsets = null,
         ?array $collations = null
     ) {
         global $cfg;
 
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
 
-        $this->charsets = $charsets ?? Charsets::getCharsets(
-            $this->dbi,
-            $cfg['Server']['DisableIS']
-        );
-        $this->collations = $collations ?? Charsets::getCollations(
-            $this->dbi,
-            $cfg['Server']['DisableIS']
-        );
+        $this->charsets = $charsets ?? Charsets::getCharsets($dbi, $cfg['Server']['DisableIS']);
+        $this->collations = $collations ?? Charsets::getCollations($dbi, $cfg['Server']['DisableIS']);
     }
 
     public function index(): void

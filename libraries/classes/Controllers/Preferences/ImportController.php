@@ -8,7 +8,6 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\ImportForm;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -27,20 +26,15 @@ class ImportController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response        A Response instance.
-     * @param DatabaseInterface $dbi             A DatabaseInterface instance.
-     * @param Template          $template        A Template instance.
-     * @param UserPreferences   $userPreferences A UserPreferences instance.
-     * @param Relation          $relation        A Relation instance.
+     * @param Response $response
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         UserPreferences $userPreferences,
         Relation $relation
     ) {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->userPreferences = $userPreferences;
         $this->relation = $relation;
     }

@@ -24,16 +24,18 @@ class ReplicationController extends AbstractController
     /** @var ReplicationGui */
     private $replicationGui;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response       Response object
-     * @param DatabaseInterface $dbi            DatabaseInterface object
-     * @param Template          $template       Template that should be used
-     * @param ReplicationGui    $replicationGui ReplicationGui instance
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, ReplicationGui $replicationGui)
+    public function __construct($response, Template $template, ReplicationGui $replicationGui, $dbi)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->replicationGui = $replicationGui;
+        $this->dbi = $dbi;
     }
 
     public function index(): void

@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Message;
@@ -32,20 +31,15 @@ class ErrorReportController extends AbstractController
     private $errorHandler;
 
     /**
-     * @param Response          $response     Response object
-     * @param DatabaseInterface $dbi          DatabaseInterface object
-     * @param Template          $template     Template that should be used
-     * @param ErrorReport       $errorReport  ErrorReport object
-     * @param ErrorHandler      $errorHandler ErrorHandler object
+     * @param Response $response
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         ErrorReport $errorReport,
         ErrorHandler $errorHandler
     ) {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->errorReport = $errorReport;
         $this->errorHandler = $errorHandler;
     }

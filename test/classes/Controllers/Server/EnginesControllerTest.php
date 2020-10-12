@@ -42,11 +42,7 @@ class EnginesControllerTest extends AbstractTestCase
     {
         $response = new Response();
 
-        $controller = new EnginesController(
-            $response,
-            $GLOBALS['dbi'],
-            new Template()
-        );
+        $controller = new EnginesController($response, new Template());
 
         $controller->index();
         $actual = $response->getHTMLResult();
@@ -91,11 +87,7 @@ class EnginesControllerTest extends AbstractTestCase
     {
         $response = new Response();
 
-        $controller = new EnginesController(
-            $response,
-            $GLOBALS['dbi'],
-            new Template()
-        );
+        $controller = new EnginesController($response, new Template());
 
         $controller->show([
             'engine' => 'Pbxt',

@@ -51,7 +51,6 @@ class ExportTemplateControllerTest extends AbstractTestCase
 
         $this->controller = new ExportTemplateController(
             $this->response,
-            $dbi,
             $this->template,
             new TemplateModel($dbi),
             new Relation($dbi, $this->template)

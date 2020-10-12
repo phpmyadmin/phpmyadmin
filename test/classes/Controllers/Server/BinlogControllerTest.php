@@ -98,11 +98,7 @@ class BinlogControllerTest extends AbstractTestCase
 
         $response = new Response();
 
-        $controller = new BinlogController(
-            $response,
-            $dbi,
-            new Template()
-        );
+        $controller = new BinlogController($response, new Template(), $dbi);
 
         $_POST['log'] = 'index1';
         $_POST['pos'] = '3';

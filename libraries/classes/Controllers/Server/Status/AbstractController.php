@@ -21,6 +21,9 @@ abstract class AbstractController extends Controller
     /** @var Data */
     protected $data;
 
+    /** @var DatabaseInterface */
+    protected $dbi;
+
     /**
      * @param Response          $response Response object
      * @param DatabaseInterface $dbi      DatabaseInterface object
@@ -29,7 +32,8 @@ abstract class AbstractController extends Controller
      */
     public function __construct($response, $dbi, Template $template, $data)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->data = $data;
+        $this->dbi = $dbi;
     }
 }

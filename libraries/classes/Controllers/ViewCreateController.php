@@ -7,11 +7,14 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_merge;
@@ -28,6 +31,19 @@ use function substr;
  */
 class ViewCreateController extends AbstractController
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $dbi)
+    {
+        parent::__construct($response, $template);
+        $this->dbi = $dbi;
+    }
+
     public function index(): void
     {
         global $text_dir, $url_params, $view_algorithm_options, $view_with_options, $view_security_options;

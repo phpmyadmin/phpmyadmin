@@ -22,16 +22,19 @@ class AjaxController extends AbstractController
     /** @var Config */
     private $config;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response Response instance
-     * @param DatabaseInterface $dbi      DatabaseInterface instance
-     * @param Template          $template Template object
-     * @param Config            $config   Config instance
+     * @param Response          $response
+     * @param Config            $config
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, $config)
+    public function __construct($response, Template $template, $config, $dbi)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->config = $config;
+        $this->dbi = $dbi;
     }
 
     public function databases(): void

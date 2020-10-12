@@ -73,12 +73,7 @@ class PluginsControllerTest extends AbstractTestCase
 
         $response = new Response();
 
-        $controller = new PluginsController(
-            $response,
-            $dbi,
-            new Template(),
-            new Plugins($dbi)
-        );
+        $controller = new PluginsController($response, new Template(), new Plugins($dbi));
         $controller->index();
         $actual = $response->getHTMLResult();
 

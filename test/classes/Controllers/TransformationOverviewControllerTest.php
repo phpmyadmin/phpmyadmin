@@ -39,12 +39,7 @@ class TransformationOverviewControllerTest extends AbstractTestCase
     {
         $response = new Response();
 
-        $controller = new TransformationOverviewController(
-            $response,
-            $GLOBALS['dbi'],
-            new Template(),
-            new Transformations()
-        );
+        $controller = new TransformationOverviewController($response, new Template(), new Transformations());
 
         $controller->index();
         $actual = $response->getHTMLResult();

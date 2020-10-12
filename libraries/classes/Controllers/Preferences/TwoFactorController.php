@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Preferences;
 
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -19,14 +18,11 @@ class TwoFactorController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response A Response instance.
-     * @param DatabaseInterface $dbi      A DatabaseInterface instance.
-     * @param Template          $template A Template instance.
-     * @param Relation          $relation A Relation instance.
+     * @param Response $response
      */
-    public function __construct($response, $dbi, Template $template, Relation $relation)
+    public function __construct($response, Template $template, Relation $relation)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->relation = $relation;
     }
 

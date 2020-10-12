@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\BrowseForeigners;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -25,15 +24,13 @@ class BrowseForeignersController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response         Response instance
-     * @param DatabaseInterface $dbi              DatabaseInterface instance
-     * @param Template          $template         Template object
-     * @param BrowseForeigners  $browseForeigners BrowseForeigners instance
-     * @param Relation          $relation         Relation instance
+     * @param Response         $response
+     * @param BrowseForeigners $browseForeigners
+     * @param Relation         $relation
      */
-    public function __construct($response, $dbi, Template $template, $browseForeigners, $relation)
+    public function __construct($response, Template $template, $browseForeigners, $relation)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->browseForeigners = $browseForeigners;
         $this->relation = $relation;
     }

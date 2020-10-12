@@ -29,16 +29,18 @@ class BinlogController extends AbstractController
      */
     protected $binaryLogs;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * Constructs BinlogController
-     *
-     * @param Response          $response Response object
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template          $template Template object
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template)
+    public function __construct($response, Template $template, $dbi)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
+        $this->dbi = $dbi;
+
         $this->binaryLogs = $this->dbi->fetchResult(
             'SHOW MASTER LOGS',
             'Log_name',

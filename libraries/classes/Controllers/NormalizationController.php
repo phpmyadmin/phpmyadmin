@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -24,14 +23,11 @@ class NormalizationController extends AbstractController
     private $normalization;
 
     /**
-     * @param Response          $response      A Response instance.
-     * @param DatabaseInterface $dbi           A DatabaseInterface instance.
-     * @param Template          $template      A Template instance.
-     * @param Normalization     $normalization A Normalization instance.
+     * @param Response $response
      */
-    public function __construct($response, $dbi, Template $template, Normalization $normalization)
+    public function __construct($response, Template $template, Normalization $normalization)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->normalization = $normalization;
     }
 

@@ -21,16 +21,18 @@ class ViewOperationsController extends AbstractController
     /** @var Operations */
     private $operations;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response   Response object
-     * @param DatabaseInterface $dbi        DatabaseInterface object
-     * @param Template          $template   Template object
-     * @param Operations        $operations Operations object
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, Operations $operations)
+    public function __construct($response, Template $template, Operations $operations, $dbi)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->operations = $operations;
+        $this->dbi = $dbi;
     }
 
     public function index(): void

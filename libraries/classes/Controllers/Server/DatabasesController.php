@@ -64,23 +64,24 @@ class DatabasesController extends AbstractController
     /** @var RelationCleanup */
     private $relationCleanup;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response        Response object
-     * @param DatabaseInterface $dbi             DatabaseInterface object
-     * @param Template          $template        Template that should be used (if provided, default one otherwise)
-     * @param Transformations   $transformations Transformations instance.
-     * @param RelationCleanup   $relationCleanup RelationCleanup instance.
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         Transformations $transformations,
-        RelationCleanup $relationCleanup
+        RelationCleanup $relationCleanup,
+        $dbi
     ) {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->transformations = $transformations;
         $this->relationCleanup = $relationCleanup;
+        $this->dbi = $dbi;
 
         $checkUserPrivileges = new CheckUserPrivileges($dbi);
         $checkUserPrivileges->getPrivileges();

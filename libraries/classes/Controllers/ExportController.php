@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Controllers\Database\ExportController as DatabaseExportController;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export;
@@ -44,15 +43,11 @@ final class ExportController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response A Response instance.
-     * @param DatabaseInterface $dbi      A DatabaseInterface instance.
-     * @param Template          $template A Template instance.
-     * @param Export            $export   An Export instance.
-     * @param Relation          $relation A Relation instance.
+     * @param Response $response
      */
-    public function __construct($response, $dbi, Template $template, Export $export, Relation $relation)
+    public function __construct($response, Template $template, Export $export, Relation $relation)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->export = $export;
         $this->relation = $relation;
     }

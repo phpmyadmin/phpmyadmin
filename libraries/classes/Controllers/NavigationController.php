@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
@@ -27,20 +26,15 @@ class NavigationController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response   A Response instance.
-     * @param DatabaseInterface $dbi        A DatabaseInterface instance.
-     * @param Template          $template   A Template instance.
-     * @param Navigation        $navigation A Navigation instance.
-     * @param Relation          $relation   A Relation instance.
+     * @param Response $response
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         Navigation $navigation,
         Relation $relation
     ) {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->navigation = $navigation;
         $this->relation = $relation;
     }
