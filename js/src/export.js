@@ -833,7 +833,7 @@ Export.createAliasModal = function (event) {
                     'ajax_request': true,
                     'server': CommonParams.get('server')
                 };
-                $.post('index.php?route=/ajax/list-databases', params, function (response) {
+                $.post('index.php?route=/databases', params, function (response) {
                     if (response.success === true) {
                         $.each(response.databases, function (idx, value) {
                             var option = $('<option></option>');
@@ -950,7 +950,7 @@ AJAX.registerOnload('export.js', function () {
                 'server': CommonParams.get('server'),
                 'db': database,
             };
-            var url = 'index.php?route=/ajax/list-tables';
+            var url = 'index.php?route=/tables';
             $.post(url, params, function (response) {
                 if (response.success === true) {
                     $.each(response.tables, function (idx, value) {
@@ -975,7 +975,7 @@ AJAX.registerOnload('export.js', function () {
             'db': database,
             'table': table,
         };
-        var url = 'index.php?route=/ajax/list-columns';
+        var url = 'index.php?route=/columns';
         $.post(url, params, function (response) {
             if (response.success === true) {
                 $.each(response.columns, function (idx, value) {

@@ -4,15 +4,6 @@ declare(strict_types=1);
 
 return [
     'services' => [
-        PhpMyAdmin\Controllers\AjaxController::class => [
-            'class' => PhpMyAdmin\Controllers\AjaxController::class,
-            'arguments' => [
-                'response' => '@response',
-                'template' => '@template',
-                'config' => '@config',
-                'dbi' => '@dbi',
-            ],
-        ],
         PhpMyAdmin\Controllers\BrowseForeignersController::class => [
             'class' => PhpMyAdmin\Controllers\BrowseForeignersController::class,
             'arguments' => [
@@ -35,6 +26,22 @@ return [
                 'response' => '@response',
                 'template' => '@template',
                 'relation' => '@relation',
+            ],
+        ],
+        PhpMyAdmin\Controllers\ColumnController::class => [
+            'class' => PhpMyAdmin\Controllers\ColumnController::class,
+            'arguments' => [
+                'response' => '@response',
+                'template' => '@template',
+                'dbi' => '@dbi',
+            ],
+        ],
+        PhpMyAdmin\Controllers\ConfigController::class => [
+            'class' => PhpMyAdmin\Controllers\ConfigController::class,
+            'arguments' => [
+                'response' => '@response',
+                'template' => '@template',
+                'config' => '@config',
             ],
         ],
         PhpMyAdmin\Controllers\Database\CentralColumnsController::class => [
@@ -213,6 +220,13 @@ return [
                 'template' => '@template',
                 'db' => '%db%',
                 'dbi' => '@dbi',
+            ],
+        ],
+        PhpMyAdmin\Controllers\DatabaseController::class => [
+            'class' => PhpMyAdmin\Controllers\DatabaseController::class,
+            'arguments' => [
+                'response' => '@response',
+                'template' => '@template',
             ],
         ],
         PhpMyAdmin\Controllers\ErrorReportController::class => [
@@ -809,6 +823,14 @@ return [
                 'table' => '%table%',
                 'search' => '@table_search',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
+            ],
+        ],
+        PhpMyAdmin\Controllers\TableController::class => [
+            'class' => PhpMyAdmin\Controllers\TableController::class,
+            'arguments' => [
+                'response' => '@response',
+                'template' => '@template',
                 'dbi' => '@dbi',
             ],
         ],

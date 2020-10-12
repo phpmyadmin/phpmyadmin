@@ -3,10 +3,11 @@
 declare(strict_types=1);
 
 use FastRoute\RouteCollector;
-use PhpMyAdmin\Controllers\AjaxController;
 use PhpMyAdmin\Controllers\BrowseForeignersController;
 use PhpMyAdmin\Controllers\ChangeLogController;
 use PhpMyAdmin\Controllers\CheckRelationsController;
+use PhpMyAdmin\Controllers\ColumnController;
+use PhpMyAdmin\Controllers\ConfigController;
 use PhpMyAdmin\Controllers\Database\CentralColumnsController;
 use PhpMyAdmin\Controllers\Database\DataDictionaryController;
 use PhpMyAdmin\Controllers\Database\DesignerController;
@@ -24,6 +25,7 @@ use PhpMyAdmin\Controllers\Database\SqlFormatController;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\Database\TrackingController;
 use PhpMyAdmin\Controllers\Database\TriggersController;
+use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Controllers\ErrorReportController;
 use PhpMyAdmin\Controllers\ExportController;
 use PhpMyAdmin\Controllers\ExportTemplateController;
@@ -87,6 +89,7 @@ use PhpMyAdmin\Controllers\Table\StructureController as TableStructureController
 use PhpMyAdmin\Controllers\Table\TrackingController as TableTrackingController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\Table\ZoomSearchController;
+use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Controllers\TransformationWrapperController;
@@ -107,16 +110,14 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/recent-table', [HomeController::class, 'reloadRecentTablesList']);
         $routes->addRoute(['GET', 'POST'], '/git-revision', [HomeController::class, 'gitRevision']);
     });
-    $routes->addGroup('/ajax', static function (RouteCollector $routes): void {
-        $routes->post('/list-databases', [AjaxController::class, 'databases']);
-        $routes->post('/list-tables', [AjaxController::class, 'tables']);
-        $routes->post('/list-columns', [AjaxController::class, 'columns']);
-        $routes->post('/config-get', [AjaxController::class, 'getConfig']);
-        $routes->post('/config-set', [AjaxController::class, 'setConfig']);
-    });
     $routes->addRoute(['GET', 'POST'], '/browse-foreigners', [BrowseForeignersController::class, 'index']);
     $routes->get('/changelog', [ChangeLogController::class, 'index']);
     $routes->addRoute(['GET', 'POST'], '/check-relations', [CheckRelationsController::class, 'index']);
+    $routes->post('/columns', [ColumnController::class, 'all']);
+    $routes->addGroup('/config', static function (RouteCollector $routes): void {
+        $routes->post('/get', [ConfigController::class, 'get']);
+        $routes->post('/set', [ConfigController::class, 'set']);
+    });
     $routes->addGroup('/database', static function (RouteCollector $routes): void {
         $routes->addGroup('/central-columns', static function (RouteCollector $routes): void {
             $routes->addRoute(['GET', 'POST'], '', [CentralColumnsController::class, 'index']);
@@ -174,6 +175,7 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/tracking', [TrackingController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/triggers', [TriggersController::class, 'index']);
     });
+    $routes->post('/databases', [DatabaseController::class, 'all']);
     $routes->addRoute(['GET', 'POST'], '/error-report', [ErrorReportController::class, 'index']);
     $routes->addGroup('/export', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '', [ExportController::class, 'index']);
@@ -313,6 +315,7 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/triggers', [TableTriggersController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/zoom-search', [ZoomSearchController::class, 'index']);
     });
+    $routes->post('/tables', [TableController::class, 'all']);
     $routes->get('/themes', [ThemesController::class, 'index']);
     $routes->addGroup('/transformation', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/overview', [TransformationOverviewController::class, 'index']);
