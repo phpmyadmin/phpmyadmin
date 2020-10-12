@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2020-10-11 17:09+0000\n"
+"PO-Revision-Date: 2020-10-12 08:26+0000\n"
 "Last-Translator: P <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "bg/>\n"
@@ -3975,21 +3975,21 @@ msgid "Export time in UTC"
 msgstr "Експортиране на време в UTC"
 
 #: libraries/classes/Config/Descriptions.php:278
-#, fuzzy
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
-msgstr "външен ключ"
+msgstr ""
+"Сортиране на реда за елементи в падащия списък с чужд ключ; "
+"[kbd]съдържание[/kbd] са референтните данни, [kbd]id[/kbd] е стойността на "
+"ключа."
 
 #: libraries/classes/Config/Descriptions.php:281
 msgid "Foreign key dropdown order"
 msgstr "външен ключ"
 
 #: libraries/classes/Config/Descriptions.php:282
-#, fuzzy
-#| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
-msgstr "Да се използва падащо меню при малко елементи"
+msgstr "Да се ползва падащият списък при малко елементи."
 
 #: libraries/classes/Config/Descriptions.php:283
 msgid "Foreign key limit"
@@ -4008,10 +4008,8 @@ msgid "Browse mode"
 msgstr "Преглеждане"
 
 #: libraries/classes/Config/Descriptions.php:287
-#, fuzzy
-#| msgid "Customize browse mode"
 msgid "Customize browse mode."
-msgstr "Персонализиране на преглеждането"
+msgstr "Персонализиране на преглеждането."
 
 #: libraries/classes/Config/Descriptions.php:289
 #: libraries/classes/Config/Descriptions.php:291
@@ -4019,10 +4017,8 @@ msgstr "Персонализиране на преглеждането"
 #: libraries/classes/Config/Descriptions.php:318
 #: libraries/classes/Config/Descriptions.php:320
 #: libraries/classes/Config/Descriptions.php:357
-#, fuzzy
-#| msgid "Customize default options"
 msgid "Customize default options."
-msgstr "Персонализиране настройките по подразбиране"
+msgstr "Персонализиране настройките по подразбиране."
 
 #: libraries/classes/Config/Descriptions.php:290
 #: libraries/classes/Config/Forms/User/ExportForm.php:88
