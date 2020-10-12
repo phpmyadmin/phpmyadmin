@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config\PageSettings;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\InsertEdit;
@@ -31,24 +30,19 @@ class ChangeController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response   A Response instance.
-     * @param DatabaseInterface $dbi        A DatabaseInterface instance.
-     * @param Template          $template   A Template instance.
-     * @param string            $db         Database name.
-     * @param string            $table      Table name.
-     * @param InsertEdit        $insertEdit An InsertEdit instance.
-     * @param Relation          $relation   A Relation instance.
+     * @param Response $response
+     * @param string   $db       Database name.
+     * @param string   $table    Table name.
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         $db,
         $table,
         InsertEdit $insertEdit,
         Relation $relation
     ) {
-        parent::__construct($response, $dbi, $template, $db, $table);
+        parent::__construct($response, $template, $db, $table);
         $this->insertEdit = $insertEdit;
         $this->relation = $relation;
     }

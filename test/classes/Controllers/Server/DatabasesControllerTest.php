@@ -59,10 +59,10 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $controller = new DatabasesController(
             $response,
-            $GLOBALS['dbi'],
             $template,
             $transformations,
-            $relationCleanup
+            $relationCleanup,
+            $GLOBALS['dbi']
         );
 
         $controller->index();
@@ -88,10 +88,10 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $controller = new DatabasesController(
             $response,
-            $GLOBALS['dbi'],
             $template,
             $transformations,
-            $relationCleanup
+            $relationCleanup,
+            $GLOBALS['dbi']
         );
 
         $cfg['ShowCreateDb'] = true;
@@ -132,10 +132,10 @@ class DatabasesControllerTest extends AbstractTestCase
         $transformations = new Transformations();
         $controller = new DatabasesController(
             $response,
-            $dbi,
             $template,
             $transformations,
-            new RelationCleanup($dbi, new Relation($dbi, $template))
+            new RelationCleanup($dbi, new Relation($dbi, $template)),
+            $dbi
         );
 
         $_POST['new_db'] = 'pma_test';
@@ -155,10 +155,10 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $controller = new DatabasesController(
             $response,
-            $dbi,
             $template,
             $transformations,
-            new RelationCleanup($dbi, new Relation($dbi, $template))
+            new RelationCleanup($dbi, new Relation($dbi, $template)),
+            $dbi
         );
 
         $_POST['db_collation'] = 'utf8_general_ci';
@@ -190,10 +190,10 @@ class DatabasesControllerTest extends AbstractTestCase
         $template = new Template();
         $controller = new DatabasesController(
             $response,
-            $dbi,
             $template,
             new Transformations(),
-            new RelationCleanup($dbi, new Relation($dbi, $template))
+            new RelationCleanup($dbi, new Relation($dbi, $template)),
+            $dbi
         );
 
         $_POST['drop_selected_dbs'] = '1';

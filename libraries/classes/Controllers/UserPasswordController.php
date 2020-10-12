@@ -19,16 +19,18 @@ class UserPasswordController extends AbstractController
     /** @var UserPassword */
     private $userPassword;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response     Response object
-     * @param DatabaseInterface $dbi          DatabaseInterface object
-     * @param Template          $template     Template that should be used
-     * @param UserPassword      $userPassword UserPassword object
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, UserPassword $userPassword)
+    public function __construct($response, Template $template, UserPassword $userPassword, $dbi)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->userPassword = $userPassword;
+        $this->dbi = $dbi;
     }
 
     public function index(): void

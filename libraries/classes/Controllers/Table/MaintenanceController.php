@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table\Maintenance;
@@ -18,20 +17,18 @@ final class MaintenanceController extends AbstractController
     private $model;
 
     /**
-     * @param Response          $response
-     * @param DatabaseInterface $dbi
-     * @param string            $db
-     * @param string            $table
+     * @param Response $response
+     * @param string   $db
+     * @param string   $table
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         $db,
         $table,
         Maintenance $model
     ) {
-        parent::__construct($response, $dbi, $template, $db, $table);
+        parent::__construct($response, $template, $db, $table);
         $this->model = $model;
     }
 

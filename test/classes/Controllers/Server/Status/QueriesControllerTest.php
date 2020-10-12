@@ -52,12 +52,7 @@ class QueriesControllerTest extends AbstractTestCase
     {
         $response = new Response();
 
-        $controller = new QueriesController(
-            $response,
-            $GLOBALS['dbi'],
-            new Template(),
-            $this->data
-        );
+        $controller = new QueriesController($response, new Template(), $this->data);
 
         $controller->index();
         $html = $response->getHTMLResult();

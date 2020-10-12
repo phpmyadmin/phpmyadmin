@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Template as ExportTemplate;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Relation;
@@ -22,17 +21,15 @@ final class ExportTemplateController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response
-     * @param DatabaseInterface $dbi
+     * @param Response $response
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         TemplateModel $model,
         Relation $relation
     ) {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->model = $model;
         $this->relation = $relation;
     }

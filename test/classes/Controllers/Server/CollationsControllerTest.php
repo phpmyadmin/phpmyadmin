@@ -39,11 +39,7 @@ class CollationsControllerTest extends AbstractTestCase
     {
         $response = new Response();
 
-        $controller = new CollationsController(
-            $response,
-            $GLOBALS['dbi'],
-            new Template()
-        );
+        $controller = new CollationsController($response, new Template(), $GLOBALS['dbi']);
 
         $controller->index();
         $actual = $response->getHTMLResult();

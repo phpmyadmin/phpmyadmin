@@ -8,16 +8,15 @@ return [
             'class' => PhpMyAdmin\Controllers\AjaxController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'config' => '@config',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\BrowseForeignersController::class => [
             'class' => PhpMyAdmin\Controllers\BrowseForeignersController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'browseForeigners' => '@browse_foreigners',
                 'relations' => '@relation',
@@ -27,7 +26,6 @@ return [
             'class' => PhpMyAdmin\Controllers\ChangeLogController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
             ],
         ],
@@ -35,7 +33,6 @@ return [
             'class' => PhpMyAdmin\Controllers\CheckRelationsController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'relation' => '@relation',
             ],
@@ -44,7 +41,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Database\CentralColumnsController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'centralColumns' => '@central_columns',
@@ -54,18 +50,17 @@ return [
             'class' => PhpMyAdmin\Controllers\Database\DataDictionaryController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'relation' => '@relation',
                 'transformations' => '@transformations',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\DesignerController::class => [
             'class' => PhpMyAdmin\Controllers\Database\DesignerController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'databaseDesigner' => '@designer',
@@ -76,17 +71,16 @@ return [
             'class' => PhpMyAdmin\Controllers\Database\EventsController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'events' => '@events',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\ExportController::class => [
             'class' => PhpMyAdmin\Controllers\Database\ExportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'export' => '@export',
@@ -97,86 +91,85 @@ return [
             'class' => PhpMyAdmin\Controllers\Database\ImportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\MultiTableQueryController::class => [
             'class' => PhpMyAdmin\Controllers\Database\MultiTableQueryController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\OperationsController::class => [
             'class' => PhpMyAdmin\Controllers\Database\OperationsController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'operations' => '@operations',
                 'checkUserPrivileges' => '@check_user_privileges',
                 'relation' => '@relation',
                 'relationCleanup' => '@relation_cleanup',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\PrivilegesController::class => [
             'class' => PhpMyAdmin\Controllers\Database\PrivilegesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'privileges' => '@server_privileges',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\QueryByExampleController::class => [
             'class' => PhpMyAdmin\Controllers\Database\QueryByExampleController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\RoutinesController::class => [
             'class' => PhpMyAdmin\Controllers\Database\RoutinesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'checkUserPrivileges' => '@check_user_privileges',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\SearchController::class => [
             'class' => PhpMyAdmin\Controllers\Database\SearchController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\SqlAutoCompleteController::class => [
             'class' => PhpMyAdmin\Controllers\Database\SqlAutoCompleteController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\SqlController::class => [
             'class' => PhpMyAdmin\Controllers\Database\SqlController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'sqlQueryForm' => '@sql_query_form',
@@ -186,7 +179,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Database\SqlFormatController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
             ],
@@ -195,39 +187,38 @@ return [
             'class' => PhpMyAdmin\Controllers\Database\StructureController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'relation' => '@relation',
                 'replication' => '@replication',
                 'relationCleanup' => '@relation_cleanup',
                 'operations' => '@operations',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\TrackingController::class => [
             'class' => PhpMyAdmin\Controllers\Database\TrackingController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'tracking' => '@tracking',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\TriggersController::class => [
             'class' => PhpMyAdmin\Controllers\Database\TriggersController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\ErrorReportController::class => [
             'class' => PhpMyAdmin\Controllers\ErrorReportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'errorReport' => '@error_report',
                 'errorHandler' => '@error_handler',
@@ -237,7 +228,6 @@ return [
             'class' => PhpMyAdmin\Controllers\ExportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'export' => '@export',
                 'relation' => '@relation',
@@ -247,7 +237,6 @@ return [
             'class' => PhpMyAdmin\Controllers\ExportTemplateController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'model' => '@export_template_model',
                 'relation' => '@relation',
@@ -257,7 +246,6 @@ return [
             'class' => PhpMyAdmin\Controllers\GisDataEditorController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
             ],
         ],
@@ -265,20 +253,20 @@ return [
             'class' => PhpMyAdmin\Controllers\HomeController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'config' => '@config',
                 'themeManager' => '@theme_manager',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\ImportController::class => [
             'class' => PhpMyAdmin\Controllers\ImportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'import' => '@import',
                 'sql' => '@sql',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\ImportStatusController::class => [
@@ -292,7 +280,6 @@ return [
             'class' => PhpMyAdmin\Controllers\LicenseController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
             ],
         ],
@@ -300,7 +287,6 @@ return [
             'class' => PhpMyAdmin\Controllers\LintController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
             ],
         ],
@@ -311,7 +297,6 @@ return [
             'class' => PhpMyAdmin\Controllers\NavigationController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'navigation' => '@navigation',
                 'relation' => '@relation',
@@ -321,7 +306,6 @@ return [
             'class' => PhpMyAdmin\Controllers\NormalizationController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'normalization' => '@normalization',
             ],
@@ -330,7 +314,6 @@ return [
             'class' => PhpMyAdmin\Controllers\PhpInfoController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
             ],
         ],
@@ -338,7 +321,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Preferences\ExportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'userPreferences' => '@user_preferences',
                 'relation' => '@relation',
@@ -348,7 +330,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Preferences\FeaturesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'userPreferences' => '@user_preferences',
                 'relation' => '@relation',
@@ -358,7 +339,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Preferences\ImportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'userPreferences' => '@user_preferences',
                 'relation' => '@relation',
@@ -368,7 +348,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Preferences\MainPanelController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'userPreferences' => '@user_preferences',
                 'relation' => '@relation',
@@ -378,7 +357,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Preferences\ManageController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'userPreferences' => '@user_preferences',
                 'relation' => '@relation',
@@ -388,7 +366,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Preferences\NavigationController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'userPreferences' => '@user_preferences',
                 'relation' => '@relation',
@@ -398,7 +375,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Preferences\SqlController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'userPreferences' => '@user_preferences',
                 'relation' => '@relation',
@@ -408,7 +384,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Preferences\TwoFactorController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'relation' => '@relation',
             ],
@@ -420,37 +395,36 @@ return [
                 'relation' => '@relation',
             ],
         ],
-        PhpMyAdmin\Controllers\Server\DatabasesController::class => [
-            'class' => PhpMyAdmin\Controllers\Server\DatabasesController::class,
-            'arguments' => [
-                'response' => '@response',
-                'dbi' => '@dbi',
-                'template' => '@template',
-                'transformations' => '@transformations',
-                'relationCleanup' => '@relation_cleanup',
-            ],
-        ],
         PhpMyAdmin\Controllers\Server\BinlogController::class => [
             'class' => PhpMyAdmin\Controllers\Server\BinlogController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\CollationsController::class => [
             'class' => PhpMyAdmin\Controllers\Server\CollationsController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
+                'dbi' => '@dbi',
+            ],
+        ],
+        PhpMyAdmin\Controllers\Server\DatabasesController::class => [
+            'class' => PhpMyAdmin\Controllers\Server\DatabasesController::class,
+            'arguments' => [
+                'response' => '@response',
+                'template' => '@template',
+                'transformations' => '@transformations',
+                'relationCleanup' => '@relation_cleanup',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\EnginesController::class => [
             'class' => PhpMyAdmin\Controllers\Server\EnginesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
             ],
         ],
@@ -458,7 +432,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Server\ExportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'export' => '@export_options',
             ],
@@ -467,15 +440,14 @@ return [
             'class' => PhpMyAdmin\Controllers\Server\ImportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\PluginsController::class => [
             'class' => PhpMyAdmin\Controllers\Server\PluginsController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'plugins' => '@server_plugins',
             ],
@@ -484,25 +456,24 @@ return [
             'class' => PhpMyAdmin\Controllers\Server\PrivilegesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\ReplicationController::class => [
             'class' => PhpMyAdmin\Controllers\Server\ReplicationController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'replicationGui' => '@replication_gui',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\SqlController::class => [
             'class' => PhpMyAdmin\Controllers\Server\SqlController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'sqlQueryForm' => '@sql_query_form',
             ],
@@ -511,16 +482,15 @@ return [
             'class' => PhpMyAdmin\Controllers\Server\UserGroupsController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\Status\AdvisorController::class => [
             'class' => PhpMyAdmin\Controllers\Server\Status\AdvisorController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'data' => '@status_data',
                 'advisor' => '@advisor',
@@ -530,26 +500,25 @@ return [
             'class' => PhpMyAdmin\Controllers\Server\Status\MonitorController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'data' => '@status_data',
                 'monitor' => '@status_monitor',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\Status\ProcessesController::class => [
             'class' => PhpMyAdmin\Controllers\Server\Status\ProcessesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'data' => '@status_data',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\Status\QueriesController::class => [
             'class' => PhpMyAdmin\Controllers\Server\Status\QueriesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'data' => '@status_data',
             ],
@@ -558,57 +527,56 @@ return [
             'class' => PhpMyAdmin\Controllers\Server\Status\StatusController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'data' => '@status_data',
                 'replicationGui' => '@replication_gui',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\Status\VariablesController::class => [
             'class' => PhpMyAdmin\Controllers\Server\Status\VariablesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'data' => '@status_data',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\VariablesController::class => [
             'class' => PhpMyAdmin\Controllers\Server\VariablesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\SqlController::class => [
             'class' => PhpMyAdmin\Controllers\SqlController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'sql' => '@sql',
                 'checkUserPrivileges' => '@check_user_privileges',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\AddFieldController::class => [
             'class' => PhpMyAdmin\Controllers\Table\AddFieldController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
                 'transformations' => '@transformations',
                 'config' => '@config',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\ChangeController::class => [
             'class' => PhpMyAdmin\Controllers\Table\ChangeController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
@@ -620,40 +588,39 @@ return [
             'class' => PhpMyAdmin\Controllers\Table\ChartController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\CreateController::class => [
             'class' => PhpMyAdmin\Controllers\Table\CreateController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
                 'transformations' => '@transformations',
                 'config' => '@config',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\DeleteController::class => [
             'class' => PhpMyAdmin\Controllers\Table\DeleteController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\ExportController::class => [
             'class' => PhpMyAdmin\Controllers\Table\ExportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
@@ -664,57 +631,56 @@ return [
             'class' => PhpMyAdmin\Controllers\Table\FindReplaceController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\GetFieldController::class => [
             'class' => PhpMyAdmin\Controllers\Table\GetFieldController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\GisVisualizationController::class => [
             'class' => PhpMyAdmin\Controllers\Table\GisVisualizationController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\ImportController::class => [
             'class' => PhpMyAdmin\Controllers\Table\ImportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\IndexesController::class => [
             'class' => PhpMyAdmin\Controllers\Table\IndexesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\MaintenanceController::class => [
             'class' => PhpMyAdmin\Controllers\Table\MaintenanceController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
@@ -725,31 +691,30 @@ return [
             'class' => PhpMyAdmin\Controllers\Table\OperationsController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
                 'operations' => '@operations',
                 'checkUserPrivileges' => '@check_user_privileges',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\PrivilegesController::class => [
             'class' => PhpMyAdmin\Controllers\Table\PrivilegesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
                 'privileges' => '@server_privileges',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\RecentFavoriteController::class => [
             'class' => PhpMyAdmin\Controllers\Table\RecentFavoriteController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
@@ -759,43 +724,42 @@ return [
             'class' => PhpMyAdmin\Controllers\Table\RelationController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\ReplaceController::class => [
             'class' => PhpMyAdmin\Controllers\Table\ReplaceController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
                 'insertEdit' => '@insert_edit',
                 'transformations' => '@transformations',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\SearchController::class => [
             'class' => PhpMyAdmin\Controllers\Table\SearchController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
                 'search' => '@table_search',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\SqlController::class => [
             'class' => PhpMyAdmin\Controllers\Table\SqlController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
@@ -806,7 +770,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Table\StructureController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
@@ -814,13 +777,13 @@ return [
                 'transformations' => '@transformations',
                 'create_add_field' => '@create_add_field',
                 'relationCleanup' => '@relation_cleanup',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\TrackingController::class => [
             'class' => PhpMyAdmin\Controllers\Table\TrackingController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
@@ -831,29 +794,28 @@ return [
             'class' => PhpMyAdmin\Controllers\Table\TriggersController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Table\ZoomSearchController::class => [
             'class' => PhpMyAdmin\Controllers\Table\ZoomSearchController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'table' => '%table%',
                 'search' => '@table_search',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\ThemesController::class => [
             'class' => PhpMyAdmin\Controllers\ThemesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
             ],
         ],
@@ -861,7 +823,6 @@ return [
             'class' => PhpMyAdmin\Controllers\TransformationOverviewController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'transformations' => '@transformations',
             ],
@@ -870,26 +831,25 @@ return [
             'class' => PhpMyAdmin\Controllers\TransformationWrapperController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'transformations' => '@transformations',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\UserPasswordController::class => [
             'class' => PhpMyAdmin\Controllers\UserPasswordController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'userPassword' => '@user_password',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\VersionCheckController::class => [
             'class' => PhpMyAdmin\Controllers\VersionCheckController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
             ],
         ],
@@ -897,17 +857,17 @@ return [
             'class' => PhpMyAdmin\Controllers\ViewCreateController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\ViewOperationsController::class => [
             'class' => PhpMyAdmin\Controllers\ViewOperationsController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'operations' => '@operations',
+                'dbi' => '@dbi',
             ],
         ],
     ],

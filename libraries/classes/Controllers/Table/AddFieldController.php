@@ -36,30 +36,30 @@ class AddFieldController extends AbstractController
     /** @var Relation */
     private $relation;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response        A Response instance.
-     * @param DatabaseInterface $dbi             A DatabaseInterface instance.
-     * @param Template          $template        A Template instance.
-     * @param string            $db              Database name.
-     * @param string            $table           Table name.
-     * @param Transformations   $transformations A Transformations instance.
-     * @param Config            $config          A Config instance.
-     * @param Relation          $relation        A Relation instance.
+     * @param Response          $response
+     * @param string            $db       Database name.
+     * @param string            $table    Table name.
+     * @param DatabaseInterface $dbi
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         $db,
         $table,
         Transformations $transformations,
         Config $config,
-        Relation $relation
+        Relation $relation,
+        $dbi
     ) {
-        parent::__construct($response, $dbi, $template, $db, $table);
+        parent::__construct($response, $template, $db, $table);
         $this->transformations = $transformations;
         $this->config = $config;
         $this->relation = $relation;
+        $this->dbi = $dbi;
     }
 
     public function index(): void

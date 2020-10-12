@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
@@ -28,14 +27,11 @@ class PluginsController extends AbstractController
     private $plugins;
 
     /**
-     * @param Response          $response Response object
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template          $template Template object
-     * @param Plugins           $plugins  Plugins object
+     * @param Response $response
      */
-    public function __construct($response, $dbi, Template $template, Plugins $plugins)
+    public function __construct($response, Template $template, Plugins $plugins)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->plugins = $plugins;
     }
 

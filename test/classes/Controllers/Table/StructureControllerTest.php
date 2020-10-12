@@ -106,14 +106,14 @@ class StructureControllerTest extends AbstractTestCase
         $relation = new Relation($GLOBALS['dbi'], $this->template);
         $ctrl = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
             $relation,
             new Transformations(),
             new CreateAddField($GLOBALS['dbi']),
-            new RelationCleanup($GLOBALS['dbi'], $relation)
+            new RelationCleanup($GLOBALS['dbi'], $relation),
+            $GLOBALS['dbi']
         );
 
         // No primary key in db.table2
@@ -159,14 +159,14 @@ class StructureControllerTest extends AbstractTestCase
         $relation = new Relation($GLOBALS['dbi'], $this->template);
         $ctrl = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
             $relation,
             new Transformations(),
             new CreateAddField($GLOBALS['dbi']),
-            new RelationCleanup($GLOBALS['dbi'], $relation)
+            new RelationCleanup($GLOBALS['dbi'], $relation),
+            $GLOBALS['dbi']
         );
 
         // With db.table, it has a primary key `column`
@@ -190,14 +190,14 @@ class StructureControllerTest extends AbstractTestCase
         $relation = new Relation($GLOBALS['dbi'], $this->template);
         $ctrl = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
             $relation,
             new Transformations(),
             new CreateAddField($GLOBALS['dbi']),
-            new RelationCleanup($GLOBALS['dbi'], $relation)
+            new RelationCleanup($GLOBALS['dbi'], $relation),
+            $GLOBALS['dbi']
         );
 
         $this->assertFalse(

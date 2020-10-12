@@ -109,13 +109,13 @@ class StructureControllerTest extends AbstractTestCase
         $method->setAccessible(true);
         $controller = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
-            $this->operations
+            $this->operations,
+            $GLOBALS['dbi']
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -170,13 +170,13 @@ class StructureControllerTest extends AbstractTestCase
         $is_show_stats = false;
         $controller = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
-            $this->operations
+            $this->operations,
+            $GLOBALS['dbi']
         );
 
         $currentTable['ENGINE'] = 'InnoDB';
@@ -215,13 +215,13 @@ class StructureControllerTest extends AbstractTestCase
 
         $controller = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
-            $this->operations
+            $this->operations,
+            $GLOBALS['dbi']
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -279,13 +279,13 @@ class StructureControllerTest extends AbstractTestCase
 
         $controller = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
-            $this->operations
+            $this->operations,
+            $GLOBALS['dbi']
         );
         [$currentTable, , , , , , $sumSize] = $method->invokeArgs(
             $controller,
@@ -303,13 +303,13 @@ class StructureControllerTest extends AbstractTestCase
 
         $controller = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
-            $this->operations
+            $this->operations,
+            $GLOBALS['dbi']
         );
         [$currentTable] = $method->invokeArgs(
             $controller,
@@ -339,13 +339,13 @@ class StructureControllerTest extends AbstractTestCase
 
         $controller = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
-            $this->operations
+            $this->operations,
+            $GLOBALS['dbi']
         );
 
         // When parameter $db is empty
@@ -379,13 +379,13 @@ class StructureControllerTest extends AbstractTestCase
 
         $controller = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
-            $this->operations
+            $this->operations,
+            $GLOBALS['dbi']
         );
 
         $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = [
@@ -419,13 +419,13 @@ class StructureControllerTest extends AbstractTestCase
 
         $controller = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
-            $this->operations
+            $this->operations,
+            $GLOBALS['dbi']
         );
 
         // The user hash for test
@@ -481,13 +481,13 @@ class StructureControllerTest extends AbstractTestCase
         $this->response->setAjax(true);
         $controller = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
-            $this->operations
+            $this->operations,
+            $GLOBALS['dbi']
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);
@@ -531,13 +531,13 @@ class StructureControllerTest extends AbstractTestCase
 
         $controller = new StructureController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $this->relation,
             $this->replication,
             $this->relationCleanup,
-            $this->operations
+            $this->operations,
+            $GLOBALS['dbi']
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);

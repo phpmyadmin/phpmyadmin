@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -18,14 +17,11 @@ class CheckRelationsController extends AbstractController
     private $relation;
 
     /**
-     * @param Response          $response Response object
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template          $template Template that should be used
-     * @param Relation          $relation Relation object
+     * @param Response $response
      */
-    public function __construct($response, $dbi, Template $template, Relation $relation)
+    public function __construct($response, Template $template, Relation $relation)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->relation = $relation;
     }
 

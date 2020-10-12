@@ -20,16 +20,18 @@ class UserGroupsController extends AbstractController
     /** @var Relation */
     private $relation;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response A Response instance.
-     * @param DatabaseInterface $dbi      A DatabaseInterface instance.
-     * @param Template          $template A Template instance.
-     * @param Relation          $relation A Relation instance.
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, Relation $relation)
+    public function __construct($response, Template $template, Relation $relation, $dbi)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->relation = $relation;
+        $this->dbi = $dbi;
     }
 
     public function index(): void

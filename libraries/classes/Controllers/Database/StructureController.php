@@ -88,31 +88,33 @@ class StructureController extends AbstractController
     /** @var ReplicationInfo */
     private $replicationInfo;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response        Response instance
-     * @param DatabaseInterface $dbi             DatabaseInterface instance
-     * @param Template          $template        Template object
-     * @param string            $db              Database name
-     * @param Relation          $relation        Relation instance
-     * @param Replication       $replication     Replication instance
-     * @param RelationCleanup   $relationCleanup RelationCleanup instance.
-     * @param Operations        $operations      Operations instance.
+     * @param Response          $response
+     * @param string            $db          Database name
+     * @param Relation          $relation
+     * @param Replication       $replication
+     * @param DatabaseInterface $dbi
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         $db,
         $relation,
         $replication,
         RelationCleanup $relationCleanup,
-        Operations $operations
+        Operations $operations,
+        $dbi
     ) {
-        parent::__construct($response, $dbi, $template, $db);
+        parent::__construct($response, $template, $db);
         $this->relation = $relation;
         $this->replication = $replication;
         $this->relationCleanup = $relationCleanup;
         $this->operations = $operations;
+        $this->dbi = $dbi;
+
         $this->replicationInfo = new ReplicationInfo($this->dbi);
     }
 

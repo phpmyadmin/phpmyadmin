@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
@@ -21,14 +20,11 @@ final class ExportController extends AbstractController
     private $export;
 
     /**
-     * @param Response          $response A Response instance.
-     * @param DatabaseInterface $dbi      A DatabaseInterface instance.
-     * @param Template          $template A Template instance.
-     * @param Options           $export   A Export instance.
+     * @param Response $response
      */
-    public function __construct($response, $dbi, Template $template, Options $export)
+    public function __construct($response, Template $template, Options $export)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->export = $export;
     }
 

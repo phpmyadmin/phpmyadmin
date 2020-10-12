@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Common;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use function count;
 use function is_array;
 use function json_decode;
@@ -18,6 +20,21 @@ use function json_decode;
  */
 class IndexesController extends AbstractController
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param string            $db       Database name.
+     * @param string            $table    Table name.
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $db, $table, $dbi)
+    {
+        parent::__construct($response, $template, $db, $table);
+        $this->dbi = $dbi;
+    }
+
     public function index(): void
     {
         if (! isset($_POST['create_edit_table'])) {

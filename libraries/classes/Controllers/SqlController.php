@@ -32,23 +32,24 @@ class SqlController extends AbstractController
     /** @var CheckUserPrivileges */
     private $checkUserPrivileges;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response            $response            A Response instance.
-     * @param DatabaseInterface   $dbi                 A DatabaseInterface instance.
-     * @param Template            $template            A Template instance.
-     * @param Sql                 $sql                 An Sql instance.
-     * @param CheckUserPrivileges $checkUserPrivileges A CheckUserPrivileges instance.
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         Sql $sql,
-        CheckUserPrivileges $checkUserPrivileges
+        CheckUserPrivileges $checkUserPrivileges,
+        $dbi
     ) {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->sql = $sql;
         $this->checkUserPrivileges = $checkUserPrivileges;
+        $this->dbi = $dbi;
     }
 
     public function index(): void

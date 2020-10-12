@@ -44,10 +44,10 @@ class PrivilegesControllerTest extends AbstractTestCase
 
         $controller = new PrivilegesController(
             Response::getInstance(),
-            $dbi,
             new Template(),
             $db,
-            $serverPrivileges
+            $serverPrivileges,
+            $dbi
         );
         $actual = $controller->index(['checkprivsdb' => $db]);
 

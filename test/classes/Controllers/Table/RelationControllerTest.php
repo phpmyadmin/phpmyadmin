@@ -99,11 +99,11 @@ class RelationControllerTest extends AbstractTestCase
 
         $ctrl = new RelationController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template)
+            new Relation($GLOBALS['dbi'], $this->template),
+            $GLOBALS['dbi']
         );
 
         $ctrl->getDropdownValueForTable();
@@ -139,11 +139,11 @@ class RelationControllerTest extends AbstractTestCase
 
         $ctrl = new RelationController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template)
+            new Relation($GLOBALS['dbi'], $this->template),
+            $GLOBALS['dbi']
         );
 
         $ctrl->getDropdownValueForTable();
@@ -185,11 +185,11 @@ class RelationControllerTest extends AbstractTestCase
 
         $ctrl = new RelationController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template)
+            new Relation($GLOBALS['dbi'], $this->template),
+            $GLOBALS['dbi']
         );
 
         $_POST['foreign'] = 'true';
@@ -229,11 +229,11 @@ class RelationControllerTest extends AbstractTestCase
 
         $ctrl = new RelationController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
-            new Relation($GLOBALS['dbi'], $this->template)
+            new Relation($GLOBALS['dbi'], $this->template),
+            $GLOBALS['dbi']
         );
 
         $_POST['foreign'] = 'false';

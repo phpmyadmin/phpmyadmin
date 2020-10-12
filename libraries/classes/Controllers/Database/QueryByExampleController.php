@@ -24,17 +24,19 @@ class QueryByExampleController extends AbstractController
     /** @var Relation */
     private $relation;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response Response object
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template          $template Template object
+     * @param Response          $response
      * @param string            $db       Database name
-     * @param Relation          $relation Relation object
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, $db, Relation $relation)
+    public function __construct($response, Template $template, $db, Relation $relation, $dbi)
     {
-        parent::__construct($response, $dbi, $template, $db);
+        parent::__construct($response, $template, $db);
         $this->relation = $relation;
+        $this->dbi = $dbi;
     }
 
     public function index(): void

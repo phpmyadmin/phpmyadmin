@@ -22,17 +22,20 @@ class MonitorController extends AbstractController
     /** @var Monitor */
     private $monitor;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response Response object
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template          $template Template object
-     * @param Data              $data     Data object
-     * @param Monitor           $monitor  Monitor object
+     * @param Response          $response
+     * @param Data              $data
+     * @param Monitor           $monitor
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, $data, $monitor)
+    public function __construct($response, Template $template, $data, $monitor, $dbi)
     {
-        parent::__construct($response, $dbi, $template, $data);
+        parent::__construct($response, $template, $data);
         $this->monitor = $monitor;
+        $this->dbi = $dbi;
     }
 
     public function index(): void

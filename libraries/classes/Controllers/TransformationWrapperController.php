@@ -39,23 +39,24 @@ class TransformationWrapperController extends AbstractController
     /** @var Relation */
     private $relation;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response        Response object
-     * @param DatabaseInterface $dbi             DatabaseInterface object
-     * @param Template          $template        Template object
-     * @param Transformations   $transformations Transformations object
-     * @param Relation          $relation        Relation object
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         Transformations $transformations,
-        Relation $relation
+        Relation $relation,
+        $dbi
     ) {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->transformations = $transformations;
         $this->relation = $relation;
+        $this->dbi = $dbi;
     }
 
     public function index(): void

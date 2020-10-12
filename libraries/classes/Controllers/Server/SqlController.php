@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
@@ -24,14 +23,11 @@ class SqlController extends AbstractController
     private $sqlQueryForm;
 
     /**
-     * @param Response          $response     Response object
-     * @param DatabaseInterface $dbi          DatabaseInterface object
-     * @param Template          $template     Template that should be used (if provided, default one otherwise)
-     * @param SqlQueryForm      $sqlQueryForm SqlQueryForm instance
+     * @param Response $response
      */
-    public function __construct($response, $dbi, Template $template, SqlQueryForm $sqlQueryForm)
+    public function __construct($response, Template $template, SqlQueryForm $sqlQueryForm)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->sqlQueryForm = $sqlQueryForm;
     }
 

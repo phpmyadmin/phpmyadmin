@@ -87,11 +87,7 @@ class VariablesControllerTest extends AbstractTestCase
     {
         $response = new ResponseStub();
 
-        $controller = new VariablesController(
-            $response,
-            $GLOBALS['dbi'],
-            new Template()
-        );
+        $controller = new VariablesController($response, new Template(), $GLOBALS['dbi']);
 
         $controller->index();
         $html = $response->getHTMLResult();
@@ -140,11 +136,7 @@ class VariablesControllerTest extends AbstractTestCase
      */
     public function testFormatVariable(): void
     {
-        $controller = new VariablesController(
-            Response::getInstance(),
-            $GLOBALS['dbi'],
-            new Template()
-        );
+        $controller = new VariablesController(Response::getInstance(), new Template(), $GLOBALS['dbi']);
 
         $nameForValueByte = 'byte_variable';
         $nameForValueNotByte = 'not_a_byte_variable';

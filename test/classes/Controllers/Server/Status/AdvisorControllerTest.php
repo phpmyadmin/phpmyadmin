@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
 use PhpMyAdmin\Advisor;
 use PhpMyAdmin\Controllers\Server\Status\AdvisorController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -17,9 +16,6 @@ class AdvisorControllerTest extends AbstractTestCase
 {
     /** @var Response */
     private $response;
-
-    /** @var DatabaseInterface */
-    private $dbi;
 
     /** @var Template */
     private $template;
@@ -40,7 +36,6 @@ class AdvisorControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
-        $this->dbi = $GLOBALS['dbi'];
         $this->response = new Response();
         $this->template = new Template();
         $this->data = new Data();
@@ -52,7 +47,6 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $controller = new AdvisorController(
             $this->response,
-            $this->dbi,
             $this->template,
             $this->data,
             new Advisor($GLOBALS['dbi'], new ExpressionLanguage())
@@ -102,7 +96,6 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $controller = new AdvisorController(
             $this->response,
-            $this->dbi,
             $this->template,
             $this->data,
             $advisor

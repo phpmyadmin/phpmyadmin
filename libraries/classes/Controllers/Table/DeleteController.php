@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Common;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -17,6 +20,21 @@ use function sprintf;
 
 class DeleteController extends AbstractController
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param string            $db       Database name.
+     * @param string            $table    Table name.
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $db, $table, $dbi)
+    {
+        parent::__construct($response, $template, $db, $table);
+        $this->dbi = $dbi;
+    }
+
     public function rows(): void
     {
         global $db, $goto, $sql_query, $table, $disp_message, $disp_query, $PMA_Theme, $active_page;

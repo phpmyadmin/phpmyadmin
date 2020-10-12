@@ -6,8 +6,11 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_merge;
@@ -18,7 +21,22 @@ use function array_merge;
 final class GisVisualizationController extends AbstractController
 {
     /** @var GisVisualization */
-    protected $visualization;
+    private $visualization;
+
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param string            $db       Database name.
+     * @param string            $table    Table name.
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $db, $table, $dbi)
+    {
+        parent::__construct($response, $template, $db, $table);
+        $this->dbi = $dbi;
+    }
 
     public function index(): void
     {

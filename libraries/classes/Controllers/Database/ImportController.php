@@ -9,16 +9,33 @@ use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use function intval;
 
 final class ImportController extends AbstractController
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param string            $db       Database name.
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $db, $dbi)
+    {
+        parent::__construct($response, $template, $db);
+        $this->dbi = $dbi;
+    }
+
     public function index(): void
     {
         global $db, $max_upload_size, $table, $tables, $num_tables, $total_num_tables, $is_show_stats, $cfg;

@@ -6,12 +6,29 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Search;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 class SearchController extends AbstractController
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param string            $db       Database name.
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $db, $dbi)
+    {
+        parent::__construct($response, $template, $db);
+        $this->dbi = $dbi;
+    }
+
     public function index(): void
     {
         global $cfg, $db, $err_url, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;

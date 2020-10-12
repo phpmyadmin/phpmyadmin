@@ -24,17 +24,19 @@ class StatusController extends AbstractController
     /** @var ReplicationGui */
     private $replicationGui;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response       Response object
-     * @param DatabaseInterface $dbi            DatabaseInterface object
-     * @param Template          $template       Template object
-     * @param Data              $data           Data object
-     * @param ReplicationGui    $replicationGui ReplicationGui instance
+     * @param Response          $response
+     * @param Data              $data
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, $data, ReplicationGui $replicationGui)
+    public function __construct($response, Template $template, $data, ReplicationGui $replicationGui, $dbi)
     {
-        parent::__construct($response, $dbi, $template, $data);
+        parent::__construct($response, $template, $data);
         $this->replicationGui = $replicationGui;
+        $this->dbi = $dbi;
     }
 
     public function index(): void

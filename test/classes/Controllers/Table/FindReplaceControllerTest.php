@@ -72,10 +72,10 @@ class FindReplaceControllerTest extends AbstractTestCase
     {
         $tableSearch = new FindReplaceController(
             Response::getInstance(),
-            $GLOBALS['dbi'],
             new Template(),
             $GLOBALS['db'],
-            $GLOBALS['table']
+            $GLOBALS['table'],
+            $GLOBALS['dbi']
         );
         $columnIndex = 0;
         $find = 'Field';
