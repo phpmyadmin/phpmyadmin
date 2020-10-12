@@ -8,13 +8,31 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Common;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Template;
 use function in_array;
 use function is_numeric;
 use function mb_strpos;
 
 class VariablesController extends AbstractController
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param Data              $data
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $data, $dbi)
+    {
+        parent::__construct($response, $template, $data);
+        $this->dbi = $dbi;
+    }
+
     public function index(): void
     {
         $params = [

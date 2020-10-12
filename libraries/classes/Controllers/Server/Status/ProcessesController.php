@@ -8,8 +8,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Common;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use function array_keys;
 use function count;
@@ -19,6 +23,20 @@ use function ucfirst;
 
 class ProcessesController extends AbstractController
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param Data              $data
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $data, $dbi)
+    {
+        parent::__construct($response, $template, $data);
+        $this->dbi = $dbi;
+    }
+
     public function index(): void
     {
         $params = [

@@ -491,7 +491,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Server\Status\AdvisorController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'data' => '@status_data',
                 'advisor' => '@advisor',
@@ -501,26 +500,25 @@ return [
             'class' => PhpMyAdmin\Controllers\Server\Status\MonitorController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'data' => '@status_data',
                 'monitor' => '@status_monitor',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\Status\ProcessesController::class => [
             'class' => PhpMyAdmin\Controllers\Server\Status\ProcessesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'data' => '@status_data',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\Status\QueriesController::class => [
             'class' => PhpMyAdmin\Controllers\Server\Status\QueriesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'data' => '@status_data',
             ],
@@ -529,19 +527,19 @@ return [
             'class' => PhpMyAdmin\Controllers\Server\Status\StatusController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'data' => '@status_data',
                 'replicationGui' => '@replication_gui',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\Status\VariablesController::class => [
             'class' => PhpMyAdmin\Controllers\Server\Status\VariablesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'data' => '@status_data',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\VariablesController::class => [
