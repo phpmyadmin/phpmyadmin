@@ -21,17 +21,19 @@ class PrivilegesController extends AbstractController
     /** @var Privileges */
     private $privileges;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response   Response object
-     * @param DatabaseInterface $dbi        DatabaseInterface object
-     * @param Template          $template   Template object
-     * @param string            $db         Database name
-     * @param Privileges        $privileges Privileges object
+     * @param Response          $response
+     * @param string            $db       Database name
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, $db, Privileges $privileges)
+    public function __construct($response, Template $template, $db, Privileges $privileges, $dbi)
     {
-        parent::__construct($response, $dbi, $template, $db);
+        parent::__construct($response, $template, $db);
         $this->privileges = $privileges;
+        $this->dbi = $dbi;
     }
 
     /**

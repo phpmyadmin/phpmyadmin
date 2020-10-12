@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -24,22 +23,17 @@ class DesignerController extends AbstractController
     private $designerCommon;
 
     /**
-     * @param Response          $response         Response object
-     * @param DatabaseInterface $dbi              DatabaseInterface object
-     * @param Template          $template         Template object
-     * @param string            $db               Database name
-     * @param Designer          $databaseDesigner Designer object
-     * @param DesignerCommon    $designerCommon   Designer\Common object
+     * @param Response $response
+     * @param string   $db       Database name
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         $db,
         Designer $databaseDesigner,
         DesignerCommon $designerCommon
     ) {
-        parent::__construct($response, $dbi, $template, $db);
+        parent::__construct($response, $template, $db);
         $this->databaseDesigner = $databaseDesigner;
         $this->designerCommon = $designerCommon;
     }

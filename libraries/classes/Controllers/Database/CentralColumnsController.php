@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\CentralColumns;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -23,15 +22,13 @@ class CentralColumnsController extends AbstractController
     private $centralColumns;
 
     /**
-     * @param Response          $response       Response instance
-     * @param DatabaseInterface $dbi            DatabaseInterface instance
-     * @param Template          $template       Template object
-     * @param string            $db             Database name
-     * @param CentralColumns    $centralColumns CentralColumns instance
+     * @param Response       $response
+     * @param string         $db             Database name
+     * @param CentralColumns $centralColumns
      */
-    public function __construct($response, $dbi, Template $template, $db, $centralColumns)
+    public function __construct($response, Template $template, $db, $centralColumns)
     {
-        parent::__construct($response, $dbi, $template, $db);
+        parent::__construct($response, $template, $db);
         $this->centralColumns = $centralColumns;
     }
 

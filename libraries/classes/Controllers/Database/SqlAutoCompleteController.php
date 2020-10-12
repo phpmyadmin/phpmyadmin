@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use function json_encode;
 
 /**
@@ -11,6 +14,20 @@ use function json_encode;
  */
 class SqlAutoCompleteController extends AbstractController
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param string            $db       Database name.
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $db, $dbi)
+    {
+        parent::__construct($response, $template, $db);
+        $this->dbi = $dbi;
+    }
+
     public function index(): void
     {
         global $cfg, $db, $sql_autocomplete;

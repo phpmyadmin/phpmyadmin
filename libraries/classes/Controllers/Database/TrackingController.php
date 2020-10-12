@@ -27,17 +27,19 @@ class TrackingController extends AbstractController
     /** @var Tracking */
     private $tracking;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response A Response instance.
-     * @param DatabaseInterface $dbi      A DatabaseInterface instance.
-     * @param Template          $template A Template instance.
+     * @param Response          $response
      * @param string            $db       Database name.
-     * @param Tracking          $tracking A Tracking instance.
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, $db, Tracking $tracking)
+    public function __construct($response, Template $template, $db, Tracking $tracking, $dbi)
     {
-        parent::__construct($response, $dbi, $template, $db);
+        parent::__construct($response, $template, $db);
         $this->tracking = $tracking;
+        $this->dbi = $dbi;
     }
 
     public function index(): void

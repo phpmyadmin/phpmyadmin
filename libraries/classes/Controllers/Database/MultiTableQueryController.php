@@ -8,12 +8,29 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Database\MultiTableQuery;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 
 /**
  * Handles database multi-table querying
  */
 class MultiTableQueryController extends AbstractController
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param string            $db       Database name.
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $db, $dbi)
+    {
+        parent::__construct($response, $template, $db);
+        $this->dbi = $dbi;
+    }
+
     public function index(): void
     {
         $this->addScriptFiles([

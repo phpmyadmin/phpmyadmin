@@ -69,10 +69,10 @@ class PrivilegesController extends AbstractController
 
         $databaseController = new DatabaseController(
             $this->response,
-            $this->dbi,
             $this->template,
             $db,
-            $serverPrivileges
+            $serverPrivileges,
+            $this->dbi
         );
 
         $tableController = new TableController(

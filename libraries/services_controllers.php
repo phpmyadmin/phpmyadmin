@@ -41,7 +41,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Database\CentralColumnsController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'centralColumns' => '@central_columns',
@@ -51,18 +50,17 @@ return [
             'class' => PhpMyAdmin\Controllers\Database\DataDictionaryController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'relation' => '@relation',
                 'transformations' => '@transformations',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\DesignerController::class => [
             'class' => PhpMyAdmin\Controllers\Database\DesignerController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'databaseDesigner' => '@designer',
@@ -73,17 +71,16 @@ return [
             'class' => PhpMyAdmin\Controllers\Database\EventsController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'events' => '@events',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\ExportController::class => [
             'class' => PhpMyAdmin\Controllers\Database\ExportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'export' => '@export',
@@ -94,86 +91,85 @@ return [
             'class' => PhpMyAdmin\Controllers\Database\ImportController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\MultiTableQueryController::class => [
             'class' => PhpMyAdmin\Controllers\Database\MultiTableQueryController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\OperationsController::class => [
             'class' => PhpMyAdmin\Controllers\Database\OperationsController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'operations' => '@operations',
                 'checkUserPrivileges' => '@check_user_privileges',
                 'relation' => '@relation',
                 'relationCleanup' => '@relation_cleanup',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\PrivilegesController::class => [
             'class' => PhpMyAdmin\Controllers\Database\PrivilegesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'privileges' => '@server_privileges',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\QueryByExampleController::class => [
             'class' => PhpMyAdmin\Controllers\Database\QueryByExampleController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'relation' => '@relation',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\RoutinesController::class => [
             'class' => PhpMyAdmin\Controllers\Database\RoutinesController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'checkUserPrivileges' => '@check_user_privileges',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\SearchController::class => [
             'class' => PhpMyAdmin\Controllers\Database\SearchController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\SqlAutoCompleteController::class => [
             'class' => PhpMyAdmin\Controllers\Database\SqlAutoCompleteController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\SqlController::class => [
             'class' => PhpMyAdmin\Controllers\Database\SqlController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'sqlQueryForm' => '@sql_query_form',
@@ -183,7 +179,6 @@ return [
             'class' => PhpMyAdmin\Controllers\Database\SqlFormatController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
             ],
@@ -192,32 +187,32 @@ return [
             'class' => PhpMyAdmin\Controllers\Database\StructureController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'relation' => '@relation',
                 'replication' => '@replication',
                 'relationCleanup' => '@relation_cleanup',
                 'operations' => '@operations',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\TrackingController::class => [
             'class' => PhpMyAdmin\Controllers\Database\TrackingController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
                 'tracking' => '@tracking',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Database\TriggersController::class => [
             'class' => PhpMyAdmin\Controllers\Database\TriggersController::class,
             'arguments' => [
                 'response' => '@response',
-                'dbi' => '@dbi',
                 'template' => '@template',
                 'db' => '%db%',
+                'dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\ErrorReportController::class => [

@@ -25,19 +25,22 @@ class DataDictionaryController extends AbstractController
     /** @var Transformations */
     private $transformations;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response        Response instance
-     * @param DatabaseInterface $dbi             DatabaseInterface instance
-     * @param Template          $template        Template object
+     * @param Response          $response
      * @param string            $db              Database name
-     * @param Relation          $relation        Relation instance
-     * @param Transformations   $transformations Transformations instance
+     * @param Relation          $relation
+     * @param Transformations   $transformations
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, $db, $relation, $transformations)
+    public function __construct($response, Template $template, $db, $relation, $transformations, $dbi)
     {
-        parent::__construct($response, $dbi, $template, $db);
+        parent::__construct($response, $template, $db);
         $this->relation = $relation;
         $this->transformations = $transformations;
+        $this->dbi = $dbi;
     }
 
     public function index(): void

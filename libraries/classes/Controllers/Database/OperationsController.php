@@ -41,31 +41,30 @@ class OperationsController extends AbstractController
     /** @var RelationCleanup */
     private $relationCleanup;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response            $response            Response object
-     * @param DatabaseInterface   $dbi                 DatabaseInterface object
-     * @param Template            $template            Template object
-     * @param string              $db                  Database name
-     * @param Operations          $operations          Operations object
-     * @param CheckUserPrivileges $checkUserPrivileges CheckUserPrivileges object
-     * @param Relation            $relation            Relation object
-     * @param RelationCleanup     $relationCleanup     RelationCleanup object
+     * @param Response          $response
+     * @param string            $db       Database name
+     * @param DatabaseInterface $dbi
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         $db,
         Operations $operations,
         CheckUserPrivileges $checkUserPrivileges,
         Relation $relation,
-        RelationCleanup $relationCleanup
+        RelationCleanup $relationCleanup,
+        $dbi
     ) {
-        parent::__construct($response, $dbi, $template, $db);
+        parent::__construct($response, $template, $db);
         $this->operations = $operations;
         $this->checkUserPrivileges = $checkUserPrivileges;
         $this->relation = $relation;
         $this->relationCleanup = $relationCleanup;
+        $this->dbi = $dbi;
     }
 
     public function index(): void
