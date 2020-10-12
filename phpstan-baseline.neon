@@ -186,6 +186,21 @@ parameters:
 			path: libraries/classes/Controllers/ExportController.php
 
 		-
+			message: "#^If condition is always true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/HomeController.php
+
+		-
+			message: "#^Left side of \\|\\| is always true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/HomeController.php
+
+		-
+			message: "#^Right side of && is always true\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/HomeController.php
+
+		-
 			message: "#^Negated boolean expression is always true\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ImportController.php
@@ -581,7 +596,7 @@ parameters:
 			path: libraries/classes/Error.php
 
 		-
-			message: "#^Parameter \\#1 \\$error_handler of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\(\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\) given\\.$#"
+			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\(\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\) given\\.$#"
 			count: 1
 			path: libraries/classes/ErrorHandler.php
 
@@ -1186,6 +1201,11 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportMediawiki.php
 
 		-
+			message: "#^Negated boolean expression is always true\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Import/ImportMediawiki.php
+
+		-
 			message: "#^Comparison operation \"\\>\\=\" between 0 and 0 is always true\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
@@ -1237,11 +1257,6 @@ parameters:
 
 		-
 			message: "#^Comparison operation \"\\>\\=\" between 0 and 0 is always true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Parameter \\#1 \\$ns of method SimpleXMLElement\\:\\:children\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
@@ -1956,7 +1971,7 @@ parameters:
 			path: libraries/classes/Server/Privileges.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\DatabaseInterface\\:\\:freeResult\\(\\) expects object, array\\|float\\|int\\|string\\|false\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
