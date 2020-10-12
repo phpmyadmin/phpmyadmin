@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Common;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -25,22 +24,18 @@ final class TrackingController extends AbstractController
     private $tracking;
 
     /**
-     * @param Response          $response A Response instance.
-     * @param DatabaseInterface $dbi      A DatabaseInterface instance.
-     * @param Template          $template A Template instance.
-     * @param string            $db       Database name.
-     * @param string            $table    Table name.
-     * @param Tracking          $tracking A Tracking instance.
+     * @param Response $response
+     * @param string   $db       Database name.
+     * @param string   $table    Table name.
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         $db,
         $table,
         Tracking $tracking
     ) {
-        parent::__construct($response, $dbi, $template, $db, $table);
+        parent::__construct($response, $template, $db, $table);
         $this->tracking = $tracking;
     }
 

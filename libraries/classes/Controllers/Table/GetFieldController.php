@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Mime;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use function htmlspecialchars;
 use function ini_set;
@@ -18,6 +21,21 @@ use function strlen;
  */
 class GetFieldController extends AbstractController
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param string            $db       Database name.
+     * @param string            $table    Table name.
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $db, $table, $dbi)
+    {
+        parent::__construct($response, $template, $db, $table);
+        $this->dbi = $dbi;
+    }
+
     public function index(): void
     {
         global $db, $table;

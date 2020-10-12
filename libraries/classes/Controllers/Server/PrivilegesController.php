@@ -77,11 +77,11 @@ class PrivilegesController extends AbstractController
 
         $tableController = new TableController(
             $this->response,
-            $this->dbi,
             $this->template,
             $db,
             $table,
-            $serverPrivileges
+            $serverPrivileges,
+            $this->dbi
         );
 
         if ((isset($_GET['viewing_mode'])

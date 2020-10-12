@@ -62,20 +62,22 @@ class ZoomSearchController extends AbstractController
     /** @var array Foreign keys */
     private $foreigners;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response A Response instance.
-     * @param DatabaseInterface $dbi      A DatabaseInterface instance.
-     * @param Template          $template A Template instance.
+     * @param Response          $response
      * @param string            $db       Database name.
      * @param string            $table    Table name.
-     * @param Search            $search   A Search instance.
-     * @param Relation          $relation A Relation instance.
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, $db, $table, Search $search, Relation $relation)
+    public function __construct($response, Template $template, $db, $table, Search $search, Relation $relation, $dbi)
     {
-        parent::__construct($response, $dbi, $template, $db, $table);
+        parent::__construct($response, $template, $db, $table);
         $this->search = $search;
         $this->relation = $relation;
+        $this->dbi = $dbi;
+
         $this->columnNames = [];
         $this->columnTypes = [];
         $this->originalColumnTypes = [];

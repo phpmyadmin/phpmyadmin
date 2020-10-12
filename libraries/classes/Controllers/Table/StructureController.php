@@ -75,33 +75,32 @@ class StructureController extends AbstractController
     /** @var RelationCleanup */
     private $relationCleanup;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response        Response object
-     * @param DatabaseInterface $dbi             DatabaseInterface object
-     * @param Template          $template        Template object
-     * @param string            $db              Database name
-     * @param string            $table           Table name
-     * @param Relation          $relation        Relation instance
-     * @param Transformations   $transformations Transformations instance
-     * @param CreateAddField    $createAddField  CreateAddField instance
-     * @param RelationCleanup   $relationCleanup RelationCleanup instance.
+     * @param Response          $response
+     * @param string            $db       Database name
+     * @param string            $table    Table name
+     * @param DatabaseInterface $dbi
      */
     public function __construct(
         $response,
-        $dbi,
         Template $template,
         $db,
         $table,
         Relation $relation,
         Transformations $transformations,
         CreateAddField $createAddField,
-        RelationCleanup $relationCleanup
+        RelationCleanup $relationCleanup,
+        $dbi
     ) {
-        parent::__construct($response, $dbi, $template, $db, $table);
+        parent::__construct($response, $template, $db, $table);
         $this->createAddField = $createAddField;
         $this->relation = $relation;
         $this->transformations = $transformations;
         $this->relationCleanup = $relationCleanup;
+        $this->dbi = $dbi;
 
         $this->tableObj = $this->dbi->getTable($this->db, $this->table);
     }

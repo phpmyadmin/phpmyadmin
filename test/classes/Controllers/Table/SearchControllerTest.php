@@ -119,12 +119,12 @@ class SearchControllerTest extends AbstractTestCase
 
         $ctrl = new SearchController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
             new Search($GLOBALS['dbi']),
-            new Relation($GLOBALS['dbi'], $this->template)
+            new Relation($GLOBALS['dbi'], $this->template),
+            $GLOBALS['dbi']
         );
 
         $result = $ctrl->getColumnMinMax('column');
@@ -173,12 +173,12 @@ class SearchControllerTest extends AbstractTestCase
 
         $ctrl = new SearchController(
             $this->response,
-            $GLOBALS['dbi'],
             $this->template,
             $GLOBALS['db'],
             $GLOBALS['table'],
             new Search($GLOBALS['dbi']),
-            new Relation($GLOBALS['dbi'], $this->template)
+            new Relation($GLOBALS['dbi'], $this->template),
+            $GLOBALS['dbi']
         );
 
         $_POST['db'] = 'PMA';

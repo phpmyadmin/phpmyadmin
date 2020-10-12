@@ -106,10 +106,10 @@ class IndexesControllerTest extends AbstractTestCase
 
         $ctrl = new IndexesController(
             $response,
-            $GLOBALS['dbi'],
             new Template(),
             $GLOBALS['db'],
-            $GLOBALS['table']
+            $GLOBALS['table'],
+            $GLOBALS['dbi']
         );
 
         // Preview SQL
@@ -158,10 +158,10 @@ class IndexesControllerTest extends AbstractTestCase
 
         $ctrl = new IndexesController(
             $response,
-            $GLOBALS['dbi'],
             new Template(),
             $GLOBALS['db'],
-            $GLOBALS['table']
+            $GLOBALS['table'],
+            $GLOBALS['dbi']
         );
 
         $_POST['create_index'] = true;

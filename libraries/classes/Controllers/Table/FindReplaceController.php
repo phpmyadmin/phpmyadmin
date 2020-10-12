@@ -37,16 +37,20 @@ class FindReplaceController extends AbstractController
     /** @var string */
     private $connectionCharSet;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response Response object
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template          $template Template object
+     * @param Response          $response
      * @param string            $db       Database name
      * @param string            $table    Table name
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, $db, $table)
+    public function __construct($response, Template $template, $db, $table, $dbi)
     {
-        parent::__construct($response, $dbi, $template, $db, $table);
+        parent::__construct($response, $template, $db, $table);
+        $this->dbi = $dbi;
+
         $this->columnNames = [];
         $this->columnTypes = [];
         $this->loadTableInfo();
