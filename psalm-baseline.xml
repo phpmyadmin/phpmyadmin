@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.16@d03e5ef057d6adc656c0ff7e166c50b73b4f48f3">
+<files psalm-version="3.17.1@8f211792d813e4dc89f04ed372785ce93b902fd1">
   <file src="libraries/classes/Charsets.php">
     <TypeDoesNotContainType occurrences="1">
       <code>$pieces === false</code>
@@ -189,6 +189,11 @@
       <code>return $retval;</code>
     </ReferenceConstraintViolation>
   </file>
+  <file src="libraries/classes/Config/ServerConfigChecks.php">
+    <InvalidOperand occurrences="1">
+      <code>$cookieAuthUsed</code>
+    </InvalidOperand>
+  </file>
   <file src="libraries/classes/Config/Validator.php">
     <InvalidArgument occurrences="1">
       <code>$port</code>
@@ -299,10 +304,9 @@
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_FILES['import_file']</code>
     </PossiblyUndefinedArrayOffset>
-    <TypeDoesNotContainType occurrences="4">
+    <TypeDoesNotContainType occurrences="3">
       <code>$bookmark_created</code>
-      <code>$finished &amp;&amp; ! $error</code>
-      <code>$offset == 0 || (isset($original_skip) &amp;&amp; $original_skip == $offset)</code>
+      <code>$finished</code>
       <code>$timeout_passed</code>
     </TypeDoesNotContainType>
   </file>
@@ -511,7 +515,8 @@
       <code>$tot_size</code>
       <code>$tot_unit</code>
     </PossiblyNullArrayAccess>
-    <TypeDoesNotContainType occurrences="1">
+    <TypeDoesNotContainType occurrences="2">
+      <code>! is_array($row)</code>
       <code>is_array($row)</code>
     </TypeDoesNotContainType>
   </file>
@@ -888,6 +893,11 @@
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
   </file>
+  <file src="libraries/classes/Font.php">
+    <TypeDoesNotContainType occurrences="1">
+      <code>empty($charLists)</code>
+    </TypeDoesNotContainType>
+  </file>
   <file src="libraries/classes/Footer.php">
     <InvalidReturnStatement occurrences="1">
       <code>$object</code>
@@ -1044,7 +1054,8 @@
     <PossiblyNullArrayAccess occurrences="1">
       <code>$additional_sql[$i]</code>
     </PossiblyNullArrayAccess>
-    <TypeDoesNotContainType occurrences="1">
+    <TypeDoesNotContainType occurrences="2">
+      <code>! is_array($table)</code>
       <code>is_array($table)</code>
     </TypeDoesNotContainType>
   </file>
@@ -1320,6 +1331,11 @@
   </file>
   <file src="libraries/classes/Plugins/Export/ExportSql.php">
     <InvalidArgument occurrences="5"/>
+    <InvalidOperand occurrences="3">
+      <code>$r</code>
+      <code>$r</code>
+      <code>$r</code>
+    </InvalidOperand>
     <PossiblyInvalidOperand occurrences="1"/>
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>Context::escape($alias)</code>
@@ -1395,6 +1411,9 @@
     <ImplicitToStringCast occurrences="1">
       <code>$hint</code>
     </ImplicitToStringCast>
+    <ParadoxicalCondition occurrences="1">
+      <code>$error</code>
+    </ParadoxicalCondition>
     <PossiblyNullReference occurrences="2">
       <code>addProperty</code>
       <code>addProperty</code>
@@ -1506,13 +1525,17 @@
     </TooFewArguments>
   </file>
   <file src="libraries/classes/Plugins/Schema/Dia/RelationStatsDia.php">
-    <InvalidOperand occurrences="4">
+    <InvalidOperand occurrences="6">
+      <code>$pos</code>
+      <code>$pos</code>
       <code>$pos</code>
       <code>$pos</code>
       <code>$pos</code>
       <code>$pos</code>
     </InvalidOperand>
-    <PossiblyFalseOperand occurrences="4">
+    <PossiblyFalseOperand occurrences="6">
+      <code>$pos</code>
+      <code>$pos</code>
       <code>$pos</code>
       <code>$pos</code>
       <code>$pos</code>
@@ -2312,6 +2335,9 @@
       <code>$error</code>
       <code>return $sql_query;</code>
     </ReferenceConstraintViolation>
+    <TypeDoesNotContainType occurrences="1">
+      <code>$row_fields[$_key] != 'cc'</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Table/ColumnsDefinition.php">
     <PossiblyFalseArgument occurrences="2">
@@ -2481,6 +2507,23 @@
     <InvalidArrayOffset occurrences="1">
       <code>$context['http']['header']</code>
     </InvalidArrayOffset>
+    <InvalidOperand occurrences="15">
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+      <code>$curlStatus</code>
+    </InvalidOperand>
     <TypeDoesNotContainType occurrences="2">
       <code>$curlStatus</code>
       <code>isset($http_response_header)</code>
