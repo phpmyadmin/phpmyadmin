@@ -112,7 +112,10 @@ class ErrorReport
                 return [];
             }
             $exception = $_POST['exception'];
-            $exception['stack'] = $this->translateStacktrace($exception['stack']);
+
+            if (isset($exception['stack'])) {
+                $exception['stack'] = $this->translateStacktrace($exception['stack']);
+            }
 
             if (isset($exception['url'])) {
                 [$uri, $scriptName] = $this->sanitizeUrl($exception['url']);

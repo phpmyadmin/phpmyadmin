@@ -478,6 +478,8 @@ class CoreTest extends AbstractNetworkTestCase
      * @param string $size     Size
      * @param int    $expected Expected value
      *
+     * @group 32bit-incompatible
+     *
      * @dataProvider providerTestGetRealSize
      */
     public function testGetRealSize(string $size, int $expected): void

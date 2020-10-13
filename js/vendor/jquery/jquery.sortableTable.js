@@ -1,5 +1,8 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * This file is internal to phpMyAdmin.
+ * @license see the main phpMyAdmin license.
+ *
  * @fileoverview    A jquery plugin that allows drag&drop sorting in tables.
  *                  Coded because JQuery UI sortable doesn't support tables. Also it has no animation
  *

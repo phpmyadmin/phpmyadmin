@@ -79,10 +79,10 @@
               {% if criteria_column_names[i] is defined and criteria_column_names[i] != 'pma_null' %}
                 {% set key = keys[criteria_column_names[i]] %}
                 {% set properties = self.getColumnProperties(i, key) %}
-                {% set type = type|merge({i: properties['type']}) %}
-                {% set collation = collation|merge({i: properties['collation']}) %}
-                {% set func = func|merge({i: properties['func']}) %}
-                {% set value = value|merge({i: properties['value']}) %}
+                {% set type = type|merge({(i): properties['type']}) %}
+                {% set collation = collation|merge({(i): properties['collation']}) %}
+                {% set func = func|merge({(i): properties['func']}) %}
+                {% set value = value|merge({(i): properties['value']}) %}
               {% endif %}
               {# Column type #}
               <td dir="ltr">
@@ -97,9 +97,10 @@
                 {{ func[i] is defined ? func[i]|raw }}
               </td>
               {# Inputbox for search criteria value #}
-              <td></td>
               <td>
                 {{ value[i] is defined ? value[i]|raw }}
+              </td>
+              <td>
                 {# Displays hidden fields #}
                 <input type="hidden" name="criteriaColumnTypes[{{ i }}]" id="types_{{ i }}"
                   {%- if criteria_column_types[i] is defined %} value="{{ criteria_column_types[i] }}"{% endif %}>
