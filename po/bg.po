@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2020-10-12 08:26+0000\n"
-"Last-Translator: P <plamen_mbx@yahoo.com>\n"
+"PO-Revision-Date: 2020-10-13 23:55+0000\n"
+"Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "bg/>\n"
 "Language: bg\n"
@@ -2785,12 +2785,13 @@ msgstr "Страница:"
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr ""
+msgstr "Конфигурационното хранилище не е готово за централен списък на колони."
 
 #: libraries/classes/CentralColumns.php:388
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
+"%1$s не може да се добави, тъй като вече съществува в централния списък!"
 
 #: libraries/classes/CentralColumns.php:404
 msgid "Could not add columns!"
@@ -2801,6 +2802,8 @@ msgstr "Колона неможе да бъде добавена!"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Колона(ите) %1$s не можаха да бъдат премахнати, тъй като те не съществуват в "
+"списъка с централни колони!"
 
 #: libraries/classes/CentralColumns.php:495
 msgid "Could not remove columns!"
@@ -2940,20 +2943,16 @@ msgstr "Празно"
 #: templates/database/central_columns/main.twig:45
 #: templates/database/central_columns/main.twig:264
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/classes/Charsets/Collation.php:184
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "непознат"
+msgstr "Неизвестен"
 
 #: libraries/classes/Charsets/Collation.php:198
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
-msgstr "двоичен"
+msgstr "Двоичен"
 
 #: libraries/classes/Charsets/Collation.php:210
 #: libraries/classes/Charsets/Collation.php:449
@@ -3168,11 +3167,9 @@ msgstr "Естонски"
 
 #: libraries/classes/Charsets/Collation.php:347
 #: libraries/classes/Charsets/Collation.php:468
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Речник на данните"
+msgstr "Немски (по ред в речника)"
 
 #: libraries/classes/Charsets/Collation.php:350
 #: libraries/classes/Charsets/Collation.php:465
@@ -3264,11 +3261,9 @@ msgstr "Словенски"
 
 #: libraries/classes/Charsets/Collation.php:418
 #: libraries/classes/Charsets/Collation.php:479
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Испански"
+msgstr "Испански (модерен)"
 
 #: libraries/classes/Charsets/Collation.php:425
 #: libraries/classes/Charsets/Collation.php:476
@@ -3940,7 +3935,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:261
 #: libraries/classes/Plugins/Export/ExportSql.php:316
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Изклчва се определението за текущия потребител"
 
 #: libraries/classes/Config/Descriptions.php:262
 #: libraries/classes/Plugins/Export/ExportSql.php:322
@@ -4527,16 +4522,12 @@ msgid "Delete all cookies on logout"
 msgstr "Изтриване всички бисквитки при изход"
 
 #: libraries/classes/Config/Descriptions.php:440
-#, fuzzy
-#| msgid ""
-#| "Define whether the previous login should be recalled or not in cookie "
-#| "authentication mode"
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
 "Определя дали да се припомни или не потребителското име от предишен вход в "
-"режим на удостоверяване с бисквитка"
+"режим на удостоверяване с [kbd]бисквитки[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:443
 msgid "Recall user name"
@@ -4641,16 +4632,12 @@ msgid "Maximum tables"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:477
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Броят байтове, които скрипт може да заеме, напр. [kbd]32М[/kbd] ([kbd]0[/"
-"kbd] за без ограничение)"
+"Броят байтове, които скрипт може да заеме, напр. [kbd]32М[/kbd] "
+"([kbd]-1[/kbd] - без ограничения, [kbd]0[/kbd] - без промяна)"
 
 #: libraries/classes/Config/Descriptions.php:480
 msgid "Memory limit"
@@ -5206,17 +5193,12 @@ msgid "Control user password"
 msgstr "Парола на контролен потребител"
 
 #: libraries/classes/Config/Descriptions.php:624
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"Специален MySQL потребител с ограничени права, [a@https://wiki.phpmyadmin."
-"net/pma/controluser]още информация[/a]"
+"Специален MySQL потребител с ограничени права, за още информация вижте [doc"
+"@linked-tables]документацията[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:627
 msgid "Control user"
@@ -5441,15 +5423,9 @@ msgid "Relation table"
 msgstr "Таблица за връзка"
 
 #: libraries/classes/Config/Descriptions.php:709
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"За примери посетете [a@https://wiki.phpmyadmin.net/pma/"
-"auth_types#signon]видове удостоверяване[/a]"
+msgstr "За пример вижте [doc@authentication-modes]видове удостоверяване[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:712
 msgid "Signon session name"
@@ -7417,7 +7393,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Setup/HomeController.php:60
 msgid "Insecure connection"
-msgstr ""
+msgstr "Несигурна връзка"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:69
 msgid "Configuration saved."
@@ -8836,7 +8812,7 @@ msgstr "Стойност"
 
 #: libraries/classes/InsertEdit.php:2343 libraries/classes/Sql.php:1343
 msgid "Showing SQL query"
-msgstr ""
+msgstr "Показване на SQL заявкa"
 
 #: libraries/classes/InsertEdit.php:2368 libraries/classes/Sql.php:1321
 #, php-format
@@ -9719,7 +9695,7 @@ msgstr "Поправяне на таблицата"
 #: templates/database/structure/check_all_tables.twig:14
 #: templates/table/operations/view.twig:28
 msgid "Delete data or table"
-msgstr ""
+msgstr "Изтриване на данни или таблица"
 
 #: libraries/classes/Operations.php:1622
 msgid "Empty the table (TRUNCATE)"
@@ -9777,7 +9753,7 @@ msgstr ""
 #: libraries/classes/Operations.php:1743
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
-msgstr ""
+msgstr "Премахване на разпокъсването"
 
 #: libraries/classes/Operations.php:1769
 msgid "Check referential integrity:"
@@ -10585,7 +10561,7 @@ msgstr "Имена на колони:"
 #: libraries/classes/Plugins/Import/ImportCsv.php:197
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "Невалиден параметър за CSV импорт: %s"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:250
 #, php-format
@@ -11067,7 +11043,7 @@ msgstr "Смяна на паролата"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:66
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Само за тестове!"
 
 #: libraries/classes/RecentFavoriteTable.php:141
 msgid "Could not save recent table!"
@@ -11680,10 +11656,8 @@ msgid "You must provide a valid event for the trigger!"
 msgstr "Трябва да дадете събитие на тригера!"
 
 #: libraries/classes/Rte/Triggers.php:516
-#, fuzzy
-#| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "Трябва да дадете име на таблица на тригера"
+msgstr "Трябва да зададете валидно име на таблица!"
 
 #: libraries/classes/Rte/Triggers.php:522
 msgid "You must provide a trigger definition."
@@ -12404,7 +12378,7 @@ msgstr "Специфични за колоната права"
 #: templates/server/privileges/choose_user_group.twig:4
 #: templates/server/privileges/choose_user_group.twig:5
 msgid "User group"
-msgstr ""
+msgstr "Потребителска група"
 
 #: libraries/classes/Server/Privileges.php:3842
 #: libraries/classes/Server/Privileges.php:5051
@@ -12701,10 +12675,8 @@ msgid "No newer stable version is available"
 msgstr "Няма по-нова стабилна версия"
 
 #: libraries/classes/Sql.php:713
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
-msgstr "Белязка %s беше създадена"
+msgstr "Отметката не беше създадена!"
 
 #: libraries/classes/Sql.php:832
 #, php-format
@@ -12773,10 +12745,8 @@ msgid "Get auto-saved query"
 msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:276
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "Грешни параметри!"
+msgstr "Свързване на параметри"
 
 #: libraries/classes/SqlQueryForm.php:324
 #, fuzzy
@@ -13312,10 +13282,8 @@ msgid "The profile has been updated."
 msgstr "Профилът беше обновен."
 
 #: libraries/classes/UserPassword.php:91
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password is too long!"
-msgstr "Хеширане на паролата"
+msgstr "Паролата е твърде дълга!"
 
 #: libraries/classes/UserPreferencesHeader.php:56
 msgid "Manage your settings"
@@ -13495,7 +13463,7 @@ msgstr "Осъвременете до %s %s или по-нова."
 
 #: libraries/common.inc.php:464
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Грешка: Токените не съвпадат"
 
 #: libraries/config.values.php:90 libraries/config.values.php:128
 #: libraries/config.values.php:140
@@ -13535,7 +13503,7 @@ msgstr ""
 
 #: libraries/config.values.php:150
 msgid "key"
-msgstr ""
+msgstr "ключ"
 
 #: libraries/config.values.php:151
 msgid "display column"
@@ -13665,10 +13633,8 @@ msgid "No Privileges"
 msgstr "Без права"
 
 #: server_privileges.php:167
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "Не разполагате с права, за да създадете тригер"
+msgstr "Не разполагате с права, за да администрирате потребители!"
 
 #: server_privileges.php:181
 msgid ""
@@ -13692,7 +13658,7 @@ msgstr ""
 #: tbl_create.php:62 tbl_get_field.php:46
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "БД '%s' не съществува."
 
 #: tbl_create.php:72
 #, php-format
@@ -15272,10 +15238,8 @@ msgid "Server type:"
 msgstr "Тип на сървъра:"
 
 #: templates/home/index.twig:105
-#, fuzzy
-#| msgid "Master configuration"
 msgid "Server connection:"
-msgstr "Конфигурация на главния"
+msgstr "Връзка със сървъра:"
 
 #: templates/home/index.twig:113
 msgid "Protocol version:"
@@ -15448,10 +15412,9 @@ msgid "Delete settings"
 msgstr "Изтриване информацията за следене"
 
 #: templates/preferences/forms/main.twig:4
-#, fuzzy
-#| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr "Промените не бяха запазени, изпратеният формуляр съдържа грешки"
+msgstr ""
+"Настройките не могат да бъдат запазени, изпратеният формуляр съдържа грешки!"
 
 #: templates/preferences/manage/error.twig:1
 msgid "Configuration contains incorrect data for some fields."
@@ -16466,7 +16429,7 @@ msgstr "Показване подсказка"
 
 #: templates/setup/home/index.twig:73
 msgid "There are no configured servers"
-msgstr ""
+msgstr "Няма конфигурирани сървъри"
 
 #: templates/setup/home/index.twig:82
 msgid "New server"
@@ -16657,7 +16620,7 @@ msgstr "Изпращане"
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
-msgstr ""
+msgstr "Показване на GIS визуализация"
 
 #: templates/table/gis_visualization/gis_visualization.twig:8
 msgid "Label column"
@@ -17165,7 +17128,7 @@ msgstr "Не разполагате с права, за да се намират
 
 #: view_create.php:63
 msgid "View name can not be empty!"
-msgstr ""
+msgstr "Името на изгледа не може да е празно!"
 
 #: view_operations.php:127
 #, fuzzy
@@ -17338,7 +17301,7 @@ msgstr "Малка версия"
 
 #: libraries/advisory_rules_generic.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Версия по-малка от 5.1.30"
 
 #: libraries/advisory_rules_generic.txt:111
 msgid ""
