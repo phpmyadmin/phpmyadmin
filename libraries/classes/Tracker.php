@@ -865,10 +865,6 @@ class Tracker
             return;
         }
 
-        if (! self::isTracked($dbname, $result['tablename'])) {
-            return;
-        }
-
         $version = self::getVersion(
             $dbname,
             $result['tablename'],
@@ -902,6 +898,10 @@ class Tracker
 
         // If version exists
         if ($version == -1) {
+            return;
+        }
+
+        if (! self::isTracked($dbname, $result['tablename'])) {
             return;
         }
 
