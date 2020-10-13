@@ -58,7 +58,7 @@ jobs:
       before_script: skip
       after_script: skip
       after_success: skip
-      script: composer phpstan
+      script: composer phpstan -- --memory-limit 2G
 
     - stage: "Lint and analyse code"
       name: "Run psalm"
