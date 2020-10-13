@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-10-12 08:26+0000\n"
-"Last-Translator: P <plamen_mbx@yahoo.com>\n"
+"PO-Revision-Date: 2020-10-13 23:55+0000\n"
+"Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "bg/>\n"
 "Language: bg\n"
@@ -336,10 +336,8 @@ msgid "You have to choose at least one column to display!"
 msgstr "Изберете поне една колона за показване!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Симулиране на заявка"
+msgstr "Заявка към множество таблици"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
@@ -700,10 +698,8 @@ msgid "Server type:"
 msgstr "Тип на сървъра:"
 
 #: index.php:351
-#, fuzzy
-#| msgid "Master configuration"
 msgid "Server connection:"
-msgstr "Конфигурация на главния"
+msgstr "Връзка със сървъра:"
 
 #: index.php:355 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:705
@@ -3186,12 +3182,13 @@ msgstr "Страница:"
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr ""
+msgstr "Конфигурационното хранилище не е готово за централен списък на колони."
 
 #: libraries/classes/CentralColumns.php:362
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
+"%1$s не може да се добави, тъй като вече съществува в централния списък!"
 
 #: libraries/classes/CentralColumns.php:377
 msgid "Could not add columns!"
@@ -3202,6 +3199,8 @@ msgstr "Колона неможе да бъде добавена!"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Колона(ите) %1$s не можаха да бъдат премахнати, тъй като те не съществуват в "
+"списъка с централни колони!"
 
 #: libraries/classes/CentralColumns.php:466
 msgid "Could not remove columns!"
@@ -3308,17 +3307,13 @@ msgid "Charset"
 msgstr "Знаков набор"
 
 #: libraries/classes/Charsets.php:339
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "непознат"
+msgstr "Неизвестен"
 
 #: libraries/classes/Charsets.php:353
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
-msgstr "двоичен"
+msgstr "Двоичен"
 
 #: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:604
 msgctxt "Collation"
@@ -3468,11 +3463,9 @@ msgid "Estonian"
 msgstr "Естонски"
 
 #: libraries/classes/Charsets.php:502 libraries/classes/Charsets.php:623
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Речник на данните"
+msgstr "Немски (по ред в речника)"
 
 #: libraries/classes/Charsets.php:505 libraries/classes/Charsets.php:620
 msgctxt "Collation"
@@ -3562,11 +3555,9 @@ msgid "Slovenian"
 msgstr "Словенски"
 
 #: libraries/classes/Charsets.php:573 libraries/classes/Charsets.php:634
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Испански"
+msgstr "Испански (модерен)"
 
 #: libraries/classes/Charsets.php:580 libraries/classes/Charsets.php:631
 msgctxt "Collation"
@@ -4827,16 +4818,12 @@ msgid "Delete all cookies on logout"
 msgstr "Изтриване всички бисквитки при изход"
 
 #: libraries/classes/Config/Descriptions.php:703
-#, fuzzy
-#| msgid ""
-#| "Define whether the previous login should be recalled or not in cookie "
-#| "authentication mode"
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
 "Определя дали да се припомни или не потребителското име от предишен вход в "
-"режим на удостоверяване с бисквитка"
+"режим на удостоверяване с [kbd]бисквитки[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:707
 msgid "Recall user name"
@@ -4941,16 +4928,12 @@ msgid "Maximum tables"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:762
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Броят байтове, които скрипт може да заеме, напр. [kbd]32М[/kbd] ([kbd]0[/"
-"kbd] за без ограничение)"
+"Броят байтове, които скрипт може да заеме, напр. [kbd]32М[/kbd] "
+"([kbd]-1[/kbd] - без ограничения, [kbd]0[/kbd] - без промяна)"
 
 #: libraries/classes/Config/Descriptions.php:766
 msgid "Memory limit"
@@ -5493,17 +5476,12 @@ msgid "Control user password"
 msgstr "Парола на контролен потребител"
 
 #: libraries/classes/Config/Descriptions.php:1017
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"Специален MySQL потребител с ограничени права, [a@https://wiki.phpmyadmin."
-"net/pma/controluser]още информация[/a]"
+"Специален MySQL потребител с ограничени права, за още информация вижте [doc"
+"@linked-tables]документацията[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:1021
 msgid "Control user"
@@ -5728,15 +5706,9 @@ msgid "Relation table"
 msgstr "Таблица за връзка"
 
 #: libraries/classes/Config/Descriptions.php:1141
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"За примери посетете [a@https://wiki.phpmyadmin.net/pma/"
-"auth_types#signon]видове удостоверяване[/a]"
+msgstr "За пример вижте [doc@authentication-modes]видове удостоверяване[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:1145
 msgid "Signon session name"
@@ -11442,10 +11414,8 @@ msgid "You must provide a valid event for the trigger!"
 msgstr "Трябва да дадете събитие на тригера!"
 
 #: libraries/classes/Rte/Triggers.php:467
-#, fuzzy
-#| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "Трябва да дадете име на таблица на тригера"
+msgstr "Трябва да зададете валидно име на таблица!"
 
 #: libraries/classes/Rte/Triggers.php:473
 msgid "You must provide a trigger definition."
@@ -13379,10 +13349,8 @@ msgid "Let every user access this bookmark"
 msgstr "Всеки потребител да има достъп до тази белязка"
 
 #: libraries/classes/Sql.php:831
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
-msgstr "Белязка %s беше създадена"
+msgstr "Отметката не беше създадена!"
 
 #: libraries/classes/Sql.php:941
 #, php-format
@@ -13451,10 +13419,8 @@ msgid "Get auto-saved query"
 msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:260
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "Грешни параметри!"
+msgstr "Свързване на параметри"
 
 #: libraries/classes/SqlQueryForm.php:308
 #, fuzzy
@@ -14004,10 +13970,8 @@ msgid "The profile has been updated."
 msgstr "Профилът беше обновен."
 
 #: libraries/classes/UserPassword.php:74
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password is too long!"
-msgstr "Хеширане на паролата"
+msgstr "Паролата е твърде дълга!"
 
 #: libraries/classes/UserPreferences.php:157
 msgid "Could not save configuration"
@@ -14308,10 +14272,9 @@ msgid "Incorrect form specified!"
 msgstr ""
 
 #: prefs_forms.php:82
-#, fuzzy
-#| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr "Промените не бяха запазени, изпратеният формуляр съдържа грешки"
+msgstr ""
+"Настройките не могат да бъдат запазени, изпратеният формуляр съдържа грешки!"
 
 #: prefs_manage.php:52
 #, fuzzy
@@ -14523,7 +14486,7 @@ msgstr ""
 
 #: setup/frames/index.inc.php:171
 msgid "There are no configured servers"
-msgstr ""
+msgstr "Няма конфигурирани сървъри"
 
 #: setup/frames/index.inc.php:180
 msgid "New server"
