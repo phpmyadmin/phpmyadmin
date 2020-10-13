@@ -3093,11 +3093,18 @@ class Util
         $hex = bin2hex($data);
         $spatialAsText = 'ASTEXT';
         $spatialSrid = 'SRID';
-        if ($GLOBALS['dbi']->getVersion() >= 50600) {
+        $axisOrder = '';
+        $mysqlVersionInt = $GLOBALS['dbi']->getVersion();
+        if ($mysqlVersionInt >= 50600) {
             $spatialAsText = 'ST_ASTEXT';
             $spatialSrid = 'ST_SRID';
         }
-        $wktsql     = "SELECT $spatialAsText(x'" . $hex . "')";
+
+        if ($mysqlVersionInt >= 80010 && ! $GLOBALS['dbi']->isMariaDb()) {
+            $axisOrder = ', \'axis-order=long-lat\'';
+        }
+
+        $wktsql     = 'SELECT ' . $spatialAsText . "(x'" . $hex . "'" . $axisOrder . ")";
         if ($includeSRID) {
             $wktsql .= ", $spatialSrid(x'" . $hex . "')";
         }

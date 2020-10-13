@@ -2948,6 +2948,46 @@ class UtilTest extends PmaTestCase
                 true,
                 50700,
             ],
+            [
+                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\', \'axis-order=long-lat\'), ST_SRID(x\'000000000101000000000000000000f03f000000000000f03f\')',
+                [
+                    'POINT(1 1)',
+                    '0',
+                ],
+                '\'POINT(1 1)\',0',
+                true,
+                80010,
+            ],
+            [
+                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\'), ST_SRID(x\'000000000101000000000000000000f03f000000000000f03f\')',
+                [
+                    'POINT(1 1)',
+                    '0',
+                ],
+                '\'POINT(1 1)\',0',
+                true,
+                50700,
+            ],
+            [
+                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\', \'axis-order=long-lat\')',
+                [
+                    'POINT(1 1)',
+                    '0',
+                ],
+                'POINT(1 1)',
+                false,
+                80010,
+            ],
+            [
+                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\')',
+                [
+                    'POINT(1 1)',
+                    '0',
+                ],
+                'POINT(1 1)',
+                false,
+                50700,
+            ],
         ];
     }
 
@@ -2959,7 +2999,7 @@ class UtilTest extends PmaTestCase
      * @param string $expectedQuery  The query to expect
      * @param array  $returnData     The data to return for fetchRow
      * @param string $functionResult Result of the Util::asWKT invocation
-     * @param string $SRIDOption     Use the SRID option or not
+     * @param bool   $SRIDOption     Use the SRID option or not
      * @param int    $mysqlVersion   The mysql version to return for getVersion
      *
      * @return void
