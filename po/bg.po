@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 14:18-0300\n"
-"PO-Revision-Date: 2020-10-12 08:26+0000\n"
-"Last-Translator: P <plamen_mbx@yahoo.com>\n"
+"PO-Revision-Date: 2020-10-13 23:55+0000\n"
+"Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
 "Language: bg\n"
@@ -1367,10 +1367,8 @@ msgid "Show all"
 msgstr "Показване на всички"
 
 #: libraries/classes/Charsets/Collation.php:168
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "непознат"
+msgstr "Неизвестен"
 
 #: libraries/classes/Charsets/Collation.php:212
 #: libraries/classes/Charsets/Collation.php:481
@@ -1380,11 +1378,9 @@ msgstr "Германски (поръчка на телефонен указат�
 
 #: libraries/classes/Charsets/Collation.php:215
 #: libraries/classes/Charsets/Collation.php:478
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Речник на данните"
+msgstr "Немски (по ред в речника)"
 
 #: libraries/classes/Charsets/Collation.php:223
 #: libraries/classes/Charsets/Collation.php:556
@@ -1394,11 +1390,9 @@ msgstr "Испански (традиционен)"
 
 #: libraries/classes/Charsets/Collation.php:226
 #: libraries/classes/Charsets/Collation.php:549
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Испански"
+msgstr "Испански (модерен)"
 
 #: libraries/classes/Charsets/Collation.php:288
 #, fuzzy
@@ -1455,11 +1449,9 @@ msgid "no-pad"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:326
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
-msgstr "двоичен"
+msgstr "Двоичен"
 
 #: libraries/classes/Charsets/Collation.php:338
 #: libraries/classes/Charsets/Collation.php:580
@@ -2982,16 +2974,12 @@ msgid "Delete all cookies on logout"
 msgstr "Изтриване всички бисквитки при изход"
 
 #: libraries/classes/Config/Descriptions.php:471
-#, fuzzy
-#| msgid ""
-#| "Define whether the previous login should be recalled or not in cookie "
-#| "authentication mode"
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
 "Определя дали да се припомни или не потребителското име от предишен вход в "
-"режим на удостоверяване с бисквитка"
+"режим на удостоверяване с [kbd]бисквитки[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:474
 msgid "Recall user name"
@@ -3667,17 +3655,12 @@ msgid "Control user password"
 msgstr "Парола на контролен потребител"
 
 #: libraries/classes/Config/Descriptions.php:671
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"Специален MySQL потребител с ограничени права, [a@https://wiki.phpmyadmin."
-"net/pma/controluser]още информация[/a]"
+"Специален MySQL потребител с ограничени права, за още информация вижте [doc"
+"@linked-tables]документацията[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:674
 msgid "Control user"
@@ -3903,15 +3886,9 @@ msgid "Relation table"
 msgstr "Таблица за връзка"
 
 #: libraries/classes/Config/Descriptions.php:758
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"За примери посетете [a@https://wiki.phpmyadmin.net/pma/"
-"auth_types#signon]видове удостоверяване[/a]"
+msgstr "За пример вижте [doc@authentication-modes]видове удостоверяване[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:761
 msgid "Signon session name"
@@ -7682,10 +7659,8 @@ msgid "No Privileges"
 msgstr "Без права"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:142
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "Не разполагате с права, за да създадете тригер"
+msgstr "Не разполагате с права, за да администрирате потребители!"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:156
 msgid ""
@@ -8404,10 +8379,8 @@ msgid "End of line"
 msgstr "Край на ред"
 
 #: libraries/classes/Controllers/SqlController.php:377
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
-msgstr "Белязка %s беше създадена"
+msgstr "Отметката не беше създадена!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:134
@@ -8667,12 +8640,13 @@ msgstr ""
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr ""
+msgstr "Конфигурационното хранилище не е готово за централен списък на колони."
 
 #: libraries/classes/Database/CentralColumns.php:379
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
+"%1$s не може да се добави, тъй като вече съществува в централния списък!"
 
 #: libraries/classes/Database/CentralColumns.php:395
 msgid "Could not add columns!"
@@ -8683,6 +8657,8 @@ msgstr "Колона неможе да бъде добавена!"
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"Колона(ите) %1$s не можаха да бъдат премахнати, тъй като те не съществуват в "
+"списъка с централни колони!"
 
 #: libraries/classes/Database/CentralColumns.php:493
 msgid "Could not remove columns!"
@@ -9394,10 +9370,8 @@ msgid "You must provide a valid event for the trigger!"
 msgstr "Трябва да дадете събитие на тригера!"
 
 #: libraries/classes/Database/Triggers.php:517
-#, fuzzy
-#| msgid "You must provide a valid table name"
 msgid "You must provide a valid table name!"
-msgstr "Трябва да дадете име на таблица на тригера"
+msgstr "Трябва да зададете валидно име на таблица!"
 
 #: libraries/classes/Database/Triggers.php:523
 msgid "You must provide a trigger definition."
@@ -13675,10 +13649,8 @@ msgid "The profile has been updated."
 msgstr "Профилът беше обновен."
 
 #: libraries/classes/UserPassword.php:50
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password is too long!"
-msgstr "Хеширане на паролата"
+msgstr "Паролата е твърде дълга!"
 
 #: libraries/classes/UserPreferences.php:165
 msgid "Could not save configuration"
@@ -14955,10 +14927,8 @@ msgstr "Импорт в БД \"%s\""
 
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Симулиране на заявка"
+msgstr "Заявка към множество таблици"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
@@ -16058,10 +16028,8 @@ msgid "Server type:"
 msgstr "Тип на сървъра:"
 
 #: templates/home/index.twig:125
-#, fuzzy
-#| msgid "Master configuration"
 msgid "Server connection:"
-msgstr "Конфигурация на главния"
+msgstr "Връзка със сървъра:"
 
 #: templates/home/index.twig:133
 msgid "Protocol version:"
@@ -16633,10 +16601,9 @@ msgid "Delete settings"
 msgstr "Изтриване информацията за следене"
 
 #: templates/preferences/forms/main.twig:4
-#, fuzzy
-#| msgid "Cannot save settings, submitted form contains errors"
 msgid "Cannot save settings, submitted form contains errors!"
-msgstr "Промените не бяха запазени, изпратеният формуляр съдържа грешки"
+msgstr ""
+"Настройките не могат да бъдат запазени, изпратеният формуляр съдържа грешки!"
 
 #: templates/preferences/header.twig:6
 msgid "Manage your settings"
@@ -18191,7 +18158,7 @@ msgstr "Показване подсказка"
 
 #: templates/setup/home/index.twig:73
 msgid "There are no configured servers"
-msgstr ""
+msgstr "Няма конфигурирани сървъри"
 
 #: templates/setup/home/index.twig:82
 msgid "New server"
@@ -18282,10 +18249,8 @@ msgstr ""
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
 #: templates/sql/query.twig:52
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "Bind parameters"
-msgstr "Грешни параметри!"
+msgstr "Свързване на параметри"
 
 #: templates/sql/query.twig:85
 #, fuzzy
