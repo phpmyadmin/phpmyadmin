@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Util class
- */
 
 declare(strict_types=1);
 
@@ -27,9 +24,6 @@ use function str_replace;
 use function strlen;
 use function trim;
 
-/**
- * Test for PhpMyAdmin\Util class
- */
 class UtilTest extends AbstractTestCase
 {
     /**

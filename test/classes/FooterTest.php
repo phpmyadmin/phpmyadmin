@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Footer class
- */
 
 declare(strict_types=1);
 
@@ -11,9 +8,6 @@ use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
 use function json_encode;
 
-/**
- * Tests for Footer class
- */
 class FooterTest extends AbstractTestCase
 {
     /** @var array store private attributes of PhpMyAdmin\Footer */

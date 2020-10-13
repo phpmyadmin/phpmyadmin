@@ -1,9 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Git class
- *
- * @group current
- */
 
 declare(strict_types=1);
 
@@ -25,8 +20,6 @@ use function sys_get_temp_dir;
 use function unlink;
 
 /**
- * Tests behaviour of PhpMyAdmin\Git class
- *
  * @group git-revision
  */
 class GitTest extends AbstractTestCase

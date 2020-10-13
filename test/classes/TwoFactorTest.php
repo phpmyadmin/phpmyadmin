@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for TwoFactor class
- */
 
 declare(strict_types=1);
 
@@ -14,9 +11,6 @@ use Samyoul\U2F\U2FServer\SignRequest;
 use function count;
 use function in_array;
 
-/**
- * Tests behaviour of TwoFactor class
- */
 class TwoFactorTest extends AbstractTestCase
 {
     protected function setUp(): void

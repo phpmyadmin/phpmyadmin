@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds class Message
- */
 
 declare(strict_types=1);
 

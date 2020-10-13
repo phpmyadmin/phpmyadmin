@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Controllers\Setup\ConfigController
- */
 
 declare(strict_types=1);
 

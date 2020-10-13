@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds BinlogControllerTest
- */
 
 declare(strict_types=1);
 
@@ -15,9 +12,6 @@ use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-/**
- * Tests for BinlogController class
- */
 class BinlogControllerTest extends AbstractTestCase
 {
     /**

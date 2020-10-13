@@ -1,7 +1,4 @@
 <?php
-/**
- * hold PhpMyAdmin\Twig\I18n\TokenParserTrans class
- */
 
 declare(strict_types=1);
 

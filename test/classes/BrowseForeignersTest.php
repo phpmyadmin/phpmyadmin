@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\BrowseForeigners
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Template;
 
-/**
- * Tests for PhpMyAdmin\BrowseForeigners
- */
 class BrowseForeignersTest extends AbstractTestCase
 {
     /** @var BrowseForeigners */

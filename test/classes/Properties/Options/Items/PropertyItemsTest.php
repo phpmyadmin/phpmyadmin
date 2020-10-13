@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for *PhpMyAdmin\Properties\PropertyItem class
- */
 
 declare(strict_types=1);
 
@@ -16,14 +13,8 @@ use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * tests for *PhpMyAdmin\Properties\PropertyItem class
- */
 class PropertyItemsTest extends AbstractTestCase
 {
-    /**
-     * Test for PhpMyAdmin\Properties\Options\Items\BoolPropertyItem::getText
-     */
     public function testBoolText(): void
     {
         $object = new BoolPropertyItem(null, 'Text');
@@ -41,9 +32,6 @@ class PropertyItemsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\Items\BoolPropertyItem::getName
-     */
     public function testBoolName(): void
     {
         $object = new BoolPropertyItem('xname');
@@ -61,9 +49,6 @@ class PropertyItemsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\Items\BoolPropertyItem::getItemType
-     */
     public function testBoolGetItemType(): void
     {
         $object = new BoolPropertyItem();
@@ -74,9 +59,6 @@ class PropertyItemsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\Items\DocPropertyItem::getItemType
-     */
     public function testGetItemTypeDoc(): void
     {
         $object = new DocPropertyItem();
@@ -87,9 +69,6 @@ class PropertyItemsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem::getItemType
-     */
     public function testGetItemTypeHidden(): void
     {
         $object = new HiddenPropertyItem();
@@ -100,9 +79,6 @@ class PropertyItemsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem::getItemType
-     */
     public function testGetItemTypeMessageOnly(): void
     {
         $object = new MessageOnlyPropertyItem();
@@ -113,9 +89,6 @@ class PropertyItemsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\Items\RadioPropertyItem::getItemType
-     */
     public function testGetItemTypeRadio(): void
     {
         $object = new RadioPropertyItem();
@@ -126,9 +99,6 @@ class PropertyItemsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\Items\SelectPropertyItem::getItemType
-     */
     public function testGetItemTypeSelect(): void
     {
         $object = new SelectPropertyItem();
@@ -139,9 +109,6 @@ class PropertyItemsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\Items\TextPropertyItem::getItemType
-     */
     public function testGetItemTypeText(): void
     {
         $object = new TextPropertyItem();

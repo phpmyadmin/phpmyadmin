@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Relation
- */
 
 declare(strict_types=1);
 
@@ -11,8 +8,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 
 /**
- * Tests for PhpMyAdmin\Relation
- *
  * @group medium
  */
 class RelationTest extends AbstractTestCase

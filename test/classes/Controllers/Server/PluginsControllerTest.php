@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds PluginsControllerTest class
- */
 
 declare(strict_types=1);
 
@@ -14,9 +11,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 
-/**
- * Tests for PluginsController class
- */
 class PluginsControllerTest extends AbstractTestCase
 {
     /**

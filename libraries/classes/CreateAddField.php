@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\CreateAddField class
- */
 
 declare(strict_types=1);
 

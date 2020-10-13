@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Controllers\Database\DataDictionaryController
- */
 
 declare(strict_types=1);
 

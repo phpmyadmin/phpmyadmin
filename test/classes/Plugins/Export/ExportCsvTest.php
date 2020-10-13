@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportCsv class
- */
 
 declare(strict_types=1);
 
@@ -23,8 +20,6 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportCsv class
- *
  * @group medium
  */
 class ExportCsvTest extends AbstractTestCase
@@ -51,9 +46,6 @@ class ExportCsvTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::setProperties
-     */
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportCsv::class, 'setProperties');
@@ -248,9 +240,6 @@ class ExportCsvTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::exportHeader
-     */
     public function testExportHeader(): void
     {
         // case 1
@@ -423,9 +412,6 @@ class ExportCsvTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::exportFooter
-     */
     public function testExportFooter(): void
     {
         $this->assertTrue(
@@ -433,9 +419,6 @@ class ExportCsvTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         $this->assertTrue(
@@ -443,9 +426,6 @@ class ExportCsvTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
@@ -453,9 +433,6 @@ class ExportCsvTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::exportDBCreate
-     */
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
@@ -463,9 +440,6 @@ class ExportCsvTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCsv::exportData
-     */
     public function testExportData(): void
     {
         // case 1

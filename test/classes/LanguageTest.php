@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for Advisor class
- */
 
 declare(strict_types=1);
 
@@ -12,9 +9,6 @@ use function count;
 use function is_readable;
 use function strtolower;
 
-/**
- * Tests behaviour of PMA_Advisor class
- */
 class LanguageTest extends AbstractTestCase
 {
     /** @var LanguageManager */

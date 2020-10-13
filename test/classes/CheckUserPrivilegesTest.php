@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\CheckUserPrivileges
- */
 
 declare(strict_types=1);
 
@@ -9,9 +6,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CheckUserPrivileges;
 
-/**
- * tests for PhpMyAdmin\CheckUserPrivileges
- */
 class CheckUserPrivilegesTest extends AbstractTestCase
 {
     /** @var CheckUserPrivileges */

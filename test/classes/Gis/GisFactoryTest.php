@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Gis\GisFactory
- */
 
 declare(strict_types=1);
 
@@ -17,9 +14,6 @@ use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Test class for PhpMyAdmin\Gis\GisFactory
- */
 class GisFactoryTest extends AbstractTestCase
 {
     /**

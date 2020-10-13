@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Database\Qbe
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Database\Qbe class
- */
 class QbeTest extends AbstractTestCase
 {
     /** @var Qbe */

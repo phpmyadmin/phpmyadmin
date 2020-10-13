@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for Form class in config folder
- */
 
 declare(strict_types=1);
 
@@ -15,9 +12,6 @@ use ReflectionProperty;
 use function array_keys;
 use function preg_match;
 
-/**
- * Tests for PMA_Form class
- */
 class FormTest extends AbstractTestCase
 {
     /** @var Form */

@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Controllers\BrowseForeignersController
- */
 
 declare(strict_types=1);
 

@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds QueriesControllerTest
- */
 
 declare(strict_types=1);
 

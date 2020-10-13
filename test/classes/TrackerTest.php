@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Tracker
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Util;
 use ReflectionMethod;
 use ReflectionProperty;
 
-/**
- * Tests for PhpMyAdmin\Tracker
- */
 class TrackerTest extends AbstractTestCase
 {
     /**

@@ -10,9 +10,6 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\Ndbcluster;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Engines\Ndbcluster
- */
 class NdbclusterTest extends AbstractTestCase
 {
     /** @var Ndbcluster */

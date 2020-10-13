@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Header class
- */
 
 declare(strict_types=1);
 
@@ -14,8 +11,6 @@ use function define;
 use function defined;
 
 /**
- * Test for PhpMyAdmin\Header class
- *
  * @group medium
  */
 class HeaderTest extends AbstractTestCase

@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportTexytext class
- */
 
 declare(strict_types=1);
 
@@ -24,8 +21,6 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportTexytext class
- *
  * @group medium
  */
 class ExportTexytextTest extends AbstractTestCase
@@ -62,9 +57,6 @@ class ExportTexytextTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::setProperties
-     */
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportTexytext::class, 'setProperties');
@@ -174,9 +166,6 @@ class ExportTexytextTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportHeader
-     */
     public function testExportHeader(): void
     {
         $this->assertTrue(
@@ -184,9 +173,6 @@ class ExportTexytextTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportFooter
-     */
     public function testExportFooter(): void
     {
         $this->assertTrue(
@@ -194,9 +180,6 @@ class ExportTexytextTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         $this->expectOutputString(
@@ -207,9 +190,6 @@ class ExportTexytextTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
@@ -217,9 +197,6 @@ class ExportTexytextTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportDBCreate
-     */
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
@@ -227,9 +204,6 @@ class ExportTexytextTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportData
-     */
     public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -293,9 +267,6 @@ class ExportTexytextTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::getTableDefStandIn
-     */
     public function testGetTableDefStandIn(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -352,9 +323,6 @@ class ExportTexytextTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::getTableDef
-     */
     public function testGetTableDef(): void
     {
         $this->object = $this->getMockBuilder(ExportTexytext::class)
@@ -454,9 +422,6 @@ class ExportTexytextTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::getTriggers
-     */
     public function testGetTriggers(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -492,9 +457,6 @@ class ExportTexytextTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::exportStructure
-     */
     public function testExportStructure(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -622,9 +584,6 @@ class ExportTexytextTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::formatOneColumnDefinition
-     */
     public function testFormatOneColumnDefinition(): void
     {
         $cols = [

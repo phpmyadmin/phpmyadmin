@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Plugins\Schema\ExportRelationSchema class
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Plugins\Schema\ExportRelationSchema class
- */
 class ExportRelationSchemaTest extends AbstractTestCase
 {
     /** @var ExportRelationSchema */

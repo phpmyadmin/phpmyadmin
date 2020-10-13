@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Template class
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Template;
 use Twig\Error\LoaderError;
 
-/**
- * Test for PhpMyAdmin\Template class
- */
 class TemplateTest extends AbstractTestCase
 {
     /** @var Template */

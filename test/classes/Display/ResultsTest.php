@@ -200,8 +200,6 @@ class ResultsTest extends AbstractTestCase
     }
 
     /**
-     * Test for getClassesForColumn
-     *
      * @param string $grid_edit_class  the class for all editable columns
      * @param string $not_null_class   the class for not null columns
      * @param string $relation_class   the class for relations in a column
@@ -239,9 +237,6 @@ class ResultsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for getClassForDateTimeRelatedFields - case 1
-     */
     public function testGetClassForDateTimeRelatedFieldsCase1(): void
     {
         $this->assertEquals(
@@ -255,9 +250,6 @@ class ResultsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for getClassForDateTimeRelatedFields - case 2
-     */
     public function testGetClassForDateTimeRelatedFieldsCase2(): void
     {
         $this->assertEquals(
@@ -271,9 +263,6 @@ class ResultsTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for getClassForDateTimeRelatedFields - case 3
-     */
     public function testGetClassForDateTimeRelatedFieldsCase3(): void
     {
         $this->assertEquals(

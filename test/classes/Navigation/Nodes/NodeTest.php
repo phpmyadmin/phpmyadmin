@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Node class
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 
-/**
- * Tests for Node class
- */
 class NodeTest extends AbstractTestCase
 {
     /**

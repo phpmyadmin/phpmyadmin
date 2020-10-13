@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds TransformationOverviewControllerTest class
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
 
-/**
- * Tests for TransformationOverviewController class
- */
 class TransformationOverviewControllerTest extends AbstractTestCase
 {
     /**

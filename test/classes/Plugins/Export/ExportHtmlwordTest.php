@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportHtmlword class
- */
 
 declare(strict_types=1);
 
@@ -25,8 +22,6 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportHtmlword class
- *
  * @group medium
  */
 class ExportHtmlwordTest extends AbstractTestCase
@@ -60,9 +55,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::setProperties
-     */
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportHtmlword::class, 'setProperties');
@@ -214,9 +206,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportHeader
-     */
     public function testExportHeader(): void
     {
         ob_start();
@@ -269,9 +258,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportFooter
-     */
     public function testExportFooter(): void
     {
         ob_start();
@@ -286,9 +272,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         ob_start();
@@ -303,9 +286,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
@@ -313,9 +293,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportDBCreate
-     */
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
@@ -323,9 +300,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportData
-     */
     public function testExportData(): void
     {
         // case 1
@@ -395,9 +369,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::getTableDefStandIn
-     */
     public function testGetTableDefStandIn(): void
     {
         $this->object = $this->getMockBuilder(ExportHtmlword::class)
@@ -449,9 +420,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::getTableDef
-     */
     public function testGetTableDef(): void
     {
         $this->object = $this->getMockBuilder(ExportHtmlword::class)
@@ -715,9 +683,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::getTriggers
-     */
     public function testGetTriggers(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -753,9 +718,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::exportStructure
-     */
     public function testExportStructure(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -866,9 +828,6 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportHtmlword::formatOneColumnDefinition
-     */
     public function testFormatOneColumnDefinition(): void
     {
         $method = new ReflectionMethod(

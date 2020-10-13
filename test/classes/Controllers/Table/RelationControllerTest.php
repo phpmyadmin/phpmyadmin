@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Controllers\Table\RelationController
- */
 
 declare(strict_types=1);
 
@@ -16,9 +13,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use stdClass;
 
-/**
- * Tests for PhpMyAdmin\Controllers\Table\RelationController
- */
 class RelationControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */

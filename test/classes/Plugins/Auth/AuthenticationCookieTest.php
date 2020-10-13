@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Auth\AuthenticationCookie class
- */
 
 declare(strict_types=1);
 
@@ -24,9 +21,6 @@ use function ob_start;
 use function strlen;
 use function time;
 
-/**
- * tests for PhpMyAdmin\Plugins\Auth\AuthenticationCookie class
- */
 class AuthenticationCookieTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationCookie */
@@ -63,8 +57,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
-     *
      * @group medium
      */
     public function testAuthErrorAJAX(): void
@@ -175,8 +167,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
-     *
      * @group medium
      */
     public function testAuthError(): void
@@ -256,8 +246,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
-     *
      * @group medium
      */
     public function testAuthCaptcha(): void
@@ -334,8 +322,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
-     *
      * @group medium
      */
     public function testAuthCaptchaCheckbox(): void
@@ -416,9 +402,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm with headers
-     */
     public function testAuthHeader(): void
     {
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
@@ -432,9 +415,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->object->logOut();
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm with headers
-     */
     public function testAuthHeaderPartial(): void
     {
         $GLOBALS['PMA_Config']->set('is_https', false);
@@ -454,9 +434,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->object->logOut();
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     */
     public function testAuthCheckCaptcha(): void
     {
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
@@ -474,9 +451,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     */
     public function testLogoutDelete(): void
     {
         $this->mockResponse('Location: /phpmyadmin/index.php?route=/');
@@ -498,9 +472,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     */
     public function testLogout(): void
     {
         $this->mockResponse('Location: /phpmyadmin/index.php?route=/');
@@ -524,9 +495,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     */
     public function testAuthCheckArbitrary(): void
     {
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
@@ -562,9 +530,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     */
     public function testAuthCheckInvalidCookie(): void
     {
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
@@ -580,9 +545,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     */
     public function testAuthCheckExpires(): void
     {
         $GLOBALS['server'] = 1;
@@ -599,9 +561,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials (mock blowfish functions reqd)
-     */
     public function testAuthCheckDecryptUser(): void
     {
         $GLOBALS['server'] = 1;
@@ -636,9 +595,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials (mocking blowfish functions)
-     */
     public function testAuthCheckDecryptPassword(): void
     {
         $GLOBALS['server'] = 1;
@@ -679,9 +635,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials (mocking the object itself)
-     */
     public function testAuthCheckAuthFails(): void
     {
         $GLOBALS['server'] = 1;
@@ -716,9 +669,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::storeCredentials
-     */
     public function testAuthSetUser(): void
     {
         $this->object->user = 'pmaUser2';
@@ -764,9 +714,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::storeCredentials (check for headers redirect)
-     */
     public function testAuthSetUserWithHeaders(): void
     {
         $this->object->user = 'pmaUser2';
@@ -797,9 +744,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->object->rememberCredentials();
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showFailure
-     */
     public function testAuthFailsNoPass(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -937,9 +881,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::getEncryptionSecret
-     */
     public function testGetEncryptionSecretEmpty(): void
     {
         $method = new ReflectionMethod(
@@ -964,9 +905,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::getEncryptionSecret
-     */
     public function testGetEncryptionSecretConfigured(): void
     {
         $method = new ReflectionMethod(
@@ -985,9 +923,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieEncrypt
-     */
     public function testCookieEncrypt(): void
     {
         $this->object->setIV('testiv09testiv09');
@@ -999,18 +934,12 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieEncrypt
-     */
     public function testCookieEncryptPHPSecLib(): void
     {
         $this->object->setUseOpenSSL(false);
         $this->testCookieEncrypt();
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieEncrypt
-     */
     public function testCookieEncryptOpenSSL(): void
     {
         if (! function_exists('openssl_encrypt')) {
@@ -1020,9 +949,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->testCookieEncrypt();
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieDecrypt
-     */
     public function testCookieDecrypt(): void
     {
         // works with the openssl extension active or inactive
@@ -1051,18 +977,12 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieDecrypt
-     */
     public function testCookieDecryptPHPSecLib(): void
     {
         $this->object->setUseOpenSSL(false);
         $this->testCookieDecrypt();
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieDecrypt
-     */
     public function testCookieDecryptOpenSSL(): void
     {
         if (! function_exists('openssl_encrypt')) {
@@ -1072,9 +992,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->testCookieDecrypt();
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::cookieDecrypt
-     */
     public function testCookieDecryptInvalid(): void
     {
         // works with the openssl extension active or inactive
@@ -1197,9 +1114,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         ];
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationCookie::authenticate
-     */
     public function testAuthenticate(): void
     {
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
@@ -1227,8 +1141,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationCookie::checkRules
-     *
      * @param string $user     user
      * @param string $pass     pass
      * @param string $ip       ip

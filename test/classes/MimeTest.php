@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Mime
- */
 
 declare(strict_types=1);
 

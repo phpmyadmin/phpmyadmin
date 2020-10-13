@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use function basename;
 
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class
- */
 class ImportCsvTest extends AbstractTestCase
 {
     /** @var ImportCsv */

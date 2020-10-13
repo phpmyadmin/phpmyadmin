@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Dbi\DbiMysqli class
- */
 
 declare(strict_types=1);
 
@@ -15,9 +12,6 @@ use const MYSQLI_ASSOC;
 use const MYSQLI_BOTH;
 use const MYSQLI_NUM;
 
-/**
- * Tests for PhpMyAdmin\Dbi\DbiMysqli class
- */
 class DbiMysqliTest extends AbstractTestCase
 {
     /** @var DbiMysqli */

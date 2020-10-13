@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup class
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests\Properties\Options\Groups;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * tests for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup class
- */
 class OptionsPropertyMainGroupTest extends AbstractTestCase
 {
     /** @var OptionsPropertyMainGroup */
@@ -36,9 +30,6 @@ class OptionsPropertyMainGroupTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup::getItemType
-     */
     public function testGetItemType(): void
     {
         $this->assertEquals(

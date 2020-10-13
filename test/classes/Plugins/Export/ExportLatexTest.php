@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportLatex class
- */
 
 declare(strict_types=1);
 
@@ -24,8 +21,6 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportLatex class
- *
  * @group medium
  */
 class ExportLatexTest extends AbstractTestCase
@@ -65,9 +60,6 @@ class ExportLatexTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::setProperties
-     */
     public function testSetProperties(): void
     {
         $GLOBALS['plugin_param']['export_type'] = '';
@@ -474,9 +466,6 @@ class ExportLatexTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportHeader
-     */
     public function testExportHeader(): void
     {
         $GLOBALS['crlf'] = "\n";
@@ -497,9 +486,6 @@ class ExportLatexTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportFooter
-     */
     public function testExportFooter(): void
     {
         $this->assertTrue(
@@ -507,9 +493,6 @@ class ExportLatexTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         $GLOBALS['crlf'] = "\n";
@@ -523,9 +506,6 @@ class ExportLatexTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
@@ -533,9 +513,6 @@ class ExportLatexTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportDBCreate
-     */
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
@@ -543,9 +520,6 @@ class ExportLatexTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportData
-     */
     public function testExportData(): void
     {
         $GLOBALS['latex_caption'] = true;
@@ -657,9 +631,6 @@ class ExportLatexTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::exportStructure
-     */
     public function testExportStructure(): void
     {
         $keys = [
@@ -975,9 +946,6 @@ class ExportLatexTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportLatex::texEscape
-     */
     public function testTexEscape(): void
     {
         $this->assertEquals(

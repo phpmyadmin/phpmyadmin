@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for EpsRelationSchema class
- */
 
 declare(strict_types=1);
 
@@ -12,9 +9,6 @@ use PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for EpsRelationSchema class
- */
 class EpsRelationSchemaTest extends AbstractTestCase
 {
     /** @var EpsRelationSchema */

@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
- */
 
 declare(strict_types=1);
 
@@ -12,9 +9,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
 
-/**
- * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
- */
 class OptionsPropertyGroupTest extends AbstractTestCase
 {
     /** @var OptionsPropertyGroup|MockObject */
@@ -38,9 +32,6 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         unset($this->stub);
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::addProperty
-     */
     public function testAddProperty(): void
     {
         $properties = new ReflectionProperty(OptionsPropertyGroup::class, 'properties');
@@ -62,9 +53,6 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::removeProperty
-     */
     public function testRemoveProperty(): void
     {
         $properties = new ReflectionProperty(OptionsPropertyGroup::class, 'properties');
@@ -83,9 +71,6 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::getGroup
-     */
     public function testGetGroup(): void
     {
         $this->assertInstanceOf(
@@ -94,9 +79,6 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::getProperties
-     */
     public function testGetProperties(): void
     {
         $properties = new ReflectionProperty(OptionsPropertyGroup::class, 'properties');
@@ -113,9 +95,6 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::getProperties
-     */
     public function testGetNrOfProperties(): void
     {
         $properties = new ReflectionProperty(OptionsPropertyGroup::class, 'properties');

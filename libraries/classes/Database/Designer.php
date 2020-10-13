@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Database\Designer class
- */
 
 declare(strict_types=1);
 

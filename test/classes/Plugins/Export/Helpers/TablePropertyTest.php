@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests\Plugins\Export\Helpers;
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * tests for PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
- */
 class TablePropertyTest extends AbstractTestCase
 {
     /** @var TableProperty */
@@ -45,9 +39,6 @@ class TablePropertyTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::__construct
-     */
     public function testConstructor(): void
     {
         $this->assertEquals(
@@ -81,9 +72,6 @@ class TablePropertyTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getPureType
-     */
     public function testGetPureType(): void
     {
         $this->object->type = 'int(10)';
@@ -102,8 +90,6 @@ class TablePropertyTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::isNotNull
-     *
      * @param string $nullable nullable value
      * @param string $expected expected output
      *
@@ -143,8 +129,6 @@ class TablePropertyTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::isUnique
-     *
      * @param string $key      key value
      * @param string $expected expected output
      *
@@ -192,8 +176,6 @@ class TablePropertyTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getDotNetPrimitiveType
-     *
      * @param string $type     type value
      * @param string $expected expected output
      *
@@ -265,8 +247,6 @@ class TablePropertyTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getDotNetObjectType
-     *
      * @param string $type     type value
      * @param string $expected expected output
      *
@@ -337,9 +317,6 @@ class TablePropertyTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getIndexName
-     */
     public function testGetIndexName(): void
     {
         $this->object->name = "ä'7<ab>";
@@ -358,9 +335,6 @@ class TablePropertyTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::isPK
-     */
     public function testIsPK(): void
     {
         $this->object->key = 'PRI';
@@ -376,9 +350,6 @@ class TablePropertyTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::formatCs
-     */
     public function testFormatCs(): void
     {
         $this->object->name = 'Name#name#123';
@@ -389,9 +360,6 @@ class TablePropertyTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::formatXml
-     */
     public function testFormatXml(): void
     {
         $this->object->name = '"a\'';
@@ -402,9 +370,6 @@ class TablePropertyTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::format
-     */
     public function testFormat(): void
     {
         $this->assertEquals(

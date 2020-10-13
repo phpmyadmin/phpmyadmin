@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Gis\GisGeometry
- */
 
 declare(strict_types=1);
 
@@ -11,9 +8,6 @@ use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * Tests for PhpMyAdmin\Gis\GisGeometry class
- */
 class GisGeometryTest extends AbstractTestCase
 {
     /** @var GisGeometry|MockObject */

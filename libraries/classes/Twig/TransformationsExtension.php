@@ -1,7 +1,4 @@
 <?php
-/**
- * hold PhpMyAdmin\Twig\TransformationsExtension class
- */
 
 declare(strict_types=1);
 

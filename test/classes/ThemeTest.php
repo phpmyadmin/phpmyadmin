@@ -1,7 +1,4 @@
 <?php
-/**
- * Test class for Theme.
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Theme;
 use function filemtime;
 
-/**
- * Test class for Theme.
- */
 class ThemeTest extends AbstractTestCase
 {
     /** @var Theme */

@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for Menu class
- */
 
 declare(strict_types=1);
 
@@ -12,9 +9,6 @@ use PhpMyAdmin\Menu;
 use function define;
 use function defined;
 
-/**
- * Test for Menu class
- */
 class MenuTest extends AbstractTestCase
 {
     /**

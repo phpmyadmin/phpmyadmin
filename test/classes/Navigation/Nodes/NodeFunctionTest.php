@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeFunction class
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeFunction class
- */
 class NodeFunctionTest extends AbstractTestCase
 {
     /**

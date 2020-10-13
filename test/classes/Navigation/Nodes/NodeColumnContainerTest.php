@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeColumnContainer class
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeColumnContainer class
- */
 class NodeColumnContainerTest extends AbstractTestCase
 {
     /**
@@ -25,9 +19,6 @@ class NodeColumnContainerTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
     }
 
-    /**
-     * Test for PhpMyAdmin\Navigation\NodeFactory::__construct
-     */
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeColumnContainer');

@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Import
- */
 
 declare(strict_types=1);
 

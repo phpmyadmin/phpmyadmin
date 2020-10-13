@@ -13,9 +13,6 @@ use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
 
-/**
- * Test for PhpMyAdmin\ErrorHandler class.
- */
 class ErrorHandlerTest extends AbstractTestCase
 {
     /** @var ErrorHandler */

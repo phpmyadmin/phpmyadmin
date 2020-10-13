@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup class
- */
 
 declare(strict_types=1);
 

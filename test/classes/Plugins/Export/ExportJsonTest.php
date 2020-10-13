@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportJson class
- */
 
 declare(strict_types=1);
 
@@ -20,8 +17,6 @@ use stdClass;
 use function array_shift;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportJson class
- *
  * @group medium
  */
 class ExportJsonTest extends AbstractTestCase
@@ -54,9 +49,6 @@ class ExportJsonTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportJson::setProperties
-     */
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportJson::class, 'setProperties');
@@ -132,9 +124,6 @@ class ExportJsonTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportJson::exportHeader
-     */
     public function testExportHeader(): void
     {
         $GLOBALS['crlf'] = "\n";
@@ -151,9 +140,6 @@ class ExportJsonTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportJson::exportFooter
-     */
     public function testExportFooter(): void
     {
         $GLOBALS['crlf'] = '';
@@ -167,9 +153,6 @@ class ExportJsonTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportJson::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         $GLOBALS['crlf'] = "\n";
@@ -183,9 +166,6 @@ class ExportJsonTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportJson::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
@@ -193,9 +173,6 @@ class ExportJsonTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportJson::exportDBCreate
-     */
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
@@ -203,9 +180,6 @@ class ExportJsonTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportJson::exportData
-     */
     public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

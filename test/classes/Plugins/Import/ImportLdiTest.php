@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportLdi class
- */
 class ImportLdiTest extends AbstractTestCase
 {
     /** @var ImportLdi */

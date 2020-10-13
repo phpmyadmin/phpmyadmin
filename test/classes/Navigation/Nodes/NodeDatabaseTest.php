@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeDatabase class
- */
 
 declare(strict_types=1);
 
@@ -11,9 +8,6 @@ use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabase;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeDatabase class
- */
 class NodeDatabaseTest extends AbstractTestCase
 {
     /**

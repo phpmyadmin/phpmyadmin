@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for \PhpMyAdmin\Html\MySQLDocumentation class
- */
 
 declare(strict_types=1);
 
@@ -10,14 +7,9 @@ namespace PhpMyAdmin\Tests\Html;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Test for \PhpMyAdmin\Html\MySQLDocumentation class
- */
 class MySQLDocumentationTest extends AbstractTestCase
 {
     /**
-     * Test for \PhpMyAdmin\Html\MySQLDocumentation::showDocumentation
-     *
      * @covers \PhpMyAdmin\Html\MySQLDocumentation::showDocumentation
      */
     public function testShowDocumentation(): void

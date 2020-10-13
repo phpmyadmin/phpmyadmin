@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Properties\Options\Items\BoolPropertyItem class
- */
 
 declare(strict_types=1);
 

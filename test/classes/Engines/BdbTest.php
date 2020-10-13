@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Engines\Bdb
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\Bdb;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Engines\Bdb
- */
 class BdbTest extends AbstractTestCase
 {
     /** @var Bdb */

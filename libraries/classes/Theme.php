@@ -1,7 +1,4 @@
 <?php
-/**
- * hold Theme class
- */
 
 declare(strict_types=1);
 

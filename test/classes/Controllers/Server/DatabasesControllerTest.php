@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds DatabasesControllerTest class
- */
 
 declare(strict_types=1);
 
@@ -18,9 +15,6 @@ use PhpMyAdmin\Transformations;
 use stdClass;
 use function sprintf;
 
-/**
- * Tests for DatabasesController class
- */
 class DatabasesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

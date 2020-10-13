@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for Message class
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Message;
 use function md5;
 
-/**
- * Test for Message class
- */
 class MessageTest extends AbstractTestCase
 {
     /**

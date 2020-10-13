@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Properties\Plugins\ExportPluginProperties class
- */
 
 declare(strict_types=1);
 
@@ -9,10 +6,6 @@ namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
-/**
- * Tests for PhpMyAdmin\Properties\Plugins\ExportPluginProperties class. Extends PMA_ImportPluginProperties_Tests
- * and adds tests for methods that are not common to both
- */
 class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 {
     /** @var ExportPluginProperties */
@@ -36,9 +29,6 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Plugins\ExportPluginProperties::getItemType
-     */
     public function testGetItemType(): void
     {
         $this->assertEquals(

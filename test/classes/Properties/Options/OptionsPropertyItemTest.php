@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Properties\Options\OptionsPropertyItem class
- */
 
 declare(strict_types=1);
 
@@ -11,9 +8,6 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyItem class
- */
 class OptionsPropertyItemTest extends AbstractTestCase
 {
     /** @var OptionsPropertyItem|MockObject */
@@ -82,9 +76,6 @@ class OptionsPropertyItemTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyItem::getPropertyType
-     */
     public function testGetPropertyType(): void
     {
         $this->assertEquals(

@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Gis\GisMultiLineString
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use function function_exists;
 use function imagecreatetruecolor;
 use function preg_match;
 
-/**
- * Tests for PhpMyAdmin\Gis\GisMultiLineString class
- */
 class GisMultiLineStringTest extends GisGeomTestCase
 {
     /**

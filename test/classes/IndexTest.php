@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for Index class
- */
 
 declare(strict_types=1);
 
@@ -9,9 +6,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Index;
 
-/**
- * Test for Index class
- */
 class IndexTest extends AbstractTestCase
 {
     /** @var array */
@@ -144,9 +138,6 @@ class IndexTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Index Column
-     */
     public function testColumns(): void
     {
         $index = new Index();

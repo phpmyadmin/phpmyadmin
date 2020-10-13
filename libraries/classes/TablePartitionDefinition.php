@@ -1,7 +1,4 @@
 <?php
-/**
- * hold PhpMyAdmin\TablePartitionDefinition class
- */
 
 declare(strict_types=1);
 

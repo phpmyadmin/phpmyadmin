@@ -1,7 +1,4 @@
 <?php
-/**
- * hold PhpMyAdmin\Twig\TableExtension class
- */
 
 declare(strict_types=1);
 

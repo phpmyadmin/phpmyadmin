@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for FormDisplay class in config folder
- */
 
 declare(strict_types=1);
 
@@ -17,9 +14,6 @@ use ReflectionProperty;
 use function function_exists;
 use function gettype;
 
-/**
- * Tests for PMA_FormDisplay class
- */
 class FormDisplayTest extends AbstractTestCase
 {
     /** @var FormDisplay */

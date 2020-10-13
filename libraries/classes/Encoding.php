@@ -1,7 +1,4 @@
 <?php
-/**
- * Hold the PhpMyAdmin\Encoding class
- */
 
 declare(strict_types=1);
 

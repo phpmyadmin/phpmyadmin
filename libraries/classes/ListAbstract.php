@@ -1,7 +1,4 @@
 <?php
-/**
- * hold the ListAbstract base class
- */
 
 declare(strict_types=1);
 

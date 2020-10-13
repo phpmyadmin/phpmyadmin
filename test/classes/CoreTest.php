@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Core class
- */
 
 declare(strict_types=1);
 
@@ -19,9 +16,6 @@ use function ob_start;
 use function preg_quote;
 use function serialize;
 
-/**
- * Tests for PhpMyAdmin\Core class
- */
 class CoreTest extends AbstractNetworkTestCase
 {
     /**

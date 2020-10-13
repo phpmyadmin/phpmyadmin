@@ -1,7 +1,4 @@
 <?php
-/**
- * hold PhpMyAdmin\Template class
- */
 
 declare(strict_types=1);
 

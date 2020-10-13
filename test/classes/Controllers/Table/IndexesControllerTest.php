@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Controllers\Table\IndexesController
- */
 
 declare(strict_types=1);
 
@@ -21,9 +18,6 @@ use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Url;
 use function sprintf;
 
-/**
- * Tests for PhpMyAdmin\Controllers\Table\IndexesController
- */
 class IndexesControllerTest extends AbstractTestCase
 {
     /**

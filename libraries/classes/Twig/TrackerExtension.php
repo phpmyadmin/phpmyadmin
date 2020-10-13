@@ -1,7 +1,4 @@
 <?php
-/**
- * hold PhpMyAdmin\Twig\TrackerExtension class
- */
 
 declare(strict_types=1);
 

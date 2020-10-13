@@ -10,9 +10,6 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\Memory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Engines\Memory
- */
 class MemoryTest extends AbstractTestCase
 {
     /** @var Memory */

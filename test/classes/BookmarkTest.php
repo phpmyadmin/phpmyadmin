@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for Bookmark class
- */
 
 declare(strict_types=1);
 
@@ -9,9 +6,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Bookmark;
 
-/**
- * Tests for Bookmark class
- */
 class BookmarkTest extends AbstractTestCase
 {
     /**

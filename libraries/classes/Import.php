@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Import class
- */
 
 declare(strict_types=1);
 

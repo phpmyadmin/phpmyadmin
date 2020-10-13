@@ -1,7 +1,4 @@
 <?php
-/**
- * hold PhpMyAdmin\Twig\I18n\NodeTrans class
- */
 
 declare(strict_types=1);
 

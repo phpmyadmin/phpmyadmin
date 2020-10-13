@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Sql
- */
 
 declare(strict_types=1);
 
@@ -16,9 +13,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use stdClass;
 
-/**
- * Tests for PhpMyAdmin\Sql
- */
 class SqlTest extends AbstractTestCase
 {
     /** @var Sql */

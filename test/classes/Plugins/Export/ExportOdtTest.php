@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportOdt class
- */
 
 declare(strict_types=1);
 
@@ -23,8 +20,6 @@ use stdClass;
 use function array_shift;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportOdt class
- *
  * @requires extension zip
  * @group medium
  */
@@ -63,9 +58,6 @@ class ExportOdtTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::setProperties
-     */
     public function testSetProperties(): void
     {
         $GLOBALS['plugin_param']['export_type'] = '';
@@ -312,9 +304,6 @@ class ExportOdtTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::exportHeader
-     */
     public function testExportHeader(): void
     {
         $this->assertTrue(
@@ -331,9 +320,6 @@ class ExportOdtTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::exportFooter
-     */
     public function testExportFooter(): void
     {
         $GLOBALS['odt_buffer'] = 'header';
@@ -356,9 +342,6 @@ class ExportOdtTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         $GLOBALS['odt_buffer'] = 'header';
@@ -378,9 +361,6 @@ class ExportOdtTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
@@ -388,9 +368,6 @@ class ExportOdtTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::exportDBCreate
-     */
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
@@ -398,9 +375,6 @@ class ExportOdtTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::exportData
-     */
     public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -502,9 +476,6 @@ class ExportOdtTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::exportData
-     */
     public function testExportDataWithFieldNames(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -633,9 +604,6 @@ class ExportOdtTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::getTableDefStandIn
-     */
     public function testGetTableDefStandIn(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -681,9 +649,6 @@ class ExportOdtTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::getTableDef
-     */
     public function testGetTableDef(): void
     {
         $this->object = $this->getMockBuilder(ExportOdt::class)
@@ -870,9 +835,6 @@ class ExportOdtTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::getTriggers
-     */
     public function testGetTriggers(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -927,9 +889,6 @@ class ExportOdtTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::exportStructure
-     */
     public function testExportStructure(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1056,9 +1015,6 @@ class ExportOdtTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::formatOneColumnDefinition
-     */
     public function testFormatOneColumnDefinition(): void
     {
         $method = new ReflectionMethod(

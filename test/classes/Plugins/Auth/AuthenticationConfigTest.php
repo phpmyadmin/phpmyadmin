@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Auth\AuthenticationConfig class
- */
 
 declare(strict_types=1);
 
@@ -14,9 +11,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * tests for PhpMyAdmin\Plugins\Auth\AuthenticationConfig class
- */
 class AuthenticationConfigTest extends AbstractTestCase
 {
     /** @var AuthenticationConfig */
@@ -50,9 +44,6 @@ class AuthenticationConfigTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showLoginForm
-     */
     public function testAuth(): void
     {
         $this->assertTrue(
@@ -60,9 +51,6 @@ class AuthenticationConfigTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::readCredentials
-     */
     public function testAuthCheck(): void
     {
         $GLOBALS['cfg']['Server'] = [
@@ -74,9 +62,6 @@ class AuthenticationConfigTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::storeCredentials
-     */
     public function testAuthSetUser(): void
     {
         $this->assertTrue(
@@ -84,9 +69,6 @@ class AuthenticationConfigTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationConfig::showFailure
-     */
     public function testAuthFails(): void
     {
         $GLOBALS['error_handler'] = new ErrorHandler();

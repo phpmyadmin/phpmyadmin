@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Export
- */
 
 declare(strict_types=1);
 

@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportExcel class
- */
 
 declare(strict_types=1);
 
@@ -21,8 +18,6 @@ use ReflectionProperty;
 use function array_shift;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportExcel class
- *
  * @group medium
  */
 class ExportExcelTest extends AbstractTestCase
@@ -49,9 +44,6 @@ class ExportExcelTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportExcel::setProperties
-     */
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportExcel::class, 'setProperties');

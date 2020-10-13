@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for FormDisplay class in config folder
- */
 
 declare(strict_types=1);
 
@@ -11,9 +8,6 @@ use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use function in_array;
 
-/**
- * Tests for PMA_FormDisplay class
- */
 class DescriptionTest extends AbstractTestCase
 {
     /**

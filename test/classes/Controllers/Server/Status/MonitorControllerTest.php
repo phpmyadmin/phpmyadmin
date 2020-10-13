@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds MonitorControllerTest
- */
 
 declare(strict_types=1);
 

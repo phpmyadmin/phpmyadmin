@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for methods in PhpMyAdmin\VersionInformation class
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\VersionInformation;
 use stdClass;
 
-/**
- * Tests for methods in PhpMyAdmin\VersionInformation class
- */
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var stdClass[] */

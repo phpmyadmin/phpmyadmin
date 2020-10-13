@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Gis\GisGeometry
- */
 
 declare(strict_types=1);
 
@@ -16,9 +13,6 @@ use function imagesx;
 use function imagesy;
 use function preg_match;
 
-/**
- * Tests for PhpMyAdmin\Gis\GisGeometryCollection class
- */
 class GisGeometryCollectionTest extends AbstractTestCase
 {
     /** @var GisGeometryCollection */

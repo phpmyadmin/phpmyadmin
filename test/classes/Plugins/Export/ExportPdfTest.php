@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportPdf class
- */
 
 declare(strict_types=1);
 
@@ -20,8 +17,6 @@ use ReflectionProperty;
 use function array_shift;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportPdf class
- *
  * @group medium
  */
 class ExportPdfTest extends AbstractTestCase
@@ -54,9 +49,6 @@ class ExportPdfTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPdf::setProperties
-     */
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportPdf::class, 'setProperties');
@@ -177,9 +169,6 @@ class ExportPdfTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPdf::exportHeader
-     */
     public function testExportHeader(): void
     {
         $pdf = $this->getMockBuilder(Pdf::class)
@@ -204,9 +193,6 @@ class ExportPdfTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPdf::exportFooter
-     */
     public function testExportFooter(): void
     {
         $pdf = $this->getMockBuilder(Pdf::class)
@@ -225,9 +211,6 @@ class ExportPdfTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPdf::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         $this->assertTrue(
@@ -235,9 +218,6 @@ class ExportPdfTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPdf::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
@@ -245,9 +225,6 @@ class ExportPdfTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPdf::exportDBCreate
-     */
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
@@ -255,9 +232,6 @@ class ExportPdfTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPdf::exportData
-     */
     public function testExportData(): void
     {
         $pdf = $this->getMockBuilder(Pdf::class)

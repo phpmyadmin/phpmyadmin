@@ -10,9 +10,6 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Config\PageSettings
- */
 class PageSettingsTest extends AbstractTestCase
 {
     /**

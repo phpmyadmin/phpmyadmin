@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Tracking
- */
 
 declare(strict_types=1);
 
@@ -15,9 +12,6 @@ use PhpMyAdmin\Url;
 use function htmlspecialchars;
 use function sprintf;
 
-/**
- * Tests for PhpMyAdmin\Tracking
- */
 class TrackingTest extends AbstractTestCase
 {
     /** @var Tracking $tracking */

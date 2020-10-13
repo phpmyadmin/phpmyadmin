@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportSql class
- */
 
 declare(strict_types=1);
 
@@ -29,8 +26,6 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportSql class
- *
  * @group medium
  */
 class ExportSqlTest extends AbstractTestCase
@@ -69,8 +64,6 @@ class ExportSqlTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::setProperties
-     *
      * @group medium
      */
     public function testSetProperties(): void
@@ -338,9 +331,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportRoutines
-     */
     public function testExportRoutines(): void
     {
         $GLOBALS['crlf'] = '##';
@@ -386,9 +376,6 @@ class ExportSqlTest extends AbstractTestCase
         $this->object->exportRoutines('db');
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportComment
-     */
     public function testExportComment(): void
     {
         $method = new ReflectionMethod(ExportSql::class, 'exportComment');
@@ -422,9 +409,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::possibleCRLF
-     */
     public function testPossibleCRLF(): void
     {
         $method = new ReflectionMethod(ExportSql::class, 'possibleCRLF');
@@ -458,9 +442,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportFooter
-     */
     public function testExportFooter(): void
     {
         $GLOBALS['crlf'] = '';
@@ -491,9 +472,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportHeader
-     */
     public function testExportHeader(): void
     {
         $GLOBALS['crlf'] = "\n";
@@ -567,9 +545,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportDBCreate
-     */
     public function testExportDBCreate(): void
     {
         $GLOBALS['sql_compatibility'] = 'NONE';
@@ -659,9 +634,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -700,9 +672,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportEvents
-     */
     public function testExportEvents(): void
     {
         $GLOBALS['crlf'] = "\n";
@@ -777,9 +746,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $GLOBALS['crlf'] = "\n";
@@ -807,9 +773,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDefStandIn
-     */
     public function testGetTableDefStandIn(): void
     {
         $GLOBALS['sql_drop_table'] = true;
@@ -845,9 +808,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDefForView
-     */
     public function testGetTableDefForView(): void
     {
         $GLOBALS['sql_drop_table'] = true;
@@ -940,8 +900,6 @@ class ExportSqlTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDef
-     *
      * @group medium
      */
     public function testGetTableDef(): void
@@ -1126,9 +1084,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDef
-     */
     public function testGetTableDefWithError(): void
     {
         $GLOBALS['sql_compatibility'] = '';
@@ -1222,9 +1177,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableComments
-     */
     public function testGetTableComments(): void
     {
         $_SESSION['relation'][0] = [
@@ -1294,8 +1246,6 @@ class ExportSqlTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportStructure
-     *
      * @group medium
      */
     public function testExportStructure(): void
@@ -1508,8 +1458,6 @@ class ExportSqlTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
-     *
      * @group medium
      */
     public function testExportData(): void
@@ -1665,8 +1613,6 @@ class ExportSqlTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
-     *
      * @group medium
      */
     public function testExportDataWithUpdate(): void
@@ -1779,9 +1725,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
-     */
     public function testExportDataWithIsView(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1835,9 +1778,6 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_compatibility'] = $oldVal;
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
-     */
     public function testExportDataWithError(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1884,9 +1824,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::makeCreateTableMSSQLCompatible
-     */
     public function testMakeCreateTableMSSQLCompatible(): void
     {
         $query = "CREATE TABLE IF NOT EXISTS (\" date DEFAULT NULL,\n" .
@@ -1940,9 +1877,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::initAlias
-     */
     public function testInitAlias(): void
     {
         $aliases = [
@@ -1976,9 +1910,6 @@ class ExportSqlTest extends AbstractTestCase
         $this->assertEquals('qwerty', $table);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getAlias
-     */
     public function testGetAlias(): void
     {
         $aliases = [
@@ -2021,9 +1952,6 @@ class ExportSqlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::replaceWithAlias
-     */
     public function testReplaceWithAlias(): void
     {
         $aliases = [

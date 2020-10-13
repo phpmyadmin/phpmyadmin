@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for methods in URL class
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Url;
 use function htmlentities;
 
-/**
- * Tests for methods in URL class
- */
 class UrlTest extends AbstractTestCase
 {
     /**

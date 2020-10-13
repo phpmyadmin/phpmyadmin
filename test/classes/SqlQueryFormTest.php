@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\SqlQueryForm
- */
 
 declare(strict_types=1);
 

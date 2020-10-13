@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds VariablesControllerTest class
- */
 
 declare(strict_types=1);
 
@@ -19,9 +16,6 @@ use Williamdes\MariaDBMySQLKBS\SlimData as KBSlimData;
 use function htmlspecialchars;
 use function str_replace;
 
-/**
- * Tests for VariablesController class
- */
 class VariablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

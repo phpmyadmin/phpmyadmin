@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Properties\Options\OptionsPropertyOneItem class
- */
 
 declare(strict_types=1);
 
@@ -11,9 +8,6 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyOneItem class
- */
 class OptionsPropertyOneItemTest extends AbstractTestCase
 {
     /** @var OptionsPropertyOneItem|MockObject  */

@@ -12,9 +12,6 @@ use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use function sprintf;
 
-/**
- * Tests for PhpMyAdmin\Engines\Pbxt;
- */
 class PbxtTest extends AbstractTestCase
 {
     /** @var Pbxt */

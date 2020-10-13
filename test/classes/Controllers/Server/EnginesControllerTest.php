@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds EnginesControllerTest class
- */
 
 declare(strict_types=1);
 
@@ -15,9 +12,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use function htmlspecialchars;
 
-/**
- * Tests for EnginesController class
- */
 class EnginesControllerTest extends AbstractTestCase
 {
     /**

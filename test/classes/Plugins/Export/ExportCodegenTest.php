@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportCodegen class
- */
 
 declare(strict_types=1);
 
@@ -22,8 +19,6 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportCodegen class
- *
  * @group medium
  */
 class ExportCodegenTest extends AbstractTestCase
@@ -50,9 +45,6 @@ class ExportCodegenTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::initSpecificVariables
-     */
     public function testInitSpecificVariables(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'initSpecificVariables');
@@ -71,9 +63,6 @@ class ExportCodegenTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::setProperties
-     */
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportCodegen::class, 'setProperties');
@@ -174,9 +163,6 @@ class ExportCodegenTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::exportHeader
-     */
     public function testExportHeader(): void
     {
         $this->assertTrue(
@@ -184,9 +170,6 @@ class ExportCodegenTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::exportFooter
-     */
     public function testExportFooter(): void
     {
         $this->assertTrue(
@@ -194,9 +177,6 @@ class ExportCodegenTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         $this->assertTrue(
@@ -204,9 +184,6 @@ class ExportCodegenTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
@@ -214,9 +191,6 @@ class ExportCodegenTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::exportData
-     */
     public function testExportData(): void
     {
         $GLOBALS['codegen_format'] = 1;
@@ -278,9 +252,6 @@ class ExportCodegenTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::cgMakeIdentifier
-     */
     public function testCgMakeIdentifier(): void
     {
         $this->assertEquals(
@@ -299,9 +270,6 @@ class ExportCodegenTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::handleNHibernateCSBody
-     */
     public function testHandleNHibernateCSBody(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -362,9 +330,6 @@ class ExportCodegenTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportCodegen::handleNHibernateXMLBody
-     */
     public function testHandleNHibernateXMLBody(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

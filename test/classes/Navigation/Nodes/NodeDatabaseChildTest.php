@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild class
- */
 class NodeDatabaseChildTest extends AbstractTestCase
 {
     /**

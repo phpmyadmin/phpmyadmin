@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds VariablesControllerTest
- */
 
 declare(strict_types=1);
 

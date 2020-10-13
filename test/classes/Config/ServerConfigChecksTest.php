@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for FormDisplay class in config folder
- */
 
 declare(strict_types=1);
 
@@ -14,9 +11,6 @@ use ReflectionException;
 use ReflectionProperty;
 use function array_keys;
 
-/**
- * Tests for ServeConfigChecks class
- */
 class ServerConfigChecksTest extends AbstractTestCase
 {
     /** @var string */

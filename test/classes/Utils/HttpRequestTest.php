@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Utils\HttpRequest class
- */
 
 declare(strict_types=1);
 

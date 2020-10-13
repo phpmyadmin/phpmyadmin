@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for FormList classes in config folder
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests\Config\Forms;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PMA_FormDisplay class
- */
 class FormListTest extends AbstractTestCase
 {
     protected function setUp(): void

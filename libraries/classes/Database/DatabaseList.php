@@ -1,7 +1,4 @@
 <?php
-/**
- * holds the PhpMyAdmin\Database\DatabaseList class
- */
 
 declare(strict_types=1);
 
@@ -9,9 +6,6 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\ListDatabase;
 
-/**
- * holds the DatabaseList class
- */
 class DatabaseList
 {
     /**

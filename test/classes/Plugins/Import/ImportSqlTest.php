@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportSql class
- */
 
 declare(strict_types=1);
 
@@ -12,9 +9,6 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportSql;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportSql class
- */
 class ImportSqlTest extends AbstractTestCase
 {
     /** @var ImportSql */

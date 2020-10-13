@@ -10,9 +10,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Linter;
 use function str_repeat;
 
-/**
- * Tests for PhpMyAdmin\Linter
- */
 class LinterTest extends AbstractTestCase
 {
     /**

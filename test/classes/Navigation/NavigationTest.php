@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Navigation\Navigation class
- */
 
 declare(strict_types=1);
 
@@ -14,9 +11,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
-/**
- * Tests for PhpMyAdmin\Navigation\Navigation class
- */
 class NavigationTest extends AbstractTestCase
 {
     /** @var Navigation */

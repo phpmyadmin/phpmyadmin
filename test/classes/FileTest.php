@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for File class
- */
 
 declare(strict_types=1);
 
@@ -11,9 +8,6 @@ use PhpMyAdmin\File;
 use function bin2hex;
 use function file_get_contents;
 
-/**
- * tests for PhpMyAdmin\File class
- */
 class FileTest extends AbstractTestCase
 {
     /**

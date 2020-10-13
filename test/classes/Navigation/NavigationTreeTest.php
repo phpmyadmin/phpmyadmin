@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Navigation\NavigationTree class
- */
 
 declare(strict_types=1);
 
@@ -11,9 +8,6 @@ use PhpMyAdmin\Navigation\NavigationTree;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Navigation\NavigationTree class
- */
 class NavigationTreeTest extends AbstractTestCase
 {
     /** @var NavigationTree */

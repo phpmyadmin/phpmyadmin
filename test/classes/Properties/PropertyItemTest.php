@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Properties\PropertyItem class
- */
 
 declare(strict_types=1);
 
@@ -11,9 +8,6 @@ use PhpMyAdmin\Properties\PropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * Tests for PhpMyAdmin\Properties\PropertyItem class
- */
 class PropertyItemTest extends AbstractTestCase
 {
     /** @var PropertyItem|MockObject */
@@ -37,9 +31,6 @@ class PropertyItemTest extends AbstractTestCase
         unset($this->stub);
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\PropertyItem::getGroup
-     */
     public function testGetGroup(): void
     {
         $this->assertEquals(

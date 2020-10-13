@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\RelationCleanup
- */
 
 declare(strict_types=1);
 

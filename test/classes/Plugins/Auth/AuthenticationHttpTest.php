@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
- */
 
 declare(strict_types=1);
 
@@ -16,9 +13,6 @@ use function base64_encode;
 use function ob_get_clean;
 use function ob_start;
 
-/**
- * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
- */
 class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationHttp */
@@ -124,9 +118,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         }
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::showLoginForm
-     */
     public function testAuthLogoutUrl(): void
     {
         $_REQUEST['old_usr'] = '1';
@@ -186,8 +177,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::readCredentials
-     *
      * @param string      $user           test username
      * @param string      $pass           test password
      * @param string      $userIndex      index to test username against
@@ -290,9 +279,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         ];
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::storeCredentials
-     */
     public function testAuthSetUser(): void
     {
         // case 1
@@ -393,8 +379,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::authSetFails
-     *
      * @group medium
      */
     public function testAuthFails(): void

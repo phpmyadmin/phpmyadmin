@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportYaml class
- */
 
 declare(strict_types=1);
 
@@ -21,8 +18,6 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportYaml class
- *
  * @group medium
  */
 class ExportYamlTest extends AbstractTestCase
@@ -55,9 +50,6 @@ class ExportYamlTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::setProperties
-     */
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportYaml::class, 'setProperties');
@@ -124,9 +116,6 @@ class ExportYamlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportHeader
-     */
     public function testExportHeader(): void
     {
         ob_start();
@@ -143,9 +132,6 @@ class ExportYamlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportFooter
-     */
     public function testExportFooter(): void
     {
         $this->expectOutputString(
@@ -156,9 +142,6 @@ class ExportYamlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         $this->assertTrue(
@@ -166,9 +149,6 @@ class ExportYamlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
@@ -176,9 +156,6 @@ class ExportYamlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportDBCreate
-     */
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
@@ -186,9 +163,6 @@ class ExportYamlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportYaml::exportData
-     */
     public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

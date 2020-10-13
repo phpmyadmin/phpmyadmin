@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for methods under PhpMyAdmin\UserPreferences class
- */
 
 declare(strict_types=1);
 
@@ -15,9 +12,6 @@ use PhpMyAdmin\UserPreferences;
 use function json_encode;
 use function time;
 
-/**
- * tests for methods under PhpMyAdmin\UserPreferences class
- */
 class UserPreferencesTest extends AbstractNetworkTestCase
 {
     /** @var UserPreferences */

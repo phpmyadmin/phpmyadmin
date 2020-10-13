@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for Pdf class
- */
 
 declare(strict_types=1);
 
@@ -9,9 +6,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Pdf;
 
-/**
- * tests for Pdf class
- */
 class PdfTest extends AbstractTestCase
 {
     /**

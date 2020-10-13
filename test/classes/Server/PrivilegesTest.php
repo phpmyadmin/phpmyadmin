@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Server\Privileges
- */
 
 declare(strict_types=1);
 

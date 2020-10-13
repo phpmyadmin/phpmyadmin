@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\IpAllowDeny
- */
 
 declare(strict_types=1);
 

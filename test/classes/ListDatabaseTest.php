@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for ListDatabase class
- */
 
 declare(strict_types=1);
 
@@ -9,9 +6,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ListDatabase;
 
-/**
- * tests for ListDatabase class
- */
 class ListDatabaseTest extends AbstractTestCase
 {
     /**

@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Properties\Options\Items\TextPropertyItem class
- */
 
 declare(strict_types=1);
 

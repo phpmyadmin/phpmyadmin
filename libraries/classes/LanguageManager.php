@@ -1,7 +1,4 @@
 <?php
-/**
- * Hold the PhpMyAdmin\LanguageManager class
- */
 
 declare(strict_types=1);
 

@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Controllers\Server\BinlogController
- */
 
 declare(strict_types=1);
 

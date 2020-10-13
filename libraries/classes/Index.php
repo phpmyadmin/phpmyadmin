@@ -1,7 +1,4 @@
 <?php
-/**
- * holds the database index class
- */
 
 declare(strict_types=1);
 

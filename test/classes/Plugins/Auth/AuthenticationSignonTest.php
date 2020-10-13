@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Auth\AuthenticationSignon class
- */
 
 declare(strict_types=1);
 
@@ -18,9 +15,6 @@ use function session_id;
 use function session_name;
 use function version_compare;
 
-/**
- * tests for PhpMyAdmin\Plugins\Auth\AuthenticationSignon class
- */
 class AuthenticationSignonTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationSignon */
@@ -53,9 +47,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showLoginForm
-     */
     public function testAuth(): void
     {
         $GLOBALS['cfg']['Server']['SignonURL'] = '';
@@ -72,9 +63,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showLoginForm
-     */
     public function testAuthLogoutURL(): void
     {
         $this->mockResponse('Location: https://example.com/logoutURL');
@@ -85,9 +73,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $this->object->logOut();
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showLoginForm
-     */
     public function testAuthLogout(): void
     {
         $this->mockResponse('Location: https://example.com/SignonURL');
@@ -99,9 +84,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $this->object->logOut();
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::readCredentials
-     */
     public function testAuthCheckEmpty(): void
     {
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
@@ -112,9 +94,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::readCredentials
-     */
     public function testAuthCheckSession(): void
     {
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
@@ -146,9 +125,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::readCredentials
-     */
     public function testAuthCheckToken(): void
     {
         $_SESSION = [' PMA_token ' => 'eefefef'];
@@ -202,9 +178,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::readCredentials
-     */
     public function testAuthCheckKeep(): void
     {
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
@@ -238,9 +211,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::storeCredentials
-     */
     public function testAuthSetUser(): void
     {
         $this->object->user = 'testUser123';
@@ -261,9 +231,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showFailure
-     */
     public function testAuthFailsForbidden(): void
     {
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
@@ -286,9 +253,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showFailure
-     */
     public function testAuthFailsDeny(): void
     {
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
@@ -310,9 +274,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showFailure
-     */
     public function testAuthFailsTimeout(): void
     {
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
@@ -338,9 +299,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showFailure
-     */
     public function testAuthFailsMySQLError(): void
     {
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
@@ -372,9 +330,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::showFailure
-     */
     public function testAuthFailsConnect(): void
     {
         $GLOBALS['cfg']['Server']['SignonSession'] = 'newSession';
@@ -407,9 +362,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationSignon::setCookieParams
-     */
     public function testSetCookieParamsDefaults(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)

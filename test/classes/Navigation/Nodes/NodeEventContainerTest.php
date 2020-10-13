@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeEventContainer class
- */
 
 declare(strict_types=1);
 
@@ -11,9 +8,6 @@ use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeEventContainer class
- */
 class NodeEventContainerTest extends AbstractTestCase
 {
     /**

@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportMediawiki class
- */
 
 declare(strict_types=1);
 
@@ -23,8 +20,6 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportMediawiki class
- *
  * @group medium
  */
 class ExportMediawikiTest extends AbstractTestCase
@@ -56,9 +51,6 @@ class ExportMediawikiTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::setProperties
-     */
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportMediawiki::class, 'setProperties');
@@ -199,9 +191,6 @@ class ExportMediawikiTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportHeader
-     */
     public function testExportHeader(): void
     {
         $this->assertTrue(
@@ -209,9 +198,6 @@ class ExportMediawikiTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportFooter
-     */
     public function testExportFooter(): void
     {
         $this->assertTrue(
@@ -219,9 +205,6 @@ class ExportMediawikiTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         $this->assertTrue(
@@ -229,9 +212,6 @@ class ExportMediawikiTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
@@ -239,9 +219,6 @@ class ExportMediawikiTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportDBCreate
-     */
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
@@ -331,9 +308,6 @@ class ExportMediawikiTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportMediawiki::exportData
-     */
     public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

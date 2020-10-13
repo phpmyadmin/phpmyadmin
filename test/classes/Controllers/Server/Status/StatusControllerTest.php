@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds StatusControllerTest
- */
 
 declare(strict_types=1);
 

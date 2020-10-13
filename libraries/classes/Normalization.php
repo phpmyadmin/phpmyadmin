@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Normalization class
- */
 
 declare(strict_types=1);
 

@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportXml class
- */
 
 declare(strict_types=1);
 
@@ -23,8 +20,6 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportXml class
- *
  * @group medium
  */
 class ExportXmlTest extends AbstractTestCase
@@ -62,8 +57,6 @@ class ExportXmlTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportXml::setProperties
-     *
      * @group medium
      */
     public function testSetProperties(): void
@@ -203,8 +196,6 @@ class ExportXmlTest extends AbstractTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportHeader
-     *
      * @group medium
      */
     public function testExportHeader(): void
@@ -393,9 +384,6 @@ class ExportXmlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportFooter
-     */
     public function testExportFooter(): void
     {
         $this->expectOutputString(
@@ -406,9 +394,6 @@ class ExportXmlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         $GLOBALS['xml_export_contents'] = true;
@@ -433,9 +418,6 @@ class ExportXmlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $GLOBALS['xml_export_contents'] = true;
@@ -460,9 +442,6 @@ class ExportXmlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportDBCreate
-     */
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
@@ -470,9 +449,6 @@ class ExportXmlTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportXml::exportData
-     */
     public function testExportData(): void
     {
         $GLOBALS['xml_export_contents'] = true;

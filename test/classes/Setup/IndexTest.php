@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for methods under PhpMyAdmin\Setup\Index
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests\Setup;
 use PhpMyAdmin\Setup\Index as SetupIndex;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * tests for methods under PhpMyAdmin\Setup\Index
- */
 class IndexTest extends AbstractTestCase
 {
     /**

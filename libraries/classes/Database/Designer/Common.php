@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Database\Designer\Common class
- */
 
 declare(strict_types=1);
 

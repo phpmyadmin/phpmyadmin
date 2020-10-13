@@ -1,7 +1,4 @@
 <?php
-/**
- * Hold the PhpMyAdmin\Util class
- */
 
 declare(strict_types=1);
 

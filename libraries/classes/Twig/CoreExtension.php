@@ -1,7 +1,4 @@
 <?php
-/**
- * hold PhpMyAdmin\Twig\CoreExtension class
- */
 
 declare(strict_types=1);
 

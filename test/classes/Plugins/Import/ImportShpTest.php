@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportShp class
- */
 
 declare(strict_types=1);
 
@@ -16,8 +13,6 @@ use function defined;
 use function extension_loaded;
 
 /**
- * Tests for PhpMyAdmin\Plugins\Import\ImportShp class
- *
  * @requires extension zip
  */
 class ImportShpTest extends AbstractTestCase

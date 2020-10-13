@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Controllers\Server\Status\StatusController
- */
 
 declare(strict_types=1);
 

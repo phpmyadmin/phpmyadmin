@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\InsertEdit
- */
 
 declare(strict_types=1);
 
@@ -23,8 +20,6 @@ use function md5;
 use function sprintf;
 
 /**
- * Tests for PhpMyAdmin\InsertEdit
- *
  * @group medium
  */
 class InsertEditTest extends AbstractTestCase

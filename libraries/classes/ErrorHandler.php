@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds class PhpMyAdmin\ErrorHandler
- */
 
 declare(strict_types=1);
 

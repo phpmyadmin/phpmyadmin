@@ -12,9 +12,6 @@ use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 
-/**
- * Tests for PhpMyAdmin\Setup\ConfigGenerator
- */
 class ConfigGeneratorTest extends AbstractTestCase
 {
     /**

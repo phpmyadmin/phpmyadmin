@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Controllers\Setup\FormController
- */
 
 declare(strict_types=1);
 

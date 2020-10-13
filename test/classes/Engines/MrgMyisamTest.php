@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Engines\MrgMyisam
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Engines\MrgMyisam;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Engines\MrgMyisam
- */
 class MrgMyisamTest extends AbstractTestCase
 {
     /** @var MrgMyisam */

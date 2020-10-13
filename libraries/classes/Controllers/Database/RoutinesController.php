@@ -1,7 +1,4 @@
 <?php
-/**
- * Holds the PhpMyAdmin\Controllers\Database\RoutinesController
- */
 
 declare(strict_types=1);
 

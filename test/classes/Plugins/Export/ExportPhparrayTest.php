@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportPhparray class
- */
 
 declare(strict_types=1);
 
@@ -21,8 +18,6 @@ use function ob_get_clean;
 use function ob_start;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportPhparray class
- *
  * @group medium
  */
 class ExportPhparrayTest extends AbstractTestCase
@@ -55,9 +50,6 @@ class ExportPhparrayTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::setProperties
-     */
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportPhparray::class, 'setProperties');
@@ -128,9 +120,6 @@ class ExportPhparrayTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportHeader
-     */
     public function testExportHeader(): void
     {
         $GLOBALS['crlf'] = ' ';
@@ -149,9 +138,6 @@ class ExportPhparrayTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportFooter
-     */
     public function testExportFooter(): void
     {
         $this->assertTrue(
@@ -159,9 +145,6 @@ class ExportPhparrayTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportDBHeader
-     */
     public function testExportDBHeader(): void
     {
         $GLOBALS['crlf'] = "\n";
@@ -180,9 +163,6 @@ class ExportPhparrayTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportDBFooter
-     */
     public function testExportDBFooter(): void
     {
         $this->assertTrue(
@@ -190,9 +170,6 @@ class ExportPhparrayTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportDBCreate
-     */
     public function testExportDBCreate(): void
     {
         $this->assertTrue(
@@ -200,9 +177,6 @@ class ExportPhparrayTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportPhparray::exportData
-     */
     public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

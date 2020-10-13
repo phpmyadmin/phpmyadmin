@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Server\Select
- */
 
 declare(strict_types=1);
 

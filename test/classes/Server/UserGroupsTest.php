@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Server\UserGroups
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
 use function htmlspecialchars;
 
-/**
- * Tests for PhpMyAdmin\Server\UserGroups
- */
 class UserGroupsTest extends AbstractTestCase
 {
     /**

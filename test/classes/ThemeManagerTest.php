@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for ThemeManager class
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ThemeManager;
 
-/**
- * tests for ThemeManager class
- */
 class ThemeManagerTest extends AbstractTestCase
 {
     /**

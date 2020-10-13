@@ -1,7 +1,4 @@
 <?php
-/**
- * Hold the PhpMyAdmin\Display\Results class
- */
 
 declare(strict_types=1);
 

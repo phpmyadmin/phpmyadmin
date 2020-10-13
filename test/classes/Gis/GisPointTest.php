@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Gis\GisPoint
- */
 
 declare(strict_types=1);
 
@@ -12,9 +9,6 @@ use TCPDF;
 use function function_exists;
 use function imagecreatetruecolor;
 
-/**
- * Tests for PhpMyAdmin\Gis\GisPoint class.
- */
 class GisPointTest extends GisGeomTestCase
 {
     /**

@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Gis\GisMultiPoint
- */
 
 declare(strict_types=1);
 
@@ -13,9 +10,6 @@ use function function_exists;
 use function imagecreatetruecolor;
 use function preg_match;
 
-/**
- * Tests for PhpMyAdmin\Gis\GisMultiPoint class
- */
 class GisMultiPointTest extends GisGeomTestCase
 {
     /**

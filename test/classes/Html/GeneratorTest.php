@@ -1,7 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Util class
- */
 
 declare(strict_types=1);
 
@@ -14,9 +11,6 @@ use function call_user_func_array;
 use function htmlspecialchars;
 use function urlencode;
 
-/**
- * Test for \PhpMyAdmin\Html\MySQLDocumentation class
- */
 class GeneratorTest extends AbstractTestCase
 {
     /**

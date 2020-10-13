@@ -1,9 +1,4 @@
 <?php
-/**
- * Test for PhpMyAdmin\Config class
- *
- * @group current
- */
 
 declare(strict_types=1);
 
@@ -35,9 +30,6 @@ use function strip_tags;
 use function stristr;
 use function sys_get_temp_dir;
 
-/**
- * Tests behaviour of PhpMyAdmin\Config class
- */
 class ConfigTest extends AbstractTestCase
 {
     /**

@@ -15,9 +15,6 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use stdClass;
 
-/**
- * Tests behaviour of Table class
- */
 class TableTest extends AbstractTestCase
 {
     /**

@@ -314,8 +314,6 @@ class TypesTest extends AbstractTestCase
     }
 
     /**
-     * Test for getFunctionsClass
-     *
      * @param string $class  The class to get function list.
      * @param array  $output Expected function list
      *
@@ -728,8 +726,6 @@ class TypesTest extends AbstractTestCase
     }
 
     /**
-     * Test for getTypeClass
-     *
      * @param string $type   Type to check
      * @param string $output Expected result
      *

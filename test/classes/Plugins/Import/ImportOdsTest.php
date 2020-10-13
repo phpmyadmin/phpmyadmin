@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportOds class
- */
 
 declare(strict_types=1);
 
@@ -13,8 +10,6 @@ use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * Tests for PhpMyAdmin\Plugins\Import\ImportOds class
- *
  * @requires extension zip
  */
 class ImportOdsTest extends AbstractTestCase

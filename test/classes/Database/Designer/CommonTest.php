@@ -1,7 +1,4 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Database\Designer\Common
- */
 
 declare(strict_types=1);
 
@@ -12,9 +9,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Database\Designer\Common
- */
 class CommonTest extends AbstractTestCase
 {
     /** @var Common */

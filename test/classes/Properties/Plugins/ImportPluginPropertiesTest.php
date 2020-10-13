@@ -1,7 +1,4 @@
 <?php
-/**
- * tests for PhpMyAdmin\Properties\Plugins\ImportPluginProperties class
- */
 
 declare(strict_types=1);
 
@@ -10,9 +7,6 @@ namespace PhpMyAdmin\Tests\Properties\Plugins;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * tests for PhpMyAdmin\Properties\Plugins\ImportPluginProperties class
- */
 class ImportPluginPropertiesTest extends AbstractTestCase
 {
     /** @var ImportPluginProperties */
@@ -36,9 +30,6 @@ class ImportPluginPropertiesTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Plugins\ImportPluginProperties::getItemType
-     */
     public function testGetItemType(): void
     {
         $this->assertEquals(
