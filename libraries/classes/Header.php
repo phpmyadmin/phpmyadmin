@@ -603,12 +603,13 @@ class Header
         $captchaUrl = '';
         $cspAllow = $cfg['CSPAllow'];
 
-        if (! empty($cfg['CaptchaLoginPrivateKey'])
+        if (! empty($cfg['CaptchaApi'])
+            && ! empty($cfg['CaptchaRequestParam'])
+            && ! empty($cfg['CaptchaResponseParam'])
+            && ! empty($cfg['CaptchaLoginPrivateKey'])
             && ! empty($cfg['CaptchaLoginPublicKey'])
         ) {
-            $captchaUrl
-                = ' https://apis.google.com https://www.google.com/recaptcha/'
-                . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/ ';
+            $captchaUrl = ' ' . $cfg['CaptchaCsp'] . ' ';
         }
 
         return [

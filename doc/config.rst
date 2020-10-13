@@ -1884,6 +1884,43 @@ Cookie authentication options
 
     .. versionadded:: 5.0.3
 
+.. config:option:: $cfg['CaptchaApi']
+
+    :type: string
+    :default: ``'https://www.google.com/recaptcha/api.js'``
+
+    .. versionadded:: 5.1.0
+
+    The URL for the reCaptcha v2 service's API, either Google's or a compatible one.
+
+.. config:option:: $cfg['CaptchaCsp']
+
+    :type: string
+    :default: ``'https://apis.google.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/'``
+
+    .. versionadded:: 5.1.0
+
+    The Content-Security-Policy snippet (URLs from which to allow embedded content)
+    for the reCaptcha v2 service, either Google's or a compatible one.
+
+.. config:option:: $cfg['CaptchaRequestParam']
+
+    :type: string
+    :default: ``'g-recaptcha'``
+
+    .. versionadded:: 5.1.0
+
+    The request parameter used for the reCaptcha v2 service.
+
+.. config:option:: $cfg['CaptchaResponseParam']
+
+    :type: string
+    :default: ``'g-recaptcha-response'``
+
+    .. versionadded:: 5.1.0
+
+    The response parameter used for the reCaptcha v2 service.
+
 .. config:option:: $cfg['CaptchaLoginPublicKey']
 
     :type: string
