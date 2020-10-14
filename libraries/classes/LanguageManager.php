@@ -621,6 +621,13 @@ class LanguageManager
             'tt|tatarish',
             '',
         ],
+        'tzm' => [
+            'tzm',
+            'Central Atlas Tamazight',
+            'Tamaziɣt',
+            'tzm|central atlas tamazight',
+            '',
+        ],
         'ug' => [
             'ug',
             'Uyghur',
