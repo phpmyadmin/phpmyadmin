@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2020-10-13 23:55+0000\n"
+"PO-Revision-Date: 2020-10-14 10:02+0000\n"
 "Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "bg/>\n"
@@ -408,7 +408,7 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
-"Операцията ще опита да превърне вашите данни към нова колация. В редки "
+"Операцията ще опита да конвертира вашите данни към нова колация. В редки "
 "случаи, особено когато даден знак не съществува, процесът може да доведе до "
 "неправилно изобразяване на данните в новата колация; в този случай ние "
 "предлагаме да се върнете към първоначалната колация и да се обърнете към "
@@ -3900,7 +3900,7 @@ msgstr "Забрана на проверките за външен ключ"
 #: libraries/classes/Config/Descriptions.php:245
 #: libraries/classes/Plugins/Export/ExportSql.php:169
 msgid "Export views as tables"
-msgstr "Експортиране изгледи (views) като таблици"
+msgstr "Експортиране на изгледи (views) като таблици"
 
 #: libraries/classes/Config/Descriptions.php:246
 #, fuzzy
@@ -3935,7 +3935,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:261
 #: libraries/classes/Plugins/Export/ExportSql.php:316
 msgid "Exclude definition of current user"
-msgstr "Изклчва се определението за текущия потребител"
+msgstr "Изключва се определението за текущия потребител"
 
 #: libraries/classes/Config/Descriptions.php:262
 #: libraries/classes/Plugins/Export/ExportSql.php:322
@@ -7686,7 +7686,7 @@ msgstr "FOREIGN KEY релация е добавена"
 
 #: libraries/classes/Database/Designer/Common.php:765
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Грешка: Не може да бъде премахната релация FOREIGN KEY!"
+msgstr "Грешка: Не може да бъде премахната връзката FOREIGN KEY!"
 
 #: libraries/classes/Database/Designer/Common.php:792
 msgid "Error: Internal relationship could not be removed!"
@@ -8744,10 +8744,8 @@ msgid "Or"
 msgstr "Или"
 
 #: libraries/classes/InsertEdit.php:1542
-#, fuzzy
-#| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "директорията за upload на web сървъра"
+msgstr "директория за качване на уеб сървър:"
 
 #: libraries/classes/InsertEdit.php:1739
 #: templates/table/search/input_box.twig:38
@@ -9068,35 +9066,25 @@ msgid "Groups:"
 msgstr "Групи:"
 
 #: libraries/classes/Navigation/Navigation.php:220
-#, fuzzy
-#| msgid "Events"
 msgid "Events:"
-msgstr "Събития"
+msgstr "Събития:"
 
 #: libraries/classes/Navigation/Navigation.php:221
-#, fuzzy
-#| msgid "Functions"
 msgid "Functions:"
-msgstr "Функции"
+msgstr "Функции:"
 
 #: libraries/classes/Navigation/Navigation.php:222
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Процедури"
+msgstr "Процедури:"
 
 #: libraries/classes/Navigation/Navigation.php:223
 #: templates/display/export/selection.twig:5
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "Таблици"
+msgstr "Таблици:"
 
 #: libraries/classes/Navigation/Navigation.php:224
-#, fuzzy
-#| msgid "Views"
 msgid "Views:"
-msgstr "Изглед"
+msgstr "Изгледи:"
 
 #: libraries/classes/Navigation/NavigationTree.php:771
 msgid ""
@@ -9514,10 +9502,8 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/classes/Normalization.php:915
-#, fuzzy
-#| msgid "Hide table structure actions"
 msgid "Improve table structure (Normalization):"
-msgstr "Скриване на действията за промяна на структурата"
+msgstr "Подобряване на структурата на таблицата (Нормализиране):"
 
 #: libraries/classes/Normalization.php:916
 msgid "Select up to what step you want to normalize"
@@ -9868,10 +9854,8 @@ msgid "Username:"
 msgstr "Име:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:229
-#, fuzzy
-#| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Избор на сървър"
+msgstr "Избор на сървъра:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:365
 #, fuzzy
@@ -10094,24 +10078,18 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:125
 #: libraries/classes/Plugins/Export/ExportLatex.php:178
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Заглавие на таблицата"
+msgstr "Заглавие на таблицата:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:131
 #: libraries/classes/Plugins/Export/ExportLatex.php:184
-#, fuzzy
-#| msgid "Table caption (continued)"
 msgid "Table caption (continued):"
-msgstr "Заглавие на таблицата (продължение)"
+msgstr "Заглавие на таблицата (продължение):"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:137
 #: libraries/classes/Plugins/Export/ExportLatex.php:190
-#, fuzzy
-#| msgid "Label key"
 msgid "Label key:"
-msgstr "Етикет на ключа"
+msgstr "Етикет на ключа:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:144
 #: libraries/classes/Plugins/Export/ExportOdt.php:104
@@ -10133,28 +10111,22 @@ msgid "Display media (MIME) types"
 msgstr "Показване MIME типове"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:173
-#, fuzzy
-#| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Поставяне имената на полетата в първи ред"
+msgstr "Поставяне имената на полетата в първи ред:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:718
 #: libraries/classes/Plugins/Export/ExportXml.php:244
 #: templates/server/replication/change_master.twig:22
 #: templates/server/replication/master_add_slave_user.twig:29
-#, fuzzy
-#| msgid "Host"
 msgid "Host:"
-msgstr "Хост"
+msgstr "Хост:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:226
 #: libraries/classes/Plugins/Export/ExportSql.php:724
 #: libraries/classes/Plugins/Export/ExportXml.php:249
-#, fuzzy
-#| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Време на генериране"
+msgstr "Време на генериране:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:228
 #: libraries/classes/Plugins/Export/ExportSql.php:728
@@ -10166,32 +10138,24 @@ msgstr "Версия на сървъра:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:229
 #: libraries/classes/Plugins/Export/ExportSql.php:730
 #: libraries/classes/Plugins/Export/ExportXml.php:252
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "Версия на PHP"
+msgstr "Версия на PHP:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:259
 #: libraries/classes/Plugins/Export/ExportSql.php:918
 #: libraries/classes/Plugins/Export/ExportXml.php:420
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:181
-#, fuzzy
-#| msgid "Database"
 msgid "Database:"
-msgstr "БД"
+msgstr "База данни:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:332
 #: libraries/classes/Plugins/Export/ExportSql.php:2240
-#, fuzzy
-#| msgid "Data"
 msgid "Data:"
-msgstr "Данни"
+msgstr "Данни:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:520
-#, fuzzy
-#| msgid "Structure"
 msgid "Structure:"
-msgstr "Структура"
+msgstr "Структура:"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:86
 msgid "Export table names"
@@ -10429,10 +10393,9 @@ msgid "Last check:"
 msgstr "Последна проверка:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1521
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Структура на таблица"
+msgstr "Грешка при четене на структура за таблица %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1593
 msgid "It appears your database uses views;"
@@ -10453,10 +10416,8 @@ msgid "Indexes for dumped tables"
 msgstr "Ограничения за дъмпнати таблици"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1801
-#, fuzzy
-#| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "В таблици:"
+msgstr "Индекси за таблица"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1834
 #, fuzzy
@@ -10510,10 +10471,8 @@ msgid "Export contents"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:182
-#, fuzzy
-#| msgid "Table"
 msgid "Table:"
-msgstr "Таблица"
+msgstr "Таблица:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:183
 msgid "Purpose:"
@@ -11355,11 +11314,8 @@ msgstr "Събитието %1$s беше създадено."
 
 #: libraries/classes/Rte/Events.php:234 libraries/classes/Rte/Routines.php:341
 #: libraries/classes/Rte/Triggers.php:206
-#, fuzzy
-#| msgid ""
-#| "<b>One or more errors have occured while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr "<b>Една или повече грешки възникнаха при обработка на заявката:</b>"
+msgstr "Възникнаха грешки при обработката на вашата заявка:"
 
 #: libraries/classes/Rte/Events.php:289
 msgid "Edit event"
@@ -11439,10 +11395,8 @@ msgstr "Трябва да дадете дефиниция на събитиет�
 #: libraries/classes/Rte/Routines.php:223
 #: libraries/classes/Rte/Routines.php:1358
 #: libraries/classes/Rte/Routines.php:1563
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "Грешка при обработка на заявката"
+msgstr "Грешка при обработка на заявката:"
 
 #: libraries/classes/Rte/Footer.php:125
 msgid "OFF"
@@ -12119,10 +12073,8 @@ msgstr "Информация за логване"
 #: libraries/classes/Server/Privileges.php:1637
 #: templates/server/replication/change_master.twig:14
 #: templates/server/replication/master_add_slave_user.twig:16
-#, fuzzy
-#| msgid "User name"
 msgid "User name:"
-msgstr "Потребителско име"
+msgstr "Потребителско име:"
 
 #: libraries/classes/Server/Privileges.php:1642
 #: libraries/classes/Server/Privileges.php:1663
@@ -12153,10 +12105,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1690
-#, fuzzy
-#| msgid "User name"
 msgid "Host name:"
-msgstr "Потребителско име"
+msgstr "Име на хост:"
 
 #: libraries/classes/Server/Privileges.php:1695
 #: libraries/classes/Server/Privileges.php:1775
@@ -12189,10 +12139,8 @@ msgstr "От таблица Host"
 #: templates/server/replication/master_add_slave_user.twig:21
 #: templates/server/replication/master_add_slave_user.twig:40
 #: templates/server/replication/master_add_slave_user.twig:54
-#, fuzzy
-#| msgid "Use text field"
 msgid "Use text field:"
-msgstr "От текстовото поле"
+msgstr "От текстовото поле:"
 
 #: libraries/classes/Server/Privileges.php:1783
 #: templates/server/replication/master_add_slave_user.twig:44
@@ -12422,10 +12370,8 @@ msgid "Privileges for %s"
 msgstr "Права на %s"
 
 #: libraries/classes/Server/Privileges.php:4758
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges:"
-msgstr "Редакция"
+msgstr "Редактиране на привилегии:"
 
 #: libraries/classes/Server/Privileges.php:4759
 #, fuzzy
