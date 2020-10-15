@@ -1,7 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.9.7 (not yet released)
+4.9.7 (2020-10-15)
+- issue #16397 Fix compatibility problems with older PHP versions (also issue #16399)
+- issue #16396 Fix broken two-factor authentication
 
 4.9.6 (2020-10-09)
 - issue        [security] Fix XSS vulnerability with the transformation feature (PMASA-2020-5)
