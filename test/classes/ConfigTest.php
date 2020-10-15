@@ -957,6 +957,8 @@ class ConfigTest extends PmaTestCase
     /**
      * Should test getting unique value for theme
      *
+     * @group 32bit-incompatible
+     *
      * @return void
      */
     public function testGetThemeUniqueValue()

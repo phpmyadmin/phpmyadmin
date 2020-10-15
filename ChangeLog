@@ -1,6 +1,14 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.0.4 (2020-10-15)
+- issue #16245 Fix failed Zoom search clears existing values
+- issue        Fixed a PHP error when reporting a particular JS error
+- issue #16326 Fixed latitude and longitude swap for geometries in edit mode
+- issue #16032 Fix CREATE TABLE not being tracked when auto tracking is enabled
+- issue #16397 Fix compatibility problems with older PHP versions (also issue #16399)
+- issue #16396 Fix broken two-factor authentication
+
 5.0.3 (2020-10-09)
 - issue #15983 Require twig ^2.9
 - issue        Fix option to import files locally appearing as not available
@@ -197,6 +205,10 @@ phpMyAdmin - ChangeLog
 - issue #14732 Fixed can't rename primary key with auto increment
 - issue #15677 Fix show process-list triggers a php exception
 - issue #15697 Fix uncaught php error: "Call to a member function get() on null" in db_export.php when exporting a table from the list
+
+4.9.7 (2020-10-15)
+- issue #16397 Fix compatibility problems with older PHP versions (also issue #16399)
+- issue #16396 Fix broken two-factor authentication
 
 4.9.6 (2020-10-09)
 - issue        [security] Fix XSS vulnerability with the transformation feature (PMASA-2020-5)

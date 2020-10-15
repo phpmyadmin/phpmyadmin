@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
+"Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-08-16 18:25-0300\n"
+"POT-Creation-Date: 2020-10-10 13:41-0300\n"
 "PO-Revision-Date: 2018-03-19 23:34+0000\n"
 "Last-Translator: M. M. <m.mirena@gmail.com>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -37,7 +37,7 @@ msgstr "Shfaqën radhët %1$s - %2$s."
 msgid "View dump (schema) of database"
 msgstr "Shfaq zbrazjen (skema) e databazës"
 
-#: db_export.php:67 db_tracking.php:105 export.php:420
+#: db_export.php:67 db_tracking.php:105 export.php:423
 #: libraries/classes/Database/Qbe.php:363
 #: templates/database/structure/index.twig:19
 #: templates/navigation/tree/path.twig:9
@@ -140,7 +140,7 @@ msgstr "Pyetsori dështoi"
 msgid "Switch to %svisual builder%s"
 msgstr "Kalo tek %sndërtuesi vizual%s"
 
-#: db_search.php:46 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
+#: db_search.php:47 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
 #: libraries/classes/Plugins/AuthenticationPlugin.php:195
@@ -197,7 +197,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Duhet të rifreskoni faqen."
 
-#: export.php:316
+#: export.php:319
 msgid "Bad parameters!"
 msgstr "Parametra të këqinj!"
 
@@ -245,7 +245,7 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nuk mund të ngarkojë shtojcat e importit, ju lutem kontrollo instalimin tuaj!"
 
-#: import.php:605 libraries/classes/Sql.php:707 libraries/classes/Sql.php:1534
+#: import.php:605 libraries/classes/Sql.php:709 libraries/classes/Sql.php:1537
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Faqerojtësi %s është krijuar."
@@ -1397,8 +1397,8 @@ msgstr ""
 "RETURN!"
 
 #: js/messages.php:411 libraries/classes/Config/Forms/User/ExportForm.php:158
-#: libraries/classes/Display/Results.php:4729
-#: libraries/classes/Display/Results.php:4981 libraries/classes/Menu.php:382
+#: libraries/classes/Display/Results.php:4730
+#: libraries/classes/Display/Results.php:4982 libraries/classes/Menu.php:382
 #: libraries/classes/Menu.php:490 libraries/classes/Menu.php:619
 #: libraries/classes/Rte/RteList.php:193
 #: libraries/classes/Server/Privileges.php:2547
@@ -1456,10 +1456,10 @@ msgstr "Fsheh kutinë e pyetsorit"
 msgid "Show query box"
 msgstr "Shfaq kutinë e pyetsorit"
 
-#: js/messages.php:430 libraries/classes/CentralColumns.php:941
+#: js/messages.php:430 libraries/classes/CentralColumns.php:955
 #: libraries/classes/Config/Descriptions.php:828
-#: libraries/classes/Display/Results.php:3261
-#: libraries/classes/Display/Results.php:4704 libraries/classes/Index.php:742
+#: libraries/classes/Display/Results.php:3262
+#: libraries/classes/Display/Results.php:4705 libraries/classes/Index.php:742
 #: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:648
 #: libraries/classes/Util.php:1136 libraries/classes/Util.php:3454
 #: libraries/classes/Util.php:3455 templates/console/bookmark_content.twig:7
@@ -1471,9 +1471,9 @@ msgstr "Shfaq kutinë e pyetsorit"
 msgid "Edit"
 msgstr "Redakto"
 
-#: js/messages.php:431 libraries/classes/CentralColumns.php:948
-#: libraries/classes/Display/Results.php:3338
-#: libraries/classes/Display/Results.php:4693
+#: js/messages.php:431 libraries/classes/CentralColumns.php:962
+#: libraries/classes/Display/Results.php:3339
+#: libraries/classes/Display/Results.php:4694
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:441 libraries/classes/Tracking.php:298
 #: templates/console/bookmark_content.twig:7
@@ -1493,9 +1493,9 @@ msgid "%d is not valid row number."
 msgstr "%d nuk është numër i vlefshëm radhe."
 
 #: js/messages.php:433
-#: libraries/classes/Controllers/Table/SearchController.php:390
-#: libraries/classes/Controllers/Table/SearchController.php:942
-#: tbl_change.php:165 templates/sql/relational_column_dropdown.twig:3
+#: libraries/classes/Controllers/Table/SearchController.php:395
+#: libraries/classes/Controllers/Table/SearchController.php:951
+#: tbl_change.php:166 templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
 msgstr "Shfleto vlerat e huaja"
 
@@ -1662,7 +1662,7 @@ msgstr "Varësitë e zgjedhura janë si vijon:"
 msgid "No dependencies selected!"
 msgstr "Nuk janë zgjedhur varësi!"
 
-#: js/messages.php:491 libraries/classes/CentralColumns.php:965
+#: js/messages.php:491 libraries/classes/CentralColumns.php:979
 #: libraries/classes/InsertEdit.php:1841
 #: templates/columns_definitions/column_definitions_form.twig:152
 #: templates/server/variables/index.twig:9
@@ -1752,13 +1752,13 @@ msgid "Data point content"
 msgstr "Përmbajtja e pikës së të dhënave"
 
 #: js/messages.php:528 js/messages.php:696 js/messages.php:713
-#: libraries/classes/ErrorHandler.php:393 libraries/classes/InsertEdit.php:3033
+#: libraries/classes/ErrorHandler.php:393 libraries/classes/InsertEdit.php:3037
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "Injoro"
 
-#: js/messages.php:529 libraries/classes/Display/Results.php:3265
-#: libraries/classes/Display/Results.php:4712 libraries/classes/Util.php:306
+#: js/messages.php:529 libraries/classes/Display/Results.php:3266
+#: libraries/classes/Display/Results.php:4713 libraries/classes/Util.php:306
 msgid "Copy"
 msgstr "Kopjo"
 
@@ -2093,7 +2093,7 @@ msgstr "Lësho filet këtu"
 msgid "Select database first"
 msgstr "Zgjedh databazën së pari"
 
-#: js/messages.php:635 libraries/classes/Display/Results.php:4870
+#: js/messages.php:635 libraries/classes/Display/Results.php:4871
 #: templates/database/data_dictionary/index.twig:64
 #: templates/database/structure/index.twig:12
 #: templates/table/structure/display_structure.twig:381
@@ -2193,7 +2193,7 @@ msgstr ", versioni i fundit stabil:"
 msgid "up to date"
 msgstr "aktual"
 
-#: js/messages.php:686 libraries/classes/Display/Results.php:4801
+#: js/messages.php:686 libraries/classes/Display/Results.php:4802
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "Krijo pamje"
@@ -2378,7 +2378,7 @@ msgstr "Tabela %s ekziston ndërkohë!"
 msgid "Hide"
 msgstr "Fsheh"
 
-#: js/messages.php:768 tbl_change.php:170
+#: js/messages.php:768 tbl_change.php:171
 #: templates/database/multi_table_query/form.twig:48
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -2855,7 +2855,7 @@ msgstr "PO"
 msgid "NO"
 msgstr "JO"
 
-#: libraries/classes/CentralColumns.php:1014
+#: libraries/classes/CentralColumns.php:1028
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:490
 #: libraries/classes/Plugins/Export/ExportOdt.php:613
 #: libraries/classes/Plugins/Export/ExportTexytext.php:454
@@ -2872,7 +2872,7 @@ msgstr "JO"
 msgid "Name"
 msgstr "Emri"
 
-#: libraries/classes/CentralColumns.php:1015 libraries/classes/Index.php:717
+#: libraries/classes/CentralColumns.php:1029 libraries/classes/Index.php:717
 #: libraries/classes/InsertEdit.php:322
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:298
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:394
@@ -2901,13 +2901,13 @@ msgstr "Emri"
 msgid "Type"
 msgstr "Tipi"
 
-#: libraries/classes/CentralColumns.php:1016
+#: libraries/classes/CentralColumns.php:1030
 #: libraries/classes/Rte/Routines.php:961
 #: templates/columns_definitions/table_fields_definitions.twig:16
 msgid "Length/Values"
 msgstr "Gjatësia/Vlerat"
 
-#: libraries/classes/CentralColumns.php:1017
+#: libraries/classes/CentralColumns.php:1031
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:304
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:400
 #: libraries/classes/Plugins/Export/ExportLatex.php:542
@@ -2929,7 +2929,7 @@ msgstr "Gjatësia/Vlerat"
 msgid "Default"
 msgstr "Parazgjedhur"
 
-#: libraries/classes/CentralColumns.php:1018 libraries/classes/Index.php:722
+#: libraries/classes/CentralColumns.php:1032 libraries/classes/Index.php:722
 #: libraries/classes/Operations.php:311 libraries/classes/Operations.php:1139
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/database/central_columns/main.twig:33
@@ -2946,7 +2946,7 @@ msgstr "Parazgjedhur"
 msgid "Collation"
 msgstr "Përshtatja"
 
-#: libraries/classes/CentralColumns.php:1019
+#: libraries/classes/CentralColumns.php:1033
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:687
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
 #: templates/columns_definitions/table_fields_definitions.twig:27
@@ -2954,7 +2954,7 @@ msgstr "Përshtatja"
 msgid "Attributes"
 msgstr "Atributet"
 
-#: libraries/classes/CentralColumns.php:1020 libraries/classes/Index.php:723
+#: libraries/classes/CentralColumns.php:1034 libraries/classes/Index.php:723
 #: libraries/classes/InsertEdit.php:1958
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:301
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:397
@@ -2977,7 +2977,7 @@ msgstr "Atributet"
 msgid "Null"
 msgstr "Null"
 
-#: libraries/classes/CentralColumns.php:1021
+#: libraries/classes/CentralColumns.php:1035
 #: templates/database/central_columns/main.twig:45
 #: templates/database/central_columns/main.twig:264
 msgid "A_I"
@@ -6393,7 +6393,7 @@ msgid "Table %s has been emptied."
 msgstr "Tabela %s është zbrazur."
 
 #: libraries/classes/Controllers/Database/StructureController.php:727
-#: libraries/classes/Display/Results.php:4554
+#: libraries/classes/Display/Results.php:4555
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -7438,8 +7438,8 @@ msgid "Display column was successfully updated."
 msgstr "Shfaqja e kolonës u aktualizua me sukses."
 
 #: libraries/classes/Controllers/Table/RelationController.php:281
-#: libraries/classes/Controllers/Table/SearchController.php:640
-#: libraries/classes/Display/Results.php:4227 libraries/classes/Message.php:177
+#: libraries/classes/Controllers/Table/SearchController.php:649
+#: libraries/classes/Display/Results.php:4228 libraries/classes/Message.php:177
 #: libraries/classes/Rte/Routines.php:1485
 #: libraries/classes/SqlQueryForm.php:100 tbl_row_action.php:145
 #: view_operations.php:82
@@ -7450,15 +7450,15 @@ msgstr "Pyetsori juaj SQL është ekzekutuar me sukses."
 msgid "Internal relationships were successfully updated."
 msgstr "Marrëdhëniet e brendshme u përditësuan me sukses."
 
-#: libraries/classes/Controllers/Table/SearchController.php:865
+#: libraries/classes/Controllers/Table/SearchController.php:874
 msgid "Table search"
 msgstr "Kërko tabelën"
 
-#: libraries/classes/Controllers/Table/SearchController.php:872
+#: libraries/classes/Controllers/Table/SearchController.php:881
 msgid "Zoom search"
 msgstr "Kërkimi zoom"
 
-#: libraries/classes/Controllers/Table/SearchController.php:877
+#: libraries/classes/Controllers/Table/SearchController.php:886
 #: templates/table/search/selection_form.twig:180
 msgid "Find and replace"
 msgstr "Gjej dhe zëvendëso"
@@ -7569,7 +7569,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Zgjerimi %s mungon. Ju lutem, kontrollo konfigurimin tuaj PHP."
 
 #: libraries/classes/Core.php:863 libraries/mult_submits.inc.php:353
-#: tbl_operations.php:291 tbl_replace.php:374 templates/preview_sql.twig:3
+#: tbl_operations.php:291 tbl_replace.php:375 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Nuk ka ndryshime"
 
@@ -8007,59 +8007,59 @@ msgstr "Zbritëse"
 msgid "Ascending"
 msgstr "Ngritëse"
 
-#: libraries/classes/Display/Results.php:3314
-#: libraries/classes/Display/Results.php:3329
+#: libraries/classes/Display/Results.php:3315
+#: libraries/classes/Display/Results.php:3330
 msgid "The row has been deleted."
 msgstr "Radha është fshirë."
 
-#: libraries/classes/Display/Results.php:3361
-#: libraries/classes/Display/Results.php:4693
+#: libraries/classes/Display/Results.php:3362
+#: libraries/classes/Display/Results.php:4694
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Vrit"
 
-#: libraries/classes/Display/Results.php:4153
+#: libraries/classes/Display/Results.php:4154
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Mund të jetë me afërsi. Shiko [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4566
+#: libraries/classes/Display/Results.php:4567
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Shfaqën radhët %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4580
+#: libraries/classes/Display/Results.php:4581
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d gjithsejt, %2$d në pyetsor"
 
-#: libraries/classes/Display/Results.php:4585
+#: libraries/classes/Display/Results.php:4586
 #, php-format
 msgid "%d total"
 msgstr "%d gjithsejt"
 
-#: libraries/classes/Display/Results.php:4597 libraries/classes/Sql.php:1350
+#: libraries/classes/Display/Results.php:4598 libraries/classes/Sql.php:1352
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Pyetsori mori %01.4f sekonda."
 
-#: libraries/classes/Display/Results.php:4847
+#: libraries/classes/Display/Results.php:4848
 msgid "Copy to clipboard"
 msgstr "Kopjo në clipboard"
 
-#: libraries/classes/Display/Results.php:4905
+#: libraries/classes/Display/Results.php:4906
 msgid "Query results operations"
 msgstr "Veprimet e rezultatit të pyetsorit"
 
-#: libraries/classes/Display/Results.php:4992
+#: libraries/classes/Display/Results.php:4993
 #: templates/table/chart/tbl_chart.twig:10
 msgid "Display chart"
 msgstr "Shfaq grafikun"
 
-#: libraries/classes/Display/Results.php:5015
+#: libraries/classes/Display/Results.php:5016
 msgid "Visualize GIS data"
 msgstr "Vizualizo të dhënat GIS"
 
-#: libraries/classes/Display/Results.php:5200
+#: libraries/classes/Display/Results.php:5201
 msgid "Link not found!"
 msgstr "Lidhja nuk gjendet!"
 
@@ -8449,15 +8449,15 @@ msgstr "Ueb serveri nuk ka lejimet e duhura për të ruajtur filin %s."
 msgid "Dump has been saved to file %s."
 msgstr "Zbrazja është ruajtur tek fili %s."
 
-#: libraries/classes/File.php:262
+#: libraries/classes/File.php:263
 msgid "File was not an uploaded file."
 msgstr "Fili nuk ishte një fil i ngarkuar."
 
-#: libraries/classes/File.php:304
+#: libraries/classes/File.php:305
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "Fili i ngarkuar e tejkalon direktivën upload_max_filesize në php.ini."
 
-#: libraries/classes/File.php:310
+#: libraries/classes/File.php:311
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -8465,48 +8465,48 @@ msgstr ""
 "Fili i ngarkuar e tejkalon direktivën MAX_FILE_SIZE, që është specifikuar në "
 "formularin HTML."
 
-#: libraries/classes/File.php:316
+#: libraries/classes/File.php:317
 msgid "The uploaded file was only partially uploaded."
 msgstr "Fili i ngarkuar së fundi u ngarkua vetëm pjesërisht."
 
-#: libraries/classes/File.php:320
+#: libraries/classes/File.php:321
 msgid "Missing a temporary folder."
 msgstr "Mungon dosja e përkohëshme."
 
-#: libraries/classes/File.php:323
+#: libraries/classes/File.php:324
 msgid "Failed to write file to disk."
 msgstr "Dështoi në shkrimin e filit në disk."
 
-#: libraries/classes/File.php:326
+#: libraries/classes/File.php:327
 msgid "File upload stopped by extension."
 msgstr "Ngarkimi i filit u ndal nga zgjerimi."
 
-#: libraries/classes/File.php:329
+#: libraries/classes/File.php:330
 msgid "Unknown error in file upload."
 msgstr "Gabim i panjohur në ngarkimin e filit."
 
-#: libraries/classes/File.php:469
+#: libraries/classes/File.php:470
 msgid "File is a symbolic link"
 msgstr "Skedari është një lidhje simbolike"
 
-#: libraries/classes/File.php:474 libraries/classes/File.php:566
+#: libraries/classes/File.php:475 libraries/classes/File.php:567
 msgid "File could not be read!"
 msgstr "Fili nuk mund të lexohej!"
 
-#: libraries/classes/File.php:514
+#: libraries/classes/File.php:515
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Gabim në lëvizjen e filit të ngarkuar, shiko [doc@faq1-11]FAQ 1.11[/doc]."
 
-#: libraries/classes/File.php:533
+#: libraries/classes/File.php:534
 msgid "Error while moving uploaded file."
 msgstr "Gabim gjatë lëvizjes së fileve të ngarkuara."
 
-#: libraries/classes/File.php:541
+#: libraries/classes/File.php:542
 msgid "Cannot read uploaded file."
 msgstr "Nuk mund të lexojë filin e ngarkuar."
 
-#: libraries/classes/File.php:621
+#: libraries/classes/File.php:622
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -8540,12 +8540,12 @@ msgid "Print view"
 msgstr "Shfaq printimin"
 
 #: libraries/classes/Import.php:136 libraries/classes/InsertEdit.php:193
-#: libraries/classes/Rte/Routines.php:1506 libraries/classes/Sql.php:1344
+#: libraries/classes/Rte/Routines.php:1506 libraries/classes/Sql.php:1346
 #: tbl_get_field.php:75
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ktheu një set rezultati të zbrazët (psh. zero radhë)."
 
-#: libraries/classes/Import.php:296 libraries/classes/Sql.php:1358
+#: libraries/classes/Import.php:296 libraries/classes/Sql.php:1360
 msgid "[ROLLBACK occurred.]"
 msgstr "[RIKTHIMI u shfaq.]"
 
@@ -8589,7 +8589,7 @@ msgstr "Redakto strukturën duke ndjekur lidhjen \"Struktura\"."
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:37
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:60
 #: libraries/classes/Plugins/Import/ImportOds.php:52
-#: libraries/classes/Plugins/Import/ImportShp.php:62
+#: libraries/classes/Plugins/Import/ImportShp.php:63
 #: libraries/classes/Plugins/Import/ImportSql.php:51
 #: libraries/classes/Plugins/Import/ImportXml.php:51
 #: libraries/classes/Rte/Routines.php:962 templates/console/display.twig:7
@@ -8626,12 +8626,12 @@ msgstr "Struktura e %s"
 msgid "Go to view: %s"
 msgstr "Shko tek pamja: %s"
 
-#: libraries/classes/Import.php:1394
+#: libraries/classes/Import.php:1395
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Vetëm pyetsorët me tabelë të vetme UPDATE dhe DELETE mund të simulohen."
 
-#: libraries/classes/Import.php:1621
+#: libraries/classes/Import.php:1622
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -8828,21 +8828,21 @@ msgstr ""
 msgid "Value"
 msgstr "Vlera"
 
-#: libraries/classes/InsertEdit.php:2343 libraries/classes/Sql.php:1341
+#: libraries/classes/InsertEdit.php:2343 libraries/classes/Sql.php:1343
 msgid "Showing SQL query"
 msgstr "Shfaqën pyetsorin SQL"
 
-#: libraries/classes/InsertEdit.php:2368 libraries/classes/Sql.php:1319
+#: libraries/classes/InsertEdit.php:2368 libraries/classes/Sql.php:1321
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID e radhës së futur: %1$d"
 
-#: libraries/classes/LanguageManager.php:946
+#: libraries/classes/LanguageManager.php:953
 msgid "Ignoring unsupported language code."
 msgstr "Injorimi i kodit të pambështetur të gjuhës."
 
-#: libraries/classes/LanguageManager.php:974
-#: libraries/classes/LanguageManager.php:975 templates/setup/home/index.twig:8
+#: libraries/classes/LanguageManager.php:981
+#: libraries/classes/LanguageManager.php:982 templates/setup/home/index.twig:8
 #: templates/setup/home/index.twig:9
 msgid "Language"
 msgstr "Gjuha"
@@ -10611,22 +10611,22 @@ msgstr ""
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Nuk mund të analizojë OpenDocument Spreadsheet!"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:59
+#: libraries/classes/Plugins/Import/ImportShp.php:60
 msgid "ESRI Shape File"
 msgstr "ESRI fil forme"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:91
-#: libraries/classes/Plugins/Import/ImportShp.php:170
+#: libraries/classes/Plugins/Import/ImportShp.php:92
+#: libraries/classes/Plugins/Import/ImportShp.php:171
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Ka një gabim në importimin e filit të formës ESRI: \"%s\"."
 
-#: libraries/classes/Plugins/Import/ImportShp.php:200
+#: libraries/classes/Plugins/Import/ImportShp.php:201
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "Zgjerimi i hapësirës MySQL nuk e mbështet tipin ESRI \"%s\"."
 
-#: libraries/classes/Plugins/Import/ImportShp.php:247
+#: libraries/classes/Plugins/Import/ImportShp.php:248
 msgid "The imported file does not contain any data!"
 msgstr "Fili i importuar nuk përmban ndonjë të dhënë!"
 
@@ -12572,20 +12572,20 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Nuk ka version stabil të ri të vlefshëm"
 
-#: libraries/classes/Sql.php:711
+#: libraries/classes/Sql.php:713
 msgid "Bookmark not created!"
 msgstr "Bookmark nuk u krijua!"
 
-#: libraries/classes/Sql.php:830
+#: libraries/classes/Sql.php:832
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Përdorimi i faqerojtësit \"%s\" si shfletues pyetsori standard."
 
-#: libraries/classes/Sql.php:1338
+#: libraries/classes/Sql.php:1340
 msgid "Showing as PHP code"
 msgstr "Shfaqën si kod PHP"
 
-#: libraries/classes/Sql.php:1724
+#: libraries/classes/Sql.php:1727
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12594,7 +12594,7 @@ msgstr ""
 "Zgjedhja aktuale nuk përmban një kolonë unike. Tiparet redaktimi i rrjetës, "
 "kutisë së kontrollit, Redakto, Kopjo dhe Fshij nuk janë në vlefshme. %s"
 
-#: libraries/classes/Sql.php:1738
+#: libraries/classes/Sql.php:1741
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12603,7 +12603,7 @@ msgstr ""
 "Zgjedhja aktuale nuk përmban një kolonë unike. Tiparet redaktimi i rrjetës, "
 "Redakto, Kopjo dhe Fshij mund të rezultojnë në sjellje të padëshiruar. %s"
 
-#: libraries/classes/Sql.php:1778
+#: libraries/classes/Sql.php:1781
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemet me indekset e tabelës `%s`"
@@ -13612,13 +13612,13 @@ msgid "Invalid table name"
 msgstr "Emër tabele i pavlefshëm"
 
 #. l10n: In case a SQL query did not pass a security check
-#: tbl_get_field.php:62
+#: tbl_get_field.php:62 transformation_wrapper.php:80
 #, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
 msgstr "Ka shumë bashkime pa indekse."
 
-#: tbl_replace.php:266
+#: tbl_replace.php:267
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Radhë: %1$s, Kolonë: %2$s, Gabim: %3$s"

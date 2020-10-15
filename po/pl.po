@@ -1,9 +1,9 @@
 # iMutrix <lord_dark@wp.pl>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.0.3-dev\n"
+"Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-08-16 18:25-0300\n"
+"POT-Creation-Date: 2020-10-10 13:41-0300\n"
 "PO-Revision-Date: 2020-08-30 19:38+0000\n"
 "Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-0/pl/"
@@ -38,7 +38,7 @@ msgstr "Pokazano wiersze %1$s - %2$s."
 msgid "View dump (schema) of database"
 msgstr "Zobacz zrzut (schemat) bazy danych"
 
-#: db_export.php:67 db_tracking.php:105 export.php:420
+#: db_export.php:67 db_tracking.php:105 export.php:423
 #: libraries/classes/Database/Qbe.php:363
 #: templates/database/structure/index.twig:19
 #: templates/navigation/tree/path.twig:9
@@ -138,7 +138,7 @@ msgstr "Zapytanie według przykładu"
 msgid "Switch to %svisual builder%s"
 msgstr "Przełącz do %svisual builder%s"
 
-#: db_search.php:46 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
+#: db_search.php:47 libraries/classes/Plugins/Auth/AuthenticationConfig.php:86
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:101
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
 #: libraries/classes/Plugins/AuthenticationPlugin.php:195
@@ -194,7 +194,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Jeśli chcesz, możesz odświeżyć stronę."
 
-#: export.php:316
+#: export.php:319
 msgid "Bad parameters!"
 msgstr "Złe parametry!"
 
@@ -241,7 +241,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nie udało się wczytać wtyczek importu. Proszę sprawdzić instalację!"
 
-#: import.php:605 libraries/classes/Sql.php:707 libraries/classes/Sql.php:1534
+#: import.php:605 libraries/classes/Sql.php:709 libraries/classes/Sql.php:1537
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Zakładka %s została utworzona."
@@ -1379,8 +1379,8 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definicja przechowywania funkcji musi zawierać deklarację RETURN!"
 
 #: js/messages.php:411 libraries/classes/Config/Forms/User/ExportForm.php:158
-#: libraries/classes/Display/Results.php:4729
-#: libraries/classes/Display/Results.php:4981 libraries/classes/Menu.php:382
+#: libraries/classes/Display/Results.php:4730
+#: libraries/classes/Display/Results.php:4982 libraries/classes/Menu.php:382
 #: libraries/classes/Menu.php:490 libraries/classes/Menu.php:619
 #: libraries/classes/Rte/RteList.php:193
 #: libraries/classes/Server/Privileges.php:2547
@@ -1437,10 +1437,10 @@ msgstr "Ukryj okno zapytań"
 msgid "Show query box"
 msgstr "Pokaż okno zapytań"
 
-#: js/messages.php:430 libraries/classes/CentralColumns.php:941
+#: js/messages.php:430 libraries/classes/CentralColumns.php:955
 #: libraries/classes/Config/Descriptions.php:828
-#: libraries/classes/Display/Results.php:3261
-#: libraries/classes/Display/Results.php:4704 libraries/classes/Index.php:742
+#: libraries/classes/Display/Results.php:3262
+#: libraries/classes/Display/Results.php:4705 libraries/classes/Index.php:742
 #: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:648
 #: libraries/classes/Util.php:1136 libraries/classes/Util.php:3454
 #: libraries/classes/Util.php:3455 templates/console/bookmark_content.twig:7
@@ -1452,9 +1452,9 @@ msgstr "Pokaż okno zapytań"
 msgid "Edit"
 msgstr "Edytuj"
 
-#: js/messages.php:431 libraries/classes/CentralColumns.php:948
-#: libraries/classes/Display/Results.php:3338
-#: libraries/classes/Display/Results.php:4693
+#: js/messages.php:431 libraries/classes/CentralColumns.php:962
+#: libraries/classes/Display/Results.php:3339
+#: libraries/classes/Display/Results.php:4694
 #: libraries/classes/Server/UserGroups.php:148
 #: libraries/classes/SqlQueryForm.php:441 libraries/classes/Tracking.php:298
 #: templates/console/bookmark_content.twig:7
@@ -1474,9 +1474,9 @@ msgid "%d is not valid row number."
 msgstr "%d nie jest prawidłowym numerem wiersza."
 
 #: js/messages.php:433
-#: libraries/classes/Controllers/Table/SearchController.php:390
-#: libraries/classes/Controllers/Table/SearchController.php:942
-#: tbl_change.php:165 templates/sql/relational_column_dropdown.twig:3
+#: libraries/classes/Controllers/Table/SearchController.php:395
+#: libraries/classes/Controllers/Table/SearchController.php:951
+#: tbl_change.php:166 templates/sql/relational_column_dropdown.twig:3
 msgid "Browse foreign values"
 msgstr "Przeglądaj zewnętrzne wartości"
 
@@ -1644,7 +1644,7 @@ msgstr "Wybrano następujące zależności:"
 msgid "No dependencies selected!"
 msgstr "Nie wybrano żadnych zależności!"
 
-#: js/messages.php:491 libraries/classes/CentralColumns.php:965
+#: js/messages.php:491 libraries/classes/CentralColumns.php:979
 #: libraries/classes/InsertEdit.php:1841
 #: templates/columns_definitions/column_definitions_form.twig:152
 #: templates/server/variables/index.twig:9
@@ -1731,13 +1731,13 @@ msgid "Data point content"
 msgstr "Treść punktu danych"
 
 #: js/messages.php:528 js/messages.php:696 js/messages.php:713
-#: libraries/classes/ErrorHandler.php:393 libraries/classes/InsertEdit.php:3033
+#: libraries/classes/ErrorHandler.php:393 libraries/classes/InsertEdit.php:3037
 #: templates/table/index_form.twig:145 templates/table/index_form.twig:181
 msgid "Ignore"
 msgstr "Ignoruj"
 
-#: js/messages.php:529 libraries/classes/Display/Results.php:3265
-#: libraries/classes/Display/Results.php:4712 libraries/classes/Util.php:306
+#: js/messages.php:529 libraries/classes/Display/Results.php:3266
+#: libraries/classes/Display/Results.php:4713 libraries/classes/Util.php:306
 msgid "Copy"
 msgstr "Kopiuj"
 
@@ -1988,8 +1988,8 @@ msgid ""
 "from ORDER BY clause"
 msgstr ""
 "Skrót klawiszowy Shift+Kliknięcie dodaje tę kolumnę do przypadku ORDER BY "
-"lub przełącza ASC/DESC. <br/> Skrót klawiaturowy CTRL+Kliknięcie lub Alt+"
-"Kliknięcie (Mac: Shift+Opcja+Kliknięcie) usuwa te kolumnę z przypadku ORDER "
+"lub przełącza ASC/DESC. <br/> Skrót klawiaturowy CTRL+Kliknięcie lub Alt"
+"+Kliknięcie (Mac: Shift+Opcja+Kliknięcie) usuwa te kolumnę z przypadku ORDER "
 "BY"
 
 #: js/messages.php:607
@@ -2062,7 +2062,7 @@ msgstr "Tutaj upuść pliki"
 msgid "Select database first"
 msgstr "Najpierw wybierz bazę danych"
 
-#: js/messages.php:635 libraries/classes/Display/Results.php:4870
+#: js/messages.php:635 libraries/classes/Display/Results.php:4871
 #: templates/database/data_dictionary/index.twig:64
 #: templates/database/structure/index.twig:12
 #: templates/table/structure/display_structure.twig:381
@@ -2156,7 +2156,7 @@ msgstr ", ostatnia stabilna wersja:"
 msgid "up to date"
 msgstr "aktualna"
 
-#: js/messages.php:686 libraries/classes/Display/Results.php:4801
+#: js/messages.php:686 libraries/classes/Display/Results.php:4802
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "Utwórz widok"
@@ -2333,7 +2333,7 @@ msgstr "Tabela %s już istnieje!"
 msgid "Hide"
 msgstr "Ukryj"
 
-#: js/messages.php:768 tbl_change.php:170
+#: js/messages.php:768 tbl_change.php:171
 #: templates/database/multi_table_query/form.twig:48
 #: templates/database/tracking/tables.twig:19
 #: templates/table/tracking/main.twig:33
@@ -2807,7 +2807,7 @@ msgstr "TAK"
 msgid "NO"
 msgstr "NIE"
 
-#: libraries/classes/CentralColumns.php:1014
+#: libraries/classes/CentralColumns.php:1028
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:490
 #: libraries/classes/Plugins/Export/ExportOdt.php:613
 #: libraries/classes/Plugins/Export/ExportTexytext.php:454
@@ -2824,7 +2824,7 @@ msgstr "NIE"
 msgid "Name"
 msgstr "Nazwa"
 
-#: libraries/classes/CentralColumns.php:1015 libraries/classes/Index.php:717
+#: libraries/classes/CentralColumns.php:1029 libraries/classes/Index.php:717
 #: libraries/classes/InsertEdit.php:322
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:298
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:394
@@ -2853,13 +2853,13 @@ msgstr "Nazwa"
 msgid "Type"
 msgstr "Typ"
 
-#: libraries/classes/CentralColumns.php:1016
+#: libraries/classes/CentralColumns.php:1030
 #: libraries/classes/Rte/Routines.php:961
 #: templates/columns_definitions/table_fields_definitions.twig:16
 msgid "Length/Values"
 msgstr "Długość/Wartości"
 
-#: libraries/classes/CentralColumns.php:1017
+#: libraries/classes/CentralColumns.php:1031
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:304
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:400
 #: libraries/classes/Plugins/Export/ExportLatex.php:542
@@ -2881,7 +2881,7 @@ msgstr "Długość/Wartości"
 msgid "Default"
 msgstr "Ustawienia domyślne"
 
-#: libraries/classes/CentralColumns.php:1018 libraries/classes/Index.php:722
+#: libraries/classes/CentralColumns.php:1032 libraries/classes/Index.php:722
 #: libraries/classes/Operations.php:311 libraries/classes/Operations.php:1139
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/database/central_columns/main.twig:33
@@ -2898,7 +2898,7 @@ msgstr "Ustawienia domyślne"
 msgid "Collation"
 msgstr "Metoda porównywania napisów"
 
-#: libraries/classes/CentralColumns.php:1019
+#: libraries/classes/CentralColumns.php:1033
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:687
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:720
 #: templates/columns_definitions/table_fields_definitions.twig:27
@@ -2906,7 +2906,7 @@ msgstr "Metoda porównywania napisów"
 msgid "Attributes"
 msgstr "Atrybuty"
 
-#: libraries/classes/CentralColumns.php:1020 libraries/classes/Index.php:723
+#: libraries/classes/CentralColumns.php:1034 libraries/classes/Index.php:723
 #: libraries/classes/InsertEdit.php:1958
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:301
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:397
@@ -2929,7 +2929,7 @@ msgstr "Atrybuty"
 msgid "Null"
 msgstr "Null"
 
-#: libraries/classes/CentralColumns.php:1021
+#: libraries/classes/CentralColumns.php:1035
 #: templates/database/central_columns/main.twig:45
 #: templates/database/central_columns/main.twig:264
 msgid "A_I"
@@ -4933,8 +4933,8 @@ msgid ""
 "Leave blank for no column comments/media (MIME) types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Pozostaw puste bez uwag typu kolumn/mime, zasugerował: "
-"[kbd]pma_column_info[/kbd]."
+"Pozostaw puste bez uwag typu kolumn/mime, zasugerował: [kbd]pma_column_info[/"
+"kbd]."
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Column information table"
@@ -5001,8 +5001,8 @@ msgid ""
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
 "Więcej informacji pod adresem: [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970] Narzędzie do śledzenia problemów phpMyAdmin[/a] i "
-"[a@https://bugs.mysql.com/19588]Błędy MySQL[/a]"
+"issues/8970] Narzędzie do śledzenia problemów phpMyAdmin[/a] i [a@https://"
+"bugs.mysql.com/19588]Błędy MySQL[/a]"
 
 #: libraries/classes/Config/Descriptions.php:644
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5181,7 +5181,8 @@ msgstr "Tabela relacji"
 #: libraries/classes/Config/Descriptions.php:709
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr "Zobacz przykład [doc@authentication-modes]typy uwierzytelniania [/doc]."
+msgstr ""
+"Zobacz przykład [doc@authentication-modes]typy uwierzytelniania [/doc]."
 
 #: libraries/classes/Config/Descriptions.php:712
 msgid "Signon session name"
@@ -5682,8 +5683,8 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
-"Wprowadź serwery pośredniczące (proxy) jako [kbd]IP: zaufany nagłówek "
-"HTTP[/kbd]. Następujący przykład określa jak phpMyAdmin powinien polegać na "
+"Wprowadź serwery pośredniczące (proxy) jako [kbd]IP: zaufany nagłówek HTTP[/"
+"kbd]. Następujący przykład określa jak phpMyAdmin powinien polegać na "
 "nagłówku HTTP_X_FORWARDED_FOR (X-Forwarded-For) przesłanym przez serwer "
 "pośredniczący (proxy) 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
@@ -6312,7 +6313,7 @@ msgid "Table %s has been emptied."
 msgstr "Tabela %s została opróżniona."
 
 #: libraries/classes/Controllers/Database/StructureController.php:727
-#: libraries/classes/Display/Results.php:4554
+#: libraries/classes/Display/Results.php:4555
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -7353,8 +7354,8 @@ msgid "Display column was successfully updated."
 msgstr "Kolumna wyświetlania została pomyślnie zaktualizowana."
 
 #: libraries/classes/Controllers/Table/RelationController.php:281
-#: libraries/classes/Controllers/Table/SearchController.php:640
-#: libraries/classes/Display/Results.php:4227 libraries/classes/Message.php:177
+#: libraries/classes/Controllers/Table/SearchController.php:649
+#: libraries/classes/Display/Results.php:4228 libraries/classes/Message.php:177
 #: libraries/classes/Rte/Routines.php:1485
 #: libraries/classes/SqlQueryForm.php:100 tbl_row_action.php:145
 #: view_operations.php:82
@@ -7365,15 +7366,15 @@ msgstr "Zapytanie SQL zostało wykonane pomyślnie."
 msgid "Internal relationships were successfully updated."
 msgstr "Relacje wewnętrzne zostały pomyślnie zaktualizowane."
 
-#: libraries/classes/Controllers/Table/SearchController.php:865
+#: libraries/classes/Controllers/Table/SearchController.php:874
 msgid "Table search"
 msgstr "Wyszukiwanie tabeli"
 
-#: libraries/classes/Controllers/Table/SearchController.php:872
+#: libraries/classes/Controllers/Table/SearchController.php:881
 msgid "Zoom search"
 msgstr "Powiększ wyszukiwanie"
 
-#: libraries/classes/Controllers/Table/SearchController.php:877
+#: libraries/classes/Controllers/Table/SearchController.php:886
 #: templates/table/search/selection_form.twig:180
 msgid "Find and replace"
 msgstr "Znajdź i Zamień"
@@ -7487,7 +7488,7 @@ msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Brak rozszerzenia %s. Proszę sprawdzić konfigurację PHP."
 
 #: libraries/classes/Core.php:863 libraries/mult_submits.inc.php:353
-#: tbl_operations.php:291 tbl_replace.php:374 templates/preview_sql.twig:3
+#: tbl_operations.php:291 tbl_replace.php:375 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Bez zmian"
 
@@ -7919,59 +7920,59 @@ msgstr "Malejąco"
 msgid "Ascending"
 msgstr "Rosnąco"
 
-#: libraries/classes/Display/Results.php:3314
-#: libraries/classes/Display/Results.php:3329
+#: libraries/classes/Display/Results.php:3315
+#: libraries/classes/Display/Results.php:3330
 msgid "The row has been deleted."
 msgstr "Wiersz został usunięty."
 
-#: libraries/classes/Display/Results.php:3361
-#: libraries/classes/Display/Results.php:4693
+#: libraries/classes/Display/Results.php:3362
+#: libraries/classes/Display/Results.php:4694
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Zabij"
 
-#: libraries/classes/Display/Results.php:4153
+#: libraries/classes/Display/Results.php:4154
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Może być w przybliżeniu. Zobacz [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4566
+#: libraries/classes/Display/Results.php:4567
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Pokazano wiersze %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4580
+#: libraries/classes/Display/Results.php:4581
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d ogółem, %2$d w zapytaniu"
 
-#: libraries/classes/Display/Results.php:4585
+#: libraries/classes/Display/Results.php:4586
 #, php-format
 msgid "%d total"
 msgstr "%d ogółem"
 
-#: libraries/classes/Display/Results.php:4597 libraries/classes/Sql.php:1350
+#: libraries/classes/Display/Results.php:4598 libraries/classes/Sql.php:1352
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Wykonanie zapytania trwało %01.4f sekund(y)."
 
-#: libraries/classes/Display/Results.php:4847
+#: libraries/classes/Display/Results.php:4848
 msgid "Copy to clipboard"
 msgstr "Kopiuj do schowka"
 
-#: libraries/classes/Display/Results.php:4905
+#: libraries/classes/Display/Results.php:4906
 msgid "Query results operations"
 msgstr "Operacja na wynikach zapytania"
 
-#: libraries/classes/Display/Results.php:4992
+#: libraries/classes/Display/Results.php:4993
 #: templates/table/chart/tbl_chart.twig:10
 msgid "Display chart"
 msgstr "Wyświetlanie wykresu"
 
-#: libraries/classes/Display/Results.php:5015
+#: libraries/classes/Display/Results.php:5016
 msgid "Visualize GIS data"
 msgstr "Wizualizacja danych GIS"
 
-#: libraries/classes/Display/Results.php:5200
+#: libraries/classes/Display/Results.php:5201
 msgid "Link not found!"
 msgstr "Łącza nie znaleziono!"
 
@@ -8356,16 +8357,16 @@ msgstr "Serwer WWW nie ma uprawnień do zapisania tego pliku %s."
 msgid "Dump has been saved to file %s."
 msgstr "Zrzut został zapisany do pliku %s."
 
-#: libraries/classes/File.php:262
+#: libraries/classes/File.php:263
 msgid "File was not an uploaded file."
 msgstr "Plik nie został przesłanym plikiem."
 
-#: libraries/classes/File.php:304
+#: libraries/classes/File.php:305
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Przesłany plik przekracza dyrektywę upload_max_filesize w pliku php.ini."
 
-#: libraries/classes/File.php:310
+#: libraries/classes/File.php:311
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -8373,48 +8374,48 @@ msgstr ""
 "Przesłany plik przekracza dyrektywę MAX_FILE_SIZE, który został określony w "
 "formularzu HTML."
 
-#: libraries/classes/File.php:316
+#: libraries/classes/File.php:317
 msgid "The uploaded file was only partially uploaded."
 msgstr "Przesłany plik był tylko częściowo przesłany."
 
-#: libraries/classes/File.php:320
+#: libraries/classes/File.php:321
 msgid "Missing a temporary folder."
 msgstr "Brakuje folderu tymczasowego."
 
-#: libraries/classes/File.php:323
+#: libraries/classes/File.php:324
 msgid "Failed to write file to disk."
 msgstr "Nie udało się zapisać pliku na dysk."
 
-#: libraries/classes/File.php:326
+#: libraries/classes/File.php:327
 msgid "File upload stopped by extension."
 msgstr "Przesłanie pliku zostało zatrzymane przez rozszerzenie."
 
-#: libraries/classes/File.php:329
+#: libraries/classes/File.php:330
 msgid "Unknown error in file upload."
 msgstr "Nieznany błąd w przesyłania pliku."
 
-#: libraries/classes/File.php:469
+#: libraries/classes/File.php:470
 msgid "File is a symbolic link"
 msgstr "Plik jest dowiązaniem symbolicznym"
 
-#: libraries/classes/File.php:474 libraries/classes/File.php:566
+#: libraries/classes/File.php:475 libraries/classes/File.php:567
 msgid "File could not be read!"
 msgstr "Nie można odczytać pliku!"
 
-#: libraries/classes/File.php:514
+#: libraries/classes/File.php:515
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Błąd przenoszenia przesłanego pliku, patrz [doc@faq1-11]FAQ 1.11[/doc]."
 
-#: libraries/classes/File.php:533
+#: libraries/classes/File.php:534
 msgid "Error while moving uploaded file."
 msgstr "Błąd podczas przenoszenia plików na serwerze."
 
-#: libraries/classes/File.php:541
+#: libraries/classes/File.php:542
 msgid "Cannot read uploaded file."
 msgstr "Nie można odczytać przesłanego pliku."
 
-#: libraries/classes/File.php:621
+#: libraries/classes/File.php:622
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -8448,12 +8449,12 @@ msgid "Print view"
 msgstr "Podgląd wydruku"
 
 #: libraries/classes/Import.php:136 libraries/classes/InsertEdit.php:193
-#: libraries/classes/Rte/Routines.php:1506 libraries/classes/Sql.php:1344
+#: libraries/classes/Rte/Routines.php:1506 libraries/classes/Sql.php:1346
 #: tbl_get_field.php:75
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL zwrócił pusty wynik (zero wierszy)."
 
-#: libraries/classes/Import.php:296 libraries/classes/Sql.php:1358
+#: libraries/classes/Import.php:296 libraries/classes/Sql.php:1360
 msgid "[ROLLBACK occurred.]"
 msgstr "[Wystąpił ROLLBACK.]"
 
@@ -8496,7 +8497,7 @@ msgstr "Edytuj strukturę, klikając link \"Struktura\"."
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:37
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:60
 #: libraries/classes/Plugins/Import/ImportOds.php:52
-#: libraries/classes/Plugins/Import/ImportShp.php:62
+#: libraries/classes/Plugins/Import/ImportShp.php:63
 #: libraries/classes/Plugins/Import/ImportSql.php:51
 #: libraries/classes/Plugins/Import/ImportXml.php:51
 #: libraries/classes/Rte/Routines.php:962 templates/console/display.twig:7
@@ -8533,12 +8534,12 @@ msgstr "Struktura %s"
 msgid "Go to view: %s"
 msgstr "Przejdź do widoku: %s"
 
-#: libraries/classes/Import.php:1394
+#: libraries/classes/Import.php:1395
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Tylko dla pojedynczej tabeli zapytania UPDATE i DELETE mogą być symulowane."
 
-#: libraries/classes/Import.php:1621
+#: libraries/classes/Import.php:1622
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -8732,21 +8733,21 @@ msgstr ""
 msgid "Value"
 msgstr "Wartość"
 
-#: libraries/classes/InsertEdit.php:2343 libraries/classes/Sql.php:1341
+#: libraries/classes/InsertEdit.php:2343 libraries/classes/Sql.php:1343
 msgid "Showing SQL query"
 msgstr "Wyświetl zapytanie SQL"
 
-#: libraries/classes/InsertEdit.php:2368 libraries/classes/Sql.php:1319
+#: libraries/classes/InsertEdit.php:2368 libraries/classes/Sql.php:1321
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id wstawionego wiersza: %1$d"
 
-#: libraries/classes/LanguageManager.php:946
+#: libraries/classes/LanguageManager.php:953
 msgid "Ignoring unsupported language code."
 msgstr "Zignorowanie nieobsługiwanego kodu języka."
 
-#: libraries/classes/LanguageManager.php:974
-#: libraries/classes/LanguageManager.php:975 templates/setup/home/index.twig:8
+#: libraries/classes/LanguageManager.php:981
+#: libraries/classes/LanguageManager.php:982 templates/setup/home/index.twig:8
 #: templates/setup/home/index.twig:9
 msgid "Language"
 msgstr "Język"
@@ -10489,22 +10490,22 @@ msgstr ""
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Nie można przeanalizować arkusza kalkulacyjnego OpenDocument!"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:59
+#: libraries/classes/Plugins/Import/ImportShp.php:60
 msgid "ESRI Shape File"
 msgstr "Plik kształtu ESRI"
 
-#: libraries/classes/Plugins/Import/ImportShp.php:91
-#: libraries/classes/Plugins/Import/ImportShp.php:170
+#: libraries/classes/Plugins/Import/ImportShp.php:92
+#: libraries/classes/Plugins/Import/ImportShp.php:171
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Wystąpił błąd podczas importowania pliku kształtów ESRI: \"%s\"."
 
-#: libraries/classes/Plugins/Import/ImportShp.php:200
+#: libraries/classes/Plugins/Import/ImportShp.php:201
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial Extension nie obsługuje typu ESRI \"%s\"."
 
-#: libraries/classes/Plugins/Import/ImportShp.php:247
+#: libraries/classes/Plugins/Import/ImportShp.php:248
 msgid "The imported file does not contain any data!"
 msgstr "Importowany plik nie zawiera żadnych danych!"
 
@@ -10693,10 +10694,10 @@ msgstr ""
 "ExternalTransformationsPlugin.php i wyświetlić listę narzędzi, które chcesz "
 "udostępnić. Pierwsza opcja to numer programu, którego chcesz użyć. Druga "
 "opcja powinna być pusta ze względów historycznych. Trzecia opcja, jeśli jest "
-"ustawiona na 1, konwertuje dane wyjściowe za pomocą htmlspecialchars () ("
-"domyślnie 1). Czwarta opcja, jeśli jest ustawiona na 1, zapobiegnie "
-"zawijaniu i zapewni, że dane wyjściowe pojawią się w jednym wierszu ("
-"domyślnie 1)."
+"ustawiona na 1, konwertuje dane wyjściowe za pomocą htmlspecialchars () "
+"(domyślnie 1). Czwarta opcja, jeśli jest ustawiona na 1, zapobiegnie "
+"zawijaniu i zapewni, że dane wyjściowe pojawią się w jednym wierszu "
+"(domyślnie 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -12431,20 +12432,20 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Nowsza stabilna wersja nie jest dostępna"
 
-#: libraries/classes/Sql.php:711
+#: libraries/classes/Sql.php:713
 msgid "Bookmark not created!"
 msgstr "Zakładka nie utworzona!"
 
-#: libraries/classes/Sql.php:830
+#: libraries/classes/Sql.php:832
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Korzystanie z zakładki \"%s\" jako domyślne przeglądanie zapytania."
 
-#: libraries/classes/Sql.php:1338
+#: libraries/classes/Sql.php:1340
 msgid "Showing as PHP code"
 msgstr "Pokaż jako kod PHP"
 
-#: libraries/classes/Sql.php:1724
+#: libraries/classes/Sql.php:1727
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12453,7 +12454,7 @@ msgstr ""
 "Bieżący wybór nie zawiera unikalnej kolumny. Opcje edycji siatki, pola "
 "wyboru, edycji, kopiowania i usuwania są niedostępne. %s"
 
-#: libraries/classes/Sql.php:1738
+#: libraries/classes/Sql.php:1741
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12462,7 +12463,7 @@ msgstr ""
 "Bieżący wybór nie zawiera unikalnej kolumny. Funkcje edycji siatki, edycji, "
 "kopiowania i usuwania mogą powodować niepożądane zachowania. %s"
 
-#: libraries/classes/Sql.php:1778
+#: libraries/classes/Sql.php:1781
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemy z indeksami tabeli `%s`"
@@ -13463,11 +13464,11 @@ msgid "Invalid table name"
 msgstr "Niewłaściwa nazwa tabeli"
 
 #. l10n: In case a SQL query did not pass a security check
-#: tbl_get_field.php:62
+#: tbl_get_field.php:62 transformation_wrapper.php:80
 msgid "There is an issue with your request."
 msgstr "Wystąpił problem z Twoją prośbą."
 
-#: tbl_replace.php:266
+#: tbl_replace.php:267
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Linia: %1$s, Kolumna: %2$s, Błąd: %3$s"
@@ -14542,9 +14543,8 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Nazwa skompresowanego pliku musi kończyć się na "
-"<strong>.[format].[compression]</strong>. Przykład: <strong> .sql.zip "
-"</strong>"
+"Nazwa skompresowanego pliku musi kończyć się na <strong>.[format]."
+"[compression]</strong>. Przykład: <strong> .sql.zip </strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -17467,9 +17467,8 @@ msgid ""
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
 "Połączenia są zwykle przerywane, gdy nie można ich autoryzować. <a href="
-"\"https://www.percona.com/blog/2008/08/23/"
-"how-to-track-down-the-source-of-aborted_connects/\">Ten artykuł</a> może "
-"pomóc w odnalezieniu źródła."
+"\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Ten artykuł</a> może pomóc w odnalezieniu źródła."
 
 #: libraries/advisory_rules_generic.txt:336
 #, php-format
@@ -17612,13 +17611,13 @@ msgid ""
 msgstr ""
 "To zwykle wystarczy ustawić {innodb_log_file_size} na 25%% o wielkości "
 "{innodb_buffer_pool_size}. Bardzo duży {innodb_log_file_size} spowalnia czas "
-"odzyskiwania po awarii bazy danych znacznie. Zobacz także <a href=\"https"
-"://www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\""
-">ten artykuł</a>. Musisz wyłączyć serwer, należy usunąć pliki InnoDB "
-"dziennika ustaw nową wartość w my.cnf, uruchomić serwer, a następnie "
-"sprawdzić logi o błędach, jeśli wszystko poszło dobrze. Zobacz także <a href="
-"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">ten wpis bloga</a>"
+"odzyskiwania po awarii bazy danych znacznie. Zobacz także <a href=\"https://"
+"www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">ten "
+"artykuł</a>. Musisz wyłączyć serwer, należy usunąć pliki InnoDB dziennika "
+"ustaw nową wartość w my.cnf, uruchomić serwer, a następnie sprawdzić logi o "
+"błędach, jeśli wszystko poszło dobrze. Zobacz także <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">ten wpis bloga</a>"
 
 #: libraries/advisory_rules_generic.txt:380
 #, php-format

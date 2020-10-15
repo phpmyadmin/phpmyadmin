@@ -1,5 +1,8 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * This file is internal to phpMyAdmin.
+ * @license see the main phpMyAdmin license.
+ *
  * @fileoverview    A jquery plugin that allows drag&drop sorting in tables.
  *                  Coded because JQuery UI sortable doesn't support tables. Also it has no animation
  *
@@ -12,7 +15,7 @@
 /* Options:
 
 $('table').sortableTable({
-    ignoreRect: { top, left, width, height }  - relative coordinates on each element. If the user clicks 
+    ignoreRect: { top, left, width, height }  - relative coordinates on each element. If the user clicks
                                                in this area, it is not seen as a drag&drop request. Useful for toolbars etc.
     events: {
        start: callback function when the user starts dragging
@@ -27,27 +30,27 @@ $('table').sortableTable('init')      - equivalent to $('table').sortableTable()
 $('table').sortableTable('refresh')   - if the table has been changed, refresh correctly assigns all events again
 $('table').sortableTable('destroy')   - removes all events from the table
 
-*/ 
+*/
 
-/* Setup: 
+/* Setup:
 
-  Can be applied on any table, there is just one convention. 
-  Each cell (<td>) has to contain one and only one element (preferably div or span) 
+  Can be applied on any table, there is just one convention.
+  Each cell (<td>) has to contain one and only one element (preferably div or span)
   which is the actually draggable element.
 */
 (function($) {
 	jQuery.fn.sortableTable = function(method) {
-	
+
 		var methods = {
 			init : function(options) {
 				var tb = new sortableTableInstance(this, options);
 				tb.init();
 				$(this).data('sortableTable',tb);
 			},
-			refresh : function( ) { 
+			refresh : function( ) {
 				$(this).data('sortableTable').refresh();
 			},
-			destroy : function( ) { 
+			destroy : function( ) {
 				$(this).data('sortableTable').destroy();
 			}
 		};
@@ -58,34 +61,34 @@ $('table').sortableTable('destroy')   - removes all events from the table
 			return methods.init.apply( this, arguments );
 		} else {
 			$.error( 'Method ' +  method + ' does not exist on jQuery.sortableTable' );
-		}    
-	
+		}
+
 		function sortableTableInstance(table, options) {
 			var down = false;
 			var	$draggedEl, oldCell, previewMove, id;
-			
+
 			if(!options) options = {};
-			
+
 			/* Mouse handlers on the child elements */
-			var onMouseUp = function(e) { 
-				dropAt(e.pageX, e.pageY); 
+			var onMouseUp = function(e) {
+				dropAt(e.pageX, e.pageY);
 			}
-			
+
 			var onMouseDown = function(e) {
 				$draggedEl = $(this).children();
 				if($draggedEl.length == 0) return;
 				if(options.ignoreRect && insideRect({x: e.pageX - $draggedEl.offset().left, y: e.pageY - $draggedEl.offset().top}, options.ignoreRect)) return;
-				
+
 				down = true;
 				oldCell = this;
 				//move(e.pageX,e.pageY);
-				
+
 				if(options.events && options.events.start)
 					options.events.start(this);
 
 				return false;
 			}
-			
+
 			var globalMouseMove = function(e) {
 				if(down) {
 					move(e.pageX,e.pageY);
@@ -93,7 +96,7 @@ $('table').sortableTable('destroy')   - removes all events from the table
 					if(inside($(oldCell), e.pageX, e.pageY)) {
 						if(previewMove != null) {
 							moveTo(previewMove);
-							previewMove = null;					
+							previewMove = null;
 						}
 					} else
 						$(table).find('td').each(function() {
@@ -107,15 +110,15 @@ $('table').sortableTable('destroy')   - removes all events from the table
 											left: $(oldCell).offset().left - $(previewMove).parent().offset().left
 										} });
 								}
-								
+
 								return false;
 							}
 						});
 				}
-				
+
 				return false;
 			}
-			
+
 			var globalMouseOut = function() {
 				if(down) {
 					down = false;
@@ -124,17 +127,17 @@ $('table').sortableTable('destroy')   - removes all events from the table
 					previewMove = null;
 				}
 			}
-			
+
 			// Initialize sortable table
 			this.init = function() {
 				id = 1;
 				// Add some required css to each child element in the <td>s
 				$(table).find('td').children().each(function() {
-					// Remove any old occurences of our added draggable-num class
+					// Remove any old occurrences of our added draggable-num class
 					$(this).attr('class',$(this).attr('class').replace(/\s*draggable\-\d+/g,''));
 					$(this).addClass('draggable-' + (id++));
 				});
-				
+
 				// Mouse events
 				$(table).find('td').bind('mouseup',onMouseUp);
 				$(table).find('td').bind('mousedown',onMouseDown);
@@ -142,96 +145,96 @@ $('table').sortableTable('destroy')   - removes all events from the table
 				$(document).mousemove(globalMouseMove);
 				$(document).bind('mouseleave', globalMouseOut);
 			}
-			
+
 			// Call this when the table has been updated
 			this.refresh = function() {
 				this.destroy();
 				this.init();
 			}
-			
+
 			this.destroy = function() {
 				// Add some required css to each child element in the <td>s
 				$(table).find('td').children().each(function() {
-					// Remove any old occurences of our added draggable-num class
+					// Remove any old occurrences of our added draggable-num class
 					$(this).attr('class',$(this).attr('class').replace(/\s*draggable\-\d+/g,''));
 				});
-				
+
 				// Mouse events
 				$(table).find('td').unbind('mouseup',onMouseUp)
 				$(table).find('td').unbind('mousedown',onMouseDown);
-					
+
 				$(document).unbind('mousemove',globalMouseMove);
 				$(document).unbind('mouseleave',globalMouseOut);
 			}
-			
+
 			function switchElement(drag, dropTo) {
-				var dragPosDiff = { 
-					left: $(drag).children().first().offset().left - $(dropTo).offset().left, 
-					top:  $(drag).children().first().offset().top - $(dropTo).offset().top 
+				var dragPosDiff = {
+					left: $(drag).children().first().offset().left - $(dropTo).offset().left,
+					top:  $(drag).children().first().offset().top - $(dropTo).offset().top
 				};
-				
+
 				var dropPosDiff = null;
 				if($(dropTo).children().length > 0) {
 					dropPosDiff = {
 						left: $(dropTo).children().first().offset().left - $(drag).offset().left,
-						top:  $(dropTo).children().first().offset().top - $(drag).offset().top 
+						top:  $(dropTo).children().first().offset().top - $(drag).offset().top
 					};
 				}
-				
+
 				/* I love you append(). It moves the DOM Elements so gracefully <3 */
 				// Put the element in the way to old place
 				$(drag).append($(dropTo).children().first()).children()
 					.stop(true,true)
 					.bind('mouseup',onMouseUp);
-				
+
 				if(dropPosDiff)
 					$(drag).append($(dropTo).children().first()).children()
 						.css('left',dropPosDiff.left + 'px')
 						.css('top',dropPosDiff.top + 'px');
-					
+
 				// Put our dragged element into the space we just freed up
 				$(dropTo).append($(drag).children().first()).children()
 					.bind('mouseup',onMouseUp)
 					.css('left',dragPosDiff.left + 'px')
 					.css('top',dragPosDiff.top + 'px');
-				
+
 				moveTo($(dropTo).children().first(), { duration: 100 });
 				moveTo($(drag).children().first(), { duration: 100 });
-					
+
 				if(options.events && options.events.drop) {
 					// Drop event. The drag child element is moved into the drop element
 					// and vice versa. So the parameters are switched.
-					
+
 					// Calculate row and column index
 					colIdx = $(dropTo).prevAll().length;
 					rowIdx = $(dropTo).parent().prevAll().length;
-					
+
 					options.events.drop(drag,dropTo, { col: colIdx, row: rowIdx });
 				}
 			}
-			
+
 			function move(x,y) {
 				$draggedEl.offset({
-					top: Math.min($(document).height(), Math.max(0, y - $draggedEl.height()/2)), 
+					top: Math.min($(document).height(), Math.max(0, y - $draggedEl.height()/2)),
 					left: Math.min($(document).width(), Math.max(0, x - $draggedEl.width()/2))
 				});
 			}
-			
+
 			function inside($el, x,y) {
 				var off = $el.offset();
 				return y >= off.top && x >= off.left && x < off.left + $el.width() && y < off.top + $el.height();
 			}
-			
+
 			function insideRect(pos, r) {
 				return pos.y > r.top && pos.x > r.left && pos.y < r.top + r.height && pos.x < r.left + r.width;
 			}
-			
+
 			function dropAt(x,y) {
 				if(!down) return;
 				down = false;
-				
+
 				var switched = false;
-				
+
 				$(table).find('td').each(function() {
 					if($(this).children().first().attr('class') != $(oldCell).children().first().attr('class') && inside($(this), x, y)) {
 						switchElement(oldCell, this);
@@ -244,15 +247,15 @@ $('table').sortableTable('destroy')   - removes all events from the table
 					if(previewMove) moveTo(previewMove);
 					moveTo($draggedEl);
 				}
-				
+
 				previewMove = null;
 			}
-			
+
 			function moveTo(elem, opts) {
 				if(!opts) opts = {};
 				if(!opts.pos) opts.pos = { left: 0, top: 0 };
 				if(!opts.duration) opts.duration = 200;
-				
+
 				$(elem).css('position','relative');
 				$(elem).animate({ top: opts.pos.top, left: opts.pos.left }, {
 					duration: opts.duration,
@@ -268,5 +271,5 @@ $('table').sortableTable('destroy')   - removes all events from the table
 			}
 		}
 	}
-	
+
 })( jQuery );

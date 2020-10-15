@@ -838,10 +838,6 @@ class Tracker
 
         // If we found a valid statement
         if (isset($result['identifier'])) {
-            if (! self::isTracked($dbname, $result['tablename'])) {
-                return;
-            }
-
             $version = self::getVersion(
                 $dbname,
                 $result['tablename'],
@@ -875,6 +871,10 @@ class Tracker
 
             // If version exists
             if ($version != -1) {
+                if (! self::isTracked($dbname, $result['tablename'])) {
+                    return;
+                }
+
                 if ($result['type'] == 'DDL') {
                     $save_to = 'schema_sql';
                 } elseif ($result['type'] == 'DML') {
