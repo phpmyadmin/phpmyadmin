@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 14:18-0300\n"
-"PO-Revision-Date: 2020-10-15 06:53+0000\n"
+"PO-Revision-Date: 2020-10-15 18:28+0000\n"
 "Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
@@ -2837,7 +2837,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:427
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Активира импортирането с плъзгане и пускане"
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid "Uncheck the checkbox to disable drag and drop import"
