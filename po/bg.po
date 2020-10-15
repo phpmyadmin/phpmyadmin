@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-10-14 10:02+0000\n"
+"PO-Revision-Date: 2020-10-15 06:53+0000\n"
 "Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "bg/>\n"
@@ -2373,8 +2373,6 @@ msgid "%d object(s) created."
 msgstr "%d обект(а) бяха създадени."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "Име на колона"
 
@@ -2721,16 +2719,15 @@ msgstr "Силна"
 
 #: js/messages.php:751
 msgid "Timed out waiting for security key activation."
-msgstr "Свърши времето за активиране със защитен ключ."
+msgstr "Изтече времето за изчакване на активирането на защитния ключ."
 
 #: js/messages.php:752
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr "Защитената активация е неуспешна (%s)."
+msgstr "Неуспешно активиране на ключ за защита (%s)."
 
 #: js/messages.php:755
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3200,7 +3197,7 @@ msgstr "Колоните немога да бъдат изтрити!"
 
 #: libraries/classes/CentralColumns.php:626
 msgid "YES"
-msgstr "ДА"
+msgstr "Да"
 
 #: libraries/classes/CentralColumns.php:626
 msgid "NO"
@@ -3310,7 +3307,7 @@ msgstr "Двоичен"
 #: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:604
 msgctxt "Collation"
 msgid "Unicode"
-msgstr "Уникод"
+msgstr "Unicode"
 
 #: libraries/classes/Charsets.php:375 libraries/classes/Charsets.php:551
 msgctxt "Collation"
@@ -3318,6 +3315,7 @@ msgid "West European"
 msgstr "Западно-европейски"
 
 #: libraries/classes/Charsets.php:382
+#, fuzzy
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Централно европейски"
@@ -3592,22 +3590,16 @@ msgid "accent-sensitive"
 msgstr "чувствително към регистъра"
 
 #: libraries/classes/Charsets.php:679
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "чувствително към регистъра"
+msgstr "чувствителен към kana"
 
 #: libraries/classes/Charsets.php:683
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "многоезичен"
+msgstr "многостепенно"
 
 #: libraries/classes/Charsets.php:686
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "двоичен"
@@ -3615,7 +3607,7 @@ msgstr "двоичен"
 #: libraries/classes/Charsets.php:689
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "без изравняване"
 
 #: libraries/classes/Config.php:1132
 #, php-format
@@ -3664,12 +3656,12 @@ msgstr "Сървър %d"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Ако е включено, потребителят може да въведе MySQL сървър във формата за "
-"удостоверяване с бисквитка."
+"Ако е включено, потребителят може да въведе произволен MySQL сървър във "
+"формата за удостоверяване с бисквитки."
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
-msgstr "Позволяване вход към всеки MySQL сървър"
+msgstr "Разрешено включване към произволен MySQL сървър"
 
 #: libraries/classes/Config/Descriptions.php:67
 msgid ""
@@ -3680,7 +3672,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:72
 msgid "Restrict login to MySQL server"
-msgstr "Ограничаване на входа в MySQL сървъра"
+msgstr "Ограничаване на влизането в MySQL сървър"
 
 #: libraries/classes/Config/Descriptions.php:75
 msgid ""
@@ -4237,6 +4229,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Добавяне на IF NOT EXISTS (при създаването на таблицата ще се генерират по-"
+"малко ефективни като индекси)"
 
 #: libraries/classes/Config/Descriptions.php:391
 msgid "Use ignore inserts"
@@ -4540,6 +4534,9 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
+"Настройте конфигурацията за съхранение на phpMyAdmin за да получите достъп "
+"до допълнителните функции, вижте в документацията [doc@linked-tables]"
+"phpMyAdmin конфигурация за съхранение[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:546
 msgid "Changes tracking"
@@ -4603,6 +4600,8 @@ msgstr "БД структура"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
+"Изберете кои детайли да се показват в структурата на базата данни (списък на "
+"таблиците)."
 
 #: libraries/classes/Config/Descriptions.php:573
 #: libraries/classes/Plugins/Export/ExportPdf.php:277
@@ -4612,7 +4611,7 @@ msgstr "Структура на таблица"
 
 #: libraries/classes/Config/Descriptions.php:575
 msgid "Settings for the table structure (list of columns)."
-msgstr ""
+msgstr "Настройки за структурата на таблицата (списък на колоните)."
 
 #: libraries/classes/Config/Descriptions.php:577
 msgid "Tabs"
@@ -4690,10 +4689,12 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
+"Ако е разрешено, phpMyAdmin продължава да изпълнява съставните заявки, дори "
+"ако една от заявките не може да се изпълни."
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Игнориране на грешките при съставните заявки"
 
 #: libraries/classes/Config/Descriptions.php:622
 msgid ""
@@ -12101,10 +12102,8 @@ msgstr "Вие добавихте нов потребител."
 
 #: libraries/classes/Server/Select.php:53
 #: libraries/classes/Server/Select.php:58
-#, fuzzy
-#| msgid "Current server"
 msgid "Current server:"
-msgstr "Текущ сървър"
+msgstr "Текущ сървър:"
 
 #: libraries/classes/Server/Status.php:68
 #, php-format
@@ -13345,10 +13344,8 @@ msgid "Bind parameters"
 msgstr "Свързване на параметри"
 
 #: libraries/classes/SqlQueryForm.php:308
-#, fuzzy
-#| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "Отбелязване SQL заявката"
+msgstr "Отбелязване на SQL заявката:"
 
 #: libraries/classes/SqlQueryForm.php:322
 msgid "Replace existing bookmark of same name"
@@ -14292,10 +14289,8 @@ msgid "Two-factor authentication has been removed."
 msgstr "Добавена е вътрешна релация"
 
 #: prefs_twofactor.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Невалиден метод за удостоверяване в конфогурацията:"
+msgstr "Двуфакторната идентификация е конфигурирана."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -15514,10 +15509,8 @@ msgid "column(s)"
 msgstr "Добавяне колона(и)"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
 msgid "Collation:"
-msgstr "Колация"
+msgstr "Колация:"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 #, fuzzy
@@ -15526,10 +15519,8 @@ msgid "Storage Engine:"
 msgstr "Хранилище"
 
 #: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
-msgstr "Връзки"
+msgstr "Връзка:"
 
 #: templates/columns_definitions/column_definitions_form.twig:128
 msgid "PARTITION definition:"
@@ -15621,10 +15612,8 @@ msgid "Deactivate now"
 msgstr "Изключване сега"
 
 #: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export method"
 msgid "Export method:"
-msgstr "Метод за експортиране"
+msgstr "Метод за експортиране:"
 
 #: templates/display/export/method.twig:9
 msgid "Quick - display only the minimal options"
@@ -16328,10 +16317,8 @@ msgid "Convert to Kana"
 msgstr "Превърни на Кана"
 
 #: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "Position"
 msgid "Partition by:"
-msgstr "Положение"
+msgstr "Разделяне от:"
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
@@ -16344,19 +16331,15 @@ msgstr "Стойности за колоната %s"
 #, fuzzy
 #| msgid "Position"
 msgid "Partitions:"
-msgstr "Положение"
+msgstr "Дялове:"
 
 #: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "Position"
 msgid "Subpartition by:"
-msgstr "Положение"
+msgstr "Под-дялове от:"
 
 #: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "Position"
 msgid "Subpartitions:"
-msgstr "Положение"
+msgstr "Под-дялове:"
 
 #: templates/columns_definitions/partitions.twig:78
 #, fuzzy
@@ -16389,10 +16372,8 @@ msgid "Index directory"
 msgstr "Папка за качване на файлове"
 
 #: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Matched rows:"
 msgid "Max rows"
-msgstr "Съвпадащи редове:"
+msgstr "Максимален брой редове"
 
 #: templates/columns_definitions/partitions.twig:89
 #, fuzzy
@@ -16514,10 +16495,8 @@ msgid "Hide/Show tables with no relationship"
 msgstr "Показване/скриване таблици без релации"
 
 #: templates/database/designer/table_list.twig:25
-#, fuzzy
-#| msgid "Number of tables"
 msgid "Number of tables:"
-msgstr "Брой таблици"
+msgstr "Брой таблици:"
 
 #: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
@@ -16556,10 +16535,8 @@ msgid "Use this column in criteria"
 msgstr "Използване колоната като етикет за всяка точка"
 
 #: templates/database/multi_table_query/form.twig:53
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Критерии:"
+msgstr "критерии"
 
 #: templates/database/multi_table_query/form.twig:67
 #, fuzzy
@@ -17971,7 +17948,7 @@ msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit е установен на 1 MiB"
 
 #~ msgid "Search results for \"<i>%s</i>\" %s:"
 #~ msgstr "Резултати от търсенето на \"<i>%s</i>\" %s:"
