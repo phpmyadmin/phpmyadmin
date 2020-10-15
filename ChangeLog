@@ -1,11 +1,13 @@
 phpMyAdmin - ChangeLog
 ======================
 
-5.0.4 (not yet released)
+5.0.4 (2020-10-15)
 - issue #16245 Fix failed Zoom search clears existing values
 - issue        Fixed a PHP error when reporting a particular JS error
 - issue #16326 Fixed latitude and longitude swap for geometries in edit mode
 - issue #16032 Fix CREATE TABLE not being tracked when auto tracking is enabled
+- issue #16397 Fix compatibility problems with older PHP versions (also issue #16399)
+- issue #16396 Fix broken two-factor authentication
 
 5.0.3 (2020-10-09)
 - issue #15983 Require twig ^2.9
