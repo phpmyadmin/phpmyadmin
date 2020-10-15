@@ -360,7 +360,7 @@ class GisGeometryTest extends AbstractTestCase
                 . 'var line = new ol.geom.LinearRing(new Array((new ol'
                 . '.geom.Point([0,0]).transform(ol.proj.get("EPSG:4326'
                 . '"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()))'
-                . ';var coord = line.getCoordinates();for (var i = 0; i < coord.length; index++)'
+                . ';var coord = line.getCoordinates();for (var i = 0; i < coord.length; i++)'
                 . ' lineArr.push(coord[i]);arr.push(lineArr);var pol'
                 . 'ygon = new ol.geom.Polygon(arr);polygonArray.push(p'
                 . 'olygon);',

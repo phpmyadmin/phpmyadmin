@@ -471,13 +471,13 @@ class GisMultiLineStringTest extends GisGeomTestCase
                 . '7,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoord'
                 . 'inates(), (new ol.geom.Point([62,75]).transform(ol.proj.get("EPSG:4326"), ol.pro'
                 . 'j.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordinates();for (var i = 0;'
-                . ' i < coord.length; index++) lineArr.push(coord[i]);arr.push(lineArr);var lineArr = [];var lin'
+                . ' i < coord.length; i++) lineArr.push(coord[i]);arr.push(lineArr);var lineArr = [];var lin'
                 . 'e = new ol.geom.LineString(new Array((new ol.geom.Point([36,10]).transform(ol.pr'
                 . 'oj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom'
                 . '.Point([17,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))'
                 . '.getCoordinates(), (new ol.geom.Point([178,53]).transform(ol.proj.get("EPSG:4326'
                 . '"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordina'
-                . 'tes();for (var i = 0; i < coord.length; index++) lineArr.push(coord[i]);arr.push(lineArr);va'
+                . 'tes();for (var i = 0; i < coord.length; i++) lineArr.push(coord[i]);arr.push(lineArr);va'
                 . 'r multiLineString = new ol.geom.MultiLineString(arr);var feature = new ol.Feature({geometry:'
                 . ' multiLineString});feature.setStyle(style);vectorLayer.addFeature(feature);',
             ],
