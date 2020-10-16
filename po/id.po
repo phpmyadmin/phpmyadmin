@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 14:18-0300\n"
-"PO-Revision-Date: 2020-10-03 11:34+0000\n"
-"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
+"PO-Revision-Date: 2020-10-16 18:03+0000\n"
+"Last-Translator: Abdullah Ibnu Hibban <abd.ibnuhibban@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"X-Generator: Weblate 4.3.1-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: libraries/advisory_rules_generic.php:9
@@ -20,18 +20,17 @@ msgid "Uptime below one day"
 msgstr "Uptime kurang dari satu hari"
 
 #: libraries/advisory_rules_generic.php:12
-#, fuzzy
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr "Uptime kurang dari 1 hari, tuning kinerja mungkin tidak akurat."
 
 #: libraries/advisory_rules_generic.php:14
-#, fuzzy
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"Untuk memiliki rata-rata yang lebih akurat dianjurkan untuk membiarkan "
-"server berjalan selama lebih dari satu hari sebelum menjalankan analisa ini"
+"Untuk mendapatkan rata-rata yang lebih akurat, disarankan untuk membiarkan "
+"server berjalan lebih lama dari satu hari sebelum menjalankan penganalisis "
+"ini"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
@@ -51,13 +50,12 @@ msgstr ""
 "mungkin tidak akurat."
 
 #: libraries/advisory_rules_generic.php:30
-#, fuzzy
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
-"Biarkan server berjalan untuk waktu yang lama sampai telah dieksekusi "
-"sejumlah besar pertanyaan."
+"Biarkan server berjalan untuk waktu yang lebih lama hingga server tersebut "
+"mengeksekusi lebih banyak kueri."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
@@ -77,13 +75,12 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:57
-#, fuzzy
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
-"Anda mungkin ingin meningkatkan {long_query_time} atau mengoptimalkan query "
-"tercantum dalam log lambat permintaan"
+"Anda mungkin ingin meningkatkan {long_query_time} atau mengoptimalkan kueri "
+"yang tercantum di log kueri yang lambat"
 
 #: libraries/advisory_rules_generic.php:46
 #, php-format
@@ -95,37 +92,32 @@ msgid "Slow query rate"
 msgstr "Laju kueri lambat"
 
 #: libraries/advisory_rules_generic.php:55
-#, fuzzy
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
-"Ada persentase yang tinggi dari query lambat dibandingkan dengan server "
-"uptime."
+"Ada persentase yang tinggi dari kueri lambat dibandingkan dengan waktu aktif "
+"server."
 
 #: libraries/advisory_rules_generic.php:60
-#, fuzzy, php-format
-#| msgid ""
-#| "Aborted connections rate is at %s, this value should be less than 1 per "
-#| "hour"
+#, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Tingkat koneksi yang digugurkan adalah pada %s, hasil ini seharusnya kurang "
-"dari 1 per jam"
+"Anda memiliki tingkat kueri yang lambat sebesar %s per jam, Anda harus "
+"memiliki kurang dari 1%% per jam."
 
 #: libraries/advisory_rules_generic.php:65
 msgid "Long query time"
 msgstr "Waktu kueri panjang"
 
 #: libraries/advisory_rules_generic.php:69
-#, fuzzy
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
-"{long_query_time} diatur ke 10 detik atau lebih, sehingga hanya query lambat "
-"yang mengambil di atas 10 detik login."
+"{long_query_time} disetel ke 10 detik atau lebih, jadi hanya kueri lambat "
+"yang membutuhkan waktu di atas 10 detik yang dicatat."
 
 #: libraries/advisory_rules_generic.php:73
 #, fuzzy
@@ -149,28 +141,22 @@ msgstr "Log kueri lambat"
 
 #: libraries/advisory_rules_generic.php:85
 #: libraries/advisory_rules_generic.php:98
-#, fuzzy
-#| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log diaktifkan."
+msgstr "Log kueri yang lambat dinonaktifkan."
 
 #: libraries/advisory_rules_generic.php:87
-#, fuzzy
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
-"Aktifkan logging query lambar dengan menetapkan {log_slow_queries} ke 'ON'. "
-"Ini akan membantu pemecahan masalah buruk melakukan query."
+"Aktifkan pembuatan log kueri yang lambat dengan menyetel {log_slow_queries} "
+"ke 'ON'. Ini akan membantu memecahkan masalah kueri yang berkinerja buruk."
 
 #: libraries/advisory_rules_generic.php:90
-#, fuzzy
-#| msgid "long_query_time is set to %d second(s)."
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "long_query_time disetel menjadi %d detik."
+msgstr "log_slow_queries disetel ke 'OFF'"
 
 #: libraries/advisory_rules_generic.php:100
-#, fuzzy
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -179,10 +165,8 @@ msgstr ""
 "membantu pemecahan masalah pada query yang bekerja buruk."
 
 #: libraries/advisory_rules_generic.php:103
-#, fuzzy
-#| msgid "long_query_time is set to %d second(s)."
 msgid "slow_query_log is set to 'OFF'"
-msgstr "long_query_time disetel menjadi %d detik."
+msgstr "slow_query_log disetel ke 'OFF'"
 
 #: libraries/advisory_rules_generic.php:108
 msgid "Release Series"
@@ -193,12 +177,11 @@ msgid "The MySQL server version less than 5.1."
 msgstr "Versi Server MySQL dibawah 5.1."
 
 #: libraries/advisory_rules_generic.php:113
-#, fuzzy
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
-"Anda harus meng-upgrade, seperti MySQL 5.1 telah meningkatkan kinerja, dan "
+"Anda harus meningkatkan, karena MySQL 5.1 telah meningkatkan kinerja, dan "
 "MySQL 5.5 bahkan lebih."
 
 #: libraries/advisory_rules_generic.php:115
