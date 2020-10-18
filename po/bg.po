@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2020-10-16 02:02+0000\n"
+"PO-Revision-Date: 2020-10-18 09:58+0000\n"
 "Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "bg/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"X-Generator: Weblate 4.3.1-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1479,7 +1479,6 @@ msgid "No previously auto-saved query is available. Loading default query."
 msgstr "Няма запазена заявка. Зарежда се заявката по подразбиране."
 
 #: js/messages.php:435
-#, fuzzy
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
@@ -2948,11 +2947,9 @@ msgid "West European"
 msgstr "Западно-европейски"
 
 #: libraries/classes/Charsets/Collation.php:227
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Централно европейски"
+msgstr "Централно-европейски"
 
 #: libraries/classes/Charsets/Collation.php:232
 #: libraries/classes/Charsets/Collation.php:403
@@ -3014,110 +3011,80 @@ msgid "Hebrew"
 msgstr "Иврит"
 
 #: libraries/classes/Charsets/Collation.php:276
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Грузински"
 
 #: libraries/classes/Charsets/Collation.php:279
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Гръцки"
 
 #: libraries/classes/Charsets/Collation.php:282
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Чехословашки"
 
 #: libraries/classes/Charsets/Collation.php:285
 #: libraries/classes/Charsets/Collation.php:441
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Украински"
 
 #: libraries/classes/Charsets/Collation.php:288
 #: libraries/classes/Charsets/Collation.php:437
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Турски"
 
 #: libraries/classes/Charsets/Collation.php:291
 #: libraries/classes/Charsets/Collation.php:429
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Шведски"
 
 #: libraries/classes/Charsets/Collation.php:294
 #: libraries/classes/Charsets/Collation.php:433
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Тайландски"
 
 #: libraries/classes/Charsets/Collation.php:297
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "непознат"
 
 #: libraries/classes/Charsets/Collation.php:313
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Български"
 
 #: libraries/classes/Charsets/Collation.php:324
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Хърватски"
 
 #: libraries/classes/Charsets/Collation.php:328
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Чешки"
 
 #: libraries/classes/Charsets/Collation.php:332
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Датски"
 
 #: libraries/classes/Charsets/Collation.php:336
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Английски"
 
 #: libraries/classes/Charsets/Collation.php:340
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Есперанто"
 
 #: libraries/classes/Charsets/Collation.php:344
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Естонски"
@@ -3135,15 +3102,11 @@ msgid "German (phone book order)"
 msgstr "Германски (поръчка на телефонен указател)"
 
 #: libraries/classes/Charsets/Collation.php:359
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Унгарски"
 
 #: libraries/classes/Charsets/Collation.php:363
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Исландски"
@@ -3154,64 +3117,46 @@ msgid "Classical Latin"
 msgstr "Класическо латински"
 
 #: libraries/classes/Charsets/Collation.php:374
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Латвийски"
 
 #: libraries/classes/Charsets/Collation.php:378
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Литовски"
 
 #: libraries/classes/Charsets/Collation.php:386
-#, fuzzy
-#| msgid "Burmese"
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Бирмански"
 
 #: libraries/classes/Charsets/Collation.php:389
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Персийски"
 
 #: libraries/classes/Charsets/Collation.php:393
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Полски"
 
 #: libraries/classes/Charsets/Collation.php:400
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Румънски"
 
 #: libraries/classes/Charsets/Collation.php:407
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Синхалски"
 
 #: libraries/classes/Charsets/Collation.php:411
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Словашки"
 
 #: libraries/classes/Charsets/Collation.php:415
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Словенски"
@@ -3229,39 +3174,29 @@ msgid "Spanish (traditional)"
 msgstr "Испански (традиционен)"
 
 #: libraries/classes/Charsets/Collation.php:445
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Виетнамски"
 
 #: libraries/classes/Charsets/Collation.php:512
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "нечувствителен към регистъра"
 
 #: libraries/classes/Charsets/Collation.php:515
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "чувствително към регистъра"
 
 #: libraries/classes/Charsets/Collation.php:518
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "нечувствителен към регистъра"
+msgstr "нечувствително към акценти"
 
 #: libraries/classes/Charsets/Collation.php:521
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "чувствително към регистъра"
+msgstr "чувствително към акценти"
 
 #: libraries/classes/Charsets/Collation.php:524
 msgctxt "Collation variant"
@@ -3300,6 +3235,9 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Ограничава достъпа до MySQL сървъри, в които потребителят може да влиза. "
+"Достъпът до даден MySQL сървър се позволява, ако има съвпадение на IP адреса "
+"или името на хоста на MySQL сървъра към зададения Regex израз."
 
 #: libraries/classes/Config/Descriptions.php:76
 msgid "Restrict login to MySQL server"
@@ -3390,6 +3328,8 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Търси грешки в заявката, преди изпълнение. Изисква CodeMirror да бъде "
+"активиран."
 
 #: libraries/classes/Config/Descriptions.php:114
 msgid "Enable linter"
@@ -3467,6 +3407,8 @@ msgstr "Потвърждаване DROP заявки"
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
+"Регистриране на SQL заявките и тяхното време за изпълнение за да се покажат "
+"в конзолата"
 
 #: libraries/classes/Config/Descriptions.php:141
 #: templates/console/display.twig:11 templates/console/display.twig:64
@@ -3517,16 +3459,15 @@ msgstr "Показване на коментари към таблицата"
 #: libraries/classes/Config/Descriptions.php:152
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
+"Да се показват коментарите на колони при представяне структурата на таблицата"
 
 #: libraries/classes/Config/Descriptions.php:153
 msgid "Hide table structure actions"
 msgstr "Скриване на действията за промяна на структурата"
 
 #: libraries/classes/Config/Descriptions.php:154
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "Ред за сортиране по подразбиране"
+msgstr "Трансформации по подразбиране за Hex"
 
 #: libraries/classes/Config/Descriptions.php:155
 #: libraries/classes/Config/Descriptions.php:157
@@ -3543,52 +3484,36 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:156
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Substring"
-msgstr "Опции на трансформацията"
+msgstr "Трансформации по подразбиране за Substring"
 
 #: libraries/classes/Config/Descriptions.php:158
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Ред за сортиране по подразбиране"
+msgstr "Трансформации по подразбиране за Bool2Text"
 
 #: libraries/classes/Config/Descriptions.php:160
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Ред за сортиране по подразбиране"
+msgstr "Трансформации по подразбиране за External"
 
 #: libraries/classes/Config/Descriptions.php:162
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Опции на трансформацията"
+msgstr "Трансформации по подразбиране за PreApPend"
 
 #: libraries/classes/Config/Descriptions.php:164
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Ред за сортиране по подразбиране"
+msgstr "Трансформации по подразбиране за DateFormat"
 
 #: libraries/classes/Config/Descriptions.php:166
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Inline"
-msgstr "Опции на трансформацията"
+msgstr "Трансформации по подразбиране за Inline"
 
 #: libraries/classes/Config/Descriptions.php:168
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Опции на трансформацията"
+msgstr "Трансформации по подразбиране за TextImageLink"
 
 #: libraries/classes/Config/Descriptions.php:170
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Опции на трансформацията"
+msgstr "Трансформации по подразбиране за TextLink"
 
 #: libraries/classes/Config/Descriptions.php:173
 msgid "Show server listing as a list instead of a drop down."
@@ -3783,10 +3708,8 @@ msgstr "Етикет на ключа"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:557
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type"
-msgstr "MIME тип"
+msgstr "Медия (MIME) тип"
 
 #: libraries/classes/Config/Descriptions.php:219
 #: libraries/classes/Config/Descriptions.php:231
@@ -3979,61 +3902,49 @@ msgid "Developer"
 msgstr "Разработчик"
 
 #: libraries/classes/Config/Descriptions.php:293
-#, fuzzy
-#| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "Настройки за разработчици на phpMyAdmin"
+msgstr "Настройки за разработчици на phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:294
 msgid "Edit mode"
 msgstr "Редактиране"
 
 #: libraries/classes/Config/Descriptions.php:295
-#, fuzzy
-#| msgid "Customize edit mode"
 msgid "Customize edit mode."
-msgstr "Персонализиране на редактирането"
+msgstr "Персонализиране на редактирането."
 
 #: libraries/classes/Config/Descriptions.php:296
 msgid "Export defaults"
 msgstr "Настройки по подразбиране на експорта"
 
 #: libraries/classes/Config/Descriptions.php:297
-#, fuzzy
-#| msgid "Customize default export options"
 msgid "Customize default export options."
-msgstr "Персонализиране настройките по подразбиране на експорта"
+msgstr "Персонализиране настройките по подразбиране на експорта."
 
 #: libraries/classes/Config/Descriptions.php:298
 msgid "General"
 msgstr "Общи"
 
 #: libraries/classes/Config/Descriptions.php:299
-#, fuzzy
-#| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
-msgstr "Настройки, на някои често използвани опции"
+msgstr "Настройки, на някои често използвани опции."
 
 #: libraries/classes/Config/Descriptions.php:300
 msgid "Import defaults"
 msgstr "Настройки по подразбиране на импорта"
 
 #: libraries/classes/Config/Descriptions.php:301
-#, fuzzy
-#| msgid "Customize default common import options"
 msgid "Customize default common import options."
-msgstr "Персонализиране настройките по подразбиране на ипорта"
+msgstr "Персонализиране настройките по подразбиране на импорта."
 
 #: libraries/classes/Config/Descriptions.php:302
 msgid "Import / export"
 msgstr "Импорт / експорт"
 
 #: libraries/classes/Config/Descriptions.php:303
-#, fuzzy
-#| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
 msgstr ""
-"Настройки на директориите за импорт и експорт, и на опциите за компресиране"
+"Настройки на директориите за импорт и експорт, и на опциите за компресиране."
 
 #: libraries/classes/Config/Descriptions.php:304
 msgid "LaTeX"
@@ -4049,10 +3960,8 @@ msgid "Databases"
 msgstr "БД"
 
 #: libraries/classes/Config/Descriptions.php:307
-#, fuzzy
-#| msgid "Databases display options"
 msgid "Databases display options."
-msgstr "Опции за показване на БД"
+msgstr "Опции за показване на БД."
 
 #: libraries/classes/Config/Descriptions.php:308
 #: libraries/classes/Config/Forms/User/NaviForm.php:72
@@ -4062,10 +3971,8 @@ msgid "Navigation panel"
 msgstr "Управляваща рамка"
 
 #: libraries/classes/Config/Descriptions.php:309
-#, fuzzy
-#| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel."
-msgstr "Персонализиране изгледа на рамката за навигация"
+msgstr "Персонализиране изгледа на навигационния панел."
 
 #: libraries/classes/Config/Descriptions.php:310
 #, fuzzy
@@ -4074,10 +3981,8 @@ msgid "Navigation tree"
 msgstr "Управляваща рамка"
 
 #: libraries/classes/Config/Descriptions.php:311
-#, fuzzy
-#| msgid "Customize navigation frame"
 msgid "Customize the navigation tree."
-msgstr "Персонализиране рамката за навигация"
+msgstr "Персонализиране дървото за навигация."
 
 #: libraries/classes/Config/Descriptions.php:312
 #: libraries/classes/Server/Select.php:59 templates/setup/home/index.twig:34
@@ -4085,16 +3990,12 @@ msgid "Servers"
 msgstr "Сървъри"
 
 #: libraries/classes/Config/Descriptions.php:313
-#, fuzzy
-#| msgid "Servers display options"
 msgid "Servers display options."
-msgstr "Настройки показване сървъри"
+msgstr "Настройки за показване на списъка със сървъри."
 
 #: libraries/classes/Config/Descriptions.php:315
-#, fuzzy
-#| msgid "Tables display options"
 msgid "Tables display options."
-msgstr "Настройки показване таблици"
+msgstr "Настройки за показването на таблиците."
 
 #: libraries/classes/Config/Descriptions.php:316
 #: libraries/classes/Config/Forms/User/MainForm.php:96
@@ -4112,10 +4013,8 @@ msgid "Other core settings"
 msgstr "Други основни настройки"
 
 #: libraries/classes/Config/Descriptions.php:322
-#, fuzzy
-#| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
-msgstr "Настройки, които не са за другаде"
+msgstr "Други настройки."
 
 #: libraries/classes/Config/Descriptions.php:323
 msgid "Page titles"
@@ -4140,16 +4039,12 @@ msgid "Security"
 msgstr "Сигурност"
 
 #: libraries/classes/Config/Descriptions.php:331
-#, fuzzy
-#| msgid ""
-#| "Please note that phpMyAdmin is just a user interface and its features do "
-#| "not limit MySQL"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
 "Обърнете внимание, че phpMyAdmin е само потребителски интерфейс и неговите "
-"възможности не ограничават MySQL"
+"възможности не ограничават MySQL."
 
 #: libraries/classes/Config/Descriptions.php:334
 msgid "Basic settings"
@@ -4160,32 +4055,24 @@ msgid "Authentication"
 msgstr "Удостоверяване"
 
 #: libraries/classes/Config/Descriptions.php:336
-#, fuzzy
-#| msgid "Authentication settings"
 msgid "Authentication settings."
-msgstr "Настройки по удостоверяване"
+msgstr "Настройки за удостоверяване."
 
 #: libraries/classes/Config/Descriptions.php:337
 msgid "Server configuration"
 msgstr "Сървърна конфигурация"
 
 #: libraries/classes/Config/Descriptions.php:339
-#, fuzzy
-#| msgid ""
-#| "Advanced server configuration, do not change these options unless you "
-#| "know what they are for"
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
 msgstr ""
 "Разширена конфигурация на сървъра, не променяйте тези настройки, освен ако "
-"знаете за какво са"
+"знаете за какво са."
 
 #: libraries/classes/Config/Descriptions.php:342
-#, fuzzy
-#| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "Параметри за връзка със сървъра"
+msgstr "Параметри за връзка със сървъра."
 
 #: libraries/classes/Config/Descriptions.php:343
 msgid "Configuration storage"
@@ -4229,10 +4116,8 @@ msgid "SQL Query box"
 msgstr "SQL прозорец за заявки"
 
 #: libraries/classes/Config/Descriptions.php:356
-#, fuzzy
-#| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
-msgstr "Персонализиране на връзките показвани след изпълнение на SQL заявка"
+msgstr "Персонализирайте връзките, показвани в полетата на SQL заявка."
 
 #: libraries/classes/Config/Descriptions.php:358
 #: libraries/classes/Config/Forms/User/SqlForm.php:52
@@ -4240,20 +4125,16 @@ msgid "SQL queries"
 msgstr "SQL заявки"
 
 #: libraries/classes/Config/Descriptions.php:359
-#, fuzzy
-#| msgid "SQL queries settings"
 msgid "SQL queries settings."
-msgstr "Настройки на SQL заявките"
+msgstr "Настройки на SQL заявките."
 
 #: libraries/classes/Config/Descriptions.php:360
 msgid "Startup"
 msgstr "Начало"
 
 #: libraries/classes/Config/Descriptions.php:361
-#, fuzzy
-#| msgid "Customize startup page"
 msgid "Customize startup page."
-msgstr "Персонализиране началната страница"
+msgstr "Персонализиране на началната страница."
 
 #: libraries/classes/Config/Descriptions.php:362
 msgid "Database structure"
@@ -4281,10 +4162,8 @@ msgid "Tabs"
 msgstr "Подпрозорци"
 
 #: libraries/classes/Config/Descriptions.php:367
-#, fuzzy
-#| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
-msgstr "Изберете поведението на разделите"
+msgstr "Изберете поведението на разделите."
 
 #: libraries/classes/Config/Descriptions.php:368
 msgid "Display relational schema"
@@ -4301,10 +4180,8 @@ msgid "Text fields"
 msgstr "Текстови полета"
 
 #: libraries/classes/Config/Descriptions.php:374
-#, fuzzy
-#| msgid "Customize text input fields"
 msgid "Customize text input fields."
-msgstr "Персонализиране на текстовите полета"
+msgstr "Персонализиране на текстовите полета."
 
 #: libraries/classes/Config/Descriptions.php:375
 msgid "Texy! text"
@@ -4319,10 +4196,8 @@ msgid "Warnings"
 msgstr "Предупреждения"
 
 #: libraries/classes/Config/Descriptions.php:378
-#, fuzzy
-#| msgid "Disable some of the warnings shown by phpMyAdmin"
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "Скрива някои от предупрежденията, показвани от phpMyAdmin"
+msgstr "Скрива някои от предупрежденията, показвани от phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:379
 #: templates/console/display.twig:4
@@ -4330,14 +4205,8 @@ msgid "Console"
 msgstr "Конзола"
 
 #: libraries/classes/Config/Descriptions.php:381
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations"
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Включване на [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] компресия при "
-"импорт и експорт"
+msgstr "Активирайте gzip компресия за операции по импортиране и експортиране."
 
 #: libraries/classes/Config/Descriptions.php:384
 msgid "GZip"
@@ -4372,11 +4241,11 @@ msgstr "Активира импортирането с плъзгане и пу�
 
 #: libraries/classes/Config/Descriptions.php:397
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "Махнете отметката за да позволите импорт чрез провлачване с мишката"
 
 #: libraries/classes/Config/Descriptions.php:398
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Частичен импорт: позволява прекъсване"
 
 #: libraries/classes/Config/Descriptions.php:403
 #: libraries/classes/Config/Descriptions.php:414
@@ -4384,22 +4253,26 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportLdi.php:80
 msgid "Do not abort on INSERT error"
 msgstr ""
+"Да не се прекъсва операцията при възникване на грешка по време на INSERT"
 
 #: libraries/classes/Config/Descriptions.php:404
 #: libraries/classes/Config/Descriptions.php:416
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Добавяне на ON DUPLICATE KEY UPDATE"
 
 #: libraries/classes/Config/Descriptions.php:405
 #: libraries/classes/Config/Descriptions.php:417
 msgid "Update data when duplicate keys found on import"
 msgstr ""
+"Актуализиране на данните при наличие на дублирани ключове при импортиране"
 
 #: libraries/classes/Config/Descriptions.php:408
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
 msgstr ""
+"Формат по подразбиране; имайте предвид, че този списък зависи от "
+"местоположението (база данни, таблица) и само SQL е винаги наличен."
 
 #: libraries/classes/Config/Descriptions.php:411
 msgid "Format of imported file"
@@ -4428,14 +4301,12 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Импортиране процентите като десетични числа (12.00% към .12)"
 
 #: libraries/classes/Config/Descriptions.php:423
-#, fuzzy
-#| msgid "Number of queries to skip from start"
 msgid "Number of queries to skip from start."
-msgstr "Брой заявки, които да бъдат пропуснати от началото"
+msgstr "Брой заявки, които да бъдат пропуснати от началото."
 
 #: libraries/classes/Config/Descriptions.php:424
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "Частично импортиране: пропускане на заявки"
 
 #: libraries/classes/Config/Descriptions.php:426
 msgid "Do not use AUTO_INCREMENT for zero values"
@@ -4452,10 +4323,8 @@ msgid "Initial state for sliders"
 msgstr "Първоначално състояние за плъзгачите"
 
 #: libraries/classes/Config/Descriptions.php:429
-#, fuzzy
-#| msgid "How many rows can be inserted at one time"
 msgid "How many rows can be inserted at one time."
-msgstr "Колко реда да бъдат импортирани наведнъж"
+msgstr "Брой редове, които могат да бъдат вмъкнати наведнъж."
 
 #: libraries/classes/Config/Descriptions.php:430
 msgid "Number of inserted rows"
@@ -4476,6 +4345,10 @@ msgid ""
 "only occurs for the current server. Setting this to FALSE makes it easy to "
 "forget to log out from other servers when connected to multiple servers."
 msgstr ""
+"Ако е TRUE, излизането изтрива бисквитките за всички сървъри; когато е "
+"зададено на FALSE, излизането се извършва само за текущия сървър. Ако "
+"зададете това на FALSE, лесно можете да забравите да излезете от другите "
+"сървъри. (Когато сте свързани към няколко сървъра.)"
 
 #: libraries/classes/Config/Descriptions.php:438
 msgid "Delete all cookies on logout"
@@ -4514,20 +4387,16 @@ msgid "Login cookie validity"
 msgstr "Валидност на бисквитката за вход"
 
 #: libraries/classes/Config/Descriptions.php:453
-#, fuzzy
-#| msgid "Double size of textarea for LONGTEXT columns"
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr "Двойни текстови полета за колони тип LONGTEXT"
+msgstr "Двоен размер на текстовите полета за LONGTEXT колони ."
 
 #: libraries/classes/Config/Descriptions.php:454
 msgid "Bigger textarea for LONGTEXT"
 msgstr "По-голямо текстово поле за LONGTEXT"
 
 #: libraries/classes/Config/Descriptions.php:455
-#, fuzzy
-#| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr "Максимален брой скоро отваряни таблици; 0 за забрана"
+msgstr "Максимален брой знаци, използвани при извеждането на SQL заявка."
 
 #: libraries/classes/Config/Descriptions.php:456
 msgid "Maximum displayed SQL length"
@@ -4540,10 +4409,8 @@ msgid "Users cannot set a higher value"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:458
-#, fuzzy
-#| msgid "Maximum number of records saved in \"table_uiprefs\" table"
 msgid "Maximum number of databases displayed in database list."
-msgstr "Максимален брой записи в таблица \"table_uiprefs\""
+msgstr "Максимален брой бази данни показвани в списъка."
 
 #: libraries/classes/Config/Descriptions.php:459
 msgid "Maximum databases"
@@ -4582,10 +4449,8 @@ msgid "Maximum number of rows to display"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:474
-#, fuzzy
-#| msgid "Maximum number of records saved in \"table_uiprefs\" table"
 msgid "Maximum number of tables displayed in table list."
-msgstr "Максимален брой записи в таблица \"table_uiprefs\""
+msgstr "Максимален брой таблици, показани в списъка на таблиците."
 
 #: libraries/classes/Config/Descriptions.php:475
 msgid "Maximum tables"
@@ -4608,26 +4473,22 @@ msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:482
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
-msgstr "Показване на скритото навигационно дърво."
+msgstr "Представяне на навигацията в БД като дърво"
 
 #: libraries/classes/Config/Descriptions.php:483
-#, fuzzy
-#| msgid "Navigation frame"
 msgid "Navigation panel width"
-msgstr "Управляваща рамка"
+msgstr "Ширина на навигационния панел"
 
 #: libraries/classes/Config/Descriptions.php:484
-#, fuzzy
-#| msgid "Show logo in left frame"
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Показване логото в лявата рамка"
+msgstr "Задайте на 0, за да свиете навигационния панел."
 
 #: libraries/classes/Config/Descriptions.php:485
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
+"Свързване с главния панел чрез оцветяване наа текущата база данни или "
+"таблица."
 
 #: libraries/classes/Config/Descriptions.php:487
 #, fuzzy
@@ -9430,10 +9291,9 @@ msgid "The third step of normalization is complete."
 msgstr ""
 
 #: libraries/classes/Normalization.php:779
-#, fuzzy, php-format
-#| msgid "Selected target tables have been synchronized with source tables."
+#, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr "Избраните целеви таблици бяха синхронизирани с изходните."
+msgstr "Избраната повтаряща се група е преместена в таблицата '%s'"
 
 #: libraries/classes/Normalization.php:830
 msgid "Step 3."
@@ -10196,10 +10056,9 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:300
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "Сесийна стойност"
+msgstr "%s стойност"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:349
 msgid ""
@@ -10326,16 +10185,14 @@ msgid "Metadata"
 msgstr "Заглавки на метаданните"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1102
-#, fuzzy, php-format
-#| msgid "Metadata Headers"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "Заглавки на метаданните"
+msgstr "Метаданни за таблица %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1109
-#, fuzzy, php-format
-#| msgid "Metadata Headers"
+#, php-format
 msgid "Metadata for database %s"
-msgstr "Заглавки на метаданните"
+msgstr "Метаданни за база данни %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1439
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:649
@@ -10417,10 +10274,9 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2255
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Грешка при четене на данни:"
+msgstr "Грешка при четене на данните за таблица %s:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Object creation options (all are recommended)"
@@ -10598,10 +10454,9 @@ msgid "PDF export page"
 msgstr "Невалиден тип експорт"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:115
-#, fuzzy, php-format
-#| msgid "Schema of the %s database - Page %s"
+#, php-format
 msgid "Schema of the %s database"
-msgstr "Схема на БД %s - страница %s"
+msgstr "Схема на базата данни %s"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:143
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:553
@@ -11138,25 +10993,27 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Relation.php:2168
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr "Липсват таблици от хранилището за конфигурация на phpMyAdmin"
+msgstr ""
+"%sСъздаване%s на база данни с име \"phpmyadmin\" и настройване на "
+"конфигурацията на phpMyAdmin да бъде запазена там."
 
 #: libraries/classes/Relation.php:2176
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "Липсват таблици от хранилището за конфигурация на phpMyAdmin"
+msgstr ""
+"%sСъздаване%s на phpMyAdmin конфигурационно хранилище в текущата база данни."
 
 #: libraries/classes/Relation.php:2184
-#, fuzzy, php-format
-#| msgid "Missing phpMyAdmin configuration storage tables"
+#, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "Липсват таблици от хранилището за конфигурация на phpMyAdmin"
+msgstr ""
+"%sСъздаване%s на липсващите таблици за съхранение на конфигурация на "
+"phpMyAdmin."
 
 #: libraries/classes/ReplicationGui.php:423
 msgid ""
@@ -12592,30 +12449,23 @@ msgid "Showing as PHP code"
 msgstr "Показване като PHP-код"
 
 #: libraries/classes/Sql.php:1727
-#, fuzzy, php-format
-#| msgid ""
-#| "This table does not contain a unique column. Features related to the grid "
-#| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
+#, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"Тази таблица не съдържа уникална колона. Функциите, свързани с мрежата за "
-"редакция, отметката, връзките редактиране, копиране и изтриване може да не "
-"работят след запазване."
+"Тази таблица не съдържа уникална колона. Редактирането на мрежа, поставянето "
+"на отметки, функциите редактиране, копиране и изтриване не са достъпни. %s"
 
 #: libraries/classes/Sql.php:1741
-#, fuzzy, php-format
-#| msgid ""
-#| "This table does not contain a unique column. Features related to the grid "
-#| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
+#, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
-"Тази таблица не съдържа уникална колона. Функциите, свързани с мрежата за "
-"редакция, отметката, връзките редактиране, копиране и изтриване може да не "
-"работят след запазване."
+"Текущата селекция не съдържа уникална колона. Функциите за редактиране на "
+"мрежа, редактиране, копиране и изтриване могат да доведат до нежелано "
+"поведение. %s"
 
 #: libraries/classes/Sql.php:1781
 #, php-format
@@ -12785,10 +12635,9 @@ msgstr ""
 "Грешка при създаването на външен ключ върху %1$s (проверете типа данни)"
 
 #: libraries/classes/Template.php:112
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Грешка при зареждане на търсенето."
+msgstr "Грешка при работа с кеша за шаблони: %s"
 
 #: libraries/classes/ThemeManager.php:98
 #, php-format
@@ -13647,7 +13496,7 @@ msgstr "Колация:"
 #, fuzzy
 #| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Хранилище"
+msgstr "Storage Engine:"
 
 #: templates/columns_definitions/column_definitions_form.twig:81
 msgid "Connection:"
@@ -13662,10 +13511,9 @@ msgid "Edit ENUM/SET values"
 msgstr ""
 
 #: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "Изберете посочвания ключ"
+msgstr "Позовава се на %s."
 
 #: templates/columns_definitions/column_name.twig:12
 #, fuzzy
@@ -13991,10 +13839,9 @@ msgid "Create version %1$s of %2$s"
 msgstr "Създаване на версия %1$s от %2$s"
 
 #: templates/create_tracking_version.twig:16
-#, fuzzy, php-format
-#| msgid "Create version"
+#, php-format
 msgid "Create version %1$s"
-msgstr "Създаване на версия"
+msgstr "Създаване на версия %1$s"
 
 #: templates/create_tracking_version.twig:20
 msgid "Track these data definition statements:"
@@ -14084,10 +13931,9 @@ msgid "See table structure"
 msgstr "Структура на таблица"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Маркиране на всички"
+msgstr "Изберете \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -14490,10 +14336,9 @@ msgid "Add to Favorites"
 msgstr ""
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Създаване на потребител"
+msgstr "Създаване на %s"
 
 #: templates/database/structure/show_create.twig:2
 #, fuzzy
@@ -14717,16 +14562,12 @@ msgid "Dump all rows"
 msgstr "Схема на всички редове"
 
 #: templates/display/export/selection.twig:3
-#, fuzzy
-#| msgid "Databases"
 msgid "Databases:"
-msgstr "БД"
+msgstr "Бази данни:"
 
 #: templates/display/export/template_loading.twig:2
-#, fuzzy
-#| msgid "Export type"
 msgid "Export templates:"
-msgstr "Тип експорт"
+msgstr "Експортиране на шаблони:"
 
 #: templates/display/export/template_loading.twig:6
 #, fuzzy
@@ -14835,10 +14676,8 @@ msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr "Брой редове, които да бъдат пропуснати от началото:"
 
 #: templates/display/import/import.twig:162
-#, fuzzy
-#| msgid "Options"
 msgid "Other options:"
-msgstr "Настройки"
+msgstr "Други опции:"
 
 #: templates/display/import/javascript.twig:12
 msgid ""
@@ -14914,10 +14753,8 @@ msgid "Well Known Binary"
 msgstr "Добре позната двоична стойност"
 
 #: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "Сортиране по ключ"
+msgstr "Сортиране по ключ:"
 
 #: templates/display/results/table_navigation.twig:26
 msgid "Save edited data"
@@ -14962,30 +14799,24 @@ msgid "Define new aliases"
 msgstr ""
 
 #: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select database:"
-msgstr "Избор на таблици"
+msgstr "Изберете база данни:"
 
 #: templates/export/alias_add.twig:15
 msgid "New database name"
 msgstr "Ново име на БД"
 
 #: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select table:"
-msgstr "Избор на таблици"
+msgstr "Изберете таблица:"
 
 #: templates/export/alias_add.twig:29
 msgid "New table name"
 msgstr "Име на нова таблица"
 
 #: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Изберете колона."
+msgstr "Изберете колона:"
 
 #: templates/export/alias_add.twig:43
 #, fuzzy
@@ -15037,10 +14868,9 @@ msgstr "Точка:"
 #: templates/gis_data_editor_form.twig:93
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:186
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Точка %d"
+msgstr "Точка %d:"
 
 #: templates/gis_data_editor_form.twig:113
 #, php-format
@@ -15100,10 +14930,8 @@ msgid "General settings"
 msgstr "Общи настройки"
 
 #: templates/home/index.twig:45
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Колация на връзката към сървъра"
+msgstr "Колация на връзката към сървъра:"
 
 #: templates/home/index.twig:72
 msgid "Appearance settings"
@@ -15192,10 +15020,8 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:16
 #: templates/login/twofactor/application.twig:2
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Удостоверяване"
+msgstr "Код за удостоверяване:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
@@ -15514,10 +15340,9 @@ msgid "Slave replication"
 msgstr "Подчинен сървър"
 
 #: templates/server/databases/index.twig:179
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Прескачане до БД"
+msgstr "Прескачане към базата данни \"%s'"
 
 #: templates/server/databases/index.twig:241
 #, php-format
@@ -15675,22 +15500,17 @@ msgid ""
 msgstr ""
 
 #: templates/server/replication/change_master.twig:26
-#, fuzzy
-#| msgid "Port"
 msgid "Port:"
-msgstr "Порт"
+msgstr "Порт:"
 
 #: templates/server/replication/index.twig:16
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Този сървър не е настроен като главен за репликация. Желаете ли да го <a "
-"href=\"%s\">настроите</a>?"
+"Този сървър не е конфигуриран като главен в процес на репликация. Искате ли "
+"да го %sконфигурирате%s?"
 
 #: templates/server/replication/index.twig:35
 #, fuzzy
@@ -15722,10 +15542,8 @@ msgid "No password"
 msgstr "Без парола"
 
 #: templates/server/replication/master_add_slave_user.twig:70
-#, fuzzy
-#| msgid "Generate password"
 msgid "Generate password:"
-msgstr "Генериране на парола"
+msgstr "Генериране на парола:"
 
 #: templates/server/replication/master_configuration.twig:2
 msgid "Master configuration"
@@ -15787,10 +15605,8 @@ msgstr ""
 "списък."
 
 #: templates/server/replication/slave_configuration.twig:4
-#, fuzzy
-#| msgid "Master configuration"
 msgid "Master connection:"
-msgstr "Конфигурация на главния"
+msgstr "Главно свързване:"
 
 #: templates/server/replication/slave_configuration.twig:24
 msgid "Slave SQL Thread not running!"
@@ -15848,22 +15664,18 @@ msgid "Skip current error"
 msgstr "Прескачане на текущата"
 
 #: templates/server/replication/slave_configuration.twig:86
-#, fuzzy, php-format
-#| msgid "Skip current error"
+#, php-format
 msgid "Skip next %s errors."
-msgstr "Прескачане на текущата"
+msgstr "Пропуснете следващите %s грешки."
 
 #: templates/server/replication/slave_configuration.twig:106
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Този сървър не е настроен като подчинен в репликация. Желаете ли да го <a "
-"href=\"%s\">настроите</a>?"
+"Този сървър не е конфигуриран като подчинен в процес на репликация. Искате "
+"ли да го %sконфигурирате%s?"
 
 #: templates/server/replication/status_table.twig:6
 msgid "Master status"
@@ -15976,17 +15788,15 @@ msgstr "%d секунда"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:38
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
-msgstr "на минута"
+msgstr "%d минута"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:40
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minutes"
-msgstr "на минута"
+msgstr "%d минути"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
@@ -16153,28 +15963,20 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:7
-#, fuzzy
-#| msgid "Questions since startup: %s"
 msgid "Questions since startup:"
-msgstr "Запитвания от включването: %s"
+msgstr "Въпроси от момента на стартиране:"
 
 #: templates/server/status/queries/index.twig:17
-#, fuzzy
-#| msgid "per hour"
 msgid "per hour:"
-msgstr "на час"
+msgstr "на час:"
 
 #: templates/server/status/queries/index.twig:18
-#, fuzzy
-#| msgid "per minute"
 msgid "per minute:"
-msgstr "на минута"
+msgstr "на минута:"
 
 #: templates/server/status/queries/index.twig:20
-#, fuzzy
-#| msgid "per second"
 msgid "per second:"
-msgstr "на секунда"
+msgstr "на секунда:"
 
 #: templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -16264,10 +16066,10 @@ msgid "Session value"
 msgstr "Сесийна стойност"
 
 #: templates/server/variables/index.twig:75
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "Сървърни променливи и настройки"
+msgstr ""
+"Недостатъчни права за преглед на променливите и настройките на сървъра. %s"
 
 #: templates/setup/base.twig:27 templates/setup/home/index.twig:20
 msgid "Overview"
@@ -16344,10 +16146,8 @@ msgid "Bookmark this SQL query"
 msgstr "Отбелязване SQL заявката"
 
 #: templates/sql/bookmark.twig:15
-#, fuzzy
-#| msgid "Label"
 msgid "Label:"
-msgstr "Етикет"
+msgstr "Етикет:"
 
 #: templates/sql/profiling_chart.twig:4
 #, fuzzy
@@ -16367,10 +16167,8 @@ msgid "Summary by state"
 msgstr ""
 
 #: templates/sql/profiling_chart.twig:38
-#, fuzzy
-#| msgid "Total time:"
 msgid "Total Time"
-msgstr "Общо време:"
+msgstr "Общо време"
 
 #: templates/sql/profiling_chart.twig:42
 #, fuzzy
@@ -16391,10 +16189,8 @@ msgid "ø Time"
 msgstr "Време"
 
 #: templates/start_and_number_of_rows_panel.twig:3
-#, fuzzy
-#| msgid "Start row"
 msgid "Start row:"
-msgstr "Начален ред"
+msgstr "Начален ред:"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
@@ -16447,10 +16243,8 @@ msgid "Stacked"
 msgstr "Припокриващи се"
 
 #: templates/table/chart/tbl_chart.twig:51
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart title:"
-msgstr "Заглавие на диаграмата"
+msgstr "Заглавие на диаграмата:"
 
 #: templates/table/chart/tbl_chart.twig:56
 msgid "X-Axis:"
@@ -16487,10 +16281,8 @@ msgid "Series column:"
 msgstr "В колона:"
 
 #: templates/table/chart/tbl_chart.twig:130
-#, fuzzy
-#| msgid "Values for column %s"
 msgid "Value Column:"
-msgstr "Стойности за колоната %s"
+msgstr "Колона за стойностите:"
 
 #: templates/table/chart/tbl_chart.twig:151
 #, fuzzy
@@ -16525,10 +16317,8 @@ msgstr ""
 "\"PRIMARY\" <b>трябва</b> да е името на <b>и единствено на</b> главен ключ!"
 
 #: templates/table/index_form.twig:34
-#, fuzzy
-#| msgid "Index cache size"
 msgid "Index choice:"
-msgstr "Размер на буфера за индекси"
+msgstr "Избор на индекс:"
 
 #: templates/table/index_form.twig:42
 #, fuzzy
@@ -16551,10 +16341,8 @@ msgid "Parser:"
 msgstr "Потребител:"
 
 #: templates/table/index_form.twig:97
-#, fuzzy
-#| msgid "Comment"
 msgid "Comment:"
-msgstr "Коментар"
+msgstr "Коментар:"
 
 #: templates/table/index_form.twig:140 templates/table/index_form.twig:177
 #, fuzzy
@@ -16636,16 +16424,13 @@ msgstr ""
 "Вътрешна релация не е необходима, при наличието на съответен FOREIGN KEY."
 
 #: templates/table/relation/common_form.twig:200
-#, fuzzy
-#| msgid "Choose column to display"
 msgid "Choose column to display:"
-msgstr "Изберете колона за показване"
+msgstr "Изберете колона за показване:"
 
 #: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Foreign key constraint"
+#, php-format
 msgid "Foreign key constraint %s has been dropped"
-msgstr "Ограничение за външен ключ"
+msgstr "Ограничението за външен ключ %s е премахнато"
 
 #: templates/table/relation/foreign_key_row.twig:34
 #, fuzzy
@@ -16784,10 +16569,8 @@ msgid "Edit partitioning"
 msgstr "Редактиране"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type:"
-msgstr "MIME тип"
+msgstr "MIME тип:"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -17732,22 +17515,16 @@ msgid "Slow launch time"
 msgstr "Показване времето за пускане"
 
 #: libraries/advisory_rules_generic.txt:318
-#, fuzzy
-#| msgid "Slow_launch_time is above 2s"
 msgid "Slow_launch_time is above 2s."
-msgstr "Slow_launch_time е над 2s"
+msgstr "Slow_launch_time е над 2s."
 
 #: libraries/advisory_rules_generic.txt:319
-#, fuzzy
-#| msgid ""
-#| "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
-#| "to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"Задайте на slow_launch_time 1s или 2s, за да бъдат правилно отчетени бавно "
-"пускащите се нишки"
+"Задайте на {slow_launch_time} 1s или 2s, за да бъдат правилно отчетени бавно "
+"стартиращите нишки."
 
 #: libraries/advisory_rules_generic.txt:320
 #, php-format
