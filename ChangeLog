@@ -50,6 +50,8 @@ phpMyAdmin - ChangeLog
 - issue #13557 Use a full list of functions instead of a separated one on insert/edit page "Function" selector
 - issue #14795 Include routines in the export in a predictable order
 
+5.0.5 (not yet released)
+
 5.0.4 (2020-10-15)
 - issue #16245 Fix failed Zoom search clears existing values
 - issue        Fixed a PHP error when reporting a particular JS error
