@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 14:18-0300\n"
-"PO-Revision-Date: 2020-10-18 09:58+0000\n"
+"PO-Revision-Date: 2020-10-19 13:48+0000\n"
 "Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
@@ -147,10 +147,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:103
-#, fuzzy
-#| msgid "log_slow_queries is set to 'OFF'"
 msgid "slow_query_log is set to 'OFF'"
-msgstr "log_slow_queries е зададено на 'Изключено'"
+msgstr "Променливата 'slow_query_log' е зададена на 'OFF'"
 
 #: libraries/advisory_rules_generic.php:108
 msgid "Release Series"
@@ -193,10 +191,8 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:139
-#, fuzzy
-#| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Трябва на осъвремените до стабилна версия на MySQL 5.5"
+msgstr "Трябва да обновите до стабилна версия на MySQL 5.5."
 
 #: libraries/advisory_rules_generic.php:145
 #: libraries/advisory_rules_generic.php:158
@@ -705,10 +701,10 @@ msgid "Increase {thread_cache_size}."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:499
-#, fuzzy, php-format
-#| msgid "Index reads from memory: %s%%, this value should be above 95%%"
+#, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "Буфер за нишки .. %s%%, тази стойност трябва да бъде над 80%%"
+msgstr ""
+"Честота на обръщане към кеша: %s%%, тази стойност трябва да бъде над 80%%"
 
 #: libraries/advisory_rules_generic.php:504
 msgid "Threads that are slow to launch"
@@ -792,21 +788,15 @@ msgstr "Твърде много прекъснати връзки."
 
 #: libraries/advisory_rules_generic.php:552
 #: libraries/advisory_rules_generic.php:566
-#, fuzzy
-#| msgid ""
-#| "Connections are usually aborted when they cannot be authorized. <a href="
-#| "\"https://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-#| "source-of-aborted_connects/\">This article</a> might help you track down "
-#| "the source."
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"Връзки обикновено биват прекъснати, когато не могат да бъдат удостоверени. "
-"<a href=\"https://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-"
-"the-source-of-aborted_connects/\">Тази статия</a> може да ви помогне да "
-"проследите на източника."
+"Връзките обикновено се прекратяват, когато няма възможност да бъдат "
+"оторизирани. <a href=\"https://www.percona.com/blog/2008/08/23/"
+"how-to-track-down-the-source-of-aborted_connects/\"> Тази статия</a> може да "
+"ви помогне да проследите източника на проблеми."
 
 #: libraries/advisory_rules_generic.php:556
 #, php-format
@@ -1041,10 +1031,8 @@ msgid "MyISAM concurrent inserts"
 msgstr "MyISAM едновременни вмъквания"
 
 #: libraries/advisory_rules_generic.php:690
-#, fuzzy
-#| msgid "Enable concurrent_insert by setting it to 1"
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr "Включване на concurrent_insert като го настроите на 1"
+msgstr "Включване на {concurrent_insert} и установяването му на 1"
 
 #: libraries/advisory_rules_generic.php:692
 #, fuzzy
@@ -2223,10 +2211,10 @@ msgid "Export views as tables"
 msgstr "Експортиране на изгледи (views) като таблици"
 
 #: libraries/classes/Config/Descriptions.php:276
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "Липсват таблици от хранилището за конфигурация на phpMyAdmin"
+msgstr ""
+"Експортиране на свързани метаданни от конфигурацията за съхранение на "
+"phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:277
 #: libraries/classes/Config/Descriptions.php:278
@@ -2242,10 +2230,8 @@ msgid "Add %s"
 msgstr "Добавяне на %s"
 
 #: libraries/classes/Config/Descriptions.php:286
-#, fuzzy
-#| msgid "Use hexadecimal for BLOB"
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "Използване на шестнадесетична стойност за BLOB"
+msgstr "Използване на шестнадесетични стойности за BINARY и BLOB"
 
 #: libraries/classes/Config/Descriptions.php:288
 msgid ""
@@ -2419,20 +2405,16 @@ msgstr "Опции за показване на БД."
 #: libraries/classes/Config/Descriptions.php:339
 #: libraries/classes/Config/Forms/User/NaviForm.php:66
 #: templates/preferences/header.twig:30
-#, fuzzy
-#| msgid "Navigation frame"
 msgid "Navigation panel"
-msgstr "Управляваща рамка"
+msgstr "Панел за навигация"
 
 #: libraries/classes/Config/Descriptions.php:340
 msgid "Customize appearance of the navigation panel."
 msgstr "Персонализиране изгледа на навигационния панел."
 
 #: libraries/classes/Config/Descriptions.php:341
-#, fuzzy
-#| msgid "Navigation frame"
 msgid "Navigation tree"
-msgstr "Управляваща рамка"
+msgstr "Дърво за навигация"
 
 #: libraries/classes/Config/Descriptions.php:342
 msgid "Customize the navigation tree."
@@ -2465,10 +2447,8 @@ msgstr "Настройки за показването на таблиците."
 #: libraries/classes/Config/Descriptions.php:347
 #: libraries/classes/Config/Forms/User/MainForm.php:88
 #: templates/preferences/header.twig:36
-#, fuzzy
-#| msgid "Main frame"
 msgid "Main panel"
-msgstr "Главна рамка"
+msgstr "Основен панел"
 
 #: libraries/classes/Config/Descriptions.php:348
 msgid "Microsoft Office"
@@ -2487,18 +2467,12 @@ msgid "Page titles"
 msgstr "Заглавие в браузъра"
 
 #: libraries/classes/Config/Descriptions.php:356
-#, fuzzy
-#| msgid ""
-#| "Specify browser's title bar text. Refer to "
-#| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
-#| "used to get special values."
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Настройте заглавието в браузъра. Прочетете "
-"[doc@cfg_TitleTable]документацията[/doc] за магическите низове и техните "
-"стойности."
+"Определете текста на заглавната лента на браузъра. Вижте "
+"[doc@faq6-27]документацията[/doc] за специални низове."
 
 #: libraries/classes/Config/Descriptions.php:360
 msgid "Security"
@@ -2779,10 +2753,8 @@ msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Да не се използва AUTO_INCREMENT за нулеви стойности"
 
 #: libraries/classes/Config/Descriptions.php:458
-#, fuzzy
-#| msgid "Read misses"
 msgid "Read as multibytes"
-msgstr "Пропуснати прочитания"
+msgstr "Четене като многобайтови"
 
 #: libraries/classes/Config/Descriptions.php:459
 msgid "Initial state for sliders"
@@ -2800,6 +2772,8 @@ msgstr "Броят добавени редове"
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
+"Максимален брой знаци, показвани в произволна нечислова колона в изгледа за "
+"преглед."
 
 #: libraries/classes/Config/Descriptions.php:463
 msgid "Limit column characters"
@@ -2839,14 +2813,18 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"Определя колко дълго (в секунди) бисквитката за вход трябва да се съхранява "
+"в браузъра. По подразбиране е 0 и означава, че ще се съхранява само за "
+"съществуващата сесия и ще бъде изтрита веднага след като затворите прозореца "
+"на браузъра. Това се препоръчва за по-ненадеждни среди."
 
 #: libraries/classes/Config/Descriptions.php:481
 msgid "Login cookie store"
-msgstr ""
+msgstr "Съхраняване на бисквитки за вход"
 
 #: libraries/classes/Config/Descriptions.php:482
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr ""
+msgstr "Определете колко дълго (в секунди) е валидна бисквитката за вход."
 
 #: libraries/classes/Config/Descriptions.php:483
 msgid "Login cookie validity"
@@ -2866,13 +2844,13 @@ msgstr "Максимален брой знаци, използвани при и
 
 #: libraries/classes/Config/Descriptions.php:489
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "Максимална дължина на показване на SQL"
 
 #: libraries/classes/Config/Descriptions.php:490
 #: libraries/classes/Config/Descriptions.php:508
 #: libraries/classes/Config/Descriptions.php:625
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Потребителите не могат да задават по-висока стойност"
 
 #: libraries/classes/Config/Descriptions.php:491
 msgid "Maximum number of databases displayed in database list."
@@ -2880,29 +2858,31 @@ msgstr "Максимален брой бази данни показвани в 
 
 #: libraries/classes/Config/Descriptions.php:492
 msgid "Maximum databases"
-msgstr ""
+msgstr "Максимален брой бази данни"
 
 #: libraries/classes/Config/Descriptions.php:494
 msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr ""
+"Броят на елементите, които могат да бъдат показани на всяка страница на "
+"първото ниво на навигационното дърво."
 
 #: libraries/classes/Config/Descriptions.php:497
-#, fuzzy
-#| msgid "Maximum size for input field"
 msgid "Maximum items on first level"
-msgstr "Максимален размер на текстовите полета"
+msgstr "Максимален брой елементи на първо ниво"
 
 #: libraries/classes/Config/Descriptions.php:499
 msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr ""
+"Броят на елементите, които могат да бъдат показани на всяка страница на "
+"дървото за навигация."
 
 #: libraries/classes/Config/Descriptions.php:501
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Максимален брой елементи в клон"
 
 #: libraries/classes/Config/Descriptions.php:503
 msgid ""
@@ -2967,20 +2947,16 @@ msgid "Link with main panel"
 msgstr "Свързване с главния панел"
 
 #: libraries/classes/Config/Descriptions.php:526
-#, fuzzy
-#| msgid "Show logo in left frame"
 msgid "Show logo in navigation panel."
-msgstr "Показване логото в лявата рамка"
+msgstr "Лого в панела за навигация"
 
 #: libraries/classes/Config/Descriptions.php:527
 msgid "Display logo"
 msgstr "Показване лого"
 
 #: libraries/classes/Config/Descriptions.php:528
-#, fuzzy
-#| msgid "URL where logo in the navigation frame will point to"
 msgid "URL where logo in the navigation panel will point to."
-msgstr "Адрес, към който ще сочи логото от рамката на навигацията"
+msgstr "URL адрес, към който ще сочи логото в навигационния панел."
 
 #: libraries/classes/Config/Descriptions.php:529
 msgid "Logo link URL"
@@ -2997,10 +2973,8 @@ msgid "Logo link target"
 msgstr "Цел за връзката на логото"
 
 #: libraries/classes/Config/Descriptions.php:535
-#, fuzzy
-#| msgid "Display server choice at the top of the left frame"
 msgid "Display server choice at the top of the navigation panel."
-msgstr "Показване изборът на сървър в лявата рамка отгоре"
+msgstr "Избор на сървъра в горната част на навигационния панел."
 
 #: libraries/classes/Config/Descriptions.php:536
 msgid "Display servers selection"
@@ -3011,10 +2985,8 @@ msgid "Target for quick access icon"
 msgstr "Цел на пиктограмата за бърз достъп"
 
 #: libraries/classes/Config/Descriptions.php:538
-#, fuzzy
-#| msgid "Target for quick access icon"
 msgid "Target for second quick access icon"
-msgstr "Цел на пиктограмата за бърз достъп"
+msgstr "Цел на втората икона за бърз достъп"
 
 #: libraries/classes/Config/Descriptions.php:540
 msgid ""
@@ -3041,20 +3013,16 @@ msgid "Group items in the tree"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:552
-#, fuzzy
-#| msgid "String that separates databases into different tree levels"
 msgid "String that separates databases into different tree levels."
-msgstr "Низ, който разделя БД в отделни разклонения на дърво"
+msgstr "Ред, който разделя БД на различните нива на дървото."
 
 #: libraries/classes/Config/Descriptions.php:553
 msgid "Database tree separator"
 msgstr "Разделител на дървото на БД"
 
 #: libraries/classes/Config/Descriptions.php:554
-#, fuzzy
-#| msgid "String that separates tables into different tree levels"
 msgid "String that separates tables into different tree levels."
-msgstr "Низ, който разделя таблици в отделни разклонения на дърво"
+msgstr "Ред, разделящ таблици в отделни нива на дървото."
 
 #: libraries/classes/Config/Descriptions.php:555
 msgid "Table tree separator"
@@ -3065,10 +3033,8 @@ msgid "Maximum table tree depth"
 msgstr "Максимална дълбочина на дървото на таблиците"
 
 #: libraries/classes/Config/Descriptions.php:557
-#, fuzzy
-#| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight server under the mouse cursor."
-msgstr "Маркиране редовете, посочени с мишка"
+msgstr "Оцветяване на сървъра под курсора на мишката."
 
 #: libraries/classes/Config/Descriptions.php:558
 msgid "Enable highlighting"
@@ -3080,16 +3046,12 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:562
-#, fuzzy
-#| msgid "Table caption"
 msgid "Enable navigation tree expansion"
-msgstr "Заглавие на таблицата"
+msgstr "Разрешаване разширяването дървото за навигация"
 
 #: libraries/classes/Config/Descriptions.php:563
-#, fuzzy
-#| msgid "Showing tables"
 msgid "Show tables in tree"
-msgstr "Показване таблици"
+msgstr "Показване на таблиците в дървото"
 
 #: libraries/classes/Config/Descriptions.php:564
 #, fuzzy
