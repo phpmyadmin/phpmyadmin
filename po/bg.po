@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 14:18-0300\n"
-"PO-Revision-Date: 2020-10-19 13:48+0000\n"
+"PO-Revision-Date: 2020-10-21 11:26+0000\n"
 "Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.1-dev\n"
+"X-Generator: Weblate 4.3.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2788,7 +2788,7 @@ msgstr ""
 "Ако е TRUE, излизането изтрива бисквитките за всички сървъри; когато е "
 "зададено на FALSE, излизането се извършва само за текущия сървър. Ако "
 "зададете това на FALSE, лесно можете да забравите да излезете от другите "
-"сървъри. (Когато сте свързани към няколко сървъра.)"
+"сървъри. (Когато сте свързани към няколко сървъра)."
 
 #: libraries/classes/Config/Descriptions.php:469
 msgid "Delete all cookies on logout"
@@ -2889,10 +2889,12 @@ msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
 msgstr ""
+"Брой редове, показвани при разглеждане на набор от резултати. Ако наборът от "
+"резултати съдържа повече редове, ще бъдат показани „Назад“ и „Напред“."
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "Максимален брой редове за показване"
 
 #: libraries/classes/Config/Descriptions.php:509
 msgid "Maximum number of tables displayed in table list."
@@ -2900,7 +2902,7 @@ msgstr "Максимален брой таблици, показани в спи
 
 #: libraries/classes/Config/Descriptions.php:510
 msgid "Maximum tables"
-msgstr ""
+msgstr "Максимален брой таблици"
 
 #: libraries/classes/Config/Descriptions.php:512
 #, fuzzy
@@ -2948,7 +2950,7 @@ msgstr "Свързване с главния панел"
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Show logo in navigation panel."
-msgstr "Лого в панела за навигация"
+msgstr "Лого в панела за навигация."
 
 #: libraries/classes/Config/Descriptions.php:527
 msgid "Display logo"
@@ -2978,7 +2980,7 @@ msgstr "Избор на сървъра в горната част на нави�
 
 #: libraries/classes/Config/Descriptions.php:536
 msgid "Display servers selection"
-msgstr ""
+msgstr "Показване избора на сървъра"
 
 #: libraries/classes/Config/Descriptions.php:537
 msgid "Target for quick access icon"
@@ -3054,10 +3056,8 @@ msgid "Show tables in tree"
 msgstr "Показване на таблиците в дървото"
 
 #: libraries/classes/Config/Descriptions.php:564
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "Показване на скритото навигационно дърво."
+msgstr "Да се показват ли таблици под базата данни в навигационното дърво"
 
 #: libraries/classes/Config/Descriptions.php:565
 #, fuzzy
@@ -3066,10 +3066,8 @@ msgid "Show views in tree"
 msgstr "Показване на версиите"
 
 #: libraries/classes/Config/Descriptions.php:566
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Показване на скритото навигационно дърво."
+msgstr "Да се показват ли изгледи под базата данни в навигационното дърво"
 
 #: libraries/classes/Config/Descriptions.php:567
 #, fuzzy
@@ -3098,10 +3096,8 @@ msgid "Show events in tree"
 msgstr "Показване на версиите"
 
 #: libraries/classes/Config/Descriptions.php:574
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Показване на скритото навигационно дърво."
+msgstr "Да се показват ли събития под базата данни в навигационното дърво"
 
 #: libraries/classes/Config/Descriptions.php:575
 #, fuzzy
@@ -3116,10 +3112,8 @@ msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "Показване на скритото навигационно дърво."
 
 #: libraries/classes/Config/Descriptions.php:579
-#, fuzzy
-#| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr "Максимален брой скоро отваряни таблици; 0 за забрана"
+msgstr "Максимален брой скоро отваряни таблици; 0 за изключване."
 
 #: libraries/classes/Config/Descriptions.php:580
 #, fuzzy
