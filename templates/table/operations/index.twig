@@ -116,6 +116,15 @@
             {{ show_docu('faq', 'faq6-39') }}
           </label>
         </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="adjust_views" value="1" id="checkbox_privileges_table_options"
+            {%- if has_privileges %} checked{% else %} title="
+            {%- trans 'You don\'t have sufficient privileges to perform this operation; Please refer to the documentation for more details.' %}" disabled{% endif %}>
+          <label class="form-check-label" for="checkbox_privileges_table_options">
+            {% trans 'Adjust view definitions' %}
+          </label>
+        </div>
       </div>
 
       <div class="mb-3 row row-cols-lg-auto g-3 align-items-center">

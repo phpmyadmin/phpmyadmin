@@ -195,6 +195,15 @@ class OperationsController extends AbstractController
                             $_POST['new_name']
                         );
                     }
+                    // Alter view
+                    if (! empty($_POST['adjust_views'])) {
+                        $this->operations->adjustViews(
+                            $oldDb,
+                            $oldTable,
+                            $_POST['db'],
+                            $_POST['new_name']
+                        );
+                    }
 
                     // Reselect the original DB
                     $db = $oldDb;

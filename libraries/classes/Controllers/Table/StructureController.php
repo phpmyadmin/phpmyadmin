@@ -48,6 +48,7 @@ use function is_string;
 use function mb_strpos;
 use function mb_strtoupper;
 use function sprintf;
+use function str_ireplace;
 use function str_replace;
 use function strlen;
 use function strpos;
@@ -1091,6 +1092,7 @@ class StructureController extends AbstractController
         $field_cnt = count($_POST['field_name']);
         $changes = [];
         $adjust_privileges = [];
+        $adjustViews = [];
         $columns_with_index = $this->dbi
             ->getTable($this->db, $this->table)
             ->getColumnsWithIndex(
@@ -1132,15 +1134,19 @@ class StructureController extends AbstractController
                 $this->tableObj->removeUiProp(Table::PROP_SORTED_COLUMN);
             }
 
-            if (! isset($_POST['field_adjust_privileges'][$i])
-                || empty($_POST['field_adjust_privileges'][$i])
-                || $_POST['field_orig'][$i] == $_POST['field_name'][$i]
+            if (! empty($_POST['field_adjust_privileges'][$i])
+                && $_POST['field_orig'][$i] != $_POST['field_name'][$i]
+            ) {
+                $adjust_privileges[$_POST['field_orig'][$i]] = $_POST['field_name'][$i];
+            }
+
+            if (empty($_POST['field_adjust_views'][$i])
+                && $_POST['field_orig'][$i] != $_POST['field_name'][$i]
             ) {
                 continue;
             }
 
-            $adjust_privileges[$_POST['field_orig'][$i]]
-                = $_POST['field_name'][$i];
+            $adjustViews[$_POST['field_orig'][$i]] = $_POST['field_name'][$i];
         }
 
         if (count($changes) > 0 || isset($_POST['preview_sql'])) {
@@ -1227,12 +1233,24 @@ class StructureController extends AbstractController
                     $adjust_privileges
                 );
 
-                if ($changed_privileges) {
+                $changed_views = $this->adjustViews($adjustViews);
+
+                if ($changed_privileges && $changed_views) {
                     $message = Message::success(
                         __(
                             'Table %1$s has been altered successfully. Privileges ' .
-                            'have been adjusted.'
+                            'have been adjusted. View definitions have been adjusted.'
                         )
+                    );
+                } elseif ($changed_privileges) {
+                    $message = Message::success(
+                        __('Table %1$s has been altered successfully. Privileges ' .
+                            'have been adjusted.')
+                    );
+                } elseif ($changed_views) {
+                    $message = Message::success(
+                        __('Table %1$s has been altered successfully. View ' .
+                            'definitions have been adjusted.')
                     );
                 } else {
                     $message = Message::success(
@@ -1380,6 +1398,62 @@ class StructureController extends AbstractController
                 // Finally FLUSH the new privileges
                 $this->dbi->query('FLUSH PRIVILEGES;');
             }
+        }
+
+        return $changed;
+    }
+
+    /**
+     * Adjusts the views for all the columns whose names have changed
+     *
+     * @param array $adjustViews assoc array of old col names mapped to new
+     *                                 cols
+     *
+     * @return bool boolean whether at least one column privileges
+     * adjusted
+     */
+    protected function adjustViews(array $adjustViews)
+    {
+        $changed = false;
+
+        if (! count($adjustViews)) {
+            return $changed;
+        }
+
+        $this->dbi->selectDb('information_schema');
+        $query_views = 'SELECT `TABLE_SCHEMA`,`VIEW_DEFINITION`,`TABLE_NAME` '
+            . 'FROM `VIEWS` WHERE `TABLE_SCHEMA` != "sys"';
+
+        $views = $this->dbi->query($query_views);
+
+        while ($row = $this->dbi->fetchAssoc($views)) {
+            $view_definition = $row['VIEW_DEFINITION'];
+            $change = 0;
+            foreach ($adjustViews as $oldCol => $newCol) {
+//                TODO: Can be optimized further if required.
+                $tableName = Util::backquote($this->db) . '.'
+                    . Util::backquote($this->table);
+                $oldColName = $tableName . '.' . Util::backquote($oldCol);
+                $newColName = $tableName . '.' . Util::backquote($newCol);
+                if (! strpos($view_definition, $oldColName)) {
+                    continue;
+                }
+                $change = 1;
+                $view_definition = str_ireplace($oldColName, $newColName, $view_definition);
+            }
+            if (! $change) {
+                continue;
+            }
+
+            $changed = true;
+            $this->dbi->query(
+                sprintf(
+                    'CREATE OR REPLACE VIEW %s.%s AS %s;',
+                    Util::backquote($row['TABLE_SCHEMA']),
+                    Util::backquote($row['TABLE_NAME']),
+                    $view_definition
+                )
+            );
         }
 
         return $changed;

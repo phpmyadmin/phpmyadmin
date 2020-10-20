@@ -11,8 +11,11 @@ use function count;
 use function explode;
 use function implode;
 use function mb_strtolower;
+use function sprintf;
+use function str_ireplace;
 use function str_replace;
 use function strlen;
+use function strpos;
 use function strtolower;
 use function urldecode;
 
@@ -932,6 +935,49 @@ class Operations
         // Finally FLUSH the new privileges
         $flush_query = 'FLUSH PRIVILEGES;';
         $this->dbi->query($flush_query);
+    }
+
+    /**
+     * Adjust the views after renaming/moving a table
+     *
+     * @param string $oldDb    Database name before table renaming/moving table
+     * @param string $oldTable Table name before table renaming/moving table
+     * @param string $newDb    Database name after table renaming/ moving table
+     * @param string $newTable Table name after table renaming/moving table
+     *
+     * @return void
+     */
+    public function adjustViews($oldDb, $oldTable, $newDb, $newTable)
+    {
+        if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
+            || ! $GLOBALS['is_reload_priv']
+        ) {
+            return;
+        }
+
+        $this->dbi->selectDb('information_schema');
+        $query_views = 'SELECT `TABLE_SCHEMA`,`VIEW_DEFINITION`,`TABLE_NAME` '
+            . 'FROM `VIEWS` WHERE `TABLE_SCHEMA` != "sys"';
+
+        $views = $this->dbi->query($query_views);
+
+        $oldDbTable = Util::backquote($oldDb) . '.' . Util::backquote($oldTable);
+        $newDbTable = Util::backquote($newDb) . '.' . Util::backquote($newTable);
+        while ($row = $this->dbi->fetchAssoc($views)) {
+            if (! strpos($row['VIEW_DEFINITION'], $oldDbTable)) {
+                continue;
+            }
+
+            $newQuery = str_ireplace($oldDbTable, $newDbTable, $row['VIEW_DEFINITION']);
+            $this->dbi->query(
+                sprintf(
+                    'CREATE OR REPLACE VIEW %s.%s AS %s;',
+                    Util::backquote($row['TABLE_SCHEMA']),
+                    Util::backquote($row['TABLE_NAME']),
+                    $newQuery
+                )
+            );
+        }
     }
 
     /**

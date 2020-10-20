@@ -1183,11 +1183,10 @@ class Table
 
                 // This is to avoid some issues when renaming databases with views
                 // See: https://github.com/phpmyadmin/phpmyadmin/issues/16422
-                if ($move) {
+                // Executing it.
+                if ($move || $_POST['adjust_views']) {
                     $dbi->selectDb($target_db);
                 }
-
-                // Executing it
                 $dbi->query($sql_structure);
                 $GLOBALS['sql_query'] .= "\n" . $sql_structure;
             }

@@ -181,6 +181,11 @@
         </div>
 
         <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="adjust_views" value="1" id="checkbox_views" checked>
+          <label class="form-check-label" for="checkbox_views">{% trans 'Adjust view definitions' %}</label>
+        </div>
+
+        <div class="form-check">
           <input class="form-check-input" type="checkbox" name="switch_to_new" value="true" id="checkbox_switch"{{ switch_to_new ? ' checked' }}>
           <label class="form-check-label" for="checkbox_switch">{% trans 'Switch to copied database' %}</label>
         </div>
