@@ -436,16 +436,6 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
-			message: "#^Result of && is always true\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Call to function is_bool\\(\\) with mysqli_result will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 2
 			path: libraries/classes/Dbal/DbiMysqli.php
@@ -586,16 +576,6 @@ parameters:
 			path: libraries/classes/Engines/Pbxt.php
 
 		-
-			message: "#^Elseif branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Error.php
-
-		-
-			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Error.php
-
-		-
 			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, array\\(\\$this\\(PhpMyAdmin\\\\ErrorHandler\\), 'handleError'\\) given\\.$#"
 			count: 1
 			path: libraries/classes/ErrorHandler.php
@@ -724,11 +704,6 @@ parameters:
 			message: "#^Offset 0 does not exist on array\\|null\\.$#"
 			count: 2
 			path: libraries/classes/Font.php
-
-		-
-			message: "#^Result of \\|\\| is always true\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
 
 		-
 			message: "#^Argument of an invalid type array\\|object supplied for foreach, only iterables are supported\\.$#"
@@ -999,11 +974,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\Language\\:\\:matchesUserAgent\\(\\) should return bool but returns int\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Language.php
-
-		-
-			message: "#^Instanceof between string and PhpMyAdmin\\\\SqlParser\\\\UtfString will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Linter.php
 
 		-
 			message: "#^Right side of && is always true\\.$#"
@@ -1871,37 +1841,12 @@ parameters:
 			path: libraries/classes/Replication.php
 
 		-
-			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Response.php
-
-		-
-			message: "#^Instanceof between string and PhpMyAdmin\\\\Message will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Response.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:sanitizeFilename\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Sanitize.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:escapeJsString\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Sanitize.php
-
-		-
-			message: "#^Call to function is_bool\\(\\) with string will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Sanitize.php
-
-		-
-			message: "#^If condition is always false\\.$#"
-			count: 1
-			path: libraries/classes/Sanitize.php
-
-		-
-			message: "#^Call to function is_int\\(\\) with string will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Sanitize.php
 
@@ -2082,11 +2027,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Sql\\:\\:getResponseForGridEdit\\(\\) expects object, object\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -2366,11 +2306,6 @@ parameters:
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
 
 		-
-			message: "#^Call to function is_bool\\(\\) with object will always evaluate to false\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
 			message: "#^Comparison operation \"\\>\\=\" between object and 1000 results in an error\\.$#"
 			count: 1
 			path: test/classes/Stubs/DbiDummy.php
@@ -2384,16 +2319,6 @@ parameters:
 			message: "#^Invalid array key type object\\.$#"
 			count: 1
 			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
-			count: 1
-			path: test/classes/Stubs/Response.php
-
-		-
-			message: "#^Instanceof between string and PhpMyAdmin\\\\Message will always evaluate to false\\.$#"
-			count: 1
-			path: test/classes/Stubs/Response.php
 
 		-
 			message: "#^Parameter \\#1 \\$pma_transformation_data of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects object, array given\\.$#"

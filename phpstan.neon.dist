@@ -9,10 +9,9 @@ parameters:
         - vendor/phpmyadmin/motranslator/src/functions.php
     bootstrapFiles:
         - test/phpstan-constants.php
-    reportUnmatchedIgnoredErrors: true
-    inferPrivatePropertyTypeFromConstructor: true
     checkMissingIterableValueType: false
     checkGenericClassInNonGenericObjectType: false
+    treatPhpDocTypesAsCertain: false
     excludes_analyse:
         - examples/openid.php
         - node_modules/*

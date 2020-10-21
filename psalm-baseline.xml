@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.17.1@8f211792d813e4dc89f04ed372785ce93b902fd1">
+<files psalm-version="3.18.2@19aa905f7c3c7350569999a93c40ae91ae4e1626">
   <file src="libraries/classes/Charsets.php">
     <TypeDoesNotContainType occurrences="1">
       <code>$pieces === false</code>
@@ -396,6 +396,9 @@
       <code>$varValue[1]</code>
       <code>$varValue[1]</code>
     </PossiblyNullArrayAccess>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$params['varName']</code>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="libraries/classes/Controllers/Setup/FormController.php">
     <PossiblyNullArgument occurrences="1">
