@@ -9,7 +9,7 @@
 
     <file>.</file>
 
-    <exclude-pattern>libraries/cache/routes.cache.php</exclude-pattern>
+    <exclude-pattern>libraries/cache/*</exclude-pattern>
     <exclude-pattern>test/doctum-config.php</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
     <exclude-pattern>*/tmp/*</exclude-pattern>
