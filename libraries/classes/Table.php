@@ -1181,7 +1181,10 @@ class Table
                 // Building back the query.
                 $sql_structure = $statement->build() . ';';
 
-                // Executing it.
+                // Executing it
+                if ($move) {
+                    $dbi->selectDb($target_db);
+                }
                 $dbi->query($sql_structure);
                 $GLOBALS['sql_query'] .= "\n" . $sql_structure;
             }
