@@ -7,8 +7,8 @@ return [
         'advisor' => [
             'class' => PhpMyAdmin\Advisor::class,
             'arguments' => [
-                'dbi' => '@dbi',
-                'expression_language' => '@expression_language',
+                '$dbi' => '@dbi',
+                '$expression' => '@expression_language',
             ],
         ],
         'browse_foreigners' => [
@@ -34,16 +34,16 @@ return [
         'designer' => [
             'class' => PhpMyAdmin\Database\Designer::class,
             'arguments' => [
-                'dbi' => '@dbi',
-                'relation' => '@relation',
-                'template' => '@template',
+                '$dbi' => '@dbi',
+                '$relation' => '@relation',
+                '$template' => '@template',
             ],
         ],
         'designer_common' => [
             'class' => PhpMyAdmin\Database\Designer\Common::class,
             'arguments' => [
-                'dbi' => '@dbi',
-                'relation' => '@relation',
+                '$dbi' => '@dbi',
+                '$relation' => '@relation',
             ],
         ],
         'error_handler' => [
@@ -104,17 +104,17 @@ return [
         'normalization' => [
             'class' => PhpMyAdmin\Normalization::class,
             'arguments' => [
-                'dbi' => '@dbi',
-                'relation' => '@relation',
-                'transformations' => '@transformations',
-                'template' => '@template',
+                '$dbi' => '@dbi',
+                '$relation' => '@relation',
+                '$transformations' => '@transformations',
+                '$template' => '@template',
             ],
         ],
         'operations' => [
             'class' => PhpMyAdmin\Operations::class,
             'arguments' => [
-                'dbi' => '@dbi',
-                'relation' => '@relation',
+                '$dbi' => '@dbi',
+                '$relation' => '@relation',
             ],
         ],
         'relation' => [
@@ -137,11 +137,12 @@ return [
         'replication_gui' => [
             'class' => PhpMyAdmin\ReplicationGui::class,
             'arguments' => [
-                'replication' => '@replication',
-                'template' => '@template',
+                '$replication' => '@replication',
+                '$template' => '@template',
             ],
         ],
         'response' => [
+            'class' => PhpMyAdmin\Response::class,
             'factory' => [PhpMyAdmin\Response::class, 'getInstance'],
         ],
         'server_plugins' => [
@@ -170,7 +171,7 @@ return [
         ],
         'sql_query_form' => [
             'class' => PhpMyAdmin\SqlQueryForm::class,
-            'arguments' => ['template' => '@template'],
+            'arguments' => ['$template' => '@template'],
         ],
         'status_data' => [
             'class' => PhpMyAdmin\Server\Status\Data::class,
@@ -181,11 +182,11 @@ return [
         ],
         'table_maintenance' => [
             'class' => PhpMyAdmin\Table\Maintenance::class,
-            'arguments' => ['dbi' => '@dbi'],
+            'arguments' => ['$dbi' => '@dbi'],
         ],
         'table_search' => [
             'class' => PhpMyAdmin\Table\Search::class,
-            'arguments' => ['dbi' => '@dbi'],
+            'arguments' => ['$dbi' => '@dbi'],
         ],
         'template' => [
             'class' => PhpMyAdmin\Template::class,
@@ -193,9 +194,9 @@ return [
         'tracking' => [
             'class' => PhpMyAdmin\Tracking::class,
             'arguments' => [
-                'sql_query_form' => '@sql_query_form',
-                'template' => '@template',
-                'relation' => '@relation',
+                '$sqlQueryForm' => '@sql_query_form',
+                '$template' => '@template',
+                '$relation' => '@relation',
             ],
         ],
         'transformations' => [
