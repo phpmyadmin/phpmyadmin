@@ -49,6 +49,7 @@ phpMyAdmin - ChangeLog
 - issue #12961 Remove indexes from table relation
 - issue #13557 Use a full list of functions instead of a separated one on insert/edit page "Function" selector
 - issue #14795 Include routines in the export in a predictable order
+- issue #16227 Fixed autocomplete is not working in case the table name is quoted by "`" symbols
 
 5.0.5 (not yet released)
 
