@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2020-10-10 05:01+0000\n"
+"PO-Revision-Date: 2020-10-25 02:26+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-0/cs/"
-">\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-0/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"X-Generator: Weblate 4.3.2-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1257,8 +1257,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
-"Připojení k serveru bylo ztraceno. Prosím, zkontrolujte Vaše síťové "
-"připojení a stav serveru."
+"Připojení k serveru bylo ztraceno. Zkontrolujte prosím připojení k síti a "
+"stav serveru."
 
 #: js/messages.php:381
 #: libraries/classes/Controllers/Server/DatabasesController.php:232
@@ -1290,7 +1290,7 @@ msgstr "OK"
 
 #: js/messages.php:386
 msgid "Click to dismiss this notification"
-msgstr "Klikněte pro schování této zprávy"
+msgstr "Kliknutím toto oznámení zavřete"
 
 #: js/messages.php:389
 msgid "Renaming databases"
@@ -4502,7 +4502,7 @@ msgstr "Cíl pro ikonu rychlého přístupu"
 
 #: libraries/classes/Config/Descriptions.php:499
 msgid "Target for second quick access icon"
-msgstr "Cíl po kliknutí na druhou ikonku rychlého přístupu"
+msgstr "Cíl pro druhou ikonu rychlého přístupu"
 
 #: libraries/classes/Config/Descriptions.php:501
 msgid ""
@@ -4976,8 +4976,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"Nechte prázdné pro vypnutí SQL historie, výchozí hodnota [kbd]pma__history[/"
-"kbd]."
+"Nechte prázdné pro vypnutí SQL historie, doporučené nastavení "
+"[kbd]pma__history[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:650
 msgid "SQL query history table"
@@ -5040,8 +5040,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
-"Nechte prázdné pro vypnutí podpory centrálních sloupců, například: "
-"[kbd]pma__table_coords[/kbd]."
+"Nechte prázdné pro vypnutí podpory centrálních sloupců, doporučené nastavení:"
+" [kbd]pma__table_coords[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:675
 msgid ""
@@ -5105,8 +5105,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
-"Nechte prázdné pro vypnutí „trvalého“ ukládání nedávných tabulek, výchozí "
-"nastavení: [kbd]pma__recent[/kbd]."
+"Nechte prázdné pro vypnutí „trvalého“ ukládání nedávných tabulek mezi "
+"relacemi, doporučené nastavení: [kbd]pma__recent[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:696
 msgid "Recently used table"
@@ -5117,8 +5117,8 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
-"Nechte prázdné pro vypnutí „trvalého“ ukládání oblíbených tabulek, výchozí "
-"nastavení: [kbd]pma__favorite[/kbd]."
+"Nechte prázdné pro vypnutí „trvalého“ ukládání oblíbených tabulek mezi "
+"relacemi, doporučené nastavení: [kbd]pma__favorite[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:701
 msgid "Favorites table"
@@ -5306,8 +5306,8 @@ msgid ""
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 "Pro použití upravitelných nabídek musí být nastavena tato tabulka i tabulka "
-"uživatelských nastavení. Pokud libovolnou z nich nevyplníte, bude tato "
-"funkcionalita vypnutá. Doporučené nastavení: [kbd]pma__users[/kbd]."
+"uživatelských nastavení. Pokud některou z nich nevyplníte, bude tato funkce "
+"vypnutá. Doporučené nastavení: [kbd]pma__users[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:773
 msgid "User groups table"
@@ -6584,9 +6584,9 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"Počet přečtení první položky klíčů. Příliš vysoká hodnota znamení, že server "
-"provádí mnoho kompletních procházení klíčů. Na příklad SELECT col1 FROM foo, "
-"pokud je col1 v klíči."
+"Počet přečtení první položky z indexu. Příliš vysoká hodnota znamená, že "
+"server provádí mnoho kompletních procházení indexů. Například SELECT col1 "
+"FROM foo, pokud je na sloupci col1 index."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:270
 msgid ""
@@ -6680,8 +6680,8 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
-"Počet stránek zablokovaných pro administrativní účely jako zamykání řádků "
-"nebo hashe klíčů. Tato hodnota také může být vypočítána jako "
+"Počet stránek zablokovaných pro administrativní účely, jako např. zamykání "
+"řádků nebo adaptivní hašovací index. Tuto hodnotu lze také vypočítat jako "
 "Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data."
 
@@ -6694,7 +6694,7 @@ msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
-"Počet provedených „náhodných“ dopředných čtení. Tato situace nastává pokud "
+"Počet provedených „náhodných“ dopředných čtení. Tato situace nastává, pokud "
 "dotaz prochází velkou část tabulky v náhodném pořadí."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:340
@@ -6871,16 +6871,16 @@ msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
-"Počet bloků ve mezipaměti klíčů, které byly změněny, ale nebyly zapsány na "
-"disk. Dříve se tato hodnota jmenovala Not_flushed_key_blocks."
+"Počet bloků v mezipaměti klíčů, které se změnily, ale ještě nebyly zapsány "
+"na disk. Dříve se tato hodnota jmenovala Not_flushed_key_blocks."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:461
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
-"Počet nepoužitých bloků ve mezipaměti klíčů. Pomocí této hodnoty poznáte jak "
-"moc je mezipaměť využitá."
+"Počet nepoužitých bloků v mezipaměti klíčů. Pomocí této hodnoty lze určit "
+"míru využití mezipaměti klíčů."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:465
 msgid ""
@@ -6978,9 +6978,9 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
-"Počet volných bloků paměti v mezipaměti dotazů. Velké číslo ukazuje na "
-"problém s jejím rozdrobením, která může být vyřešena spuštěním příkazu FLUSH "
-"QUERY CACHE."
+"Počet volných bloků paměti v mezipaměti dotazů. Vysoké hodnoty mohou "
+"ukazovat na problém s jejím rozdrobením, který lze vyřešit spuštěním příkazu "
+"FLUSH QUERY CACHE."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:527
 msgid "The amount of free memory for query cache."
@@ -7126,7 +7126,7 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
-"Počet vláken v mezipaměti. Úspěšnost mezipaměti může být spočítána jako "
+"Počet vláken v mezipaměti. Úspěšnost mezipaměti lze spočítat jako "
 "Threads_created/Connections. Pokud je tato hodnota červená, měli byste "
 "zvýšit thread_cache_size."
 
@@ -8726,7 +8726,7 @@ msgstr "Sledování"
 #: libraries/classes/Rte/Words.php:65 libraries/classes/Util.php:4221
 #: libraries/classes/Util.php:4237
 msgid "Triggers"
-msgstr "Spouště"
+msgstr "Triggery"
 
 #: libraries/classes/Menu.php:473 libraries/classes/Menu.php:487
 #: libraries/classes/Menu.php:494
@@ -9013,7 +9013,7 @@ msgstr "Nová"
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:37
 msgctxt "Create new trigger"
 msgid "New"
-msgstr "Nová"
+msgstr "Nový"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:28
@@ -10207,7 +10207,7 @@ msgstr "VZTAHY TABULKY"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2114
 msgid "It appears your table uses triggers;"
-msgstr "Vaše tabulka zřejmě využívá spouště;"
+msgstr "Vaše tabulka zřejmě využívá triggery;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2151
 #, php-format
@@ -11309,25 +11309,25 @@ msgstr "Vrací"
 
 #: libraries/classes/Rte/Triggers.php:165
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Bohužel se nepodařilo obnovit odstraněnou spoušť."
+msgstr "Bohužel se nepodařilo obnovit odstraněný trigger."
 
 #: libraries/classes/Rte/Triggers.php:172
 #, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "Byla změněna spoušť %1$s."
+msgstr "Byl změněn trigger %1$s."
 
 #: libraries/classes/Rte/Triggers.php:192
 #, php-format
 msgid "Trigger %1$s has been created."
-msgstr "Byla vytvořena spoušť %1$s."
+msgstr "Byl vytvořen trigger %1$s."
 
 #: libraries/classes/Rte/Triggers.php:268
 msgid "Edit trigger"
-msgstr "Upravit spoušť"
+msgstr "Upravit trigger"
 
 #: libraries/classes/Rte/Triggers.php:391
 msgid "Trigger name"
-msgstr "Název spouště"
+msgstr "Název triggeru"
 
 #: libraries/classes/Rte/Triggers.php:414
 msgctxt "Trigger action time"
@@ -11336,15 +11336,15 @@ msgstr "Spouštění"
 
 #: libraries/classes/Rte/Triggers.php:494
 msgid "You must provide a trigger name!"
-msgstr "Musíte zadat název spouště!"
+msgstr "Musíte zadat název triggeru!"
 
 #: libraries/classes/Rte/Triggers.php:501
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Musíte zadat platné časování spouště!"
+msgstr "Musíte zadat platné časování triggeru!"
 
 #: libraries/classes/Rte/Triggers.php:508
 msgid "You must provide a valid event for the trigger!"
-msgstr "Musíte zadat platnou událost pro spoušť!"
+msgstr "Musíte zadat platnou událost pro trigger!"
 
 #: libraries/classes/Rte/Triggers.php:516
 msgid "You must provide a valid table name!"
@@ -11352,7 +11352,7 @@ msgstr "Musíte zadat platný název tabulky!"
 
 #: libraries/classes/Rte/Triggers.php:522
 msgid "You must provide a trigger definition."
-msgstr "Musíte zadat definici spouště."
+msgstr "Musíte zadat definici triggeru."
 
 #: libraries/classes/Rte/Words.php:34
 msgid "Add routine"
@@ -11400,12 +11400,12 @@ msgstr "Nebyly nalezeny žádné rutiny."
 
 #: libraries/classes/Rte/Words.php:56
 msgid "Add trigger"
-msgstr "Přidat spoušť"
+msgstr "Přidat trigger"
 
 #: libraries/classes/Rte/Words.php:58
 #, php-format
 msgid "Export of trigger %s"
-msgstr "Exportovat spoušť %s"
+msgstr "Exportovat trigger %s"
 
 #: libraries/classes/Rte/Words.php:59
 msgid "trigger"
@@ -11418,11 +11418,11 @@ msgstr "Nemáte dostatečná práva pro vytvoření spouště."
 #: libraries/classes/Rte/Words.php:63
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "V databázi %2$s nebyla nalezena žádná spoušť s názvem %1$s."
+msgstr "V databázi %2$s nebyl nalezen žádný trigger s názvem %1$s."
 
 #: libraries/classes/Rte/Words.php:64
 msgid "There are no triggers to display."
-msgstr "Nebyly nalezeny žádné spouště."
+msgstr "Nebyly nalezeny žádné triggery."
 
 #: libraries/classes/Rte/Words.php:70
 msgid "Add event"
@@ -11605,7 +11605,7 @@ msgstr "Umožňuje plánovat úlohy pomocí plánovače."
 #: libraries/classes/Server/Privileges.php:456
 #: libraries/classes/Server/Privileges.php:1420 server_privileges.php:133
 msgid "Allows creating and dropping triggers."
-msgstr "Umožňuje vytváření a mazání spouští."
+msgstr "Umožňuje vytváření a mazání triggerů."
 
 #: libraries/classes/Server/Privileges.php:467
 #: libraries/classes/Server/Privileges.php:473
@@ -11925,7 +11925,7 @@ msgstr "Přidělit všechna oprávnění pro databázi %s."
 #: libraries/classes/Server/Privileges.php:2593
 #, php-format
 msgid "Users having access to \"%s\""
-msgstr "Uživatelé mající přístup k „%s“"
+msgstr "Uživatelé, kteří mají přístup k „%s“"
 
 #: libraries/classes/Server/Privileges.php:2563
 msgid "User has been added."
@@ -15402,7 +15402,7 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
-"Prosím uvědomte si však, že tento systém poskytuje doporučení na základě "
+"Mějte však na paměti, že tento systém poskytuje doporučení na základě "
 "jednoduchých výpočtů a základních pravidel, která nemusí nutně platit pro "
 "váš systém."
 
@@ -15412,9 +15412,9 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
-"Než změníte některá z nastavení, ujistěte se, že víte, co si přejete změnit "
-"(čtením dokumentace) a jak případně vrátit změny zpět. Špatné nastavení může "
-"mít velmi negativní vliv na výkon serveru."
+"Před změnou kteréhokoli nastavení si v dokumentaci prostudujte, co se "
+"chystáte změnit a jak vrátit změny zpět. Špatné nastavení může mít velmi "
+"negativní vliv na výkon serveru."
 
 #: templates/server/status/advisor/index.twig:28
 msgid ""
@@ -15422,8 +15422,8 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
-"Nejlepší způsob jak vyladit váš systém je měnit pouze jedno nastavení a "
-"sledovat výsledky případně provést zátěžové testy. Pokud nedošlo ke "
+"Nejlepší způsob, jak systém vyladit, je změnit vždy pouze jedno nastavení a "
+"sledovat výsledky, případně provést zátěžové testy. Pokud nedošlo ke "
 "znatelnému zlepšení, můžete nastavení vrátit zpět."
 
 #: templates/server/status/advisor/index.twig:36
@@ -16083,14 +16083,15 @@ msgstr "Interní vztahy"
 
 #: templates/table/relation/common_form.twig:118
 msgid "Internal relation"
-msgstr "Interní relace"
+msgstr "Interní vztah"
 
 #: templates/table/relation/common_form.twig:120
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
-"Interní relace není potřebná pokud existuje stejná relace pomocí FOREIGN KEY."
+"Interní vztah není nutný, pokud existuje stejný vztah prostřednictvím cizího "
+"klíče."
 
 #: templates/table/relation/common_form.twig:200
 msgid "Choose column to display:"
@@ -16521,8 +16522,8 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
-"Je doporučováno nastavit {long_query_time} na nižší hodnotu. Obvykle je "
-"vhodné 1-5 sekund, ale záleží to na vašem prostředí."
+"Doporučujeme nastavit {long_query_time} na nižší hodnotu v závislosti na "
+"vašem prostředí. Obvykle je vhodné 1-5 sekund."
 
 #: libraries/advisory_rules_generic.txt:82
 #, php-format
@@ -16747,7 +16748,7 @@ msgstr "Řazení řádek"
 
 #: libraries/advisory_rules_generic.txt:171
 msgid "There are lots of rows being sorted."
-msgstr "Muselo být řazeno příliš mnoho řádek."
+msgstr "Dochází k řazení velkého množství řádek."
 
 #: libraries/advisory_rules_generic.txt:172
 msgid ""
@@ -16785,7 +16786,7 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Průměrně sloučeno tabulek: %s, tato hodnota by měla být menší než 1 za hodinu"
+"Průměrně spojeno tabulek: %s, tato hodnota by měla být menší než 1 za hodinu"
 
 #: libraries/advisory_rules_generic.txt:183
 msgid "Rate of reading first index entry"
@@ -16804,11 +16805,11 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
-"Toto obvykle znamená, že dochází k častému procházení celých klíčů. Toto je "
-"sice rychlejší než procházení celých tabulek, ale přesto se jedná o poměrně "
-"náročnou operaci. Pokud jsou některé z velkých tabulek často měněny dotazy "
-"UPDATE nebo DELETE, spuštěním „OPTIMIZE TABLE“ můžete situaci vylepšit. "
-"Kromě toho je možné se procházení klíčů vyhnout jen přepsáním dotazů."
+"Toto obvykle znamená, že dochází k častému procházení celých indexů, které "
+"je sice rychlejší než procházení celých tabulek, ale přesto se jedná o "
+"poměrně náročnou operaci. Pokud často měníte velké tabulky dotazy UPDATE "
+"nebo DELETE, můžete situaci vylepšit spuštěním „OPTIMIZE TABLE“. Jinak se "
+"lze procházení indexů vyhnout jen přepsáním dotazů."
 
 #: libraries/advisory_rules_generic.txt:188
 #, php-format
