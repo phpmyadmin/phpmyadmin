@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2020-10-21 11:26+0000\n"
+"PO-Revision-Date: 2020-10-25 02:26+0000\n"
 "Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "bg/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.1\n"
+"X-Generator: Weblate 4.3.2-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -3482,6 +3482,9 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
+"Стойности за списъка с опции за трансформации по подразбиране. Те ще бъдат "
+"заменени, ако трансформацията се попълни на страницата на структурата на "
+"таблицата."
 
 #: libraries/classes/Config/Descriptions.php:156
 msgid "Default transformations for Substring"
@@ -3867,6 +3870,7 @@ msgstr "външен ключ"
 #: libraries/classes/Config/Descriptions.php:284
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
+"Стойностти по подразбиране за проверките на чужди ключове за някои заявки."
 
 #: libraries/classes/Config/Descriptions.php:285
 msgid "Foreign key checks"
@@ -4464,7 +4468,7 @@ msgstr "Ограничение на паметта"
 
 #: libraries/classes/Config/Descriptions.php:481
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "В навигационния панел замества дървото на базата данни със селектор"
 
 #: libraries/classes/Config/Descriptions.php:482
 msgid "Show databases navigation as tree"
@@ -4505,6 +4509,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])."
 msgstr ""
+"Отваряне на свързаната страница в главния прозорец ([kbd]главен[/kbd]) или в "
+"нов ([kbd]нов[/kbd])."
 
 #: libraries/classes/Config/Descriptions.php:495
 msgid "Logo link target"
@@ -4531,10 +4537,12 @@ msgid ""
 "Defines the minimum number of items (tables, views, routines and events) to "
 "display a filter box."
 msgstr ""
+"Определя минималния брой елементи (таблици, изгледи, подпрограми или събития)"
+" за показване на филтър."
 
 #: libraries/classes/Config/Descriptions.php:504
 msgid "Minimum number of items to display the filter box"
-msgstr ""
+msgstr "Минимален брой елементи за показване на филтър"
 
 #: libraries/classes/Config/Descriptions.php:505
 msgid "Minimum number of databases to display the database filter box"
