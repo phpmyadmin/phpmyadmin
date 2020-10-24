@@ -163,7 +163,7 @@ class SqlController extends AbstractController
         if ($this->sql->hasNoRightsToDropDatabase(
             $analyzed_sql_results,
             $cfg['AllowUserDropDatabase'],
-            $this->dbi->isSuperuser()
+            $this->dbi->isSuperUser()
         )) {
             Generator::mysqlDie(
                 __('"DROP DATABASE" statements are disabled.'),

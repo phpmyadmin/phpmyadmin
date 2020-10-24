@@ -653,7 +653,7 @@ class Privileges
             $row = $this->dbi->fetchSingleRow($sql_query);
         }
         if (empty($row)) {
-            if ($table === '*' && $this->dbi->isSuperuser()) {
+            if ($table === '*' && $this->dbi->isSuperUser()) {
                 $row = [];
                 if ($db === '*') {
                     $sql_query = 'SHOW COLUMNS FROM `mysql`.`user`;';
@@ -1068,7 +1068,7 @@ class Privileges
                     . $this->dbi->escapeString($_POST['pma_pw']) . "')";
             } elseif ($serverType === 'MariaDB'
                 && $serverVersion >= 50200
-                && $this->dbi->isSuperuser()
+                && $this->dbi->isSuperUser()
             ) {
                 // Use 'UPDATE `mysql`.`user` ...' Syntax for MariaDB 5.2+
                 if ($authentication_plugin === 'mysql_native_password') {
@@ -1308,7 +1308,7 @@ class Privileges
      */
     public function getHtmlForAddUser($dbname)
     {
-        $isGrantUser = $this->dbi->isUserType('grant');
+        $isGrantUser = $this->dbi->isGrantUser();
         $loginInformationFieldsNew = $this->getHtmlForLoginInformationFields('new');
         $privilegesTable = '';
         if ($isGrantUser) {
@@ -1726,7 +1726,7 @@ class Privileges
             ];
             $extra_data['new_user_string'] = $this->template->render('server/privileges/new_user_ajax', [
                 'user' => $user,
-                'is_grantuser' => $this->dbi->isUserType('grant'),
+                'is_grantuser' => $this->dbi->isGrantUser(),
                 'initial' => $_GET['initial'] ?? '',
             ]);
 
@@ -2011,7 +2011,7 @@ class Privileges
             $onePrivilege['name'] = $name;
 
             $onePrivilege['edit_link'] = '';
-            if ($this->dbi->isUserType('grant')) {
+            if ($this->dbi->isGrantUser()) {
                 $onePrivilege['edit_link'] = $this->getUserLink(
                     'edit',
                     $username,
@@ -2182,8 +2182,8 @@ class Privileges
             'text_dir' => $text_dir,
             'initial' => $_GET['initial'] ?? '',
             'hosts' => $hosts,
-            'is_grantuser' => $this->dbi->isUserType('grant'),
-            'is_createuser' => $this->dbi->isUserType('create'),
+            'is_grantuser' => $this->dbi->isGrantUser(),
+            'is_createuser' => $this->dbi->isCreateUser(),
         ]);
     }
 
@@ -3011,7 +3011,7 @@ class Privileges
      */
     public function getAddUserHtmlFieldset($db = '', $table = '')
     {
-        if (! $this->dbi->isUserType('create')) {
+        if (! $this->dbi->isCreateUser()) {
             return '';
         }
         $rel_params = [];
@@ -3201,7 +3201,7 @@ class Privileges
             'empty_user_notice' => $emptyUserNotice ?? '',
             'initials' => $initials ?? '',
             'users_overview' => $usersOverview ?? '',
-            'is_createuser' => $this->dbi->isUserType('create'),
+            'is_createuser' => $this->dbi->isCreateUser(),
             'flush_notice' => $flushNotice ?? '',
         ]);
     }
@@ -3851,7 +3851,7 @@ class Privileges
         $real_sql_query .= ';';
         $sql_query .= ';';
         // No Global GRANT_OPTION privilege
-        if (! $this->dbi->isUserType('grant')) {
+        if (! $this->dbi->isGrantUser()) {
             $real_sql_query = '';
             $sql_query = '';
         }
@@ -3951,7 +3951,7 @@ class Privileges
         $isNew = ($serverType === 'MySQL' && $serverVersion >= 50507)
             || ($serverType === 'MariaDB' && $serverVersion >= 50200);
         $hasMoreAuthPlugins = ($serverType === 'MySQL' && $serverVersion >= 50706)
-            || ($this->dbi->isSuperuser() && $editOthers);
+            || ($this->dbi->isSuperUser() && $editOthers);
 
         $activeAuthPlugins = ['mysql_native_password' => __('Native MySQL authentication')];
 

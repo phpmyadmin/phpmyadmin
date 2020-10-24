@@ -1748,14 +1748,24 @@ class DatabaseInterface implements DbalInterface
         return '@';
     }
 
-    /**
-     * Checks if current user is superuser
-     *
-     * @return bool Whether user is a superuser
-     */
-    public function isSuperuser(): bool
+    public function isSuperUser(): bool
     {
         return $this->isUserType('super');
+    }
+
+    public function isGrantUser(): bool
+    {
+        return $this->isUserType('grant');
+    }
+
+    public function isCreateUser(): bool
+    {
+        return $this->isUserType('create');
+    }
+
+    public function isLoggedUser(): bool
+    {
+        return $this->isUserType('logged');
     }
 
     /**
@@ -1768,7 +1778,7 @@ class DatabaseInterface implements DbalInterface
      *
      * @return bool Whether user is a given type of user
      */
-    public function isUserType(string $type): bool
+    private function isUserType(string $type): bool
     {
         if (Util::cacheExists('is_' . $type . 'user')) {
             return Util::cacheGet('is_' . $type . 'user');

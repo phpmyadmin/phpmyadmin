@@ -91,7 +91,7 @@ class PrivilegesController extends AbstractController
             $this->response->addHTML('<div class="container-fluid">');
             $this->render('server/privileges/subnav', [
                 'active' => 'privileges',
-                'is_super_user' => $this->dbi->isSuperuser(),
+                'is_super_user' => $this->dbi->isSuperUser(),
             ]);
         }
 
@@ -125,10 +125,10 @@ class PrivilegesController extends AbstractController
         /**
          * Checks if the user is allowed to do what they try to...
          */
-        $isGrantUser = $this->dbi->isUserType('grant');
-        $isCreateUser = $this->dbi->isUserType('create');
+        $isGrantUser = $this->dbi->isGrantUser();
+        $isCreateUser = $this->dbi->isCreateUser();
 
-        if (! $this->dbi->isSuperuser() && ! $isGrantUser && ! $isCreateUser) {
+        if (! $this->dbi->isSuperUser() && ! $isGrantUser && ! $isCreateUser) {
             $this->render('server/sub_page_header', [
                 'type' => 'privileges',
                 'is_image' => false,
@@ -246,7 +246,7 @@ class PrivilegesController extends AbstractController
          * Assign users to user groups
          */
         if (! empty($_POST['changeUserGroup']) && $cfgRelation['menuswork']
-            && $this->dbi->isSuperuser() && $this->dbi->isUserType('create')
+            && $this->dbi->isSuperUser() && $this->dbi->isCreateUser()
         ) {
             $serverPrivileges->setUserGroup($username, $_POST['userGroup']);
             $message = Message::success();

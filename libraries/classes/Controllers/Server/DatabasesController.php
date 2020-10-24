@@ -176,7 +176,7 @@ class DatabasesController extends AbstractController
             'max_db_list' => $cfg['MaxDbList'],
             'has_master_replication' => $primaryInfo['status'],
             'has_slave_replication' => $replicaInfo['status'],
-            'is_drop_allowed' => $this->dbi->isSuperuser() || $cfg['AllowUserDropDatabase'],
+            'is_drop_allowed' => $this->dbi->isSuperUser() || $cfg['AllowUserDropDatabase'],
             'theme_image_path' => $PMA_Theme->getImgPath(),
             'text_dir' => $text_dir,
         ]);
@@ -277,7 +277,7 @@ class DatabasesController extends AbstractController
 
         if (! isset($params['drop_selected_dbs'])
             || ! $this->response->isAjax()
-            || (! $this->dbi->isSuperuser() && ! $cfg['AllowUserDropDatabase'])
+            || (! $this->dbi->isSuperUser() && ! $cfg['AllowUserDropDatabase'])
         ) {
             $message = Message::error();
             $json = ['message' => $message];

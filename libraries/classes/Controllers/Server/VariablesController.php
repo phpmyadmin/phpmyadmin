@@ -99,7 +99,7 @@ class VariablesController extends AbstractController
         $this->render('server/variables/index', [
             'variables' => $variables,
             'filter_value' => $filterValue,
-            'is_superuser' => $this->dbi->isSuperuser(),
+            'is_superuser' => $this->dbi->isSuperUser(),
             'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
     }

@@ -60,7 +60,7 @@ class MonitorController extends AbstractController
         $form = [
             'server_time' => (int) (microtime(true) * 1000),
             'server_os' => SysInfo::getOs(),
-            'is_superuser' => $this->dbi->isSuperuser(),
+            'is_superuser' => $this->dbi->isSuperUser(),
             'server_db_isLocal' => $this->data->dbIsLocal,
         ];
 

@@ -35,7 +35,7 @@ final class Common
         $err_url = Url::getFromRoute('/');
 
         // now, select the mysql db
-        if (! $dbi->isSuperuser()) {
+        if (! $dbi->isSuperUser()) {
             return;
         }
 
