@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Strict comparison using \\=\\=\\= between array\\<int, string\\> and false will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between array\\<int, string\\>&nonEmpty and false will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Charsets.php
 
@@ -156,11 +156,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Parameter \\#4 \\$formatted_size of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) expects int, string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -311,7 +306,7 @@ parameters:
 			path: libraries/classes/Controllers/Table/StructureController.php
 
 		-
-			message: "#^Parameter \\#3 \\$length of function substr expects int, int\\|false given\\.$#"
+			message: "#^Parameter \\#3 \\$length of function substr expects int, int\\<0, max\\>\\|false given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/Table/StructureController.php
 
@@ -2187,6 +2182,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\VersionInformation\\:\\:getLatestVersion\\(\\) should return stdClass\\|null but returns object\\.$#"
+			count: 1
+			path: libraries/classes/VersionInformation.php
+
+		-
+			message: "#^Comparison operation \"\\>\\=\" between int\\<1, max\\> and 1 is always true\\.$#"
 			count: 1
 			path: libraries/classes/VersionInformation.php
 
