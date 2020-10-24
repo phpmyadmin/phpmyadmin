@@ -1308,18 +1308,17 @@ class Privileges
      */
     public function getHtmlForAddUser($dbname)
     {
-        global $is_grantuser;
-
+        $isGrantUser = $this->dbi->isUserType('grant');
         $loginInformationFieldsNew = $this->getHtmlForLoginInformationFields('new');
         $privilegesTable = '';
-        if ($is_grantuser) {
+        if ($isGrantUser) {
             $privilegesTable = $this->getHtmlToDisplayPrivilegesTable('*', '*', false);
         }
 
         return $this->template->render('server/privileges/add_user', [
             'database' => $dbname,
             'login_information_fields_new' => $loginInformationFieldsNew,
-            'is_grant_user' => $is_grantuser,
+            'is_grant_user' => $isGrantUser,
             'privileges_table' => $privilegesTable,
         ]);
     }
@@ -1695,8 +1694,6 @@ class Privileges
         $hostname,
         $username
     ) {
-        global $is_grantuser;
-
         if (isset($GLOBALS['dbname'])) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
             if (preg_match('/(?<!\\\\)(?:_|%)/', $GLOBALS['dbname'])) {
@@ -1729,7 +1726,7 @@ class Privileges
             ];
             $extra_data['new_user_string'] = $this->template->render('server/privileges/new_user_ajax', [
                 'user' => $user,
-                'is_grantuser' => $is_grantuser,
+                'is_grantuser' => $this->dbi->isUserType('grant'),
                 'initial' => $_GET['initial'] ?? '',
             ]);
 
@@ -2014,7 +2011,7 @@ class Privileges
             $onePrivilege['name'] = $name;
 
             $onePrivilege['edit_link'] = '';
-            if ($GLOBALS['is_grantuser']) {
+            if ($this->dbi->isUserType('grant')) {
                 $onePrivilege['edit_link'] = $this->getUserLink(
                     'edit',
                     $username,
@@ -2124,8 +2121,6 @@ class Privileges
      */
     public function getUsersOverview($result, array $db_rights, $themeImagePath, $text_dir)
     {
-        global $is_grantuser, $is_createuser;
-
         $cfgRelation = $this->relation->getRelationsParam();
 
         while ($row = $this->dbi->fetchAssoc($result)) {
@@ -2187,8 +2182,8 @@ class Privileges
             'text_dir' => $text_dir,
             'initial' => $_GET['initial'] ?? '',
             'hosts' => $hosts,
-            'is_grantuser' => $is_grantuser,
-            'is_createuser' => $is_createuser,
+            'is_grantuser' => $this->dbi->isUserType('grant'),
+            'is_createuser' => $this->dbi->isUserType('create'),
         ]);
     }
 
@@ -3016,7 +3011,7 @@ class Privileges
      */
     public function getAddUserHtmlFieldset($db = '', $table = '')
     {
-        if (! $GLOBALS['is_createuser']) {
+        if (! $this->dbi->isUserType('create')) {
             return '';
         }
         $rel_params = [];
@@ -3048,8 +3043,6 @@ class Privileges
      */
     public function getHtmlForUserOverview($themeImagePath, $text_dir)
     {
-        global $is_createuser;
-
         $password_column = 'Password';
         $server_type = Util::getServerType();
         $serverVersion = $this->dbi->getVersion();
@@ -3208,7 +3201,7 @@ class Privileges
             'empty_user_notice' => $emptyUserNotice ?? '',
             'initials' => $initials ?? '',
             'users_overview' => $usersOverview ?? '',
-            'is_createuser' => $is_createuser,
+            'is_createuser' => $this->dbi->isUserType('create'),
             'flush_notice' => $flushNotice ?? '',
         ]);
     }
@@ -3858,7 +3851,7 @@ class Privileges
         $real_sql_query .= ';';
         $sql_query .= ';';
         // No Global GRANT_OPTION privilege
-        if (! $GLOBALS['is_grantuser']) {
+        if (! $this->dbi->isUserType('grant')) {
             $real_sql_query = '';
             $sql_query = '';
         }

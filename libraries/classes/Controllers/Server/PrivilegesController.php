@@ -125,9 +125,10 @@ class PrivilegesController extends AbstractController
         /**
          * Checks if the user is allowed to do what they try to...
          */
-        if (! $this->dbi->isSuperuser() && ! $GLOBALS['is_grantuser']
-            && ! $GLOBALS['is_createuser']
-        ) {
+        $isGrantUser = $this->dbi->isUserType('grant');
+        $isCreateUser = $this->dbi->isUserType('create');
+
+        if (! $this->dbi->isSuperuser() && ! $isGrantUser && ! $isCreateUser) {
             $this->render('server/sub_page_header', [
                 'type' => 'privileges',
                 'is_image' => false,
@@ -139,7 +140,7 @@ class PrivilegesController extends AbstractController
 
             return;
         }
-        if (! $GLOBALS['is_grantuser'] && ! $GLOBALS['is_createuser']) {
+        if (! $isGrantUser && ! $isCreateUser) {
             $this->response->addHTML(Message::notice(
                 __('You do not have the privileges to administrate the users!')
             )->getDisplay());
@@ -245,7 +246,7 @@ class PrivilegesController extends AbstractController
          * Assign users to user groups
          */
         if (! empty($_POST['changeUserGroup']) && $cfgRelation['menuswork']
-            && $this->dbi->isSuperuser() && $GLOBALS['is_createuser']
+            && $this->dbi->isSuperuser() && $this->dbi->isUserType('create')
         ) {
             $serverPrivileges->setUserGroup($username, $_POST['userGroup']);
             $message = Message::success();
