@@ -259,7 +259,7 @@ class Footer
             || ! empty($GLOBALS['error_message'])
             || empty($GLOBALS['sql_query'])
             || ! isset($dbi)
-            || ! $dbi->isLoggedUser()
+            || ! $dbi->isConnected()
         ) {
             return;
         }

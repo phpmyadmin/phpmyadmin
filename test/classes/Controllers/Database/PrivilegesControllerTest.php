@@ -10,7 +10,6 @@ use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 class PrivilegesControllerTest extends AbstractTestCase
 {
@@ -34,8 +33,6 @@ class PrivilegesControllerTest extends AbstractTestCase
         $server = 0;
         $cfg['Server']['DisableIS'] = false;
         $PMA_PHP_SELF = 'index.php';
-        Util::cacheSet('is_grantuser', true);
-        Util::cacheSet('is_createuser', true);
 
         $privileges = [];
 

@@ -112,7 +112,9 @@ class PrivilegesTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
-        $dbi->expects($this->any())->method('isUserType')
+        $dbi->expects($this->any())->method('isCreateUser')
+            ->will($this->returnValue(true));
+        $dbi->expects($this->any())->method('isGrantUser')
             ->will($this->returnValue(true));
 
         $GLOBALS['dbi'] = $dbi;
@@ -1292,7 +1294,7 @@ class PrivilegesTest extends AbstractTestCase
         $dbi->expects($this->any())
             ->method('escapeString')
             ->will($this->returnArgument(0));
-        $dbi->expects($this->any())->method('isUserType')
+        $dbi->expects($this->any())->method('isGrantUser')
             ->will($this->returnValue(true));
 
         $GLOBALS['dbi'] = $dbi;

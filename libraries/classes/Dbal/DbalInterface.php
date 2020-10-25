@@ -499,7 +499,7 @@ interface DbalInterface
 
     public function isCreateUser(): bool;
 
-    public function isLoggedUser(): bool;
+    public function isConnected(): bool;
 
     /**
      * Get the current user and host
