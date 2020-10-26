@@ -493,19 +493,13 @@ interface DbalInterface
      *
      * @return bool Whether user is a superuser
      */
-    public function isSuperuser(): bool;
+    public function isSuperUser(): bool;
 
-    /**
-     * Checks if current user has global create user/grant privilege
-     * or is a superuser (i.e. SELECT on mysql.users)
-     * while caching the result in session.
-     *
-     * @param string $type type of user to check for
-     *                     i.e. 'create', 'grant', 'super'
-     *
-     * @return bool Whether user is a given type of user
-     */
-    public function isUserType(string $type): bool;
+    public function isGrantUser(): bool;
+
+    public function isCreateUser(): bool;
+
+    public function isConnected(): bool;
 
     /**
      * Get the current user and host

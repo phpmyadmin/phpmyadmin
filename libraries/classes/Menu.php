@@ -262,9 +262,8 @@ class Menu
             $updatable_view = $dbi->getTable($this->db, $this->table)
                 ->isUpdatableView();
         }
-        $is_superuser = $dbi->isSuperuser();
-        $isCreateOrGrantUser = $dbi->isUserType('grant')
-            || $dbi->isUserType('create');
+        $is_superuser = $dbi->isSuperUser();
+        $isCreateOrGrantUser = $dbi->isGrantUser() || $dbi->isCreateUser();
 
         $tabs = [];
 
@@ -384,9 +383,8 @@ class Menu
 
         $db_is_system_schema = Utilities::isSystemSchema($this->db);
         $num_tables = count($dbi->getTables($this->db));
-        $is_superuser = $dbi->isSuperuser();
-        $isCreateOrGrantUser = $dbi->isUserType('grant')
-            || $dbi->isUserType('create');
+        $is_superuser = $dbi->isSuperUser();
+        $isCreateOrGrantUser = $dbi->isGrantUser() || $dbi->isCreateUser();
 
         /**
          * Gets the relation settings
@@ -506,9 +504,8 @@ class Menu
         /** @var DatabaseInterface $dbi */
         global $route, $dbi;
 
-        $is_superuser = $dbi->isSuperuser();
-        $isCreateOrGrantUser = $dbi->isUserType('grant')
-            || $dbi->isUserType('create');
+        $is_superuser = $dbi->isSuperUser();
+        $isCreateOrGrantUser = $dbi->isGrantUser() || $dbi->isCreateUser();
         if (Util::cacheExists('binary_logs')) {
             $binary_logs = Util::cacheGet('binary_logs');
         } else {

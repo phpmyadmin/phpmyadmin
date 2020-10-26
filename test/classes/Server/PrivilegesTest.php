@@ -36,6 +36,7 @@ class PrivilegesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setGlobalConfig();
         parent::setTheme();
@@ -111,11 +112,14 @@ class PrivilegesTest extends AbstractTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
+        $dbi->expects($this->any())->method('isCreateUser')
+            ->will($this->returnValue(true));
+        $dbi->expects($this->any())->method('isGrantUser')
+            ->will($this->returnValue(true));
+
         $GLOBALS['dbi'] = $dbi;
         $this->serverPrivileges->dbi = $dbi;
         $this->serverPrivileges->relation->dbi = $dbi;
-        $GLOBALS['is_grantuser'] = true;
-        $GLOBALS['is_createuser'] = true;
         $GLOBALS['is_reload_priv'] = true;
     }
 
@@ -1290,6 +1294,8 @@ class PrivilegesTest extends AbstractTestCase
         $dbi->expects($this->any())
             ->method('escapeString')
             ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('isGrantUser')
+            ->will($this->returnValue(true));
 
         $GLOBALS['dbi'] = $dbi;
         $this->serverPrivileges->dbi = $dbi;

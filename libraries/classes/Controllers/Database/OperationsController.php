@@ -303,7 +303,7 @@ class OperationsController extends AbstractController
         $hasAdjustPrivileges = $GLOBALS['db_priv'] && $GLOBALS['table_priv']
             && $GLOBALS['col_priv'] && $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'];
 
-        $isDropDatabaseAllowed = ($this->dbi->isSuperuser() || $cfg['AllowUserDropDatabase'])
+        $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $cfg['AllowUserDropDatabase'])
             && ! $db_is_system_schema && $db !== 'mysql';
 
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];

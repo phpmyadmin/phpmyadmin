@@ -27,14 +27,12 @@ class PrivilegesControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        global $dbi, $db, $server, $cfg, $PMA_PHP_SELF, $is_grantuser, $is_createuser;
+        global $dbi, $db, $server, $cfg, $PMA_PHP_SELF;
 
         $db = 'db';
         $server = 0;
         $cfg['Server']['DisableIS'] = false;
         $PMA_PHP_SELF = 'index.php';
-        $is_grantuser = true;
-        $is_createuser = true;
 
         $privileges = [];
 

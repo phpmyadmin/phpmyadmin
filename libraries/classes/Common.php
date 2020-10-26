@@ -16,7 +16,7 @@ final class Common
 {
     public static function server(): void
     {
-        global $db, $table, $viewing_mode, $err_url, $is_grantuser, $is_createuser, $dbi;
+        global $db, $table, $viewing_mode, $err_url, $dbi;
 
         /**
          * Handles some variables that may have been sent by the calling script
@@ -34,11 +34,8 @@ final class Common
          */
         $err_url = Url::getFromRoute('/');
 
-        $is_grantuser = $dbi->isUserType('grant');
-        $is_createuser = $dbi->isUserType('create');
-
         // now, select the mysql db
-        if (! $dbi->isSuperuser()) {
+        if (! $dbi->isSuperUser()) {
             return;
         }
 

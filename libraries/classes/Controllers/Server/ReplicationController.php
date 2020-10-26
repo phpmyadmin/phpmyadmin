@@ -63,7 +63,7 @@ class ReplicationController extends AbstractController
             $url_params = $params['url_params'];
         }
 
-        if ($this->dbi->isSuperuser()) {
+        if ($this->dbi->isSuperUser()) {
             $this->replicationGui->handleControlRequest();
         }
 
@@ -89,7 +89,7 @@ class ReplicationController extends AbstractController
 
         $this->render('server/replication/index', [
             'url_params' => $url_params,
-            'is_super_user' => $this->dbi->isSuperuser(),
+            'is_super_user' => $this->dbi->isSuperUser(),
             'error_messages' => $errorMessages,
             'is_master' => $primaryInfo['status'],
             'master_configure' => $params['mr_configure'],

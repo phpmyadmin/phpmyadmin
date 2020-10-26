@@ -1748,96 +1748,135 @@ class DatabaseInterface implements DbalInterface
         return '@';
     }
 
-    /**
-     * Checks if current user is superuser
-     *
-     * @return bool Whether user is a superuser
-     */
-    public function isSuperuser(): bool
+    public function isSuperUser(): bool
     {
-        return $this->isUserType('super');
-    }
-
-    /**
-     * Checks if current user has global create user/grant privilege
-     * or is a superuser (i.e. SELECT on mysql.users)
-     * while caching the result in session.
-     *
-     * @param string $type type of user to check for
-     *                     i.e. 'create', 'grant', 'super'
-     *
-     * @return bool Whether user is a given type of user
-     */
-    public function isUserType(string $type): bool
-    {
-        if (Util::cacheExists('is_' . $type . 'user')) {
-            return Util::cacheGet('is_' . $type . 'user');
+        if (Util::cacheExists('is_superuser')) {
+            return Util::cacheGet('is_superuser');
         }
 
-        // when connection failed we don't have a $userlink
-        if (! isset($this->links[self::CONNECT_USER])) {
+        if (! $this->isConnected()) {
             return false;
         }
 
-        // checking if user is logged in
-        if ($type === 'logged') {
-            return true;
+        $result = $this->tryQuery(
+            'SELECT 1 FROM mysql.user LIMIT 1',
+            self::CONNECT_USER,
+            self::QUERY_STORE
+        );
+        $isSuperUser = false;
+
+        if ($result) {
+            $isSuperUser = (bool) $this->numRows($result);
         }
 
-        if (! $GLOBALS['cfg']['Server']['DisableIS'] || $type === 'super') {
-            // Prepare query for each user type check
-            $query = '';
-            if ($type === 'super') {
-                $query = 'SELECT 1 FROM mysql.user LIMIT 1';
-            } elseif ($type === 'create') {
-                [$user, $host] = $this->getCurrentUserAndHost();
-                $query = QueryGenerator::getInformationSchemaDataForCreateRequest($user, $host);
-            } elseif ($type === 'grant') {
-                [$user, $host] = $this->getCurrentUserAndHost();
-                $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($user, $host);
-            }
+        $this->freeResult($result);
+        Util::cacheSet('is_superuser', $isSuperUser);
 
-            $is = false;
-            $result = $this->tryQuery(
-                $query,
-                self::CONNECT_USER,
-                self::QUERY_STORE
-            );
-            if ($result) {
-                $is = (bool) $this->numRows($result);
-            }
-            $this->freeResult($result);
-        } else {
-            $is = false;
-            $grants = $this->fetchResult(
-                'SHOW GRANTS FOR CURRENT_USER();',
-                null,
-                null,
-                self::CONNECT_USER,
-                self::QUERY_STORE
-            );
-            if ($grants) {
-                foreach ($grants as $grant) {
-                    if ($type === 'create') {
-                        if (strpos($grant, 'ALL PRIVILEGES ON *.*') !== false
-                            || strpos($grant, 'CREATE USER') !== false
-                        ) {
-                            $is = true;
-                            break;
-                        }
-                    } elseif ($type === 'grant') {
-                        if (strpos($grant, 'WITH GRANT OPTION') !== false) {
-                            $is = true;
-                            break;
-                        }
-                    }
+        return $isSuperUser;
+    }
+
+    public function isGrantUser(): bool
+    {
+        global $cfg;
+
+        if (Util::cacheExists('is_grantuser')) {
+            return Util::cacheGet('is_grantuser');
+        }
+
+        if (! $this->isConnected()) {
+            return false;
+        }
+
+        $hasGrantPrivilege = false;
+
+        if ($cfg['Server']['DisableIS']) {
+            $grants = $this->getCurrentUserGrants();
+
+            foreach ($grants as $grant) {
+                if (strpos($grant, 'WITH GRANT OPTION') !== false) {
+                    $hasGrantPrivilege = true;
+                    break;
                 }
             }
+
+            Util::cacheSet('is_grantuser', $hasGrantPrivilege);
+
+            return $hasGrantPrivilege;
         }
 
-        Util::cacheSet('is_' . $type . 'user', $is);
+        [$user, $host] = $this->getCurrentUserAndHost();
+        $query = QueryGenerator::getInformationSchemaDataForGranteeRequest($user, $host);
+        $result = $this->tryQuery($query, self::CONNECT_USER, self::QUERY_STORE);
 
-        return $is;
+        if ($result) {
+            $hasGrantPrivilege = (bool) $this->numRows($result);
+        }
+
+        $this->freeResult($result);
+        Util::cacheSet('is_grantuser', $hasGrantPrivilege);
+
+        return $hasGrantPrivilege;
+    }
+
+    public function isCreateUser(): bool
+    {
+        global $cfg;
+
+        if (Util::cacheExists('is_createuser')) {
+            return Util::cacheGet('is_createuser');
+        }
+
+        if (! $this->isConnected()) {
+            return false;
+        }
+
+        $hasCreatePrivilege = false;
+
+        if ($cfg['Server']['DisableIS']) {
+            $grants = $this->getCurrentUserGrants();
+
+            foreach ($grants as $grant) {
+                if (strpos($grant, 'ALL PRIVILEGES ON *.*') !== false
+                    || strpos($grant, 'CREATE USER') !== false
+                ) {
+                    $hasCreatePrivilege = true;
+                    break;
+                }
+            }
+
+            Util::cacheSet('is_createuser', $hasCreatePrivilege);
+
+            return $hasCreatePrivilege;
+        }
+
+        [$user, $host] = $this->getCurrentUserAndHost();
+        $query = QueryGenerator::getInformationSchemaDataForCreateRequest($user, $host);
+        $result = $this->tryQuery($query, self::CONNECT_USER, self::QUERY_STORE);
+
+        if ($result) {
+            $hasCreatePrivilege = (bool) $this->numRows($result);
+        }
+
+        $this->freeResult($result);
+        Util::cacheSet('is_createuser', $hasCreatePrivilege);
+
+        return $hasCreatePrivilege;
+    }
+
+    public function isConnected(): bool
+    {
+        return isset($this->links[self::CONNECT_USER]);
+    }
+
+    private function getCurrentUserGrants(): array
+    {
+        return $this->fetchResult(
+            'SHOW GRANTS FOR CURRENT_USER();',
+            null,
+            null,
+            self::CONNECT_USER,
+            self::QUERY_STORE
+        );
     }
 
     /**

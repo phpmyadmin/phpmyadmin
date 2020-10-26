@@ -46,7 +46,7 @@ class UserGroupsController extends AbstractController
         /**
          * Only allowed to superuser
          */
-        if (! $this->dbi->isSuperuser()) {
+        if (! $this->dbi->isSuperUser()) {
             $this->response->addHTML(
                 Message::error(__('No Privileges'))->getDisplay()
             );
@@ -57,7 +57,7 @@ class UserGroupsController extends AbstractController
         $this->response->addHTML('<div class="container-fluid">');
         $this->render('server/privileges/subnav', [
             'active' => 'user-groups',
-            'is_super_user' => $this->dbi->isSuperuser(),
+            'is_super_user' => $this->dbi->isSuperUser(),
         ]);
 
         /**
