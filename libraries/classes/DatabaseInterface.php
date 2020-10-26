@@ -18,6 +18,7 @@ use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\Utils\SessionCache;
 use const E_USER_WARNING;
 use const LOG_INFO;
 use const LOG_NDELAY;
@@ -1735,12 +1736,12 @@ class DatabaseInterface implements DbalInterface
      */
     public function getCurrentUser(): string
     {
-        if (Util::cacheExists('mysql_cur_user')) {
-            return Util::cacheGet('mysql_cur_user');
+        if (SessionCache::has('mysql_cur_user')) {
+            return SessionCache::get('mysql_cur_user');
         }
         $user = $this->fetchValue('SELECT CURRENT_USER();');
         if ($user !== false) {
-            Util::cacheSet('mysql_cur_user', $user);
+            SessionCache::set('mysql_cur_user', $user);
 
             return $user;
         }
@@ -1750,8 +1751,8 @@ class DatabaseInterface implements DbalInterface
 
     public function isSuperUser(): bool
     {
-        if (Util::cacheExists('is_superuser')) {
-            return Util::cacheGet('is_superuser');
+        if (SessionCache::has('is_superuser')) {
+            return SessionCache::get('is_superuser');
         }
 
         if (! $this->isConnected()) {
@@ -1770,7 +1771,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         $this->freeResult($result);
-        Util::cacheSet('is_superuser', $isSuperUser);
+        SessionCache::set('is_superuser', $isSuperUser);
 
         return $isSuperUser;
     }
@@ -1779,8 +1780,8 @@ class DatabaseInterface implements DbalInterface
     {
         global $cfg;
 
-        if (Util::cacheExists('is_grantuser')) {
-            return Util::cacheGet('is_grantuser');
+        if (SessionCache::has('is_grantuser')) {
+            return SessionCache::get('is_grantuser');
         }
 
         if (! $this->isConnected()) {
@@ -1799,7 +1800,7 @@ class DatabaseInterface implements DbalInterface
                 }
             }
 
-            Util::cacheSet('is_grantuser', $hasGrantPrivilege);
+            SessionCache::set('is_grantuser', $hasGrantPrivilege);
 
             return $hasGrantPrivilege;
         }
@@ -1813,7 +1814,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         $this->freeResult($result);
-        Util::cacheSet('is_grantuser', $hasGrantPrivilege);
+        SessionCache::set('is_grantuser', $hasGrantPrivilege);
 
         return $hasGrantPrivilege;
     }
@@ -1822,8 +1823,8 @@ class DatabaseInterface implements DbalInterface
     {
         global $cfg;
 
-        if (Util::cacheExists('is_createuser')) {
-            return Util::cacheGet('is_createuser');
+        if (SessionCache::has('is_createuser')) {
+            return SessionCache::get('is_createuser');
         }
 
         if (! $this->isConnected()) {
@@ -1844,7 +1845,7 @@ class DatabaseInterface implements DbalInterface
                 }
             }
 
-            Util::cacheSet('is_createuser', $hasCreatePrivilege);
+            SessionCache::set('is_createuser', $hasCreatePrivilege);
 
             return $hasCreatePrivilege;
         }
@@ -1858,7 +1859,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         $this->freeResult($result);
-        Util::cacheSet('is_createuser', $hasCreatePrivilege);
+        SessionCache::set('is_createuser', $hasCreatePrivilege);
 
         return $hasCreatePrivilege;
     }
@@ -2319,13 +2320,13 @@ class DatabaseInterface implements DbalInterface
      */
     public function isAmazonRds(): bool
     {
-        if (Util::cacheExists('is_amazon_rds')) {
-            return Util::cacheGet('is_amazon_rds');
+        if (SessionCache::has('is_amazon_rds')) {
+            return SessionCache::get('is_amazon_rds');
         }
         $sql = 'SELECT @@basedir';
         $result = $this->fetchValue($sql);
         $rds = (substr($result, 0, 10) === '/rdsdbbin/');
-        Util::cacheSet('is_amazon_rds', $rds);
+        SessionCache::set('is_amazon_rds', $rds);
 
         return $rds;
     }

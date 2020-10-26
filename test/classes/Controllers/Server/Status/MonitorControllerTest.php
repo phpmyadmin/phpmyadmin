@@ -10,7 +10,7 @@ use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\SessionCache;
 
 class MonitorControllerTest extends AbstractTestCase
 {
@@ -273,7 +273,7 @@ class MonitorControllerTest extends AbstractTestCase
         global $cached_affected_rows;
 
         $cached_affected_rows = 'cached_affected_rows';
-        Util::cacheSet('profiling_supported', true);
+        SessionCache::set('profiling_supported', true);
 
         $value = [
             'sql_text' => 'insert sql_text',

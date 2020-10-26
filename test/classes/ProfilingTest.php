@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Profiling;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\SessionCache;
 
 class ProfilingTest extends AbstractTestCase
 {
@@ -15,11 +15,11 @@ class ProfilingTest extends AbstractTestCase
 
         $server = 1;
 
-        Util::cacheSet('profiling_supported', true);
+        SessionCache::set('profiling_supported', true);
         $condition = Profiling::isSupported($dbi);
         $this->assertTrue($condition);
 
-        Util::cacheSet('profiling_supported', false);
+        SessionCache::set('profiling_supported', false);
         $condition = Profiling::isSupported($dbi);
         $this->assertFalse($condition);
     }

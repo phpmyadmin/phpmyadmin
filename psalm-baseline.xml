@@ -654,6 +654,13 @@
       <code>$a</code>
       <code>$b</code>
     </MissingClosureParamType>
+    <NullableReturnStatement occurrences="5">
+      <code>SessionCache::get('is_amazon_rds')</code>
+      <code>SessionCache::get('is_createuser')</code>
+      <code>SessionCache::get('is_grantuser')</code>
+      <code>SessionCache::get('is_superuser')</code>
+      <code>SessionCache::get('mysql_cur_user')</code>
+    </NullableReturnStatement>
     <PossiblyInvalidArgument occurrences="1">
       <code>$table</code>
     </PossiblyInvalidArgument>
@@ -1127,8 +1134,9 @@
     </MissingConstructor>
   </file>
   <file src="libraries/classes/Menu.php">
-    <NullableReturnStatement occurrences="1">
+    <NullableReturnStatement occurrences="2">
       <code>$allowedTabs</code>
+      <code>SessionCache::get($cache_key)</code>
     </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strpos($row['tab'], '_')</code>
@@ -2103,6 +2111,11 @@
     <InvalidReturnType occurrences="1">
       <code>bool</code>
     </InvalidReturnType>
+  </file>
+  <file src="libraries/classes/Profiling.php">
+    <NullableReturnStatement occurrences="1">
+      <code>SessionCache::get('profiling_supported')</code>
+    </NullableReturnStatement>
   </file>
   <file src="libraries/classes/Properties/Options/OptionsPropertyOneItem.php">
     <ImplementedReturnTypeMismatch occurrences="1">

@@ -10,7 +10,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\SessionCache;
 
 class BinlogControllerTest extends AbstractTestCase
 {
@@ -34,7 +34,7 @@ class BinlogControllerTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        Util::cacheSet('profiling_supported', true);
+        SessionCache::set('profiling_supported', true);
     }
 
     public function testIndex(): void

@@ -12,7 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\SessionCache;
 use stdClass;
 
 /**
@@ -48,7 +48,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testGetCurrentUser($value, string $string, array $expected): void
     {
-        Util::cacheUnset('mysql_cur_user');
+        SessionCache::remove('mysql_cur_user');
 
         $extension = new DbiDummy();
         /** @var array $value */
@@ -290,7 +290,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function atestIsAmazonRdsData(array $value, bool $expected): void
     {
-        Util::cacheUnset('is_amazon_rds');
+        SessionCache::remove('is_amazon_rds');
 
         $extension = new DbiDummy();
         $extension->setResult('SELECT @@basedir', $value);
