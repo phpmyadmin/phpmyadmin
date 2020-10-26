@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Query\Utilities;
+use PhpMyAdmin\Utils\SessionCache;
 use function mb_strpos;
 use function mb_substr;
 use function preg_match;
@@ -169,33 +170,33 @@ class CheckUserPrivileges
      */
     private function analyseShowGrant(): void
     {
-        if (Util::cacheExists('is_create_db_priv')) {
-            $GLOBALS['is_create_db_priv'] = Util::cacheGet(
+        if (SessionCache::has('is_create_db_priv')) {
+            $GLOBALS['is_create_db_priv'] = SessionCache::get(
                 'is_create_db_priv'
             );
-            $GLOBALS['is_reload_priv'] = Util::cacheGet(
+            $GLOBALS['is_reload_priv'] = SessionCache::get(
                 'is_reload_priv'
             );
-            $GLOBALS['db_to_create'] = Util::cacheGet(
+            $GLOBALS['db_to_create'] = SessionCache::get(
                 'db_to_create'
             );
-            $GLOBALS['dbs_where_create_table_allowed'] = Util::cacheGet(
+            $GLOBALS['dbs_where_create_table_allowed'] = SessionCache::get(
                 'dbs_where_create_table_allowed'
             );
-            $GLOBALS['dbs_to_test'] = Util::cacheGet(
+            $GLOBALS['dbs_to_test'] = SessionCache::get(
                 'dbs_to_test'
             );
 
-            $GLOBALS['db_priv'] = Util::cacheGet(
+            $GLOBALS['db_priv'] = SessionCache::get(
                 'db_priv'
             );
-            $GLOBALS['col_priv'] = Util::cacheGet(
+            $GLOBALS['col_priv'] = SessionCache::get(
                 'col_priv'
             );
-            $GLOBALS['table_priv'] = Util::cacheGet(
+            $GLOBALS['table_priv'] = SessionCache::get(
                 'table_priv'
             );
-            $GLOBALS['proc_priv'] = Util::cacheGet(
+            $GLOBALS['proc_priv'] = SessionCache::get(
                 'proc_priv'
             );
 
@@ -324,19 +325,19 @@ class CheckUserPrivileges
 
         // must also cacheUnset() them in
         // PhpMyAdmin\Plugins\Auth\AuthenticationCookie
-        Util::cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv']);
-        Util::cacheSet('is_reload_priv', $GLOBALS['is_reload_priv']);
-        Util::cacheSet('db_to_create', $GLOBALS['db_to_create']);
-        Util::cacheSet(
+        SessionCache::set('is_create_db_priv', $GLOBALS['is_create_db_priv']);
+        SessionCache::set('is_reload_priv', $GLOBALS['is_reload_priv']);
+        SessionCache::set('db_to_create', $GLOBALS['db_to_create']);
+        SessionCache::set(
             'dbs_where_create_table_allowed',
             $GLOBALS['dbs_where_create_table_allowed']
         );
-        Util::cacheSet('dbs_to_test', $GLOBALS['dbs_to_test']);
+        SessionCache::set('dbs_to_test', $GLOBALS['dbs_to_test']);
 
-        Util::cacheSet('proc_priv', $GLOBALS['proc_priv']);
-        Util::cacheSet('table_priv', $GLOBALS['table_priv']);
-        Util::cacheSet('col_priv', $GLOBALS['col_priv']);
-        Util::cacheSet('db_priv', $GLOBALS['db_priv']);
+        SessionCache::set('proc_priv', $GLOBALS['proc_priv']);
+        SessionCache::set('table_priv', $GLOBALS['table_priv']);
+        SessionCache::set('col_priv', $GLOBALS['col_priv']);
+        SessionCache::set('db_priv', $GLOBALS['db_priv']);
     }
 
     /**

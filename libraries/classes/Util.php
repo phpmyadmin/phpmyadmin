@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use Closure;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\Utils\SessionCache;
 use phpseclib\Crypt\Random;
 use stdClass;
 use const ENT_COMPAT;
@@ -1348,76 +1348,9 @@ class Util
      */
     public static function clearUserCache(): void
     {
-        self::cacheUnset('is_superuser');
-        self::cacheUnset('is_createuser');
-        self::cacheUnset('is_grantuser');
-    }
-
-    /**
-     * Calculates session cache key
-     */
-    public static function cacheKey(): string
-    {
-        if (isset($GLOBALS['cfg']['Server']['user'])) {
-            return 'server_' . $GLOBALS['server'] . '_' . $GLOBALS['cfg']['Server']['user'];
-        }
-
-        return 'server_' . $GLOBALS['server'];
-    }
-
-    /**
-     * Verifies if something is cached in the session
-     *
-     * @param string $var variable name
-     */
-    public static function cacheExists($var): bool
-    {
-        return isset($_SESSION['cache'][self::cacheKey()][$var]);
-    }
-
-    /**
-     * Gets cached information from the session
-     *
-     * @param string  $var      variable name
-     * @param Closure $callback callback to fetch the value
-     *
-     * @return mixed
-     */
-    public static function cacheGet($var, $callback = null)
-    {
-        if (self::cacheExists($var)) {
-            return $_SESSION['cache'][self::cacheKey()][$var];
-        }
-
-        if ($callback) {
-            $val = $callback();
-            self::cacheSet($var, $val);
-
-            return $val;
-        }
-
-        return null;
-    }
-
-    /**
-     * Caches information in the session
-     *
-     * @param string $var variable name
-     * @param mixed  $val value
-     */
-    public static function cacheSet($var, $val = null): void
-    {
-        $_SESSION['cache'][self::cacheKey()][$var] = $val;
-    }
-
-    /**
-     * Removes cached information from the session
-     *
-     * @param string $var variable name
-     */
-    public static function cacheUnset($var): void
-    {
-        unset($_SESSION['cache'][self::cacheKey()][$var]);
+        SessionCache::remove('is_superuser');
+        SessionCache::remove('is_createuser');
+        SessionCache::remove('is_grantuser');
     }
 
     /**

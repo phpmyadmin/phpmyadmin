@@ -18,6 +18,7 @@ use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\SessionCache;
 use phpseclib\Crypt;
 use phpseclib\Crypt\Random;
 use ReCaptcha;
@@ -405,15 +406,15 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
         // All sessions expired
         if (empty($_SESSION['browser_access_time'])) {
-            Util::cacheUnset('is_create_db_priv');
-            Util::cacheUnset('is_reload_priv');
-            Util::cacheUnset('db_to_create');
-            Util::cacheUnset('dbs_where_create_table_allowed');
-            Util::cacheUnset('dbs_to_test');
-            Util::cacheUnset('db_priv');
-            Util::cacheUnset('col_priv');
-            Util::cacheUnset('table_priv');
-            Util::cacheUnset('proc_priv');
+            SessionCache::remove('is_create_db_priv');
+            SessionCache::remove('is_reload_priv');
+            SessionCache::remove('db_to_create');
+            SessionCache::remove('dbs_where_create_table_allowed');
+            SessionCache::remove('dbs_to_test');
+            SessionCache::remove('db_priv');
+            SessionCache::remove('col_priv');
+            SessionCache::remove('table_priv');
+            SessionCache::remove('proc_priv');
 
             $this->showFailure('no-activity');
             if (! defined('TESTSUITE')) {

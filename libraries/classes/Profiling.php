@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Utils\SessionCache;
 use function is_array;
 
 /**
@@ -13,8 +14,8 @@ final class Profiling
 {
     public static function isSupported(DatabaseInterface $dbi): bool
     {
-        if (Util::cacheExists('profiling_supported')) {
-            return Util::cacheGet('profiling_supported');
+        if (SessionCache::has('profiling_supported')) {
+            return SessionCache::get('profiling_supported');
         }
 
         /**
@@ -23,12 +24,12 @@ final class Profiling
          * and do not set a constant as we might be switching servers
          */
         if ($dbi->fetchValue('SELECT @@have_profiling')) {
-            Util::cacheSet('profiling_supported', true);
+            SessionCache::set('profiling_supported', true);
 
             return true;
         }
 
-        Util::cacheSet('profiling_supported', false);
+        SessionCache::set('profiling_supported', false);
 
         return false;
     }

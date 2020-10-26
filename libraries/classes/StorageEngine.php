@@ -20,6 +20,7 @@ use PhpMyAdmin\Engines\Ndbcluster;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Engines\PerformanceSchema;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Utils\SessionCache;
 use function array_key_exists;
 use function define;
 use function explode;
@@ -106,7 +107,7 @@ class StorageEngine
         if ($storage_engines == null) {
             $storage_engines = $dbi->fetchResult('SHOW STORAGE ENGINES', 'Engine');
             if ($dbi->getVersion() >= 50708) {
-                $disabled = (string) Util::cacheGet(
+                $disabled = (string) SessionCache::get(
                     'disabled_storage_engines',
                     static function () use ($dbi) {
                         return $dbi->fetchValue(

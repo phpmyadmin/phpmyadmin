@@ -10,7 +10,7 @@ use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\SessionCache;
 
 /**
  * The navigation panel
@@ -60,7 +60,7 @@ class NavigationController extends AbstractController
         }
 
         if (isset($_POST['reload'])) {
-            Util::cacheSet('dbs_to_test', false);// Empty database list cache, see #14252
+            SessionCache::set('dbs_to_test', false);// Empty database list cache, see #14252
         }
 
         $cfgRelation = $this->relation->getRelationsParam();
