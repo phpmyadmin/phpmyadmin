@@ -14,34 +14,6 @@ use function strpos;
  */
 final class Common
 {
-    public static function server(): void
-    {
-        global $db, $table, $viewing_mode, $err_url, $dbi;
-
-        /**
-         * Handles some variables that may have been sent by the calling script
-         * Note: this can be called also from the db panel to get the privileges of
-         *       a db, in which case we want to keep displaying the tabs of
-         *       the Database panel
-         */
-        if (empty($viewing_mode)) {
-            $db = '';
-            $table = '';
-        }
-
-        /**
-         * Defines the urls to return to in case of error in a sql statement
-         */
-        $err_url = Url::getFromRoute('/');
-
-        // now, select the mysql db
-        if (! $dbi->isSuperUser()) {
-            return;
-        }
-
-        $dbi->selectDb('mysql');
-    }
-
     public static function database(): void
     {
         global $cfg, $db, $is_show_stats, $db_is_system_schema, $err_url;

@@ -8,7 +8,6 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -87,7 +86,7 @@ class DatabasesController extends AbstractController
     public function index(): void
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
-        global $db_to_create, $text_dir, $PMA_Theme;
+        global $db_to_create, $text_dir, $PMA_Theme, $err_url;
 
         $params = [
             'statistics' => $_REQUEST['statistics'] ?? null,
@@ -97,8 +96,11 @@ class DatabasesController extends AbstractController
         ];
 
         $this->addScriptFiles(['server/databases.js']);
+        $err_url = Url::getFromRoute('/');
 
-        Common::server();
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
         $replicationInfo->load($_POST['master_connection'] ?? null);

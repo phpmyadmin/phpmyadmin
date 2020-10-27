@@ -440,6 +440,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
+                '$dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\ExportController::class => [
@@ -448,6 +449,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$export' => '@export_options',
+                '$dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\ImportController::class => [
@@ -464,6 +466,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$plugins' => '@server_plugins',
+                '$dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\PrivilegesController::class => [
@@ -490,6 +493,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$sqlQueryForm' => '@sql_query_form',
+                '$dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\UserGroupsController::class => [
@@ -535,6 +539,7 @@ return [
                 '$response' => '@response',
                 '$template' => '@template',
                 '$data' => '@status_data',
+                '$dbi' => '@dbi',
             ],
         ],
         PhpMyAdmin\Controllers\Server\Status\StatusController::class => [

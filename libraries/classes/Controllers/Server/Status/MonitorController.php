@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use function is_numeric;
 use function microtime;
 
@@ -37,9 +37,13 @@ class MonitorController extends AbstractController
 
     public function index(): void
     {
-        global $PMA_Theme;
+        global $PMA_Theme, $err_url;
 
-        Common::server();
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $this->addScriptFiles([
             'vendor/jquery/jquery.tablesorter.js',
@@ -82,9 +86,14 @@ class MonitorController extends AbstractController
 
     public function chartingData(): void
     {
-        $params = ['requiredData' => $_POST['requiredData'] ?? null];
+        global $err_url;
 
-        Common::server();
+        $params = ['requiredData' => $_POST['requiredData'] ?? null];
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         if (! $this->response->isAjax()) {
             return;
@@ -99,12 +108,17 @@ class MonitorController extends AbstractController
 
     public function logDataTypeSlow(): void
     {
+        global $err_url;
+
         $params = [
             'time_start' => $_POST['time_start'] ?? null,
             'time_end' => $_POST['time_end'] ?? null,
         ];
+        $err_url = Url::getFromRoute('/');
 
-        Common::server();
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         if (! $this->response->isAjax()) {
             return;
@@ -120,14 +134,19 @@ class MonitorController extends AbstractController
 
     public function logDataTypeGeneral(): void
     {
+        global $err_url;
+
         $params = [
             'time_start' => $_POST['time_start'] ?? null,
             'time_end' => $_POST['time_end'] ?? null,
             'limitTypes' => $_POST['limitTypes'] ?? null,
             'removeVariables' => $_POST['removeVariables'] ?? null,
         ];
+        $err_url = Url::getFromRoute('/');
 
-        Common::server();
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         if (! $this->response->isAjax()) {
             return;
@@ -145,12 +164,17 @@ class MonitorController extends AbstractController
 
     public function loggingVars(): void
     {
+        global $err_url;
+
         $params = [
             'varName' => $_POST['varName'] ?? null,
             'varValue' => $_POST['varValue'] ?? null,
         ];
+        $err_url = Url::getFromRoute('/');
 
-        Common::server();
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         if (! $this->response->isAjax()) {
             return;
@@ -166,12 +190,17 @@ class MonitorController extends AbstractController
 
     public function queryAnalyzer(): void
     {
+        global $err_url;
+
         $params = [
             'database' => $_POST['database'] ?? null,
             'query' => $_POST['query'] ?? null,
         ];
+        $err_url = Url::getFromRoute('/');
 
-        Common::server();
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         if (! $this->response->isAjax()) {
             return;

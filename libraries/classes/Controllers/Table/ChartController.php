@@ -43,7 +43,7 @@ class ChartController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $cfg, $sql_query;
+        global $db, $table, $cfg, $sql_query, $err_url;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
         ) {
@@ -103,7 +103,11 @@ class ChartController extends AbstractController
                 'server'
             );
             $url_params['back'] = Url::getFromRoute('/sql');
-            Common::server();
+            $err_url = Url::getFromRoute('/');
+
+            if ($this->dbi->isSuperUser()) {
+                $this->dbi->selectDb('mysql');
+            }
         }
 
         $data = [];

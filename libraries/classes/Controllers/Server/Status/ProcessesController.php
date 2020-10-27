@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_keys;
 use function count;
@@ -36,6 +36,8 @@ class ProcessesController extends AbstractController
 
     public function index(): void
     {
+        global $err_url;
+
         $params = [
             'showExecuting' => $_POST['showExecuting'] ?? null,
             'full' => $_POST['full'] ?? null,
@@ -43,8 +45,11 @@ class ProcessesController extends AbstractController
             'order_by_field' => $_POST['order_by_field'] ?? null,
             'sort_order' => $_POST['sort_order'] ?? null,
         ];
+        $err_url = Url::getFromRoute('/');
 
-        Common::server();
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $this->addScriptFiles(['server/status/processes.js']);
 

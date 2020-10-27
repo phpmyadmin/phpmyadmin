@@ -4,18 +4,40 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 
 /**
  * Handles viewing storage engine details
  */
 class EnginesController extends AbstractController
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $dbi)
+    {
+        parent::__construct($response, $template);
+        $this->dbi = $dbi;
+    }
+
     public function index(): void
     {
-        Common::server();
+        global $err_url;
+
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $this->render('server/engines/index', [
             'engines' => StorageEngine::getStorageEngines(),
@@ -29,7 +51,13 @@ class EnginesController extends AbstractController
      */
     public function show(array $params): void
     {
-        Common::server();
+        global $err_url;
+
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $page = $params['page'] ?? '';
 
