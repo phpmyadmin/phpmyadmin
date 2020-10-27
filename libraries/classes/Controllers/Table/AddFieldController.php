@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table\ColumnsDefinition;
@@ -65,7 +66,7 @@ class AddFieldController extends AbstractController
     public function index(): void
     {
         global $err_url, $message, $action, $active_page, $sql_query;
-        global $num_fields, $regenerate, $result, $db, $table;
+        global $num_fields, $regenerate, $result, $db, $table, $db_is_system_schema;
 
         $this->addScriptFiles(['table/structure.js']);
 
@@ -162,10 +163,12 @@ class AddFieldController extends AbstractController
             return;
         }
 
-        /**
-         * Gets tables information
-         */
-        Common::table();
+        $db_is_system_schema = Utilities::isSystemSchema($db);
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        DbTableExists::check();
 
         $active_page = Url::getFromRoute('/table/structure');
         /**

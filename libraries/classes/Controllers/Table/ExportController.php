@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use function array_merge;
 use function implode;
 use function is_array;
@@ -43,7 +44,7 @@ class ExportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $url_params, $table, $replaces;
+        global $db, $url_params, $table, $replaces, $db_is_system_schema, $cfg, $err_url;
         global $sql_query, $where_clause, $num_tables, $unlim_num_rows;
 
         $pageSettings = new PageSettings('Export');
@@ -52,15 +53,15 @@ class ExportController extends AbstractController
 
         $this->addScriptFiles(['export.js']);
 
-        /**
-         * Gets tables information and displays top links
-         */
-        Common::table();
+        Util::checkParameters(['db', 'table']);
 
-        $url_params = [
-            'goto' => Url::getFromRoute('/table/export'),
-            'back' => Url::getFromRoute('/table/export'),
-        ];
+        $db_is_system_schema = Utilities::isSystemSchema($db);
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        $url_params['goto'] = Url::getFromRoute('/table/export');
+        $url_params['back'] = Url::getFromRoute('/table/export');
 
         $message = '';
 

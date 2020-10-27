@@ -9,8 +9,11 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function in_array;
 use function strlen;
@@ -42,7 +45,7 @@ class RoutinesController extends AbstractController
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
-        global $errors, $PMA_Theme, $text_dir;
+        global $errors, $PMA_Theme, $text_dir, $err_url, $url_params, $cfg;
 
         $type = $_REQUEST['type'] ?? null;
 
@@ -53,7 +56,14 @@ class RoutinesController extends AbstractController
              * Displays the header and tabs
              */
             if (! empty($table) && in_array($table, $this->dbi->getTables($db))) {
-                Common::table();
+                Util::checkParameters(['db', 'table']);
+
+                $db_is_system_schema = Utilities::isSystemSchema($db);
+                $url_params = ['db' => $db, 'table' => $table];
+                $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+                $err_url .= Url::getCommon($url_params, '&');
+
+                DbTableExists::check();
             } else {
                 $table = '';
                 Common::database();

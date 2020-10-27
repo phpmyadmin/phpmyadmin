@@ -6,7 +6,9 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
@@ -43,7 +45,7 @@ class ChartController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $cfg, $sql_query, $err_url;
+        global $db, $table, $cfg, $sql_query, $err_url, $db_is_system_schema;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
         ) {
@@ -83,12 +85,17 @@ class ChartController extends AbstractController
          * Runs common work
          */
         if (strlen($table) > 0) {
-            $url_params['goto'] = Util::getScriptNameForOption(
-                $cfg['DefaultTabTable'],
-                'table'
-            );
+            Util::checkParameters(['db', 'table']);
+
+            $db_is_system_schema = Utilities::isSystemSchema($db);
+            $url_params = ['db' => $db, 'table' => $table];
+            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $err_url .= Url::getCommon($url_params, '&');
+
+            DbTableExists::check();
+
+            $url_params['goto'] = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
             $url_params['back'] = Url::getFromRoute('/table/sql');
-            Common::table();
             $this->dbi->selectDb($db);
         } elseif (strlen($db) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
@@ -164,10 +171,17 @@ class ChartController extends AbstractController
      */
     public function ajax(): void
     {
-        global $db, $table, $sql_query;
+        global $db, $table, $sql_query, $db_is_system_schema, $url_params, $err_url, $cfg;
 
         if (strlen($table) > 0 && strlen($db) > 0) {
-            Common::table();
+            Util::checkParameters(['db', 'table']);
+
+            $db_is_system_schema = Utilities::isSystemSchema($db);
+            $url_params = ['db' => $db, 'table' => $table];
+            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $err_url .= Url::getCommon($url_params, '&');
+
+            DbTableExists::check();
         }
 
         $parser = new Parser($sql_query);

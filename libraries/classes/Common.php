@@ -145,44 +145,4 @@ final class Common
             }
         }
     }
-
-    public static function table(): void
-    {
-        global $db, $table, $db_is_system_schema, $url_params, $cfg, $err_url, $err_url_0, $route;
-
-        Util::checkParameters(['db', 'table']);
-
-        $db_is_system_schema = Utilities::isSystemSchema($db);
-
-        /**
-         * Set parameters for links
-         */
-        $url_params = [];
-        $url_params['db']    = $db;
-        $url_params['table'] = $table;
-
-        /**
-         * Defines the urls to return to in case of error in a sql statement
-         */
-        $err_url_0 = Util::getScriptNameForOption(
-            $cfg['DefaultTabDatabase'],
-            'database'
-        );
-        $err_url_0 .= Url::getCommon(['db' => $db], strpos($err_url_0, '?') === false ? '?' : '&');
-
-        $err_url = Util::getScriptNameForOption(
-            $cfg['DefaultTabTable'],
-            'table'
-        );
-        $err_url .= Url::getCommon($url_params, strpos($err_url, '?') === false ? '?' : '&');
-
-        /**
-         * Skip test if we are exporting as we can't tell whether a table name is an alias (which would fail the test).
-         */
-        if ($route !== '/table/export') {
-            return;
-        }
-
-        DbTableExists::check();
-    }
 }

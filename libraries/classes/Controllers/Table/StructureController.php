@@ -6,13 +6,13 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\SqlController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
@@ -20,6 +20,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Partition;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
@@ -107,7 +108,7 @@ class StructureController extends AbstractController
 
     public function index(): void
     {
-        global $reread_info, $showtable;
+        global $reread_info, $showtable, $db_is_system_schema, $db, $table, $cfg, $err_url;
         global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
 
         $this->dbi->selectDb($this->db);
@@ -139,7 +140,14 @@ class StructureController extends AbstractController
 
         $cfgRelation = $this->relation->getRelationsParam();
 
-        Common::table();
+        Util::checkParameters(['db', 'table']);
+
+        $db_is_system_schema = Utilities::isSystemSchema($db);
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        DbTableExists::check();
 
         $primary = Index::getPrimary($this->table, $this->db);
         $columns_with_index = $this->dbi
@@ -454,7 +462,7 @@ class StructureController extends AbstractController
 
     public function primary(): void
     {
-        global $db, $table, $message, $sql_query;
+        global $db, $table, $message, $sql_query, $db_is_system_schema, $url_params, $err_url, $cfg;
 
         $selected = $_POST['selected'] ?? [];
         $selected_fld = $_POST['selected_fld'] ?? [];
@@ -476,7 +484,14 @@ class StructureController extends AbstractController
         $mult_btn = $_POST['mult_btn'] ?? $mult_btn ?? '';
 
         if (! empty($selected_fld) && ! empty($primary)) {
-            Common::table();
+            Util::checkParameters(['db', 'table']);
+
+            $db_is_system_schema = Utilities::isSystemSchema($db);
+            $url_params = ['db' => $db, 'table' => $table];
+            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $err_url .= Url::getCommon($url_params, '&');
+
+            DbTableExists::check();
 
             $this->render('table/structure/primary', [
                 'db' => $db,
@@ -565,7 +580,7 @@ class StructureController extends AbstractController
 
     public function dropConfirm(): void
     {
-        global $db, $table;
+        global $db, $table, $db_is_system_schema, $url_params, $err_url, $cfg;
 
         $selected = $_POST['selected_fld'] ?? null;
 
@@ -576,7 +591,14 @@ class StructureController extends AbstractController
             return;
         }
 
-        Common::table();
+        Util::checkParameters(['db', 'table']);
+
+        $db_is_system_schema = Utilities::isSystemSchema($db);
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        DbTableExists::check();
 
         $this->render('table/structure/drop_confirm', [
             'db' => $db,

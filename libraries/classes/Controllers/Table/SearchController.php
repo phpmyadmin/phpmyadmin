@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
@@ -15,6 +16,7 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function in_array;
 use function intval;
@@ -186,7 +188,16 @@ class SearchController extends AbstractController
      */
     public function index(): void
     {
-        Common::table();
+        global $db, $table, $db_is_system_schema, $url_params, $cfg, $err_url;
+
+        Util::checkParameters(['db', 'table']);
+
+        $db_is_system_schema = Utilities::isSystemSchema($db);
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        DbTableExists::check();
 
         $this->addScriptFiles([
             'makegrid.js',
