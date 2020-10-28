@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 14:18-0300\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Last-Translator: Gilang Wahyudi <GilangWahyudi@gmail.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ms/>\n"
 "Language: ms\n"
@@ -17,39 +17,45 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Waktu penggunaan di bawah satu hari"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "Waktu kurang dari 1 hari, penalaan prestasi mungkin tidak tepat."
 
 #: libraries/advisory_rules_generic.php:14
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Untuk mendapatkan rata-rata yang lebih tepat, disarankan untuk membiarkan pelayan berjalan"
+"lebih lama daripada sehari sebelum menjalankan penganalisis ini"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr ""Waktu operasi hanya% s""
 
 #: libraries/advisory_rules_generic.php:22
 #, fuzzy
 msgid "Questions below 1,000"
-msgstr "Operasi"
+msgstr "Soalan di bawah 1,000"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Kurang dari 1,000 soalan telah dijalankan terhadap pelayan ini."
+"cadangan mungkin tidak tepat."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Biarkan pelayan berjalan lebih lama sehingga ia menjalankan jumlah yang lebih besar"
+"pertanyaan."
 
 #: libraries/advisory_rules_generic.php:32
 #, fuzzy, php-format
@@ -66,6 +72,7 @@ msgstr "kueri-SQL"
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Terdapat banyak pertanyaan perlahan berbanding jumlah keseluruhan Pertanyaan."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:57
@@ -73,11 +80,13 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Anda mungkin ingin meningkatkan {long_query_time} atau mengoptimumkan pertanyaan yang disenaraikan"
+"dalam log pertanyaan lambat"
 
 #: libraries/advisory_rules_generic.php:46
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Kadar pertanyaan perlahan mestilah di bawah 5 %%, nilainya adalah% s %%."
 
 #: libraries/advisory_rules_generic.php:51
 #, fuzzy
@@ -88,6 +97,7 @@ msgstr "kueri-SQL"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Terdapat peratusan pertanyaan lambat yang tinggi berbanding waktu operasi pelayan."
 
 #: libraries/advisory_rules_generic.php:60
 #, php-format
@@ -95,6 +105,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Anda mempunyai kadar pertanyaan perlahan% s per jam, anda harus mempunyai kurang dari 1 %% per"
+"jam."
 
 #: libraries/advisory_rules_generic.php:65
 #, fuzzy
@@ -106,17 +118,21 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} ditetapkan hingga 10 saat atau lebih, oleh itu hanya pertanyaan lambat yang"
+"mengambil masa melebihi 10 saat dicatat."
 
 #: libraries/advisory_rules_generic.php:73
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Dianjurkan untuk menetapkan {long_query_time} ke nilai yang lebih rendah, bergantung pada Anda"
+"persekitaran. Biasanya nilai 1-5 saat dicadangkan."
 
 #: libraries/advisory_rules_generic.php:76
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr ""
+msgstr "long_query_time kini ditetapkan kepada% ds."
 
 #: libraries/advisory_rules_generic.php:81
 #: libraries/advisory_rules_generic.php:94
@@ -128,27 +144,31 @@ msgstr "kueri-SQL"
 #: libraries/advisory_rules_generic.php:98
 #, fuzzy
 msgid "The slow query log is disabled."
-msgstr "Jenis Kueri"
+msgstr "Log pertanyaan lambat dilumpuhkan."
 
 #: libraries/advisory_rules_generic.php:87
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Aktifkan log pertanyaan perlahan dengan menetapkan {log_slow_queries} ke 'ON'. Ini akan"
+"bantu menyelesaikan masalah dengan prestasi yang buruk."
 
 #: libraries/advisory_rules_generic.php:90
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries is set to 'OFF'"
 
 #: libraries/advisory_rules_generic.php:100
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Aktifkan log pertanyaan perlahan dengan menetapkan {slow_query_log} ke 'ON'. Ini akan"
+"bantu menyelesaikan masalah dengan prestasi yang buruk."
 
 #: libraries/advisory_rules_generic.php:103
 msgid "slow_query_log is set to 'OFF'"
-msgstr ""
+msgstr msgstr "slow_query_log ditetapkan ke 'OFF'"
 
 #: libraries/advisory_rules_generic.php:108
 #, fuzzy
@@ -158,13 +178,15 @@ msgstr "Pilih Jadual"
 
 #: libraries/advisory_rules_generic.php:111
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr Versi pelayan MySQL kurang daripada 5.1.
 
 #: libraries/advisory_rules_generic.php:113
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Anda harus meningkatkan, kerana MySQL 5.1 telah meningkatkan prestasi, dan MySQL 5.5"
+"Lebih-lebih lagi."
 
 #: libraries/advisory_rules_generic.php:115
 #: libraries/advisory_rules_generic.php:129
@@ -181,21 +203,23 @@ msgstr "Versi PHP"
 
 #: libraries/advisory_rules_generic.php:124
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Versi kurang dari 5.1.30 (pelepasan GA pertama 5.1)."
 
 #: libraries/advisory_rules_generic.php:126
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Anda harus meningkatkan, kerana versi terbaru MySQL 5.1 telah bertambah baik"
+"prestasi dan MySQL 5.5 lebih-lebih lagi."
 
 #: libraries/advisory_rules_generic.php:138
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Versi kurang dari 5.5.8 (pelepasan GA pertama 5.5)."
 
 #: libraries/advisory_rules_generic.php:139
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr ""
+msgstr "Anda harus menaik taraf, ke versi MySQL 5.5 yang stabil."
 
 #: libraries/advisory_rules_generic.php:145
 #: libraries/advisory_rules_generic.php:158
@@ -206,7 +230,7 @@ msgstr "Keterangan"
 
 #: libraries/advisory_rules_generic.php:148
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr Versi disusun dari sumber, bukan binari rasmi MySQL. "
 
 #: libraries/advisory_rules_generic.php:150
 msgid ""
@@ -214,24 +238,29 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Sekiranya anda tidak menyusun dari sumber, anda mungkin menggunakan pakej yang diubah oleh"
+"sebaran. Manual MySQL hanya tepat untuk binari MySQL rasmi,"
+"bukan pengedaran pakej (seperti RedHat, Debian / Ubuntu dll)."
 
 #: libraries/advisory_rules_generic.php:154
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "'source' terdapat dalam version_comment"
 
 #: libraries/advisory_rules_generic.php:161
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "Manual MySQL hanya tepat untuk binari MySQL rasmi."
 
 #: libraries/advisory_rules_generic.php:163
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Dokumentasi Percona ada di <a href = \" https://www.percona.com/software/ "
+"dokumentasi / \"> https://www.percona.com/software/documentation/ </a> "
 
 #: libraries/advisory_rules_generic.php:166
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "'percona' terdapat dalam version_comment"
 
 #: libraries/advisory_rules_generic.php:170
 #, fuzzy
@@ -241,7 +270,7 @@ msgstr "Set Aksara MySQL"
 
 #: libraries/advisory_rules_generic.php:174
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL tidak disusun sebagai pakej 64-bit."
 
 #: libraries/advisory_rules_generic.php:176
 msgid ""
@@ -249,11 +278,14 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Kapasiti memori anda melebihi 3 GiB (dengan andaian Server berada di localhost),"
+"jadi MySQL mungkin tidak dapat mengakses semua memori anda. Anda mungkin mahu"
+"pertimbangkan untuk memasang MySQL versi 64-bit."
 
 #: libraries/advisory_rules_generic.php:180
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Memori yang tersedia pada hos ini:% s"
 
 #: libraries/advisory_rules_generic.php:186
 #, fuzzy
@@ -263,7 +295,7 @@ msgstr "Jenis Kueri"
 #: libraries/advisory_rules_generic.php:190
 #, fuzzy
 msgid "Suboptimal caching method."
-msgstr "Jenis Kueri"
+msgstr "Kaedah cache pertanyaan"
 
 #: libraries/advisory_rules_generic.php:192
 msgid ""
@@ -272,6 +304,10 @@ msgid ""
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Anda menggunakan cache MySQL Query dengan pangkalan data trafik yang cukup tinggi."
+"mungkin perlu dipertimbangkan untuk menggunakan <a href = \" https://dev.mysql.com/doc/ "
+"refman / 5.6 / en / ha-memcached.html \"> memcached </a> dan bukannya MySQL Query "
+"cache, terutamanya jika anda mempunyai banyak hamba."
 
 #: libraries/advisory_rules_generic.php:198
 #, php-format
