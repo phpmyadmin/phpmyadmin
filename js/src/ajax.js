@@ -1,5 +1,4 @@
 
-/* global isStorageSupported */ // js/config.js
 /* global ErrorReport */ // js/error_report.js
 /* global MicroHistory */ // js/microhistory.js
 
@@ -263,17 +262,10 @@ var AJAX = {
         // the click event is not triggered by script
         if (typeof event !== 'undefined' && event.type === 'click' &&
             event.isTrigger !== true &&
-            !jQuery.isEmptyObject(AJAX.lockedTargets)
+            !jQuery.isEmptyObject(AJAX.lockedTargets) &&
+            confirm(Messages.strConfirmNavigation) === false
         ) {
-            if (confirm(Messages.strConfirmNavigation) === false) {
-                return false;
-            } else {
-                if (isStorageSupported('localStorage')) {
-                    window.localStorage.removeItem('autoSavedSql');
-                } else {
-                    Cookies.set('autoSavedSql', '');
-                }
-            }
+            return false;
         }
         AJAX.resetLock();
         var isLink = !! href || false;

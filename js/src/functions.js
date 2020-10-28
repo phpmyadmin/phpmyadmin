@@ -1241,6 +1241,7 @@ Functions.handleSimulateQueryButton = function () {
   *
   */
 Functions.insertQuery = function (queryType) {
+    var table;
     if (queryType === 'clear') {
         Functions.setQuery('');
         return;
@@ -1268,10 +1269,18 @@ Functions.insertQuery = function (queryType) {
         }
         return;
     } else if (queryType === 'saved') {
-        if (isStorageSupported('localStorage') && typeof window.localStorage.autoSavedSql !== 'undefined') {
-            Functions.setQuery(window.localStorage.autoSavedSql);
-        } else if (Cookies.get('autoSavedSql')) {
-            Functions.setQuery(Cookies.get('autoSavedSql'));
+        var db = $('input[name="db"]').val();
+        table = $('input[name="table"]').val();
+        var key = db;
+        if (table !== undefined) {
+            key += '.' + table;
+        }
+        key = 'autoSavedSql_' + key;
+        if (isStorageSupported('localStorage') &&
+            typeof window.localStorage.getItem(key) === 'string') {
+            Functions.setQuery(window.localStorage.getItem(key));
+        } else if (Cookies.get(key)) {
+            Functions.setQuery(Cookies.get(key));
         } else {
             Functions.ajaxShowMessage(Messages.strNoAutoSavedQuery);
         }
@@ -1280,7 +1289,7 @@ Functions.insertQuery = function (queryType) {
 
     var query = '';
     var myListBox = document.sqlform.dummy;
-    var table = document.sqlform.table.value;
+    table = document.sqlform.table.value;
 
     if (myListBox.options.length > 0) {
         sqlBoxLocked = true;
