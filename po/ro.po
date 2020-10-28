@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2018-11-02 01:00+0000\n"
-"Last-Translator: Stefan Murariu <stefan.murariu@yahoo.com>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ro/>\n"
+"PO-Revision-Date: 2020-10-29 02:26+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
+"ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 4.3.2-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -531,10 +531,8 @@ msgid "Y values"
 msgstr "Valori Y"
 
 #: js/messages.php:146
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Te rog introdu din nou aceeași valoare"
+msgstr "Te rog introdu mai întâi interogarea SQL."
 
 #: js/messages.php:149
 msgid "The host name is empty!"
@@ -1108,16 +1106,12 @@ msgid "Please select the file you want to import."
 msgstr "Te rog selectează fișierul pe care vrei să-l imporți."
 
 #: js/messages.php:339
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Te rog introdu un nume de pagină valid"
+msgstr "Te rog introdu un nume de tabel valid."
 
 #: js/messages.php:341
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Te rog introdu un nume de pagină valid"
+msgstr "Te rog introdu un nume de bază de date valid."
 
 #: js/messages.php:342
 msgid "No files available on server for import!"
@@ -1709,8 +1703,7 @@ msgstr "Pentru a mări, selectează o secțiune a plotului cu mausul."
 #: js/messages.php:514
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
-"Dă clic pe pe butonul de resetare a măririi pentru a reveni la starea "
-"inițială."
+"Dă clic pe butonul de resetare a măririi pentru a reveni la starea inițială."
 
 #: js/messages.php:516
 msgid "Click a data point to view and possibly edit the data row."
@@ -2237,16 +2230,12 @@ msgstr ""
 "În funcție de setările tale, aceste sunt trimise acum, te rog ai răbdare."
 
 #: js/messages.php:732
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Pagină ștearsă cu succes"
+msgstr "Copiat cu succes!"
 
 #: js/messages.php:733
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Copiez baza de date"
+msgstr "Copiere eșuată!"
 
 #: js/messages.php:736
 msgid "Execute this query again?"
@@ -5152,7 +5141,7 @@ msgid ""
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 "Poți folosi metacaractere MySQL (% și _), să le escapezi dacă vrei să "
-"folosești instanțele lor literale, adică folosește  [kbd]'my\\_db'[/kbd] și "
+"folosești instanțele lor literale, adică folosește [kbd]'my\\_db'[/kbd] și "
 "nu [kbd]'my_db'[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:679
@@ -7765,10 +7754,8 @@ msgstr "Tastează din nou:"
 
 #: libraries/classes/Display/ChangePassword.php:133
 #: libraries/classes/Display/ChangePassword.php:168
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "Criptare Parola"
+msgstr "Criptare Parolă:"
 
 #: libraries/classes/Display/ChangePassword.php:146
 #: libraries/classes/Server/Privileges.php:1871
@@ -9017,10 +9004,8 @@ msgstr ""
 "de navigare."
 
 #: libraries/classes/Navigation/NavigationTree.php:789
-#, fuzzy
-#| msgid "Groups:"
 msgid "Groups"
-msgstr "Grupuri:"
+msgstr "Grupuri"
 
 #: libraries/classes/Navigation/NavigationTree.php:955
 #, php-format
@@ -10437,10 +10422,8 @@ msgstr ""
 "ghilimele."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Nume coloane: "
+msgstr "Nume coloane:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:162
 #: libraries/classes/Plugins/Import/ImportCsv.php:177
@@ -10705,18 +10688,6 @@ msgstr ""
 "ca șir gol."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:31
-#, fuzzy
-#| msgid ""
-#| "UX ONLY: Launches an external application and feeds it the field data  "
-#| "standard input. Returns the standard output of the application. The ault "
-#| "is Tidy, to pretty-print HTML code. For security reasons, you e to "
-#| "manually edit the file libraries/transformations/t_plain__external.inc."
-#| "php and list the tools you want to make ilable. The first option is then "
-#| "the number of the program you want to  and the second option is the "
-#| "parameters for the program. The third ion, if set to 1, will convert the "
-#| "output using htmlspecialchars() fault 1). The fourth option, if set to 1, "
-#| "will prevent wrapping and ure that the output appears all on one line "
-#| "(Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10729,16 +10700,16 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"NUMAI LINUX: Lanseaza o aplicatie externa și trimite datele prin input "
-"standard. Returneaza standard output a aplicatiei. Default este Tidy, pentru "
-"listarea codului HTML. Din motive de securitate, va trebui sa editati manual "
-"fisierul libraries/transformations/text_plain__external.inc.php și să "
+"NUMAI LINUX: Lansează o aplicație externă și trimite datele prin input "
+"standard. Returnează standard output a aplicației. Implicit este Tidy, "
+"pentru listarea codului HTML. Din motive de securitate, va trebui să editați "
+"manual fișierul libraries/transformations/text_plain__external.inc.php și să "
 "inserați uneltele permise să ruleze. Prima opțiune este apoi numărul de "
-"programe care vor fi utilizate și a doua opțiune sînt  parametri pentru "
+"programe care vor fi utilizate și a doua opțiune sunt parametri pentru "
 "program. Al treilea parametru, dacă este stabilit la 1 va transforma ieșirea "
 "folosind htmlspecialchars() (implicit este 1). Un al patrulea parametru, "
-"dacă este stabilit la 1, va aplica NOWRAP la conținut, astfel încît întregul "
-"output va fi afișat fără reformatare (implicit 1)"
+"dacă este stabilit la 1, va aplica NOWRAP la conținut, astfel încât întregul "
+"output va fi afișat fără reformatare (implicit 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -10818,7 +10789,6 @@ msgid "Formats text as SQL query with syntax highlighting."
 msgstr "Formatează textul ca o interogare SQL cu evidențierea sintaxei."
 
 #: libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php:31
-#, fuzzy
 msgid ""
 "Displays a part of a string. The first option is the number of characters to "
 "skip from the beginning of the string (Default 0). The second option is the "
@@ -10826,11 +10796,11 @@ msgid ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"…\")."
 msgstr ""
-"Afișează doar o parte a firului de executie. Prima optiune este un offset "
-"pentru definirea punctului de început a outputului de text (Default 0). A "
-"doua optiune este un offset de text returnat. Daca este gol, returneaza "
-"textul ramas. A treia optiune defineste caracterele care vor fi atasate la "
-"output la returnarea unui substring  (Default: …) ."
+"Afișează o parte dintr-un text. Prima opțiune este un offset pentru "
+"definirea punctului de început a outputului de text (Implicit 0). A doua "
+"opțiune este un offset de text returnat. Dacă este gol, returneaza textul "
+"rămas. A treia opțiune definește caracterele care vor fi atașate la output "
+"la returnarea unui substring (Implicit: \"…\")."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php:33
 msgid ""
@@ -11291,12 +11261,10 @@ msgstr "Definitor"
 
 #: libraries/classes/Rte/Events.php:606 libraries/classes/Rte/Routines.php:1149
 #: libraries/classes/Rte/Triggers.php:487
-#, fuzzy
-#| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
-"Datele introduse aici trebuie sa fie în format-ul \"nume-de-"
-"utilizator@numele-gazdei\" (username@hostname)"
+"Datele introduse aici trebuie să fie în formatul \"nume-de-utilizator@numele-"
+"gazdei\"!"
 
 #: libraries/classes/Rte/Events.php:613
 msgid "You must provide an event name!"
@@ -12894,15 +12862,14 @@ msgstr ""
 "-1.175494351E-38, 0, şi 1.175494351E-38 până la 3.402823466E+38"
 
 #: libraries/classes/Types.php:246
-#, fuzzy
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Un număr cu virgulă mobilă cu dublă precizie, valorile permise sunt "
-"-1.7976931348623157E+308 până la  -2.2250738585072014E-308, 0, şi "
-"2.2250738585072014E-308 până la 1.7976931348623157E+308"
+"Un număr cu virgulă mobilă cu dublă precizie, valorile permise sunt -1."
+"7976931348623157E+308 până la -2.2250738585072014E-308, 0, şi 2."
+"2250738585072014E-308 până la 1.7976931348623157E+308"
 
 #: libraries/classes/Types.php:252
 msgid ""
@@ -13732,12 +13699,6 @@ msgstr "Opțiuni transformare afișare navigator"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -13745,9 +13706,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Te rog introdu valorile pentru opțiunile de transformare folosind acest "
-"format: 'a', 100, b,'c'…<br />Dacă trebuie să pui o linie oblică („\\”) sau "
-"un apostrof  („'”) între aceste valori, precede-le cu o linie oblică "
-"(exemplu, '\\\\xyz' sau 'a\\'b')."
+"format: 'a', 100, b,'c'…<br>Dacă trebuie să pui o linie oblică („\\”) sau un "
+"apostrof („'”) între aceste valori, precede-le cu o linie oblică (exemplu, '"
+"\\\\xyz' sau 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:89
 #: templates/transformation_overview.twig:37
@@ -13959,10 +13920,8 @@ msgid "Number of columns"
 msgstr "Număr de coloane"
 
 #: templates/database/data_dictionary/index.twig:3
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
-msgstr "Comentariu bază de date"
+msgstr "Comentariu bază de date:"
 
 #: templates/database/designer/database_tables.twig:37
 msgid "Show/hide columns"
@@ -13973,10 +13932,9 @@ msgid "See table structure"
 msgstr "Vezi structura tabelului"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Selectează tot"
+msgstr "Selectează \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -14636,19 +14594,14 @@ msgstr ""
 "Importul anterior a expirat, după retrimitere va continua din poziția %d."
 
 #: templates/display/import/import.twig:138
-#, fuzzy
-#| msgid ""
-#| "ow the interruption of an import in case the script detects it is se to "
-#| "the PHP timeout limit. This might be good way to import large es, however "
-#| "it can break transactions."
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Permite întreruperea importului în cazul în care scriptul detectează că se "
-"apropie de limita de timp. Aceasta poate fi o metodă bună de a importa "
-"fișiere mari, deși poate strica tranzacții."
+"apropie de limita de timp PHP. <em>(Aceasta poate fi o metodă bună de a "
+"importa fișiere mari, deși poate strica tranzacții.)</em>"
 
 #: templates/display/import/import.twig:145
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -14733,10 +14686,8 @@ msgid "Well Known Binary"
 msgstr "Binar Popular"
 
 #: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
-msgstr "Sortează după cheie"
+msgstr "Sortează după cheie:"
 
 #: templates/display/results/table_navigation.twig:26
 msgid "Save edited data"
@@ -14851,10 +14802,9 @@ msgstr "Punct:"
 #: templates/gis_data_editor_form.twig:93
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:186
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Punct %d"
+msgstr "Punct %d:"
 
 #: templates/gis_data_editor_form.twig:113
 #, php-format
@@ -14914,10 +14864,8 @@ msgid "General settings"
 msgstr "Setări generale"
 
 #: templates/home/index.twig:45
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
-msgstr "Colaționare conexiune server"
+msgstr "Colaționare conexiune server:"
 
 #: templates/home/index.twig:72
 msgid "Appearance settings"
@@ -15475,16 +15423,13 @@ msgid "Port:"
 msgstr "Port:"
 
 #: templates/server/replication/index.twig:16
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Acest server nu este configurat ca master într-un proces de replicare. Vrei "
-"să-l <a href=\"%s\">configurezi</a>?"
+"să-l %sconfigurezi%s?"
 
 #: templates/server/replication/index.twig:35
 #, fuzzy
@@ -15558,19 +15503,14 @@ msgstr ""
 "apoi te rog repornește serverul MySQL."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
 "După ce ai repornit serverul MySQL, te rog dă clic pe butonul Execută. Apoi "
-"ar trebui să vezi un mesaj care te informează că acest server <b>este</b> "
-"configurat ca master."
+"ar trebui să vezi un mesaj care te informează că acest server <strong>este</"
+"strong> configurat ca master."
 
 #: templates/server/replication/master_replication.twig:4
 msgid "This server is configured as master in a replication process."
@@ -15653,16 +15593,13 @@ msgid "Skip next %s errors."
 msgstr "Sari peste următoarele %s erori."
 
 #: templates/server/replication/slave_configuration.twig:106
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Acest server nu este configurat ca sclav într-un proces de replicare. Vrei "
-"să-l <a href=\"%s\">configurezi</a>?"
+"să-l %sconfigurezi%s?"
 
 #: templates/server/replication/status_table.twig:6
 msgid "Master status"
@@ -15785,17 +15722,15 @@ msgstr "%d secundă"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:38
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
-msgstr "pe minut"
+msgstr "%d minut"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:40
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minutes"
-msgstr "pe minut"
+msgstr "%d minute"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
@@ -15970,10 +15905,8 @@ msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:7
-#, fuzzy
-#| msgid "Questions since startup: %s"
 msgid "Questions since startup:"
-msgstr "Întrebări de la pornire: %s"
+msgstr "Întrebări de la pornire:"
 
 #: templates/server/status/queries/index.twig:17
 msgid "per hour:"
@@ -16529,10 +16462,8 @@ msgid "Edit partitioning"
 msgstr "Editează partiționarea"
 
 #: templates/table/structure/display_structure.twig:70
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media (MIME) type:"
-msgstr "Tip de MIME"
+msgstr "Tip media (MIME):"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -17695,17 +17626,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "Dimensiunea fișierului jurnal InnoDB este insuficient de mare."
 
 #: libraries/advisory_rules_generic.txt:379
-#, fuzzy, php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-"
-#| "proper-innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25%% of the size "
 "of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down "
@@ -17720,14 +17641,14 @@ msgstr ""
 "De obicei, este suficientă setarea propietății {innodb_log_file_size} la "
 "25%% din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
 "{innodb_log_file_size} va încetini considerabil timpul de recuperare după o "
-"distrugere(eroare gravă) a unei baze de date.  A se vedea de asemenea <a "
-"href=\"https://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">Articolul acesta</a>. Trebuie să se închidă server-"
-"ul, elimine fișierele InnoDB cu intrări, seteze valoarea nouă în my.cnf, "
-"pornească server-ul și apoi să se verifice intrările de erori, pentru a se "
-"asigura că totul a decurs bine. A se vedea de asemenea <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">acest post din blog</a>"
+"distrugere(eroare gravă) a unei baze de date. A se vedea de asemenea <a href="
+"\"https://www.mysqlperformanceblog.com/2006/07/03/"
+"choosing-proper-innodb_log_file_size/\">Articolul acesta</a>. Trebuie să se "
+"închidă server-ul, elimine fișierele InnoDB cu intrări, seteze valoarea nouă "
+"în my.cnf, pornească server-ul și apoi să se verifice intrările de erori, "
+"pentru a se asigura că totul a decurs bine. A se vedea de asemenea <a href="
+"\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">acest post din blog</a>"
 
 #: libraries/advisory_rules_generic.txt:380
 #, php-format
