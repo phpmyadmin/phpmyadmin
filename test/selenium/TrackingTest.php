@@ -51,11 +51,12 @@ class TrackingTest extends TestBase
         $this->expandMore();
 
         $this->waitForElement('partialLinkText', "Tracking")->click();
+        // Let the User Accounts page load
         $this->waitAjax();
 
         $this->waitForElement('partialLinkText', "Track table");
         $this->byXPath("(//a[contains(., 'Track table')])[1]")->click();
-
+        // Let the User Accounts page load
         $this->waitAjax();
         $this->waitForElement('name', "delete")->click();
         $this->byCssSelector("input[value='Create version']")->click();

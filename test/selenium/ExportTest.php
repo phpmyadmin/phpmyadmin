@@ -146,6 +146,7 @@ class ExportTest extends TestBase
     {
         $this->expandMore();
         $this->waitForElement('partialLinkText', "Export")->click();
+        // Let the User Accounts page load
         $this->waitAjax();
 
         $this->waitForElement('id', "quick_or_custom");
@@ -189,6 +190,7 @@ class ExportTest extends TestBase
         $this->scrollToBottom();
 
         $this->byId("buttonGo")->click();
+        // Let the User Accounts page load
         $this->waitAjax();
 
         $text = $this->waitForElement('id', "textSQLDUMP")->getText();

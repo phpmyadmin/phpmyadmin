@@ -30,6 +30,7 @@ class ServerSettingsTest extends TestBase
         $this->expandMore();
         $this->maximize();
         $this->waitForElement('partialLinkText', "Settings")->click();
+        // Let the User Accounts page load
         $this->waitAjax();
 
         $this->waitForElement(

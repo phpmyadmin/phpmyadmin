@@ -41,6 +41,7 @@ class XssTest extends TestBase
             $this->markTestSkipped('Alerts not supported on Safari browser.');
         }
         $this->waitForElement('partialLinkText', "SQL")->click();
+        // Let the User Accounts page load
         $this->waitAjax();
 
         $this->waitForElement('id', "queryboxf");

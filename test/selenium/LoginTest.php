@@ -50,6 +50,7 @@ class LoginTest extends TestBase
      */
     public function testLoginWithWrongPassword()
     {
+        // With username as "Admin" and the password "Admin"
         $this->login("Admin", "Admin");
         $this->waitForElement('cssSelector', "div.error");
         $this->assertTrue($this->isUnsuccessLogin());

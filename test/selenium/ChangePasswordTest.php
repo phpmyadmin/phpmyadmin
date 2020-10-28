@@ -40,7 +40,7 @@ class ChangePasswordTest extends TestBase
 
         $e = $this->waitForElement('id', "change_password_anchor");
         $e->click();
-
+        // Let the User Accounts page load
         $this->waitAjax();
 
         $this->waitForElement('xpath', "//span[contains(., 'Change password')]");

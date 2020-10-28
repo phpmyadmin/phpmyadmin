@@ -100,6 +100,7 @@ class ImportTest extends TestBase
     private function _doImport($type)
     {
         $this->waitForElement('partialLinkText', "Import")->click();
+        // Let the User Accounts page load
         $this->waitAjax();
         $this->waitForElement('id', 'input_import_file');
 

@@ -48,6 +48,7 @@ class SqlQueryTest extends TestBase
     public function testServerSqlQuery()
     {
         $this->waitForElement('partialLinkText', 'SQL')->click();
+        // Let the User Accounts page load
         $this->waitAjax();
 
         $this->typeInTextArea(
@@ -55,6 +56,7 @@ class SqlQueryTest extends TestBase
             . 'SELECT 1 as `id`,  @t1, @t2, @t3, @t4 := @t1+@t2+@t3;'
         );
         $this->byId('button_submit_query')->click();
+        // Let the User Accounts page load
         $this->waitAjax();
 
         $this->waitForElement('cssSelector', 'table.table_results');
