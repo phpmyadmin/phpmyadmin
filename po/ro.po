@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2018-08-13 08:41+0000\n"
-"Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"PO-Revision-Date: 2020-10-29 02:26+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 4.3.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -313,8 +313,8 @@ msgstr "Numele bazei de date este gol!"
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Nu pot copia baza de date în același nume. Schimbă numele și încearcă din "
-"nou."
+"Nu se poate copia baza de date cu același nume. Schimbă numele și încearcă "
+"din nou."
 
 #: db_operations.php:156
 #, php-format
@@ -339,10 +339,8 @@ msgid "You have to choose at least one column to display!"
 msgstr "Trebuie să alegi cel puțin o coloană pentru afișare!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simulează o interogare"
+msgstr "Interogare în mai multe tabele"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 #, fuzzy
@@ -1121,10 +1119,8 @@ msgid "Y values"
 msgstr "Valori Y"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Te rog introdu din nou aceeași valoare"
+msgstr "Te rog introdu mai întâi interogarea SQL."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -10630,16 +10626,13 @@ msgid "Change or reconfigure master server"
 msgstr "Schimbă sau reconfigurează serverul master"
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Acest server nu este configurat ca sclav într-un proces de replicare. Vrei "
-"să-l <a href=\"%s\">configurezi</a>?"
+"să-l %sconfigurezi%s?"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10660,16 +10653,13 @@ msgid "Skip next %s errors."
 msgstr "Sari peste următoarele %s erori."
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Acest server nu este configurat ca master într-un proces de replicare. Vrei "
-"să-l <a href=\"%s\">configurezi</a>?"
+"să-l %sconfigurezi%s?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/display/export/select_options.twig:8
@@ -10952,12 +10942,10 @@ msgstr "Definitor"
 
 #: libraries/classes/Rte/Events.php:555 libraries/classes/Rte/Routines.php:1127
 #: libraries/classes/Rte/Triggers.php:438
-#, fuzzy
-#| msgid "The definer must be in the \"username@hostname\" format"
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
-"Datele introduse aici trebuie sa fie în format-ul \"nume-de-"
-"utilizator@numele-gazdei\" (username@hostname)"
+"Datele introduse aici trebuie să fie în formatul \"nume-de-utilizator@numele-"
+"gazdei\"!"
 
 #: libraries/classes/Rte/Events.php:562
 msgid "You must provide an event name!"
@@ -14804,10 +14792,9 @@ msgid "See table structure"
 msgstr "Vezi structura tabelului"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Selectează tot"
+msgstr "Selectează \"%s\""
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
@@ -15657,19 +15644,14 @@ msgstr ""
 "Importul anterior a expirat, după retrimitere va continua din poziția %d."
 
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "ow the interruption of an import in case the script detects it is se to "
-#| "the PHP timeout limit. This might be good way to import large es, however "
-#| "it can break transactions."
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Permite întreruperea importului în cazul în care scriptul detectează că se "
-"apropie de limita de timp. Aceasta poate fi o metodă bună de a importa "
-"fișiere mari, deși poate strica tranzacții."
+"apropie de limita de timp PHP. <em>(Aceasta poate fi o metodă bună de a "
+"importa fișiere mari, deși poate strica tranzacții.)</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
