@@ -105,12 +105,18 @@ class InsertEdit
         array $where_clause_array,
         $err_url
     ) {
+        $query = null;
+        if (isset($_POST['sql_query'])) {
+            $query = $_POST['sql_query'];
+        } else if (isset($_GET['sql_query'])) {
+            $query = $_GET['sql_query'];
+        }
         $_form_params = [
             'db'        => $db,
             'table'     => $table,
             'goto'      => $GLOBALS['goto'],
             'err_url'   => $err_url,
-            'sql_query' => $_POST['sql_query'],
+            'sql_query' => $query,
         ];
         if (isset($where_clauses)) {
             foreach ($where_clause_array as $key_id => $where_clause) {
@@ -119,6 +125,8 @@ class InsertEdit
         }
         if (isset($_POST['clause_is_unique'])) {
             $_form_params['clause_is_unique'] = $_POST['clause_is_unique'];
+        } else if (isset($_GET['clause_is_unique'])) {
+            $_form_params['clause_is_unique'] = $_GET['clause_is_unique'];
         }
 
         return $_form_params;
@@ -3002,6 +3010,8 @@ class InsertEdit
     {
         if (isset($_POST['where_clause'])) {
             $where_clause = $_POST['where_clause'];
+        } else if (isset($_GET['where_clause'])) {
+            $where_clause = $_GET['where_clause'];
         }
         if (isset($_SESSION['edit_next'])) {
             $where_clause = $_SESSION['edit_next'];
@@ -3010,13 +3020,20 @@ class InsertEdit
         }
         if (isset($_POST['ShowFunctionFields'])) {
             $GLOBALS['cfg']['ShowFunctionFields'] = $_POST['ShowFunctionFields'];
+        } else if (isset($_GET['ShowFunctionFields'])) {
+            $GLOBALS['cfg']['ShowFunctionFields'] = $_GET['ShowFunctionFields'];
         }
         if (isset($_POST['ShowFieldTypesInDataEditView'])) {
             $GLOBALS['cfg']['ShowFieldTypesInDataEditView']
                 = $_POST['ShowFieldTypesInDataEditView'];
+        } else if (isset($_GET['ShowFieldTypesInDataEditView'])) {
+            $GLOBALS['cfg']['ShowFieldTypesInDataEditView']
+                = $_GET['ShowFieldTypesInDataEditView'];
         }
         if (isset($_POST['after_insert'])) {
             $after_insert = $_POST['after_insert'];
+        } else if (isset($_GET['after_insert'])) {
+            $after_insert = $_GET['after_insert'];
         }
 
         if (isset($where_clause)) {
@@ -3043,6 +3060,10 @@ class InsertEdit
         // therefore the where clause is needless.
         if (isset($_POST['default_action'])
             && $_POST['default_action'] === 'insert'
+        ) {
+            $where_clause = $where_clauses = null;
+        } else if (isset($_GET['default_action'])
+            && $_GET['default_action'] === 'insert'
         ) {
             $where_clause = $where_clauses = null;
         }
@@ -3092,9 +3113,15 @@ class InsertEdit
         /**
          * @todo check if we could replace by "db_|tbl_" - please clarify!?
          */
+        $query = null;
+        if (isset($_POST['sql_query'])) {
+            $query = $_POST['sql_query'];
+        } else if (isset($_GET['sql_query'])) {
+            $query = $_GET['sql_query'];
+        }
         $url_params = [
             'db' => $db,
-            'sql_query' => $_POST['sql_query'],
+            'sql_query' => $query,
         ];
 
         if (strpos($goto, 'tbl_') === 0 || strpos($goto, 'index.php?route=/table') === 0) {
