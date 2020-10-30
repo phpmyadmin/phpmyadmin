@@ -35,7 +35,7 @@ final class EventsController extends AbstractController
     public function index(): void
     {
         global $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $text_dir, $PMA_Theme;
-        global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
+        global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
 
         if (! $this->response->isAjax()) {
             Common::database();
@@ -44,8 +44,7 @@ final class EventsController extends AbstractController
                 $tables,
                 $num_tables,
                 $total_num_tables,
-                $sub_part,
-                $is_show_stats,
+                $sub_part,,
                 $db_is_system_schema,
                 $tooltip_truename,
                 $tooltip_aliasname,

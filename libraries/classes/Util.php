@@ -2664,7 +2664,7 @@ class Util
         /**
          * whether to display extended stats
          */
-        $is_show_stats = $cfg['ShowStats'];
+        $isShowStats = $cfg['ShowStats'];
 
         /**
          * whether selected db is information_schema
@@ -2672,7 +2672,7 @@ class Util
         $db_is_system_schema = false;
 
         if (Utilities::isSystemSchema($db)) {
-            $is_show_stats = false;
+            $isShowStats = false;
             $db_is_system_schema = true;
         }
 
@@ -2801,7 +2801,7 @@ class Util
             $num_tables,
             $total_num_tables,
             $sub_part,
-            $is_show_stats,
+            $isShowStats,
             $db_is_system_schema,
             $tooltip_truename,
             $tooltip_aliasname,

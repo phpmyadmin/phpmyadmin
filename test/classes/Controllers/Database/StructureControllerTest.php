@@ -166,8 +166,7 @@ class StructureControllerTest extends AbstractTestCase
             16394,
             $sumSize
         );
-        // Not showing statistics
-        $is_show_stats = false;
+
         $controller = new StructureController(
             $this->response,
             $this->template,

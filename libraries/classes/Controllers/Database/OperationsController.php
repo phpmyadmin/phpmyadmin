@@ -71,7 +71,7 @@ class OperationsController extends AbstractController
     {
         global $cfg, $db, $server, $sql_query, $move, $message, $tables_full;
         global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $url_params, $tables;
-        global $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema, $tooltip_truename;
+        global $total_num_tables, $sub_part, $db_is_system_schema, $tooltip_truename;
         global $db_collation, $tooltip_aliasname, $pos, $is_information_schema, $single_table, $num_tables;
 
         $this->checkUserPrivileges->getPrivileges();
@@ -274,8 +274,7 @@ class OperationsController extends AbstractController
             $tables,
             $num_tables,
             $total_num_tables,
-            $sub_part,
-            $is_show_stats,
+            $sub_part,,
             $db_is_system_schema,
             $tooltip_truename,
             $tooltip_aliasname,

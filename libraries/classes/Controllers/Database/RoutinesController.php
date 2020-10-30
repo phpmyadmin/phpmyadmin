@@ -43,7 +43,7 @@ class RoutinesController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats;
+        global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
         global $errors, $PMA_Theme, $text_dir, $err_url, $url_params, $cfg;
 
@@ -72,8 +72,7 @@ class RoutinesController extends AbstractController
                     $tables,
                     $num_tables,
                     $total_num_tables,
-                    $sub_part,
-                    $is_show_stats,
+                    $sub_part,,
                     $db_is_system_schema,
                     $tooltip_truename,
                     $tooltip_aliasname,

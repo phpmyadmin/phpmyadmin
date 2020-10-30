@@ -38,7 +38,7 @@ final class ImportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $max_upload_size, $table, $tables, $num_tables, $total_num_tables, $is_show_stats, $cfg;
+        global $db, $max_upload_size, $table, $tables, $num_tables, $total_num_tables, $cfg;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $sub_part, $SESSION_KEY, $PMA_Theme;
 
         $pageSettings = new PageSettings('Import');
@@ -53,8 +53,7 @@ final class ImportController extends AbstractController
             $tables,
             $num_tables,
             $total_num_tables,
-            $sub_part,
-            $is_show_stats,
+            $sub_part,,
             $db_is_system_schema,
             $tooltip_truename,
             $tooltip_aliasname,

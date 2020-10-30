@@ -54,7 +54,7 @@ class PrivilegesController extends AbstractController
         global $db, $table, $err_url, $message, $text_dir, $post_patterns, $PMA_Theme;
         global $username, $hostname, $dbname, $tablename, $routinename, $db_and_table, $dbname_is_wildcard;
         global $queries, $password, $ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error;
-        global $itemType, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema;
+        global $itemType, $tables, $num_tables, $total_num_tables, $sub_part, $db_is_system_schema;
         global $tooltip_truename, $tooltip_aliasname, $pos, $title, $export, $grants, $one_grant, $url_dbname;
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
@@ -355,8 +355,7 @@ class PrivilegesController extends AbstractController
                 $tables,
                 $num_tables,
                 $total_num_tables,
-                $sub_part,
-                $is_show_stats,
+                $sub_part,,
                 $db_is_system_schema,
                 $tooltip_truename,
                 $tooltip_aliasname,

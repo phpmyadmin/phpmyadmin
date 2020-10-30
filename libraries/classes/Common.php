@@ -15,18 +15,13 @@ final class Common
 {
     public static function database(): void
     {
-        global $cfg, $db, $is_show_stats, $db_is_system_schema, $err_url;
+        global $cfg, $db, $db_is_system_schema, $err_url;
         global $message, $dbi, $errno, $is_db, $err_url_0;
 
         Util::checkParameters(['db']);
 
         $response = Response::getInstance();
-        $is_show_stats = $cfg['ShowStats'];
-
         $db_is_system_schema = Utilities::isSystemSchema($db);
-        if ($db_is_system_schema) {
-            $is_show_stats = false;
-        }
 
         /**
          * Defines the urls to return to in case of error in a sql statement

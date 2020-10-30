@@ -37,7 +37,7 @@ class TriggersController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats;
+        global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part;
         global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
         global $errors, $url_params, $err_url, $cfg;
 
@@ -62,8 +62,7 @@ class TriggersController extends AbstractController
                     $tables,
                     $num_tables,
                     $total_num_tables,
-                    $sub_part,
-                    $is_show_stats,
+                    $sub_part,,
                     $db_is_system_schema,
                     $tooltip_truename,
                     $tooltip_aliasname,

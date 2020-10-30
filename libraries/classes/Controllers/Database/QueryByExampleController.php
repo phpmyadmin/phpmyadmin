@@ -43,7 +43,7 @@ class QueryByExampleController extends AbstractController
     {
         global $db, $savedSearchList, $savedSearch, $currentSearchId, $PMA_Theme;
         global $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
-        global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_params;
+        global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_params;
 
         // Gets the relation settings
         $cfgRelation = $this->relation->getRelationsParam();
@@ -146,8 +146,7 @@ class QueryByExampleController extends AbstractController
             $tables,
             $num_tables,
             $total_num_tables,
-            $sub_part,
-            $is_show_stats,
+            $sub_part,,
             $db_is_system_schema,
             $tooltip_truename,
             $tooltip_aliasname,
