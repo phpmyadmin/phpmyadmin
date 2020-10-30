@@ -192,7 +192,7 @@
     </div>
   </form>
 
-  <form id="change_db_charset_form" class="ajax" method="post" action="{{ url('/database/operations') }}">
+  <form id="change_db_charset_form" class="ajax" method="post" action="{{ url('/database/operations/collation') }}">
     {{ get_hidden_inputs(db) }}
 
     <div class="card mb-2">
@@ -227,7 +227,7 @@
       </div>
 
       <div class="card-footer text-right">
-        <input class="btn btn-primary" type="submit" name="submitcollation" value="{% trans 'Go' %}">
+        <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
       </div>
     </div>
   </form>
