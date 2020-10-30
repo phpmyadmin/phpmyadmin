@@ -255,7 +255,7 @@ class Menu
         /** @var DatabaseInterface $dbi */
         global $route, $dbi;
 
-        $db_is_system_schema = Utilities::isSystemSchema($this->db);
+        $isSystemSchema = Utilities::isSystemSchema($this->db);
         $tbl_is_view = $dbi->getTable($this->db, $this->table)
             ->isView();
         $updatable_view = false;
@@ -296,7 +296,7 @@ class Menu
             '/table/zoom-search',
         ]);
 
-        if (! $db_is_system_schema && (! $tbl_is_view || $updatable_view)) {
+        if (! $isSystemSchema && (! $tbl_is_view || $updatable_view)) {
             $tabs['insert']['icon'] = 'b_insrow';
             $tabs['insert']['route'] = '/table/change';
             $tabs['insert']['text'] = __('Insert');
@@ -312,14 +312,14 @@ class Menu
         /**
          * Don't display "Import" for views and information_schema
          */
-        if (! $tbl_is_view && ! $db_is_system_schema) {
+        if (! $tbl_is_view && ! $isSystemSchema) {
             $tabs['import']['icon'] = 'b_tblimport';
             $tabs['import']['route'] = '/table/import';
             $tabs['import']['text'] = __('Import');
             $tabs['import']['active'] = $route === '/table/import';
         }
         if (($is_superuser || $isCreateOrGrantUser)
-            && ! $db_is_system_schema
+            && ! $isSystemSchema
         ) {
             $tabs['privileges']['route'] = '/server/privileges';
             $tabs['privileges']['args']['checkprivsdb'] = $this->db;
@@ -333,7 +333,7 @@ class Menu
         /**
          * Don't display "Operations" for views and information_schema
          */
-        if (! $tbl_is_view && ! $db_is_system_schema) {
+        if (! $tbl_is_view && ! $isSystemSchema) {
             $tabs['operation']['icon'] = 'b_tblops';
             $tabs['operation']['route'] = '/table/operations';
             $tabs['operation']['text'] = __('Operations');
@@ -342,20 +342,20 @@ class Menu
         /**
          * Views support a limited number of operations
          */
-        if ($tbl_is_view && ! $db_is_system_schema) {
+        if ($tbl_is_view && ! $isSystemSchema) {
             $tabs['operation']['icon'] = 'b_tblops';
             $tabs['operation']['route'] = '/view/operations';
             $tabs['operation']['text'] = __('Operations');
             $tabs['operation']['active'] = $route === '/view/operations';
         }
 
-        if (Tracker::isActive() && ! $db_is_system_schema) {
+        if (Tracker::isActive() && ! $isSystemSchema) {
             $tabs['tracking']['icon'] = 'eye';
             $tabs['tracking']['text'] = __('Tracking');
             $tabs['tracking']['route'] = '/table/tracking';
             $tabs['tracking']['active'] = $route === '/table/tracking';
         }
-        if (! $db_is_system_schema
+        if (! $isSystemSchema
             && Util::currentUserHasPrivilege(
                 'TRIGGER',
                 $this->db,
@@ -382,7 +382,7 @@ class Menu
         /** @var DatabaseInterface $dbi */
         global $route, $dbi;
 
-        $db_is_system_schema = Utilities::isSystemSchema($this->db);
+        $isSystemSchema = Utilities::isSystemSchema($this->db);
         $num_tables = count($dbi->getTables($this->db));
         $is_superuser = $dbi->isSuperUser();
         $isCreateOrGrantUser = $dbi->isGrantUser() || $dbi->isCreateUser();
@@ -428,7 +428,7 @@ class Menu
             $tabs['export']['warning'] = __('Database seems to be empty!');
         }
 
-        if (! $db_is_system_schema) {
+        if (! $isSystemSchema) {
             $tabs['import']['route'] = '/database/import';
             $tabs['import']['text'] = __('Import');
             $tabs['import']['icon'] = 'b_import';
@@ -469,21 +469,21 @@ class Menu
             }
         }
 
-        if (Tracker::isActive() && ! $db_is_system_schema) {
+        if (Tracker::isActive() && ! $isSystemSchema) {
             $tabs['tracking']['text'] = __('Tracking');
             $tabs['tracking']['icon'] = 'eye';
             $tabs['tracking']['route'] = '/database/tracking';
             $tabs['tracking']['active'] = $route === '/database/tracking';
         }
 
-        if (! $db_is_system_schema) {
+        if (! $isSystemSchema) {
             $tabs['designer']['text'] = __('Designer');
             $tabs['designer']['icon'] = 'b_relations';
             $tabs['designer']['route'] = '/database/designer';
             $tabs['designer']['active'] = $route === '/database/designer';
         }
 
-        if (! $db_is_system_schema
+        if (! $isSystemSchema
             && $cfgRelation['centralcolumnswork']
         ) {
             $tabs['central_columns']['text'] = __('Central columns');

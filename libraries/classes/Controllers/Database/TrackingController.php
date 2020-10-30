@@ -46,7 +46,7 @@ class TrackingController extends AbstractController
     {
         global $db, $text_dir, $url_params, $tables, $num_tables, $PMA_Theme;
         global $total_num_tables, $sub_part, $pos, $data, $cfg;
-        global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname;
+        global $tooltip_truename, $tooltip_aliasname;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
 
@@ -66,7 +66,7 @@ class TrackingController extends AbstractController
             $num_tables,
             $total_num_tables,
             $sub_part,,
-            $db_is_system_schema,
+            $isSystemSchema,
             $tooltip_truename,
             $tooltip_aliasname,
             $pos,
@@ -124,7 +124,7 @@ class TrackingController extends AbstractController
         if ($num_tables == 0 && count($data['ddlog']) === 0) {
             echo '<p>' , __('No tables found in database.') , '</p>' , "\n";
 
-            if (empty($db_is_system_schema)) {
+            if (empty($isSystemSchema)) {
                 $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
                 $checkUserPrivileges->getPrivileges();
 

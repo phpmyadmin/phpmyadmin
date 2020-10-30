@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
-use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table\Search;
@@ -92,11 +91,10 @@ class ZoomSearchController extends AbstractController
 
     public function index(): void
     {
-        global $goto, $db, $table, $db_is_system_schema, $url_params, $cfg, $err_url;
+        global $goto, $db, $table, $url_params, $cfg, $err_url;
 
         Util::checkParameters(['db', 'table']);
 
-        $db_is_system_schema = Utilities::isSystemSchema($db);
         $url_params = ['db' => $db, 'table' => $table];
         $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $err_url .= Url::getCommon($url_params, '&');

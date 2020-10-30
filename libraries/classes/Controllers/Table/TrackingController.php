@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
@@ -43,7 +42,7 @@ final class TrackingController extends AbstractController
 
     public function index(): void
     {
-        global $text_dir, $url_params, $msg, $PMA_Theme, $db_is_system_schema, $err_url;
+        global $text_dir, $url_params, $msg, $PMA_Theme, $err_url;
         global $data, $entries, $filter_ts_from, $filter_ts_to, $filter_users, $selection_schema;
         global $selection_data, $selection_both, $sql_result, $db, $table, $cfg;
 
@@ -53,7 +52,6 @@ final class TrackingController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $db_is_system_schema = Utilities::isSystemSchema($db);
         $url_params = ['db' => $db, 'table' => $table];
         $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $err_url .= Url::getCommon($url_params, '&');

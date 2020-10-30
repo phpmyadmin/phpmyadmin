@@ -9,7 +9,6 @@ use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -44,7 +43,7 @@ class ExportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $url_params, $table, $replaces, $db_is_system_schema, $cfg, $err_url;
+        global $db, $url_params, $table, $replaces, $cfg, $err_url;
         global $sql_query, $where_clause, $num_tables, $unlim_num_rows;
 
         $pageSettings = new PageSettings('Export');
@@ -55,7 +54,6 @@ class ExportController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $db_is_system_schema = Utilities::isSystemSchema($db);
         $url_params = ['db' => $db, 'table' => $table];
         $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $err_url .= Url::getCommon($url_params, '&');

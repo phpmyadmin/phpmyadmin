@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\DbTableExists;
-use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
@@ -35,7 +34,7 @@ final class SqlController extends AbstractController
 
     public function index(): void
     {
-        global $err_url, $goto, $back, $db_is_system_schema, $db, $table, $cfg;
+        global $err_url, $goto, $back, $db, $table, $cfg;
 
         $this->addScriptFiles([
             'makegrid.js',
@@ -50,7 +49,6 @@ final class SqlController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $db_is_system_schema = Utilities::isSystemSchema($db);
         $url_params = ['db' => $db, 'table' => $table];
         $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $err_url .= Url::getCommon($url_params, '&');

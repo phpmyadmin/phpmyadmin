@@ -71,7 +71,7 @@ class OperationsController extends AbstractController
     {
         global $cfg, $db, $server, $sql_query, $move, $message, $tables_full;
         global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $url_params, $tables;
-        global $total_num_tables, $sub_part, $db_is_system_schema, $tooltip_truename;
+        global $total_num_tables, $sub_part, $tooltip_truename;
         global $db_collation, $tooltip_aliasname, $pos, $is_information_schema, $single_table, $num_tables;
 
         $this->checkUserPrivileges->getPrivileges();
@@ -275,7 +275,7 @@ class OperationsController extends AbstractController
             $num_tables,
             $total_num_tables,
             $sub_part,,
-            $db_is_system_schema,
+            $isSystemSchema,
             $tooltip_truename,
             $tooltip_aliasname,
             $pos,
@@ -303,7 +303,7 @@ class OperationsController extends AbstractController
             && $GLOBALS['col_priv'] && $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'];
 
         $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $cfg['AllowUserDropDatabase'])
-            && ! $db_is_system_schema && $db !== 'mysql';
+            && ! $isSystemSchema && $db !== 'mysql';
 
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 

@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -63,11 +62,10 @@ class FindReplaceController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $db_is_system_schema, $url_params, $cfg, $err_url;
+        global $db, $table, $url_params, $cfg, $err_url;
 
         Util::checkParameters(['db', 'table']);
 
-        $db_is_system_schema = Utilities::isSystemSchema($db);
         $url_params = ['db' => $db, 'table' => $table];
         $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $err_url .= Url::getCommon($url_params, '&');

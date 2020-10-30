@@ -8,7 +8,6 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
-use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -39,7 +38,7 @@ class TriggersController extends AbstractController
     public function index(): void
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part;
-        global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
+        global $tooltip_truename, $tooltip_aliasname, $pos;
         global $errors, $url_params, $err_url, $cfg;
 
         if (! $this->response->isAjax()) {
@@ -49,7 +48,6 @@ class TriggersController extends AbstractController
             if (! empty($table) && in_array($table, $this->dbi->getTables($db))) {
                 Util::checkParameters(['db', 'table']);
 
-                $db_is_system_schema = Utilities::isSystemSchema($db);
                 $url_params = ['db' => $db, 'table' => $table];
                 $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
                 $err_url .= Url::getCommon($url_params, '&');
@@ -63,8 +61,7 @@ class TriggersController extends AbstractController
                     $tables,
                     $num_tables,
                     $total_num_tables,
-                    $sub_part,,
-                    $db_is_system_schema,
+                    $sub_part,,,
                     $tooltip_truename,
                     $tooltip_aliasname,
                     $pos,

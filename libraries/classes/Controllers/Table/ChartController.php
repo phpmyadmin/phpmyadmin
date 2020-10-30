@@ -8,7 +8,6 @@ use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
@@ -45,7 +44,7 @@ class ChartController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $cfg, $sql_query, $err_url, $db_is_system_schema;
+        global $db, $table, $cfg, $sql_query, $err_url;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
         ) {
@@ -87,7 +86,6 @@ class ChartController extends AbstractController
         if (strlen($table) > 0) {
             Util::checkParameters(['db', 'table']);
 
-            $db_is_system_schema = Utilities::isSystemSchema($db);
             $url_params = ['db' => $db, 'table' => $table];
             $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
             $err_url .= Url::getCommon($url_params, '&');
@@ -171,12 +169,11 @@ class ChartController extends AbstractController
      */
     public function ajax(): void
     {
-        global $db, $table, $sql_query, $db_is_system_schema, $url_params, $err_url, $cfg;
+        global $db, $table, $sql_query, $url_params, $err_url, $cfg;
 
         if (strlen($table) > 0 && strlen($db) > 0) {
             Util::checkParameters(['db', 'table']);
 
-            $db_is_system_schema = Utilities::isSystemSchema($db);
             $url_params = ['db' => $db, 'table' => $table];
             $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
             $err_url .= Url::getCommon($url_params, '&');

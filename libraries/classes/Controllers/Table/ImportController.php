@@ -15,7 +15,6 @@ use PhpMyAdmin\Import;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -41,8 +40,7 @@ final class ImportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $max_upload_size, $table, $url_params, $SESSION_KEY, $cfg, $PMA_Theme;
-        global $db_is_system_schema, $err_url;
+        global $db, $max_upload_size, $table, $url_params, $SESSION_KEY, $cfg, $PMA_Theme, $err_url;
 
         $pageSettings = new PageSettings('Import');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
@@ -52,7 +50,6 @@ final class ImportController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $db_is_system_schema = Utilities::isSystemSchema($db);
         $url_params = ['db' => $db, 'table' => $table];
         $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $err_url .= Url::getCommon($url_params, '&');

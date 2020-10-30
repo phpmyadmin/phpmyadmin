@@ -108,7 +108,7 @@ class StructureController extends AbstractController
 
     public function index(): void
     {
-        global $reread_info, $showtable, $db_is_system_schema, $db, $table, $cfg, $err_url;
+        global $reread_info, $showtable, $db, $table, $cfg, $err_url;
         global $tbl_is_view, $tbl_storage_engine, $tbl_collation, $table_info_num_rows;
 
         $this->dbi->selectDb($this->db);
@@ -142,7 +142,7 @@ class StructureController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $db_is_system_schema = Utilities::isSystemSchema($db);
+        $isSystemSchema = Utilities::isSystemSchema($db);
         $url_params = ['db' => $db, 'table' => $table];
         $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $err_url .= Url::getCommon($url_params, '&');
@@ -172,7 +172,8 @@ class StructureController extends AbstractController
             $columns_with_unique_index,
             $primary,
             $fields,
-            $columns_with_index
+            $columns_with_index,
+            $isSystemSchema
         ));
     }
 
@@ -462,7 +463,7 @@ class StructureController extends AbstractController
 
     public function primary(): void
     {
-        global $db, $table, $message, $sql_query, $db_is_system_schema, $url_params, $err_url, $cfg;
+        global $db, $table, $message, $sql_query, $url_params, $err_url, $cfg;
 
         $selected = $_POST['selected'] ?? [];
         $selected_fld = $_POST['selected_fld'] ?? [];
@@ -486,7 +487,6 @@ class StructureController extends AbstractController
         if (! empty($selected_fld) && ! empty($primary)) {
             Util::checkParameters(['db', 'table']);
 
-            $db_is_system_schema = Utilities::isSystemSchema($db);
             $url_params = ['db' => $db, 'table' => $table];
             $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
             $err_url .= Url::getCommon($url_params, '&');
@@ -580,7 +580,7 @@ class StructureController extends AbstractController
 
     public function dropConfirm(): void
     {
-        global $db, $table, $db_is_system_schema, $url_params, $err_url, $cfg;
+        global $db, $table, $url_params, $err_url, $cfg;
 
         $selected = $_POST['selected_fld'] ?? null;
 
@@ -593,7 +593,6 @@ class StructureController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $db_is_system_schema = Utilities::isSystemSchema($db);
         $url_params = ['db' => $db, 'table' => $table];
         $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $err_url .= Url::getCommon($url_params, '&');
@@ -1468,9 +1467,10 @@ class StructureController extends AbstractController
         array $columns_with_unique_index,
         $primary_index,
         array $fields,
-        array $columns_with_index
+        array $columns_with_index,
+        bool $isSystemSchema
     ) {
-        global $route, $db_is_system_schema, $tbl_is_view, $tbl_storage_engine, $PMA_Theme;
+        global $route, $tbl_is_view, $tbl_storage_engine, $PMA_Theme;
 
         // prepare comments
         $comments_map = [];
@@ -1495,7 +1495,7 @@ class StructureController extends AbstractController
         // Get valid statistics whatever is the table type
         if ($GLOBALS['cfg']['ShowStats']) {
             //get table stats in HTML format
-            $tablestats = $this->getTableStats();
+            $tablestats = $this->getTableStats($isSystemSchema);
             //returning the response in JSON format to be used by Ajax
             $this->response->addJSON('tableStat', $tablestats);
         }
@@ -1570,7 +1570,7 @@ class StructureController extends AbstractController
             'hide_structure_actions' => $hideStructureActions,
             'db' => $this->db,
             'table' => $this->table,
-            'db_is_system_schema' => $db_is_system_schema,
+            'db_is_system_schema' => $isSystemSchema,
             'tbl_is_view' => $tbl_is_view,
             'mime_map' => $mime_map,
             'tbl_storage_engine' => $tbl_storage_engine,
@@ -1610,9 +1610,9 @@ class StructureController extends AbstractController
      *
      * @return string
      */
-    protected function getTableStats()
+    protected function getTableStats(bool $isSystemSchema)
     {
-        global $showtable, $db_is_system_schema, $tbl_is_view;
+        global $showtable, $tbl_is_view;
         global $tbl_storage_engine, $table_info_num_rows, $tbl_collation;
 
         if (empty($showtable)) {
@@ -1717,7 +1717,7 @@ class StructureController extends AbstractController
             'showtable' => $showtable,
             'table_info_num_rows' => $table_info_num_rows,
             'tbl_is_view' => $tbl_is_view,
-            'db_is_system_schema' => $db_is_system_schema,
+            'db_is_system_schema' => $isSystemSchema,
             'tbl_storage_engine' => $tbl_storage_engine,
             'table_collation' => $tableCollation,
             'is_innodb' => $is_innodb,

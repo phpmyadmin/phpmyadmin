@@ -9,7 +9,6 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
-use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -40,7 +39,7 @@ class ViewOperationsController extends AbstractController
     public function index(): void
     {
         global $sql_query, $url_params, $reload, $result, $warning_messages;
-        global $db, $table, $db_is_system_schema, $cfg, $err_url;
+        global $db, $table, $cfg, $err_url;
 
         $tableObject = $this->dbi->getTable($db, $table);
 
@@ -48,7 +47,6 @@ class ViewOperationsController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $db_is_system_schema = Utilities::isSystemSchema($db);
         $url_params = ['db' => $db, 'table' => $table];
         $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
         $err_url .= Url::getCommon($url_params, '&');

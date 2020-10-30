@@ -39,7 +39,7 @@ final class ExportController extends AbstractController
     public function index(): void
     {
         global $db, $table, $sub_part, $url_params, $sql_query;
-        global $tables, $num_tables, $total_num_tables, $db_is_system_schema, $tooltip_truename;
+        global $tables, $num_tables, $total_num_tables, $tooltip_truename;
         global $tooltip_aliasname, $pos, $table_select, $unlim_num_rows;
 
         $pageSettings = new PageSettings('Export');
@@ -60,8 +60,7 @@ final class ExportController extends AbstractController
             $tables,
             $num_tables,
             $total_num_tables,
-            $sub_part,,
-            $db_is_system_schema,
+            $sub_part,,,
             $tooltip_truename,
             $tooltip_aliasname,
             $pos,

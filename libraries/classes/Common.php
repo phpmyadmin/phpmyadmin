@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Query\Utilities;
 use function strlen;
 use function strpos;
 
@@ -15,13 +14,12 @@ final class Common
 {
     public static function database(): void
     {
-        global $cfg, $db, $db_is_system_schema, $err_url;
+        global $cfg, $db, $err_url;
         global $message, $dbi, $errno, $is_db, $err_url_0;
 
         Util::checkParameters(['db']);
 
         $response = Response::getInstance();
-        $db_is_system_schema = Utilities::isSystemSchema($db);
 
         /**
          * Defines the urls to return to in case of error in a sql statement

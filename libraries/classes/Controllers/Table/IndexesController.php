@@ -9,7 +9,6 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -40,12 +39,11 @@ class IndexesController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $db_is_system_schema, $url_params, $cfg, $err_url;
+        global $db, $table, $url_params, $cfg, $err_url;
 
         if (! isset($_POST['create_edit_table'])) {
             Util::checkParameters(['db', 'table']);
 
-            $db_is_system_schema = Utilities::isSystemSchema($db);
             $url_params = ['db' => $db, 'table' => $table];
             $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
             $err_url .= Url::getCommon($url_params, '&');

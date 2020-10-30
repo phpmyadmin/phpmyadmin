@@ -43,7 +43,7 @@ class DesignerController extends AbstractController
         global $db, $script_display_field, $tab_column, $tables_all_keys, $tables_pk_or_unique_keys;
         global $success, $page, $message, $display_page, $selected_page, $tab_pos, $fullTableNames, $script_tables;
         global $script_contr, $params, $tables, $num_tables, $total_num_tables, $sub_part;
-        global $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $classes_side_menu;
+        global $tooltip_truename, $tooltip_aliasname, $pos, $classes_side_menu;
 
         if (isset($_POST['dialog'])) {
             if ($_POST['dialog'] === 'edit') {
@@ -218,8 +218,7 @@ class DesignerController extends AbstractController
             $tables,
             $num_tables,
             $total_num_tables,
-            $sub_part,,
-            $db_is_system_schema,
+            $sub_part,,,
             $tooltip_truename,
             $tooltip_aliasname,
             $pos,

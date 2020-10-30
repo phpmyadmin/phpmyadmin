@@ -2669,11 +2669,11 @@ class Util
         /**
          * whether selected db is information_schema
          */
-        $db_is_system_schema = false;
+        $isSystemSchema = false;
 
         if (Utilities::isSystemSchema($db)) {
             $isShowStats = false;
-            $db_is_system_schema = true;
+            $isSystemSchema = true;
         }
 
         /**
@@ -2802,7 +2802,7 @@ class Util
             $total_num_tables,
             $sub_part,
             $isShowStats,
-            $db_is_system_schema,
+            $isSystemSchema,
             $tooltip_truename,
             $tooltip_aliasname,
             $pos,
