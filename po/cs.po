@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-10-25 02:26+0000\n"
+"PO-Revision-Date: 2020-10-31 11:55+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
@@ -914,7 +914,7 @@ msgstr "Odstraňuji sledovací data"
 
 #: js/messages.php:61
 msgid "Dropping Primary Key/Index"
-msgstr "Odstraňuji (primární) klíč"
+msgstr "Odstraňuji primární klíč/index"
 
 #: js/messages.php:62
 msgid "Dropping Foreign key."
@@ -1054,24 +1054,24 @@ msgstr "Prosím zadejte platnou délku!"
 
 #: js/messages.php:121
 msgid "Add index"
-msgstr "Přidat klíč"
+msgstr "Přidat index"
 
 #: js/messages.php:122
 msgid "Edit index"
-msgstr "Upravit klíč"
+msgstr "Upravit index"
 
 #: js/messages.php:123 templates/table/index_form.twig:211
 #, php-format
 msgid "Add %s column(s) to index"
-msgstr "Přidat %s polí do klíče"
+msgstr "Přidat %s sloupců do indexu"
 
 #: js/messages.php:124
 msgid "Create single-column index"
-msgstr "Vytvořit klíč na jednom sloupci"
+msgstr "Vytvořit index na jednom sloupci"
 
 #: js/messages.php:125
 msgid "Create composite index"
-msgstr "Vytvořit složený klíč"
+msgstr "Vytvořit složený index"
 
 #: js/messages.php:126
 msgid "Composite with:"
@@ -1079,7 +1079,7 @@ msgstr "Složit s:"
 
 #: js/messages.php:127
 msgid "Please select column(s) for the index."
-msgstr "Prosím zvolte které pole chcete přidat do klíče."
+msgstr "Vyberte sloupce, které chcete přidat do indexu."
 
 #: js/messages.php:130 libraries/classes/InsertEdit.php:1893
 #: templates/columns_definitions/column_definitions_form.twig:146
@@ -4148,8 +4148,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
-"Přidat IF NOT EXISTS (méně účinné než generování klíčů během vytváření "
-"tabulky)"
+"Přidat IF NOT EXISTS (méně efektivní, protože při vytváření tabulky se budou "
+"generovat indexy)"
 
 #: libraries/classes/Config/Descriptions.php:391
 msgid "Use ignore inserts"
@@ -6628,7 +6628,7 @@ msgstr "Řádků"
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
 msgid "Indexes"
-msgstr "Klíče"
+msgstr "Indexy"
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:358
 #: libraries/classes/Engines/Innodb.php:169
@@ -6777,7 +6777,7 @@ msgstr "Odstranit"
 #: templates/table/tracking/structure_snapshot_columns.twig:27
 #: templates/table/structure/check_all_table_column.twig:47
 msgid "Index"
-msgstr "Klíč"
+msgstr "Index"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1233
 #: libraries/classes/Controllers/Table/TableStructureController.php:1238
@@ -7373,7 +7373,8 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
-"Velikost mezipaměti, kterou InnoDB používá pro mezipaměť dat a klíčů tabulek."
+"Velikost mezipaměti, kterou InnoDB používá pro mezipaměť dat a indexů "
+"tabulek."
 
 #: libraries/classes/Engines/Innodb.php:139
 msgid "Buffer Pool"
@@ -7479,11 +7480,11 @@ msgid ""
 "INFILE)."
 msgstr ""
 "Maximální velikost dočasných souborů, které smí MySQL použít při obnově "
-"klíčů (při REPAIR TABLE, ALTER TABLE nebo LOAD DATA INFILE)."
+"indexů MyISAM (při REPAIR TABLE, ALTER TABLE nebo LOAD DATA INFILE)."
 
 #: libraries/classes/Engines/Myisam.php:52
 msgid "Maximum size for temporary files on index creation"
-msgstr "Maximální velikost dočasných souborů při vytváření klíčů"
+msgstr "Maximální velikost dočasných souborů při vytváření indexů"
 
 #: libraries/classes/Engines/Myisam.php:54
 msgid ""
@@ -7491,8 +7492,9 @@ msgid ""
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
-"Pokud by byl soubor pro vytváření MyISAM klíče byl větší než zde uvedená "
-"hodnota, použije se pomalejší metoda mezipaměti klíčů."
+"Pokud by rozdíl velikosti dočasného souboru pro rychlé vytvoření indexu "
+"MyISAM oproti použití mezipaměti klíčů překročil zde uvedenou hodnotu, "
+"použije se metoda mezipaměti klíčů."
 
 #: libraries/classes/Engines/Myisam.php:61
 msgid "Repair threads"
@@ -7503,8 +7505,8 @@ msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
-"Pokud je tato hodnota větší než 1, jsou při obnově nebo řazení klíčů "
-"v MyISAM tabulkách klíče vytvářeny paralelně (každý klíč vlastním vláknem)."
+"Pokud je tato hodnota větší než 1, vytvářejí se indexy v MyISAM tabulkách "
+"během obnovy nebo řazení paralelně (každý index ve vlastním vlákně)."
 
 #: libraries/classes/Engines/Myisam.php:70
 msgid "Sort buffer size"
@@ -7515,7 +7517,7 @@ msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
-"Paměť, která je alokována při řazení MyISAM klíčů během jejich vytváření "
+"Paměť, která je alokována při řazení indexů MyISAM během jejich vytváření "
 "příkazem CREATE INDEX nebo ALTER TABLE nebo opravování příkazem REPAIR TABLE."
 
 #: libraries/classes/Engines/Pbxt.php:30
@@ -7907,7 +7909,7 @@ msgstr "Vytvořit klíč na &nbsp;%s&nbsp;polích"
 
 #: libraries/classes/Index.php:690
 msgid "No index defined!"
-msgstr "Není definován žádný klíč!"
+msgstr "Není definován žádný index!"
 
 #: libraries/classes/Index.php:722
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
@@ -7936,7 +7938,7 @@ msgstr "Primární klíč byl odstraněn."
 #: libraries/classes/Index.php:760
 #, php-format
 msgid "Index %s has been dropped."
-msgstr "Klíč %s byl odstraněn."
+msgstr "Index %s byl odstraněn."
 
 #: libraries/classes/Index.php:890
 #, php-format
@@ -7944,8 +7946,8 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
-"Klíče %1$s a %2$s vypadají stejné a jeden z nich by pravděpodobně mohl být "
-"odstraněn."
+"Indexy %1$s a %2$s vypadají shodně a jeden z nich by zřejmě bylo možné "
+"odstranit."
 
 #: libraries/classes/InsertEdit.php:305
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:30
@@ -9442,7 +9444,7 @@ msgstr "Přidat příkaz %s"
 #: libraries/classes/Plugins/Export/ExportSql.php:290
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
-"(méně efektivní, protože při vytvoření tabulky se budou generovat klíče)"
+"(méně efektivní, protože při vytváření tabulky se budou generovat indexy)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:298
 #, php-format
@@ -9597,11 +9599,11 @@ msgstr "Omezení pro tabulku"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1755
 msgid "Indexes for dumped tables"
-msgstr "Klíče pro exportované tabulky"
+msgstr "Indexy pro exportované tabulky"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1756
 msgid "Indexes for table"
-msgstr "Klíče pro tabulku"
+msgstr "Indexy pro tabulku"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1789
 msgid "AUTO_INCREMENT for dumped tables"
@@ -11230,7 +11232,7 @@ msgstr "Nemá žádný vliv v této verzi MySQL."
 #: libraries/classes/Server/Privileges.php:359
 #: libraries/classes/Server/Privileges.php:1258 server_privileges.php:84
 msgid "Allows creating and dropping indexes."
-msgstr "Umožňuje vytvářet a odstraňovat klíče."
+msgstr "Umožňuje vytvářet a odstraňovat indexy."
 
 #: libraries/classes/Server/Privileges.php:364
 #: libraries/classes/Server/Privileges.php:1256 server_privileges.php:65
@@ -12297,7 +12299,7 @@ msgid ""
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
 "Počet požadavků na přečtení řádku vycházející z klíče. Vysoká hodnota "
-"znamená, že dotazy správně využívají klíče."
+"znamená, že dotazy správně využívají indexy."
 
 #: libraries/classes/Server/Status/Variables.php:412
 msgid ""
@@ -12306,8 +12308,8 @@ msgid ""
 "if you are doing an index scan."
 msgstr ""
 "Počet požadavků na přečtení dalšího řádku podle klíče. Tato hodnota se "
-"zvětšuje pokud provádíte dotaz na sloupec s klíčem s omezením rozsahu nebo "
-"prohledáváte klíč."
+"zvětšuje, pokud provádíte dotaz na sloupec s indexem s omezením rozsahu nebo "
+"prohledáváte index."
 
 #: libraries/classes/Server/Status/Variables.php:417
 msgid ""
@@ -12336,8 +12338,9 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
-"Počet požadavků na přečtení dalšího řádku ze souboru. Tato hodnota je vysoká "
-"pokud dotazy procházejí celé tabulky, pravděpodobně tedy nemají vhodné klíče."
+"Počet požadavků na přečtení dalšího řádku ze souboru. Tato hodnota je "
+"vysoká, pokud dotazy procházejí celé tabulky. To obvykle naznačuje, že na "
+"tabulkách nejsou nastavené vhodné indexy nebo je dotazy správně nevyužívají."
 
 #: libraries/classes/Server/Status/Variables.php:435
 msgid "The number of internal ROLLBACK statements."
@@ -12733,8 +12736,8 @@ msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
-"Počet spojení, které nevyužívaly klíče. Pokud tato hodnota není 0, měli "
-"byste zkontrolovat klíče tabulek."
+"Počet spojení, která nepoužívají indexy. Pokud tato hodnota není 0, měli "
+"byste zkontrolovat indexy tabulek."
 
 #: libraries/classes/Server/Status/Variables.php:697
 msgid "The number of joins that used a range search on a reference table."
@@ -12746,8 +12749,8 @@ msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
-"Počet spojení bez klíčů, které kontrolovaly použití klíčů po každém řádku. "
-"(Pokud tato hodnota není 0, měli byste zkontrolovat klíče tabulek.)"
+"Počet spojení bez klíčů, která kontrolovala použití klíčů po každém řádku. ("
+"Pokud tato hodnota není 0, měli byste zkontrolovat indexy tabulek.)"
 
 #: libraries/classes/Server/Status/Variables.php:705
 msgid ""
@@ -12995,7 +12998,7 @@ msgstr ""
 #: libraries/classes/Sql.php:1869
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr "Problémy s klíči v tabulce „%s\""
+msgstr "Problémy s indexy v tabulce „%s\""
 
 #: libraries/classes/SqlQueryForm.php:140
 #, php-format
@@ -13140,11 +13143,11 @@ msgstr "Název primárního klíče musí být „PRIMARY“!"
 
 #: libraries/classes/Table.php:2097
 msgid "Can't rename index to PRIMARY!"
-msgstr "Klíč nelze přejmenovat na „PRIMARY“!"
+msgstr "Index nelze přejmenovat na „PRIMARY“!"
 
 #: libraries/classes/Table.php:2119
 msgid "No index parts defined!"
-msgstr "Nebyla zadána žádná část klíče!"
+msgstr "Nebyla zadána žádná část indexu!"
 
 #: libraries/classes/Table.php:2427
 #, php-format
@@ -14948,7 +14951,7 @@ msgstr "Délka řádku"
 
 #: templates/table/structure/display_partitions.twig:30
 msgid "Index length"
-msgstr "Délka klíče"
+msgstr "Délka indexu"
 
 #: templates/table/structure/display_partitions.twig:135
 msgid "Partition table"
@@ -15187,7 +15190,7 @@ msgstr "Velikost řádku"
 
 #: templates/table/structure/row_stats_table.twig:69
 msgid "Next autoindex"
-msgstr "Další automatický klíč"
+msgstr "Další automatický index"
 
 #: templates/table/structure/row_stats_table.twig:76
 #: templates/database/structure/table_header.twig:53
@@ -15905,7 +15908,7 @@ msgstr "Datový adresář"
 
 #: templates/columns_definitions/partitions.twig:87
 msgid "Index directory"
-msgstr "Adresář klíčů"
+msgstr "Adresář indexů"
 
 #: templates/columns_definitions/partitions.twig:88
 msgid "Max rows"
@@ -15926,7 +15929,7 @@ msgstr "Skupina uzlů"
 #: templates/table/structure/actions_in_table_structure.twig:15
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr "Na poli %s byl vytvořen primární klíč."
+msgstr "Na sloupci %s byl vytvořen primární klíč."
 
 #: templates/table/structure/actions_in_table_structure.twig:33
 #: templates/table/structure/actions_in_table_structure.twig:51
@@ -15934,7 +15937,7 @@ msgstr "Na poli %s byl vytvořen primární klíč."
 #: templates/table/structure/actions_in_table_structure.twig:103
 #, php-format
 msgid "An index has been added on %s."
-msgstr "Na poli %s byl vytvořen klíč."
+msgstr "Na sloupci %s byl vytvořen index."
 
 #: templates/table/structure/actions_in_table_structure.twig:127
 #: templates/table/structure/check_all_table_column.twig:83
@@ -16153,7 +16156,7 @@ msgstr "Velikost bloku klíče:"
 
 #: templates/table/index_form.twig:65
 msgid "Index type:"
-msgstr "Typ klíče:"
+msgstr "Typ indexu:"
 
 #: templates/table/index_form.twig:77
 msgid "Parser:"
@@ -16194,8 +16197,8 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
-"Při vytvoření cizího klíče na sloupci bez klíče se na sloupci automaticky "
-"vytvoří klíč. Případně můžete před vytvořením cizího klíče definovat klíč "
+"Při vytvoření cizího klíče na sloupci bez indexu se na sloupci automaticky "
+"vytvoří index. Případně můžete před vytvořením cizího klíče definovat index "
 "níže."
 
 #: templates/table/relation/common_form.twig:20
@@ -16591,8 +16594,8 @@ msgid ""
 "sorting."
 msgstr ""
 "Na řazení není nic špatného, ale ujistěte se, že dotazy, které hojně "
-"využívají řazení, používají klíče ve frázi ORDER BY, protože to zajistí "
-"mnohem rychlejší řazení."
+"využívají řazení, používají ve frázi ORDER BY sloupce s indexy, protože to "
+"zajistí mnohem rychlejší řazení."
 
 #: libraries/advisory_rules_generic.txt:173
 #, php-format
@@ -16601,11 +16604,11 @@ msgstr "Průměrně seřazeno řádků: %s"
 
 #: libraries/advisory_rules_generic.txt:176
 msgid "Rate of joins without indexes"
-msgstr "Četnost spojení bez klíčů"
+msgstr "Četnost spojení bez indexů"
 
 #: libraries/advisory_rules_generic.txt:179
 msgid "There are too many joins without indexes."
-msgstr "Probíhá příliš mnoho spojení tabulek bez využití klíčů."
+msgstr "Probíhá příliš mnoho spojení tabulek bez využití indexů."
 
 #: libraries/advisory_rules_generic.txt:180
 msgid ""
@@ -16613,7 +16616,7 @@ msgid ""
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
 "To znamená, že spojení tabulek musí často procházet celou tabulku. Přidáním "
-"klíčů na sloupce použité při spojování můžete tuto operaci značně urychlit."
+"indexů na sloupce použité při spojování můžete tuto operaci značně urychlit."
 
 #: libraries/advisory_rules_generic.txt:181
 #, php-format
@@ -16623,11 +16626,11 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:183
 msgid "Rate of reading first index entry"
-msgstr "Četnost čtení prvního záznamu klíče"
+msgstr "Četnost čtení prvního záznamu indexu"
 
 #: libraries/advisory_rules_generic.txt:186
 msgid "The rate of reading the first index entry is high."
-msgstr "Ke čtení prvního záznamu klíče dochází příliš často."
+msgstr "Ke čtení prvního záznamu indexu dochází příliš často."
 
 #: libraries/advisory_rules_generic.txt:187
 msgid ""
@@ -16648,7 +16651,8 @@ msgstr ""
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Průměrně procházeno klíčů: %s, tato hodnota by měla být menší než 1 za hodinu"
+"Průměrně procházeno indexů: %s, tato hodnota by měla být menší než 1 za "
+"hodinu"
 
 #: libraries/advisory_rules_generic.txt:190
 msgid "Rate of reading fixed position"
@@ -16665,8 +16669,8 @@ msgid ""
 "applicable."
 msgstr ""
 "K tomuto dochází, pokud příliš mnoho dotazů, včetně slučovacích dotazů, musí "
-"řadit výsledky nebo procházet celou tabulku. Přidáním vhodných klíčů můžete "
-"tyto čtení omezit."
+"řadit výsledky nebo procházet celou tabulku. Přidáním vhodných indexů můžete "
+"tato čtení omezit."
 
 #: libraries/advisory_rules_generic.txt:195
 #, php-format
@@ -16690,8 +16694,8 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
-"Příliš mnoho dotazů musí procházet celé tabulky. Tomuto můžete předejít "
-"přidáním klíčů."
+"Příliš mnoho dotazů musí procházet celé tabulky. Tomu můžete předejít "
+"přidáním indexů."
 
 #: libraries/advisory_rules_generic.txt:202
 #, php-format
@@ -16801,15 +16805,16 @@ msgstr "Velikost vyrovnávací paměti klíčů MyISAM"
 #: libraries/advisory_rules_generic.txt:231
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
-"Vyrovnávací paměť klíčů není nastavena. Žádné klíče MyISAM nebudou cachovány."
+"Vyrovnávací paměť klíčů není nastavena. Žádné indexy MyISAM nebudou "
+"cachovány."
 
 #: libraries/advisory_rules_generic.txt:232
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
-"Nastavte {key_buffer_size} podle velikosti vašich klíčů v MyISAM tabulkách. "
-"Pro začátek může být třeba 64M dobrá hodnota."
+"Hodnotu {key_buffer_size} nastavte podle velikosti indexů MyISAM. Pro "
+"začátek můžete nastavit 64M."
 
 #: libraries/advisory_rules_generic.txt:233
 msgid "key_buffer_size is 0"
@@ -16833,9 +16838,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
-"Můžete potřebovat snížit velikost {key_buffer_size}, projít tabulky, jestli "
-"nebyly odstraněny nějaké klíče, případně prozkoumat jestli dotazy klíče "
-"správně využívají."
+"Možná bude potřeba snížit hodnotu {key_buffer_size}, zkontrolovat, zda v "
+"tabulkách nebyly odstraněny nějaké indexy, případně prozkoumat, jestli se "
+"indexy správně využívají v dotazech."
 
 #: libraries/advisory_rules_generic.txt:240
 #, php-format
@@ -16858,7 +16863,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:250
 msgid "Percentage of index reads from memory"
-msgstr "Procento čtení klíčů z paměti"
+msgstr "Procento čtení indexů z paměti"
 
 #: libraries/advisory_rules_generic.txt:253
 #, php-format
@@ -16874,7 +16879,7 @@ msgstr "Mohlo by být potřeba zvýšit {key_buffer_size}."
 #: libraries/advisory_rules_generic.txt:255
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "Čtení klíčů z paměti: %s%%, tato hodnota by měla být pod 95%%"
+msgstr "Čtení indexů z paměti: %s%%, tato hodnota by měla být nad 95%%"
 
 #: libraries/advisory_rules_generic.txt:259
 msgid "Rate of table open"
