@@ -1900,7 +1900,7 @@ class Relation
      * @param string     $db                    name of master table db.
      * @param string     $table                 name of master table.
      * @param string     $column                name of master table column.
-     * @param array|null $foreigners_full       foreiners array for the whole table.
+     * @param array|null $foreigners_full       foreigners array for the whole table.
      * @param array|null $child_references_full child references for the whole table.
      *
      * @return array telling about references if foreign key.

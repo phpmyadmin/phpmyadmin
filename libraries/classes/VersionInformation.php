@@ -1,6 +1,6 @@
 <?php
 /**
- * Responsible for retrieving version information and notifiying about latest version
+ * Responsible for retrieving version information and notifying about latest version
  */
 
 declare(strict_types=1);
@@ -24,7 +24,7 @@ use function time;
 use function version_compare;
 
 /**
- * Responsible for retrieving version information and notifiying about latest version
+ * Responsible for retrieving version information and notifying about latest version
  */
 class VersionInformation
 {

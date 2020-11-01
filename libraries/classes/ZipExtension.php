@@ -161,7 +161,7 @@ class ZipExtension
      *
      * @param string $file path to zip file
      *
-     * @return int the number of files in the zip archive or 0, either if there wern't any files or an error occured.
+     * @return int the number of files in the zip archive or 0, either if there weren't any files or an error occurred.
      */
     public function getNumberOfFiles($file)
     {
@@ -185,7 +185,7 @@ class ZipExtension
      * @param string $file  path to zip file
      * @param string $entry file in the archive that should be extracted
      *
-     * @return string|bool data on sucess, false otherwise
+     * @return string|bool data on success, false otherwise
      */
     public function extract($file, $entry)
     {

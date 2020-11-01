@@ -694,7 +694,7 @@ class Header
      * Returns the phpMyAdmin version to be appended to the url to avoid caching
      * between versions
      *
-     * @return string urlenocded pma version as a parameter
+     * @return string urlencoded pma version as a parameter
      */
     public static function getVersionParameter(): string
     {

@@ -1148,7 +1148,7 @@ class Core
                 case 'i':
                 case 'd':
                     /* bool, integer or double */
-                    // skip value to sepearator
+                    // skip value to separator
                     $i = strpos($data, ';', $i);
                     if ($i === false) {
                         return null;

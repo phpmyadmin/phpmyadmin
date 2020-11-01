@@ -513,7 +513,7 @@ class Tracking
         $ddlog_count,
         $drop_image_or_text
     ) {
-        // no need for the secondth returned parameter
+        // no need for the second returned parameter
         [$html] = $this->getHtmlForDataStatements(
             $data,
             $filter_users,

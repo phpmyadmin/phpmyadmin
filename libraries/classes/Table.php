@@ -1341,7 +1341,7 @@ class Table
             $sql_drop_query .= ' ' . $source;
             $dbi->query($sql_drop_query);
 
-            // Renable table in configuration storage
+            // Rename table in configuration storage
             $relation->renameTable(
                 $source_db,
                 $target_db,
@@ -1650,7 +1650,7 @@ class Table
         $this->name = $new_name;
         $this->dbName = $new_db;
 
-        // Renable table in configuration storage
+        // Rename table in configuration storage
         $this->relation->renameTable(
             $old_db,
             $new_db,

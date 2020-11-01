@@ -193,7 +193,7 @@ class Session
         $httpCookieName = $config->getCookieName('phpMyAdmin');
         @session_name($httpCookieName);
 
-        // Restore correct sesion ID (it might have been reset by auto started session
+        // Restore correct session ID (it might have been reset by auto started session
         if ($config->issetCookie('phpMyAdmin')) {
             session_id($config->getCookie('phpMyAdmin'));
         }

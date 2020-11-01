@@ -42,7 +42,7 @@ class Partition extends SubPartition
     }
 
     /**
-     * Returns the partiotion description
+     * Returns the partition description
      *
      * @return string partition description
      */
@@ -112,7 +112,7 @@ class Partition extends SubPartition
     }
 
     /**
-     * Returns the tatal index length
+     * Returns the total index length
      *
      * @return int index length
      */

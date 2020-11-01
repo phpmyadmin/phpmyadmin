@@ -126,7 +126,7 @@ class Tracker
     }
 
     /**
-     * Gets the tracking status of a table, is it active or deactive ?
+     * Gets the tracking status of a table, is it active or disabled ?
      *
      * @param string $dbname    name of database
      * @param string $tablename name of table

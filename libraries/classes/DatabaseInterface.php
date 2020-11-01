@@ -1153,7 +1153,7 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * This function checks and initialises the phpMyAdmin configuration
+     * This function checks and initializes the phpMyAdmin configuration
      * storage state before it is used into session cache.
      *
      * @return void
@@ -1548,7 +1548,7 @@ class DatabaseInterface implements DbalInterface
      * @param string $which PROCEDURE | FUNCTION or null for both
      * @param string $name  name of the routine (to fetch a specific routine)
      *
-     * @return array information about ROCEDUREs or FUNCTIONs
+     * @return array information about PROCEDUREs or FUNCTIONs
      */
     public function getRoutines(
         string $db,
@@ -2438,7 +2438,7 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Whether connection is Percona
+     * Whether connection is PerconaDB
      */
     public function isPercona(): bool
     {

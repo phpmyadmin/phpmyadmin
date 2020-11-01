@@ -214,7 +214,7 @@ class Url
 
         $separator = self::getArgSeparator();
 
-        // avoid overwriting when creating navi panel links to servers
+        // avoid overwriting when creating navigation panel links to servers
         if (isset($GLOBALS['server'])
             && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
             && ! isset($params['server'])

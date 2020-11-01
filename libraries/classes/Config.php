@@ -480,7 +480,7 @@ class Config
          * These can be confusing for user configuration layer as it
          * flatten array using / and thus don't see difference between
          * $cfg['Export/method'] and $cfg['Export']['method'], while rest
-         * of thre code uses the setting only in latter form.
+         * of the code uses the setting only in latter form.
          *
          * This could be removed once we consistently handle both values
          * in the functional code as well.

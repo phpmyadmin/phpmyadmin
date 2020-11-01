@@ -153,7 +153,7 @@ class Error extends Message
     }
 
     /**
-     * Process backtrace to avoid path disclossures, objects and so on
+     * Process backtrace to avoid path disclosures, objects and so on
      *
      * @param array $backtrace backtrace
      *

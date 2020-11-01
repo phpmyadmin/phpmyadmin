@@ -381,7 +381,7 @@ class CreateAddField
     /**
      * Returns the definition of a partition/subpartition
      *
-     * @param array $partition      array of partition/subpartition detiails
+     * @param array $partition      array of partition/subpartition details
      * @param bool  $isSubPartition whether a subpartition
      *
      * @return string partition/subpartition definition

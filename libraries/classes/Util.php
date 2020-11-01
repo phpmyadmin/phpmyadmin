@@ -177,7 +177,7 @@ class Util
      * @param string $quoted_string string to remove quotes from
      * @param string $quote         type of quote to remove
      *
-     * @return string unqoted string
+     * @return string unquoted string
      */
     public static function unQuote(string $quoted_string, ?string $quote = null): string
     {
@@ -255,7 +255,7 @@ class Util
 
     /**
      * Get a URL link to the official documentation page of either MySQL
-     * or MariaDB depending on the databse server
+     * or MariaDB depending on the database server
      * of the user.
      *
      * @param bool $isMariaDB if the database server is MariaDB
@@ -2302,7 +2302,7 @@ class Util
     /**
      * Returns server type for current connection
      *
-     * Known types are: MariaDB, Percona and MySQL (default)
+     * Known types are: MariaDB, PerconaDB and MySQL (default)
      *
      * @return string
      */
@@ -2907,7 +2907,7 @@ class Util
     }
 
     /**
-     * Returs list of used PHP extensions.
+     * Returns list of used PHP extensions.
      *
      * @return string[]
      */
@@ -2930,7 +2930,7 @@ class Util
     }
 
     /**
-     * Converts given (request) paramter to string
+     * Converts given (request) parameter to string
      *
      * @param mixed $value Value to convert
      */
@@ -2979,7 +2979,7 @@ class Util
     }
 
     /**
-     * Wraper around PHP date function
+     * Wrapper around PHP date function
      *
      * @param string $format Date format string
      *

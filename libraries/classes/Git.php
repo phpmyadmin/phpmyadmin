@@ -299,7 +299,7 @@ class Git
                 }
             } else {
                 // '.git/objects/info/packs' file can be missing
-                // (atlease in mysGit)
+                // (at least in mysGit)
                 // File missing. May be we can look in the .git/object/pack
                 // directory for all the .pack files and use that list of
                 // files instead

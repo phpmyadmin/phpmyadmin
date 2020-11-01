@@ -242,7 +242,7 @@ class TwoFactor
     /**
      * Changes two-factor authentication settings
      *
-     * The object might stay in partialy changed setup
+     * The object might stay in partially changed setup
      * if configuration fails.
      *
      * @param string $name Backend name
