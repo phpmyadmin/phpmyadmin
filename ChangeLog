@@ -52,6 +52,7 @@ phpMyAdmin - ChangeLog
 - issue #16227 Fixed autocomplete is not working in case the table name is quoted by "`" symbols
 - issue #15463 Force BINARY comparison when looking at privileges to avoid an SQL error on privileges tab
 - issue #16430 Fixed Windows error message uses trailing / instead of \
+- issue #16316 Added support for "SameSite=Strict" on cookies using configuration "$cfg['CookieSameSite']"
 
 5.0.5 (not yet released)
 
