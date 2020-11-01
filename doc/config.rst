@@ -1787,8 +1787,12 @@ Cookie authentication options
 
     .. versionadded:: 5.1.0
 
-    It sets SameSite attribute of the Set-Cookie HTTP response header. This
-    can take values such as Lax, Strict or None.
+    It sets SameSite attribute of the Set-Cookie :term:`HTTP` response header.
+    Valid values are:
+
+    * ``Lax``
+    * ``Strict``
+    * ``None``
 
     .. seealso:: `rfc6265 bis <https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7>`_
 
