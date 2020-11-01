@@ -1423,23 +1423,23 @@ class Privileges
             `Event_priv`,
             `Trigger_priv`,';
 
-        $listOfComparedPrivileges = '`Select_priv` = \'N\' AND
-            `Insert_priv` = \'N\' AND
-            `Update_priv` = \'N\' AND
-            `Delete_priv` = \'N\' AND
-            `Create_priv` = \'N\' AND
-            `Drop_priv` = \'N\' AND
-            `Grant_priv` = \'N\' AND
-            `References_priv` = \'N\' AND
-            `Create_tmp_table_priv` = \'N\' AND
-            `Lock_tables_priv` = \'N\' AND
-            `Create_view_priv` = \'N\' AND
-            `Show_view_priv` = \'N\' AND
-            `Create_routine_priv` = \'N\' AND
-            `Alter_routine_priv` = \'N\' AND
-            `Execute_priv` = \'N\' AND
-            `Event_priv` = \'N\' AND
-            `Trigger_priv` = \'N\'';
+        $listOfComparedPrivileges = 'BINARY `Select_priv` = \'N\' AND
+            BINARY `Insert_priv` = \'N\' AND
+            BINARY `Update_priv` = \'N\' AND
+            BINARY `Delete_priv` = \'N\' AND
+            BINARY `Create_priv` = \'N\' AND
+            BINARY `Drop_priv` = \'N\' AND
+            BINARY `Grant_priv` = \'N\' AND
+            BINARY `References_priv` = \'N\' AND
+            BINARY `Create_tmp_table_priv` = \'N\' AND
+            BINARY `Lock_tables_priv` = \'N\' AND
+            BINARY `Create_view_priv` = \'N\' AND
+            BINARY `Show_view_priv` = \'N\' AND
+            BINARY `Create_routine_priv` = \'N\' AND
+            BINARY `Alter_routine_priv` = \'N\' AND
+            BINARY `Execute_priv` = \'N\' AND
+            BINARY `Event_priv` = \'N\' AND
+            BINARY `Trigger_priv` = \'N\'';
 
         $query = '
             (
