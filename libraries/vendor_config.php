@@ -1,6 +1,6 @@
 <?php
 /**
- * File for vendor customisation, you can change here paths or some behaviour,
+ * File for vendor customization, you can change here paths or some behaviour,
  * which vendors such as Linux distributions might want to change.
  *
  * For changing this file you should know what you are doing. For this reason
@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
  * Path to vendor autoload file. Useful when you want to
  * have have vendor dependencies somewhere else.
  */
-define('AUTOLOAD_FILE', ROOT_PATH . 'vendor'. DIRECTORY_SEPARATOR .'autoload.php');
+define('AUTOLOAD_FILE', ROOT_PATH . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php');
 
 /**
  * Directory where cache files are stored.
