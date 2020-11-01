@@ -50,6 +50,7 @@ phpMyAdmin - ChangeLog
 - issue #13557 Use a full list of functions instead of a separated one on insert/edit page "Function" selector
 - issue #14795 Include routines in the export in a predictable order
 - issue #16227 Fixed autocomplete is not working in case the table name is quoted by "`" symbols
+- issue #15463 Force BINARY comparison when looking at privileges to avoid an SQL error on privileges tab
 
 5.0.5 (not yet released)
 
