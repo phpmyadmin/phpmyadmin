@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-10-31 11:55+0000\n"
+"PO-Revision-Date: 2020-11-03 08:26+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
@@ -578,9 +578,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1-16]FAQ 1.16[/doc]."
 msgstr ""
-"Nepodařilo se načíst žádná data k importu. Buďto nebyl odeslán žádný soubor, "
-"nebo jeho velikost překročila velikost povolenou v nastavení PHP. Viz "
-"[doc@faq1-16]FAQ 1.16[/doc]."
+"Nepodařilo se načíst žádná data k importu. Buď nebyl odeslán žádný soubor, "
+"nebo jeho velikost překročila maximální velikost povolenou v nastavení PHP. "
+"Viz [doc@faq1-16]FAQ 1.16[/doc]."
 
 #: import.php:547 libraries/classes/Display/Import.php:56
 msgid "Could not load import plugins, please check your installation!"
@@ -943,7 +943,7 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Snažíte se zmenšit počet řádek, ale už jste do nich vložil/a data a ty budou "
+"Snažíte se zmenšit počet řádků, ale už jste do nich vložil/a data a ta budou "
 "ztracena. Chcete pokračovat?"
 
 #: js/messages.php:74
@@ -1038,7 +1038,7 @@ msgstr "Obnovit vše"
 
 #: js/messages.php:117
 msgid "Missing value in the form!"
-msgstr "Chybějící hodnota ve formuláři!"
+msgstr "Ve formuláři chybí hodnota!"
 
 #: js/messages.php:118
 msgid "Select at least one of the options!"
@@ -1831,7 +1831,7 @@ msgstr "Zapnout kontrolu cizích klíčů"
 
 #: js/messages.php:390
 msgid "Failed to get real row count."
-msgstr "Chyba při čtení skutečného počtu řádek."
+msgstr "Chyba při čtení skutečného počtu řádků."
 
 #: js/messages.php:393
 msgid "Searching"
@@ -2139,19 +2139,19 @@ msgstr "Vyhledávání rozsahu"
 
 #: js/messages.php:488
 msgid "Column maximum:"
-msgstr "Největší hodnota sloupce:"
+msgstr "Maximální hodnota sloupce:"
 
 #: js/messages.php:489
 msgid "Column minimum:"
-msgstr "Nejmenší hodnota sloupce:"
+msgstr "Minimální hodnota sloupce:"
 
 #: js/messages.php:490
 msgid "Minimum value:"
-msgstr "Nejmenší hodnota:"
+msgstr "Minimální hodnota:"
 
 #: js/messages.php:491
 msgid "Maximum value:"
-msgstr "Největší hodnota:"
+msgstr "Maximální hodnota:"
 
 #: js/messages.php:494
 msgid "Hide find and replace criteria"
@@ -2179,7 +2179,7 @@ msgstr "Klikněte na tlačítko pro návrat do původního stavu."
 
 #: js/messages.php:507
 msgid "Click a data point to view and possibly edit the data row."
-msgstr "Klikněte na datový bod pro zobrazení a případnou úpravu řádky."
+msgstr "Klikněte na datový bod pro zobrazení a případnou úpravu řádku."
 
 #: js/messages.php:509
 msgid "The plot can be resized by dragging it along the bottom right corner."
@@ -3287,12 +3287,12 @@ msgstr "Unicode"
 #: libraries/classes/Charsets.php:375 libraries/classes/Charsets.php:551
 msgctxt "Collation"
 msgid "West European"
-msgstr "Západoevropský"
+msgstr "Západoevropské jazyky"
 
 #: libraries/classes/Charsets.php:382
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Středoevropský"
+msgstr "Středoevropské jazyky"
 
 #: libraries/classes/Charsets.php:387 libraries/classes/Charsets.php:558
 msgctxt "Collation"
@@ -3362,7 +3362,7 @@ msgstr "Řečtina"
 #: libraries/classes/Charsets.php:437
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "Čeština a Slovenština"
+msgstr "Čeština a slovenština"
 
 #: libraries/classes/Charsets.php:440 libraries/classes/Charsets.php:596
 msgctxt "Collation"
@@ -3676,9 +3676,9 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
-"Definuje, který typ ovládacích prvků má být použit při úpravách polí typu "
-"CHAR a VARCHAR; [kbd]input[/kbd] - umožňuje omezit délku vstupu, "
-"[kbd]textarea[/kbd] - umožní použít odřádkování."
+"Definuje, který typ ovládacích prvků se má používat při úpravách sloupců "
+"typu CHAR a VARCHAR; [kbd]input[/kbd] - umožňuje omezit délku vstupu, "
+"[kbd]textarea[/kbd] - umožňuje používat ve sloupcích odřádkování."
 
 #: libraries/classes/Config/Descriptions.php:112
 msgid "CHAR columns editing"
@@ -3717,7 +3717,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:134
 msgid "Minimum size for input field"
-msgstr "Nejmenší velikost vstupních polí"
+msgstr "Minimální velikost vstupních polí"
 
 #: libraries/classes/Config/Descriptions.php:137
 msgid ""
@@ -3817,7 +3817,7 @@ msgstr "Povolit automatické dokončování názvů tabulek a sloupců"
 
 #: libraries/classes/Config/Descriptions.php:187
 msgid "Whether the table structure actions should be hidden."
-msgstr "Jestli mají být schovávány akce při zobrazení struktury tabulek."
+msgstr "Zda se mají při pohledu na strukturu tabulky skrývat akce."
 
 #: libraries/classes/Config/Descriptions.php:189
 msgid "Show column comments"
@@ -3830,7 +3830,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:193
 msgid "Hide table structure actions"
-msgstr "Schovat akce při zobrazení struktury tabulky"
+msgstr "Skrýt akce při zobrazení struktury tabulky"
 
 #: libraries/classes/Config/Descriptions.php:195
 msgid "Default transformations for Hex"
@@ -4192,7 +4192,7 @@ msgstr "Pořadí cizích klíčů v rozbalovací nabídce"
 #: libraries/classes/Config/Descriptions.php:426
 msgid "A dropdown will be used if fewer items are present."
 msgstr ""
-"Rozbalovací nabídka bude použita pokud je přítomno menší množství položek."
+"Pokud je přítomno menší množství položek, použije se rozbalovací nabídka."
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid "Foreign key limit"
@@ -4212,7 +4212,7 @@ msgstr "Režim prohlížení"
 
 #: libraries/classes/Config/Descriptions.php:436
 msgid "Customize browse mode."
-msgstr "Přizpůsobí režim prohlížení."
+msgstr "Přizpůsobení režimu prohlížení."
 
 #: libraries/classes/Config/Descriptions.php:440
 #: libraries/classes/Config/Descriptions.php:444
@@ -4221,7 +4221,7 @@ msgstr "Přizpůsobí režim prohlížení."
 #: libraries/classes/Config/Descriptions.php:502
 #: libraries/classes/Config/Descriptions.php:559
 msgid "Customize default options."
-msgstr "Přizpůsobí výchozí nastavení."
+msgstr "Přizpůsobení výchozího nastavení."
 
 #: libraries/classes/Config/Descriptions.php:442
 #: libraries/classes/Config/Forms/User/ExportForm.php:75
@@ -4243,7 +4243,7 @@ msgstr "Režim úprav"
 
 #: libraries/classes/Config/Descriptions.php:452
 msgid "Customize edit mode."
-msgstr "Přizpůsobí režim úprav."
+msgstr "Přizpůsobení režimu úprav."
 
 #: libraries/classes/Config/Descriptions.php:454
 msgid "Export defaults"
@@ -4251,7 +4251,7 @@ msgstr "Výchozí nastavení exportu"
 
 #: libraries/classes/Config/Descriptions.php:456
 msgid "Customize default export options."
-msgstr "Přizpůsobí výchozí nastavení exportu."
+msgstr "Přizpůsobení výchozího nastavení exportu."
 
 #: libraries/classes/Config/Descriptions.php:458
 msgid "General"
@@ -4267,7 +4267,7 @@ msgstr "Výchozí nastavení importu"
 
 #: libraries/classes/Config/Descriptions.php:464
 msgid "Customize default common import options."
-msgstr "Přizpůsobí výchozí nastavení importu."
+msgstr "Přizpůsobení výchozího nastavení importu."
 
 #: libraries/classes/Config/Descriptions.php:466
 msgid "Import / export"
@@ -4300,7 +4300,7 @@ msgstr "Navigační panel"
 
 #: libraries/classes/Config/Descriptions.php:480
 msgid "Customize appearance of the navigation panel."
-msgstr "Přizpůsobí vzhled navigačního panelu."
+msgstr "Přizpůsobení vzhledu navigačního panelu."
 
 #: libraries/classes/Config/Descriptions.php:482
 msgid "Navigation tree"
@@ -4349,8 +4349,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Zadejte titulek který zobrazí prohlížeč. V [doc@faq6-27]dokumentaci[/doc] "
-"naleznete jaké proměnné můžete použít."
+"Zadejte titulek, který se zobrazí v prohlížeči. V "
+"[doc@faq6-27]dokumentaci[/doc] naleznete popis proměnných, které lze použít."
 
 #: libraries/classes/Config/Descriptions.php:516
 msgid "Security"
@@ -4462,7 +4462,7 @@ msgstr "Struktura databáze"
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
-"Zvolte co se má zobrazit při zobrazení struktury databáze (seznam tabulek)."
+"Zvolte, co se má zobrazit při zobrazení struktury databáze (seznam tabulek)."
 
 #: libraries/classes/Config/Descriptions.php:573
 #: libraries/classes/Plugins/Export/ExportPdf.php:277
@@ -4481,7 +4481,7 @@ msgstr "Panely"
 
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Choose how you want tabs to work."
-msgstr "Nastaví, jak mají fungovat panely."
+msgstr "Nastavení fungování panelů."
 
 #: libraries/classes/Config/Descriptions.php:581
 msgid "Display relational schema"
@@ -4507,7 +4507,7 @@ msgstr "Texy! text"
 
 #: libraries/classes/Config/Descriptions.php:597
 msgid "Customize default options"
-msgstr "Přizpůsobí výchozí nastavení"
+msgstr "Přizpůsobení výchozího nastavení"
 
 #: libraries/classes/Config/Descriptions.php:599
 msgid "Warnings"
@@ -4575,15 +4575,15 @@ msgstr "Přidat ON DUPLICATE KEY UPDATE"
 #: libraries/classes/Config/Descriptions.php:641
 #: libraries/classes/Config/Descriptions.php:662
 msgid "Update data when duplicate keys found on import"
-msgstr "Aktualizovat data pokud importované klíče už existují"
+msgstr "Aktualizovat data, pokud již existují importované klíče"
 
 #: libraries/classes/Config/Descriptions.php:646
 msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
 msgstr ""
-"Výchozí formát; uvědomte si, že toto závisí na umístění (databáze, tabulka) "
-"a pouze SQL je vždy dostupný."
+"Výchozí formát; mějte na paměti, že tento seznam závisí na umístění ("
+"databáze, tabulka) a vždy dostupná je pouze volba SQL."
 
 #: libraries/classes/Config/Descriptions.php:650
 msgid "Format of imported file"
@@ -4633,7 +4633,7 @@ msgstr "Počáteční stav pro rozbalovací pole"
 
 #: libraries/classes/Config/Descriptions.php:686
 msgid "How many rows can be inserted at one time."
-msgstr "Kolik řádků může být vloženo naráz."
+msgstr "Kolik řádků lze vložit naráz."
 
 #: libraries/classes/Config/Descriptions.php:688
 msgid "Number of inserted rows"
@@ -4710,11 +4710,11 @@ msgstr "Větší editační pole pro LONGTEXT"
 
 #: libraries/classes/Config/Descriptions.php:726
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr "Nejvyšší počet znaků SQL dotazu, které se ještě zobrazí."
+msgstr "Maximální počet znaků SQL dotazu, které se ještě zobrazí."
 
 #: libraries/classes/Config/Descriptions.php:728
 msgid "Maximum displayed SQL length"
-msgstr "Nejvyšší délka zobrazeného SQL dotazu"
+msgstr "Maximální délka zobrazeného SQL dotazu"
 
 #: libraries/classes/Config/Descriptions.php:730
 #: libraries/classes/Config/Descriptions.php:755
@@ -4724,11 +4724,11 @@ msgstr "Uživatelé nemohou nastavit větší hodnotu"
 
 #: libraries/classes/Config/Descriptions.php:732
 msgid "Maximum number of databases displayed in database list."
-msgstr "Nejvyšší počet databází zobrazených v seznamu databází."
+msgstr "Maximální počet databází zobrazených v seznamu databází."
 
 #: libraries/classes/Config/Descriptions.php:734
 msgid "Maximum databases"
-msgstr "Nejvyšší počet databází"
+msgstr "Maximální počet databází"
 
 #: libraries/classes/Config/Descriptions.php:737
 msgid ""
@@ -4740,7 +4740,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:741
 msgid "Maximum items on first level"
-msgstr "Nejvyšší počet položek na první úrovni"
+msgstr "Maximální počet položek na první úrovni"
 
 #: libraries/classes/Config/Descriptions.php:743
 msgid ""
@@ -4751,7 +4751,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Maximum items in branch"
-msgstr "Nejvyšší počet položek ve větvi"
+msgstr "Maximální počet položek ve větvi"
 
 #: libraries/classes/Config/Descriptions.php:748
 msgid ""
@@ -4763,15 +4763,15 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:753
 msgid "Maximum number of rows to display"
-msgstr "Nejvyšší počet zobrazených řádků"
+msgstr "Maximální počet zobrazených řádků"
 
 #: libraries/classes/Config/Descriptions.php:757
 msgid "Maximum number of tables displayed in table list."
-msgstr "Nejvyšší počet tabulek zobrazených v seznamu tabulek."
+msgstr "Maximální počet tabulek zobrazených v seznamu tabulek."
 
 #: libraries/classes/Config/Descriptions.php:759
 msgid "Maximum tables"
-msgstr "Nejvyšší počet zobrazených tabulek"
+msgstr "Maximální počet zobrazených tabulek"
 
 #: libraries/classes/Config/Descriptions.php:762
 msgid ""
@@ -4837,7 +4837,7 @@ msgstr "Cíl odkazu loga"
 
 #: libraries/classes/Config/Descriptions.php:795
 msgid "Display server choice at the top of the navigation panel."
-msgstr "Zobrazí volbu serveru v horní části navigačního panelu."
+msgstr "Zobrazit volbu serveru v horní části navigačního panelu."
 
 #: libraries/classes/Config/Descriptions.php:797
 msgid "Display servers selection"
@@ -4897,11 +4897,11 @@ msgstr "Oddělovač tabulkového stromu"
 
 #: libraries/classes/Config/Descriptions.php:827
 msgid "Maximum table tree depth"
-msgstr "Nejvyšší počet pater tabulkového stromu"
+msgstr "Maximální počet pater tabulkového stromu"
 
 #: libraries/classes/Config/Descriptions.php:829
 msgid "Highlight server under the mouse cursor."
-msgstr "Zvýrazní server pod kurzorem myši."
+msgstr "Zvýraznit server pod kurzorem myši."
 
 #: libraries/classes/Config/Descriptions.php:831
 msgid "Enable highlighting"
@@ -4918,53 +4918,53 @@ msgstr "Umožnit rozbalení navigačního stromu"
 
 #: libraries/classes/Config/Descriptions.php:837
 msgid "Show tables in tree"
-msgstr "Zobrazit/Skrýt tabulky ve stromu"
+msgstr "Zobrazovat tabulky ve stromu"
 
 #: libraries/classes/Config/Descriptions.php:839
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "Zobrazit tabulky v navigačním stromu pod databází"
+msgstr "Zobrazovat tabulky v navigačním stromu pod databází"
 
 #: libraries/classes/Config/Descriptions.php:841
 msgid "Show views in tree"
-msgstr "Zobrazit ve stromu pohledy"
+msgstr "Zobrazovat pohledy ve stromu"
 
 #: libraries/classes/Config/Descriptions.php:843
 msgid "Whether to show views under database in the navigation tree"
-msgstr "Zobrazit v navigačním stromu pohledy pod databází"
+msgstr "Zobrazovat pohledy v navigačním stromu pod databází"
 
 #: libraries/classes/Config/Descriptions.php:845
 msgid "Show functions in tree"
-msgstr "Zobrazit ve stromu funkce"
+msgstr "Zobrazovat funkce ve stromu"
 
 #: libraries/classes/Config/Descriptions.php:847
 msgid "Whether to show functions under database in the navigation tree"
-msgstr "Zobrazit v navigačním stromu funkce pod databází"
+msgstr "Zobrazovat funkce v navigačním stromu pod databází"
 
 #: libraries/classes/Config/Descriptions.php:849
 msgid "Show procedures in tree"
-msgstr "Zobrazit ve stromu procedury"
+msgstr "Zobrazovat procedury ve stromu"
 
 #: libraries/classes/Config/Descriptions.php:851
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr "Zobrazit v navigačním stromu procedury pod databází"
+msgstr "Zobrazovat procedury v navigačním stromu pod databází"
 
 #: libraries/classes/Config/Descriptions.php:853
 msgid "Show events in tree"
-msgstr "Zobrazit ve stromu události"
+msgstr "Zobrazovat události ve stromu"
 
 #: libraries/classes/Config/Descriptions.php:855
 msgid "Whether to show events under database in the navigation tree"
-msgstr "Zobrazit v navigačním stromu události pod databází"
+msgstr "Zobrazovat události v navigačním stromu pod databází"
 
 #: libraries/classes/Config/Descriptions.php:857
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
-"Nejvyšší počet tabulek v seznamu nedávných tabulek; nastavte 0 pro vypnutí."
+"Maximální počet tabulek v seznamu nedávných tabulek; nastavte 0 pro vypnutí."
 
 #: libraries/classes/Config/Descriptions.php:859
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr ""
-"Nejvyšší počet tabulek v seznamu oblíbených tabulek; nastavte 0 pro vypnutí."
+"Maximální počet tabulek v seznamu oblíbených tabulek; nastavte 0 pro vypnutí."
 
 #: libraries/classes/Config/Descriptions.php:861
 msgid "Recently used tables"
@@ -5048,8 +5048,8 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
 msgstr ""
-"Vypne varování o nekompletních relacích na stránce s detaily databáze pokud "
-"chybí jakákoliv tabulka z úložiště nastavení phpMyAdmina."
+"Vypne varování, které se zobrazuje na stránce s detaily o struktuře "
+"databáze, pokud chybí jakákoliv tabulka z úložiště nastavení phpMyAdmina."
 
 #: libraries/classes/Config/Descriptions.php:906
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -5343,7 +5343,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1067
 msgid "Maximal number of table preferences to store"
-msgstr "Nejvyšší počet uložených nastavení tabulek"
+msgstr "Maximální počet uložených nastavení tabulek"
 
 #: libraries/classes/Config/Descriptions.php:1069
 msgid "QBE saved searches table"
@@ -5681,11 +5681,11 @@ msgstr "Dlouhý název tohoto serveru"
 
 #: libraries/classes/Config/Descriptions.php:1255
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr "Jestli bude uživateli zobrazeno tlačítko „Zobrazit vše“."
+msgstr "Zda se uživateli zobrazí tlačítko „Zobrazit vše“."
 
 #: libraries/classes/Config/Descriptions.php:1257
 msgid "Allow to display all the rows"
-msgstr "Umožní zobrazit všechny řádky"
+msgstr "Povolit zobrazení všech řádků"
 
 #: libraries/classes/Config/Descriptions.php:1260
 msgid ""
@@ -5795,12 +5795,12 @@ msgstr "Zobrazit odkaz na phpinfo()"
 
 #: libraries/classes/Config/Descriptions.php:1311
 msgid "Show detailed MySQL server information"
-msgstr "Zobrazí podrobné informace o MySQL serveru"
+msgstr "Zobrazit podrobné informace o MySQL serveru"
 
 #: libraries/classes/Config/Descriptions.php:1313
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
-msgstr "Určuje, jestli SQL dotazy vytvořené phpMyAdminem budou zobrazeny."
+msgstr "Určuje, zda se mají zobrazovat SQL dotazy vytvořené phpMyAdminem."
 
 #: libraries/classes/Config/Descriptions.php:1315
 msgid "Show SQL queries"
@@ -5809,7 +5809,7 @@ msgstr "Zobrazit SQL dotazy"
 #: libraries/classes/Config/Descriptions.php:1317
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
-msgstr "Určuje zda má pole pro zadání dotazu zůstat zobrazeno i po odeslání."
+msgstr "Určuje, zda má pole pro zadání dotazu zůstat zobrazeno i po odeslání."
 
 #: libraries/classes/Config/Descriptions.php:1319
 #: libraries/classes/SqlQueryForm.php:356
@@ -5859,7 +5859,7 @@ msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
 msgstr ""
-"Vypne výchozí varování, které je zobrazeno na hlavní stránce, když se "
+"Vypne výchozí varování, které se zobrazuje na hlavní stránce, když se "
 "používá Suhosin."
 
 #: libraries/classes/Config/Descriptions.php:1342
@@ -5872,7 +5872,7 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
-"Vypne výchozí varování, které je zobrazeno na hlavní stránce, když je "
+"Vypne výchozí varování, které se zobrazuje na hlavní stránce, když je "
 "hodnota PHP nastavení session.gc_maxlifetime menší než hodnota "
 "'LoginCookieValidity'."
 
@@ -5897,7 +5897,7 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
-"Velikost editačního pole (počet řádek), tato hodnota bude navýšena pro SQL "
+"Velikost editačního pole (počet řádků), tato hodnota bude navýšena pro SQL "
 "dotazy (*2)."
 
 #: libraries/classes/Config/Descriptions.php:1364
@@ -6097,8 +6097,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
-"Dotazy jsou spuštěny zmáčknutím klávesy Enter (místo Ctrl+Enter). Nové řádky "
-"budou vloženy pomocí Shift+Enter."
+"Dotazy se spouštějí stisknutím klávesy Enter (místo Ctrl+Enter). Stisknutím "
+"Shift+Enter se vloží nový řádek."
 
 #: libraries/classes/Config/Descriptions.php:1456
 msgid "Enter executes queries in console"
@@ -6124,7 +6124,7 @@ msgstr "Zobrazit historii dotazů při spuštění"
 #: libraries/classes/Config/Descriptions.php:1468
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
-msgstr "Vždy rozbalit query zprávy"
+msgstr "Vždy rozbalit zprávy k dotazu"
 
 #: libraries/classes/Config/Descriptions.php:1470
 #: templates/console/display.twig:157
@@ -6541,7 +6541,7 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
+"Tento pohled má alespoň tolik řádků. Podrobnosti naleznete v %sdokumentaci%s."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:1013
 msgid "unknown"
@@ -8830,7 +8830,7 @@ msgstr "Odstranit databázi (DROP)"
 
 #: libraries/classes/Operations.php:222
 msgid "Copy database to"
-msgstr "Zkopírovat databázi na"
+msgstr "Zkopírovat databázi do"
 
 #: libraries/classes/Operations.php:234
 msgid "CREATE DATABASE before copying"
@@ -9997,8 +9997,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Zobrazí náhled obrázku s odkazem na obrázek; parametry šířka a výška "
-"v bodech. Poměr stran obrázku zůstane zachován."
+"Zobrazí náhled obrázku s odkazem na obrázek; parametry jsou maximální šířka "
+"a výška v bodech. Poměr stran obrázku zůstane zachován."
 
 #: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:29
 msgid ""
@@ -10133,12 +10133,12 @@ msgstr "Hardwarový bezpečnostní klíč (FIDO U2F)"
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
-"Poskytuje autentizaci pomocí hardwarových bezpečnostních tokenů "
-"podporujících FIDO U2F."
+"Poskytuje ověření pomocí hardwarových bezpečnostních tokenů podporujících "
+"FIDO U2F."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
 msgid "Simple two-factor authentication"
-msgstr "Jednoduchá dvoufaktorová autentizace"
+msgstr "Jednoduché dvoustupňové ověřování"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
@@ -10147,11 +10147,11 @@ msgstr "Pouze pro účely testování!"
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
 #, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Dvoufaktorová autentizace se nezdařila: %s"
+msgstr "Dvoustupňové ověřování se nezdařilo: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
 msgid "Two-factor authentication failed."
-msgstr "Dvoufaktorová autentizace se nezdařila."
+msgstr "Dvoustupňové ověřování se nezdařilo."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
@@ -10974,7 +10974,7 @@ msgstr "Výsledek spuštění rutiny %s"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "Posledním příkazem v proceduře byla ovlivněna %d řádka."
+msgstr[0] "Posledním příkazem v proceduře byl ovlivněn %d řádek."
 msgstr[1] "Posledním příkazem v proceduře byly ovlivněny %d řádky."
 msgstr[2] "Posledním příkazem v proceduře bylo ovlivněno %d řádků."
 
@@ -11447,7 +11447,7 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:1440
 #: libraries/classes/Server/Privileges.php:1471
 msgid "Native MySQL authentication"
-msgstr "Nativní autentizace MySQL"
+msgstr "Nativní ověřování MySQL"
 
 #: libraries/classes/Server/Privileges.php:1473
 msgid "SHA256 password authentication"
@@ -11531,7 +11531,7 @@ msgstr "Přidělit všechna oprávnění pro databázi %s."
 #: libraries/classes/Server/Privileges.php:2462
 #, php-format
 msgid "Users having access to \"%s\""
-msgstr "Uživatelé, kteří mají přístup k „%s“"
+msgstr "Uživatelé s přístupem k „%s“"
 
 #: libraries/classes/Server/Privileges.php:2432
 msgid "User has been added."
@@ -12018,7 +12018,7 @@ msgid ""
 msgstr ""
 "Zapnutí záznamu dotazů může zvýšit zatížení serveru o 5-15%. Výpočet "
 "statistik z těchto záznamů je také výpočetně náročný, proto doporučujeme "
-"vybírat krátké časové období a záznam vypnout poté co již monitorování "
+"vybírat krátké časové období a záznam vypnout poté, co již monitorování "
 "nebudete potřebovat."
 
 #: libraries/classes/Server/Status/Monitor.php:178
@@ -12109,7 +12109,7 @@ msgid ""
 "may want to export it if you have a complicated set up."
 msgstr ""
 "Uspořádání grafů je uloženo ve vašem prohlížeči. Pokud máte komplikovanější "
-"nastavení, můžete ho chtít exportovat a zálohovat."
+"nastavení, možná ho budete chtít exportovat a zálohovat."
 
 #: libraries/classes/Server/Status/Monitor.php:332
 msgid "Reset to default"
@@ -12172,7 +12172,7 @@ msgstr "#"
 
 #: libraries/classes/Server/Status/Variables.php:52 templates/filter.twig:4
 msgid "Containing the word:"
-msgstr "Obsahující slovo:"
+msgstr "Obsahuje slovo:"
 
 #: libraries/classes/Server/Status/Variables.php:60
 msgid "Show only alert values"
@@ -12194,8 +12194,7 @@ msgstr "Související odkazy:"
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
-msgstr ""
-"Počet spojení, která byla ukončena bez korektního ukončení ze strany klienta."
+msgstr "Počet spojení ukončených bez korektního ukončení ze strany klienta."
 
 #: libraries/classes/Server/Status/Variables.php:345
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -12742,7 +12741,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Variables.php:697
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
-"Počet spojení, které používaly intervalové vyhledávání na referenční tabulce."
+"Počet spojení, která použila intervalové vyhledávání na referenční tabulce."
 
 #: libraries/classes/Server/Status/Variables.php:700
 msgid ""
@@ -12757,12 +12756,12 @@ msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
-"Počet spojení, které používaly intervalové vyhledávání na první tabulce. "
-"(Tato hodnota obvykle není kritická i když je vysoká.)"
+"Počet spojení, která použila intervalové vyhledávání na první tabulce. (Tato "
+"hodnota obvykle není kritická i když je vysoká.)"
 
 #: libraries/classes/Server/Status/Variables.php:709
 msgid "The number of joins that did a full scan of the first table."
-msgstr "Počet spojení, které prováděly kompletní procházení první tabulky."
+msgstr "Počet spojení, která prováděla kompletní procházení první tabulky."
 
 #: libraries/classes/Server/Status/Variables.php:712
 msgid "The number of temporary tables currently open by the slave SQL thread."
@@ -12801,11 +12800,11 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:736
 msgid "The number of sorts that were done with ranges."
-msgstr "Počet řazení, které byly omezeny rozsahem."
+msgstr "Počet řazení omezených rozsahem."
 
 #: libraries/classes/Server/Status/Variables.php:739
 msgid "The number of sorted rows."
-msgstr "Počet seřazených řádek."
+msgstr "Počet seřazených řádků."
 
 #: libraries/classes/Server/Status/Variables.php:742
 msgid "The number of sorts that were done by scanning the table."
@@ -13881,11 +13880,11 @@ msgstr "Úspěch!"
 
 #: libraries/user_preferences.inc.php:31
 msgid "Manage your settings"
-msgstr "Spravujte svoje nastavení"
+msgstr "Správa nastavení"
 
 #: libraries/user_preferences.inc.php:38
 msgid "Two-factor authentication"
-msgstr "Dvoufaktorová autentizace"
+msgstr "Dvoustupňové ověřování"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:298
 msgid "Configuration has been saved."
@@ -13995,11 +13994,11 @@ msgstr "Můžete vymazat vaše nastavení a vrátit se k výchozím hodnotám."
 
 #: prefs_twofactor.php:29
 msgid "Two-factor authentication has been removed."
-msgstr "Dvoufaktorová autentizace byla odstraněna."
+msgstr "Dvoustupňové ověřování bylo odstraněno."
 
 #: prefs_twofactor.php:39
 msgid "Two-factor authentication has been configured."
-msgstr "Dvoufaktorová autentizace byla nastavena."
+msgstr "Dvoustupňové ověřování bylo nastaveno."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -14354,7 +14353,7 @@ msgstr "Použít tento sloupec pro přiřazení názvu každému bodu"
 
 #: templates/table/search/options_zoom.twig:32
 msgid "Maximum rows to plot"
-msgstr "Nejvyšší počet vykreslených řádků"
+msgstr "Maximální počet vykreslených řádků"
 
 #: templates/display/export/selection.twig:3
 msgid "Databases:"
@@ -14556,7 +14555,7 @@ msgid ""
 "most likely refuse to authenticate you."
 msgstr ""
 "Pro přístup k phpMyAdminovi nepoužíváte protokol https, zařízení FIDO U2F "
-"proto velmi pravděpodobně odmítne autentizaci."
+"proto velmi pravděpodobně odmítne ověření."
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
@@ -14815,14 +14814,14 @@ msgstr "Exportuji řádky z tabulky „%s“"
 
 #: templates/prefs_twofactor.twig:3
 msgid "Two-factor authentication status"
-msgstr "Stav dvoufaktorové autentizace"
+msgstr "Stav dvoustupňového ověřování"
 
 #: templates/prefs_twofactor.twig:9
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
-"Dvoufaktorové ověření není k dispozici. Abyste ho mohli povolit, "
+"Dvoustupňové ověřování není k dispozici. Abyste ho mohli povolit, "
 "nainstalujte prosím volitelné závislosti."
 
 #: templates/prefs_twofactor.twig:10
@@ -14831,33 +14830,33 @@ msgstr "Chybí následující balíčky composeru:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
-msgstr "Pro tento účet je dostupné a nastavené dvoufaktorové ověření."
+msgstr "Pro tento účet je dostupné a nastavené dvoustupňové ověřování."
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
-msgstr "Pro tento účet je dostupné dvoufaktorové ověření, ale není nastavené."
+msgstr "Pro tento účet je dostupné dvoustupňové ověřování, ale není nastavené."
 
 #: templates/prefs_twofactor.twig:24
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
 msgstr ""
-"Dvoufaktorová autentizace není k dispozici. Pokud ji chcete používat, "
-"povolte úložiště konfigurace phpMyAdmin."
+"Dvoustupňové ověřování není k dispozici. Pokud ho chcete používat, povolte "
+"úložiště konfigurace phpMyAdmin."
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr "Povolili jste dvoufaktorovou autentizaci."
+msgstr "Povolili jste dvoustupňové ověřování."
 
 #: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
 msgid "Disable two-factor authentication"
-msgstr "Zakázat dvoufaktorovou autentizaci"
+msgstr "Zakázat dvoustupňové ověřování"
 
 #: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
 #: templates/prefs_twofactor_configure.twig:2
 msgid "Configure two-factor authentication"
-msgstr "Nastavit dvoufaktorovou autentizaci"
+msgstr "Nastavit dvoustupňové ověřování"
 
 #: templates/privileges/add_privileges_database.twig:1
 msgid "Add privileges on the following database(s):"
@@ -14912,7 +14911,7 @@ msgid ""
 "authentication code and verify your identity."
 msgstr ""
 "Chcete-li zobrazit ověřovací kód a ověřit svou identitu, otevřete na svém "
-"zařízení aplikaci pro dvoufaktorovou autentizaci."
+"zařízení aplikaci pro dvoustupňové ověřování."
 
 #: templates/database/tracking/untracked_tables.twig:1
 msgid "Untracked tables"
@@ -15094,7 +15093,7 @@ msgstr "Zvolte sloupce (alespoň jeden):"
 
 #: templates/table/search/options.twig:26
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Přidat vyhledávací parametry (část dotazu po příkazu „WHERE“):"
+msgstr "Přidejte vyhledávací parametry (část dotazu po příkazu „WHERE“):"
 
 #: templates/table/search/options.twig:34
 msgid "Number of rows per page"
@@ -15154,14 +15153,14 @@ msgstr "Definice PARTITION:"
 
 #: templates/prefs_twofactor_confirm.twig:2
 msgid "Confirm disabling two-factor authentication"
-msgstr "Potvrdit zakázání dvoufaktorové autentizace"
+msgstr "Potvrdit zakázání dvoustupňového ověřování"
 
 #: templates/prefs_twofactor_confirm.twig:5
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
-"Po zakázání dvoufaktorové autentizace se budete moci opět přihlásit pouze "
+"Po zakázání dvoustupňového ověřování se budete moci opět přihlásit pouze "
 "pomocí hesla."
 
 #: templates/table/structure/row_stats_table.twig:2
@@ -15545,7 +15544,7 @@ msgstr "Žádná"
 
 #: templates/display/export/template_loading.twig:2
 msgid "Export templates:"
-msgstr "Exportní šablony:"
+msgstr "Šablony pro export:"
 
 #: templates/display/export/template_loading.twig:6
 msgid "New template:"
@@ -15834,8 +15833,8 @@ msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
-"Nakonfigurovaná dvoufaktorová autentizace není k dispozici, nainstalujte "
-"prosím chybějící závislosti."
+"Nakonfigurované dvoustupňové ověřování není k dispozici, nainstalujte prosím "
+"chybějící závislosti."
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -15858,7 +15857,7 @@ msgstr "Žádná"
 
 #: templates/prefs_twofactor_configure.twig:8
 msgid "Enable two-factor authentication"
-msgstr "Povolit dvoufaktorovou autentizaci"
+msgstr "Povolit dvoustupňové ověřování"
 
 #: templates/encoding/kanji_encoding_form.twig:6
 msgctxt "None encoding conversion"
@@ -15992,8 +15991,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
-"Naskenujte následující QR kód do aplikace pro dvoufaktorové ověření na vašem "
-"zařízení a zadejte vygenerovaný ověřovací kód."
+"Naskenujte následující QR kód do aplikace pro dvoustupňové ověřování na "
+"vašem zařízení a zadejte vygenerovaný ověřovací kód."
 
 #: templates/login/twofactor/application_configure.twig:11
 msgid ""
@@ -16580,11 +16579,11 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:168
 msgid "Sort rows"
-msgstr "Řazení řádek"
+msgstr "Řazení řádků"
 
 #: libraries/advisory_rules_generic.txt:171
 msgid "There are lots of rows being sorted."
-msgstr "Dochází k řazení velkého množství řádek."
+msgstr "Dochází k řazení velkého množství řádků."
 
 #: libraries/advisory_rules_generic.txt:172
 msgid ""
@@ -17066,7 +17065,7 @@ msgstr "Procenta použitých připojení"
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
-msgstr "Nejvýše využitý počet připojení se blíží {max_connections}."
+msgstr "Maximální počet využitých připojení se blíží {max_connections}."
 
 #: libraries/advisory_rules_generic.txt:328
 msgid ""
@@ -17336,10 +17335,10 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
-"O mezipaměti dotazů je známo, že při správném nastavení výrazně zvyšuje "
-"výkon. Zapněte ji nastavením {query_cache_size} na dvoucifernou hodnotu v "
-"MiB a nastavením {query_cache_type} na 'ON'. <b>Poznámka:</b> Toto "
-"doporučení můžete ignorovat pokud používáte memcached."
+"Mezipaměť dotazů při správném nastavení výrazně zvyšuje výkon. Zapněte ji "
+"nastavením {query_cache_size} na dvoucifernou hodnotu v MiB a nastavením "
+"{query_cache_type} na 'ON'. <b>Poznámka:</b> Pokud používáte memcached, "
+"můžete toto doporučení ignorovat."
 
 #: libraries/advisory_rules_mysql_before80003.txt:15
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
