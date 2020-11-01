@@ -19,12 +19,12 @@ if (! defined('PHPMYADMIN')) {
  * Path to vendor autoload file. Useful when you want to
  * have have vendor dependencies somewhere else.
  */
-define('AUTOLOAD_FILE', ROOT_PATH . 'vendor/autoload.php');
+define('AUTOLOAD_FILE', ROOT_PATH . 'vendor'. DIRECTORY_SEPARATOR .'autoload.php');
 
 /**
  * Directory where cache files are stored.
  */
-define('TEMP_DIR', ROOT_PATH . 'tmp/');
+define('TEMP_DIR', ROOT_PATH . 'tmp' . DIRECTORY_SEPARATOR);
 
 /**
  * Path to changelog file, can be gzip compressed. Useful when you want to
@@ -41,7 +41,7 @@ define('LICENSE_FILE', ROOT_PATH . 'LICENSE');
 /**
  * Directory where SQL scripts to create/upgrade configuration storage reside.
  */
-define('SQL_DIR', ROOT_PATH . 'sql/');
+define('SQL_DIR', ROOT_PATH . 'sql' . DIRECTORY_SEPARATOR);
 
 /**
  * Directory where configuration files are stored.
@@ -73,9 +73,9 @@ define('VERSION_CHECK_DEFAULT', true);
 /**
  * Path to files with compiled locales (*.mo)
  */
-define('LOCALE_PATH', ROOT_PATH . 'locale/');
+define('LOCALE_PATH', ROOT_PATH . 'locale' . DIRECTORY_SEPARATOR);
 
 /**
  * Define the cache directory for routing cache an other cache files
  */
-define('CACHE_DIR', ROOT_PATH . 'libraries/cache/');
+define('CACHE_DIR', ROOT_PATH . 'libraries' . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR);
