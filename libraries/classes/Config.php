@@ -12,6 +12,7 @@ use const E_USER_ERROR;
 use const PHP_OS;
 use const PHP_URL_PATH;
 use const PHP_URL_SCHEME;
+use const PHP_VERSION_ID;
 use function array_filter;
 use function array_flip;
 use function array_intersect_key;
@@ -1089,6 +1090,8 @@ class Config
         ?int $validity = null,
         bool $httponly = true
     ): bool {
+        global $cfg;
+
         if (strlen($value) > 0 && $default !== null && $value === $default
         ) {
             // default value is used
@@ -1125,14 +1128,30 @@ class Config
                 return true;
             }
 
+            if (PHP_VERSION_ID < 70300) {
+                return setcookie(
+                    $httpCookieName,
+                    $value,
+                    $validity,
+                    $this->getRootPath() . '/; samesite=' . $cfg['CookieSameSite'],
+                    '',
+                    $this->isHttps(),
+                    $httponly
+                );
+            }
+            $optionalParams = [
+                'expires' => $validity,
+                'path' => $this->getRootPath(),
+                'domain' => '',
+                'secure' => $this->isHttps(),
+                'httponly' => $httponly,
+                'samesite' => $cfg['CookieSameSite'],
+            ];
+
             return setcookie(
                 $httpCookieName,
                 $value,
-                $validity,
-                $this->getRootPath(),
-                '',
-                $this->isHttps(),
-                $httponly
+                $optionalParams
             );
         }
 

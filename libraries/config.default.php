@@ -777,6 +777,13 @@ $cfg['AllowUserDropDatabase'] = false;
 $cfg['Confirm'] = true;
 
 /**
+ * sets SameSite attribute of the Set-Cookie HTTP response header
+ *
+ * @global boolean $cfg['CookieSameSite']
+ */
+ $cfg['CookieSameSite'] = 'Strict';
+
+/**
  * recall previous login in cookie authentication mode or not
  *
  * @global boolean $cfg['LoginCookieRecall']
