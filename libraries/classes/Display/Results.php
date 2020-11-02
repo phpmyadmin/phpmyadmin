@@ -3195,6 +3195,7 @@ class Results
             'where_clause'     => $where_clause,
             'clause_is_unique' => $clause_is_unique,
             'sql_query'        => $url_sql_query,
+            'sql_signature'    => Core::signSqlQuery($url_sql_query),
             'goto'             => Url::getFromRoute('/sql'),
         ];
 

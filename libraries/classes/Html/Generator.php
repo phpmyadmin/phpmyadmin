@@ -1136,7 +1136,7 @@ class Generator
         if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
             || ! $in_suhosin_limits
             // Has as sql_query without a signature
-            || (strpos($url, 'sql_query=') !== false && strpos($url, 'sql_signature=') === false)
+            || strpos($url, 'sql_query=') !== false
             || strpos($url, 'view[as]=') !== false
         ) {
             $parts = explode('?', $url, 2);
@@ -1159,11 +1159,10 @@ class Generator
 
         // no whitespace within an <a> else Safari will make it part of the link
         if ($url_length < $GLOBALS['cfg']['LinkLengthLimit']
-            && ( strpos($url, 'sql_query=') !== false && strpos($url, 'sql_signature=') === false)
+            && ( strpos($url, 'sql_query=') !== false && strpos($url, 'sql_signature=') !== false)
             && ( strpos($url, 'default_action=insert') !== false
                 || strpos($url, 'default_action=update') !== false)) {
-            return '<a href="' . $url . '" '
-                . implode(' ', $tag_params_strings) . '>'
+            return '<a href="' . $url . '" >'
                 . $message . '</a>';
         }
         return '<a href="' . $stripped_url . '" '

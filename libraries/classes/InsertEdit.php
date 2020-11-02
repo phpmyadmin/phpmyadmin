@@ -108,8 +108,10 @@ class InsertEdit
         $query = null;
         if (isset($_POST['sql_query'])) {
             $query = $_POST['sql_query'];
-        } else if (isset($_GET['sql_query'])) {
-            $query = $_GET['sql_query'];
+        }  elseif (isset($_GET['sql_query'], $_GET['sql_signature'])) {
+            if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
+                $query = $_GET['sql_query'];
+            }
         }
         $_form_params = [
             'db'        => $db,
@@ -3116,8 +3118,10 @@ class InsertEdit
         $query = null;
         if (isset($_POST['sql_query'])) {
             $query = $_POST['sql_query'];
-        } else if (isset($_GET['sql_query'])) {
-            $query = $_GET['sql_query'];
+        }  elseif (isset($_GET['sql_query'], $_GET['sql_signature'])) {
+            if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
+                $query = $_GET['sql_query'];
+            }
         }
         $url_params = [
             'db' => $db,

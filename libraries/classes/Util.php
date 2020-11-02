@@ -824,7 +824,7 @@ class Util
 
         return $ret;
     }
-    
+
     /**
      * Splits a URL string by parameter
      *
