@@ -366,7 +366,7 @@ final class ReplaceController extends AbstractController
                 $is_unique = null;
                 if (isset($_POST['clause_is_unique'])) {
                     $is_unique = $_POST['clause_is_unique'];
-                } else if (isset($_GET['clause_is_unique'])) {
+                } elseif (isset($_GET['clause_is_unique'])) {
                     $is_unique = $_GET['clause_is_unique'];
                 }
                 $query[] = 'UPDATE ' . Util::backquote($table)

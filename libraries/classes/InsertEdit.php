@@ -108,7 +108,7 @@ class InsertEdit
         $query = null;
         if (isset($_POST['sql_query'])) {
             $query = $_POST['sql_query'];
-        }  elseif (isset($_GET['sql_query'], $_GET['sql_signature'])) {
+        } elseif (isset($_GET['sql_query'], $_GET['sql_signature'])) {
             if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
                 $query = $_GET['sql_query'];
             }
@@ -127,7 +127,7 @@ class InsertEdit
         }
         if (isset($_POST['clause_is_unique'])) {
             $_form_params['clause_is_unique'] = $_POST['clause_is_unique'];
-        } else if (isset($_GET['clause_is_unique'])) {
+        } elseif (isset($_GET['clause_is_unique'])) {
             $_form_params['clause_is_unique'] = $_GET['clause_is_unique'];
         }
 
@@ -3012,7 +3012,7 @@ class InsertEdit
     {
         if (isset($_POST['where_clause'])) {
             $where_clause = $_POST['where_clause'];
-        } else if (isset($_GET['where_clause'])) {
+        } elseif (isset($_GET['where_clause'])) {
             $where_clause = $_GET['where_clause'];
         }
         if (isset($_SESSION['edit_next'])) {
@@ -3022,19 +3022,19 @@ class InsertEdit
         }
         if (isset($_POST['ShowFunctionFields'])) {
             $GLOBALS['cfg']['ShowFunctionFields'] = $_POST['ShowFunctionFields'];
-        } else if (isset($_GET['ShowFunctionFields'])) {
+        } elseif (isset($_GET['ShowFunctionFields'])) {
             $GLOBALS['cfg']['ShowFunctionFields'] = $_GET['ShowFunctionFields'];
         }
         if (isset($_POST['ShowFieldTypesInDataEditView'])) {
             $GLOBALS['cfg']['ShowFieldTypesInDataEditView']
                 = $_POST['ShowFieldTypesInDataEditView'];
-        } else if (isset($_GET['ShowFieldTypesInDataEditView'])) {
+        } elseif (isset($_GET['ShowFieldTypesInDataEditView'])) {
             $GLOBALS['cfg']['ShowFieldTypesInDataEditView']
                 = $_GET['ShowFieldTypesInDataEditView'];
         }
         if (isset($_POST['after_insert'])) {
             $after_insert = $_POST['after_insert'];
-        } else if (isset($_GET['after_insert'])) {
+        } elseif (isset($_GET['after_insert'])) {
             $after_insert = $_GET['after_insert'];
         }
 
@@ -3064,7 +3064,7 @@ class InsertEdit
             && $_POST['default_action'] === 'insert'
         ) {
             $where_clause = $where_clauses = null;
-        } else if (isset($_GET['default_action'])
+        } elseif (isset($_GET['default_action'])
             && $_GET['default_action'] === 'insert'
         ) {
             $where_clause = $where_clauses = null;
@@ -3118,7 +3118,7 @@ class InsertEdit
         $query = null;
         if (isset($_POST['sql_query'])) {
             $query = $_POST['sql_query'];
-        }  elseif (isset($_GET['sql_query'], $_GET['sql_signature'])) {
+        } elseif (isset($_GET['sql_query'], $_GET['sql_signature'])) {
             if (Core::checkSqlQuerySignature($_GET['sql_query'], $_GET['sql_signature'])) {
                 $query = $_GET['sql_query'];
             }

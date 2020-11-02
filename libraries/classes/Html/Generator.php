@@ -1165,6 +1165,7 @@ class Generator
             return '<a href="' . $url . '" >'
                 . $message . '</a>';
         }
+
         return '<a href="' . $stripped_url . '" '
             . implode(' ', $tag_params_strings) . '>'
             . $message . '</a>';
