@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-10-03 11:34+0000\n"
+"PO-Revision-Date: 2020-11-03 08:26+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"X-Generator: Weblate 4.3.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -4628,7 +4628,7 @@ msgstr "Boş satırları içe aktarma"
 
 #: libraries/classes/Config/Descriptions.php:670
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Parasalları içe aktar ($5.00'ı 5.00'a)"
+msgstr "Para birimlerini içe aktar ($5.00'ı 5.00'a)"
 
 #: libraries/classes/Config/Descriptions.php:672
 msgid "Import percentages as proper decimals (12.00% to .12)"
@@ -9802,7 +9802,7 @@ msgstr "Yüzdeleri doğru ondalık olarak içe aktar <i>(örn. %12.00'ı .12'ye)
 
 #: libraries/classes/Plugins/Import/ImportOds.php:84
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Parasalları içe aktar <i>(örn. $5.00'ı 5.00'a)</i>"
+msgstr "Para birimlerini içe aktar <i>(örn. $5.00'ı 5.00'a)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:152
 #: libraries/classes/Plugins/Import/ImportXml.php:112
