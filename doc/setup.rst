@@ -267,6 +267,8 @@ By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 
 .. _docker-custom:
 
+
+
 Customizing configuration
 -------------------------
 
@@ -483,6 +485,14 @@ configuration:
           - PMA_USER=root
           - PMA_PASSWORD=
           - PMA_ABSOLUTE_URI=http://example.com/phpmyadmin/
+
+
+Installing on IBM Cloud
++++++++++++++++++++++++
+
+On IBM Cloud you can deploy phpMyAdmin easy and quick. For more information please follow this Guide_.  
+
+.. _Guide: https://github.com/KissConsult/phpmyadmin_tutorial
 
 .. _quick_install:
 
