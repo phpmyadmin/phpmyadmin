@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -17,6 +16,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function intval;
 
@@ -39,7 +39,7 @@ final class ImportController extends AbstractController
     public function index(): void
     {
         global $db, $max_upload_size, $table, $tables, $num_tables, $total_num_tables, $cfg;
-        global $tooltip_truename, $tooltip_aliasname, $pos, $sub_part, $SESSION_KEY, $PMA_Theme;
+        global $tooltip_truename, $tooltip_aliasname, $pos, $sub_part, $SESSION_KEY, $PMA_Theme, $err_url;
 
         $pageSettings = new PageSettings('Import');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
@@ -47,7 +47,14 @@ final class ImportController extends AbstractController
 
         $this->addScriptFiles(['import.js']);
 
-        Common::database();
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
 
         [
             $tables,

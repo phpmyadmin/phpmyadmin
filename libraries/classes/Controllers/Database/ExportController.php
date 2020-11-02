@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Export\Options;
@@ -40,7 +39,7 @@ final class ExportController extends AbstractController
     {
         global $db, $table, $sub_part, $url_params, $sql_query;
         global $tables, $num_tables, $total_num_tables, $tooltip_truename;
-        global $tooltip_aliasname, $pos, $table_select, $unlim_num_rows;
+        global $tooltip_aliasname, $pos, $table_select, $unlim_num_rows, $cfg, $err_url;
 
         $pageSettings = new PageSettings('Export');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
@@ -52,7 +51,14 @@ final class ExportController extends AbstractController
         // /database/export, in which case we don't obey $cfg['MaxTableList']
         $sub_part  = '_export';
 
-        Common::database();
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
 
         $url_params['goto'] = Url::getFromRoute('/database/export');
 

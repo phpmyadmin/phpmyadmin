@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
@@ -64,7 +63,15 @@ class RoutinesController extends AbstractController
                 DbTableExists::check();
             } else {
                 $table = '';
-                Common::database();
+
+                Util::checkParameters(['db']);
+
+                $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+                $err_url .= Url::getCommon(['db' => $db], '&');
+
+                if (! $this->hasDatabase()) {
+                    return;
+                }
 
                 [
                     $tables,

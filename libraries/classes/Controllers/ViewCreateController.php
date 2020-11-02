@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -48,9 +47,16 @@ class ViewCreateController extends AbstractController
     {
         global $text_dir, $url_params, $view_algorithm_options, $view_with_options, $view_security_options;
         global $message, $sep, $sql_query, $arr, $view_columns, $column_map, $systemDb, $pma_transformation_data;
-        global $containerBuilder, $new_transformations_sql, $view, $item, $parts, $db;
+        global $containerBuilder, $new_transformations_sql, $view, $item, $parts, $db, $cfg, $err_url;
 
-        Common::database();
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
 
         $url_params['goto'] = Url::getFromRoute('/table/structure');
         $url_params['back'] = Url::getFromRoute('/view/create');

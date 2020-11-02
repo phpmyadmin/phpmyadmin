@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -69,7 +68,7 @@ class OperationsController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $db, $server, $sql_query, $move, $message, $tables_full;
+        global $cfg, $db, $server, $sql_query, $move, $message, $tables_full, $err_url;
         global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $url_params, $tables;
         global $total_num_tables, $sub_part, $tooltip_truename;
         global $db_collation, $tooltip_aliasname, $pos, $is_information_schema, $single_table, $num_tables;
@@ -263,7 +262,14 @@ class OperationsController extends AbstractController
             $this->relation->setDbComment($db, $_POST['comment']);
         }
 
-        Common::database();
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
 
         $url_params['goto'] = Url::getFromRoute('/database/operations');
 
@@ -346,7 +352,7 @@ class OperationsController extends AbstractController
 
     public function collation(): void
     {
-        global $db;
+        global $db, $cfg, $err_url;
 
         if (! $this->response->isAjax()) {
             return;
@@ -359,7 +365,14 @@ class OperationsController extends AbstractController
             return;
         }
 
-        Common::database();
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
 
         $sql_query = 'ALTER DATABASE ' . Util::backquote($db)
             . ' DEFAULT' . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');

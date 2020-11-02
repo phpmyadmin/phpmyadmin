@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -41,7 +40,14 @@ class SearchController extends AbstractController
             'makegrid.js',
         ]);
 
-        Common::database();
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
 
         // If config variable $cfg['UseDbSearch'] is on false : exit.
         if (! $cfg['UseDbSearch']) {

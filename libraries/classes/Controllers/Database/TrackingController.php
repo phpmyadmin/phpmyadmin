@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -46,14 +45,18 @@ class TrackingController extends AbstractController
     {
         global $db, $text_dir, $url_params, $tables, $num_tables, $PMA_Theme;
         global $total_num_tables, $sub_part, $pos, $data, $cfg;
-        global $tooltip_truename, $tooltip_aliasname;
+        global $tooltip_truename, $tooltip_aliasname, $err_url;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
 
-        /**
-         * If we are not in an Ajax request, then do the common work and show the links etc.
-         */
-        Common::database();
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
 
         $url_params['goto'] = Url::getFromRoute('/table/tracking');
         $url_params['back'] = Url::getFromRoute('/database/tracking');

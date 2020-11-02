@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Message;
@@ -101,7 +100,15 @@ class ChartController extends AbstractController
                 'database'
             );
             $url_params['back'] = Url::getFromRoute('/sql');
-            Common::database();
+
+            Util::checkParameters(['db']);
+
+            $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+            $err_url .= Url::getCommon(['db' => $db], '&');
+
+            if (! $this->hasDatabase()) {
+                return;
+            }
         } else {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $cfg['DefaultTabServer'],
