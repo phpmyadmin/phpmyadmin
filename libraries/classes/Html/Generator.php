@@ -1131,6 +1131,7 @@ class Generator
             }
         }
 
+        $stripped_url = $url;
         $tag_params_strings = [];
         if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
             || ! $in_suhosin_limits
@@ -1144,11 +1145,11 @@ class Generator
              * this is handled in js/ajax.js
              */
             $tag_params_strings[] = 'data-post="' . ($parts[1] ?? '') . '"';
-            $url = $parts[0];
+            $stripped_url = $parts[0];
             if (array_key_exists('class', $tag_params)
                 && strpos($tag_params['class'], 'create_view') !== false
             ) {
-                $url .= '?' . explode('&', $parts[1], 2)[0];
+                $stripped_url .= '?' . explode('&', $parts[1], 2)[0];
             }
         }
 
@@ -1157,7 +1158,15 @@ class Generator
         }
 
         // no whitespace within an <a> else Safari will make it part of the link
-        return '<a href="' . $url . '" '
+        if ($url_length < $GLOBALS['cfg']['LinkLengthLimit']
+            && ( strpos($url, 'sql_query=') !== false && strpos($url, 'sql_signature=') === false)
+            && ( strpos($url, 'default_action=insert') !== false
+                || strpos($url, 'default_action=update') !== false)) {
+            return '<a href="' . $url . '" '
+                . implode(' ', $tag_params_strings) . '>'
+                . $message . '</a>';
+        }
+        return '<a href="' . $stripped_url . '" '
             . implode(' ', $tag_params_strings) . '>'
             . $message . '</a>';
     }
