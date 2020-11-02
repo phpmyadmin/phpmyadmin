@@ -363,10 +363,16 @@ final class ReplaceController extends AbstractController
                 $value_sets[] = implode(', ', $query_values);
             } else {
                 // build update query
+                $is_unique = null;
+                if (isset($_POST['clause_is_unique'])) {
+                    $is_unique = $_POST['clause_is_unique'];
+                } else if (isset($_GET['clause_is_unique'])) {
+                    $is_unique = $_GET['clause_is_unique'];
+                }
                 $query[] = 'UPDATE ' . Util::backquote($table)
                     . ' SET ' . implode(', ', $query_values)
                     . ' WHERE ' . $where_clause
-                    . ($_POST['clause_is_unique'] ? '' : ' LIMIT 1');
+                    . ($is_unique ? '' : ' LIMIT 1');
             }
         }
         unset(
