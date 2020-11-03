@@ -490,9 +490,9 @@ configuration:
 Installing on IBM Cloud
 +++++++++++++++++++++++
 
-On IBM Cloud you can deploy phpMyAdmin easy and quick. For more information please follow this guide_.  
+On IBM Cloud you can deploy phpMyAdmin easy and quick. For more information please follow this guide_.
 
-.. _guide: https://github.com/KissConsult/phpmyadmin_tutorial 
+.. _guide: https://github.com/KissConsult/phpmyadmin_tutorial
 
 .. _quick_install:
 
