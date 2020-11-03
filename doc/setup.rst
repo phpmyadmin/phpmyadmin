@@ -484,6 +484,12 @@ configuration:
           - PMA_PASSWORD=
           - PMA_ABSOLUTE_URI=http://example.com/phpmyadmin/
 
+IBM Cloud
++++++++++
+
+One of our users has created a helpful guide for installing phpMyAdmin on the
+`IBM Cloud platform <https://github.com/KissConsult/phpmyadmin_tutorial#readme>`_.
+
 .. _quick_install:
 
 Quick Install
