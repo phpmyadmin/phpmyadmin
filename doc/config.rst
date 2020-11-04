@@ -3706,3 +3706,21 @@ server certificates and tell phpMyAdmin to use them:
     :config:option:`$cfg['Servers'][$i]['ssl_ca']`,
     :config:option:`$cfg['Servers'][$i]['ssl_verify']`,
     <https://bugs.php.net/bug.php?id=72048>
+
+reCaptcha using hCaptcha
+++++++++++++++++++++++++
+
+.. code-block:: php
+
+    $cfg['CaptchaApi'] = 'https://www.hcaptcha.com/1/api.js';
+    $cfg['CaptchaCsp'] = 'https://hcaptcha.com https://*.hcaptcha.com';
+    $cfg['CaptchaRequestParam'] = 'h-captcha';
+    $cfg['CaptchaResponseParam'] = 'h-captcha-response';
+    $cfg['CaptchaSiteVerifyURL'] = 'https://hcaptcha.com/siteverify';
+    // This is the secret key from hCaptcha dashboard
+    $cfg['CaptchaLoginPrivateKey'] = '0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+    // This is the site key from hCaptcha dashboard
+    $cfg['CaptchaLoginPublicKey'] = 'xxx-xxx-xxx-xxx-xxxx';
+
+.. seealso:: `hCaptcha website <https://www.hcaptcha.com/>`_
+.. seealso:: `hCaptcha Developer Guide <https://docs.hcaptcha.com/>`_
