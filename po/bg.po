@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-11-01 22:22+0100\n"
+"POT-Creation-Date: 2020-11-04 10:26+0100\n"
 "PO-Revision-Date: 2020-10-25 02:26+0000\n"
 "Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -10763,7 +10763,13 @@ msgstr "Невъзможност за свързване сървъра на б�
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:360
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:339
+msgid ""
+"Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
+"restricts passwords to less than 1000 characters."
+msgstr ""
+
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:363
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Нямате право да влизате в този MySQL сървър!"
 

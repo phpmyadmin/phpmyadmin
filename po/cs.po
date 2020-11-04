@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-10-10 14:18-0300\n"
+"POT-Creation-Date: 2020-11-04 10:26+0100\n"
 "PO-Revision-Date: 2020-11-01 21:51+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2522,8 +2522,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
-"Zadejte titulek, který se zobrazí v prohlížeči. V "
-"[doc@faq6-27]dokumentaci[/doc] naleznete popis proměnných, které lze použít."
+"Zadejte titulek, který se zobrazí v prohlížeči. V [doc@faq6-27]dokumentaci[/"
+"doc] naleznete popis proměnných, které lze použít."
 
 #: libraries/classes/Config/Descriptions.php:360
 msgid "Security"
@@ -2763,8 +2763,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
 msgstr ""
-"Výchozí formát; mějte na paměti, že tento seznam závisí na umístění ("
-"databáze, tabulka) a vždy dostupná je pouze volba SQL."
+"Výchozí formát; mějte na paměti, že tento seznam závisí na umístění "
+"(databáze, tabulka) a vždy dostupná je pouze volba SQL."
 
 #: libraries/classes/Config/Descriptions.php:442
 msgid "Format of imported file"
@@ -10818,7 +10818,13 @@ msgstr "Nepodařilo se připojit ke službě reCAPTCHA!"
 msgid "Entered captcha is wrong, try again!"
 msgstr "Zadaný kód nebyl správný, zkuste to znovu!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:360
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:339
+msgid ""
+"Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
+"restricts passwords to less than 1000 characters."
+msgstr ""
+
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:363
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Nemáte povolení se přihlásit k tomuto MySQL serveru!"
 

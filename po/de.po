@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-11-01 22:22+0100\n"
+"POT-Creation-Date: 2020-11-04 10:26+0100\n"
 "PO-Revision-Date: 2020-09-01 09:12+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -11116,7 +11116,13 @@ msgstr "Es konnte keine Verbindung zum reCAPTCHA Dienst hergestellt werden!"
 msgid "Entered captcha is wrong, try again!"
 msgstr "Das eingegebene Captcha ist falsch, bitte erneut versuchen!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:360
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:339
+msgid ""
+"Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
+"restricts passwords to less than 1000 characters."
+msgstr ""
+
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:363
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Sie sind nicht berechtigt, sich an diesem MySQL-Server anzumelden!"
 

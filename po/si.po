@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-11-01 22:22+0100\n"
+"POT-Creation-Date: 2020-11-04 10:26+0100\n"
 "PO-Revision-Date: 2018-12-18 22:09+0000\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -11131,7 +11131,13 @@ msgstr "ඉලක්කය වෙත සම්බන්ද විය නොහ�
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:360
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:339
+msgid ""
+"Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
+"restricts passwords to less than 1000 characters."
+msgstr ""
+
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:363
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"

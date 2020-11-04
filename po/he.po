@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-11-01 22:22+0100\n"
+"POT-Creation-Date: 2020-11-04 10:26+0100\n"
 "PO-Revision-Date: 2019-11-18 09:04+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -10206,7 +10206,13 @@ msgstr "ההתחברות לשירות ה־reCAPTCHA נכשלה!"
 msgid "Entered captcha is wrong, try again!"
 msgstr "המלל שהוקלד כאימות שגוי, נא לנסות שוב!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:360
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:339
+msgid ""
+"Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
+"restricts passwords to less than 1000 characters."
+msgstr ""
+
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:363
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "אין לך הרשאה להיכנס לשרת ה־MySQL הזה!"
 
