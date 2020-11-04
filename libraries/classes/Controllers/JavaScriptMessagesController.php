@@ -393,10 +393,6 @@ final class JavaScriptMessagesController
             'strDelete' => __('Delete'),
             'strNotValidRowNumber' => __('%d is not valid row number.'),
             'strBrowseForeignValues' => __('Browse foreign values'),
-            'strNoAutoSavedQuery' => __('No previously auto-saved query is available. Loading default query.'),
-            'strPreviousSaveQuery' => __(
-                'You have a previously saved query. Click Get auto-saved query to load the query.'
-            ),
             'strBookmarkVariable' => __('Variable %d:'),
 
             /* For Central list of columns */

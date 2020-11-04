@@ -1201,8 +1201,6 @@ Functions.insertQuery = function (queryType) {
             Functions.setQuery(window.localStorage.getItem(key));
         } else if (Cookies.get(key)) {
             Functions.setQuery(Cookies.get(key));
-        } else {
-            Functions.ajaxShowMessage(Messages.strNoAutoSavedQuery);
         }
         return;
     }

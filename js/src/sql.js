@@ -988,12 +988,11 @@ Sql.getAutoSavedKey = function () {
 Sql.checkSavedQuery = function () {
     var key = Sql.getAutoSavedKey();
 
-    if (isStorageSupported('localStorage') &&
-        typeof window.localStorage.getItem(key) === 'string') {
-        Functions.ajaxShowMessage(Messages.strPreviousSaveQuery);
-    } else if (Cookies.get(key)) {
-        Functions.ajaxShowMessage(Messages.strPreviousSaveQuery);
+    if ((isStorageSupported('localStorage') && typeof window.localStorage.getItem(key) === 'string')
+        || (typeof Cookies.get(key) === 'string')) {
+        return;
     }
+    $('#saved').attr('disabled', true);
 };
 
 AJAX.registerOnload('sql.js', function () {
