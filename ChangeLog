@@ -56,6 +56,7 @@ phpMyAdmin - ChangeLog
 - issue #16451 Fixed AWS RDS IAM authentication doesn't work because pma_password is truncated
 - issue #16451 Show an error message when the security limit is reached instead of silently trimming the password to avoid confusion
 - issue #15001 Add back Login Cookie Validity setting to the features form
+- issue #16457 Add config parameters to support third-party ReCaptcha v2 compatible APIs like hCaptcha
 
 5.0.5 (not yet released)
 
