@@ -18,6 +18,8 @@ use function is_readable;
 use function json_encode;
 use function ob_get_clean;
 use function ob_start;
+use function str_repeat;
+use function str_shuffle;
 use function strlen;
 use function time;
 
@@ -764,6 +766,64 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             $GLOBALS['conn_error'],
             'Login without a password is forbidden by configuration'
             . ' (see AllowNoPassword)'
+        );
+    }
+
+    public function dataProviderPasswordLength(): array
+    {
+        return [
+            [
+                str_repeat('a', 1000),
+                false,
+                'Your password is too long. To prevent denial-of-service attacks,'
+                . ' phpMyAdmin restricts passwords to less than 1000 characters.',
+            ],
+            [
+                str_repeat('a', 1001),
+                false,
+                'Your password is too long. To prevent denial-of-service attacks,'
+                . ' phpMyAdmin restricts passwords to less than 1000 characters.',
+            ],
+            [
+                str_repeat('a', 3000),
+                false,
+                'Your password is too long. To prevent denial-of-service attacks,'
+                . ' phpMyAdmin restricts passwords to less than 1000 characters.',
+            ],
+            [
+                str_repeat('a', 256),
+                true,
+                null,
+            ],
+            [
+                '',
+                true,
+                null,
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider dataProviderPasswordLength
+     */
+    public function testAuthFailsTooLongPass(string $password, bool $trueFalse, ?string $connError): void
+    {
+        $_POST['pma_username'] = str_shuffle('123456987rootfoobar');
+        $_POST['pma_password'] = $password;
+
+        if ($trueFalse === false) {
+            $this->assertFalse(
+                $this->object->readCredentials()
+            );
+        } else {
+            $this->assertTrue(
+                $this->object->readCredentials()
+            );
+        }
+
+        $this->assertEquals(
+            $GLOBALS['conn_error'],
+            $connError
         );
     }
 
