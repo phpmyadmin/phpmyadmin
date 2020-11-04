@@ -234,9 +234,15 @@ class AuthenticationCookie extends AuthenticationPlugin
             'server_options' => $serversOptions,
             'server' => $GLOBALS['server'],
             'lang' => $GLOBALS['lang'],
-            'has_captcha' => ! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+            'has_captcha' => ! empty($GLOBALS['cfg']['CaptchaApi'])
+                && ! empty($GLOBALS['cfg']['CaptchaRequestParam'])
+                && ! empty($GLOBALS['cfg']['CaptchaResponseParam'])
+                && ! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey']),
             'use_captcha_checkbox' => ($GLOBALS['cfg']['CaptchaMethod'] ?? '') === 'checkbox',
+            'captcha_api' => $GLOBALS['cfg']['CaptchaApi'],
+            'captcha_req' => $GLOBALS['cfg']['CaptchaRequestParam'],
+            'captcha_resp' => $GLOBALS['cfg']['CaptchaResponseParam'],
             'captcha_key' => $GLOBALS['cfg']['CaptchaLoginPublicKey'],
             'form_params' => $_form_params,
             'errors' => $errors,
@@ -283,10 +289,13 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         if (isset($_POST['pma_username']) && strlen($_POST['pma_username']) > 0) {
             // Verify Captcha if it is required.
-            if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
+            if (! empty($GLOBALS['cfg']['CaptchaApi'])
+                && ! empty($GLOBALS['cfg']['CaptchaRequestParam'])
+                && ! empty($GLOBALS['cfg']['CaptchaResponseParam'])
+                && ! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
             ) {
-                if (empty($_POST['g-recaptcha-response'])) {
+                if (empty($_POST[$GLOBALS['cfg']['CaptchaResponseParam']])) {
                     $conn_error = __('Missing reCAPTCHA verification, maybe it has been blocked by adblock?');
 
                     return false;
@@ -313,7 +322,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
                 // verify captcha status.
                 $resp = $reCaptcha->verify(
-                    $_POST['g-recaptcha-response'],
+                    $_POST[$GLOBALS['cfg']['CaptchaResponseParam']],
                     Core::getIp()
                 );
 

@@ -850,6 +850,35 @@ $cfg['ArbitraryServerRegexp'] = '';
 $cfg['CaptchaMethod'] = 'invisible';
 
 /**
+ * URL for the reCaptcha v2 compatible API to use
+ *
+ * @global string $cfg['CaptchaApi']
+ */
+$cfg['CaptchaApi'] = 'https://www.google.com/recaptcha/api.js';
+
+/**
+ * Content-Security-Policy snippet for the reCaptcha v2 compatible API
+ *
+ * @global string $cfg['CaptchaCsp']
+ */
+$cfg['CaptchaCsp'] = 'https://apis.google.com https://www.google.com/recaptcha/'
+    . ' https://www.gstatic.com/recaptcha/ https://ssl.gstatic.com/';
+
+/**
+ * reCaptcha API's request parameter name
+ *
+ * @global string $cfg['CaptchaRequestParam']
+ */
+$cfg['CaptchaRequestParam'] = 'g-recaptcha';
+
+/**
+ * reCaptcha API's response parameter name
+ *
+ * @global string $cfg['CaptchaResponseParam']
+ */
+$cfg['CaptchaResponseParam'] = 'g-recaptcha-response';
+
+/**
  * if reCaptcha is enabled it needs public key to connect with the service
  *
  * @global string $cfg['CaptchaLoginPublicKey']

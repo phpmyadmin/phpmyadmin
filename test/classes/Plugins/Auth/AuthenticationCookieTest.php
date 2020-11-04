@@ -182,6 +182,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['conn_error'] = true;
         $GLOBALS['cfg']['Lang'] = 'en';
         $GLOBALS['cfg']['AllowArbitraryServer'] = true;
+        $GLOBALS['cfg']['CaptchaApi'] = '';
+        $GLOBALS['cfg']['CaptchaRequestParam'] = '';
+        $GLOBALS['cfg']['CaptchaResponseParam'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['db'] = 'testDb';
@@ -275,6 +278,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['Lang'] = '';
         $GLOBALS['cfg']['AllowArbitraryServer'] = false;
         $GLOBALS['cfg']['Servers'] = [1];
+        $GLOBALS['cfg']['CaptchaApi'] = 'https://www.google.com/recaptcha/api.js';
+        $GLOBALS['cfg']['CaptchaRequestParam'] = 'g-recaptcha';
+        $GLOBALS['cfg']['CaptchaResponseParam'] = 'g-recaptcha-response';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $GLOBALS['server'] = 0;
@@ -351,6 +357,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['Lang'] = '';
         $GLOBALS['cfg']['AllowArbitraryServer'] = false;
         $GLOBALS['cfg']['Servers'] = [1];
+        $GLOBALS['cfg']['CaptchaApi'] = 'https://www.google.com/recaptcha/api.js';
+        $GLOBALS['cfg']['CaptchaRequestParam'] = 'g-recaptcha';
+        $GLOBALS['cfg']['CaptchaResponseParam'] = 'g-recaptcha-response';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $GLOBALS['cfg']['CaptchaMethod'] = 'checkbox';
@@ -438,6 +447,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     public function testAuthCheckCaptcha(): void
     {
+        $GLOBALS['cfg']['CaptchaApi'] = 'https://www.google.com/recaptcha/api.js';
+        $GLOBALS['cfg']['CaptchaRequestParam'] = 'g-recaptcha';
+        $GLOBALS['cfg']['CaptchaResponseParam'] = 'g-recaptcha-response';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = 'testprivkey';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $_POST['g-recaptcha-response'] = '';
@@ -457,6 +469,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         $this->mockResponse('Location: /phpmyadmin/index.php?route=/');
 
+        $GLOBALS['cfg']['CaptchaApi'] = '';
+        $GLOBALS['cfg']['CaptchaRequestParam'] = '';
+        $GLOBALS['cfg']['CaptchaResponseParam'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = true;
@@ -478,6 +493,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         $this->mockResponse('Location: /phpmyadmin/index.php?route=/');
 
+        $GLOBALS['cfg']['CaptchaApi'] = '';
+        $GLOBALS['cfg']['CaptchaRequestParam'] = '';
+        $GLOBALS['cfg']['CaptchaResponseParam'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
@@ -499,6 +517,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     public function testAuthCheckArbitrary(): void
     {
+        $GLOBALS['cfg']['CaptchaApi'] = '';
+        $GLOBALS['cfg']['CaptchaRequestParam'] = '';
+        $GLOBALS['cfg']['CaptchaResponseParam'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $_REQUEST['old_usr'] = '';
@@ -573,6 +594,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = '';
+        $GLOBALS['cfg']['CaptchaApi'] = '';
+        $GLOBALS['cfg']['CaptchaRequestParam'] = '';
+        $GLOBALS['cfg']['CaptchaResponseParam'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['PMA_Config']->set('is_https', false);
@@ -607,6 +631,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_COOKIE['pmaAuth-1'] = 'pmaAuth1';
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
+        $GLOBALS['cfg']['CaptchaApi'] = '';
+        $GLOBALS['cfg']['CaptchaRequestParam'] = '';
+        $GLOBALS['cfg']['CaptchaResponseParam'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $_SESSION['browser_access_time']['default'] = time() - 1000;
@@ -647,6 +674,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $_COOKIE['pma_iv-1'] = base64_encode('testiv09testiv09');
         $GLOBALS['cfg']['blowfish_secret'] = 'secret';
         $_SESSION['last_access_time'] = 1;
+        $GLOBALS['cfg']['CaptchaApi'] = '';
+        $GLOBALS['cfg']['CaptchaRequestParam'] = '';
+        $GLOBALS['cfg']['CaptchaResponseParam'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['LoginCookieValidity'] = 0;
@@ -1176,6 +1206,9 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
     public function testAuthenticate(): void
     {
+        $GLOBALS['cfg']['CaptchaApi'] = '';
+        $GLOBALS['cfg']['CaptchaRequestParam'] = '';
+        $GLOBALS['cfg']['CaptchaResponseParam'] = '';
         $GLOBALS['cfg']['CaptchaLoginPrivateKey'] = '';
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = '';
         $GLOBALS['cfg']['Server']['AllowRoot'] = false;
