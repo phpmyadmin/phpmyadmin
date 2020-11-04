@@ -53,6 +53,8 @@ phpMyAdmin - ChangeLog
 - issue #15463 Force BINARY comparison when looking at privileges to avoid an SQL error on privileges tab
 - issue #16430 Fixed Windows error message uses trailing / instead of \
 - issue #16316 Added support for "SameSite=Strict" on cookies using configuration "$cfg['CookieSameSite']"
+- issue #16451 Fixed AWS RDS IAM authentication doesn't work because pma_password is truncated
+- issue #16451 Show an error message when the security limit is reached instead of silently trimming the password to avoid confusion
 
 5.0.5 (not yet released)
 
