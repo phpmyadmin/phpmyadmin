@@ -821,6 +821,10 @@ body#loginform {
   text-align: $left;
 }
 
+#login_form fieldset.tblFooters {
+  text-align: #{$right};
+}
+
 div.container.modal_form {
   margin: 0 auto;
   width: 30em;

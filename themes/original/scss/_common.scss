@@ -626,6 +626,14 @@ div.container.modal_form {
   text-align: $left;
 }
 
+#login_form fieldset.tblFooters {
+  text-align: #{$right};
+}
+
+#login_form select#select_server {
+  width: 100%;
+}
+
 div#modalOverlay {
   position: fixed;
   top: 0;
