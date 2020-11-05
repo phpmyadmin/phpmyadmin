@@ -708,7 +708,9 @@ AJAX.registerOnload('indexes.js', function () {
             title = Messages.strEditIndex;
         }
         url += CommonParams.get('arg_separator') + 'ajax_request=true';
-        Functions.indexEditorDialog(url, title, function () {
+        Functions.indexEditorDialog(url, title, function (data) {
+            CommonParams.set('db', data.params.db);
+            CommonParams.set('table', data.params.table);
             CommonActions.refreshMain('index.php?route=/table/structure');
         });
     });

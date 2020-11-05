@@ -3855,7 +3855,7 @@ Functions.indexEditorDialog = function (url, title, callbackSuccess, callbackFai
                 }
                 $('div.no_indexes_defined').hide();
                 if (callbackSuccess) {
-                    callbackSuccess();
+                    callbackSuccess(data);
                 }
                 Navigation.reload();
             } else {
