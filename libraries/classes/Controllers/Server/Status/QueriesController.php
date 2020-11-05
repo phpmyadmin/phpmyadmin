@@ -7,7 +7,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
-use PhpMyAdmin\Common;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use function array_sum;
 use function arsort;
 use function count;
@@ -15,9 +19,29 @@ use function str_replace;
 
 class QueriesController extends AbstractController
 {
+    /** @var DatabaseInterface */
+    private $dbi;
+
+    /**
+     * @param Response          $response
+     * @param Data              $data
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $data, $dbi)
+    {
+        parent::__construct($response, $template, $data);
+        $this->dbi = $dbi;
+    }
+
     public function index(): void
     {
-        Common::server();
+        global $err_url;
+
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $this->addScriptFiles([
             'chart.js',

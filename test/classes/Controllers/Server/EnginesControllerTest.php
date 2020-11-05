@@ -34,9 +34,11 @@ class EnginesControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
+        global $dbi;
+
         $response = new Response();
 
-        $controller = new EnginesController($response, new Template());
+        $controller = new EnginesController($response, new Template(), $dbi);
 
         $controller->index();
         $actual = $response->getHTMLResult();
@@ -79,9 +81,11 @@ class EnginesControllerTest extends AbstractTestCase
 
     public function testShow(): void
     {
+        global $dbi;
+
         $response = new Response();
 
-        $controller = new EnginesController($response, new Template());
+        $controller = new EnginesController($response, new Template(), $dbi);
 
         $controller->show([
             'engine' => 'Pbxt',

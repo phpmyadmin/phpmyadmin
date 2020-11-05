@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
@@ -162,10 +162,11 @@ class AddFieldController extends AbstractController
             return;
         }
 
-        /**
-         * Gets tables information
-         */
-        Common::table();
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        DbTableExists::check();
 
         $active_page = Url::getFromRoute('/table/structure');
         /**

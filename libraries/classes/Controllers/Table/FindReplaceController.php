@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_key_exists;
 use function count;
@@ -61,7 +62,15 @@ class FindReplaceController extends AbstractController
 
     public function index(): void
     {
-        Common::table();
+        global $db, $table, $url_params, $cfg, $err_url;
+
+        Util::checkParameters(['db', 'table']);
+
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        DbTableExists::check();
 
         if (isset($_POST['find'])) {
             $this->findAction();

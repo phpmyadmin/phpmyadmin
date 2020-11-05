@@ -130,7 +130,7 @@ AJAX.registerOnload('database/operations.js', function () {
         var $form = $(this);
         Functions.prepareForAjaxRequest($form);
         Functions.ajaxShowMessage(Messages.strChangingCharset);
-        $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'submitcollation=1', function (data) {
+        $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 Functions.ajaxShowMessage(data.message);
             } else {

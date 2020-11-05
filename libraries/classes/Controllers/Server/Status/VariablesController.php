@@ -7,12 +7,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use function in_array;
 use function is_numeric;
 use function mb_strpos;
@@ -35,6 +35,8 @@ class VariablesController extends AbstractController
 
     public function index(): void
     {
+        global $err_url;
+
         $params = [
             'flush' => $_POST['flush'] ?? null,
             'filterAlert' => $_POST['filterAlert'] ?? null,
@@ -42,8 +44,11 @@ class VariablesController extends AbstractController
             'filterCategory' => $_POST['filterCategory'] ?? null,
             'dontFormat' => $_POST['dontFormat'] ?? null,
         ];
+        $err_url = Url::getFromRoute('/');
 
-        Common::server();
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $this->addScriptFiles([
             'server/status/variables.js',

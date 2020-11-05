@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_key_exists;
 
@@ -49,15 +49,18 @@ class BinlogController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $PMA_Theme;
+        global $cfg, $PMA_Theme, $err_url;
 
         $params = [
             'log' => $_POST['log'] ?? null,
             'pos' => $_POST['pos'] ?? null,
             'is_full_query' => $_POST['is_full_query'] ?? null,
         ];
+        $err_url = Url::getFromRoute('/');
 
-        Common::server();
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $position = ! empty($params['pos']) ? (int) $params['pos'] : 0;
 

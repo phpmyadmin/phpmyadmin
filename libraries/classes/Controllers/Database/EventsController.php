@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function strlen;
 
@@ -35,18 +35,23 @@ final class EventsController extends AbstractController
     public function index(): void
     {
         global $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $text_dir, $PMA_Theme;
-        global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
+        global $tooltip_truename, $tooltip_aliasname, $pos, $cfg, $err_url;
 
         if (! $this->response->isAjax()) {
-            Common::database();
+            Util::checkParameters(['db']);
+
+            $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+            $err_url .= Url::getCommon(['db' => $db], '&');
+
+            if (! $this->hasDatabase()) {
+                return;
+            }
 
             [
                 $tables,
                 $num_tables,
                 $total_num_tables,
-                $sub_part,
-                $is_show_stats,
-                $db_is_system_schema,
+                $sub_part,,,
                 $tooltip_truename,
                 $tooltip_aliasname,
                 $pos,

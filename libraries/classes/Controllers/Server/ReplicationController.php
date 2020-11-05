@@ -7,13 +7,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use function is_array;
 
 /**
@@ -40,7 +40,7 @@ class ReplicationController extends AbstractController
 
     public function index(): void
     {
-        global $url_params;
+        global $url_params, $err_url;
 
         $params = [
             'url_params' => $_POST['url_params'] ?? null,
@@ -48,8 +48,11 @@ class ReplicationController extends AbstractController
             'sl_configure' => $_POST['sl_configure'] ?? null,
             'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
         ];
+        $err_url = Url::getFromRoute('/');
 
-        Common::server();
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
         $replicationInfo->load($_POST['master_connection'] ?? null);

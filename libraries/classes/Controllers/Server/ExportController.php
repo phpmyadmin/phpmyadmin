@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use function array_merge;
 
 final class ExportController extends AbstractController
@@ -19,21 +20,30 @@ final class ExportController extends AbstractController
     /** @var Options */
     private $export;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response $response
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, Template $template, Options $export)
+    public function __construct($response, Template $template, Options $export, $dbi)
     {
         parent::__construct($response, $template);
         $this->export = $export;
+        $this->dbi = $dbi;
     }
 
     public function index(): void
     {
         global $db, $table, $sql_query, $num_tables, $unlim_num_rows;
-        global $tmp_select, $select_item;
+        global $tmp_select, $select_item, $err_url;
 
-        Common::server();
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $pageSettings = new PageSettings('Export');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();

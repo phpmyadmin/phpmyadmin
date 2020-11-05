@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
@@ -112,7 +112,7 @@ class DeleteController extends AbstractController
 
     public function confirm(): void
     {
-        global $db, $table, $sql_query;
+        global $db, $table, $sql_query, $url_params, $err_url, $cfg;
 
         $selected = $_POST['rows_to_delete'] ?? null;
 
@@ -123,7 +123,13 @@ class DeleteController extends AbstractController
             return;
         }
 
-        Common::table();
+        Util::checkParameters(['db', 'table']);
+
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        DbTableExists::check();
 
         $this->render('table/delete/confirm', [
             'db' => $db,

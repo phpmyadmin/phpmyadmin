@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
@@ -69,9 +68,9 @@ class OperationsController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $db, $server, $sql_query, $move, $message, $tables_full;
+        global $cfg, $db, $server, $sql_query, $move, $message, $tables_full, $err_url;
         global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $url_params, $tables;
-        global $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema, $tooltip_truename;
+        global $total_num_tables, $sub_part, $tooltip_truename;
         global $db_collation, $tooltip_aliasname, $pos, $is_information_schema, $single_table, $num_tables;
 
         $this->checkUserPrivileges->getPrivileges();
@@ -263,7 +262,14 @@ class OperationsController extends AbstractController
             $this->relation->setDbComment($db, $_POST['comment']);
         }
 
-        Common::database();
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
 
         $url_params['goto'] = Url::getFromRoute('/database/operations');
 
@@ -274,9 +280,8 @@ class OperationsController extends AbstractController
             $tables,
             $num_tables,
             $total_num_tables,
-            $sub_part,
-            $is_show_stats,
-            $db_is_system_schema,
+            $sub_part,,
+            $isSystemSchema,
             $tooltip_truename,
             $tooltip_aliasname,
             $pos,
@@ -304,7 +309,7 @@ class OperationsController extends AbstractController
             && $GLOBALS['col_priv'] && $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'];
 
         $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $cfg['AllowUserDropDatabase'])
-            && ! $db_is_system_schema && $db !== 'mysql';
+            && ! $isSystemSchema && $db !== 'mysql';
 
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
@@ -343,5 +348,72 @@ class OperationsController extends AbstractController
             'charsets' => $charsets,
             'collations' => $collations,
         ]);
+    }
+
+    public function collation(): void
+    {
+        global $db, $cfg, $err_url;
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        if (empty($_POST['db_collation'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', Message::error(__('No collation provided.')));
+
+            return;
+        }
+
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
+
+        $sql_query = 'ALTER DATABASE ' . Util::backquote($db)
+            . ' DEFAULT' . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
+        $this->dbi->query($sql_query);
+        $message = Message::success();
+
+        /**
+         * Changes tables charset if requested by the user
+         */
+        if (isset($_POST['change_all_tables_collations']) &&
+            $_POST['change_all_tables_collations'] === 'on'
+        ) {
+            [$tables] = Util::getDbInfo($db, null);
+            foreach ($tables as $tableName => $data) {
+                if ($this->dbi->getTable($db, $tableName)->isView()) {
+                    // Skip views, we can not change the collation of a view.
+                    // issue #15283
+                    continue;
+                }
+                $sql_query = 'ALTER TABLE '
+                    . Util::backquote($db)
+                    . '.'
+                    . Util::backquote($tableName)
+                    . ' DEFAULT '
+                    . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
+                $this->dbi->query($sql_query);
+
+                /**
+                 * Changes columns charset if requested by the user
+                 */
+                if (! isset($_POST['change_all_tables_columns_collations']) ||
+                    $_POST['change_all_tables_columns_collations'] !== 'on'
+                ) {
+                    continue;
+                }
+
+                $this->operations->changeAllColumnsCollation($db, $tableName, $_POST['db_collation']);
+            }
+        }
+
+        $this->response->setRequestStatus($message->isSuccess());
+        $this->response->addJSON('message', $message);
     }
 }

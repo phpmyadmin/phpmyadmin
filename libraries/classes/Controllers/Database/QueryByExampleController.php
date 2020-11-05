@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Operations;
@@ -43,7 +42,7 @@ class QueryByExampleController extends AbstractController
     {
         global $db, $savedSearchList, $savedSearch, $currentSearchId, $PMA_Theme;
         global $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
-        global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos, $url_params;
+        global $tooltip_truename, $tooltip_aliasname, $pos, $url_params, $cfg, $err_url;
 
         // Gets the relation settings
         $cfgRelation = $this->relation->getRelationsParam();
@@ -138,7 +137,15 @@ class QueryByExampleController extends AbstractController
         }
 
         $sub_part  = '_qbe';
-        Common::database();
+
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
 
         $url_params['goto'] = Url::getFromRoute('/database/qbe');
 
@@ -146,9 +153,7 @@ class QueryByExampleController extends AbstractController
             $tables,
             $num_tables,
             $total_num_tables,
-            $sub_part,
-            $is_show_stats,
-            $db_is_system_schema,
+            $sub_part,,,
             $tooltip_truename,
             $tooltip_aliasname,
             $pos,

@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use function count;
 use function is_array;
 use function json_decode;
@@ -37,8 +39,16 @@ class IndexesController extends AbstractController
 
     public function index(): void
     {
+        global $db, $table, $url_params, $cfg, $err_url;
+
         if (! isset($_POST['create_edit_table'])) {
-            Common::table();
+            Util::checkParameters(['db', 'table']);
+
+            $url_params = ['db' => $db, 'table' => $table];
+            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $err_url .= Url::getCommon($url_params, '&');
+
+            DbTableExists::check();
         }
         if (isset($_POST['index'])) {
             if (is_array($_POST['index'])) {

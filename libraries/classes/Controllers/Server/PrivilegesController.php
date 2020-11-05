@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Controllers\Database\PrivilegesController as DatabaseController;
 use PhpMyAdmin\Controllers\Table\PrivilegesController as TableController;
@@ -18,6 +17,7 @@ use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function header;
 use function implode;
@@ -54,7 +54,7 @@ class PrivilegesController extends AbstractController
         global $db, $table, $err_url, $message, $text_dir, $post_patterns, $PMA_Theme;
         global $username, $hostname, $dbname, $tablename, $routinename, $db_and_table, $dbname_is_wildcard;
         global $queries, $password, $ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error;
-        global $itemType, $tables, $num_tables, $total_num_tables, $sub_part, $is_show_stats, $db_is_system_schema;
+        global $itemType, $tables, $num_tables, $total_num_tables, $sub_part;
         global $tooltip_truename, $tooltip_aliasname, $pos, $title, $export, $grants, $one_grant, $url_dbname;
 
         $checkUserPrivileges = new CheckUserPrivileges($this->dbi);
@@ -105,7 +105,11 @@ class PrivilegesController extends AbstractController
 
         Core::setPostAsGlobal($post_patterns);
 
-        Common::server();
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $_add_user_error = false;
         /**
@@ -351,9 +355,7 @@ class PrivilegesController extends AbstractController
                 $tables,
                 $num_tables,
                 $total_num_tables,
-                $sub_part,
-                $is_show_stats,
-                $db_is_system_schema,
+                $sub_part,,,
                 $tooltip_truename,
                 $tooltip_aliasname,
                 $pos,

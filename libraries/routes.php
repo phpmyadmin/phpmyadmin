@@ -133,7 +133,10 @@ return static function (RouteCollector $routes): void {
             $routes->get('/tables', [MultiTableQueryController::class, 'table']);
             $routes->post('/query', [MultiTableQueryController::class, 'displayResults']);
         });
-        $routes->addRoute(['GET', 'POST'], '/operations', [OperationsController::class, 'index']);
+        $routes->addGroup('/operations', static function (RouteCollector $routes): void {
+            $routes->addRoute(['GET', 'POST'], '', [OperationsController::class, 'index']);
+            $routes->post('/collation', [OperationsController::class, 'collation']);
+        });
         $routes->addRoute(['GET', 'POST'], '/qbe', [QueryByExampleController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/routines', [RoutinesController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/search', [SearchController::class, 'index']);

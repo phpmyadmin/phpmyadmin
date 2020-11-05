@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use function array_keys;
 use function ksort;
 use function mb_strtolower;
@@ -22,18 +23,29 @@ class PluginsController extends AbstractController
     /** @var Plugins */
     private $plugins;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response $response
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, Template $template, Plugins $plugins)
+    public function __construct($response, Template $template, Plugins $plugins, $dbi)
     {
         parent::__construct($response, $template);
         $this->plugins = $plugins;
+        $this->dbi = $dbi;
     }
 
     public function index(): void
     {
-        Common::server();
+        global $err_url;
+
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'server/plugins.js']);
 

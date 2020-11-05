@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * View manipulations
@@ -38,13 +39,19 @@ class ViewOperationsController extends AbstractController
     public function index(): void
     {
         global $sql_query, $url_params, $reload, $result, $warning_messages;
-        global $db, $table;
+        global $db, $table, $cfg, $err_url;
 
         $tableObject = $this->dbi->getTable($db, $table);
 
         $this->addScriptFiles(['table/operations.js']);
 
-        Common::table();
+        Util::checkParameters(['db', 'table']);
+
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        DbTableExists::check();
 
         $url_params['goto'] = $url_params['back'] = Url::getFromRoute('/view/operations');
 

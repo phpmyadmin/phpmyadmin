@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use function htmlspecialchars;
 
 /**
@@ -33,7 +34,7 @@ final class SqlController extends AbstractController
 
     public function index(): void
     {
-        global $err_url, $goto, $back;
+        global $err_url, $goto, $back, $db, $table, $cfg;
 
         $this->addScriptFiles([
             'makegrid.js',
@@ -46,9 +47,13 @@ final class SqlController extends AbstractController
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 
-        Common::table();
+        Util::checkParameters(['db', 'table']);
 
-        $err_url = Url::getFromRoute('/table/sql') . $err_url;
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        DbTableExists::check();
 
         /**
          * After a syntax error, we return to this script

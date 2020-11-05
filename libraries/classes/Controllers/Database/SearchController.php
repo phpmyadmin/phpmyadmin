@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -32,7 +31,7 @@ class SearchController extends AbstractController
     public function index(): void
     {
         global $cfg, $db, $err_url, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;
-        global $is_show_stats, $db_is_system_schema, $tooltip_truename, $tooltip_aliasname, $pos;
+        global $tooltip_truename, $tooltip_aliasname, $pos;
 
         $this->addScriptFiles([
             'database/search.js',
@@ -41,7 +40,14 @@ class SearchController extends AbstractController
             'makegrid.js',
         ]);
 
-        Common::database();
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
 
         // If config variable $cfg['UseDbSearch'] is on false : exit.
         if (! $cfg['UseDbSearch']) {
@@ -63,9 +69,7 @@ class SearchController extends AbstractController
                 $tables,
                 $num_tables,
                 $total_num_tables,
-                $sub_part,
-                $is_show_stats,
-                $db_is_system_schema,
+                $sub_part,,,
                 $tooltip_truename,
                 $tooltip_aliasname,
                 $pos,

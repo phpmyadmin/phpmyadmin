@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function implode;
 
@@ -38,7 +38,13 @@ class StatusController extends AbstractController
 
     public function index(): void
     {
-        Common::server();
+        global $err_url;
+
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $replicationInfo = $this->data->getReplicationInfo();
         $primaryInfo = $replicationInfo->getPrimaryInfo();

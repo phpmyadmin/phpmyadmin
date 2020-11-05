@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use function htmlspecialchars;
 
 /**
@@ -32,7 +32,7 @@ class SqlController extends AbstractController
 
     public function index(): void
     {
-        global $goto, $back;
+        global $goto, $back, $db, $cfg, $err_url;
 
         $this->addScriptFiles([
             'makegrid.js',
@@ -45,7 +45,14 @@ class SqlController extends AbstractController
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
 
-        Common::database();
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
 
         /**
          * After a syntax error, we return to this script

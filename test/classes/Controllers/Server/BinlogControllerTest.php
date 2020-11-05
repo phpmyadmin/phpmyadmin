@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\BinlogController;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
@@ -20,6 +19,7 @@ class BinlogControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
         parent::setTheme();
@@ -39,60 +39,9 @@ class BinlogControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        $binaryLogs = [
-            [
-                'Log_name' => 'index1',
-                'File_size' => 100,
-            ],
-            [
-                'Log_name' => 'index2',
-                'File_size' => 200,
-            ],
-        ];
-        $result = [
-            [
-                "SHOW BINLOG EVENTS IN 'index1' LIMIT 3, 10",
-                null,
-                1,
-                true,
-                ['log1' => 'logd'],
-            ],
-            [
-                ['log2' => 'logb'],
-                null,
-                0,
-                false,
-                'executed',
-            ],
-        ];
-        $value = [
-            'Info' => 'index1_Info',
-            'Log_name' => 'index1_Log_name',
-            'Pos' => 'index1_Pos',
-            'Event_type' => 'index1_Event_type',
-            'Orig_log_pos' => 'index1_Orig_log_pos',
-            'End_log_pos' => 'index1_End_log_pos',
-            'Server_id' => 'index1_Server_id',
-        ];
-        $count = 3;
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->once())->method('fetchResult')
-            ->will($this->returnValue($binaryLogs));
-        $dbi->expects($this->once())->method('query')
-            ->will($this->returnValue($result));
-        $dbi->expects($this->once())->method('numRows')
-            ->will($this->returnValue($count));
-        $dbi->expects($this->at(3))->method('fetchAssoc')
-            ->will($this->returnValue($value));
-        $dbi->expects($this->at(4))->method('fetchAssoc')
-            ->will($this->returnValue(null));
-
         $response = new Response();
 
-        $controller = new BinlogController($response, new Template(), $dbi);
+        $controller = new BinlogController($response, new Template(), $GLOBALS['dbi']);
 
         $_POST['log'] = 'index1';
         $_POST['pos'] = '3';
@@ -127,7 +76,7 @@ class BinlogControllerTest extends AbstractTestCase
             $actual
         );
 
-        $urlNavigation = Url::getFromRoute('/server/binlog') . '" data-post="pos=3&amp;'
+        $urlNavigation = Url::getFromRoute('/server/binlog') . '" data-post="log=index1&amp;pos=3&amp;'
             . 'is_full_query=1&amp;server=1&amp';
         $this->assertStringContainsString(
             $urlNavigation,
@@ -159,29 +108,11 @@ class BinlogControllerTest extends AbstractTestCase
             $actual
         );
 
-        $this->assertStringContainsString(
-            $value['Log_name'],
-            $actual
-        );
-        $this->assertStringContainsString(
-            $value['Pos'],
-            $actual
-        );
-        $this->assertStringContainsString(
-            $value['Event_type'],
-            $actual
-        );
-        $this->assertStringContainsString(
-            $value['Server_id'],
-            $actual
-        );
-        $this->assertStringContainsString(
-            $value['Orig_log_pos'],
-            $actual
-        );
-        $this->assertStringContainsString(
-            $value['Info'],
-            $actual
-        );
+        $this->assertStringContainsString('index1_Log_name', $actual);
+        $this->assertStringContainsString('index1_Pos', $actual);
+        $this->assertStringContainsString('index1_Event_type', $actual);
+        $this->assertStringContainsString('index1_Server_id', $actual);
+        $this->assertStringContainsString('index1_Orig_log_pos', $actual);
+        $this->assertStringContainsString('index1_Info', $actual);
     }
 }

@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\CentralColumns;
@@ -138,14 +137,21 @@ class StructureController extends AbstractController
 
     public function index(): void
     {
-        global $cfg;
+        global $cfg, $db, $err_url;
 
         $parameters = [
             'sort' => $_REQUEST['sort'] ?? null,
             'sort_order' => $_REQUEST['sort_order'] ?? null,
         ];
 
-        Common::database();
+        Util::checkParameters(['db']);
+
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase()) {
+            return;
+        }
 
         $this->addScriptFiles(['database/structure.js', 'table/change.js']);
 
@@ -214,7 +220,7 @@ class StructureController extends AbstractController
 
     public function addRemoveFavoriteTablesAction(): void
     {
-        global $cfg;
+        global $cfg, $db, $err_url;
 
         $parameters = [
             'favorite_table' => $_REQUEST['favorite_table'] ?? null,
@@ -222,9 +228,12 @@ class StructureController extends AbstractController
             'sync_favorite_tables' => $_REQUEST['sync_favorite_tables'] ?? null,
         ];
 
-        Common::database();
+        Util::checkParameters(['db']);
 
-        if (! $this->response->isAjax()) {
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase() || ! $this->response->isAjax()) {
             return;
         }
 
@@ -311,14 +320,19 @@ class StructureController extends AbstractController
      */
     public function handleRealRowCountRequestAction(): void
     {
+        global $cfg, $db, $err_url;
+
         $parameters = [
             'real_row_count_all' => $_REQUEST['real_row_count_all'] ?? null,
             'table' => $_REQUEST['table'] ?? null,
         ];
 
-        Common::database();
+        Util::checkParameters(['db']);
 
-        if (! $this->response->isAjax()) {
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $err_url .= Url::getCommon(['db' => $db], '&');
+
+        if (! $this->hasDatabase() || ! $this->response->isAjax()) {
             return;
         }
 
@@ -573,7 +587,7 @@ class StructureController extends AbstractController
                     'db_is_system_schema' => $this->dbIsSystemSchema,
                     'replication' => $replicaInfo['status'],
                     'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-                    'is_show_stats' => $GLOBALS['is_show_stats'],
+                    'is_show_stats' => $this->isShowStats,
                     'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
                     'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
                     'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],

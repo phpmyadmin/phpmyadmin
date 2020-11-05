@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_search;
 use function count;
@@ -90,9 +91,15 @@ class ZoomSearchController extends AbstractController
 
     public function index(): void
     {
-        global $goto;
+        global $goto, $db, $table, $url_params, $cfg, $err_url;
 
-        Common::table();
+        Util::checkParameters(['db', 'table']);
+
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        DbTableExists::check();
 
         $this->addScriptFiles([
             'makegrid.js',

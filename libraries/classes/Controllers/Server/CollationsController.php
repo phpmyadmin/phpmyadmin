@@ -7,11 +7,11 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 
 /**
  * Handles viewing character sets and collations
@@ -23,6 +23,9 @@ class CollationsController extends AbstractController
 
     /** @var array|null */
     private $collations;
+
+    /** @var DatabaseInterface */
+    private $dbi;
 
     /**
      * @param Response          $response
@@ -40,14 +43,21 @@ class CollationsController extends AbstractController
         global $cfg;
 
         parent::__construct($response, $template);
+        $this->dbi = $dbi;
 
-        $this->charsets = $charsets ?? Charsets::getCharsets($dbi, $cfg['Server']['DisableIS']);
-        $this->collations = $collations ?? Charsets::getCollations($dbi, $cfg['Server']['DisableIS']);
+        $this->charsets = $charsets ?? Charsets::getCharsets($this->dbi, $cfg['Server']['DisableIS']);
+        $this->collations = $collations ?? Charsets::getCollations($this->dbi, $cfg['Server']['DisableIS']);
     }
 
     public function index(): void
     {
-        Common::server();
+        global $err_url;
+
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $charsets = [];
         /** @var Charset $charset */

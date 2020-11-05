@@ -8,7 +8,6 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Git;
@@ -63,7 +62,7 @@ class HomeController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $server, $collation_connection, $message, $show_query, $db, $table;
+        global $cfg, $server, $collation_connection, $message, $show_query, $db, $table, $err_url;
 
         if ($this->response->isAjax() && ! empty($_REQUEST['access_time'])) {
             return;
@@ -72,9 +71,10 @@ class HomeController extends AbstractController
         $db = '';
         $table = '';
         $show_query = '1';
+        $err_url = Url::getFromRoute('/');
 
-        if ($server > 0) {
-            Common::server();
+        if ($server > 0 && $this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
         }
 
         $languageManager = LanguageManager::getInstance();

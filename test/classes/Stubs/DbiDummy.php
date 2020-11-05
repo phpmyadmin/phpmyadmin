@@ -514,7 +514,16 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query'  => 'SHOW MASTER LOGS',
-                'result' => false,
+                'result' => [
+                    [
+                        'Log_name' => 'index1',
+                        'File_size' => 100,
+                    ],
+                    [
+                        'Log_name' => 'index2',
+                        'File_size' => 200,
+                    ],
+                ],
             ],
             [
                 'query'  => 'SHOW STORAGE ENGINES',
@@ -2094,6 +2103,21 @@ class DbiDummy implements DbiExtension
                     . ' IN ("INNODB", "FALCON", "NDB", "INFINIDB", "TOKUDB", "XTRADB", "SEQUENCE", "BDB")',
                 'columns' => ['ENGINE'],
                 'result' => [['INNODB']],
+            ],
+            [
+                'query' => 'SHOW BINLOG EVENTS IN \'index1\' LIMIT 3, 10',
+                'columns' => ['Info', 'Log_name', 'Pos', 'Event_type', 'Orig_log_pos', 'End_log_pos', 'Server_id'],
+                'result' => [
+                    [
+                        'index1_Info',
+                        'index1_Log_name',
+                        'index1_Pos',
+                        'index1_Event_type',
+                        'index1_Orig_log_pos',
+                        'index1_End_log_pos',
+                        'index1_Server_id',
+                    ],
+                ],
             ],
         ];
         /**

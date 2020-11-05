@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Williamdes\MariaDBMySQLKBS\KBException;
 use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
@@ -45,9 +45,14 @@ class VariablesController extends AbstractController
 
     public function index(): void
     {
-        $params = ['filter' => $_GET['filter'] ?? null];
+        global $err_url;
 
-        Common::server();
+        $params = ['filter' => $_GET['filter'] ?? null];
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $filterValue = ! empty($params['filter']) ? $params['filter'] : '';
 

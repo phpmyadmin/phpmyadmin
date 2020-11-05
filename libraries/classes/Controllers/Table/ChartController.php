@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Components\Limit;
@@ -43,7 +43,7 @@ class ChartController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $cfg, $sql_query;
+        global $db, $table, $cfg, $sql_query, $err_url;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
         ) {
@@ -83,12 +83,16 @@ class ChartController extends AbstractController
          * Runs common work
          */
         if (strlen($table) > 0) {
-            $url_params['goto'] = Util::getScriptNameForOption(
-                $cfg['DefaultTabTable'],
-                'table'
-            );
+            Util::checkParameters(['db', 'table']);
+
+            $url_params = ['db' => $db, 'table' => $table];
+            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $err_url .= Url::getCommon($url_params, '&');
+
+            DbTableExists::check();
+
+            $url_params['goto'] = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
             $url_params['back'] = Url::getFromRoute('/table/sql');
-            Common::table();
             $this->dbi->selectDb($db);
         } elseif (strlen($db) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
@@ -96,14 +100,26 @@ class ChartController extends AbstractController
                 'database'
             );
             $url_params['back'] = Url::getFromRoute('/sql');
-            Common::database();
+
+            Util::checkParameters(['db']);
+
+            $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+            $err_url .= Url::getCommon(['db' => $db], '&');
+
+            if (! $this->hasDatabase()) {
+                return;
+            }
         } else {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $cfg['DefaultTabServer'],
                 'server'
             );
             $url_params['back'] = Url::getFromRoute('/sql');
-            Common::server();
+            $err_url = Url::getFromRoute('/');
+
+            if ($this->dbi->isSuperUser()) {
+                $this->dbi->selectDb('mysql');
+            }
         }
 
         $data = [];
@@ -160,10 +176,16 @@ class ChartController extends AbstractController
      */
     public function ajax(): void
     {
-        global $db, $table, $sql_query;
+        global $db, $table, $sql_query, $url_params, $err_url, $cfg;
 
         if (strlen($table) > 0 && strlen($db) > 0) {
-            Common::table();
+            Util::checkParameters(['db', 'table']);
+
+            $url_params = ['db' => $db, 'table' => $table];
+            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $err_url .= Url::getCommon($url_params, '&');
+
+            DbTableExists::check();
         }
 
         $parser = new Parser($sql_query);

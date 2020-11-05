@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Common;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use function array_map;
 use function define;
 use function explode;
@@ -41,14 +42,21 @@ final class TrackingController extends AbstractController
 
     public function index(): void
     {
-        global $text_dir, $url_params, $msg, $PMA_Theme;
+        global $text_dir, $url_params, $msg, $PMA_Theme, $err_url;
         global $data, $entries, $filter_ts_from, $filter_ts_to, $filter_users, $selection_schema;
-        global $selection_data, $selection_both, $sql_result;
+        global $selection_data, $selection_both, $sql_result, $db, $table, $cfg;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
         define('TABLE_MAY_BE_ABSENT', true);
-        Common::table();
+
+        Util::checkParameters(['db', 'table']);
+
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        DbTableExists::check();
 
         $activeMessage = '';
         if (Tracker::isActive()

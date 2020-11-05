@@ -6,13 +6,14 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Common;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Partition;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
@@ -70,7 +71,7 @@ class OperationsController extends AbstractController
         global $show_comment, $tbl_collation, $table_info_num_rows, $row_format, $auto_increment, $create_options;
         global $table_alters, $warning_messages, $lowerCaseNames, $db, $table, $reload, $result;
         global $new_tbl_storage_engine, $sql_query, $message_to_show, $columns, $hideOrderTable, $indexes;
-        global $notNull, $comment, $db_is_system_schema;
+        global $notNull, $comment, $err_url, $cfg;
 
         $this->checkUserPrivileges->getPrivileges();
 
@@ -85,10 +86,15 @@ class OperationsController extends AbstractController
 
         $this->addScriptFiles(['table/operations.js']);
 
-        /**
-         * Runs common work
-         */
-        Common::table();
+        Util::checkParameters(['db', 'table']);
+
+        $isSystemSchema = Utilities::isSystemSchema($db);
+        $url_params = ['db' => $db, 'table' => $table];
+        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $err_url .= Url::getCommon($url_params, '&');
+
+        DbTableExists::check();
+
         $url_params['goto'] = $url_params['back'] = Url::getFromRoute('/table/operations');
 
         /**
@@ -480,7 +486,7 @@ class OperationsController extends AbstractController
             'has_foreign_keys' => $hasForeignKeys,
             'has_privileges' => $hasPrivileges,
             'switch_to_new' => $switchToNew,
-            'is_system_schema' => isset($db_is_system_schema) && $db_is_system_schema,
+            'is_system_schema' => $isSystemSchema,
             'is_view' => $tbl_is_view,
             'partitions' => $partitions,
             'partitions_choices' => $partitionsChoices,
