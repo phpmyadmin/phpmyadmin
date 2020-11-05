@@ -3488,3 +3488,15 @@ body {
   margin-top: 4px;
   height: 0.75rem;
 }
+
+// Extra large devices (large desktops, 1200px and up)
+@include media-breakpoint-up(xl) {
+  div.tools {
+    text-align: #{$left};
+  }
+
+  fieldset.tblFooters,
+  .tblFooters {
+    text-align: #{$left};
+  }
+}
