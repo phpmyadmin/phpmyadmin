@@ -3771,3 +3771,10 @@ body {
     float: left;
   }
 }
+
+// Extra large devices (large desktops, 1200px and up)
+@include media-breakpoint-up(xl){
+  div.tools {
+    text-align: #{$left};
+  }
+}

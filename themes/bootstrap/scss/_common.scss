@@ -3801,3 +3801,10 @@ body .ui-dialog {
 .ui-timepicker-div dl .ui_tpicker_timezone select {
   margin-left: 50px;
 }
+
+// Extra large devices (large desktops, 1200px and up)
+@include media-breakpoint-up(xl){
+  div.tools {
+    text-align: #{$left};
+  }
+}
