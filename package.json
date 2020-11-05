@@ -10,6 +10,9 @@
     "node": ">=10"
   },
   "dependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
     "blueimp-md5": "^2.18.0",
     "bootstrap": "4.5.3",
     "codemirror": "5.58.2",
@@ -37,9 +40,6 @@
     "zxcvbn": "4.4.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.11.5",
-    "@babel/core": "^7.11.5",
-    "@babel/preset-env": "^7.11.5",
     "eslint": "^7.5.0",
     "eslint-plugin-compat": "^3.8.0",
     "eslint-plugin-no-jquery": "^2.5.0",
