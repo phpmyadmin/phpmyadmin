@@ -58,6 +58,7 @@ phpMyAdmin - ChangeLog
 - issue #15001 Add back Login Cookie Validity setting to the features form
 - issue #16457 Add config parameters to support third-party ReCaptcha v2 compatible APIs like hCaptcha
 - issue #13077 Moved tools section to left on large devices (Bootstrap xl)
+- issue #15711 Moved some buttons to left on large devices (Bootstrap xl)
 
 5.0.5 (not yet released)
 
