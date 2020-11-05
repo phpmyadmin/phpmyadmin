@@ -86,6 +86,12 @@ var CommonParams = (function () {
             var sep = (typeof separator !== 'undefined') ? separator : '?';
             var common = this.get('common_query');
             var argsep = CommonParams.get('arg_separator');
+            if (typeof common === 'string') {
+                // If the last char is the separator, do not add it
+                // Else add it
+                common = common.substr(common.length - 1, common.length) === argsep ? common : common + argsep;
+            }
+
             return Functions.sprintf(
                 '%s%sserver=%s' + argsep + 'db=%s' + argsep + 'table=%s',
                 sep,
