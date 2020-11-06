@@ -11,7 +11,7 @@ page can be used for this.
 .. warning::
 
     :term:`Mac` users should note that if you are on a version before
-    :term:`Mac OS X`, StuffIt unstuffs with :term:`Mac` formats. So you'll have
+    :term:`macOS`, StuffIt unstuffs with :term:`Mac` formats. So you'll have
     to resave as in BBEdit to Unix style ALL phpMyAdmin scripts before
     uploading them to your server, as PHP seems not to like :term:`Mac`-style
     end of lines character ("``\r``").
