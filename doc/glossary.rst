@@ -26,7 +26,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Web_browser>
 
     bzip2
-      a libre software data compression algorithm and program developed by Julian Seward.
+      a free software/open-source data compression algorithm and program developed by Julian Seward.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Bzip2>
 
@@ -105,7 +105,7 @@ From Wikipedia, the free encyclopedia
       look at :term:`GD`
 
     GZip
-      GZip is short for GNU zip, a GNU libre software file compression program.
+      GZip is short for GNU zip, a GNU free software file compression program.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Gzip>
 
@@ -284,7 +284,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions>
 
     PHP
-      short for "PHP: Hypertext Preprocessor", is a libre software, reflective
+      short for "PHP: Hypertext Preprocessor", is an open-source, reflective
       programming language used mainly for developing server-side applications
       and dynamic web content, and more recently, a broader range of software
       applications.
@@ -428,6 +428,6 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Zip_(file_format)>
 
     Zlib
-      a libre software, cross-platform data compression library by `Jean-loup Gailly <https://en.wikipedia.org/wiki/Jean-Loup_Gailly>`_ and `Mark Adler <https://en.wikipedia.org/wiki/Mark_Adler>`_.
+      an open-source, cross-platform data compression library by `Jean-loup Gailly <https://en.wikipedia.org/wiki/Jean-Loup_Gailly>`_ and `Mark Adler <https://en.wikipedia.org/wiki/Mark_Adler>`_.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Zlib>
