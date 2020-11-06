@@ -1311,7 +1311,7 @@ by the recent versions of the most browsers.
 5.12 Mac OS X Safari browser changes special characters to "?".
 ---------------------------------------------------------------
 
-This issue has been reported by a :term:`Mac OS X` user, who adds that Chimera,
+This issue has been reported by a :term:`macOS` user, who adds that Chimera,
 Netscape and Mozilla do not have this problem.
 
 .. _faq5_13:
