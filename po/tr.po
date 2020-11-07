@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-11-03 08:26+0000\n"
+"PO-Revision-Date: 2020-11-08 11:26+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2-dev\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -715,7 +715,7 @@ msgstr "Sunucu karakter grubu:"
 
 #: index.php:388
 msgid "Web server"
-msgstr "Web sunucusu"
+msgstr "Web server"
 
 #: index.php:399
 msgid "Database client version:"
@@ -5978,7 +5978,7 @@ msgstr "Veritabanı seçildiğinde tarayıcı penceresi başlığı."
 #: templates/server/databases/table_header.twig:8
 #: templates/table/relation/common_form.twig:32
 msgid "Database"
-msgstr "Veritabanı"
+msgstr "Database"
 
 #: libraries/classes/Config/Descriptions.php:1370
 msgid "Title of browser window when nothing is selected."
