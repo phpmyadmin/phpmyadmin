@@ -326,11 +326,6 @@ parameters:
 			path: libraries/classes/Database/CentralColumns.php
 
 		-
-			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
-			count: 1
-			path: libraries/classes/CreateAddField.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, int given\\.$#"
 			count: 1
 			path: libraries/classes/Database/Designer/Common.php

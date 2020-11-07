@@ -218,10 +218,10 @@
       <code>$success</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="5">
-      <code>$page</code>
-      <code>$display_page</code>
-      <code>$display_page</code>
       <code>$_GET['db']</code>
+      <code>$display_page</code>
+      <code>$display_page</code>
+      <code>$page</code>
       <code>$selected_page</code>
     </PossiblyNullArgument>
     <PossiblyUndefinedArrayOffset occurrences="1">
