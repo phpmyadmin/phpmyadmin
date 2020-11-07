@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-04 10:26+0100\n"
-"PO-Revision-Date: 2020-11-03 08:26+0000\n"
+"PO-Revision-Date: 2020-11-08 11:26+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2-dev\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4202,7 +4202,7 @@ msgstr "Veritabanı seçildiğinde tarayıcı penceresi başlığı."
 #: templates/table/relation/common_form.twig:166
 #: templates/table/relation/foreign_key_row.twig:96
 msgid "Database"
-msgstr "Veritabanı"
+msgstr "Database"
 
 #: libraries/classes/Config/Descriptions.php:916
 msgid "Title of browser window when nothing is selected."
@@ -10923,6 +10923,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Parolanız çok uzun. Hizmet reddi saldırılarını önlemek için phpMyAdmin, "
+"parolaları 1000 karakterden daha azına kısıtlar."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:363
 msgid "You are not allowed to log in to this MySQL server!"
@@ -15657,7 +15659,7 @@ msgstr "Sunucu karakter grubu:"
 
 #: templates/home/index.twig:153
 msgid "Web server"
-msgstr "Web sunucusu"
+msgstr "Web server"
 
 #: templates/home/index.twig:161
 msgid "Database client version:"
