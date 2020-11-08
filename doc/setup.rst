@@ -8,14 +8,6 @@ database server. It is still the system administrator's job to grant
 permissions on the MySQL databases properly. phpMyAdmin's :guilabel:`Users`
 page can be used for this.
 
-.. warning::
-
-    :term:`Mac` users should note that if you are on a version before
-    :term:`macOS`, StuffIt unstuffs with :term:`Mac` formats. So you'll have
-    to resave as in BBEdit to Unix style ALL phpMyAdmin scripts before
-    uploading them to your server, as PHP seems not to like :term:`Mac`-style
-    end of lines character ("``\r``").
-
 Linux distributions
 +++++++++++++++++++
 

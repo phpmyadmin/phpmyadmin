@@ -29,15 +29,6 @@ your site specific code to be included on start and end of each page.
     Some distributions (eg. Debian or Ubuntu) store :file:`config.inc.php` in
     ``/etc/phpmyadmin`` instead of within phpMyAdmin sources.
 
-.. warning::
-
-    :term:`Mac` users should note that if you are on a version before
-    :term:`macOS`, PHP does not seem to
-    like :term:`Mac` end of lines character (``\r``). So
-    ensure you choose the option that allows to use the \*nix end of line
-    character (``\n``) in your text editor before saving a script you have
-    modified.
-
 Basic settings
 --------------
 
