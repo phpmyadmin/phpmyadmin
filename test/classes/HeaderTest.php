@@ -141,4 +141,47 @@ class HeaderTest extends AbstractTestCase
 
         $this->assertFalse($reflection->getValue($header));
     }
+
+    /**
+     * Test for getCspHeaders
+     */
+    public function testGetCspHeaders(): void
+    {
+        global $cfg;
+        $cfg['CSPAllow'] = '';
+
+        $header = new Header();
+        $headers = $this->callFunction($header, Header::class, 'getCspHeaders', []);
+
+        $this->assertSame([
+            'Content-Security-Policy: default-src \'self\' ;script-src \'self\' \'unsafe-inline\''
+            . ' \'unsafe-eval\' ;style-src \'self\' \'unsafe-inline\' ;img-src \'self\''
+            . ' data:  *.tile.openstreetmap.org;object-src \'none\';',
+            'X-Content-Security-Policy: default-src \'self\' ;options inline-script eval-script;'
+            . 'referrer no-referrer;img-src \'self\' data:  *.tile.openstreetmap.org;object-src \'none\';',
+            'X-WebKit-CSP: default-src \'self\' ;script-src \'self\'  \'unsafe-inline\' \'unsafe-eval\';'
+            . 'referrer no-referrer;style-src \'self\' \'unsafe-inline\' ;img-src \'self\''
+            . ' data:  *.tile.openstreetmap.org;object-src \'none\';',
+        ], $headers);
+
+        $cfg['CSPAllow'] = 'example.com example.net';
+
+        $header = new Header();
+        $headers = $this->callFunction($header, Header::class, 'getCspHeaders', []);
+
+        $this->assertSame([
+            'Content-Security-Policy: default-src \'self\' example.com example.net;'
+            . 'script-src \'self\' \'unsafe-inline\''
+            . ' \'unsafe-eval\' example.com example.net;style-src \'self\' \'unsafe-inline\' example.com example.net;'
+            . 'img-src \'self\''
+            . ' data: example.com example.net *.tile.openstreetmap.org;object-src \'none\';',
+            'X-Content-Security-Policy: default-src \'self\' example.com example.net;options inline-script eval-script;'
+            . 'referrer no-referrer;img-src \'self\' data: example.com example.net *.tile.openstreetmap.org;'
+            . 'object-src \'none\';',
+            'X-WebKit-CSP: default-src \'self\' example.com example.net;'
+            . 'script-src \'self\' example.com example.net \'unsafe-inline\' \'unsafe-eval\';'
+            . 'referrer no-referrer;style-src \'self\' \'unsafe-inline\' ;img-src \'self\''
+            . ' data: example.com example.net *.tile.openstreetmap.org;object-src \'none\';',
+        ], $headers);
+    }
 }
