@@ -59,6 +59,7 @@ phpMyAdmin - ChangeLog
 - issue #16457 Add config parameters to support third-party ReCaptcha v2 compatible APIs like hCaptcha
 - issue #13077 Moved tools section to left on large devices (Bootstrap xl)
 - issue #15711 Moved some buttons to left on large devices (Bootstrap xl)
+- issue #15584 Add $cfg['MysqlSslWarningSafeHosts'] to set the red text black when ssl is not used on a private network
 
 5.0.5 (not yet released)
 
