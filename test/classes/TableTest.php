@@ -1135,8 +1135,6 @@ class TableTest extends AbstractTestCase
 
     /**
      * Tests for getSQLToCreateForeignKey() method.
-     *
-     * @test
      */
     public function testGetSQLToCreateForeignKey(): void
     {
@@ -1198,8 +1196,6 @@ class TableTest extends AbstractTestCase
 
     /**
      * Tests for getSqlQueryForIndexCreateOrEdit() method.
-     *
-     * @test
      */
     public function testGetSqlQueryForIndexCreateOrEdit(): void
     {

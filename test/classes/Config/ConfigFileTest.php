@@ -55,8 +55,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for new ConfigFile()
-     *
-     * @test
      */
     public function testNewObjectState(): void
     {
@@ -81,8 +79,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::setPersistKeys()
-     *
-     * @test
      */
     public function testPersistentKeys(): void
     {
@@ -132,8 +128,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::setAllowedKeys
-     *
-     * @test
      */
     public function testAllowedKeys(): void
     {
@@ -171,8 +165,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::setCfgUpdateReadMapping
-     *
-     * @test
      */
     public function testConfigReadMapping(): void
     {
@@ -206,8 +198,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::resetConfigData
-     *
-     * @test
      */
     public function testResetConfigData(): void
     {
@@ -221,8 +211,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::setConfigData
-     *
-     * @test
      */
     public function testSetConfigData(): void
     {
@@ -241,8 +229,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::set and ConfigFile::get
-     *
-     * @test
      */
     public function testBasicSetUsage(): void
     {
@@ -282,8 +268,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::set - in PMA Setup
-     *
-     * @test
      */
     public function testConfigFileSetInSetup(): void
     {
@@ -298,8 +282,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::set - in user preferences
-     *
-     * @test
      */
     public function testConfigFileSetInUserPreferences(): void
     {
@@ -330,7 +312,6 @@ class ConfigFileTest extends AbstractTestCase
     /**
      * Test for ConfigFile::getFlatDefaultConfig
      *
-     * @test
      * @group medium
      */
     public function testGetFlatDefaultConfig(): void
@@ -360,8 +341,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::updateWithGlobalConfig
-     *
-     * @test
      */
     public function testUpdateWithGlobalConfig(): void
     {
@@ -380,8 +359,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::getCanonicalPath
-     *
-     * @test
      */
     public function testGetCanonicalPath(): void
     {
@@ -398,8 +375,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::getDbEntry
-     *
-     * @test
      */
     public function testGetDbEntry(): void
     {
@@ -420,8 +395,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::getServerCount
-     *
-     * @test
      */
     public function testGetServerCount(): void
     {
@@ -468,8 +441,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::getServers
-     *
-     * @test
      */
     public function testGetServers(): void
     {
@@ -487,8 +458,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::getServerDSN
-     *
-     * @test
      */
     public function testGetServerDSN(): void
     {
@@ -554,8 +523,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::getServerName
-     *
-     * @test
      */
     public function testGetServerName(): void
     {
@@ -579,8 +546,6 @@ class ConfigFileTest extends AbstractTestCase
 
     /**
      * Test for ConfigFile::getConfigArray
-     *
-     * @test
      */
     public function testGetConfigArray(): void
     {

@@ -79,8 +79,6 @@ class IndexesControllerTest extends AbstractTestCase
 
     /**
      * Tests for doSaveDataAction() method
-     *
-     * @test
      */
     public function testDoSaveDataAction(): void
     {
@@ -129,8 +127,6 @@ class IndexesControllerTest extends AbstractTestCase
 
     /**
      * Tests for displayFormAction()
-     *
-     * @test
      */
     public function testDisplayFormAction(): void
     {

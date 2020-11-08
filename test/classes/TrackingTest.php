@@ -54,8 +54,6 @@ class TrackingTest extends AbstractTestCase
 
     /**
      * Tests for filter() method.
-     *
-     * @test
      */
     public function testFilter(): void
     {
@@ -94,8 +92,6 @@ class TrackingTest extends AbstractTestCase
 
     /**
      * Tests for extractTableNames() method from nested table_list.
-     *
-     * @test
      */
     public function testExtractTableNames(): void
     {
@@ -127,9 +123,6 @@ class TrackingTest extends AbstractTestCase
         );
     }
 
-    /**
-     * @test
-     */
     public function testGetHtmlForMain(): void
     {
         $html = $this->tracking->getHtmlForMainPage([], 'themePath/img', 'ltr');
@@ -158,8 +151,6 @@ class TrackingTest extends AbstractTestCase
 
     /**
      * Tests for getTableLastVersionNumber() method.
-     *
-     * @test
      */
     public function testGetTableLastVersionNumber(): void
     {
@@ -174,8 +165,6 @@ class TrackingTest extends AbstractTestCase
 
     /**
      * Tests for getSqlResultForSelectableTables() method.
-     *
-     * @test
      */
     public function testGetSQLResultForSelectableTables(): void
     {
@@ -186,8 +175,6 @@ class TrackingTest extends AbstractTestCase
 
     /**
      * Tests for getHtmlForColumns() method.
-     *
-     * @test
      */
     public function testGetHtmlForColumns(): void
     {
@@ -284,8 +271,6 @@ class TrackingTest extends AbstractTestCase
 
     /**
      * Tests for getListOfVersionsOfTable() method.
-     *
-     * @test
      */
     public function testGetListOfVersionsOfTable(): void
     {
@@ -296,8 +281,6 @@ class TrackingTest extends AbstractTestCase
 
     /**
      * Tests for getHtmlForTrackingReport() method.
-     *
-     * @test
      */
     public function testGetHtmlForTrackingReportr(): void
     {
@@ -393,8 +376,6 @@ class TrackingTest extends AbstractTestCase
 
     /**
      * Tests for getHtmlForDataManipulationStatements() method.
-     *
-     * @test
      */
     public function testGetHtmlForDataManipulationStatements(): void
     {
@@ -455,8 +436,6 @@ class TrackingTest extends AbstractTestCase
 
     /**
      * Tests for getHtmlForDataDefinitionStatements() method.
-     *
-     * @test
      */
     public function testGetHtmlForDataDefinitionStatements(): void
     {
@@ -522,8 +501,6 @@ class TrackingTest extends AbstractTestCase
 
     /**
      * Tests for getHtmlForIndexes() method.
-     *
-     * @test
      */
     public function testGetHtmlForIndexes(): void
     {
@@ -596,8 +573,6 @@ class TrackingTest extends AbstractTestCase
 
     /**
      * Tests for getTrackingSet() method.
-     *
-     * @test
      */
     public function testGetTrackingSet(): void
     {
@@ -639,8 +614,6 @@ class TrackingTest extends AbstractTestCase
 
     /**
      * Tests for getEntries() method.
-     *
-     * @test
      */
     public function testGetEntries(): void
     {

@@ -130,8 +130,6 @@ class HeaderTest extends AbstractTestCase
 
     /**
      * Test for Disable Warnings
-     *
-     * @test
      */
     public function testDisableWarnings(): void
     {

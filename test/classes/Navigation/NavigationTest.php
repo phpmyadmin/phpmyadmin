@@ -57,8 +57,6 @@ class NavigationTest extends AbstractTestCase
 
     /**
      * Tests hideNavigationItem() method.
-     *
-     * @test
      */
     public function testHideNavigationItem(): void
     {
@@ -81,8 +79,6 @@ class NavigationTest extends AbstractTestCase
 
     /**
      * Tests unhideNavigationItem() method.
-     *
-     * @test
      */
     public function testUnhideNavigationItem(): void
     {
@@ -105,8 +101,6 @@ class NavigationTest extends AbstractTestCase
 
     /**
      * Tests getItemUnhideDialog() method.
-     *
-     * @test
      */
     public function testGetItemUnhideDialog(): void
     {

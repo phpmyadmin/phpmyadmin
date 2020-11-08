@@ -69,8 +69,6 @@ class RelationControllerTest extends AbstractTestCase
      *
      * Case one: this case is for the situation when the target
      *           table is a view.
-     *
-     * @test
      */
     public function testGetDropdownValueForTableActionIsView(): void
     {
@@ -113,8 +111,6 @@ class RelationControllerTest extends AbstractTestCase
      *
      * Case one: this case is for the situation when the target
      *           table is not a view (real tabletable).
-     *
-     * @test
      */
     public function testGetDropdownValueForTableActionNotView(): void
     {
@@ -152,8 +148,6 @@ class RelationControllerTest extends AbstractTestCase
      * Tests for getDropdownValueForDbAction()
      *
      * Case one: foreign
-     *
-     * @test
      */
     public function testGetDropdownValueForDbActionOne(): void
     {
@@ -199,8 +193,6 @@ class RelationControllerTest extends AbstractTestCase
      * Tests for getDropdownValueForDbAction()
      *
      * Case two: not foreign
-     *
-     * @test
      */
     public function testGetDropdownValueForDbActionTwo(): void
     {

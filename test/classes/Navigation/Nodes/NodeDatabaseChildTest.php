@@ -54,8 +54,6 @@ class NodeDatabaseChildTest extends AbstractTestCase
 
     /**
      * Tests getHtmlForControlButtons() method
-     *
-     * @test
      */
     public function testGetHtmlForControlButtons(): void
     {

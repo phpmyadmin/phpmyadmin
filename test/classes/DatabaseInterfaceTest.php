@@ -43,7 +43,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @param string      $string   string
      * @param array       $expected expected result
      *
-     * @test
      * @dataProvider currentUserData
      */
     public function testGetCurrentUser($value, string $string, array $expected): void
@@ -104,8 +103,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
     /**
      * Tests for DBI::getColumnMapFromSql() method.
-     *
-     * @test
      */
     public function testPMAGetColumnMap(): void
     {
@@ -169,8 +166,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
     /**
      * Tests for DBI::getSystemDatabase() method.
-     *
-     * @test
      */
     public function testGetSystemDatabase(): void
     {
@@ -180,8 +175,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
     /**
      * Tests for DBI::postConnectControl() method.
-     *
-     * @test
      */
     public function testPostConnectControl(): void
     {
@@ -193,8 +186,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
     /**
      * Test for getDbCollation
-     *
-     * @test
      */
     public function testGetDbCollation(): void
     {
@@ -216,8 +207,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
     /**
      * Test for getServerCollation
-     *
-     * @test
      */
     public function testGetServerCollation(): void
     {
@@ -285,7 +274,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
      * @param array $value    value
      * @param bool  $expected expected result
      *
-     * @test
      * @dataProvider isAmazonRdsData
      */
     public function atestIsAmazonRdsData(array $value, bool $expected): void
@@ -380,8 +368,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
     /**
      * Tests for DBI::setCollationl() method.
-     *
-     * @test
      */
     public function testSetCollation(): void
     {
@@ -418,8 +404,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
     /**
      * Tests for DBI::getForeignKeyConstrains() method.
-     *
-     * @test
      */
     public function testGetForeignKeyConstrains(): void
     {

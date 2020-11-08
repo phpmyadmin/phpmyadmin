@@ -80,8 +80,6 @@ class SystemDatabaseTest extends AbstractTestCase
 
     /**
      * Tests for PMA_getExistingTransformationData() method.
-     *
-     * @test
      */
     public function testPMAGetExistingTransformationData(): void
     {
@@ -97,8 +95,6 @@ class SystemDatabaseTest extends AbstractTestCase
 
     /**
      * Tests for PMA_getNewTransformationDataSql() method.
-     *
-     * @test
      */
     public function testPMAGetNewTransformationDataSql(): void
     {

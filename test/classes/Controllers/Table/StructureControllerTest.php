@@ -91,8 +91,6 @@ class StructureControllerTest extends AbstractTestCase
      * Tests for getKeyForTablePrimary()
      *
      * Case one: there are no primary key in the table
-     *
-     * @test
      */
     public function testGetKeyForTablePrimaryOne(): void
     {
@@ -127,8 +125,6 @@ class StructureControllerTest extends AbstractTestCase
      * Tests for getKeyForTablePrimary()
      *
      * Case two: there are a primary key in the table
-     *
-     * @test
      */
     public function testGetKeyForTablePrimaryTwo(): void
     {
@@ -178,8 +174,6 @@ class StructureControllerTest extends AbstractTestCase
 
     /**
      * Tests for adjustColumnPrivileges()
-     *
-     * @test
      */
     public function testAdjustColumnPrivileges(): void
     {

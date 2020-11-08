@@ -186,8 +186,6 @@ class NodeTest extends AbstractTestCase
     /**
      * Tests whether Node->hasSiblings() method returns false
      * when the node does not have any siblings.
-     *
-     * @test
      */
     public function testHasSiblingsWithNoSiblings(): void
     {
@@ -200,8 +198,6 @@ class NodeTest extends AbstractTestCase
     /**
      * Tests whether Node->hasSiblings() method returns true
      * when it actually has siblings.
-     *
-     * @test
      */
     public function testHasSiblingsWithSiblings(): void
     {
@@ -234,8 +230,6 @@ class NodeTest extends AbstractTestCase
     /**
      * It is expected that Node->hasSiblings() method always return true
      * for Nodes that are 3 levels deep (columns and indexes).
-     *
-     * @test
      */
     public function testHasSiblingsForNodesAtLevelThree(): void
     {
@@ -255,8 +249,6 @@ class NodeTest extends AbstractTestCase
 
     /**
      * Tests private method _getWhereClause()
-     *
-     * @test
      */
     public function testGetWhereClause(): void
     {
@@ -315,8 +307,6 @@ class NodeTest extends AbstractTestCase
     /**
      * Tests getData() method when DisableIS is false and navigation tree
      * grouping enabled.
-     *
-     * @test
      */
     public function testGetDataWithEnabledISAndGroupingEnabled(): void
     {
@@ -364,8 +354,6 @@ class NodeTest extends AbstractTestCase
     /**
      * Tests getData() method when DisableIS is false and navigation tree
      * grouping disabled.
-     *
-     * @test
      */
     public function testGetDataWithEnabledISAndGroupingDisabled(): void
     {
@@ -401,8 +389,6 @@ class NodeTest extends AbstractTestCase
     /**
      * Tests getData() method when DisableIS is true and navigation tree
      * grouping enabled.
-     *
-     * @test
      */
     public function testGetDataWithDisabledISAndGroupingEnabled(): void
     {
@@ -448,8 +434,6 @@ class NodeTest extends AbstractTestCase
     /**
      * Tests the getPresence method when DisableIS is false and navigation tree
      * grouping enabled.
-     *
-     * @test
      */
     public function testGetPresenceWithEnabledISAndGroupingEnabled(): void
     {
@@ -482,8 +466,6 @@ class NodeTest extends AbstractTestCase
     /**
      * Tests the getPresence method when DisableIS is false and navigation tree
      * grouping disabled.
-     *
-     * @test
      */
     public function testGetPresenceWithEnabledISAndGroupingDisabled(): void
     {
@@ -507,8 +489,6 @@ class NodeTest extends AbstractTestCase
 
     /**
      * Tests the getPresence method when DisableIS is true
-     *
-     * @test
      */
     public function testGetPresenceWithDisabledIS(): void
     {

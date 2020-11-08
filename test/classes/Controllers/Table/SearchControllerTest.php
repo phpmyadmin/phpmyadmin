@@ -103,8 +103,6 @@ class SearchControllerTest extends AbstractTestCase
 
     /**
      * Tests for getColumnMinMax()
-     *
-     * @test
      */
     public function testGetColumnMinMax(): void
     {
@@ -133,8 +131,6 @@ class SearchControllerTest extends AbstractTestCase
 
     /**
      * Tests for getDataRowAction()
-     *
-     * @test
      */
     public function testGetDataRowAction(): void
     {

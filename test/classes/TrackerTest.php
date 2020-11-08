@@ -47,8 +47,6 @@ class TrackerTest extends AbstractTestCase
 
     /**
      * Test for Tracker::enable
-     *
-     * @test
      */
     public function testEnabled(): void
     {
@@ -63,8 +61,6 @@ class TrackerTest extends AbstractTestCase
 
     /**
      * Test for Tracker::isActive()
-     *
-     * @test
      */
     public function testIsActive(): void
     {
@@ -105,7 +101,6 @@ class TrackerTest extends AbstractTestCase
      * @param string $string   String to test against
      * @param string $expected Expected Table Name
      *
-     * @test
      * @dataProvider getTableNameData
      */
     public function testGetTableName(string $string, string $expected): void
@@ -141,8 +136,6 @@ class TrackerTest extends AbstractTestCase
 
     /**
      * Test for Tracker::isTracked()
-     *
-     * @test
      */
     public function testIsTracked(): void
     {
@@ -176,8 +169,6 @@ class TrackerTest extends AbstractTestCase
 
     /**
      * Test for Tracker::getLogComment()
-     *
-     * @test
      */
     public function testGetLogComment(): void
     {
@@ -192,8 +183,6 @@ class TrackerTest extends AbstractTestCase
 
     /**
      * Test for Tracker::createVersion()
-     *
-     * @test
      */
     public function testCreateVersion(): void
     {
@@ -305,8 +294,6 @@ class TrackerTest extends AbstractTestCase
 
     /**
      * Test for Tracker::deleteTracking()
-     *
-     * @test
      */
     public function testDeleteTracking(): void
     {
@@ -335,8 +322,6 @@ class TrackerTest extends AbstractTestCase
 
     /**
      * Test for Tracker::createDatabaseVersion()
-     *
-     * @test
      */
     public function testCreateDatabaseVersion(): void
     {
@@ -389,8 +374,6 @@ class TrackerTest extends AbstractTestCase
      * @param string     $version   Version
      * @param string|int $new_state State to change to
      * @param string     $type      Type of test
-     *
-     * @test
      */
     public function testChangeTracking(
         string $dbname = 'pma_db',
@@ -445,8 +428,6 @@ class TrackerTest extends AbstractTestCase
 
     /**
      * Test for Tracker::testChangeTrackingData()
-     *
-     * @test
      */
     public function testChangeTrackingData(): void
     {
@@ -534,8 +515,6 @@ class TrackerTest extends AbstractTestCase
 
     /**
      * Test for Tracker::activateTracking()
-     *
-     * @test
      */
     public function testActivateTracking(): void
     {
@@ -544,8 +523,6 @@ class TrackerTest extends AbstractTestCase
 
     /**
      * Test for Tracker::deactivateTracking()
-     *
-     * @test
      */
     public function testDeactivateTracking(): void
     {
@@ -558,7 +535,6 @@ class TrackerTest extends AbstractTestCase
      * @param array $fetchArrayReturn Value to be returned by mocked fetchArray
      * @param array $expectedArray    Expected array
      *
-     * @test
      * @dataProvider getTrackedDataProvider
      */
     public function testGetTrackedData(array $fetchArrayReturn, array $expectedArray): void
@@ -707,7 +683,6 @@ class TrackerTest extends AbstractTestCase
      * @param string $db                     Expected dbname
      * @param string $tablename_after_rename Expected name after rename
      *
-     * @test
      * @dataProvider parseQueryData
      */
     public function testParseQuery(

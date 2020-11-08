@@ -403,7 +403,6 @@ class UtilTest extends AbstractTestCase
      * @param string $collation Collation
      * @param string $expected  Expected Charset Query
      *
-     * @test
      * @dataProvider charsetQueryData
      */
     public function testGenerateCharsetQueryPart(string $collation, string $expected): void

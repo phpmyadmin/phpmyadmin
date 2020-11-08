@@ -99,8 +99,6 @@ class StructureControllerTest extends AbstractTestCase
 
     /**
      * Tests for getValuesForInnodbTable()
-     *
-     * @test
      */
     public function testGetValuesForInnodbTable(): void
     {
@@ -203,8 +201,6 @@ class StructureControllerTest extends AbstractTestCase
 
     /**
      * Tests for the getValuesForAriaTable()
-     *
-     * @test
      */
     public function testGetValuesForAriaTable(): void
     {
@@ -327,8 +323,6 @@ class StructureControllerTest extends AbstractTestCase
 
     /**
      * Tests for hasTable()
-     *
-     * @test
      */
     public function testHasTable(): void
     {
@@ -367,8 +361,6 @@ class StructureControllerTest extends AbstractTestCase
 
     /**
      * Tests for checkFavoriteTable()
-     *
-     * @test
      */
     public function testCheckFavoriteTable(): void
     {
@@ -405,8 +397,6 @@ class StructureControllerTest extends AbstractTestCase
 
     /**
      * Tests for synchronizeFavoriteTables()
-     *
-     * @test
      */
     public function testSynchronizeFavoriteTables(): void
     {
@@ -468,8 +458,6 @@ class StructureControllerTest extends AbstractTestCase
 
     /**
      * Tests for handleRealRowCountRequestAction()
-     *
-     * @test
      */
     public function testHandleRealRowCountRequestAction(): void
     {
