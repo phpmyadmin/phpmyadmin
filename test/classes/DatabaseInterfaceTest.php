@@ -276,7 +276,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @dataProvider isAmazonRdsData
      */
-    public function atestIsAmazonRdsData(array $value, bool $expected): void
+    public function testIsAmazonRdsData(array $value, bool $expected): void
     {
         SessionCache::remove('is_amazon_rds');
 
