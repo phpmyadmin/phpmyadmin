@@ -163,12 +163,14 @@ abstract class AbstractTestCase extends TestCase
     /**
      * Call protected functions by setting visibility to public.
      *
-     * @param object|null  $object     The object to inspect, pass null for static objects()
-     * @param class-string $className  The class name
-     * @param string       $methodName The method name
-     * @param array        $params     The parameters for the invocation
+     * @param object|null $object     The object to inspect, pass null for static objects()
+     * @param string      $className  The class name
+     * @param string      $methodName The method name
+     * @param array       $params     The parameters for the invocation
      *
      * @return mixed the output from the protected method.
+     *
+     * @phpstan-param class-string $className
      */
     protected function callFunction($object, string $className, string $methodName, array $params)
     {
