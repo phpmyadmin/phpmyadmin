@@ -301,7 +301,7 @@ class Generator
         $class = 'caution';
         if (! $server['ssl']) {
             $message = __('SSL is not being used');
-            if (! empty($server['socket']) || $server['host'] === '127.0.0.1' || $server['host'] === 'localhost') {
+            if (! empty($server['socket']) || in_array($server['host'], $GLOBALS['cfg']['MysqlSslWarningSafeHosts'])) {
                 $class = '';
             }
         } elseif (! $server['ssl_verify']) {

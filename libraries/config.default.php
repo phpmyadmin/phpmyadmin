@@ -719,6 +719,13 @@ $cfg['ExecTimeLimit'] = 300;
 $cfg['SessionSavePath'] = '';
 
 /**
+ * Hosts or IPs to consider safe when checking if SSL is used or not
+ *
+ * @global array $cfg['MysqlSslWarningSafeHosts']
+ */
+$cfg['MysqlSslWarningSafeHosts'] = ['127.0.0.1', 'localhost'];
+
+/**
  * maximum allocated bytes ('-1' for no limit, '0' for no change)
  * this is a string because '16M' is a valid value; we must put here
  * a string as the default value so that /setup accepts strings

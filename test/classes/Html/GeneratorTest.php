@@ -282,4 +282,107 @@ class GeneratorTest extends AbstractTestCase
             Generator::formatSql('SELECT 1 < 2', true)
         );
     }
+
+    /**
+     * Test for getServerSSL
+     */
+    public function testGetServerSSL(): void
+    {
+        global $cfg;
+
+        $sslNotUsed = '<span class="">SSL is not being used</span>'
+        . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+        . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
+        . ' class="icon ic_b_help"></a>';
+
+        $sslNotUsedCaution = '<span class="caution">SSL is not being used</span>'
+        . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+        . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
+        . ' class="icon ic_b_help"></a>';
+
+        $cfg['Server'] = [
+            'ssl' => false,
+            'host' => '127.0.0.1',
+        ];
+        $this->assertEquals(
+            $sslNotUsed,
+            Generator::getServerSSL()
+        );
+
+        $cfg['Server'] = [
+            'ssl' => false,
+            'host' => 'custom.host',
+        ];
+        $cfg['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1'];
+
+        $this->assertEquals(
+            $sslNotUsedCaution,
+            Generator::getServerSSL()
+        );
+
+        $cfg['Server'] = [
+            'ssl' => false,
+            'host' => 'custom.host',
+        ];
+        $cfg['MysqlSslWarningSafeHosts'] = ['localhost', '127.0.0.1', 'custom.host'];
+
+        $this->assertEquals(
+            $sslNotUsed,
+            Generator::getServerSSL()
+        );
+
+        $cfg['Server'] = [
+            'ssl' => false,
+            'ssl_verify' => true,
+            'host' => 'custom.host',
+        ];
+
+        $this->assertEquals(
+            $sslNotUsed,
+            Generator::getServerSSL()
+        );
+
+        $cfg['Server'] = [
+            'ssl' => true,
+            'ssl_verify' => false,
+            'host' => 'custom.host',
+        ];
+
+        $this->assertEquals(
+            '<span class="caution">SSL is used with disabled verification</span>'
+            . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+            . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
+            . ' class="icon ic_b_help"></a>',
+            Generator::getServerSSL()
+        );
+
+        $cfg['Server'] = [
+            'ssl' => true,
+            'ssl_verify' => true,
+            'host' => 'custom.host',
+        ];
+
+        $this->assertEquals(
+            '<span class="caution">SSL is used without certification authority</span>'
+            . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+            . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
+            . ' class="icon ic_b_help"></a>',
+            Generator::getServerSSL()
+        );
+
+        $cfg['Server'] = [
+            'ssl' => true,
+            'ssl_verify' => true,
+            'ssl_ca' => '/etc/ssl/ca.crt',
+            'host' => 'custom.host',
+        ];
+
+        $this->assertEquals(
+            '<span class="">SSL is used</span>'
+            . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
+            . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
+            . ' class="icon ic_b_help"></a>',
+            Generator::getServerSSL()
+        );
+    }
 }
