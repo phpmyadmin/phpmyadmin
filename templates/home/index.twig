@@ -102,6 +102,14 @@
                     {{ theme_selection|raw }}
                   </li>
                 {% endif %}
+
+                {% if theme_generator is not empty %}
+                  <li id="li_select_theme" class="list-group-item">
+                    <a href="{{ url('/theme-generator') }}" id="theme_generator_anchor">
+                      {{ get_icon('s_theme', 'Theme Generator'|trans, true) }}
+                    </a>
+                  </li>
+                {% endif %}
               </ul>
             </div>
           </div>

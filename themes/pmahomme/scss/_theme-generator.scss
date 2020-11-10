@@ -1,0 +1,592 @@
+$hue : url('../img/theme_generator/hue.png');
+$alphaMask : url('../img/theme_generator/alpha_mask.png');
+
+.ui-color-picker {
+  width: 435px;
+  margin: 0;
+  display: table;
+  user-select: none;
+}
+
+.ui-color-picker .picking-area {
+  width: 198px;
+  height: 198px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  position: relative;
+  float: left;
+  display: table;
+}
+
+.ui-color-picker .picking-area:hover {
+  cursor: default;
+}
+
+/* HSB format - Hue-Saturation-Value(Brightness) */
+.ui-color-picker .picking-area {
+  background:
+    -moz-linear-gradient(bottom, #000 0%, rgba(0, 0, 0, 0) 100%),
+    -moz-linear-gradient(left, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  background:
+    -webkit-linear-gradient(bottom, #000 0%, rgba(0, 0, 0, 0) 100%),
+    -webkit-linear-gradient(left, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  background:
+    -ms-linear-gradient(bottom, #000 0%, rgba(0, 0, 0, 0) 100%),
+    -ms-linear-gradient(left, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  background:
+    -o-linear-gradient(bottom, #000 0%, rgba(0, 0, 0, 0) 100%),
+    -o-linear-gradient(left, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  background-color: #f00;
+}
+
+/* HSL format - Hue-Saturation-Lightness */
+.ui-color-picker[data-mode='HSL'] .picking-area {
+  background:
+    -moz-linear-gradient(
+        top,
+        hsl(0, 0%, 100%) 0%,
+        hsla(0, 0%, 100%, 0) 50%,
+        hsla(0, 0%, 0%, 0) 50%,
+        hsl(0, 0%, 0%) 100%
+    ),
+    -moz-linear-gradient(
+        left,
+        hsl(0, 0%, 50%) 0%,
+        hsla(0, 0%, 50%, 0) 100%
+    );
+  background:
+    -webkit-linear-gradient(
+        top,
+        hsl(0, 0%, 100%) 0%,
+        hsla(0, 0%, 100%, 0) 50%,
+        hsla(0, 0%, 0%, 0) 50%,
+        hsl(0, 0%, 0%) 100%
+    ),
+    -webkit-linear-gradient(
+        left,
+        hsl(0, 0%, 50%) 0%,
+        hsla(0, 0%, 50%, 0) 100%
+    );
+  background:
+    -ms-linear-gradient(
+        top,
+        hsl(0, 0%, 100%) 0%,
+        hsla(0, 0%, 100%, 0) 50%,
+        hsla(0, 0%, 0%, 0) 50%,
+        hsl(0, 0%, 0%) 100%
+    ),
+    -ms-linear-gradient(
+        left,
+        hsl(0, 0%, 50%) 0%,
+        hsla(0, 0%, 50%, 0)
+        100%
+    );
+  background:
+    -o-linear-gradient(
+        top,
+        hsl(0, 0%, 100%) 0%,
+        hsla(0, 0%, 100%, 0) 50%,
+        hsla(0, 0%, 0%, 0) 50%,
+        hsl(0, 0%, 0%) 100%
+    ),
+    -o-linear-gradient(
+        left,
+        hsl(0, 0%, 50%) 0%,
+        hsla(0, 0%, 50%, 0)
+        100%
+    );
+  background-color: #f00;
+}
+
+.ui-color-picker .picker {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+}
+
+.ui-color-picker .picker::before {
+  width: 8px;
+  height: 8px;
+  content: "";
+  position: absolute;
+  border: 1px solid #999;
+  border-radius: 50%;
+}
+
+.ui-color-picker .hue,
+.ui-color-picker .alpha {
+  width: 198px;
+  height: 28px;
+  margin: 5px;
+  border: 1px solid #fff;
+  float: left;
+}
+
+.ui-color-picker .hue {
+  background: $hue center;
+  background:
+    -moz-linear-gradient(
+        left,
+        #f00 0%,
+        #ff0 16.66%,
+        #0f0 33.33%,
+        #0ff 50%,
+        #00f 66.66%,
+        #f0f 83.33%,
+        #f00 100%
+    );
+  background:
+    -webkit-linear-gradient(
+        left,
+        #f00 0%,
+        #ff0 16.66%,
+        #0f0 33.33%,
+        #0ff 50%,
+        #00f 66.66%,
+        #f0f 83.33%,
+        #f00 100%
+    );
+  background:
+    -ms-linear-gradient(
+        left,
+        #f00 0%,
+        #ff0 16.66%,
+        #0f0 33.33%,
+        #0ff 50%,
+        #00f 66.66%,
+        #f0f 83.33%,
+        #f00 100%
+    );
+  background:
+    -o-linear-gradient(
+        left,
+        #f00 0%,
+        #ff0 16.66%,
+        #0f0 33.33%,
+        #0ff 50%,
+        #00f 66.66%,
+        #f0f 83.33%,
+        #f00 100%
+    );
+}
+
+.ui-color-picker .alpha {
+  border: 1px solid #ccc;
+}
+
+.ui-color-picker .alpha-mask {
+  width: 100%;
+  height: 100%;
+  background: $alphaMask;
+}
+
+.ui-color-picker .slider-picker {
+  width: 2px;
+  height: 100%;
+  border: 1px solid #777;
+  background-color: #fff;
+  position: relative;
+  top: -1px;
+}
+
+/* input HSB and RGB */
+
+.ui-color-picker .info {
+  width: 200px;
+  margin: 5px;
+  float: left;
+}
+
+.ui-color-picker .info * {
+  float: left;
+}
+
+.ui-color-picker .input {
+  width: 64px;
+  margin: 5px 2px;
+  float: left;
+}
+
+.ui-color-picker .input .name {
+  height: 20px;
+  width: 30px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 18px;
+  float: left;
+}
+
+.ui-color-picker .input input {
+  width: 30px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ddd;
+  text-align: center;
+  float: right;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+}
+
+.ui-color-picker .input[data-topic="lightness"] {
+  display: none;
+}
+
+.ui-color-picker[data-mode='HSL'] .input[data-topic="value"] {
+  display: none;
+}
+
+.ui-color-picker[data-mode='HSL'] .input[data-topic="lightness"] {
+  display: block;
+}
+
+.ui-color-picker .input[data-topic="alpha"] {
+  margin-top: 10px;
+  width: 93px;
+}
+
+.ui-color-picker .input[data-topic="alpha"] > .name {
+  width: 60px;
+}
+
+.ui-color-picker .input[data-topic="alpha"] > input {
+  float: right;
+}
+
+.ui-color-picker .input[data-topic="hexa"] {
+  width: auto;
+  float: right;
+  margin: 6px 8px 0 0;
+}
+
+.ui-color-picker .input[data-topic="hexa"] > .name {
+  display: none;
+}
+
+.ui-color-picker .input[data-topic="hexa"] > input {
+  width: 90px;
+  height: 24px;
+  padding: 2px 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Preview color */
+.ui-color-picker .preview {
+  width: 95px;
+  height: 53px;
+  margin: 5px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  float: left;
+  position: relative;
+}
+
+.ui-color-picker .preview::before {
+  height: 100%;
+  width: 50%;
+  left: 50%;
+  top: 0;
+  content: "";
+  background: #fff;
+  position: absolute;
+  z-index: 1;
+}
+
+.ui-color-picker .preview-color {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.5);
+  position: absolute;
+  z-index: 1;
+}
+
+.ui-color-picker .switch_mode {
+  width: 10px;
+  height: 20px;
+  position: relative;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #ddd;
+  background-color: #eee;
+  left: -12px;
+  top: -1px;
+  z-index: 1;
+  transition: all 0.5s;
+}
+
+.ui-color-picker .switch_mode:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+
+/**
+* 	Container
+*/
+#container {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: table;
+}
+
+/**
+* 	Picker Zone
+*/
+
+#picker {
+  padding: 1%;
+}
+
+.ui-color-picker {
+  padding: 0.5%;
+  float: left;
+}
+
+.ui-color-picker .switch_mode {
+  display: none;
+}
+
+.ui-color-picker .preview-color:hover {
+  cursor: move;
+}
+
+/**
+* 	Controls
+*/
+
+#controls {
+  width: 110px;
+  padding: 10px;
+  float: right;
+}
+
+#controls #picker-switch {
+  text-align: center;
+  float: left;
+}
+
+#controls .icon {
+  width: 48px;
+  height: 48px;
+  margin: 10px 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #ddd;
+  display: table;
+  float: left;
+}
+
+#controls .icon:hover {
+  cursor: pointer;
+}
+
+#controls .switch {
+  width: 106px;
+  padding: 1px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  text-align: center;
+  line-height: 24px;
+  overflow: hidden;
+  float: left;
+}
+
+#controls .switch:hover {
+  cursor: pointer;
+}
+
+#controls .switch > * {
+  width: 50%;
+  padding: 2px 0;
+  background-color: #eee;
+  float: left;
+}
+
+#controls .switch [data-active='true'] {
+  color: #fff;
+}
+
+/**
+* 	Color Theme
+*/
+
+#color-theme {
+  margin: 0 8px 0 0;
+  border: 1px solid #eee;
+  display: inline-block;
+  float: right;
+}
+
+#color-theme .box {
+  width: 80px;
+  height: 92px;
+  float: left;
+}
+
+/**
+* Color info box
+*/
+#color-info {
+  width: 360px;
+  float: left;
+}
+
+#color-info .title {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  text-align: center;
+}
+
+#color-info .copy-container {
+  position: absolute;
+  top: -100%;
+}
+
+#color-info .property {
+  min-width: 280px;
+  height: 30px;
+  margin: 10px 0;
+  text-align: center;
+  line-height: 30px;
+}
+
+#color-info .property > * {
+  float: left;
+}
+
+#color-info .property .type {
+  width: 60px;
+  height: 100%;
+  padding: 0 16px 0 0;
+  text-align: right;
+}
+
+#color-info .property .value {
+  width: 200px;
+  height: 100%;
+  padding: 0 10px;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #777;
+  text-align: center;
+  background-color: #fff;
+  border: none;
+}
+
+#color-info .property .value:hover {
+  color: #37994a;
+}
+
+#color-info .property .value:hover + .copy {
+  background-position: center right;
+}
+
+/**
+* 	Color Palette
+*/
+
+#palette {
+  width: 675px;
+  height: 220px;
+  padding: 10px 0;
+  color: #777;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#color-palette {
+  width: 1000px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #777;
+  float: left;
+}
+
+#color-palette .container {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  overflow: hidden;
+  float: left;
+  transition: all 0.5s;
+}
+
+#color-palette .container > * {
+  float: left;
+}
+
+#color-palette .title {
+  width: 100px;
+  padding: 0 10px;
+  text-align: right;
+  line-height: inherit;
+}
+
+#color-palette .palette {
+  width: 367px;
+  height: 38px;
+  margin: 3px;
+  padding: 3px;
+  display: table;
+  background-color: #fff;
+}
+
+#color-palette .palette .sample {
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  position: relative;
+  border: 1px solid #ddd;
+  float: left;
+  transition: all 0.2s;
+}
+
+#color-palette .palette .sample:hover {
+  cursor: pointer;
+  border-color: #bbb;
+  transform: scale(1.15);
+  border-radius: 3px;
+}
+
+#zindex {
+  height: 20px;
+  margin: 5px;
+  font-size: 16px;
+  position: absolute;
+  opacity: 0;
+  top: -10000px;
+  left: 0;
+  color: #777;
+  float: left;
+  transition: opacity 1s;
+}
+
+#zindex input {
+  border: 1px solid #ddd;
+  font-size: 16px;
+  color: #777;
+}
+
+#zindex[data-active='true'] {
+  top: 0;
+  opacity: 1;
+}
+
+.title:hover {
+  text-decoration: underline;
+  color: #235a81;
+}
+
+#preview_save_btn {
+  text-align: center;
+  line-height: 350%;
+}

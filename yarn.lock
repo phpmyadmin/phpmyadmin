@@ -5539,6 +5539,11 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
+sass.js@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/sass.js/-/sass.js-0.11.1.tgz#199c73dcafd74043281c864393197ff12f945161"
+  integrity sha512-X9AtzYFr/HZ+pDIxX6xN74w/H9JjnDHqZcsYY8mr/SpCyhDVN1pJ3G0Q9rb+z3pZ7obZdYuTYMbKl1ALuhbZDw==
+
 sass@^1.30.0:
   version "1.30.0"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.30.0.tgz#60bbbbaf76ba10117e61c6c24f00161c3d60610e"

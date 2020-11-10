@@ -44,6 +44,7 @@ $border: 0;
 $th-background: #d3dce3;
 // table header and footer background
 $th-color: #000;
+$th-hyperlink-color: #3a7ead;
 // table data row background
 $bg-one: #e5e5e5;
 // table data row background, alternate
@@ -55,6 +56,7 @@ $bg-two: #d5d5d5;
 // Body
 
 $body-color: $main-color;
+$body-bg: #fff;
 
 // Links
 
@@ -85,6 +87,7 @@ $table-accent-bg: #dfdfdf;
 $table-hover-color: $browse-pointer-color;
 $table-border-color: #fff;
 $table-border-width: 0;
+$table-text-shadow: #fff;
 
 // Buttons
 
@@ -138,6 +141,7 @@ $pagination-disabled-border-color: #aaa;
 $card-border-color: #aaa;
 $card-bg: #eee;
 $card-cap-bg: #fff;
+$card-text-shadow: #fff;
 
 // Breadcrumbs
 

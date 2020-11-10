@@ -856,6 +856,13 @@ return [
                 '$template' => '@template',
             ],
         ],
+        PhpMyAdmin\Controllers\ThemeGeneratorController::class => [
+            'class' => PhpMyAdmin\Controllers\ThemeGeneratorController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+            ],
+        ],
         PhpMyAdmin\Controllers\TransformationOverviewController::class => [
             'class' => PhpMyAdmin\Controllers\TransformationOverviewController::class,
             'arguments' => [

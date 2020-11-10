@@ -2701,6 +2701,12 @@ $cfg['ThemeDefault'] = 'pmahomme';
  */
 $cfg['ThemePerServer'] = false;
 
+/**
+ * Enabling theme generator
+ *
+ * @global boolean $cfg['ThemeGenerator']
+ */
+$cfg['ThemeGenerator'] = false;
 
 /**
  * Default query for table

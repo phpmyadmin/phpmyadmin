@@ -1,0 +1,61 @@
+<div class="card mt-4">
+  <div class="card-header">
+    {% trans 'Preview and Save Theme' %}
+  </div>
+  <div class="card-body">
+    <table width="100%">
+      <tbody>
+      <tr>
+        <td>
+          {% trans 'Colour Palette' %}
+        </td>
+        <td>
+          <select name="type" id="theme">
+            <option value="0">{% trans 'Triadic' %}</option>
+            <option value="1">{% trans 'Complementary' %}</option>
+            <option value="2">{% trans 'Adjacent' %}</option>
+            <option value="3">{% trans 'Monochrome' %}</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {% trans 'Font' %}
+        </td>
+        <td>
+          <select name="font" id="font">
+            <option value="sans-serif">sans-serif</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Palatino Linotype">Palatino Linotype</option>
+            <option value="Book Antiqua">Book Antiqua</option>
+            <option value="Arial">Arial</option>
+            <option value="Helvetica">Helvetica</option>
+            <option value="Arial Black">Arial Black</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Verdana">Verdana</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {% trans 'Theme Name' %}
+        </td>
+        <td>
+          <input type="text" name="theme_name" id="theme_name" required />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="checkbox" name="text_contrast">{% trans 'Automatically set text colours for best visibility' %}
+        </td>
+      </tr>
+      <tr id="preview_save_btn">
+        <td colspan="2">
+          <a class="btn btn-primary" id="preview" href="#">{% trans 'Preview' %}</a>
+          <a class="btn btn-primary" id="save_theme" href="#">{% trans 'Save theme' %}</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

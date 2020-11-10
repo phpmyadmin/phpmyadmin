@@ -15,6 +15,7 @@ cd ${ROOT_DIR}
 echo 'Delete vendor files we can replace from source dists'
 find ./js/vendor/ \
     -not -path './js/vendor/openlayers/*' \
+    -not -path './js/vendor/mozilla-color-picker.js' \
     -type f -delete -print
 
 echo 'Updating codemirror'
@@ -62,6 +63,9 @@ echo '--- js/vendor/jquery/jquery.event.drag-2.2.js 2020-04-18 16:43:43.82220818
 -};
 +})( jQuery );
 ' | patch --strip=0
+echo 'Updating sass.sync.js'
+cp ./node_modules/sass.js/dist/sass.sync.js ./js/vendor/sass.js/sass.sync.js
+cp ./node_modules/sass.js/LICENSE ./js/vendor/sass.js/LICENSE
 echo 'Updating jquery-validation'
 cp ./node_modules/jquery-validation/dist/jquery.validate.js ./js/vendor/jquery/jquery.validate.js
 cp ./node_modules/jquery-validation/dist/additional-methods.js ./js/vendor/jquery/additional-methods.js

@@ -1,0 +1,44 @@
+<div id="maincontainer">
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-lg-7 col-12">
+				<div class="card mt-4">
+					<div class="card-header">{% trans 'Colour Palette' %}</div>
+					<div id="palette" class="block">
+						<div id="color-palette"></div>
+						{# Do not display this but keep this to make the lib work #}
+						<div id="color-info" class="d-none"></div>
+					</div>
+				</div>
+
+				{% include "theme_generator/preview_and_save.twig" %}
+			</div>
+			<div class="col-lg-5 col-12">
+				<div class="card mt-4">
+					<div class="card-header">{% trans 'Colour Picker' %}</div>
+					<div id="picker" class="block">
+						<div class="ui-color-picker" data-topic="picker" data-mode="HSL"></div>
+						<div id="picker-samples" sample-id="main"></div>
+						{# Do not display the controls but keep this to make the lib work #}
+						<div id="controls" class="d-none">
+							<div id="delete">
+								<div id="trash-can"></div>
+							</div>
+							<div id="void-sample" class="icon"></div>
+						</div>
+					</div>
+					{# Do not display the canvas but keep this to make the lib work #}
+					<div id="canvas" data-tutorial="drop" class="d-none">
+						<div id="zindex" class="ui-input-slider" data-topic="z-index" data-info="z-index" data-max="20" data-sensitivity="10"></div>
+					</div>
+				</div>
+				{% include "theme_generator/table_preview.twig" %}
+			</div>
+		</div>
+	</div>
+</div>
+{# Invisible characters will make javascript crash #}
+<script type="text/javascript">
+	var sassArr = {{ sass_config|raw }};
+</script>

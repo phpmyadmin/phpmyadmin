@@ -1,0 +1,98 @@
+<div id="table_preview" class="card mt-4 d-none">
+  <div class="card-header">{% trans 'Table Preview' %}</div>
+  <div>
+    <div class="table-responsive-md">
+      <table class="table table-striped table-hover table-sm table_results data ajax">
+        <tr>
+          <th class="column_action sticky print_ignore" colspan="4" data-bs-original-title="" title="">
+            <span>
+              <a href="#">
+                <img class="fulltext" src="./themes/pmahomme/img/s_fulltext.png" alt="{% trans 'Full Texts' %}" title="{% trans 'Full Texts' %}">
+              </a>
+            </span>
+          </th>
+          <th class="draggable column_heading sticky pointer marker" data-column="shape" data-bs-original-title="" title="" style="cursor: move;">
+            <span>
+              <a href="#" class="sortlink">{% trans 'Column Name' %}</a>
+            </span>
+          </th>
+        </tr>
+        </thead>
+
+        <tbody>
+          <tr class="row_preview">
+            <td class="text-center print_ignore">
+              <span><input type="checkbox" class="multi_checkbox checkall"></span>
+            </td>
+            <td class="text-center print_ignore edit_row_anchor">
+              <span class="text-nowrap">
+                <a href="#"><span class="text-nowrap"><img src="themes/dot.gif" title="{% trans 'Edit' %}" alt="{% trans 'Edit' %}" class="icon ic_b_edit">{% trans 'Edit' %}</span></a>
+              </span>
+            </td>
+
+            <td class="text-center print_ignore">
+              <span class="text-nowrap">
+                <a href="#"><span class="text-nowrap"><img src="themes/dot.gif" title="{% trans 'Copy' %}" alt="{% trans 'Copy' %}" class="icon ic_b_insrow">{% trans 'Copy' %}</span></a>
+              </span>
+            </td>
+
+            <td class="text-center print_ignore ajax">
+              <span class="text-nowrap">
+                <a href="#" class="delete_row requireConfirm ajax"><span class="text-nowrap"><img src="themes/dot.gif" title="{% trans 'Delete' %}" alt="{% trans 'Delete' %}" class="icon ic_b_drop">{% trans 'Delete' %}</span></a>
+              </span>
+            </td>
+            <td data-type="string" class="data grid_edit click2 not_null   text pre_wrap"><span>{% trans 'Row 1' %}</span></td>
+          </tr>
+
+          <tr class="row_alternate_preview">
+            <td class="text-center print_ignore">
+              <span><input type="checkbox" class="multi_checkbox checkall"></span>
+            </td>
+            <td class="text-center print_ignore edit_row_anchor">
+              <span class="text-nowrap">
+                <a href="#"><span class="text-nowrap"><img src="themes/dot.gif" title="{% trans 'Edit' %}" alt="{% trans 'Edit' %}" class="icon ic_b_edit">{% trans 'Edit' %}</span></a>
+              </span>
+            </td>
+
+            <td class="text-center print_ignore">
+              <span class="text-nowrap">
+                <a href="#"><span class="text-nowrap"><img src="themes/dot.gif" title="{% trans 'Copy' %}" alt="{% trans 'Copy' %}" class="icon ic_b_insrow">{% trans 'Copy' %}</span></a>
+              </span>
+            </td>
+
+            <td class="text-center print_ignore ajax">
+              <span class="text-nowrap">
+                <a href="#" class="delete_row requireConfirm ajax"><span class="text-nowrap"><img src="themes/dot.gif" title="{% trans 'Delete' %}" alt="{% trans 'Delete' %}" class="icon ic_b_drop">{% trans 'Delete' %}</span></a>
+              </span>
+            </td>
+            <td data-type="string" class="data grid_edit click2 not_null   text pre_wrap"><span>{% trans 'Row 2' %}</span></td>
+          </tr>
+
+          <tr class="row_preview">
+            <td class="text-center print_ignore">
+              <span><input type="checkbox" class="multi_checkbox checkall"></span>
+            </td>
+            <td class="text-center print_ignore edit_row_anchor">
+              <span class="text-nowrap">
+                <a href="#"><span class="text-nowrap"><img src="themes/dot.gif" title="{% trans 'Edit' %}" alt="{% trans 'Edit' %}" class="icon ic_b_edit">{% trans 'Edit' %}</span></a>
+              </span>
+            </td>
+
+            <td class="text-center print_ignore">
+              <span class="text-nowrap">
+                <a href="#"><span class="text-nowrap"><img src="themes/dot.gif" title="{% trans 'Copy' %}" alt="{% trans 'Copy' %}" class="icon ic_b_insrow">{% trans 'Copy' %}</span></a>
+              </span>
+            </td>
+
+            <td class="text-center print_ignore ajax">
+              <span class="text-nowrap">
+                <a href="#" class="delete_row requireConfirm ajax"><span class="text-nowrap"><img src="themes/dot.gif" title="{% trans 'Delete' %}" alt="{% trans 'Delete' %}" class="icon ic_b_drop">{% trans 'Delete' %}</span></a>
+              </span>
+            </td>
+            <td data-type="string" class="data grid_edit click2 not_null   text pre_wrap"><span>{% trans 'Row 3' %}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

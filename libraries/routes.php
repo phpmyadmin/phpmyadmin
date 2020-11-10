@@ -91,6 +91,7 @@ use PhpMyAdmin\Controllers\Table\TrackingController as TableTrackingController;
 use PhpMyAdmin\Controllers\Table\TriggersController as TableTriggersController;
 use PhpMyAdmin\Controllers\Table\ZoomSearchController;
 use PhpMyAdmin\Controllers\TableController;
+use PhpMyAdmin\Controllers\ThemeGeneratorController;
 use PhpMyAdmin\Controllers\ThemesController;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
 use PhpMyAdmin\Controllers\TransformationWrapperController;
@@ -338,6 +339,10 @@ return static function (RouteCollector $routes): void {
     });
     $routes->addRoute(['GET', 'POST'], '/user-password', [UserPasswordController::class, 'index']);
     $routes->addRoute(['GET', 'POST'], '/version-check', [VersionCheckController::class, 'index']);
+    $routes->addGroup('/theme-generator', static function (RouteCollector $routes): void {
+        $routes->get('', [ThemeGeneratorController::class, 'index']);
+        $routes->post('/save', [ThemeGeneratorController::class, 'save']);
+    });
     $routes->addGroup('/view', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/create', [ViewCreateController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/operations', [ViewOperationsController::class, 'index']);

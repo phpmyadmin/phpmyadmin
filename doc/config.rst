@@ -3372,6 +3372,14 @@ Theme manager settings
 
     Whether to allow different theme for each server.
 
+.. config:option:: $cfg['ThemeGenerator']
+
+    :type: boolean
+    :default: false
+    .. versionadded:: 5.1.0
+
+    Whether to enable the theme generator.
+
 .. config:option:: $cfg['FontSize']
 
     :type: string

@@ -238,6 +238,7 @@ class HomeController extends AbstractController
             'charsets' => $charsetsList ?? [],
             'language_selector' => $languageSelector,
             'theme_selection' => $themeSelection,
+            'theme_generator' => $cfg['ThemeGenerator'],
             'database_server' => $databaseServer,
             'web_server' => $webServer,
             'show_php_info' => $cfg['ShowPhpInfo'],

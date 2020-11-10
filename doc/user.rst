@@ -13,4 +13,5 @@ User Guide
     charts
     import_export
     themes
+    theme_generator
     other
