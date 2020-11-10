@@ -7,12 +7,11 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use Williamdes\MariaDBMySQLKBS\KBException;
-use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use function header;
 use function htmlspecialchars;
 use function implode;
@@ -70,7 +69,7 @@ class VariablesController extends AbstractController
             $serverVars = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES;', 0, 1);
 
             // list of static (i.e. non-editable) system variables
-            $staticVariables = KBSearch::getStaticVariables();
+            $staticVariables = ServerVariablesProvider::getImplementation()->getStaticVariables();
 
             foreach ($serverVars as $name => $value) {
                 $hasSessionValue = isset($serverVarsSession[$name])
@@ -130,19 +129,17 @@ class VariablesController extends AbstractController
             'NUM'
         );
 
-        $json = [];
-        try {
-            $type = KBSearch::getVariableType($params['name']);
-            if ($type !== 'byte') {
-                throw new KBException('Not a type=byte');
-            }
+        $json = [
+            'message' => $varValue[1],
+        ];
 
+        $variableType = ServerVariablesProvider::getImplementation()->getVariableType($params['name']);
+
+        if ($variableType === 'byte') {
             $json['message'] = implode(
                 ' ',
                 Util::formatByteDown($varValue[1], 3, 3)
             );
-        } catch (KBException $e) {
-            $json['message'] = $varValue[1];
         }
 
         $this->response->addJSON($json);
@@ -164,18 +161,16 @@ class VariablesController extends AbstractController
             return;
         }
 
-        $value = $params['varValue'];
+        $value = (string) $params['varValue'];
+        $variableName = (string) $params['varName'];
         $matches = [];
-        try {
-            $type = KBSearch::getVariableType($params['varName']);
-            if ($type !== 'byte' || ! preg_match(
-                '/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',
-                $value,
-                $matches
-            )) {
-                throw new KBException('Not a type=byte or regex not matching');
-            }
+        $variableType = ServerVariablesProvider::getImplementation()->getVariableType($variableName);
 
+        if ($variableType === 'byte' && preg_match(
+            '/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',
+            $value,
+            $matches
+        )) {
             $exp = [
                 'kb' => 1,
                 'kib' => 1,
@@ -188,7 +183,7 @@ class VariablesController extends AbstractController
                 1024,
                 $exp[mb_strtolower($matches[3])]
             );
-        } catch (KBException $e) {
+        } else {
             $value = $this->dbi->escapeString($value);
         }
 
@@ -241,12 +236,9 @@ class VariablesController extends AbstractController
         $formattedValue = $value;
 
         if (is_numeric($value)) {
-            try {
-                $type = KBSearch::getVariableType($name);
-                if ($type !== 'byte') {
-                    throw new KBException('Not a type=byte or regex not matching');
-                }
+            $variableType = ServerVariablesProvider::getImplementation()->getVariableType($name);
 
+            if ($variableType === 'byte') {
                 $isHtmlFormatted = true;
                 $formattedValue = trim(
                     $this->template->render(
@@ -257,7 +249,7 @@ class VariablesController extends AbstractController
                         ]
                     )
                 );
-            } catch (KBException $e) {
+            } else {
                 $formattedValue = Util::formatNumber($value, 0);
             }
         }

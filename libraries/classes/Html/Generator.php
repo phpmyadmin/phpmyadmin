@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Html;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Profiling;
+use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Lexer;
@@ -22,8 +23,6 @@ use Throwable;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
-use Williamdes\MariaDBMySQLKBS\KBException;
-use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use const ENT_COMPAT;
 use function addslashes;
 use function array_key_exists;
@@ -87,24 +86,16 @@ class Generator
         bool $useMariaDB = false,
         ?string $text = null
     ): string {
-        $html = '';
-        try {
-            $type = KBSearch::MYSQL;
-            if ($useMariaDB) {
-                $type = KBSearch::MARIADB;
-            }
-            $docLink = KBSearch::getByName($name, $type);
-            $html = MySQLDocumentation::show(
-                $name,
-                false,
-                $docLink,
-                $text
-            );
-        } catch (KBException $e) {
-            unset($e);// phpstan workaround
-        }
+        $kbs = ServerVariablesProvider::getImplementation();
+        $link = $useMariaDB ? $kbs->getDocLinkByNameMariaDb($name) :
+                            $kbs->getDocLinkByNameMysql($name);
 
-        return $html;
+        return MySQLDocumentation::show(
+            $name,
+            false,
+            $link,
+            $text
+        );
     }
 
     /**
