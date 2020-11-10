@@ -2075,7 +2075,7 @@ class Results
 
         $draggable_html .= ' class="' . implode(' ', $th_class) . '"';
 
-        $draggable_html .= ' data-column="' . htmlspecialchars($fields_meta->name)
+        $draggable_html .= ' data-column="' . htmlspecialchars((string) $fields_meta->name)
             . '">' . $order_link . $comments . '</th>';
 
         return $draggable_html;
