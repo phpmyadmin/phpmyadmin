@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 - issue #15584 Add $cfg['MysqlSslWarningSafeHosts'] to set the red text black when ssl is not used on a private network
 - issue #15652 Replace deprecated FOUND_ROWS() function call on "distinct values" feature
 - issue        Export blobs as hex on JSON export
+- issue #16095 Fix leading space not shown in a CHAR column when browsing a table
 
 5.0.5 (not yet released)
 
