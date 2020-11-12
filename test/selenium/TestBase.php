@@ -472,7 +472,7 @@ abstract class TestBase extends TestCase
             $this->selectByLabel($this->byId('sel-lang'), 'English');
         }
 
-        // Clear the input for Microsoft Edge (remebers the username)
+        // Clear the input for Microsoft Edge (remembers the username)
         $this->waitForElement('id', 'input_username')->clear()->click()->sendKeys($username);
         $this->byId('input_password')->click()->sendKeys($password);
         $this->byId('input_go')->click();

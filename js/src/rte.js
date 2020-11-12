@@ -199,7 +199,7 @@ RTE.COMMON = {
          */
         var $editRow = null;
         if ($this.hasClass('edit_anchor')) {
-            // Remeber the row of the item being edited for later,
+            // Remember the row of the item being edited for later,
             // so that if the edit is successful, we can replace the
             // row with info about the modified item.
             $editRow = $this.parents('tr');
@@ -298,7 +298,7 @@ RTE.COMMON = {
                                 }
                                 // Now we have inserted the row at the correct
                                 // position, but surely at least some row classes
-                                // are wrong now. So we will itirate throught
+                                // are wrong now. So we will iterate through
                                 // all rows and assign correct classes to them
                                 /**
                                  * @var ct Count of processed rows
@@ -363,7 +363,7 @@ RTE.COMMON = {
                     }
                 });
                 /**
-                 * @var mode Used to remeber whether the editor is in
+                 * @var mode Used to remember whether the editor is in
                  *           "Edit" or "Add" mode
                  */
                 var mode = 'add';
@@ -430,8 +430,8 @@ RTE.COMMON = {
                         $currRow.hide('slow', function () {
                             $(this).remove();
                             // Now we have removed the row from the list, but maybe
-                            // some row classes are wrong now. So we will itirate
-                            // throught all rows and assign correct classes to them.
+                            // some row classes are wrong now. So we will iterate
+                            // through all rows and assign correct classes to them.
                             /**
                              * @var ct Count of processed rows
                              */
@@ -506,8 +506,8 @@ RTE.COMMON = {
                             $currRow.hide('fast', function () {
                                 $(this).remove();
                                 // Now we have removed the row from the list, but maybe
-                                // some row classes are wrong now. So we will itirate
-                                // throught all rows and assign correct classes to them.
+                                // some row classes are wrong now. So we will iterate
+                                // through all rows and assign correct classes to them.
                                 /**
                                  * @var ct Count of processed rows
                                  */

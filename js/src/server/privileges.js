@@ -156,7 +156,7 @@ AJAX.registerOnload('server/privileges.js', function () {
             $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val() + argsep + 'ajax_request=true', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     Functions.ajaxShowMessage(data.message);
-                    // Refresh navigation, if we droppped some databases with the name
+                    // Refresh navigation, if we dropped some databases with the name
                     // that is the same as the username of the deleted user
                     if ($('#dropUsersDbCheckbox:checked').length) {
                         Navigation.reload();

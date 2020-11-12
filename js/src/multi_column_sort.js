@@ -1,6 +1,6 @@
 /**
  * @fileoverview    Implements the shiftkey + click remove column
- *                  from order by clause funcationality
+ *                  from order by clause functionality
  * @name            columndelete
  *
  * @requires    jQuery

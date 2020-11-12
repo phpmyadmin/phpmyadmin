@@ -27,7 +27,7 @@ Sql.urlDecode = function (str) {
 };
 
 /**
- * endecode a string URL_decoded
+ * encode a string URL_decoded
  *
  * @param string str
  * @return string the URL-encoded string
@@ -307,7 +307,7 @@ AJAX.registerOnload('sql.js', function () {
     }).trigger('input');
 
     /**
-     * Attach Event Handler for 'Copy to clipbpard
+     * Attach Event Handler for 'Copy to clipboard'
      */
     $(document).on('click', '#copyToClipBoard', function (event) {
         event.preventDefault();
@@ -484,7 +484,7 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     /**
-     * Event handler to show appropiate number of variable boxes
+     * Event handler to show appropriate number of variable boxes
      * based on the bookmarked query
      */
     $(document).on('change', '#id_bookmark', function () {

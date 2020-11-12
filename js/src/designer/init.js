@@ -1,5 +1,5 @@
 /**
- * Initialises the data required to run Designer, then fires it up.
+ * Initializes the data required to run Designer, then fires it up.
  */
 
 /* global DesignerOfflineDB */ // js/designer/database.js

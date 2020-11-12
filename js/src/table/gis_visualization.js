@@ -73,7 +73,7 @@ function selectVisualization () {
 }
 
 /**
- * Adds necessary styles to the div that coontains the openStreetMap.
+ * Adds necessary styles to the div that contains the openStreetMap.
  */
 function styleOSM () {
     var $placeholder = $('#placeholder');

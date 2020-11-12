@@ -61,7 +61,7 @@ function isEmpty (obj) {
 /**
  ** Converts a date/time into timestamp
  ** @param val  String Date
- ** @param type Sring  Field type(datetime/timestamp/time/date)
+ ** @param type String  Field type(datetime/timestamp/time/date)
  **/
 function getTimeStamp (val, type) {
     if (type.toString().search(/datetime/i) !== -1 ||

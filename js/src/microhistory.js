@@ -228,8 +228,8 @@ var MicroHistory = {
 MicroHistory.setUrlHash = (function (jQuery, window) {
     'use strict';
     /**
-     * Indictaes whether we have already completed
-     * the initialisation of the hash
+     * Indicates whether we have already completed
+     * the initialization of the hash
      *
      * @access private
      */
@@ -281,7 +281,7 @@ MicroHistory.setUrlHash = (function (jQuery, window) {
         }
     }
     /**
-     * Start initialisation
+     * Start initialization
      */
     var urlHash = window.location.hash;
     if (urlHash.substring(0, 8) === '#PMAURL-') {
@@ -307,7 +307,7 @@ MicroHistory.setUrlHash = (function (jQuery, window) {
                 savedHash = '';
                 resetFavicon();
             }
-            // Indicate that we're done initialising
+            // Indicate that we're done initializing
             ready = true;
         });
     }

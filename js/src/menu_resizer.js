@@ -3,7 +3,7 @@
  *
  * Uses themes/original/css/resizable-menu.css.php
  *
- * To initialise:
+ * To initialize:
  * $('#myMenu').menuResizer(function () {
  *     // This function will be called to find out how much
  *     // available horizontal space there is for the menu

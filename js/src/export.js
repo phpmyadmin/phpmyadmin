@@ -48,7 +48,7 @@ Export.getTemplateData = function () {
             }
         }
     });
-    // include unchecked checboxes (which are ignored by serializeArray()) with null
+    // include unchecked checkboxes (which are ignored by serializeArray()) with null
     // to uncheck them when loading the template
     $form.find('input[type="checkbox"]:not(:checked)').each(function () {
         if (obj[this.name] === undefined) {
@@ -270,7 +270,7 @@ AJAX.registerOnload('export.js', function () {
         }
     });
 
-    // udpate an existing template with new criteria
+    // update an existing template with new criteria
     $('input[name="updateTemplate"]').on('click', function (e) {
         e.preventDefault();
         var id = $('select[name="template"]').val();
@@ -398,7 +398,7 @@ Export.setupTableStructureOrData = function () {
 
         Export.checkSelectedTables();
         Export.checkTableSelectAll();
-        Export.checkTableSelectStrutureOrData();
+        Export.checkTableSelectStructureOrData();
     }
 };
 
@@ -505,7 +505,7 @@ Export.checkTableSelectAll = function () {
     }
 };
 
-Export.checkTableSelectStrutureOrData = function () {
+Export.checkTableSelectStructureOrData = function () {
     var strChecked = $('input[name="table_structure[]"]:checked').length;
     var dataChecked = $('input[name="table_data[]"]:checked').length;
     var autoIncrement = $('#checkbox_sql_auto_increment');
@@ -637,35 +637,35 @@ AJAX.registerOnload('export.js', function () {
         Export.toggleTableSelect($(this).closest('tr'));
         Export.checkTableSelectAll();
         Export.handleAddProcCheckbox();
-        Export.checkTableSelectStrutureOrData();
+        Export.checkTableSelectStructureOrData();
     });
 
     $('input[name="table_structure[]"]').on('change', function () {
         Export.checkTableSelected($(this).closest('tr'));
         Export.checkTableSelectAll();
         Export.handleAddProcCheckbox();
-        Export.checkTableSelectStrutureOrData();
+        Export.checkTableSelectStructureOrData();
     });
 
     $('input[name="table_data[]"]').on('change', function () {
         Export.checkTableSelected($(this).closest('tr'));
         Export.checkTableSelectAll();
         Export.handleAddProcCheckbox();
-        Export.checkTableSelectStrutureOrData();
+        Export.checkTableSelectStructureOrData();
     });
 
     $('#table_structure_all').on('change', function () {
         Export.toggleTableSelectAllStr();
         Export.checkSelectedTables();
         Export.handleAddProcCheckbox();
-        Export.checkTableSelectStrutureOrData();
+        Export.checkTableSelectStructureOrData();
     });
 
     $('#table_data_all').on('change', function () {
         Export.toggleTableSelectAllData();
         Export.checkSelectedTables();
         Export.handleAddProcCheckbox();
-        Export.checkTableSelectStrutureOrData();
+        Export.checkTableSelectStructureOrData();
     });
 
     if ($('input[name=\'export_type\']').val() === 'database') {

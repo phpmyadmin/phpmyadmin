@@ -67,7 +67,7 @@ Indexes.checkIndexType = function () {
      */
     var $sizeInputs = $('input[name="index[columns][sub_parts][]"]');
     /**
-     * @var Object Footer containg the controllers to add more columns
+     * @var Object Footer containing the controllers to add more columns
      */
     var $addMore = $('#index_frm').find('.add_more');
 
@@ -301,7 +301,7 @@ Indexes.getCompositeIndexList = function (sourceArray, colIndex) {
 /**
  * Shows 'Add Index' dialog.
  *
- * @param array  source_array   Array holding particluar index
+ * @param array  source_array   Array holding particular index
  * @param string array_index    Index of an INDEX in array
  * @param array  target_columns Columns for an INDEX
  * @param string col_index      Index of column on form

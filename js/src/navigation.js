@@ -860,7 +860,7 @@ Navigation.showCurrent = function () {
                     if (doSelect) {
                         $li.addClass('selected');
                     }
-                    // taverse up and expand and parent navigation groups
+                    // traverse up and expand and parent navigation groups
                     $li.parents('.navGroup').each(function () {
                         var $cont = $(this).children('div.list_container');
                         if (! $cont.is(':visible')) {
@@ -1430,7 +1430,7 @@ Navigation.FastFilter = {
     },
     /**
      * Gets the query string from a second level item's fast filter form
-     * The retrieval is done by trasversing the navigation tree backwards
+     * The retrieval is done by traversing the navigation tree backwards
      *
      * @return string
      */

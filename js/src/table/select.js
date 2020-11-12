@@ -183,7 +183,7 @@ AJAX.registerOnload('table/select.js', function () {
     });
 
     // Following section is related to the 'function based search' for geometry data types.
-    // Initialy hide all the open_gis_editor spans
+    // Initially hide all the open_gis_editor spans
     $('span.open_search_gis_editor').hide();
 
     $('select.geom_func').on('change', function () {

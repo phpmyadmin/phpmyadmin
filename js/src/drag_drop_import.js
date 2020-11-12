@@ -363,7 +363,7 @@ $(document).on('dragleave', '.pma_drop_handler', DragDropImport.dragLeave);
 // when file is dropped to PMA UI
 $(document).on('drop', 'body', DragDropImport.drop);
 
-// minimizing-maximising the sql ajax upload status
+// minimizing-maximizing the sql ajax upload status
 $(document).on('click', '.pma_sql_import_status h2 .minimize', function () {
     if ($(this).attr('toggle') === 'off') {
         $('.pma_sql_import_status div').css('height','270px');
