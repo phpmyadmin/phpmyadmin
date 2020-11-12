@@ -64,6 +64,7 @@ phpMyAdmin - ChangeLog
 - issue        Export blobs as hex on JSON export
 - issue #16095 Fix leading space not shown in a CHAR column when browsing a table
 - issue        Make procedures/functions SQL editor both side scrollable
+- issue #16407 Bump pragmarx/google2fa conflict to >8.0
 
 5.0.5 (not yet released)
 
