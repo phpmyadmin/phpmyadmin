@@ -37,6 +37,8 @@ jobs:
     - php: nightly
     - os: osx
     - name: "PHPUnit tests in random order"
+    # https://github.com/phpmyadmin/phpmyadmin/issues/16479
+    - name: "Run selenium tests on Google Chrome"
 
   include:
     - stage: "Lint and analyse code"
