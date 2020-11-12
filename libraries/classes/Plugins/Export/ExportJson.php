@@ -20,6 +20,7 @@ use function bin2hex;
 use function explode;
 use function json_encode;
 use function stripslashes;
+use function strpos;
 
 /**
  * Handles the export for the JSON format
@@ -268,8 +269,8 @@ class ExportJson extends ExportPlugin
             $data = [];
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if ($fieldsMeta[$i]->type === 'geometry') {
-                    // export GIS types as hex
+                if ($fieldsMeta[$i]->type === 'geometry' || strpos($fieldsMeta[$i]->type, 'blob') !== false) {
+                    // export GIS and blob types as hex
                     $record[$i] = '0x' . bin2hex($record[$i]);
                 }
                 $data[$columns[$i]] = $record[$i];
