@@ -795,32 +795,26 @@ class Sql
                         ->countRecords(true);
                 }
             } else {
-                // The SQL_CALC_FOUND_ROWS option of the SELECT statement is used.
-
-                // For UNION statements, only a SQL_CALC_FOUND_ROWS is required
-                // after the first SELECT.
-
-                $count_query = Query::replaceClause(
-                    $analyzed_sql_results['statement'],
-                    $analyzed_sql_results['parser']->list,
-                    'SELECT SQL_CALC_FOUND_ROWS',
-                    null,
-                    true
+                $statement = $analyzed_sql_results['statement'];
+                $token_list = $analyzed_sql_results['parser']->list;
+                $replaces = [
+                    // Remove ORDER BY to decrease unnecessary sorting time
+                    [
+                        'ORDER BY',
+                        '',
+                    ],
+                    // Removes LIMIT clause that might have been added
+                    [
+                        'LIMIT',
+                        '',
+                    ],
+                ];
+                $count_query = Query::replaceClauses(
+                    $statement,
+                    $token_list,
+                    $replaces
                 );
-
-                // Another LIMIT clause is added to avoid long delays.
-                // A complete result will be returned anyway, but the LIMIT would
-                // stop the query as soon as the result that is required has been
-                // computed.
-
-                if (empty($analyzed_sql_results['union'])) {
-                    $count_query .= ' LIMIT 1';
-                }
-
-                // Running the count query.
-                $this->dbi->tryQuery($count_query);
-
-                $unlim_num_rows = $this->dbi->fetchValue('SELECT FOUND_ROWS()');
+                $unlim_num_rows = $this->dbi->numRows($this->dbi->tryQuery($count_query));
             }
         } else {// not $is_select
             $unlim_num_rows = 0;
