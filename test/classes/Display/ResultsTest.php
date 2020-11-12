@@ -11,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
+use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -827,6 +828,8 @@ class ResultsTest extends AbstractTestCase
     public function dataProviderForTestGetDataCellForNonNumericColumns(): array
     {
         $transformation_plugin = new Text_Plain_Link();
+        $transformation_plugin_external = new Text_Plain_External();
+
         $meta = new stdClass();
         $meta->db = 'foo';
         $meta->table = 'tbl';
@@ -845,6 +848,17 @@ class ResultsTest extends AbstractTestCase
         $meta2->decimals = 0;
         $meta2->name = 'varchar';
         $meta2->orgname = 'varchar';
+
+        $meta3 = new stdClass();
+        $meta3->db = 'foo';
+        $meta3->table = 'tbl';
+        $meta3->orgtable = 'tbl';
+        $meta3->type = 'datetime';
+        $meta3->flags = '';
+        $meta3->decimals = 0;
+        $meta3->name = 'datetime';
+        $meta3->orgname = 'datetime';
+
         $url_params = [
             'db' => 'foo',
             'table' => 'tbl',
@@ -946,7 +960,54 @@ class ResultsTest extends AbstractTestCase
                 '',
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
-                . 'class="grid_edit ">foo bar baz</td>' . "\n",
+                . 'class="grid_edit pre_wrap">foo bar baz</td>' . "\n",
+            ],
+            [
+                'all',
+                'foo bar baz',
+                'grid_edit',
+                $meta2,
+                [],
+                $url_params,
+                false,
+                $transformation_plugin_external,
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
+                [],
+                false,
+                [],
+                0,
+                '',
+                '<td data-decimals="0" data-type="string" '
+                . 'data-originallength="11" '
+                . 'class="grid_edit nowrap transformed">foo bar baz</td>' . "\n",
+            ],
+            [
+                'all',
+                '2020-09-20 16:35:00',
+                'grid_edit',
+                $meta3,
+                [],
+                $url_params,
+                false,
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
+                [],
+                false,
+                [],
+                0,
+                '',
+                '<td data-decimals="0" data-type="datetime" '
+                . 'data-originallength="19" '
+                . 'class="grid_edit nowrap">2020-09-20 16:35:00</td>' . "\n",
             ],
         ];
     }

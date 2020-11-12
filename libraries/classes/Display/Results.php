@@ -3780,13 +3780,14 @@ class Results
         $function_nowrap = 'applyTransformationNoWrap';
 
         $bool_nowrap = ($default_function != $transformation_plugin)
-            && function_exists((string) $transformation_plugin->$function_nowrap())
+            && method_exists($transformation_plugin, $function_nowrap)
             ? $transformation_plugin->$function_nowrap($transform_options)
             : false;
 
-        // do not wrap if date field type
+        // do not wrap if date field type or if no-wrapping enabled by transform functions
+        // otherwise, preserve whitespaces and wrap
         $nowrap = preg_match('@DATE|TIME@i', $meta->type)
-            || $bool_nowrap ? ' nowrap' : '';
+            || $bool_nowrap ? 'nowrap' : 'pre_wrap';
 
         $where_comparison = ' = \''
             . $dbi->escapeString($column)
