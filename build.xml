@@ -76,18 +76,15 @@
 
  <target name="phpcs-config" description="PHPCS configuration tweaking">
   <exec executable="${basedir}/vendor/bin/phpcs">
-   <arg line="--config-set installed_paths ${basedir}/vendor/phpmyadmin/coding-standard" />
+   <arg line="--config-set installed_paths ${basedir}/vendor/doctrine/coding-standard/lib,${basedir}/vendor/phpmyadmin/coding-standard,${basedir}/vendor/slevomat/coding-standard" />
   </exec>
  </target>
 
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries" depends="phpcs-config">
   <exec executable="${basedir}/vendor/bin/phpcs">
    <arg line="
-              --ignore=*/vendor/*,*/build/*,*/tmp/*
               --report=checkstyle
-              --extensions=php
               --report-file='${basedir}/build/logs/checkstyle.xml'
-              --standard=PhpMyAdmin
               ${source}" />
   </exec>
  </target>
