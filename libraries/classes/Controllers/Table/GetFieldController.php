@@ -68,7 +68,8 @@ class GetFieldController extends AbstractController
         ) {
             /* l10n: In case a SQL query did not pass a security check  */
             Core::fatalError(__('There is an issue with your request.'));
-            exit;
+
+            return;
         }
 
         /* Grab data */
