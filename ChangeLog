@@ -65,6 +65,7 @@ phpMyAdmin - ChangeLog
 - issue #16095 Fix leading space not shown in a CHAR column when browsing a table
 - issue        Make procedures/functions SQL editor both side scrollable
 - issue #16407 Bump pragmarx/google2fa conflict to >8.0
+- issue #14953 Added a rename Button to use RENAME INDEX syntax of MySQL 5.7 (and MariaDB >= 10.5.2)
 
 5.0.5 (not yet released)
 
