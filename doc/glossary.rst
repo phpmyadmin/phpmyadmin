@@ -63,7 +63,7 @@ From Wikipedia, the free encyclopedia
       .. seealso:: <https://en.wikipedia.org/wiki/Comma-separated_values>
 
     DB
-      look at :term:`database`
+      look at :term:`Database`
 
     Database
       an organized collection of data.
