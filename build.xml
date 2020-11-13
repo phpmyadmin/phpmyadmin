@@ -92,9 +92,12 @@
   </exec>
  </target>
 
- <target name="phpdoc" description="Generate API documentation using PHPDocumentor">
-  <exec executable="phpdoc">
-   <arg line="-d ${source} -t '${basedir}/build/api'" />
+ <target name="phpdoc" description="Generate API documentation using Doctum">
+ <!-- ant phpdoc -Denv.DOCTUM_BIN_PATH="/usr/bin/doctum" -->
+ <property name="env.DOCTUM_BIN_PATH" value="/bin/doctum"/>
+  <exec executable="php">
+    <arg line="${env.DOCTUM_BIN_PATH}" />
+    <arg line="--no-interaction update ./test/doctum-config.php" />
   </exec>
  </target>
 
