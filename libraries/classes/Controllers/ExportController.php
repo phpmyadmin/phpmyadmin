@@ -65,17 +65,6 @@ final class ExportController extends AbstractController
 
         $this->addScriptFiles(['export_output.js']);
 
-        //check if it's the GET request to check export time out
-        if (isset($_GET['check_time_out'])) {
-            if (isset($_SESSION['pma_export_error'])) {
-                unset($_SESSION['pma_export_error']);
-                echo 'timeout';
-            } else {
-                echo 'success';
-            }
-            exit;
-        }
-
         /**
          * Sets globals from $_POST
          *
@@ -697,5 +686,19 @@ final class ExportController extends AbstractController
         }
 
         echo $dump_buffer;
+    }
+
+    public function checkTimeOut(): void
+    {
+        $this->response->setAjax(true);
+
+        if (isset($_SESSION['pma_export_error'])) {
+            unset($_SESSION['pma_export_error']);
+            $this->response->addJSON('message', 'timeout');
+
+            return;
+        }
+
+        $this->response->addJSON('message', 'success');
     }
 }

@@ -182,6 +182,7 @@ return static function (RouteCollector $routes): void {
     $routes->addRoute(['GET', 'POST'], '/error-report', [ErrorReportController::class, 'index']);
     $routes->addGroup('/export', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '', [ExportController::class, 'index']);
+        $routes->get('/check-time-out', [ExportController::class, 'checkTimeOut']);
         $routes->addGroup('/template', static function (RouteCollector $routes): void {
             $routes->post('/create', [ExportTemplateController::class, 'create']);
             $routes->post('/delete', [ExportTemplateController::class, 'delete']);
