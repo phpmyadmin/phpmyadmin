@@ -89,6 +89,13 @@
   </exec>
  </target>
 
+ <target name="phpstan" description="Run phpstan static code analysis">
+  <exec executable="${basedir}/vendor/bin/phpstan" failonerror="true">
+      <redirector error="/dev/stdout" output="${basedir}/build/logs/phpstan.xml"/>
+      <arg line="analyse --error-format=checkstyle"/>
+  </exec>
+ </target>
+
  <target name="phpdoc" description="Generate API documentation using Doctum">
  <!-- ant phpdoc -Denv.DOCTUM_BIN_PATH="/usr/bin/doctum" -->
  <property name="env.DOCTUM_BIN_PATH" value="/bin/doctum"/>
