@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-11-04 10:26+0100\n"
+"POT-Creation-Date: 2020-11-13 23:51+0100\n"
 "PO-Revision-Date: 2020-10-29 02:26+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1383,8 +1383,8 @@ msgid "Search:"
 msgstr "Caută:"
 
 #: libraries/classes/BrowseForeigners.php:204
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
-#: libraries/classes/Controllers/Server/PrivilegesController.php:320
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
+#: libraries/classes/Controllers/Server/PrivilegesController.php:324
 #: libraries/classes/Database/Routines.php:1026
 #: libraries/classes/Database/Routines.php:1742
 #: libraries/classes/Database/Triggers.php:462
@@ -1414,7 +1414,7 @@ msgstr "Caută:"
 #: templates/server/privileges/privileges_summary.twig:102
 #: templates/server/privileges/privileges_table.twig:833
 #: templates/server/privileges/user_properties.twig:149
-#: templates/server/privileges/users_overview.twig:141
+#: templates/server/privileges/users_overview.twig:143
 #: templates/server/replication/change_master.twig:33
 #: templates/server/replication/master_add_slave_user.twig:81
 #: templates/server/replication/master_configuration.twig:30
@@ -1432,7 +1432,7 @@ msgstr "Caută:"
 #: templates/table/operations/view.twig:16
 #: templates/table/search/index.twig:160
 #: templates/table/structure/display_structure.twig:394
-#: templates/table/structure/display_structure.twig:501
+#: templates/table/structure/display_structure.twig:510
 #: templates/table/zoom_search/index.twig:155 templates/view_create.twig:116
 msgid "Go"
 msgstr "Execută"
@@ -1455,7 +1455,7 @@ msgid "Description"
 msgstr "Descriere"
 
 #: libraries/classes/BrowseForeigners.php:331
-#: libraries/classes/Html/Generator.php:1269 libraries/classes/Language.php:209
+#: libraries/classes/Html/Generator.php:1260 libraries/classes/Language.php:209
 #: libraries/classes/Pdf.php:92
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:536
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
@@ -1463,7 +1463,7 @@ msgid "Page number:"
 msgstr "Număr pagină:"
 
 #: libraries/classes/BrowseForeigners.php:345
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:20
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -1765,18 +1765,6 @@ msgstr "Slovenă"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnameză"
-
-#: libraries/classes/Common.php:102
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:338
-#: libraries/classes/Controllers/Server/DatabasesController.php:291
-#: libraries/classes/DbTableExists.php:45
-msgid "No databases selected."
-msgstr "Nicio bază de date selectată."
-
-#: libraries/classes/Common.php:171
-#: libraries/classes/Controllers/Table/OperationsController.php:263
-msgid "No collation provided."
-msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:69
 msgid ""
@@ -2555,7 +2543,7 @@ msgid "Servers display options."
 msgstr "Opțiuni afișare servere."
 
 #: libraries/classes/Config/Descriptions.php:345
-#: libraries/classes/Controllers/Server/DatabasesController.php:476
+#: libraries/classes/Controllers/Server/DatabasesController.php:478
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Plugins/Export/ExportXml.php:130
@@ -3074,7 +3062,7 @@ msgstr ""
 "sau a tabelului actual."
 
 #: libraries/classes/Config/Descriptions.php:525
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 #: libraries/classes/Navigation/NavigationTree.php:1473
 msgid "Link with main panel"
 msgstr "Leagă la panoul principal"
@@ -4173,10 +4161,10 @@ msgid "Skip locked tables"
 msgstr "Omite tabele blocate"
 
 #: libraries/classes/Config/Descriptions.php:889
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
 #: libraries/classes/Display/Results.php:3213
-#: libraries/classes/Html/Generator.php:743
-#: libraries/classes/Html/Generator.php:1005
+#: libraries/classes/Html/Generator.php:734
+#: libraries/classes/Html/Generator.php:996
 #: libraries/classes/Server/UserGroups.php:125
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -4200,12 +4188,12 @@ msgid "Edit"
 msgstr "Editează"
 
 #: libraries/classes/Config/Descriptions.php:890
-#: libraries/classes/Html/Generator.php:707
+#: libraries/classes/Html/Generator.php:698
 msgid "Explain SQL"
 msgstr "Explică SQL"
 
 #: libraries/classes/Config/Descriptions.php:891
-#: libraries/classes/Export.php:604 libraries/classes/Html/Generator.php:787
+#: libraries/classes/Export.php:604 libraries/classes/Html/Generator.php:778
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
 #: templates/server/status/variables/index.twig:12
@@ -4213,7 +4201,7 @@ msgid "Refresh"
 msgstr "Reîmprospătează"
 
 #: libraries/classes/Config/Descriptions.php:892
-#: libraries/classes/Html/Generator.php:772
+#: libraries/classes/Html/Generator.php:763
 msgid "Create PHP code"
 msgstr "Creează cod PHP"
 
@@ -4272,7 +4260,7 @@ msgid "Title of browser window when a database is selected."
 msgstr "Titlul ferestrei navigatorului când este selectată o bază de date."
 
 #: libraries/classes/Config/Descriptions.php:915
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:154
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:159
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
@@ -4444,40 +4432,76 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:959
+#, fuzzy
+#| msgid "Enter your private key for your domain reCaptcha service."
+msgid "Enter the URL for your reCaptcha v2 compatible API."
+msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
+
+#: libraries/classes/Config/Descriptions.php:960
+msgid "URL for reCaptcha v2 API"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:961
+msgid ""
+"Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
+"API."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:962
+msgid "Content-Security-Policy snippet for reCaptcha v2 API"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:963
+msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:964
+msgid "Request parameter for reCaptcha v2 API"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:965
+msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:966
+msgid "Response parameter for reCaptcha v2 API"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:967
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr "Introdu cheia publică pentru serviciul tău reCaptcha."
 
-#: libraries/classes/Config/Descriptions.php:960
+#: libraries/classes/Config/Descriptions.php:968
 msgid "Public key for reCaptcha"
 msgstr "Cheie publică pentru reCaptcha"
 
-#: libraries/classes/Config/Descriptions.php:961
+#: libraries/classes/Config/Descriptions.php:969
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
 
-#: libraries/classes/Config/Descriptions.php:962
+#: libraries/classes/Config/Descriptions.php:970
 msgid "Private key for reCaptcha"
 msgstr "Cheie privată pentru reCaptcha"
 
-#: libraries/classes/Config/Descriptions.php:963
+#: libraries/classes/Config/Descriptions.php:971
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCaptcha service."
 msgstr "Introdu cheia ta privată pentru serviciul tău reCaptcha."
 
-#: libraries/classes/Config/Descriptions.php:964
+#: libraries/classes/Config/Descriptions.php:972
 msgid "URL for reCaptcha siteverify"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:966
+#: libraries/classes/Config/Descriptions.php:974
 msgid "Choose the default action when sending error reports."
 msgstr "Alege acțiunea implicită când trimiți rapoarte de erori."
 
-#: libraries/classes/Config/Descriptions.php:967
+#: libraries/classes/Config/Descriptions.php:975
 msgid "Send error reports"
 msgstr "Trimite rapoarte de erori"
 
-#: libraries/classes/Config/Descriptions.php:970
+#: libraries/classes/Config/Descriptions.php:978
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -4485,11 +4509,11 @@ msgstr ""
 "Interogările sunt executate apăsând Enter (în loc de Ctrl+Enter). Vor fi "
 "inserate linii noi cu Shift+Enter."
 
-#: libraries/classes/Config/Descriptions.php:973
+#: libraries/classes/Config/Descriptions.php:981
 msgid "Enter executes queries in console"
 msgstr "Introdu execută interogări în consola"
 
-#: libraries/classes/Config/Descriptions.php:976
+#: libraries/classes/Config/Descriptions.php:984
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
@@ -4497,59 +4521,59 @@ msgstr ""
 "Activează modul Configurare zero care îți permite să inițializezi automat "
 "tabelele de stocare a configurației phpMyAdmin."
 
-#: libraries/classes/Config/Descriptions.php:979
+#: libraries/classes/Config/Descriptions.php:987
 msgid "Enable Zero Configuration mode"
 msgstr "Activează modul Configurare zero"
 
-#: libraries/classes/Config/Descriptions.php:980
+#: libraries/classes/Config/Descriptions.php:988
 #: templates/console/display.twig:153
 msgid "Show query history at start"
 msgstr "Arată istoricul interogărilor la început"
 
-#: libraries/classes/Config/Descriptions.php:981
+#: libraries/classes/Config/Descriptions.php:989
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
 msgstr "Extinde întotdeauna mesajele de interogare"
 
-#: libraries/classes/Config/Descriptions.php:982
+#: libraries/classes/Config/Descriptions.php:990
 #: templates/console/display.twig:157
 msgid "Show current browsing query"
 msgstr "Arată interogarea răsfoită acum"
 
-#: libraries/classes/Config/Descriptions.php:983
+#: libraries/classes/Config/Descriptions.php:991
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
 "Execută interogări apăsând pe Enter și inserează o linie nouă cu Shift + "
 "Enter"
 
-#: libraries/classes/Config/Descriptions.php:984
+#: libraries/classes/Config/Descriptions.php:992
 #: templates/console/display.twig:168
 msgid "Switch to dark theme"
 msgstr "Comută la tema întunecată"
 
-#: libraries/classes/Config/Descriptions.php:985
+#: libraries/classes/Config/Descriptions.php:993
 msgid "Console height"
 msgstr "Înălțime consolă"
 
-#: libraries/classes/Config/Descriptions.php:986
+#: libraries/classes/Config/Descriptions.php:994
 msgid "Console mode"
 msgstr "Mod consolă"
 
-#: libraries/classes/Config/Descriptions.php:987
+#: libraries/classes/Config/Descriptions.php:995
 #: templates/console/display.twig:64
 msgid "Group queries"
 msgstr "Grupează interogările"
 
-#: libraries/classes/Config/Descriptions.php:988
+#: libraries/classes/Config/Descriptions.php:996
 #: templates/sql/profiling_chart.twig:9
 msgid "Order"
 msgstr "Ordine"
 
-#: libraries/classes/Config/Descriptions.php:989
+#: libraries/classes/Config/Descriptions.php:997
 msgid "Order by"
 msgstr "Ordonează după"
 
-#: libraries/classes/Config/Descriptions.php:990
+#: libraries/classes/Config/Descriptions.php:998
 msgid "Server connection collation"
 msgstr "Colaționare conexiune server"
 
@@ -4613,7 +4637,7 @@ msgstr "maxim %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:178
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:871
+#: libraries/classes/Html/Generator.php:862
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:200 templates/home/index.twig:198
 #: templates/server/variables/index.twig:17
@@ -4631,13 +4655,13 @@ msgid "Disabled"
 msgstr "Dezactivată"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:303
-#: libraries/classes/Controllers/Database/StructureController.php:1454
-#: libraries/classes/Controllers/Database/StructureController.php:1537
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
+#: libraries/classes/Controllers/Database/StructureController.php:1468
+#: libraries/classes/Controllers/Database/StructureController.php:1551
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
 #: libraries/classes/Controllers/Table/DeleteController.php:56
-#: libraries/classes/Controllers/Table/StructureController.php:472
-#: libraries/classes/Controllers/Table/StructureController.php:490
-#: libraries/classes/Controllers/Table/StructureController.php:537
+#: libraries/classes/Controllers/Table/StructureController.php:481
+#: libraries/classes/Controllers/Table/StructureController.php:505
+#: libraries/classes/Controllers/Table/StructureController.php:552
 #: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:524
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:666
 #: libraries/classes/Plugins/Export/ExportLatex.php:639
@@ -4662,7 +4686,7 @@ msgstr "Dezactivată"
 #: templates/table/delete/confirm.twig:28
 #: templates/table/privileges/index.twig:73
 #: templates/table/structure/display_structure.twig:81
-#: templates/table/structure/display_structure.twig:461
+#: templates/table/structure/display_structure.twig:470
 #: templates/table/structure/drop_confirm.twig:19
 #: templates/table/structure/primary.twig:22
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -4672,7 +4696,7 @@ msgid "Yes"
 msgstr "Da"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:303
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
 #: libraries/classes/IndexColumn.php:132 libraries/classes/Index.php:497
 #: libraries/classes/Index.php:525
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:665
@@ -4698,7 +4722,7 @@ msgstr "Da"
 #: templates/table/delete/confirm.twig:29
 #: templates/table/privileges/index.twig:73
 #: templates/table/structure/display_structure.twig:81
-#: templates/table/structure/display_structure.twig:461
+#: templates/table/structure/display_structure.twig:470
 #: templates/table/structure/drop_confirm.twig:20
 #: templates/table/structure/primary.twig:23
 #: templates/table/tracking/structure_snapshot_columns.twig:33
@@ -4743,7 +4767,7 @@ msgstr "Personalizat"
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
 #: libraries/classes/Import.php:1382 libraries/classes/Menu.php:279
 #: libraries/classes/Menu.php:398
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
@@ -4766,7 +4790,7 @@ msgstr "Structură"
 #: libraries/classes/Config/Forms/User/ExportForm.php:106
 #: libraries/classes/Config/Forms/User/ExportForm.php:131
 #: libraries/classes/Config/Forms/User/ExportForm.php:137
-#: libraries/classes/Controllers/Server/DatabasesController.php:486
+#: libraries/classes/Controllers/Server/DatabasesController.php:488
 #: templates/database/export/index.twig:25
 #: templates/server/privileges/privileges_table.twig:254
 #: templates/table/structure/display_table_stats.twig:17
@@ -4791,7 +4815,7 @@ msgid "OpenDocument Text"
 msgstr "Text OpenDocument"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:367
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
 #: libraries/classes/Menu.php:309 libraries/classes/Menu.php:423
 #: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1617
 #: libraries/classes/Util.php:2428 libraries/classes/Util.php:2443
@@ -4817,8 +4841,8 @@ msgstr "Text OpenDocument"
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:92
-#: templates/server/privileges/users_overview.twig:108
 #: templates/server/privileges/users_overview.twig:109
+#: templates/server/privileges/users_overview.twig:110
 #: templates/server/status/monitor/index.twig:81
 #: templates/table/privileges/index.twig:95
 #: templates/table/privileges/index.twig:120
@@ -4826,7 +4850,7 @@ msgstr "Text OpenDocument"
 msgid "Export"
 msgstr "Exportă"
 
-#: libraries/classes/Config/Forms/User/FeaturesForm.php:87
+#: libraries/classes/Config/Forms/User/FeaturesForm.php:88
 #: templates/preferences/header.twig:18
 msgid "Features"
 msgstr "Funcționalități"
@@ -4836,7 +4860,7 @@ msgid "CSV using LOAD DATA"
 msgstr "CSV folosind LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:65
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:305
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:307
 #: libraries/classes/Menu.php:318 libraries/classes/Menu.php:433
 #: libraries/classes/Menu.php:565 libraries/classes/Util.php:2429
 #: libraries/classes/Util.php:2444 libraries/classes/Util.php:2461
@@ -5095,6 +5119,13 @@ msgstr "Niciun semn de carte"
 msgid "SQL Query Console"
 msgstr "Consolă interogare SQL"
 
+#: libraries/classes/Controllers/AbstractController.php:74
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
+#: libraries/classes/Controllers/Server/DatabasesController.php:293
+#: libraries/classes/DbTableExists.php:45
+msgid "No databases selected."
+msgstr "Nicio bază de date selectată."
+
 #: libraries/classes/Controllers/ChangeLogController.php:37
 #: libraries/classes/Controllers/LicenseController.php:32
 #, php-format
@@ -5110,50 +5141,50 @@ msgstr ""
 msgid "Showing rows %1$s - %2$s."
 msgstr "Arăt rândurile %1$s - %2$s."
 
-#: libraries/classes/Controllers/Database/ExportController.php:74
-#: libraries/classes/Controllers/Database/TrackingController.php:126
-#: libraries/classes/Controllers/ExportController.php:456
+#: libraries/classes/Controllers/Database/ExportController.php:78
+#: libraries/classes/Controllers/Database/TrackingController.php:128
+#: libraries/classes/Controllers/ExportController.php:445
 #: libraries/classes/Database/Qbe.php:359
 #: templates/database/structure/index.twig:19
 #: templates/navigation/tree/path.twig:9
 msgid "No tables found in database."
 msgstr "Niciun tabel găsit în baza de date."
 
-#: libraries/classes/Controllers/Database/ExportController.php:148
-#: libraries/classes/Controllers/Server/ExportController.php:63
-#: libraries/classes/Controllers/Table/ExportController.php:117
+#: libraries/classes/Controllers/Database/ExportController.php:152
+#: libraries/classes/Controllers/Server/ExportController.php:73
+#: libraries/classes/Controllers/Table/ExportController.php:116
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Nu am putut încărca modulele de export, te rog verifică-ți instalarea!"
 
-#: libraries/classes/Controllers/Database/ImportController.php:70
+#: libraries/classes/Controllers/Database/ImportController.php:75
 #: libraries/classes/Controllers/ImportController.php:620
-#: libraries/classes/Controllers/Server/ImportController.php:57
-#: libraries/classes/Controllers/Table/ImportController.php:62
+#: libraries/classes/Controllers/Server/ImportController.php:60
+#: libraries/classes/Controllers/Table/ImportController.php:68
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nu am putut încărca module de import, te rog verifică-ți instalarea!"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:96
+#: libraries/classes/Controllers/Database/OperationsController.php:95
 #: libraries/classes/Controllers/Table/CreateController.php:76
 msgid "The database name is empty!"
 msgstr "Numele bazei de date este gol!"
 
-#: libraries/classes/Controllers/Database/OperationsController.php:107
+#: libraries/classes/Controllers/Database/OperationsController.php:106
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Nu se poate copia baza de date cu același nume. Schimbă numele și încearcă "
 "din nou."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:198
+#: libraries/classes/Controllers/Database/OperationsController.php:197
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Baza de date %1$s a fost redenumită în %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:210
+#: libraries/classes/Controllers/Database/OperationsController.php:209
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Baza de date %1$s a fost copiată în %2$s."
 
-#: libraries/classes/Controllers/Database/OperationsController.php:319
+#: libraries/classes/Controllers/Database/OperationsController.php:324
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -5161,7 +5192,12 @@ msgstr ""
 "Spațiul de stocare pentru configurarea phpMyAdmin a fost dezactivat. %sAflă "
 "de ce%s."
 
-#: libraries/classes/Controllers/Database/SearchController.php:49
+#: libraries/classes/Controllers/Database/OperationsController.php:363
+#: libraries/classes/Controllers/Table/OperationsController.php:269
+msgid "No collation provided."
+msgstr ""
+
+#: libraries/classes/Controllers/Database/SearchController.php:55
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:89
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:104
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:81
@@ -5169,31 +5205,31 @@ msgstr ""
 msgid "Access denied!"
 msgstr "Acces refuzat!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:282
+#: libraries/classes/Controllers/Database/StructureController.php:291
 msgid "Favorite List is full!"
 msgstr "Lista de favorite este plină!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:555
+#: libraries/classes/Controllers/Database/StructureController.php:569
 #: templates/table/operations/index.twig:408
 #: templates/table/operations/view.twig:27
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Vizualizarea %s a fost eliminată."
 
-#: libraries/classes/Controllers/Database/StructureController.php:556
+#: libraries/classes/Controllers/Database/StructureController.php:570
 #: templates/table/operations/index.twig:408
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabelul %s a fost eliminat."
 
-#: libraries/classes/Controllers/Database/StructureController.php:611
+#: libraries/classes/Controllers/Database/StructureController.php:625
 #: templates/table/operations/index.twig:387
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabelul %s a fost golit."
 
-#: libraries/classes/Controllers/Database/StructureController.php:781
-#: libraries/classes/Display/Results.php:4426
+#: libraries/classes/Controllers/Database/StructureController.php:795
+#: libraries/classes/Display/Results.php:4427
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5202,20 +5238,20 @@ msgstr ""
 "Această vizualizare are cel puțin acest număr de rânduri. Te rog vezi "
 "%sdocumentația%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:1019
+#: libraries/classes/Controllers/Database/StructureController.php:1033
 msgid "unknown"
 msgstr "necunoscut"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1160
-#: libraries/classes/Controllers/Database/StructureController.php:1176
-#: libraries/classes/Controllers/Database/StructureController.php:1217
-#: libraries/classes/Controllers/Database/StructureController.php:1250
-#: libraries/classes/Controllers/Database/StructureController.php:1273
-#: libraries/classes/Controllers/Database/StructureController.php:1296
-#: libraries/classes/Controllers/Database/StructureController.php:1319
-#: libraries/classes/Controllers/Database/StructureController.php:1342
-#: libraries/classes/Controllers/Database/StructureController.php:1372
-#: libraries/classes/Controllers/Database/StructureController.php:1423
+#: libraries/classes/Controllers/Database/StructureController.php:1174
+#: libraries/classes/Controllers/Database/StructureController.php:1190
+#: libraries/classes/Controllers/Database/StructureController.php:1231
+#: libraries/classes/Controllers/Database/StructureController.php:1264
+#: libraries/classes/Controllers/Database/StructureController.php:1287
+#: libraries/classes/Controllers/Database/StructureController.php:1310
+#: libraries/classes/Controllers/Database/StructureController.php:1333
+#: libraries/classes/Controllers/Database/StructureController.php:1356
+#: libraries/classes/Controllers/Database/StructureController.php:1386
+#: libraries/classes/Controllers/Database/StructureController.php:1437
 #: libraries/classes/Controllers/Table/MaintenanceController.php:44
 #: libraries/classes/Controllers/Table/MaintenanceController.php:79
 #: libraries/classes/Controllers/Table/MaintenanceController.php:117
@@ -5226,26 +5262,26 @@ msgstr "necunoscut"
 msgid "No table selected."
 msgstr "Nicio bază de date selectată."
 
-#: libraries/classes/Controllers/Database/StructureController.php:1258
-#: libraries/classes/Controllers/Database/StructureController.php:1281
-#: libraries/classes/Controllers/Database/StructureController.php:1304
+#: libraries/classes/Controllers/Database/StructureController.php:1272
+#: libraries/classes/Controllers/Database/StructureController.php:1295
+#: libraries/classes/Controllers/Database/StructureController.php:1318
 msgid "Success!"
 msgstr "Succes!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1455
-#: libraries/classes/Controllers/Database/StructureController.php:1538
-#: libraries/classes/Controllers/Table/OperationsController.php:312
+#: libraries/classes/Controllers/Database/StructureController.php:1469
+#: libraries/classes/Controllers/Database/StructureController.php:1552
+#: libraries/classes/Controllers/Table/OperationsController.php:318
 #: libraries/classes/Controllers/Table/ReplaceController.php:397
 #: libraries/classes/Core.php:857 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Nicio modificare"
 
-#: libraries/classes/Controllers/Database/TrackingController.php:79
-#: libraries/classes/Controllers/Database/TrackingController.php:99
+#: libraries/classes/Controllers/Database/TrackingController.php:81
+#: libraries/classes/Controllers/Database/TrackingController.php:101
 msgid "Tracking data deleted successfully."
 msgstr "Datele de urmărire au fost șterse cu succes."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:86
+#: libraries/classes/Controllers/Database/TrackingController.php:88
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
@@ -5253,11 +5289,11 @@ msgstr ""
 "Versiunea %1$s a fost creată pentru tabelele selectate, urmărirea este "
 "activă pentru ele."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:116
+#: libraries/classes/Controllers/Database/TrackingController.php:118
 msgid "No tables selected."
 msgstr "Nicio bază de date selectată."
 
-#: libraries/classes/Controllers/Database/TrackingController.php:155
+#: libraries/classes/Controllers/Database/TrackingController.php:157
 msgid "Database Log"
 msgstr "Jurnal bază de date"
 
@@ -5291,12 +5327,12 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Poate vrei să reîmprospătezi pagina."
 
-#: libraries/classes/Controllers/ExportController.php:236
+#: libraries/classes/Controllers/ExportController.php:225
 #: libraries/classes/Export.php:1348
 msgid "Bad type!"
 msgstr "Tip incorect!"
 
-#: libraries/classes/Controllers/ExportController.php:341
+#: libraries/classes/Controllers/ExportController.php:330
 msgid "Bad parameters!"
 msgstr "Parametri greșiți!"
 
@@ -5423,7 +5459,7 @@ msgid "Succeeded"
 msgstr "A reușit"
 
 #: libraries/classes/Controllers/ImportController.php:143
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
 msgid "Failed"
 msgstr "A eșuat"
 
@@ -5458,7 +5494,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:663
 #: libraries/classes/Controllers/SqlController.php:371
-#: libraries/classes/Sql.php:1234
+#: libraries/classes/Sql.php:1228
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Semnul de carte %s a fost creat."
@@ -5694,135 +5730,143 @@ msgstr "Adaugă indexul"
 msgid "Edit index"
 msgstr "Editează indexul"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:103
+#. l10n: Rename a table Index
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:104
+#, fuzzy
+#| msgid "Rename view to"
+msgid "Rename index"
+msgstr "Redenumește vizualizarea în"
+
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:105
 #: templates/table/index_form.twig:227
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Adaugă o coloană (%s coloane) la index"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:104
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:106
 msgid "Create single-column index"
 msgstr "Creează indexul pe o singură coloană"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:105
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 msgid "Create composite index"
 msgstr "Creează index compus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:106
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:108
 msgid "Composite with:"
 msgstr "Compus din:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:107
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:109
 msgid "Please select column(s) for the index."
 msgstr "Te rog selectează coloana (coloanele) pentru index."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:110
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:112
 #: libraries/classes/InsertEdit.php:1974
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/table/index_form.twig:233
+#: templates/table/index_rename_form.twig:28
 #: templates/table/relation/common_form.twig:214
 msgid "Preview SQL"
 msgstr "Previzualizare SQL"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:113
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:115
 msgid "Simulate query"
 msgstr "Simulează o interogare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:114
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:116
 msgid "Matched rows:"
 msgstr "Rânduri identice:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:115
-#: libraries/classes/Html/Generator.php:977 templates/export.twig:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:117
+#: libraries/classes/Html/Generator.php:968 templates/export.twig:49
 msgid "SQL query:"
 msgstr "Interogare SQL:"
 
 #. l10n: Default label for the y-Axis of Charts
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:119
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:121
 msgid "Y values"
 msgstr "Valori Y"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:122
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:124
 #, fuzzy
 #| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
 msgstr "Te rog introdu din nou aceeași valoare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:125
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:127
 msgid "The host name is empty!"
 msgstr "Numele gazdei este gol!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:126
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:128
 msgid "The user name is empty!"
 msgstr "Numele de utilizator este gol!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:127
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:129
 #: libraries/classes/Server/Privileges.php:1020
 #: libraries/classes/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Parola este goală!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:128
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:130
 #: libraries/classes/Server/Privileges.php:1018
 #: libraries/classes/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Parolele nu sunt identice!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:129
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:131
 msgid "Removing Selected Users"
 msgstr "Înlătur utilizatorii selectați"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:130
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 #: libraries/classes/Tracking.php:236 libraries/classes/Tracking.php:643
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:47
 msgid "Close"
 msgstr "Închide"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:133
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:135
 msgid "Template was created."
 msgstr "Șablonul a fost creat."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:134
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:136
 msgid "Template was loaded."
 msgstr "Șablonul a fost încărcat."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:135
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:137
 msgid "Template was updated."
 msgstr "Șablonul a fost actualizat."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:136
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:138
 msgid "Template was deleted."
 msgstr "Șablonul a fost șters."
 
 #. l10n: Other, small valued, queries
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:139
-#: libraries/classes/Controllers/Server/Status/QueriesController.php:74
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:141
+#: libraries/classes/Controllers/Server/Status/QueriesController.php:98
 #: libraries/classes/Server/Status/Data.php:163
 msgid "Other"
 msgstr "Altele"
 
 #. l10n: Thousands separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:141
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 #: libraries/classes/Util.php:595 libraries/classes/Util.php:627
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
 #: libraries/classes/Util.php:593 libraries/classes/Util.php:625
 msgid "."
 msgstr ","
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:147
 msgid "Connections / Processes"
 msgstr "Conexiuni/procese"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:148
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:150
 msgid "Local monitor configuration incompatible!"
 msgstr "Configurarea monitorizării locale este incompatibilă!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:150
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:152
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -5835,163 +5879,163 @@ msgstr ""
 "funcționeze. Te rog resetează-ți configurarea la valorile implicite în "
 "meniul <i>Setări</i>."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:156
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
 msgid "Query cache efficiency"
 msgstr "Eficiență cache interogări"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:157
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:159
 msgid "Query cache usage"
 msgstr "Folosire cache interogări"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:160
 msgid "Query cache used"
 msgstr "Cache interogări folosit"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:160
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:162
 msgid "System CPU usage"
 msgstr "Utilizare CPU sistem"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:161
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:163
 msgid "System memory"
 msgstr "Memorie sistem"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:162
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:164
 msgid "System swap"
 msgstr "Schimb de sistem"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:164
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:166
 msgid "Average load"
 msgstr "Încărcare medie"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:165
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:167
 msgid "Total memory"
 msgstr "Memorie totală"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:166
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:168
 msgid "Cached memory"
 msgstr "Memorie în cache"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:167
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:169
 msgid "Buffered memory"
 msgstr "Memorie tampon"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:168
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:170
 msgid "Free memory"
 msgstr "Memorie disponibilă"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:169
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
 msgid "Used memory"
 msgstr "Memorie folosită"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:173
 msgid "Total swap"
 msgstr "Schimb total"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:172
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
 msgid "Cached swap"
 msgstr "Schimb în cache"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:173
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
 msgid "Used swap"
 msgstr "Schimb folosit"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
 msgid "Free swap"
 msgstr "Schimb disponibil"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
 msgid "Bytes sent"
 msgstr "Octeți trimiși"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:179
 msgid "Bytes received"
 msgstr "Octeți primiți"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:180
 #: templates/server/status/status/index.twig:36
 msgid "Connections"
 msgstr "Conexiuni"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:179
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
 #: templates/server/status/base.twig:11
 #: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "Procese"
 
 #. l10n: shortcuts for Byte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
 #: libraries/classes/Util.php:505
 msgid "B"
 msgstr "O"
 
 #. l10n: shortcuts for Kilobyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
 #: libraries/classes/Util.php:507
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "KiO"
 
 #. l10n: shortcuts for Megabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
 #: libraries/classes/Util.php:509
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "MiO"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
 #: libraries/classes/Util.php:511
 msgid "GiB"
 msgstr "GiO"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
 #: libraries/classes/Util.php:513
 msgid "TiB"
 msgstr "TiO"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 #: libraries/classes/Util.php:515
 msgid "PiB"
 msgstr "PiO"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:190
 #: libraries/classes/Util.php:517
 msgid "EiB"
 msgstr "EiO"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 #, php-format
 msgid "%d table(s)"
 msgstr "Un tabel (%d tabele)"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
 msgid "Questions"
 msgstr "Întrebări"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
 #: templates/server/status/status/index.twig:14
 msgid "Traffic"
 msgstr "Trafic"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 #: libraries/classes/Menu.php:570 libraries/classes/Util.php:2430
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Setări"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 msgid "Add chart to grid"
 msgstr "Adaugă diagramă la grilă"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 msgid "Please add at least one variable to the series!"
 msgstr "Te rog adaugă cel puțin o variabilă la serie!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 #: libraries/classes/Display/Results.php:1315
 #: libraries/classes/Plugins/Export/ExportSql.php:2317
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:96
@@ -6009,54 +6053,54 @@ msgid "None"
 msgstr "Niciunul"
 
 #. l10n: SQL Query on modal to show exported query
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL Query"
 msgstr "Interogare SQL"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
 msgid "Resume monitor"
 msgstr "Reia monitorizarea"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
 msgid "Pause monitor"
 msgstr "Întrerupe monitorizarea"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
 #: templates/server/status/processes/index.twig:53
 msgid "Start auto refresh"
 msgstr "Pornește împrospătarea automată"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
 msgid "Stop auto refresh"
 msgstr "Oprește împrospătarea automată"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log și slow_query_log sunt activate."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
 msgid "general_log is enabled."
 msgstr "general_log este activat."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log este activat."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 msgid "slow_query_log and general_log are disabled."
 msgstr "slow_query_log și general_log sunt dezactivate."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 msgid "log_output is not set to TABLE."
 msgstr "log_output nu este setat în TABEL."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 msgid "log_output is set to TABLE."
 msgstr "log_output este setat în TABEL."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -6067,12 +6111,12 @@ msgstr ""
 "mai mari de %d secunde. Este recomandat să setezi long_query_time la 0-2 "
 "secunde, în funcție de sistemul tău."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time este setat la %d secunde."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -6081,30 +6125,30 @@ msgstr ""
 "după repornirea serverului:"
 
 #. l10n: %s is FILE or TABLE
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:224
 #, php-format
 msgid "Set log_output to %s"
 msgstr "Setează log_output la %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:224
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:226
 #, php-format
 msgid "Enable %s"
 msgstr "Activează %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:226
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:228
 #, php-format
 msgid "Disable %s"
 msgstr "Dezactivează %s"
 
 #. l10n: %d seconds
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:228
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:230
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "Setează long_query_time la %d secunde."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:230
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:232
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -6112,59 +6156,59 @@ msgstr ""
 "Nu poți modifica aceste variabile. Te rog autentifică-te în rădăcină sau "
 "contactează administratorul bazei de date."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:233
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
 msgid "Change settings"
 msgstr "Modifică setările"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:234
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:236
 msgid "Current settings"
 msgstr "Setări curente"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:236
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:238
 msgid "Chart title"
 msgstr "Titlu diagramă"
 
 #. l10n: As in differential values
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:238
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:240
 msgid "Differential"
 msgstr "Diferențial"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:239
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:241
 #, php-format
 msgid "Divided by %s"
 msgstr "Împărțit la %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:240
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
 msgid "Unit"
 msgstr "Unitate"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:244
 msgid "From slow log"
 msgstr "Din jurnalul lent"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:243
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:245
 msgid "From general log"
 msgstr "Din jurnalul general"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:245
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 "Numele bazei de date este necunoscut pentru această interogare în jurnalele "
 "serverului."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
 msgid "Analysing logs"
 msgstr "Analizez jurnalele"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:248
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:250
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Analizez și încarc jurnalele. Asta poate dura ceva timp."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
 msgid "Cancel request"
 msgstr "Anulează cererea"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -6175,7 +6219,7 @@ msgstr ""
 "criteriu de grupare, așa că celelalte atribute ale interogărilor, cum ar fi "
 "ora de pornire, pot să difere."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:256
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -6184,32 +6228,32 @@ msgstr ""
 "Deoarece a fost selectată gruparea interogărilor INSERT, interogările INSERT "
 "din același tabel sunt și ele grupate împreună, ignorând datele introduse."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:260
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Date jurnal încărcate. Interogări executate în acest interval de timp:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:264
 msgid "Jump to Log table"
 msgstr "Sari la tabelul Jurnal"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:263
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:265
 msgid "No data found"
 msgstr "N-am găsit date"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:264
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:266
 msgid "Log analysed, but no data found in this time span."
 msgstr "Jurnal analizat, dar n-am găsit date în acest interval de timp."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:266
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
 msgid "Analyzing…"
 msgstr "Analizez…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:267
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
 msgid "Explain output"
 msgstr "Explică ieșirea"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:166
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:270
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:171
 #: libraries/classes/Menu.php:537 libraries/classes/Util.php:2426
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:18
@@ -6219,8 +6263,8 @@ msgstr "Explică ieșirea"
 msgid "Status"
 msgstr "Stare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:162
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:167
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:493
 #: libraries/classes/Plugins/Export/ExportOdt.php:625
 #: libraries/classes/Plugins/Export/ExportTexytext.php:471
@@ -6230,77 +6274,77 @@ msgstr "Stare"
 msgid "Time"
 msgstr "Oră"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:270
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:272
 msgid "Total time:"
 msgstr "Timp total:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
 msgid "Profiling results"
 msgstr "Profilez rezultatele"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:272
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:274
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 msgid "Chart"
 msgstr "Diagramă"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
 #: templates/export.twig:171
 msgctxt "Alias"
 msgid "Database"
 msgstr "Bază de date"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:276
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:278
 #: templates/export.twig:185
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: templates/export.twig:198
 msgctxt "Alias"
 msgid "Column"
 msgstr "Coloană"
 
 #. l10n: A collection of available filters
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:280
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 msgid "Log table filter options"
 msgstr "Opțiuni filtrare tabel jurnal"
 
 #. l10n: Filter as in "Start Filtering"
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
 msgid "Filter"
 msgstr "Filtrare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:283
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:285
 msgid "Filter queries by word/regexp:"
 msgstr "Filtrează interogările după cuvântul/expresia obișnuită:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Grupează interogările, ignorând datele variabile din clauzele UNDE"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:285
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:287
 msgid "Sum of grouped rows:"
 msgstr "Sumă rânduri grupate:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
 #: templates/server/databases/index.twig:256
 msgid "Total:"
 msgstr "Total:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
 msgid "Loading logs"
 msgstr "Încarc jurnale"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
 msgid "Monitor refresh failed"
 msgstr "Reîmprospătarea monitorizării a eșuat"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
 #, fuzzy
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
@@ -6311,64 +6355,64 @@ msgstr ""
 "răspuns invalid. Acest lucru este cel mai probabil din cauză că a expirat "
 "sesiunea. Reîncărcarea paginii şi reautentificarea ar trebui să ajute."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
 msgid "Reload page"
 msgstr "Reîncarcă pagina"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:299
 msgid "Affected rows:"
 msgstr "Rânduri afectate:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:300
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:302
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Interpretarea fișierului de configurare a eșuat. Se pare că nu este un cod "
 "JSON valid."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:303
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:305
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Construirea grilei de diagrame cu configurarea importată a eșuat. Resetez la "
 "configurarea implicită…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:306
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
 msgid "Import monitor configuration"
 msgstr "Importă configurarea monitorizării"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:307
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
 msgid "Please select the file you want to import."
 msgstr "Te rog selectează fișierul pe care vrei să-l imporți."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
 msgstr "Te rog introdu un nume de pagină valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:311
 #, fuzzy
 #| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
 msgstr "Te rog introdu un nume de pagină valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid "No files available on server for import!"
 msgstr "Nu este disponibil pe server niciun fișier pentru import!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "Analyse query"
 msgstr "Analizează interogarea"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:315
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:317
 msgid "Formatting SQL…"
 msgstr "Formatez SQL…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:318
 msgid "No parameters found!"
 msgstr "Niciun parametru găsit!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:320
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:322
 #: templates/database/designer/main.twig:341
 #: templates/database/designer/main.twig:392
 #: templates/database/designer/main.twig:670
@@ -6380,49 +6424,49 @@ msgstr "Niciun parametru găsit!"
 msgid "Cancel"
 msgstr "Anulează"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:323
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
 #: templates/header.twig:50
 msgid "Page-related settings"
 msgstr "Setări legate de pagini"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:326
 #: templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
 msgstr "Aplică"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:327
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
 #: templates/navigation/main.twig:59
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
 msgstr "Încarc…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:330
 msgid "Request aborted!!"
 msgstr "Cerere anulată!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:331
 msgid "Processing request"
 msgstr "Procesez cererea"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:330
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 msgid "Request failed!!"
 msgstr "Cerere eșuată!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:331
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 msgid "Error in processing request"
 msgstr "Eroare la procesarea cererii"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:334
 #, php-format
 msgid "Error code: %s"
 msgstr "Cod eroare: %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:335
 #, php-format
 msgid "Error text: %s"
 msgstr "Text eroare: %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:335
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
@@ -6430,19 +6474,19 @@ msgstr ""
 "Se pare că a fost pierdută conexiunea la server. Te rog verifică "
 "conectivitatea rețelei și starea serverului."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:339
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
 msgid "No accounts selected."
 msgstr "Niciun cont selectat."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
 msgid "Dropping column"
 msgstr "Elimin coloana"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:343
 msgid "Adding primary key"
 msgstr "Adaug cheia principală"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
 #: templates/console/display.twig:129 templates/database/designer/main.twig:339
 #: templates/database/designer/main.twig:668
 #: templates/database/designer/main.twig:732
@@ -6452,106 +6496,106 @@ msgstr "Adaug cheia principală"
 msgid "OK"
 msgstr "OK"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:343
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
 msgid "Click to dismiss this notification"
 msgstr "Dă clic pentru a respinge această notificare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:346
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
 msgid "Renaming databases"
 msgstr "Redenumesc bazele de date"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
 msgid "Copying database"
 msgstr "Copiez baza de date"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
 msgid "Changing charset"
 msgstr "Schimb setul de caractere"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:354
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:193
 #: templates/sql/query.twig:131 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "Activează verificările cheilor străine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:355
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
 msgid "Failed to get real row count."
 msgstr "Obținerea numărul real de rânduri a eșuat."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:358
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
 msgid "Searching"
 msgstr "Caut"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:359
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:361
 msgid "Hide search results"
 msgstr "Ascunde rezultatele de căutare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 msgid "Show search results"
 msgstr "Afișează rezultatele de căutare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:361
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
 msgid "Browsing"
 msgstr "Răsfoiesc"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:364
 msgid "Deleting"
 msgstr "Șterg"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Ștergi potrivirile pentru tabelul %s?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:366
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "Definiția unei funcții stocate trebuie să conțină o declarație RETURN!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:370
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 "Nicio rutină nu poate fi exportată. Pot să lipsească privilegiile necesare."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 #: templates/database/routines/parameter_row.twig:24
 msgid "ENUM/SET editor"
 msgstr "Editor ENUM/SET"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:374
 #, php-format
 msgid "Values for column %s"
 msgstr "Valori pentru coloana %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:375
 msgid "Values for a new column"
 msgstr "Valori pentru o coloană nouă"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:374
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
 msgid "Enter each value in a separate field."
 msgstr "Introdu fiecare valoare într-un câmp separat."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:375
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Adaugă o valoare (%d valori)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:379
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Notă: Dacă fișierul conține mai multe tabele, ele vor fi combinate într-unul "
 "singur."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:383
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
 msgid "Hide query box"
 msgstr "Ascunde caseta de interogare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:384
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:386
 msgid "Show query box"
 msgstr "Arată caseta de interogare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:386
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 #: libraries/classes/Display/Results.php:3284
 #: libraries/classes/Server/UserGroups.php:134
 #: libraries/classes/Tracking.php:258 templates/console/bookmark_content.twig:7
@@ -6567,47 +6611,47 @@ msgstr "Arată caseta de interogare"
 msgid "Delete"
 msgstr "Șterge"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d nu este un număr de rând valid."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #: libraries/classes/InsertEdit.php:923
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
 msgstr "Răsfoiește valorile străine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 #, php-format
 msgid "Variable %d:"
 msgstr "Variabila %d:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:396
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
 #: libraries/classes/Normalization.php:1046
 msgid "Pick"
 msgstr "Alege"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:397
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
 msgid "Column selector"
 msgstr "Selector de coloană"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 msgid "Search this list"
 msgstr "Caută această listă"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -6616,15 +6660,15 @@ msgstr ""
 "Nicio coloană în lista centrală. Asigură-te că lista de coloane centrală "
 "pentru baza de date %s are coloane care nu sunt prezente în tabelul curent."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:403
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
 msgid "See more"
 msgstr "Vezi mai mult"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:404
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:406
 msgid "Are you sure?"
 msgstr "Sigur?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:406
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
 #, fuzzy
 #| msgid ""
 #| "This action may change some of the columns definition.<br/>Are you sure "
@@ -6636,29 +6680,29 @@ msgstr ""
 "Această acțiune poate modifica definiția unor coloane.<br/>Sigur vrei să "
 "continui?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:409
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
 msgid "Continue"
 msgstr "Continuă"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:412
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
 msgid "Add primary key"
 msgstr "Adaugă cheia principală"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
 msgid "Primary key added."
 msgstr "Cheie principală adăugată."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
 #: libraries/classes/Normalization.php:288
 msgid "Taking you to next step…"
 msgstr "Te duc la pasul următor…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Primul pas de normalizare este finalizat pentru tabelul „%s”."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
 #: libraries/classes/Normalization.php:557
 #: libraries/classes/Normalization.php:606
 #: libraries/classes/Normalization.php:700
@@ -6666,26 +6710,26 @@ msgstr "Primul pas de normalizare este finalizat pentru tabelul „%s”."
 msgid "End of step"
 msgstr "Sfârșitul pasului"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
 msgid "Second step of normalization (2NF)"
 msgstr "Al doilea pas de normalizare (2NF)"
 
 #. l10n: Display text for calendar close link
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:420
 #: libraries/classes/Normalization.php:385
 #: templates/javascript/variables.twig:15
 msgid "Done"
 msgstr "Gata"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
 msgid "Confirm partial dependencies"
 msgstr "Confirmă dependențele parțiale"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:420
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
 msgid "Selected partial dependencies are as follows:"
 msgstr "Dependențele parțiale selectate sunt următoarele:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -6693,27 +6737,27 @@ msgstr ""
 "Notă: a, b -> d, f înseamnă că valorile coloanelor a și b combinate împreună "
 "pot determina valorile coloanei d și coloanei f."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:425
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
 msgid "No partial dependencies selected!"
 msgstr "Nicio dependență parțială selectată!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
-#: libraries/classes/Export.php:599 libraries/classes/Html/Generator.php:1081
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
+#: libraries/classes/Export.php:599 libraries/classes/Html/Generator.php:1072
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:311
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "Înapoi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "Arată-mi posibile dependențe parțiale pe baza datelor din tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
 msgid "Hide partial dependencies list"
 msgstr "Ascunde lista dependențelor parțiale"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -6721,40 +6765,40 @@ msgstr ""
 "Ai răbdare! Poate dura câteva secunde în funcție de cantitatea de date și "
 "numărul de coloane din tabel."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:433
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
 msgid "Step"
 msgstr "Pas"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
 msgid "The following actions will be performed:"
 msgstr "Vor fi efectuate următoarele acțiuni:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "Elimină coloanele %s din tabelul %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
 msgid "Create the following table"
 msgstr "Creează tabelul următor"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:439
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
 msgid "Third step of normalization (3NF)"
 msgstr "Al treilea pas de normalizare (3NF)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:442
 msgid "Confirm transitive dependencies"
 msgstr "Confirmă dependențele tranzitive"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
 msgid "Selected dependencies are as follows:"
 msgstr "Dependențele selectate sunt următoarele:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:442
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
 msgid "No dependencies selected!"
 msgstr "Nicio dependență selectată!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:447
 #: libraries/classes/InsertEdit.php:1887
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:20
@@ -6765,97 +6809,97 @@ msgstr "Nicio dependență selectată!"
 msgid "Save"
 msgstr "Salvează"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:448
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
 msgid "Hide search criteria"
 msgstr "Ascunde criteriul de căutare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
 msgid "Show search criteria"
 msgstr "Arată criteriul de căutare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:452
 msgid "Range search"
 msgstr "Interval de căutare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:453
 msgid "Column maximum:"
 msgstr "Maxim coloană:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:452
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
 msgid "Column minimum:"
 msgstr "Minim coloană:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:453
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:455
 msgid "Minimum value:"
 msgstr "Valoare minimă:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
 msgid "Maximum value:"
 msgstr "Valoare maximă:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:459
 msgid "Hide find and replace criteria"
 msgstr "Ascunde criteriul găsește și înlocuiește"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
 msgid "Show find and replace criteria"
 msgstr "Arată criteriul găsește și înlocuiește"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:464
 msgid "Each point represents a data row."
 msgstr "Fiecare punct reprezintă un rând de date."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:464
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:466
 msgid "Hovering over a point will show its label."
 msgstr "La trecerea peste un punct, i se va afișa eticheta."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:466
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:468
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Pentru a mări, selectează o secțiune a plotului cu mausul."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:468
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Dă clic pe pe butonul de resetare a măririi pentru a reveni la starea "
 "inițială."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Dă clic pe un punct de date pentru a vedea sau chiar edita rândul de date."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "Plotul poate fi redimensionat trăgând de colțul din dreapta jos."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:475
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
 msgid "Select two columns"
 msgstr "Selectează două coloane"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 msgid "Select two different columns"
 msgstr "Selectează două coloane diferite"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
 msgid "Data point content"
 msgstr "Conținut punct de date"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:482
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:657
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 #: libraries/classes/ErrorHandler.php:396 libraries/classes/InsertEdit.php:3134
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "Ignoră"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 #: libraries/classes/Display/Results.php:3217
-#: libraries/classes/Html/Generator.php:73
+#: libraries/classes/Html/Generator.php:72
 #: templates/display/results/table.twig:214
 #: templates/display/results/table.twig:215
 msgid "Copy"
 msgstr "Copiază"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
 #: templates/gis_data_editor_form.twig:74
 #: templates/gis_data_editor_form.twig:94
 #: templates/gis_data_editor_form.twig:135
@@ -6863,7 +6907,7 @@ msgstr "Copiază"
 msgid "X"
 msgstr "X"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 #: templates/gis_data_editor_form.twig:76
 #: templates/gis_data_editor_form.twig:96
 #: templates/gis_data_editor_form.twig:137
@@ -6871,64 +6915,64 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
 msgid "Point"
 msgstr "Punct"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
 #, php-format
 msgid "Point %d"
 msgstr "Punct %d"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
 msgid "Linestring"
 msgstr "Șir de linii"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 msgid "Polygon"
 msgstr "Poligon"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 #: templates/display/results/table.twig:159
 msgid "Geometry"
 msgstr "Geometrie"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 msgid "Inner ring"
 msgstr "Inel interior"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 msgid "Outer ring"
 msgstr "Inel exterior"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
 #: templates/gis_data_editor_form.twig:99
 #: templates/gis_data_editor_form.twig:140
 #: templates/gis_data_editor_form.twig:192
 msgid "Add a point"
 msgstr "Adaugă un punct"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
 #: templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
 msgid "Add an inner ring"
 msgstr "Adăugă un inel interior"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
 msgid "Do you want to copy encryption key?"
 msgstr "Vrei să copiezi cheia de criptare?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 msgid "Encryption key"
 msgstr "Cheie de criptare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:500
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:502
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:505
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:507
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -6936,7 +6980,7 @@ msgstr ""
 "MySQL acceptă valori suplimentare care nu pot fi selectate prin cursor; "
 "tastează direct aceste valori, dacă le vrei"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:511
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:513
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -6944,7 +6988,7 @@ msgstr ""
 "MySQL acceptă valori suplimentare care nu pot fi selectate prin selectorul "
 "de date; tastează direct aceste valori, dacă le vrei"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:517
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -6952,25 +6996,25 @@ msgstr ""
 "Indică că ai făcut modificări în această pagină; ți se va cere confirmarea "
 "înainte de abandonare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:522
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
 msgid "Select referenced key"
 msgstr "Selectează cheia de referință"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:523
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
 msgid "Select Foreign Key"
 msgstr "Selectează cheia străină"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
 msgid "Please select the primary key or a unique key!"
 msgstr "Te rog selectează cheia principală sau o cheie unică!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "Alege coloana pentru afișare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:529
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -6978,92 +7022,92 @@ msgstr ""
 "Nu ai salvat modificările în aranjament. Ele vor fi pierdute dacă nu le "
 "salvezi. Vrei să continui?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:530
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
 msgstr "Adaugă tabele din alte baze de date"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
 msgid "Page name"
 msgstr "Nume pagină"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "Salvează pagina"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "Salvează pagina ca"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "Deschide pagina"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
 msgid "Delete page"
 msgstr "Șterge pagina"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "Fără titlu"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 msgid "Please select a page to continue"
 msgstr "Te rog selectează o pagină pentru a continua"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 msgid "Please enter a valid page name"
 msgstr "Te rog introdu un nume de pagină valid"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Do you want to save the changes to the current page?"
 msgstr "Vrei să salvezi modificările în pagina actuală?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 msgid "Successfully deleted the page"
 msgstr "Pagină ștearsă cu succes"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 msgid "Export relational schema"
 msgstr "Exportă schema relațională"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 msgid "Modifications have been saved"
 msgstr "Modificările au fost salvate"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
 #, php-format
 msgid "%d object(s) created."
 msgstr "Un obiect creat (%d obiecte create)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "Nume coloane"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
 #: templates/sql/query.twig:165
 msgid "Submit"
 msgstr "Trimite"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
 msgid "Press escape to cancel editing."
 msgstr "Apasă Esc pentru a anula editarea."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -7071,15 +7115,15 @@ msgstr ""
 "Ai editat unele date și ele nu au fost salvate. Sigur vrei să părăsești "
 "această pagină înainte de salvarea datele?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:556
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
 msgid "Drag to reorder."
 msgstr "Trage pentru a reordona."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
 msgid "Click to sort results by this column."
 msgstr "Dă clic pentru a sorta rezultatele după această coloană."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
 #, fuzzy
 #| msgid ""
 #| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
@@ -7094,21 +7138,21 @@ msgstr ""
 "comuta ASC/DESC.<br />- Ctrl+Clic sau Alt+Clic (Mac: Shift+Option+Clic) "
 "pentru a înlătura coloana din ORDONEAZĂ DUPĂ"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
 msgid "Click to mark/unmark."
 msgstr "Dă clic pentru a marca/anula marcarea."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:564
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:566
 msgid "Double-click to copy column name."
 msgstr "Dă dublu clic pentru a copia numele coloanei."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:566
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 #, fuzzy
 #| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Dă clic pe săgeată jos<br />pentru a comuta vizibilitatea coloanei."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7117,12 +7161,12 @@ msgstr ""
 "legăturile de editare grilă, bife, editare, copiere și ștergere ar putea să "
 "nu funcționeze după salvare."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:573
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Te rog introdu un șir hexazecimal valid. Caracterele valide sunt 0-9, A-F."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -7130,37 +7174,37 @@ msgstr ""
 "Chiar vrei să vezi toate rândurile? Un tabel foarte mare ar putea prăbuși "
 "navigatorul."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:578
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:580
 msgid "Original length"
 msgstr "Lungime originală"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:581
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
 msgid "cancel"
 msgstr "anulează"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
-#: libraries/classes/Controllers/Server/Status/StatusController.php:214
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
+#: libraries/classes/Controllers/Server/Status/StatusController.php:220
 msgid "Aborted"
 msgstr "Anulată"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
 msgid "Success"
 msgstr "Succes"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
 msgid "Import status"
 msgstr "Stare import"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 #: templates/navigation/main.twig:85
 msgid "Drop files here"
 msgstr "Aruncă fișiere aici"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Select database first"
 msgstr "Mai întâi selectează baza de date"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
 #: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/display/results/table.twig:241
@@ -7168,7 +7212,7 @@ msgstr "Mai întâi selectează baza de date"
 msgid "Print"
 msgstr "Imprimare"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
 #, fuzzy
 #| msgid ""
 #| "You can also edit most values<br />by double-clicking directly on them."
@@ -7177,69 +7221,69 @@ msgstr ""
 "De asemenea, poți edita majoritatea valorilor<br/>dând dublu-clic direct pe "
 "ele."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
 #, fuzzy
 #| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
 "De asemenea, poți edita majoritatea valorilor<br/>dând clic direct pe ele."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:600
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
 msgid "Go to link:"
 msgstr "Du-te la legătura:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:603
 msgid "Copy column name."
 msgstr "Copiază numele coloanei."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "Dă clic dreapta pe numele coloanei pentru a-l copia în clipboard."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
 msgid "Generate password"
 msgstr "Generează parola"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:608
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "Generează"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
 #: libraries/classes/Controllers/UserPasswordController.php:80
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "Schimbă parola"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
 #: templates/table/structure/display_structure.twig:132
 msgid "More"
 msgstr "Mai mult"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:613
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
 msgid "Show panel"
 msgstr "Arată panoul"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid "Hide panel"
 msgstr "Ascunde panoul"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
 msgid "Show hidden navigation tree items."
 msgstr "Arată elementele de navigare ascunse."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 #: libraries/classes/Navigation/NavigationTree.php:1476
 msgid "Unlink from main panel"
 msgstr "Anulează legătura din panoul principal"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "Pagina solicitată nu a fost găsită în istoric, este posibil să fi expirat."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
 #: libraries/classes/Setup/Index.php:184
 #, php-format
 msgid ""
@@ -7250,45 +7294,45 @@ msgstr ""
 "actualizarea. Noua versiune %s a fost lansată pe %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
 msgid ", latest stable version:"
 msgstr ", ultima versiune stabilă:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:629
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
 msgid "up to date"
 msgstr "la zi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
 #: templates/database/structure/show_create.twig:33
 #: templates/display/results/table.twig:280
 #: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "Creează vizualizarea"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:634
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
 msgid "Send error report"
 msgstr "Trimite raportul de erori"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
 msgid "Submit error report"
 msgstr "Trimite raportul de erori"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "A apărut o eroare JavaScript fatală. Vrei să trimiți un raport de erori?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
 msgid "Change report settings"
 msgstr "Modifică setări rapoarte"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:640
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:642
 msgid "Show report details"
 msgstr "Arată detalii raport"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:642
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7296,7 +7340,7 @@ msgstr ""
 "Exportul tău este incomplet din cauza unei limite de execuție reduse la "
 "nivel de PHP!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7306,73 +7350,73 @@ msgstr ""
 "trimitere, unele dintre câmpuri pot fi ignorate datorită configurării PHP "
 "max_input_vars."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:652
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:665
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:667
 msgid "Some errors have been detected on the server!"
 msgstr "Au fost detectate unele erori pe server!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 msgid "Please look at the bottom of this window."
 msgstr "Te rog uită-te în partea de jos a acestei ferestre."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:660
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 #: libraries/classes/ErrorHandler.php:400
 msgid "Ignore All"
 msgstr "Ignoră tot"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:668
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "În funcție de setările tale, aceste sunt trimise acum, te rog ai răbdare."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:676
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 #, fuzzy
 #| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "Pagină ștearsă cu succes"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:677
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 #, fuzzy
 #| msgid "Copying database"
 msgid "Copying failed!"
 msgstr "Copiez baza de date"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Execute this query again?"
 msgstr "Execuți această interogare din nou?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Do you really want to delete this bookmark?"
 msgstr "Sigur vrei să ștergi acest semn de carte?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Au apărut erori în timpul obținerii informațiilor de depanare SQL."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s interogări executate de %s ori în %s secunde."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "Un argument trecut (%s argumente trecute)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 msgid "Show arguments"
 msgstr "Arată argumente"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 msgid "Hide arguments"
 msgstr "Ascunde argumente"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgid "Time taken:"
 msgstr "Timp luat:"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7381,53 +7425,53 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:696
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 msgid "Copy tables to"
 msgstr "Copiază tabelele în"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:697
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
 msgid "Add table prefix"
 msgstr "Adaugă prefix tabel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 msgid "Replace table with prefix"
 msgstr "Înlocuiește tabelul cu prefix"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Copiază tabelul cu prefix"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
 msgid "Extremely weak"
 msgstr "Extrem de slabă"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
 msgid "Very weak"
 msgstr "Foarte slabă"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 msgid "Weak"
 msgstr "Slabă"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
 msgid "Good"
 msgstr "Bună"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid "Strong"
 msgstr "Puternică"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 msgid "Timed out waiting for security key activation."
 msgstr "A expirat așteptarea pentru activarea cheii de securitate."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr "Activarea cheii de securitate a eșuat (%s)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:715
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -7435,13 +7479,13 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabelul %s există deja!"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
 #: libraries/classes/InsertEdit.php:337
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:51
 msgid "Hide"
 msgstr "Ascunde"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:718
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 #: libraries/classes/Controllers/Table/ChangeController.php:198
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tables.twig:19
@@ -7490,12 +7534,12 @@ msgstr "Autentificarea pe două niveluri a fost înlăturată."
 msgid "Two-factor authentication has been configured."
 msgstr "Autentificarea pe două niveluri a fost configurată."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:243
+#: libraries/classes/Controllers/Server/DatabasesController.php:245
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Baza de date %1$s a fost creată."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:323
+#: libraries/classes/Controllers/Server/DatabasesController.php:325
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -7503,7 +7547,7 @@ msgstr[0] "O bază de data a fost eliminată cu succes."
 msgstr[1] "%1$d baze de data au fost eliminate cu succes."
 msgstr[2] "%1$d de baze de data au fost eliminate cu succes."
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:481
+#: libraries/classes/Controllers/Server/DatabasesController.php:483
 #: libraries/classes/Import.php:148
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
@@ -7512,7 +7556,7 @@ msgstr[2] "%1$d de baze de data au fost eliminate cu succes."
 msgid "Rows"
 msgstr "Rânduri"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:491
+#: libraries/classes/Controllers/Server/DatabasesController.php:493
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
@@ -7521,33 +7565,33 @@ msgstr "Rânduri"
 msgid "Indexes"
 msgstr "Indexuri"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:496
-#: libraries/classes/Controllers/Server/Status/StatusController.php:141
-#: libraries/classes/Controllers/Server/Status/StatusController.php:230
+#: libraries/classes/Controllers/Server/DatabasesController.php:498
+#: libraries/classes/Controllers/Server/Status/StatusController.php:147
+#: libraries/classes/Controllers/Server/Status/StatusController.php:236
 #: libraries/classes/Engines/Innodb.php:141
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Total"
 
-#: libraries/classes/Controllers/Server/DatabasesController.php:501
+#: libraries/classes/Controllers/Server/DatabasesController.php:503
 #: templates/database/structure/table_header.twig:38
 #: templates/table/structure/display_table_stats.twig:32
 #, fuzzy
 msgid "Overhead"
 msgstr "Asupra"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:137
+#: libraries/classes/Controllers/Server/PrivilegesController.php:141
 #: libraries/classes/Controllers/Server/UserGroupsController.php:51
 msgid "No Privileges"
 msgstr "Niciun privilegiu"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:145
+#: libraries/classes/Controllers/Server/PrivilegesController.php:149
 #, fuzzy
 #| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nu ai privilegii pentru a gestiona utilizatorii!"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:159
+#: libraries/classes/Controllers/Server/PrivilegesController.php:163
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -7555,16 +7599,16 @@ msgstr ""
 "Numele de utilizator și numele gazdei nu s-au schimbat. Dacă vrei să schimbi "
 "numai parola, trebuie să folosești fila „Schimbă parola”."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:414
+#: libraries/classes/Controllers/Server/PrivilegesController.php:416
 msgid "User has been added."
 msgstr "Utilizatorul a fost adăugat."
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:107
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:112
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Firul de execuție %s a fost oprit cu succes."
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:113
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:118
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -7572,54 +7616,54 @@ msgstr ""
 "phpMyAdmin nu a putut să oprească firul de execuție %s. Probabil el a fost "
 "deja închis."
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:142
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:147
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:146
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
 #: libraries/classes/Server/Privileges.php:2989
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Utilizator"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:150
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:155
 #: templates/server/replication/master_add_slave_user.twig:32
 #: templates/server/replication/master_add_slave_user.twig:43
 #: templates/server/replication/master_replication.twig:24
 msgid "Host"
 msgstr "Gazdă"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:158
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:163
 msgid "Command"
 msgstr "Comandă"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:170
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:175
 msgid "Progress"
 msgstr "Progres"
 
-#: libraries/classes/Controllers/Server/Status/ProcessesController.php:174
+#: libraries/classes/Controllers/Server/Status/ProcessesController.php:179
 #: libraries/classes/Server/Status/Data.php:146
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:21
 msgid "SQL query"
 msgstr "Interogare SQL"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:103
+#: libraries/classes/Controllers/Server/Status/StatusController.php:109
 msgid "Received"
 msgstr "Primite"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:122
+#: libraries/classes/Controllers/Server/Status/StatusController.php:128
 msgid "Sent"
 msgstr "Trimise"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:189
+#: libraries/classes/Controllers/Server/Status/StatusController.php:195
 msgid "Max. concurrent connections"
 msgstr "Nr. maxim conexiuni concurente"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:198
+#: libraries/classes/Controllers/Server/Status/StatusController.php:204
 msgid "Failed attempts"
 msgstr "Încercări eșuate"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:239
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:244
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -7627,11 +7671,11 @@ msgstr ""
 "Numărul de conexiuni care au eșuat deoarece clientul nu a închis cum trebuie "
 "conexiunea."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:243
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:248
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Numărul de încercări eșuate la conectarea cu serverul MySQL."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:246
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:251
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -7641,17 +7685,17 @@ msgstr ""
 "dar care a depășit valoarea binlog_cache_size și a folosit un fișier "
 "temporar pentru a stoca declarații din tranzacție."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:251
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:256
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 "Numărul de tranzacții care au folosit cache-ul jurnalului binar temporar."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:254
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:259
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "Numărul de încercări de conectare (reușite sau nu) la serverul MySQL."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:258
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:263
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -7663,11 +7707,11 @@ msgstr ""
 "mărești valoarea tmp_table_size pentru a determina ca tabelele temporare să "
 "se bazeze pe memorie în loc de disc."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:265
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:270
 msgid "How many temporary files mysqld has created."
 msgstr "Câte fișiere temporare a creat mysqld."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:268
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:273
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -7675,7 +7719,7 @@ msgstr ""
 "Numărul de tabele temporare create automat de server în memorie în timpul "
 "executării declarațiilor."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:272
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:277
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -7683,7 +7727,7 @@ msgstr ""
 "Numărul de rânduri scrise cu INSERT DELAYED pentru care a apărut o eroare "
 "(probabil cheie duplicat)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:276
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:281
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -7691,37 +7735,37 @@ msgstr ""
 "Numărul de fire de execuție în uz gestionate prin INSERT DELAYED. Fiecare "
 "tabel pe care se folosește INSERT DELAYED își are propriul fir de execuție."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:281
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:286
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Numărul de rânduri INSERT DELAYED scrise."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:284
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:289
 msgid "The number of executed FLUSH statements."
 msgstr "Numărul de declarații FLUSH executate."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:287
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:292
 msgid "The number of internal COMMIT statements."
 msgstr "Numărul de declarații interne COMMIT."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:290
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:295
 msgid "The number of times a row was deleted from a table."
 msgstr "De câte ori a fost șters un rând dintr-un tabel."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:293
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:298
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:299
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:304
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:305
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:310
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -7730,20 +7774,20 @@ msgstr ""
 "este un indicator bun că interogările și tabelele tale sunt indexate "
 "corespunzător."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:310
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:315
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:315
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:320
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:319
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:324
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -7751,7 +7795,7 @@ msgid ""
 "you have joins that don't use keys properly."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:326
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:331
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -7759,35 +7803,35 @@ msgid ""
 "advantage of the indexes you have."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:333
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:338
 msgid "The number of internal ROLLBACK statements."
 msgstr "Numărul de declarații interne ROLLBACK."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:336
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:341
 msgid "The number of requests to update a row in a table."
 msgstr "Numărul de cereri pentru a actualiza un rând într-un tabel."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:339
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:344
 msgid "The number of requests to insert a row in a table."
 msgstr "Numărul de cereri pentru a insera un rând într-un tabel."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:342
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:347
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Numărul de pagini care conțin date (curate sau murdare)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:345
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:350
 msgid "The number of pages currently dirty."
 msgstr "Numărul de pagini acum murdare."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:348
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:353
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Numărul de pagini buffer pool pentru care s-a cerute să fie golite."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:352
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:357
 msgid "The number of free pages."
 msgstr "Numărul de pagini libere."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:355
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:360
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -7797,7 +7841,7 @@ msgstr ""
 "sunt în prezent citite sau scrise sau care nu pot fi golite sau înlăturate "
 "dintr-un alt motiv."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:360
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:365
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -7805,33 +7849,33 @@ msgid ""
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:367
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:372
 msgid "Total size of buffer pool, in pages."
 msgstr "Dimensiune totală buffer pool, în pagini."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:370
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:375
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:375
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:380
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:379
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:384
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Numărul de cereri de citire logice pe care le-a făcut InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:382
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:387
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:386
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:391
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -7840,86 +7884,86 @@ msgid ""
 "properly, this value should be small."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:394
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:399
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Numărul de scrieri făcute în buffer pool InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:397
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:402
 msgid "The number of fsync() operations so far."
 msgstr "Numărul de operații fsync() până acum."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:400
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:405
 msgid "The current number of pending fsync() operations."
 msgstr "Numărul curent de operații fsync() în așteptare."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:403
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:408
 msgid "The current number of pending reads."
 msgstr "Numărul curent de citiri în așteptare."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:406
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:411
 msgid "The current number of pending writes."
 msgstr "Numărul curent de scrieri în așteptare."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:409
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:414
 msgid "The amount of data read so far, in bytes."
 msgstr "Cantitatea de date citită până acum, în octeți."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:412
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:417
 msgid "The total number of data reads."
 msgstr "Numărul total de citiri de date."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:415
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:420
 msgid "The total number of data writes."
 msgstr "Numărul total de scrieri de date."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:418
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The amount of data written so far, in bytes."
 msgstr "Cantitatea de date scrisă până acum, în octeți."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:421
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:426
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Numărul de pagini care au fost scrise pentru operații de scriere dublă."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:425
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:430
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Numărul de operații de scriere dublă care au fost efectuate."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:428
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:433
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:432
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:437
 msgid "The number of log write requests."
 msgstr "Numărul de cereri de scriere în jurnal."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:435
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:440
 msgid "The number of physical writes to the log file."
 msgstr "Numărul de scrieri fizice în fișierul jurnal."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:438
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:443
 msgid "The number of fsync() writes done to the log file."
 msgstr "Numărul de scrieri fsync() făcute în fișierul jurnal."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:441
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:446
 msgid "The number of pending log file fsyncs."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:444
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:449
 msgid "Pending log file writes."
 msgstr "Scrieri în așteptare pentru fișierul jurnal."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:447
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:452
 msgid "The number of bytes written to the log file."
 msgstr "Numărul de octeți scriși în fișierul jurnal."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:450
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:455
 msgid "The number of pages created."
 msgstr "Numărul de pagini create."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:453
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:458
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -7928,58 +7972,58 @@ msgstr ""
 "sunt numărate în pagini; dimensiunea paginii le permite să fie ușor "
 "convertite în octeți."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:458
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:463
 msgid "The number of pages read."
 msgstr "Numărul de pagini citite."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:461
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:466
 msgid "The number of pages written."
 msgstr "Numărul de pagini scrise."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:464
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:469
 msgid "The number of row locks currently being waited for."
 msgstr "Numărul de blocări de rând care este așteptat în prezent."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:467
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:472
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Durata medie pentru a obține o blocare de rând, în milisecunde."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:470
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:475
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
 "Timpul total petrecut pentru obținerea blocărilor de rând, în milisecunde."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:473
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:478
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Durata maximă pentru a obține o blocare de rând, în milisecunde."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:476
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:481
 msgid "The number of times a row lock had to be waited for."
 msgstr "De câte ori a trebuit să fie așteptată o blocare de rând."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:479
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:484
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Numărul de rânduri șterse din tabelele InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:482
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:487
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Numărul de rânduri inserate în tabelele InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:485
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:490
 msgid "The number of rows read from InnoDB tables."
 msgstr "Numărul de rânduri citite din tabelele InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:488
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:493
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Numărul de rânduri actualizate în tabelele InnoDB."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:491
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:496
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:496
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:501
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -7987,7 +8031,7 @@ msgstr ""
 "Numărul de blocuri neutilizate din cache-ul chei. Poți folosi această "
 "valoare pentru a determina cât de mult este folosit cache-ul chei."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:500
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:505
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -7997,15 +8041,15 @@ msgstr ""
 "maxim care indică numărul maxim de blocuri care au fost în uz la un moment "
 "dat."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:505
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:510
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Procent din cache-ul chei folosit (valoare calculată)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:508
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:513
 msgid "The number of requests to read a key block from the cache."
 msgstr "Numărul de cereri pentru a citi un bloc de chei din cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:511
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:516
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -8015,7 +8059,7 @@ msgstr ""
 "este mare, apoi valoarea ta key_buffer_size este probabil prea mică. Rata "
 "pierderii de cache poate fi calculată ca Key_reads/Key_read_requests."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:517
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:522
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
@@ -8023,29 +8067,29 @@ msgstr ""
 "Pierderea cache chei este calculată ca rata citirilor fizice în comparație "
 "cu cererile de citire (valoare calculată)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:521
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:526
 msgid "The number of requests to write a key block to the cache."
 msgstr "Numărul de cereri pentru a scrie un bloc de chei în cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:524
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:529
 msgid "The number of physical writes of a key block to disk."
 msgstr "Numărul de scrieri fizice ale unui bloc de chei pe disc."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:527
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:532
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
 "Procent din scrieri fizice comparate cu cererile de scriere (valoare "
 "calculată)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:531
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:536
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:537
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:542
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
@@ -8053,12 +8097,12 @@ msgstr ""
 "Numărul maxim de conexiuni care au fost utilizate simultan de la pornirea "
 "serverului."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:541
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:546
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "Numărul de rânduri care așteaptă să fie scrise în cozile INSERT DELAYED."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:544
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:549
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -8066,21 +8110,21 @@ msgstr ""
 "Numărul de tabele care au fost deschise. Dacă tabelele deschise sunt mari, "
 "valoarea cache-ului tabele este probabil prea mică."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:548
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The number of files that are open."
 msgstr "Numărul de fișiere care sunt deschise."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:551
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:556
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Numărul de fluxuri care sunt deschise (folosite în principal pentru "
 "autentificare)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:554
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:559
 msgid "The number of tables that are open."
 msgstr "Numărul de tabele care sunt deschise."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:557
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:562
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -8090,19 +8134,19 @@ msgstr ""
 "pot indica probleme de fragmentare, care pot fi rezolvate prin emiterea unei "
 "declarații FLUSH QUERY CACHE."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:562
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:567
 msgid "The amount of free memory for query cache."
 msgstr "Cantitatea de memorie liberă pentru cache interogări."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:565
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:570
 msgid "The number of cache hits."
 msgstr "Numărul de vizite în cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:568
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:573
 msgid "The number of queries added to the cache."
 msgstr "Numărul de interogări adăugate la cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:571
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:576
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -8110,7 +8154,7 @@ msgid ""
 "decide which queries to remove from the cache."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:578
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:583
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -8118,19 +8162,19 @@ msgstr ""
 "Numărul de interogări care nu sunt memorate în cache (nu pot fi memorate în "
 "cache sau nu sunt memorate în cache din cauza setării query_cache_type)."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:582
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:587
 msgid "The number of queries registered in the cache."
 msgstr "Numărul de interogări înregistrate în cache."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:585
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:590
 msgid "The total number of blocks in the query cache."
 msgstr "Numărul total de blocuri în cache-ul interogări."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:588
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:593
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:591
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:596
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -8138,13 +8182,13 @@ msgstr ""
 "Numărul de asocieri care nu folosesc indexuri. Dacă această valoare nu este "
 "0, trebuie să verifici cu atenție indexurile tabelelor tale."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:595
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:600
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
 "Numărul de asocieri care au folosit o căutare într-un interval într-un tabel "
 "de referință."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:598
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:603
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -8153,7 +8197,7 @@ msgstr ""
 "rând. (Dacă nu este 0, ar trebui să verifici cu atenție indexurile tabelelor "
 "tale.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:603
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:608
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -8161,17 +8205,17 @@ msgstr ""
 "Numărul de asocieri care au folosit intervale în primul tabel. (În mod "
 "normal, nu este o valoare critică chiar dacă este mare.)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:607
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:612
 msgid "The number of joins that did a full scan of the first table."
 msgstr ""
 "Numărul de asocieri care au efectuat o scanare completă a primului tabel."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:610
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:615
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
 "Numărul de tabele temporare deschise acum de firul de execuție SQL sclav."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:614
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:619
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -8179,12 +8223,12 @@ msgstr ""
 "Numărul total de replicări (de la pornire) ale firului de execuție SQL sclav "
 "care a reluat tranzacțiile."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:618
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:623
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
 "Este PORNIT dacă acest server este un sclav care este conectat la un master."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:621
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:626
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -8192,36 +8236,36 @@ msgstr ""
 "Numărul de fire de execuție cărora le-a luat mai mult de slow_launch_time "
 "secunde pentru creare."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:625
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:630
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Numărul de interogări cărora le-a luat mai mult de long_query_time secunde."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:629
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:634
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:634
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:639
 msgid "The number of sorts that were done with ranges."
 msgstr "Numărul de sortări care au fost făcute cu intervale."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:637
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:642
 msgid "The number of sorted rows."
 msgstr "Numărul de rânduri sortate."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:640
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:645
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Numărul de sortări care au fost făcute prin scanarea tabelului."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:643
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:648
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "De câte ori a fost obținută imediat o blocare de tabel."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:646
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:651
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -8229,7 +8273,7 @@ msgid ""
 "tables or use replication."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:652
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:657
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -8239,11 +8283,11 @@ msgstr ""
 "fi calculată ca Threads_created/conexiuni. Dacă această valoare este roșie, "
 "ar trebui să crești thread_cache_size."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:657
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:662
 msgid "The number of currently open connections."
 msgstr "Numărul de conexiuni deschise acum."
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:660
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:665
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -8251,11 +8295,11 @@ msgid ""
 "implementation.)"
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:667
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:672
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Rată de succes cache fire de execuție (valoare calculată)"
 
-#: libraries/classes/Controllers/Server/Status/VariablesController.php:670
+#: libraries/classes/Controllers/Server/Status/VariablesController.php:675
 msgid "The number of threads that are not sleeping."
 msgstr ""
 
@@ -8340,29 +8384,29 @@ msgid "Bookmark not created!"
 msgstr "Semn de carte necreat!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
-#: libraries/classes/Controllers/Table/IndexesController.php:151
-#: libraries/classes/Controllers/Table/StructureController.php:1013
-#: libraries/classes/Controllers/Table/StructureController.php:1240
+#: libraries/classes/Controllers/Table/IndexesController.php:246
+#: libraries/classes/Controllers/Table/StructureController.php:1034
+#: libraries/classes/Controllers/Table/StructureController.php:1261
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabelul %1$s a fost modificat cu succes."
 
 #: libraries/classes/Controllers/Table/ChangeController.php:304
 #: libraries/classes/Controllers/Table/DeleteController.php:121
-#: libraries/classes/Controllers/Table/ExportController.php:146
+#: libraries/classes/Controllers/Table/ExportController.php:145
 msgid "No row selected."
 msgstr "Niciun rând selectat."
 
 #: libraries/classes/Controllers/Table/ChartController.php:59
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:61
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:67
 msgid "No SQL query was set to fetch data."
 msgstr "Nu a fost setată nicio interogare SQL pentru aducerea datelor."
 
-#: libraries/classes/Controllers/Table/ChartController.php:136
+#: libraries/classes/Controllers/Table/ChartController.php:152
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/ChartController.php:197
+#: libraries/classes/Controllers/Table/ChartController.php:219
 msgid "No data to display"
 msgstr "Nu sunt date de afișat"
 
@@ -8378,16 +8422,16 @@ msgid "Table %s already exists!"
 msgstr "Tabelul %s există deja!"
 
 #: libraries/classes/Controllers/Table/DeleteController.php:81
-#: libraries/classes/Controllers/Table/FindReplaceController.php:184
+#: libraries/classes/Controllers/Table/FindReplaceController.php:193
 #: libraries/classes/Controllers/Table/MaintenanceController.php:59
 #: libraries/classes/Controllers/Table/MaintenanceController.php:94
 #: libraries/classes/Controllers/Table/MaintenanceController.php:132
 #: libraries/classes/Controllers/Table/MaintenanceController.php:168
 #: libraries/classes/Controllers/Table/MaintenanceController.php:203
 #: libraries/classes/Controllers/Table/RelationController.php:273
-#: libraries/classes/Controllers/ViewOperationsController.php:77
+#: libraries/classes/Controllers/ViewOperationsController.php:84
 #: libraries/classes/Database/Routines.php:1481
-#: libraries/classes/Display/Results.php:4092 libraries/classes/Message.php:174
+#: libraries/classes/Display/Results.php:4093 libraries/classes/Message.php:174
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Interogarea SQL a fost executată cu succes."
@@ -8404,12 +8448,17 @@ msgstr "Nume tabel invalid"
 msgid "There is an issue with your request."
 msgstr "Există prea multe asocieri fără indexuri."
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:83
+#: libraries/classes/Controllers/Table/GetFieldController.php:84
 #: libraries/classes/Database/Routines.php:1502
 #: libraries/classes/Import.php:156 libraries/classes/InsertEdit.php:225
-#: libraries/classes/Sql.php:1039
+#: libraries/classes/Sql.php:1033
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a returnat un set de rezultate gol (adică zero rânduri)."
+
+#: libraries/classes/Controllers/Table/IndexesController.php:219
+#: libraries/classes/Table.php:2236
+msgid "The name of the primary key must be \"PRIMARY\"!"
+msgstr "Numele cheii principale trebuie să fie „PRIMARY”!"
 
 #: libraries/classes/Controllers/Table/MaintenanceController.php:51
 #: libraries/classes/Controllers/Table/MaintenanceController.php:86
@@ -8419,9 +8468,9 @@ msgstr "MySQL a returnat un set de rezultate gol (adică zero rânduri)."
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/OperationsController.php:107
-#: libraries/classes/Controllers/Table/OperationsController.php:294
-#: libraries/classes/Controllers/Table/StructureController.php:122
+#: libraries/classes/Controllers/Table/OperationsController.php:113
+#: libraries/classes/Controllers/Table/OperationsController.php:300
+#: libraries/classes/Controllers/Table/StructureController.php:123
 #: libraries/classes/Navigation/Nodes/NodeView.php:29
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
@@ -8442,43 +8491,43 @@ msgstr "Relațiile interne au fost actualizate cu succes."
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rând: %1$s, coloană: %2$s, eroare: %3$s"
 
-#: libraries/classes/Controllers/Table/StructureController.php:201
-#: libraries/classes/Controllers/Table/StructureController.php:224
-#: libraries/classes/Controllers/Table/StructureController.php:240
-#: libraries/classes/Controllers/Table/StructureController.php:273
-#: libraries/classes/Controllers/Table/StructureController.php:307
-#: libraries/classes/Controllers/Table/StructureController.php:346
-#: libraries/classes/Controllers/Table/StructureController.php:385
-#: libraries/classes/Controllers/Table/StructureController.php:424
-#: libraries/classes/Controllers/Table/StructureController.php:464
-#: libraries/classes/Controllers/Table/StructureController.php:530
-#: libraries/classes/Controllers/Table/StructureController.php:574
+#: libraries/classes/Controllers/Table/StructureController.php:210
+#: libraries/classes/Controllers/Table/StructureController.php:233
+#: libraries/classes/Controllers/Table/StructureController.php:249
+#: libraries/classes/Controllers/Table/StructureController.php:282
+#: libraries/classes/Controllers/Table/StructureController.php:316
+#: libraries/classes/Controllers/Table/StructureController.php:355
+#: libraries/classes/Controllers/Table/StructureController.php:394
+#: libraries/classes/Controllers/Table/StructureController.php:433
+#: libraries/classes/Controllers/Table/StructureController.php:473
+#: libraries/classes/Controllers/Table/StructureController.php:545
+#: libraries/classes/Controllers/Table/StructureController.php:589
 msgid "No column selected."
 msgstr "Nicio coloană selectată."
 
-#: libraries/classes/Controllers/Table/StructureController.php:712
+#: libraries/classes/Controllers/Table/StructureController.php:733
 msgid "The columns have been moved successfully."
 msgstr "Coloanele au fost mutate cu succes."
 
-#: libraries/classes/Controllers/Table/StructureController.php:751
+#: libraries/classes/Controllers/Table/StructureController.php:772
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "Obținerea descrierii coloanei %s a eșuat!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1005
-#: libraries/classes/Controllers/Table/StructureController.php:1291
+#: libraries/classes/Controllers/Table/StructureController.php:1026
+#: libraries/classes/Controllers/Table/StructureController.php:1312
 #: libraries/classes/Tracking.php:774
 msgid "Query error"
 msgstr "Eroare de interogare"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1234
+#: libraries/classes/Controllers/Table/StructureController.php:1255
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr ""
 "Tabelul %1$s a fost modificat cu succes. Privilegiile au fost ajustate."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1517
+#: libraries/classes/Controllers/Table/StructureController.php:1539
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -8488,7 +8537,7 @@ msgstr ""
 msgid "Primary"
 msgstr "Principal"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1522
+#: libraries/classes/Controllers/Table/StructureController.php:1544
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8500,7 +8549,7 @@ msgstr "Principal"
 msgid "Index"
 msgstr "Index"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1774
+#: libraries/classes/Controllers/Table/StructureController.php:1796
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -8508,20 +8557,20 @@ msgstr[0] "Numele „%s” este un cuvânt cheie rezervat pentru MySQL."
 msgstr[1] "Numele „%s” sunt cuvinte cheie rezervate pentru MySQL."
 msgstr[2] "Numele „%s” sunt cuvinte cheie rezervate pentru MySQL."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:63
+#: libraries/classes/Controllers/Table/TrackingController.php:71
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "Urmărirea %s este activată."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:139
+#: libraries/classes/Controllers/Table/TrackingController.php:147
 msgid "Tracking versions deleted successfully."
 msgstr "Urmărirea versiunilor a fost ștearsă cu succes."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:144
+#: libraries/classes/Controllers/Table/TrackingController.php:152
 msgid "No versions selected."
 msgstr "Nicio versiune selectată."
 
-#: libraries/classes/Controllers/Table/TrackingController.php:177
+#: libraries/classes/Controllers/Table/TrackingController.php:185
 msgid "SQL statements executed."
 msgstr "Declarații SQL executate."
 
@@ -8534,12 +8583,12 @@ msgstr "Temă"
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Nu ai suficiente privilegii pentru a fi aici, chiar acum!"
 
-#: libraries/classes/Controllers/ViewCreateController.php:78
+#: libraries/classes/Controllers/ViewCreateController.php:84
 msgid "View name can not be empty!"
 msgstr "Numele vizualizării nu poate fi gol!"
 
-#: libraries/classes/Controllers/ViewOperationsController.php:80
-#: libraries/classes/Html/Generator.php:953 libraries/classes/Import.php:137
+#: libraries/classes/Controllers/ViewOperationsController.php:87
+#: libraries/classes/Html/Generator.php:944 libraries/classes/Import.php:137
 #: libraries/classes/InsertEdit.php:1574 libraries/classes/Message.php:194
 #: templates/error/generic.twig:37 templates/javascript/variables.twig:108
 msgid "Error"
@@ -8710,7 +8759,7 @@ msgstr "Următoarea interogare a eșuat: „%s”"
 #: libraries/classes/Database/Triggers.php:144
 #: libraries/classes/Database/Triggers.php:169
 #: libraries/classes/Database/Triggers.php:550
-#: libraries/classes/Html/Generator.php:1025
+#: libraries/classes/Html/Generator.php:1016
 msgid "MySQL said: "
 msgstr "MySQL zice: "
 
@@ -9013,7 +9062,7 @@ msgstr "Lungime/valori"
 #: libraries/classes/Plugins/Export/ExportCsv.php:47
 #: libraries/classes/Plugins/Export/ExportExcel.php:34
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:47
-#: libraries/classes/Plugins/Export/ExportJson.php:73
+#: libraries/classes/Plugins/Export/ExportJson.php:74
 #: libraries/classes/Plugins/Export/ExportLatex.php:72
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:46
 #: libraries/classes/Plugins/Export/ExportOds.php:52
@@ -9339,31 +9388,31 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Conexiunea SSL a fost impusă de server, este activată automat."
 
 #: libraries/classes/Display/Results.php:906
-#: libraries/classes/Html/Generator.php:1281
-#: libraries/classes/Html/Generator.php:1284
+#: libraries/classes/Html/Generator.php:1272
+#: libraries/classes/Html/Generator.php:1275
 msgctxt "First page"
 msgid "Begin"
 msgstr "Început"
 
 #: libraries/classes/Display/Results.php:913
-#: libraries/classes/Html/Generator.php:1282
-#: libraries/classes/Html/Generator.php:1285
+#: libraries/classes/Html/Generator.php:1273
+#: libraries/classes/Html/Generator.php:1276
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Anterioară"
 
 #: libraries/classes/Display/Results.php:941
-#: libraries/classes/Html/Generator.php:1314
-#: libraries/classes/Html/Generator.php:1321
+#: libraries/classes/Html/Generator.php:1305
+#: libraries/classes/Html/Generator.php:1312
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "Următoare"
 
 #: libraries/classes/Display/Results.php:971
-#: libraries/classes/Html/Generator.php:1315
-#: libraries/classes/Html/Generator.php:1322
+#: libraries/classes/Html/Generator.php:1306
+#: libraries/classes/Html/Generator.php:1313
 msgctxt "Last page"
 msgid "End"
 msgstr "Sfârșit"
@@ -9417,32 +9466,32 @@ msgstr "Rândul a fost șters."
 msgid "Kill"
 msgstr "Oprește"
 
-#: libraries/classes/Display/Results.php:4016
+#: libraries/classes/Display/Results.php:4017
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 "Poate fi aproximativ. Vezi [doc@faq3-11]Întrebări frecvente 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4438
+#: libraries/classes/Display/Results.php:4439
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Arăt rândurile %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4452
+#: libraries/classes/Display/Results.php:4453
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d în total, %2$d în interogare"
 
-#: libraries/classes/Display/Results.php:4457
+#: libraries/classes/Display/Results.php:4458
 #, php-format
 msgid "%d total"
 msgstr "Total %d"
 
-#: libraries/classes/Display/Results.php:4469 libraries/classes/Sql.php:1045
+#: libraries/classes/Display/Results.php:4470 libraries/classes/Sql.php:1039
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Interogarea a durat %01.4f secunde."
 
-#: libraries/classes/Display/Results.php:4837
+#: libraries/classes/Display/Results.php:4838
 msgid "Link not found!"
 msgstr "Legătură negăsită!"
 
@@ -9927,79 +9976,79 @@ msgstr "Deschide fereastră phpMyAdmin nouă"
 msgid "Print view"
 msgstr "Vizualizare imprimare"
 
-#: libraries/classes/Html/Generator.php:160
+#: libraries/classes/Html/Generator.php:151
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "Sari la baza de date „%s”."
 
-#: libraries/classes/Html/Generator.php:188
+#: libraries/classes/Html/Generator.php:179
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funcționalitatea %s este afectată de o eroare cunoscută, vezi %s"
 
-#: libraries/classes/Html/Generator.php:303
+#: libraries/classes/Html/Generator.php:294
 msgid "SSL is not being used"
 msgstr "Nu se folosește SSL"
 
-#: libraries/classes/Html/Generator.php:308
+#: libraries/classes/Html/Generator.php:299
 msgid "SSL is used with disabled verification"
 msgstr "Este folosit SSL cu verificarea dezactivată"
 
-#: libraries/classes/Html/Generator.php:310
+#: libraries/classes/Html/Generator.php:301
 msgid "SSL is used without certification authority"
 msgstr "Este folosit SSL fără autoritatea de certificare"
 
-#: libraries/classes/Html/Generator.php:313
+#: libraries/classes/Html/Generator.php:304
 msgid "SSL is used"
 msgstr "Este folosit SSL"
 
-#: libraries/classes/Html/Generator.php:412
+#: libraries/classes/Html/Generator.php:403
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:413
+#: libraries/classes/Html/Generator.php:404
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:718
+#: libraries/classes/Html/Generator.php:709
 msgid "Skip Explain SQL"
 msgstr "Sari peste Explică SQL"
 
-#: libraries/classes/Html/Generator.php:726
+#: libraries/classes/Html/Generator.php:717
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:756
+#: libraries/classes/Html/Generator.php:747
 msgid "Without PHP code"
 msgstr "Fără cod PHP"
 
-#: libraries/classes/Html/Generator.php:763
+#: libraries/classes/Html/Generator.php:754
 #: templates/database/multi_table_query/form.twig:170
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "Trimite interogarea"
 
-#: libraries/classes/Html/Generator.php:808 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:799 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Creez profilul"
 
-#: libraries/classes/Html/Generator.php:822
+#: libraries/classes/Html/Generator.php:813
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Editează în-linie"
 
-#: libraries/classes/Html/Generator.php:960
+#: libraries/classes/Html/Generator.php:951
 msgid "Static analysis:"
 msgstr "Analiză statică:"
 
-#: libraries/classes/Html/Generator.php:963
+#: libraries/classes/Html/Generator.php:954
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Au fost găsite %d erori în timpul analizei."
 
-#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1053
+#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1047
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK s-a făcut.]"
 
@@ -10204,11 +10253,11 @@ msgstr "Coloană"
 msgid "Null"
 msgstr "Nul"
 
-#: libraries/classes/InsertEdit.php:2401 libraries/classes/Sql.php:1036
+#: libraries/classes/InsertEdit.php:2401 libraries/classes/Sql.php:1030
 msgid "Showing SQL query"
 msgstr "Arăt interogarea SQL"
 
-#: libraries/classes/InsertEdit.php:2427 libraries/classes/Sql.php:1014
+#: libraries/classes/InsertEdit.php:2427 libraries/classes/Sql.php:1008
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID rând inserat: %1$d"
@@ -10876,32 +10925,32 @@ msgid "No partial dependencies found!"
 msgstr "Nicio dependență parțială găsită!"
 
 #: libraries/classes/Operations.php:601
-#: templates/table/structure/display_structure.twig:522
+#: templates/table/structure/display_structure.twig:531
 msgid "Analyze"
 msgstr "Analizează"
 
 #: libraries/classes/Operations.php:602
-#: templates/table/structure/display_structure.twig:522
+#: templates/table/structure/display_structure.twig:531
 msgid "Check"
 msgstr "Verifică"
 
 #: libraries/classes/Operations.php:603
-#: templates/table/structure/display_structure.twig:522
+#: templates/table/structure/display_structure.twig:531
 msgid "Optimize"
 msgstr "Optimizează"
 
 #: libraries/classes/Operations.php:604
-#: templates/table/structure/display_structure.twig:522
+#: templates/table/structure/display_structure.twig:531
 msgid "Rebuild"
 msgstr "Reconstruiește"
 
 #: libraries/classes/Operations.php:605
-#: templates/table/structure/display_structure.twig:522
+#: templates/table/structure/display_structure.twig:531
 msgid "Repair"
 msgstr "Repară"
 
 #: libraries/classes/Operations.php:606
-#: templates/table/structure/display_structure.twig:522
+#: templates/table/structure/display_structure.twig:531
 msgid "Truncate"
 msgstr "Trunchiază"
 
@@ -10925,8 +10974,8 @@ msgstr "Trunchiază"
 #: templates/table/relation/foreign_key_row.twig:26
 #: templates/table/structure/display_structure.twig:121
 #: templates/table/structure/display_structure.twig:283
-#: templates/table/structure/display_structure.twig:454
-#: templates/table/structure/display_structure.twig:531
+#: templates/table/structure/display_structure.twig:463
+#: templates/table/structure/display_structure.twig:540
 msgid "Drop"
 msgstr "Elimină"
 
@@ -11010,25 +11059,25 @@ msgstr "Reîncearcă să te conectezi"
 msgid "Your session has expired. Please log in again."
 msgstr "Sesiunea ta a expirat. Te rog autentifică-te din nou."
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:290
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:299
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr "Lipsește verificarea reCAPTCHA, poate a fost blocată de adblock?"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:325
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:334
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Conectarea la serviciul reCAPTCHA a eșuat!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:327
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:336
 msgid "Entered captcha is wrong, try again!"
 msgstr "Captcha introdusă este greșită, încearcă din nou!"
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:339
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:348
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
 
-#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:363
+#: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Nu ai voie să te autentifici în acest server MySQL!"
 
@@ -11216,13 +11265,13 @@ msgstr "Structură pentru vizualizare"
 msgid "Stand-in structure for view"
 msgstr "Substitut structură pentru vizualizare"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:90
+#: libraries/classes/Plugins/Export/ExportJson.php:91
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
 "Ieșire JSON imprimată frumos (folosește formatarea care poate fi citită de "
 "oameni)"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:96
+#: libraries/classes/Plugins/Export/ExportJson.php:97
 msgid "Output unicode characters unescaped"
 msgstr ""
 
@@ -12999,11 +13048,11 @@ msgstr "Nu este disponibilă nicio versiune stabilă mai nouă"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Folosește semnul de carte „%s” ca interogare de răsfoire implicită."
 
-#: libraries/classes/Sql.php:1033
+#: libraries/classes/Sql.php:1027
 msgid "Showing as PHP code"
 msgstr "Arăt drept cod PHP"
 
-#: libraries/classes/Sql.php:1416
+#: libraries/classes/Sql.php:1410
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13012,7 +13061,7 @@ msgstr ""
 "Selecția actuală nu conține o coloană unică. Funcționalitățile editare "
 "grilă, bifă, editează, copiază și șterge nu sunt disponibile. %s"
 
-#: libraries/classes/Sql.php:1430
+#: libraries/classes/Sql.php:1424
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13125,10 +13174,6 @@ msgstr ""
 "Nu pot salva proprietatea UI „%s”. Modificările făcute nu vor rămâne salvate "
 "după ce reîncarci pagina. Te rog verifică dacă structura tabelului a fost "
 "modificată."
-
-#: libraries/classes/Table.php:2236
-msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr "Numele cheii principale trebuie să fie „PRIMARY”!"
 
 #: libraries/classes/Table.php:2247
 msgid "Can't rename index to PRIMARY!"
@@ -14484,7 +14529,7 @@ msgid "Cardinality"
 msgstr "Cardinalitate"
 
 #: templates/database/data_dictionary/index.twig:110 templates/indexes.twig:85
-#: templates/table/structure/display_structure.twig:488
+#: templates/table/structure/display_structure.twig:497
 msgid "No index defined!"
 msgstr "Niciun index definit!"
 
@@ -14742,8 +14787,8 @@ msgstr "Nu există niciun eveniment de afișat."
 #: templates/display/results/table.twig:205
 #: templates/display/results/table.twig:208 templates/select_all.twig:2
 #: templates/select_all.twig:6
-#: templates/server/privileges/users_overview.twig:103
-#: templates/server/privileges/users_overview.twig:106
+#: templates/server/privileges/users_overview.twig:104
+#: templates/server/privileges/users_overview.twig:107
 #: templates/table/privileges/index.twig:116
 #: templates/table/privileges/index.twig:119
 msgid "With selected:"
@@ -14768,8 +14813,8 @@ msgstr "Cu cele selectate:"
 #: templates/server/privileges/privileges_table.twig:253
 #: templates/server/privileges/privileges_table.twig:327
 #: templates/server/privileges/privileges_table.twig:527
-#: templates/server/privileges/users_overview.twig:104
 #: templates/server/privileges/users_overview.twig:105
+#: templates/server/privileges/users_overview.twig:106
 #: templates/server/user_groups/edit_user_groups.twig:11
 #: templates/table/privileges/index.twig:117
 #: templates/table/privileges/index.twig:118
@@ -15003,8 +15048,8 @@ msgstr "rutină"
 
 #: templates/database/privileges/index.twig:131
 #: templates/server/privileges/add_user_fieldset.twig:4
-#: templates/server/privileges/user_overview.twig:20
-#: templates/server/privileges/users_overview.twig:119
+#: templates/server/privileges/user_overview.twig:22
+#: templates/server/privileges/users_overview.twig:121
 #: templates/table/privileges/index.twig:134
 msgctxt "Create new user"
 msgid "New"
@@ -15013,8 +15058,8 @@ msgstr "Nou"
 #: templates/database/privileges/index.twig:136
 #: templates/server/privileges/add_user_fieldset.twig:9
 #: templates/server/privileges/add_user.twig:3
-#: templates/server/privileges/user_overview.twig:22
-#: templates/server/privileges/users_overview.twig:122
+#: templates/server/privileges/user_overview.twig:24
+#: templates/server/privileges/users_overview.twig:124
 #: templates/table/privileges/index.twig:140
 msgid "Add user account"
 msgstr "Adaugă cont utilizator"
@@ -16043,12 +16088,12 @@ msgid "Other options:"
 msgstr "Alte opțiuni:"
 
 #: templates/indexes.twig:39
-#: templates/table/structure/display_structure.twig:442
+#: templates/table/structure/display_structure.twig:451
 msgid "The primary key has been dropped."
 msgstr "Cheia principală a fost eliminată."
 
 #: templates/indexes.twig:44
-#: templates/table/structure/display_structure.twig:447
+#: templates/table/structure/display_structure.twig:456
 #, php-format
 msgid "Index %s has been dropped."
 msgstr "Indexul %s a fost eliminat."
@@ -17154,7 +17199,7 @@ msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr "Necesită prezentarea unui certificat X509 valid cu acest subiect."
 
 #: templates/server/privileges/subnav.twig:5
-#: templates/server/privileges/user_overview.twig:4
+#: templates/server/privileges/user_overview.twig:5
 msgid "User accounts overview"
 msgstr "Prezentare generală conturi utilizatori"
 
@@ -17198,15 +17243,15 @@ msgstr ""
 "… șterge-l pe cel vechi din tabelul de utilizatori și apoi reîncarcă "
 "privilegiile."
 
-#: templates/server/privileges/users_overview.twig:129
+#: templates/server/privileges/users_overview.twig:131
 msgid "Remove selected user accounts"
 msgstr "Înlătură conturile utilizatorilor selectați"
 
-#: templates/server/privileges/users_overview.twig:131
+#: templates/server/privileges/users_overview.twig:133
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "Revocă toate privilegiile active pentru utilizatori și apoi le șterge."
 
-#: templates/server/privileges/users_overview.twig:135
+#: templates/server/privileges/users_overview.twig:137
 msgid "Drop the databases that have the same names as the users."
 msgstr "Elimină bazele de date care are același nume ca utilizatorii."
 
@@ -18232,11 +18277,11 @@ msgstr "Coloană spațială"
 msgid "Importing into the table \"%s\""
 msgstr "Import în tabelul „%s\"”"
 
-#: templates/table/index_form.twig:15
+#: templates/table/index_form.twig:15 templates/table/index_rename_form.twig:11
 msgid "Index name:"
 msgstr "Nume index:"
 
-#: templates/table/index_form.twig:16
+#: templates/table/index_form.twig:16 templates/table/index_rename_form.twig:12
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
@@ -18464,7 +18509,7 @@ msgid "Display order:"
 msgstr "Ordine de afișare:"
 
 #: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:535
+#: templates/table/structure/display_structure.twig:544
 msgid "Partitions"
 msgstr "Partiții"
 
@@ -18581,7 +18626,13 @@ msgstr "Adaugă coloane %s"
 msgid "at beginning of table"
 msgstr "la începutul tabelului"
 
-#: templates/table/structure/display_structure.twig:498
+#: templates/table/structure/display_structure.twig:445
+#, fuzzy
+#| msgid "Rename to"
+msgid "Rename"
+msgstr "Redenumește în"
+
+#: templates/table/structure/display_structure.twig:507
 #, fuzzy, php-format
 #| msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgid "Create an index on %s columns"
