@@ -147,7 +147,6 @@
 
    <fileset dir="${basedir}">
     <include name="libraries/**/*.php" />
-    <include name="templates/**/*.phtml" />
     <include name="setup/**/*.php" />
     <include name="test/**/*.php" />
     <include name="*.php" />
