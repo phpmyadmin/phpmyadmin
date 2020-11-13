@@ -135,7 +135,7 @@ class TwoFactorTest extends AbstractTestCase
         /** @var Application $app */
         $app = $object->getBackend();
         $google2fa = $app->getGoogle2fa();
-        $_POST['2fa_code'] = $google2fa->oathHotp(
+        $_POST['2fa_code'] = $google2fa->oathTotp(
             $object->config['settings']['secret'],
             $google2fa->getTimestamp()
         );
@@ -147,7 +147,7 @@ class TwoFactorTest extends AbstractTestCase
         $this->assertFalse($object->check(true));
         $_POST['2fa_code'] = 'invalid';
         $this->assertFalse($object->check(true));
-        $_POST['2fa_code'] = $google2fa->oathHotp(
+        $_POST['2fa_code'] = $google2fa->oathTotp(
             $object->config['settings']['secret'],
             $google2fa->getTimestamp()
         );
