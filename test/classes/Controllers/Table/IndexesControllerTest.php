@@ -106,7 +106,7 @@ class IndexesControllerTest extends AbstractTestCase
 
         // Preview SQL
         $_POST['preview_sql'] = true;
-        $ctrl->doSaveData($index);
+        $ctrl->doSaveData($index, false);
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('sql_data', $jsonArray);
         $this->assertStringContainsString(
@@ -118,7 +118,7 @@ class IndexesControllerTest extends AbstractTestCase
         $response->clear();
         Response::getInstance()->setAjax(true);
         unset($_POST['preview_sql']);
-        $ctrl->doSaveData($index);
+        $ctrl->doSaveData($index, false);
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('index_table', $jsonArray);
         $this->assertArrayHasKey('message', $jsonArray);

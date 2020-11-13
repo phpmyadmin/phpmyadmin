@@ -3812,8 +3812,7 @@ AJAX.registerOnload('functions.js', function () {
         }
     });
 });
-
-Functions.indexEditorDialog = function (url, title, callbackSuccess, callbackFailure) {
+Functions.indexDialogModal = function (routeUrl, url, title, callbackSuccess, callbackFailure) {
     /* Remove the hidden dialogs if there are*/
     var $editIndexDialog = $('#edit_index_dialog');
     if ($editIndexDialog.length !== 0) {
@@ -3882,7 +3881,7 @@ Functions.indexEditorDialog = function (url, title, callbackSuccess, callbackFai
         $(this).dialog('close');
     };
     var $msgbox = Functions.ajaxShowMessage();
-    $.post('index.php?route=/table/indexes', url, function (data) {
+    $.post(routeUrl, url, function (data) {
         if (typeof data !== 'undefined' && data.success === false) {
             // in the case of an error, show the error message returned.
             Functions.ajaxShowMessage(data.error, false);
@@ -3905,6 +3904,14 @@ Functions.indexEditorDialog = function (url, title, callbackSuccess, callbackFai
             Functions.showIndexEditDialog($div);
         }
     }); // end $.get()
+};
+
+Functions.indexEditorDialog = function (url, title, callbackSuccess, callbackFailure) {
+    Functions.indexDialogModal('index.php?route=/table/indexes', url, title, callbackSuccess, callbackFailure);
+};
+
+Functions.indexRenameDialog = function (url, title, callbackSuccess, callbackFailure) {
+    Functions.indexDialogModal('index.php?route=/table/indexes/rename', url, title, callbackSuccess, callbackFailure);
 };
 
 Functions.showIndexEditDialog = function ($outer) {

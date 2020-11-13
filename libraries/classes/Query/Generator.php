@@ -8,6 +8,7 @@ use PhpMyAdmin\Util;
 use function count;
 use function implode;
 use function is_array;
+use function sprintf;
 
 /**
  * Handles generating SQL queries
@@ -355,5 +356,23 @@ class Generator
         }
 
         return [$sql, $arrayKeys];
+    }
+
+    /**
+     * Function to get sql query for renaming the index using SQL RENAME INDEX Syntax
+     */
+    public static function getSqlQueryForIndexRename(
+        string $dbName,
+        string $tableName,
+        string $oldIndexName,
+        string $newIndexName
+    ): string {
+        return sprintf(
+            'ALTER TABLE %s.%s RENAME INDEX %s TO %s;',
+            Util::backquote($dbName),
+            Util::backquote($tableName),
+            Util::backquote($oldIndexName),
+            Util::backquote($newIndexName)
+        );
     }
 }

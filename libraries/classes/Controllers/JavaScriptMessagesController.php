@@ -100,6 +100,8 @@ final class JavaScriptMessagesController
             'strEnterValidLength' => __('Please enter a valid length!'),
             'strAddIndex' => __('Add index'),
             'strEditIndex' => __('Edit index'),
+            /* l10n: Rename a table Index */
+            'strRenameIndex' => __('Rename index'),
             'strAddToIndex' => __('Add %s column(s) to index'),
             'strCreateSingleColumnIndex' => __('Create single-column index'),
             'strCreateCompositeIndex' => __('Create composite index'),
