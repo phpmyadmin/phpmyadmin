@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2019-02-02 06:48+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-8/az/>\n"
+"PO-Revision-Date: 2020-11-16 03:28+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
+"4-9/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -14659,10 +14659,9 @@ msgstr "\"%s\" sütunu üçün seçim əlavə edin."
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Serverdə <b>%s</b> direktoriyasında yaddaşa ver"
+msgstr "Serverdə <strong>%s</strong> direktoriyasında yaddaşa ver"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
@@ -15656,13 +15655,10 @@ msgstr[0] "<strong>%2$s</strong> cədvəlində %1$s uyğunluq"
 msgstr[1] "<strong>%2$s</strong> cədvəlində %1$s uyğunluq"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Cəmi:</b> <i>%s</i> uyğunluq"
-msgstr[1] "<b>Cəmi:</b> <i>%s</i> uyğunluq"
+msgstr[0] "<strong>Cəmi:</strong> <em>%count%</em> uyğunluq"
+msgstr[1] "<strong>Cəmi:</strong> <em>%count%</em> uyğunluq"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
