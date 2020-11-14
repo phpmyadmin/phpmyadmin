@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-08-09 15:50+0000\n"
+"PO-Revision-Date: 2020-11-16 03:28+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/4-9/hi/"
-">\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/4-9/hi/>"
+"\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -10208,10 +10208,10 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:111
-#, fuzzy
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "शीर्षक में कस्टम टिपण्णी जोडें (लाइनों को विभाजित करें)"
+msgstr ""
+"शीर्षक में कस्टम टिपण्णी जोडें (\\n"
+" लाइनों को विभाजित करें):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:117
 msgid ""
