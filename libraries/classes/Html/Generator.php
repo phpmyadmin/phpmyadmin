@@ -187,56 +187,6 @@ class Generator
     }
 
     /**
-     * Creates an AJAX sliding toggle button
-     * (or and equivalent form when AJAX is disabled)
-     *
-     * @param string $action      The URL for the request to be executed
-     * @param string $select_name The name for the dropdown box
-     * @param array  $options     An array of options
-     * @param string $callback    A JS snippet to execute when the request is
-     *                            successfully processed
-     *
-     * @return string   HTML code for the toggle button
-     *
-     * @throws Throwable
-     * @throws LoaderError
-     * @throws RuntimeError
-     * @throws SyntaxError
-     */
-    public static function toggleButton($action, $select_name, array $options, $callback): string
-    {
-        global $PMA_Theme;
-
-        $template = new Template();
-        // Do the logic first
-        $link = $action . '&amp;' . urlencode($select_name) . '=';
-        $link_on = $link . urlencode($options[1]['value']);
-        $link_off = $link . urlencode($options[0]['value']);
-
-        if ($options[1]['selected'] == true) {
-            $state = 'on';
-        } elseif ($options[0]['selected'] == true) {
-            $state = 'off';
-        } else {
-            $state = 'on';
-        }
-
-        return $template->render(
-            'toggle_button',
-            [
-                'theme_image_path' => $PMA_Theme->getImgPath(),
-                'text_dir' => $GLOBALS['text_dir'],
-                'link_on' => $link_on,
-                'link_off' => $link_off,
-                'toggle_on' => $options[1]['label'],
-                'toggle_off' => $options[0]['label'],
-                'callback' => $callback,
-                'state' => $state,
-            ]
-        );
-    }
-
-    /**
      * Returns an HTML IMG tag for a particular icon from a theme,
      * which may be an actual file or an icon from a sprite.
      * This function takes into account the ActionLinksMode

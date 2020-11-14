@@ -115,7 +115,42 @@
   <fieldset class="right">
     <legend>{% trans 'Event scheduler status' %}</legend>
     <div class="wrap">
-      {{ toggle_button|raw }}
+      <div class="wrapper toggleAjax hide">
+        <div class="toggleButton">
+          <div title="{% trans 'Click to toggle' %}" class="toggle-container {{ scheduler_state ? 'on' : 'off' }}">
+            <img src="{{ theme_image_path }}toggle-{{ text_dir }}.png">
+            <table class="nospacing nopadding">
+              <tbody>
+              <tr>
+                <td class="toggleOn">
+                  <span class="hide">
+                    {{- url('/sql', {
+                      'db': db,
+                      'goto': url('/database/events', {'db': db}),
+                      'sql_query': 'SET GLOBAL event_scheduler="ON"',
+                    }) -}}
+                  </span>
+                  <div>{% trans 'ON' %}</div>
+                </td>
+                <td><div>&nbsp;</div></td>
+                <td class="toggleOff">
+                  <span class="hide">
+                    {{- url('/sql', {
+                      'db': db,
+                      'goto': url('/database/events', {'db': db}),
+                      'sql_query': 'SET GLOBAL event_scheduler="OFF"',
+                    }) -}}
+                  </span>
+                  <div>{% trans 'OFF' %}</div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <span class="hide callback">Functions.slidingMessage(data.sql_query);</span>
+            <span class="hide text_direction">{{ text_dir }}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </fieldset>
   <div class="clearfloat"></div>
