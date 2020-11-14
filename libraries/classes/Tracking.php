@@ -1119,22 +1119,6 @@ class Tracking
     }
 
     /**
-     * Function to get version status
-     *
-     * @param array $version version info
-     *
-     * @return string The status message
-     */
-    public function getVersionStatus(array $version)
-    {
-        if ($version['tracking_active'] == 1) {
-            return __('active');
-        }
-
-        return __('not active');
-    }
-
-    /**
      * Get HTML for tracked and untracked tables
      *
      * @param string $db             current database
@@ -1184,12 +1168,7 @@ class Tracking
                      . '\' AND `version` = \'' . $versionNumber . '\'';
 
                 $tableResult = $relation->queryAsControlUser($tableQuery);
-                $versionData = $dbi->fetchArray($tableResult);
-                $versionData['status_button'] = $this->getStatusButton(
-                    $versionData,
-                    $urlParams
-                );
-                $versions[] = $versionData;
+                $versions[] = $dbi->fetchArray($tableResult);
             }
         }
 
@@ -1248,42 +1227,5 @@ class Tracking
 
         //Use helper function to get table list recursively.
         return $this->extractTableNames($table_list, $db);
-    }
-
-    /**
-     * Get tracking status button
-     *
-     * @param array $versionData data about tracking versions
-     * @param array $params      url parameters
-     *
-     * @return string HTML
-     */
-    private function getStatusButton(array $versionData, array $params): string
-    {
-        $state = $this->getVersionStatus($versionData);
-        $options = [
-            0 => [
-                'label' => __('not active'),
-                'value' => 'deactivate_now',
-                'selected' => $state !== 'active',
-            ],
-            1 => [
-                'label' => __('active'),
-                'value' => 'activate_now',
-                'selected' => $state === 'active',
-            ],
-        ];
-        $link = Url::getFromRoute('/table/tracking', array_merge([
-            'db' => $versionData['db_name'],
-            'table' => $versionData['table_name'],
-            'version' => $versionData['version'],
-        ], $params));
-
-        return Generator::toggleButton(
-            $link,
-            'toggle_activation',
-            $options,
-            null
-        );
     }
 }

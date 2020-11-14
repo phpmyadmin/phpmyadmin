@@ -2151,11 +2151,6 @@ parameters:
 			path: libraries/classes/Tracking.php
 
 		-
-			message: "#^Parameter \\#4 \\$callback of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:toggleButton\\(\\) expects string, null given\\.$#"
-			count: 1
-			path: libraries/classes/Tracking.php
-
-		-
 			message: "#^Parameter \\#1 \\$classname of function class_exists expects string, PhpMyAdmin\\\\Plugins\\\\TransformationsInterface given\\.$#"
 			count: 2
 			path: libraries/classes/Transformations.php

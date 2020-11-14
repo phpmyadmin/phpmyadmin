@@ -9,7 +9,6 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function count;
 use function explode;
@@ -467,49 +466,15 @@ class Events
         return $query;
     }
 
-    private function getEventSchedulerStatus(): bool
+    public function getEventSchedulerStatus(): bool
     {
         $state = $this->dbi->fetchValue(
             'SHOW GLOBAL VARIABLES LIKE \'event_scheduler\'',
             0,
             1
         );
-        $state = strtoupper($state);
 
-        return $state === 'ON' || $state === '1';
-    }
-
-    public function getFooterToggleButton(): string
-    {
-        global $db, $table;
-
-        $state = $this->getEventSchedulerStatus();
-        $options = [
-            0 => [
-                'label' => __('OFF'),
-                'value' => 'SET GLOBAL event_scheduler="OFF"',
-                'selected' => ! $state,
-            ],
-            1 => [
-                'label' => __('ON'),
-                'value' => 'SET GLOBAL event_scheduler="ON"',
-                'selected' => $state,
-            ],
-        ];
-
-        return Generator::toggleButton(
-            Url::getFromRoute(
-                '/sql',
-                [
-                    'db' => $db,
-                    'table' => $table,
-                    'goto' => Url::getFromRoute('/database/events', ['db' => $db]),
-                ]
-            ),
-            'sql_query',
-            $options,
-            'Functions.slidingMessage(data.sql_query);'
-        );
+        return strtoupper($state) === 'ON' || $state === '1';
     }
 
     /**

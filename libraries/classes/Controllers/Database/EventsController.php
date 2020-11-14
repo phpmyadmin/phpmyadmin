@@ -76,7 +76,9 @@ final class EventsController extends AbstractController
             'items' => $items,
             'select_all_arrow_src' => $PMA_Theme->getImgPath() . 'arrow_' . $text_dir . '.png',
             'has_privilege' => Util::currentUserHasPrivilege('EVENT', $db),
-            'toggle_button' => $this->events->getFooterToggleButton(),
+            'scheduler_state' => $this->events->getEventSchedulerStatus(),
+            'text_dir' => $text_dir,
+            'theme_image_path' => $PMA_Theme->getImgPath(),
             'is_ajax' => $this->response->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);
     }
