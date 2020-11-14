@@ -456,7 +456,6 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['plugin_param']['single_table'] = false;
 
         $method->invoke($this->object, null);
-        $attrProperties->getValue($this->object);
 
         $generalOptionsArray = $options->getProperties();
 

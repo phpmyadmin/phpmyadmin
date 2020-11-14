@@ -1874,7 +1874,7 @@ class Sql
             $max_rows = $_SESSION['tmpval']['max_rows'];
         }
 
-        return @(ceil($number_of_line / $max_rows) - 1) * $max_rows;
+        return @((int) ceil($number_of_line / $max_rows) - 1) * $max_rows;
     }
 
     /**

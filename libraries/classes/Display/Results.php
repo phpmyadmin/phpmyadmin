@@ -969,7 +969,7 @@ class Results
         return $buttons_html . $this->getTableNavigationButton(
             '&gt;&gt;',
             _pgettext('Last page', 'End'),
-            @(ceil(
+            @((int) ceil(
                 $this->properties['unlim_num_rows']
                 / $_SESSION['tmpval']['max_rows']
             ) - 1) * $maxRows,
