@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-13 23:51+0100\n"
-"PO-Revision-Date: 2020-02-08 14:50+0000\n"
-"Last-Translator: Daimona <daimona.wiki@gmail.com>\n"
+"PO-Revision-Date: 2020-11-16 06:28+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/it/>\n"
 "Language: it\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -17166,19 +17166,14 @@ msgid "Password hashing method"
 msgstr "Metodo di Password Hashing"
 
 #: templates/server/privileges/login_information_fields.twig:83
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Questo metodo richiede l'uso di una '<i>connessione SSL</i>' o di una "
-"'<i>connessione non criptata che cifra la password con RSA</i>'; durante la "
-"connessione al server."
+"Questo metodo richiede l'uso di una '<em>connessione SSL</em>' o di una "
+"'<em>connessione non criptata che cifra la password con RSA</em>'; durante "
+"la connessione al server."
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:80
