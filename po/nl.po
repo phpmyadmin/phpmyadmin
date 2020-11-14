@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-13 23:51+0100\n"
-"PO-Revision-Date: 2020-10-11 17:09+0000\n"
+"PO-Revision-Date: 2020-11-16 06:28+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4384,42 +4384,44 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "Voer uw siteverify URL in voor uw reCaptcha service."
+msgstr "Voer de URL in voor uw reCaptcha v2 compatible API."
 
 #: libraries/classes/Config/Descriptions.php:960
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCaptcha v2 API"
-msgstr "URL voor reCaptcha siteverify"
+msgstr "URL voor reCaptcha v2 API"
 
 #: libraries/classes/Config/Descriptions.php:961
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
 msgstr ""
+"Geef de Content-Security-Policy snippet in voor uw reCaptcha v2 compatible "
+"API."
 
 #: libraries/classes/Config/Descriptions.php:962
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "Content-Security-Policy snippet voor reCaptcha v2 API"
 
 #: libraries/classes/Config/Descriptions.php:963
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"Geef de vraag parameter in die gebruikt wordt door uw reCaptcha v2 "
+"compatible API."
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Vraag parameter voor reCaptcha v2 API"
 
 #: libraries/classes/Config/Descriptions.php:965
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"Geef de respons parameter in die gebruikt wordt door uw reCaptcha v2 "
+"compatible API."
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Response parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Respons parameter voor reCaptcha v2 API"
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "Enter your public key for your domain reCaptcha service."
@@ -5709,10 +5711,8 @@ msgstr "Index bewerken"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:104
-#, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
-msgstr "Index(en) verwijderen"
+msgstr "Hernoem index"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:105
 #: templates/table/index_form.twig:227
@@ -8884,8 +8884,8 @@ msgstr "Export van gebeurtenis %s"
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr ""
-"Fout bij uitvoeren verzoek: Geen gebeurtenis met naam %1$s gevonden in "
-"database %2$s."
+"Fout opgetreden in de verwerking van de aanvraag: Geen gebeurtenis met naam "
+"%1$s gevonden in database %2$s."
 
 #: libraries/classes/DatabaseInterface.php:1100
 #, php-format
@@ -9294,9 +9294,9 @@ msgid ""
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
-"Fout bij uitvoeren verzoek: Geen routine met de naam %1$s gevonden in "
-"database %2$s. Je hebt mogelijk niet de benodigde rechten om deze routine te "
-"lezen/wijzigen."
+"Fout opgetreden in de verwerking van de aanvraag: Geen routine met de naam "
+"%1$s gevonden in database %2$s. Je hebt mogelijk niet de benodigde rechten "
+"om deze routine te lezen/wijzigen."
 
 #: libraries/classes/Database/Search.php:109
 #: templates/database/search/main.twig:19
@@ -9401,8 +9401,8 @@ msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
 msgstr ""
-"Fout bij uitvoeren verzoek: Geen trigger met naam %1$s gevonden in database "
-"%2$s."
+"Fout opgetreden in de verwerking van de aanvraag: Geen trigger met naam %1$s "
+"gevonden in database %2$s."
 
 #: libraries/classes/Dbal/DbiMysqli.php:188
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -10741,7 +10741,7 @@ msgid ""
 msgstr ""
 "Hebt u een groep van twee of meer kolommen die sterk aan elkaar gerelateerd "
 "zijn en hetzelfde attribuut herhalen? Bijvoorbeeld een tabel met data over "
-"boeken kan kolommen hebben zoals boek_id, auteur1, auteur2, auteur2 "
+"boeken kan kolommen hebben zoals boek_id, auteur1, auteur2, auteur3 "
 "enzovoort, welke een herhalende groep vormen. In dit geval zou een nieuwe "
 "tabel (boek_id, auteur) gemaakt moeten worden."
 
@@ -11090,6 +11090,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Uw wachtwoord is te lang. Om denial-of-service aanvallen te voorkomen "
+"beperkt phpMyAdmin de wachtwoordlengte tot minder dan 1000 tekens."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -18471,10 +18473,8 @@ msgid "at beginning of table"
 msgstr "bij begin van de tabel"
 
 #: templates/table/structure/display_structure.twig:445
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Hernoemen naar"
+msgstr "Hernoem"
 
 #: templates/table/structure/display_structure.twig:507
 #, php-format
