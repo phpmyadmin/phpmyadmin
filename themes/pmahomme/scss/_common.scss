@@ -840,6 +840,10 @@ td.disabled {
   white-space: pre-wrap;
 }
 
+.pre_wrap br {
+  display: none;
+}
+
 /**
  * login form
  */

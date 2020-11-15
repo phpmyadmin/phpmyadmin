@@ -919,6 +919,10 @@ td.disabled {
   white-space: pre-wrap;
 }
 
+.pre_wrap br {
+  display: none;
+}
+
 .font_weight_bold {
   font-weight: bold;
 }
