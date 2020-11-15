@@ -66,6 +66,7 @@ phpMyAdmin - ChangeLog
 - issue        Make procedures/functions SQL editor both side scrollable
 - issue #16407 Bump pragmarx/google2fa conflict to >8.0
 - issue #14953 Added a rename Button to use RENAME INDEX syntax of MySQL 5.7 (and MariaDB >= 10.5.2)
+- issue #16477 Fixed no Option to enter TABLE specific permissions when the database name contains an "_" (underscore)
 
 5.0.5 (not yet released)
 
