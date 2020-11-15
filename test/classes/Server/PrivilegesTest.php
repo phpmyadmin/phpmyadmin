@@ -1393,6 +1393,7 @@ class PrivilegesTest extends AbstractTestCase
             ''
         );
 
+        $dbname = 'pma\_dbname';
         $url_html = Url::getCommon([
             'username' => $username,
             'hostname' => $hostname,
@@ -1409,6 +1410,7 @@ class PrivilegesTest extends AbstractTestCase
             $html
         );
 
+        $dbname = 'pma_dbname';
         $html = $this->serverPrivileges->getUserLink(
             'revoke',
             $username,
@@ -1418,6 +1420,7 @@ class PrivilegesTest extends AbstractTestCase
             ''
         );
 
+        $dbname = 'pma\_dbname';
         $url_html = Url::getCommon(
             [
                 'username' => $username,
