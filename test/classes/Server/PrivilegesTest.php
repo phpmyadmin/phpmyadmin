@@ -190,6 +190,33 @@ class PrivilegesTest extends AbstractTestCase
         $this->assertTrue(
             $dbname_is_wildcard
         );
+
+        // Escaped database
+        $_POST['pred_tablename'] = 'PMA_pred__tablename';
+        $_POST['pred_dbname'] = ['PMA\_pred\_dbname'];
+        [,,
+            $dbname,
+            $tablename,
+            $routinename,
+            $db_and_table,
+            $dbname_is_wildcard,
+        ] = $this->serverPrivileges->getDataForDBInfo();
+        $this->assertEquals(
+            'PMA_pred_dbname',
+            $dbname
+        );
+        $this->assertEquals(
+            'PMA_pred__tablename',
+            $tablename
+        );
+        $this->assertEquals(
+            '`PMA_pred_dbname`.`PMA_pred__tablename`',
+            $db_and_table
+        );
+        $this->assertEquals(
+            false,
+            $dbname_is_wildcard
+        );
     }
 
     /**

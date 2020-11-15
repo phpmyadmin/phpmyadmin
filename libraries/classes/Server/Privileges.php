@@ -1582,12 +1582,12 @@ class Privileges
         ];
         switch ($linktype) {
             case 'edit':
-                $params['dbname'] = $dbname;
+                $params['dbname'] = Util::escapeMysqlWildcards($dbname);
                 $params['tablename'] = $tablename;
                 $params['routinename'] = $routinename;
                 break;
             case 'revoke':
-                $params['dbname'] = $dbname;
+                $params['dbname'] = Util::escapeMysqlWildcards($dbname);
                 $params['tablename'] = $tablename;
                 $params['routinename'] = $routinename;
                 $params['revokeall'] = 1;
@@ -2054,6 +2054,7 @@ class Privileges
             ];
 
             $databases = [];
+            $escaped_databases = [];
             if (! empty($pred_db_array)) {
                 foreach ($pred_db_array as $current_db) {
                     if (in_array($current_db, $databases_to_skip)) {
@@ -2067,11 +2068,12 @@ class Privileges
                     if (in_array($current_db_escaped, $foundRows)) {
                         continue;
                     }
-
                     $databases[] = $current_db;
+                    $escaped_databases[] = $current_db_escaped;
                 }
             }
             $data['databases'] = $databases;
+            $data['escaped_databases'] = $escaped_databases;
         } elseif ($type === 'table') {
             $result = @$this->dbi->tryQuery(
                 'SHOW TABLES FROM ' . Util::backquote($dbname),
@@ -2840,6 +2842,7 @@ class Privileges
         $dbname = null;
         $tablename = null;
         $routinename = null;
+        $return_db = null;
 
         if (isset($_REQUEST['username'])) {
             $username = (string) $_REQUEST['username'];
@@ -2907,12 +2910,14 @@ class Privileges
         if (isset($dbname)) {
             if (is_array($dbname)) {
                 $db_and_table = $dbname;
+                $return_db = $dbname;
                 foreach ($db_and_table as $key => $db_name) {
                     $db_and_table[$key] .= '.';
                 }
             } else {
                 $unescaped_db = Util::unescapeMysqlWildcards($dbname);
                 $db_and_table = Util::backquote($unescaped_db) . '.';
+                $return_db = $unescaped_db;
             }
             if (isset($tablename)) {
                 $db_and_table .= Util::backquote($tablename);
@@ -2938,7 +2943,7 @@ class Privileges
         return [
             $username,
             $hostname,
-            $dbname ?? null,
+            $return_db,
             $tablename ?? null,
             $routinename ?? null,
             $db_and_table,

@@ -56,7 +56,7 @@
             {%- if databases is not empty %}
                 <select name="pred_dbname[]" multiple="multiple">
                     {% for database in databases %}
-                        <option value="{{ database|escape_mysql_wildcards }}">
+                        <option value="{{ escaped_databases[loop.index0]|escape_mysql_wildcards }}">
                             {{ database }}
                         </option>
                     {% endfor %}
