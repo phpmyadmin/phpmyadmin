@@ -20,13 +20,16 @@ distribution and you will automatically get security updates from your distribut
 Debian and Ubuntu
 -----------------
 
-Debian's package repositories include a phpMyAdmin package, but be aware that
+Most Debian and Ubuntu versions include a phpMyAdmin package, but be aware that
 the configuration file is maintained in ``/etc/phpmyadmin`` and may differ in
 some ways from the official phpMyAdmin documentation. Specifically, it does:
 
 * Configuration of a web server (works for Apache and lighttpd).
 * Creating of :ref:`linked-tables` using dbconfig-common.
 * Securing setup script, see :ref:`debian-setup`.
+
+More specific details about installing Debian or Ubuntu packages are available
+`in our wiki <https://github.com/phpmyadmin/phpmyadmin/wiki/DebianUbuntu>`_.
 
 .. seealso::
 
