@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-13 23:51+0100\n"
-"PO-Revision-Date: 2020-11-08 11:26+0000\n"
+"PO-Revision-Date: 2020-11-16 06:28+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4325,43 +4325,39 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr ""
-"Vnesite vaš URL za preverjanje strani (siteverify) vaše storitve reCaptcha."
+msgstr "Vnesite URL za vaš API, združljiv z reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:960
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCaptcha v2 API"
-msgstr "URL za preverjanje strani (siteverify) reCaptcha"
+msgstr "URL za API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:961
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
 msgstr ""
+"Vnesite podatke Content-Security-Policy za vaš API, združljiv z reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:962
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "Podatki Content-Security-Policy za API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:963
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "Vnesite parameter zahteve za vaš API, združljiv z reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Parameter zahteve za API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:965
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "Vnesite parameter odgovora za vaš API, združljiv z reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Response parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Parameter odgovora za reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "Enter your public key for your domain reCaptcha service."
@@ -5637,10 +5633,8 @@ msgstr "Uredi indeks"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:104
-#, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
-msgstr "Odstrani indeks(e)"
+msgstr "Preimenuj indeks"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:105
 #: templates/table/index_form.twig:227
@@ -18277,10 +18271,8 @@ msgid "at beginning of table"
 msgstr "na začetku tabele"
 
 #: templates/table/structure/display_structure.twig:445
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Preimenuj v"
+msgstr "Preimenuj"
 
 #: templates/table/structure/display_structure.twig:507
 #, php-format
