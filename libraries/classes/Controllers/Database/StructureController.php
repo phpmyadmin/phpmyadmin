@@ -124,7 +124,7 @@ class StructureController extends AbstractController
      */
     private function getDatabaseInfo(string $subPart): void
     {
-        [$tables, $numTables, $totalNumTables,, $isShowStats, $dbIsSystemSchema,,, $position]
+        [$tables, $numTables, $totalNumTables, , $isShowStats, $dbIsSystemSchema, , , $position]
             = Util::getDbInfo($this->db, $subPart);
 
         $this->tables = $tables;

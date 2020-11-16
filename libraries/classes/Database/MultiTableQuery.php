@@ -113,7 +113,7 @@ class MultiTableQuery
     {
         global $dbi;
 
-        [,$db] = ParseAnalyze::sqlQuery($sqlQuery, $db);
+        [, $db] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
         $goto = Url::getFromRoute('/database/multi-table-query');
 
