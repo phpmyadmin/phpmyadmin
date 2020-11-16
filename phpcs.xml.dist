@@ -18,30 +18,8 @@
 
     <rule ref="PhpMyAdmin"/>
 
-    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
-        <properties>
-            <!-- Require PHP 7.2 -->
-            <property name="enableObjectTypeHint" value="false"/>
-        </properties>
-    </rule>
-
     <!-- Rules that should be followed, but are not required -->
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversablePropertyTypeHintSpecification">
-        <severity>4</severity>
-    </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification">
         <severity>4</severity>
     </rule>
 </ruleset>
