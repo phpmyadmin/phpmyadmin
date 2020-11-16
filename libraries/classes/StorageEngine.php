@@ -262,7 +262,7 @@ class StorageEngine
                 . "\n"
                 . '</p>' . "\n";
         } else {
-            $ret = '<table class="data">' . "\n" . $ret . '</table>' . "\n";
+            $ret = '<table class="pma-table data">' . "\n" . $ret . '</table>' . "\n";
         }
 
         return $ret;

@@ -6,7 +6,7 @@
         <form method="post" action="{{ url('/database/tracking') }}" name="trackedForm"
             id="trackedForm" class="ajax">
             {{ get_hidden_inputs(db) }}
-            <table id="versions" class="data">
+            <table id="versions" class="pma-table data">
                 <thead>
                     <tr>
                         <th></th>
@@ -46,7 +46,7 @@
                                 <div class="toggleButton">
                                   <div title="{% trans 'Click to toggle' %}" class="toggle-container {{ version.tracking_active == 1 ? 'on' : 'off' }}">
                                     <img src="{{ theme_image_path }}toggle-{{ text_dir }}.png">
-                                    <table class="nospacing nopadding">
+                                    <table class="pma-table nospacing nopadding">
                                       <tbody>
                                       <tr>
                                         <td class="toggleOn">
@@ -147,7 +147,7 @@
     <form method="post" action="{{ url('/database/tracking') }}" name="untrackedForm"
         id="untrackedForm" class="ajax">
         {{ get_hidden_inputs(db) }}
-        <table id="noversions" class="data">
+        <table id="noversions" class="pma-table data">
             <thead>
                 <tr>
                     <th></th>

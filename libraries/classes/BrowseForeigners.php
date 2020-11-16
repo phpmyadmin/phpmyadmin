@@ -208,7 +208,7 @@ class BrowseForeigners
             . '</fieldset>'
             . '</form>';
 
-        $output .= '<table width="100%" id="browse_foreign_table">';
+        $output .= '<table class="pma-table" width="100%" id="browse_foreign_table">';
 
         if (! is_array($foreignData['disp_row'])) {
             return $output . '</tbody>'

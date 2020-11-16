@@ -165,7 +165,7 @@ class Relation
                 }
             }
         } else {
-            $retval .= '<table>' . "\n";
+            $retval .= '<table class="pma-table">' . "\n";
 
             if (! $cfgRelation['allworks']
                 && $GLOBALS['cfg']['ZeroConf']

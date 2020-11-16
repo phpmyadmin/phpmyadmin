@@ -2,7 +2,7 @@
 {% if  has_rows > 0 %}
     <form name="userGroupsForm" id="userGroupsForm" action="{{ action|raw }}" method="post">
         {{ hidden_inputs|raw  }}
-        <table id="userGroupsTable">
+        <table class="pma-table" id="userGroupsTable">
             <thead>
                 <tr>
                     <th style="white-space: nowrap">

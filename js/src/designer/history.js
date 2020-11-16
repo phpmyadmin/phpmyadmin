@@ -94,7 +94,7 @@ DesignerHistory.display = function (init, finit) {
         str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>';
         str += '<div class="toggle_container">\n';
         while ((historyArray[i].getTab()) === temp) { // + '.' + historyArray[i].getObjNo()) === temp) {
-            str += '<div class="block"> <table width ="250">';
+            str += '<div class="block"> <table class="pma-table" width ="250">';
             str += '<thead><tr><td>';
             if (historyArray[i].getAndOr()) {
                 str += '<img src="' + themeImagePath + 'designer/or_icon.png" onclick="DesignerHistory.andOr(' + i + ')" title="OR"></td>';
