@@ -236,13 +236,13 @@ parameters:
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
 
 		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
-			count: 2
+			message: "#^Offset 1 does not exist on array\\|null\\.$#"
+			count: 3
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
-			message: "#^Offset 1 does not exist on array\\|null\\.$#"
-			count: 3
+			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
+			count: 2
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
