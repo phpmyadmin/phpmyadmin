@@ -8,7 +8,7 @@
         {{ get_hidden_inputs(db) }}
         <input type="hidden" name="add_new_column" value="add_new_column">
         <div class="responsivetable">
-            <table>
+            <table class="pma-table">
                 <thead>
                     <tr>
                         <th class=""></th>
@@ -131,7 +131,7 @@
         {% trans 'The central list of columns for the current database is empty' %}
     </fieldset>
 {% else %}
-    <table style="display:inline-block;max-width:49%" class="navigation nospacing nopadding">
+    <table style="display:inline-block;max-width:49%" class="pma-table navigation nospacing nopadding">
         <tr>
             <td class="navigation_separator"></td>
             {% if pos - max_rows >= 0 %}
@@ -173,7 +173,7 @@
     </table>
 {% endif %}
 {# getHtmlForAddColumn #}
-<table class="central_columns_add_column" class="navigation nospacing nopadding">
+<table class="pma-table central_columns_add_column navigation nospacing nopadding">
     <tr>
         <td class="navigation_separator largescreenonly"></td>
         <td class="central_columns_navigation">
@@ -210,7 +210,7 @@
     </form>
     <div id="tableslistcontainer">
         <form name="tableslistcontainer">
-            <table id="table_columns" class="tablesorter" class="data">
+            <table id="table_columns" class="pma-table tablesorter data">
                 {% set class = 'column_heading' %}
                 {% set title = 'Click to sort.' | trans %}
                 <thead>

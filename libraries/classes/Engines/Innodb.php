@@ -131,7 +131,7 @@ class Innodb extends StorageEngine
             . ' OR Variable_name = \'Innodb_page_size\';';
         $status = $dbi->fetchResult($sql, 0, 1);
 
-        $output = '<table class="data" id="table_innodb_bufferpool_usage">' . "\n"
+        $output = '<table class="pma-table data" id="table_innodb_bufferpool_usage">' . "\n"
             . '    <caption class="tblHeaders">' . "\n"
             . '        ' . __('Buffer Pool Usage') . "\n"
             . '    </caption>' . "\n"
@@ -218,7 +218,7 @@ class Innodb extends StorageEngine
 
         $output .= '    </tbody>' . "\n"
             . '</table>' . "\n\n"
-            . '<table class="data" id="table_innodb_bufferpool_activity">' . "\n"
+            . '<table class="pma-table data" id="table_innodb_bufferpool_activity">' . "\n"
             . '    <caption class="tblHeaders">' . "\n"
             . '        ' . __('Buffer Pool Activity') . "\n"
             . '    </caption>' . "\n"

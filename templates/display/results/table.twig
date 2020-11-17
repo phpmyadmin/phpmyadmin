@@ -1,6 +1,6 @@
 {% set navigation_html %}
   {% if navigation is not empty %}
-    <table class="navigation nospacing nopadding print_ignore">
+    <table class="pma-table navigation nospacing nopadding print_ignore">
       <tr>
         <td class="navigation_separator"></td>
 
@@ -185,7 +185,7 @@
 {% endif %}
 
   <div class="responsivetable">
-    <table class="table_results data ajax" data-uniqueId="{{ unique_id }}">
+    <table class="pma-table table_results data ajax" data-uniqueId="{{ unique_id }}">
 
       {{ headers.button|raw }}
       {{ headers.table_headers_for_columns|raw }}

@@ -62,6 +62,18 @@ $font-family-monospace: monospace;
 
 $font-size-base: 0.82rem;
 
+// Tables
+
+$table-cell-padding: 0.1em 0.3em;
+$table-cell-padding-sm: $table-cell-padding;
+$table-head-bg: #fff;
+$table-head-color: $th-color;
+$table-striped-order: even;
+$table-accent-bg: #dfdfdf;
+$table-hover-color: $browse-pointer-color;
+$table-border-color: #fff;
+$table-border-width: 0;
+
 // Buttons
 
 $enable-gradients: true;

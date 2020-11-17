@@ -1839,7 +1839,7 @@ class InsertEdit
         $found_unique_key
     ) {
         $html_output = '<fieldset id="actions_panel">'
-            . '<table cellpadding="5" cellspacing="0" class="tdblock w-100">'
+            . '<table cellpadding="5" cellspacing="0" class="pma-table tdblock w-100">'
             . '<tr>'
             . '<td class="nowrap vmiddle">'
             . $this->getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value)
@@ -1990,7 +1990,7 @@ class InsertEdit
     private function getHeadAndFootOfInsertRowTable(array $url_params)
     {
         $html_output = '<div class="responsivetable">'
-            . '<table class="insertRowTable topmargin">'
+            . '<table class="pma-table insertRowTable topmargin">'
             . '<thead>'
             . '<tr>'
             . '<th>' . __('Column') . '</th>';

@@ -69,7 +69,7 @@ dfn {
   }
 }
 
-th {
+.pma-table th {
   font-weight: bold;
   color: $th-color;
   background: $th-background;
@@ -96,7 +96,7 @@ textarea {
   overflow: visible;
 }
 
-th.fillPage {
+.pma-table th.fillPage {
   width: 80%;
 }
 
@@ -133,7 +133,7 @@ button {
   display: inline;
 }
 
-table {
+.pma-table {
   caption,
   th,
   td {
@@ -144,7 +144,7 @@ table {
   }
 }
 
-table {
+.pma-table {
   border-collapse: separate;
 }
 
@@ -169,7 +169,7 @@ button {
   float: $right;
 }
 
-table {
+.pma-table {
   &.nospacing {
     border-spacing: 0;
   }
@@ -182,32 +182,32 @@ table {
   }
 }
 
-th.left,
-td.left {
+.pma-table th.left,
+.pma-table td.left {
   text-align: $left;
 }
 
-th.right,
-td.right {
+.pma-table th.right,
+.pma-table td.right {
   text-align: $right;
   padding-#{$right}: 1em;
 }
 
-tr.vtop,
-th.vtop,
-td.vtop {
+.pma-table tr.vtop,
+.pma-table th.vtop,
+.pma-table td.vtop {
   vertical-align: top;
 }
 
-tr.vmiddle,
-th.vmiddle,
-td.vmiddle {
+.pma-table tr.vmiddle,
+.pma-table th.vmiddle,
+.pma-table td.vmiddle {
   vertical-align: middle;
 }
 
-tr.vbottom,
-th.vbottom,
-td.vbottom {
+.pma-table tr.vbottom,
+.pma-table th.vbottom,
+.pma-table td.vbottom {
   vertical-align: bottom;
 }
 
@@ -265,7 +265,7 @@ button.mult_submit {
 }
 
 // odd items 1,3,5,7...
-table tr:nth-child(odd) {
+.pma-table tr:nth-child(odd) {
   background: $bg-one;
 }
 
@@ -277,7 +277,7 @@ table tr:nth-child(odd) {
 }
 
 // even items 2,4,6,8...
-table tr:nth-child(even) {
+.pma-table tr:nth-child(even) {
   background: $bg-two;
 }
 
@@ -288,7 +288,7 @@ table tr:nth-child(even) {
   }
 }
 
-table tr {
+.pma-table tr {
   text-align: $left;
 
   th {
@@ -296,12 +296,12 @@ table tr {
   }
 }
 
-td.marked:not(.nomarker) {
+.pma-table td.marked:not(.nomarker) {
   background: $browse-marker-background;
   color: $browse-marker-color;
 }
 
-table tr {
+.pma-table tr {
   &.marked:not(.nomarker) {
     background: $browse-marker-background;
     color: $browse-marker-color;
@@ -332,7 +332,7 @@ table tr {
   }
 }
 
-table tr.hover:not(.nopointer) th {
+.pma-table tr.hover:not(.nopointer) th {
   background: $browse-pointer-background;
   color: $browse-pointer-color;
 }
@@ -340,20 +340,20 @@ table tr.hover:not(.nopointer) th {
 /**
  * marks table rows/cells if the db field is in a where condition
  */
-td.condition,
-th.condition {
+.pma-table td.condition,
+.pma-table th.condition {
   border: 1px solid $browse-marker-background;
 }
 
 /**
  * cells with the value NULL
  */
-td.null {
+.pma-table td.null {
   font-style: italic;
   color: #7d7d7d;
 }
 
-table {
+.pma-table {
   .valueHeader,
   .value {
     text-align: $right;
@@ -427,7 +427,7 @@ img.lightbulb {
 }
 
 /* no extra space in table cells */
-td .icon {
+.pma-table td .icon {
   margin: 0;
 }
 
@@ -762,7 +762,7 @@ div#dataDisplay {
   }
 }
 
-table {
+.pma-table {
   &#tableFieldsId {
     width: 100%;
   }
@@ -809,8 +809,7 @@ div#tablestatistics table {
 }
 
 #tableuserrights td,
-#tablespecificuserrights td,
-#tabledatabases td {
+#tablespecificuserrights td {
   vertical-align: middle;
 }
 
@@ -3243,7 +3242,7 @@ span.drag_icon {
 }
 
 /* styles for sortable tables created with tablesorter jquery plugin */
-th {
+.pma-table th {
   &.header {
     cursor: pointer;
     color: #00f;

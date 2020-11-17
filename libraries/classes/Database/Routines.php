@@ -839,7 +839,7 @@ class Routines
         $retval .= Url::getHiddenInputs($db) . "\n";
         $retval .= "<fieldset>\n";
         $retval .= '<legend>' . __('Details') . "</legend>\n";
-        $retval .= "<table class='rte_table'>\n";
+        $retval .= "<table class='pma-table rte_table'>\n";
         $retval .= "<tr>\n";
         $retval .= '    <td>' . __('Routine name') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_name' maxlength='64'\n";
@@ -869,7 +869,7 @@ class Routines
         $retval .= '    <td>' . __('Parameters') . "</td>\n";
         $retval .= "    <td>\n";
         // parameter handling start
-        $retval .= "        <table class='routine_params_table'>\n";
+        $retval .= "        <table class='pma-table routine_params_table'>\n";
         $retval .= "        <thead>\n";
         $retval .= "        <tr>\n";
         $retval .= "            <td></td>\n";
@@ -1446,7 +1446,7 @@ class Routines
                 $num_rows = $this->dbi->numRows($result);
 
                 if (($result !== false) && ($num_rows > 0)) {
-                    $output .= '<table><tr>';
+                    $output .= '<table class="pma-table"><tr>';
                     foreach ($this->dbi->getFieldsMeta($result) as $field) {
                         $output .= '<th>';
                         $output .= htmlspecialchars($field->name);
@@ -1642,13 +1642,13 @@ class Routines
         $retval .= "<fieldset>\n";
         if (! $this->response->isAjax()) {
             $retval .= '<legend>' . $routine['item_name'] . "</legend>\n";
-            $retval .= "<table class='rte_table'>\n";
+            $retval .= "<table class='pma-table rte_table'>\n";
             $retval .= "<caption class='tblHeaders'>\n";
             $retval .= __('Routine parameters');
             $retval .= "</caption>\n";
         } else {
             $retval .= '<legend>' . __('Routine parameters') . "</legend>\n";
-            $retval .= "<table class='rte_table'>\n";
+            $retval .= "<table class='pma-table rte_table'>\n";
         }
         $retval .= "<tr>\n";
         $retval .= '<th>' . __('Name') . "</th>\n";

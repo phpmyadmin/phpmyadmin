@@ -123,7 +123,7 @@ dfn {
   }
 }
 
-th {
+.pma-table th {
   font-weight: bold;
   color: $th-color;
   background: #f3f3f3;
@@ -299,7 +299,7 @@ textarea {
   }
 }
 
-th.fillPage {
+.pma-table th.fillPage {
   width: 80%;
 }
 
@@ -364,7 +364,7 @@ button {
   table-layout: fixed;
 }
 
-table {
+.pma-table {
   border-collapse: collapse;
 
   caption,
@@ -378,11 +378,11 @@ table {
   }
 }
 
-thead th {
+.pma-table thead th {
   border-#{$right}: 1px solid #fff;
 }
 
-th {
+.pma-table th {
   text-align: $left;
 }
 
@@ -434,7 +434,7 @@ select {
   display: block;
 }
 
-table {
+.pma-table {
   &.nospacing {
     border-spacing: 0;
   }
@@ -447,50 +447,50 @@ table {
   }
 }
 
-th.left,
-td.left {
+.pma-table th.left,
+.pma-table td.left {
   text-align: $left;
 }
 
-th.right,
-td.right {
+.pma-table th.right,
+.pma-table td.right {
   text-align: $right;
   padding-#{$right}: 1em;
 }
 
-tr.vtop {
+.pma-table tr.vtop {
   th,
   td {
     vertical-align: top;
   }
 }
 
-th.vtop,
-td.vtop {
+.pma-table th.vtop,
+.pma-table td.vtop {
   vertical-align: top;
 }
 
-tr.vmiddle {
+.pma-table tr.vmiddle {
   th,
   td {
     vertical-align: middle;
   }
 }
 
-th.vmiddle,
-td.vmiddle {
+.pma-table th.vmiddle,
+.pma-table td.vmiddle {
   vertical-align: middle;
 }
 
-tr.vbottom {
+.pma-table tr.vbottom {
   th,
   td {
     vertical-align: bottom;
   }
 }
 
-th.vbottom,
-td.vbottom {
+.pma-table th.vbottom,
+.pma-table td.vbottom {
   vertical-align: bottom;
 }
 
@@ -562,27 +562,27 @@ button.mult_submit {
 }
 
 // odd items 1,3,5,7...
-table tbody:first-of-type tr:nth-child(odd),
-table tbody:first-of-type tr:nth-child(odd) th,
+.pma-table tbody:first-of-type tr:nth-child(odd),
+.pma-table tbody:first-of-type tr:nth-child(odd) th,
 #table_index tbody:nth-of-type(odd) tr,
 #table_index tbody:nth-of-type(odd) th {
   background: #fff;
 }
 
 // even items 2,4,6,8...
-table tbody:first-of-type tr:nth-child(even),
-table tbody:first-of-type tr:nth-child(even) th,
+.pma-table tbody:first-of-type tr:nth-child(even),
+.pma-table tbody:first-of-type tr:nth-child(even) th,
 #table_index tbody:nth-of-type(even) tr,
 #table_index tbody:nth-of-type(even) th {
   background: #dfdfdf;
 }
 
 // only one item
-table tbody:first-of-type tr:only-child {
+.pma-table tbody:first-of-type tr:only-child {
   background: none;
 }
 
-table tr {
+.pma-table tr {
   text-align: $left;
 
   th {
@@ -591,17 +591,17 @@ table tr {
 }
 
 // marked table rows
-td.marked:not(.nomarker),
-table tr.marked:not(.nomarker) td,
-table tbody:first-of-type tr.marked:not(.nomarker) th,
-table tr.marked:not(.nomarker) {
+.pma-table td.marked:not(.nomarker),
+.pma-table tr.marked:not(.nomarker) td,
+.pma-table tbody:first-of-type tr.marked:not(.nomarker) th,
+.pma-table tr.marked:not(.nomarker) {
   background: linear-gradient(#ced6df, #b6c6d7);
   color: $browse-marker-color;
 }
 
 // hovered items
-table tbody:first-of-type tr:not(.nopointer):hover,
-table tbody:first-of-type tr:not(.nopointer):hover th,
+.pma-table tbody:first-of-type tr:not(.nopointer):hover,
+.pma-table tbody:first-of-type tr:not(.nopointer):hover th,
 .hover:not(.nopointer) {
   background: linear-gradient(#ced6df, #b6c6d7);
   color: $browse-pointer-color;
@@ -611,7 +611,7 @@ table tbody:first-of-type tr:not(.nopointer):hover th,
 #table_index tbody:hover tr,
 #table_index tbody:hover th,
 #table_index tbody:hover td,
-table tr.hover:not(.nopointer) th {
+.pma-table tr.hover:not(.nopointer) th {
   background: linear-gradient(#ced6df, #b6c6d7);
   color: $browse-pointer-color;
 }
@@ -623,17 +623,17 @@ table tr.hover:not(.nopointer) th {
   border-color: $browse-marker-color !important;
 }
 
-th.condition {
+.pma-table th.condition {
   border-width: 1px 1px 0 1px;
   border-style: solid;
 }
 
-td.condition {
+.pma-table td.condition {
   border-width: 0 1px 0 1px;
   border-style: solid;
 }
 
-tr:last-child td.condition {
+.pma-table tr:last-child td.condition {
   border-width: 0 1px 1px 1px;
 }
 
@@ -647,12 +647,12 @@ tr:last-child td.condition {
 /**
  * cells with the value NULL
  */
-td.null {
+.pma-table td.null {
   font-style: italic;
   color: #7d7d7d;
 }
 
-table {
+.pma-table table {
   .valueHeader,
   .value {
     text-align: $right;
@@ -713,7 +713,7 @@ img.lightbulb {
 }
 
 // no extra space in table cells
-td .icon {
+.pma-table td .icon {
   image-rendering: pixelated;
   margin: 0;
 }
@@ -826,8 +826,8 @@ div.tools a:hover,
   }
 }
 
-tr.disabled td,
-td.disabled {
+.pma-table tr.disabled td,
+.pma-table td.disabled {
   background-color: #f3f3f3;
   color: #aaa;
 }
@@ -1019,7 +1019,7 @@ div#dataDisplay {
   }
 }
 
-table {
+.pma-table {
   &#tableFieldsId {
     width: 100%;
   }
@@ -1070,8 +1070,7 @@ div#tablestatistics table {
 
 // server privileges
 #tableuserrights td,
-#tablespecificuserrights td,
-#tabledatabases td {
+#tablespecificuserrights td {
   vertical-align: middle;
 }
 
@@ -3680,7 +3679,7 @@ meter {
 }
 
 // styles for sortable tables created with tablesorter jquery plugin
-th {
+.pma-table th {
   &.header {
     cursor: pointer;
     color: #235a81;

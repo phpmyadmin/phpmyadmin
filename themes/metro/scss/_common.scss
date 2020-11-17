@@ -267,7 +267,7 @@ dfn:hover {
   border-bottom: 1px solid $border-color;
 }
 
-th {
+.pma-table th {
   font-family: $font-family-bold;
   color: $th-color !important;
   font-weight: normal;
@@ -380,7 +380,7 @@ button {
   display: inline;
 }
 
-table {
+.pma-table {
   border-collapse: collapse;
 
   caption,
@@ -392,7 +392,7 @@ table {
   }
 }
 
-th {
+.pma-table th {
   text-align: $left;
 }
 
@@ -437,7 +437,7 @@ select {
   display: block;
 }
 
-table {
+.pma-table {
   &.nospacing {
     border-spacing: 0;
   }
@@ -450,50 +450,50 @@ table {
   }
 }
 
-th.left,
-td.left {
+.pma-table th.left,
+.pma-table td.left {
   text-align: $left;
 }
 
-th.right,
-td.right {
+.pma-table th.right,
+.pma-table td.right {
   text-align: $right;
   padding-#{$right}: 1em;
 }
 
-tr.vtop {
+.pma-table tr.vtop {
   th,
   td {
     vertical-align: top;
   }
 }
 
-th.vtop,
-td.vtop {
+.pma-table th.vtop,
+.pma-table td.vtop {
   vertical-align: top;
 }
 
-tr.vmiddle {
+.pma-table tr.vmiddle {
   th,
   td {
     vertical-align: middle;
   }
 }
 
-th.vmiddle,
-td.vmiddle {
+.pma-table th.vmiddle,
+.pma-table td.vmiddle {
   vertical-align: middle;
 }
 
-tr.vbottom {
+.pma-table tr.vbottom {
   th,
   td {
     vertical-align: bottom;
   }
 }
 
-th.vbottom,
-td.vbottom {
+.pma-table th.vbottom,
+.pma-table td.vbottom {
   vertical-align: bottom;
 }
 
@@ -576,7 +576,7 @@ div.tools {
   }
 }
 
-tr.noclick td:first-child::before {
+.pma-table tr.noclick td:first-child::before {
   content: "";
 }
 
@@ -614,7 +614,7 @@ button.mult_submit {
   margin: 0;
 }
 
-table tr {
+.pma-table tr {
   text-align: $left;
   border-bottom: 1px solid #eee;
 
@@ -647,11 +647,11 @@ table tr {
 }
 
 /* marked table rows */
-td.marked:not(.nomarker) {
+.pma-table td.marked:not(.nomarker) {
   color: $main-color;
 }
 
-table tr.marked:not(.nomarker) {
+.pma-table tr.marked:not(.nomarker) {
   color: $main-color;
 
   td,
@@ -660,11 +660,11 @@ table tr.marked:not(.nomarker) {
   }
 }
 
-td.marked:not(.nomarker) {
+.pma-table td.marked:not(.nomarker) {
   background-color: $browse-marker-background;
 }
 
-table tr {
+.pma-table tr {
   &.marked:not(.nomarker) {
     border-#{$left}: 3px solid #24a0da;
   }
@@ -689,7 +689,7 @@ table tr {
   }
 }
 
-table tr.hover:not(.nopointer) th {
+.pma-table tr.hover:not(.nopointer) th {
   background-color: $browse-marker-background;
   color: $th-pointer-color;
 }
@@ -708,7 +708,7 @@ table tr.hover:not(.nopointer) th {
   border-color: $browse-warning-color !important;
 }
 
-th.condition {
+.pma-table th.condition {
   border: 1px solid $browse-warning-color;
   background: $browse-warning-color;
   color: $body-bg !important;
@@ -720,7 +720,7 @@ th.condition {
   }
 }
 
-td {
+.pma-table td {
   &.condition {
     border: 1px solid;
   }
@@ -732,7 +732,7 @@ td {
   }
 }
 
-table {
+.pma-table {
   .valueHeader,
   .value {
     text-align: $right;
@@ -793,7 +793,7 @@ img.lightbulb {
 }
 
 /* no extra space in table cells */
-td .icon {
+.pma-table td .icon {
   margin: 0;
 }
 
@@ -999,7 +999,7 @@ div#dataDisplay {
   }
 }
 
-table {
+.pma-table {
   &#tableFieldsId {
     width: 100%;
   }
@@ -1052,8 +1052,7 @@ div#tablestatistics table {
 
 /* server privileges */
 #tableuserrights td,
-#tablespecificuserrights td,
-#tabledatabases td {
+#tablespecificuserrights td {
   vertical-align: middle;
 }
 
@@ -3601,7 +3600,7 @@ meter {
 }
 
 /* styles for sortable tables created with tablesorter jquery plugin */
-th {
+.pma-table th {
   &.header {
     cursor: pointer;
     color: #235a81;

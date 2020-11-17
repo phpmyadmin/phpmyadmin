@@ -11,7 +11,7 @@
         <p>{% trans 'Table comments:' %} <em>{{ table.comment }}</em></p>
       {% endif %}
 
-      <table class="print">
+      <table class="pma-table print">
         <tr>
           <th>{% trans 'Column' %}</th>
           <th>{% trans 'Type' %}</th>
@@ -59,7 +59,7 @@
         <h3>{% trans 'Indexes' %}</h3>
 
         <div class="responsivetable jsresponsive">
-          <table id="table_index">
+          <table class="pma-table" id="table_index">
             <thead>
               <tr>
                 <th>{% trans 'Keyname' %}</th>

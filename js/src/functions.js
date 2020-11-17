@@ -3503,9 +3503,9 @@ AJAX.registerOnload('functions.js', function () {
                     '<legend>' + title + '</legend>' +
                     '<p>' + Functions.getImage('s_notice') +
                     Messages.enum_hint + '</p>' +
-                    '<table class=\'values\'>' + fields + '</table>' +
+                    '<table class=\'pma-table values\'>' + fields + '</table>' +
                     '</fieldset><fieldset class=\'tblFooters\'>' +
-                    '<table class=\'add\'><tr><td>' +
+                    '<table class=\'pma-table add\'><tr><td>' +
                     '<div class=\'slider\'></div>' +
                     '</td><td>' +
                     '<form><div><input type=\'submit\' class=\'add_value btn btn-primary\' value=\'' +
@@ -3644,7 +3644,7 @@ AJAX.registerOnload('functions.js', function () {
         var centralColumnsDialog = '<div class=\'max_height_400\'>' +
             '<fieldset>' +
             searchIn +
-            '<table id=\'col_list\' class=\'values w-100\'>' + fields + '</table>' +
+            '<table id=\'col_list\' class=\'pma-table values w-100\'>' + fields + '</table>' +
             '</fieldset>' +
             seeMore +
             '</div>';

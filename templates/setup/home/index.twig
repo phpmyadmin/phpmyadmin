@@ -37,7 +37,7 @@
 
   <div class="form">
     {% if server_count > 0 %}
-      <table cellspacing="0" class="datatable">
+      <table cellspacing="0" class="pma-table datatable">
         <tr>
           <th>#</th>
           <th>{% trans 'Name' %}</th>
@@ -67,7 +67,7 @@
         {% endfor %}
       </table>
     {% else %}
-      <table width="100%">
+      <table class="pma-table" width="100%">
         <tr>
           <td>
             <em>{% trans 'There are no configured servers' %}</em>
@@ -76,7 +76,7 @@
       </table>
     {% endif %}
 
-    <table width="100%">
+    <table class="pma-table" width="100%">
       <tr>
         <td class="lastrow left">
           <input type="submit" name="submit" value="{% trans 'New server' %}">
@@ -94,7 +94,7 @@
 
   {{ config_form_top_html|raw }}
 
-  <table width="100%" cellspacing="0">
+  <table class="pma-table" width="100%" cellspacing="0">
     {{ default_language_input|raw }}
     {{ server_default_input|raw }}
     {{ eol_input|raw }}

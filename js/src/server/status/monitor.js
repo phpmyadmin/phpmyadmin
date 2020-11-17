@@ -1939,7 +1939,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     function buildLogTable (data, groupInserts) {
         var rows = data.rows;
         var cols = [];
-        var $table = $('<table class="sortable"></table>');
+        var $table = $('<table class="pma-table sortable"></table>');
         var $tBody;
         var $tRow;
         var $tCell;
@@ -2092,7 +2092,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             var totalTime = 0;
             // Float sux, I'll use table :(
             $('#queryAnalyzerDialog').find('div.placeHolder')
-                .html('<table width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
+                .html('<table class="pma-table" width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
 
             var explain = '<b>' + Messages.strExplainOutput + '</b> ' + $('#explain_docu').html();
             if (data.explain.length > 1) {
@@ -2137,7 +2137,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
             if (data.profiling) {
                 var chartData = [];
-                var numberTable = '<table class="queryNums"><thead><tr><th>' + Messages.strStatus + '</th><th>' + Messages.strTime + '</th></tr></thead><tbody>';
+                var numberTable = '<table class="pma-table queryNums"><thead><tr><th>' + Messages.strStatus + '</th><th>' + Messages.strTime + '</th></tr></thead><tbody>';
                 var duration;
                 var otherTime = 0;
 
