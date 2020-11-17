@@ -246,7 +246,7 @@ class BrowseForeignersTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table width="100%" id="browse_foreign_table">',
+            '<table class="pma-table" width="100%" id="browse_foreign_table">',
             $result
         );
 
@@ -262,7 +262,7 @@ class BrowseForeignersTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table width="100%" id="browse_foreign_table">',
+            '<table class="pma-table" width="100%" id="browse_foreign_table">',
             $result
         );
 

@@ -136,7 +136,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table width="100%" cellspacing="0">',
+            '<table class="pma-table" width="100%" cellspacing="0">',
             $result
         );
     }

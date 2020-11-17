@@ -72,7 +72,7 @@ class BinlogControllerTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table id="binlogTable">',
+            '<table class="pma-table" id="binlogTable">',
             $actual
         );
 

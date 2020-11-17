@@ -140,7 +140,7 @@ class InnodbTest extends AbstractTestCase
     public function testGetPageBufferpool(): void
     {
         $this->assertEquals(
-            '<table class="data" id="table_innodb_bufferpool_usage">' . "\n" .
+            '<table class="pma-table data" id="table_innodb_bufferpool_usage">' . "\n" .
             '    <caption class="tblHeaders">' . "\n" .
             '        Buffer Pool Usage' . "\n" .
             '    </caption>' . "\n" .
@@ -177,7 +177,7 @@ class InnodbTest extends AbstractTestCase
             '</td>' . "\n" .
             '        </tr>    </tbody>' . "\n" .
             '</table>' . "\n\n" .
-            '<table class="data" id="table_innodb_bufferpool_activity">' . "\n" .
+            '<table class="pma-table data" id="table_innodb_bufferpool_activity">' . "\n" .
             '    <caption class="tblHeaders">' . "\n" .
             '        Buffer Pool Activity' . "\n" .
             '    </caption>' . "\n" .

@@ -356,7 +356,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $this->assertEquals(
             '<h2>Dumping data for table testTable</h2>' .
-            '<table class="w-100" cellspacing="1"><tr class="print-category">' .
+            '<table class="pma-table w-100" cellspacing="1"><tr class="print-category">' .
             '<td class="print"><strong>foobar</strong></td>' .
             '<td class="print"><strong>foobar</strong></td>' .
             '<td class="print"><strong>foobar</strong></td>' .
@@ -410,7 +410,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->will($this->returnValue(1));
 
         $this->assertEquals(
-            '<table class="w-100" cellspacing="1">' .
+            '<table class="pma-table w-100" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
             '<td class="print"><strong>Null</strong></td>' .
@@ -515,7 +515,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            '<table class="w-100" cellspacing="1">' .
+            '<table class="pma-table w-100" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
             '<td class="print"><strong>Null</strong></td>' .
@@ -674,7 +674,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            '<table class="w-100" cellspacing="1">' .
+            '<table class="pma-table w-100" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
             '<td class="print"><strong>Null</strong></td>' .

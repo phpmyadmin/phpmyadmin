@@ -81,7 +81,7 @@ class ProcessesControllerTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<table id="tableprocesslist" '
-            . 'class="data clearfloat noclick sortable">',
+            . 'class="pma-table data clearfloat noclick sortable">',
             $html
         );
         $this->assertStringContainsString(
