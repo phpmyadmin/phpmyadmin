@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-11-16 03:28+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2020-11-19 13:59+0000\n"
+"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/nb_NO/>\n"
 "Language: nb\n"
@@ -527,7 +527,7 @@ msgstr "Legg til geometri"
 #: templates/server/binlog/log_selector.twig:27
 #: templates/table/index_form.twig:217 view_operations.php:115
 msgid "Go"
-msgstr "Gjør"
+msgstr "Gå"
 
 #: gis_data_editor.php:420
 msgid "Output"
@@ -597,7 +597,7 @@ msgstr "Bokmerke %s har blitt opprettet."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Importen er fullført, %d spørringer utført."
+msgstr[0] "Importen er fullført, %d spørring utført."
 msgstr[1] "Importen er fullført, %d spørringer utført."
 
 #: import.php:628
@@ -610,7 +610,6 @@ msgstr ""
 "samme fil igjen%s og importen vil tilta igjen."
 
 #: import.php:638
-#, fuzzy
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -1001,7 +1000,6 @@ msgid "Garbled Data"
 msgstr "Uleselig data"
 
 #: js/messages.php:97
-#, fuzzy
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "Er du sikker på at du ønsker å endre sortering og konvertere data?"
 
@@ -3160,7 +3158,6 @@ msgid "Page number:"
 msgstr "Sidenummer:"
 
 #: libraries/classes/CentralColumns.php:227
-#, fuzzy
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
@@ -3638,7 +3635,6 @@ msgid "Restrict login to MySQL server"
 msgstr "Begrens innlogging til MySQL-tjeneren"
 
 #: libraries/classes/Config/Descriptions.php:75
-#, fuzzy
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -3653,7 +3649,6 @@ msgid "Allow third party framing"
 msgstr "Tillat tredjepartsinnramming"
 
 #: libraries/classes/Config/Descriptions.php:82
-#, fuzzy
 msgid "Show \"Drop database\" link to normal users"
 msgstr "Vis \"Fjern database\"-lenke til normale brukere"
 
@@ -4228,7 +4223,7 @@ msgstr "Fremmednøkkelbegrensning"
 
 #: libraries/classes/Config/Descriptions.php:430
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "Standardverdi for utenlandske nøkkelsjekker for noen spørsmål."
 
 #: libraries/classes/Config/Descriptions.php:432
 msgid "Foreign key checks"
@@ -4504,7 +4499,7 @@ msgstr "Databasestruktur"
 #: libraries/classes/Config/Descriptions.php:571
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
-msgstr ""
+msgstr "Velg hvilke detaljer som vises i database strukturen (tabelliste)."
 
 #: libraries/classes/Config/Descriptions.php:573
 #: libraries/classes/Plugins/Export/ExportPdf.php:277
@@ -4514,7 +4509,7 @@ msgstr "Tabellstruktur"
 
 #: libraries/classes/Config/Descriptions.php:575
 msgid "Settings for the table structure (list of columns)."
-msgstr ""
+msgstr "Innstillinger for tabell struktur (kolonneliste)."
 
 #: libraries/classes/Config/Descriptions.php:577
 msgid "Tabs"
@@ -4627,12 +4622,12 @@ msgstr "Ikke avbryt under INSERT feil"
 #: libraries/classes/Config/Descriptions.php:639
 #: libraries/classes/Config/Descriptions.php:660
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "Legg til OPPDATERING PÅ DUPLIKAT NØKKEL"
 
 #: libraries/classes/Config/Descriptions.php:641
 #: libraries/classes/Config/Descriptions.php:662
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "Oppdater data når dupliserte nøkler ble funnet ved import"
 
 #: libraries/classes/Config/Descriptions.php:646
 #, fuzzy
@@ -4735,15 +4730,11 @@ msgid "Delete all cookies on logout"
 msgstr "Slett alle cookies ved utlogging"
 
 #: libraries/classes/Config/Descriptions.php:703
-#, fuzzy
-#| msgid ""
-#| "Define whether the previous login should be recalled or not in cookie "
-#| "authentication mode"
 msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Definerer om forrige innlogging skal husker eller ikke i cookie "
+"Definerer om forrige innlogging skal huske eller ikke i [kbd]cookie[/kbd] "
 "autentiseringsmodus"
 
 #: libraries/classes/Config/Descriptions.php:707
@@ -4838,7 +4829,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "Maksimale gjenstander i grenen"
 
 #: libraries/classes/Config/Descriptions.php:748
 msgid ""
@@ -4863,16 +4854,12 @@ msgid "Maximum tables"
 msgstr "Maks antall tabeller"
 
 #: libraries/classes/Config/Descriptions.php:762
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Maks antal byte et skript har lov til å bruke, f.eks. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] for ingen begrensning)"
+"([kbd]-1[/kbd] for ingen begrensning og [kbd]0[/kbd] for ingen endring)"
 
 #: libraries/classes/Config/Descriptions.php:766
 msgid "Memory limit"
@@ -4880,7 +4867,7 @@ msgstr "Minnetak"
 
 #: libraries/classes/Config/Descriptions.php:768
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "I navigasjonspanelet, erstatter databasetreet med en velger"
 
 #: libraries/classes/Config/Descriptions.php:770
 #, fuzzy
@@ -4903,6 +4890,7 @@ msgstr "Vis logo i venstre ramme"
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
+"Koble til hovedpanelet ved å markere den gjeldende databasen eller tabellen."
 
 #: libraries/classes/Config/Descriptions.php:780
 #, fuzzy
@@ -5033,8 +5021,6 @@ msgstr ""
 "Hvorvidt muligheten for treekspansjon i navigasjonspanelet skal tilbys."
 
 #: libraries/classes/Config/Descriptions.php:835
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
 msgstr "Skru på navigasjonstreutvidelse"
 
@@ -5233,7 +5219,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:913
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "MySQL reservert ord advarsel"
 
 #: libraries/classes/Config/Descriptions.php:917
 msgid "How to display the menu tabs"
@@ -5388,6 +5374,7 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"Angir effektiv tidssone; muligens annerledes enn den fra databaseserveren"
 
 #: libraries/classes/Config/Descriptions.php:988
 #, fuzzy
@@ -5410,16 +5397,12 @@ msgid "Authentication type"
 msgstr "Autentiseringstype"
 
 #: libraries/classes/Config/Descriptions.php:997
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
-#| "a] support, suggested: [kbd]pma__bookmark[/kbd]"
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"La stå tom å slå av [a@https://wiki.phpmyadmin.net/pma/bookmark]bokmerke[/"
-"a]forslag: [kbd]pma__bookmark[/kbd]"
+"La stå tom for ingen [doc@bookmarks@]bookmark[/doc] support, forslag: "
+"[kbd]pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1001
 msgid "Bookmark table"
@@ -5456,18 +5439,12 @@ msgid "Control user password"
 msgstr "Kontrollbrukerpassord"
 
 #: libraries/classes/Config/Descriptions.php:1017
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]"
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"En spesiell MySQL bruker konfigurert med begrensede rettigheter, mer "
-"informasjon tilgjengelig på [a@https://wiki.phpmyadmin.net/pma/"
-"controluser]wiki[/a]"
+"En spesiell MySQL-bruker konfigurert med begrensede tillatelser, mer "
+"informasjon tilgjengelig på [doc@linked-tables] dokumentasjon [/doc]."
 
 #: libraries/classes/Config/Descriptions.php:1021
 msgid "Control user"
@@ -5631,23 +5608,14 @@ msgstr ""
 "La stå tom for ingen PDF schema støtte, anbefalt: [kbd]pma_table_coords[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1091
-#, fuzzy
-#| msgid ""
-#| "You can use MySQL wildcard characters (% and _), escape them if you want "
-#| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
-#| "[kbd]'my_db'[/kbd]. Using this option you can sort database list, just "
-#| "enter their names in order and use [kbd]*[/kbd] at the end to show the "
-#| "rest in alphabetical order."
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"Du kan sortere listen ved å legge inn navnene på databasene i rekkefølge, og "
-"bruke [kbd]*[/kbd] til slutt for å vise resten i alfabetisk rekkefølge.\n"
-"Merk: Du kan bruke MySQL jokertegn (% og _). Du må escape dem hvis du ønsker "
-"å bruke dem som vanlige karakterer, f.eks. bruk [kbd]'my\\_db'[/kbd] og ikke "
-"[kbd]'my_db'[/kbd] for å vise et understrek tegn."
+"Du kan bruke MySQL jokertegn (% og _), unnslippe dem hvis du vil bruke deres "
+"bokstavelige forekomster, dvs. bruke [kbd]'my\\_db'[/kbd] og ikke "
+"[kbd]'my_db'[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1096
 msgid "Show only listed databases"
@@ -5678,19 +5646,14 @@ msgid "PDF schema: pages table"
 msgstr "PDF schema: sidetabell"
 
 #: libraries/classes/Config/Descriptions.php:1107
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Database brukt for relasjoner, bokmerker og PDF egenskaper. Se [a@https://"
-"wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for komplett informasjon. La stå "
-"blank for å slå av. Anbefalt: [kbd]phpmyadmin[/kbd]"
+"Database som brukes til relasjoner, bokmerker og PDF-funksjoner. Se [doc"
+"@linked-tables] pmadb [/doc] for fullstendig informasjon. La stå tomt uten "
+"støtte. Foreslått: [kbd] phpmyadmin [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1112
 #: templates/server/databases/create.twig:21
@@ -5738,31 +5701,21 @@ msgid "Favorites table"
 msgstr "Favorittabeller"
 
 #: libraries/classes/Config/Descriptions.php:1133
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
-#| "links[/a] support, suggested: [kbd]pma_relation[/kbd]"
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"La stå tom for ingen [a@https://wiki.phpmyadmin.net/pma/"
-"relation]relasjonslink[/a]støtte, anbefalt: [kbd]pma_relation[/kbd]"
+"La stå tom for ingen [doc@relations@]relation-links[/doc] support, forslag: "
+"[kbd]pma__relation[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1138
 msgid "Relation table"
 msgstr "Relasjonstabell"
 
 #: libraries/classes/Config/Descriptions.php:1141
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example"
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"Se [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]autentiseringstyper[/"
-"a] for et eksempel"
+msgstr "Se [doc@authentication-modes]autentiseringstyper[/doc] for et eksempel"
 
 #: libraries/classes/Config/Descriptions.php:1145
 msgid "Signon session name"
@@ -5932,6 +5885,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Både denne tabellen og brukergruppetabellen kreves for å aktivere den "
+"konfigurerbare menyfunksjonen; Hvis du lar en av dem være tomme, deaktiveres "
+"denne funksjonen, foreslått: [kbd] pma__users [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1227
 #, fuzzy
@@ -5945,6 +5901,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Begge disse tabellene kreves for å aktivere den konfigurerbare "
+"menyfunksjonen; Hvis du lar en av dem være tom, deaktiveres denne "
+"funksjonen, foreslått: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1235
 #, fuzzy
@@ -5964,7 +5923,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1242
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "Skjult navigasjonselementtabell"
 
 #: libraries/classes/Config/Descriptions.php:1246
 msgid "User for config auth"
@@ -6078,7 +6037,7 @@ msgstr "Tabellkommentarer"
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
-msgstr ""
+msgstr "Definerer om typefelt skal vises i redigerings- / innsettingsmodus."
 
 #: libraries/classes/Config/Descriptions.php:1294
 msgid "Show field types"
@@ -6139,7 +6098,7 @@ msgstr "Vis SQL spørringer"
 #: libraries/classes/Config/Descriptions.php:1317
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
-msgstr ""
+msgstr "Definerer om søkeboksen skal forbli på skjermen etter at den er sendt."
 
 #: libraries/classes/Config/Descriptions.php:1319
 #: libraries/classes/SqlQueryForm.php:356
@@ -6370,6 +6329,8 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
+"Når den er deaktivert, kan ikke brukerne angi noen av alternativene "
+"nedenfor, uavhengig av avkrysningsruten til høyre."
 
 #: libraries/classes/Config/Descriptions.php:1404
 msgid "Enable the Developer tab in settings"
@@ -6392,9 +6353,12 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"URLen til proxyen som skal brukes når du henter informasjonen om den siste "
+"versjonen av phpMyAdmin eller når du sender inn feilrapporter. Du trenger "
+"dette hvis serveren der phpMyAdmin er installert ikke har direkte tilgang "
+"til internett. Formatet er: \"vertsnavn: portnummer\"."
 
 #: libraries/classes/Config/Descriptions.php:1417
-#, fuzzy
 msgid "Proxy url"
 msgstr "Mellomtjenernettadresse"
 
@@ -6404,6 +6368,9 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Brukernavnet for autentisering med proxyen. Som standard utføres ingen "
+"godkjenning. Hvis et brukernavn er oppgitt, utføres grunnleggende "
+"godkjenning. Ingen andre typer autentisering støttes for øyeblikket."
 
 #: libraries/classes/Config/Descriptions.php:1426
 #, fuzzy
@@ -6413,7 +6380,7 @@ msgstr "Brukernavn"
 
 #: libraries/classes/Config/Descriptions.php:1428
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "Passordet for autentisering med proxyen."
 
 #: libraries/classes/Config/Descriptions.php:1430
 #, fuzzy
@@ -6437,23 +6404,23 @@ msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:1437
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "Skriv inn din offentlige nøkkel for ditt domene reCaptcha-tjeneste."
 
 #: libraries/classes/Config/Descriptions.php:1439
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "Offentlig nøkkel for reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:1441
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "Skriv inn din private nøkkel for ditt domene reCaptcha-tjeneste."
 
 #: libraries/classes/Config/Descriptions.php:1443
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "Privat nøkkel for reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:1446
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "Velg standardhandling når du sender feilrapporter."
 
 #: libraries/classes/Config/Descriptions.php:1448
 #, fuzzy
@@ -6466,16 +6433,20 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"Spørringer utføres ved å trykke Enter (i stedet for Ctrl + Enter). Nye "
+"linjer vil settes inn med Shift + Enter."
 
 #: libraries/classes/Config/Descriptions.php:1456
 msgid "Enter executes queries in console"
-msgstr ""
+msgstr "Enter utfører spørringer i konsollen"
 
 #: libraries/classes/Config/Descriptions.php:1460
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
+"Aktiver nullkonfigurasjonsmodus som lar deg konfigurere phpMyAdmin "
+"konfigurasjon lagringstabeller automatisk."
 
 #: libraries/classes/Config/Descriptions.php:1464
 #, fuzzy
@@ -6496,11 +6467,11 @@ msgstr "Alltid utvid spørringsmeldinger"
 #: libraries/classes/Config/Descriptions.php:1470
 #: templates/console/display.twig:157
 msgid "Show current browsing query"
-msgstr ""
+msgstr "Vis gjeldende nettleser kø"
 
 #: libraries/classes/Config/Descriptions.php:1472
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
-msgstr ""
+msgstr "Utfør spørsmål på Enter og sett inn en ny linje med Shift + Enter"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -6680,10 +6651,9 @@ msgid "Default transformations"
 msgstr "Nettvisertransformasjon"
 
 #: libraries/classes/Config/PageSettings.php:141
-#, fuzzy
-#| msgid "Submitted form contains errors"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "Innsendt skjema inneholder feil"
+msgstr ""
+"Kan ikke lagre innstillinger, innsendt konfigurasjonsskjema inneholder feil!"
 
 #: libraries/classes/Config/ServerConfigChecks.php:71
 #, fuzzy, php-format
@@ -6743,13 +6713,7 @@ msgstr ""
 "Internettilbyder som har tusenvis av brukere, inkludert deg, tilknyttet."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
-#, fuzzy, php-format
-#| msgid ""
-#| "t the [kbd]config[/kbd] authentication type and included username  sword "
-#| "for auto-login, which is not a desirable option for live ts. Anyoneo "
-#| "knows or guesses your phpMyAdmin URL can directly ess your phpMyAdmin el. "
-#| "Set [a@?page=servers&amp;mode=edit&amp;id=d#tab_Server]authenticationpe[/"
-#| "a] to [kbd]cookie[/kbd] or [kbd]httpbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6757,12 +6721,11 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Du valgte [kbd]config[/kbd] autentisering og inkluderte brukernavn og "
-"passord for autmatisk innlogging, noe som ikke anbefales for aktive tjenere. "
-"Hvem som helst som kjenner phpMyAdmin URL kan direkte få adgang til ditt "
-"phpMyAdmin panel. Velg [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]autentiseringstype[/a] [kbd]cookie[/kbd] eller [kbd]http[/"
-"kbd]."
+"Du angir [kbd] config [/kbd] autentiseringstype og inkluderte brukernavn og "
+"passord for automatisk pålogging, noe som ikke er et ønskelig alternativ for "
+"live verter. Alle som kjenner eller gjetter phpMyAdmin URL-en din, kan få "
+"direkte tilgang til phpMyAdmin-panelet. Sett %1$ godkjenningstype %2$s til "
+"[kbd] cookie [/kbd] eller [kbd] http [/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
 msgid "You allow for connecting to the server without a password."
@@ -6793,19 +6756,14 @@ msgstr ""
 "trenger funksjoner (%s) som ikke er tilgjengelig på dette systemet."
 
 #: libraries/classes/Config/ServerConfigChecks.php:360
-#, fuzzy
-#| msgid ""
-#| "You didn't have blowfish secret set and have enabled cookie "
-#| "authentication, so a key was automatically generated for you. It is used "
-#| "to encrypt cookies; you don't need to remember it."
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Du hadde ikke satt blowfist hemmelig nøkkel eller slått på cookie "
-"autentisering så nøkkelen ble generert for deg. Den brukes til å krypterer "
-"cookies."
+"Du hadde ikke noe hemmelig sett for blowfish og har aktivert autentisering "
+"av [kbd] cookie [/kbd], så en nøkkel ble automatisk generert for deg. Den "
+"brukes til å kryptere informasjonskapsler; du trenger ikke å huske det."
 
 #: libraries/classes/Config/ServerConfigChecks.php:372
 #, fuzzy
@@ -6824,6 +6782,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
+"%1$s gyldighet for påloggingskake %2$s større enn %3$s økt.gc_maxlifetime %4$"
+"s kan forårsake tilfeldig ugyldighetsøkt (for tiden session.gc_maxlifetime "
+"er %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:442
 #, fuzzy, php-format
@@ -6875,57 +6836,45 @@ msgstr ""
 
 #: libraries/classes/Config/Validator.php:214
 #: libraries/classes/Config/Validator.php:221
-#, fuzzy
-#| msgid "Could not connect to the target"
 msgid "Could not connect to the database server!"
-msgstr "Kunne ikke koble til målet"
+msgstr "Kunne ikke koble til databaseserveren!"
 
 #: libraries/classes/Config/Validator.php:253
-#, fuzzy
-#| msgid "Authentication type"
 msgid "Invalid authentication type!"
-msgstr "Autentiseringstype"
+msgstr "Ugyldig godkjenningstype!"
 
 #: libraries/classes/Config/Validator.php:260
-#, fuzzy
-#| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Blankt brukernavn for bruk av config autentiseringsmetoden"
+msgstr ""
+"Tøm brukernavnet mens du bruker [kbd] config [/kbd] autentiseringsmetode!"
 
 #: libraries/classes/Config/Validator.php:268
-#, fuzzy
-#| msgid "Empty signon session name while using signon authentication method"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Tom signon sessjonsnavn ved bruk av signon autentiseringsmetode"
+msgstr ""
+"Tomt påloggingsøktsnavn mens du bruker [kbd] påloggings [/kbd] "
+"autentiseringsmetode!"
 
 #: libraries/classes/Config/Validator.php:277
-#, fuzzy
-#| msgid "Empty signon URL while using signon authentication method"
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr "Tom signon URL ved bruk av signon autentiseringsmetode"
+msgstr ""
+"Tom påloggings-URL mens du bruker [kbd]signon[/kbd] autentiseringsmetode!"
 
 #: libraries/classes/Config/Validator.php:330
-#, fuzzy
-#| msgid ""
-#| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
-"Blankt phpMyAdmin kontrollbruker for bruk av phpMyAdmin configuration storage"
+"Tøm phpMyAdmin-kontrollbruker mens du bruker phpMyAdmin-"
+"konfigurasjonslagring!"
 
 #: libraries/classes/Config/Validator.php:337
-#, fuzzy
-#| msgid ""
-#| "Empty phpMyAdmin control user password while using phpMyAdmin "
-#| "configuration storage"
 msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
-"Blankt phpMyAdmin kontrollbrukerpassord for bruk av phpMyAdmin configuration "
-"storage"
+"Tøm phpMyAdmin kontroll brukerpassord mens du bruker phpMyAdmin "
+"konfigurasjonslagring!"
 
 #: libraries/classes/Config/Validator.php:435
 msgid "Incorrect value:"
@@ -7046,11 +6995,10 @@ msgid "Database %1$s has been created."
 msgstr "Databasen %1$s er opprettet."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:208
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s databasene har blitt slettet."
+msgstr[0] "%s database har blitt slettet."
 msgstr[1] "%s databasene har blitt slettet."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
@@ -7182,10 +7130,9 @@ msgid "The columns have been moved successfully."
 msgstr "De valgte brukerne har blitt slettet."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:535
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Klarte ikke hente ekte antall rader."
+msgstr "Kunne ikke hente beskrivelsen av kolonne %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:771
 #: libraries/classes/Controllers/Table/TableStructureController.php:1067
@@ -7330,20 +7277,16 @@ msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY relasjon lagt til"
 
 #: libraries/classes/Database/Designer/Common.php:617
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Feil: Relasjon ikke opprettet."
+msgstr "Feil: FREMMED NØKKEL-forhold kunne ikke legges til!"
 
 #: libraries/classes/Database/Designer/Common.php:622
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
 #: libraries/classes/Database/Designer/Common.php:627
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Relational features are disabled!"
-msgstr "Feil: Relasjon ikke opprettet."
+msgstr "Feil: Relasjonsfunksjoner er deaktivert!"
 
 #: libraries/classes/Database/Designer/Common.php:649
 #, fuzzy
@@ -7352,10 +7295,8 @@ msgid "Internal relationship has been added."
 msgstr "Intern relasjon lagt til"
 
 #: libraries/classes/Database/Designer/Common.php:655
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
-msgstr "Feil: Relasjon ikke opprettet."
+msgstr "Feil: Internt forhold kunne ikke legges til!"
 
 #: libraries/classes/Database/Designer/Common.php:693
 #, fuzzy
@@ -7364,16 +7305,12 @@ msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY relasjon lagt til"
 
 #: libraries/classes/Database/Designer/Common.php:699
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Feil: Relasjon ikke opprettet."
+msgstr "Feil: FREMMED NØKKEL-forholdet kunne ikke fjernes!"
 
 #: libraries/classes/Database/Designer/Common.php:726
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Feil: Relasjon ikke opprettet."
+msgstr "Feil: Internt forhold kunne ikke fjernes!"
 
 #: libraries/classes/Database/Designer/Common.php:730
 #, fuzzy
@@ -7546,10 +7483,8 @@ msgid "Details…"
 msgstr "Detaljer…"
 
 #: libraries/classes/DatabaseInterface.php:2507
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Mangler parametere:"
+msgstr "Manglende tilkoblingsparametere!"
 
 #: libraries/classes/DatabaseInterface.php:2532
 msgid "Connection for controluser as defined in your configuration failed."
@@ -8248,7 +8183,6 @@ msgid "Unknown error in file upload."
 msgstr "Ukjent feil oppstod under filopplastingen."
 
 #: libraries/classes/File.php:461
-#, fuzzy
 msgid "File is a symbolic link"
 msgstr "Filen er en symbolsk lenke"
 
@@ -8752,14 +8686,14 @@ msgstr[1] "%1$d rader berørt."
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d rader slettet."
+msgstr[0] "%1$d rad slettet."
 msgstr[1] "%1$d rader slettet."
 
 #: libraries/classes/Message.php:285
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d rader innsatt."
+msgstr[0] "%1$d rad innsatt."
 msgstr[1] "%1$d rader innsatt."
 
 #: libraries/classes/MultSubmits.php:399 libraries/classes/Operations.php:197
@@ -8815,20 +8749,16 @@ msgid "Add prefix"
 msgstr "Utfør indeks(er)"
 
 #: libraries/classes/MultSubmits.php:500
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "Vil du virkelig "
+msgstr "Vil du virkelig utføre følgende spørsmål?"
 
 #: libraries/classes/Navigation/Navigation.php:69
 msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: libraries/classes/Navigation/Navigation.php:207
-#, fuzzy
-#| msgid "Column names: "
 msgid "Groups:"
-msgstr "Kolonnenavn: "
+msgstr "Grupper:"
 
 #: libraries/classes/Navigation/Navigation.php:208
 #, fuzzy
@@ -8932,10 +8862,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "Kunne ikke legge til kolonner!"
+msgstr "Kunne ikke laste inn klassen \"%1$s\""
 
 #: libraries/classes/Navigation/Nodes/Node.php:802
 msgid "Expand/Collapse"
@@ -9065,10 +8994,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Normalization.php:206 normalization.php:19
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select one…"
-msgstr "Velg to kolonner"
+msgstr "Velg en…"
 
 #: libraries/classes/Normalization.php:207 normalization.php:20
 #, fuzzy
@@ -9246,10 +9173,8 @@ msgstr ""
 #: libraries/classes/Normalization.php:545
 #: libraries/classes/Normalization.php:695
 #: libraries/classes/Normalization.php:767
-#, fuzzy
-#| msgid "Error in Processing Request"
 msgid "Error in processing!"
-msgstr "Feil i prosesseringsforespørsel"
+msgstr "Feil i gjennomføring!"
 
 #: libraries/classes/Normalization.php:591
 #, php-format
@@ -10261,8 +10186,6 @@ msgid "Purpose:"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:541
-#, fuzzy
-#| msgid "MIME type"
 msgid "MIME"
 msgstr "MIME-type"
 
@@ -10325,22 +10248,17 @@ msgid "MediaWiki Table"
 msgstr "MediaWiki Tabell"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:276
-#, fuzzy, php-format
-#| msgid "Invalid format of CSV input on line %d."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Ugyldig format i CSV importen i linje %d."
+msgstr "Ugyldig format i mediawiki innlegg i linje <br />%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:78
-#, fuzzy
-#| msgid "Import percentages as proper decimals (12.00% to .12)"
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Importer prosenter som ekte desimaler (12.00% til .12)"
+msgstr "Importer prosenter som riktige desimaler <i>(ex. 12.00% to .12)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:84
-#, fuzzy
-#| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Importer valuta ($5.00 til 5.00)"
+msgstr "Importer valuta <i>(ex. $5.00 to 5.00)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:152
 #: libraries/classes/Plugins/Import/ImportXml.php:112
@@ -10384,10 +10302,8 @@ msgid "SQL compatibility mode:"
 msgstr "SQL kompatibilitetsmodus"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:80
-#, fuzzy
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr "Ikke bruk AUTO_INCREMENT for nullverdier"
+msgstr "Ikke bruk <code>AUTO_INCREMENT</code> for nullverdier"
 
 #: libraries/classes/Plugins/Import/ImportXml.php:45
 msgid "XML"
@@ -10847,10 +10763,8 @@ msgid "Enabled"
 msgstr "Påslått"
 
 #: libraries/classes/Relation.php:116
-#, fuzzy
-#| msgid "Configuration storage"
 msgid "Configuration of pmadb…"
-msgstr "Konfigurasjonslager"
+msgstr "Konfigurasjon av pmadb…"
 
 #: libraries/classes/Relation.php:120 libraries/classes/Relation.php:156
 msgid "General relation features"
@@ -11463,10 +11377,8 @@ msgstr "Rediger tjener"
 
 #: libraries/classes/Rte/Events.php:404 libraries/classes/Rte/Routines.php:906
 #: libraries/classes/Rte/Triggers.php:339 templates/view_create.twig:8
-#, fuzzy
-#| msgid "Details…"
 msgid "Details"
-msgstr "Detaljer…"
+msgstr "Detaljer"
 
 #: libraries/classes/Rte/Events.php:407
 #, fuzzy
@@ -13210,7 +13122,7 @@ msgstr ""
 "Antall forespørsler for å lese en rad basert på en fast posisjon. Denne er "
 "høy om du utfører mange spørringer som behøver sorteringer av resultatet. Du "
 "har mest sansynlig mange spørringer som krever at MySQL leser hele tabeller "
-"eller du har joins som som ikke bruker nøkler korrekt."
+"eller du har joins som ikke bruker nøkler korrekt."
 
 #: libraries/classes/Server/Status/Variables.php:428
 msgid ""
@@ -13810,10 +13722,8 @@ msgid "User group menu assignments"
 msgstr "Ingen privilegier."
 
 #: libraries/classes/Server/UserGroups.php:252
-#, fuzzy
-#| msgid "Column names: "
 msgid "Group name:"
-msgstr "Kolonnenavn: "
+msgstr "Gruppe navn:"
 
 #: libraries/classes/Server/UserGroups.php:289
 #, fuzzy
@@ -14775,7 +14685,7 @@ msgstr "Klikk"
 
 #: libraries/config.values.php:94
 msgid "Double click"
-msgstr ""
+msgstr "Dobbel klikk"
 
 #: libraries/config.values.php:98
 msgid "key"
@@ -15113,20 +15023,14 @@ msgid "Configuration not saved!"
 msgstr "Konfigurasjonslager"
 
 #: setup/frames/index.inc.php:100
-#, fuzzy
-#| msgid ""
-#| " create web server writable folder [em]config[/em] in phpMyAdmin  level "
-#| "ectory as described in ../Documentation.html#setup_script]umentation[/a]. "
-#| "Otherwise you will be y able to download or display "
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"Opprett en mappe [em]config[/em] som er skrivbar for webtjener i phpMyAdmin "
-"øverste mappe som beskrevet i [a@../Documentation."
-"html#setup_script]documentation[/a]. Hvis ikke så vil du kun være i stand "
-"til å laste ned eller fremvise den."
+"Opprett den skrivbare mappen til webserveren [em] config [/em] i phpMyAdmin "
+"toppnivå katalog som beskrevet i [doc@setup_script] dokumentasjon [/doc]. "
+"Ellers vil du bare kunne laste ned eller vise den."
 
 #: setup/frames/index.inc.php:112 setup/frames/menu.inc.php:20
 msgid "Overview"
@@ -15721,10 +15625,9 @@ msgstr "Legg til valg for kolonne \"%s\"."
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Lagre på server i <b>%s</b> katalogen"
+msgstr "Lagre på server i <strong>%s</strong> katalogen"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
@@ -16507,10 +16410,8 @@ msgid "The file is being processed, please be patient."
 msgstr "Filen er under behandling, vennligst vent."
 
 #: templates/display/import/javascript.twig:36
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Uploading your import file…"
-msgstr "Importfilformat"
+msgstr "Laster opp importfilen …"
 
 #: templates/display/import/javascript.twig:161
 msgid ""
@@ -16640,16 +16541,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "FIlen kan bli pakket (%s) eller utpakket."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"En komprimert fils navn må ende med <b>.[format].[kompresjonstype]</b>. "
-"Eksempel: <b>.sql.zip</b>"
+"En komprimert fils navn må ende med <strong>.[format].[compression]</"
+"strong>. Eksempel: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -16675,19 +16572,14 @@ msgstr ""
 "gjenninnsending."
 
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "the interruption of an import in case the script detects it is se to the  "
-#| "timeout limit. This might be good way to import large es, however it "
-#| "caneak transactions."
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"Tillat avbrudd av importering i tilfelle skriptet oppdager at det er rett "
-"før det når tidsavbrudd. Dette kan være en god måte å importere store filer "
-"på, men det kan knekke transaksjoner."
+"Tillat avbrudd i en import i tilfelle skriptet oppdager at det er nær PHP-"
+"tidsavbruddsgrensen. <em> (Dette kan være en god måte å importere store "
+"filer på, men det kan ødelegge transaksjoner.) </em>"
 
 #: templates/display/import/import.twig:144
 #, fuzzy
@@ -16816,13 +16708,10 @@ msgstr[0] "%1$s treff i <strong>%2$s</strong>"
 msgstr[1] "%1$s treff i <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Totalt:</b> <i>%s</i> treff"
-msgstr[1] "<b>Totalt:</b> <i>%s</i> treff"
+msgstr[0] "<strong>Totalt:</strong> <em>%count%</em> treff"
+msgstr[1] "<strong>Totalt:</strong> <em>%count%</em> treff"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
@@ -17599,10 +17488,8 @@ msgid "Choose column to display:"
 msgstr "Velg kolonne for visning"
 
 #: url.php:41
-#, fuzzy
-#| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
-msgstr "Tar deg videre til neste trinn…"
+msgstr "Tar deg til målsiden."
 
 #: user_password.php:37
 msgid "You don't have sufficient privileges to be here right now!"
