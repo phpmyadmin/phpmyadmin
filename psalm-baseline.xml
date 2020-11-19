@@ -2495,9 +2495,6 @@
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
-    <InvalidScalarArgument occurrences="1">
-      <code>$value</code>
-    </InvalidScalarArgument>
     <NullableReturnStatement occurrences="1">
       <code>$wktval</code>
     </NullableReturnStatement>
@@ -2521,11 +2518,6 @@
       <code>$table['Name']</code>
       <code>$table['disp_name']</code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidOperand occurrences="3">
-      <code>$value</code>
-      <code>$value</code>
-      <code>$value</code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="2">
       <code>$max_size</code>
       <code>$max_unit</code>

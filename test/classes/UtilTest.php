@@ -971,15 +971,15 @@ class UtilTest extends AbstractTestCase
     /**
      * format byte test, globals are defined
      *
-     * @param float $a Value to format
-     * @param int   $b Sensitiveness
-     * @param int   $c Number of decimals to retain
-     * @param array $e Expected value
+     * @param float|int|string $a Value to format
+     * @param int              $b Sensitiveness
+     * @param int              $c Number of decimals to retain
+     * @param array            $e Expected value
      *
      * @covers \PhpMyAdmin\Util::formatByteDown
      * @dataProvider providerFormatByteDown
      */
-    public function testFormatByteDown(float $a, int $b, int $c, array $e): void
+    public function testFormatByteDown($a, int $b, int $c, array $e): void
     {
         $result = Util::formatByteDown($a, $b, $c);
         $this->assertIsArray($result);
@@ -995,6 +995,24 @@ class UtilTest extends AbstractTestCase
     public function providerFormatByteDown(): array
     {
         return [
+            [
+                '0',
+                6,
+                0,
+                [
+                    '0',
+                    __('B'),
+                ],
+            ],
+            [
+                'A4',
+                6,
+                0,
+                [
+                    '0',
+                    __('B'),
+                ],
+            ],
             [
                 10,
                 2,
@@ -1050,6 +1068,15 @@ class UtilTest extends AbstractTestCase
                 ],
             ],
             [
+                '100233',
+                3,
+                3,
+                [
+                    '97.884',
+                    __('KiB'),
+                ],
+            ],
+            [
                 2206451,
                 1,
                 2,
@@ -1076,18 +1103,27 @@ class UtilTest extends AbstractTestCase
                     'KiB',
                 ],
             ],
+            [
+                '' . (floatval(52) + floatval(2048)),
+                3,
+                1,
+                [
+                    '2.1',
+                    'KiB',
+                ],
+            ],
         ];
     }
 
     /**
      * Core test for formatNumber
      *
-     * @param float  $a Value to format
-     * @param int    $b Sensitiveness
-     * @param int    $c Number of decimals to retain
-     * @param string $d Expected value
+     * @param float|int|string $a Value to format
+     * @param int              $b Sensitiveness
+     * @param int              $c Number of decimals to retain
+     * @param string           $d Expected value
      */
-    private function assertFormatNumber(float $a, int $b, int $c, string $d): void
+    private function assertFormatNumber($a, int $b, int $c, string $d): void
     {
         $this->assertEquals(
             $d,
@@ -1103,15 +1139,15 @@ class UtilTest extends AbstractTestCase
     /**
      * format number test, globals are defined
      *
-     * @param float  $a Value to format
-     * @param int    $b Sensitiveness
-     * @param int    $c Number of decimals to retain
-     * @param string $d Expected value
+     * @param float|int|string $a Value to format
+     * @param int              $b Sensitiveness
+     * @param int              $c Number of decimals to retain
+     * @param string           $d Expected value
      *
      * @covers \PhpMyAdmin\Util::formatNumber
      * @dataProvider providerFormatNumber
      */
-    public function testFormatNumber(float $a, int $b, int $c, string $d): void
+    public function testFormatNumber($a, int $b, int $c, string $d): void
     {
         $this->assertFormatNumber($a, $b, $c, $d);
 
@@ -1181,7 +1217,19 @@ class UtilTest extends AbstractTestCase
                 '100  ',
             ],
             [
+                '100',
+                2,
+                2,
+                '100  ',
+            ],
+            [
                 -1000.454,
+                4,
+                2,
+                '-1,000.45  ',
+            ],
+            [
+                '-1000.454',
                 4,
                 2,
                 '-1,000.45  ',
@@ -1218,6 +1266,12 @@ class UtilTest extends AbstractTestCase
             ],
             [
                 1100000000,
+                5,
+                0,
+                '1,100 M',
+            ],
+            [
+                '1100000000',
                 5,
                 0,
                 '1,100 M',

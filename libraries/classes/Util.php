@@ -500,6 +500,10 @@ class Util
             return null;
         }
 
+        if (is_string($value)) {
+            $value = (float) $value;
+        }
+
         $byteUnits = [
             /* l10n: shortcuts for Byte */
             __('B'),
@@ -581,6 +585,10 @@ class Util
     ) {
         if ($value == 0) {
             return '0';
+        }
+
+        if (is_string($value)) {
+            $value = (float) $value;
         }
 
         $originalValue = $value;
