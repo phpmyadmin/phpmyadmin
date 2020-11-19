@@ -1,13 +1,13 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
+"Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-10-10 13:41-0300\n"
+"POT-Creation-Date: 2020-12-12 17:45+0100\n"
 "PO-Revision-Date: 2020-11-27 08:34+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
-"5-0/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
+"phpmyadmin/5-0/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,10 +63,10 @@ msgstr "Tabelas"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
-#: libraries/classes/Server/Privileges.php:1238 libraries/classes/Util.php:3149
-#: libraries/classes/Util.php:3159 libraries/classes/Util.php:3165
-#: libraries/classes/Util.php:3449 libraries/classes/Util.php:4211
-#: libraries/classes/Util.php:4228 libraries/config.values.php:62
+#: libraries/classes/Server/Privileges.php:1238 libraries/classes/Util.php:3164
+#: libraries/classes/Util.php:3174 libraries/classes/Util.php:3180
+#: libraries/classes/Util.php:3464 libraries/classes/Util.php:4226
+#: libraries/classes/Util.php:4243 libraries/config.values.php:62
 #: libraries/config.values.php:76 libraries/config.values.php:167
 #: libraries/config.values.php:177
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -591,14 +591,14 @@ msgid "Other"
 msgstr "Outros"
 
 #. l10n: Thousands separator
-#: js/messages.php:165 libraries/classes/Util.php:1409
-#: libraries/classes/Util.php:1440
+#: js/messages.php:165 libraries/classes/Util.php:1417
+#: libraries/classes/Util.php:1448
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:167 libraries/classes/Util.php:1407
-#: libraries/classes/Util.php:1438
+#: js/messages.php:167 libraries/classes/Util.php:1415
+#: libraries/classes/Util.php:1446
 msgid "."
 msgstr "."
 
@@ -704,39 +704,39 @@ msgid "Processes"
 msgstr "Processos"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:207 libraries/classes/Util.php:1317
+#: js/messages.php:207 libraries/classes/Util.php:1321
 msgid "B"
 msgstr "Bytes"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:208 libraries/classes/Util.php:1319
+#: js/messages.php:208 libraries/classes/Util.php:1323
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:209 libraries/classes/Util.php:1321
+#: js/messages.php:209 libraries/classes/Util.php:1325
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:210 libraries/classes/Util.php:1323
+#: js/messages.php:210 libraries/classes/Util.php:1327
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:211 libraries/classes/Util.php:1325
+#: js/messages.php:211 libraries/classes/Util.php:1329
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:212 libraries/classes/Util.php:1327
+#: js/messages.php:212 libraries/classes/Util.php:1331
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:213 libraries/classes/Util.php:1329
+#: js/messages.php:213 libraries/classes/Util.php:1333
 msgid "EiB"
 msgstr "EB"
 
@@ -755,7 +755,7 @@ msgid "Traffic"
 msgstr "Tráfego"
 
 #: js/messages.php:219 libraries/classes/Menu.php:627
-#: libraries/classes/Util.php:4202
+#: libraries/classes/Util.php:4217
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Configurações"
@@ -981,7 +981,7 @@ msgstr "Explicar SQL"
 #: js/messages.php:296
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:134
 #: libraries/classes/Menu.php:590 libraries/classes/Rte/Events.php:465
-#: libraries/classes/Rte/RteList.php:145 libraries/classes/Util.php:4198
+#: libraries/classes/Rte/RteList.php:145 libraries/classes/Util.php:4213
 #: libraries/config.values.php:159 templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
 msgid "Status"
@@ -1096,8 +1096,8 @@ msgstr ""
 
 #: js/messages.php:334 libraries/classes/Config/Forms/User/ImportForm.php:71
 #: libraries/classes/Menu.php:390 libraries/classes/Menu.php:499
-#: libraries/classes/Menu.php:623 libraries/classes/Util.php:4201
-#: libraries/classes/Util.php:4216 libraries/classes/Util.php:4233
+#: libraries/classes/Menu.php:623 libraries/classes/Util.php:4216
+#: libraries/classes/Util.php:4231 libraries/classes/Util.php:4248
 #: templates/display/import/import.twig:38
 #: templates/preferences/manage/main.twig:8
 #: templates/server/status/monitor/index.twig:78
@@ -1391,9 +1391,9 @@ msgstr "A definição de uma função armazenada deve conter uma instrução RET
 #: libraries/classes/Server/Privileges.php:2547
 #: libraries/classes/Server/Privileges.php:2634
 #: libraries/classes/Server/Privileges.php:3002
-#: libraries/classes/Server/Privileges.php:3741 libraries/classes/Util.php:3456
-#: libraries/classes/Util.php:3457 libraries/classes/Util.php:4200
-#: libraries/classes/Util.php:4215 libraries/classes/Util.php:4232
+#: libraries/classes/Server/Privileges.php:3741 libraries/classes/Util.php:3471
+#: libraries/classes/Util.php:3472 libraries/classes/Util.php:4215
+#: libraries/classes/Util.php:4230 libraries/classes/Util.php:4247
 #: templates/database/structure/check_all_tables.twig:12
 #: templates/display/export/option_header.twig:3
 #: templates/preferences/manage/main.twig:59
@@ -1447,8 +1447,8 @@ msgstr "Mostrar Caixa do query"
 #: libraries/classes/Display/Results.php:3262
 #: libraries/classes/Display/Results.php:4705 libraries/classes/Index.php:742
 #: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:648
-#: libraries/classes/Util.php:1136 libraries/classes/Util.php:3454
-#: libraries/classes/Util.php:3455 templates/console/bookmark_content.twig:7
+#: libraries/classes/Util.php:1136 libraries/classes/Util.php:3469
+#: libraries/classes/Util.php:3470 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:281
 #: templates/database/central_columns/main.twig:402
@@ -2411,63 +2411,63 @@ msgid "December"
 msgstr "Dezembro"
 
 #. l10n: Short month name
-#: js/messages.php:824 libraries/classes/Util.php:1548
+#: js/messages.php:824 libraries/classes/Util.php:1556
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:826 libraries/classes/Util.php:1550
+#: js/messages.php:826 libraries/classes/Util.php:1558
 msgid "Feb"
 msgstr "Fev"
 
 #. l10n: Short month name
-#: js/messages.php:828 libraries/classes/Util.php:1552
+#: js/messages.php:828 libraries/classes/Util.php:1560
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:830 libraries/classes/Util.php:1554
+#: js/messages.php:830 libraries/classes/Util.php:1562
 msgid "Apr"
 msgstr "Abr"
 
 #. l10n: Short month name
-#: js/messages.php:832 libraries/classes/Util.php:1556
+#: js/messages.php:832 libraries/classes/Util.php:1564
 msgctxt "Short month name"
 msgid "May"
 msgstr "Maio"
 
 #. l10n: Short month name
-#: js/messages.php:834 libraries/classes/Util.php:1558
+#: js/messages.php:834 libraries/classes/Util.php:1566
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:836 libraries/classes/Util.php:1560
+#: js/messages.php:836 libraries/classes/Util.php:1568
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:838 libraries/classes/Util.php:1562
+#: js/messages.php:838 libraries/classes/Util.php:1570
 msgid "Aug"
 msgstr "Ago"
 
 #. l10n: Short month name
-#: js/messages.php:840 libraries/classes/Util.php:1564
+#: js/messages.php:840 libraries/classes/Util.php:1572
 msgid "Sep"
 msgstr "Set"
 
 #. l10n: Short month name
-#: js/messages.php:842 libraries/classes/Util.php:1566
+#: js/messages.php:842 libraries/classes/Util.php:1574
 msgid "Oct"
 msgstr "Out"
 
 #. l10n: Short month name
-#: js/messages.php:844 libraries/classes/Util.php:1568
+#: js/messages.php:844 libraries/classes/Util.php:1576
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:846 libraries/classes/Util.php:1570
+#: js/messages.php:846 libraries/classes/Util.php:1578
 msgid "Dec"
 msgstr "Dez"
 
@@ -2505,32 +2505,32 @@ msgid "Sun"
 msgstr "Domingo"
 
 #. l10n: Short week day name for Monday
-#: js/messages.php:867 libraries/classes/Util.php:1576
+#: js/messages.php:867 libraries/classes/Util.php:1584
 msgid "Mon"
 msgstr "Seg"
 
 #. l10n: Short week day name for Tuesday
-#: js/messages.php:869 libraries/classes/Util.php:1578
+#: js/messages.php:869 libraries/classes/Util.php:1586
 msgid "Tue"
 msgstr "Ter"
 
 #. l10n: Short week day name for Wednesday
-#: js/messages.php:871 libraries/classes/Util.php:1580
+#: js/messages.php:871 libraries/classes/Util.php:1588
 msgid "Wed"
 msgstr "Qua"
 
 #. l10n: Short week day name for Thursday
-#: js/messages.php:873 libraries/classes/Util.php:1582
+#: js/messages.php:873 libraries/classes/Util.php:1590
 msgid "Thu"
 msgstr "Qui"
 
 #. l10n: Short week day name for Friday
-#: js/messages.php:875 libraries/classes/Util.php:1584
+#: js/messages.php:875 libraries/classes/Util.php:1592
 msgid "Fri"
 msgstr "Sex"
 
 #. l10n: Short week day name for Saturday
-#: js/messages.php:877 libraries/classes/Util.php:1586
+#: js/messages.php:877 libraries/classes/Util.php:1594
 msgid "Sat"
 msgstr "Sab"
 
@@ -2777,7 +2777,7 @@ msgstr "Descrição"
 #: libraries/classes/Language.php:199 libraries/classes/Pdf.php:90
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:505
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:542
-#: libraries/classes/Util.php:2402
+#: libraries/classes/Util.php:2410
 msgid "Page number:"
 msgstr "Número da página:"
 
@@ -3975,7 +3975,7 @@ msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:306
 #: libraries/classes/Config/Descriptions.php:372 libraries/classes/Menu.php:582
-#: libraries/classes/Server/Privileges.php:4779 libraries/classes/Util.php:4196
+#: libraries/classes/Server/Privileges.php:4779 libraries/classes/Util.php:4211
 #: libraries/config.values.php:157
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:6
@@ -4115,9 +4115,9 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:354 libraries/classes/Menu.php:359
 #: libraries/classes/Menu.php:466 libraries/classes/Menu.php:586
 #: libraries/classes/Navigation/Nodes/NodeTable.php:309
-#: libraries/classes/Util.php:3150 libraries/classes/Util.php:3160
-#: libraries/classes/Util.php:3166 libraries/classes/Util.php:4197
-#: libraries/classes/Util.php:4212 libraries/classes/Util.php:4229
+#: libraries/classes/Util.php:3165 libraries/classes/Util.php:3175
+#: libraries/classes/Util.php:3181 libraries/classes/Util.php:4212
+#: libraries/classes/Util.php:4227 libraries/classes/Util.php:4244
 #: libraries/config.values.php:64 libraries/config.values.php:78
 #: libraries/config.values.php:169 libraries/config.values.php:179
 msgid "SQL"
@@ -7453,8 +7453,8 @@ msgstr "Muda"
 #: libraries/classes/Controllers/Table/StructureController.php:1268
 #: libraries/classes/Controllers/Table/StructureController.php:1269
 #: libraries/classes/Index.php:768 libraries/classes/Operations.php:1692
-#: libraries/classes/Rte/RteList.php:200 libraries/classes/Util.php:3450
-#: libraries/classes/Util.php:3451
+#: libraries/classes/Rte/RteList.php:200 libraries/classes/Util.php:3465
+#: libraries/classes/Util.php:3466
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/rte/routines/parameter_row.twig:51
 #: templates/server/databases/index.twig:300
@@ -7887,28 +7887,28 @@ msgstr "Submetido em %1$s por %2$s"
 msgid "authored on %1$s by %2$s"
 msgstr "Autoria em %1$s por %2$s"
 
-#: libraries/classes/Display/Results.php:948 libraries/classes/Util.php:2414
-#: libraries/classes/Util.php:2417
+#: libraries/classes/Display/Results.php:948 libraries/classes/Util.php:2422
+#: libraries/classes/Util.php:2425
 msgctxt "First page"
 msgid "Begin"
 msgstr "Início"
 
-#: libraries/classes/Display/Results.php:955 libraries/classes/Util.php:2415
-#: libraries/classes/Util.php:2418 templates/server/binlog/index.twig:47
+#: libraries/classes/Display/Results.php:955 libraries/classes/Util.php:2423
+#: libraries/classes/Util.php:2426 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Anterior"
 
-#: libraries/classes/Display/Results.php:983 libraries/classes/Util.php:2447
-#: libraries/classes/Util.php:2454 templates/server/binlog/index.twig:72
+#: libraries/classes/Display/Results.php:983 libraries/classes/Util.php:2455
+#: libraries/classes/Util.php:2462 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "Seguinte"
 
-#: libraries/classes/Display/Results.php:1013 libraries/classes/Util.php:2448
-#: libraries/classes/Util.php:2455
+#: libraries/classes/Display/Results.php:1013 libraries/classes/Util.php:2456
+#: libraries/classes/Util.php:2463
 msgctxt "Last page"
 msgid "End"
 msgstr "Fim"
@@ -7925,8 +7925,8 @@ msgstr "Textos completos"
 
 #: libraries/classes/Display/Results.php:2002
 #: libraries/classes/Display/Results.php:2028
-#: libraries/classes/Operations.php:856 libraries/classes/Util.php:4908
-#: libraries/classes/Util.php:4931 libraries/config.values.php:115
+#: libraries/classes/Operations.php:856 libraries/classes/Util.php:4923
+#: libraries/classes/Util.php:4946 libraries/config.values.php:115
 #: templates/database/multi_table_query/form.twig:67
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:108
@@ -7939,8 +7939,8 @@ msgstr "Descendente"
 
 #: libraries/classes/Display/Results.php:2010
 #: libraries/classes/Display/Results.php:2020
-#: libraries/classes/Operations.php:853 libraries/classes/Util.php:4900
-#: libraries/classes/Util.php:4923 libraries/config.values.php:114
+#: libraries/classes/Operations.php:853 libraries/classes/Util.php:4915
+#: libraries/classes/Util.php:4938 libraries/config.values.php:114
 #: templates/database/multi_table_query/form.twig:66
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:106
@@ -8694,7 +8694,7 @@ msgstr "Por causa de seu comprimento,<br> esta coluna pode não ser editável."
 msgid "Binary - do not edit"
 msgstr "Binário - não editar"
 
-#: libraries/classes/InsertEdit.php:1538 libraries/classes/Util.php:3417
+#: libraries/classes/InsertEdit.php:1538 libraries/classes/Util.php:3432
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Não é possivel alcançar a directoria que configurou para fazer upload."
 
@@ -8775,12 +8775,12 @@ msgstr "Exibindo consulta SQL"
 msgid "Inserted row id: %1$d"
 msgstr "Id da linha inserida: %1$d"
 
-#: libraries/classes/LanguageManager.php:953
+#: libraries/classes/LanguageManager.php:960
 msgid "Ignoring unsupported language code."
 msgstr "Ignorando código de linguagem não suportada."
 
-#: libraries/classes/LanguageManager.php:981
-#: libraries/classes/LanguageManager.php:982 templates/setup/home/index.twig:8
+#: libraries/classes/LanguageManager.php:988
+#: libraries/classes/LanguageManager.php:989 templates/setup/home/index.twig:8
 #: templates/setup/home/index.twig:9
 msgid "Language"
 msgstr "Língua"
@@ -8811,9 +8811,9 @@ msgstr "\"%s\""
 
 #: libraries/classes/Menu.php:342
 #: libraries/classes/Navigation/Nodes/NodeTable.php:312
-#: libraries/classes/Util.php:3153 libraries/classes/Util.php:3163
-#: libraries/classes/Util.php:3443 libraries/classes/Util.php:3444
-#: libraries/classes/Util.php:4227 libraries/config.values.php:70
+#: libraries/classes/Util.php:3168 libraries/classes/Util.php:3178
+#: libraries/classes/Util.php:3458 libraries/classes/Util.php:3459
+#: libraries/classes/Util.php:4242 libraries/config.values.php:70
 #: libraries/config.values.php:84 libraries/config.values.php:185
 #: templates/database/search/results.twig:34
 #: templates/table/structure/display_structure.twig:275
@@ -8822,10 +8822,10 @@ msgstr "Procurar"
 
 #: libraries/classes/Menu.php:362 libraries/classes/Menu.php:469
 #: libraries/classes/Navigation/Nodes/NodeTable.php:303
-#: libraries/classes/Util.php:3151 libraries/classes/Util.php:3161
-#: libraries/classes/Util.php:3167 libraries/classes/Util.php:3445
-#: libraries/classes/Util.php:3446 libraries/classes/Util.php:4213
-#: libraries/classes/Util.php:4230 libraries/config.values.php:66
+#: libraries/classes/Util.php:3166 libraries/classes/Util.php:3176
+#: libraries/classes/Util.php:3182 libraries/classes/Util.php:3460
+#: libraries/classes/Util.php:3461 libraries/classes/Util.php:4228
+#: libraries/classes/Util.php:4245 libraries/config.values.php:66
 #: libraries/config.values.php:80 libraries/config.values.php:171
 #: libraries/config.values.php:181
 msgid "Search"
@@ -8834,9 +8834,9 @@ msgstr "Pesquisar"
 #: libraries/classes/Menu.php:376
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
 #: libraries/classes/SqlQueryForm.php:306
-#: libraries/classes/SqlQueryForm.php:309 libraries/classes/Util.php:3152
-#: libraries/classes/Util.php:3162 libraries/classes/Util.php:3447
-#: libraries/classes/Util.php:3448 libraries/classes/Util.php:4231
+#: libraries/classes/SqlQueryForm.php:309 libraries/classes/Util.php:3167
+#: libraries/classes/Util.php:3177 libraries/classes/Util.php:3462
+#: libraries/classes/Util.php:3463 libraries/classes/Util.php:4246
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183
 msgid "Insert"
@@ -8844,24 +8844,24 @@ msgstr "Insere"
 
 #: libraries/classes/Menu.php:400 libraries/classes/Menu.php:511
 #: libraries/classes/Server/Privileges.php:2716
-#: libraries/classes/Server/Privileges.php:4659 libraries/classes/Util.php:4218
-#: libraries/classes/Util.php:4234 libraries/config.values.php:163
+#: libraries/classes/Server/Privileges.php:4659 libraries/classes/Util.php:4233
+#: libraries/classes/Util.php:4249 libraries/config.values.php:163
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
 msgid "Privileges"
 msgstr "Privilégios"
 
 #: libraries/classes/Menu.php:409 libraries/classes/Menu.php:417
-#: libraries/classes/Menu.php:503 libraries/classes/Util.php:3154
-#: libraries/classes/Util.php:3168 libraries/classes/Util.php:4217
-#: libraries/classes/Util.php:4235 libraries/config.values.php:173
+#: libraries/classes/Menu.php:503 libraries/classes/Util.php:3169
+#: libraries/classes/Util.php:3183 libraries/classes/Util.php:4232
+#: libraries/classes/Util.php:4250 libraries/config.values.php:173
 #: templates/table/operations/view.twig:7
 msgid "Operations"
 msgstr "Operações"
 
 #: libraries/classes/Menu.php:422 libraries/classes/Menu.php:533
-#: libraries/classes/Relation.php:296 libraries/classes/Util.php:4222
-#: libraries/classes/Util.php:4236
+#: libraries/classes/Relation.php:296 libraries/classes/Util.php:4237
+#: libraries/classes/Util.php:4251
 msgid "Tracking"
 msgstr "Rastreando"
 
@@ -8873,8 +8873,8 @@ msgstr "Rastreando"
 #: libraries/classes/Plugins/Export/ExportSql.php:2088
 #: libraries/classes/Plugins/Export/ExportTexytext.php:541
 #: libraries/classes/Plugins/Export/ExportXml.php:131
-#: libraries/classes/Rte/Words.php:65 libraries/classes/Util.php:4221
-#: libraries/classes/Util.php:4237
+#: libraries/classes/Rte/Words.php:65 libraries/classes/Util.php:4236
+#: libraries/classes/Util.php:4252
 msgid "Triggers"
 msgstr "Acionadores"
 
@@ -8883,12 +8883,12 @@ msgstr "Acionadores"
 msgid "Database seems to be empty!"
 msgstr "A Base de Dados aparenta estar vazia!"
 
-#: libraries/classes/Menu.php:476 libraries/classes/Util.php:4214
+#: libraries/classes/Menu.php:476 libraries/classes/Util.php:4229
 msgid "Query"
 msgstr "Pesquisa por formulário"
 
 #: libraries/classes/Menu.php:516 libraries/classes/Rte/Words.php:51
-#: libraries/classes/Util.php:4219
+#: libraries/classes/Util.php:4234
 msgid "Routines"
 msgstr "Rotinas"
 
@@ -8896,15 +8896,15 @@ msgstr "Rotinas"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:27
 #: libraries/classes/Plugins/Export/ExportSql.php:987
 #: libraries/classes/Plugins/Export/ExportXml.php:111
-#: libraries/classes/Rte/Words.php:79 libraries/classes/Util.php:4220
+#: libraries/classes/Rte/Words.php:79 libraries/classes/Util.php:4235
 msgid "Events"
 msgstr "Eventos"
 
-#: libraries/classes/Menu.php:539 libraries/classes/Util.php:4223
+#: libraries/classes/Menu.php:539 libraries/classes/Util.php:4238
 msgid "Designer"
 msgstr "Desenhador"
 
-#: libraries/classes/Menu.php:548 libraries/classes/Util.php:4224
+#: libraries/classes/Menu.php:548 libraries/classes/Util.php:4239
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Colunas centrais"
@@ -8914,12 +8914,12 @@ msgid "User accounts"
 msgstr "Contas de utilizador"
 
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:123
-#: libraries/classes/Util.php:4203 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:4218 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Registo binário"
 
 #: libraries/classes/Menu.php:646 libraries/classes/Server/Status/Data.php:128
-#: libraries/classes/Util.php:4204
+#: libraries/classes/Util.php:4219
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:3
@@ -8927,21 +8927,21 @@ msgid "Replication"
 msgstr "Replicação"
 
 #: libraries/classes/Menu.php:651 libraries/classes/Server/Status/Data.php:196
-#: libraries/classes/SqlQueryForm.php:446 libraries/classes/Util.php:4205
+#: libraries/classes/SqlQueryForm.php:446 libraries/classes/Util.php:4220
 #: libraries/config.values.php:161 templates/server/engines/show.twig:18
 #: templates/server/engines/show.twig:22
 msgid "Variables"
 msgstr "Variáveis"
 
-#: libraries/classes/Menu.php:655 libraries/classes/Util.php:4206
+#: libraries/classes/Menu.php:655 libraries/classes/Util.php:4221
 msgid "Charsets"
 msgstr "Mapas de Caracteres"
 
-#: libraries/classes/Menu.php:659 libraries/classes/Util.php:4208
+#: libraries/classes/Menu.php:659 libraries/classes/Util.php:4223
 msgid "Engines"
 msgstr "Motores"
 
-#: libraries/classes/Menu.php:663 libraries/classes/Util.php:4207
+#: libraries/classes/Menu.php:663 libraries/classes/Util.php:4222
 #: templates/server/plugins/index.twig:3
 msgid "Plugins"
 msgstr "Plugins"
@@ -10498,9 +10498,9 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importar moedas <i>(ex: €5,00 para 5,00)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:153
-#: libraries/classes/Plugins/Import/ImportXml.php:112
-#: libraries/classes/Plugins/Import/ImportXml.php:177
+#: libraries/classes/Plugins/Import/ImportOds.php:155
+#: libraries/classes/Plugins/Import/ImportXml.php:114
+#: libraries/classes/Plugins/Import/ImportXml.php:179
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -10508,7 +10508,7 @@ msgstr ""
 "O ficheiro XML especificado foi mal feito ou está incompleto. Por favor, "
 "corrija o problema e tente novamente."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:164
+#: libraries/classes/Plugins/Import/ImportOds.php:166
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Não foi possível analisar a planilha OpenDocument!"
 
@@ -10680,7 +10680,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:66
-#: libraries/classes/Util.php:1591
+#: libraries/classes/Util.php:1599
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d-%B-%Y às %H:%M"
 
@@ -13184,83 +13184,83 @@ msgid "Edit inline"
 msgstr "Editar em linha"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:1574
+#: libraries/classes/Util.php:1582
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Dom"
 
-#: libraries/classes/Util.php:1612
+#: libraries/classes/Util.php:1620
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "PM"
 
-#: libraries/classes/Util.php:1614
+#: libraries/classes/Util.php:1622
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "AM"
 
-#: libraries/classes/Util.php:1918
+#: libraries/classes/Util.php:1926
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dias, %s horas, %s minutos e %s segundos"
 
-#: libraries/classes/Util.php:1953
+#: libraries/classes/Util.php:1961
 msgid "Missing parameter:"
 msgstr "Parâmetros em falta:"
 
-#: libraries/classes/Util.php:2526
+#: libraries/classes/Util.php:2534
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "Ir para o banco de dados “%s”."
 
-#: libraries/classes/Util.php:2554
+#: libraries/classes/Util.php:2562
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "A funcionalidade %s é afectada por um bug conhecido, veja %s"
 
-#: libraries/classes/Util.php:3361 templates/preferences/manage/main.twig:17
+#: libraries/classes/Util.php:3376 templates/preferences/manage/main.twig:17
 msgid "Browse your computer:"
 msgstr "Procurar no seu computador:"
 
-#: libraries/classes/Util.php:3388
+#: libraries/classes/Util.php:3403
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Selecionar a partir da directoria de upload do servidor <b>%s</b>:"
 
-#: libraries/classes/Util.php:3428
+#: libraries/classes/Util.php:3443
 msgid "There are no files to upload!"
 msgstr "Não existem ficheiros para fazer upload!"
 
-#: libraries/classes/Util.php:3452 libraries/classes/Util.php:3453
+#: libraries/classes/Util.php:3467 libraries/classes/Util.php:3468
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "Limpa"
 
-#: libraries/classes/Util.php:3458 libraries/classes/Util.php:3459
+#: libraries/classes/Util.php:3473 libraries/classes/Util.php:3474
 msgid "Execute"
 msgstr "Executar"
 
-#: libraries/classes/Util.php:4086
+#: libraries/classes/Util.php:4101
 msgid "SSL is not being used"
 msgstr "SSL não está sendo usado"
 
-#: libraries/classes/Util.php:4091
+#: libraries/classes/Util.php:4106
 msgid "SSL is used with disabled verification"
 msgstr "O SSL é usado com a verificação desativada"
 
-#: libraries/classes/Util.php:4093
+#: libraries/classes/Util.php:4108
 msgid "SSL is used without certification authority"
 msgstr "O SSL é usado sem autoridade de certificação"
 
-#: libraries/classes/Util.php:4096
+#: libraries/classes/Util.php:4111
 msgid "SSL is used"
 msgstr "O SSL é usado"
 
-#: libraries/classes/Util.php:4199
+#: libraries/classes/Util.php:4214
 msgid "Users"
 msgstr "Utilizadores"
 
-#: libraries/classes/Util.php:4892
+#: libraries/classes/Util.php:4907
 #: templates/database/multi_table_query/form.twig:65
 msgid "Sort"
 msgstr "Ordenação"
@@ -13497,7 +13497,7 @@ msgid "Invalid table name"
 msgstr "Nome de tabela inválido"
 
 #. l10n: In case a SQL query did not pass a security check
-#: tbl_get_field.php:62 transformation_wrapper.php:80
+#: tbl_get_field.php:62 transformation_wrapper.php:79
 msgid "There is an issue with your request."
 msgstr "Há um problema com a sua requisição."
 

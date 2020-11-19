@@ -1,9 +1,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
+"Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-10-10 13:41-0300\n"
+"POT-Creation-Date: 2020-12-12 17:45+0100\n"
 "PO-Revision-Date: 2020-12-02 16:29+0000\n"
 "Last-Translator: 가석현 <shga89@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-0/ko/"
@@ -63,10 +63,10 @@ msgstr "테이블"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:56
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
-#: libraries/classes/Server/Privileges.php:1238 libraries/classes/Util.php:3149
-#: libraries/classes/Util.php:3159 libraries/classes/Util.php:3165
-#: libraries/classes/Util.php:3449 libraries/classes/Util.php:4211
-#: libraries/classes/Util.php:4228 libraries/config.values.php:62
+#: libraries/classes/Server/Privileges.php:1238 libraries/classes/Util.php:3164
+#: libraries/classes/Util.php:3174 libraries/classes/Util.php:3180
+#: libraries/classes/Util.php:3464 libraries/classes/Util.php:4226
+#: libraries/classes/Util.php:4243 libraries/config.values.php:62
 #: libraries/config.values.php:76 libraries/config.values.php:167
 #: libraries/config.values.php:177
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -575,14 +575,14 @@ msgid "Other"
 msgstr "기타"
 
 #. l10n: Thousands separator
-#: js/messages.php:165 libraries/classes/Util.php:1409
-#: libraries/classes/Util.php:1440
+#: js/messages.php:165 libraries/classes/Util.php:1417
+#: libraries/classes/Util.php:1448
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:167 libraries/classes/Util.php:1407
-#: libraries/classes/Util.php:1438
+#: js/messages.php:167 libraries/classes/Util.php:1415
+#: libraries/classes/Util.php:1446
 msgid "."
 msgstr "."
 
@@ -687,39 +687,39 @@ msgid "Processes"
 msgstr "프로세스"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:207 libraries/classes/Util.php:1317
+#: js/messages.php:207 libraries/classes/Util.php:1321
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:208 libraries/classes/Util.php:1319
+#: js/messages.php:208 libraries/classes/Util.php:1323
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "KB"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:209 libraries/classes/Util.php:1321
+#: js/messages.php:209 libraries/classes/Util.php:1325
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:210 libraries/classes/Util.php:1323
+#: js/messages.php:210 libraries/classes/Util.php:1327
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:211 libraries/classes/Util.php:1325
+#: js/messages.php:211 libraries/classes/Util.php:1329
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:212 libraries/classes/Util.php:1327
+#: js/messages.php:212 libraries/classes/Util.php:1331
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:213 libraries/classes/Util.php:1329
+#: js/messages.php:213 libraries/classes/Util.php:1333
 msgid "EiB"
 msgstr "EB"
 
@@ -738,7 +738,7 @@ msgid "Traffic"
 msgstr "소통량"
 
 #: js/messages.php:219 libraries/classes/Menu.php:627
-#: libraries/classes/Util.php:4202
+#: libraries/classes/Util.php:4217
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "설정"
@@ -958,7 +958,7 @@ msgstr "SQL 해석"
 #: js/messages.php:296
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:134
 #: libraries/classes/Menu.php:590 libraries/classes/Rte/Events.php:465
-#: libraries/classes/Rte/RteList.php:145 libraries/classes/Util.php:4198
+#: libraries/classes/Rte/RteList.php:145 libraries/classes/Util.php:4213
 #: libraries/config.values.php:159 templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
 msgid "Status"
@@ -1069,8 +1069,8 @@ msgstr "가져온 설정과 차트 격자를 그리는데 실패했습니다. �
 
 #: js/messages.php:334 libraries/classes/Config/Forms/User/ImportForm.php:71
 #: libraries/classes/Menu.php:390 libraries/classes/Menu.php:499
-#: libraries/classes/Menu.php:623 libraries/classes/Util.php:4201
-#: libraries/classes/Util.php:4216 libraries/classes/Util.php:4233
+#: libraries/classes/Menu.php:623 libraries/classes/Util.php:4216
+#: libraries/classes/Util.php:4231 libraries/classes/Util.php:4248
 #: templates/display/import/import.twig:38
 #: templates/preferences/manage/main.twig:8
 #: templates/server/status/monitor/index.twig:78
@@ -1248,7 +1248,8 @@ msgstr "에러 메시지: %s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr "서버와의 연결이 끊어졌습니다. 네트워크 연결과 서버의 상태를 확인하세요."
+msgstr ""
+"서버와의 연결이 끊어졌습니다. 네트워크 연결과 서버의 상태를 확인하세요."
 
 #: js/messages.php:381
 #: libraries/classes/Controllers/Server/DatabasesController.php:232
@@ -1366,9 +1367,9 @@ msgstr "저장 함수의 정의는 RETURN문을 포함해야 합니다!"
 #: libraries/classes/Server/Privileges.php:2547
 #: libraries/classes/Server/Privileges.php:2634
 #: libraries/classes/Server/Privileges.php:3002
-#: libraries/classes/Server/Privileges.php:3741 libraries/classes/Util.php:3456
-#: libraries/classes/Util.php:3457 libraries/classes/Util.php:4200
-#: libraries/classes/Util.php:4215 libraries/classes/Util.php:4232
+#: libraries/classes/Server/Privileges.php:3741 libraries/classes/Util.php:3471
+#: libraries/classes/Util.php:3472 libraries/classes/Util.php:4215
+#: libraries/classes/Util.php:4230 libraries/classes/Util.php:4247
 #: templates/database/structure/check_all_tables.twig:12
 #: templates/display/export/option_header.twig:3
 #: templates/preferences/manage/main.twig:59
@@ -1420,8 +1421,8 @@ msgstr "질의 상자 보이기"
 #: libraries/classes/Display/Results.php:3262
 #: libraries/classes/Display/Results.php:4705 libraries/classes/Index.php:742
 #: libraries/classes/Server/UserGroups.php:136 libraries/classes/Util.php:648
-#: libraries/classes/Util.php:1136 libraries/classes/Util.php:3454
-#: libraries/classes/Util.php:3455 templates/console/bookmark_content.twig:7
+#: libraries/classes/Util.php:1136 libraries/classes/Util.php:3469
+#: libraries/classes/Util.php:3470 templates/console/bookmark_content.twig:7
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:281
 #: templates/database/central_columns/main.twig:402
@@ -2385,63 +2386,63 @@ msgid "December"
 msgstr "12월"
 
 #. l10n: Short month name
-#: js/messages.php:824 libraries/classes/Util.php:1548
+#: js/messages.php:824 libraries/classes/Util.php:1556
 msgid "Jan"
 msgstr "1월"
 
 #. l10n: Short month name
-#: js/messages.php:826 libraries/classes/Util.php:1550
+#: js/messages.php:826 libraries/classes/Util.php:1558
 msgid "Feb"
 msgstr "2월"
 
 #. l10n: Short month name
-#: js/messages.php:828 libraries/classes/Util.php:1552
+#: js/messages.php:828 libraries/classes/Util.php:1560
 msgid "Mar"
 msgstr "3월"
 
 #. l10n: Short month name
-#: js/messages.php:830 libraries/classes/Util.php:1554
+#: js/messages.php:830 libraries/classes/Util.php:1562
 msgid "Apr"
 msgstr "4월"
 
 #. l10n: Short month name
-#: js/messages.php:832 libraries/classes/Util.php:1556
+#: js/messages.php:832 libraries/classes/Util.php:1564
 msgctxt "Short month name"
 msgid "May"
 msgstr "5월"
 
 #. l10n: Short month name
-#: js/messages.php:834 libraries/classes/Util.php:1558
+#: js/messages.php:834 libraries/classes/Util.php:1566
 msgid "Jun"
 msgstr "6월"
 
 #. l10n: Short month name
-#: js/messages.php:836 libraries/classes/Util.php:1560
+#: js/messages.php:836 libraries/classes/Util.php:1568
 msgid "Jul"
 msgstr "7월"
 
 #. l10n: Short month name
-#: js/messages.php:838 libraries/classes/Util.php:1562
+#: js/messages.php:838 libraries/classes/Util.php:1570
 msgid "Aug"
 msgstr "8월"
 
 #. l10n: Short month name
-#: js/messages.php:840 libraries/classes/Util.php:1564
+#: js/messages.php:840 libraries/classes/Util.php:1572
 msgid "Sep"
 msgstr "9월"
 
 #. l10n: Short month name
-#: js/messages.php:842 libraries/classes/Util.php:1566
+#: js/messages.php:842 libraries/classes/Util.php:1574
 msgid "Oct"
 msgstr "10월"
 
 #. l10n: Short month name
-#: js/messages.php:844 libraries/classes/Util.php:1568
+#: js/messages.php:844 libraries/classes/Util.php:1576
 msgid "Nov"
 msgstr "11월"
 
 #. l10n: Short month name
-#: js/messages.php:846 libraries/classes/Util.php:1570
+#: js/messages.php:846 libraries/classes/Util.php:1578
 msgid "Dec"
 msgstr "12월"
 
@@ -2479,32 +2480,32 @@ msgid "Sun"
 msgstr "일"
 
 #. l10n: Short week day name for Monday
-#: js/messages.php:867 libraries/classes/Util.php:1576
+#: js/messages.php:867 libraries/classes/Util.php:1584
 msgid "Mon"
 msgstr "월"
 
 #. l10n: Short week day name for Tuesday
-#: js/messages.php:869 libraries/classes/Util.php:1578
+#: js/messages.php:869 libraries/classes/Util.php:1586
 msgid "Tue"
 msgstr "화"
 
 #. l10n: Short week day name for Wednesday
-#: js/messages.php:871 libraries/classes/Util.php:1580
+#: js/messages.php:871 libraries/classes/Util.php:1588
 msgid "Wed"
 msgstr "수"
 
 #. l10n: Short week day name for Thursday
-#: js/messages.php:873 libraries/classes/Util.php:1582
+#: js/messages.php:873 libraries/classes/Util.php:1590
 msgid "Thu"
 msgstr "목"
 
 #. l10n: Short week day name for Friday
-#: js/messages.php:875 libraries/classes/Util.php:1584
+#: js/messages.php:875 libraries/classes/Util.php:1592
 msgid "Fri"
 msgstr "금"
 
 #. l10n: Short week day name for Saturday
-#: js/messages.php:877 libraries/classes/Util.php:1586
+#: js/messages.php:877 libraries/classes/Util.php:1594
 msgid "Sat"
 msgstr "토"
 
@@ -2747,7 +2748,7 @@ msgstr "설명"
 #: libraries/classes/Language.php:199 libraries/classes/Pdf.php:90
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:505
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:542
-#: libraries/classes/Util.php:2402
+#: libraries/classes/Util.php:2410
 msgid "Page number:"
 msgstr "페이지 번호:"
 
@@ -3937,7 +3938,7 @@ msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:306
 #: libraries/classes/Config/Descriptions.php:372 libraries/classes/Menu.php:582
-#: libraries/classes/Server/Privileges.php:4779 libraries/classes/Util.php:4196
+#: libraries/classes/Server/Privileges.php:4779 libraries/classes/Util.php:4211
 #: libraries/config.values.php:157
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:6
@@ -4071,9 +4072,9 @@ msgstr "데이터베이스 변경 추적 기능. phpMyAdmin 설정 저장공간�
 #: libraries/classes/Config/Descriptions.php:354 libraries/classes/Menu.php:359
 #: libraries/classes/Menu.php:466 libraries/classes/Menu.php:586
 #: libraries/classes/Navigation/Nodes/NodeTable.php:309
-#: libraries/classes/Util.php:3150 libraries/classes/Util.php:3160
-#: libraries/classes/Util.php:3166 libraries/classes/Util.php:4197
-#: libraries/classes/Util.php:4212 libraries/classes/Util.php:4229
+#: libraries/classes/Util.php:3165 libraries/classes/Util.php:3175
+#: libraries/classes/Util.php:3181 libraries/classes/Util.php:4212
+#: libraries/classes/Util.php:4227 libraries/classes/Util.php:4244
 #: libraries/config.values.php:64 libraries/config.values.php:78
 #: libraries/config.values.php:169 libraries/config.values.php:179
 msgid "SQL"
@@ -7229,8 +7230,8 @@ msgstr "변경"
 #: libraries/classes/Controllers/Table/StructureController.php:1268
 #: libraries/classes/Controllers/Table/StructureController.php:1269
 #: libraries/classes/Index.php:768 libraries/classes/Operations.php:1692
-#: libraries/classes/Rte/RteList.php:200 libraries/classes/Util.php:3450
-#: libraries/classes/Util.php:3451
+#: libraries/classes/Rte/RteList.php:200 libraries/classes/Util.php:3465
+#: libraries/classes/Util.php:3466
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/rte/routines/parameter_row.twig:51
 #: templates/server/databases/index.twig:300
@@ -7675,28 +7676,28 @@ msgstr "%2$s에 의해 %1$s에 커밋됨"
 msgid "authored on %1$s by %2$s"
 msgstr "%2$s에 의해 %1$s에 작성됨"
 
-#: libraries/classes/Display/Results.php:948 libraries/classes/Util.php:2414
-#: libraries/classes/Util.php:2417
+#: libraries/classes/Display/Results.php:948 libraries/classes/Util.php:2422
+#: libraries/classes/Util.php:2425
 msgctxt "First page"
 msgid "Begin"
 msgstr "처음"
 
-#: libraries/classes/Display/Results.php:955 libraries/classes/Util.php:2415
-#: libraries/classes/Util.php:2418 templates/server/binlog/index.twig:47
+#: libraries/classes/Display/Results.php:955 libraries/classes/Util.php:2423
+#: libraries/classes/Util.php:2426 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "이전"
 
-#: libraries/classes/Display/Results.php:983 libraries/classes/Util.php:2447
-#: libraries/classes/Util.php:2454 templates/server/binlog/index.twig:72
+#: libraries/classes/Display/Results.php:983 libraries/classes/Util.php:2455
+#: libraries/classes/Util.php:2462 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "다음"
 
-#: libraries/classes/Display/Results.php:1013 libraries/classes/Util.php:2448
-#: libraries/classes/Util.php:2455
+#: libraries/classes/Display/Results.php:1013 libraries/classes/Util.php:2456
+#: libraries/classes/Util.php:2463
 msgctxt "Last page"
 msgid "End"
 msgstr "마지막"
@@ -7713,8 +7714,8 @@ msgstr "전체 텍스트"
 
 #: libraries/classes/Display/Results.php:2002
 #: libraries/classes/Display/Results.php:2028
-#: libraries/classes/Operations.php:856 libraries/classes/Util.php:4908
-#: libraries/classes/Util.php:4931 libraries/config.values.php:115
+#: libraries/classes/Operations.php:856 libraries/classes/Util.php:4923
+#: libraries/classes/Util.php:4946 libraries/config.values.php:115
 #: templates/database/multi_table_query/form.twig:67
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:108
@@ -7727,8 +7728,8 @@ msgstr "내림차순"
 
 #: libraries/classes/Display/Results.php:2010
 #: libraries/classes/Display/Results.php:2020
-#: libraries/classes/Operations.php:853 libraries/classes/Util.php:4900
-#: libraries/classes/Util.php:4923 libraries/config.values.php:114
+#: libraries/classes/Operations.php:853 libraries/classes/Util.php:4915
+#: libraries/classes/Util.php:4938 libraries/config.values.php:114
 #: templates/database/multi_table_query/form.twig:66
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:106
@@ -8456,7 +8457,7 @@ msgstr "컬럼의 길이 때문에,<br />이 컬럼을 편집할 수 없을 수�
 msgid "Binary - do not edit"
 msgstr "바이너리 - 편집 금지"
 
-#: libraries/classes/InsertEdit.php:1538 libraries/classes/Util.php:3417
+#: libraries/classes/InsertEdit.php:1538 libraries/classes/Util.php:3432
 msgid "The directory you set for upload work cannot be reached."
 msgstr "설정한 업로드 디렉토리에 접근할 수 없습니다."
 
@@ -8535,12 +8536,12 @@ msgstr "SQL 쿼리 보기"
 msgid "Inserted row id: %1$d"
 msgstr "삽입된 행의 id: %1$d"
 
-#: libraries/classes/LanguageManager.php:953
+#: libraries/classes/LanguageManager.php:960
 msgid "Ignoring unsupported language code."
 msgstr "지원되지 않는 언어의 코드는 무시합니다."
 
-#: libraries/classes/LanguageManager.php:981
-#: libraries/classes/LanguageManager.php:982 templates/setup/home/index.twig:8
+#: libraries/classes/LanguageManager.php:988
+#: libraries/classes/LanguageManager.php:989 templates/setup/home/index.twig:8
 #: templates/setup/home/index.twig:9
 msgid "Language"
 msgstr "언어"
@@ -8570,9 +8571,9 @@ msgstr ""
 
 #: libraries/classes/Menu.php:342
 #: libraries/classes/Navigation/Nodes/NodeTable.php:312
-#: libraries/classes/Util.php:3153 libraries/classes/Util.php:3163
-#: libraries/classes/Util.php:3443 libraries/classes/Util.php:3444
-#: libraries/classes/Util.php:4227 libraries/config.values.php:70
+#: libraries/classes/Util.php:3168 libraries/classes/Util.php:3178
+#: libraries/classes/Util.php:3458 libraries/classes/Util.php:3459
+#: libraries/classes/Util.php:4242 libraries/config.values.php:70
 #: libraries/config.values.php:84 libraries/config.values.php:185
 #: templates/database/search/results.twig:34
 #: templates/table/structure/display_structure.twig:275
@@ -8581,10 +8582,10 @@ msgstr "보기"
 
 #: libraries/classes/Menu.php:362 libraries/classes/Menu.php:469
 #: libraries/classes/Navigation/Nodes/NodeTable.php:303
-#: libraries/classes/Util.php:3151 libraries/classes/Util.php:3161
-#: libraries/classes/Util.php:3167 libraries/classes/Util.php:3445
-#: libraries/classes/Util.php:3446 libraries/classes/Util.php:4213
-#: libraries/classes/Util.php:4230 libraries/config.values.php:66
+#: libraries/classes/Util.php:3166 libraries/classes/Util.php:3176
+#: libraries/classes/Util.php:3182 libraries/classes/Util.php:3460
+#: libraries/classes/Util.php:3461 libraries/classes/Util.php:4228
+#: libraries/classes/Util.php:4245 libraries/config.values.php:66
 #: libraries/config.values.php:80 libraries/config.values.php:171
 #: libraries/config.values.php:181
 msgid "Search"
@@ -8593,9 +8594,9 @@ msgstr "검색"
 #: libraries/classes/Menu.php:376
 #: libraries/classes/Navigation/Nodes/NodeTable.php:306
 #: libraries/classes/SqlQueryForm.php:306
-#: libraries/classes/SqlQueryForm.php:309 libraries/classes/Util.php:3152
-#: libraries/classes/Util.php:3162 libraries/classes/Util.php:3447
-#: libraries/classes/Util.php:3448 libraries/classes/Util.php:4231
+#: libraries/classes/SqlQueryForm.php:309 libraries/classes/Util.php:3167
+#: libraries/classes/Util.php:3177 libraries/classes/Util.php:3462
+#: libraries/classes/Util.php:3463 libraries/classes/Util.php:4246
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183
 msgid "Insert"
@@ -8603,24 +8604,24 @@ msgstr "삽입"
 
 #: libraries/classes/Menu.php:400 libraries/classes/Menu.php:511
 #: libraries/classes/Server/Privileges.php:2716
-#: libraries/classes/Server/Privileges.php:4659 libraries/classes/Util.php:4218
-#: libraries/classes/Util.php:4234 libraries/config.values.php:163
+#: libraries/classes/Server/Privileges.php:4659 libraries/classes/Util.php:4233
+#: libraries/classes/Util.php:4249 libraries/config.values.php:163
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
 msgid "Privileges"
 msgstr "권한"
 
 #: libraries/classes/Menu.php:409 libraries/classes/Menu.php:417
-#: libraries/classes/Menu.php:503 libraries/classes/Util.php:3154
-#: libraries/classes/Util.php:3168 libraries/classes/Util.php:4217
-#: libraries/classes/Util.php:4235 libraries/config.values.php:173
+#: libraries/classes/Menu.php:503 libraries/classes/Util.php:3169
+#: libraries/classes/Util.php:3183 libraries/classes/Util.php:4232
+#: libraries/classes/Util.php:4250 libraries/config.values.php:173
 #: templates/table/operations/view.twig:7
 msgid "Operations"
 msgstr "테이블 작업"
 
 #: libraries/classes/Menu.php:422 libraries/classes/Menu.php:533
-#: libraries/classes/Relation.php:296 libraries/classes/Util.php:4222
-#: libraries/classes/Util.php:4236
+#: libraries/classes/Relation.php:296 libraries/classes/Util.php:4237
+#: libraries/classes/Util.php:4251
 msgid "Tracking"
 msgstr "SQL 명령어 트래킹"
 
@@ -8632,8 +8633,8 @@ msgstr "SQL 명령어 트래킹"
 #: libraries/classes/Plugins/Export/ExportSql.php:2088
 #: libraries/classes/Plugins/Export/ExportTexytext.php:541
 #: libraries/classes/Plugins/Export/ExportXml.php:131
-#: libraries/classes/Rte/Words.php:65 libraries/classes/Util.php:4221
-#: libraries/classes/Util.php:4237
+#: libraries/classes/Rte/Words.php:65 libraries/classes/Util.php:4236
+#: libraries/classes/Util.php:4252
 msgid "Triggers"
 msgstr "트리거"
 
@@ -8642,12 +8643,12 @@ msgstr "트리거"
 msgid "Database seems to be empty!"
 msgstr "데이터베이스가 비어있는 것 같습니다!"
 
-#: libraries/classes/Menu.php:476 libraries/classes/Util.php:4214
+#: libraries/classes/Menu.php:476 libraries/classes/Util.php:4229
 msgid "Query"
 msgstr "질의 마법사"
 
 #: libraries/classes/Menu.php:516 libraries/classes/Rte/Words.php:51
-#: libraries/classes/Util.php:4219
+#: libraries/classes/Util.php:4234
 msgid "Routines"
 msgstr "루틴"
 
@@ -8655,15 +8656,15 @@ msgstr "루틴"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:27
 #: libraries/classes/Plugins/Export/ExportSql.php:987
 #: libraries/classes/Plugins/Export/ExportXml.php:111
-#: libraries/classes/Rte/Words.php:79 libraries/classes/Util.php:4220
+#: libraries/classes/Rte/Words.php:79 libraries/classes/Util.php:4235
 msgid "Events"
 msgstr "이벤트"
 
-#: libraries/classes/Menu.php:539 libraries/classes/Util.php:4223
+#: libraries/classes/Menu.php:539 libraries/classes/Util.php:4238
 msgid "Designer"
 msgstr "디자이너"
 
-#: libraries/classes/Menu.php:548 libraries/classes/Util.php:4224
+#: libraries/classes/Menu.php:548 libraries/classes/Util.php:4239
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "중심 열"
@@ -8673,12 +8674,12 @@ msgid "User accounts"
 msgstr "사용자 계정"
 
 #: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:123
-#: libraries/classes/Util.php:4203 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:4218 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "바이너리 로그"
 
 #: libraries/classes/Menu.php:646 libraries/classes/Server/Status/Data.php:128
-#: libraries/classes/Util.php:4204
+#: libraries/classes/Util.php:4219
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:3
@@ -8686,21 +8687,21 @@ msgid "Replication"
 msgstr "복제"
 
 #: libraries/classes/Menu.php:651 libraries/classes/Server/Status/Data.php:196
-#: libraries/classes/SqlQueryForm.php:446 libraries/classes/Util.php:4205
+#: libraries/classes/SqlQueryForm.php:446 libraries/classes/Util.php:4220
 #: libraries/config.values.php:161 templates/server/engines/show.twig:18
 #: templates/server/engines/show.twig:22
 msgid "Variables"
 msgstr "환경설정값"
 
-#: libraries/classes/Menu.php:655 libraries/classes/Util.php:4206
+#: libraries/classes/Menu.php:655 libraries/classes/Util.php:4221
 msgid "Charsets"
 msgstr "문자셋"
 
-#: libraries/classes/Menu.php:659 libraries/classes/Util.php:4208
+#: libraries/classes/Menu.php:659 libraries/classes/Util.php:4223
 msgid "Engines"
 msgstr "엔진"
 
-#: libraries/classes/Menu.php:663 libraries/classes/Util.php:4207
+#: libraries/classes/Menu.php:663 libraries/classes/Util.php:4222
 #: templates/server/plugins/index.twig:3
 msgid "Plugins"
 msgstr "플러그인"
@@ -10212,9 +10213,9 @@ msgstr "퍼센테이지를 소수로 변경<i>(예: 12.00% 를 .12 로)</i>"
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "통화 단위 제거 <i>(예: $5.00 를 5.00 로)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:153
-#: libraries/classes/Plugins/Import/ImportXml.php:112
-#: libraries/classes/Plugins/Import/ImportXml.php:177
+#: libraries/classes/Plugins/Import/ImportOds.php:155
+#: libraries/classes/Plugins/Import/ImportXml.php:114
+#: libraries/classes/Plugins/Import/ImportXml.php:179
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -10222,7 +10223,7 @@ msgstr ""
 "해당 XML 파일의 포멧이 잘못되었거나 미완성 상태입니다. 문제점을 수정한 후 재"
 "시도 하세요."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:164
+#: libraries/classes/Plugins/Import/ImportOds.php:166
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Open Document 스프레드시트 형식을 해석할 수 없습니다!"
 
@@ -10384,7 +10385,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:66
-#: libraries/classes/Util.php:1591
+#: libraries/classes/Util.php:1599
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%y-%m-%d %H:%M"
 
@@ -12893,84 +12894,84 @@ msgid "Edit inline"
 msgstr "인라인 편집"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:1574
+#: libraries/classes/Util.php:1582
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "일"
 
-#: libraries/classes/Util.php:1612
+#: libraries/classes/Util.php:1620
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "오후"
 
-#: libraries/classes/Util.php:1614
+#: libraries/classes/Util.php:1622
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "오전"
 
-#: libraries/classes/Util.php:1918
+#: libraries/classes/Util.php:1926
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s일 %s시간 %s분 %s초"
 
-#: libraries/classes/Util.php:1953
+#: libraries/classes/Util.php:1961
 msgid "Missing parameter:"
 msgstr "매개 변수 누락:"
 
-#: libraries/classes/Util.php:2526
+#: libraries/classes/Util.php:2534
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "데이터베이스 \"%s\" 로 이동."
 
-#: libraries/classes/Util.php:2554
+#: libraries/classes/Util.php:2562
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s 기능은 알려진 버그가 있습니다. %s 문서를 참조하십시오"
 
-#: libraries/classes/Util.php:3361 templates/preferences/manage/main.twig:17
+#: libraries/classes/Util.php:3376 templates/preferences/manage/main.twig:17
 msgid "Browse your computer:"
 msgstr "업로드 파일:"
 
-#: libraries/classes/Util.php:3388
+#: libraries/classes/Util.php:3403
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "웹 서버 업로드 디렉토리중 <b>%s</b>에서 선택:"
 
-#: libraries/classes/Util.php:3428
+#: libraries/classes/Util.php:3443
 msgid "There are no files to upload!"
 msgstr "업로드할 파일이 없습니다!"
 
-#: libraries/classes/Util.php:3452 libraries/classes/Util.php:3453
+#: libraries/classes/Util.php:3467 libraries/classes/Util.php:3468
 #: templates/database/structure/check_all_tables.twig:15
 msgid "Empty"
 msgstr "비우기"
 
-#: libraries/classes/Util.php:3458 libraries/classes/Util.php:3459
+#: libraries/classes/Util.php:3473 libraries/classes/Util.php:3474
 msgid "Execute"
 msgstr "실행하기"
 
-#: libraries/classes/Util.php:4086
+#: libraries/classes/Util.php:4101
 msgid "SSL is not being used"
 msgstr ""
 
-#: libraries/classes/Util.php:4091
+#: libraries/classes/Util.php:4106
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: libraries/classes/Util.php:4093
+#: libraries/classes/Util.php:4108
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: libraries/classes/Util.php:4096
+#: libraries/classes/Util.php:4111
 msgid "SSL is used"
 msgstr ""
 
-#: libraries/classes/Util.php:4199
+#: libraries/classes/Util.php:4214
 msgid "Users"
 msgstr "사용자"
 
-#: libraries/classes/Util.php:4892
+#: libraries/classes/Util.php:4907
 #: templates/database/multi_table_query/form.twig:65
 msgid "Sort"
 msgstr "정렬"
@@ -13213,7 +13214,7 @@ msgid "Invalid table name"
 msgstr "잘못된 테이블 이름"
 
 #. l10n: In case a SQL query did not pass a security check
-#: tbl_get_field.php:62 transformation_wrapper.php:80
+#: tbl_get_field.php:62 transformation_wrapper.php:79
 #, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
