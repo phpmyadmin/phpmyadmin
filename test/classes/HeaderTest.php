@@ -35,10 +35,12 @@ class HeaderTest extends AbstractTestCase
         $GLOBALS['table'] = '';
         parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['cfg']['Server']['user'] = '';
+        $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
     }
 
     /**
@@ -59,6 +61,7 @@ class HeaderTest extends AbstractTestCase
      */
     public function testEnable(): void
     {
+        $GLOBALS['server'] = 0;
         $header = new Header();
         $this->assertStringContainsString(
             '<title>phpMyAdmin</title>',
