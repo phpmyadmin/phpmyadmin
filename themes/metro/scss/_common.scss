@@ -1227,14 +1227,14 @@ div#serverstatusquerieschart {
 }
 
 table {
-  &#serverstatusqueriesdetails,
-  &#serverstatustraffic {
+  &#serverstatusqueriesdetails {
     float: $left;
+
+    th {
+      min-width: 35px;
+    }
   }
 
-  &#serverstatusqueriesdetails th {
-    min-width: 35px;
-  }
 
   &#serverstatusvariables {
     width: 100%;
@@ -1248,11 +1248,6 @@ table {
     .value {
       width: 6em;
     }
-  }
-
-  &#serverstatusconnections {
-    float: $left;
-    margin-#{$left}: 30px;
   }
 }
 

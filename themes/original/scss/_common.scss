@@ -968,15 +968,6 @@ div {
 }
 
 table {
-  &#serverstatustraffic {
-    float: $left;
-  }
-
-  &#serverstatusconnections {
-    float: $left;
-    margin-#{$left}: 30px;
-  }
-
   &#serverstatusvariables {
     width: 100%;
     margin-bottom: 1em;
@@ -989,11 +980,6 @@ table {
     .value {
       width: 6em;
     }
-  }
-
-  &#serverstatusconnections {
-    float: $left;
-    margin-#{$left}: 30px;
   }
 }
 
@@ -3427,10 +3413,6 @@ body {
 
   #page_nav_icons {
     display: none;
-  }
-
-  table#serverstatusconnections {
-    margin-#{$left}: 0;
   }
 
   #table_name_col_no {

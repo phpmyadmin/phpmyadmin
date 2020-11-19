@@ -1,6 +1,4 @@
 .table {
-  width: auto;
-
   th,
   td {
     text-shadow: 0 1px 0 #fff;
@@ -8,7 +6,6 @@
 
   th {
     text-align: $left;
-    background-image: linear-gradient(#fff, #ccc);
   }
 
   td {
@@ -18,6 +15,7 @@
 
   thead th {
     border-#{$right}: 1px solid #fff;
+    background-image: linear-gradient(#fff, #ccc);
   }
 }
 

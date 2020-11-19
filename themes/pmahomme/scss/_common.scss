@@ -1233,14 +1233,14 @@ div#serverstatusquerieschart {
 }
 
 table {
-  &#serverstatusqueriesdetails,
-  &#serverstatustraffic {
+  &#serverstatusqueriesdetails {
     float: $left;
+
+    th {
+      min-width: 35px;
+    }
   }
 
-  &#serverstatusqueriesdetails th {
-    min-width: 35px;
-  }
 
   &#serverstatusvariables {
     width: 100%;
@@ -1254,10 +1254,6 @@ table {
     .value {
       width: 6em;
     }
-  }
-
-  &#serverstatusconnections {
-    float: $left;
   }
 }
 
@@ -3799,10 +3795,6 @@ body .ui-dialog {
 
   #page_nav_icons {
     display: none;
-  }
-
-  table#serverstatusconnections {
-    margin-#{$left}: 0;
   }
 
   #table_name_col_no {
