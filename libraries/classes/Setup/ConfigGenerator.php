@@ -58,7 +58,7 @@ class ConfigGenerator
         $persistKeys = $cf->getPersistKeysMap();
 
         foreach ($conf as $k => $v) {
-            $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
+            $k = preg_replace('/[^A-Za-z0-9_]/', '_', (string) $k);
             $ret .= self::getVarExport($k, $v, $crlf);
             if (! isset($persistKeys[$k])) {
                 continue;
