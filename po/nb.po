@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-11-19 13:59+0000\n"
-"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
+"PO-Revision-Date: 2020-11-19 15:47+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/nb_NO/>\n"
 "Language: nb\n"
@@ -4223,7 +4223,7 @@ msgstr "Fremmednøkkelbegrensning"
 
 #: libraries/classes/Config/Descriptions.php:430
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr "Standardverdi for utenlandske nøkkelsjekker for noen spørsmål."
+msgstr "Forvalgsverdi for fremmede nøkkelsjekker for noen spørsmål."
 
 #: libraries/classes/Config/Descriptions.php:432
 msgid "Foreign key checks"
@@ -4499,7 +4499,7 @@ msgstr "Databasestruktur"
 #: libraries/classes/Config/Descriptions.php:571
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
-msgstr "Velg hvilke detaljer som vises i database strukturen (tabelliste)."
+msgstr "Velg hvilke detaljer som skal vises i databasestrukturen (tabelliste)."
 
 #: libraries/classes/Config/Descriptions.php:573
 #: libraries/classes/Plugins/Export/ExportPdf.php:277
@@ -4509,7 +4509,7 @@ msgstr "Tabellstruktur"
 
 #: libraries/classes/Config/Descriptions.php:575
 msgid "Settings for the table structure (list of columns)."
-msgstr "Innstillinger for tabell struktur (kolonneliste)."
+msgstr "Innstillinger for tabellstruktur (kolonneliste)."
 
 #: libraries/classes/Config/Descriptions.php:577
 msgid "Tabs"
@@ -4622,12 +4622,12 @@ msgstr "Ikke avbryt under INSERT feil"
 #: libraries/classes/Config/Descriptions.php:639
 #: libraries/classes/Config/Descriptions.php:660
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr "Legg til OPPDATERING PÅ DUPLIKAT NØKKEL"
+msgstr "Legg til OPPDATERING VED DUPLIKAT AV NØKKEL"
 
 #: libraries/classes/Config/Descriptions.php:641
 #: libraries/classes/Config/Descriptions.php:662
 msgid "Update data when duplicate keys found on import"
-msgstr "Oppdater data når dupliserte nøkler ble funnet ved import"
+msgstr "Oppdater data når dupliserte nøkler blir funnet ved import"
 
 #: libraries/classes/Config/Descriptions.php:646
 #, fuzzy
@@ -4829,7 +4829,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Maximum items in branch"
-msgstr "Maksimale gjenstander i grenen"
+msgstr "Maksimalt antall gjenstander i forgreningen"
 
 #: libraries/classes/Config/Descriptions.php:748
 msgid ""
@@ -5219,7 +5219,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:913
 msgid "MySQL reserved word warning"
-msgstr "MySQL reservert ord advarsel"
+msgstr "Advarsel om MySQL-reservert ord"
 
 #: libraries/classes/Config/Descriptions.php:917
 msgid "How to display the menu tabs"
@@ -5374,7 +5374,7 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
-"Angir effektiv tidssone; muligens annerledes enn den fra databaseserveren"
+"Angir effektiv tidssone; muligens annerledes enn den fra databasetjeneren"
 
 #: libraries/classes/Config/Descriptions.php:988
 #, fuzzy
@@ -5885,15 +5885,13 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
-"Både denne tabellen og brukergruppetabellen kreves for å aktivere den "
-"konfigurerbare menyfunksjonen; Hvis du lar en av dem være tomme, deaktiveres "
-"denne funksjonen, foreslått: [kbd] pma__users [/kbd]."
+"Både denne tabellen og brukergruppetabellen kreves for å skru på den "
+"konfigurerbare menyfunksjonen; Hvis du lar en av dem være tomme, skrus denne "
+"funksjonen av, foreslått: [kbd] pma__users [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1227
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Users table"
-msgstr "Bruk tabeller"
+msgstr "Brukertabell"
 
 #: libraries/classes/Config/Descriptions.php:1230
 msgid ""
