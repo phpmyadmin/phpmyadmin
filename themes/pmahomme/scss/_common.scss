@@ -1232,31 +1232,6 @@ div#serverstatusquerieschart {
   margin-#{$right}: 50px;
 }
 
-table {
-  &#serverstatusqueriesdetails {
-    float: $left;
-
-    th {
-      min-width: 35px;
-    }
-  }
-
-
-  &#serverstatusvariables {
-    width: 100%;
-    margin-bottom: 1em;
-
-    .name {
-      width: 18em;
-      white-space: nowrap;
-    }
-
-    .value {
-      width: 6em;
-    }
-  }
-}
-
 div {
   &#serverstatus table {
     tbody td.descr a,

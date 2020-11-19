@@ -85,7 +85,7 @@ class StatusControllerTest extends AbstractTestCase
         );
 
         //validate 2: Status::getHtmlForServerStateTraffic
-        $trafficHtml = '<table id="serverstatustraffic" class="pma-table w-100 data noclick col-12 col-md-5">';
+        $trafficHtml = '<table class="table table-light table-striped table-hover col-12 col-md-5">';
         $this->assertStringContainsString(
             $trafficHtml,
             $html
@@ -98,48 +98,48 @@ class StatusControllerTest extends AbstractTestCase
         );
         //$bytes_received
         $this->assertStringContainsString(
-            '<td class="value">' . $bytesReceived . ' B',
+            '<td class="text-monospace text-right">' . $bytesReceived . ' B',
             $html
         );
         //$bytes_sent
         $this->assertStringContainsString(
-            '<td class="value">' . $bytesSent . ' B',
+            '<td class="text-monospace text-right">' . $bytesSent . ' B',
             $html
         );
 
         //validate 3: Status::getHtmlForServerStateConnections
         $this->assertStringContainsString(
-            '<th>Connections</th>',
+            '<th scope="col">Connections</th>',
             $html
         );
         $this->assertStringContainsString(
-            '<th>&oslash; per hour</th>',
+            '<th scope="col">ø per hour</th>',
             $html
         );
         $this->assertStringContainsString(
-            '<table id="serverstatusconnections" class="pma-table w-100 data noclick col-12 col-md-6">',
+            '<table class="table table-light table-striped table-hover col-12 col-md-6">',
             $html
         );
         $this->assertStringContainsString(
-            '<th class="name">Max. concurrent connections</th>',
+            '<th>Max. concurrent connections</th>',
             $html
         );
         //Max_used_connections
         $this->assertStringContainsString(
-            '<td class="value">' . $maxUsedConnections,
+            '<td class="text-monospace text-right">' . $maxUsedConnections,
             $html
         );
         $this->assertStringContainsString(
-            '<th class="name">Failed attempts</th>',
+            '<th>Failed attempts</th>',
             $html
         );
         //Aborted_connects
         $this->assertStringContainsString(
-            '<td class="value">' . $abortedConnections,
+            '<td class="text-monospace text-right">' . $abortedConnections,
             $html
         );
         $this->assertStringContainsString(
-            '<th class="name">Aborted</th>',
+            '<th>Aborted</th>',
             $html
         );
     }

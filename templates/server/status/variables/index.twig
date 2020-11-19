@@ -61,17 +61,17 @@
   </div>
 
   <div class="responsivetable row">
-    <table class="pma-table data noclick" id="serverstatusvariables">
+    <table class="table table-light table-striped table-hover table-sm" id="serverStatusVariables">
       <colgroup>
         <col class="namecol">
         <col class="valuecol">
         <col class="descrcol">
       </colgroup>
-      <thead>
+      <thead class="thead-light">
         <tr>
-          <th>{% trans 'Variable' %}</th>
-          <th>{% trans 'Value' %}</th>
-          <th>{% trans 'Description' %}</th>
+          <th scope="col">{% trans 'Variable' %}</th>
+          <th scope="col">{% trans 'Value' %}</th>
+          <th scope="col">{% trans 'Description' %}</th>
         </tr>
       </thead>
       <tbody>
@@ -82,7 +82,7 @@
               {{ variable.doc|raw }}
             </th>
 
-            <td class="value">
+            <td class="value text-monospace text-right">
               <span class="formatted">
                 {% if variable.has_alert %}
                   <span class="{{ variable.is_alert ? 'attention' : 'allfine' }}">
@@ -117,7 +117,7 @@
               </span>
             </td>
 
-            <td class="descr">
+            <td class="w-50">
               {{ variable.description }}
               {% for doc in variable.description_doc %}
                 {% if doc.name == 'doc' %}

@@ -7,7 +7,7 @@
   <div class="row"><p>{{ 'This MySQL server has been running for %1$s. It started up on %2$s.'|trans|format(uptime, start_time) }}</p></div>
 
 <div class="row justify-content-between">
-  <table class="table table-light table-striped col-12 col-md-5">
+  <table class="table table-light table-striped table-hover col-12 col-md-5">
     <thead class="thead-light">
       <tr>
         <th scope="col">
@@ -30,7 +30,7 @@
     </tbody>
   </table>
 
-  <table class="table table-light table-striped col-12 col-md-6">
+  <table class="table table-light table-striped table-hover col-12 col-md-6">
     <thead class="thead-light">
       <tr>
         <th scope="col">{% trans 'Connections' %}</th>
@@ -43,7 +43,7 @@
     <tbody>
       {% for connection in connections %}
         <tr>
-          <th scope="row">{{ connection.name }}</th>
+          <th>{{ connection.name }}</th>
           <td class="text-monospace text-right">{{ connection.number }}</td>
           <td class="text-monospace text-right">{{ connection.per_hour }}</td>
           <td class="text-monospace text-right">{{ connection.percentage }}</td>

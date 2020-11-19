@@ -961,26 +961,6 @@ div {
     height: 350px;
     margin-#{$right}: 50px;
   }
-
-  &#serverstatus table#serverstatusqueriesdetails {
-    float: $left;
-  }
-}
-
-table {
-  &#serverstatusvariables {
-    width: 100%;
-    margin-bottom: 1em;
-
-    .name {
-      width: 18em;
-      white-space: nowrap;
-    }
-
-    .value {
-      width: 6em;
-    }
-  }
 }
 
 div {
