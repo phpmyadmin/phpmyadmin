@@ -1028,6 +1028,10 @@ Server connection settings
     :type: string or false
     :default: ``''``
 
+    The table used by phpMyAdmin to store user name information for associating with user groups.
+    See the next entry on :config:option:`$cfg['Servers'][$i]['usergroups']` for more details
+    and the suggested settings.
+
 .. config:option:: $cfg['Servers'][$i]['usergroups']
 
     :type: string or false

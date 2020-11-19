@@ -54,7 +54,7 @@ table.
 Configurable menus and user groups
 ----------------------------------
 
-By enabling :config:option:`$cfg['Servers'][$i]['usergroups']` and
+By enabling :config:option:`$cfg['Servers'][$i]['users']` and
 :config:option:`$cfg['Servers'][$i]['usergroups']` you can customize what users
 will see in the phpMyAdmin navigation.
 
