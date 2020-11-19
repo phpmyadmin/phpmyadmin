@@ -593,7 +593,7 @@ class Table
                             $query .= ' DEFAULT 0';
                         } elseif ($type === 'BIT') {
                             $query .= ' DEFAULT b\''
-                            . preg_replace('/[^01]/', '0', $default_value)
+                            . preg_replace('/[^01]/', '0', (string) $default_value)
                             . '\'';
                         } elseif ($type === 'BOOLEAN') {
                             if (preg_match('/^1|T|TRUE|YES$/i', (string) $default_value)) {

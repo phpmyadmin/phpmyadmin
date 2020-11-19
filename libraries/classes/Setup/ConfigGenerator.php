@@ -180,7 +180,7 @@ class ConfigGenerator
                 . '*/' . $crlf
                 . '$i++;' . $crlf;
             foreach ($server as $k => $v) {
-                $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
+                $k = preg_replace('/[^A-Za-z0-9_]/', '_', (string) $k);
                 $ret .= "\$cfg['Servers'][\$i]['" . $k . "'] = "
                     . (is_array($v) && self::isZeroBasedArray($v)
                         ? self::exportZeroBasedArray($v, $crlf)
