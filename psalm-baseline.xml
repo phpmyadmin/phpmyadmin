@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.18.2@19aa905f7c3c7350569999a93c40ae91ae4e1626">
+<files psalm-version="4.1.1@16bfbd9224698bd738c665f33039fade2a1a3977">
   <file src="libraries/classes/Charsets.php">
     <TypeDoesNotContainType occurrences="1">
       <code>$pieces === false</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Charsets/Collation.php">
-    <ImpureByReferenceAssignment occurrences="64">
+    <ImpureByReferenceAssignment occurrences="75">
+      <code>$found</code>
       <code>$found</code>
       <code>$level</code>
       <code>$level</code>
+      <code>$level</code>
+      <code>$level</code>
+      <code>$level</code>
+      <code>$level</code>
+      <code>$level</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
       <code>$name</code>
       <code>$name</code>
       <code>$name</code>
@@ -71,6 +81,7 @@
       <code>$unicode</code>
       <code>$unknown</code>
       <code>$variant</code>
+      <code>$variant</code>
     </ImpureByReferenceAssignment>
     <PossiblyNullArgument occurrences="1">
       <code>$name</code>
@@ -99,7 +110,9 @@
       <code>$default_value</code>
       <code>$request</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="1">
+    <PossiblyNullArgument occurrences="3">
+      <code>$oldErrorReporting</code>
+      <code>$oldErrorReporting</code>
       <code>$this-&gt;get('PMA_VERSION')</code>
     </PossiblyNullArgument>
   </file>
@@ -718,13 +731,15 @@
     <ImplicitToStringCast occurrences="1">
       <code>$message</code>
     </ImplicitToStringCast>
-    <InvalidArgument occurrences="14">
+    <InvalidArgument occurrences="16">
       <code>$added[$orgFullTableName]</code>
       <code>$default_function</code>
       <code>$default_function</code>
       <code>$default_function</code>
       <code>$default_function</code>
       <code>$default_function</code>
+      <code>$transform_options</code>
+      <code>$transform_options</code>
       <code>$transform_options</code>
       <code>$transform_options</code>
       <code>$transform_options</code>
@@ -846,6 +861,9 @@
     </UndefinedConstant>
   </file>
   <file src="libraries/classes/ErrorHandler.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$errorNumber</code>
+    </ArgumentTypeCoercion>
     <InvalidArgument occurrences="1">
       <code>[$this, 'handleError']</code>
     </InvalidArgument>
@@ -1699,6 +1717,16 @@
       <code>$this-&gt;withDoc</code>
       <code>$this-&gt;withDoc</code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="3">
+      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
+      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullArrayAssignment occurrences="3">
+      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
+      <code>$this-&gt;diagram-&gt;customLinks['RT']</code>
+      <code>$this-&gt;diagram-&gt;customLinks['doc']</code>
+    </PossiblyNullArrayAssignment>
     <PossiblyNullPropertyAssignment occurrences="5">
       <code>$this-&gt;diagram</code>
       <code>$this-&gt;diagram</code>
@@ -1949,6 +1977,9 @@
       <code>setXScale</code>
       <code>setXyScale</code>
     </PossiblyUndefinedMethod>
+    <ReferenceConstraintViolation occurrences="1">
+      <code>$sameWideWidth</code>
+    </ReferenceConstraintViolation>
     <UndefinedPropertyAssignment occurrences="2">
       <code>$this-&gt;diagram-&gt;customLinks</code>
       <code>$this-&gt;diagram-&gt;customLinks</code>
@@ -2331,9 +2362,7 @@
       <code>null</code>
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
-    <PossiblyNullReference occurrences="7">
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
+    <PossiblyNullReference occurrences="5">
       <code>$existrel_foreign[$master_field_md5]</code>
       <code>$existrel_foreign[$master_field_md5]</code>
       <code>$existrel_foreign[$master_field_md5]</code>
