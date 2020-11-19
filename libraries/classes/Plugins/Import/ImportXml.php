@@ -24,6 +24,7 @@ use function simplexml_load_string;
 use function str_replace;
 use function strcmp;
 use function strlen;
+use const PHP_VERSION_ID;
 
 /**
  * Handles the import for the XML format
@@ -90,9 +91,11 @@ class ImportXml extends ImportPlugin
         }
 
         /**
-         * Disable loading of external XML entities.
+         * Disable loading of external XML entities for PHP versions below 8.0.
          */
-        libxml_disable_entity_loader();
+        if (PHP_VERSION_ID < 80000) {
+            libxml_disable_entity_loader();
+        }
 
         /**
          * Load the XML string
