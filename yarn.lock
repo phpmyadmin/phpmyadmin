@@ -1573,10 +1573,10 @@ clone-regexp@^2.1.0:
   dependencies:
     is-regexp "^2.0.0"
 
-codemirror@5.58.2:
-  version "5.58.2"
-  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.58.2.tgz#ed54a1796de1498688bea1cdd4e9eeb187565d1b"
-  integrity sha512-K/hOh24cCwRutd1Mk3uLtjWzNISOkm4fvXiMO7LucCrqbh6aJDdtqUziim3MZUI6wOY0rvY1SlL1Ork01uMy6w==
+codemirror@5.58.3:
+  version "5.58.3"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.58.3.tgz#3f0689854ecfbed5d4479a98b96148b2c3b79796"
+  integrity sha512-KBhB+juiyOOgn0AqtRmWyAT3yoElkuvWTI6hsHa9E6GQrl6bk/fdAYcvuqW1/upO9T9rtEtapWdw4XYcNiVDEA==
 
 collapse-white-space@^1.0.2:
   version "1.0.5"
@@ -2721,10 +2721,10 @@ jquery-hashchange@^2.0.0:
   resolved "https://registry.yarnpkg.com/jquery-hashchange/-/jquery-hashchange-2.0.0.tgz#905b801803b6928fa8b3655381badf42dc49ba82"
   integrity sha512-9/RrnnUKw7qLy5e4X8nCusAlvXZPpUuNZv9BnpSfSfIY/RJLyhd1N1YRvP03H3RwEdx4TKTWZ59AnBgcrdfC3A==
 
-jquery-migrate@3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.3.1.tgz#0f8e2b7531228fda5d88be58dc0e7d5848e52fd1"
-  integrity sha512-QAXfshB6xqaANDX8OPExKnnooLtX0cSDCKfRnqhdv+3CVEVD9L1v3zNAhZum/4AukKlWUWUoxM6ywJJcLMXLSA==
+jquery-migrate@3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.3.2.tgz#7829ee24de3054d0d2f42dd093390d8a7b7af01a"
+  integrity sha512-L3gYhr7yEtLUSAeqXSicVa0vRD4aGwjw/bWY8YzrO2o/qDY1BaMyP3oB3bZf5Auy3Hu9ynliio0CTyDWCBPVDw==
 
 jquery-mousewheel@3.1.13:
   version "3.1.13"
