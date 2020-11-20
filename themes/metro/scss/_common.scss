@@ -1525,19 +1525,6 @@ li {
   float: $left;
 }
 
-#div_mysql_charset_collations table {
-  float: $left;
-
-  th,
-  td {
-    padding: 0.4em;
-  }
-
-  th#collationHeader {
-    width: 35%;
-  }
-}
-
 .operations_half_width {
   width: 100%;
   float: $left;

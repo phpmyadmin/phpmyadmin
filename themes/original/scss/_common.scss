@@ -1169,19 +1169,6 @@ li.no_bullets {
   float: $left;
 }
 
-#div_mysql_charset_collations table {
-  float: $left;
-
-  th,
-  td {
-    padding: 0.4em;
-  }
-
-  th#collationHeader {
-    width: 35%;
-  }
-}
-
 #qbe_div_table_list,
 #qbe_div_sql_query {
   float: $left;

@@ -19,6 +19,7 @@ class CollationsControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
+        parent::defineVersionConstants();
         parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
 
@@ -39,7 +40,7 @@ class CollationsControllerTest extends AbstractTestCase
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
-            '<div id="div_mysql_charset_collations" class="row">',
+            '<table class="table table-light table-striped table-hover table-sm">',
             $actual
         );
         $this->assertStringContainsString(
@@ -55,9 +56,10 @@ class CollationsControllerTest extends AbstractTestCase
             $actual
         );
         $this->assertStringContainsString(
-            '<td>utf8_general_ci</td>',
+            'utf8_general_ci',
             $actual
         );
+        $this->assertStringContainsString('<span class="sr-only">(default)</span>', $actual);
         $this->assertStringContainsString(
             '<td>Unicode, case-insensitive</td>',
             $actual
@@ -67,7 +69,7 @@ class CollationsControllerTest extends AbstractTestCase
             $actual
         );
         $this->assertStringContainsString(
-            '<td>latin1_swedish_ci</td>',
+            'latin1_swedish_ci',
             $actual
         );
         $this->assertStringContainsString(
