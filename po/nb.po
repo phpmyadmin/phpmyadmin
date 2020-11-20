@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2020-11-20 09:24+0000\n"
+"PO-Revision-Date: 2020-11-20 09:33+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/nb_NO/>\n"
@@ -4862,16 +4862,12 @@ msgid "GZip output buffering"
 msgstr "GZip utbuffring"
 
 #: libraries/classes/Config/Descriptions.php:549
-#, fuzzy
-#| msgid ""
-#| "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
-#| "DATETIME and TIMESTAMP, ascending order otherwise"
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
 "[kbd]SMART[/kbd] - dvs. synkende rekkefølge for felter av typen TIME, DATE, "
-"DATETIME og TIMESTAMP, ellers stigende rekkefølge"
+"DATETIME og TIMESTAMP, ellers stigende rekkefølge."
 
 #: libraries/classes/Config/Descriptions.php:552
 msgid "Default sorting order"
@@ -4995,12 +4991,9 @@ msgid "Primary key default sort order"
 msgstr "Standard sorteringsrekkefølge"
 
 #: libraries/classes/Config/Descriptions.php:587
-#, fuzzy
-#| msgid ""
-#| "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
-msgstr "Gjenta topptekst hver n. rad; [kbd]0[/kbd] deaktiverer funksjonen"
+msgstr "Gjenta topptekst hver n. rad; [kbd]0[/kbd] deaktiverer funksjonen."
 
 #: libraries/classes/Config/Descriptions.php:588
 msgid "Repeat headers"
@@ -5225,15 +5218,12 @@ msgid "Hide databases"
 msgstr "Skul databaser"
 
 #: libraries/classes/Config/Descriptions.php:647
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no SQL query history support, suggested: "
-#| "[kbd]pma_history[/kbd]"
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
-"La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_history[/kbd]"
+"La stå tom for ingen SQL spørringshistorie, anbefalt: "
+"[kbd]pma__history[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:650
 msgid "SQL query history table"
@@ -5353,32 +5343,24 @@ msgid "Password for config auth"
 msgstr "Passord for config autentisering"
 
 #: libraries/classes/Config/Descriptions.php:682
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"La stå tom for ingen PDF schema støtte, anbefalt: [kbd]pma_pdf_pages[/kbd]"
+"La stå tom for ingen PDF schema støtte, anbefalt: [kbd]pma__pdf_pages[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:683
 msgid "PDF schema: pages table"
 msgstr "PDF schema: sidetabell"
 
 #: libraries/classes/Config/Descriptions.php:685
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Database brukt for relasjoner, bokmerker og PDF egenskaper. Se [a@https://"
-"wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for komplett informasjon. La stå "
-"blank for å slå av. Anbefalt: [kbd]phpmyadmin[/kbd]"
+"Database som brukes til relasjoner, bokmerker og PDF-funksjoner. Se [doc"
+"@linked-tables]pmadb[/doc] for fullstendig informasjon. La stå tomt uten "
+"støtte. Foreslått: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:689
 #: templates/server/databases/index.twig:33
@@ -5481,15 +5463,12 @@ msgid "Use SSL"
 msgstr "Bruk SSL"
 
 #: libraries/classes/Config/Descriptions.php:718
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
-#| "kbd]"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"La stå tom for ingen PDF schema støtte, anbefalt: [kbd]pma_table_coords[/kbd]"
+"La stå tom for ingen PDF schema støtte, anbefalt: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:719
 #, fuzzy
@@ -5498,16 +5477,12 @@ msgid "Designer and PDF schema: table coordinates"
 msgstr "PDF schema: tabellkoordinater"
 
 #: libraries/classes/Config/Descriptions.php:721
-#, fuzzy
-#| msgid ""
-#| "Table to describe the display columns, leave blank for no support; "
-#| "suggested: [kbd]pma_table_info[/kbd]"
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
 "Tabell for beskrivelse av visningskolonner, la stå tom for ingen støtte; "
-"anbefalt: [kbd]pma_table_info[/kbd]"
+"anbefalt: [kbd]pma__table_info[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:724
 msgid "Display columns table"
@@ -5574,15 +5549,12 @@ msgid "Statements to track"
 msgstr "Spørringer som skal spores"
 
 #: libraries/classes/Config/Descriptions.php:748
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no SQL query tracking support, suggested: "
-#| "[kbd]pma_tracking[/kbd]"
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
-"La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
+"La stå tom for ingen SQL spørringshistorie, anbefalt: "
+"[kbd]pma__tracking[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:751
 msgid "SQL query tracking table"
@@ -5620,6 +5592,9 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"Både denne tabellen og brukergruppetabellen kreves for å skru på den "
+"konfigurerbare menyfunksjonen; Hvis du lar en av dem være tomme, skrus denne "
+"funksjonen av, foreslått: [kbd]pma__users[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:767
 #, fuzzy
@@ -5684,12 +5659,6 @@ msgid "Allow to display all the rows"
 msgstr "Tillat visning av alle rader"
 
 #: libraries/classes/Config/Descriptions.php:789
-#, fuzzy
-#| msgid ""
-#| "Please note that enabling this has no effect with [kbd]config[/kbd] "
-#| "authentication mode because the password is hard coded in the "
-#| "configuration file; this does not limit the ability to execute the same "
-#| "command directly"
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -5697,7 +5666,7 @@ msgid ""
 msgstr ""
 "Merk at påslåing av denne ikke har noen effekt med [kbd]config[/kbd] "
 "autentiseringsmodus siden passordet er hardkodet i konfigurasjonsfila; dette "
-"begrenser ikke muligheten til å utføre samme kommando direkte"
+"begrenser ikke muligheten til å utføre samme kommando direkte."
 
 #: libraries/classes/Config/Descriptions.php:793
 msgid "Show password change form"
@@ -6013,12 +5982,6 @@ msgid "Table"
 msgstr "Tabell"
 
 #: libraries/classes/Config/Descriptions.php:862
-#, fuzzy
-#| msgid ""
-#| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
-#| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
-#| "Forwarded-For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-#| "HTTP_X_FORWARDED_FOR[/kbd]"
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -6026,9 +5989,9 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
 "Sett inn mellomlager som [kbd]IP: trusted HTTP header[/kbd]. Følgende "
-"eksempel spesifiserer at phpMyAdminskal stole på en HTTP_X_FORWARDED_FOR (X-"
-"Forwarded-For) header som kommer fra mellomlager 1.2.3.4:[br][kbd]1.2.3.4: "
-"HTTP_X_FORWARDED_FOR[/kbd]"
+"eksempel spesifiserer at phpMyAdminskal stole på en HTTP_X_FORWARDED_FOR (X"
+"-Forwarded-For) header som kommer fra mellomlager 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:867
 msgid "List of trusted proxies for IP allow/deny"
@@ -6483,13 +6446,7 @@ msgstr ""
 "Internettilbyder som har tusenvis av brukere, inkludert deg, tilknyttet."
 
 #: libraries/classes/Config/ServerConfigChecks.php:212
-#, fuzzy, php-format
-#| msgid ""
-#| "t the [kbd]config[/kbd] authentication type and included username  sword "
-#| "for auto-login, which is not a desirable option for live ts. Anyoneo "
-#| "knows or guesses your phpMyAdmin URL can directly ess your phpMyAdmin el. "
-#| "Set [a@?page=servers&amp;mode=edit&amp;id=d#tab_Server]authenticationpe[/"
-#| "a] to [kbd]cookie[/kbd] or [kbd]httpbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6497,12 +6454,11 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Du valgte [kbd]config[/kbd] autentisering og inkluderte brukernavn og "
-"passord for autmatisk innlogging, noe som ikke anbefales for aktive tjenere. "
-"Hvem som helst som kjenner phpMyAdmin URL kan direkte få adgang til ditt "
-"phpMyAdmin panel. Velg [a@?page=servers&amp;mode=edit&amp;id="
-"%1$d#tab_Server]autentiseringstype[/a] [kbd]cookie[/kbd] eller [kbd]http[/"
-"kbd]."
+"Du angir [kbd]config[/kbd] autentiseringstype og inkluderte brukernavn og "
+"passord for automatisk pålogging, noe som ikke er et ønskelig alternativ for "
+"live verter. Alle som kjenner eller gjetter phpMyAdmin URL-en din, kan få "
+"direkte tilgang til phpMyAdmin-panelet. Sett %1$s godkjenningstype %2$s til "
+"[kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:239
 msgid "You allow for connecting to the server without a password."
@@ -6539,7 +6495,7 @@ msgid ""
 "encrypt cookies; you don't need to remember it."
 msgstr ""
 "Du hadde ikke noe hemmelig sett for blowfish og har aktivert autentisering "
-"av [kbd] cookie [/kbd], så en nøkkel ble automatisk generert for deg. Den "
+"av [kbd]cookie[/kbd], så en nøkkel ble automatisk generert for deg. Den "
 "brukes til å kryptere informasjonskapsler; du trenger ikke å huske det."
 
 #: libraries/classes/Config/ServerConfigChecks.php:394
@@ -6622,18 +6578,16 @@ msgid "Invalid authentication type!"
 msgstr "Autentiseringstype"
 
 #: libraries/classes/Config/Validator.php:270
-#, fuzzy
-#| msgid "Empty username while using config authentication method"
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
-msgstr "Blankt brukernavn for bruk av config autentiseringsmetoden"
+msgstr "Tøm brukernavnet mens du bruker [kbd]config[/kbd] autentiseringsmetode!"
 
 #: libraries/classes/Config/Validator.php:278
-#, fuzzy
-#| msgid "Empty signon session name while using signon authentication method"
 msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
-msgstr "Tom signon sessjonsnavn ved bruk av signon autentiseringsmetode"
+msgstr ""
+"Tomt påloggingsøktsnavn mens du bruker [kbd]signon[/kbd] "
+"autentiseringsmetode!"
 
 #: libraries/classes/Config/Validator.php:287
 #, fuzzy
@@ -10922,10 +10876,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Kolonnenavn: "
+msgstr "Kolonnenavn:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:162
 #: libraries/classes/Plugins/Import/ImportCsv.php:177
@@ -17773,10 +17725,9 @@ msgid "Activate now"
 msgstr "Aktiver nå"
 
 #: templates/table/tracking/main.twig:111
-#, fuzzy, php-format
-#| msgid "Deactivate tracking for %s.%s"
+#, php-format
 msgid "Deactivate tracking for %s"
-msgstr "Deaktiver overvåkning av %s.%s"
+msgstr "Deaktiver overvåkning av %s"
 
 #: templates/table/tracking/main.twig:113
 msgid "Deactivate now"
