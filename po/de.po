@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-13 23:51+0100\n"
-"PO-Revision-Date: 2020-09-01 09:12+0000\n"
+"PO-Revision-Date: 2020-11-21 10:28+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2.1-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -16068,7 +16068,7 @@ msgstr "Wählen Sie vom Webserver-Uploadverzeichnis [strong]%s[/strong]:"
 
 #: templates/import.twig:80
 msgid "Select file to import"
-msgstr "Zu importierende Datei auswählen:"
+msgstr "Zu importierende Datei auswählen"
 
 #: templates/import.twig:85 templates/import.twig:115
 msgid "There are no files to upload!"
@@ -17491,7 +17491,7 @@ msgstr ""
 
 #: templates/server/status/advisor/index.twig:55
 msgid "Errors occurred while executing rule expressions:"
-msgstr "Beim Ausführen der Regelausdrücke sind Fehler aufgetreten."
+msgstr "Beim Ausführen der Regelausdrücke sind Fehler aufgetreten:"
 
 #: templates/server/status/advisor/index.twig:65
 msgid "Possible performance issues"
