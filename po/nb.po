@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2019-05-02 18:49+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2020-11-20 09:24+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/nb_NO/>\n"
+"phpmyadmin/5-0/nb_NO/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -5633,6 +5633,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"Begge disse tabellene kreves for å aktivere den konfigurerbare "
+"menyfunksjonen; Hvis du lar en av dem være tom, deaktiveres denne "
+"funksjonen, foreslått: [kbd]pma__usergroups[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:773
 #, fuzzy
@@ -6530,19 +6533,14 @@ msgstr ""
 "trenger funksjoner (%s) som ikke er tilgjengelig på dette systemet."
 
 #: libraries/classes/Config/ServerConfigChecks.php:382
-#, fuzzy
-#| msgid ""
-#| "You didn't have blowfish secret set and have enabled cookie "
-#| "authentication, so a key was automatically generated for you. It is used "
-#| "to encrypt cookies; you don't need to remember it."
 msgid ""
 "You didn't have blowfish secret set and have enabled [kbd]cookie[/kbd] "
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
-"Du hadde ikke satt blowfist hemmelig nøkkel eller slått på cookie "
-"autentisering så nøkkelen ble generert for deg. Den brukes til å krypterer "
-"cookies."
+"Du hadde ikke noe hemmelig sett for blowfish og har aktivert autentisering "
+"av [kbd] cookie [/kbd], så en nøkkel ble automatisk generert for deg. Den "
+"brukes til å kryptere informasjonskapsler; du trenger ikke å huske det."
 
 #: libraries/classes/Config/ServerConfigChecks.php:394
 #, fuzzy
@@ -6851,12 +6849,11 @@ msgid "Database %1$s has been created."
 msgstr "Databasen %1$s er opprettet."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:246
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s databasene har blitt slettet."
-msgstr[1] "%s databasene har blitt slettet."
+msgstr[0] "%1$d database har blitt slettet."
+msgstr[1] "%1$d databasene har blitt slettet."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:398
 #: libraries/classes/Import.php:128
@@ -16558,19 +16555,14 @@ msgstr ""
 "etterpå.."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
 "Etter at du har restartet MySQL tjeneren så klikk på Go knappen. Etterpå, så "
-"vil du se en melding som informerer deg at denne tjeneren <b>er</b> "
-"konfigurert som master."
+"vil du se en melding som informerer deg at denne tjeneren <strong>er</"
+"strong> konfigurert som master."
 
 #: templates/server/replication/master_replication.twig:4
 msgid "This server is configured as master in a replication process."
