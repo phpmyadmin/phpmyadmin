@@ -83,7 +83,7 @@ AJAX.registerOnload('server/variables.js', function () {
                 var $editor = $('<div></div>', { 'class': 'serverVariableEditor' })
                     .append(
                         $('<div></div>').append(
-                            $('<input>', { type: 'text' }).val(data.message)
+                            $('<input>', { type: 'text', 'class': 'form-control form-control-sm' }).val(data.message)
                         )
                     );
                     // Save and replace content
