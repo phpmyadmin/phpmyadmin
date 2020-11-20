@@ -8,18 +8,18 @@
             {{ legend }}
         </legend>
 
-        <table class="pma-table data">
-            <thead>
+        <table class="table table-light table-striped table-hover">
+            <thead class="thead-light">
                 <tr>
-                    <th>{{ type_label }}</th>
-                    <th>{% trans 'Privileges' %}</th>
-                    <th>{% trans 'Grant' %}</th>
+                    <th scope="col">{{ type_label }}</th>
+                    <th scope="col">{% trans 'Privileges' %}</th>
+                    <th scope="col">{% trans 'Grant' %}</th>
                     {% if type == 'database' %}
-                        <th>{% trans 'Table-specific privileges' %}</th>
+                        <th scope="col">{% trans 'Table-specific privileges' %}</th>
                     {% elseif type == 'table' %}
-                        <th>{% trans 'Column-specific privileges' %}</th>
+                        <th scope="col">{% trans 'Column-specific privileges' %}</th>
                     {% endif %}
-                    <th colspan="2">{% trans 'Action' %}</th>
+                    <th scope="col" colspan="2">{% trans 'Action' %}</th>
                 </tr>
             </thead>
 
