@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-13 23:51+0100\n"
-"PO-Revision-Date: 2020-11-19 15:47+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2020-11-20 09:24+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb_NO/>\n"
 "Language: nb\n"
@@ -3043,16 +3043,12 @@ msgid "Logo link URL"
 msgstr "Logo link URL"
 
 #: libraries/classes/Config/Descriptions.php:531
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])"
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Åpne den linkede siden i hovedvinduet ([kbd]main[/kbd]) eller i en ny en "
-"([kbd]new[/kbd])"
+"Åpne den linkede siden i hovedvinduet ([code]main[/code]) eller i en ny en "
+"([code]new[/code])"
 
 #: libraries/classes/Config/Descriptions.php:534
 msgid "Logo link target"
@@ -7753,8 +7749,8 @@ msgstr "Databasen %1$s er opprettet."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s database har blitt slettet."
-msgstr[1] "%s databasene har blitt slettet."
+msgstr[0] "%1$d database har blitt slettet."
+msgstr[1] "%1$d databasene har blitt slettet."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:483
 #: libraries/classes/Import.php:148
@@ -16720,10 +16716,9 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: templates/import.twig:74 templates/import.twig:104
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Merk fra opplastingskatalogen på vevtjeneren <b>%s</b>:"
+msgstr "Merk fra opplastingskatalogen på vevtjeneren [strong]%s[/strong]:"
 
 #: templates/import.twig:80
 #, fuzzy
@@ -18084,19 +18079,14 @@ msgstr ""
 "etterpå.."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
 "Etter at du har restartet MySQL tjeneren så klikk på Go knappen. Etterpå, så "
-"vil du se en melding som informerer deg at denne tjeneren <b>er</b> "
-"konfigurert som master."
+"vil du se en melding som informerer deg at denne tjeneren <strong>er</"
+"strong> konfigurert som master."
 
 #: templates/server/replication/master_replication.twig:4
 msgid "This server is configured as master in a replication process."
