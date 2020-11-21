@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
 "PO-Revision-Date: 2020-11-22 21:57+0000\n"
-"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/nb_NO/>\n"
 "Language: nb\n"
@@ -5344,6 +5344,7 @@ msgid "PDF schema: pages table"
 msgstr "PDF schema: sidetabell"
 
 #: libraries/classes/Config/Descriptions.php:685
+#, fuzzy
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -6794,7 +6795,7 @@ msgid "Database %1$s has been created."
 msgstr "Databasen %1$s er opprettet."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:246
-#, php-format
+#, fuzzy, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d database har blitt slettet."
@@ -16496,6 +16497,7 @@ msgstr ""
 "etterpå.."
 
 #: templates/server/replication/master_configuration.twig:21
+#, fuzzy
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
