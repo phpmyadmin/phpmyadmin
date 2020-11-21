@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-11-13 23:51+0100\n"
+"POT-Creation-Date: 2020-11-21 23:14+0100\n"
 "PO-Revision-Date: 2020-11-16 06:28+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1408,7 +1408,7 @@ msgid "Description"
 msgstr "Açıklama"
 
 #: libraries/classes/BrowseForeigners.php:331
-#: libraries/classes/Html/Generator.php:1260 libraries/classes/Language.php:209
+#: libraries/classes/Html/Generator.php:1210 libraries/classes/Language.php:209
 #: libraries/classes/Pdf.php:92
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:536
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:569
@@ -2447,7 +2447,7 @@ msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:337
 #: libraries/classes/Config/Descriptions.php:403 libraries/classes/Menu.php:527
-#: libraries/classes/Util.php:2424 libraries/config.values.php:155
+#: libraries/classes/Util.php:2432 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:8
 #: templates/server/privileges/user_properties.twig:20
@@ -2599,8 +2599,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:385 libraries/classes/Menu.php:287
 #: libraries/classes/Menu.php:403 libraries/classes/Menu.php:532
 #: libraries/classes/Navigation/Nodes/NodeTable.php:319
-#: libraries/classes/Util.php:1705 libraries/classes/Util.php:2425
-#: libraries/classes/Util.php:2440 libraries/classes/Util.php:2457
+#: libraries/classes/Util.php:1713 libraries/classes/Util.php:2433
+#: libraries/classes/Util.php:2448 libraries/classes/Util.php:2465
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -2787,7 +2787,7 @@ msgid "Column names in first row"
 msgstr "Sütun adları ilk satırda"
 
 #: libraries/classes/Config/Descriptions.php:451
-#: libraries/classes/Plugins/Import/ImportOds.php:76
+#: libraries/classes/Plugins/Import/ImportOds.php:77
 msgid "Do not import empty rows"
 msgstr "Boş satırları içe aktarma"
 
@@ -4073,8 +4073,8 @@ msgstr "Kilitli tabloları atla"
 #: libraries/classes/Config/Descriptions.php:889
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:387
 #: libraries/classes/Display/Results.php:3213
-#: libraries/classes/Html/Generator.php:734
-#: libraries/classes/Html/Generator.php:996
+#: libraries/classes/Html/Generator.php:684
+#: libraries/classes/Html/Generator.php:946
 #: libraries/classes/Server/UserGroups.php:125
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -4098,12 +4098,12 @@ msgid "Edit"
 msgstr "Düzenle"
 
 #: libraries/classes/Config/Descriptions.php:890
-#: libraries/classes/Html/Generator.php:698
+#: libraries/classes/Html/Generator.php:648
 msgid "Explain SQL"
 msgstr "SQL'i açıkla"
 
 #: libraries/classes/Config/Descriptions.php:891
-#: libraries/classes/Export.php:604 libraries/classes/Html/Generator.php:778
+#: libraries/classes/Export.php:604 libraries/classes/Html/Generator.php:728
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
 #: templates/server/status/variables/index.twig:12
@@ -4111,7 +4111,7 @@ msgid "Refresh"
 msgstr "Yenile"
 
 #: libraries/classes/Config/Descriptions.php:892
-#: libraries/classes/Html/Generator.php:763
+#: libraries/classes/Html/Generator.php:713
 msgid "Create PHP code"
 msgstr "PHP kodu oluştur"
 
@@ -4221,7 +4221,7 @@ msgstr "Tablo seçildiğinde tarayıcı penceresi başlığı."
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
-#: templates/database/tracking/tables.twig:117
+#: templates/database/tracking/tables.twig:154
 #: templates/database/triggers/list.twig:19
 #: templates/server/privileges/privileges_table.twig:6
 #: templates/server/privileges/privileges_table.twig:235
@@ -4544,7 +4544,7 @@ msgstr "en fazla %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:178
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Html/Generator.php:862
+#: libraries/classes/Html/Generator.php:812
 #: libraries/classes/Html/MySQLDocumentation.php:49
 #: libraries/classes/Sanitize.php:200 templates/home/index.twig:198
 #: templates/server/variables/index.twig:17
@@ -4680,8 +4680,8 @@ msgstr "Özel"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:57
 #: libraries/classes/Navigation/Nodes/NodeTable.php:310
-#: libraries/classes/Util.php:1704 libraries/classes/Util.php:2439
-#: libraries/classes/Util.php:2456 libraries/config.values.php:60
+#: libraries/classes/Util.php:1712 libraries/classes/Util.php:2447
+#: libraries/classes/Util.php:2464 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4725,8 +4725,8 @@ msgstr "OpenDocument Metni"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:369
 #: libraries/classes/Menu.php:309 libraries/classes/Menu.php:423
 #: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1617
-#: libraries/classes/Util.php:2428 libraries/classes/Util.php:2443
-#: libraries/classes/Util.php:2460 templates/database/events/index.twig:55
+#: libraries/classes/Util.php:2436 libraries/classes/Util.php:2451
+#: libraries/classes/Util.php:2468 templates/database/events/index.twig:55
 #: templates/database/events/index.twig:87
 #: templates/database/events/index.twig:88
 #: templates/database/events/row.twig:33
@@ -4769,8 +4769,8 @@ msgstr "VERİ YÜKLE kullanarak CSV"
 #: libraries/classes/Config/Forms/User/ImportForm.php:65
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:307
 #: libraries/classes/Menu.php:318 libraries/classes/Menu.php:433
-#: libraries/classes/Menu.php:565 libraries/classes/Util.php:2429
-#: libraries/classes/Util.php:2444 libraries/classes/Util.php:2461
+#: libraries/classes/Menu.php:565 libraries/classes/Util.php:2437
+#: libraries/classes/Util.php:2452 libraries/classes/Util.php:2469
 #: templates/import.twig:33 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -5695,7 +5695,7 @@ msgid "Matched rows:"
 msgstr "Eşleşen satırlar:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:117
-#: libraries/classes/Html/Generator.php:968 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:918 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL sorgusu:"
 
@@ -5764,13 +5764,13 @@ msgstr "Diğer"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
-#: libraries/classes/Util.php:595 libraries/classes/Util.php:627
+#: libraries/classes/Util.php:603 libraries/classes/Util.php:635
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:145
-#: libraries/classes/Util.php:593 libraries/classes/Util.php:625
+#: libraries/classes/Util.php:601 libraries/classes/Util.php:633
 msgid "."
 msgstr "."
 
@@ -5879,45 +5879,45 @@ msgstr "İşlemler"
 
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:184
-#: libraries/classes/Util.php:505
+#: libraries/classes/Util.php:509
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:185
-#: libraries/classes/Util.php:507
+#: libraries/classes/Util.php:511
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:186
-#: libraries/classes/Util.php:509
+#: libraries/classes/Util.php:513
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:187
-#: libraries/classes/Util.php:511
+#: libraries/classes/Util.php:515
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:188
-#: libraries/classes/Util.php:513
+#: libraries/classes/Util.php:517
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:189
-#: libraries/classes/Util.php:515
+#: libraries/classes/Util.php:519
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:190
-#: libraries/classes/Util.php:517
+#: libraries/classes/Util.php:521
 msgid "EiB"
 msgstr "EiB"
 
@@ -5937,7 +5937,7 @@ msgid "Traffic"
 msgstr "Trafik"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
-#: libraries/classes/Menu.php:570 libraries/classes/Util.php:2430
+#: libraries/classes/Menu.php:570 libraries/classes/Util.php:2438
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Ayarlar"
@@ -6165,7 +6165,7 @@ msgstr "Çıktıyı açıkla"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:270
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:171
-#: libraries/classes/Menu.php:537 libraries/classes/Util.php:2426
+#: libraries/classes/Menu.php:537 libraries/classes/Util.php:2434
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:18
 #: templates/database/events/index.twig:18
@@ -6648,7 +6648,7 @@ msgstr "Seçilen kısmi bağımlılıklar yok!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:428
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:593
-#: libraries/classes/Export.php:599 libraries/classes/Html/Generator.php:1072
+#: libraries/classes/Export.php:599 libraries/classes/Html/Generator.php:1022
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:311
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -7510,7 +7510,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Server/Privileges.php:2989
+#: libraries/classes/Server/Privileges.php:2994
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Kullanıcı"
@@ -8525,7 +8525,7 @@ msgid "View name can not be empty!"
 msgstr "Görünüm adı boş olamaz!"
 
 #: libraries/classes/Controllers/ViewOperationsController.php:87
-#: libraries/classes/Html/Generator.php:944 libraries/classes/Import.php:137
+#: libraries/classes/Html/Generator.php:894 libraries/classes/Import.php:137
 #: libraries/classes/InsertEdit.php:1574 libraries/classes/Message.php:194
 #: templates/error/generic.twig:37 templates/javascript/variables.twig:108
 msgid "Error"
@@ -8665,9 +8665,9 @@ msgstr "İç ilişki kaldırıldı."
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "Şema eklentileri yüklenemedi, lütfen kurulumunuzu denetleyin!"
 
-#: libraries/classes/Database/Events.php:111
-#: libraries/classes/Database/Events.php:120
-#: libraries/classes/Database/Events.php:144
+#: libraries/classes/Database/Events.php:110
+#: libraries/classes/Database/Events.php:119
+#: libraries/classes/Database/Events.php:143
 #: libraries/classes/Database/Routines.php:227
 #: libraries/classes/Database/Routines.php:251
 #: libraries/classes/Database/Routines.php:363
@@ -8679,10 +8679,10 @@ msgstr "Şema eklentileri yüklenemedi, lütfen kurulumunuzu denetleyin!"
 msgid "The following query has failed: \"%s\""
 msgstr "Şurada belirtilen sorgu başarısız oldu: \"%s\""
 
-#: libraries/classes/Database/Events.php:115
-#: libraries/classes/Database/Events.php:124
-#: libraries/classes/Database/Events.php:148
-#: libraries/classes/Database/Events.php:536
+#: libraries/classes/Database/Events.php:114
+#: libraries/classes/Database/Events.php:123
+#: libraries/classes/Database/Events.php:147
+#: libraries/classes/Database/Events.php:501
 #: libraries/classes/Database/Routines.php:231
 #: libraries/classes/Database/Routines.php:255
 #: libraries/classes/Database/Routines.php:367
@@ -8692,81 +8692,73 @@ msgstr "Şurada belirtilen sorgu başarısız oldu: \"%s\""
 #: libraries/classes/Database/Triggers.php:144
 #: libraries/classes/Database/Triggers.php:169
 #: libraries/classes/Database/Triggers.php:550
-#: libraries/classes/Html/Generator.php:1016
+#: libraries/classes/Html/Generator.php:966
 msgid "MySQL said: "
 msgstr "MySQL çıktısı: "
 
-#: libraries/classes/Database/Events.php:131
+#: libraries/classes/Database/Events.php:130
 #, php-format
 msgid "Event %1$s has been modified."
 msgstr "Olay %1$s değiştirildi."
 
-#: libraries/classes/Database/Events.php:151
+#: libraries/classes/Database/Events.php:150
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "Olay %1$s oluşturuldu."
 
-#: libraries/classes/Database/Events.php:165
+#: libraries/classes/Database/Events.php:164
 #: libraries/classes/Database/Routines.php:271
 #: libraries/classes/Database/Triggers.php:186
 msgid "One or more errors have occurred while processing your request:"
 msgstr "İsteğiniz işlenirken bir ya da daha fazla hata meydana geldi:"
 
-#: libraries/classes/Database/Events.php:236
+#: libraries/classes/Database/Events.php:235
 #: templates/database/events/index.twig:105
 #: templates/database/events/index.twig:109
 msgid "Add event"
 msgstr "Olay ekle"
 
-#: libraries/classes/Database/Events.php:240
+#: libraries/classes/Database/Events.php:239
 msgid "Edit event"
 msgstr "Olay düzenle"
 
-#: libraries/classes/Database/Events.php:395
+#: libraries/classes/Database/Events.php:394
 #: libraries/classes/Database/Routines.php:1235
 #: libraries/classes/Database/Triggers.php:488
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Tanımlayıcı \"kullanıcıadı@anamakineadı\" biçiminde olmak zorundadır!"
 
-#: libraries/classes/Database/Events.php:402
+#: libraries/classes/Database/Events.php:401
 msgid "You must provide an event name!"
 msgstr "Bir olay adı vermek zorundasınız!"
 
-#: libraries/classes/Database/Events.php:417
+#: libraries/classes/Database/Events.php:416
 msgid "You must provide a valid interval value for the event."
 msgstr "Her olay için geçerli aralık değeri vermek zorundasınız."
 
-#: libraries/classes/Database/Events.php:436
+#: libraries/classes/Database/Events.php:435
 msgid "You must provide a valid execution time for the event."
 msgstr "Olay için geçerli bir yürütme zamanı vermek zorundasınız."
 
-#: libraries/classes/Database/Events.php:440
+#: libraries/classes/Database/Events.php:439
 msgid "You must provide a valid type for the event."
 msgstr "Olay için geçerli bir tür vermek zorundasınız."
 
-#: libraries/classes/Database/Events.php:464
+#: libraries/classes/Database/Events.php:463
 msgid "You must provide an event definition."
 msgstr "Bir olay tanımı vermek zorundasınız."
 
-#: libraries/classes/Database/Events.php:489
-msgid "OFF"
-msgstr "KAPALI"
-
-#: libraries/classes/Database/Events.php:494
-msgid "ON"
-msgstr "AÇIK"
-
-#: libraries/classes/Database/Events.php:533
+#: libraries/classes/Database/Events.php:498
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Üzgünüm, kaldırılmış olayı geri yükleme başarısız oldu."
 
-#: libraries/classes/Database/Events.php:534
+#: libraries/classes/Database/Events.php:499
 #: libraries/classes/Database/Routines.php:1866
 #: libraries/classes/Database/Triggers.php:548
 msgid "The backed up query was:"
 msgstr "Yedeklenmiş sorgu:"
 
-#: libraries/classes/Database/Events.php:566
+#: libraries/classes/Database/Events.php:531
 #: libraries/classes/Database/Routines.php:151
 #: libraries/classes/Database/Routines.php:1398
 #: libraries/classes/Database/Routines.php:1576
@@ -8774,17 +8766,17 @@ msgstr "Yedeklenmiş sorgu:"
 msgid "Error in processing request:"
 msgstr "İstek işlemede hata:"
 
-#: libraries/classes/Database/Events.php:568
+#: libraries/classes/Database/Events.php:533
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "%2$s veritabanında %1$s adıyla olay bulunamadı."
 
-#: libraries/classes/Database/Events.php:600
+#: libraries/classes/Database/Events.php:565
 #, php-format
 msgid "Export of event %s"
 msgstr "%s olayını dışa aktarma"
 
-#: libraries/classes/Database/Events.php:618
+#: libraries/classes/Database/Events.php:583
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
@@ -9003,10 +8995,10 @@ msgstr "Uzunluk/Değerler"
 #: libraries/classes/Plugins/Export/ExportYaml.php:43
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:31
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:61
-#: libraries/classes/Plugins/Import/ImportOds.php:53
+#: libraries/classes/Plugins/Import/ImportOds.php:54
 #: libraries/classes/Plugins/Import/ImportShp.php:68
 #: libraries/classes/Plugins/Import/ImportSql.php:48
-#: libraries/classes/Plugins/Import/ImportXml.php:52
+#: libraries/classes/Plugins/Import/ImportXml.php:53
 #: templates/console/display.twig:7 templates/console/display.twig:140
 #: templates/database/designer/database_tables.twig:114
 #: templates/display/results/table.twig:107
@@ -9313,31 +9305,31 @@ msgstr ""
 "SSL bağlantısı sunucu tarafından zorlandı, otomatik olarak etkinleştiriliyor."
 
 #: libraries/classes/Display/Results.php:906
-#: libraries/classes/Html/Generator.php:1272
-#: libraries/classes/Html/Generator.php:1275
+#: libraries/classes/Html/Generator.php:1222
+#: libraries/classes/Html/Generator.php:1225
 msgctxt "First page"
 msgid "Begin"
 msgstr "Başlangıç"
 
 #: libraries/classes/Display/Results.php:913
-#: libraries/classes/Html/Generator.php:1273
-#: libraries/classes/Html/Generator.php:1276
+#: libraries/classes/Html/Generator.php:1223
+#: libraries/classes/Html/Generator.php:1226
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Önceki"
 
 #: libraries/classes/Display/Results.php:941
-#: libraries/classes/Html/Generator.php:1305
-#: libraries/classes/Html/Generator.php:1312
+#: libraries/classes/Html/Generator.php:1255
+#: libraries/classes/Html/Generator.php:1262
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "Sonraki"
 
 #: libraries/classes/Display/Results.php:971
-#: libraries/classes/Html/Generator.php:1306
-#: libraries/classes/Html/Generator.php:1313
+#: libraries/classes/Html/Generator.php:1256
+#: libraries/classes/Html/Generator.php:1263
 msgctxt "Last page"
 msgid "End"
 msgstr "Son"
@@ -9353,8 +9345,8 @@ msgid "Full texts"
 msgstr "Tam metinler"
 
 #: libraries/classes/Display/Results.php:1939
-#: libraries/classes/Display/Results.php:1965 libraries/classes/Util.php:3075
-#: libraries/classes/Util.php:3098 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1965 libraries/classes/Util.php:3083
+#: libraries/classes/Util.php:3106 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:61
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:114
@@ -9367,8 +9359,8 @@ msgid "Descending"
 msgstr "Büyükten Küçüğe"
 
 #: libraries/classes/Display/Results.php:1947
-#: libraries/classes/Display/Results.php:1957 libraries/classes/Util.php:3067
-#: libraries/classes/Util.php:3090 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1957 libraries/classes/Util.php:3075
+#: libraries/classes/Util.php:3098 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:60
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:112
@@ -9905,64 +9897,64 @@ msgstr "“%s” veritabanına git."
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s işlevselliği bilinen bir hata tarafından zarar görmüş, bakınız %s"
 
-#: libraries/classes/Html/Generator.php:294
+#: libraries/classes/Html/Generator.php:244
 msgid "SSL is not being used"
 msgstr "SSL kullanılmamakta"
 
-#: libraries/classes/Html/Generator.php:299
+#: libraries/classes/Html/Generator.php:249
 msgid "SSL is used with disabled verification"
 msgstr "Etkisizleştirilmiş doğrulama ile SSL kullanılmakta"
 
-#: libraries/classes/Html/Generator.php:301
+#: libraries/classes/Html/Generator.php:251
 msgid "SSL is used without certification authority"
 msgstr "Sertifika yetkisi olmadan SSL kullanılmakta"
 
-#: libraries/classes/Html/Generator.php:304
+#: libraries/classes/Html/Generator.php:254
 msgid "SSL is used"
 msgstr "SSL kullanılmakta"
 
-#: libraries/classes/Html/Generator.php:403
+#: libraries/classes/Html/Generator.php:353
 msgid "The PHP function password_hash() with default options."
 msgstr "Varsayılan seçeneklerle PHP işlevi password_hash()."
 
-#: libraries/classes/Html/Generator.php:404
+#: libraries/classes/Html/Generator.php:354
 msgid "password_hash() PHP function"
 msgstr "password_hash() PHP işlevi"
 
-#: libraries/classes/Html/Generator.php:709
+#: libraries/classes/Html/Generator.php:659
 msgid "Skip Explain SQL"
 msgstr "SQL Açıklamasını atla"
 
-#: libraries/classes/Html/Generator.php:717
+#: libraries/classes/Html/Generator.php:667
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "%s sitesinde Açıklamayı Çözümle"
 
-#: libraries/classes/Html/Generator.php:747
+#: libraries/classes/Html/Generator.php:697
 msgid "Without PHP code"
 msgstr "PHP kodsuz"
 
-#: libraries/classes/Html/Generator.php:754
+#: libraries/classes/Html/Generator.php:704
 #: templates/database/multi_table_query/form.twig:170
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "Sorguyu gönder"
 
-#: libraries/classes/Html/Generator.php:799 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:749 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "Profil çıkart"
 
-#: libraries/classes/Html/Generator.php:813
+#: libraries/classes/Html/Generator.php:763
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Satır içi düzenle"
 
-#: libraries/classes/Html/Generator.php:951
+#: libraries/classes/Html/Generator.php:901
 msgid "Static analysis:"
 msgstr "Sabit çözümleme:"
 
-#: libraries/classes/Html/Generator.php:954
+#: libraries/classes/Html/Generator.php:904
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Çözümleme sırasında %d hata bulundu."
@@ -10200,7 +10192,7 @@ msgstr "%1$s (<code>%2$s</code> yanına)"
 
 #: libraries/classes/Menu.php:272
 #: libraries/classes/Navigation/Nodes/NodeTable.php:322
-#: libraries/classes/Util.php:1708 libraries/classes/Util.php:2455
+#: libraries/classes/Util.php:1716 libraries/classes/Util.php:2463
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10210,8 +10202,8 @@ msgstr "Gözat"
 
 #: libraries/classes/Menu.php:291 libraries/classes/Menu.php:407
 #: libraries/classes/Navigation/Nodes/NodeTable.php:313
-#: libraries/classes/Util.php:1706 libraries/classes/Util.php:2441
-#: libraries/classes/Util.php:2458 libraries/config.values.php:64
+#: libraries/classes/Util.php:1714 libraries/classes/Util.php:2449
+#: libraries/classes/Util.php:2466 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179
 #: templates/database/structure/structure_table_row.twig:53
@@ -10220,7 +10212,7 @@ msgstr "Ara"
 
 #: libraries/classes/Menu.php:302
 #: libraries/classes/Navigation/Nodes/NodeTable.php:316
-#: libraries/classes/Util.php:1707 libraries/classes/Util.php:2459
+#: libraries/classes/Util.php:1715 libraries/classes/Util.php:2467
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10230,8 +10222,8 @@ msgid "Insert"
 msgstr "Ekle"
 
 #: libraries/classes/Menu.php:329 libraries/classes/Menu.php:447
-#: libraries/classes/Server/Privileges.php:2963 libraries/classes/Util.php:2446
-#: libraries/classes/Util.php:2462 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2968 libraries/classes/Util.php:2454
+#: libraries/classes/Util.php:2470 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -10240,15 +10232,15 @@ msgid "Privileges"
 msgstr "Yetkiler"
 
 #: libraries/classes/Menu.php:339 libraries/classes/Menu.php:348
-#: libraries/classes/Menu.php:438 libraries/classes/Util.php:1709
-#: libraries/classes/Util.php:2445 libraries/classes/Util.php:2463
+#: libraries/classes/Menu.php:438 libraries/classes/Util.php:1717
+#: libraries/classes/Util.php:2453 libraries/classes/Util.php:2471
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "İşlemler"
 
 #: libraries/classes/Menu.php:354 libraries/classes/Menu.php:473
-#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2450
-#: libraries/classes/Util.php:2464
+#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2458
+#: libraries/classes/Util.php:2472
 msgid "Tracking"
 msgstr "İzleme"
 
@@ -10260,7 +10252,7 @@ msgstr "İzleme"
 #: libraries/classes/Plugins/Export/ExportSql.php:2165
 #: libraries/classes/Plugins/Export/ExportTexytext.php:559
 #: libraries/classes/Plugins/Export/ExportXml.php:135
-#: libraries/classes/Util.php:2449 libraries/classes/Util.php:2465
+#: libraries/classes/Util.php:2457 libraries/classes/Util.php:2473
 #: templates/database/triggers/list.twig:6
 msgid "Triggers"
 msgstr "Tetikleyiciler"
@@ -10270,11 +10262,11 @@ msgstr "Tetikleyiciler"
 msgid "Database seems to be empty!"
 msgstr "Veritabanı boş olarak görünüyor!"
 
-#: libraries/classes/Menu.php:415 libraries/classes/Util.php:2442
+#: libraries/classes/Menu.php:415 libraries/classes/Util.php:2450
 msgid "Query"
 msgstr "Sorgu"
 
-#: libraries/classes/Menu.php:453 libraries/classes/Util.php:2447
+#: libraries/classes/Menu.php:453 libraries/classes/Util.php:2455
 #: templates/database/routines/index.twig:18
 msgid "Routines"
 msgstr "Yordamlar"
@@ -10283,15 +10275,15 @@ msgstr "Yordamlar"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:24
 #: libraries/classes/Plugins/Export/ExportSql.php:1017
 #: libraries/classes/Plugins/Export/ExportXml.php:115
-#: libraries/classes/Util.php:2448 templates/database/events/index.twig:6
+#: libraries/classes/Util.php:2456 templates/database/events/index.twig:6
 msgid "Events"
 msgstr "Olaylar"
 
-#: libraries/classes/Menu.php:480 libraries/classes/Util.php:2451
+#: libraries/classes/Menu.php:480 libraries/classes/Util.php:2459
 msgid "Designer"
 msgstr "Tasarımcı"
 
-#: libraries/classes/Menu.php:489 libraries/classes/Util.php:2452
+#: libraries/classes/Menu.php:489 libraries/classes/Util.php:2460
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Merkezi sütunlar"
@@ -10301,12 +10293,12 @@ msgid "User accounts"
 msgstr "Kullanıcı hesapları"
 
 #: libraries/classes/Menu.php:585 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:2431 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:2439 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "İkili değer günlüğü"
 
 #: libraries/classes/Menu.php:592 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:2432
+#: libraries/classes/Util.php:2440
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10314,21 +10306,21 @@ msgid "Replication"
 msgstr "Kopya etme"
 
 #: libraries/classes/Menu.php:598 libraries/classes/Server/Status/Data.php:228
-#: libraries/classes/Util.php:2433 libraries/config.values.php:159
+#: libraries/classes/Util.php:2441 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:178
 msgid "Variables"
 msgstr "Değişkenler"
 
-#: libraries/classes/Menu.php:603 libraries/classes/Util.php:2434
+#: libraries/classes/Menu.php:603 libraries/classes/Util.php:2442
 msgid "Charsets"
 msgstr "Karakter Grupları"
 
-#: libraries/classes/Menu.php:608 libraries/classes/Util.php:2436
+#: libraries/classes/Menu.php:608 libraries/classes/Util.php:2444
 msgid "Engines"
 msgstr "Motorlar"
 
-#: libraries/classes/Menu.php:613 libraries/classes/Util.php:2435
+#: libraries/classes/Menu.php:613 libraries/classes/Util.php:2443
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Eklentiler"
@@ -11596,7 +11588,7 @@ msgid "Import these many number of rows (optional):"
 msgstr "Bu birçok satır sayısını içe aktar (isteğe bağlı):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:101
-#: libraries/classes/Plugins/Import/ImportOds.php:68
+#: libraries/classes/Plugins/Import/ImportOds.php:69
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -11663,17 +11655,17 @@ msgstr "MedyaViki Tablosu"
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Medyaviki girdisinin biçimi geçersiz olan satır: <br>%s."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:82
+#: libraries/classes/Plugins/Import/ImportOds.php:83
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "Yüzdeleri doğru ondalık olarak içe aktar <i>(örn. %12.00'ı .12'ye)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:88
+#: libraries/classes/Plugins/Import/ImportOds.php:89
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Para birimlerini içe aktar <i>(örn. $5.00'ı 5.00'a)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:155
-#: libraries/classes/Plugins/Import/ImportXml.php:114
-#: libraries/classes/Plugins/Import/ImportXml.php:178
+#: libraries/classes/Plugins/Import/ImportOds.php:158
+#: libraries/classes/Plugins/Import/ImportXml.php:117
+#: libraries/classes/Plugins/Import/ImportXml.php:181
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -11681,7 +11673,7 @@ msgstr ""
 "Belirlenmiş XML dosyası ya kusurlu ya da tamamlanmamış. Lütfen sorunu "
 "düzeltin ve tekrar deneyin."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:166
+#: libraries/classes/Plugins/Import/ImportOds.php:169
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "OpenDocument Hesap Tablosu ayrıştırılamadı!"
 
@@ -11712,7 +11704,7 @@ msgstr "SQL uyumluluk kipi:"
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Sıfır değerleri için <code>AUTO_INCREMENT</code> değeri kullanma"
 
-#: libraries/classes/Plugins/Import/ImportXml.php:48
+#: libraries/classes/Plugins/Import/ImportXml.php:49
 msgid "XML"
 msgstr "XML"
 
@@ -11865,7 +11857,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:70
-#: libraries/classes/Util.php:779
+#: libraries/classes/Util.php:787
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y, %H:%M:%S"
 
@@ -12639,7 +12631,7 @@ msgstr "Saklanan yordamların yürütülmesine izin verir."
 
 #: libraries/classes/Server/Privileges.php:789
 #: libraries/classes/Server/Privileges.php:863
-#: libraries/classes/Server/Privileges.php:3956
+#: libraries/classes/Server/Privileges.php:3961
 msgid "Native MySQL authentication"
 msgstr "Yerel MySQL kimlik doğrulaması"
 
@@ -12700,49 +12692,49 @@ msgstr "Yordam"
 msgid "Routine-specific privileges"
 msgstr "Yordama özgü yetkiler"
 
-#: libraries/classes/Server/Privileges.php:2300
+#: libraries/classes/Server/Privileges.php:2302
 msgid "No users selected for deleting!"
 msgstr "Silmek için kullanıcı seçilmedi!"
 
-#: libraries/classes/Server/Privileges.php:2303
+#: libraries/classes/Server/Privileges.php:2305
 msgid "Reloading the privileges"
 msgstr "Yetkiler yeniden yükleniyor"
 
-#: libraries/classes/Server/Privileges.php:2326
+#: libraries/classes/Server/Privileges.php:2328
 msgid "The selected users have been deleted successfully."
 msgstr "Seçilen kullanıcılar başarılı olarak silindi."
 
-#: libraries/classes/Server/Privileges.php:2403
+#: libraries/classes/Server/Privileges.php:2405
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s için yetkileri güncellediniz."
 
-#: libraries/classes/Server/Privileges.php:2490
+#: libraries/classes/Server/Privileges.php:2492
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Bulunan kullanıcı yok."
 
-#: libraries/classes/Server/Privileges.php:2570
+#: libraries/classes/Server/Privileges.php:2572
 #, php-format
 msgid "Deleting %s"
 msgstr "%s siliniyor"
 
-#: libraries/classes/Server/Privileges.php:2601
+#: libraries/classes/Server/Privileges.php:2603
 msgid "The privileges were reloaded successfully."
 msgstr "Yetkiler başarılı olarak yüklendi."
 
-#: libraries/classes/Server/Privileges.php:2699
+#: libraries/classes/Server/Privileges.php:2701
 #, php-format
 msgid "The user %s already exists!"
 msgstr "%s kullanıcısı zaten var!"
 
-#: libraries/classes/Server/Privileges.php:2980
+#: libraries/classes/Server/Privileges.php:2985
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s için yetkiler"
 
-#: libraries/classes/Server/Privileges.php:3119
+#: libraries/classes/Server/Privileges.php:3124
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12753,7 +12745,7 @@ msgstr ""
 "herhangi bir (%) anamakineden bir bağlantıya izin veriyorsa bu "
 "kullanıcıların bağlanmalarını önler."
 
-#: libraries/classes/Server/Privileges.php:3162
+#: libraries/classes/Server/Privileges.php:3167
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12766,7 +12758,7 @@ msgstr ""
 "sunucunun kullandığı yetkilerden farklı olabilir. Bu durumda devam etmeden "
 "önce %syetkileri yeniden yüklemeniz%s gerekir."
 
-#: libraries/classes/Server/Privileges.php:3178
+#: libraries/classes/Server/Privileges.php:3183
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12780,7 +12772,7 @@ msgstr ""
 "yeniden yüklenmek zorundadır ancak şu anda, yetkileri YENİDEN YÜKLEMENİZ "
 "gerekmez."
 
-#: libraries/classes/Server/Privileges.php:3514
+#: libraries/classes/Server/Privileges.php:3519
 msgid "You have added a new user."
 msgstr "Yeni bir kullanıcı eklediniz."
 
@@ -13072,7 +13064,7 @@ msgid "No valid image path for theme %s found!"
 msgstr "%s teması için geçerli resim yolu bulunamadı!"
 
 #: libraries/classes/Tracking.php:235
-#: templates/database/tracking/tables.twig:78
+#: templates/database/tracking/tables.twig:115
 #: templates/table/tracking/main.twig:73
 msgid "Tracking report"
 msgstr "İzleme raporu"
@@ -13146,7 +13138,7 @@ msgid "Data definition statement"
 msgstr "Veri tanımlama ifadesi"
 
 #: libraries/classes/Tracking.php:642
-#: templates/database/tracking/tables.twig:89
+#: templates/database/tracking/tables.twig:126
 #: templates/table/tracking/main.twig:80
 msgid "Structure snapshot"
 msgstr "Yapı görüntüsü yakalama"
@@ -13206,16 +13198,6 @@ msgstr "Sürüm %1$s / %2$s oluşturuldu."
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Sürüm %1$s oluşturuldu, %2$s için izleme etkin."
-
-#: libraries/classes/Tracking.php:1131 libraries/classes/Tracking.php:1271
-#: templates/table/tracking/main.twig:10 templates/table/tracking/main.twig:53
-msgid "active"
-msgstr "etkin"
-
-#: libraries/classes/Tracking.php:1134 libraries/classes/Tracking.php:1266
-#: templates/table/tracking/main.twig:12 templates/table/tracking/main.twig:56
-msgid "not active"
-msgstr "etkin değil"
 
 #: libraries/classes/Types.php:206
 msgid ""
@@ -13538,136 +13520,136 @@ msgstr "En fazla: %s%s"
 
 #. l10n: Short month name
 #. l10n: Short month name for January
-#: libraries/classes/Util.php:736 templates/javascript/variables.twig:34
+#: libraries/classes/Util.php:744 templates/javascript/variables.twig:34
 msgid "Jan"
 msgstr "Oca"
 
 #. l10n: Short month name
 #. l10n: Short month name for February
-#: libraries/classes/Util.php:738 templates/javascript/variables.twig:35
+#: libraries/classes/Util.php:746 templates/javascript/variables.twig:35
 msgid "Feb"
 msgstr "Şub"
 
 #. l10n: Short month name
 #. l10n: Short month name for March
-#: libraries/classes/Util.php:740 templates/javascript/variables.twig:36
+#: libraries/classes/Util.php:748 templates/javascript/variables.twig:36
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
 #. l10n: Short month name for April
-#: libraries/classes/Util.php:742 templates/javascript/variables.twig:37
+#: libraries/classes/Util.php:750 templates/javascript/variables.twig:37
 msgid "Apr"
 msgstr "Nis"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:744
+#: libraries/classes/Util.php:752
 msgctxt "Short month name"
 msgid "May"
 msgstr "May"
 
 #. l10n: Short month name
 #. l10n: Short month name for June
-#: libraries/classes/Util.php:746 templates/javascript/variables.twig:39
+#: libraries/classes/Util.php:754 templates/javascript/variables.twig:39
 msgid "Jun"
 msgstr "Haz"
 
 #. l10n: Short month name
 #. l10n: Short month name for July
-#: libraries/classes/Util.php:748 templates/javascript/variables.twig:40
+#: libraries/classes/Util.php:756 templates/javascript/variables.twig:40
 msgid "Jul"
 msgstr "Tem"
 
 #. l10n: Short month name
 #. l10n: Short month name for August
-#: libraries/classes/Util.php:750 templates/javascript/variables.twig:41
+#: libraries/classes/Util.php:758 templates/javascript/variables.twig:41
 msgid "Aug"
 msgstr "Ağu"
 
 #. l10n: Short month name
 #. l10n: Short month name for September
-#: libraries/classes/Util.php:752 templates/javascript/variables.twig:42
+#: libraries/classes/Util.php:760 templates/javascript/variables.twig:42
 msgid "Sep"
 msgstr "Eyl"
 
 #. l10n: Short month name
 #. l10n: Short month name for October
-#: libraries/classes/Util.php:754 templates/javascript/variables.twig:43
+#: libraries/classes/Util.php:762 templates/javascript/variables.twig:43
 msgid "Oct"
 msgstr "Eki"
 
 #. l10n: Short month name
 #. l10n: Short month name for November
-#: libraries/classes/Util.php:756 templates/javascript/variables.twig:44
+#: libraries/classes/Util.php:764 templates/javascript/variables.twig:44
 msgid "Nov"
 msgstr "Kas"
 
 #. l10n: Short month name
 #. l10n: Short month name for December
-#: libraries/classes/Util.php:758 templates/javascript/variables.twig:45
+#: libraries/classes/Util.php:766 templates/javascript/variables.twig:45
 msgid "Dec"
 msgstr "Ara"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:762
+#: libraries/classes/Util.php:770
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Paz"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:764 templates/javascript/variables.twig:58
+#: libraries/classes/Util.php:772 templates/javascript/variables.twig:58
 msgid "Mon"
 msgstr "Ptesi"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:766 templates/javascript/variables.twig:59
+#: libraries/classes/Util.php:774 templates/javascript/variables.twig:59
 msgid "Tue"
 msgstr "Sal"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:768 templates/javascript/variables.twig:60
+#: libraries/classes/Util.php:776 templates/javascript/variables.twig:60
 msgid "Wed"
 msgstr "Çar"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:770 templates/javascript/variables.twig:61
+#: libraries/classes/Util.php:778 templates/javascript/variables.twig:61
 msgid "Thu"
 msgstr "Per"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:772 templates/javascript/variables.twig:62
+#: libraries/classes/Util.php:780 templates/javascript/variables.twig:62
 msgid "Fri"
 msgstr "Cum"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:774 templates/javascript/variables.twig:63
+#: libraries/classes/Util.php:782 templates/javascript/variables.twig:63
 msgid "Sat"
 msgstr "Ctesi"
 
-#: libraries/classes/Util.php:800
+#: libraries/classes/Util.php:808
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "ÖS"
 
-#: libraries/classes/Util.php:802
+#: libraries/classes/Util.php:810
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "ÖÖ"
 
-#: libraries/classes/Util.php:877
+#: libraries/classes/Util.php:885
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s gün, %s saat, %s dakika ve %s saniye"
 
-#: libraries/classes/Util.php:913
+#: libraries/classes/Util.php:921
 msgid "Missing parameter:"
 msgstr "Eksik parametre:"
 
-#: libraries/classes/Util.php:2427
+#: libraries/classes/Util.php:2435
 msgid "Users"
 msgstr "Kullanıcılar"
 
-#: libraries/classes/Util.php:3059
+#: libraries/classes/Util.php:3067
 #: templates/database/multi_table_query/form.twig:59
 msgid "Sort"
 msgstr "Sırala"
@@ -14320,7 +14302,7 @@ msgstr "Sıralamak için tıklayın."
 #: templates/database/routines/index.twig:30
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tables.twig:18
-#: templates/database/tracking/tables.twig:118
+#: templates/database/tracking/tables.twig:155
 #: templates/database/triggers/list.twig:21 templates/indexes.twig:14
 #: templates/server/databases/index.twig:166
 #: templates/server/privileges/privileges_summary.twig:22
@@ -14660,6 +14642,19 @@ msgstr "Tümünü işaretle"
 #: templates/database/events/index.twig:116
 msgid "Event scheduler status"
 msgstr "Olay zamanlayıcısı durumu"
+
+#: templates/database/events/index.twig:120
+#: templates/database/tracking/tables.twig:47
+msgid "Click to toggle"
+msgstr "Değiştirmek için tıklayın"
+
+#: templates/database/events/index.twig:133
+msgid "ON"
+msgstr "AÇIK"
+
+#: templates/database/events/index.twig:144
+msgid "OFF"
+msgstr "KAPALI"
 
 #: templates/database/export/index.twig:62
 msgid ""
@@ -15233,23 +15228,33 @@ msgstr "Oluşturuldu"
 msgid "Updated"
 msgstr "Güncellendi"
 
-#: templates/database/tracking/tables.twig:56
-#: templates/database/tracking/tables.twig:102
-#: templates/database/tracking/tables.twig:103
+#: templates/database/tracking/tables.twig:61
+#: templates/table/tracking/main.twig:10 templates/table/tracking/main.twig:53
+msgid "active"
+msgstr "etkin"
+
+#: templates/database/tracking/tables.twig:73
+#: templates/table/tracking/main.twig:12 templates/table/tracking/main.twig:56
+msgid "not active"
+msgstr "etkin değil"
+
+#: templates/database/tracking/tables.twig:93
+#: templates/database/tracking/tables.twig:139
+#: templates/database/tracking/tables.twig:140
 msgid "Delete tracking"
 msgstr "İzlemeyi sil"
 
-#: templates/database/tracking/tables.twig:67
+#: templates/database/tracking/tables.twig:104
 msgid "Versions"
 msgstr "Sürümler"
 
-#: templates/database/tracking/tables.twig:109
+#: templates/database/tracking/tables.twig:146
 msgid "Untracked tables"
 msgstr "İzlenmeyen tablolar"
 
-#: templates/database/tracking/tables.twig:140
-#: templates/database/tracking/tables.twig:153
-#: templates/database/tracking/tables.twig:154
+#: templates/database/tracking/tables.twig:177
+#: templates/database/tracking/tables.twig:190
+#: templates/database/tracking/tables.twig:191
 #: templates/table/structure/display_structure.twig:353
 msgid "Track table"
 msgstr "Tabloyu izle"
@@ -18427,10 +18432,6 @@ msgstr "Al"
 #: templates/themes.twig:4
 msgid "Get more themes!"
 msgstr "Daha fazla tema al!"
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "Değiştirmek için tıklayın"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
