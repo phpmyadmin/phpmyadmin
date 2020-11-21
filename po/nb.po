@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-11-20 09:33+0000\n"
+"PO-Revision-Date: 2020-11-22 21:57+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/nb_NO/>\n"
@@ -5633,6 +5633,7 @@ msgid "PDF schema: pages table"
 msgstr "PDF schema: sidetabell"
 
 #: libraries/classes/Config/Descriptions.php:1107
+#, fuzzy
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -6957,7 +6958,7 @@ msgid "Database %1$s has been created."
 msgstr "Databasen %1$s er opprettet."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:208
-#, php-format
+#, fuzzy, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d database har blitt slettet."
