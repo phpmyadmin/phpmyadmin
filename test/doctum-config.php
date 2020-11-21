@@ -19,5 +19,6 @@ return new Doctum($iterator, [
     'title'                => json_decode(file_get_contents($root . 'composer.json'))->description,
     'build_dir'            => $root . 'build/apidocs/',
     'cache_dir'            => $root . 'tmp/',
+    'version'              => 'master',
     'remote_repository'    => new GitHubRemoteRepository('phpmyadmin/phpmyadmin', $root),
 ]);
