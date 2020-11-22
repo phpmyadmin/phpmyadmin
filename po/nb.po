@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-21 23:14+0100\n"
-"PO-Revision-Date: 2020-11-22 21:57+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-11-23 17:18+0000\n"
+"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb_NO/>\n"
 "Language: nb\n"
@@ -2854,8 +2854,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
-"Definerer om forrige innlogging skal huske eller ikke i [kbd]cookie[/kbd] "
-"autentiseringsmodus"
+"Definerer om forrige innlogging skal huskes eller ikke i [kbd]cookie[/kbd] "
+"autentiseringsmodus."
 
 #: libraries/classes/Config/Descriptions.php:474
 msgid "Recall user name"
@@ -3533,7 +3533,7 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"La stå tom for ingen [doc@bookmarks@]bookmark[/doc] support, forslag: "
+"La stå tomt for ingen [doc@bookmarks@]bookmark[/doc] støtte, foreslått: "
 "[kbd]pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:661
@@ -3575,8 +3575,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"En spesiell MySQL-bruker konfigurert med begrensede tillatelser, mer "
-"informasjon tilgjengelig på [doc@linked-tables] dokumentasjon [/doc]."
+"En spesiell MySQL bruker konfigurert med begrensede rettigheter, mer "
+"informasjon tilgjengelig på [doc@linked-tables]documentation[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:674
 msgid "Control user"
@@ -3772,7 +3772,6 @@ msgid "PDF schema: pages table"
 msgstr "PDF schema: sidetabell"
 
 #: libraries/classes/Config/Descriptions.php:734
-#, fuzzy
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -3833,7 +3832,7 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"La stå tom for ingen [doc@relations@]relation-links[/doc] support, forslag: "
+"La stå tom for ingen [doc@relations@]relation-links[/doc] støtte, anbefalt: "
 "[kbd]pma__relation[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:756
@@ -3843,7 +3842,7 @@ msgstr "Relasjonstabell"
 #: libraries/classes/Config/Descriptions.php:758
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr "Se [doc@authentication-modes]autentiseringstyper[/doc] for et eksempel"
+msgstr "Se [doc@authentication-modes]autentiseringstyper[/doc] for et eksempel."
 
 #: libraries/classes/Config/Descriptions.php:761
 msgid "Signon session name"
@@ -5112,7 +5111,7 @@ msgstr ""
 "Du angir [kbd]config[/kbd] autentiseringstype og inkluderte brukernavn og "
 "passord for automatisk pålogging, noe som ikke er et ønskelig alternativ for "
 "live verter. Alle som kjenner eller gjetter phpMyAdmin URL-en din, kan få "
-"direkte tilgang til phpMyAdmin-panelet. Sett %1$s godkjenningstype %2$s til "
+"direkte tilgang til phpMyAdmin-panelet. Sett %1$sauthentication type%2$s til "
 "[kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:228
@@ -5245,8 +5244,7 @@ msgstr ""
 
 #: libraries/classes/Config/Validator.php:293
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
-msgstr ""
-"Tom påloggings-URL mens du bruker [kbd]signon[/kbd] autentiseringsmetode!"
+msgstr "Tom signon URL ved bruk av [kbd]signon[/kbd] autentiseringsmetode!"
 
 #: libraries/classes/Config/Validator.php:347
 msgid ""
@@ -7712,11 +7710,11 @@ msgid "Database %1$s has been created."
 msgstr "Databasen %1$s er opprettet."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:325
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] "%1$d database har blitt slettet."
-msgstr[1] "%1$d databasene har blitt slettet."
+msgstr[1] "%1$d databaser har blitt slettet."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:483
 #: libraries/classes/Import.php:148
@@ -8577,8 +8575,8 @@ msgid ""
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"Opprett den skrivbare mappen til webserveren [em] config [/em] i phpMyAdmin "
-"toppnivå katalog som beskrevet i [doc@setup_script] dokumentasjon [/doc]. "
+"Opprett den skrivbare mappen til nettserveren [em]config[/em] i phpMyAdmin "
+"toppnivå katalog som beskrevet i [doc@setup_script]documentation[/doc]. "
 "Ellers vil du bare kunne laste ned eller vise den."
 
 #: libraries/classes/Controllers/Setup/HomeController.php:124
@@ -10786,10 +10784,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Navigation/NavigationTree.php:816
-#, fuzzy
-#| msgid "Column names: "
 msgid "Groups"
-msgstr "Kolonnenavn: "
+msgstr "Grupper"
 
 #: libraries/classes/Navigation/NavigationTree.php:982
 #, php-format
@@ -12045,7 +12041,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:126
 msgid "Column names:"
-msgstr "Kolonnenavn:"
+msgstr "Kolonne navn:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:265
 #: libraries/classes/Plugins/Import/ImportCsv.php:635
@@ -12093,11 +12089,11 @@ msgstr "Ugyldig format i CSV importen i linje %d."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:83
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr "Importer prosenter som riktige desimaler <i>(ex. 12.00% to .12)</i>"
+msgstr "Importer prosenter som ekte desimaler <i>(eks. 12.00% til .12)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:89
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr "Importer valuta <i>(ex. $5.00 to 5.00)</i>"
+msgstr "Importer valuta <i>(eks. $5.00 til 5.00)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:158
 #: libraries/classes/Plugins/Import/ImportXml.php:117
@@ -12660,7 +12656,7 @@ msgstr "Påslått"
 
 #: libraries/classes/Relation.php:153
 msgid "Configuration of pmadb…"
-msgstr "Konfigurasjon av pmadb…"
+msgstr "Konfigurasjon av pmadb …"
 
 #: libraries/classes/Relation.php:157 libraries/classes/Relation.php:193
 msgid "General relation features"
@@ -15807,7 +15803,7 @@ msgstr[1] "%1$s treff i <strong>%2$s</strong>"
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong>Totalt:</strong> <em>%count%</em> treff"
+msgstr[0] "<strong>Total:</strong> <em>%count%</em> treff"
 msgstr[1] "<strong>Totalt:</strong> <em>%count%</em> treff"
 
 #: templates/database/structure/add_prefix.twig:7
@@ -18048,14 +18044,13 @@ msgstr ""
 "etterpå.."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
-"Etter at du har restartet MySQL tjeneren så klikk på Go knappen. Etterpå, så "
-"vil du se en melding som informerer deg at denne tjeneren <strong>er</"
+"Etter at du har restartet MySQL tjeneren så klikk på Gå knappen. Etterpå, så "
+"vil du se en melding som informerer deg om at denne tjeneren <strong>er</"
 "strong> konfigurert som master."
 
 #: templates/server/replication/master_replication.twig:4
