@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2020-11-20 09:33+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-11-22 21:57+0000\n"
+"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/nb_NO/>\n"
 "Language: nb\n"
@@ -5309,23 +5309,14 @@ msgstr ""
 "La stå tom for ingen PDF schema støtte, anbefalt: [kbd]pma_table_coords[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:675
-#, fuzzy
-#| msgid ""
-#| "You can use MySQL wildcard characters (% and _), escape them if you want "
-#| "to use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
-#| "[kbd]'my_db'[/kbd]. Using this option you can sort database list, just "
-#| "enter their names in order and use [kbd]*[/kbd] at the end to show the "
-#| "rest in alphabetical order."
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
-"Du kan sortere listen ved å legge inn navnene på databasene i rekkefølge, og "
-"bruke [kbd]*[/kbd] til slutt for å vise resten i alfabetisk rekkefølge.\n"
-"Merk: Du kan bruke MySQL jokertegn (% og _). Du må escape dem hvis du ønsker "
-"å bruke dem som vanlige karakterer, f.eks. bruk [kbd]'my\\_db'[/kbd] og ikke "
-"[kbd]'my_db'[/kbd] for å vise et understrek tegn."
+"Du kan bruke MySQL jokertegn (% og _), unnslippe dem hvis du vil bruke deres "
+"bokstavelige forekomster, dvs. bruke [kbd]'my\\_db'[/kbd] og ikke "
+"[kbd]'my_db'[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:679
 msgid "Show only listed databases"
@@ -7046,7 +7037,7 @@ msgstr ""
 "Antall forespørsler for å lese en rad basert på en fast posisjon. Denne er "
 "høy om du utfører mange spørringer som behøver sorteringer av resultatet. Du "
 "har mest sansynlig mange spørringer som krever at MySQL leser hele tabeller "
-"eller du har joins som som ikke bruker nøkler korrekt."
+"eller du har joins som ikke bruker nøkler korrekt."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:291
 msgid ""
@@ -9391,10 +9382,8 @@ msgid "Add prefix"
 msgstr "Utfør indeks(er)"
 
 #: libraries/classes/MultSubmits.php:519
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "Vil du virkelig "
+msgstr "Vil du virkelig utføre følgende spørsmål?"
 
 #: libraries/classes/Navigation/Navigation.php:219
 #, fuzzy
@@ -13544,8 +13533,8 @@ msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
-"Et tall med fast antall desimaler (M, D) - maksimalt antall sifre (M) er 65 "
-"(standard 10), maksimalt antall desimaler (D)  30 (standard 0)"
+"Et tall med fast antall desimaler (M, D) - maksimalt antall sifre (M) er 65 ("
+"standard 10), maksimalt antall desimaler (D) 30 (standard 0)"
 
 #: libraries/classes/Types.php:240
 msgid ""
@@ -13578,8 +13567,8 @@ msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
-"En bit-felttype (M), lagring av M bits per verdi (standard er 1,  maksimum "
-"er 64)"
+"En bit-felttype (M), lagring av M bits per verdi (standard er 1, maksimum er "
+"64)"
 
 #: libraries/classes/Types.php:262
 msgid ""
