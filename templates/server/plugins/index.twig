@@ -15,19 +15,19 @@
     </div>
   </div>
   {% for type, list in plugins %}
-    <div class="responsivetable row">
-      <div class="col-12">
-        <table class="pma-table data_full_width" id="plugins-{{ clean_types[type] }}">
-          <caption class="tblHeaders">
+    <div class="row">
+      <div class="table-responsive col-12">
+        <table class="table table-light table-striped table-hover" id="plugins-{{ clean_types[type] }}">
+          <caption>
             {{ type }}
           </caption>
-          <thead>
+          <thead class="thead-light">
             <tr>
-              <th>{% trans 'Plugin' %}</th>
-              <th>{% trans 'Description' %}</th>
-              <th>{% trans 'Version' %}</th>
-              <th>{% trans 'Author' %}</th>
-              <th>{% trans 'License' %}</th>
+              <th scope="col">{% trans 'Plugin' %}</th>
+              <th scope="col">{% trans 'Description' %}</th>
+              <th scope="col">{% trans 'Version' %}</th>
+              <th scope="col">{% trans 'Author' %}</th>
+              <th scope="col">{% trans 'License' %}</th>
             </tr>
           </thead>
           <tbody>
@@ -36,7 +36,7 @@
                 <th>
                   {{ plugin.name }}
                   {% if plugin.status != 'ACTIVE' %}
-                    <small class="attention">
+                    <span class="badge badge-danger">
                       {% if plugin.status == 'INACTIVE' %}
                         {% trans 'inactive' %}
                       {% elseif plugin.status == 'DISABLED' %}
@@ -46,7 +46,7 @@
                       {% elseif plugin.status == 'DELETED' %}
                         {% trans 'deleted' %}
                       {% endif %}
-                    </small>
+                    </span>
                   {% endif %}
                 </th>
                 <td>{{ plugin.description }}</td>

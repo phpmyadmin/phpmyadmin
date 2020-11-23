@@ -21,6 +21,7 @@ class PluginsControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
+        parent::defineVersionConstants();
         parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
 
@@ -73,23 +74,23 @@ class PluginsControllerTest extends AbstractTestCase
 
         //validate 1:Items
         $this->assertStringContainsString(
-            '<th>Plugin</th>',
+            '<th scope="col">Plugin</th>',
             $actual
         );
         $this->assertStringContainsString(
-            '<th>Description</th>',
+            '<th scope="col">Description</th>',
             $actual
         );
         $this->assertStringContainsString(
-            '<th>Version</th>',
+            '<th scope="col">Version</th>',
             $actual
         );
         $this->assertStringContainsString(
-            '<th>Author</th>',
+            '<th scope="col">Author</th>',
             $actual
         );
         $this->assertStringContainsString(
-            '<th>License</th>',
+            '<th scope="col">License</th>',
             $actual
         );
 
