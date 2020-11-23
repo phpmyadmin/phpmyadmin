@@ -140,76 +140,75 @@ class InnodbTest extends AbstractTestCase
     public function testGetPageBufferpool(): void
     {
         $this->assertEquals(
-            '<table class="pma-table data" id="table_innodb_bufferpool_usage">' . "\n" .
-            '    <caption class="tblHeaders">' . "\n" .
+            '<table class="table table-light table-striped table-hover w-auto float-left">' . "\n" .
+            '    <caption>' . "\n" .
             '        Buffer Pool Usage' . "\n" .
             '    </caption>' . "\n" .
-            '    <tfoot>' . "\n" .
+            '    <tfoot class="thead-light">' . "\n" .
             '        <tr>' . "\n" .
             '            <th colspan="2">' . "\n" .
-            '                Total' . "\n" .
-            '                : 4,096&nbsp;pages / 65,536&nbsp;KiB' . "\n" .
+            '                Total: 4,096&nbsp;pages / 65,536&nbsp;KiB' . "\n" .
             '            </th>' . "\n" .
             '        </tr>' . "\n" .
             '    </tfoot>' . "\n" .
             '    <tbody>' . "\n" .
             '        <tr>' . "\n" .
-            '            <th>Free pages</th>' . "\n" .
-            '            <td class="value">0</td>' . "\n" .
+            '            <th scope="row">Free pages</th>' . "\n" .
+            '            <td class="text-monospace text-right">0</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
-            '            <th>Dirty pages</th>' . "\n" .
-            '            <td class="value">0</td>' . "\n" .
+            '            <th scope="row">Dirty pages</th>' . "\n" .
+            '            <td class="text-monospace text-right">0</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
-            '            <th>Pages containing data</th>' . "\n" .
-            '            <td class="value">0' . "\n" .
+            '            <th scope="row">Pages containing data</th>' . "\n" .
+            '            <td class="text-monospace text-right">0' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
-            '            <th>Pages to be flushed</th>' . "\n" .
-            '            <td class="value">0' . "\n" .
+            '            <th scope="row">Pages to be flushed</th>' . "\n" .
+            '            <td class="text-monospace text-right">0' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
-            '            <th>Busy pages</th>' . "\n" .
-            '            <td class="value">0' . "\n" .
+            '            <th scope="row">Busy pages</th>' . "\n" .
+            '            <td class="text-monospace text-right">0' . "\n" .
             '</td>' . "\n" .
             '        </tr>    </tbody>' . "\n" .
             '</table>' . "\n\n" .
-            '<table class="pma-table data" id="table_innodb_bufferpool_activity">' . "\n" .
-            '    <caption class="tblHeaders">' . "\n" .
+            '<table class="table table-light table-striped table-hover w-auto ml-4 float-left">' . "\n" .
+            '    <caption>' . "\n" .
             '        Buffer Pool Activity' . "\n" .
             '    </caption>' . "\n" .
             '    <tbody>' . "\n" .
             '        <tr>' . "\n" .
-            '            <th>Read requests</th>' . "\n" .
-            '            <td class="value">64' . "\n" .
+            '            <th scope="row">Read requests</th>' . "\n" .
+            '            <td class="text-monospace text-right">64' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
-            '            <th>Write requests</th>' . "\n" .
-            '            <td class="value">64' . "\n" .
+            '            <th scope="row">Write requests</th>' . "\n" .
+            '            <td class="text-monospace text-right">64' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
-            '            <th>Read misses</th>' . "\n" .
-            '            <td class="value">32' . "\n" .
+            '            <th scope="row">Read misses</th>' . "\n" .
+            '            <td class="text-monospace text-right">32' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
-            '            <th>Write waits</th>' . "\n" .
-            '            <td class="value">0' . "\n" .
+            '            <th scope="row">Write waits</th>' . "\n" .
+            '            <td class="text-monospace text-right">0' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
-            '            <th>Read misses in %</th>' . "\n" .
-            '            <td class="value">50   %' . "\n" .
+            '            <th scope="row">Read misses in %</th>' . "\n" .
+            '            <td class="text-monospace text-right">50   %' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '        <tr>' . "\n" .
-            '            <th>Write waits in %</th>' . "\n" .
-            '            <td class="value">0 %' . "\n" .
+            '            <th scope="row">Write waits in %</th>' . "\n" .
+            '            <td class="text-monospace text-right">0 %' . "\n" .
             '</td>' . "\n" .
             '        </tr>' . "\n" .
             '    </tbody>' . "\n" .
