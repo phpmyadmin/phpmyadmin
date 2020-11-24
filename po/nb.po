@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-21 23:14+0100\n"
 "PO-Revision-Date: 2020-11-24 22:02+0000\n"
-"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb_NO/>\n"
 "Language: nb\n"
@@ -2777,8 +2777,9 @@ msgstr "Ikke avbryt under INSERT feil"
 
 #: libraries/classes/Config/Descriptions.php:435
 #: libraries/classes/Config/Descriptions.php:447
+#, fuzzy
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr "Legg til OPPDATERING PÅ DUPLIKAT NØKKEL"
+msgstr "Legg til OPPDATERING VED DUPLISERING AV NØKKEL"
 
 #: libraries/classes/Config/Descriptions.php:436
 #: libraries/classes/Config/Descriptions.php:448
