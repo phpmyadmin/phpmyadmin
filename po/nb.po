@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-11-24 11:59+0000\n"
+"PO-Revision-Date: 2020-11-25 22:28+0000\n"
 "Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/nb_NO/>\n"
@@ -6961,8 +6961,8 @@ msgstr "Databasen %1$s er opprettet."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%1$d database har blitt slettet.%1$d databaser har blitt slettet."
-msgstr[1] ""
+msgstr[0] "%1$d database har blitt slettet."
+msgstr[1] "%1$d databaser har blitt slettet."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:343
 #: libraries/classes/Import.php:122
@@ -9533,10 +9533,8 @@ msgid "Server Choice:"
 msgstr "Tjenervalg:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:313
-#, fuzzy
-#| msgid "Could not connect to the target"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Kunne ikke koble til målet"
+msgstr "Kunne ikke koble til reCAPTCHA tjeneste!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:315
 msgid "Entered captcha is wrong, try again!"
@@ -11276,10 +11274,8 @@ msgstr ""
 "Kan ikke lese masterloggposisjon. Muligens privilegieproblem på master."
 
 #: libraries/classes/ReplicationGui.php:1025
-#, fuzzy
-#| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "Kan ikke endre master"
+msgstr "Kan ikke endre master!"
 
 #: libraries/classes/ReplicationGui.php:1029
 #, fuzzy, php-format
@@ -13766,10 +13762,8 @@ msgid "Let every user access this bookmark"
 msgstr "La alle brukere ha adgang til dette bokmerket"
 
 #: libraries/classes/Sql.php:831
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
-msgstr "Bokmerke %s opprettet"
+msgstr "Bokmerke er ikke opprettet!"
 
 #: libraries/classes/Sql.php:941
 #, php-format
@@ -14452,10 +14446,8 @@ msgid "The profile has been updated."
 msgstr "Profilen har blitt oppdatert."
 
 #: libraries/classes/UserPassword.php:74
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password is too long!"
-msgstr "Passordnøkling"
+msgstr "Passord er for langt!"
 
 #: libraries/classes/UserPreferences.php:157
 msgid "Could not save configuration"
@@ -14818,10 +14810,8 @@ msgid "Settings will be imported from your browser's local storage."
 msgstr ""
 
 #: prefs_manage.php:253
-#, fuzzy
-#| msgid "Other core settings"
 msgid "You have no saved settings!"
-msgstr "Andre hovedinnstillinger"
+msgstr "Du har ingen lagrede innstillinger!"
 
 #: prefs_manage.php:258 prefs_manage.php:343
 msgid "This feature is not supported by your web browser"
@@ -14980,10 +14970,8 @@ msgid ""
 msgstr ""
 
 #: setup/frames/index.inc.php:97
-#, fuzzy
-#| msgid "Configuration storage"
 msgid "Configuration not saved!"
-msgstr "Konfigurasjonslager"
+msgstr "Konfigurasjon er ikke lagret!"
 
 #: setup/frames/index.inc.php:100
 msgid ""
