@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-21 23:14+0100\n"
-"PO-Revision-Date: 2020-11-23 17:18+0000\n"
+"PO-Revision-Date: 2020-11-24 11:59+0000\n"
 "Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb_NO/>\n"
@@ -17,22 +17,24 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Oppetid under en dag"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "Oppetid er mindre enn 1 dag, ytelsejustering er kanskje ikke nøyaktig."
 
 #: libraries/advisory_rules_generic.php:14
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"For å ha mer nøyaktige gjennomsnitt anbefales det å la serveren kjøre lenger "
+"enn en dag før du kjører denne analysatoren"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Oppetid er bare %s"
 
 #: libraries/advisory_rules_generic.php:22
 #, fuzzy
@@ -45,12 +47,15 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Færre enn 1000 spørsmål har blitt kjørt mot denne serveren. Anbefalingene er "
+"kanskje ikke nøyaktige."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"La serveren kjøre i lengre tid til den har utført en større mengde spørsmål."
 
 #: libraries/advisory_rules_generic.php:32
 #, fuzzy, php-format
@@ -68,6 +73,8 @@ msgstr "Vis SQL spørringer"
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Det er mange langsomme spørsmål sammenlignet med den totale mengden "
+"spørringer."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:57
@@ -75,11 +82,13 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Det kan være lurt å øke {long_query_time} eller optimalisere spørringene som "
+"er oppført i den langsomme spørringsloggen"
 
 #: libraries/advisory_rules_generic.php:46
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Den sakte spørringsgraden bør være under 5%%, verdien din er %s%%."
 
 #: libraries/advisory_rules_generic.php:51
 #, fuzzy
@@ -91,6 +100,7 @@ msgstr "Flush query cache"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Det er en høy andel langsomme spørsmål sammenlignet med serverens oppetid."
 
 #: libraries/advisory_rules_generic.php:60
 #, php-format
@@ -98,6 +108,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Du har en sakte spørringsfrekvens på %s per time. Du bør ha mindre enn 1%% "
+"per time."
 
 #: libraries/advisory_rules_generic.php:65
 #, fuzzy
@@ -110,12 +122,16 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} er satt til 10 sekunder eller mer, og derfor blir bare "
+"langsomme spørsmål som tar over 10 sekunder logget."
 
 #: libraries/advisory_rules_generic.php:73
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Det anbefales å sette {long_query_time} til en lavere verdi, avhengig av "
+"miljøet ditt. Vanligvis foreslås en verdi på 1-5 sekunder."
 
 #: libraries/advisory_rules_generic.php:76
 #, fuzzy, php-format
@@ -142,6 +158,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Aktiver langsom loggføring ved å sette {log_slow_queries} til \"PÅ\". Dette "
+"vil hjelpe til med å feilsøke spørsmål som har dårlige resultater."
 
 #: libraries/advisory_rules_generic.php:90
 #, fuzzy
@@ -154,6 +172,8 @@ msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Aktiver treg logglogging ved å sette {slow_query_log} til \"PÅ\". Dette vil "
+"hjelpe til med å feilsøke spørsmål som har dårlige resultater."
 
 #: libraries/advisory_rules_generic.php:103
 #, fuzzy
@@ -169,13 +189,15 @@ msgstr "Velg tabeller"
 
 #: libraries/advisory_rules_generic.php:111
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "MySQL-serverversjonen er mindre enn 5.1."
 
 #: libraries/advisory_rules_generic.php:113
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Du bør oppgradere, ettersom MySQL 5.1 har forbedret ytelsen, og MySQL 5.5 "
+"enda mer."
 
 #: libraries/advisory_rules_generic.php:115
 #: libraries/advisory_rules_generic.php:129
@@ -194,17 +216,19 @@ msgstr "Versjon"
 
 #: libraries/advisory_rules_generic.php:124
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Versjon mindre enn 5.1.30 (den første GA-versjonen av 5.1)."
 
 #: libraries/advisory_rules_generic.php:126
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Du bør oppgradere, siden nyere versjoner av MySQL 5.1 har forbedret ytelsen "
+"og MySQL 5.5 enda mer."
 
 #: libraries/advisory_rules_generic.php:138
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Versjon mindre enn 5.5.8 (den første GA-versjonen av 5.5)."
 
 #: libraries/advisory_rules_generic.php:139
 #, fuzzy
@@ -221,7 +245,7 @@ msgstr "Beskrivelse"
 
 #: libraries/advisory_rules_generic.php:148
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "Versjonen er samlet fra kilden, ikke en offisiell MySQL-binær."
 
 #: libraries/advisory_rules_generic.php:150
 msgid ""
@@ -229,24 +253,30 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Hvis du ikke kompilerte fra kilden, bruker du kanskje en pakke modifisert av "
+"en distribusjon. MySQL-håndboken er bare nøyaktig for offisielle MySQL-"
+"binære filer, ikke for noen pakkedistribusjoner (som RedHat, Debian/Ubuntu "
+"osv.)."
 
 #: libraries/advisory_rules_generic.php:154
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "'kilde' funnet i version_comment"
 
 #: libraries/advisory_rules_generic.php:161
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "MySQL-manualen er bare nøyaktig for offisielle MySQL-binærfiler."
 
 #: libraries/advisory_rules_generic.php:163
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Percona dokumentasjon er på <a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules_generic.php:166
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "'percona' funnet i version_comment"
 
 #: libraries/advisory_rules_generic.php:170
 #, fuzzy
@@ -256,7 +286,7 @@ msgstr "MySQL-tegnsett"
 
 #: libraries/advisory_rules_generic.php:174
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL er ikke kompilert som en 64-biters pakke."
 
 #: libraries/advisory_rules_generic.php:176
 msgid ""
@@ -264,11 +294,14 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Minnekapasiteten er over 3 GiB (forutsatt at serveren er på localhost), så "
+"MySQL har kanskje ikke tilgang til hele minnet ditt. Det kan være lurt å "
+"vurdere å installere 64-biters versjonen av MySQL."
 
 #: libraries/advisory_rules_generic.php:180
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Tilgjengelig minne på denne verten: %s"
 
 #: libraries/advisory_rules_generic.php:186
 #, fuzzy
@@ -2260,7 +2293,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:291
 #: libraries/classes/Plugins/Export/ExportSql.php:348
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Ekskluder definisjonen av nåværende bruker"
 
 #: libraries/classes/Config/Descriptions.php:292
 #: libraries/classes/Plugins/Export/ExportSql.php:354
@@ -2317,7 +2350,9 @@ msgstr "Fremmednøkkelbegrensning"
 
 #: libraries/classes/Config/Descriptions.php:314
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr "Forvalgsverdi for fremmede nøkkelsjekker for noen spørsmål."
+msgstr ""
+"Standardverdi for fremmed nøkkel kontroller avkrysningsruten for noen "
+"spørsmål."
 
 #: libraries/classes/Config/Descriptions.php:315
 msgid "Foreign key checks"
@@ -2722,11 +2757,12 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:427
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Aktiver dra og slipp-import"
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
+"Fjern avmerkingen i avmerkingsboksen for å deaktivere dra og slipp-import"
 
 #: libraries/classes/Config/Descriptions.php:429
 msgid "Partial import: allow interrupt"
@@ -2742,7 +2778,7 @@ msgstr "Ikke avbryt under INSERT feil"
 #: libraries/classes/Config/Descriptions.php:435
 #: libraries/classes/Config/Descriptions.php:447
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr "Legg til OPPDATERING VED DUPLIKAT AV NØKKEL"
+msgstr "Legg til OPPDATERING PÅ DUPLIKAT NØKKEL"
 
 #: libraries/classes/Config/Descriptions.php:436
 #: libraries/classes/Config/Descriptions.php:448
@@ -2974,16 +3010,12 @@ msgid "Maximum tables"
 msgstr "Maks antall tabeller"
 
 #: libraries/classes/Config/Descriptions.php:512
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]0[/kbd] for no limit)"
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
 "Maks antal byte et skript har lov til å bruke, f.eks. [kbd]32M[/kbd] "
-"([kbd]0[/kbd] for ingen begrensning)"
+"([kbd]-1[/kbd] for ingen begrensning og [kbd]0[/kbd] for ingen endring)"
 
 #: libraries/classes/Config/Descriptions.php:515
 msgid "Memory limit"
@@ -7713,8 +7745,8 @@ msgstr "Databasen %1$s er opprettet."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%1$d database har blitt slettet."
-msgstr[1] "%1$d databaser har blitt slettet."
+msgstr[0] "%1$d database har blitt slettet.%1$d databaser har blitt slettet."
+msgstr[1] ""
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:483
 #: libraries/classes/Import.php:148
