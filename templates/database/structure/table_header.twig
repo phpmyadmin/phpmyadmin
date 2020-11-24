@@ -1,10 +1,10 @@
 <form method="post" action="{{ url('/database/structure') }}" name="tablesForm" id="tablesForm">
 {{ get_hidden_inputs(db) }}
-<div class="responsivetable">
-<table id="structureTable" class="pma-table data">
-    <thead>
+<div class="table-responsive">
+<table class="table table-light table-striped table-hover table-sm w-auto">
+    <thead class="thead-light">
         <tr>
-            <th class="print_ignore"></th>
+            <th class="d-print-none"></th>
             <th>{{ sortable_table_header('Table'|trans, 'table') }}</th>
             {% if replication %}
                 <th>{% trans 'Replication' %}</th>
@@ -18,7 +18,7 @@
             {% if num_favorite_tables > 0 %}
                 {% set action_colspan = action_colspan + 1 %}
             {% endif %}
-            <th colspan="{{ action_colspan }}" class="print_ignore">
+            <th colspan="{{ action_colspan }}" class="d-print-none">
                 {% trans 'Action' %}
             </th>
             {# larger values are more interesting so default sort order is DESC #}
