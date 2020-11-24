@@ -9,6 +9,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -49,6 +50,16 @@ class RoutinesController extends AbstractController
 
         $this->checkUserPrivileges->getPrivileges();
 
+        [
+            $tables,
+            $num_tables,
+            $total_num_tables,
+            $sub_part,,,
+            $tooltip_truename,
+            $tooltip_aliasname,
+            $pos,
+        ] = Util::getDbInfo($db, $sub_part ?? '');
+
         if (! $this->response->isAjax()) {
             /**
              * Displays the header and tabs
@@ -72,16 +83,6 @@ class RoutinesController extends AbstractController
                 if (! $this->hasDatabase()) {
                     return;
                 }
-
-                [
-                    $tables,
-                    $num_tables,
-                    $total_num_tables,
-                    $sub_part,,,
-                    $tooltip_truename,
-                    $tooltip_aliasname,
-                    $pos,
-                ] = Util::getDbInfo($db, $sub_part ?? '');
             }
         } elseif (strlen($db) > 0) {
             $this->dbi->selectDb($db);
@@ -104,12 +105,48 @@ class RoutinesController extends AbstractController
         }
 
         $items = $this->dbi->getRoutines($db, $type);
+        $totalNumRoutines = count($items);
+        $pageSize = $cfg['MaxRoutineList'];
+
+        // Checks if there are any routines to be shown on current page.
+        // If there are no routines, the user is redirected to the last page
+        // having any.
+        if ($totalNumRoutines > 0 && $pos >= $totalNumRoutines) {
+            $redirParams = [
+                'db' => $this->db,
+                'pos' => max(0, $totalNumRoutines - $pageSize),
+                'reload' => 1,
+            ];
+            if ($this->response->isAjax()) {
+                $redirParams['ajax_request'] = 'true';
+                $redirParams['ajax_page_request'] = 'true';
+            }
+            $uri = './index.php?route=/database/routines' . Url::getCommonRaw($redirParams, '&');
+            Core::sendHeaderLocation($uri);
+        }
+
+        $items = array_slice($items, $pos, $pageSize);
+
         $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
         foreach ($items as $item) {
             $rows .= $routines->getRow($item, $isAjax ? 'ajaxInsert hide' : '');
         }
+
+        $urlParams = [
+            'pos' => $pos,
+            'db' => $db,
+        ];
+
+        $listNavigator = Generator::getListNavigator(
+                $totalNumRoutines,
+                $pos,
+                $urlParams,
+                Url::getFromRoute('/database/routines'),
+                'frame_content',
+                $pageSize
+            );
 
         $this->render('database/routines/index', [
             'db' => $db,
@@ -118,6 +155,7 @@ class RoutinesController extends AbstractController
             'rows' => $rows,
             'select_all_arrow_src' => $PMA_Theme->getImgPath() . 'arrow_' . $text_dir . '.png',
             'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', $db, $table),
+            'list_navigator_html' => $listNavigator,
         ]);
     }
 }

@@ -439,6 +439,7 @@ return [
         'MaxSizeForInputField' => 'validatePositiveNumber',
         'MinSizeForInputField' => 'validateNonNegativeNumber',
         'MaxTableList' => 'validatePositiveNumber',
+        'MaxRoutineList' => 'validatePositiveNumber',
         'MemoryLimit' => [
             [
                 'validateByRegex',
@@ -473,6 +474,12 @@ return [
             [
                 'validateUpperBound',
                 'value:MaxTableList',
+            ],
+        ],
+        'MaxRoutineList' => [
+            [
+                'validateUpperBound',
+                'value:MaxRoutineList',
             ],
         ],
         'QueryHistoryMax' => [

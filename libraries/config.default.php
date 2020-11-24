@@ -677,6 +677,13 @@ $cfg['MaxDbList'] = 100;
 $cfg['MaxTableList'] = 250;
 
 /**
+ * maximum number of routines displayed in routine list
+ *
+ * @global integer $cfg['MaxRoutineList']
+ */
+$cfg['MaxRoutineList'] = 250;
+
+/**
  * whether to show hint or not
  *
  * @global boolean $cfg['ShowHint']

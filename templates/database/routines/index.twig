@@ -1,3 +1,5 @@
+{{ list_navigator_html|raw }}
+
 <div class="row">
   <div class="col-12">
     <fieldset id="tableFilter">
@@ -53,6 +55,8 @@
     {% endif %}
   </fieldset>
 </form>
+
+{{ list_navigator_html|raw }}
 
 <fieldset class="left">
   <legend>{% trans %}New{% context %}Create new routine{% endtrans %}</legend>
