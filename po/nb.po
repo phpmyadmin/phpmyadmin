@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-21 23:14+0100\n"
-"PO-Revision-Date: 2020-11-24 11:59+0000\n"
+"PO-Revision-Date: 2020-11-24 22:02+0000\n"
 "Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb_NO/>\n"
@@ -7745,8 +7745,8 @@ msgstr "Databasen %1$s er opprettet."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%1$d database har blitt slettet.%1$d databaser har blitt slettet."
-msgstr[1] ""
+msgstr[0] "%1$d database har blitt slettet."
+msgstr[1] "%1$d databaser har blitt slettet."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:483
 #: libraries/classes/Import.php:148
