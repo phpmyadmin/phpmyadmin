@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-21 23:14+0100\n"
-"PO-Revision-Date: 2020-11-24 22:02+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2020-11-25 22:28+0000\n"
+"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb_NO/>\n"
 "Language: nb\n"
@@ -7558,16 +7558,12 @@ msgid ""
 msgstr "I henhold til dine innstillinger, blir de sendt i dag, vær tålmodig."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:678
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
-msgstr "Slettet side"
+msgstr "Vellykket kopiert!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:679
-#, fuzzy
-#| msgid "Copying database"
 msgid "Copying failed!"
-msgstr "Kopierer database"
+msgstr "Kopiering feilet!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Execute this query again?"
@@ -8597,10 +8593,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Setup/HomeController.php:78
-#, fuzzy
-#| msgid "Configuration storage"
 msgid "Configuration not saved!"
-msgstr "Konfigurasjonslager"
+msgstr "Konfigurasjon er ikke lagret!"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:81
 msgid ""
@@ -8633,10 +8627,8 @@ msgid "End of line"
 msgstr "Linjeslutt"
 
 #: libraries/classes/Controllers/SqlController.php:378
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
-msgstr "Bokmerke %s opprettet"
+msgstr "Bokmerke er ikke opprettet!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:246
@@ -11370,10 +11362,8 @@ msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:334
-#, fuzzy
-#| msgid "Could not connect to the target"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Kunne ikke koble til målet"
+msgstr "Kunne ikke koble til reCAPTCHA tjeneste!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:336
 msgid "Entered captcha is wrong, try again!"
@@ -12881,10 +12871,8 @@ msgstr ""
 "Kan ikke lese masterloggposisjon. Muligens privilegieproblem på master."
 
 #: libraries/classes/ReplicationGui.php:563
-#, fuzzy
-#| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "Kan ikke endre master"
+msgstr "Kan ikke endre master!"
 
 #: libraries/classes/ReplicationGui.php:567
 #, fuzzy, php-format
@@ -12893,10 +12881,9 @@ msgid "Master server changed successfully to %s."
 msgstr "Mastertjener endret til %s"
 
 #: libraries/classes/Routing.php:70
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Kildedatabasen \"%s\" ble ikke funnet!"
+msgstr "Feil 404! Siden \"%s\" ble ikke funnet."
 
 #: libraries/classes/Routing.php:81
 msgid "Error 405! Request method not allowed."
@@ -14085,10 +14072,8 @@ msgid "The profile has been updated."
 msgstr "Profilen har blitt oppdatert."
 
 #: libraries/classes/UserPassword.php:47
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password is too long!"
-msgstr "Passordnøkling"
+msgstr "Passord er for langt!"
 
 #: libraries/classes/UserPreferences.php:168
 msgid "Could not save configuration"
@@ -17207,10 +17192,8 @@ msgid "Settings will be imported from your browser's local storage."
 msgstr ""
 
 #: templates/preferences/manage/main.twig:36
-#, fuzzy
-#| msgid "Other core settings"
 msgid "You have no saved settings!"
-msgstr "Andre hovedinnstillinger"
+msgstr "Du har ingen lagrede innstillinger!"
 
 #: templates/preferences/manage/main.twig:40
 #: templates/preferences/manage/main.twig:104
