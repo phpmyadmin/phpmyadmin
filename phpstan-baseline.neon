@@ -1122,7 +1122,7 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 35
+			count: 36
 			path: src/Config/Settings.php
 
 		-
@@ -2026,6 +2026,12 @@ parameters:
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
+			path: src/Controllers/Database/RoutinesController.php
+
+		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 1
 			path: src/Controllers/Database/RoutinesController.php
 
 		-

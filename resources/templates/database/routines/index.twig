@@ -38,6 +38,10 @@
     </div>
   </div>
 
+  {%- if has_any_routines -%}
+    {{ list_navigator_html|raw }}
+  {%- endif -%}
+
   <form id="rteListForm" class="ajax" action="{{ url('/database/routines') }}">
     {{ get_hidden_inputs(db, table) }}
 
@@ -62,6 +66,10 @@
       </tbody>
     </table>
   </form>
+
+  {%- if has_any_routines -%}
+    {{ list_navigator_html|raw }}
+  {%- endif -%}
 
   <div class="modal fade" id="routinesEditorModal" tabindex="-1" aria-labelledby="routinesEditorModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">

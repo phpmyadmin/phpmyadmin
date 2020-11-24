@@ -59,6 +59,7 @@ use const VERSION_CHECK_DEFAULT;
  *     ProxyPass: string,
  *     MaxDbList: int<1, max>,
  *     MaxTableList: int<1, max>,
+ *     MaxRoutineList: int<1, max>,
  *     ShowHint: bool,
  *     MaxCharactersInDisplayedSQL: int<1, max>,
  *     PersistentConnections: bool,
@@ -478,6 +479,19 @@ final class Settings
      * @psalm-var positive-int
      */
     public int $MaxTableList;
+
+    /**
+     * maximum number of routines displayed in routine list
+     *
+     * ```php
+     * $cfg['MaxRoutineList'] = 250;
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_MaxRoutineList
+     *
+     * @psalm-var positive-int
+     */
+    public int $MaxRoutineList;
 
     /**
      * whether to show hint or not
@@ -2630,6 +2644,7 @@ final class Settings
         $this->ProxyPass = $this->setProxyPass($settings);
         $this->MaxDbList = $this->setMaxDbList($settings);
         $this->MaxTableList = $this->setMaxTableList($settings);
+        $this->MaxRoutineList = $this->setMaxRoutineList($settings);
         $this->ShowHint = $this->setShowHint($settings);
         $this->MaxCharactersInDisplayedSQL = $this->setMaxCharactersInDisplayedSQL($settings);
         $this->PersistentConnections = $this->setPersistentConnections($settings);
@@ -2827,6 +2842,7 @@ final class Settings
             'ProxyPass' => $this->ProxyPass,
             'MaxDbList' => $this->MaxDbList,
             'MaxTableList' => $this->MaxTableList,
+            'MaxRoutineList' => $this->MaxRoutineList,
             'ShowHint' => $this->ShowHint,
             'MaxCharactersInDisplayedSQL' => $this->MaxCharactersInDisplayedSQL,
             'PersistentConnections' => $this->PersistentConnections,
@@ -3248,6 +3264,22 @@ final class Settings
         $maxTableList = (int) $settings['MaxTableList'];
 
         return $maxTableList >= 1 ? $maxTableList : 250;
+    }
+
+    /**
+     * @param array<int|string, mixed> $settings
+     *
+     * @psalm-return positive-int
+     */
+    private function setMaxRoutineList(array $settings): int
+    {
+        if (! isset($settings['MaxRoutineList'])) {
+            return 250;
+        }
+
+        $maxRoutineList = (int) $settings['MaxRoutineList'];
+
+        return $maxRoutineList >= 1 ? $maxRoutineList : 250;
     }
 
     /** @param array<int|string, mixed> $settings */

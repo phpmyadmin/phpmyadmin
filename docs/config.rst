@@ -1664,6 +1664,14 @@ Generic settings
     The maximum number of table names to be displayed in the main panel's
     list (except on the Export page).
 
+.. config:option:: $cfg['MaxRoutineList']
+
+    :type: integer
+    :default: 250
+
+    The maximum number of routine names to be displayed in the main panel's
+    routine list.
+
 .. config:option:: $cfg['ShowHint']
 
     :type: boolean

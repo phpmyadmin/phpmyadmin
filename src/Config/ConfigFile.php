@@ -785,6 +785,7 @@ class ConfigFile
                 'MaxSizeForInputField' => 'validatePositiveNumber',
                 'MinSizeForInputField' => 'validateNonNegativeNumber',
                 'MaxTableList' => 'validatePositiveNumber',
+                'MaxRoutineList' => 'validatePositiveNumber',
                 'MemoryLimit' => [['validateByRegex', '/^(-1|(\d+(?:[kmg])?))$/i']],
                 'NavigationTreeDisplayItemFilterMinimum' => 'validatePositiveNumber',
                 'NavigationTreeTableLevel' => 'validatePositiveNumber',
@@ -806,6 +807,7 @@ class ConfigFile
             '_userValidators' => [
                 'MaxDbList' => [['validateUpperBound', 'value:MaxDbList']],
                 'MaxTableList' => [['validateUpperBound', 'value:MaxTableList']],
+                'MaxRoutineList' => [['validateUpperBound', 'value:MaxRoutineList']],
                 'QueryHistoryMax' => [['validateUpperBound', 'value:QueryHistoryMax']],
             ],
         ];
