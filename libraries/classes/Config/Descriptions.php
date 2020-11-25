@@ -265,7 +265,7 @@ class Descriptions
             'Export_as_separate_files_name' => __('Export as separate files'),
             'Export_quick_export_onserver_name' => __('Save on server'),
             'Export_quick_export_onserver_overwrite_name' => __('Overwrite existing file(s)'),
-            'Export_remember_file_template_name' => __('Remember file name template'),
+            'Export_remember_file_template_name' => __('Remember filename template'),
             'Export_sql_auto_increment_name' => __('Add AUTO_INCREMENT value'),
             'Export_sql_backquotes_name' => __('Enclose table and column names with backquotes'),
             'Export_sql_compatibility_name' => __('SQL compatibility mode'),
@@ -938,12 +938,12 @@ class Descriptions
             'VersionCheck_desc' => __('Enables check for latest version on main phpMyAdmin page.'),
             'VersionCheck_name' => __('Version check'),
             'ProxyUrl_desc' => __(
-                'The url of the proxy to be used when retrieving the information about the ' .
-                'latest version of phpMyAdmin or when submitting error reports. You need this ' .
+                'The URL of the proxy to be used when retrieving the information about the ' .
+                'latest version of phpMyAdmin, or when submitting error reports. You need this ' .
                 'if the server where phpMyAdmin is installed does not have direct access to ' .
-                'the internet. The format is: "hostname:portnumber".'
+                'the Internet. The format is: "hostname:portnumber".'
             ),
-            'ProxyUrl_name' => __('Proxy url'),
+            'ProxyUrl_name' => __('Proxy URL'),
             'ProxyUser_desc' => __(
                 'The username for authenticating with the proxy. By default, no ' .
                 'authentication is performed. If a username is supplied, Basic ' .
@@ -956,20 +956,20 @@ class Descriptions
 
             'ZipDump_desc' => __('Enable ZIP compression for import and export operations.'),
             'ZipDump_name' => __('ZIP'),
-            'CaptchaApi_desc' => __('Enter the URL for your reCaptcha v2 compatible API.'),
-            'CaptchaApi_name' => __('URL for reCaptcha v2 API'),
-            'CaptchaCsp_desc' => __('Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible API.'),
-            'CaptchaCsp_name' => __('Content-Security-Policy snippet for reCaptcha v2 API'),
-            'CaptchaRequestParam_desc' => __('Enter the request parameter used by your reCaptcha v2 compatible API.'),
-            'CaptchaRequestParam_name' => __('Request parameter for reCaptcha v2 API'),
-            'CaptchaResponseParam_desc' => __('Enter the response parameter used by your reCaptcha v2 compatible API.'),
-            'CaptchaResponseParam_name' => __('Response parameter for reCaptcha v2 API'),
-            'CaptchaLoginPublicKey_desc' => __('Enter your public key for your domain reCaptcha service.'),
-            'CaptchaLoginPublicKey_name' => __('Public key for reCaptcha'),
-            'CaptchaLoginPrivateKey_desc' => __('Enter your private key for your domain reCaptcha service.'),
+            'CaptchaApi_desc' => __('Enter the URL for your reCAPTCHA v2 compatible API.'),
+            'CaptchaApi_name' => __('URL for reCAPTCHA v2 API'),
+            'CaptchaCsp_desc' => __('Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible API.'),
+            'CaptchaCsp_name' => __('Content-Security-Policy snippet for reCAPTCHA v2 API'),
+            'CaptchaRequestParam_desc' => __('Enter the request parameter used by your reCAPTCHA v2 compatible API.'),
+            'CaptchaRequestParam_name' => __('Request parameter for reCAPTCHA v2 API'),
+            'CaptchaResponseParam_desc' => __('Enter the response parameter used by your reCAPTCHA v2 compatible API.'),
+            'CaptchaResponseParam_name' => __('Response parameter for reCAPTCHA v2 API'),
+            'CaptchaLoginPublicKey_desc' => __('Enter your public key for the reCAPTCHA service on your domain.'),
+            'CaptchaLoginPublicKey_name' => __('Public key for reCAPTCHA'),
+            'CaptchaLoginPrivateKey_desc' => __('Enter your private key for your domain reCAPTCHA service.'),
             'CaptchaLoginPrivateKey_name' => __('Private key for reCaptcha'),
-            'CaptchaSiteVerifyURL_desc' => __('Enter your siteverify URL for your reCaptcha service.'),
-            'CaptchaSiteVerifyURL_name' => __('URL for reCaptcha siteverify'),
+            'CaptchaSiteVerifyURL_desc' => __('Enter your siteverify URL for your reCAPTCHA service.'),
+            'CaptchaSiteVerifyURL_name' => __('URL for reCAPTCHA siteverify'),
 
             'SendErrorReports_desc' => __('Choose the default action when sending error reports.'),
             'SendErrorReports_name' => __('Send error reports'),
@@ -981,14 +981,14 @@ class Descriptions
             'ConsoleEnterExecutes_name' => __('Enter executes queries in console'),
 
             'ZeroConf_desc' => __(
-                'Enable Zero Configuration mode which lets you setup phpMyAdmin '
+                'Enable Zero Configuration mode which lets you set up phpMyAdmin '
                 . 'configuration storage tables automatically.'
             ),
             'ZeroConf_name' => __('Enable Zero Configuration mode'),
             'Console_StartHistory_name' => __('Show query history at start'),
             'Console_AlwaysExpand_name' => __('Always expand query messages'),
             'Console_CurrentQuery_name' => __('Show current browsing query'),
-            'Console_EnterExecutes_name' => __('Execute queries on Enter and insert new line with Shift + Enter'),
+            'Console_EnterExecutes_name' => __('Execute queries on Enter and insert new line with Shift+Enter'),
             'Console_DarkTheme_name' => __('Switch to dark theme'),
             'Console_Height_name' => __('Console height'),
             'Console_Mode_name' => __('Console mode'),
