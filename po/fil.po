@@ -8,21 +8,21 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2018-02-20 05:38+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Filipino <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fil/>\n"
+"PO-Revision-Date: 2020-11-27 08:34+0000\n"
+"Last-Translator: Darelle Ramil <darellevhic@gmail.com>\n"
+"Language-Team: Filipino <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
+"fil/>\n"
 "Language: fil\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
 "|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 2.19\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
-msgstr "Masamang uri!"
+msgstr "Maling uri!"
 
 #: changelog.php:48 license.php:40
 #, php-format
@@ -280,7 +280,7 @@ msgstr ""
 
 #: import.php:728 sql.php:186
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "Naka-disable ang \"DROP DATABASE\" statements."
 
 #: import_status.php:112
 msgid "Could not load the progress of the import."
@@ -547,7 +547,7 @@ msgstr "Mga balyus ng Y"
 
 #: js/messages.php:146
 msgid "Please enter the SQL query first."
-msgstr ""
+msgstr "Pakilagay muna ang SQL query."
 
 #: js/messages.php:149
 msgid "The host name is empty!"
@@ -1410,7 +1410,7 @@ msgstr ""
 #: templates/preferences/manage/main.twig:59
 #: templates/server/status/monitor/index.twig:81
 msgid "Export"
-msgstr ""
+msgstr "I-export"
 
 #: js/messages.php:413
 msgid "No routine is exportable. Required privileges may be lacking."
@@ -2778,7 +2778,7 @@ msgstr ""
 #: templates/server/status/status/index.twig:17
 #: templates/server/status/status/index.twig:37
 msgid "per hour"
-msgstr ""
+msgstr "bawat oras"
 
 #: libraries/classes/Advisor.php:666
 msgid "per day"
@@ -2786,7 +2786,7 @@ msgstr ""
 
 #: libraries/classes/BrowseForeigners.php:203
 msgid "Search:"
-msgstr ""
+msgstr "Maghanap:"
 
 #: libraries/classes/BrowseForeigners.php:226
 #: libraries/classes/BrowseForeigners.php:230 libraries/classes/Index.php:716
@@ -2801,7 +2801,7 @@ msgstr ""
 #: templates/server/plugins/index.twig:23
 #: templates/server/status/variables/index.twig:72
 msgid "Description"
-msgstr ""
+msgstr "Paglalarawan"
 
 #: libraries/classes/BrowseForeigners.php:339
 #: libraries/classes/Language.php:199 libraries/classes/Pdf.php:90
@@ -2809,7 +2809,7 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:542
 #: libraries/classes/Util.php:2402
 msgid "Page number:"
-msgstr ""
+msgstr "Numero ng pahina:"
 
 #: libraries/classes/CentralColumns.php:243
 msgid ""
@@ -2838,11 +2838,11 @@ msgstr ""
 
 #: libraries/classes/CentralColumns.php:658
 msgid "YES"
-msgstr ""
+msgstr "OO"
 
 #: libraries/classes/CentralColumns.php:658
 msgid "NO"
-msgstr ""
+msgstr "HINDI"
 
 #: libraries/classes/CentralColumns.php:1028
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:490
@@ -2859,7 +2859,7 @@ msgstr ""
 #: templates/database/create_table.twig:11 templates/setup/home/index.twig:43
 #: templates/table/structure/display_structure.twig:21
 msgid "Name"
-msgstr ""
+msgstr "Pangalan"
 
 #: libraries/classes/CentralColumns.php:1029 libraries/classes/Index.php:717
 #: libraries/classes/InsertEdit.php:322
@@ -2933,7 +2933,7 @@ msgstr "Default"
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 msgid "Collation"
-msgstr ""
+msgstr "Pagsasama-sama"
 
 #: libraries/classes/CentralColumns.php:1033
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:687
@@ -16717,7 +16717,7 @@ msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.txt:57
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit ay nakatakda sa 1 MiB"
 
 #~ msgid "No auto-saved query"
 #~ msgstr "Walang auto-save query"
