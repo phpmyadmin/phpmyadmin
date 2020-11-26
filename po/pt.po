@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-21 23:14+0100\n"
-"PO-Revision-Date: 2020-11-19 22:33+0000\n"
+"PO-Revision-Date: 2020-11-27 08:34+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -502,9 +502,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:312
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
-"Os valores atuais de tmp_table_size são de: %s e de max_heap_table_size de: "
-"%s"
+msgstr "Os valores atuais de tmp_table_size são: %s, max_heap_table_size: %s"
 
 #: libraries/advisory_rules_generic.php:318
 msgid "Percentage of temp tables on disk"
