@@ -11,7 +11,8 @@
       {% trans 'There are no triggers to display.' %}
     </div>
 
-    <table class="pma-table data{{ items is empty ? ' hide' }}">
+    <table class="table table-light table-striped table-hover{{ items is empty ? ' hide' }}">
+      <thead class="thead-light">
       <tr>
         <th></th>
         <th>{% trans 'Name' %}</th>
@@ -22,9 +23,12 @@
         <th>{% trans 'Time' %}</th>
         <th>{% trans 'Event' %}</th>
       </tr>
+      </thead>
+      <tbody>
       <tr class="hide">{% for i in 0..(table is empty ? 7 : 6) %}<td></td>{% endfor %}</tr>
 
       {{ rows|raw }}
+      </tbody>
     </table>
 
     {% if items is not empty %}

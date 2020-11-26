@@ -387,7 +387,7 @@ class Triggers
         $retval .= Url::getHiddenInputs($db, $table) . "\n";
         $retval .= "<fieldset>\n";
         $retval .= '<legend>' . __('Details') . "</legend>\n";
-        $retval .= "<table class='pma-table rte_table'>\n";
+        $retval .= "<table class='rte_table table table-borderless table-sm'>\n";
         $retval .= "<tr>\n";
         $retval .= '    <td>' . __('Trigger name') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_name' maxlength='64'\n";
