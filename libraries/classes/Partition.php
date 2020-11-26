@@ -162,6 +162,7 @@ class Partition extends SubPartition
             );
             if ($result) {
                 $partitionMap = [];
+                /** @var array $row */
                 foreach ($result as $row) {
                     if (isset($partitionMap[$row['PARTITION_NAME']])) {
                         $partition = $partitionMap[$row['PARTITION_NAME']];

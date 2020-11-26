@@ -1490,7 +1490,7 @@ class Routines
                         . 'procedure.',
                         '%d rows affected by the last statement inside the '
                         . 'procedure.',
-                        $affected
+                        (int) $affected
                     ),
                     $affected
                 );

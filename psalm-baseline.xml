@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.1.1@16bfbd9224698bd738c665f33039fade2a1a3977">
+<files psalm-version="4.2.1@ea9cb72143b77e7520c52fa37290bd8d8bc88fd9">
   <file src="libraries/classes/Charsets.php">
     <TypeDoesNotContainType occurrences="1">
       <code>$pieces === false</code>
@@ -526,9 +526,8 @@
       <code>$tot_size</code>
       <code>$tot_unit</code>
     </PossiblyNullArrayAccess>
-    <TypeDoesNotContainType occurrences="2">
+    <TypeDoesNotContainType occurrences="1">
       <code>! is_array($row)</code>
-      <code>is_array($row)</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Table/ZoomSearchController.php">
@@ -537,14 +536,6 @@
       <code>$dataLabel</code>
       <code>$key</code>
     </PossiblyFalseArgument>
-    <PossiblyNullArrayAccess occurrences="3">
-      <code>$criteria_column_names[$i]</code>
-      <code>$criteria_column_names[$i]</code>
-      <code>$criteria_column_names[$i]</code>
-    </PossiblyNullArrayAccess>
-    <PossiblyNullArrayOffset occurrences="1">
-      <code>$keys</code>
-    </PossiblyNullArrayOffset>
   </file>
   <file src="libraries/classes/Core.php">
     <InvalidOperand occurrences="1">
@@ -615,8 +606,7 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Database/Routines.php">
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$affected</code>
+    <PossiblyInvalidArgument occurrences="2">
       <code>$routine['item_returntype']</code>
       <code>$routine['item_type_toggle']</code>
     </PossiblyInvalidArgument>
@@ -1075,9 +1065,8 @@
     <PossiblyNullArrayAccess occurrences="1">
       <code>$additional_sql[$i]</code>
     </PossiblyNullArrayAccess>
-    <TypeDoesNotContainType occurrences="2">
+    <TypeDoesNotContainType occurrences="1">
       <code>! is_array($table)</code>
-      <code>is_array($table)</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Index.php">

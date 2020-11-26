@@ -641,6 +641,7 @@ class Privileges
         }
         $username = '';
         $hostname = '';
+        $row = [];
         if (isset($GLOBALS['username'])) {
             $username = $GLOBALS['username'];
             $hostname = $GLOBALS['hostname'];

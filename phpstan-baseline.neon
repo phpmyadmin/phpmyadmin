@@ -396,11 +396,6 @@ parameters:
 			path: libraries/classes/Database/Routines.php
 
 		-
-			message: "#^Parameter \\#3 \\$number of function _ngettext expects int, int\\<0, max\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Database/Routines.php
-
-		-
 			message: "#^Offset 'create' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Database/Triggers.php
