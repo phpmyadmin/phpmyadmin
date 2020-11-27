@@ -7,12 +7,11 @@
         method="post" action="{{ url('/database/central-columns') }}">
         {{ get_hidden_inputs(db) }}
         <input type="hidden" name="add_new_column" value="add_new_column">
-        <div class="responsivetable">
-            <table class="pma-table">
-                <thead>
+        <div class="table-responsive">
+            <table class="table table-light">
+                <thead class="thead-light">
                     <tr>
-                        <th class=""></th>
-                        <th class="hide"></th>
+                        <th></th>
                         <th class="" title="" data-column="name">
                             {% trans 'Name' %}
                             <div class="sorticon"></div>
@@ -45,6 +44,7 @@
                             {% trans 'A_I' %}
                             <div class="sorticon"></div>
                         </th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -131,7 +131,7 @@
         {% trans 'The central list of columns for the current database is empty' %}
     </fieldset>
 {% else %}
-    <table style="display:inline-block;max-width:49%" class="pma-table navigation nospacing nopadding">
+    <table class="table table-borderless table-sm w-auto d-inline-block navigation">
         <tr>
             <td class="navigation_separator"></td>
             {% if pos - max_rows >= 0 %}
@@ -172,8 +172,8 @@
         </tr>
     </table>
 {% endif %}
-{# getHtmlForAddColumn #}
-<table class="pma-table central_columns_add_column navigation nospacing nopadding">
+
+<table class="table table-borderless table-sm w-auto d-inline-block navigation">
     <tr>
         <td class="navigation_separator largescreenonly"></td>
         <td class="central_columns_navigation">
@@ -210,10 +210,10 @@
     </form>
     <div id="tableslistcontainer">
         <form name="tableslistcontainer">
-            <table id="table_columns" class="pma-table tablesorter data">
+            <table id="table_columns" class="table table-light table-striped table-hover tablesorter">
                 {% set class = 'column_heading' %}
                 {% set title = 'Click to sort.' | trans %}
-                <thead>
+                <thead class="thead-light">
                     <tr>
                         <th class="{{ class }}"></th>
                         <th class="hide"></th>
