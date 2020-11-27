@@ -504,9 +504,7 @@ RTE.COMMON = {
                             });
                         } else {
                             $currRow.hide('fast', function () {
-                                $(this).remove();
-                                // Now we have removed the row from the list, but maybe
-                                // some row classes are wrong now. So we will iterate
+                                // we will iterate
                                 // through all rows and assign correct classes to them.
                                 /**
                                  * @var ct Count of processed rows
@@ -523,6 +521,7 @@ RTE.COMMON = {
                                     ct++;
                                 });
                             });
+                            $currRow.remove();
                         }
                         if (returnCount === count) {
                             if (success) {
