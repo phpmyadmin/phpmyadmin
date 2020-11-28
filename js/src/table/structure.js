@@ -52,7 +52,7 @@ AJAX.registerTeardown('table/structure.js', function () {
     $(document).off('click', '#printView');
     $(document).off('submit', '.append_fields_form.ajax');
     $('body').off('click', '#fieldsForm.ajax button');
-    $(document).off('click', 'a[name^=partition_action].ajax');
+    $(document).off('click', 'a[id^=partition_action].ajax');
     $(document).off('click', '#remove_partitioning.ajax');
 });
 
@@ -424,7 +424,7 @@ AJAX.registerOnload('table/structure.js', function () {
     /**
      * Handles clicks on Action links in partition table
      */
-    $(document).on('click', 'a[name^=partition_action].ajax', function (e) {
+    $(document).on('click', 'a[id^=partition_action].ajax', function (e) {
         e.preventDefault();
         var $link = $(this);
 
