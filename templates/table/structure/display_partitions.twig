@@ -74,18 +74,85 @@
                             <span class="unit">{{ index_length[1] }}</span>
                         </td>
                         <td>{{ partition.getComment() }}</td>
-                        {% for action, icon in action_icons %}
-                            <td>
-                                <a id="partition_action_{{ action }}" class="ajax" href="{{ url('/table/structure/partitioning') }}" data-post="{{ get_common({
-                                  'db': db,
-                                  'table': table,
-                                  'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ' ~ action ~ ' PARTITION ' ~ partition.getName(),
-                                  'partition_maintenance': true
-                                }) }}">
-                                    {{ icon|raw }}
-                                </a>
-                            </td>
-                        {% endfor %}
+
+                        <td>
+                          <a id="partition_action_ANALYZE" class="ajax" href="{{ url('/table/structure/partitioning') }}" data-post="{{ get_common({
+                            'db': db,
+                            'table': table,
+                            'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ANALYZE PARTITION ' ~ partition.getName(),
+                            'partition_maintenance': true
+                          }) }}">
+                            {{ get_icon('b_search', 'Analyze'|trans) }}
+                          </a>
+                        </td>
+
+                        <td>
+                          <a id="partition_action_CHECK" class="ajax" href="{{ url('/table/structure/partitioning') }}" data-post="{{ get_common({
+                            'db': db,
+                            'table': table,
+                            'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' CHECK PARTITION ' ~ partition.getName(),
+                            'partition_maintenance': true
+                          }) }}">
+                            {{ get_icon('eye', 'Check'|trans) }}
+                          </a>
+                        </td>
+
+                        <td>
+                          <a id="partition_action_OPTIMIZE" class="ajax" href="{{ url('/table/structure/partitioning') }}" data-post="{{ get_common({
+                            'db': db,
+                            'table': table,
+                            'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' OPTIMIZE PARTITION ' ~ partition.getName(),
+                            'partition_maintenance': true
+                          }) }}">
+                            {{ get_icon('normalize', 'Optimize'|trans) }}
+                          </a>
+                        </td>
+
+                        <td>
+                          <a id="partition_action_REBUILD" class="ajax" href="{{ url('/table/structure/partitioning') }}" data-post="{{ get_common({
+                            'db': db,
+                            'table': table,
+                            'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' REBUILD PARTITION ' ~ partition.getName(),
+                            'partition_maintenance': true
+                          }) }}">
+                            {{ get_icon('s_tbl', 'Rebuild'|trans) }}
+                          </a>
+                        </td>
+
+                        <td>
+                          <a id="partition_action_REPAIR" class="ajax" href="{{ url('/table/structure/partitioning') }}" data-post="{{ get_common({
+                            'db': db,
+                            'table': table,
+                            'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' REPAIR PARTITION ' ~ partition.getName(),
+                            'partition_maintenance': true
+                          }) }}">
+                            {{ get_icon('b_tblops', 'Repair'|trans) }}
+                          </a>
+                        </td>
+
+                        <td>
+                          <a id="partition_action_TRUNCATE" class="ajax" href="{{ url('/table/structure/partitioning') }}" data-post="{{ get_common({
+                            'db': db,
+                            'table': table,
+                            'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' TRUNCATE PARTITION ' ~ partition.getName(),
+                            'partition_maintenance': true
+                          }) }}">
+                            {{ get_icon('b_empty', 'Truncate'|trans) }}
+                          </a>
+                        </td>
+
+                        {% if range_or_list %}
+                          <td>
+                            <a id="partition_action_DROP" class="ajax" href="{{ url('/table/structure/partitioning') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP PARTITION ' ~ partition.getName(),
+                              'partition_maintenance': true
+                            }) }}">
+                              {{ get_icon('b_drop', 'Drop'|trans) }}
+                            </a>
+                          </td>
+                        {% endif %}
 
                         {% if has_sub_partitions %}
                             {% for sub_partition in partition.getSubPartitions() %}
@@ -140,7 +207,7 @@
                     'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING'
                   }),
                   'Remove partitioning'|trans, {
-                    'class': 'button ajax',
+                    'class': 'btn btn-secondary ajax',
                     'id': 'remove_partitioning'
                 }) }}
                 <input class="btn btn-secondary" type="submit" value="{% trans 'Edit partitioning' %}">
