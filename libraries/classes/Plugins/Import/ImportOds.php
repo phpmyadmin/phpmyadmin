@@ -137,6 +137,7 @@ class ImportOds extends ImportPlugin
          * Disable loading of external XML entities for PHP versions below 8.0.
          */
         if (PHP_VERSION_ID < 80000) {
+            // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
             libxml_disable_entity_loader();
         }
 
