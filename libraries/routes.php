@@ -297,6 +297,7 @@ return static function (RouteCollector $routes): void {
             $routes->post('/check', [PartitionController::class, 'check']);
             $routes->post('/optimize', [PartitionController::class, 'optimize']);
             $routes->post('/rebuild', [PartitionController::class, 'rebuild']);
+            $routes->post('/repair', [PartitionController::class, 'repair']);
         });
         $routes->addRoute(['GET', 'POST'], '/operations', [TableOperationsController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/recent-favorite', [RecentFavoriteController::class, 'index']);
