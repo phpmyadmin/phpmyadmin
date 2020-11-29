@@ -86,11 +86,10 @@
                         </td>
 
                         <td>
-                          <a id="partition_action_CHECK" class="ajax" href="{{ url('/table/structure/partitioning') }}" data-post="{{ get_common({
+                          <a id="partition_action_CHECK" class="ajax" href="{{ url('/table/partition/check') }}" data-post="{{ get_common({
                             'db': db,
                             'table': table,
-                            'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' CHECK PARTITION ' ~ partition.getName(),
-                            'partition_maintenance': true
+                            'partition_name': partition.getName(),
                           }) }}">
                             {{ get_icon('eye', 'Check'|trans) }}
                           </a>
