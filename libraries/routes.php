@@ -298,6 +298,7 @@ return static function (RouteCollector $routes): void {
             $routes->post('/optimize', [PartitionController::class, 'optimize']);
             $routes->post('/rebuild', [PartitionController::class, 'rebuild']);
             $routes->post('/repair', [PartitionController::class, 'repair']);
+            $routes->post('/truncate', [PartitionController::class, 'truncate']);
         });
         $routes->addRoute(['GET', 'POST'], '/operations', [TableOperationsController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/recent-favorite', [RecentFavoriteController::class, 'index']);
