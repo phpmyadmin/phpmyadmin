@@ -52,4 +52,25 @@ final class PartitionController extends AbstractController
         $controller = $containerBuilder->get(SqlController::class);
         $controller->index();
     }
+
+    public function optimize(): void
+    {
+        global $containerBuilder, $sql_query;
+
+        $partitionName = $_POST['partition_name'] ?? '';
+
+        if (strlen($partitionName) === 0) {
+            return;
+        }
+
+        $sql_query = sprintf(
+            'ALTER TABLE %s OPTIMIZE PARTITION %s;',
+            Util::backquote($this->table),
+            Util::backquote($partitionName)
+        );
+
+        /** @var SqlController $controller */
+        $controller = $containerBuilder->get(SqlController::class);
+        $controller->index();
+    }
 }

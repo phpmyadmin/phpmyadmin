@@ -96,11 +96,10 @@
                         </td>
 
                         <td>
-                          <a id="partition_action_OPTIMIZE" class="ajax" href="{{ url('/table/structure/partitioning') }}" data-post="{{ get_common({
+                          <a id="partition_action_OPTIMIZE" class="ajax" href="{{ url('/table/partition/optimize') }}" data-post="{{ get_common({
                             'db': db,
                             'table': table,
-                            'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' OPTIMIZE PARTITION ' ~ partition.getName(),
-                            'partition_maintenance': true
+                            'partition_name': partition.getName(),
                           }) }}">
                             {{ get_icon('normalize', 'Optimize'|trans) }}
                           </a>
