@@ -137,11 +137,10 @@
 
                         {% if range_or_list %}
                           <td>
-                            <a id="partition_action_DROP" class="ajax" href="{{ url('/table/structure/partitioning') }}" data-post="{{ get_common({
+                            <a id="partition_action_DROP" class="ajax" href="{{ url('/table/partition/drop') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
-                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP PARTITION ' ~ partition.getName(),
-                              'partition_maintenance': true
+                              'partition_name': partition.getName(),
                             }) }}">
                               {{ get_icon('b_drop', 'Drop'|trans) }}
                             </a>

@@ -295,6 +295,7 @@ return static function (RouteCollector $routes): void {
         $routes->addGroup('/partition', static function (RouteCollector $routes): void {
             $routes->post('/analyze', [PartitionController::class, 'analyze']);
             $routes->post('/check', [PartitionController::class, 'check']);
+            $routes->post('/drop', [PartitionController::class, 'drop']);
             $routes->post('/optimize', [PartitionController::class, 'optimize']);
             $routes->post('/rebuild', [PartitionController::class, 'rebuild']);
             $routes->post('/repair', [PartitionController::class, 'repair']);
