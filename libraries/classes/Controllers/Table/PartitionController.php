@@ -32,23 +32,25 @@ final class PartitionController extends AbstractController
 
     public function analyze(): void
     {
-        global $containerBuilder, $sql_query;
-
         $partitionName = $_POST['partition_name'] ?? '';
 
         if (strlen($partitionName) === 0) {
             return;
         }
 
-        $sql_query = sprintf(
-            'ALTER TABLE %s ANALYZE PARTITION %s;',
-            Util::backquote($this->table),
-            Util::backquote($partitionName)
+        [$rows, $query] = $this->model->analyze($this->db, $this->table, $partitionName);
+
+        $message = Generator::getMessage(
+            __('Your SQL query has been executed successfully.'),
+            $query,
+            'success'
         );
 
-        /** @var SqlController $controller */
-        $controller = $containerBuilder->get(SqlController::class);
-        $controller->index();
+        $this->render('table/partition/analyze', [
+            'partition_name' => $partitionName,
+            'message' => $message,
+            'rows' => $rows,
+        ]);
     }
 
     public function check(): void

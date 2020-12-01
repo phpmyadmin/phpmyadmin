@@ -18,6 +18,25 @@ final class Partition
         $this->dbi = $dbi;
     }
 
+    public function analyze(string $db, string $table, string $partition): array
+    {
+        $query = sprintf(
+            'ALTER TABLE %s ANALYZE PARTITION %s;',
+            Util::backquote($table),
+            Util::backquote($partition)
+        );
+
+        $this->dbi->selectDb($db);
+        $result = $this->dbi->fetchResult($query);
+
+        $rows = [];
+        foreach ($result as $row) {
+            $rows[$row['Table']][] = $row;
+        }
+
+        return [$rows, $query];
+    }
+
     public function check(string $db, string $table, string $partition): array
     {
         $query = sprintf(
