@@ -184,8 +184,8 @@
     <input type="hidden" name="goto" value="{{ url('/sql') }}">
 {% endif %}
 
-  <div class="responsivetable">
-    <table class="pma-table table_results data ajax" data-uniqueId="{{ unique_id }}">
+  <div class="table-responsive-md">
+    <table class="table table-light table-striped table-hover table-sm table_results data ajax" data-uniqueId="{{ unique_id }}">
 
       {{ headers.button|raw }}
       {{ headers.table_headers_for_columns|raw }}
