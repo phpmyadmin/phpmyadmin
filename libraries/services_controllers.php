@@ -713,6 +713,7 @@ return [
                 '$template' => '@template',
                 '$db' => '%db%',
                 '$table' => '%table%',
+                '$partition' => '@table_partition',
             ],
         ],
         PhpMyAdmin\Controllers\Table\OperationsController::class => [
