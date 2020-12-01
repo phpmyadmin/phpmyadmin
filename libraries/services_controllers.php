@@ -706,6 +706,16 @@ return [
                 '$model' => '@table_maintenance',
             ],
         ],
+        PhpMyAdmin\Controllers\Table\PartitionController::class => [
+            'class' => PhpMyAdmin\Controllers\Table\PartitionController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$partition' => '@table_partition',
+            ],
+        ],
         PhpMyAdmin\Controllers\Table\OperationsController::class => [
             'class' => PhpMyAdmin\Controllers\Table\OperationsController::class,
             'arguments' => [

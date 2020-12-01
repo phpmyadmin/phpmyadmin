@@ -805,19 +805,6 @@ class StructureController extends AbstractController
 
     public function partitioning(): void
     {
-        global $containerBuilder, $reload;
-
-        if (isset($_POST['partition_maintenance'])) {
-            /** @var SqlController $controller */
-            $controller = $containerBuilder->get(SqlController::class);
-            $controller->index();
-
-            $reload = true;
-            $this->index();
-
-            return;
-        }
-
         if (isset($_POST['save_partitioning'])) {
             $this->dbi->selectDb($this->db);
             $this->updatePartitioning();

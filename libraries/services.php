@@ -184,6 +184,10 @@ return [
             'class' => PhpMyAdmin\Table\Maintenance::class,
             'arguments' => ['$dbi' => '@dbi'],
         ],
+        'table_partition' => [
+            'class' => PhpMyAdmin\Table\Partition::class,
+            'arguments' => ['$dbi' => '@dbi'],
+        ],
         'table_search' => [
             'class' => PhpMyAdmin\Table\Search::class,
             'arguments' => ['$dbi' => '@dbi'],

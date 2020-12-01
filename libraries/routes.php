@@ -80,6 +80,7 @@ use PhpMyAdmin\Controllers\Table\ImportController as TableImportController;
 use PhpMyAdmin\Controllers\Table\IndexesController;
 use PhpMyAdmin\Controllers\Table\MaintenanceController;
 use PhpMyAdmin\Controllers\Table\OperationsController as TableOperationsController;
+use PhpMyAdmin\Controllers\Table\PartitionController;
 use PhpMyAdmin\Controllers\Table\RecentFavoriteController;
 use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
@@ -290,6 +291,15 @@ return static function (RouteCollector $routes): void {
             $routes->post('/checksum', [MaintenanceController::class, 'checksum']);
             $routes->post('/optimize', [MaintenanceController::class, 'optimize']);
             $routes->post('/repair', [MaintenanceController::class, 'repair']);
+        });
+        $routes->addGroup('/partition', static function (RouteCollector $routes): void {
+            $routes->post('/analyze', [PartitionController::class, 'analyze']);
+            $routes->post('/check', [PartitionController::class, 'check']);
+            $routes->post('/drop', [PartitionController::class, 'drop']);
+            $routes->post('/optimize', [PartitionController::class, 'optimize']);
+            $routes->post('/rebuild', [PartitionController::class, 'rebuild']);
+            $routes->post('/repair', [PartitionController::class, 'repair']);
+            $routes->post('/truncate', [PartitionController::class, 'truncate']);
         });
         $routes->addRoute(['GET', 'POST'], '/operations', [TableOperationsController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/recent-favorite', [RecentFavoriteController::class, 'index']);
