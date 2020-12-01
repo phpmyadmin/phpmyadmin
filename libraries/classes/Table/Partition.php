@@ -102,4 +102,23 @@ final class Partition
 
         return [(bool) $result, $query];
     }
+
+    public function repair(string $db, string $table, string $partition): array
+    {
+        $query = sprintf(
+            'ALTER TABLE %s REPAIR PARTITION %s;',
+            Util::backquote($table),
+            Util::backquote($partition)
+        );
+
+        $this->dbi->selectDb($db);
+        $result = $this->dbi->fetchResult($query);
+
+        $rows = [];
+        foreach ($result as $row) {
+            $rows[$row['Table']][] = $row;
+        }
+
+        return [$rows, $query];
+    }
 }
