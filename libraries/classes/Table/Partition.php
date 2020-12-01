@@ -69,4 +69,23 @@ final class Partition
 
         return [(bool) $result, $query];
     }
+
+    public function optimize(string $db, string $table, string $partition): array
+    {
+        $query = sprintf(
+            'ALTER TABLE %s OPTIMIZE PARTITION %s;',
+            Util::backquote($table),
+            Util::backquote($partition)
+        );
+
+        $this->dbi->selectDb($db);
+        $result = $this->dbi->fetchResult($query);
+
+        $rows = [];
+        foreach ($result as $row) {
+            $rows[$row['Table']][] = $row;
+        }
+
+        return [$rows, $query];
+    }
 }
