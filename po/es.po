@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-11-21 23:14+0100\n"
-"PO-Revision-Date: 2020-08-09 15:50+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-12-02 15:29+0000\n"
+"Last-Translator: Alfredo Vierna <p4p4p1tuf0@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2486,7 +2486,7 @@ msgstr "Revisión de claves foráneas"
 
 #: libraries/classes/Config/Descriptions.php:316
 msgid "First day of calendar"
-msgstr ""
+msgstr "Primer día del calendario"
 
 #: libraries/classes/Config/Descriptions.php:317
 msgid "Browse mode"
@@ -4494,7 +4494,7 @@ msgstr "Introduzca su llave privada para el servicio reCaptcha de su dominio."
 
 #: libraries/classes/Config/Descriptions.php:960
 msgid "URL for reCaptcha v2 API"
-msgstr ""
+msgstr "URL para la API de reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:961
 msgid ""
@@ -4546,7 +4546,7 @@ msgstr "Introduzca su llave privada para el servicio reCaptcha de su dominio."
 
 #: libraries/classes/Config/Descriptions.php:972
 msgid "URL for reCaptcha siteverify"
-msgstr ""
+msgstr "URL para la verificación de reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:974
 msgid "Choose the default action when sending error reports."
@@ -7054,6 +7054,8 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"La función HEX tratará el número entero como una cadena mientras calcula el "
+"valor hexadecimal"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:507
 msgid ""
@@ -7498,12 +7500,11 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 "Hubo un problema accediendo al almacenamiento del navegador, algunas "
-"características no funcionan adecuadamente para usted. Es probable que el "
-"navegador no soporte el almacenamiento de información o se alcanzó el límite "
-"de cuota. En Firefox, el almacenamiento corrupto también puede causar "
-"problemas, limpiar sus \"Datos offline de sitios web\"  puede ayudar. En "
-"Safari, este problema es causado comúnmente por la \"Navegación en modo "
-"privado\"."
+"características no funcionan. Es probable que el navegador no soporte el "
+"almacenamiento de información o se alcanzó el límite de cuota. En Firefox, "
+"el almacenamiento corrupto también puede causar problemas, limpiar sus "
+"\"Datos offline de sitios web\" puede ayudar. En Safari, este problema es "
+"causado comúnmente por la \"Navegación en modo privado\"."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 msgid "Copy tables to"
@@ -8623,7 +8624,7 @@ msgstr "¡El nombre de la clave primaria tiene que ser «PRIMARY»!"
 #: libraries/classes/Controllers/Table/MaintenanceController.php:160
 #: libraries/classes/Controllers/Table/MaintenanceController.php:195
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "Desactivadas las operaciones de mantenimiento en tablas multiples."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:113
 #: libraries/classes/Controllers/Table/OperationsController.php:300
@@ -10152,7 +10153,7 @@ msgstr "Se utiliza SSL"
 
 #: libraries/classes/Html/Generator.php:353
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "La función de PHP password_hash() con opciones por defecto."
 
 #: libraries/classes/Html/Generator.php:354
 msgid "password_hash() PHP function"
@@ -11213,6 +11214,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Tu contraseña es muy larga. Para evitar ataques DoS, phpMyAdmin limita las "
+"contraseñas a 1.000 caracteres."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -11240,6 +11243,8 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"Has sido expulsado debido a inactividad durante %s segundos. Una vez vuelva "
+"a entrar, sera capaz de continuar donde lo dejó."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:215
 #: libraries/classes/Plugins/AuthenticationPlugin.php:218
@@ -16802,10 +16807,8 @@ msgstr ""
 #: templates/preferences/two_factor/configure.twig:5
 #: templates/preferences/two_factor/main.twig:57
 #: templates/preferences/two_factor/main.twig:70
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Autenticación por configuración"
+msgstr "Configure autentificación en dos pasos"
 
 #: templates/preferences/two_factor/configure.twig:12
 #, fuzzy
@@ -19024,7 +19027,7 @@ msgstr "Barra de navegación mediante tablas"
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(actual)"
 
 #: templates/transformation_overview.twig:1
 #, fuzzy
