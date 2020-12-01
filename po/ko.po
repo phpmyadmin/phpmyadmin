@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2020-04-26 21:22+0000\n"
-"Last-Translator: 가석현 <shga89@naver.com>\n"
+"PO-Revision-Date: 2020-12-02 16:29+0000\n"
+"Last-Translator: leekoris <ghks2589@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-0/ko/"
 ">\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.0.2-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -16124,7 +16124,7 @@ msgstr "옵션 활성화"
 
 #: templates/table/index_form.twig:52
 msgid "Key block size:"
-msgstr ""
+msgstr "키 블록 크기:"
 
 #: templates/table/index_form.twig:69
 msgid "Index type:"
@@ -16390,7 +16390,7 @@ msgstr "제안하는 테이블 구조"
 
 #: templates/table/structure/display_structure.twig:405
 msgid "Normalize"
-msgstr ""
+msgstr "정규화"
 
 #: templates/table/structure/display_structure.twig:411
 msgid "Track view"
@@ -16584,7 +16584,7 @@ msgstr ""
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr ""
+msgstr "더 많은 양의 쿼리를 실행할 때까지 서버를 더 오래 실행하십시오."
 
 #: libraries/advisory_rules_generic.txt:61
 #, fuzzy, php-format
@@ -16599,7 +16599,7 @@ msgstr "지연된 쿼리 비율"
 #: libraries/advisory_rules_generic.txt:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "전체 쿼리 양에 비해 느린 쿼리가 많이 있습니다."
 
 #: libraries/advisory_rules_generic.txt:67
 #: libraries/advisory_rules_generic.txt:74
