@@ -78,23 +78,32 @@ final class PartitionController extends AbstractController
 
     public function drop(): void
     {
-        global $containerBuilder, $sql_query;
-
         $partitionName = $_POST['partition_name'] ?? '';
 
         if (strlen($partitionName) === 0) {
             return;
         }
 
-        $sql_query = sprintf(
-            'ALTER TABLE %s DROP PARTITION %s;',
-            Util::backquote($this->table),
-            Util::backquote($partitionName)
-        );
+        [$result, $query] = $this->model->drop($this->db, $this->table, $partitionName);
 
-        /** @var SqlController $controller */
-        $controller = $containerBuilder->get(SqlController::class);
-        $controller->index();
+        if ($result) {
+            $message = Generator::getMessage(
+                __('Your SQL query has been executed successfully.'),
+                $query,
+                'success'
+            );
+        } else {
+            $message = Generator::getMessage(
+                __('Error'),
+                $query,
+                'error'
+            );
+        }
+
+        $this->render('table/partition/drop', [
+            'partition_name' => $partitionName,
+            'message' => $message,
+        ]);
     }
 
     public function optimize(): void
