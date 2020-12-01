@@ -11,9 +11,9 @@
         }, '&') ~ '">' ~ db|escape('html') ~ '.' ~ table|escape('html') ~ '</a>')|raw }}
       </legend>
 
-      <div class="responsivetable jsresponsive">
-        <table id="tablespecificuserrights" class="pma-table data">
-          <thead>
+      <div class="table-responsive-md jsresponsive">
+        <table class="table table-light table-striped table-hover">
+          <thead class="thead-light">
             <tr>
               <th></th>
               <th>{% trans 'User name' %}</th>
@@ -29,18 +29,18 @@
             {% for privilege in privileges %}
               {% set privileges_amount = privilege.privileges|length %}
               <tr>
-                <td{% if privileges_amount > 1 %} rowspan="{{ privileges_amount }}"{% endif %}>
+                <td{% if privileges_amount > 1 %} class="align-middle" rowspan="{{ privileges_amount }}"{% endif %}>
                   <input type="checkbox" class="checkall" name="selected_usr[]" id="checkbox_sel_users_{{ loop.index0 }}" value="
                     {{- privilege.user ~ '&amp;#27;' ~ privilege.host }}">
                 </td>
-                <td{% if privileges_amount > 1 %} rowspan="{{ privileges_amount }}"{% endif %}>
+                <td{% if privileges_amount > 1 %} class="align-middle" rowspan="{{ privileges_amount }}"{% endif %}>
                   {% if privilege.user is empty %}
                     <span class="text-danger">{% trans 'Any' %}</span>
                   {% else %}
                     {{ privilege.user }}
                   {% endif %}
                 </td>
-                <td{% if privileges_amount > 1 %} rowspan="{{ privileges_amount }}"{% endif %}>
+                <td{% if privileges_amount > 1 %} class="align-middle" rowspan="{{ privileges_amount }}"{% endif %}>
                   {{ privilege.host }}
                 </td>
                 {% for priv in privilege.privileges %}
