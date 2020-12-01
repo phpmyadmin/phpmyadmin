@@ -1,22 +1,22 @@
 <form name="usersForm" id="usersForm" action="{{ url('/server/privileges') }}" method="post">
   {{ get_hidden_inputs() }}
-  <div class="responsivetable">
-    <table id="tableuserrights" class="pma-table data">
-      <thead>
+  <div class="table-responsive">
+    <table id="userRightsTable" class="table table-light table-striped table-hover">
+      <thead class="thead-light">
         <tr>
           <th></th>
-          <th>{% trans 'User name' %}</th>
-          <th>{% trans 'Host name' %}</th>
-          <th>{% trans 'Password' %}</th>
-          <th>
+          <th scope="col">{% trans 'User name' %}</th>
+          <th scope="col">{% trans 'Host name' %}</th>
+          <th scope="col">{% trans 'Password' %}</th>
+          <th scope="col">
             {% trans 'Global privileges' %}
             {{ show_hint('Note: MySQL privilege names are expressed in English.') }}
           </th>
           {% if menus_work %}
-            <th>{% trans 'User group' %}</th>
+            <th scope="col">{% trans 'User group' %}</th>
           {% endif %}
-          <th>{% trans 'Grant' %}</th>
-          <th colspan="{{ user_group_count > 0 ? '3' : '2' }}">{% trans 'Action' %}</th>
+          <th scope="col">{% trans 'Grant' %}</th>
+          <th scope="col" colspan="{{ user_group_count > 0 ? '3' : '2' }}">{% trans 'Action' %}</th>
         </tr>
       </thead>
 

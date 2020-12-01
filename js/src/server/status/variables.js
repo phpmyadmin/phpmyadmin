@@ -34,10 +34,11 @@ AJAX.registerOnload('server/status/variables.js', function () {
 
     $('#dontFormat').on('change', function () {
         // Hiding the table while changing values speeds up the process a lot
-        $('#serverstatusvariables').hide();
-        $('#serverstatusvariables').find('td.value span.original').toggle(this.checked);
-        $('#serverstatusvariables').find('td.value span.formatted').toggle(! this.checked);
-        $('#serverstatusvariables').show();
+        const serverStatusVariables = $('#serverStatusVariables');
+        serverStatusVariables.hide();
+        serverStatusVariables.find('td.value span.original').toggle(this.checked);
+        serverStatusVariables.find('td.value span.formatted').toggle(! this.checked);
+        serverStatusVariables.show();
     }).trigger('change');
 
     $('#filterText').on('keyup', function () {
@@ -85,7 +86,7 @@ AJAX.registerOnload('server/status/variables.js', function () {
             $('#linkSuggestions').css('display', 'none');
         }
 
-        $('#serverstatusvariables').find('th.name').each(function () {
+        $('#serverStatusVariables').find('th.name').each(function () {
             if ((textFilter === null || textFilter.exec($(this).text())) &&
                 (! alertFilter || $(this).next().find('span.attention').length > 0) &&
                 (categoryFilter.length === 0 || $(this).parent().hasClass('s_' + categoryFilter))

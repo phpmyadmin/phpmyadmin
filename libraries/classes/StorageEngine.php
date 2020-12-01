@@ -233,9 +233,9 @@ class StorageEngine
                     . "\n";
             }
             $ret .= '    </td>' . "\n"
-                  . '    <th>' . htmlspecialchars($details['title']) . '</th>'
+                  . '    <th scope="row">' . htmlspecialchars($details['title']) . '</th>'
                   . "\n"
-                  . '    <td class="value">';
+                  . '    <td class="text-monospace text-right">';
             switch ($details['type']) {
                 case PMA_ENGINE_DETAILS_TYPE_SIZE:
                     $parsed_size = $this->resolveTypeSize($details['value']);
@@ -262,7 +262,8 @@ class StorageEngine
                 . "\n"
                 . '</p>' . "\n";
         } else {
-            $ret = '<table class="pma-table data">' . "\n" . $ret . '</table>' . "\n";
+            $ret = '<table class="table table-light table-striped table-hover w-auto">'
+                . "\n" . $ret . '</table>' . "\n";
         }
 
         return $ret;

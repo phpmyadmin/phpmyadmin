@@ -131,15 +131,14 @@ class Innodb extends StorageEngine
             . ' OR Variable_name = \'Innodb_page_size\';';
         $status = $dbi->fetchResult($sql, 0, 1);
 
-        $output = '<table class="pma-table data" id="table_innodb_bufferpool_usage">' . "\n"
-            . '    <caption class="tblHeaders">' . "\n"
+        $output = '<table class="table table-light table-striped table-hover w-auto float-left">' . "\n"
+            . '    <caption>' . "\n"
             . '        ' . __('Buffer Pool Usage') . "\n"
             . '    </caption>' . "\n"
-            . '    <tfoot>' . "\n"
+            . '    <tfoot class="thead-light">' . "\n"
             . '        <tr>' . "\n"
             . '            <th colspan="2">' . "\n"
-            . '                ' . __('Total') . "\n"
-            . '                : '
+            . '                ' . __('Total:') . ' '
             . Util::formatNumber(
                 $status['Innodb_buffer_pool_pages_total'],
                 0
@@ -158,8 +157,8 @@ class Innodb extends StorageEngine
             . '    </tfoot>' . "\n"
             . '    <tbody>' . "\n"
             . '        <tr>' . "\n"
-            . '            <th>' . __('Free pages') . '</th>' . "\n"
-            . '            <td class="value">'
+            . '            <th scope="row">' . __('Free pages') . '</th>' . "\n"
+            . '            <td class="text-monospace text-right">'
             . Util::formatNumber(
                 $status['Innodb_buffer_pool_pages_free'],
                 0
@@ -167,8 +166,8 @@ class Innodb extends StorageEngine
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
-            . '            <th>' . __('Dirty pages') . '</th>' . "\n"
-            . '            <td class="value">'
+            . '            <th scope="row">' . __('Dirty pages') . '</th>' . "\n"
+            . '            <td class="text-monospace text-right">'
             . Util::formatNumber(
                 $status['Innodb_buffer_pool_pages_dirty'],
                 0
@@ -176,8 +175,8 @@ class Innodb extends StorageEngine
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
-            . '            <th>' . __('Pages containing data') . '</th>' . "\n"
-            . '            <td class="value">'
+            . '            <th scope="row">' . __('Pages containing data') . '</th>' . "\n"
+            . '            <td class="text-monospace text-right">'
             . Util::formatNumber(
                 $status['Innodb_buffer_pool_pages_data'],
                 0
@@ -185,8 +184,8 @@ class Innodb extends StorageEngine
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
-            . '            <th>' . __('Pages to be flushed') . '</th>' . "\n"
-            . '            <td class="value">'
+            . '            <th scope="row">' . __('Pages to be flushed') . '</th>' . "\n"
+            . '            <td class="text-monospace text-right">'
             . Util::formatNumber(
                 $status['Innodb_buffer_pool_pages_flushed'],
                 0
@@ -194,8 +193,8 @@ class Innodb extends StorageEngine
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
-            . '            <th>' . __('Busy pages') . '</th>' . "\n"
-            . '            <td class="value">'
+            . '            <th scope="row">' . __('Busy pages') . '</th>' . "\n"
+            . '            <td class="text-monospace text-right">'
             . Util::formatNumber(
                 $status['Innodb_buffer_pool_pages_misc'],
                 0
@@ -206,8 +205,8 @@ class Innodb extends StorageEngine
         // not present at least since MySQL 5.1.40
         if (isset($status['Innodb_buffer_pool_pages_latched'])) {
             $output .= '        <tr>'
-                . '            <th>' . __('Latched pages') . '</th>'
-                . '            <td class="value">'
+                . '            <th scope="row">' . __('Latched pages') . '</th>'
+                . '            <td class="text-monospace text-right">'
                 . Util::formatNumber(
                     $status['Innodb_buffer_pool_pages_latched'],
                     0
@@ -218,14 +217,14 @@ class Innodb extends StorageEngine
 
         $output .= '    </tbody>' . "\n"
             . '</table>' . "\n\n"
-            . '<table class="pma-table data" id="table_innodb_bufferpool_activity">' . "\n"
-            . '    <caption class="tblHeaders">' . "\n"
+            . '<table class="table table-light table-striped table-hover w-auto ml-4 float-left">' . "\n"
+            . '    <caption>' . "\n"
             . '        ' . __('Buffer Pool Activity') . "\n"
             . '    </caption>' . "\n"
             . '    <tbody>' . "\n"
             . '        <tr>' . "\n"
-            . '            <th>' . __('Read requests') . '</th>' . "\n"
-            . '            <td class="value">'
+            . '            <th scope="row">' . __('Read requests') . '</th>' . "\n"
+            . '            <td class="text-monospace text-right">'
             . Util::formatNumber(
                 $status['Innodb_buffer_pool_read_requests'],
                 0
@@ -233,8 +232,8 @@ class Innodb extends StorageEngine
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
-            . '            <th>' . __('Write requests') . '</th>' . "\n"
-            . '            <td class="value">'
+            . '            <th scope="row">' . __('Write requests') . '</th>' . "\n"
+            . '            <td class="text-monospace text-right">'
             . Util::formatNumber(
                 $status['Innodb_buffer_pool_write_requests'],
                 0
@@ -242,8 +241,8 @@ class Innodb extends StorageEngine
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
-            . '            <th>' . __('Read misses') . '</th>' . "\n"
-            . '            <td class="value">'
+            . '            <th scope="row">' . __('Read misses') . '</th>' . "\n"
+            . '            <td class="text-monospace text-right">'
             . Util::formatNumber(
                 $status['Innodb_buffer_pool_reads'],
                 0
@@ -251,8 +250,8 @@ class Innodb extends StorageEngine
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
-            . '            <th>' . __('Write waits') . '</th>' . "\n"
-            . '            <td class="value">'
+            . '            <th scope="row">' . __('Write waits') . '</th>' . "\n"
+            . '            <td class="text-monospace text-right">'
             . Util::formatNumber(
                 $status['Innodb_buffer_pool_wait_free'],
                 0
@@ -260,8 +259,8 @@ class Innodb extends StorageEngine
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
-            . '            <th>' . __('Read misses in %') . '</th>' . "\n"
-            . '            <td class="value">'
+            . '            <th scope="row">' . __('Read misses in %') . '</th>' . "\n"
+            . '            <td class="text-monospace text-right">'
             . ($status['Innodb_buffer_pool_read_requests'] == 0
                 ? '---'
                 : htmlspecialchars(
@@ -275,8 +274,8 @@ class Innodb extends StorageEngine
             . '</td>' . "\n"
             . '        </tr>' . "\n"
             . '        <tr>' . "\n"
-            . '            <th>' . __('Write waits in %') . '</th>' . "\n"
-            . '            <td class="value">'
+            . '            <th scope="row">' . __('Write waits in %') . '</th>' . "\n"
+            . '            <td class="text-monospace text-right">'
             . ($status['Innodb_buffer_pool_write_requests'] == 0
                 ? '---'
                 : htmlspecialchars(

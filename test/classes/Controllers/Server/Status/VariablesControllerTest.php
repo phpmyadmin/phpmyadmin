@@ -93,19 +93,19 @@ class VariablesControllerTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table class="pma-table data noclick" id="serverstatusvariables">',
+            '<table class="table table-light table-striped table-hover table-sm" id="serverStatusVariables">',
             $html
         );
         $this->assertStringContainsString(
-            '<th>Variable</th>',
+            '<th scope="col">Variable</th>',
             $html
         );
         $this->assertStringContainsString(
-            '<th>Value</th>',
+            '<th scope="col">Value</th>',
             $html
         );
         $this->assertStringContainsString(
-            '<th>Description</th>',
+            '<th scope="col">Description</th>',
             $html
         );
 

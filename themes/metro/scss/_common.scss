@@ -189,11 +189,6 @@ h2 {
   margin: 10px 0;
 }
 
-.data_full_width {
-  margin: 10px 0;
-  width: 100%;
-}
-
 h3 {
   font-family: $font-family-extra-bold;
   text-transform: uppercase;
@@ -1000,10 +995,6 @@ div#dataDisplay {
 }
 
 .pma-table {
-  &#tableFieldsId {
-    width: 100%;
-  }
-
   &.calendar {
     width: 100%;
 
@@ -1049,14 +1040,6 @@ div#tablestatistics table {
 }
 
 /* END table stats */
-
-/* server privileges */
-#tableuserrights td,
-#tablespecificuserrights td {
-  vertical-align: middle;
-}
-
-/* END server privileges */
 
 /* Heading */
 #topmenucontainer {
@@ -1226,36 +1209,6 @@ div#serverstatusquerieschart {
   padding-#{$left}: 30px;
 }
 
-table {
-  &#serverstatusqueriesdetails,
-  &#serverstatustraffic {
-    float: $left;
-  }
-
-  &#serverstatusqueriesdetails th {
-    min-width: 35px;
-  }
-
-  &#serverstatusvariables {
-    width: 100%;
-    margin-bottom: 1em;
-
-    .name {
-      width: 18em;
-      white-space: nowrap;
-    }
-
-    .value {
-      width: 6em;
-    }
-  }
-
-  &#serverstatusconnections {
-    float: $left;
-    margin-#{$left}: 30px;
-  }
-}
-
 div {
   &#serverstatus table {
     tbody td.descr a,
@@ -1357,89 +1310,6 @@ div {
 }
 
 /* end serverstatus */
-
-/* server variables */
-#serverVariables {
-  table-layout: fixed;
-  width: 100%;
-
-  .var-row > td {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 2em;
-  }
-
-  .var-header {
-    color: $th-color;
-    background: #f3f3f3;
-    font-weight: bold;
-    text-align: $left;
-  }
-
-  .var-row {
-    padding: 0.5em;
-    min-height: 18px;
-  }
-
-  .var-action {
-    width: 120px;
-  }
-
-  .var-name {
-    float: $left;
-
-    &.session {
-      font-weight: normal;
-      font-style: italic;
-    }
-  }
-
-  .var-value {
-    width: 50%;
-    float: $right;
-    text-align: $right;
-  }
-
-  .var-doc {
-    overflow: visible;
-    float: $right;
-  }
-
-  /* server variables editor */
-  .editLink {
-    padding-#{$right}: 1em;
-    float: $left;
-    font-family: sans-serif;
-  }
-
-  .serverVariableEditor {
-    width: 100%;
-    overflow: hidden;
-
-    input {
-      width: 100%;
-      margin: 0 0.5em;
-      box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      height: 2.2em;
-    }
-
-    div {
-      display: block;
-      overflow: hidden;
-      padding-#{$right}: 1em;
-    }
-
-    a {
-      float: $right;
-      margin: 0 0.5em;
-      line-height: 2em;
-    }
-  }
-}
 
 /* profiling */
 
@@ -1632,24 +1502,6 @@ li {
   margin-#{$right}: 20px;
   border-top: 1px solid silver;
   text-align: $right;
-}
-
-#table_innodb_bufferpool_usage,
-#table_innodb_bufferpool_activity {
-  float: $left;
-}
-
-#div_mysql_charset_collations table {
-  float: $left;
-
-  th,
-  td {
-    padding: 0.4em;
-  }
-
-  th#collationHeader {
-    width: 35%;
-  }
 }
 
 .operations_half_width {

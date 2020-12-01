@@ -2,22 +2,22 @@
 {% if  has_rows > 0 %}
     <form name="userGroupsForm" id="userGroupsForm" action="{{ action|raw }}" method="post">
         {{ hidden_inputs|raw  }}
-        <table class="pma-table" id="userGroupsTable">
-            <thead>
-                <tr>
-                    <th style="white-space: nowrap">
+        <table class="table table-light table-striped table-hover">
+            <thead class="thead-light">
+                <tr class="text-nowrap">
+                    <th scope="col">
                         {% trans 'User groups' %}
                     </th>
-                    <th>
+                    <th scope="col">
                         {% trans 'Server level tabs' %}
                     </th>
-                    <th>
+                    <th scope="col">
                         {% trans 'Database level tabs' %}
                     </th>
-                    <th>
+                    <th scope="col">
                         {% trans 'Table level tabs' %}
                     </th>
-                    <th>
+                    <th scope="col">
                         {% trans 'Action' %}
                     </th>
                 </tr>
@@ -29,7 +29,7 @@
                         <td>{{ groupName.serverTab }}</td>
                         <td>{{ groupName.dbTab }}</td>
                         <td>{{ groupName.tableTab }}</td>
-                        <td>
+                        <td class="text-nowrap">
                             <a class="" href="{{ groupName.userGroupUrl|raw }}" data-post="{{ groupName.viewUsersUrl|raw }}">{{ groupName.viewUsersIcon|raw }}</a>
                             &nbsp;&nbsp;
                             <a class="" href="{{ groupName.userGroupUrl|raw }}" data-post="{{ groupName.editUsersUrl|raw }}">{{ groupName.editUsersIcon|raw }}</a>

@@ -22,6 +22,7 @@ class EnginesControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
+        parent::defineVersionConstants();
         parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
 
@@ -44,11 +45,11 @@ class EnginesControllerTest extends AbstractTestCase
         $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
-            '<th>Storage Engine</th>',
+            '<th scope="col">Storage Engine</th>',
             $actual
         );
         $this->assertStringContainsString(
-            '<th>Description</th>',
+            '<th scope="col">Description</th>',
             $actual
         );
 

@@ -5,7 +5,7 @@ function initTableSorter (tabid) {
     var opts;
     switch (tabid) {
     case 'statustabs_queries':
-        $table = $('#serverstatusqueriesdetails');
+        $table = $('#serverStatusQueriesDetails');
         opts = {
             sortList: [[3, 1]],
             headers: {

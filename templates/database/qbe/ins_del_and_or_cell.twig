@@ -1,26 +1,26 @@
 <td class="value nowrap">
-  <table class="pma-table nospacing nopadding">
+  <table class="table table-borderless table-sm">
     <tr>
-      <td class="value nowrap">
+      <td class="value nowrap p-0">
         <small>{% trans 'Ins:' %}</small>
         <input type="checkbox" name="criteriaRowInsert[{{ row_index }}]" aria-label="{% trans 'Insert' %}">
       </td>
-      <td class="value">
+      <td class="value p-0">
         <strong>{% trans 'And:' %}</strong>
       </td>
-      <td>
+      <td class="p-0">
         <input type="radio" name="criteriaAndOrRow[{{ row_index }}]" value="and"{{ checked_options.and ? ' checked' }} aria-label="{% trans 'And' %}">
       </td>
     </tr>
     <tr>
-      <td class="value nowrap">
+      <td class="value nowrap p-0">
         <small>{% trans 'Del:' %}</small>
         <input type="checkbox" name="criteriaRowDelete[{{ row_index }}]" aria-label="{% trans 'Delete' %}">
       </td>
-      <td class="value">
+      <td class="value p-0">
         <strong>{% trans 'Or:' %}</strong>
       </td>
-      <td>
+      <td class="p-0">
         <input type="radio" name="criteriaAndOrRow[{{ row_index }}]" value="or"{{ checked_options.or ? ' checked' }} aria-label="{% trans 'Or' %}">
       </td>
     </tr>

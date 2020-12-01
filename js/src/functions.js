@@ -1114,9 +1114,9 @@ AJAX.registerOnload('functions.js', function () {
             var checked = $this.prop('checked');
             $checkbox.prop('checked', checked).trigger('change');
             if (checked) {
-                $tr.addClass('marked');
+                $tr.addClass('marked table-active');
             } else {
-                $tr.removeClass('marked');
+                $tr.removeClass('marked table-active');
             }
             lastClickChecked = checked;
 
@@ -1140,7 +1140,7 @@ AJAX.registerOnload('functions.js', function () {
                 }
                 $tr.parent().find('tr:not(.noclick)')
                     .slice(start, end + 1)
-                    .removeClass('marked')
+                    .removeClass('marked table-active')
                     .find(':checkbox')
                     .prop('checked', false)
                     .trigger('change');
@@ -1157,7 +1157,7 @@ AJAX.registerOnload('functions.js', function () {
             }
             $tr.parent().find('tr:not(.noclick)')
                 .slice(start, end + 1)
-                .addClass('marked')
+                .addClass('marked table-active')
                 .find(':checkbox')
                 .prop('checked', true)
                 .trigger('change');
@@ -4734,7 +4734,7 @@ $(document).on('change', checkboxesSel, Functions.checkboxesChanged);
 $(document).on('change', 'input.checkall_box', function () {
     var isChecked = $(this).is(':checked');
     $(this.form).find(checkboxesSel).not('.row-hidden').prop('checked', isChecked)
-        .parents('tr').toggleClass('marked', isChecked);
+        .parents('tr').toggleClass('marked table-active', isChecked);
 });
 
 $(document).on('click', '.checkall-filter', function () {

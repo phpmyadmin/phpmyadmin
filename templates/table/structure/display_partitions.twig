@@ -17,8 +17,8 @@
                     <code>{{ sub_partition_method }}({{ sub_partition_expression }})</code>
                 <p>
             {% endif %}
-            <table class="pma-table">
-                <thead>
+            <table class="table table-light table-striped table-hover table-sm">
+                <thead class="thead-light">
                     <tr>
                         <th colspan="2">#</th>
                         <th>{% trans 'Partition' %}</th>
@@ -36,7 +36,7 @@
                 </thead>
                 <tbody>
                 {% for partition in partitions %}
-                    <tr class="noclick{{ has_sub_partitions ? ' marked' }}">
+                    <tr class="noclick{{ has_sub_partitions ? ' table-active' }}">
                         {% if has_sub_partitions %}
                             <td>{{ partition.getOrdinal() }}</td>
                             <td></td>

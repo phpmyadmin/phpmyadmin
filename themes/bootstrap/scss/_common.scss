@@ -23,11 +23,6 @@ h2 {
   margin: 0 0 12px;
 }
 
-.data_full_width {
-  margin: 0 0 12px;
-  width: 100%;
-}
-
 h3 {
   font-weight: bold;
   font-size: 1rem;
@@ -887,12 +882,6 @@ label.col-3.d-flex.align-items-center {
   padding: 1.5% 0 !important;
 }
 
-.central_columns_add_column {
-  display: inline-block;
-  margin-#{$left}: 1%;
-  max-width: 50%;
-}
-
 .message_errors_found {
   margin-top: 20px;
 }
@@ -964,11 +953,7 @@ div#dataDisplay {
   }
 }
 
-table {
-  &#tableFieldsId {
-    width: 100%;
-  }
-
+.pma-table {
   &.calendar {
     width: 100%;
 
@@ -1012,14 +997,6 @@ div#tablestatistics table {
 }
 
 // end table stats
-
-// server privileges
-#tableuserrights td,
-#tablespecificuserrights td {
-  vertical-align: middle;
-}
-
-// end server privileges
 
 // Heading
 #topmenucontainer {
@@ -1177,35 +1154,6 @@ div#serverstatusquerieschart {
   margin-#{$right}: 50px;
 }
 
-table {
-  &#serverstatusqueriesdetails,
-  &#serverstatustraffic {
-    float: $left;
-  }
-
-  &#serverstatusqueriesdetails th {
-    min-width: 35px;
-  }
-
-  &#serverstatusvariables {
-    width: 100%;
-    margin-bottom: 1em;
-
-    .name {
-      width: 18em;
-      white-space: nowrap;
-    }
-
-    .value {
-      width: 6em;
-    }
-  }
-
-  &#serverstatusconnections {
-    float: $left;
-  }
-}
-
 div {
   &#serverstatus table {
     tbody td.descr a,
@@ -1319,81 +1267,6 @@ div {
 }
 
 // end serverstatus
-
-// server variables
-#serverVariables {
-  width: 100%;
-
-  .var-row > td {
-    line-height: 2em;
-  }
-
-  .var-header {
-    color: $th-color;
-    background: #f3f3f3;
-    background: linear-gradient(#fff, #ccc);
-    font-weight: bold;
-    text-align: $left;
-  }
-
-  .var-row {
-    padding: 0.5em;
-    min-height: 18px;
-  }
-
-  .var-name {
-    font-weight: bold;
-
-    &.session {
-      font-weight: normal;
-      font-style: italic;
-    }
-  }
-
-  .var-value {
-    float: $right;
-    text-align: $right;
-  }
-
-  .var-doc {
-    overflow: visible;
-    float: $right;
-  }
-
-  // server variables editor
-  .editLink {
-    padding-#{$right}: 1em;
-    font-family: sans-serif;
-  }
-
-  .serverVariableEditor {
-    width: 100%;
-    overflow: hidden;
-
-    input {
-      width: 100%;
-      margin: 0 0.5em;
-      box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      height: 2.2em;
-    }
-
-    div {
-      display: block;
-      overflow: hidden;
-      padding-#{$right}: 1em;
-    }
-
-    a {
-      margin: 0 0.5em;
-      line-height: 2em;
-    }
-  }
-}
-
-// end server variables
 
 // profiling
 
@@ -1569,24 +1442,6 @@ li.no_bullets {
   margin-#{$left}: 1%;
   text-align: $right;
   border-top: 0.1em solid silver;
-}
-
-#table_innodb_bufferpool_usage,
-#table_innodb_bufferpool_activity {
-  float: $left;
-}
-
-#div_mysql_charset_collations table {
-  float: $left;
-
-  th,
-  td {
-    padding: 0.4em;
-  }
-
-  th#collationHeader {
-    width: 35%;
-  }
 }
 
 #qbe_div_table_list,
@@ -3736,10 +3591,6 @@ body .ui-dialog {
 
   #page_nav_icons {
     display: none;
-  }
-
-  table#serverstatusconnections {
-    margin-#{$left}: 0;
   }
 
   #table_name_col_no {

@@ -683,12 +683,6 @@ form.login label {
   padding: 1.5% 0 !important;
 }
 
-.central_columns_add_column {
-  display: inline-block;
-  margin-#{$left}: 1%;
-  max-width: 50%;
-}
-
 .message_errors_found {
   margin-top: 20px;
 }
@@ -763,10 +757,6 @@ div#dataDisplay {
 }
 
 .pma-table {
-  &#tableFieldsId {
-    width: 100%;
-  }
-
   &.calendar {
     width: 100%;
 
@@ -806,11 +796,6 @@ div#tablestatistics table {
   margin-bottom: 0.5em;
   margin-#{$right}: 0.5em;
   min-width: 16em;
-}
-
-#tableuserrights td,
-#tablespecificuserrights td {
-  vertical-align: middle;
 }
 
 #topmenucontainer {
@@ -961,40 +946,6 @@ div {
     height: 350px;
     margin-#{$right}: 50px;
   }
-
-  &#serverstatus table#serverstatusqueriesdetails {
-    float: $left;
-  }
-}
-
-table {
-  &#serverstatustraffic {
-    float: $left;
-  }
-
-  &#serverstatusconnections {
-    float: $left;
-    margin-#{$left}: 30px;
-  }
-
-  &#serverstatusvariables {
-    width: 100%;
-    margin-bottom: 1em;
-
-    .name {
-      width: 18em;
-      white-space: nowrap;
-    }
-
-    .value {
-      width: 6em;
-    }
-  }
-
-  &#serverstatusconnections {
-    float: $left;
-    margin-#{$left}: 30px;
-  }
 }
 
 div {
@@ -1084,72 +1035,6 @@ div#logTable {
 
   a {
     margin-#{$right}: 7px;
-  }
-}
-
-/* server variables */
-#serverVariables {
-  width: 100%;
-
-  .var-row > tr {
-    line-height: 2em;
-  }
-
-  .var-header {
-    font-weight: bold;
-    color: $th-color;
-    background: $th-background;
-    text-align: $left;
-  }
-
-  .var-row {
-    padding: 0.5em;
-    min-height: 18px;
-  }
-
-  .var-name {
-    font-weight: bold;
-
-    &.session {
-      font-weight: normal;
-      font-style: italic;
-    }
-  }
-
-  .var-value {
-    text-align: $right;
-    float: $right;
-  }
-
-  .editLink {
-    padding-#{$right}: 1em;
-    font-family: sans-serif;
-  }
-
-  .serverVariableEditor {
-    width: 100%;
-    overflow: hidden;
-
-    input {
-      width: 100%;
-      margin: 0 0.5em;
-      box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      height: 2.2em;
-    }
-
-    div {
-      display: block;
-      overflow: hidden;
-      padding-#{$right}: 1em;
-    }
-
-    a {
-      margin: 0 0.5em;
-      line-height: 2em;
-    }
   }
 }
 
@@ -1263,24 +1148,6 @@ li.no_bullets {
   margin-#{$left}: 1%;
   border-top: 0.1em solid silver;
   text-align: $right;
-}
-
-#table_innodb_bufferpool_usage,
-#table_innodb_bufferpool_activity {
-  float: $left;
-}
-
-#div_mysql_charset_collations table {
-  float: $left;
-
-  th,
-  td {
-    padding: 0.4em;
-  }
-
-  th#collationHeader {
-    width: 35%;
-  }
 }
 
 #qbe_div_table_list,
@@ -2275,10 +2142,6 @@ input#auto_increment_opt {
     background: none !important;
     color: #fff !important;
   }
-}
-
-.data_full_width {
-  width: 100%;
 }
 
 .cDrop {
@@ -3427,10 +3290,6 @@ body {
 
   #page_nav_icons {
     display: none;
-  }
-
-  table#serverstatusconnections {
-    margin-#{$left}: 0;
   }
 
   #table_name_col_no {
