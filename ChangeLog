@@ -69,6 +69,7 @@ phpMyAdmin - ChangeLog
 - issue #16477 Fixed no Option to enter TABLE specific permissions when the database name contains an "_" (underscore)
 
 5.0.5 (not yet released)
+- issue #14494 Fix uncaught TypeError when editing partitioning
 
 5.0.4 (2020-10-15)
 - issue #16245 Fix failed Zoom search clears existing values
