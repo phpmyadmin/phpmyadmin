@@ -121,4 +121,18 @@ final class Partition
 
         return [$rows, $query];
     }
+
+    public function truncate(string $db, string $table, string $partition): array
+    {
+        $query = sprintf(
+            'ALTER TABLE %s TRUNCATE PARTITION %s;',
+            Util::backquote($table),
+            Util::backquote($partition)
+        );
+
+        $this->dbi->selectDb($db);
+        $result = $this->dbi->tryQuery($query);
+
+        return [(bool) $result, $query];
+    }
 }
