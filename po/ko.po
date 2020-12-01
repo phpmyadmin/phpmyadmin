@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
 "PO-Revision-Date: 2020-12-02 16:29+0000\n"
-"Last-Translator: leekoris <ghks2589@naver.com>\n"
+"Last-Translator: 가석현 <shga89@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-0/ko/"
 ">\n"
 "Language: ko\n"
@@ -1248,7 +1248,7 @@ msgstr "에러 메시지: %s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr ""
+msgstr "서버와의 연결이 끊어졌습니다. 네트워크 연결과 서버의 상태를 확인하세요."
 
 #: js/messages.php:381
 #: libraries/classes/Controllers/Server/DatabasesController.php:232
