@@ -29,8 +29,8 @@
         {% trans 'Do a "query by example" (wildcard: "%") for two different columns' %}
       </legend>
 
-      <table class="pma-table data" id="tableFieldsId">
-        <thead>
+      <table class="table table-light table-striped table-hover table-sm" id="tableFieldsId">
+        <thead class="thead-light">
           <tr>
             {% if geom_column_flag %}
               <th>{% trans 'Function' %}</th>
@@ -52,9 +52,9 @@
             {# After X-Axis and Y-Axis column rows, display additional criteria option #}
             {% if i == 2 %}
               <tr>
-                <td>
+                <th>
                   {% trans 'Additional search criteria' %}
-                </td>
+                </th>
               </tr>
             {% endif %}
             <tr class="noclick">
@@ -111,7 +111,7 @@
         </tbody>
       </table>
 
-      <table class="pma-table data">
+      <table class="table table-borderless table-sm w-auto">
         <tr>
           <td>
             <label for="dataLabel">
