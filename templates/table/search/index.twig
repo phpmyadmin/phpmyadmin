@@ -28,9 +28,9 @@
       <legend>
         {% trans 'Do a "query by example" (wildcard: "%")' %}
       </legend>
-      <div class="responsivetable jsresponsive">
-        <table class="pma-table data">
-          <thead>
+      <div class="table-responsive-md jsresponsive">
+        <table class="table table-light table-striped table-hover table-sm">
+          <thead class="thead-light">
             <tr>
               {% if geom_column_flag %}
                 <th>{% trans 'Function' %}</th>
