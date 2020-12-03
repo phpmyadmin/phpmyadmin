@@ -6,7 +6,11 @@ body {
   padding-bottom: 1em;
   color: #444;
   font: 0.8em sans-serif;
-  background: url(../themes/pmahomme/img/left_nav_bg.png) repeat-y 80px 0 #f3f3f3;
+  background: linear-gradient(to right, #f3f3f3, #dadcde);
+  background-position: 180px 0px;
+  background-repeat: repeat-y;
+  background-color: #f3f3f3;
+  background-size: 25px auto;
 }
 
 input,

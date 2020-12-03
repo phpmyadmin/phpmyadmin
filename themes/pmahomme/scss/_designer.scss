@@ -1,8 +1,5 @@
-$header-img: '../img/designer/Header.png';
-$header-linked-img: '../img/designer/Header_Linked.png';
 $minus-img: '../img/designer/minus.png';
 $plus-img: '../img/designer/plus.png';
-$left-panel-button-img: '../img/designer/left_panel_butt.png';
 $top-panel-img: '../img/designer/top_panel.png';
 $small-tab-img: '../img/designer/small_tab.png';
 $frams1-img: '../img/designer/1.png';
@@ -56,8 +53,7 @@ canvas.designer {
   user-select: none;
 
   .header {
-    background-image: url($header-img);
-    background-repeat: repeat-x;
+    background: linear-gradient(#b8e6fa, #b8e6fa 6%, #cdf5fd 10%, #dbffff 10%, #9bd2f6 50%, #9bd2f6 100%);
   }
 }
 
@@ -69,7 +65,7 @@ canvas.designer {
 }
 
 .tab_zag_2 {
-  background-image: url($header-linked-img);
+  background: linear-gradient(#fffa96 0%, #fffa96 39%, #ffe796 40%, #ffe796 100%);
   background-repeat: repeat-x;
   text-align: center;
   cursor: move;
@@ -132,8 +128,7 @@ canvas.designer {
   font-weight: bold;
   margin-left: 2px;
   text-align: left;
-  background-color: #fff;
-  background-image: url($left-panel-button-img);
+  background: linear-gradient(#fff, #dfe5e7 70%, #fff 70%, #fff 100%);
   border: #ccc solid 1px;
 
   &:hover {
@@ -167,8 +162,7 @@ canvas.designer {
   cursor: default;
   width: 1px;
   color: #000;
-  background-image: url($header-img);
-  background-repeat: repeat-x;
+  background: linear-gradient(#b8e6fa, #b8e6fa 6%, #cdf5fd 10%, #dbffff 10%, #9bd2f6 50%, #9bd2f6 100%);
 }
 
 .small_tab {
@@ -199,8 +193,7 @@ canvas.designer {
 }
 
 .small_tab_pref {
-  background-image: url($header-img);
-  background-repeat: repeat-x;
+  background: linear-gradient(#b8e6fa, #b8e6fa 6%, #cdf5fd 10%, #dbffff 10%, #9bd2f6 50%, #9bd2f6 100%);
   text-align: center;
   width: 1px;
 

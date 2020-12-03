@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  background: url('../img/left_nav_bg.png') repeat-y right 0 $navi-background;
+  background: linear-gradient(to right, $navi-background, $navi-right-gradient);
   color: $navi-color;
   z-index: 800;
 
@@ -92,7 +92,8 @@
   margin-left: 0.75em;
 
   select {
-    background: url('../img/select_bg.png') repeat scroll 0 0;
+    background: linear-gradient(#fff, #f1f1f1, #fff);
+    -webkit-border-radius: 2px;
     border-radius: 2px;
     border: 1px solid #bbb;
     border-top: 1px solid #bbb;
