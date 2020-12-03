@@ -1,6 +1,6 @@
-<div class="row">
-<fieldset>
-  <legend>{% trans 'Slave replication' %}</legend>
+<div class="card">
+  <div class="card-header">{% trans 'Slave replication' %}</div>
+  <div class="card-body">
   {% if server_slave_multi_replication %}
     {% trans 'Master connection:' %}
     <form method="get" action="{{ url('/server/replication') }}">
@@ -107,5 +107,5 @@
       {% trans 'This server is not configured as slave in a replication process. Would you like to %sconfigure%s it?' %}
     {% endapply %}
   {% endif %}
-</fieldset>
+  </div>
 </div>
