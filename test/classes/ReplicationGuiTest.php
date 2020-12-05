@@ -62,7 +62,7 @@ class ReplicationGuiTest extends AbstractTestCase
 
         //validate 1: Master replication
         $this->assertStringContainsString(
-            '<legend>Master replication</legend>',
+            '<div class="card-header">Master replication</div>',
             $html
         );
         $this->assertStringContainsString(
@@ -159,7 +159,7 @@ class ReplicationGuiTest extends AbstractTestCase
 
         //legend
         $this->assertStringContainsString(
-            '<legend>Slave replication</legend>',
+            '<div class="card-header">Slave replication</div>',
             $html
         );
         $this->assertStringContainsString(

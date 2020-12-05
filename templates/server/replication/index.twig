@@ -14,8 +14,7 @@
     {% if is_master %}
       {{ master_replication_html|raw }}
     {% elseif master_configure is null and clear_screen is null %}
-    <div class="row">
-      <div class="card">
+      <div class="card mb-2">
         <div class="card-header">{% trans 'Master replication' %}</div>
         <div class="card-body">
         {% apply format('<a href="' ~ url('/server/replication') ~ '" data-post="' ~ get_common(url_params|merge({'mr_configure': true}), '') ~ '">', '</a>')|raw %}
@@ -25,7 +24,6 @@
         {% endapply %}
         </div>
       </div>
-    </div>
     {% endif %}
 
     {% if master_configure is not null %}
