@@ -113,7 +113,11 @@
             "@phpunit"
         ],
         "update:baselines": "phpstan analyse --generate-baseline && psalm --set-baseline=psalm-baseline.xml",
-        "twig-lint": "php scripts/console lint:twig templates --ansi --show-deprecations"
+        "twig-lint": "php scripts/console lint:twig templates --ansi --show-deprecations",
+        "post-create-project-cmd": [
+            "yarn install --non-interactive --silent",
+            "scripts/generate-mo --quiet"
+        ]
     },
     "config":{
         "sort-packages": true
