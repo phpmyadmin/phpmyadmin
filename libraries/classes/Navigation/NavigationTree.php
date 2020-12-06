@@ -190,7 +190,7 @@ class NavigationTree
         if (isset($_REQUEST['searchClause2'])) {
             $this->searchClause2 = $_REQUEST['searchClause2'];
         }
-        // Initialise the tree by creating a root node
+        // Initialize the tree by creating a root node
         $node = NodeFactory::getInstance('NodeDatabaseContainer', 'root');
         $this->tree = $node;
         if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']

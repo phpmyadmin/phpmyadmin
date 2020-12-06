@@ -16,7 +16,7 @@ class IndexColumn
     private $seqInIndex = 1;
 
     /**
-     * @var string How the column is sorted in the index. “A” (Ascending) or
+     * @var string How the column is sorted in the index. "A" (Ascending) or
      * NULL (Not sorted)
      */
     private $collation = null;
