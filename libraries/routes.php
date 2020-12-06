@@ -164,7 +164,6 @@ return static function (RouteCollector $routes): void {
             $routes->post('/drop-table', [StructureController::class, 'dropTable']);
             $routes->post('/empty-form', [StructureController::class, 'emptyForm']);
             $routes->post('/empty-table', [StructureController::class, 'emptyTable']);
-            $routes->post('/export', [StructureController::class, 'export']);
             $routes->addRoute(['GET', 'POST'], '/favorite-table', [
                 StructureController::class,
                 'addRemoveFavoriteTablesAction',
@@ -184,6 +183,7 @@ return static function (RouteCollector $routes): void {
     $routes->addGroup('/export', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '', [ExportController::class, 'index']);
         $routes->get('/check-time-out', [ExportController::class, 'checkTimeOut']);
+        $routes->post('/tables', [DatabaseExportController::class, 'tables']);
         $routes->addGroup('/template', static function (RouteCollector $routes): void {
             $routes->post('/create', [ExportTemplateController::class, 'create']);
             $routes->post('/delete', [ExportTemplateController::class, 'delete']);

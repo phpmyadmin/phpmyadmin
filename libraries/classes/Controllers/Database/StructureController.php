@@ -1165,22 +1165,6 @@ class StructureController extends AbstractController
         ];
     }
 
-    public function export(): void
-    {
-        global $containerBuilder;
-
-        if (empty($_POST['selected_tbl'])) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', __('No table selected.'));
-
-            return;
-        }
-
-        /** @var ExportController $controller */
-        $controller = $containerBuilder->get(ExportController::class);
-        $controller->index();
-    }
-
     public function showCreate(): void
     {
         $selected = $_POST['selected_tbl'] ?? [];

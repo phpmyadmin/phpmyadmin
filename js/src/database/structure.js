@@ -312,7 +312,7 @@ AJAX.registerOnload('database/structure.js', function () {
         } else if (action === 'empty_tbl') {
             url = 'index.php?route=/database/structure/empty-form';
         } else if (action === 'export') {
-            url = 'index.php?route=/database/structure/export';
+            url = 'index.php?route=/export/tables';
         } else if (action === 'optimize_tbl') {
             url = 'index.php?route=/table/maintenance/optimize';
         } else if (action === 'repair_tbl') {

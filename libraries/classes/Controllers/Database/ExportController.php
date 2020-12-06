@@ -172,4 +172,16 @@ final class ExportController extends AbstractController
             'tables' => $tablesForMultiValues,
         ]));
     }
+
+    public function tables(): void
+    {
+        if (empty($_POST['selected_tbl'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('No table selected.'));
+
+            return;
+        }
+
+        $this->index();
+    }
 }
