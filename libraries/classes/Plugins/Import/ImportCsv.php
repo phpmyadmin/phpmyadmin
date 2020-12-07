@@ -771,7 +771,7 @@ class ImportCsv extends AbstractImportCsv
         ?string $table,
         ?string $csvColumns
     ): array {
-        global $dbi;
+        global $dbi, $error, $message;
 
         $requiredFields = 0;
         $sqlTemplate = '';
