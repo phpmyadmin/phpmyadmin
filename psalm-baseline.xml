@@ -2581,12 +2581,6 @@
     </PossiblyNullArrayOffset>
   </file>
   <file src="libraries/classes/ThemeManager.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>$cookie_theme</code>
-    </InvalidScalarArgument>
-    <PossiblyNullArgument occurrences="1">
-      <code>$theme</code>
-    </PossiblyNullArgument>
     <PossiblyNullArrayOffset occurrences="1">
       <code>$this-&gt;themes</code>
     </PossiblyNullArrayOffset>

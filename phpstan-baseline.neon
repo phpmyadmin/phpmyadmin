@@ -2151,16 +2151,6 @@ parameters:
 			path: libraries/classes/Theme.php
 
 		-
-			message: "#^Parameter \\#1 \\$theme of method PhpMyAdmin\\\\ThemeManager\\:\\:setActiveTheme\\(\\) expects string\\|null, string\\|true given\\.$#"
-			count: 1
-			path: libraries/classes/ThemeManager.php
-
-		-
-			message: "#^Parameter \\#1 \\$theme of method PhpMyAdmin\\\\ThemeManager\\:\\:checkTheme\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/ThemeManager.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\ThemeManager\\:\\:\\$activeTheme \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/ThemeManager.php
