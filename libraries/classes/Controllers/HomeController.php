@@ -68,7 +68,10 @@ class HomeController extends AbstractController
             return;
         }
 
-        $db = '';
+        // This is for $cfg['ShowDatabasesNavigationAsTree'] = false;
+        // See: https://github.com/phpmyadmin/phpmyadmin/issues/16520
+        // The DB is defined here and sent to the JS front-end to refresh the DB tree
+        $db = $_POST['db'] ?? '';
         $table = '';
         $show_query = '1';
         $err_url = Url::getFromRoute('/');
