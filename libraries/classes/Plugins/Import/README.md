@@ -8,22 +8,17 @@ gettext mechanism, see https://wiki.phpmyadmin.net/pma/Gettext_for_developers.
 <?php
 /**
  * [Name] import plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Import
- * @subpackage [Name]
  */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
-use PhpMyAdmin\Import;
 use PhpMyAdmin\Plugins\ImportPlugin;
+use function strlen;
 
 /**
  * Handles the import for the [Name] format
- *
- * @package PhpMyAdmin-Import
  */
 class Import[Name] extends ImportPlugin
 {
@@ -59,14 +54,13 @@ class Import[Name] extends ImportPlugin
         // create the root group that will be the options field for
         // $importPluginProperties
         // this will be shown as "Format specific options"
-        $importSpecificOptions = new
-        PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup(
-            "Format Specific Options"
+        $importSpecificOptions = new PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup(
+            'Format Specific Options'
         );
 
         // general options main group
         $generalOptions = new PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup(
-            "general_opts"
+            'general_opts'
         );
 
         // optional :
@@ -78,14 +72,14 @@ class Import[Name] extends ImportPlugin
         // len  - maximal size of input
         // values - possible values of the item
         $leaf = new PhpMyAdmin\Properties\Options\Items\RadioPropertyItem(
-            "structure_or_data"
+            'structure_or_data'
         );
         $leaf->setValues(
-            array(
+            [
                 'structure' => __('structure'),
                 'data' => __('data'),
-                'structure_and_data' => __('structure and data')
-            )
+                'structure_and_data' => __('structure and data'),
+            ]
         );
         $generalOptions->addProperty($leaf);
 
@@ -104,7 +98,7 @@ class Import[Name] extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(&$sql_data = array())
+    public function doImport(&$sql_data = [])
     {
         // get globals (others are optional)
         global $error, $timeout_passed, $finished;
@@ -116,7 +110,9 @@ class Import[Name] extends ImportPlugin
                 // subtract data we didn't handle yet and stop processing
                 $GLOBALS['offset'] -= strlen($buffer);
                 break;
-            } elseif ($data === true) {
+            }
+
+            if ($data === true) {
                 // Handle rest of buffer
             } else {
                 // Append new data to buffer
@@ -129,17 +125,15 @@ class Import[Name] extends ImportPlugin
         $this->import->runQuery('', '', $sql_data);
     }
 
-
-    // optional:
+    /* optional:                                                     */
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
 
     /**
      * Getter description
      *
      * @return type
      */
-    private function _getMyOptionalVariable()
+    private function getMyOptionalVariable(): type
     {
         return $this->myOptionalVariable;
     }
@@ -147,13 +141,13 @@ class Import[Name] extends ImportPlugin
     /**
      * Setter description
      *
-     * @param type $my_optional_variable description
+     * @param type $myOptionalVariable description
      *
      * @return void
      */
-    private function _setMyOptionalVariable($my_optional_variable)
+    private function _setMyOptionalVariable(type $myOptionalVariable): void
     {
-        $this->myOptionalVariable = $my_optional_variable;
+        $this->myOptionalVariable = $myOptionalVariable;
     }
 }
 ```
