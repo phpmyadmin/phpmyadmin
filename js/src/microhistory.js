@@ -267,7 +267,7 @@ MicroHistory.setUrlHash = (function (jQuery, window) {
         /*
          * Known problem:
          * Setting hash leads to reload in webkit:
-         * http://www.quirksmode.org/bugreports/archives/2005/05/Safari_13_visual_anomaly_with_windowlocationhref.html
+         * https://www.quirksmode.org/bugreports/archives/2005/05/Safari_13_visual_anomaly_with_windowlocationhref.html
          *
          * so we expect that users are not running an ancient Safari version
          */

@@ -48,7 +48,7 @@ var AJAX = {
      */
     hash: function (key) {
         var newKey = key;
-        /* http://burtleburtle.net/bob/hash/doobs.html#one */
+        /* https://burtleburtle.net/bob/hash/doobs.html#one */
         newKey += '';
         var len = newKey.length;
         var hash = 0;

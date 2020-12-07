@@ -2589,7 +2589,7 @@ Functions.createProfilingChart = function (target, data) {
                 numberColumns: 2
             }
         },
-        // from http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines#Color_Palette
+        // from https://web.archive.org/web/20190321233412/http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines
         seriesColors: [
             '#fce94f',
             '#fcaf3e',
