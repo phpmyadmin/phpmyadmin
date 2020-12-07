@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2020-09-29 04:19+0000\n"
-"Last-Translator: Wat Sujito <pcomputerpp1@gmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-0/th/"
-">\n"
+"PO-Revision-Date: 2020-12-07 11:48+0000\n"
+"Last-Translator: Chaloemchai Yinyao <chaloemchai.yy@gmail.com>\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-0/th/>"
+"\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1917,7 +1917,7 @@ msgstr "ลากเพื่อเปลี่ยนลำดับ"
 
 #: js/messages.php:601
 msgid "Click to sort results by this column."
-msgstr ""
+msgstr "คลิกเพื่อจัดเรียงผลลัพธ์ตามคอลัมน์นี้"
 
 #: js/messages.php:603
 msgid ""
@@ -1925,6 +1925,9 @@ msgid ""
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
+"Shift+Click เพื่อเพิ่มคอลัมน์นี้ใน ORDER BY clause หรือเพื่อสลับ ASC / DESC "
+"<br> - Ctrl + Click หรือ Alt + Click (Mac: Shift + Option + Click) "
+"เพื่อลบคอลัมน์ออกจาก ORDER BY clause"
 
 #: js/messages.php:607
 #, fuzzy
@@ -1960,19 +1963,19 @@ msgstr ""
 
 #: js/messages.php:618
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
-msgstr ""
+msgstr "โปรดป้อนสตริงเลขฐานสิบหกที่ถูกต้อง อักขระที่ถูกต้องคือ 0-9, A-F"
 
 #: js/messages.php:620
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"คุณต้องการดูแถวทั้งหมดหรือไม่ "
+"สำหรับตารางขนาดใหญ่อาจทำให้เบราว์เซอร์ขัดข้องได้"
 
 #: js/messages.php:623
-#, fuzzy
-#| msgid "Original position"
 msgid "Original length"
-msgstr "ตำแหน่งเริ่มแรก"
+msgstr "ความยาวเริ่มแรก"
 
 #: js/messages.php:626
 #, fuzzy
@@ -1987,22 +1990,19 @@ msgstr "ยกเลิก"
 
 #: js/messages.php:629
 msgid "Success"
-msgstr ""
+msgstr "สำเร็จ"
 
 #: js/messages.php:630
-#, fuzzy
 msgid "Import status"
-msgstr "นำเข้าไฟล์"
+msgstr "สถานะการนำเข้า"
 
 #: js/messages.php:631 templates/navigation/main.twig:85
 msgid "Drop files here"
-msgstr ""
+msgstr "วางไฟล์ที่นี่"
 
 #: js/messages.php:632
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select database first"
-msgstr "เลือกตาราง"
+msgstr "เลือกฐานข้อมูลก่อน"
 
 #: js/messages.php:635 libraries/classes/Display/Results.php:4871
 #: templates/database/data_dictionary/index.twig:64
