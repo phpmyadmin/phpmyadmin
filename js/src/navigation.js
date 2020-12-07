@@ -161,8 +161,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
         };
     }
 
-    var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-    $.get(url, params, function (data) {
+    $.get('index.php?route=/navigation&ajax_request=1', params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
             if (isNode) {
@@ -978,8 +977,7 @@ Navigation.ensureSettings = function (selflink) {
             getNaviSettings: true,
             server: CommonParams.get('server'),
         };
-        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-        $.post(url, params, function (data) {
+        $.post('index.php?route=/navigation&ajax_request=1', params, function (data) {
             if (typeof data !== 'undefined' && data.success) {
                 $('#pma_navi_settings_container').html(data.message);
                 setupRestoreField();
@@ -1019,8 +1017,7 @@ Navigation.reload = function (callback, paths) {
     requestNaviReload(params);
 
     function requestNaviReload (params) {
-        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-        $.post(url, params, function (data) {
+        $.post('index.php?route=/navigation&ajax_request=1', params, function (data) {
             if (typeof data !== 'undefined' && data.success) {
                 $('#pma_navigation_tree').html(data.message).children('div').show();
                 if ($('#pma_navigation_tree').hasClass('synced')) {
@@ -1612,7 +1609,6 @@ Navigation.FastFilter.Filter.prototype.request = function () {
     if (self.xhr) {
         self.xhr.abort();
     }
-    var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     var params = self.$this.find('> ul > li > form.fast_filter').first().serialize();
 
     if (self.$this.find('> ul > li > form.fast_filter').first().find('input[name=searchClause]').length === 0) {
@@ -1622,7 +1618,7 @@ Navigation.FastFilter.Filter.prototype.request = function () {
         }
     }
     self.xhr = $.ajax({
-        url: url,
+        url: 'index.php?route=/navigation&ajax_request=1',
         type: 'post',
         dataType: 'json',
         data: params,
