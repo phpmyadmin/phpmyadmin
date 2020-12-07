@@ -333,21 +333,17 @@ class ThemeManager
     }
 
     /**
-     * returns HTML selectbox, with or without form enclosed
-     *
-     * @param bool $form whether enclosed by from tags or not
+     * returns HTML selectbox
      *
      * @access public
      */
-    public function getHtmlSelectBox($form = true): string
+    public function getHtmlSelectBox(): string
     {
         $select_box = '';
 
-        if ($form) {
-            $select_box .= '<form name="setTheme" method="post"';
-            $select_box .= ' action="index.php?route=/set-theme" class="disableAjax">';
-            $select_box .= Url::getHiddenInputs();
-        }
+        $select_box .= '<form name="setTheme" method="post"';
+        $select_box .= ' action="index.php?route=/set-theme" class="disableAjax">';
+        $select_box .= Url::getHiddenInputs();
 
         $theme_preview_href = '<a href="'
             . Url::getFromRoute('/themes') . '" target="themes" class="themeselect">';
@@ -363,11 +359,8 @@ class ThemeManager
             $select_box .=  '>' . htmlspecialchars($each_theme->getName())
                 . '</option>';
         }
-        $select_box .=  '</select>';
-
-        if ($form) {
-            $select_box .=  '</form>';
-        }
+        $select_box .= '</select>';
+        $select_box .= '</form>';
 
         return $select_box;
     }
