@@ -1181,7 +1181,13 @@ class Table
                 // Building back the query.
                 $sql_structure = $statement->build() . ';';
 
-                // Executing it.
+                // This is to avoid some issues when renaming databases with views
+                // See: https://github.com/phpmyadmin/phpmyadmin/issues/16422
+                if ($move) {
+                    $dbi->selectDb($target_db);
+                }
+
+                // Executing it
                 $dbi->query($sql_structure);
                 $GLOBALS['sql_query'] .= "\n" . $sql_structure;
             }
