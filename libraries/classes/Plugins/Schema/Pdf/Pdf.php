@@ -18,6 +18,7 @@ use function mb_ord;
 use function str_replace;
 use function strlen;
 use function ucfirst;
+use function is_array;
 
 // phpcs:disable PSR1.Files.SideEffects
 /**
@@ -304,8 +305,12 @@ class Pdf extends PdfLib
                 . ' WHERE db_name = \'' . $dbi->escapeString($this->db)
                 . '\' AND page_nr = \'' . $this->pageNumber . '\'';
             $test_rs = $this->relation->queryAsControlUser($test_query);
-            $pages = @$dbi->fetchAssoc($test_rs);
-            $pg_name = ucfirst((string) $pages['page_descr']);
+            $pageDesc = '';
+            $pages = $dbi->fetchAssoc($test_rs);
+            if (is_array($pages)) {
+                $pageDesc = (string) $pages['page_descr'];
+            }
+            $pg_name = ucfirst($pageDesc);
         }
 
         $this->SetFont($this->ff, 'B', 14);
