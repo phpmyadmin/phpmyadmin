@@ -131,7 +131,7 @@ jobs:
         - CI_MODE=test
         - YARN_GPG=no
       install:
-        - composer install --no-interaction
+        - composer install --no-interaction --ignore-platform-reqs
         - yarn install --non-interactive
       before_install:
         - choco install php composer
