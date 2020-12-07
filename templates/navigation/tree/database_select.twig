@@ -9,7 +9,15 @@
 
       <select name="db" class="hide" id="navi_db_select">
         <option value="" dir="{{ text_dir }}">{% trans 'Databases' %}…</option>
-        {{ options|raw }}
+        {% for option in options %}
+          <option value="{{ option.name }}" title="{{ option.title }}"
+            data-apath="{{ option.data.apath }}"
+            data-vpath="{{ option.data.vpath }}"
+            data-pos="{{ option.data.pos }}"
+            {{ option.isSelected ? " selected" : "" }}>
+              {{- option.name -}}
+            </option>
+        {% endfor %}
       </select>
     </form>
   </div>
