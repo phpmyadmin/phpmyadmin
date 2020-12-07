@@ -28,6 +28,8 @@ final class JavaScriptMessagesController
     {
         global $cfg, $PMA_Theme;
 
+        $ajaxClockSmallGifPath = $PMA_Theme !== null ? $PMA_Theme->getImgPath('ajax_clock_small.gif') : '';
+
         $this->messages = [
             /* For confirmations */
             'strConfirm' => __('Confirm'),
@@ -672,7 +674,7 @@ final class JavaScriptMessagesController
                 )
                 . '<br>'
                 . '<img src="'
-                . $PMA_Theme->getImgPath('ajax_clock_small.gif')
+                . $ajaxClockSmallGifPath
                 . '" width="16" height="16" alt="ajax clock">'
                 . '</div>',
             'strCopyQueryButtonSuccess' => __('Successfully copied!'),

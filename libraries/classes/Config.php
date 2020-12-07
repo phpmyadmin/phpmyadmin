@@ -593,7 +593,8 @@ class Config
             }
         } else {
             // no cookie - read default from settings
-            if ($this->settings['ThemeDefault'] != $tmanager->theme->getId()
+            if ($tmanager->theme !== null
+                && $this->settings['ThemeDefault'] != $tmanager->theme->getId()
                 && $tmanager->checkTheme($this->settings['ThemeDefault'])
             ) {
                 $tmanager->setActiveTheme($this->settings['ThemeDefault']);
@@ -637,8 +638,8 @@ class Config
      *
      * @param string|null $cookie_name   can be null
      * @param string      $cfg_path      configuration path
-     * @param mixed       $new_cfg_value new value
-     * @param mixed       $default_value default value
+     * @param string      $new_cfg_value new value
+     * @param string|null $default_value default value
      *
      * @return true|Message
      */
@@ -866,12 +867,14 @@ class Config
      */
     public function getThemeUniqueValue(): int
     {
+        global $PMA_Theme;
+
         return (int) (
             $this->sourceMtime +
             $this->defaultSourceMtime +
             $this->get('user_preferences_mtime') +
-            $GLOBALS['PMA_Theme']->mtimeInfo +
-            $GLOBALS['PMA_Theme']->filesizeInfo
+            ($PMA_Theme->mtimeInfo ?? 0) +
+            ($PMA_Theme->filesizeInfo ?? 0)
         );
     }
 
@@ -1076,7 +1079,7 @@ class Config
      * or removes if value is equal to default
      *
      * @param string $cookie   name of cookie to remove
-     * @param mixed  $value    new cookie value
+     * @param string $value    new cookie value
      * @param string $default  default value
      * @param int    $validity validity of cookie in seconds (default is one month)
      * @param bool   $httponly whether cookie is only for HTTP (and not for scripts)
@@ -1085,7 +1088,7 @@ class Config
      */
     public function setCookie(
         string $cookie,
-        $value,
+        string $value,
         ?string $default = null,
         ?int $validity = null,
         bool $httponly = true

@@ -240,7 +240,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      *
      * @todo should be done in PhpMyAdmin\Config
      */
-    $PMA_Config->setCookie('pma_lang', $lang);
+    $PMA_Config->setCookie('pma_lang', (string) $lang);
 
     ThemeManager::getInstance()->setThemeCookie();
 

@@ -1254,10 +1254,9 @@
     <PossiblyFalseReference occurrences="1">
       <code>getPresence</code>
     </PossiblyFalseReference>
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyNullArgument occurrences="2">
       <code>$container-&gt;realName</code>
       <code>$table</code>
-      <code>$title</code>
     </PossiblyNullArgument>
     <PossiblyNullPropertyFetch occurrences="2">
       <code>$container-&gt;parent</code>
@@ -2595,8 +2594,9 @@
       <code>$theme</code>
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
-    <RedundantCastGivenDocblockType occurrences="1">
+    <RedundantCastGivenDocblockType occurrences="2">
       <code>(bool) $per_server</code>
+      <code>(string) $this-&gt;theme-&gt;id</code>
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Tracker.php">

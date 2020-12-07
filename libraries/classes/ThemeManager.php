@@ -229,20 +229,21 @@ class ThemeManager
     /**
      * save theme in cookie
      *
-     * @return bool true
+     * @return true
      *
      * @access public
      */
-    public function setThemeCookie()
+    public function setThemeCookie(): bool
     {
+        $themeId = $this->theme !== null ? (string) $this->theme->id : '';
         $GLOBALS['PMA_Config']->setCookie(
             $this->getThemeCookieName(),
-            $this->theme->id,
+            $themeId,
             $this->themeDefault
         );
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php
-        $GLOBALS['PMA_Config']->set('theme-update', $this->theme->id);
+        $GLOBALS['PMA_Config']->set('theme-update', $themeId);
 
         return true;
     }
@@ -252,11 +253,9 @@ class ThemeManager
      *
      * @param string $folder Folder name to test
      *
-     * @return bool
-     *
      * @access private
      */
-    private function checkThemeFolder($folder)
+    private function checkThemeFolder($folder): bool
     {
         if (! is_dir($folder)) {
             trigger_error(
