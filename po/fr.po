@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-07 10:07+0100\n"
-"PO-Revision-Date: 2020-12-07 09:50+0000\n"
+"PO-Revision-Date: 2020-12-09 07:47+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -16698,7 +16698,7 @@ msgstr "Jeux de caractères et interclassements"
 
 #: templates/server/collations/index.twig:32
 msgid "(default)"
-msgstr "Valeur par défaut"
+msgstr "(Valeur par défaut)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
