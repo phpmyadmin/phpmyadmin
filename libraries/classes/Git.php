@@ -39,6 +39,7 @@ use function strtolower;
 use function substr;
 use function trim;
 use function unpack;
+use function is_bool;
 
 /**
  * Git class to manipulate Git data
@@ -402,27 +403,30 @@ class Git
             && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])
         ) {
             $isRemoteCommit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
-        } else {
-            $link = 'https://www.phpmyadmin.net/api/commit/' . $hash . '/';
-            $is_found = $httpRequest->create($link, 'GET');
-            switch ($is_found) {
-                case false:
-                    $isRemoteCommit = false;
-                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
-                    break;
-                case null:
-                    // no remote link for now, but don't cache this as Github is down
-                    $isRemoteCommit = false;
-                    break;
-                default:
-                    $isRemoteCommit = true;
-                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
-                    if ($commit === false) {
-                        // if no local commit data, try loading from Github
-                        return json_decode((string) $is_found);
-                    }
-                    break;
-            }
+
+            return null;
+        }
+
+        $link = 'https://www.phpmyadmin.net/api/commit/' . $hash . '/';
+        $is_found = $httpRequest->create($link, 'GET');
+        if ($is_found === false) {
+            $isRemoteCommit = false;
+            $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
+
+            return null;
+        }
+        if ($is_found === null) {
+            // no remote link for now, but don't cache this as GitHub is down
+            $isRemoteCommit = false;
+
+            return null;
+        }
+
+        $isRemoteCommit = true;
+        $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
+        if ($commit === false) {
+            // if no local commit data, try loading from Github
+            return json_decode((string) $is_found);
         }
 
         return null;
@@ -553,19 +557,13 @@ class Git
                 $httpRequest = new HttpRequest();
                 $link = 'https://www.phpmyadmin.net/api/tree/' . $branch . '/';
                 $is_found = $httpRequest->create($link, 'GET', true);
-                switch ($is_found) {
-                    case true:
-                        $is_remote_branch = true;
-                        $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = true;
-                        break;
-                    case false:
-                        $is_remote_branch = false;
-                        $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = false;
-                        break;
-                    case null:
-                        // no remote link for now, but don't cache this as Github is down
-                        $is_remote_branch = false;
-                        break;
+                if (is_bool($is_found)) {
+                    $is_remote_branch = $is_found;
+                    $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = $is_found;
+                }
+                if ($is_found === null) {
+                    // no remote link for now, but don't cache this as Github is down
+                    $is_remote_branch = false;
                 }
             }
         }

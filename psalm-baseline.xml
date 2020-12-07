@@ -1106,9 +1106,6 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="libraries/classes/Git.php">
-    <ParadoxicalCondition occurrences="1">
-      <code>null</code>
-    </ParadoxicalCondition>
     <PossiblyNullArgument occurrences="1">
       <code>$gitFolder</code>
     </PossiblyNullArgument>
