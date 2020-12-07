@@ -305,7 +305,7 @@ class Pdf extends PdfLib
                 . '\' AND page_nr = \'' . $this->pageNumber . '\'';
             $test_rs = $this->relation->queryAsControlUser($test_query);
             $pages = @$dbi->fetchAssoc($test_rs);
-            $pg_name = ucfirst($pages['page_descr']);
+            $pg_name = ucfirst((string) $pages['page_descr']);
         }
 
         $this->SetFont($this->ff, 'B', 14);
