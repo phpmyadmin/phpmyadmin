@@ -315,8 +315,6 @@ linkcheck_ignore = [
     r'https://authy.com/.*',
     # Site often changes links and reverts changes (9362bde02d0535a2f8cb74a18797249cb734c4b0)
     r'https://www.yubico.com/.*',
-    # 500 Server Error: Internal Server Error
-    r'http://www.scriptalicious.com/.*',
     # Some timeouts and SSL issues: https://github.com/sektioneins/suhosin/issues/119
     r'https://suhosin.org/.*',
 ]
