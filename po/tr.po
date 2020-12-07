@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-07 10:07+0100\n"
-"PO-Revision-Date: 2020-11-16 06:28+0000\n"
+"PO-Revision-Date: 2020-12-07 11:48+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -16488,10 +16488,8 @@ msgid "Character sets and collations"
 msgstr "Karakter grupları ve karşılaştırmalar"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "Varsayılan"
+msgstr "(varsayılan)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -17543,10 +17541,8 @@ msgstr "#"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "saat başına"
+msgstr "ø saat başına"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -18127,46 +18123,32 @@ msgid "Relation view"
 msgstr "İlişki görünümü"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "bölüme ayrıldı"
+msgstr "Bölümü çözümle"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "bölüme ayrıldı"
+msgstr "Bölümü denetle"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "bölüme ayrıldı"
+msgstr "Bölümü bırak"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Bölümlemeyi kaldır"
+msgstr "Bölümü iyileştir"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Alt bölüm"
+msgstr "Bölümü yeniden oluştur"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Bölümlemeyi kaldır"
+msgstr "Bölümü onar"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Alt bölüm"
+msgstr "Bölümü kes"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
