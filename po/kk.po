@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-11-21 23:14+0100\n"
+"POT-Creation-Date: 2020-12-07 10:07+0100\n"
 "PO-Revision-Date: 2020-11-16 06:28+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1380,9 +1380,6 @@ msgid "per minute"
 msgstr "mınýtyna"
 
 #: libraries/classes/Advisor.php:410
-#: templates/server/status/queries/index.twig:39
-#: templates/server/status/status/index.twig:18
-#: templates/server/status/status/index.twig:38
 msgid "per hour"
 msgstr "saǵatyna"
 
@@ -2122,7 +2119,7 @@ msgstr "Faıldyń tańbalar jıyny"
 
 #: libraries/classes/Config/Descriptions.php:221
 #: libraries/classes/Config/Descriptions.php:237 templates/sql/query.twig:41
-#: templates/table/structure/display_table_stats.twig:82
+#: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "Pishim"
 
@@ -4142,8 +4139,8 @@ msgstr "Qulyptalǵan kestelerdi ótkizý"
 #: templates/database/central_columns/main.twig:267
 #: templates/database/central_columns/main.twig:381
 #: templates/database/central_columns/main.twig:382
-#: templates/database/events/index.twig:43
 #: templates/database/events/index.twig:46
+#: templates/database/events/index.twig:49
 #: templates/database/events/row.twig:20 templates/database/events/row.twig:23
 #: templates/database/routines/row.twig:18
 #: templates/database/routines/row.twig:21
@@ -4152,8 +4149,8 @@ msgstr "Qulyptalǵan kestelerdi ótkizý"
 #: templates/database/triggers/row.twig:25
 #: templates/display/results/table.twig:210
 #: templates/display/results/table.twig:211 templates/indexes.twig:33
-#: templates/server/variables/index.twig:42
-#: templates/server/variables/index.twig:45 templates/setup/home/index.twig:57
+#: templates/server/variables/index.twig:41
+#: templates/server/variables/index.twig:44 templates/setup/home/index.twig:57
 #: templates/table/structure/display_structure.twig:436
 msgid "Edit"
 msgstr "Óńdeý"
@@ -4233,8 +4230,8 @@ msgstr "Derekqor bólektelgen kezde sholǵysh terezesiniń ataýy."
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
-#: libraries/classes/Server/Privileges.php:1941
-#: libraries/classes/Server/Privileges.php:1943
+#: libraries/classes/Server/Privileges.php:1942
+#: libraries/classes/Server/Privileges.php:1944
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4245,8 +4242,8 @@ msgstr "Derekqor bólektelgen kezde sholǵysh terezesiniń ataýy."
 #: templates/table/operations/index.twig:62
 #: templates/table/operations/index.twig:233
 #: templates/table/operations/index.twig:239
-#: templates/table/relation/common_form.twig:35
-#: templates/table/relation/common_form.twig:166
+#: templates/table/relation/common_form.twig:36
+#: templates/table/relation/common_form.twig:172
 #: templates/table/relation/foreign_key_row.twig:96
 msgid "Database"
 msgstr "Derekqor"
@@ -4275,13 +4272,13 @@ msgstr "Keste bólektelgen kezde sholǵysh terezesiniń taqyryby."
 #: libraries/classes/Config/Descriptions.php:921
 #: libraries/classes/Database/Triggers.php:397
 #: libraries/classes/Plugins/Export/ExportXml.php:521
-#: libraries/classes/Server/Privileges.php:1947
-#: libraries/classes/Server/Privileges.php:1949
+#: libraries/classes/Server/Privileges.php:1948
+#: libraries/classes/Server/Privileges.php:1950
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:154
-#: templates/database/triggers/list.twig:19
+#: templates/database/triggers/list.twig:20
 #: templates/server/privileges/privileges_table.twig:6
 #: templates/server/privileges/privileges_table.twig:235
 #: templates/server/privileges/user_properties.twig:37
@@ -4289,8 +4286,8 @@ msgstr "Keste bólektelgen kezde sholǵysh terezesiniń taqyryby."
 #: templates/table/maintenance/checksum.twig:12
 #: templates/table/operations/index.twig:67
 #: templates/table/operations/index.twig:244
-#: templates/table/relation/common_form.twig:36
-#: templates/table/relation/common_form.twig:173
+#: templates/table/relation/common_form.twig:37
+#: templates/table/relation/common_form.twig:179
 #: templates/table/relation/foreign_key_row.twig:106
 msgid "Table"
 msgstr "Keste"
@@ -4621,8 +4618,8 @@ msgid "Disabled"
 msgstr "Óshirilgen"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:303
-#: libraries/classes/Controllers/Database/StructureController.php:1468
-#: libraries/classes/Controllers/Database/StructureController.php:1551
+#: libraries/classes/Controllers/Database/StructureController.php:1452
+#: libraries/classes/Controllers/Database/StructureController.php:1535
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:497
 #: libraries/classes/Controllers/Table/DeleteController.php:56
 #: libraries/classes/Controllers/Table/StructureController.php:481
@@ -4783,22 +4780,22 @@ msgstr "OpenDocument mátini"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:369
 #: libraries/classes/Menu.php:309 libraries/classes/Menu.php:423
-#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1617
+#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1618
 #: libraries/classes/Util.php:2436 libraries/classes/Util.php:2451
-#: libraries/classes/Util.php:2468 templates/database/events/index.twig:55
-#: templates/database/events/index.twig:87
-#: templates/database/events/index.twig:88
+#: libraries/classes/Util.php:2468 templates/database/events/index.twig:58
+#: templates/database/events/index.twig:91
+#: templates/database/events/index.twig:92
 #: templates/database/events/row.twig:33
 #: templates/database/privileges/index.twig:91
 #: templates/database/privileges/index.twig:116
 #: templates/database/privileges/index.twig:117
-#: templates/database/routines/index.twig:46
-#: templates/database/routines/index.twig:47
+#: templates/database/routines/index.twig:50
+#: templates/database/routines/index.twig:51
 #: templates/database/routines/row.twig:58
 #: templates/database/routines/row.twig:61
 #: templates/database/structure/check_all_tables.twig:12
-#: templates/database/triggers/list.twig:37
-#: templates/database/triggers/list.twig:38
+#: templates/database/triggers/list.twig:41
+#: templates/database/triggers/list.twig:42
 #: templates/database/triggers/row.twig:35
 #: templates/display/results/table.twig:223
 #: templates/display/results/table.twig:224
@@ -5130,6 +5127,26 @@ msgstr "Derekqorda kesteler tabylmady."
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Eksporttaý plagınderi júktelmedi, ornatylymdy tekserińiz!"
 
+#: libraries/classes/Controllers/Database/ExportController.php:180
+#: libraries/classes/Controllers/Database/StructureController.php:1174
+#: libraries/classes/Controllers/Database/StructureController.php:1215
+#: libraries/classes/Controllers/Database/StructureController.php:1248
+#: libraries/classes/Controllers/Database/StructureController.php:1271
+#: libraries/classes/Controllers/Database/StructureController.php:1294
+#: libraries/classes/Controllers/Database/StructureController.php:1317
+#: libraries/classes/Controllers/Database/StructureController.php:1340
+#: libraries/classes/Controllers/Database/StructureController.php:1370
+#: libraries/classes/Controllers/Database/StructureController.php:1421
+#: libraries/classes/Controllers/Table/MaintenanceController.php:44
+#: libraries/classes/Controllers/Table/MaintenanceController.php:79
+#: libraries/classes/Controllers/Table/MaintenanceController.php:117
+#: libraries/classes/Controllers/Table/MaintenanceController.php:153
+#: libraries/classes/Controllers/Table/MaintenanceController.php:188
+#, fuzzy
+#| msgid "No tables selected."
+msgid "No table selected."
+msgstr "Kesteler bólektenbedi."
+
 #: libraries/classes/Controllers/Database/ImportController.php:75
 #: libraries/classes/Controllers/ImportController.php:620
 #: libraries/classes/Controllers/Server/ImportController.php:60
@@ -5214,34 +5231,14 @@ msgstr "Bul kóriniste keminde osy jol sany bar. %sQujattamany%s qarańyz."
 msgid "unknown"
 msgstr "belgisiz"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1174
-#: libraries/classes/Controllers/Database/StructureController.php:1190
-#: libraries/classes/Controllers/Database/StructureController.php:1231
-#: libraries/classes/Controllers/Database/StructureController.php:1264
-#: libraries/classes/Controllers/Database/StructureController.php:1287
-#: libraries/classes/Controllers/Database/StructureController.php:1310
-#: libraries/classes/Controllers/Database/StructureController.php:1333
-#: libraries/classes/Controllers/Database/StructureController.php:1356
-#: libraries/classes/Controllers/Database/StructureController.php:1386
-#: libraries/classes/Controllers/Database/StructureController.php:1437
-#: libraries/classes/Controllers/Table/MaintenanceController.php:44
-#: libraries/classes/Controllers/Table/MaintenanceController.php:79
-#: libraries/classes/Controllers/Table/MaintenanceController.php:117
-#: libraries/classes/Controllers/Table/MaintenanceController.php:153
-#: libraries/classes/Controllers/Table/MaintenanceController.php:188
-#, fuzzy
-#| msgid "No tables selected."
-msgid "No table selected."
-msgstr "Kesteler bólektenbedi."
-
-#: libraries/classes/Controllers/Database/StructureController.php:1272
-#: libraries/classes/Controllers/Database/StructureController.php:1295
-#: libraries/classes/Controllers/Database/StructureController.php:1318
+#: libraries/classes/Controllers/Database/StructureController.php:1256
+#: libraries/classes/Controllers/Database/StructureController.php:1279
+#: libraries/classes/Controllers/Database/StructureController.php:1302
 msgid "Success!"
 msgstr "Sáttilik!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1469
-#: libraries/classes/Controllers/Database/StructureController.php:1552
+#: libraries/classes/Controllers/Database/StructureController.php:1453
+#: libraries/classes/Controllers/Database/StructureController.php:1536
 #: libraries/classes/Controllers/Table/OperationsController.php:318
 #: libraries/classes/Controllers/Table/ReplaceController.php:397
 #: libraries/classes/Core.php:857 templates/preview_sql.twig:3
@@ -5743,7 +5740,7 @@ msgstr "Indeks úshin baǵan(dar)dy bólekteńiz."
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/table/index_form.twig:233
 #: templates/table/index_rename_form.twig:28
-#: templates/table/relation/common_form.twig:214
+#: templates/table/relation/common_form.twig:221
 msgid "Preview SQL"
 msgstr "SQL qarap alý"
 
@@ -5778,13 +5775,13 @@ msgid "The user name is empty!"
 msgstr "Paıdalanushy aty bos!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:129
-#: libraries/classes/Server/Privileges.php:1020
+#: libraries/classes/Server/Privileges.php:1021
 #: libraries/classes/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Paról bos!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:130
-#: libraries/classes/Server/Privileges.php:1018
+#: libraries/classes/Server/Privileges.php:1019
 #: libraries/classes/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Parólder birdeı emes!"
@@ -6231,7 +6228,7 @@ msgstr "Explain shyǵarýy"
 #: libraries/classes/Menu.php:537 libraries/classes/Util.php:2434
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:18
-#: templates/database/events/index.twig:18
+#: templates/database/events/index.twig:19
 #: templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
 msgid "Status"
@@ -6243,7 +6240,7 @@ msgstr "Mártebesi"
 #: libraries/classes/Plugins/Export/ExportOdt.php:625
 #: libraries/classes/Plugins/Export/ExportTexytext.php:471
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:414
-#: templates/database/triggers/list.twig:22
+#: templates/database/triggers/list.twig:23
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
 msgstr "Ýaqyt"
@@ -6307,6 +6304,7 @@ msgid "Sum of grouped rows:"
 msgstr "Toptalǵan joldar somasy:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:288
+#: libraries/classes/Engines/Innodb.php:141
 #: templates/server/databases/index.twig:256
 msgid "Total:"
 msgstr "Qorytyndy:"
@@ -6774,7 +6772,7 @@ msgstr "Táýeldilikter tańdalmady!"
 #: templates/database/central_columns/edit.twig:20
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:48
-#: templates/table/relation/common_form.twig:215
+#: templates/table/relation/common_form.twig:222
 #: templates/table/structure/partition_definition_form.twig:12
 msgid "Save"
 msgstr "Saqtaý"
@@ -7509,7 +7507,7 @@ msgstr[1] "sany %1$d derekqor sátti joıyldy."
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_partitions.twig:28
 #: templates/table/structure/display_structure.twig:231
-#: templates/table/structure/display_table_stats.twig:117
+#: templates/table/structure/display_table_stats.twig:119
 msgid "Rows"
 msgstr "Joldar"
 
@@ -7525,7 +7523,6 @@ msgstr "Indekster"
 #: libraries/classes/Controllers/Server/DatabasesController.php:498
 #: libraries/classes/Controllers/Server/Status/StatusController.php:147
 #: libraries/classes/Controllers/Server/Status/StatusController.php:236
-#: libraries/classes/Engines/Innodb.php:141
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Qorytyndy"
@@ -7575,7 +7572,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Server/Privileges.php:2994
+#: libraries/classes/Server/Privileges.php:2995
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Paıdalanushy"
@@ -7583,7 +7580,7 @@ msgstr "Paıdalanushy"
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:155
 #: templates/server/replication/master_add_slave_user.twig:32
 #: templates/server/replication/master_add_slave_user.twig:43
-#: templates/server/replication/master_replication.twig:24
+#: templates/server/replication/master_replication.twig:25
 msgid "Host"
 msgstr "Túın"
 
@@ -8377,8 +8374,8 @@ msgstr "Betbelgi jasalmady!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:246
-#: libraries/classes/Controllers/Table/StructureController.php:1034
-#: libraries/classes/Controllers/Table/StructureController.php:1261
+#: libraries/classes/Controllers/Table/StructureController.php:1021
+#: libraries/classes/Controllers/Table/StructureController.php:1248
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "%1$s kestesi sátti ózgertildi."
@@ -8420,6 +8417,13 @@ msgstr "%s kestesi áldeqashan bar!"
 #: libraries/classes/Controllers/Table/MaintenanceController.php:132
 #: libraries/classes/Controllers/Table/MaintenanceController.php:168
 #: libraries/classes/Controllers/Table/MaintenanceController.php:203
+#: libraries/classes/Controllers/Table/PartitionController.php:41
+#: libraries/classes/Controllers/Table/PartitionController.php:64
+#: libraries/classes/Controllers/Table/PartitionController.php:88
+#: libraries/classes/Controllers/Table/PartitionController.php:117
+#: libraries/classes/Controllers/Table/PartitionController.php:141
+#: libraries/classes/Controllers/Table/PartitionController.php:170
+#: libraries/classes/Controllers/Table/PartitionController.php:194
 #: libraries/classes/Controllers/Table/RelationController.php:273
 #: libraries/classes/Controllers/ViewOperationsController.php:84
 #: libraries/classes/Database/Routines.php:1481
@@ -8470,6 +8474,16 @@ msgstr ""
 msgid "View"
 msgstr "Kórinis"
 
+#: libraries/classes/Controllers/Table/PartitionController.php:94
+#: libraries/classes/Controllers/Table/PartitionController.php:147
+#: libraries/classes/Controllers/Table/PartitionController.php:200
+#: libraries/classes/Controllers/ViewOperationsController.php:87
+#: libraries/classes/Html/Generator.php:894 libraries/classes/Import.php:137
+#: libraries/classes/InsertEdit.php:1574 libraries/classes/Message.php:194
+#: templates/error/generic.twig:37 templates/javascript/variables.twig:108
+msgid "Error"
+msgstr "Qate"
+
 #: libraries/classes/Controllers/Table/RelationController.php:216
 msgid "Display column was successfully updated."
 msgstr "Beınelenetin baǵan sátti jańartyldy."
@@ -8506,19 +8520,19 @@ msgstr "Baǵandar sátti jyljytyldy."
 msgid "Failed to get description of column %s!"
 msgstr "%s baǵanynyń sıpattamasyn alý sátsiz aıaqtaldy!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1026
-#: libraries/classes/Controllers/Table/StructureController.php:1312
+#: libraries/classes/Controllers/Table/StructureController.php:1013
+#: libraries/classes/Controllers/Table/StructureController.php:1299
 #: libraries/classes/Tracking.php:774
 msgid "Query error"
 msgstr "Saýal qatesi"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1255
+#: libraries/classes/Controllers/Table/StructureController.php:1242
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "%1$s kestesi sátti ózgertildi. Artyqshylyqtar naqtylandy."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1539
+#: libraries/classes/Controllers/Table/StructureController.php:1526
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -8528,7 +8542,7 @@ msgstr "%1$s kestesi sátti ózgertildi. Artyqshylyqtar naqtylandy."
 msgid "Primary"
 msgstr "Alǵashqy"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1544
+#: libraries/classes/Controllers/Table/StructureController.php:1531
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8540,7 +8554,7 @@ msgstr "Alǵashqy"
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1796
+#: libraries/classes/Controllers/Table/StructureController.php:1783
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -8576,13 +8590,6 @@ msgstr "Munda bolý úshin jetkilikti artyqshylyqtaryńyz qazirgi ýaqytta joq!"
 #: libraries/classes/Controllers/ViewCreateController.php:84
 msgid "View name can not be empty!"
 msgstr "Kórinis aty bos bolýy múmkin emes!"
-
-#: libraries/classes/Controllers/ViewOperationsController.php:87
-#: libraries/classes/Html/Generator.php:894 libraries/classes/Import.php:137
-#: libraries/classes/InsertEdit.php:1574 libraries/classes/Message.php:194
-#: templates/error/generic.twig:37 templates/javascript/variables.twig:108
-msgid "Error"
-msgstr "Qate"
 
 #: libraries/classes/Core.php:358 libraries/classes/ZipExtension.php:60
 #, php-format
@@ -8769,8 +8776,8 @@ msgid "One or more errors have occurred while processing your request:"
 msgstr "Saýalyńyzdy óńdegen kezde bir nemese kóbirek qate oryn aldy:"
 
 #: libraries/classes/Database/Events.php:235
-#: templates/database/events/index.twig:105
 #: templates/database/events/index.twig:109
+#: templates/database/events/index.twig:113
 msgid "Add event"
 msgstr "Oqıǵa ústeý"
 
@@ -8909,8 +8916,8 @@ msgid "Delete bookmark"
 msgstr "Betbelgini joıý"
 
 #: libraries/classes/Database/Routines.php:116
-#: templates/database/routines/index.twig:63
 #: templates/database/routines/index.twig:67
+#: templates/database/routines/index.twig:71
 msgid "Add routine"
 msgstr "Rásimdi ústeý"
 
@@ -8975,13 +8982,13 @@ msgstr "Rásim aty"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:744
 #: templates/columns_definitions/table_fields_definitions.twig:12
 #: templates/database/central_columns/edit.twig:7
-#: templates/database/central_columns/main.twig:21
+#: templates/database/central_columns/main.twig:20
 #: templates/database/central_columns/main.twig:226
 #: templates/database/data_dictionary/index.twig:17
 #: templates/database/data_dictionary/index.twig:66
-#: templates/database/events/index.twig:20
+#: templates/database/events/index.twig:21
 #: templates/database/privileges/index.twig:19
-#: templates/database/routines/index.twig:31
+#: templates/database/routines/index.twig:32
 #: templates/database/structure/table_header.twig:30 templates/indexes.twig:16
 #: templates/table/privileges/index.twig:21
 #: templates/table/search/index.twig:39
@@ -9015,13 +9022,13 @@ msgstr "Baǵyt"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:412
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/database/central_columns/edit.twig:6
-#: templates/database/central_columns/main.twig:17
+#: templates/database/central_columns/main.twig:16
 #: templates/database/central_columns/main.twig:222
 #: templates/database/create_table.twig:11
-#: templates/database/events/index.twig:17
+#: templates/database/events/index.twig:18
 #: templates/database/operations/index.twig:33
-#: templates/database/routines/index.twig:29
-#: templates/database/triggers/list.twig:17 templates/setup/home/index.twig:43
+#: templates/database/routines/index.twig:30
+#: templates/database/triggers/list.twig:18 templates/setup/home/index.twig:43
 #: templates/table/structure/display_structure.twig:22
 msgid "Name"
 msgstr "Aty"
@@ -9059,7 +9066,7 @@ msgstr "Uzyndyǵy/Mánderi"
 #: templates/database/designer/database_tables.twig:114
 #: templates/display/results/table.twig:107
 #: templates/table/search/index.twig:99
-#: templates/table/structure/display_table_stats.twig:95
+#: templates/table/structure/display_table_stats.twig:97
 msgid "Options"
 msgstr "Opsıalar"
 
@@ -9222,7 +9229,7 @@ msgstr "Funksıa"
 #: templates/database/designer/main.twig:1050
 #: templates/server/replication/status_table.twig:17
 #: templates/server/status/variables/index.twig:73
-#: templates/server/variables/index.twig:33
+#: templates/server/variables/index.twig:32
 #: templates/table/search/index.twig:42
 #: templates/table/zoom_search/index.twig:42
 #: templates/table/zoom_search/result_form.twig:34
@@ -9310,7 +9317,7 @@ msgstr "Ýaqyt"
 #: libraries/classes/Plugins/Export/ExportOdt.php:628
 #: libraries/classes/Plugins/Export/ExportTexytext.php:472
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:416
-#: templates/database/triggers/list.twig:23
+#: templates/database/triggers/list.twig:24
 msgid "Event"
 msgstr "Oqıǵa"
 
@@ -9519,59 +9526,59 @@ msgstr "InnoDB mártebesi"
 msgid "Buffer Pool Usage"
 msgstr "Býfer pýlyn paıdalanýy"
 
-#: libraries/classes/Engines/Innodb.php:147
+#: libraries/classes/Engines/Innodb.php:146
 msgid "pages"
 msgstr "bet"
 
-#: libraries/classes/Engines/Innodb.php:161
+#: libraries/classes/Engines/Innodb.php:160
 msgid "Free pages"
 msgstr "Bos better"
 
-#: libraries/classes/Engines/Innodb.php:170
+#: libraries/classes/Engines/Innodb.php:169
 msgid "Dirty pages"
 msgstr "Las better"
 
-#: libraries/classes/Engines/Innodb.php:179
+#: libraries/classes/Engines/Innodb.php:178
 msgid "Pages containing data"
 msgstr "Derekteri bar better"
 
-#: libraries/classes/Engines/Innodb.php:188
+#: libraries/classes/Engines/Innodb.php:187
 msgid "Pages to be flushed"
 msgstr "Tazartylatyn better"
 
-#: libraries/classes/Engines/Innodb.php:197
+#: libraries/classes/Engines/Innodb.php:196
 msgid "Busy pages"
 msgstr "Bos emes better"
 
-#: libraries/classes/Engines/Innodb.php:209
+#: libraries/classes/Engines/Innodb.php:208
 msgid "Latched pages"
 msgstr "Bekitilgen better"
 
-#: libraries/classes/Engines/Innodb.php:223
+#: libraries/classes/Engines/Innodb.php:222
 msgid "Buffer Pool Activity"
 msgstr "Bufer pýlynyń áreketteri"
 
-#: libraries/classes/Engines/Innodb.php:227
+#: libraries/classes/Engines/Innodb.php:226
 msgid "Read requests"
 msgstr "Oqý saýaldary"
 
-#: libraries/classes/Engines/Innodb.php:236
+#: libraries/classes/Engines/Innodb.php:235
 msgid "Write requests"
 msgstr "Jazý saýaldary"
 
-#: libraries/classes/Engines/Innodb.php:245
+#: libraries/classes/Engines/Innodb.php:244
 msgid "Read misses"
 msgstr "Oqý ótkizýleri"
 
-#: libraries/classes/Engines/Innodb.php:254
+#: libraries/classes/Engines/Innodb.php:253
 msgid "Write waits"
 msgstr "Jazý kútýleri"
 
-#: libraries/classes/Engines/Innodb.php:263
+#: libraries/classes/Engines/Innodb.php:262
 msgid "Read misses in %"
 msgstr "% ishindegi oqý ótkizýleri"
 
-#: libraries/classes/Engines/Innodb.php:278
+#: libraries/classes/Engines/Innodb.php:277
 msgid "Write waits in %"
 msgstr "% jazý kútýleri"
 
@@ -10172,11 +10179,11 @@ msgstr ""
 #: templates/database/data_dictionary/index.twig:16
 #: templates/database/data_dictionary/index.twig:69 templates/indexes.twig:19
 #: templates/table/index_form.twig:131 templates/table/operations/index.twig:13
-#: templates/table/relation/common_form.twig:17
-#: templates/table/relation/common_form.twig:22
-#: templates/table/relation/common_form.twig:37
-#: templates/table/relation/common_form.twig:115
-#: templates/table/relation/common_form.twig:180
+#: templates/table/relation/common_form.twig:18
+#: templates/table/relation/common_form.twig:23
+#: templates/table/relation/common_form.twig:38
+#: templates/table/relation/common_form.twig:117
+#: templates/table/relation/common_form.twig:186
 #: templates/table/relation/foreign_key_row.twig:118
 #: templates/table/relation/foreign_key_row.twig:128
 #: templates/table/search/index.twig:38
@@ -10201,7 +10208,7 @@ msgstr "Baǵan"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:746
 #: templates/columns_definitions/table_fields_definitions.twig:30
 #: templates/database/central_columns/edit.twig:12
-#: templates/database/central_columns/main.twig:41
+#: templates/database/central_columns/main.twig:40
 #: templates/database/central_columns/main.twig:246
 #: templates/database/data_dictionary/index.twig:18
 #: templates/database/data_dictionary/index.twig:72 templates/indexes.twig:22
@@ -10275,7 +10282,7 @@ msgid "Insert"
 msgstr "Kiristirý"
 
 #: libraries/classes/Menu.php:329 libraries/classes/Menu.php:447
-#: libraries/classes/Server/Privileges.php:2968 libraries/classes/Util.php:2454
+#: libraries/classes/Server/Privileges.php:2969 libraries/classes/Util.php:2454
 #: libraries/classes/Util.php:2470 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -10493,7 +10500,7 @@ msgid "Show hidden items"
 msgstr "Jasyryn elementterdi kórsetý"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:36
-#: templates/database/events/index.twig:100
+#: templates/database/events/index.twig:104
 msgctxt "Create new event"
 msgid "New"
 msgstr "Jańa"
@@ -10863,57 +10870,57 @@ msgid "No partial dependencies found!"
 msgstr "Ishinara táýeldilikter tabylmady!"
 
 #: libraries/classes/Operations.php:601
-#: templates/table/structure/display_structure.twig:531
+#: templates/table/structure/display_partitions.twig:84
 msgid "Analyze"
 msgstr "Taldaý"
 
 #: libraries/classes/Operations.php:602
-#: templates/table/structure/display_structure.twig:531
+#: templates/table/structure/display_partitions.twig:94
 msgid "Check"
 msgstr "Tekserý"
 
 #: libraries/classes/Operations.php:603
-#: templates/table/structure/display_structure.twig:531
+#: templates/table/structure/display_partitions.twig:104
 msgid "Optimize"
 msgstr "Ońtaılandyrý"
 
 #: libraries/classes/Operations.php:604
-#: templates/table/structure/display_structure.twig:531
+#: templates/table/structure/display_partitions.twig:114
 msgid "Rebuild"
 msgstr "Qaıta qurý"
 
 #: libraries/classes/Operations.php:605
-#: templates/table/structure/display_structure.twig:531
+#: templates/table/structure/display_partitions.twig:124
 msgid "Repair"
 msgstr "Jóndeý"
 
 #: libraries/classes/Operations.php:606
-#: templates/table/structure/display_structure.twig:531
+#: templates/table/structure/display_partitions.twig:134
 msgid "Truncate"
 msgstr "Bosatý"
 
-#: libraries/classes/Operations.php:617 templates/database/events/index.twig:64
-#: templates/database/events/index.twig:70
-#: templates/database/events/index.twig:90
-#: templates/database/events/index.twig:91
+#: libraries/classes/Operations.php:617 templates/database/events/index.twig:67
+#: templates/database/events/index.twig:73
+#: templates/database/events/index.twig:94
+#: templates/database/events/index.twig:95
 #: templates/database/events/row.twig:43 templates/database/events/row.twig:49
-#: templates/database/routines/index.twig:49
-#: templates/database/routines/index.twig:50
+#: templates/database/routines/index.twig:53
+#: templates/database/routines/index.twig:54
 #: templates/database/routines/parameter_row.twig:51
 #: templates/database/routines/row.twig:70
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/database/structure/structure_table_row.twig:87
-#: templates/database/triggers/list.twig:40
-#: templates/database/triggers/list.twig:41
+#: templates/database/triggers/list.twig:44
+#: templates/database/triggers/list.twig:45
 #: templates/database/triggers/row.twig:45
 #: templates/database/triggers/row.twig:51 templates/indexes.twig:51
 #: templates/server/databases/index.twig:304
 #: templates/server/databases/index.twig:305
 #: templates/table/relation/foreign_key_row.twig:26
+#: templates/table/structure/display_partitions.twig:145
 #: templates/table/structure/display_structure.twig:121
 #: templates/table/structure/display_structure.twig:283
 #: templates/table/structure/display_structure.twig:463
-#: templates/table/structure/display_structure.twig:540
 msgid "Drop"
 msgstr "Joıý"
 
@@ -11163,7 +11170,7 @@ msgstr "Keste úshin derekterdi damptaý"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:747
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/central_columns/edit.twig:9
-#: templates/database/central_columns/main.twig:29
+#: templates/database/central_columns/main.twig:28
 #: templates/database/central_columns/main.twig:234
 #: templates/database/data_dictionary/index.twig:19
 #: templates/database/structure/body_for_table_summary.twig:52
@@ -11722,9 +11729,9 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Aqsha birlikterin ımporttaý <i>(mysaly, $5.00-dan  5.00-ke)</i>"
 
-#: libraries/classes/Plugins/Import/ImportOds.php:158
-#: libraries/classes/Plugins/Import/ImportXml.php:117
-#: libraries/classes/Plugins/Import/ImportXml.php:181
+#: libraries/classes/Plugins/Import/ImportOds.php:159
+#: libraries/classes/Plugins/Import/ImportXml.php:118
+#: libraries/classes/Plugins/Import/ImportXml.php:182
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -11732,7 +11739,7 @@ msgstr ""
 "Kórsetilgen XML-faıl durys qurylmaǵan nemese tolyq emes. Máseleni túzetip, "
 "áreketti qaıtalańyz."
 
-#: libraries/classes/Plugins/Import/ImportOds.php:169
+#: libraries/classes/Plugins/Import/ImportOds.php:170
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "OpenDocument elektrondyq kestesin taldaý múmkin bolmady!"
 
@@ -11793,7 +11800,7 @@ msgstr "%s derekqorynyń sulbasy - %s-bet"
 msgid "SCHEMA ERROR: "
 msgstr "SULBA QATESI: "
 
-#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:299
+#: libraries/classes/Plugins/Schema/Pdf/Pdf.php:300
 msgid "PDF export page"
 msgstr "PDF eksporttaý beti"
 
@@ -12693,33 +12700,33 @@ msgstr "Paıdalanushy tirkelgilerin jasaý, joıý jáne qaıta ataýǵa ruqsat 
 msgid "Allows executing stored routines."
 msgstr "Saqtalatyn rásimderdi oryndaýǵa ruqsat etedi."
 
-#: libraries/classes/Server/Privileges.php:789
-#: libraries/classes/Server/Privileges.php:863
-#: libraries/classes/Server/Privileges.php:3961
+#: libraries/classes/Server/Privileges.php:790
+#: libraries/classes/Server/Privileges.php:864
+#: libraries/classes/Server/Privileges.php:3962
 msgid "Native MySQL authentication"
 msgstr "Ishtetilgen MySQL túpnusqalyq rastamasy"
 
-#: libraries/classes/Server/Privileges.php:791
+#: libraries/classes/Server/Privileges.php:792
 msgid "SHA256 password authentication"
 msgstr "SHA256 parólimen túpnusqalyq rastamasy"
 
-#: libraries/classes/Server/Privileges.php:1159
+#: libraries/classes/Server/Privileges.php:1160
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s úshin paról sátti ózgertildi."
 
-#: libraries/classes/Server/Privileges.php:1208
+#: libraries/classes/Server/Privileges.php:1209
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s úshin artyqshylyqtardy qaıtaryp aldyńyz."
 
-#: libraries/classes/Server/Privileges.php:1544
+#: libraries/classes/Server/Privileges.php:1545
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Paıdalanýshylardy qaraý úshin artyqshylyqtar jetkiliksiz."
 
-#: libraries/classes/Server/Privileges.php:1611
+#: libraries/classes/Server/Privileges.php:1612
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -12727,78 +12734,78 @@ msgstr "Paıdalanýshylardy qaraý úshin artyqshylyqtar jetkiliksiz."
 msgid "Edit privileges"
 msgstr "Artyqshylyqtardy óńdeý"
 
-#: libraries/classes/Server/Privileges.php:1614
+#: libraries/classes/Server/Privileges.php:1615
 msgid "Revoke"
 msgstr "Keri shaqyrý"
 
-#: libraries/classes/Server/Privileges.php:1942
+#: libraries/classes/Server/Privileges.php:1943
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Derekqorǵa tán artyqshylyqtar"
 
-#: libraries/classes/Server/Privileges.php:1948
+#: libraries/classes/Server/Privileges.php:1949
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Kestege tán artyqshylyqtar"
 
-#: libraries/classes/Server/Privileges.php:1953
-#: libraries/classes/Server/Privileges.php:1955
+#: libraries/classes/Server/Privileges.php:1954
+#: libraries/classes/Server/Privileges.php:1956
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "Rásim"
 
-#: libraries/classes/Server/Privileges.php:1954
+#: libraries/classes/Server/Privileges.php:1955
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Rásimge tán artyqshylyqtar"
 
-#: libraries/classes/Server/Privileges.php:2302
+#: libraries/classes/Server/Privileges.php:2303
 msgid "No users selected for deleting!"
 msgstr "Joıý úshin eshqandaı paıdalanýshy bólektelmegen!"
 
-#: libraries/classes/Server/Privileges.php:2305
+#: libraries/classes/Server/Privileges.php:2306
 msgid "Reloading the privileges"
 msgstr "Artyqshylyqtardy qaıta júkteý"
 
-#: libraries/classes/Server/Privileges.php:2328
+#: libraries/classes/Server/Privileges.php:2329
 msgid "The selected users have been deleted successfully."
 msgstr "Bólektelgen paıdalanýshylar sátti joıyldy."
 
-#: libraries/classes/Server/Privileges.php:2405
+#: libraries/classes/Server/Privileges.php:2406
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s úshin artyqshylyqtardy jańarttyńyz."
 
-#: libraries/classes/Server/Privileges.php:2492
+#: libraries/classes/Server/Privileges.php:2493
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Paıdalanushy tabylmady."
 
-#: libraries/classes/Server/Privileges.php:2572
+#: libraries/classes/Server/Privileges.php:2573
 #, php-format
 msgid "Deleting %s"
 msgstr "%s joıylýda"
 
-#: libraries/classes/Server/Privileges.php:2603
+#: libraries/classes/Server/Privileges.php:2604
 msgid "The privileges were reloaded successfully."
 msgstr "Artyqshylyqtar sátti qaıta júkteldi."
 
-#: libraries/classes/Server/Privileges.php:2701
+#: libraries/classes/Server/Privileges.php:2702
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Paıdalanushy %s áldeqashan bar!"
 
-#: libraries/classes/Server/Privileges.php:2985
+#: libraries/classes/Server/Privileges.php:2986
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s úshin artyqshylyqtar"
 
-#: libraries/classes/Server/Privileges.php:3124
+#: libraries/classes/Server/Privileges.php:3125
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12809,7 +12816,7 @@ msgstr ""
 "kezkelgen (%) túınnen qosylýǵa ruqsat etse, bul olardyń qosylýna tyıym "
 "salady."
 
-#: libraries/classes/Server/Privileges.php:3167
+#: libraries/classes/Server/Privileges.php:3168
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12822,7 +12829,7 @@ msgstr ""
 "ózgertilse, server paıdalanatyn artyqshylyqtardan ózgeshe bolýy múmkin. Bul "
 "jaǵdaıda, jalǵastyrar aldynda %sartyqshylyqtaryn qaıta júkteýińiz%s kerek."
 
-#: libraries/classes/Server/Privileges.php:3183
+#: libraries/classes/Server/Privileges.php:3184
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12836,7 +12843,7 @@ msgstr ""
 "jaǵdaıda artyqshylyqtar qaıta júktelýi kerek, biraq aǵymda RELOAD "
 "artyqshylyǵyńyz joq."
 
-#: libraries/classes/Server/Privileges.php:3519
+#: libraries/classes/Server/Privileges.php:3520
 msgid "You have added a new user."
 msgstr "Jańa paıdalanushyny ústedińiz."
 
@@ -12899,7 +12906,7 @@ msgid "Show slave hosts"
 msgstr "Jetektegi túıinderdi kórsetý"
 
 #: libraries/classes/Server/Status/Data.php:200
-#: templates/server/replication/master_replication.twig:8
+#: templates/server/replication/master_replication.twig:9
 msgid "Show master status"
 msgstr "Jetekshi mártebesin kórsetý"
 
@@ -13004,23 +13011,23 @@ msgid ""
 msgstr ""
 "Bul saqtaýysh mehanizmy úshin mártebe týraly qoljetimdi egjeıly aqparat joq."
 
-#: libraries/classes/StorageEngine.php:366
+#: libraries/classes/StorageEngine.php:367
 #: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "Bul MySQL serverindegi %s ádepki saqtaýysh mehanızmy bolyp tabylady."
 
-#: libraries/classes/StorageEngine.php:369
+#: libraries/classes/StorageEngine.php:370
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s bul MySQL serverinde qoljetimdi."
 
-#: libraries/classes/StorageEngine.php:372
+#: libraries/classes/StorageEngine.php:373
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s bul MySQL serveri úshin óshirilgen."
 
-#: libraries/classes/StorageEngine.php:377
+#: libraries/classes/StorageEngine.php:378
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Bul MySQL server %s saqtaýysh mehanızmyn qoldamaıdy."
@@ -14098,7 +14105,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/database/central_columns/edit.twig:10
-#: templates/database/central_columns/main.twig:33
+#: templates/database/central_columns/main.twig:32
 #: templates/database/central_columns/main.twig:238
 #: templates/database/data_dictionary/index.twig:71
 #: templates/database/operations/index.twig:199
@@ -14112,7 +14119,7 @@ msgstr ""
 #: templates/table/search/index.twig:40
 #: templates/table/structure/display_structure.twig:24
 #: templates/table/structure/display_structure.twig:420
-#: templates/table/structure/display_table_stats.twig:106
+#: templates/table/structure/display_table_stats.twig:108
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/table/zoom_search/index.twig:40
@@ -14321,17 +14328,17 @@ msgstr "A_I"
 msgid "Add new column"
 msgstr "Jańa baǵandy ústeý"
 
-#: templates/database/central_columns/main.twig:25
+#: templates/database/central_columns/main.twig:24
 #: templates/database/central_columns/main.twig:230
 msgid "Length/Value"
 msgstr "Uzyndyǵy/Máni"
 
-#: templates/database/central_columns/main.twig:37
+#: templates/database/central_columns/main.twig:36
 #: templates/database/central_columns/main.twig:242
 msgid "Attribute"
 msgstr "Tólsıpat"
 
-#: templates/database/central_columns/main.twig:45
+#: templates/database/central_columns/main.twig:44
 #: templates/database/central_columns/main.twig:250
 msgid "A_I"
 msgstr "A_I"
@@ -14368,18 +14375,18 @@ msgid "Click to sort."
 msgstr "Suryptaý úshin basyńyz."
 
 #: templates/database/central_columns/main.twig:220
-#: templates/database/events/index.twig:19
+#: templates/database/events/index.twig:20
 #: templates/database/privileges/index.twig:22
-#: templates/database/routines/index.twig:30
+#: templates/database/routines/index.twig:31
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tables.twig:18
 #: templates/database/tracking/tables.twig:155
-#: templates/database/triggers/list.twig:21 templates/indexes.twig:14
+#: templates/database/triggers/list.twig:22 templates/indexes.twig:14
 #: templates/server/databases/index.twig:166
 #: templates/server/privileges/privileges_summary.twig:22
 #: templates/server/privileges/users_overview.twig:19
 #: templates/server/user_groups/user_groups.twig:21
-#: templates/server/variables/index.twig:31
+#: templates/server/variables/index.twig:30
 #: templates/table/privileges/index.twig:24
 #: templates/table/structure/display_partitions.twig:33
 #: templates/table/structure/display_structure.twig:35
@@ -14664,16 +14671,16 @@ msgstr "Aıaqtalǵannan keıin saqtap otyrý"
 msgid "There are no events to display."
 msgstr "Munda beınelenetin oqıǵalar joq."
 
-#: templates/database/events/index.twig:82
-#: templates/database/events/index.twig:85
+#: templates/database/events/index.twig:86
+#: templates/database/events/index.twig:89
 #: templates/database/privileges/index.twig:112
 #: templates/database/privileges/index.twig:115
-#: templates/database/routines/index.twig:41
-#: templates/database/routines/index.twig:44
+#: templates/database/routines/index.twig:45
+#: templates/database/routines/index.twig:48
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/database/triggers/list.twig:32
-#: templates/database/triggers/list.twig:35
+#: templates/database/triggers/list.twig:36
+#: templates/database/triggers/list.twig:39
 #: templates/display/results/table.twig:205
 #: templates/display/results/table.twig:208 templates/select_all.twig:2
 #: templates/select_all.twig:6
@@ -14684,16 +14691,16 @@ msgstr "Munda beınelenetin oqıǵalar joq."
 msgid "With selected:"
 msgstr "Bólektelgendermen:"
 
-#: templates/database/events/index.twig:83
-#: templates/database/events/index.twig:84
+#: templates/database/events/index.twig:87
+#: templates/database/events/index.twig:88
 #: templates/database/privileges/index.twig:113
 #: templates/database/privileges/index.twig:114
-#: templates/database/routines/index.twig:42
-#: templates/database/routines/index.twig:43
+#: templates/database/routines/index.twig:46
+#: templates/database/routines/index.twig:47
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/database/triggers/list.twig:33
-#: templates/database/triggers/list.twig:34
+#: templates/database/triggers/list.twig:37
+#: templates/database/triggers/list.twig:38
 #: templates/display/results/table.twig:206
 #: templates/display/results/table.twig:207 templates/select_all.twig:4
 #: templates/select_all.twig:5
@@ -14711,20 +14718,20 @@ msgstr "Bólektelgendermen:"
 msgid "Check all"
 msgstr "Barlyǵyn belgileý"
 
-#: templates/database/events/index.twig:116
+#: templates/database/events/index.twig:120
 msgid "Event scheduler status"
 msgstr "Oqıǵa josparlaýshy mártebesi"
 
-#: templates/database/events/index.twig:120
+#: templates/database/events/index.twig:124
 #: templates/database/tracking/tables.twig:47
 msgid "Click to toggle"
 msgstr "Aýystyrý úshin basyńyz"
 
-#: templates/database/events/index.twig:133
+#: templates/database/events/index.twig:137
 msgid "ON"
 msgstr "QOS"
 
-#: templates/database/events/index.twig:144
+#: templates/database/events/index.twig:148
 msgid "OFF"
 msgstr "ÓSH"
 
@@ -15056,11 +15063,11 @@ msgstr "Ishindegi bar sóz:"
 msgid "There are no routines to display."
 msgstr "Munda beınelenetin rásimder joq."
 
-#: templates/database/routines/index.twig:32
+#: templates/database/routines/index.twig:33
 msgid "Returns"
 msgstr "Qaıtarady"
 
-#: templates/database/routines/index.twig:58
+#: templates/database/routines/index.twig:62
 #, fuzzy
 #| msgctxt "Create new column"
 #| msgid "New"
@@ -15191,7 +15198,7 @@ msgstr "Kesteniń baqylaý somasy"
 #: templates/database/structure/check_all_tables.twig:22
 #: templates/table/maintenance/optimize.twig:3
 #: templates/table/operations/index.twig:362
-#: templates/table/structure/display_table_stats.twig:66
+#: templates/table/structure/display_table_stats.twig:68
 msgid "Optimize table"
 msgstr "Kesteni ońtaılandyrý"
 
@@ -15281,17 +15288,17 @@ msgid "Size"
 msgstr "Ólshem"
 
 #: templates/database/structure/table_header.twig:51
-#: templates/table/structure/display_table_stats.twig:152
+#: templates/table/structure/display_table_stats.twig:154
 msgid "Creation"
 msgstr "Jasalys"
 
 #: templates/database/structure/table_header.twig:56
-#: templates/table/structure/display_table_stats.twig:159
+#: templates/table/structure/display_table_stats.twig:161
 msgid "Last update"
 msgstr "Sońǵy jańartý"
 
 #: templates/database/structure/table_header.twig:61
-#: templates/table/structure/display_table_stats.twig:166
+#: templates/table/structure/display_table_stats.twig:168
 msgid "Last check"
 msgstr "Sońǵy tekserý"
 
@@ -16586,7 +16593,7 @@ msgid "Position"
 msgstr "Jaıǵasym"
 
 #: templates/server/binlog/index.twig:87
-#: templates/server/replication/master_replication.twig:23
+#: templates/server/replication/master_replication.twig:24
 msgid "Server ID"
 msgstr "Server ID"
 
@@ -16603,6 +16610,12 @@ msgstr "Aqparat"
 msgid "Character sets and collations"
 msgstr "Tańbalar jıyndary men kolasıalar"
 
+#: templates/server/collations/index.twig:32
+#, fuzzy
+#| msgid "Default"
+msgid "(default)"
+msgstr "Ádepki"
+
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
 msgstr "Derekqorlar statıstıkasy"
@@ -16617,13 +16630,13 @@ msgid "No privileges to create databases"
 msgstr "Derekqorlardy jasaý úshin artyqshylyqtar joq"
 
 #: templates/server/databases/index.twig:159
-#: templates/server/replication/index.twig:19
+#: templates/server/replication/index.twig:18
 #: templates/server/replication/master_replication.twig:3
 msgid "Master replication"
 msgstr "Jetekshini replıkalaý"
 
 #: templates/server/databases/index.twig:163
-#: templates/server/replication/slave_configuration.twig:3
+#: templates/server/replication/slave_configuration.twig:2
 msgid "Slave replication"
 msgstr "Jetektegini replıkalaý"
 
@@ -17165,7 +17178,7 @@ msgid "No privileges"
 msgstr "Artyqshylyqtar joq"
 
 #: templates/server/replication/master_add_slave_user.twig:6
-#: templates/server/replication/master_replication.twig:43
+#: templates/server/replication/master_replication.twig:44
 msgid "Add slave replication user"
 msgstr "Jetektegi replıkalaý paıdalanushysyn ústeý"
 
@@ -17227,15 +17240,15 @@ msgstr ""
 "soń bul server jetekshi retinde <strong>teńshelgeni</strong> týraly habardy "
 "kóre alasyz."
 
-#: templates/server/replication/master_replication.twig:4
+#: templates/server/replication/master_replication.twig:5
 msgid "This server is configured as master in a replication process."
 msgstr "Bul server replıkalaý prosesinde jetekshi retinde teńshelgen."
 
-#: templates/server/replication/master_replication.twig:15
+#: templates/server/replication/master_replication.twig:16
 msgid "Show connected slaves"
 msgstr "Qosylǵan jetektegilerdi kórsetý"
 
-#: templates/server/replication/master_replication.twig:37
+#: templates/server/replication/master_replication.twig:38
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
@@ -17327,7 +17340,7 @@ msgstr "Jetektegi mártebe"
 
 #: templates/server/replication/status_table.twig:16
 #: templates/server/status/variables/index.twig:72
-#: templates/server/variables/index.twig:32
+#: templates/server/variables/index.twig:31
 msgid "Variable"
 msgstr "Aınymaly"
 
@@ -17685,6 +17698,14 @@ msgstr "Nusqaýlar"
 msgid "#"
 msgstr "∑"
 
+#: templates/server/status/queries/index.twig:39
+#: templates/server/status/status/index.twig:18
+#: templates/server/status/status/index.twig:38
+#, fuzzy
+#| msgid "per hour"
+msgid "ø per hour"
+msgstr "saǵatyna"
+
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
 msgstr "Saýal statıstıkasyn kórý úshin artyqshylyqtar jetkiliksiz."
@@ -17798,15 +17819,15 @@ msgstr "Bul paıdalanýshy tobyna jatatyn paıdalanýshylar tabylmady."
 msgid "Server variables and settings"
 msgstr "Server aınymalylary men parametrleri"
 
-#: templates/server/variables/index.twig:44
+#: templates/server/variables/index.twig:43
 msgid "This is a read-only variable and can not be edited"
 msgstr "Bul tek oqýǵa arnalǵan aınymaly jáne óńdelmeıdi"
 
-#: templates/server/variables/index.twig:70
+#: templates/server/variables/index.twig:69
 msgid "Session value"
 msgstr "Seans máni"
 
-#: templates/server/variables/index.twig:82
+#: templates/server/variables/index.twig:80
 #, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr ""
@@ -18256,7 +18277,7 @@ msgid "Partition maintenance"
 msgstr "Bólimge qyzmet kórsetý"
 
 #: templates/table/operations/index.twig:456
-#: templates/table/structure/display_partitions.twig:140
+#: templates/table/structure/display_partitions.twig:200
 msgid "Remove partitioning"
 msgstr "Bólinýin alastaý"
 
@@ -18278,6 +18299,48 @@ msgstr "Kórinisti joıý (DROP)"
 msgid "Relation view"
 msgstr "Qatynas kórinisi"
 
+#: templates/table/partition/analyze.twig:2
+#, fuzzy
+#| msgid "partitioned"
+msgid "Analyze partition"
+msgstr "bólingen"
+
+#: templates/table/partition/check.twig:2
+#, fuzzy
+#| msgid "partitioned"
+msgid "Check partition"
+msgstr "bólingen"
+
+#: templates/table/partition/drop.twig:2
+#, fuzzy
+#| msgid "partitioned"
+msgid "Drop partition"
+msgstr "bólingen"
+
+#: templates/table/partition/optimize.twig:2
+#, fuzzy
+#| msgid "Remove partitioning"
+msgid "Optimize partition"
+msgstr "Bólinýin alastaý"
+
+#: templates/table/partition/rebuild.twig:2
+#, fuzzy
+#| msgid "Subpartition"
+msgid "Rebuild partition"
+msgstr "Ishki bólim"
+
+#: templates/table/partition/repair.twig:2
+#, fuzzy
+#| msgid "Remove partitioning"
+msgid "Repair partition"
+msgstr "Bólinýin alastaý"
+
+#: templates/table/partition/truncate.twig:2
+#, fuzzy
+#| msgid "Subpartition"
+msgid "Truncate partition"
+msgstr "Ishki bólim"
+
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
 msgstr "kestege tán"
@@ -18286,15 +18349,15 @@ msgstr "kestege tán"
 msgid "Foreign key constraints"
 msgstr "Syrtqy kilt shekteýleri"
 
-#: templates/table/relation/common_form.twig:13
+#: templates/table/relation/common_form.twig:14
 msgid "Actions"
 msgstr "Áreketter"
 
-#: templates/table/relation/common_form.twig:14
+#: templates/table/relation/common_form.twig:15
 msgid "Constraint properties"
 msgstr "Shekteý sıpattary"
 
-#: templates/table/relation/common_form.twig:18
+#: templates/table/relation/common_form.twig:19
 msgid ""
 "Creating a foreign key over a non-indexed column would automatically create "
 "an index on it. Alternatively, you can define an index below, before "
@@ -18304,36 +18367,36 @@ msgstr ""
 "jasalady. Sonymen qatar, syrtqy kiltin jasamas buryn tómendegi ındeksti "
 "anyqtaı alasyz."
 
-#: templates/table/relation/common_form.twig:23
+#: templates/table/relation/common_form.twig:24
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
 "Tek ındeksi bar baǵandar beınelelenedi. Indeksti tómende anyqtaı alasyz."
 
-#: templates/table/relation/common_form.twig:27
+#: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
 msgstr "Syrtqy kilt shekteýi"
 
-#: templates/table/relation/common_form.twig:92
+#: templates/table/relation/common_form.twig:93
 msgid "+ Add constraint"
 msgstr "+ Shekteý ústeý"
 
-#: templates/table/relation/common_form.twig:104
-#: templates/table/relation/common_form.twig:110
+#: templates/table/relation/common_form.twig:105
+#: templates/table/relation/common_form.twig:111
 msgid "Internal relationships"
 msgstr "Ishki qatynastyqtar"
 
-#: templates/table/relation/common_form.twig:116
+#: templates/table/relation/common_form.twig:119
 msgid "Internal relation"
 msgstr "Ishki qatynas"
 
-#: templates/table/relation/common_form.twig:118
+#: templates/table/relation/common_form.twig:121
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr "Tıisti FOREIGN KEY qatynasy bolǵanda ishki qatynas qajet emes."
 
-#: templates/table/relation/common_form.twig:198
+#: templates/table/relation/common_form.twig:205
 msgid "Choose column to display:"
 msgstr "Beınelenetin baǵandy tańdaý:"
 
@@ -18367,7 +18430,7 @@ msgid "Display order:"
 msgstr "Beıneleý reti:"
 
 #: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:544
+#: templates/table/structure/display_structure.twig:532
 msgid "Partitions"
 msgstr "Bólimder"
 
@@ -18391,11 +18454,11 @@ msgstr "Derekter uzyndyǵy"
 msgid "Index length"
 msgstr "Index uzyndyǵy"
 
-#: templates/table/structure/display_partitions.twig:134
+#: templates/table/structure/display_partitions.twig:194
 msgid "Partition table"
 msgstr "Bólim kestesi"
 
-#: templates/table/structure/display_partitions.twig:146
+#: templates/table/structure/display_partitions.twig:206
 #: templates/table/structure/partition_definition_form.twig:5
 msgid "Edit partitioning"
 msgstr "Bólinýdi óńdeý"
@@ -18504,31 +18567,31 @@ msgstr "Keńistik paıdalanýy"
 msgid "Effective"
 msgstr "Tıimdi"
 
-#: templates/table/structure/display_table_stats.twig:78
+#: templates/table/structure/display_table_stats.twig:80
 msgid "Row statistics"
 msgstr "Jol statıstıkasy"
 
-#: templates/table/structure/display_table_stats.twig:84
+#: templates/table/structure/display_table_stats.twig:86
 msgid "static"
 msgstr "statıkalyq"
 
-#: templates/table/structure/display_table_stats.twig:86
+#: templates/table/structure/display_table_stats.twig:88
 msgid "dynamic"
 msgstr "dınamıkalyq"
 
-#: templates/table/structure/display_table_stats.twig:97
+#: templates/table/structure/display_table_stats.twig:99
 msgid "partitioned"
 msgstr "bólingen"
 
-#: templates/table/structure/display_table_stats.twig:126
+#: templates/table/structure/display_table_stats.twig:128
 msgid "Row length"
 msgstr "Jol uzyndyǵy"
 
-#: templates/table/structure/display_table_stats.twig:138
+#: templates/table/structure/display_table_stats.twig:140
 msgid "Row size"
 msgstr "Jol ólshemi"
 
-#: templates/table/structure/display_table_stats.twig:145
+#: templates/table/structure/display_table_stats.twig:147
 msgid "Next autoindex"
 msgstr "Kelesi avtoındeks"
 
