@@ -138,7 +138,7 @@ class Common
             foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';
                 $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . '.' . $val[0]);
-                $con['DCN'][$i]    = rawurlencode($field);
+                $con['DCN'][$i]    = rawurlencode((string) $field);
                 $con['STN'][$i]    = rawurlencode(
                     $value['foreign_db'] . '.' . $value['foreign_table']
                 );
