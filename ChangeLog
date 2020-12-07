@@ -67,6 +67,8 @@ phpMyAdmin - ChangeLog
 - issue #16407 Bump pragmarx/google2fa conflict to >8.0
 - issue #14953 Added a rename Button to use RENAME INDEX syntax of MySQL 5.7 (and MariaDB >= 10.5.2)
 - issue #16477 Fixed no Option to enter TABLE specific permissions when the database name contains an "_" (underscore)
+- issue #16498 Fixed empty text not appearing after deleting all Routines
+- issue #16467 Fixed a PHP notice "Trying to access array offset on value of type null" on Designer PDF export
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
