@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:41-0300\n"
-"PO-Revision-Date: 2020-10-22 21:46+0000\n"
+"PO-Revision-Date: 2020-12-09 02:29+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.3.1\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -10113,7 +10113,7 @@ msgstr "Možnosti ustvarjanja podatkov"
 #: libraries/classes/Plugins/Export/ExportSql.php:369
 #: libraries/classes/Plugins/Export/ExportSql.php:2345
 msgid "Truncate table before insert"
-msgstr "Počisti tabelo pred vstavljanjem"
+msgstr "Izprazni tabelo pred vstavljanjem"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:376
 msgid "Instead of <code>INSERT</code> statements, use:"
