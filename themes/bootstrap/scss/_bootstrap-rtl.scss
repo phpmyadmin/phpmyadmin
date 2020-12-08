@@ -6,12 +6,12 @@
 
   .form-check {
     padding-left: inherit;
-    padding-right: $form-check-input-gutter;
+    padding-right: $form-check-padding-start;
   }
 
   .form-check-input {
     margin-left: inherit;
-    margin-right: -$form-check-input-gutter;
+    margin-right: $form-check-padding-start * -1;
   }
 
   //

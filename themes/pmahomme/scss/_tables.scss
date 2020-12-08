@@ -21,7 +21,7 @@
 
 .table-hover {
   tbody tr {
-    @include hover() {
+    &:hover {
       background: linear-gradient(#ced6df, #b6c6d7);
     }
   }
