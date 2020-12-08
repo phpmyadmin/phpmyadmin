@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-07 10:07+0100\n"
-"PO-Revision-Date: 2020-11-29 10:29+0000\n"
+"PO-Revision-Date: 2020-12-09 07:47+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -16588,10 +16588,8 @@ msgid "Character sets and collations"
 msgstr "Conjuntos de caracteres e collations"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "Predefinido"
+msgstr "(predefinido)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -17649,10 +17647,8 @@ msgstr "#"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "por hora"
+msgstr "ø por hora"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -18236,46 +18232,32 @@ msgid "Relation view"
 msgstr "Visão de relação(ões)"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "particionado"
+msgstr "Analisar a partição"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "particionado"
+msgstr "Verificar a partição"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "particionado"
+msgstr "Remover a partição"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Remover particionamento"
+msgstr "Otimizar a partição"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Subpartição"
+msgstr "Reconstruir a partição"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Remover particionamento"
+msgstr "Reparação da partição"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Subpartição"
+msgstr "Truncar a partição"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
