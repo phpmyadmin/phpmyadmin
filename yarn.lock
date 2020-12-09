@@ -2834,6 +2834,10 @@ json5@^2.1.2:
   dependencies:
     minimist "^1.2.5"
 
+"kbwood-jquery-svg@https://github.com/kbwood/svg/archive/1.5.0.tar.gz":
+  version "0.0.0"
+  resolved "https://github.com/kbwood/svg/archive/1.5.0.tar.gz#6acaad88192320fa3e498a345ca1c52b7334cb1e"
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0, kind-of@^4.0.0, kind-of@^5.0.0, kind-of@^6.0.0, kind-of@^6.0.2, kind-of@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
