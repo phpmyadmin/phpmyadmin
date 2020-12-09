@@ -18,7 +18,6 @@ find ./js/vendor/ \
     -not -path './js/vendor/sprintf.js' \
     -not -path './js/vendor/jqplot/jquery.jqplot.js' \
     -not -path './js/vendor/jqplot/plugins/jqplot.*.js' \
-    -not -path './js/vendor/jquery/jquery-ui.min.js' \
     -type f -delete -print
 
 echo 'Updating codemirror'
@@ -42,8 +41,8 @@ echo 'Updating jquery-migrate'
 cp ./node_modules/jquery-migrate/dist/jquery-migrate.js ./js/vendor/jquery/jquery-migrate.js
 echo 'Updating jquery-mousewheel'
 cp ./node_modules/jquery-mousewheel/jquery.mousewheel.js ./js/vendor/jquery/jquery.mousewheel.js
-# echo 'Updating jquery-ui'
-# Impossible to do, they do not distribute dist files in the package...
+echo 'Updating jquery-ui'
+cp ./node_modules/jquery-ui-dist/jquery-ui.min.js ./js/vendor/jquery/jquery-ui.min.js
 echo 'Updating jquery.event.drag'
 cp ./node_modules/jquery.event.drag/jquery.event.drag.js ./js/vendor/jquery/jquery.event.drag-2.2.js
 # https://github.com/devongovett/jquery.event.drag/commit/2db3b7865f31eee6a8145532554f8b02210180bf#diff-ab8497cedd384270de86ee2e9f06530e
