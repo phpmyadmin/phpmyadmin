@@ -13,14 +13,12 @@ cd ${ROOT_DIR}
 
 # Remove each '-not -path' when a new package can be used from npm
 echo 'Delete vendor files we can replace from source dists'
-# jquery.sortableTable.js is an internal lib
 find ./js/vendor/ \
     -not -path './js/vendor/openlayers/*' \
     -not -path './js/vendor/sprintf.js' \
     -not -path './js/vendor/jqplot/jquery.jqplot.js' \
     -not -path './js/vendor/jqplot/plugins/jqplot.*.js' \
     -not -path './js/vendor/jquery/jquery-ui.min.js' \
-    -not -path './js/vendor/jquery/jquery.sortableTable.js' \
     -not -path './js/vendor/jquery/jquery.svg.js' \
     -type f -delete -print
 
