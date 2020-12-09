@@ -47,7 +47,7 @@ class MonitorController extends AbstractController
 
         $this->addScriptFiles([
             'vendor/jquery/jquery.tablesorter.js',
-            'vendor/jquery/jquery.sortableTable.js',
+            'jquery.sortable-table.js',
             'vendor/jqplot/jquery.jqplot.js',
             'vendor/jqplot/plugins/jqplot.pieRenderer.js',
             'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
