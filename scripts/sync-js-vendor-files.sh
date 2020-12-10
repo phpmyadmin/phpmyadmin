@@ -17,7 +17,6 @@ find ./js/vendor/ \
     -not -path './js/vendor/openlayers/*' \
     -not -path './js/vendor/sprintf.js' \
     -not -path './js/vendor/jqplot/jquery.jqplot.js' \
-    -not -path './js/vendor/jqplot/plugins/jqplot.*.js' \
     -type f -delete -print
 
 echo 'Updating codemirror'
@@ -100,14 +99,14 @@ echo 'Updating jquery-Timepicker-Addon'
 cp ./node_modules/jquery-ui-timepicker-addon/dist/jquery-ui-timepicker-addon.js ./js/vendor/jquery/jquery-ui-timepicker-addon.js
 echo 'Update jqplot'
 #see: https://github.com/jqPlot/jqPlot/blob/master/src/jquery.jqplot.js
-#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.pieRenderer.js
-#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.barRenderer.js
-#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.pointLabels.js
-#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.enhancedLegendRenderer.js
-#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.dateAxisRenderer.js
-#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.categoryAxisRenderer.js
-#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.canvasTextRenderer.js
-#see: https://github.com/jqPlot/jqPlot/blob/master/src/plugins/jqplot.canvasAxisLabelRenderer.js
+cp ./node_modules/updated-jqplot/build/plugins/jqplot.pieRenderer.js ./js/vendor/jqplot/plugins/jqplot.pieRenderer.js
+cp ./node_modules/updated-jqplot/build/plugins/jqplot.barRenderer.js ./js/vendor/jqplot/plugins/jqplot.barRenderer.js
+cp ./node_modules/updated-jqplot/build/plugins/jqplot.pointLabels.js ./js/vendor/jqplot/plugins/jqplot.pointLabels.js
+cp ./node_modules/updated-jqplot/build/plugins/jqplot.enhancedPieLegendRenderer.js ./js/vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js
+cp ./node_modules/updated-jqplot/build/plugins/jqplot.dateAxisRenderer.js ./js/vendor/jqplot/plugins/jqplot.dateAxisRenderer.js
+cp ./node_modules/updated-jqplot/build/plugins/jqplot.categoryAxisRenderer.js ./js/vendor/jqplot/plugins/jqplot.categoryAxisRenderer.js
+cp ./node_modules/updated-jqplot/build/plugins/jqplot.canvasTextRenderer.js ./js/vendor/jqplot/plugins/jqplot.canvasTextRenderer.js
+cp ./node_modules/updated-jqplot/build/plugins/jqplot.canvasAxisLabelRenderer.js ./js/vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js
 
 cp ./node_modules/jqplot/jqplot.cursor.js ./js/vendor/jqplot/plugins/jqplot.cursor.js
 cp ./node_modules/jqplot/jqplot.highlighter.js ./js/vendor/jqplot/plugins/jqplot.highlighter.js

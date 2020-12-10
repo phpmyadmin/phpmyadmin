@@ -3,18 +3,18 @@
  * Pure JavaScript plotting plugin using jQuery
  *
  * Version: 1.0.9
- * Revision: d96a669
+ * Revision: dff2f04
  *
  * Copyright (c) 2009-2016 Chris Leonello
- * jqPlot is currently available for use in all personal or commercial projects
- * under both the MIT (http://www.opensource.org/licenses/mit-license.php) and GPL
- * version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html) licenses. This means that you can
- * choose the license that best suits your project and use it accordingly.
+ * jqPlot is currently available for use in all personal or commercial projects 
+ * under both the MIT (http://www.opensource.org/licenses/mit-license.php) and GPL 
+ * version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html) licenses. This means that you can 
+ * choose the license that best suits your project and use it accordingly. 
  *
- * Although not required, the author would appreciate an email letting him
- * know of any substantial use of jqPlot.  You can reach the author at:
+ * Although not required, the author would appreciate an email letting him 
+ * know of any substantial use of jqPlot.  You can reach the author at: 
  * chris at jqplot dot com or see http://www.jqplot.com/info.php .
-*
+ *
  * If you are feeling kind and generous, consider supporting the project by
  * making a donation at: http://www.jqplot.com/donate.php .
  *
@@ -26,7 +26,7 @@
  *     http://hexmen.com/js/sprintf.js
  *     The author (Ash Searle) has placed this code in the public domain:
  *     "This code is unrestricted: you are free to use it however you like."
- *
+ * 
  */
 (function($) {
     // class $.jqplot.EnhancedPieLegendRenderer
@@ -35,10 +35,10 @@
     $.jqplot.EnhancedPieLegendRenderer = function(){
         $.jqplot.TableLegendRenderer.call(this);
     };
-
+    
     $.jqplot.EnhancedPieLegendRenderer.prototype = new $.jqplot.TableLegendRenderer();
     $.jqplot.EnhancedPieLegendRenderer.prototype.constructor = $.jqplot.EnhancedPieLegendRenderer;
-
+    
     // called with scope of legend.
     $.jqplot.EnhancedPieLegendRenderer.prototype.init = function(options) {
         // prop: numberRows
@@ -49,7 +49,7 @@
         this.numberColumns = null;
         // prop: seriesToggle
         // false to not enable series on/off toggling on the legend.
-        // true or a fadein/fadeout speed (number of milliseconds or 'fast', 'normal', 'slow')
+        // true or a fadein/fadeout speed (number of milliseconds or 'fast', 'normal', 'slow') 
         // to enable show/hide of series on click of legend item.
         this.seriesToggle = 'normal';
         // prop: seriesToggleReplot
@@ -59,19 +59,19 @@
         // Set to an options object (e.g. {resetAxes: true}) for replot options.
         this.seriesToggleReplot = false;
         // prop: disableIEFading
-        // true to toggle series with a show/hide method only and not allow fading in/out.
+        // true to toggle series with a show/hide method only and not allow fading in/out.  
         // This is to overcome poor performance of fade in some versions of IE.
         this.disableIEFading = true;
         // prop: toolTips
         // optional array of toolTip text corresponding to each pie slice
         this.toolTips = [];
         $.extend(true, this, options);
-
+        
         if (this.seriesToggle) {
             $.jqplot.postDrawHooks.push(postDraw);
         }
     };
-
+    
     // called with scope of legend
     $.jqplot.EnhancedPieLegendRenderer.prototype.draw = function(offsets, plot) {
         var legend = this;
@@ -92,8 +92,8 @@
             if (this.seriesToggle) {
                 this._elem.css('z-index', '3');
             }
-
-            var pad = false,
+        
+            var pad = false, 
                 reverse = false,
                 nr, nc;
             var s = series[0];
@@ -117,7 +117,7 @@
                 nr = slen;
                 nc = 1;
             }
-
+                
             var i, j, tr, td1, td2, lt, rs, div, div0, div1;
             var idx = 0;
             // check to see if we need to reverse
@@ -125,8 +125,8 @@
                 if (nc == 1 && series[i]._stack || series[i].renderer.constructor == $.jqplot.BezierCurveRenderer){
                     reverse = true;
                 }
-            }
-
+            }    
+                
             for (i=0; i<nr; i++) {
                 tr = $(document.createElement('tr'));
                 tr.addClass('jqplot-table-legend');
@@ -182,7 +182,7 @@
                             if (tt !== undefined) {
                                 td2.attr("title", tt);
                             }
-
+                    
                             if (this.escapeHtml){
                                 td2.text(lt);
                             }
@@ -197,7 +197,7 @@
                                 if (this.showSwatches) {td1.appendTo(tr);}
                                 if (this.showLabels) {td2.appendTo(tr);}
                             }
-
+                            
                             if (this.seriesToggle) {
 
                                 var speed;
@@ -205,7 +205,7 @@
                                     if (!$.jqplot.use_excanvas || !this.disableIEFading) {
                                         speed = this.seriesToggle;
                                     }
-                                }
+                                } 
                                 if (this.showSwatches) {
                                     td1.bind('click', {series:s, index:idx, speed:speed, plot: plot, replot:this.seriesToggleReplot}, handleToggle);
                                     td1.addClass('jqplot-seriesToggle');
@@ -221,14 +221,14 @@
                                     td2.addClass('jqplot-series-hidden');
                                 }
                             }
-
+                            
                             pad = true;
                         }
                     }
                     idx++;
                 }
-
-                td1 = td2 = div0 = div1 = null;
+                
+                td1 = td2 = div0 = div1 = null;   
             }
         }
         return this._elem;
@@ -241,7 +241,7 @@
             idx = d.index;
 
         d.series.showSlice[idx] = (d.series.showSlice[idx] === false) ? true : false;
-
+    
         var opts = {};
 
         if ($.isPlainObject(replot)) {

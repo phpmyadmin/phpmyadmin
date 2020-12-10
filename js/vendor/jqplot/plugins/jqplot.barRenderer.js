@@ -3,7 +3,7 @@
  * Pure JavaScript plotting plugin using jQuery
  *
  * Version: 1.0.9
- * Revision: d96a669
+ * Revision: dff2f04
  *
  * Copyright (c) 2009-2016 Chris Leonello
  * jqPlot is currently available for use in all personal or commercial projects 
@@ -593,7 +593,7 @@
         var pointx, points, pointy, nvals, nseries, pos;
         
         if (this._stack && this.shadow) {
-            if (this.barWidth == null) {
+            if (this.barWidth == null || this.rendererOptions.barWidth == null) {//check pull request https://bitbucket.org/cleonello/jqplot/pull-request/61/fix-for-issue-513/diff) {
                 this.renderer.setBarWidth.call(this);
             }
         
