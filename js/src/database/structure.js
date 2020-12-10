@@ -248,25 +248,17 @@ AJAX.registerOnload('database/structure.js', function () {
                 url: url,
                 dataType: 'html',
                 data: formData
-
-            }).done(function (data) {
-                var dialogObj = $('<div class=\'hide\'>' + data + '</div>');
-                $('body').append(dialogObj);
-                var buttonOptions = {};
-                buttonOptions[Messages.strContinue] = function () {
-                    $('#ajax_form').trigger('submit');
-                    $(this).dialog('close');
-                };
-                buttonOptions[Messages.strCancel] = function () {
-                    $(this).dialog('close');
-                    $('#tablesForm')[0].reset();
-                };
-                $(dialogObj).dialog({
-                    minWidth: 500,
-                    resizable: false,
-                    modal: true,
-                    title: modalTitle,
-                    buttons: buttonOptions
+            }).done(function (modalBody) {
+                const bulkActionModal = $('#bulkActionModal');
+                bulkActionModal.on('show.bs.modal', function () {
+                    this.querySelector('.modal-title').innerText = modalTitle;
+                    this.querySelector('.modal-body').innerHTML = modalBody;
+                });
+                bulkActionModal.modal('show').on('shown.bs.modal', function () {
+                    $('#bulkActionContinue').on('click', function () {
+                        $('#ajax_form').trigger('submit');
+                        $('#bulkActionModal').modal('hide');
+                    });
                 });
             });
 

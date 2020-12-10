@@ -405,7 +405,6 @@ final class JavaScriptMessagesController
                 . 'database %s has columns that are not present in the current table.'
             ),
             'seeMore' => __('See more'),
-            'strContinue' => __('Continue'),
 
             /** For normalization */
             'strAddPrimaryKey' => __('Add primary key'),
