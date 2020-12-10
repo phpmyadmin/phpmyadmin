@@ -405,11 +405,6 @@ final class JavaScriptMessagesController
                 . 'database %s has columns that are not present in the current table.'
             ),
             'seeMore' => __('See more'),
-            'confirmTitle' => __('Are you sure?'),
-            'makeConsistentMessage' => __(
-                'This action may change some of the columns definition.<br>Are you sure you '
-                . 'want to continue?'
-            ),
             'strContinue' => __('Continue'),
 
             /** For normalization */
