@@ -233,7 +233,7 @@ class GisPoint extends GisGeometry
         $points_arr = $this->extractPoints($point, $scale_data);
 
         $row = '';
-        if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
+        if (((float) $points_arr[0][0]) !== 0.0 && ((float) $points_arr[0][1]) !== 0.0) {
             $row .= '<circle cx="' . $points_arr[0][0]
                 . '" cy="' . $points_arr[0][1] . '" r="3"';
             foreach ($point_options as $option => $val) {

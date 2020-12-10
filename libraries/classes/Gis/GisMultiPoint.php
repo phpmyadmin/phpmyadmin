@@ -229,7 +229,7 @@ class GisMultiPoint extends GisGeometry
 
         $row = '';
         foreach ($points_arr as $point) {
-            if ($point[0] == '' || $point[1] == '') {
+            if (((float) $point[0]) === 0.0 || ((float) $point[1]) === 0.0) {
                 continue;
             }
 
