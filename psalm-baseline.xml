@@ -417,9 +417,6 @@
     </UndefinedClass>
   </file>
   <file src="libraries/classes/Controllers/Setup/HomeController.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$actionDone</code>
-    </PossiblyNullArgument>
     <PossiblyNullIterator occurrences="1">
       <code>$this-&gt;config-&gt;getServers()</code>
     </PossiblyNullIterator>
