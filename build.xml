@@ -101,7 +101,7 @@
  <property name="env.DOCTUM_BIN_PATH" value="/bin/doctum"/>
   <exec executable="php">
     <arg line="${env.DOCTUM_BIN_PATH}" />
-    <arg line="--no-interaction update ./test/doctum-config.php" />
+    <arg line="--no-interaction update ./test/doctum-config.php -vvv --ignore-parse-errors --no-progress --no-ansi" />
   </exec>
  </target>
 
