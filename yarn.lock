@@ -2710,11 +2710,6 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
-jqplot@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/jqplot/-/jqplot-1.0.9.tgz#2c5a5d6a97e396b31d7e710e3a38b8af8cf251e4"
-  integrity sha1-LFpdapfjlrMdfnEOOji4r4zyUeQ=
-
 jquery-debounce-throttle@^1.0.6-rc.0:
   version "1.0.6-rc.0"
   resolved "https://registry.yarnpkg.com/jquery-debounce-throttle/-/jquery-debounce-throttle-1.0.6-rc.0.tgz#59a7737e46d8b435d01bc94b224e98fa126aba46"
