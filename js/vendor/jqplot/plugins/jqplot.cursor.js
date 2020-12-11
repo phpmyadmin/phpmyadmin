@@ -3,7 +3,7 @@
  * Pure JavaScript plotting plugin using jQuery
  *
  * Version: 1.0.9
- * Revision: d96a669
+ * Revision: dff2f04
  *
  * Copyright (c) 2009-2016 Chris Leonello
  * jqPlot is currently available for use in all personal or commercial projects 
@@ -444,14 +444,52 @@
                             axes[ax]._ticks = [];
                         }
                     }
+                }
+                for (var ax in datapos) {
+                    if ((c.constrainZoomTo == 'x' && ax.charAt(0) == 'y' && c.autoscaleConstraint)) {
+                        dp = datapos[ax];
+                        if (dp != null) {
+                            curax = axes[ax];
                             
-                    // if ((c.constrainZoomTo == 'x' && ax.charAt(0) == 'y' && c.autoscaleConstraint) || (c.constrainZoomTo == 'y' && ax.charAt(0) == 'x' && c.autoscaleConstraint)) {
-                    //     dp = datapos[ax];
-                    //     if (dp != null) {
-                    //         axes[ax].max == null;
-                    //         axes[ax].min = null;
-                    //     }
-                    // }
+                            curax.min = axes[ax]._options.min;
+                            curax.max = axes[ax]._options.max;
+                            
+                            if (axes[ax]._options.min == null || axes[ax]._options.max == null) {
+                                var seriesMin = null;
+                                var seriesMax = null;
+                                $.each(plot.series, function(seriesIdx, seriesObj) {
+                                   if (seriesObj.yaxis == ax) {
+                                       var xaxis = axes[seriesObj.xaxis];
+                                       var i;
+                                       var d = seriesObj._plotData;
+                                       for (i = 0; i < d.length; i++) {
+                                           var point = d[i];
+                                           if (point[0] >= xaxis.min && point[0] <= xaxis.max) {
+                                               if (seriesMin == null || point[1] < seriesMin) {
+                                                   seriesMin = point[1];
+                                               }
+                                               if (seriesMax == null || point[1] > seriesMax) {
+                                                   seriesMax = point[1];
+                                               }
+                                           }
+                                       }
+                                   }
+                                });
+                                
+                                if (axes[ax]._options.min != null) {
+                                    seriesMin = axes[ax]._options.min;
+                                }
+                                if (axes[ax]._options.max != null) {
+                                    seriesMax = axes[ax]._options.max;
+                                }
+                                var r = $.jqplot.LinearTickGenerator(seriesMin, seriesMax, null, null, (axes[ax]._options.min != null), (axes[ax]._options.max != null));
+                                curax.min = r[0];
+                                curax.max = r[1];
+                                curax.tickInterval = null;
+                                curax.numberTicks = null;
+                            }
+                        }
+                    }
                 }
                 ctx.clearRect(0,0,ctx.canvas.width, ctx.canvas.height);
                 plot.redraw();
