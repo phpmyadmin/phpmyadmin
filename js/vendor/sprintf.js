@@ -1,5 +1,4 @@
-function sprintf () {
-/*
+/**
  * Copyright (c) 2007-2016 Kevin van Zonneveld (https://kvz.io)
  * and Contributors (https://locutus.io/authors)
  *
@@ -20,92 +19,92 @@ function sprintf () {
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
-*/
-// source: https://raw.githubusercontent.com/kvz/locutus/a5e9fa0fb8bcfa50ccbd7713df60a64c1122bc0b/src/php/strings/sprintf.js
-//  discuss at: https://locutus.io/php/sprintf/
-// original by: Ash Searle (https://hexmen.com/blog/)
-// improved by: Michael White (https://getsprink.com)
-// improved by: Jack
-// improved by: Kevin van Zonneveld (https://kvz.io)
-// improved by: Kevin van Zonneveld (https://kvz.io)
-// improved by: Kevin van Zonneveld (https://kvz.io)
-// improved by: Dj
-// improved by: Allidylls
-//    input by: Paulo Freitas
-//    input by: Brett Zamir (https://brett-zamir.me)
-// improved by: Rafał Kukawski (https://kukawski.pl)
-//   example 1: sprintf("%01.2f", 123.1)
-//   returns 1: '123.10'
-//   example 2: sprintf("[%10s]", 'monkey')
-//   returns 2: '[    monkey]'
-//   example 3: sprintf("[%'#10s]", 'monkey')
-//   returns 3: '[####monkey]'
-//   example 4: sprintf("%d", 123456789012345)
-//   returns 4: '123456789012345'
-//   example 5: sprintf('%-03s', 'E')
-//   returns 5: 'E00'
-//   example 6: sprintf('%+010d', 9)
-//   returns 6: '+000000009'
-//   example 7: sprintf('%+0\'@10d', 9)
-//   returns 7: '@@@@@@@@+9'
-//   example 8: sprintf('%.f', 3.14)
-//   returns 8: '3.140000'
-//   example 9: sprintf('%% %2$d', 1, 2)
-//   returns 9: '% 2'
+ */
+function sprintf () {
+  //  discuss at: https://locutus.io/php/sprintf/
+  // original by: Ash Searle (https://hexmen.com/blog/)
+  // improved by: Michael White (https://getsprink.com)
+  // improved by: Jack
+  // improved by: Kevin van Zonneveld (https://kvz.io)
+  // improved by: Kevin van Zonneveld (https://kvz.io)
+  // improved by: Kevin van Zonneveld (https://kvz.io)
+  // improved by: Dj
+  // improved by: Allidylls
+  //    input by: Paulo Freitas
+  //    input by: Brett Zamir (https://brett-zamir.me)
+  // improved by: Rafał Kukawski (https://kukawski.pl)
+  //   example 1: sprintf("%01.2f", 123.1)
+  //   returns 1: '123.10'
+  //   example 2: sprintf("[%10s]", 'monkey')
+  //   returns 2: '[    monkey]'
+  //   example 3: sprintf("[%'#10s]", 'monkey')
+  //   returns 3: '[####monkey]'
+  //   example 4: sprintf("%d", 123456789012345)
+  //   returns 4: '123456789012345'
+  //   example 5: sprintf('%-03s', 'E')
+  //   returns 5: 'E00'
+  //   example 6: sprintf('%+010d', 9)
+  //   returns 6: '+000000009'
+  //   example 7: sprintf('%+0\'@10d', 9)
+  //   returns 7: '@@@@@@@@+9'
+  //   example 8: sprintf('%.f', 3.14)
+  //   returns 8: '3.140000'
+  //   example 9: sprintf('%% %2$d', 1, 2)
+  //   returns 9: '% 2'
 
-var regex = /%%|%(?:(\d+)\$)?((?:[-+#0 ]|'[\s\S])*)(\d+)?(?:\.(\d*))?([\s\S])/g
-var args = arguments
-var i = 0
-var format = args[i++]
+  var regex = /%%|%(?:(\d+)\$)?((?:[-+#0 ]|'[\s\S])*)(\d+)?(?:\.(\d*))?([\s\S])/g
+  var args = arguments
+  var i = 0
+  var format = args[i++]
 
-var _pad = function (str, len, chr, leftJustify) {
+  var _pad = function (str, len, chr, leftJustify) {
     if (!chr) {
-    chr = ' '
+      chr = ' '
     }
     var padding = (str.length >= len) ? '' : new Array(1 + len - str.length >>> 0).join(chr)
     return leftJustify ? str + padding : padding + str
-}
+  }
 
-var justify = function (value, prefix, leftJustify, minWidth, padChar) {
+  var justify = function (value, prefix, leftJustify, minWidth, padChar) {
     var diff = minWidth - value.length
     if (diff > 0) {
-    // when padding with zeros
-    // on the left side
-    // keep sign (+ or -) in front
-    if (!leftJustify && padChar === '0') {
+      // when padding with zeros
+      // on the left side
+      // keep sign (+ or -) in front
+      if (!leftJustify && padChar === '0') {
         value = [
-        value.slice(0, prefix.length),
-        _pad('', diff, '0', true),
-        value.slice(prefix.length)
+          value.slice(0, prefix.length),
+          _pad('', diff, '0', true),
+          value.slice(prefix.length)
         ].join('')
-    } else {
+      } else {
         value = _pad(value, minWidth, padChar, leftJustify)
-    }
+      }
     }
     return value
-}
+  }
 
-var _formatBaseX = function (value, base, leftJustify, minWidth, precision, padChar) {
+  var _formatBaseX = function (value, base, leftJustify, minWidth, precision, padChar) {
     // Note: casts negative numbers to positive ones
     var number = value >>> 0
     value = _pad(number.toString(base), precision || 0, '0', false)
     return justify(value, '', leftJustify, minWidth, padChar)
-}
+  }
 
-// _formatString()
-var _formatString = function (value, leftJustify, minWidth, precision, customPadChar) {
+  // _formatString()
+  var _formatString = function (value, leftJustify, minWidth, precision, customPadChar) {
     if (precision !== null && precision !== undefined) {
-    value = value.slice(0, precision)
+      value = value.slice(0, precision)
     }
     return justify(value, '', leftJustify, minWidth, customPadChar)
-}
+  }
 
-// doFormat()
-var doFormat = function (substring, argIndex, modifiers, minWidth, precision, specifier) {
+  // doFormat()
+  var doFormat = function (substring, argIndex, modifiers, minWidth, precision, specifier) {
     var number, prefix, method, textTransform, value
 
     if (substring === '%%') {
-    return '%'
+      return '%'
     }
 
     // parse modifiers
@@ -115,72 +114,72 @@ var doFormat = function (substring, argIndex, modifiers, minWidth, precision, sp
     var j, l
 
     for (j = 0, l = modifiers.length; j < l; j++) {
-    switch (modifiers.charAt(j)) {
+      switch (modifiers.charAt(j)) {
         case ' ':
         case '0':
-        padChar = modifiers.charAt(j)
-        break
+          padChar = modifiers.charAt(j)
+          break
         case '+':
-        positiveNumberPrefix = '+'
-        break
+          positiveNumberPrefix = '+'
+          break
         case '-':
-        leftJustify = true
-        break
+          leftJustify = true
+          break
         case "'":
-        if (j + 1 < l) {
+          if (j + 1 < l) {
             padChar = modifiers.charAt(j + 1)
             j++
-        }
-        break
-    }
+          }
+          break
+      }
     }
 
     if (!minWidth) {
-    minWidth = 0
+      minWidth = 0
     } else {
-    minWidth = +minWidth
+      minWidth = +minWidth
     }
 
     if (!isFinite(minWidth)) {
-    throw new Error('Width must be finite')
+      throw new Error('Width must be finite')
     }
 
     if (!precision) {
-    precision = (specifier === 'd') ? 0 : 'fFeE'.indexOf(specifier) > -1 ? 6 : undefined
+      precision = (specifier === 'd') ? 0 : 'fFeE'.indexOf(specifier) > -1 ? 6 : undefined
     } else {
-    precision = +precision
+      precision = +precision
     }
 
     if (argIndex && +argIndex === 0) {
-    throw new Error('Argument number must be greater than zero')
+      throw new Error('Argument number must be greater than zero')
     }
 
     if (argIndex && +argIndex >= args.length) {
-    throw new Error('Too few arguments')
+      throw new Error('Too few arguments')
     }
 
     value = argIndex ? args[+argIndex] : args[i++]
 
     switch (specifier) {
-    case '%':
+      case '%':
         return '%'
-    case 's':
+      case 's':
         return _formatString(value + '', leftJustify, minWidth, precision, padChar)
-    case 'c':
+      case 'c':
         return _formatString(String.fromCharCode(+value), leftJustify, minWidth, precision, padChar)
-    case 'b':
+      case 'b':
         return _formatBaseX(value, 2, leftJustify, minWidth, precision, padChar)
-    case 'o':
+      case 'o':
         return _formatBaseX(value, 8, leftJustify, minWidth, precision, padChar)
-    case 'x':
+      case 'x':
         return _formatBaseX(value, 16, leftJustify, minWidth, precision, padChar)
-    case 'X':
+      case 'X':
         return _formatBaseX(value, 16, leftJustify, minWidth, precision, padChar)
-        .toUpperCase()
-    case 'u':
+          .toUpperCase()
+      case 'u':
         return _formatBaseX(value, 10, leftJustify, minWidth, precision, padChar)
-    case 'i':
-    case 'd':
+      case 'i':
+      case 'd':
         number = +value || 0
         // Plain Math.round doesn't just truncate
         number = Math.round(number - number % 1)
@@ -188,31 +187,31 @@ var doFormat = function (substring, argIndex, modifiers, minWidth, precision, sp
         value = prefix + _pad(String(Math.abs(number)), precision, '0', false)
 
         if (leftJustify && padChar === '0') {
-        // can't right-pad 0s on integers
-        padChar = ' '
+          // can't right-pad 0s on integers
+          padChar = ' '
         }
         return justify(value, prefix, leftJustify, minWidth, padChar)
-    case 'e':
-    case 'E':
-    case 'f': // @todo: Should handle locales (as per setlocale)
-    case 'F':
-    case 'g':
-    case 'G':
+      case 'e':
+      case 'E':
+      case 'f': // @todo: Should handle locales (as per setlocale)
+      case 'F':
+      case 'g':
+      case 'G':
         number = +value
         prefix = number < 0 ? '-' : positiveNumberPrefix
         method = ['toExponential', 'toFixed', 'toPrecision']['efg'.indexOf(specifier.toLowerCase())]
         textTransform = ['toString', 'toUpperCase']['eEfFgG'.indexOf(specifier) % 2]
         value = prefix + Math.abs(number)[method](precision)
         return justify(value, prefix, leftJustify, minWidth, padChar)[textTransform]()
-    default:
+      default:
         // unknown specifier, consume that char and return empty
         return ''
     }
-}
+  }
 
-try {
+  try {
     return format.replace(regex, doFormat)
-} catch (err) {
+  } catch (err) {
     return false
-}
+  }
 }

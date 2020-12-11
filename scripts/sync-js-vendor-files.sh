@@ -15,7 +15,6 @@ cd ${ROOT_DIR}
 echo 'Delete vendor files we can replace from source dists'
 find ./js/vendor/ \
     -not -path './js/vendor/openlayers/*' \
-    -not -path './js/vendor/sprintf.js' \
     -type f -delete -print
 
 echo 'Updating codemirror'
@@ -96,6 +95,8 @@ echo 'Updating jquery-debounce'
 cp ./node_modules/jquery-debounce-throttle/index.js ./js/vendor/jquery/jquery.debounce-1.0.6.js
 echo 'Updating jquery-Timepicker-Addon'
 cp ./node_modules/jquery-ui-timepicker-addon/dist/jquery-ui-timepicker-addon.js ./js/vendor/jquery/jquery-ui-timepicker-addon.js
+echo 'Updating sprintf'
+cp ./node_modules/locutus.sprintf/src/php/strings/sprintf.browser.js ./js/vendor/sprintf.js
 echo 'Update jqplot'
 
 echo 'Build jquery.jqplot.js'
