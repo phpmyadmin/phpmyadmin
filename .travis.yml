@@ -140,7 +140,6 @@ jobs:
         - PHP_EXTENSIONS="mysqli curl bz2 gd2 pdo_mysql"
         - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php80/php.ini ; done
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php80/php.ini
-        - find . -type f -name "*.php" -print0 | xargs -0 sed -i ':a;N;$!ba;s/\r//g'
 
     - stage: "PHP Unit tests"
       php: 7.1
