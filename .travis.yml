@@ -70,7 +70,7 @@ jobs:
       before_script: skip
       after_script: skip
       after_success: skip
-      script: composer phpstan
+      script: composer phpstan -- --memory-limit 2G
 
     - stage: "PHP Unit tests"
       php: 7.1
@@ -98,8 +98,8 @@ jobs:
       name: "PHP nightly"
       env: CI_MODE=test
       install:
-        - nvm install 10
         - composer install --no-interaction --ignore-platform-reqs
+        - nvm install 10
         - yarn install --non-interactive
 
     - stage: "PHP Unit tests"
@@ -132,28 +132,27 @@ jobs:
       env:
         - CI_MODE=test
         - YARN_GPG=no
+      install:
+        - composer install --no-interaction --ignore-platform-reqs
+        - yarn install --non-interactive
       before_install:
         - choco install php composer
         - choco install mariadb --version=10.4.8
-        - export PATH=/c/tools/php74:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.4"/bin:$PATH
+        - export PATH=/c/tools/php80:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.4"/bin:$PATH
         - PHP_EXTENSIONS="mysqli curl bz2 gd2 pdo_mysql"
-        - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php74/php.ini ; done
-        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php74/php.ini
-        - find . -type f -name "*.php" -print0 | xargs -0 sed -i ':a;N;$!ba;s/\r//g'
-      install:
-        - composer install --no-interaction
-        - yarn install --non-interactive
+        - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php80/php.ini ; done
+        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php80/php.ini
 
     - stage: "PHP Unit tests"
       php: 7.1
       name: "PHP 7.1 with dbase extension"
       env: CI_MODE=test
       install:
-        - nvm install 10
         - pecl channel-update pecl.php.net
         - pecl install dbase
         - php -m |grep -F 'dbase'
         - composer install --no-interaction
+        - nvm install 10
         - yarn install --non-interactive
 
     - stage: "Documentation"
@@ -172,8 +171,8 @@ jobs:
       before_script: skip
       after_script: skip
       after_success: skip
-      install: composer global require "code-lts/doctum:^5.0"
-      script: $HOME/.composer/vendor/bin/doctum.php --no-interaction update ./test/doctum-config.php
+      install: composer global require "code-lts/doctum:^5.2"
+      script: $(composer global config bin-dir --absolute --quiet)/doctum.php --no-interaction update ./test/doctum-config.php -vvv --ignore-parse-errors --no-progress --no-ansi
 
     - stage: "Other tests"
       name: "Build release"
