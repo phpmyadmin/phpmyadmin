@@ -88,9 +88,11 @@ class ImportXml extends ImportPlugin
         unset($data);
 
         /**
-         * Disable loading of external XML entities.
+         * Disable loading of external XML entities for PHP versions below 8.0.
          */
-        libxml_disable_entity_loader();
+        if (PHP_VERSION_ID < 80000) {
+            libxml_disable_entity_loader();
+        }
 
         /**
          * Load the XML string
