@@ -71,6 +71,7 @@ class HeaderTest extends PmaTestCase
      */
     public function testEnable()
     {
+        $GLOBALS['server'] = 0;
         $header = new Header();
         $this->assertStringContainsString(
             '<title>phpMyAdmin</title>',
@@ -85,6 +86,7 @@ class HeaderTest extends PmaTestCase
      */
     public function testSetBodyId()
     {
+        $GLOBALS['server'] = 0;
         $header = new Header();
         $header->setBodyId('PMA_header_id');
         $this->assertStringContainsString(
