@@ -72,6 +72,10 @@ phpMyAdmin - ChangeLog
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
+- issue #16525 Fix PHP 8.0 failing tests when comparing 0 to ''
+- issue #16429 Fixed PHP 8.0 errors on preg_replace and operand types
+- issue #16490 Fixed PHP 8.0 function libxml_disable_entity_loader() is deprecated
+- issue #16429 Fixed failing unit tests on PHP 8.0
 
 5.0.4 (2020-10-15)
 - issue #16245 Fix failed Zoom search clears existing values
