@@ -32,7 +32,7 @@ class HomeController extends AbstractController
         $pages = $this->getPages();
 
         // Handle done action info
-        $actionDone = Core::isValid($params['action_done'], 'scalar') ? $params['action_done'] : null;
+        $actionDone = Core::isValid($params['action_done'], 'scalar') ? $params['action_done'] : '';
         $actionDone = preg_replace('/[^a-z_]/', '', $actionDone);
 
         // message handling
