@@ -1051,10 +1051,10 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         /* Calculate how much spacing there is between each chart */
         $('#chartGrid').html('<tr><td></td><td></td></tr><tr><td></td><td></td></tr>');
         chartSpacing = {
-            width: $('#chartGrid').find(document.querySelectorAll('td:nth-child(2)')).offset().left -
-                $('#chartGrid').find(document.querySelectorAll('td:nth-child(1)')).offset().left,
-            height: $('#chartGrid').find(document.querySelectorAll('td:nth-child(2) td:nth-child(2)')).offset().top -
-                $('#chartGrid').find(document.querySelectorAll('td:nth-child(1) td:nth-child(1)')).offset().top
+            width: $('#chartGrid').find('td').eq(1).offset().left -
+                $('#chartGrid').find('td').eq(0).offset().left,
+            height: $('#chartGrid').find('tr').eq(1).find('td').eq(1).offset().top -
+               $('#chartGrid').find('tr').eq(0).find('td').eq(0).offset().top
         };
         $('#chartGrid').html('');
 
@@ -1807,7 +1807,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             };
 
             // We just assume the sql text is always in the second last column, and that the total count is right of it
-            $('#logTable').find(document.querySelectorAll('table tbody tr td:nth-child(' + (runtime.logDataCols.length - 1) + ')')).each(function () {
+            $('#logTable').find('table tbody tr').children('td').eq(runtime.logDataCols.length - 2).each(function () {
                 var $t = $(this);
                 // If query is a SELECT and user enabled or disabled to group
                 // queries ignoring data in where statements, we
@@ -1843,10 +1843,10 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         $t.next().text(rowData[sumColumnName]);
                         // Restore slow log columns
                         if (isSlowLog) {
-                            $t.parent().children(document.querySelectorAll('td:nth-child(3)')).text(rowData.query_time);
-                            $t.parent().children(document.querySelectorAll('td:nth-child(4)')).text(rowData.lock_time);
-                            $t.parent().children(document.querySelectorAll('td:nth-child(5)')).text(rowData.rows_sent);
-                            $t.parent().children(document.querySelectorAll('td:nth-child(6)')).text(rowData.rows_examined);
+                            $t.parent().children('td').eq(2).text(rowData.query_time);
+                            $t.parent().children('td').eq(3).text(rowData.lock_time);
+                            $t.parent().children('td').eq(4).text(rowData.rows_sent);
+                            $t.parent().children('td').eq(5).text(rowData.rows_examined);
                         }
                     }
                 }
@@ -1881,15 +1881,15 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                             return;
                         }
 
-                        row =  $table.children(document.querySelectorAll('td:nth-child(' + (value + 1) + ')'));
-                        numCol = row.children(':nth-child(' + (runtime.logDataCols.length) + ')');
+                        row =  $table.children('tr').eq(value);
+                        numCol = row.children().eq(runtime.logDataCols.length - 1);
                         numCol.text(filteredQueries[key]);
 
                         if (isSlowLog) {
-                            row.children(document.querySelectorAll('td:nth-child(3)')).text(secToTime(columnSums[key][0]));
-                            row.children(document.querySelectorAll('td:nth-child(4)')).text(secToTime(columnSums[key][1]));
-                            row.children(document.querySelectorAll('td:nth-child(5)')).text(columnSums[key][2]);
-                            row.children(document.querySelectorAll('td:nth-child(6)')).text(columnSums[key][3]);
+                            row.children('td').eq(2).text(secToTime(columnSums[key][0]));
+                            row.children('td').eq(3).text(secToTime(columnSums[key][1]));
+                            row.children('td').eq(4).text(columnSums[key][2]);
+                            row.children('td').eq(5).text(columnSums[key][3]);
                         }
                     });
                 }

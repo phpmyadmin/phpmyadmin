@@ -203,8 +203,8 @@ AJAX.registerOnload('table/structure.js', function () {
                     }
                     // Adjust the row numbers
                     for (var $row = $currRow.next(); $row.length > 0; $row = $row.next()) {
-                        var newVal = parseInt($row.find(document.querySelectorAll('td:nth-child(2)')).text(), 10) - 1;
-                        $row.find(document.querySelectorAll('td:nth-child(2)')).text(newVal);
+                        var newVal = parseInt($row.find('td').eq(1).text(), 10) - 1;
+                        $row.find('td').eq(1).text(newVal);
                     }
                     $afterFieldItem.remove();
                     $currRow.hide('medium').remove();
@@ -338,7 +338,7 @@ AJAX.registerOnload('table/structure.js', function () {
                     // Adjust the row numbers and colors
                     for (var $row = $firstrow; $row.length > 0; $row = $row.next()) {
                         $row
-                            .find(document.querySelectorAll('td:nth-child(2)'))
+                            .find('td').eq(1)
                             .text($row.index() + 1)
                             .end()
                             .removeClass('odd even')
