@@ -941,6 +941,21 @@ parameters:
 			path: libraries/classes/Gis/GisVisualization.php
 
 		-
+			message: "#^Cannot access offset 1 on array\\|false\\.$#"
+			count: 2
+			path: libraries/classes/Git.php
+
+		-
+			message: "#^Cannot access offset int on array\\|false\\.$#"
+			count: 2
+			path: libraries/classes/Git.php
+
+		-
+			message: "#^Cannot access offset 256 on array\\|false\\.$#"
+			count: 1
+			path: libraries/classes/Git.php
+
+		-
 			message: "#^Parameter \\#1 \\$last_cumulative_size of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, int\\|string given\\.$#"
 			count: 3
 			path: libraries/classes/Import.php
