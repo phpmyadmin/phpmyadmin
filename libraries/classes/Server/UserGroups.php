@@ -123,15 +123,6 @@ class UserGroups
                     ''
                 );
                 $userGroupVal['editUsersIcon'] = Generator::getIcon('b_edit', __('Edit'));
-
-                $userGroupVal['deleteUsersUrl'] = Url::getCommon(
-                    [
-                        'deleteUserGroup' => 1,
-                        'userGroup' => $groupName,
-                    ],
-                    ''
-                );
-                $userGroupVal['deleteUsersIcon'] = Generator::getIcon('b_drop', __('Delete'));
                 $userGroupsValues[] = $userGroupVal;
             }
         }
