@@ -1,31 +1,30 @@
-<form action="{{ url('/error-report') }}" method="post" name="report_frm" id="report_frm"
-      class="ajax">
-    <fieldset class="pma-fieldset pt-0">
-        <p>
-            {% trans %}
-            This report automatically includes data about the error and information about relevant configuration settings. It will be sent to the phpMyAdmin team for debugging the error.
-            {% endtrans %}
-        </p>
+<p>
+  {% trans %}
+    This report automatically includes data about the error and information about relevant configuration settings. It will be sent to the phpMyAdmin team for debugging the error.
+  {% endtrans %}
+</p>
+<form action="{{ url('/error-report') }}" method="post" id="errorReportForm" class="ajax">
+  <div class="mb-3">
+    <label for="errorReportDescription">
+      <strong>
+        {% trans "Can you tell us the steps leading to this error? It decisively helps in debugging:" %}
+      </strong>
+    </label>
+    <textarea class="form-control" name="description" id="errorReportDescription"></textarea>
+  </div>
 
-        <div class="label"><label><strong>
-                    {% trans "Can you tell us the steps leading to this error? It decisively helps in debugging:" %}
-                </strong></label>
-        </div>
-        <textarea class="report-description" name="description"
-                  id="report_description"></textarea>
+  <div class="mb-3">
+    {% trans "You may examine the data in the error report:" %}
+    <pre class="pre-scrollable">{{ report_data|json_encode(constant('JSON_PRETTY_PRINT') b-or constant('JSON_UNESCAPED_SLASHES')) }}</pre>
+  </div>
 
-        <div class="label"><label><p>
-                    {% trans "You may examine the data in the error report:" %}
-                </p></label></div>
-        <pre class="report-data">{{ report_data|raw }}</pre>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" name="always_send" id="errorReportAlwaysSendCheckbox">
+    <label class="form-check-label" for="errorReportAlwaysSendCheckbox">
+      {% trans "Automatically send report next time" %}
+    </label>
+  </div>
 
-        <input type="checkbox" name="always_send" id="always_send_checkbox">
-        <label for="always_send_checkbox">
-            {% trans "Automatically send report next time" %}
-        </label>
-
-    </fieldset>
-
-    {{ hidden_inputs|raw }}
-    {{ hidden_fields|raw }}
+  {{ hidden_inputs|raw }}
+  {{ hidden_fields|raw }}
 </form>

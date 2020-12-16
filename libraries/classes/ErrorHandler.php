@@ -385,8 +385,8 @@ class ErrorHandler
                     . __('Report')
                     . '" id="pma_report_errors" class="btn btn-primary float-end">'
                     . '<input type="checkbox" name="always_send"'
-                    . ' id="always_send_checkbox" value="true">'
-                    . '<label for="always_send_checkbox">'
+                    . ' id="errorReportAlwaysSendCheckbox" value="true">'
+                    . '<label for="errorReportAlwaysSendCheckbox">'
                     . __('Automatically send report next time')
                     . '</label>';
 

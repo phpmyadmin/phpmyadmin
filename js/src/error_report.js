@@ -61,57 +61,31 @@ var ErrorReport = {
      * @return void
      */
     showReportDialog: function (exception) {
-        var reportData = ErrorReport.getReportData(exception);
+        const reportData = ErrorReport.getReportData(exception);
 
-        /* Remove the hidden dialogs if there are*/
-        if ($('#error_report_dialog').length !== 0) {
-            $('#error_report_dialog').remove();
-        }
-        var $div = $('<div id="error_report_dialog"></div>');
-        $div.css('z-index', '1000');
-
-        var buttonOptions = {};
-
-        buttonOptions[Messages.strSendErrorReport] = function () {
-            var $dialog = $(this);
-            var postData = $.extend(reportData, {
+        const sendErrorReport = function () {
+            const postData = $.extend(reportData, {
                 'send_error_report': true,
-                'description': $('#report_description').val(),
-                'always_send': $('#always_send_checkbox')[0].checked
+                'description': $('#errorReportDescription').val(),
+                'always_send': $('#errorReportAlwaysSendCheckbox')[0].checked
             });
             $.post('index.php?route=/error-report', postData, function (data) {
-                $dialog.dialog('close');
                 if (data.success === false) {
-                    // in the case of an error, show the error message returned.
                     Functions.ajaxShowMessage(data.error, false);
                 } else {
                     Functions.ajaxShowMessage(data.message, 3000);
                 }
             });
+            $('#errorReportModal').modal('hide');
         };
 
-        buttonOptions[Messages.strCancel] = function () {
-            $(this).dialog('close');
-        };
-
-        $.post('index.php?route=/error-report', reportData, function (data) {
-            if (data.success === false) {
-                // in the case of an error, show the error message returned.
-                Functions.ajaxShowMessage(data.error, false);
-            } else {
-                // Show dialog if the request was successful
-                $div
-                    .append(data.message)
-                    .dialog({
-                        title: Messages.strSubmitErrorReport,
-                        width: 650,
-                        modal: true,
-                        buttons: buttonOptions,
-                        close: function () {
-                            $(this).remove();
-                        }
-                    });
-            }
+        $.post('index.php?route=/error-report', reportData).done(function (data) {
+            const $errorReportModal = $('#errorReportModal');
+            $errorReportModal.on('show.bs.modal', function () {
+                $('#errorReportModalConfirm').on('click', sendErrorReport);
+                this.querySelector('.modal-body').innerHTML = data.message;
+            });
+            $errorReportModal.modal('show');
         });
     },
     /**

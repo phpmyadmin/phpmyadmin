@@ -629,8 +629,6 @@ final class JavaScriptMessagesController
             'strCreateView' => __('Create view'),
 
             /* Error Reporting */
-            'strSendErrorReport' => __('Send error report'),
-            'strSubmitErrorReport' => __('Submit error report'),
             'strErrorOccurred' => __(
                 'A fatal JavaScript error has occurred. Would you like to send an error report?'
             ),

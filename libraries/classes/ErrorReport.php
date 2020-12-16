@@ -6,8 +6,6 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
 use const E_USER_WARNING;
-use const JSON_PRETTY_PRINT;
-use const JSON_UNESCAPED_SLASHES;
 use const PHP_VERSION;
 use function count;
 use function http_build_query;
@@ -61,20 +59,6 @@ class ErrorReport
     public function setSubmissionUrl(string $submissionUrl): void
     {
         $this->submissionUrl = $submissionUrl;
-    }
-
-    /**
-     * Returns the pretty printed error report data collected from the
-     * current configuration or from the request parameters sent by the
-     * error reporting js code.
-     *
-     * @return string the report
-     */
-    private function getPrettyData(): string
-    {
-        $report = $this->getData();
-
-        return json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
 
     /**
@@ -289,13 +273,14 @@ class ErrorReport
      */
     public function getForm(): string
     {
+        $reportData = $this->getData();
+
         $datas = [
-            'report_data' => $this->getPrettyData(),
+            'report_data' => $reportData,
             'hidden_inputs' => Url::getHiddenInputs(),
             'hidden_fields' => null,
         ];
 
-        $reportData = $this->getData();
         if (! empty($reportData)) {
             $datas['hidden_fields'] = Url::getHiddenFields($reportData, '', true);
         }

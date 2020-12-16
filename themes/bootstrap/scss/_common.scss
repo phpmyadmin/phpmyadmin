@@ -2266,20 +2266,6 @@ body .ui-widget {
   overflow: hidden;
 }
 
-.report-data {
-  height: 13em;
-  overflow: scroll;
-  width: 570px;
-  border: solid 1px;
-  background: white;
-  padding: 2px;
-}
-
-.report-description {
-  height: 10em;
-  width: 570px;
-}
-
 div#page_content div {
   &#tableslistcontainer {
     margin-top: 1em;
@@ -3066,6 +3052,12 @@ body .ui-dialog {
 // side menu
 #name-panel {
   overflow: hidden;
+}
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
 }
 
 @media only screen and (max-width: 768px) {

@@ -9,6 +9,8 @@ use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
+use function htmlspecialchars;
+use const ENT_QUOTES;
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
 use function define;
@@ -140,7 +142,7 @@ class ErrorReportTest extends AbstractTestCase
         $_POST['exception'] = [];
 
         $form = $this->errorReport->getForm();
-        $this->assertStringContainsString('<pre class="report-data">[]</pre>', $form);
+        $this->assertStringContainsString('<pre class="pre-scrollable">[]</pre>', $form);
 
         $context = [
             'Widget.prototype = {',
@@ -207,7 +209,10 @@ class ErrorReportTest extends AbstractTestCase
         $expectedData = json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
         $form = $this->errorReport->getForm();
-        $this->assertStringContainsString('<pre class="report-data">' . $expectedData . '</pre>', $form);
+        $this->assertStringContainsString(
+            '<pre class="pre-scrollable">' . htmlspecialchars((string) $expectedData, ENT_QUOTES) . '</pre>',
+            $form
+        );
     }
 
     /**
