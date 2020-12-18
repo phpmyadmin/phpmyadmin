@@ -86,12 +86,12 @@ class FormatConverter
      *
      * @return string
      */
-    public static function longToIp($buffer)
+    public static function longToIp($buffer): string
     {
         if (! Util::isInteger($buffer) || $buffer < 0 || $buffer > 4294967295) {
             return $buffer;
         }
 
-        return long2ip((int) $buffer);
+        return (string) long2ip((int) $buffer);
     }
 }

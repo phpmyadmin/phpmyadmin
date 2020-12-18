@@ -23,7 +23,7 @@ use function sprintf;
  *
  * @see     PMA_Schema_PDF
  *
- * @name    Table_Stats_Pdf
+ * @name    TableStatsPdf
  */
 class TableStatsPdf extends TableStats
 {
@@ -34,8 +34,9 @@ class TableStatsPdf extends TableStats
     private $ff = PdfLib::PMA_PDF_FONT;
 
     /**
-     * @see PMA_Schema_PDF, Table_Stats_Pdf::Table_Stats_setWidth,
-     *     PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf::Table_Stats_setHeight
+     * @see PMA_Schema_PDF
+     * @see TableStatsPdf::setWidthTable
+     * @see PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf::setHeightTable
      *
      * @param object $diagram        The PDF diagram
      * @param string $db             The database name

@@ -27,7 +27,9 @@ class Dia extends XMLWriter
     /**
      * Upon instantiation This starts writing the Dia XML document
      *
-     * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()
+     * @see XMLWriter::openMemory()
+     * @see XMLWriter::setIndent()
+     * @see XMLWriter::startDocument()
      */
     public function __construct()
     {
@@ -52,8 +54,9 @@ class Dia extends XMLWriter
      * to define the document, then finally a Layer starts which
      * holds all the objects.
      *
-     * @see    XMLWriter::startElement(),XMLWriter::writeAttribute(),
-     *      XMLWriter::writeRaw()
+     * @see XMLWriter::startElement()
+     * @see XMLWriter::writeAttribute()
+     * @see XMLWriter::writeRaw()
      *
      * @param string $paper        the size of the paper/document
      * @param float  $topMargin    top margin of the paper/document in cm
@@ -154,7 +157,8 @@ class Dia extends XMLWriter
     /**
      * Ends Dia Document
      *
-     * @see    XMLWriter::endElement(),XMLWriter::endDocument()
+     * @see XMLWriter::endElement()
+     * @see XMLWriter::endDocument()
      *
      * @return void
      *

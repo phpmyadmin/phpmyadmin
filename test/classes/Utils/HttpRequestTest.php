@@ -45,13 +45,13 @@ class HttpRequestTest extends AbstractTestCase
          * and CURLOPT_CAINFO flags, see
          * https://curl.haxx.se/docs/ssl-compared.html
          */
-        if (stripos($curl['ssl_version'], 'WinSSL') === false
+        if ($curl !== false && stripos($curl['ssl_version'], 'WinSSL') === false
             && stripos($curl['ssl_version'], 'SecureTransport') === false
         ) {
             return;
         }
 
-        $this->markTestSkipped('Not supported in CURL SSL backend: ' . $curl['ssl_version']);
+        $this->markTestSkipped('Not supported in CURL SSL backend: ' . ($curl !== false ? $curl['ssl_version'] : '?'));
     }
 
     /**

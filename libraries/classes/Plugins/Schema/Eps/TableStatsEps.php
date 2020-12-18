@@ -19,9 +19,9 @@ use function sprintf;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in EPS.
  *
- * @see     PMA_EPS
+ * @see     Eps
  *
- * @name    Table_Stats_Eps
+ * @name    TableStatsEps
  */
 class TableStatsEps extends TableStats
 {
@@ -32,8 +32,9 @@ class TableStatsEps extends TableStats
     public $currentCell = 0;
 
     /**
-     * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
-     *      PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps::Table_Stats_setHeight
+     * @see Eps
+     * @see TableStatsEps::setWidthTable
+     * @see TableStatsEps::setHeightTable
      *
      * @param object $diagram         The EPS diagram
      * @param string $db              The database name
@@ -98,7 +99,7 @@ class TableStatsEps extends TableStats
     /**
      * Sets the width of the table
      *
-     * @see PMA_EPS
+     * @see Eps
      *
      * @param string $font     The font name
      * @param int    $fontSize The font size
@@ -149,7 +150,9 @@ class TableStatsEps extends TableStats
     /**
      * Draw the table
      *
-     * @see PMA_EPS,PMA_EPS::line,PMA_EPS::rect
+     * @see Eps
+     * @see Eps::line
+     * @see Eps::rect
      *
      * @param bool $showColor Whether to display color
      *

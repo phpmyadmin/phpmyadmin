@@ -197,7 +197,7 @@ class SvgRelationSchema extends ExportRelationSchema
     /**
      * Defines relation objects
      *
-     * @see setMinMax,Table_Stats_Svg::__construct(),
+     * @see setMinMax,TableStatsSvg::__construct(),
      *       PhpMyAdmin\Plugins\Schema\Svg\RelationStatsSvg::__construct()
      *
      * @param string $masterTable    The master table name
@@ -275,7 +275,7 @@ class SvgRelationSchema extends ExportRelationSchema
     /**
      * Draws tables
      *
-     * @see Table_Stats_Svg::Table_Stats_tableDraw()
+     * @see TableStatsSvg::Table_Stats_tableDraw()
      *
      * @return void
      */

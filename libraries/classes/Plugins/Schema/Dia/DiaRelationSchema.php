@@ -54,7 +54,9 @@ class DiaRelationSchema extends ExportRelationSchema
      * Upon instantiation This outputs the Dia XML document
      * that user can download
      *
-     * @see Dia,TableStatsDia,RelationStatsDia
+     * @see Dia
+     * @see TableStatsDia
+     * @see RelationStatsDia
      *
      * @param string $db database name
      */
