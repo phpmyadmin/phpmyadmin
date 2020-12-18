@@ -209,7 +209,9 @@ class AuthenticationSignon extends AuthenticationPlugin
             /* Restart phpMyAdmin session */
             if (! defined('TESTSUITE')) {
                 $this->setCookieParams($oldCookieParams);
-                session_name($old_session);
+                if ($old_session !== null) {
+                    session_name($old_session);
+                }
                 if (! empty($old_id)) {
                     session_id($old_id);
                 }

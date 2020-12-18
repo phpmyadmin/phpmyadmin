@@ -401,7 +401,32 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
+			message: "#^Cannot call method ssl_set\\(\\) on mysqli\\|false\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Cannot call method options\\(\\) on mysqli\\|false\\.$#"
+			count: 3
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Cannot call method real_connect\\(\\) on mysqli\\|false\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
 			message: "#^Strict comparison using \\=\\=\\= between true and null will always evaluate to false\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Cannot access property \\$connect_errno on mysqli\\|false\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
+			message: "#^Cannot access property \\$connect_error on mysqli\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbiMysqli.php
 
@@ -646,17 +671,17 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\File\\:\\:read\\(\\) should return string but returns string\\|false\\.$#"
+			count: 3
+			path: libraries/classes/File.php
+
+		-
 			message: "#^Parameter \\#1 \\$bz of function bzread expects resource, resource\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/File.php
 
 		-
 			message: "#^Parameter \\#1 \\$zp of function gzread expects resource, resource\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\File\\:\\:read\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/File.php
 
@@ -1026,6 +1051,16 @@ parameters:
 			path: libraries/classes/Language.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\LanguageManager\\:\\:\\$availableLocales \\(array\\) does not accept array\\|false\\.$#"
+			count: 1
+			path: libraries/classes/LanguageManager.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\LanguageManager\\:\\:availableLocales\\(\\) should return array but returns array\\|false\\.$#"
+			count: 1
+			path: libraries/classes/LanguageManager.php
+
+		-
 			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: libraries/classes/Linter.php
@@ -1109,6 +1144,11 @@ parameters:
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Auth/AuthenticationHttp.php
+
+		-
+			message: "#^Parameter \\#1 \\$newname of function session_name expects string, string\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
 			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
@@ -1203,6 +1243,11 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$message of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:showHint\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
 			count: 1
+			path: libraries/classes/Plugins/Import/ImportCsv.php
+
+		-
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\|false given\\.$#"
+			count: 2
 			path: libraries/classes/Plugins/Import/ImportCsv.php
 
 		-
