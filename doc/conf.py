@@ -51,7 +51,7 @@ copyright = u'2012 - 2020, The phpMyAdmin devel team'
 # built documents.
 #
 # The short X.Y version.
-version = '5.1.0-dev'
+version = '5.1.0-rc1'
 # The full version, including alpha/beta/rc tags.
 release = version
 
