@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2020-04-02 10:42+0000\n"
-"Last-Translator: yagoub fadel <yagoub76@gmail.com>\n"
+"PO-Revision-Date: 2020-12-19 09:29+0000\n"
+"Last-Translator: مملكه الفيديوهات videos king <fadikom123@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-0/ar/"
 ">\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.0-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -2222,6 +2222,7 @@ msgid "Time taken:"
 msgstr "الوقت المستغرق:"
 
 #: js/messages.php:747
+#, fuzzy
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2229,6 +2230,7 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"هناك مشكلة بالوصول الى مساحة التخزين في متصفحك ,بعض المزايا لن تعمل جيدا"
 
 #: js/messages.php:749
 msgid "Copy tables to"
@@ -2646,9 +2648,9 @@ msgid "Failed running test for rule '%s'."
 msgstr "فشلت في تشغيل الإختبار للقاعدة '%s'."
 
 #: libraries/classes/Advisor.php:421
-#, php-format
+#, fuzzy, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr "فشل تنسيق النص لـ '%s'."
+msgstr "فشل تنسيق النص لـلقاعدة  '%s'."
 
 #: libraries/classes/Advisor.php:544
 #, php-format
@@ -8309,10 +8311,8 @@ msgid "Binary"
 msgstr "ثنائي"
 
 #: libraries/classes/InsertEdit.php:760
-#, fuzzy
-#| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "بسبب طوله,<br /> فمن المحتمل أن هذا الحقل غير قابل للتحرير "
+msgstr "لأنه طويل ,<br /> فمن المحتمل أن هذا الحقل غير قابل للتحرير"
 
 #: libraries/classes/InsertEdit.php:1378
 msgid "Binary - do not edit"
@@ -10156,7 +10156,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "اسم العمود"
+msgstr "اسم العمود "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:112
 msgid "This plugin does not support compressed imports!"
