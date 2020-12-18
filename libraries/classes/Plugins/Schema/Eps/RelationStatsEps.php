@@ -18,9 +18,9 @@ use function sqrt;
  * master table's master field to foreign table's foreign key
  * in EPS document.
  *
- * @see     PMA_EPS
+ * @see     Eps
  *
- * @name    Relation_Stats_Eps
+ * @name    RelationStatsEps
  */
 class RelationStatsEps extends RelationStats
 {
@@ -54,7 +54,7 @@ class RelationStatsEps extends RelationStats
      * draws relation links and arrows
      * shows foreign key relations
      *
-     * @see PMA_EPS
+     * @see Eps
      *
      * @return void
      */

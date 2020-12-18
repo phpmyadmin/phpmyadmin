@@ -498,7 +498,7 @@ class PdfRelationSchema extends ExportRelationSchema
     /**
      * Draws tables
      *
-     * @see Table_Stats_Pdf::tableDraw()
+     * @see TableStatsPdf::tableDraw()
      *
      * @return void
      */

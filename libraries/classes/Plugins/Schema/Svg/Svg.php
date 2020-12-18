@@ -40,7 +40,9 @@ class Svg extends XMLWriter
     /**
      * Upon instantiation This starts writing the RelationStatsSvg XML document
      *
-     * @see XMLWriter::openMemory(),XMLWriter::setIndent(),XMLWriter::startDocument()
+     * @see XMLWriter::openMemory()
+     * @see XMLWriter::setIndent()
+     * @see XMLWriter::startDocument()
      */
     public function __construct()
     {
@@ -140,7 +142,8 @@ class Svg extends XMLWriter
      * which contains all the attributes and namespace that needed
      * to define the svg document
      *
-     * @see XMLWriter::startElement(),XMLWriter::writeAttribute()
+     * @see XMLWriter::startElement()
+     * @see XMLWriter::writeAttribute()
      *
      * @param int $width  total width of the RelationStatsSvg document
      * @param int $height total height of the RelationStatsSvg document
@@ -173,7 +176,8 @@ class Svg extends XMLWriter
     /**
      * Ends RelationStatsSvg Document
      *
-     * @see XMLWriter::endElement(),XMLWriter::endDocument()
+     * @see XMLWriter::endElement()
+     * @see XMLWriter::endDocument()
      *
      * @return void
      */
@@ -190,7 +194,8 @@ class Svg extends XMLWriter
      * RelationStatsSvg document saved in .svg extension and can be
      * easily changeable by using any svg IDE
      *
-     * @see XMLWriter::startElement(),XMLWriter::writeAttribute()
+     * @see XMLWriter::startElement()
+     * @see XMLWriter::writeAttribute()
      *
      * @param string $fileName file name
      *
@@ -216,8 +221,10 @@ class Svg extends XMLWriter
      * and other elements who have x,y co-ordinates are drawn.
      * specify their width and height and can give styles too.
      *
-     * @see XMLWriter::startElement(), XMLWriter::writeAttribute(),
-     * XMLWriter::text(), XMLWriter::endElement()
+     * @see XMLWriter::startElement()
+     * @see XMLWriter::writeAttribute()
+     * @see XMLWriter::text()
+     * @see XMLWriter::endElement()
      *
      * @param string      $name   RelationStatsSvg element name
      * @param int         $x      The x attr defines the left position of the element
@@ -264,8 +271,9 @@ class Svg extends XMLWriter
      * arrows are also drawn by specify its start and ending
      * co-ordinates
      *
-     * @see XMLWriter::startElement(), XMLWriter::writeAttribute(),
-     * XMLWriter::endElement()
+     * @see XMLWriter::startElement()
+     * @see XMLWriter::writeAttribute()
+     * @see XMLWriter::endElement()
      *
      * @param string $name   RelationStatsSvg element name i.e line
      * @param int    $x1     Defines the start of the line on the x-axis

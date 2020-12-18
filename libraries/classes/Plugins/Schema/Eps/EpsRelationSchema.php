@@ -26,7 +26,7 @@ use function sprintf;
  * This class inherits ExportRelationSchema class has common functionality added
  * to this class
  *
- * @name    Eps_Relation_Schema
+ * @name    EpsRelationSchema
  */
 class EpsRelationSchema extends ExportRelationSchema
 {
@@ -163,8 +163,9 @@ class EpsRelationSchema extends ExportRelationSchema
     /**
      * Defines relation objects
      *
-     * @see _setMinMax,Table_Stats_Eps::__construct(),
-     * PhpMyAdmin\Plugins\Schema\Eps\RelationStatsEps::__construct()
+     * @see _setMinMax
+     * @see TableStatsEps::__construct()
+     * @see PhpMyAdmin\Plugins\Schema\Eps\RelationStatsEps::__construct()
      *
      * @param string $masterTable    The master table name
      * @param string $font           The font
@@ -224,7 +225,7 @@ class EpsRelationSchema extends ExportRelationSchema
      * Draws relation arrows and lines connects master table's master field to
      * foreign table's foreign field
      *
-     * @see Relation_Stats_Eps::relationDraw()
+     * @see RelationStatsEps::relationDraw()
      *
      * @return void
      */
@@ -238,7 +239,7 @@ class EpsRelationSchema extends ExportRelationSchema
     /**
      * Draws tables
      *
-     * @see Table_Stats_Eps::Table_Stats_tableDraw()
+     * @see TableStatsEps::Table_Stats_tableDraw()
      *
      * @return void
      */

@@ -22,7 +22,7 @@ use function sprintf;
  *
  * @see     PMA_SVG
  *
- * @name    Table_Stats_Svg
+ * @name    TableStatsSvg
  */
 class TableStatsSvg extends TableStats
 {
@@ -33,8 +33,9 @@ class TableStatsSvg extends TableStats
     public $currentCell = 0;
 
     /**
-     * @see PMA_SVG, Table_Stats_Svg::Table_Stats_setWidth,
-     *       PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg::Table_Stats_setHeight
+     * @see Svg
+     * @see TableStatsSvg::setWidthTable
+     * @see TableStatsSvg::setHeightTable
      *
      * @param object $diagram         The current SVG image document
      * @param string $db              The database name
@@ -138,7 +139,7 @@ class TableStatsSvg extends TableStats
     /**
      * draw the table
      *
-     * @see    PMA_SVG,PMA_SVG::printElement
+     * @see Svg::printElement
      *
      * @param bool $showColor Whether to display color
      *
