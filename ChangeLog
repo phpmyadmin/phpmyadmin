@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.2.0 (not yet released)
+
 5.1.0 (not yet released)
 - issue #15350 Change Media (MIME) type references to Media type
 - issue #15377 Add a request router
