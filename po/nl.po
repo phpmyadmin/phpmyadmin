@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-11-16 03:28+0000\n"
+"PO-Revision-Date: 2020-12-20 16:29+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-9/nl/>"
 "\n"
@@ -2983,7 +2983,7 @@ msgstr "Week"
 #.
 #: js/messages.php:899
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "kalender-maand-jaar"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:902
@@ -10559,7 +10559,7 @@ msgid ""
 "master."
 msgstr ""
 "Nadat u de MySQL-server herstart heeft, klikt u op Start. Hierna zou u de "
-"melding moeten krijgen dat de server  ingesteld <b>is</b> als master."
+"melding moeten krijgen dat de server ingesteld <b>is</b> als master."
 
 #: libraries/classes/ReplicationGui.php:153
 #: templates/server/databases/table_header.twig:37
@@ -12934,8 +12934,8 @@ msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
-"Het aantal joins dat geen gebruik maakt van een index. Indien dit geen 0 is, "
-"is het aan te raden om het gebruik van indexen te controleren."
+"Het aantal joins dat geen gebruik maakt van een index. Is dit geen 0, dan is "
+"het aan te raden om het gebruik van indexen te controleren."
 
 #: libraries/classes/Server/Status/Variables.php:697
 msgid "The number of joins that used a range search on a reference table."
