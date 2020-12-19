@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-19 12:23+0100\n"
-"PO-Revision-Date: 2020-10-29 02:26+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2020-12-19 19:26+0000\n"
+"Last-Translator: Robmaistah <xetebah803@febeks.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
 "Language: ro\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.3.2-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -199,7 +199,7 @@ msgstr "Versiune minoră"
 
 #: libraries/advisory_rules_generic.php:124
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Versiune mai mică de 5.1.30 (prima versiune GA a 5.1)."
 
 #: libraries/advisory_rules_generic.php:126
 msgid ""
@@ -211,7 +211,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:138
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Versiune mai mică de 5.5.8 (prima versiune GA a 5.5)."
 
 #: libraries/advisory_rules_generic.php:139
 msgid "You should upgrade, to a stable version of MySQL 5.5."
@@ -224,7 +224,7 @@ msgstr "Distribuție"
 
 #: libraries/advisory_rules_generic.php:148
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "Versiunea este compilată din sursă, nu dintr-un binar oficial MySQL."
 
 #: libraries/advisory_rules_generic.php:150
 msgid ""
@@ -370,6 +370,10 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
+"Deși nu este nimic în neregulă cu o cantitate mare de sortare a rândurilor, "
+"vă recomandăm să vă asigurați că interogările care necesită multă sortare "
+"utilizează coloane indexate în clauza ORDER BY, deoarece acest lucru va duce "
+"la o sortare mult mai rapidă."
 
 #: libraries/advisory_rules_generic.php:242
 #, php-format
