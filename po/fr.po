@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-12-07 10:07+0100\n"
+"POT-Creation-Date: 2020-12-19 12:23+0100\n"
 "PO-Revision-Date: 2020-12-09 07:47+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1373,7 +1373,7 @@ msgid "Search:"
 msgstr "Rechercher :"
 
 #: libraries/classes/BrowseForeigners.php:204
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:321
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:323
 #: libraries/classes/Controllers/Server/PrivilegesController.php:324
 #: libraries/classes/Database/Routines.php:1026
 #: libraries/classes/Database/Routines.php:1742
@@ -1453,7 +1453,7 @@ msgid "Page number:"
 msgstr "Page n° :"
 
 #: libraries/classes/BrowseForeigners.php:345
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
 #: templates/display/results/table.twig:24
 #: templates/server/privileges/initials_row.twig:20
 #: templates/table/browse_foreigners/show_all.twig:4
@@ -2498,7 +2498,7 @@ msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:337
 #: libraries/classes/Config/Descriptions.php:403 libraries/classes/Menu.php:527
-#: libraries/classes/Util.php:2432 libraries/config.values.php:155
+#: libraries/classes/Util.php:2431 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:8
 #: templates/server/privileges/user_properties.twig:20
@@ -2651,8 +2651,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:385 libraries/classes/Menu.php:287
 #: libraries/classes/Menu.php:403 libraries/classes/Menu.php:532
 #: libraries/classes/Navigation/Nodes/NodeTable.php:319
-#: libraries/classes/Util.php:1713 libraries/classes/Util.php:2433
-#: libraries/classes/Util.php:2448 libraries/classes/Util.php:2465
+#: libraries/classes/Util.php:1712 libraries/classes/Util.php:2432
+#: libraries/classes/Util.php:2447 libraries/classes/Util.php:2464
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -3055,8 +3055,8 @@ msgstr ""
 "la table active."
 
 #: libraries/classes/Config/Descriptions.php:525
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
-#: libraries/classes/Navigation/NavigationTree.php:1473
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Navigation/NavigationTree.php:1472
 msgid "Link with main panel"
 msgstr "Relier au panneau principal"
 
@@ -4126,7 +4126,7 @@ msgid "Skip locked tables"
 msgstr "Ignorer les tables verrouillées"
 
 #: libraries/classes/Config/Descriptions.php:889
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #: libraries/classes/Display/Results.php:3213
 #: libraries/classes/Html/Generator.php:684
 #: libraries/classes/Html/Generator.php:946
@@ -4627,7 +4627,7 @@ msgstr "Désactivé"
 #: libraries/classes/Config/FormDisplayTemplate.php:303
 #: libraries/classes/Controllers/Database/StructureController.php:1452
 #: libraries/classes/Controllers/Database/StructureController.php:1535
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 #: libraries/classes/Controllers/Table/DeleteController.php:56
 #: libraries/classes/Controllers/Table/StructureController.php:481
 #: libraries/classes/Controllers/Table/StructureController.php:505
@@ -4666,7 +4666,7 @@ msgid "Yes"
 msgstr "Oui"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:303
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:353
 #: libraries/classes/IndexColumn.php:132 libraries/classes/Index.php:497
 #: libraries/classes/Index.php:525
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:665
@@ -4737,14 +4737,14 @@ msgstr "Personnalisé"
 #: libraries/classes/Config/Forms/User/ExportForm.php:53
 #: libraries/classes/Config/Forms/User/ExportForm.php:98
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:723
 #: libraries/classes/Import.php:1382 libraries/classes/Menu.php:279
 #: libraries/classes/Menu.php:398
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:57
 #: libraries/classes/Navigation/Nodes/NodeTable.php:310
-#: libraries/classes/Util.php:1712 libraries/classes/Util.php:2447
-#: libraries/classes/Util.php:2464 libraries/config.values.php:60
+#: libraries/classes/Util.php:1711 libraries/classes/Util.php:2446
+#: libraries/classes/Util.php:2463 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4785,11 +4785,11 @@ msgid "OpenDocument Text"
 msgstr "Texte OpenDocument"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:369
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 #: libraries/classes/Menu.php:309 libraries/classes/Menu.php:423
 #: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1618
-#: libraries/classes/Util.php:2436 libraries/classes/Util.php:2451
-#: libraries/classes/Util.php:2468 templates/database/events/index.twig:58
+#: libraries/classes/Util.php:2435 libraries/classes/Util.php:2450
+#: libraries/classes/Util.php:2467 templates/database/events/index.twig:58
 #: templates/database/events/index.twig:91
 #: templates/database/events/index.twig:92
 #: templates/database/events/row.twig:33
@@ -4830,10 +4830,10 @@ msgid "CSV using LOAD DATA"
 msgstr "CSV en utilisant LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/ImportForm.php:65
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:307
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
 #: libraries/classes/Menu.php:318 libraries/classes/Menu.php:433
-#: libraries/classes/Menu.php:565 libraries/classes/Util.php:2437
-#: libraries/classes/Util.php:2452 libraries/classes/Util.php:2469
+#: libraries/classes/Menu.php:565 libraries/classes/Util.php:2436
+#: libraries/classes/Util.php:2451 libraries/classes/Util.php:2468
 #: templates/import.twig:33 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -4850,27 +4850,27 @@ msgstr ""
 "Impossible d'enregistrer les paramètres, le formulaire de configuration "
 "comporte des erreurs !"
 
-#: libraries/classes/Config.php:742
+#: libraries/classes/Config.php:743
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Le fichier de configuration (%s) est illisible."
 
-#: libraries/classes/Config.php:780
+#: libraries/classes/Config.php:781
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permissions sur le fichier de configuration incorrectes, il ne doit pas être "
 "en écriture pour tout le monde !"
 
-#: libraries/classes/Config.php:795
+#: libraries/classes/Config.php:796
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Chargement de la configuration par défaut impossible depuis %1$s"
 
-#: libraries/classes/Config.php:805
+#: libraries/classes/Config.php:806
 msgid "Failed to read configuration file!"
 msgstr "Impossible de lire le fichier de configuration !"
 
-#: libraries/classes/Config.php:808
+#: libraries/classes/Config.php:809
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
@@ -4878,12 +4878,12 @@ msgstr ""
 "Ceci indique habituellement qu'il y a une erreur de syntaxe, merci de "
 "vérifier si une erreur s'affiche plus bas."
 
-#: libraries/classes/Config.php:1387
+#: libraries/classes/Config.php:1390
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Index de serveur invalide : %s"
 
-#: libraries/classes/Config.php:1400
+#: libraries/classes/Config.php:1403
 #, php-format
 msgid "Server %d"
 msgstr "Serveur %d"
@@ -5106,7 +5106,7 @@ msgid "SQL Query Console"
 msgstr "Console de requête SQL"
 
 #: libraries/classes/Controllers/AbstractController.php:74
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:340
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
 #: libraries/classes/Controllers/Server/DatabasesController.php:293
 #: libraries/classes/DbTableExists.php:45
 msgid "No databases selected."
@@ -5323,7 +5323,7 @@ msgstr "Type incorrect !"
 msgid "Bad parameters!"
 msgstr "Paramètres incorrects !"
 
-#: libraries/classes/Controllers/HomeController.php:88
+#: libraries/classes/Controllers/HomeController.php:91
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -5331,7 +5331,7 @@ msgstr ""
 "Vous avez été déconnecté d'un seul serveur ; pour se déconnecter "
 "complètement de phpMyAdmin, il faut se déconnecter de tous les serveurs."
 
-#: libraries/classes/Controllers/HomeController.php:195
+#: libraries/classes/Controllers/HomeController.php:198
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -5341,14 +5341,14 @@ msgstr ""
 "certaines fonctionnalités ont été désactivées. %sVoir l'analyse du problème"
 "%s. "
 
-#: libraries/classes/Controllers/HomeController.php:202
+#: libraries/classes/Controllers/HomeController.php:205
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Ou encore aller sur l'onglet « Opérations » de n'importe quelle base de "
 "données pour le définir à cet endroit."
 
-#: libraries/classes/Controllers/HomeController.php:320
+#: libraries/classes/Controllers/HomeController.php:323
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -5359,7 +5359,7 @@ msgstr ""
 "incapable de gérer correctement les caractères et des problèmes inattendus "
 "pourraient survenir."
 
-#: libraries/classes/Controllers/HomeController.php:335
+#: libraries/classes/Controllers/HomeController.php:338
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -5368,7 +5368,7 @@ msgstr ""
 "fait, des fonctionnalités telles que les rapports d'erreur ou la "
 "vérification de version sont désactivées."
 
-#: libraries/classes/Controllers/HomeController.php:350
+#: libraries/classes/Controllers/HomeController.php:353
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5381,7 +5381,7 @@ msgstr ""
 "session de travail pourrait donc expirer plus tôt que la valeur configurée "
 "dans phpMyAdmin."
 
-#: libraries/classes/Controllers/HomeController.php:369
+#: libraries/classes/Controllers/HomeController.php:372
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -5390,7 +5390,7 @@ msgstr ""
 "LoginCookieValidity ; la session de travail expirera donc plus tôt que la "
 "valeur configurée dans phpMyAdmin."
 
-#: libraries/classes/Controllers/HomeController.php:387
+#: libraries/classes/Controllers/HomeController.php:390
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -5401,19 +5401,19 @@ msgstr ""
 "vraiment corriger cette faiblesse de sécurité en changeant le mot de passe "
 "pour controluser 'pma'."
 
-#: libraries/classes/Controllers/HomeController.php:403
+#: libraries/classes/Controllers/HomeController.php:406
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "Le fichier de configuration nécessite maintenant une phrase de passe secrète "
 "(blowfish_secret)."
 
-#: libraries/classes/Controllers/HomeController.php:410
+#: libraries/classes/Controllers/HomeController.php:413
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
 "La phrase de passe secrète de la configuration (blowfish_secret) est trop "
 "courte."
 
-#: libraries/classes/Controllers/HomeController.php:424
+#: libraries/classes/Controllers/HomeController.php:427
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -5426,7 +5426,7 @@ msgstr ""
 "la sécurité de ce serveur pourrait être compromise par le téléchargement de "
 "la configuration par des personnes non autorisées."
 
-#: libraries/classes/Controllers/HomeController.php:444
+#: libraries/classes/Controllers/HomeController.php:447
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -5435,7 +5435,7 @@ msgstr ""
 "Ce serveur utilise Suhosin. Merci de se référer à la %sdocumentation%s pour "
 "connaître les problèmes possibles."
 
-#: libraries/classes/Controllers/HomeController.php:459
+#: libraries/classes/Controllers/HomeController.php:462
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -5453,7 +5453,7 @@ msgid "Succeeded"
 msgstr "Succès"
 
 #: libraries/classes/Controllers/ImportController.php:143
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
 msgid "Failed"
 msgstr "Échec"
 
@@ -5528,86 +5528,86 @@ msgstr "L'instruction « DROP DATABASE » est désactivée."
 msgid "Could not load the progress of the import."
 msgstr "Impossible de charger l'état d'avancement de l'importation."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:33
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:35
 msgid "Confirm"
 msgstr "Confirmer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:34
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:36
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
 msgstr "Faut-il vraiment exécuter « %s » ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:35
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:37
 msgid "You are about to DESTROY a complete database!"
 msgstr "Une base de données est sur le point d'être DÉTRUITE !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:37
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:39
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
 "Impossible de donner le même nom à la base de données. Modifier le nom et "
 "réessayer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:39
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:41
 msgid "You are about to DESTROY a complete table!"
 msgstr "Une table entière est sur le point d'être DÉTRUITE !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:40
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:42
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "Une table entière est sur le point d'être VIDÉE !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:41
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:43
 msgid "Delete tracking data for this table?"
 msgstr "Faut-il supprimer les données de suivi pour cette table ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:42
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:44
 msgid "Delete tracking data for these tables?"
 msgstr "Faut-il supprimer les données de suivi pour ces tables ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:43
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "Delete tracking data for this version?"
 msgstr "Faut-il supprimer les données de suivi pour cette version ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:44
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:46
 msgid "Delete tracking data for these versions?"
 msgstr "Faut-il supprimer les données de suivi pour ces versions ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:45
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:47
 msgid "Delete entry from tracking report?"
 msgstr "Faut-il supprimer l'entrée du rapport de suivi ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:46
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Deleting tracking data"
 msgstr "Suppression des données de suivi"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:47
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:49
 msgid "Dropping Primary Key/Index"
 msgstr "Destruction de clé primaire/index"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:48
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:50
 msgid "Dropping Foreign key."
 msgstr "Destruction de la clé étrangère."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:49
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:51
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "Cette opération pourrait être longue. Fquand même procéder ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:50
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:52
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
 msgstr "Faut-il vraiment supprimer le groupe d'utilisateurs « %s » ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:51
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:53
 #, php-format
 msgid "Do you really want to delete the search \"%s\"?"
 msgstr "Faut-il vraiment supprimer la recherche « %s » ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:52
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:54
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
 "Des modifications n'ont pas été sauvegardées. Faut-il vraiment quitter cette "
 "page ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:54
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:56
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
@@ -5615,19 +5615,19 @@ msgstr ""
 "Le nombre de rangées va être réduit alors que des données ont déjà été "
 "saisies dans ces rangées qui seront perdues. Faut-il continuer ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:57
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:59
 msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "Faut-il vraiment supprimer l'(es) utilisateur(s) sélectionné(s) ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:58
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:60
 msgid "Do you really want to delete this central column?"
 msgstr "Faut-il vraiment supprimer cette colonne centrale ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:59
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:61
 msgid "Do you really want to delete the selected items?"
 msgstr "Faut-il vraiment supprimer les éléments sélectionnés ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:61
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:63
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
@@ -5636,20 +5636,20 @@ msgstr ""
 "va également SUPPRIMER les données associées à la(aux) partition(s) "
 "sélectionnée(s) !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:64
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:66
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr ""
 "Faut-il vraiment tronquer (TRUNCATE) la(es) partition(s) sélectionnée(s) ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:65
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:67
 msgid "Do you really want to remove partitioning?"
 msgstr "Faut-il vraiment retirer le partitionnement ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:66
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:68
 msgid "Do you really want to RESET SLAVE?"
 msgstr "Faut-il vraiment exécuter « RESET SLAVE » ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:68
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:70
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -5663,15 +5663,15 @@ msgstr ""
 "mauvais affichage des données dans le nouveau classement ; dans ce cas il "
 "est suggéré de revenir au classement d'origine et de consulter les astuces à "
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:74
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:76
 msgid "Garbled Data"
 msgstr "Données déformées"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:76
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:78
 msgid "Are you sure you wish to change the collation and convert the data?"
 msgstr "Faut-il vraiment modifier le classement et convertir les données ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:79
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:81
 msgid ""
 "Through this operation, MySQL attempts to map the data values between "
 "collations. If the character sets are incompatible, there may be data loss "
@@ -5688,7 +5688,7 @@ msgstr ""
 "d'édition de colonne (le lien « Modifier ») sur la page de structure de "
 "table.</b>"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:88
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:90
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
@@ -5696,11 +5696,11 @@ msgstr ""
 "Faut-il vraiment modifier tous les classements de colonnes et convertir les "
 "données ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:92
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:94
 msgid "Save & close"
 msgstr "Enregistrer et fermer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:93
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:95
 #: libraries/classes/InsertEdit.php:1976
 #: templates/config/form_display/fieldset_bottom.twig:9
 #: templates/preferences/manage/main.twig:114
@@ -5708,62 +5708,62 @@ msgstr "Enregistrer et fermer"
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:94
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:96
 msgid "Reset all"
 msgstr "Tout réinitialiser"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:97
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:99
 msgid "Missing value in the form!"
 msgstr "Formulaire incomplet !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:98
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:100
 msgid "Select at least one of the options!"
 msgstr "Sélectionner au moins l'une des options !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:99
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:101
 msgid "Please enter a valid number!"
 msgstr "Merci de saisir un nombre valide !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:100
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:102
 msgid "Please enter a valid length!"
 msgstr "Merci de saisir une longueur valide !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:101
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:103
 msgid "Add index"
 msgstr "Ajouter un index"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:102
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:104
 msgid "Edit index"
 msgstr "Modifier un index"
 
 #. l10n: Rename a table Index
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:104
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:106
 msgid "Rename index"
 msgstr "Renommer l'index"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:105
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 #: templates/table/index_form.twig:227
 #, php-format
 msgid "Add %s column(s) to index"
 msgstr "Ajouter %s colonne(s) à l'index"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:106
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:108
 msgid "Create single-column index"
 msgstr "Créer un index sur colonne unique"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:107
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:109
 msgid "Create composite index"
 msgstr "Créer un index sur plusieurs colonnes"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:108
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:110
 msgid "Composite with:"
 msgstr "Autres colonnes formant l'index :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:109
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:111
 msgid "Please select column(s) for the index."
 msgstr "Merci de sélectionner la(es) colonne(s) de l'index."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:112
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:114
 #: libraries/classes/InsertEdit.php:1974
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/table/index_form.twig:233
@@ -5772,103 +5772,103 @@ msgstr "Merci de sélectionner la(es) colonne(s) de l'index."
 msgid "Preview SQL"
 msgstr "Aperçu SQL"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:115
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:117
 msgid "Simulate query"
 msgstr "Simuler la requête"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:116
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:118
 msgid "Matched rows:"
 msgstr "Lignes correspondantes :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:117
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:119
 #: libraries/classes/Html/Generator.php:918 templates/export.twig:49
 msgid "SQL query:"
 msgstr "Requête SQL :"
 
 #. l10n: Default label for the y-Axis of Charts
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:121
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:123
 msgid "Y values"
 msgstr "Valeurs en Y"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:124
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:126
 msgid "Please enter the SQL query first."
 msgstr "Veuillez d'abord entrer la requête SQL."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:127
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:129
 msgid "The host name is empty!"
 msgstr "Le nom d'hôte est vide !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:128
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:130
 msgid "The user name is empty!"
 msgstr "Le nom d'utilisateur est vide !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:129
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:131
 #: libraries/classes/Server/Privileges.php:1021
 #: libraries/classes/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "Le mot de passe est vide !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:130
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 #: libraries/classes/Server/Privileges.php:1019
 #: libraries/classes/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "Les mots de passe doivent être identiques !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:131
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:133
 msgid "Removing Selected Users"
 msgstr "Effacement des utilisateurs sélectionnés"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:132
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:134
 #: libraries/classes/Tracking.php:236 libraries/classes/Tracking.php:643
 #: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:47
 msgid "Close"
 msgstr "Fermer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:135
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:137
 msgid "Template was created."
 msgstr "Le modèle a été créé."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:136
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:138
 msgid "Template was loaded."
 msgstr "Le modèle a été chargé."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:137
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 msgid "Template was updated."
 msgstr "Le modèle a été mis à jour."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:138
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 msgid "Template was deleted."
 msgstr "Le modèle a été supprimé."
 
 #. l10n: Other, small valued, queries
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:141
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 #: libraries/classes/Controllers/Server/Status/QueriesController.php:98
 #: libraries/classes/Server/Status/Data.php:163
 msgid "Other"
 msgstr "Autres"
 
 #. l10n: Thousands separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:143
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
 #: libraries/classes/Util.php:603 libraries/classes/Util.php:635
 msgid ","
 msgstr " "
 
 #. l10n: Decimal separator
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:145
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:147
 #: libraries/classes/Util.php:601 libraries/classes/Util.php:633
 msgid "."
 msgstr ","
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:147
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:149
 msgid "Connections / Processes"
 msgstr "Connexions/Processus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:150
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:152
 msgid "Local monitor configuration incompatible!"
 msgstr "La configuration locale de la surveillance est incompatible !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:152
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:154
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -5880,163 +5880,163 @@ msgstr ""
 "configuration courante ne fonctionnera probablement pas. Merci de "
 "réinitialiser la configuration via le menu <i>Paramètres</i>."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:158
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:160
 msgid "Query cache efficiency"
 msgstr "Efficacité du cache de requêtes"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:159
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:161
 msgid "Query cache usage"
 msgstr "Utilisation du cache de requêtes"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:160
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:162
 msgid "Query cache used"
 msgstr "Cache de requêtes utilisé"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:162
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:164
 msgid "System CPU usage"
 msgstr "Utilisation processeur"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:163
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:165
 msgid "System memory"
 msgstr "Mémoire système"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:164
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:166
 msgid "System swap"
 msgstr "Zone d'échange système"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:166
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:168
 msgid "Average load"
 msgstr "Charge moyenne"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:167
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:169
 msgid "Total memory"
 msgstr "Mémoire système"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:168
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:170
 msgid "Cached memory"
 msgstr "Mémoire cache"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:169
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
 msgid "Buffered memory"
 msgstr "Mémoire tampon"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:170
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:172
 msgid "Free memory"
 msgstr "Mémoire libre"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:171
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:173
 msgid "Used memory"
 msgstr "Mémoire utilisée"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:173
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
 msgid "Total swap"
 msgstr "Zone d'échange totale"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:174
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
 msgid "Cached swap"
 msgstr "Zone d'échange en cache"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:175
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:177
 msgid "Used swap"
 msgstr "Zone d'échange utilisée"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:176
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
 msgid "Free swap"
 msgstr "Zone d'échange libre"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:178
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:180
 msgid "Bytes sent"
 msgstr "Octets envoyés"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:179
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
 msgid "Bytes received"
 msgstr "Octets reçus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:180
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:182
 #: templates/server/status/status/index.twig:36
 msgid "Connections"
 msgstr "Connexions"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:181
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:183
 #: templates/server/status/base.twig:11
 #: templates/server/status/processes/list.twig:5
 msgid "Processes"
 msgstr "Processus"
 
 #. l10n: shortcuts for Byte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:184
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
 #: libraries/classes/Util.php:509
 msgid "B"
 msgstr "o"
 
 #. l10n: shortcuts for Kilobyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:185
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
 #: libraries/classes/Util.php:511
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
 msgstr "kio"
 
 #. l10n: shortcuts for Megabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:186
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
 #: libraries/classes/Util.php:513
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
 msgstr "Mio"
 
 #. l10n: shortcuts for Gigabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:187
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 #: libraries/classes/Util.php:515
 msgid "GiB"
 msgstr "Gio"
 
 #. l10n: shortcuts for Terabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:188
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:190
 #: libraries/classes/Util.php:517
 msgid "TiB"
 msgstr "Tio"
 
 #. l10n: shortcuts for Petabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:189
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 #: libraries/classes/Util.php:519
 msgid "PiB"
 msgstr "Pio"
 
 #. l10n: shortcuts for Exabyte
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:190
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 #: libraries/classes/Util.php:521
 msgid "EiB"
 msgstr "Eio"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:191
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 #, php-format
 msgid "%d table(s)"
 msgstr "%d table(s)"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:194
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 msgid "Questions"
 msgstr "Nombre d'instructions exécutées par le serveur"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:195
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 #: templates/server/status/status/index.twig:14
 msgid "Traffic"
 msgstr "Trafic"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:196
-#: libraries/classes/Menu.php:570 libraries/classes/Util.php:2438
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
+#: libraries/classes/Menu.php:570 libraries/classes/Util.php:2437
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Paramètres"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:197
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 msgid "Add chart to grid"
 msgstr "Ajouter le graphique à la grille"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:198
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:200
 msgid "Please add at least one variable to the series!"
 msgstr "Merci ajouter au moins une variable aux séries !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:199
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
 #: libraries/classes/Display/Results.php:1315
 #: libraries/classes/Plugins/Export/ExportSql.php:2317
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:96
@@ -6054,52 +6054,52 @@ msgid "None"
 msgstr "Aucun(e)"
 
 #. l10n: SQL Query on modal to show exported query
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:201
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
 msgid "SQL Query"
 msgstr "Requête SQL"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:202
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
 msgid "Resume monitor"
 msgstr "Reprendre la surveillance"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:203
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
 msgid "Pause monitor"
 msgstr "Mettre la surveillance en pause"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:204
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:206
 #: templates/server/status/processes/index.twig:53
 msgid "Start auto refresh"
 msgstr "Lancer l'actualisation automatique"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:205
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
 msgid "Stop auto refresh"
 msgstr "Arrêter l'actualisation automatique"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:207
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
 msgid "general_log and slow_query_log are enabled."
 msgstr "general_log et slow_query_log sont activés."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:208
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 msgid "general_log is enabled."
 msgstr "general_log est activé."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:209
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
 msgid "slow_query_log is enabled."
 msgstr "slow_query_log est activé."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:210
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
 msgid "slow_query_log and general_log are disabled."
 msgstr "general_log et slow_query_log sont désactivés."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:211
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:213
 msgid "log_output is not set to TABLE."
 msgstr "log_output n'est pas défini à TABLE."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:212
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
 msgid "log_output is set to TABLE."
 msgstr "log_output est défini à TABLE."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:214
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:216
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -6110,12 +6110,12 @@ msgstr ""
 "prennent plus de %d secondes. Il est recommandé de régler long_query_time à "
 "0-2 secondes, selon le système."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:218
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr "long_query_time est défini à %d seconde(s)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:220
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:222
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
@@ -6124,30 +6124,30 @@ msgstr ""
 "par défaut lors du redémarrage du serveur :"
 
 #. l10n: %s is FILE or TABLE
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:224
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:226
 #, php-format
 msgid "Set log_output to %s"
 msgstr "Définir log_output à %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:226
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:228
 #, php-format
 msgid "Enable %s"
 msgstr "Activer %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:228
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:230
 #, php-format
 msgid "Disable %s"
 msgstr "Désactiver %s"
 
 #. l10n: %d seconds
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:230
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:232
 #, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr "Définir long_query_time à %d secondes."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:232
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:234
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
@@ -6155,61 +6155,61 @@ msgstr ""
 "Il n'est pas possible de modifier ces variables. Merci de se connecter en "
 "tant que root ou de contacter l'administrateur du serveur."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:235
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:237
 msgid "Change settings"
 msgstr "Modifier les paramètres"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:236
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:238
 msgid "Current settings"
 msgstr "Paramètres actuels"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:238
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:240
 msgid "Chart title"
 msgstr "Titre du graphique"
 
 #. l10n: As in differential values
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:240
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
 msgid "Differential"
 msgstr "Différentiel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:241
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:243
 #, php-format
 msgid "Divided by %s"
 msgstr "Divisé par %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:242
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:244
 msgid "Unit"
 msgstr "Unité"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:244
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:246
 msgid "From slow log"
 msgstr "Depuis le journal des requêtes lentes"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:245
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
 msgid "From general log"
 msgstr "Depuis le journal général"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:247
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 "Le nom de la base de données est inconnu pour cette requête dans les "
 "journaux du serveur."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:249
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
 msgid "Analysing logs"
 msgstr "Analyse des journaux en cours"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:250
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:252
 msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 "Analyse et chargement des journaux en cours. Ceci peut prendre un certain "
 "temps."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:251
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
 msgid "Cancel request"
 msgstr "Annuler la requête"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:253
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:255
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
@@ -6220,7 +6220,7 @@ msgstr ""
 "de regroupement, donc les autres propriétés des requêtes, comme l'heure de "
 "début, peuvent différer."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:258
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:260
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
@@ -6229,33 +6229,33 @@ msgstr ""
 "Comme le groupement des requêtes INSERT a été sélectionné, les requêtes "
 "INSERT dans une même table sont groupées, peu importe les données insérées."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:262
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:264
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Fichier journal chargé. Requêtes exécutées dans ce laps de temps :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:264
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:266
 msgid "Jump to Log table"
 msgstr "Aller à la table du journal"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:265
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:267
 msgid "No data found"
 msgstr "Aucune donnée trouvée"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:266
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
 msgid "Log analysed, but no data found in this time span."
 msgstr "Journal analysé, mais aucune donnée trouvée dans ce laps de temps."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:268
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:270
 msgid "Analyzing…"
 msgstr "Analyse en cours…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:269
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
 msgid "Explain output"
 msgstr "Expliquer les résultats"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:270
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:272
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:171
-#: libraries/classes/Menu.php:537 libraries/classes/Util.php:2434
+#: libraries/classes/Menu.php:537 libraries/classes/Util.php:2433
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:18
 #: templates/database/events/index.twig:19
@@ -6264,7 +6264,7 @@ msgstr "Expliquer les résultats"
 msgid "Status"
 msgstr "État"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:271
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:167
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:493
 #: libraries/classes/Plugins/Export/ExportOdt.php:625
@@ -6275,78 +6275,78 @@ msgstr "État"
 msgid "Time"
 msgstr "Temps"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:272
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:274
 msgid "Total time:"
 msgstr "Durée totale :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:273
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
 msgid "Profiling results"
 msgstr "Profilage des résultats"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:274
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:276
 msgctxt "Display format"
 msgid "Table"
 msgstr "Table"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:275
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
 msgid "Chart"
 msgstr "Graphique"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:277
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: templates/export.twig:171
 msgctxt "Alias"
 msgid "Database"
 msgstr "Base de données"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:278
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:280
 #: templates/export.twig:185
 msgctxt "Alias"
 msgid "Table"
 msgstr "Table"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:279
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:281
 #: templates/export.twig:198
 msgctxt "Alias"
 msgid "Column"
 msgstr "Colonne"
 
 #. l10n: A collection of available filters
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:282
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
 msgid "Log table filter options"
 msgstr "Options de filtrage du journal de la table"
 
 #. l10n: Filter as in "Start Filtering"
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:284
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
 msgid "Filter"
 msgstr "Filtre"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:285
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:287
 msgid "Filter queries by word/regexp:"
 msgstr "Filtrer les requêtes par mot ou expression régulière :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:286
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr "Grouper les requêtes en ignorant la partie variable des clauses WHERE"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:287
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:289
 msgid "Sum of grouped rows:"
 msgstr "Somme des lignes regroupées :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:288
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
 #: libraries/classes/Engines/Innodb.php:141
 #: templates/server/databases/index.twig:256
 msgid "Total:"
 msgstr "Total :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:290
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:292
 msgid "Loading logs"
 msgstr "Chargement des journaux en cours"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:291
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
 msgid "Monitor refresh failed"
 msgstr "Échec de rafraîchissement de la surveillance"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:293
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:295
 msgid ""
 "While requesting new chart data the server returned an invalid response. "
 "This is most likely because your session expired. Reloading the page and "
@@ -6356,60 +6356,60 @@ msgstr ""
 "graphique de données. La session a probablement expiré. Merci de recharger "
 "la page et de se connecter à nouveau."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:297
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:299
 msgid "Reload page"
 msgstr "Recharger la page"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:299
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:301
 msgid "Affected rows:"
 msgstr "Lignes modifiées :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:302
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:304
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Échec d'analyse du fichier de configuration. Il ne contient pas de code JSON "
 "valide."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:305
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:307
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 "Échec de construction de la grille de graphiques avec la configuration "
 "importée. Réinitialisation à la configuration par défaut…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:308
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
 msgid "Import monitor configuration"
 msgstr "Importer la configuration de surveillance"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:309
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:311
 msgid "Please select the file you want to import."
 msgstr "Merci de choisir le fichier à importer."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:310
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid "Please enter a valid table name."
 msgstr "Veuillez saisir un nom de table valide."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:311
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Please enter a valid database name."
 msgstr "Veuillez saisir un nom de base de données valide."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:312
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "No files available on server for import!"
 msgstr "Aucun fichier disponible sur le serveur pour une importation !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:314
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid "Analyse query"
 msgstr "Analyser la requête"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:317
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:319
 msgid "Formatting SQL…"
 msgstr "Formatage SQL…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:318
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:320
 msgid "No parameters found!"
 msgstr "Aucun paramètre trouvé !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:322
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 #: templates/database/designer/main.twig:341
 #: templates/database/designer/main.twig:392
 #: templates/database/designer/main.twig:670
@@ -6421,49 +6421,49 @@ msgstr "Aucun paramètre trouvé !"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:325
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 #: templates/header.twig:50
 msgid "Page-related settings"
 msgstr "Paramètres relatifs à la page"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:326
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
 msgstr "Appliquer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:329
-#: templates/navigation/main.twig:59
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:331
+#: templates/navigation/main.twig:58
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
 msgstr "Chargement en cours…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:330
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 msgid "Request aborted!!"
 msgstr "Requête abandonnée !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:331
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 msgid "Processing request"
 msgstr "Traitement de la requête"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:332
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:334
 msgid "Request failed!!"
 msgstr "Échec de cette requête !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:333
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:335
 msgid "Error in processing request"
 msgstr "Erreur dans le traitement de la requête"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:334
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:336
 #, php-format
 msgid "Error code: %s"
 msgstr "Code d'erreur : %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:335
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
 #, php-format
 msgid "Error text: %s"
 msgstr "Texte de l'erreur : %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:337
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:339
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
@@ -6471,19 +6471,19 @@ msgstr ""
 "Il semble que la connexion au serveur aie été perdue. Merci de vérifier la "
 "connectivité réseau et l'état du serveur."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:341
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:343
 msgid "No accounts selected."
 msgstr "Aucun compte sélectionné."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:342
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
 msgid "Dropping column"
 msgstr "Suppression de la colonne"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:343
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
 msgid "Adding primary key"
 msgstr "Ajout de clé primaire"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:344
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:346
 #: templates/console/display.twig:129 templates/database/designer/main.twig:339
 #: templates/database/designer/main.twig:668
 #: templates/database/designer/main.twig:732
@@ -6493,107 +6493,107 @@ msgstr "Ajout de clé primaire"
 msgid "OK"
 msgstr "OK"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:345
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 msgid "Click to dismiss this notification"
 msgstr "Cliquer pour éliminer ce message"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:348
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
 msgid "Renaming databases"
 msgstr "Changement du nom de la base de données"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:349
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:351
 msgid "Copying database"
 msgstr "Copie de la base de données"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:350
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:352
 msgid "Changing charset"
 msgstr "Changement du jeu de caractères"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:354
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:356
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:193
 #: templates/sql/query.twig:131 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr "Activer la vérification des clés étrangères"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:357
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:359
 msgid "Failed to get real row count."
 msgstr "Impossible d'obtenir le nombre réel de lignes."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:360
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
 msgid "Searching"
 msgstr "En recherche"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:361
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
 msgid "Hide search results"
 msgstr "Cacher les résultats de recherche"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:362
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:364
 msgid "Show search results"
 msgstr "Afficher les résultats de recherche"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:363
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
 msgid "Browsing"
 msgstr "Parcours en cours"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:364
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:366
 msgid "Deleting"
 msgstr "Suppression en cours"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:365
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:367
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Faut-il supprimer de la table %s les correspondances ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:368
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:370
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 "La définition d'une fonction stockée doit comporter une instruction RETURN !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:370
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:372
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 "Aucune routine n’est exportable. Des privilèges requis pourraient manquer."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:373
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:375
 #: templates/database/routines/parameter_row.twig:24
 msgid "ENUM/SET editor"
 msgstr "Éditeur ENUM/SET"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:374
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
 #, php-format
 msgid "Values for column %s"
 msgstr "Valeurs pour la colonne %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:375
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
 msgid "Values for a new column"
 msgstr "Valeurs pour une nouvelle colonne"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:376
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:378
 msgid "Enter each value in a separate field."
 msgstr "Saisir chaque valeur dans un champ séparé."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:377
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:379
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Ajouter %d valeur(s)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:381
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:383
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "NB : si le fichier contient plusieurs tables, elles seront combinées en une "
 "seule."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:385
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:387
 msgid "Hide query box"
 msgstr "Masquer la zone SQL"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:386
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 msgid "Show query box"
 msgstr "Afficher la zone SQL"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:388
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #: libraries/classes/Display/Results.php:3284
 #: libraries/classes/Server/UserGroups.php:134
 #: libraries/classes/Tracking.php:258 templates/console/bookmark_content.twig:7
@@ -6609,25 +6609,25 @@ msgstr "Afficher la zone SQL"
 msgid "Delete"
 msgstr "Supprimer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:389
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d n'est pas un numéro de ligne valide."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:390
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 #: libraries/classes/InsertEdit.php:923
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
 msgstr "Parcourir les valeurs étrangères"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:391
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 "Aucune demande auto-sauvegardée n'est disponible. Chargement de la demande "
 "par défaut."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:393
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
@@ -6635,25 +6635,25 @@ msgstr ""
 "Vous avez une demande auto-sauvegardée précédemment. Cliquer sur « Récupérer "
 "la requête auto-sauvegardée » pour charger la demande."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:395
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:397
 #, php-format
 msgid "Variable %d:"
 msgstr "Variable %d :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:398
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
 #: libraries/classes/Normalization.php:1046
 msgid "Pick"
 msgstr "Choisir"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:399
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:401
 msgid "Column selector"
 msgstr "Sélecteur de colonne"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:400
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
 msgid "Search this list"
 msgstr "Chercher dans cette liste"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:402
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:404
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -6663,15 +6663,15 @@ msgstr ""
 "centrales pour la base de données %s comporte des colonnes qui ne sont pas "
 "présentes dans la table actuelle."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:405
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:407
 msgid "See more"
 msgstr "Plus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:406
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
 msgid "Are you sure?"
 msgstr "Faut-il confirmer ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:408
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:410
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
@@ -6679,30 +6679,30 @@ msgstr ""
 "Cette action peut changer certaines définitions de colonnes.<br>Faut-il "
 "vraiment continuer ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:411
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:413
 msgid "Continue"
 msgstr "Continuer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:414
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
 msgid "Add primary key"
 msgstr "Ajouter une clé primaire"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:415
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
 msgid "Primary key added."
 msgstr "Une clé primaire a été ajoutée."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:416
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
 #: libraries/classes/Normalization.php:288
 msgid "Taking you to next step…"
 msgstr "Vers l'étape suivante…"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:417
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 "La première étape de la normalisation est terminée pour la table « %s »."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:418
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:420
 #: libraries/classes/Normalization.php:557
 #: libraries/classes/Normalization.php:606
 #: libraries/classes/Normalization.php:700
@@ -6710,26 +6710,26 @@ msgstr ""
 msgid "End of step"
 msgstr "Fin de l'étape"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:419
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
 msgid "Second step of normalization (2NF)"
 msgstr "Deuxième étape de la normalisation (2FN)"
 
 #. l10n: Display text for calendar close link
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:420
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
 #: libraries/classes/Normalization.php:385
 #: templates/javascript/variables.twig:15
 msgid "Done"
 msgstr "Fermer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:421
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 msgid "Confirm partial dependencies"
 msgstr "Confirmer les dépendances partielles"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:422
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
 msgid "Selected partial dependencies are as follows:"
 msgstr "Les dépendances partielles sélectionnées sont les suivantes :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:424
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:426
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -6737,29 +6737,29 @@ msgstr ""
 "NB : a, b -> d, f implique que les valeurs des colonnes a et b combinées "
 "peuvent déterminer les valeurs des colonnes d et f."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:427
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
 msgid "No partial dependencies selected!"
 msgstr "Aucune dépendance partielle sélectionnée !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:428
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:593
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:595
 #: libraries/classes/Export.php:599 libraries/classes/Html/Generator.php:1022
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:311
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr "Retour"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:429
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "Afficher les dépendances partielles possibles en se basant sur les données "
 "de la table"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:430
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
 msgid "Hide partial dependencies list"
 msgstr "Masquer la liste des dépendances partielles"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:432
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:434
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -6767,40 +6767,40 @@ msgstr ""
 "Patience ! Cela peut prendre quelques secondes selon la taille des données "
 "et le nombre de colonnes de la table."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:435
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
 msgid "Step"
 msgstr "Étape"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:436
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
 msgid "The following actions will be performed:"
 msgstr "Les actions suivantes seront effectuées :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:437
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:439
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "Supprimer (DROP) les colonnes %s de la table %s"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:438
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:440
 msgid "Create the following table"
 msgstr "Créer la table suivante"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:441
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
 msgid "Third step of normalization (3NF)"
 msgstr "Troisième étape de la normalisation (3FN)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:442
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
 msgid "Confirm transitive dependencies"
 msgstr "Confirmer les dépendances transitives"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:443
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:445
 msgid "Selected dependencies are as follows:"
 msgstr "Les dépendances sélectionnées sont les suivantes :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:444
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:446
 msgid "No dependencies selected!"
 msgstr "Aucune dépendance sélectionnée !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:447
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:449
 #: libraries/classes/InsertEdit.php:1887
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:20
@@ -6811,90 +6811,90 @@ msgstr "Aucune dépendance sélectionnée !"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:450
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:452
 msgid "Hide search criteria"
 msgstr "Masquer les critères de recherche"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:451
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:453
 msgid "Show search criteria"
 msgstr "Afficher les critères de recherche"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:452
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
 msgid "Range search"
 msgstr "Recherche en intervalle"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:453
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:455
 msgid "Column maximum:"
 msgstr "Maximum pour la colonne :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:454
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
 msgid "Column minimum:"
 msgstr "Minimum pour la colonne :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:455
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:457
 msgid "Minimum value:"
 msgstr "Valeur minimale :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:456
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:458
 msgid "Maximum value:"
 msgstr "Valeur maximale :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:459
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:461
 msgid "Hide find and replace criteria"
 msgstr "Masquer les critères de recherche et remplacement"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:460
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:462
 msgid "Show find and replace criteria"
 msgstr "Afficher les critères de recherche et remplacement"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:464
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:466
 msgid "Each point represents a data row."
 msgstr "Chaque point représente une ligne de données."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:466
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:468
 msgid "Hovering over a point will show its label."
 msgstr "Survoler un point affichera son libellé."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:468
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Pour zoomer, sélectionner une section avec la souris."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:470
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Cliquer le bouton « Réinitialiser le zoom » pour revenir à l'état d'origine."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:472
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Cliquer sur un point pour visualiser et possiblement éditer la ligne de "
 "données."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:474
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "L'image peut être redimensionnée en faisant glisser le coin inférieur droit."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:477
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
 msgid "Select two columns"
 msgstr "Sélectionner deux colonnes"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:479
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
 msgid "Select two different columns"
 msgstr "Sélectionner deux colonnes différentes"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:481
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:483
 msgid "Data point content"
 msgstr "Données relatives à ce point"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:484
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:659
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 #: libraries/classes/ErrorHandler.php:396 libraries/classes/InsertEdit.php:3134
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "Ignorer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:485
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 #: libraries/classes/Display/Results.php:3217
 #: libraries/classes/Html/Generator.php:72
 #: templates/display/results/table.twig:214
@@ -6902,7 +6902,7 @@ msgstr "Ignorer"
 msgid "Copy"
 msgstr "Copier"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:486
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
 #: templates/gis_data_editor_form.twig:74
 #: templates/gis_data_editor_form.twig:94
 #: templates/gis_data_editor_form.twig:135
@@ -6910,7 +6910,7 @@ msgstr "Copier"
 msgid "X"
 msgstr "X"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:487
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
 #: templates/gis_data_editor_form.twig:76
 #: templates/gis_data_editor_form.twig:96
 #: templates/gis_data_editor_form.twig:137
@@ -6918,58 +6918,58 @@ msgstr "X"
 msgid "Y"
 msgstr "Y"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:488
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
 msgid "Point"
 msgstr "Point"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:489
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
 #, php-format
 msgid "Point %d"
 msgstr "Point %d"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:490
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
 msgid "Linestring"
 msgstr "Ligne"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:491
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
 msgid "Polygon"
 msgstr "Polygone"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:492
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
 #: templates/display/results/table.twig:159
 msgid "Geometry"
 msgstr "Géométrie"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:493
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
 msgid "Inner ring"
 msgstr "Anneau intérieur"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:494
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
 msgid "Outer ring"
 msgstr "Anneau extérieur"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:495
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:497
 #: templates/gis_data_editor_form.twig:99
 #: templates/gis_data_editor_form.twig:140
 #: templates/gis_data_editor_form.twig:192
 msgid "Add a point"
 msgstr "Ajouter un point"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:496
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
 #: templates/gis_data_editor_form.twig:144
 #: templates/gis_data_editor_form.twig:195
 msgid "Add an inner ring"
 msgstr "Ajouter un anneau intérieur"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:498
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:500
 msgid "Do you want to copy encryption key?"
 msgstr "Faut-il copier la clé de chiffrement ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:499
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:501
 msgid "Encryption key"
 msgstr "Clé de chiffrement"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:502
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:504
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
@@ -6977,7 +6977,7 @@ msgstr ""
 "La fonction HEX va utiliser cet entier comme une chaîne de caractères lors "
 "du calcul de la valeur hexadécimale"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:507
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:509
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -6985,7 +6985,7 @@ msgstr ""
 "MySQL accepte des valeurs non sélectionnables via le sélecteur ; saisir "
 "directement ces valeurs si besoin"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:513
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:515
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -6993,7 +6993,7 @@ msgstr ""
 "MySQL accepte des valeurs non sélectionnables via le sélecteur de date ; "
 "saisir directement ces valeurs si besoin"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:519
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:521
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -7001,25 +7001,25 @@ msgstr ""
 "Indique que des modifications ont été apportées à cette page ; une "
 "confirmation sera demandée avant d'abandonner ces modifications"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:524
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
 msgid "Select referenced key"
 msgstr "Sélectionner la clé référencée"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:525
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
 msgid "Select Foreign Key"
 msgstr "Sélectionner la clé étrangère"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:526
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:528
 msgid "Please select the primary key or a unique key!"
 msgstr "Merci de sélectionner la clé primaire ou une clé unique !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:527
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:529
 #: templates/database/designer/main.twig:98
 #: templates/database/designer/main.twig:101
 msgid "Choose column to display"
 msgstr "Choisir la colonne à afficher"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:529
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:531
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -7027,90 +7027,90 @@ msgstr ""
 "Les modifications de la disposition n'ont pas été enregistrées. Elles seront "
 "perdues si elles ne sont pas enregistrées. Faut-il vraiment continuer ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:532
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
 msgid "value/subQuery is empty"
 msgstr "value/subQuery est vide"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:533
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
 msgstr "Ajouter des tables depuis d'autres bases de données"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:534
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
 msgid "Page name"
 msgstr "Nom de la page"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:535
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
 #: templates/database/designer/main.twig:63
 #: templates/database/designer/main.twig:66
 msgid "Save page"
 msgstr "Enregistrer la page"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:536
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
 msgstr "Enregistrer la page sous"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:537
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
 #: templates/database/designer/main.twig:56
 #: templates/database/designer/main.twig:59
 msgid "Open page"
 msgstr "Ouvrir la page"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:538
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
 msgid "Delete page"
 msgstr "Supprimer la page"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:539
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
 #: templates/database/designer/main.twig:10
 msgid "Untitled"
 msgstr "Sans titre"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:540
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Please select a page to continue"
 msgstr "Merci de sélectionner une page pour continuer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:541
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 msgid "Please enter a valid page name"
 msgstr "Merci de saisir un nom de page valide"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:542
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 msgid "Do you want to save the changes to the current page?"
 msgstr "Faut-il enregistrer les modifications dans la page en cours ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:543
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
 msgid "Successfully deleted the page"
 msgstr "La page a été correctement supprimée"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:544
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:546
 msgid "Export relational schema"
 msgstr "Exporter un schéma relationnel"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:545
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 msgid "Modifications have been saved"
 msgstr "Les modifications ont été enregistrées"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:548
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d objet(s) créé(s)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:549
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:551
 msgid "Column name"
 msgstr "Nom de colonne"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:550
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:552
 #: templates/sql/query.twig:165
 msgid "Submit"
 msgstr "Soumettre"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:553
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid "Press escape to cancel editing."
 msgstr "Appuyer sur la touche d'échappement pour annuler l'édition."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:555
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:557
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -7118,15 +7118,15 @@ msgstr ""
 "Des données modifiées n'ont pas encore été sauvées. Faut-il vraiment quitter "
 "cette page avant de les enregistrer ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:558
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:560
 msgid "Drag to reorder."
 msgstr "Faire glisser pour réordonner."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:559
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
 msgid "Click to sort results by this column."
 msgstr "Cliquer pour trier les résultats sur cette colonne."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:561
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:563
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -7136,19 +7136,19 @@ msgstr ""
 "ASC/DESC.<br>- Ctrl+Clic ou Alt+Clic (sur Mac : Maj+Option+Clic) pour "
 "enlever la colonne de la clause ORDER BY"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:565
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:567
 msgid "Click to mark/unmark."
 msgstr "Cliquer pour marquer/retirer les marques."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:566
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid "Double-click to copy column name."
 msgstr "Double-cliquer pour copier le nom de la colonne."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:568
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:570
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "Cliquer sur la flèche<br>pour afficher/masquer la colonne."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:572
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -7157,13 +7157,13 @@ msgstr ""
 "cases à cocher ainsi que les liens Éditer, Copier et Supprimer pourraient ne "
 "plus fonctionner après l'enregistrement."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:575
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Merci de saisir une chaîne en hexadécimal valide. Les caractères possibles "
 "sont 0-9, A-F."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:577
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:579
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -7171,37 +7171,37 @@ msgstr ""
 "Faut-il vraiment afficher toutes les lignes ? Pour une grande table, cela "
 "pourrait faire planter le navigateur."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:580
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:582
 msgid "Original length"
 msgstr "Longueur d'origine"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:583
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:585
 msgid "cancel"
 msgstr "annuler"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:584
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
 #: libraries/classes/Controllers/Server/Status/StatusController.php:220
 msgid "Aborted"
 msgstr "Abandonnée(s)"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:586
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
 msgid "Success"
 msgstr "Succès"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:587
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
 msgid "Import status"
 msgstr "État de l'importation"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:588
-#: templates/navigation/main.twig:85
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:590
+#: templates/navigation/main.twig:84
 msgid "Drop files here"
 msgstr "Déposer des fichiers ici"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:589
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:591
 msgid "Select database first"
 msgstr "Sélectionner d'abord une base de données"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:592
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:594
 #: templates/database/data_dictionary/index.twig:117
 #: templates/database/structure/index.twig:12
 #: templates/display/results/table.twig:241
@@ -7209,76 +7209,76 @@ msgstr "Sélectionner d'abord une base de données"
 msgid "Print"
 msgstr "Imprimer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:597
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
 "Il est aussi possible de modifier la plupart<br>des valeurs en les double-"
 "cliquant."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:599
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
 "Il est aussi possible de modifier la plupart des valeurs<br>en cliquant "
 "directement sur celles-ci."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:602
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
 msgid "Go to link:"
 msgstr "Suivre le lien :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:603
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:605
 msgid "Copy column name."
 msgstr "Copier le nom de la colonne."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:604
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:606
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 "Faire un clic-droit sur le nom de la colonne pour le copier vers le presse-"
 "papiers."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:607
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
 msgid "Generate password"
 msgstr "Générer un mot de passe"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:608
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:610
 #: templates/server/replication/master_add_slave_user.twig:73
 msgid "Generate"
 msgstr "Générer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:609
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:611
 #: libraries/classes/Controllers/UserPasswordController.php:80
 #: templates/home/index.twig:46
 #: templates/server/privileges/change_password.twig:10
 msgid "Change password"
 msgstr "Modifier le mot de passe"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:612
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:614
 #: templates/table/structure/display_structure.twig:132
 msgid "More"
 msgstr "Plus"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:615
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
 msgid "Show panel"
 msgstr "Afficher le panneau"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:616
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 msgid "Hide panel"
 msgstr "Masquer le panneau"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:617
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid "Show hidden navigation tree items."
 msgstr "Afficher les éléments cachés de l'arbre de navigation."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:619
-#: libraries/classes/Navigation/NavigationTree.php:1476
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:621
+#: libraries/classes/Navigation/NavigationTree.php:1475
 msgid "Unlink from main panel"
 msgstr "Supprimer la liaison au panneau principal"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:622
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:624
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "La page demandée n'existe pas dans l'historique, elle peut avoir expiré."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:626
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:628
 #: libraries/classes/Setup/Index.php:184
 #, php-format
 msgid ""
@@ -7289,30 +7289,30 @@ msgstr ""
 "une mise à niveau. La version la plus récente est %s, publiée le %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:630
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:632
 msgid ", latest stable version:"
 msgstr ", dernière version stable :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:631
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
 msgid "up to date"
 msgstr "à jour"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:633
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:635
 #: templates/database/structure/show_create.twig:33
 #: templates/display/results/table.twig:280
 #: templates/sql/no_results_returned.twig:12 templates/view_create.twig:11
 msgid "Create view"
 msgstr "Créer une vue"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:636
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:638
 msgid "Send error report"
 msgstr "Envoyer le rapport d'erreurs"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:637
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
 msgid "Submit error report"
 msgstr "Soumettre un rapport d'erreurs"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:639
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -7320,15 +7320,15 @@ msgstr ""
 "Une erreur JavaScript fatale s'est produite. Faut-il envoyer un rapport "
 "d'erreurs ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:641
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:643
 msgid "Change report settings"
 msgstr "Modifier les paramètres de rapport"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:642
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
 msgid "Show report details"
 msgstr "Afficher les détails du rapport"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:644
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:646
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -7336,7 +7336,7 @@ msgstr ""
 "L'exportation est incomplète en raison d'une limite de temps d'exécution "
 "trop basse au niveau PHP !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:648
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -7346,71 +7346,71 @@ msgstr ""
 "l'envoi, certains des champs pourraient être ignorés, en raison de la "
 "configuration max_input_vars de PHP."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:654
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:667
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid "Some errors have been detected on the server!"
 msgstr "Des erreurs ont été détectées sur le serveur !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:656
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Please look at the bottom of this window."
 msgstr "Merci de regarder au bas de cette fenêtre."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:662
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 #: libraries/classes/ErrorHandler.php:400
 msgid "Ignore All"
 msgstr "Ignorer tout"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:670
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "Selon les paramètres, ils sont actuellement soumis, merci de patienter."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:678
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Successfully copied!"
 msgstr "Copie réussie !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:679
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Copying failed!"
 msgstr "Échec de la copie !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:682
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
 msgid "Execute this query again?"
 msgstr "Faut-il exécuter à nouveau cette requête ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:683
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgid "Do you really want to delete this bookmark?"
 msgstr "Faut-il vraiment supprimer ce signet ?"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:684
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 "Une erreur s'est produite lors de l'obtention des informations de débogage "
 "SQL."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:685
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s requêtes exécutées %s fois en %s secondes."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:686
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s arguments passés"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:687
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgid "Show arguments"
 msgstr "Montrer les arguments"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:688
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:690
 msgid "Hide arguments"
 msgstr "Masquer les arguments"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:689
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
 msgid "Time taken:"
 msgstr "Temps écoulé :"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:691
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -7426,66 +7426,66 @@ msgstr ""
 "Dans Safari, ce problème est habituellement causé par l'utilisation de la « "
 "Navigation en mode privé »."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:698
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
 msgid "Copy tables to"
 msgstr "Copier les tables vers"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:699
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
 msgid "Add table prefix"
 msgstr "Ajouter un préfixe de table"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:700
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:702
 msgid "Replace table with prefix"
 msgstr "Remplacer la table ayant le préfixe"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:701
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:703
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "Copier la table avec un préfixe"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:704
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
 msgid "Extremely weak"
 msgstr "Extrêmement faible"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:705
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
 msgid "Very weak"
 msgstr "Très faible"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:706
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 msgid "Weak"
 msgstr "Faible"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:707
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:709
 msgid "Good"
 msgstr "Bon"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:708
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:710
 msgid "Strong"
 msgstr "Fort"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:711
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:713
 msgid "Timed out waiting for security key activation."
 msgstr "Délai de l'attente pour l'activation de la clé de sécurité dépassé."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:712
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:714
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr "Activation de la clé de sécurité échouée (%s)."
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:717
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "La table %s existe déjà !"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:719
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:721
 #: libraries/classes/InsertEdit.php:337
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:51
 msgid "Hide"
 msgstr "Masquer"
 
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:720
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 #: libraries/classes/Controllers/Table/ChangeController.php:198
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/tracking/tables.twig:19
@@ -8520,7 +8520,7 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a retourné un résultat vide (c'est à dire aucune ligne)."
 
 #: libraries/classes/Controllers/Table/IndexesController.php:219
-#: libraries/classes/Table.php:2236
+#: libraries/classes/Table.php:2242
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Le nom d'une clé primaire doit être « PRIMARY » !"
 
@@ -9484,8 +9484,8 @@ msgid "Full texts"
 msgstr "Textes complets"
 
 #: libraries/classes/Display/Results.php:1939
-#: libraries/classes/Display/Results.php:1965 libraries/classes/Util.php:3083
-#: libraries/classes/Util.php:3106 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1965 libraries/classes/Util.php:3082
+#: libraries/classes/Util.php:3105 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:61
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:114
@@ -9498,8 +9498,8 @@ msgid "Descending"
 msgstr "Décroissant"
 
 #: libraries/classes/Display/Results.php:1947
-#: libraries/classes/Display/Results.php:1957 libraries/classes/Util.php:3075
-#: libraries/classes/Util.php:3098 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1957 libraries/classes/Util.php:3074
+#: libraries/classes/Util.php:3097 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:60
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:112
@@ -10350,7 +10350,7 @@ msgstr "%1$s (près de <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:272
 #: libraries/classes/Navigation/Nodes/NodeTable.php:322
-#: libraries/classes/Util.php:1716 libraries/classes/Util.php:2463
+#: libraries/classes/Util.php:1715 libraries/classes/Util.php:2462
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10360,8 +10360,8 @@ msgstr "Parcourir"
 
 #: libraries/classes/Menu.php:291 libraries/classes/Menu.php:407
 #: libraries/classes/Navigation/Nodes/NodeTable.php:313
-#: libraries/classes/Util.php:1714 libraries/classes/Util.php:2449
-#: libraries/classes/Util.php:2466 libraries/config.values.php:64
+#: libraries/classes/Util.php:1713 libraries/classes/Util.php:2448
+#: libraries/classes/Util.php:2465 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179
 #: templates/database/structure/structure_table_row.twig:53
@@ -10370,7 +10370,7 @@ msgstr "Rechercher"
 
 #: libraries/classes/Menu.php:302
 #: libraries/classes/Navigation/Nodes/NodeTable.php:316
-#: libraries/classes/Util.php:1715 libraries/classes/Util.php:2467
+#: libraries/classes/Util.php:1714 libraries/classes/Util.php:2466
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10380,8 +10380,8 @@ msgid "Insert"
 msgstr "Insérer"
 
 #: libraries/classes/Menu.php:329 libraries/classes/Menu.php:447
-#: libraries/classes/Server/Privileges.php:2969 libraries/classes/Util.php:2454
-#: libraries/classes/Util.php:2470 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2969 libraries/classes/Util.php:2453
+#: libraries/classes/Util.php:2469 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -10390,15 +10390,15 @@ msgid "Privileges"
 msgstr "Privilèges"
 
 #: libraries/classes/Menu.php:339 libraries/classes/Menu.php:348
-#: libraries/classes/Menu.php:438 libraries/classes/Util.php:1717
-#: libraries/classes/Util.php:2453 libraries/classes/Util.php:2471
+#: libraries/classes/Menu.php:438 libraries/classes/Util.php:1716
+#: libraries/classes/Util.php:2452 libraries/classes/Util.php:2470
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Opérations"
 
 #: libraries/classes/Menu.php:354 libraries/classes/Menu.php:473
-#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2458
-#: libraries/classes/Util.php:2472
+#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2457
+#: libraries/classes/Util.php:2471
 msgid "Tracking"
 msgstr "Suivi"
 
@@ -10410,7 +10410,7 @@ msgstr "Suivi"
 #: libraries/classes/Plugins/Export/ExportSql.php:2165
 #: libraries/classes/Plugins/Export/ExportTexytext.php:559
 #: libraries/classes/Plugins/Export/ExportXml.php:135
-#: libraries/classes/Util.php:2457 libraries/classes/Util.php:2473
+#: libraries/classes/Util.php:2456 libraries/classes/Util.php:2472
 #: templates/database/triggers/list.twig:6
 msgid "Triggers"
 msgstr "Déclencheurs"
@@ -10420,11 +10420,11 @@ msgstr "Déclencheurs"
 msgid "Database seems to be empty!"
 msgstr "La base de données semble vide !"
 
-#: libraries/classes/Menu.php:415 libraries/classes/Util.php:2450
+#: libraries/classes/Menu.php:415 libraries/classes/Util.php:2449
 msgid "Query"
 msgstr "Requête"
 
-#: libraries/classes/Menu.php:453 libraries/classes/Util.php:2455
+#: libraries/classes/Menu.php:453 libraries/classes/Util.php:2454
 #: templates/database/routines/index.twig:18
 msgid "Routines"
 msgstr "Procédures stockées"
@@ -10433,15 +10433,15 @@ msgstr "Procédures stockées"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:24
 #: libraries/classes/Plugins/Export/ExportSql.php:1017
 #: libraries/classes/Plugins/Export/ExportXml.php:115
-#: libraries/classes/Util.php:2456 templates/database/events/index.twig:6
+#: libraries/classes/Util.php:2455 templates/database/events/index.twig:6
 msgid "Events"
 msgstr "Évènements"
 
-#: libraries/classes/Menu.php:480 libraries/classes/Util.php:2459
+#: libraries/classes/Menu.php:480 libraries/classes/Util.php:2458
 msgid "Designer"
 msgstr "Concepteur"
 
-#: libraries/classes/Menu.php:489 libraries/classes/Util.php:2460
+#: libraries/classes/Menu.php:489 libraries/classes/Util.php:2459
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Colonnes centrales"
@@ -10451,12 +10451,12 @@ msgid "User accounts"
 msgstr "Comptes utilisateurs"
 
 #: libraries/classes/Menu.php:585 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:2439 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:2438 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Journal binaire"
 
 #: libraries/classes/Menu.php:592 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:2440
+#: libraries/classes/Util.php:2439
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10464,21 +10464,21 @@ msgid "Replication"
 msgstr "Réplication"
 
 #: libraries/classes/Menu.php:598 libraries/classes/Server/Status/Data.php:228
-#: libraries/classes/Util.php:2441 libraries/config.values.php:159
+#: libraries/classes/Util.php:2440 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:178
 msgid "Variables"
 msgstr "Variables"
 
-#: libraries/classes/Menu.php:603 libraries/classes/Util.php:2442
+#: libraries/classes/Menu.php:603 libraries/classes/Util.php:2441
 msgid "Charsets"
 msgstr "Jeux de caractères"
 
-#: libraries/classes/Menu.php:608 libraries/classes/Util.php:2444
+#: libraries/classes/Menu.php:608 libraries/classes/Util.php:2443
 msgid "Engines"
 msgstr "Moteurs"
 
-#: libraries/classes/Menu.php:613 libraries/classes/Util.php:2443
+#: libraries/classes/Menu.php:613 libraries/classes/Util.php:2442
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Extensions"
@@ -10549,17 +10549,17 @@ msgid_plural "%s results found"
 msgstr[0] "%s résultat trouvé"
 msgstr[1] "%s résultats trouvés"
 
-#: libraries/classes/Navigation/NavigationTree.php:1405
-#: libraries/classes/Navigation/NavigationTree.php:1440
+#: libraries/classes/Navigation/NavigationTree.php:1404
+#: libraries/classes/Navigation/NavigationTree.php:1439
 msgid "Type to filter these, Enter to search all"
 msgstr "Taper pour filtrer ceci, Entrée pour tout rechercher"
 
-#: libraries/classes/Navigation/NavigationTree.php:1407
-#: libraries/classes/Navigation/NavigationTree.php:1441
+#: libraries/classes/Navigation/NavigationTree.php:1406
+#: libraries/classes/Navigation/NavigationTree.php:1440
 msgid "Clear fast filter"
 msgstr "Effacer le filtrage"
 
-#: libraries/classes/Navigation/NavigationTree.php:1467
+#: libraries/classes/Navigation/NavigationTree.php:1466
 msgid "Collapse all"
 msgstr "Tout réduire"
 
@@ -11892,9 +11892,9 @@ msgstr ""
 "Le fichier de configuration contient un type d'authentification invalide :"
 
 #: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php:78
-#: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:94
-#: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php:97
-#: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php:92
+#: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:95
+#: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php:98
+#: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php:93
 #, php-format
 msgid "The %s table doesn't exist!"
 msgstr "La table %s n'existe pas !"
@@ -13171,29 +13171,29 @@ msgstr "La base de données source « %s » n'existe pas !"
 msgid "Target database `%s` was not found!"
 msgstr "La base de données cible « %s » n'existe pas !"
 
-#: libraries/classes/Table.php:1584
+#: libraries/classes/Table.php:1590
 msgid "Invalid database:"
 msgstr "Base de données invalide :"
 
-#: libraries/classes/Table.php:1602
+#: libraries/classes/Table.php:1608
 msgid "Invalid table name:"
 msgstr "Nom de table invalide :"
 
-#: libraries/classes/Table.php:1640
+#: libraries/classes/Table.php:1646
 #, php-format
 msgid "Failed to rename table %1$s to %2$s!"
 msgstr "Erreur lors du renommage de %1$s en %2$s !"
 
-#: libraries/classes/Table.php:1662
+#: libraries/classes/Table.php:1668
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "La table %1$s se nomme maintenant %2$s."
 
-#: libraries/classes/Table.php:1906
+#: libraries/classes/Table.php:1912
 msgid "Could not save table UI preferences!"
 msgstr "Impossible d'enregistrer les préférences d'interface de tables !"
 
-#: libraries/classes/Table.php:1938
+#: libraries/classes/Table.php:1944
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13202,7 +13202,7 @@ msgstr ""
 "Échec lors de la tentative de vidage de la table des préférences UI (voir "
 "$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:2089
+#: libraries/classes/Table.php:2095
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13213,15 +13213,15 @@ msgstr ""
 "sera pas persistant après actualisation de cette page. Merci de vérifier si "
 "la structure de la table a changé."
 
-#: libraries/classes/Table.php:2247
+#: libraries/classes/Table.php:2253
 msgid "Can't rename index to PRIMARY!"
 msgstr "L'index ne peut être renommé en PRIMARY !"
 
-#: libraries/classes/Table.php:2271
+#: libraries/classes/Table.php:2277
 msgid "No index parts defined!"
 msgstr "Aucune colonne n'a été définie pour cet index !"
 
-#: libraries/classes/Table.php:2601
+#: libraries/classes/Table.php:2607
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -13238,17 +13238,17 @@ msgstr "Erreur en travaillant sur le cache des modèles : %s"
 msgid "Default theme %s not found!"
 msgstr "Thème par défaut %s inexistant !"
 
-#: libraries/classes/ThemeManager.php:175
+#: libraries/classes/ThemeManager.php:173
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Thème %s inexistant !"
 
-#: libraries/classes/ThemeManager.php:264
+#: libraries/classes/ThemeManager.php:261
 #, php-format
 msgid "Theme path not found for theme %s!"
 msgstr "Chemin non trouvé pour le thème %s !"
 
-#: libraries/classes/ThemeManager.php:363
+#: libraries/classes/ThemeManager.php:350
 msgid "Theme:"
 msgstr "Thème :"
 
@@ -13835,20 +13835,20 @@ msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "AM"
 
-#: libraries/classes/Util.php:885
+#: libraries/classes/Util.php:884
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s jour(s), %s heure(s), %s minute(s) et %s seconde(s)"
 
-#: libraries/classes/Util.php:921
+#: libraries/classes/Util.php:920
 msgid "Missing parameter:"
 msgstr "Paramètre absent :"
 
-#: libraries/classes/Util.php:2435
+#: libraries/classes/Util.php:2434
 msgid "Users"
 msgstr "Utilisateurs"
 
-#: libraries/classes/Util.php:3067
+#: libraries/classes/Util.php:3066
 #: templates/database/multi_table_query/form.twig:59
 msgid "Sort"
 msgstr "Tri"
@@ -16404,43 +16404,43 @@ msgstr "Vue :"
 msgid "Unhide"
 msgstr "Démasquer"
 
-#: templates/navigation/main.twig:26 templates/navigation/main.twig:27
+#: templates/navigation/main.twig:25 templates/navigation/main.twig:26
 msgid "Home"
 msgstr "Accueil"
 
-#: templates/navigation/main.twig:31 templates/navigation/main.twig:32
+#: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 msgid "Empty session data"
 msgstr "Vider les données de session"
 
-#: templates/navigation/main.twig:31 templates/navigation/main.twig:32
+#: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 msgid "Log out"
 msgstr "Se déconnecter"
 
-#: templates/navigation/main.twig:36 templates/navigation/main.twig:37
+#: templates/navigation/main.twig:35 templates/navigation/main.twig:36
 msgid "phpMyAdmin documentation"
 msgstr "Documentation de phpMyAdmin"
 
-#: templates/navigation/main.twig:40 templates/navigation/main.twig:41
+#: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 msgid "MariaDB Documentation"
 msgstr "Documentation MariaDB"
 
-#: templates/navigation/main.twig:40 templates/navigation/main.twig:41
+#: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 msgid "MySQL Documentation"
 msgstr "Documentation MySQL"
 
-#: templates/navigation/main.twig:44 templates/navigation/main.twig:45
+#: templates/navigation/main.twig:43 templates/navigation/main.twig:44
 msgid "Navigation panel settings"
 msgstr "Paramètres du panneau de navigation"
 
-#: templates/navigation/main.twig:48 templates/navigation/main.twig:49
+#: templates/navigation/main.twig:47 templates/navigation/main.twig:48
 msgid "Reload navigation panel"
 msgstr "Recharger le panneau de navigation"
 
-#: templates/navigation/main.twig:68
+#: templates/navigation/main.twig:67
 msgid "An error has occurred while loading the navigation display"
 msgstr "Une erreur s'est produite lors du chargement du panneau de navigation"
 
-#: templates/navigation/main.twig:89
+#: templates/navigation/main.twig:88
 msgid "SQL upload"
 msgstr "Téléversement SQL"
 
