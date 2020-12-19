@@ -83,8 +83,6 @@ class FormatConverter
      * Transforms a long to an IP
      *
      * @param mixed $buffer Data to transform
-     *
-     * @return string
      */
     public static function longToIp($buffer): string
     {
