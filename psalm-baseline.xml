@@ -2736,6 +2736,11 @@
       <code>$ret === false</code>
     </TypeDoesNotContainType>
   </file>
+  <file src="libraries/classes/Utils/FormatConverter.php">
+    <RedundantCast occurrences="1">
+      <code>(string) long2ip((int) $buffer)</code>
+    </RedundantCast>
+  </file>
   <file src="libraries/classes/Utils/HttpRequest.php">
     <InvalidArrayOffset occurrences="1">
       <code>$context['http']['header']</code>
