@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2020-11-15 18:28+0000\n"
+"PO-Revision-Date: 2020-12-20 16:29+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-0/nl/"
-">\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-0/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2586,7 +2586,7 @@ msgstr "Week"
 #.
 #: js/messages.php:907
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "kalender-maand-jaar"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:910
@@ -7142,8 +7142,8 @@ msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
-"Het aantal joins dat geen gebruik maakt van een index. Indien dit geen 0 is, "
-"is het aan te raden om het gebruik van indexen te controleren."
+"Het aantal joins dat geen gebruik maakt van een index. Is dit geen 0, dan is "
+"het aan te raden om het gebruik van indexen te controleren."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:560
 msgid "The number of joins that used a range search on a reference table."
