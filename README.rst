@@ -8,18 +8,18 @@ https://www.phpmyadmin.net/
 Code status
 -----------
 
-.. image:: https://travis-ci.org/phpmyadmin/phpmyadmin.svg?branch=master
+.. image:: https://travis-ci.org/phpmyadmin/phpmyadmin.svg?branch=QA_5_1
     :alt: Build status
     :target: https://travis-ci.org/phpmyadmin/phpmyadmin
 
-.. image:: https://hosted.weblate.org/widgets/phpmyadmin/-/svg-badge.svg
+.. image:: https://hosted.weblate.org/widgets/phpmyadmin/-/5-1/svg-badge.svg
     :alt: Translation status
     :target: https://hosted.weblate.org/engage/phpmyadmin/?utm_source=widget
 
-.. image:: https://codecov.io/gh/phpmyadmin/phpmyadmin/branch/master/graph/badge.svg
+.. image:: https://codecov.io/gh/phpmyadmin/phpmyadmin/branch/QA_5_1/graph/badge.svg
     :target: https://codecov.io/gh/phpmyadmin/phpmyadmin
 
-.. image:: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/badges/quality-score.png?s=93dfde29ffa5771d9c254b7ffb11c4e673315035
+.. image:: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/badges/quality-score.png
     :target: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/
 
 .. image:: https://bestpractices.coreinfrastructure.org/projects/213/badge
