@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-19 12:23+0100\n"
-"PO-Revision-Date: 2020-11-16 06:28+0000\n"
+"PO-Revision-Date: 2020-12-21 10:29+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -8191,8 +8191,8 @@ msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
-"Het aantal joins dat geen gebruik maakt van een index. Indien dit geen 0 is, "
-"is het aan te raden om het gebruik van indexen te controleren."
+"Het aantal joins dat geen gebruik maakt van een index. Is dit geen 0, dan is "
+"het aan te raden om het gebruik van indexen te controleren."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:600
 msgid "The number of joins that used a range search on a reference table."
@@ -16033,7 +16033,7 @@ msgstr "Index %s is verwijderd."
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "kalender-maand-jaar"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
@@ -16631,10 +16631,8 @@ msgid "Character sets and collations"
 msgstr "Karaktersets en collaties"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "Standaardwaarde"
+msgstr "standaardwaarde"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -17704,10 +17702,8 @@ msgstr "#"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "per uur"
+msgstr "ø per uur"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -18292,46 +18288,32 @@ msgid "Relation view"
 msgstr "Relatieoverzicht"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "gepartitioneerd"
+msgstr "Analyseer partitie"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "gepartitioneerd"
+msgstr "Controleer partitie"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "gepartitioneerd"
+msgstr "Verwijder partitie"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Partitionering verwijderen"
+msgstr "Optimaliseer partitie"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Ondergepartitioneerd"
+msgstr "Regenereer partitie"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Partitionering verwijderen"
+msgstr "Repareer partitie"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Ondergepartitioneerd"
+msgstr "Breek partitie af"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
