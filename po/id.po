@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-19 12:23+0100\n"
-"PO-Revision-Date: 2020-11-16 06:28+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2020-12-21 10:29+0000\n"
+"Last-Translator: Hendry Naufal Marbella <hendrynaufaldanppim@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -4589,22 +4589,28 @@ msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
 msgstr ""
+"Masukkan cuplikan Content-Security-Policy untuk API Anda yang kompatibel "
+"dengan reChaptha v2."
 
 #: libraries/classes/Config/Descriptions.php:962
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "Cuplikan Content-Security-Policy untuk API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:963
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"Masukkan parameter permintaan yang digunakan oleh API kompatibel reCaptcha "
+"v2 Anda."
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Parameter permintaan untuk reCaptcha v2 API"
 
 #: libraries/classes/Config/Descriptions.php:965
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"Masukkan parameter respons yang digunakan oleh API Anda yang kompatibel "
+"dengan reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Response parameter for reCaptcha v2 API"
