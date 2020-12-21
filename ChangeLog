@@ -69,7 +69,7 @@ phpMyAdmin - ChangeLog
 - issue #16477 Fixed no Option to enter TABLE specific permissions when the database name contains an "_" (underscore)
 - issue #16498 Fixed empty text not appearing after deleting all Routines
 - issue #16467 Fixed a PHP notice "Trying to access array offset on value of type null" on Designer PDF export
-- issue #15656 Fixed saving UI displayed columns on a non database request fails
+- issue #15658 Fixed saving UI displayed columns on a non database request fails
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
