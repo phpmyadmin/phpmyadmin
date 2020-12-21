@@ -35,7 +35,7 @@
             'class': 'nav-link dropdown-toggle',
             'id': 'navbarDropdown',
             'role': 'button',
-            'data-toggle': 'dropdown',
+            'data-bs-toggle': 'dropdown',
             'aria-haspopup': 'true',
             'aria-expanded': 'false'
         }).text(Messages.strMore);
@@ -47,7 +47,7 @@
         var $submenu = $('<li></li>', { 'class': 'nav-item dropdown d-none' })
             .append(link)
             .append($('<ul></ul>', {
-                'class': 'dropdown-menu dropdown-menu-right',
+                'class': 'dropdown-menu dropdown-menu-end',
                 'aria-labelledby': 'navbarDropdown'
             }));
         $container.append($submenu);

@@ -67,7 +67,7 @@
         <col class="valuecol">
         <col class="descrcol">
       </colgroup>
-      <thead class="thead-light">
+      <thead class="table-light">
         <tr>
           <th scope="col">{% trans 'Variable' %}</th>
           <th scope="col">{% trans 'Value' %}</th>
@@ -82,7 +82,7 @@
               {{ variable.doc|raw }}
             </th>
 
-            <td class="value text-monospace text-right">
+            <td class="value font-monospace text-end">
               <span class="formatted">
                 {% if variable.has_alert %}
                   <span class="{{ variable.is_alert ? 'attention' : 'allfine' }}">

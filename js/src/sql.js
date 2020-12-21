@@ -496,7 +496,7 @@ AJAX.registerOnload('sql.js', function () {
         var $varDiv = $('#bookmarkVariables');
         $varDiv.empty();
         for (var i = 1; i <= varCount; i++) {
-            $varDiv.append($('<div class="form-group">'));
+            $varDiv.append($('<div class="mb-3">'));
             $varDiv.append($('<label for="bookmarkVariable' + i + '">' + Functions.sprintf(Messages.strBookmarkVariable, i) + '</label>'));
             $varDiv.append($('<input class="form-control" type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmarkVariable' + i + '">'));
             $varDiv.append($('</div>'));

@@ -8,7 +8,7 @@
 
 <div class="table-responsive">
   <table class="table table-light table-striped table-hover table-sm">
-    <thead class="thead-light">
+    <thead class="table-light">
       <tr>
         <th scope="col">{% trans 'Collation' %}</th>
         <th scope="col">{% trans 'Description' %}</th>
@@ -29,7 +29,7 @@
           <td>
             {{ collation.name }}
             {% if collation.is_default %}
-              <span class="sr-only">{% trans '(default)' %}</span>
+              <span class="visually-hidden">{% trans '(default)' %}</span>
             {% endif %}
           </td>
           <td>{{ collation.description }}</td>

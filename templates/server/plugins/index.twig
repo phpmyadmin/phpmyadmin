@@ -17,11 +17,11 @@
   {% for type, list in plugins %}
     <div class="row">
       <div class="table-responsive col-12">
-        <table class="table table-light table-striped table-hover" id="plugins-{{ clean_types[type] }}">
+        <table class="table table-light table-striped table-hover caption-top" id="plugins-{{ clean_types[type] }}">
           <caption>
             {{ type }}
           </caption>
-          <thead class="thead-light">
+          <thead class="table-light">
             <tr>
               <th scope="col">{% trans 'Plugin' %}</th>
               <th scope="col">{% trans 'Description' %}</th>

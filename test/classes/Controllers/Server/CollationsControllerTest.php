@@ -59,7 +59,7 @@ class CollationsControllerTest extends AbstractTestCase
             'utf8_general_ci',
             $actual
         );
-        $this->assertStringContainsString('<span class="sr-only">(default)</span>', $actual);
+        $this->assertStringContainsString('<span class="visually-hidden">(default)</span>', $actual);
         $this->assertStringContainsString(
             '<td>Unicode, case-insensitive</td>',
             $actual

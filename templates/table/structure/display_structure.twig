@@ -15,7 +15,7 @@
     <div class="table-responsive-md">
     <table id="tablestructure" class="table table-light table-striped table-hover">
         {# Table header #}
-        <thead class="thead-light">
+        <thead class="table-light">
             <tr>
                 <th class="print_ignore"></th>
                 <th>#</th>
@@ -334,7 +334,7 @@
     {% if not tbl_is_view and not db_is_system_schema %}
         {# Only display propose table structure for MySQL < 8.0 #}
         {% if mysql_int_version < 80000 or is_mariadb %}
-          <a class="mr-0" href="{{ url('/sql') }}" data-post="{{ get_common({
+          <a class="me-0" href="{{ url('/sql') }}" data-post="{{ get_common({
             'db': db,
             'table': table,
             'sql_query': 'SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()',
@@ -408,7 +408,7 @@
 
         <div class="table-responsive jsresponsive">
           <table class="table table-light table-striped table-hover table-sm" id="table_index">
-            <thead class="thead-light">
+            <thead class="table-light">
               <tr>
                 <th colspan="3" class="print_ignore">{% trans 'Action' %}</th>
                 <th>{% trans 'Keyname' %}</th>
@@ -498,7 +498,7 @@
       {% endif %}
     </fieldset>
 
-    <fieldset class="tblFooters print_ignore text-left">
+    <fieldset class="tblFooters print_ignore text-start">
       <form action="{{ url('/table/indexes') }}" method="post">
         {{ get_hidden_inputs(db, table) }}
         <input type="hidden" name="create_index" value="1">

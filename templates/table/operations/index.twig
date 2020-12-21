@@ -8,9 +8,9 @@
     <div class="card mb-2">
       <div class="card-header">{% trans 'Alter table order by' %}</div>
       <div class="card-body">
-        <div class="form-row">
+        <div class="row g-3">
           <div class="col-auto">
-            <label class="sr-only" for="tableOrderFieldSelect">{% trans 'Column' %}</label>
+            <label class="visually-hidden" for="tableOrderFieldSelect">{% trans 'Column' %}</label>
             <select id="tableOrderFieldSelect" class="form-control" name="order_field" aria-describedby="tableOrderFieldSelectHelp">
               {% for column in columns %}
                 <option value="{{ column.Field }}">{{ column.Field }}</option>
@@ -34,7 +34,7 @@
         </div>
       </div>
 
-      <div class="card-footer text-right">
+      <div class="card-footer text-end">
         <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
       </div>
     </div>
@@ -49,7 +49,7 @@
   <div class="card mb-2">
     <div class="card-header">{% trans 'Move table to (database.table)' %}</div>
     <div class="card-body">
-      <div class="form-group form-row">
+      <div class="mb-3 row g-3">
         <div class="col-auto">
           <div class="input-group">
             {% if database_list is not empty %}
@@ -61,9 +61,7 @@
             {% else %}
               <input id="moveTableDatabaseInput" class="form-control" type="text" maxlength="100" name="target_db" value="{{ db }}" aria-label="{% trans 'Database' %}">
             {% endif %}
-            <div class="input-group-prepend input-group-append">
-              <span class="input-group-text">.</span>
-            </div>
+            <span class="input-group-text">.</span>
             <input class="form-control" type="text" required="required" name="new_name" maxlength="64" value="{{ table }}" aria-label="{% trans 'Table' %}">
           </div>
         </div>
@@ -84,7 +82,7 @@
       </div>
     </div>
 
-    <div class="card-footer text-right">
+    <div class="card-footer text-end">
       <input class="btn btn-primary" type="submit" name="submit_move" value="{% trans 'Go' %}">
     </div>
   </div>
@@ -102,12 +100,14 @@
   <div class="card mb-2">
     <div class="card-header">{% trans 'Table options' %}</div>
     <div class="card-body">
-      <div class="form-group form-inline">
-        <div class="form-group">
+      <div class="mb-3 row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-6">
           <label for="renameTableInput">{% trans 'Rename table to' %}</label>
-          <input class="form-control mx-2" id="renameTableInput" type="text" name="new_name" maxlength="64" value="{{ table }}" required>
         </div>
-        <div class="form-check">
+        <div class="col-6">
+          <input class="form-control" id="renameTableInput" type="text" name="new_name" maxlength="64" value="{{ table }}" required>
+        </div>
+        <div class="form-check col-12">
           <input class="form-check-input" type="checkbox" name="adjust_privileges" value="1" id="checkbox_privileges_table_options"
             {%- if has_privileges %} checked{% else %} title="
             {%- trans 'You don\'t have sufficient privileges to perform this operation; Please refer to the documentation for more details.' %}" disabled{% endif %}>
@@ -118,102 +118,126 @@
         </div>
       </div>
 
-      <div class="form-group form-inline">
-        <label for="tableCommentsInput">{% trans 'Table comments' %}</label>
-        <input class="form-control ml-2" id="tableCommentsInput" type="text" name="comment" maxlength="2048" value="{{ table_comment }}">
+      <div class="mb-3 row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-6">
+          <label for="tableCommentsInput">{% trans 'Table comments' %}</label>
+        </div>
+        <div class="col-6">
+          <input class="form-control" id="tableCommentsInput" type="text" name="comment" maxlength="2048" value="{{ table_comment }}">
+        </div>
       </div>
 
-      <div class="form-group form-inline">
-        <label class="text-nowrap" for="newTableStorageEngineSelect">
-          {% trans 'Storage engine' %}
-          {{ show_mysql_docu('Storage_engines') }}
-        </label>
-        <select class="form-control ml-2" name="new_tbl_storage_engine" id="newTableStorageEngineSelect">
-          {% for engine in storage_engines %}
-            <option value="{{ engine.name }}"{% if engine.comment is not empty %} title="{{ engine.comment }}"{% endif %}
-              {{- engine.name|lower == storage_engine|lower or (storage_engine is empty and engine.is_default) ? ' selected' }}>
-              {{- engine.name -}}
-            </option>
-          {% endfor %}
-        </select>
+      <div class="mb-3 row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-6">
+          <label class="text-nowrap" for="newTableStorageEngineSelect">
+            {% trans 'Storage engine' %}
+            {{ show_mysql_docu('Storage_engines') }}
+          </label>
+        </div>
+        <div class="col-6">
+          <select class="form-control" name="new_tbl_storage_engine" id="newTableStorageEngineSelect">
+            {% for engine in storage_engines %}
+              <option value="{{ engine.name }}"{% if engine.comment is not empty %} title="{{ engine.comment }}"{% endif %}
+                {{- engine.name|lower == storage_engine|lower or (storage_engine is empty and engine.is_default) ? ' selected' }}>
+                {{- engine.name -}}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
       </div>
 
-      <div class="form-group form-inline">
-        <label for="collationSelect">{% trans 'Collation' %}</label>
-        <select class="form-control mx-2" id="collationSelect" lang="en" dir="ltr" name="tbl_collation">
-          <option value=""></option>
-          {% for charset in charsets %}
-            <optgroup label="{{ charset.getName() }}" title="{{ charset.getDescription() }}">
-              {% for collation in collations[charset.getName()] %}
-                <option value="{{ collation.getName() }}" title="{{ collation.getDescription() }}"{{ tbl_collation == collation.getName() ? ' selected' }}>
-                  {{ collation.getName() }}
-                </option>
-              {% endfor %}
-            </optgroup>
-          {% endfor %}
-        </select>
+      <div class="mb-3 row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-6">
+          <label for="collationSelect">{% trans 'Collation' %}</label>
+        </div>
+        <div class="col-6">
+          <select class="form-control" id="collationSelect" lang="en" dir="ltr" name="tbl_collation">
+            <option value=""></option>
+            {% for charset in charsets %}
+              <optgroup label="{{ charset.getName() }}" title="{{ charset.getDescription() }}">
+                {% for collation in collations[charset.getName()] %}
+                  <option value="{{ collation.getName() }}" title="{{ collation.getDescription() }}"{{ tbl_collation == collation.getName() ? ' selected' }}>
+                    {{ collation.getName() }}
+                  </option>
+                {% endfor %}
+              </optgroup>
+            {% endfor %}
+          </select>
+        </div>
 
-        <div class="form-check">
+        <div class="form-check col-12 ms-3">
           <input class="form-check-input" type="checkbox" name="change_all_collations" value="1" id="checkbox_change_all_collations">
           <label class="form-check-label" for="checkbox_change_all_collations">{% trans 'Change all column collations' %}</label>
         </div>
       </div>
 
       {% if has_pack_keys %}
-        <div class="form-group form-inline">
-          <label for="new_pack_keys">PACK_KEYS</label>
-          <select class="form-control ml-2" name="new_pack_keys" id="new_pack_keys">
-            <option value="DEFAULT"{{ pack_keys == 'DEFAULT' ? ' selected' }}>DEFAULT</option>
-            <option value="0"{{ pack_keys == '0' ? ' selected' }}>0</option>
-            <option value="1"{{ pack_keys == '1' ? ' selected' }}>1</option>
-          </select>
+        <div class="mb-3 row row-cols-lg-auto g-3 align-items-center">
+          <div class="col-6">
+            <label for="new_pack_keys">PACK_KEYS</label>
+          </div>
+          <div class="col-6">
+            <select class="form-control" name="new_pack_keys" id="new_pack_keys">
+              <option value="DEFAULT"{{ pack_keys == 'DEFAULT' ? ' selected' }}>DEFAULT</option>
+              <option value="0"{{ pack_keys == '0' ? ' selected' }}>0</option>
+              <option value="1"{{ pack_keys == '1' ? ' selected' }}>1</option>
+            </select>
+          </div>
         </div>
       {% endif %}
 
       {% if has_checksum_and_delay_key_write %}
-        <div class="form-group form-check">
+        <div class="mb-3 form-check">
           <input class="form-check-input" type="checkbox" name="new_checksum" id="new_checksum" value="1"{{ checksum == '1' ? ' checked' }}>
           <label class="form-check-label" for="new_checksum">CHECKSUM</label>
         </div>
 
-        <div class="form-group form-check">
+        <div class="mb-3 form-check">
           <input class="form-check-input" type="checkbox" name="new_delay_key_write" id="new_delay_key_write" value="1"{{ delay_key_write == '1' ? ' checked' }}>
           <label class="form-check-label" for="new_delay_key_write">DELAY_KEY_WRITE</label>
         </div>
       {% endif %}
 
       {% if has_transactional_and_page_checksum %}
-        <div class="form-group form-check">
+        <div class="mb-3 form-check">
           <input class="form-check-input" type="checkbox" name="new_transactional" id="new_transactional" value="1"{{ transactional == '1' ? ' checked' }}>
           <label class="form-check-label" for="new_transactional">TRANSACTIONAL</label>
         </div>
 
-        <div class="form-group form-check">
+        <div class="mb-3 form-check">
           <input class="form-check-input" type="checkbox" name="new_page_checksum" id="new_page_checksum" value="1"{{ page_checksum == '1' ? ' checked' }}>
           <label class="form-check-label" for="new_page_checksum">PAGE_CHECKSUM</label>
         </div>
       {% endif %}
 
       {% if has_auto_increment %}
-        <div class="form-group form-inline">
-          <label for="auto_increment_opt">AUTO_INCREMENT</label>
-          <input class="form-control ml-2" id="auto_increment_opt" type="number" name="new_auto_increment" value="{{ auto_increment }}">
+        <div class="mb-3 row row-cols-lg-auto g-3 align-items-center">
+          <div class="col-12">
+            <label for="auto_increment_opt">AUTO_INCREMENT</label>
+          </div>
+          <div class="col-12">
+            <input class="form-control" id="auto_increment_opt" type="number" name="new_auto_increment" value="{{ auto_increment }}">
+          </div>
         </div>
       {% endif %}
 
       {% if row_formats is not empty %}
-        <div class="form-group form-inline">
-          <label for="new_row_format">ROW_FORMAT</label>
-          <select class="form-control ml-2" id="new_row_format" name="new_row_format">
-            {% for row_format in row_formats %}
-              <option value="{{ row_format }}"{{ row_format == row_format_current|upper ? ' selected' }}>{{ row_format }}</option>
-            {% endfor %}
-          </select>
+        <div class="mb-3 row row-cols-lg-auto g-3 align-items-center">
+          <div class="col-12">
+            <label for="new_row_format">ROW_FORMAT</label>
+          </div>
+          <div class="col-12">
+            <select class="form-control" id="new_row_format" name="new_row_format">
+              {% for row_format in row_formats %}
+                <option value="{{ row_format }}"{{ row_format == row_format_current|upper ? ' selected' }}>{{ row_format }}</option>
+              {% endfor %}
+            </select>
+          </div>
         </div>
       {% endif %}
     </div>
 
-    <div class="card-footer text-right">
+    <div class="card-footer text-end">
       <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
     </div>
   </div>
@@ -226,7 +250,7 @@
   <div class="card mb-2">
     <div class="card-header">{% trans 'Copy table to (database.table)' %}</div>
     <div class="card-body">
-      <div class="form-group form-row">
+      <div class="mb-3 row g-3">
         <div class="col-auto">
           <div class="input-group">
             {% if database_list is not empty %}
@@ -238,15 +262,13 @@
             {% else %}
               <input class="form-control" type="text" maxlength="100" name="target_db" value="{{ db }}" aria-label="{% trans 'Database' %}">
             {% endif %}
-            <div class="input-group-prepend input-group-append">
-              <span class="input-group-text">.</span>
-            </div>
+            <span class="input-group-text">.</span>
             <input class="form-control" type="text" name="new_name" maxlength="64" value="{{ table }}" aria-label="{% trans 'Table' %}" required>
           </div>
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="mb-3">
         <div class="form-check">
           <input class="form-check-input" type="radio" name="what" id="whatRadio1" value="structure">
           <label class="form-check-label" for="whatRadio1">
@@ -267,7 +289,7 @@
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="mb-3">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop">
           <label class="form-check-label" for="checkbox_drop">{{ 'Add %s'|trans|format('DROP TABLE') }}</label>
@@ -302,7 +324,7 @@
       </div>
     </div>
 
-    <div class="card-footer text-right">
+    <div class="card-footer text-end">
       <input class="btn btn-primary" type="submit" name="submit_copy" value="{% trans 'Go' %}">
     </div>
   </div>
@@ -432,7 +454,7 @@
       </div>
 
       <div class="card-body">
-        <div class="form-group">
+        <div class="mb-3">
           <label for="partition_name">{% trans 'Partition' %}</label>
           <select class="form-control" id="partition_name" name="partition_name[]" multiple required>
             {% for partition in partitions %}
@@ -441,7 +463,7 @@
           </select>
         </div>
 
-        <div class="form-group form-check-inline">
+        <div class="mb-3 form-check-inline">
           {% for value, description in partitions_choices %}
             <div class="form-check">
               <input class="form-check-input" type="radio" name="partition_operation" id="partitionOperationRadio{{ value|capitalize }}" value="{{ value }}"{{ value == 'ANALYZE' ? ' checked' }}>
@@ -457,7 +479,7 @@
         </div>
       </div>
 
-      <div class="card-footer text-right">
+      <div class="card-footer text-end">
         <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
       </div>
     </div>

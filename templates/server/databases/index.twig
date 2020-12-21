@@ -95,7 +95,7 @@
       {{ get_hidden_inputs(url_params) }}
       <div class="table-responsive row">
         <table class="table table-striped table-hover w-auto">
-          <thead class="thead-light">
+          <thead class="table-light">
             <tr>
               {% if is_drop_allowed %}
                 <th></th>
@@ -250,7 +250,7 @@
             {% endfor %}
           </tbody>
 
-          <tfoot class="thead-light">
+          <tfoot class="table-light">
             <tr>
               <th colspan="{{ is_drop_allowed ? '3' : '2' }}">
                 {% trans 'Total:' %}

@@ -8,14 +8,14 @@
       <div class="card mb-2">
         <div class="card-header">{{ get_icon('b_comment', 'Database comment'|trans, true) }}</div>
         <div class="card-body">
-          <div class="form-row">
+          <div class="row g-3">
             <div class="col-auto">
-              <label class="sr-only" for="databaseCommentInput">{% trans 'Database comment' %}</label>
+              <label class="visually-hidden" for="databaseCommentInput">{% trans 'Database comment' %}</label>
               <input class="form-control textfield" id="databaseCommentInput" type="text" name="comment" value="{{ db_comment }}">
             </div>
           </div>
         </div>
-        <div class="card-footer text-right">
+        <div class="card-footer text-end">
           <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
         </div>
       </div>
@@ -28,7 +28,7 @@
     <div class="card mb-2">
       <div class="card-header">{{ get_icon('b_table_add', 'Create table'|trans, true) }}</div>
       <div class="card-body">
-        <div class="form-row">
+        <div class="row g-3">
           <div class="col-auto">
             <label for="exampleInputEmail1">{% trans 'Name' %}</label>
             <input class="form-control" type="text" id="exampleInputEmail1" name="table" required>
@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <div class="card-footer text-right">
+      <div class="card-footer text-end">
         <input class="btn btn-primary" type="submit" value="{% trans "Go" %}">
       </div>
     </div>
@@ -59,9 +59,9 @@
       <div class="card mb-2">
         <div class="card-header">{{ get_icon('b_edit', 'Rename database to'|trans, true) }}</div>
         <div class="card-body">
-          <div class="form-group form-row">
+          <div class="mb-3 row g-3">
             <div class="col-auto">
-              <label class="sr-only" for="new_db_name">{% trans 'New database name' %}</label>
+              <label class="visually-hidden" for="new_db_name">{% trans 'New database name' %}</label>
               <input class="form-control textfield" id="new_db_name" type="text" name="newname" maxlength="64" required>
             </div>
           </div>
@@ -77,7 +77,7 @@
           </div>
         </div>
 
-        <div class="card-footer text-right">
+        <div class="card-footer text-end">
           <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
         </div>
       </div>
@@ -122,14 +122,14 @@
     <div class="card mb-2">
       <div class="card-header">{{ get_icon('b_edit', 'Copy database to'|trans, true) }}</div>
       <div class="card-body">
-        <div class="form-group form-row">
+        <div class="mb-3 row g-3">
           <div class="col-auto">
-            <label class="sr-only" for="renameDbNameInput">{% trans 'Database name' %}</label>
+            <label class="visually-hidden" for="renameDbNameInput">{% trans 'Database name' %}</label>
             <input class="form-control textfield" id="renameDbNameInput" type="text" maxlength="64" name="newname" required>
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
           <div class="form-check">
             <input class="form-check-input" type="radio" name="what" id="whatRadio1" value="structure">
             <label class="form-check-label" for="whatRadio1">
@@ -186,7 +186,7 @@
         </div>
       </div>
 
-      <div class="card-footer text-right">
+      <div class="card-footer text-end">
         <input class="btn btn-primary" type="submit" name="submit_copy" value="{% trans 'Go' %}">
       </div>
     </div>
@@ -198,9 +198,9 @@
     <div class="card mb-2">
       <div class="card-header">{{ get_icon('s_asci', 'Collation'|trans, true) }}</div>
       <div class="card-body">
-        <div class="form-group form-row">
+        <div class="mb-3 row g-3">
           <div class="col-auto">
-            <label class="sr-only" for="select_db_collation">{% trans 'Collation' %}</label>
+            <label class="visually-hidden" for="select_db_collation">{% trans 'Collation' %}</label>
             <select class="form-control" lang="en" dir="ltr" name="db_collation" id="select_db_collation">
               <option value=""></option>
               {% for charset in charsets %}
@@ -226,7 +226,7 @@
         </div>
       </div>
 
-      <div class="card-footer text-right">
+      <div class="card-footer text-end">
         <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
       </div>
     </div>

@@ -8,7 +8,7 @@
 
 <div class="row justify-content-between">
   <table class="table table-light table-striped table-hover col-12 col-md-5">
-    <thead class="thead-light">
+    <thead class="table-light">
       <tr>
         <th scope="col">
           {% trans 'Traffic' %}
@@ -23,15 +23,15 @@
       {% for each_traffic in traffic %}
         <tr>
           <th scope="row">{{ each_traffic.name }}</th>
-          <td class="text-monospace text-right">{{ each_traffic.number }}</td>
-          <td class="text-monospace text-right">{{ each_traffic.per_hour }}</td>
+          <td class="font-monospace text-end">{{ each_traffic.number }}</td>
+          <td class="font-monospace text-end">{{ each_traffic.per_hour }}</td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
 
   <table class="table table-light table-striped table-hover col-12 col-md-6">
-    <thead class="thead-light">
+    <thead class="table-light">
       <tr>
         <th scope="col">{% trans 'Connections' %}</th>
         <th scope="col">#</th>
@@ -44,9 +44,9 @@
       {% for connection in connections %}
         <tr>
           <th>{{ connection.name }}</th>
-          <td class="text-monospace text-right">{{ connection.number }}</td>
-          <td class="text-monospace text-right">{{ connection.per_hour }}</td>
-          <td class="text-monospace text-right">{{ connection.percentage }}</td>
+          <td class="font-monospace text-end">{{ connection.number }}</td>
+          <td class="font-monospace text-end">{{ connection.per_hour }}</td>
+          <td class="font-monospace text-end">{{ connection.percentage }}</td>
         </tr>
       {% endfor %}
     </tbody>

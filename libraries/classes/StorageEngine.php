@@ -235,7 +235,7 @@ class StorageEngine
             $ret .= '    </td>' . "\n"
                   . '    <th scope="row">' . htmlspecialchars($details['title']) . '</th>'
                   . "\n"
-                  . '    <td class="text-monospace text-right">';
+                  . '    <td class="font-monospace text-end">';
             switch ($details['type']) {
                 case PMA_ENGINE_DETAILS_TYPE_SIZE:
                     $parsed_size = $this->resolveTypeSize($details['value']);

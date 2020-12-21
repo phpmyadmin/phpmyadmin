@@ -98,12 +98,12 @@ class StatusControllerTest extends AbstractTestCase
         );
         //$bytes_received
         $this->assertStringContainsString(
-            '<td class="text-monospace text-right">' . $bytesReceived . ' B',
+            '<td class="font-monospace text-end">' . $bytesReceived . ' B',
             $html
         );
         //$bytes_sent
         $this->assertStringContainsString(
-            '<td class="text-monospace text-right">' . $bytesSent . ' B',
+            '<td class="font-monospace text-end">' . $bytesSent . ' B',
             $html
         );
 
@@ -126,7 +126,7 @@ class StatusControllerTest extends AbstractTestCase
         );
         //Max_used_connections
         $this->assertStringContainsString(
-            '<td class="text-monospace text-right">' . $maxUsedConnections,
+            '<td class="font-monospace text-end">' . $maxUsedConnections,
             $html
         );
         $this->assertStringContainsString(
@@ -135,7 +135,7 @@ class StatusControllerTest extends AbstractTestCase
         );
         //Aborted_connects
         $this->assertStringContainsString(
-            '<td class="text-monospace text-right">' . $abortedConnections,
+            '<td class="font-monospace text-end">' . $abortedConnections,
             $html
         );
         $this->assertStringContainsString(
