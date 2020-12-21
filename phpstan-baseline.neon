@@ -6,11 +6,6 @@ parameters:
 			path: libraries/classes/Charsets.php
 
 		-
-			message: "#^Parameter \\#1 \\$new_error_level of function error_reporting expects int, int\\|null given\\.$#"
-			count: 2
-			path: libraries/classes/Config.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\Config\\:\\:\\$defaultSourceMtime \\(int\\) does not accept int\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Config.php
