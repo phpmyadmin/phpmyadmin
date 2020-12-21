@@ -32,7 +32,7 @@
     </legend>
 
     {% if is_arbitrary_server_allowed %}
-      <div class="item form-row">
+      <div class="item row g-3">
         <label for="input_servername" class="col-4 d-flex align-items-center" title="{% trans 'You can enter hostname/IP address and port separated by space.' %}">
           {% trans 'Server:' %}
         </label>
@@ -43,7 +43,7 @@
       </div>
     {% endif %}
 
-    <div class="item form-row">
+    <div class="item row g-3">
       <label for="input_username" class="col-4 d-flex align-items-center">
         {% trans 'Username:' %}
       </label>
@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    <div class="item form-row">
+    <div class="item row g-3">
       <label for="input_password" class="col-4 d-flex align-items-center">
         {% trans 'Password:' %}
       </label>
@@ -62,7 +62,7 @@
     </div>
 
     {% if has_servers %}
-      <div class="item form-row">
+      <div class="item row g-3">
         <label for="select_server" class="col-4 d-flex align-items-center">
           {% trans 'Server choice:' %}
         </label>

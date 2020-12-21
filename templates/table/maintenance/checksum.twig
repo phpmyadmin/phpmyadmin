@@ -17,7 +17,7 @@
       {% for row in rows %}
         <tr>
           <td>{{ row.Table }}</td>
-          <td class="text-right">
+          <td class="text-end">
             {% if row.Checksum is not null %}
               {{ row.Checksum }}
             {% else %}

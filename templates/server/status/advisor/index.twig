@@ -8,7 +8,7 @@
   {% if data is empty %}
     {{ 'Not enough privilege to view the advisor.'|trans|error }}
   {% else %}
-    <button type="button" class="btn btn-secondary mb-4" data-toggle="modal" data-target="#advisorInstructionsModal">
+    <button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#advisorInstructionsModal">
       {{ get_icon('b_help', 'Instructions'|trans) }}
     </button>
 
@@ -17,9 +17,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="advisorInstructionsModalLabel">{% trans 'Advisor system' %}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="{% trans 'Close' %}">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
           </div>
           <div class="modal-body">
             <p>
@@ -44,7 +42,7 @@
             </p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">{% trans 'Close' %}</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
           </div>
         </div>
       </div>
@@ -68,7 +66,7 @@
         {% for rule in data.fired %}
           <div class="card">
             <div class="card-header" id="heading{{ loop.index }}">
-              <button class="btn btn-link{{ not loop.first ? ' collapsed' }}" type="button" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="{{ loop.first ? 'true' : 'false' }}" aria-controls="collapse{{ loop.index }}">
+              <button class="btn btn-link{{ not loop.first ? ' collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="{{ loop.first ? 'true' : 'false' }}" aria-controls="collapse{{ loop.index }}">
                 {{ rule.issue }}
               </button>
             </div>

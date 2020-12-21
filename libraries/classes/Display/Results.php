@@ -1343,7 +1343,7 @@ class Results
         $display_params = $this->properties['display_params'];
 
         // 1. Displays the full/partial text button (part 1)...
-        $button_html .= '<thead class="thead-light"><tr>' . "\n";
+        $button_html .= '<thead class="table-light"><tr>' . "\n";
 
         $emptyPreCondition = $displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE
                            && $displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE;

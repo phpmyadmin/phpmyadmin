@@ -22,7 +22,7 @@
     <form method="post" action="{{ url('/table/tracking') }}" name="versionsForm" id="versionsForm" class="ajax">
         {{ get_hidden_inputs(db, table) }}
         <table id="versions" class="table table-light table-striped table-hover table-sm">
-            <thead class="thead-light">
+            <thead class="table-light">
                 <tr>
                     <th></th>
                     <th>{% trans 'Version' %}</th>

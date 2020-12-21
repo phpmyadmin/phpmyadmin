@@ -2,7 +2,7 @@
   {{ get_hidden_inputs() }}
   <div class="table-responsive">
     <table id="userRightsTable" class="table table-light table-striped table-hover">
-      <thead class="thead-light">
+      <thead class="table-light">
         <tr>
           <th></th>
           <th scope="col">{% trans 'User name' %}</th>
@@ -138,7 +138,7 @@
         </label>
       </div>
     </div>
-    <div class="card-footer text-right">
+    <div class="card-footer text-end">
       <input type="hidden" name="mode" value="2">
       <input id="buttonGo" class="btn btn-primary ajax" type="submit" name="delete" value="{% trans 'Go' %}">
     </div>

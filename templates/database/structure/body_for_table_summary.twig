@@ -1,4 +1,4 @@
-<tfoot id="tbl_summary_row" class="thead-light">
+<tfoot id="tbl_summary_row" class="table-light">
 <tr>
     <th class="d-print-none"></th>
     <th class="tbl_num text-nowrap">
@@ -34,7 +34,7 @@
     {% else %}
         {% set cell_text = row_count_sum %}
     {% endif %}
-    <th class="value tbl_rows text-monospace text-right">{{ cell_text }}</th>
+    <th class="value tbl_rows font-monospace text-end">{{ cell_text }}</th>
     {% if not (properties_num_columns > 1) %}
         {# MySQL <= 5.5.2 #}
         {% set default_engine = dbi.fetchValue('SELECT @@storage_engine;') %}
@@ -60,12 +60,12 @@
         {% set sum = format_byte_down(sum_size, 3, 1) %}
         {% set sum_formatted = sum[0] %}
         {% set sum_unit = sum[1] %}
-        <th class="value tbl_size text-monospace text-right">{{ sum_formatted }} {{ sum_unit }}</th>
+        <th class="value tbl_size font-monospace text-end">{{ sum_formatted }} {{ sum_unit }}</th>
 
         {% set overhead = format_byte_down(overhead_size, 3, 1) %}
         {% set overhead_formatted = overhead[0] %}
         {% set overhead_unit = overhead[1] %}
-        <th class="value tbl_overhead text-monospace text-right">{{ overhead_formatted }} {{ overhead_unit }}</th>
+        <th class="value tbl_overhead font-monospace text-end">{{ overhead_formatted }} {{ overhead_unit }}</th>
     {% endif %}
 
     {% if show_charset %}
@@ -75,17 +75,17 @@
         <th></th>
     {% endif %}
     {% if show_creation %}
-        <th class="value tbl_creation text-monospace text-right">
+        <th class="value tbl_creation font-monospace text-end">
             {{ create_time_all }}
         </th>
     {% endif %}
     {% if show_last_update %}
-        <th class="value tbl_last_update text-monospace text-right">
+        <th class="value tbl_last_update font-monospace text-end">
             {{ update_time_all }}
         </th>
     {% endif %}
     {% if show_last_check %}
-        <th class="value tbl_last_check text-monospace text-right">
+        <th class="value tbl_last_check font-monospace text-end">
             {{ check_time_all }}
         </th>
     {% endif %}

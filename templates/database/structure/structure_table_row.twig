@@ -96,7 +96,7 @@
 
         {# Content to be appended into 'tbl_rows' cell.
         If row count is approximate, display it as an anchor to get real count. #}
-        <td class="value tbl_rows text-monospace text-right"
+        <td class="value tbl_rows font-monospace text-end"
             data-table="{{ current_table['TABLE_NAME'] }}">
             {% if approx_rows %}
                 <a href="{{ url('/database/structure/real-row-count', {
@@ -130,12 +130,12 @@
         {% endif %}
 
         {% if is_show_stats %}
-            <td class="value tbl_size text-monospace text-right">
+            <td class="value tbl_size font-monospace text-end">
                 <a href="{{ url('/table/structure', table_url_params) }}#showusage">
                     <span>{{ formatted_size }}</span>&nbsp;<span class="unit">{{ unit }}</span>
                 </a>
             </td>
-            <td class="value tbl_overhead text-monospace text-right">
+            <td class="value tbl_overhead font-monospace text-end">
                 {{ overhead|raw }}
             </td>
         {% endif %}
@@ -163,32 +163,32 @@
         {% endif %}
 
         {% if show_creation %}
-            <td class="value tbl_creation text-monospace text-right">
+            <td class="value tbl_creation font-monospace text-end">
                 {{ create_time }}
             </td>
         {% endif %}
 
         {% if show_last_update %}
-            <td class="value tbl_last_update text-monospace text-right">
+            <td class="value tbl_last_update font-monospace text-end">
                 {{ update_time }}
             </td>
         {% endif %}
 
         {% if show_last_check %}
-            <td class="value tbl_last_check text-monospace text-right">
+            <td class="value tbl_last_check font-monospace text-end">
                 {{ check_time }}
             </td>
         {% endif %}
 
     {% elseif table_is_view %}
-        <td class="value tbl_rows text-monospace text-right">-</td>
+        <td class="value tbl_rows font-monospace text-end">-</td>
         <td class="nowrap">
             {% trans 'View' %}
         </td>
         <td class="nowrap">---</td>
         {% if is_show_stats %}
-            <td class="value tbl_size text-monospace text-right">-</td>
-            <td class="value tbl_overhead text-monospace text-right">-</td>
+            <td class="value tbl_size font-monospace text-end">-</td>
+            <td class="value tbl_overhead font-monospace text-end">-</td>
         {% endif %}
         {% if show_charset %}
             <td></td>
@@ -197,13 +197,13 @@
             <td></td>
         {% endif %}
         {% if show_creation %}
-            <td class="value tbl_creation text-monospace text-right">-</td>
+            <td class="value tbl_creation font-monospace text-end">-</td>
         {% endif %}
         {% if show_last_update %}
-            <td class="value tbl_last_update text-monospace text-right">-</td>
+            <td class="value tbl_last_update font-monospace text-end">-</td>
         {% endif %}
         {% if show_last_check %}
-            <td class="value tbl_last_check text-monospace text-right">-</td>
+            <td class="value tbl_last_check font-monospace text-end">-</td>
         {% endif %}
 
     {% else %}
