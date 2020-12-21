@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-12-19 12:23+0100\n"
+"POT-Creation-Date: 2020-12-21 16:13+0100\n"
 "PO-Revision-Date: 2020-11-01 21:51+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2214,7 +2214,9 @@ msgid "Export as separate files"
 msgstr "Exportovat jako samostatné soubory"
 
 #: libraries/classes/Config/Descriptions.php:268
-msgid "Remember file name template"
+#, fuzzy
+#| msgid "Remember file name template"
+msgid "Remember filename template"
 msgstr "Pamatovat si vzor pro názvy souborů"
 
 #: libraries/classes/Config/Descriptions.php:269
@@ -4239,11 +4241,17 @@ msgid "Version check"
 msgstr "Kontrola verze"
 
 #: libraries/classes/Config/Descriptions.php:941
+#, fuzzy
+#| msgid ""
+#| "The url of the proxy to be used when retrieving the information about the "
+#| "latest version of phpMyAdmin or when submitting error reports. You need "
+#| "this if the server where phpMyAdmin is installed does not have direct "
+#| "access to the internet. The format is: \"hostname:portnumber\"."
 msgid ""
-"The url of the proxy to be used when retrieving the information about the "
-"latest version of phpMyAdmin or when submitting error reports. You need this "
-"if the server where phpMyAdmin is installed does not have direct access to "
-"the internet. The format is: \"hostname:portnumber\"."
+"The URL of the proxy to be used when retrieving the information about the "
+"latest version of phpMyAdmin, or when submitting error reports. You need "
+"this if the server where phpMyAdmin is installed does not have direct access "
+"to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 "Adresa URL proxy serveru, který má být použit při načítání informací o "
 "nejnovější verzi phpMyAdmina nebo při odesílání chybových hlášení. Toto "
@@ -4251,7 +4259,9 @@ msgstr ""
 "přístup k internetu. Formát je: \"hostname:portnumber\"."
 
 #: libraries/classes/Config/Descriptions.php:946
-msgid "Proxy url"
+#, fuzzy
+#| msgid "Proxy url"
+msgid "Proxy URL"
 msgstr "Adresa proxy"
 
 #: libraries/classes/Config/Descriptions.php:948
@@ -4287,51 +4297,63 @@ msgstr "ZIP"
 #: libraries/classes/Config/Descriptions.php:959
 #, fuzzy
 #| msgid "Enter your siteverify URL for your reCaptcha service."
-msgid "Enter the URL for your reCaptcha v2 compatible API."
+msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Zadejte URL pro ověření služby reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:960
 #, fuzzy
 #| msgid "URL for reCaptcha siteverify"
-msgid "URL for reCaptcha v2 API"
+msgid "URL for reCAPTCHA v2 API"
 msgstr "URL pro ověření reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:961
+#, fuzzy
+#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid ""
-"Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
+"Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
-msgstr ""
+msgstr "Zadejte URL pro ověření služby reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:962
-msgid "Content-Security-Policy snippet for reCaptcha v2 API"
+msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:963
-msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+#, fuzzy
+#| msgid "Enter your siteverify URL for your reCaptcha service."
+msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
+msgstr "Zadejte URL pro ověření služby reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:964
-msgid "Request parameter for reCaptcha v2 API"
+msgid "Request parameter for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:965
-msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+#, fuzzy
+#| msgid "Enter your siteverify URL for your reCaptcha service."
+msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
+msgstr "Zadejte URL pro ověření služby reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:966
-msgid "Response parameter for reCaptcha v2 API"
+msgid "Response parameter for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:967
-msgid "Enter your public key for your domain reCaptcha service."
+#, fuzzy
+#| msgid "Enter your public key for your domain reCaptcha service."
+msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Zadejte veřejný klíč pro službu reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:968
-msgid "Public key for reCaptcha"
+#, fuzzy
+#| msgid "Public key for reCaptcha"
+msgid "Public key for reCAPTCHA"
 msgstr "Veřejný klíč reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:969
-msgid "Enter your private key for your domain reCaptcha service."
+#, fuzzy
+#| msgid "Enter your private key for your domain reCaptcha service."
+msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Zadejte soukromý klíč pro službu reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:970
@@ -4339,11 +4361,15 @@ msgid "Private key for reCaptcha"
 msgstr "Soukromý klíč reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:971
-msgid "Enter your siteverify URL for your reCaptcha service."
+#, fuzzy
+#| msgid "Enter your siteverify URL for your reCaptcha service."
+msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "Zadejte URL pro ověření služby reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:972
-msgid "URL for reCaptcha siteverify"
+#, fuzzy
+#| msgid "URL for reCaptcha siteverify"
+msgid "URL for reCAPTCHA siteverify"
 msgstr "URL pro ověření reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:974
@@ -4367,9 +4393,13 @@ msgid "Enter executes queries in console"
 msgstr "Enter spustí dotazy v konzoli"
 
 #: libraries/classes/Config/Descriptions.php:984
+#, fuzzy
+#| msgid ""
+#| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
+#| "configuration storage tables automatically."
 msgid ""
-"Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
-"storage tables automatically."
+"Enable Zero Configuration mode which lets you set up phpMyAdmin "
+"configuration storage tables automatically."
 msgstr ""
 "Povolí mód Automatické konfigurace, který vám dovolí nastavit phpMyAdmin "
 "konfigurační úložiště tabulek automaticky."
@@ -4394,7 +4424,9 @@ msgid "Show current browsing query"
 msgstr "Zobrazit aktuálně prohlížený dotaz"
 
 #: libraries/classes/Config/Descriptions.php:991
-msgid "Execute queries on Enter and insert new line with Shift + Enter"
+#, fuzzy
+#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
+msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 "Spouštět dotazy stisknutím klávesy Enter a vložit nový řádek pomocí Shift + "
 "Enter"
@@ -14084,9 +14116,13 @@ msgid "Set default"
 msgstr "Nastavit výchozí"
 
 #: templates/console/display.twig:162
+#, fuzzy
+#| msgid ""
+#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
+#| "this permanent, view settings."
 msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
+"Execute queries on Enter and insert new line with Shift+Enter. To make this "
+"permanent, view settings."
 msgstr ""
 "Spustit dotazy zmáčknutím klávesy Enter a vložit nový řádek pomocí Shift + "
 "Enter.Chcete-li to nastavit trvale, podívejte se na nastavení."

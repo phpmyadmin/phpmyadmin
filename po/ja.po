@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-12-19 12:23+0100\n"
+"POT-Creation-Date: 2020-12-21 16:13+0100\n"
 "PO-Revision-Date: 2020-11-12 16:28+0000\n"
 "Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2258,7 +2258,9 @@ msgid "Export as separate files"
 msgstr "別々のファイルとしてエクスポート"
 
 #: libraries/classes/Config/Descriptions.php:268
-msgid "Remember file name template"
+#, fuzzy
+#| msgid "Remember file name template"
+msgid "Remember filename template"
 msgstr "ファイル名のテンプレートを記憶しておく"
 
 #: libraries/classes/Config/Descriptions.php:269
@@ -4266,18 +4268,26 @@ msgid "Version check"
 msgstr "バージョンの確認"
 
 #: libraries/classes/Config/Descriptions.php:941
+#, fuzzy
+#| msgid ""
+#| "The url of the proxy to be used when retrieving the information about the "
+#| "latest version of phpMyAdmin or when submitting error reports. You need "
+#| "this if the server where phpMyAdmin is installed does not have direct "
+#| "access to the internet. The format is: \"hostname:portnumber\"."
 msgid ""
-"The url of the proxy to be used when retrieving the information about the "
-"latest version of phpMyAdmin or when submitting error reports. You need this "
-"if the server where phpMyAdmin is installed does not have direct access to "
-"the internet. The format is: \"hostname:portnumber\"."
+"The URL of the proxy to be used when retrieving the information about the "
+"latest version of phpMyAdmin, or when submitting error reports. You need "
+"this if the server where phpMyAdmin is installed does not have direct access "
+"to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 "エラー報告を送信する時・phpMyAdminの最新バージョン情報通信時のプロキシサーバ"
 "設定です。phpMyAdminが直接にインターネットへ接続が出来ない場合、必要となりま"
 "す。URL形式：「ホスト名:ポート番号」。"
 
 #: libraries/classes/Config/Descriptions.php:946
-msgid "Proxy url"
+#, fuzzy
+#| msgid "Proxy url"
+msgid "Proxy URL"
 msgstr "プロキシURL"
 
 #: libraries/classes/Config/Descriptions.php:948
@@ -4313,51 +4323,63 @@ msgstr "ZIP"
 #: libraries/classes/Config/Descriptions.php:959
 #, fuzzy
 #| msgid "Enter your siteverify URL for your reCaptcha service."
-msgid "Enter the URL for your reCaptcha v2 compatible API."
+msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "reCaptcha サービスのサイト認証 URL を入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:960
 #, fuzzy
 #| msgid "URL for reCaptcha siteverify"
-msgid "URL for reCaptcha v2 API"
+msgid "URL for reCAPTCHA v2 API"
 msgstr "reCaptcha サイト認証の URL"
 
 #: libraries/classes/Config/Descriptions.php:961
+#, fuzzy
+#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid ""
-"Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
+"Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
-msgstr ""
+msgstr "reCaptcha サービスのサイト認証 URL を入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:962
-msgid "Content-Security-Policy snippet for reCaptcha v2 API"
+msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:963
-msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+#, fuzzy
+#| msgid "Enter your siteverify URL for your reCaptcha service."
+msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
+msgstr "reCaptcha サービスのサイト認証 URL を入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:964
-msgid "Request parameter for reCaptcha v2 API"
+msgid "Request parameter for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:965
-msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+#, fuzzy
+#| msgid "Enter your siteverify URL for your reCaptcha service."
+msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
+msgstr "reCaptcha サービスのサイト認証 URL を入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:966
-msgid "Response parameter for reCaptcha v2 API"
+msgid "Response parameter for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:967
-msgid "Enter your public key for your domain reCaptcha service."
+#, fuzzy
+#| msgid "Enter your public key for your domain reCaptcha service."
+msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "ドメインのreCaptchaサービスの公開キーを入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:968
-msgid "Public key for reCaptcha"
+#, fuzzy
+#| msgid "Public key for reCaptcha"
+msgid "Public key for reCAPTCHA"
 msgstr "reCaptchaの公開キー"
 
 #: libraries/classes/Config/Descriptions.php:969
-msgid "Enter your private key for your domain reCaptcha service."
+#, fuzzy
+#| msgid "Enter your private key for your domain reCaptcha service."
+msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "ドメインのreCaptchaサービスの秘密キーを入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:970
@@ -4365,11 +4387,15 @@ msgid "Private key for reCaptcha"
 msgstr "reCaptchaの秘密キー"
 
 #: libraries/classes/Config/Descriptions.php:971
-msgid "Enter your siteverify URL for your reCaptcha service."
+#, fuzzy
+#| msgid "Enter your siteverify URL for your reCaptcha service."
+msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "reCaptcha サービスのサイト認証 URL を入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:972
-msgid "URL for reCaptcha siteverify"
+#, fuzzy
+#| msgid "URL for reCaptcha siteverify"
+msgid "URL for reCAPTCHA siteverify"
 msgstr "reCaptcha サイト認証の URL"
 
 #: libraries/classes/Config/Descriptions.php:974
@@ -4393,9 +4419,13 @@ msgid "Enter executes queries in console"
 msgstr "Enterでコンソールのクエリを実行します"
 
 #: libraries/classes/Config/Descriptions.php:984
+#, fuzzy
+#| msgid ""
+#| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
+#| "configuration storage tables automatically."
 msgid ""
-"Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
-"storage tables automatically."
+"Enable Zero Configuration mode which lets you set up phpMyAdmin "
+"configuration storage tables automatically."
 msgstr ""
 "ゼロコンフィギュレーションモードを有効にします。これによりphpMyAdminのコン"
 "フィギュレーションストレージテーブルは自動設定されます。"
@@ -4420,7 +4450,9 @@ msgid "Show current browsing query"
 msgstr "現在のクエリを表示"
 
 #: libraries/classes/Config/Descriptions.php:991
-msgid "Execute queries on Enter and insert new line with Shift + Enter"
+#, fuzzy
+#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
+msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr "Enterでクエリを実行し、Shift + Enterで新しい行を挿入します"
 
 #: libraries/classes/Config/Descriptions.php:992
@@ -14064,9 +14096,13 @@ msgid "Set default"
 msgstr "デフォルトに設定"
 
 #: templates/console/display.twig:162
+#, fuzzy
+#| msgid ""
+#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
+#| "this permanent, view settings."
 msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
+"Execute queries on Enter and insert new line with Shift+Enter. To make this "
+"permanent, view settings."
 msgstr ""
 "Enterでクエリを実行し、Shift + Enterで新しい行を挿入します。永続的にするに"
 "は、設定を確認してください。"

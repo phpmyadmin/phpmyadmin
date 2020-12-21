@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-12-19 12:23+0100\n"
+"POT-Creation-Date: 2020-12-21 16:13+0100\n"
 "PO-Revision-Date: 2020-11-19 15:47+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -2267,7 +2267,9 @@ msgid "Export as separate files"
 msgstr "Exportar como arquivos separados"
 
 #: libraries/classes/Config/Descriptions.php:268
-msgid "Remember file name template"
+#, fuzzy
+#| msgid "Remember file name template"
+msgid "Remember filename template"
 msgstr "Lembrar modelo de nome de arquivo"
 
 #: libraries/classes/Config/Descriptions.php:269
@@ -4331,11 +4333,17 @@ msgid "Version check"
 msgstr "Verificação de versão"
 
 #: libraries/classes/Config/Descriptions.php:941
+#, fuzzy
+#| msgid ""
+#| "The url of the proxy to be used when retrieving the information about the "
+#| "latest version of phpMyAdmin or when submitting error reports. You need "
+#| "this if the server where phpMyAdmin is installed does not have direct "
+#| "access to the internet. The format is: \"hostname:portnumber\"."
 msgid ""
-"The url of the proxy to be used when retrieving the information about the "
-"latest version of phpMyAdmin or when submitting error reports. You need this "
-"if the server where phpMyAdmin is installed does not have direct access to "
-"the internet. The format is: \"hostname:portnumber\"."
+"The URL of the proxy to be used when retrieving the information about the "
+"latest version of phpMyAdmin, or when submitting error reports. You need "
+"this if the server where phpMyAdmin is installed does not have direct access "
+"to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 "A url do proxy a ser usada para recuperar informações sobre a última versão "
 "do phpMyAdmin ou para enviar relatórios de erro. Voce precisa disto se o "
@@ -4343,7 +4351,9 @@ msgstr ""
 "internet. O formato é: \"hostname:portnumber\"."
 
 #: libraries/classes/Config/Descriptions.php:946
-msgid "Proxy url"
+#, fuzzy
+#| msgid "Proxy url"
+msgid "Proxy URL"
 msgstr "URL de Proxy"
 
 #: libraries/classes/Config/Descriptions.php:948
@@ -4379,51 +4389,63 @@ msgstr "ZIP"
 #: libraries/classes/Config/Descriptions.php:959
 #, fuzzy
 #| msgid "Enter your siteverify URL for your reCaptcha service."
-msgid "Enter the URL for your reCaptcha v2 compatible API."
+msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Digite a sua URL siteverify para o seu serviço reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:960
 #, fuzzy
 #| msgid "URL for reCaptcha siteverify"
-msgid "URL for reCaptcha v2 API"
+msgid "URL for reCAPTCHA v2 API"
 msgstr "URL para o siteverify do reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:961
+#, fuzzy
+#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid ""
-"Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
+"Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
-msgstr ""
+msgstr "Digite a sua URL siteverify para o seu serviço reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:962
-msgid "Content-Security-Policy snippet for reCaptcha v2 API"
+msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:963
-msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+#, fuzzy
+#| msgid "Enter your siteverify URL for your reCaptcha service."
+msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
+msgstr "Digite a sua URL siteverify para o seu serviço reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:964
-msgid "Request parameter for reCaptcha v2 API"
+msgid "Request parameter for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:965
-msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+#, fuzzy
+#| msgid "Enter your siteverify URL for your reCaptcha service."
+msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
+msgstr "Digite a sua URL siteverify para o seu serviço reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:966
-msgid "Response parameter for reCaptcha v2 API"
+msgid "Response parameter for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:967
-msgid "Enter your public key for your domain reCaptcha service."
+#, fuzzy
+#| msgid "Enter your public key for your domain reCaptcha service."
+msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Digite a chave pública do seu domínio no serviço reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:968
-msgid "Public key for reCaptcha"
+#, fuzzy
+#| msgid "Public key for reCaptcha"
+msgid "Public key for reCAPTCHA"
 msgstr "Chave pública para o reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:969
-msgid "Enter your private key for your domain reCaptcha service."
+#, fuzzy
+#| msgid "Enter your private key for your domain reCaptcha service."
+msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Digite a sua chave privada para o seu domínio no serviço reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:970
@@ -4431,11 +4453,15 @@ msgid "Private key for reCaptcha"
 msgstr "Chave privada do reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:971
-msgid "Enter your siteverify URL for your reCaptcha service."
+#, fuzzy
+#| msgid "Enter your siteverify URL for your reCaptcha service."
+msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "Digite a sua URL siteverify para o seu serviço reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:972
-msgid "URL for reCaptcha siteverify"
+#, fuzzy
+#| msgid "URL for reCaptcha siteverify"
+msgid "URL for reCAPTCHA siteverify"
 msgstr "URL para o siteverify do reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:974
@@ -4459,9 +4485,13 @@ msgid "Enter executes queries in console"
 msgstr "Enter executa consultas no console"
 
 #: libraries/classes/Config/Descriptions.php:984
+#, fuzzy
+#| msgid ""
+#| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
+#| "configuration storage tables automatically."
 msgid ""
-"Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
-"storage tables automatically."
+"Enable Zero Configuration mode which lets you set up phpMyAdmin "
+"configuration storage tables automatically."
 msgstr ""
 "Ative o Modo de Configuração Zero, que possibilitará que você configure as "
 "tabelas de armazenamento do phpMyAdmin automaticamente."
@@ -4486,7 +4516,9 @@ msgid "Show current browsing query"
 msgstr "Mostrar consulta de navegação atual"
 
 #: libraries/classes/Config/Descriptions.php:991
-msgid "Execute queries on Enter and insert new line with Shift + Enter"
+#, fuzzy
+#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
+msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr "Execute consultas com Enter e insira nova linha com Shift + Enter"
 
 #: libraries/classes/Config/Descriptions.php:992
@@ -14322,9 +14354,13 @@ msgid "Set default"
 msgstr "Definir padrão"
 
 #: templates/console/display.twig:162
+#, fuzzy
+#| msgid ""
+#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
+#| "this permanent, view settings."
 msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
+"Execute queries on Enter and insert new line with Shift+Enter. To make this "
+"permanent, view settings."
 msgstr ""
 "Execute consultas com Enter e insira nova linha com Shift + Enter. Para "
 "definir como permanente, vá em configurações."

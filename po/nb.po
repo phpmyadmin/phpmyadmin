@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-12-19 12:23+0100\n"
+"POT-Creation-Date: 2020-12-21 16:13+0100\n"
 "PO-Revision-Date: 2020-11-25 22:28+0000\n"
 "Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -2221,7 +2221,9 @@ msgid "Export as separate files"
 msgstr "Eksporter som egne filer"
 
 #: libraries/classes/Config/Descriptions.php:268
-msgid "Remember file name template"
+#, fuzzy
+#| msgid "Remember file name template"
+msgid "Remember filename template"
 msgstr "Husk filnavnsmal"
 
 #: libraries/classes/Config/Descriptions.php:269
@@ -4515,11 +4517,17 @@ msgid "Version check"
 msgstr "Versjonskontroll"
 
 #: libraries/classes/Config/Descriptions.php:941
+#, fuzzy
+#| msgid ""
+#| "The url of the proxy to be used when retrieving the information about the "
+#| "latest version of phpMyAdmin or when submitting error reports. You need "
+#| "this if the server where phpMyAdmin is installed does not have direct "
+#| "access to the internet. The format is: \"hostname:portnumber\"."
 msgid ""
-"The url of the proxy to be used when retrieving the information about the "
-"latest version of phpMyAdmin or when submitting error reports. You need this "
-"if the server where phpMyAdmin is installed does not have direct access to "
-"the internet. The format is: \"hostname:portnumber\"."
+"The URL of the proxy to be used when retrieving the information about the "
+"latest version of phpMyAdmin, or when submitting error reports. You need "
+"this if the server where phpMyAdmin is installed does not have direct access "
+"to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 "URLen til proxyen som skal brukes når du henter informasjonen om den siste "
 "versjonen av phpMyAdmin eller når du sender inn feilrapporter. Du trenger "
@@ -4527,7 +4535,9 @@ msgstr ""
 "til internett. Formatet er: \"vertsnavn: portnummer\"."
 
 #: libraries/classes/Config/Descriptions.php:946
-msgid "Proxy url"
+#, fuzzy
+#| msgid "Proxy url"
+msgid "Proxy URL"
 msgstr "Mellomtjenernettadresse"
 
 #: libraries/classes/Config/Descriptions.php:948
@@ -4571,49 +4581,55 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:959
-msgid "Enter the URL for your reCaptcha v2 compatible API."
+msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:960
-msgid "URL for reCaptcha v2 API"
+msgid "URL for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:961
 msgid ""
-"Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
+"Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:962
-msgid "Content-Security-Policy snippet for reCaptcha v2 API"
+msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:963
-msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
+msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:964
-msgid "Request parameter for reCaptcha v2 API"
+msgid "Request parameter for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:965
-msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
+msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:966
-msgid "Response parameter for reCaptcha v2 API"
+msgid "Response parameter for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:967
-msgid "Enter your public key for your domain reCaptcha service."
+#, fuzzy
+#| msgid "Enter your public key for your domain reCaptcha service."
+msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Skriv inn din offentlige nøkkel for ditt domene reCaptcha-tjeneste."
 
 #: libraries/classes/Config/Descriptions.php:968
-msgid "Public key for reCaptcha"
+#, fuzzy
+#| msgid "Public key for reCaptcha"
+msgid "Public key for reCAPTCHA"
 msgstr "Offentlig nøkkel for reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:969
-msgid "Enter your private key for your domain reCaptcha service."
+#, fuzzy
+#| msgid "Enter your private key for your domain reCaptcha service."
+msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Skriv inn din private nøkkel for ditt domene reCaptcha-tjeneste."
 
 #: libraries/classes/Config/Descriptions.php:970
@@ -4621,11 +4637,13 @@ msgid "Private key for reCaptcha"
 msgstr "Privat nøkkel for reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:971
-msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr ""
+#, fuzzy
+#| msgid "Enter your private key for your domain reCaptcha service."
+msgid "Enter your siteverify URL for your reCAPTCHA service."
+msgstr "Skriv inn din private nøkkel for ditt domene reCaptcha-tjeneste."
 
 #: libraries/classes/Config/Descriptions.php:972
-msgid "URL for reCaptcha siteverify"
+msgid "URL for reCAPTCHA siteverify"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:974
@@ -4651,9 +4669,13 @@ msgid "Enter executes queries in console"
 msgstr "Enter utfører spørringer i konsollen"
 
 #: libraries/classes/Config/Descriptions.php:984
+#, fuzzy
+#| msgid ""
+#| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
+#| "configuration storage tables automatically."
 msgid ""
-"Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
-"storage tables automatically."
+"Enable Zero Configuration mode which lets you set up phpMyAdmin "
+"configuration storage tables automatically."
 msgstr ""
 "Aktiver nullkonfigurasjonsmodus som lar deg konfigurere phpMyAdmin "
 "konfigurasjon lagringstabeller automatisk."
@@ -4680,7 +4702,9 @@ msgid "Show current browsing query"
 msgstr "Vis gjeldende nettleser kø"
 
 #: libraries/classes/Config/Descriptions.php:991
-msgid "Execute queries on Enter and insert new line with Shift + Enter"
+#, fuzzy
+#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
+msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr "Utfør spørsmål på Enter og sett inn en ny linje med Shift + Enter"
 
 #: libraries/classes/Config/Descriptions.php:992
@@ -14891,10 +14915,12 @@ msgid "Set default"
 msgstr "Angi forvalg"
 
 #: templates/console/display.twig:162
+#, fuzzy
+#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
-msgstr ""
+"Execute queries on Enter and insert new line with Shift+Enter. To make this "
+"permanent, view settings."
+msgstr "Utfør spørsmål på Enter og sett inn en ny linje med Shift + Enter"
 
 #: templates/create_tracking_version.twig:11
 #, fuzzy, php-format

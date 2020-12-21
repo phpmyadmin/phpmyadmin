@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-12-19 12:23+0100\n"
+"POT-Creation-Date: 2020-12-21 16:13+0100\n"
 "PO-Revision-Date: 2020-11-16 06:28+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2293,7 +2293,9 @@ msgid "Export as separate files"
 msgstr "Jeke faıldar retinde eksporttaý"
 
 #: libraries/classes/Config/Descriptions.php:268
-msgid "Remember file name template"
+#, fuzzy
+#| msgid "Remember file name template"
+msgid "Remember filename template"
 msgstr "Faıl aty úlgisin este saqtaý"
 
 #: libraries/classes/Config/Descriptions.php:269
@@ -4348,11 +4350,17 @@ msgid "Version check"
 msgstr "Nusqany tekserý"
 
 #: libraries/classes/Config/Descriptions.php:941
+#, fuzzy
+#| msgid ""
+#| "The url of the proxy to be used when retrieving the information about the "
+#| "latest version of phpMyAdmin or when submitting error reports. You need "
+#| "this if the server where phpMyAdmin is installed does not have direct "
+#| "access to the internet. The format is: \"hostname:portnumber\"."
 msgid ""
-"The url of the proxy to be used when retrieving the information about the "
-"latest version of phpMyAdmin or when submitting error reports. You need this "
-"if the server where phpMyAdmin is installed does not have direct access to "
-"the internet. The format is: \"hostname:portnumber\"."
+"The URL of the proxy to be used when retrieving the information about the "
+"latest version of phpMyAdmin, or when submitting error reports. You need "
+"this if the server where phpMyAdmin is installed does not have direct access "
+"to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 "phpMyAdmin sońǵy nusqasy týraly aqparatty shyǵaryp alǵanda nemese qate "
 "týraly esepterdi jibergen kezde paıdalanylatyn proksı URL-y. Eger phpMyAdmin "
@@ -4360,7 +4368,9 @@ msgstr ""
 "Pishimi: «túıin_aty:port_nómiri»."
 
 #: libraries/classes/Config/Descriptions.php:946
-msgid "Proxy url"
+#, fuzzy
+#| msgid "Proxy url"
+msgid "Proxy URL"
 msgstr "Proksı URL-y"
 
 #: libraries/classes/Config/Descriptions.php:948
@@ -4397,49 +4407,61 @@ msgstr "ZIP"
 #: libraries/classes/Config/Descriptions.php:959
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
-msgid "Enter the URL for your reCaptcha v2 compatible API."
+msgid "Enter the URL for your reCAPTCHA v2 compatible API."
 msgstr "Domenińizdegi reCaptcha qyzmeti úshin jabyq kiltti engizińiz."
 
 #: libraries/classes/Config/Descriptions.php:960
-msgid "URL for reCaptcha v2 API"
+msgid "URL for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:961
+#, fuzzy
+#| msgid "Enter your private key for your domain reCaptcha service."
 msgid ""
-"Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
+"Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
-msgstr ""
+msgstr "Domenińizdegi reCaptcha qyzmeti úshin jabyq kiltti engizińiz."
 
 #: libraries/classes/Config/Descriptions.php:962
-msgid "Content-Security-Policy snippet for reCaptcha v2 API"
+msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:963
-msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+#, fuzzy
+#| msgid "Enter your private key for your domain reCaptcha service."
+msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
+msgstr "Domenińizdegi reCaptcha qyzmeti úshin jabyq kiltti engizińiz."
 
 #: libraries/classes/Config/Descriptions.php:964
-msgid "Request parameter for reCaptcha v2 API"
+msgid "Request parameter for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:965
-msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+#, fuzzy
+#| msgid "Enter your private key for your domain reCaptcha service."
+msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
+msgstr "Domenińizdegi reCaptcha qyzmeti úshin jabyq kiltti engizińiz."
 
 #: libraries/classes/Config/Descriptions.php:966
-msgid "Response parameter for reCaptcha v2 API"
+msgid "Response parameter for reCAPTCHA v2 API"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:967
-msgid "Enter your public key for your domain reCaptcha service."
+#, fuzzy
+#| msgid "Enter your public key for your domain reCaptcha service."
+msgid "Enter your public key for the reCAPTCHA service on your domain."
 msgstr "Domenińizdegi reCaptcha qyzmeti úshin ashyq kiltti engizińiz."
 
 #: libraries/classes/Config/Descriptions.php:968
-msgid "Public key for reCaptcha"
+#, fuzzy
+#| msgid "Public key for reCaptcha"
+msgid "Public key for reCAPTCHA"
 msgstr "reCaptcha úshin ashyq kilt"
 
 #: libraries/classes/Config/Descriptions.php:969
-msgid "Enter your private key for your domain reCaptcha service."
+#, fuzzy
+#| msgid "Enter your private key for your domain reCaptcha service."
+msgid "Enter your private key for your domain reCAPTCHA service."
 msgstr "Domenińizdegi reCaptcha qyzmeti úshin jabyq kiltti engizińiz."
 
 #: libraries/classes/Config/Descriptions.php:970
@@ -4449,11 +4471,11 @@ msgstr "reCaptcha úshin jabyq kilt"
 #: libraries/classes/Config/Descriptions.php:971
 #, fuzzy
 #| msgid "Enter your private key for your domain reCaptcha service."
-msgid "Enter your siteverify URL for your reCaptcha service."
+msgid "Enter your siteverify URL for your reCAPTCHA service."
 msgstr "Domenińizdegi reCaptcha qyzmeti úshin jabyq kiltti engizińiz."
 
 #: libraries/classes/Config/Descriptions.php:972
-msgid "URL for reCaptcha siteverify"
+msgid "URL for reCAPTCHA siteverify"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:974
@@ -4477,9 +4499,13 @@ msgid "Enter executes queries in console"
 msgstr "Oryndalatyn saýaldardy konsólde engizińiz"
 
 #: libraries/classes/Config/Descriptions.php:984
+#, fuzzy
+#| msgid ""
+#| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
+#| "configuration storage tables automatically."
 msgid ""
-"Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
-"storage tables automatically."
+"Enable Zero Configuration mode which lets you set up phpMyAdmin "
+"configuration storage tables automatically."
 msgstr ""
 "phpMyAdmin konfıgýrasıa saqtaýshy kestelerin avtomatty teńsheýge múmkindik "
 "beretin Nóldik teńshelim rejımin qosý."
@@ -4504,7 +4530,9 @@ msgid "Show current browsing query"
 msgstr "Aǵymdyq sholýdaǵy saýaldy kórsetý"
 
 #: libraries/classes/Config/Descriptions.php:991
-msgid "Execute queries on Enter and insert new line with Shift + Enter"
+#, fuzzy
+#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
+msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 "Enter basyp saýaldardy oryndaý jáne jańa joldy Shift+Enter arqyly engizý"
 
@@ -14288,9 +14316,13 @@ msgid "Set default"
 msgstr "Ádepki ornatý"
 
 #: templates/console/display.twig:162
+#, fuzzy
+#| msgid ""
+#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
+#| "this permanent, view settings."
 msgid ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
+"Execute queries on Enter and insert new line with Shift+Enter. To make this "
+"permanent, view settings."
 msgstr ""
 "Enter pernesin basyp saýaldardy oryndańyz jáne jańa joldy Shift+Enter arqyly "
 "engizińiz. Ony turaqty jasaý úshin, parametrlerdi qarańyz."
