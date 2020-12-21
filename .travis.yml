@@ -177,8 +177,8 @@ jobs:
       before_script: skip
       after_script: skip
       after_success: skip
-      install: composer global require "code-lts/doctum:^5.2"
-      script: $(composer global config bin-dir --absolute --quiet)/doctum.php --no-interaction update ./test/doctum-config.php -vvv --ignore-parse-errors --no-progress --no-ansi
+      install: composer global require "code-lts/doctum:^5.3"
+      script: $(composer global config bin-dir --absolute --quiet)/doctum.php --no-interaction update ./test/doctum-config.php -v --no-progress --no-ansi
 
     - stage: "Other tests"
       name: "Build release"
