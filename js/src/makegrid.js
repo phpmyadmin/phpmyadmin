@@ -378,6 +378,11 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          */
         sendColPrefs: function () {
             if ($(g.t).is('.ajax')) {   // only send preferences if ajax class
+                if (typeof g.db !== 'string' && typeof g.table !== 'string') {
+                    // The server has nothing to do with it
+                    // Issue: https://github.com/phpmyadmin/phpmyadmin/issues/15658
+                    return;
+                }
                 var postParams = {
                     'ajax_request': true,
                     'db': g.db,

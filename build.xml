@@ -98,10 +98,13 @@
 
  <target name="phpdoc" description="Generate API documentation using Doctum">
  <!-- ant phpdoc -Denv.DOCTUM_BIN_PATH="/usr/bin/doctum" -->
+ <!-- please use 5.3.0 as a minimum version -->
+ <!-- Download the latest 5.x.x version -->
+ <!-- curl -o /bin/doctum https://doctum.long-term.support/releases/5/doctum.phar && chmod +x /bin/doctum -->
  <property name="env.DOCTUM_BIN_PATH" value="/bin/doctum"/>
-  <exec executable="php">
-    <arg line="${env.DOCTUM_BIN_PATH}" />
-    <arg line="--no-interaction update ./test/doctum-config.php -vvv --ignore-parse-errors --no-progress --no-ansi" />
+  <exec executable="${env.DOCTUM_BIN_PATH}" failonerror="true">
+    <redirector error="${basedir}/build/logs/doctum.xml"/>
+    <arg line="--no-interaction update ./test/doctum-config.php -v --force --no-progress --no-ansi --output-format=checkstyle" />
   </exec>
  </target>
 
