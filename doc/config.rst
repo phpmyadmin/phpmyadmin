@@ -196,7 +196,7 @@ Basic settings
     :default: false
 
     Setting this to ``true`` allows the user to execute queries by pressing Enter
-    instead of Ctrl+Enter. A new line can be inserted by pressing Shift + Enter.
+    instead of Ctrl+Enter. A new line can be inserted by pressing Shift+Enter.
 
     The behaviour of the console can be temporarily changed using console's
     settings interface.
@@ -3499,7 +3499,7 @@ Console settings
     :type: boolean
     :default: false
 
-    Execute queries on Enter and insert new line with Shift + Enter
+    Execute queries on Enter and insert new line with Shift+Enter
 
 .. config:option:: $cfg['Console']['DarkTheme']
 
