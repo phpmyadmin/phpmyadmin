@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-21 16:13+0100\n"
-"PO-Revision-Date: 2020-12-21 10:29+0000\n"
+"PO-Revision-Date: 2020-12-22 16:29+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -2272,10 +2272,8 @@ msgid "Export as separate files"
 msgstr "Exporteer als afzonderlijke bestanden"
 
 #: libraries/classes/Config/Descriptions.php:268
-#, fuzzy
-#| msgid "Remember file name template"
 msgid "Remember filename template"
-msgstr "Bestandsnaamtemplate herinneren"
+msgstr "Onthou bestandsnaam template"
 
 #: libraries/classes/Config/Descriptions.php:269
 #: templates/database/operations/index.twig:165
@@ -4335,29 +4333,21 @@ msgid "Version check"
 msgstr "Versiecontrole"
 
 #: libraries/classes/Config/Descriptions.php:941
-#, fuzzy
-#| msgid ""
-#| "The url of the proxy to be used when retrieving the information about the "
-#| "latest version of phpMyAdmin or when submitting error reports. You need "
-#| "this if the server where phpMyAdmin is installed does not have direct "
-#| "access to the internet. The format is: \"hostname:portnumber\"."
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
 "this if the server where phpMyAdmin is installed does not have direct access "
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
-"De url voor de proxy die gebruikt moet worden bij het ophalen van de "
-"informatie over de meest recente versie van phpMyAdmin of bij het verzenden "
+"De URL voor de proxy die gebruikt moet worden bij het ophalen van de "
+"informatie over de meest recente versie van phpMyAdmin, of bij het verzenden "
 "van foutmeldingsverslagen. U heeft dit nodig als de server waarop phpMyAdmin "
-"geïnstalleerd is geen directe toegang tot het internet heeft. Het formaat "
-"is: \"servernaam:poortnummer\"."
+"geïnstalleerd is geen directe toegang tot het Internet heeft. Het formaat is:"
+" \"servernaam:poortnummer\"."
 
 #: libraries/classes/Config/Descriptions.php:946
-#, fuzzy
-#| msgid "Proxy url"
 msgid "Proxy URL"
-msgstr "Proxy url"
+msgstr "Proxy URL"
 
 #: libraries/classes/Config/Descriptions.php:948
 msgid ""
@@ -4391,98 +4381,67 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Enter the URL for your reCaptcha v2 compatible API."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr "Voer de URL in voor uw reCaptcha v2 compatible API."
+msgstr "Voer de URL in voor uw reCAPTCHA v2 compatible API."
 
 #: libraries/classes/Config/Descriptions.php:960
-#, fuzzy
-#| msgid "URL for reCaptcha v2 API"
 msgid "URL for reCAPTCHA v2 API"
-msgstr "URL voor reCaptcha v2 API"
+msgstr "URL voor reCAPTCHA v2 API"
 
 #: libraries/classes/Config/Descriptions.php:961
-#, fuzzy
-#| msgid ""
-#| "Enter the Content-Security-Policy snippet for your reCaptcha v2 "
-#| "compatible API."
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
-"Geef de Content-Security-Policy snippet in voor uw reCaptcha v2 compatible "
+"Geef de Content-Security-Policy snippet in voor uw reCAPTCHA v2 compatible "
 "API."
 
 #: libraries/classes/Config/Descriptions.php:962
-#, fuzzy
-#| msgid "Content-Security-Policy snippet for reCaptcha v2 API"
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
-msgstr "Content-Security-Policy snippet voor reCaptcha v2 API"
+msgstr "Content-Security-Policy snippet voor reCAPTCHA v2 API"
 
 #: libraries/classes/Config/Descriptions.php:963
-#, fuzzy
-#| msgid ""
-#| "Enter the request parameter used by your reCaptcha v2 compatible API."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
-"Geef de vraag parameter in die gebruikt wordt door uw reCaptcha v2 "
-"compatible API."
+"Geef de vraag parameter in gebruik bij uw reCAPTCHA v2 compatible API in."
 
 #: libraries/classes/Config/Descriptions.php:964
-#, fuzzy
-#| msgid "Request parameter for reCaptcha v2 API"
 msgid "Request parameter for reCAPTCHA v2 API"
-msgstr "Vraag parameter voor reCaptcha v2 API"
+msgstr "Vraag parameter voor reCAPTCHA v2 API"
 
 #: libraries/classes/Config/Descriptions.php:965
-#, fuzzy
-#| msgid ""
-#| "Enter the response parameter used by your reCaptcha v2 compatible API."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
-"Geef de respons parameter in die gebruikt wordt door uw reCaptcha v2 "
+"Geef de respons parameter in die gebruikt wordt door uw reCAPTCHA v2 "
 "compatible API."
 
 #: libraries/classes/Config/Descriptions.php:966
-#, fuzzy
-#| msgid "Response parameter for reCaptcha v2 API"
 msgid "Response parameter for reCAPTCHA v2 API"
-msgstr "Respons parameter voor reCaptcha v2 API"
+msgstr "Respons parameter voor reCAPTCHA v2 API"
 
 #: libraries/classes/Config/Descriptions.php:967
-#, fuzzy
-#| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr "Voer uw openbare sleutel in voor de reCaptcha service op uw domein."
+msgstr "Voer uw openbare sleutel in voor de reCAPTCHA service op uw domein."
 
 #: libraries/classes/Config/Descriptions.php:968
-#, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Public key for reCAPTCHA"
-msgstr "Openbare sleutel voor reCaptcha"
+msgstr "Publieke sleutel voor reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:969
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr "Voer uw private sleutel in voor de reCaptcha service op uw domein."
+msgstr "Voer uw private sleutel in voor de reCAPTCHA service op uw domein."
 
 #: libraries/classes/Config/Descriptions.php:970
 msgid "Private key for reCaptcha"
 msgstr "Private sleutel voor reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:971
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr "Voer uw siteverify URL in voor uw reCaptcha service."
+msgstr "Voer uw siteverify URL in voor uw reCAPTCHA service."
 
 #: libraries/classes/Config/Descriptions.php:972
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCAPTCHA siteverify"
-msgstr "URL voor reCaptcha siteverify"
+msgstr "URL voor reCAPTCHA siteverify"
 
 #: libraries/classes/Config/Descriptions.php:974
 msgid "Choose the default action when sending error reports."
@@ -4505,10 +4464,6 @@ msgid "Enter executes queries in console"
 msgstr "De Enter toets voert queries uit in de console"
 
 #: libraries/classes/Config/Descriptions.php:984
-#, fuzzy
-#| msgid ""
-#| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
-#| "configuration storage tables automatically."
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
@@ -4536,12 +4491,10 @@ msgid "Show current browsing query"
 msgstr "Toon huidige blader query"
 
 #: libraries/classes/Config/Descriptions.php:991
-#, fuzzy
-#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
-"Voer queries uit met de Enter-toets en voeg een nieuwe regel toe met Shift + "
-"Enter"
+"Voer queries uit met de Enter-toets en voeg een nieuwe regel toe met "
+"Shift+Enter"
 
 #: libraries/classes/Config/Descriptions.php:992
 #: templates/console/display.twig:168
@@ -14402,15 +14355,11 @@ msgid "Set default"
 msgstr "Standaardwaarde instellen"
 
 #: templates/console/display.twig:162
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
 msgstr ""
-"Voer queries uit met de Enter toets en voeg een nieuwe regel toe met Shift + "
+"Voer queries uit met de Enter toets en voeg een nieuwe regel toe met Shift+"
 "Enter. Om dit permanent te maken, bekijk het instellingenmenu."
 
 #: templates/create_tracking_version.twig:11
