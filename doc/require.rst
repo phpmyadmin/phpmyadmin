@@ -56,5 +56,10 @@ Web browser
 To access phpMyAdmin you need a web browser with cookies and JavaScript
 enabled.
 
-You need a browser which is supported by jQuery 2.0, see
-<https://jquery.com/browser-support/>.
+You need a browser which is supported by Bootstrap 4.5, see
+<https://getbootstrap.com/docs/4.5/getting-started/browsers-devices/>.
+
+.. versionchanged:: 5.2.0
+
+    You need a browser which is supported by Bootstrap 5.0, see
+    <https://getbootstrap.com/docs/5.0/getting-started/browsers-devices/>.
