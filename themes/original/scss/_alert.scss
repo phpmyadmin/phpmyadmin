@@ -1,11 +1,6 @@
 .alert {
-  text-align: $left;
-
-  @if $direction == rtl {
-    padding: 0.1em 40px 0.1em 0.1em;
-  } @else {
-    padding: 0.1em 0.1em 0.1em 40px;
-  }
+  text-align: left;
+  padding: 0.1em 0.1em 0.1em 40px;
 
   h1 {
     border-bottom: 2px solid;

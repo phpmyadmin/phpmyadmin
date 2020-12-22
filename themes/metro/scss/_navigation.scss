@@ -4,7 +4,7 @@
   overflow: hidden;
   position: fixed;
   top: 0;
-  #{$left}: 0;
+  left: 0;
   height: 100%;
   background: $navi-color;
   color: $main-color;
@@ -45,7 +45,7 @@
   width: 100%;
   position: absolute;
   top: 0;
-  #{$left}: 0;
+  left: 0;
   z-index: 0;
 }
 
@@ -63,8 +63,8 @@
   div.pageselector {
     text-align: center;
     margin: 0;
-    margin-#{$left}: 0.75em;
-    border-#{$left}: 1px solid #666;
+    margin-left: 0.75em;
+    border-left: 1px solid #666;
   }
 
   #pmalogo {
@@ -81,7 +81,7 @@
     &::after {
       font-family: $font-family-extra-bold;
       text-transform: uppercase;
-      margin-#{$left}: 5px;
+      margin-left: 5px;
       content: "phpMyAdmin";
     }
   }
@@ -149,7 +149,7 @@ img {
   height: 16px;
   width: 16px;
   color: $main-color;
-  margin-#{$right}: 5px;
+  margin-right: 5px;
   padding: 5px;
   font-size: 15px;
 
@@ -176,14 +176,14 @@ img {
 /* Navigation tree */
 #pma_navigation_tree {
   margin: 0;
-  margin-#{$left}: 10px;
+  margin-left: 10px;
   overflow: hidden;
   height: 74%;
   position: relative;
 }
 
 #pma_navigation_select_database {
-  text-align: $left;
+  text-align: left;
   padding: 0 0 0;
   border: 0;
   margin: 0;
@@ -191,7 +191,7 @@ img {
 
 #pma_navigation_db_select {
   margin-top: 0.5em;
-  margin-#{$left}: 0.75em;
+  margin-left: 0.75em;
 
   select {
     border: 1px solid #bbb;
@@ -213,13 +213,13 @@ img {
 
 #pma_navigation_tree li {
   .dbItemControls {
-    padding-#{$right}: 4px;
+    padding-right: 4px;
     float: right;
   }
 
   .navItemControls {
     display: none;
-    padding-#{$right}: 4px;
+    padding-right: 4px;
     float: right;
   }
 
@@ -290,7 +290,7 @@ img {
       height: 2em;
       min-width: 16px;
       min-height: 16px;
-      float: $left;
+      float: left;
 
       &.double {
         width: 2.5em;
@@ -304,7 +304,7 @@ img {
         min-height: 8px;
         position: absolute;
         bottom: 0.7em;
-        #{$left}: 0.75em;
+        left: 0.75em;
         z-index: 0;
         margin-top: -4px;
       }
@@ -312,14 +312,14 @@ img {
       /* Top and right segments for the tree element connections */
       i {
         display: block;
-        border-#{$left}: 1px solid #616161;
+        border-left: 1px solid #616161;
         border-bottom: 1px solid #616161;
         position: relative;
         z-index: 0;
 
         /* Removes top segment */
         &.first {
-          border-#{$left}: 0;
+          border-left: 0;
         }
       }
 
@@ -328,44 +328,44 @@ img {
         display: block;
         height: 0.75em;
         bottom: 0;
-        #{$left}: 0.75em;
-        border-#{$left}: 1px solid #616161;
+        left: 0.75em;
+        border-left: 1px solid #616161;
       }
 
       a,
       u {
         position: absolute;
-        #{$left}: 50%;
+        left: 50%;
         top: 50%;
         z-index: 10;
       }
 
       a + a {
-        #{$left}: 100%;
+        left: 100%;
       }
 
       &.double {
         a,
         u {
-          #{$left}: 33%;
+          left: 33%;
         }
 
         a + a {
-          #{$left}: 85%;
+          left: 85%;
         }
       }
 
       img {
         position: relative;
         top: -0.6em;
-        #{$left}: 0;
-        margin-#{$left}: -7px;
+        left: 0;
+        margin-left: -7px;
       }
     }
 
     &.throbber img {
       top: 2px;
-      #{$left}: 2px;
+      left: 2px;
     }
   }
 
@@ -379,28 +379,28 @@ img {
       i {
         line-height: 1.5em;
         height: 1.5em;
-        padding-#{$left}: 0.3em;
+        padding-left: 0.3em;
       }
     }
   }
 
   .list_container {
-    border-#{$left}: 1px solid #616161;
-    margin-#{$left}: 0.75em;
-    padding-#{$left}: 0.75em;
+    border-left: 1px solid #616161;
+    margin-left: 0.75em;
+    padding-left: 0.75em;
   }
 
   .last > .list_container {
-    border-#{$left}: 0 solid #616161;
+    border-left: 0 solid #616161;
   }
 }
 
 /* Fast filter */
 li.fast_filter {
-  padding-#{$left}: 0.75em;
-  margin-#{$left}: 0.75em;
-  padding-#{$right}: 15px;
-  border-#{$left}: 1px solid #616161;
+  padding-left: 0.75em;
+  margin-left: 0.75em;
+  padding-right: 15px;
+  border-left: 1px solid #616161;
 
   input {
     width: 100%;
@@ -413,7 +413,7 @@ li.fast_filter {
 
   span {
     position: relative;
-    #{$right}: 1.5em;
+    right: 1.5em;
     padding: 0.2em;
     cursor: pointer;
     font-weight: bold;
@@ -422,8 +422,8 @@ li.fast_filter {
 
   &.db_fast_filter {
     border: 0;
-    margin-#{$left}: 0;
-    margin-#{$right}: 10px;
+    margin-left: 0;
+    margin-right: 10px;
   }
 }
 
@@ -432,7 +432,7 @@ li.fast_filter {
 }
 
 #pma_navigation_collapse {
-  padding-#{$right}: 2px;
+  padding-right: 2px;
 }
 
 #navigation_controls_outer.activePointer {
@@ -440,8 +440,8 @@ li.fast_filter {
 }
 
 #navigation_controls {
-  float: $right;
-  padding-#{$right}: 23px;
+  float: right;
+  padding-right: 23px;
 }
 
 /* Resize handler */
@@ -452,7 +452,7 @@ li.fast_filter {
   cursor: col-resize;
   position: fixed;
   top: 0;
-  #{$left}: $navi-width;
+  left: $navi-width;
   z-index: 801;
 }
 
@@ -466,7 +466,7 @@ li.fast_filter {
   color: #fff;
   position: fixed;
   top: 0;
-  #{$left}: $navi-width;
+  left: $navi-width;
   text-align: center;
   cursor: pointer;
   z-index: 801;
@@ -475,12 +475,12 @@ li.fast_filter {
 /* Quick warp links */
 .pma_quick_warp {
   margin-top: 5px;
-  margin-#{$left}: 10px;
+  margin-left: 10px;
   position: relative;
 
   .drop_list {
-    float: $left;
-    margin-#{$left}: 3px;
+    float: left;
+    margin-left: 3px;
     padding: 2px 0;
   }
 
@@ -506,8 +506,8 @@ li.fast_filter {
       background: #fff;
       border: 1px solid #ddd;
       top: 100%;
-      #{$left}: 3px;
-      #{$right}: 0;
+      left: 3px;
+      right: 0;
       display: none;
       z-index: 802;
     }
@@ -534,8 +534,8 @@ li.fast_filter {
       padding: 0.2em 0.3em;
 
       &.favorite_table_anchor {
-        clear: $left;
-        float: $left;
+        clear: left;
+        float: left;
         padding: 0.1em 0.3em 0;
       }
     }

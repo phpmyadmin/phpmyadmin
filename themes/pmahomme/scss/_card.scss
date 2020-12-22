@@ -9,17 +9,10 @@
 
 .card,
 .card-footer {
-  @if $direction == rtl {
-    text-shadow: -1px 1px 2px #fff inset;
-    -moz-box-shadow: -1px 1px 2px #fff inset;
-    -webkit-box-shadow: -1px 1px 2px #fff inset;
-    box-shadow: -1px 1px 2px #fff inset;
-  } @else {
-    text-shadow: 1px 1px 2px #fff inset;
-    -moz-box-shadow: 1px 1px 2px #fff inset;
-    -webkit-box-shadow: 1px 1px 2px #fff inset;
-    box-shadow: 1px 1px 2px #fff inset;
-  }
+  text-shadow: 1px 1px 2px #fff inset;
+  -moz-box-shadow: 1px 1px 2px #fff inset;
+  -webkit-box-shadow: 1px 1px 2px #fff inset;
+  box-shadow: 1px 1px 2px #fff inset;
 }
 
 .card-header {
@@ -66,16 +59,9 @@
   .card {
     background-color: $navi-background;
     border: $card-border-width solid #999;
-
-    @if $direction == rtl {
-      -moz-box-shadow: -2px 2px 5px #ccc;
-      -webkit-box-shadow: -2px 2px 5px #ccc;
-      box-shadow: -2px 2px 5px #ccc;
-    } @else {
-      -moz-box-shadow: 2px 2px 5px #ccc;
-      -webkit-box-shadow: 2px 2px 5px #ccc;
-      box-shadow: 2px 2px 5px #ccc;
-    }
+    -moz-box-shadow: 2px 2px 5px #ccc;
+    -webkit-box-shadow: 2px 2px 5px #ccc;
+    box-shadow: 2px 2px 5px #ccc;
 
     > .card-header + .card-body {
       padding-top: $card-spacer-x;

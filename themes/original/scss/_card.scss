@@ -31,8 +31,8 @@
     background: none;
     border-top: none;
     border-bottom: none;
-    border-#{$right}: none;
-    border-#{$left}: 0.3em solid $th-background;
+    border-right: none;
+    border-left: 0.3em solid $th-background;
 
     > .card-header + .card-body {
       padding-top: 1rem;

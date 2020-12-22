@@ -23,7 +23,7 @@
 }
 
 .jqplot-yaxis {
-  margin-#{$right}: 10px;
+  margin-right: 10px;
 }
 
 .jqplot-y2axis,
@@ -35,8 +35,8 @@
 .jqplot-y8axis,
 .jqplot-y9axis,
 .jqplot-yMidAxis {
-  margin-#{$left}: 10px;
-  margin-#{$right}: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 // rules applied to all axis tick divs
@@ -60,26 +60,26 @@
 .jqplot-xaxis-tick {
   top: 0;
   // initial position untill tick is drawn in proper place
-  #{$left}: 15px;
+  left: 15px;
   vertical-align: top;
 }
 
 .jqplot-x2axis-tick {
   bottom: 0;
   // initial position untill tick is drawn in proper place
-  #{$left}: 15px;
+  left: 15px;
   vertical-align: bottom;
 }
 
 .jqplot-yaxis-tick {
-  #{$right}: 0;
+  right: 0;
   // initial position untill tick is drawn in proper place
   top: 15px;
-  text-align: $right;
+  text-align: right;
 
   &.jqplot-breakTick {
-    #{$right}: -20px;
-    margin-#{$right}: 0;
+    right: -20px;
+    margin-right: 0;
     padding: 1px 5px 1px;
     z-index: 2;
     font-size: 1.5em;
@@ -94,10 +94,10 @@
 .jqplot-y7axis-tick,
 .jqplot-y8axis-tick,
 .jqplot-y9axis-tick {
-  #{$left}: 0;
+  left: 0;
   // initial position untill tick is drawn in proper place
   top: 15px;
-  text-align: $left;
+  text-align: left;
 }
 
 .jqplot-yMidAxis-tick {
@@ -118,7 +118,7 @@
 }
 
 .jqplot-yaxis-label {
-  margin-#{$right}: 10px;
+  margin-right: 10px;
   font-size: 11pt;
   position: absolute;
 }
@@ -137,7 +137,7 @@
 .jqplot-y8axis-label,
 .jqplot-y9axis-label {
   font-size: 11pt;
-  margin-#{$left}: 10px;
+  margin-left: 10px;
   position: absolute;
 }
 
@@ -155,8 +155,8 @@ table {
   &.jqplot-table-legend {
     margin-top: 12px;
     margin-bottom: 12px;
-    margin-#{$left}: 12px;
-    margin-#{$right}: 12px;
+    margin-left: 12px;
+    margin-right: 12px;
     background-color: rgba(255, 255, 255, 0.6);
     border: 1px solid #ccc;
     position: absolute;
@@ -210,7 +210,7 @@ div {
 
 .jqplot-title {
   top: 0;
-  #{$left}: 0;
+  left: 0;
   padding-bottom: 0.5em;
   font-size: 1.2em;
 }
@@ -260,8 +260,8 @@ div.jqplot-cursor-legend-swatch {
 div {
   &.jqplot-bubble-label {
     font-size: 0.8em;
-    padding-#{$left}: 2px;
-    padding-#{$right}: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
     color: rgb(20%, 20%, 20%);
 
     &.jqplot-bubble-label-highlight {

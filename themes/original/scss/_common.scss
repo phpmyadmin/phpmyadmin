@@ -161,12 +161,12 @@ button {
 }
 
 .floatleft {
-  float: $left;
-  margin-#{$right}: 1em;
+  float: left;
+  margin-right: 1em;
 }
 
 .floatright {
-  float: $right;
+  float: right;
 }
 
 .pma-table {
@@ -184,13 +184,13 @@ button {
 
 .pma-table th.left,
 .pma-table td.left {
-  text-align: $left;
+  text-align: left;
 }
 
 .pma-table th.right,
 .pma-table td.right {
-  text-align: $right;
-  padding-#{$right}: 1em;
+  text-align: right;
+  padding-right: 1em;
 }
 
 .pma-table tr.vtop,
@@ -223,7 +223,7 @@ div.tools {
 
   /* avoid a thick line since this should be used under another fieldset */
   border-top: 0;
-  text-align: $right;
+  text-align: right;
   float: none;
   clear: both;
 }
@@ -234,7 +234,7 @@ fieldset.tblFooters {
 
   /* avoid a thick line since this should be used under another fieldset */
   border-top: 0;
-  text-align: $right;
+  text-align: right;
   float: none;
   clear: both;
 }
@@ -248,8 +248,8 @@ div.null_div {
 
 fieldset {
   .formelement {
-    float: $left;
-    margin-#{$right}: 0.5em;
+    float: left;
+    margin-right: 0.5em;
     white-space: nowrap;
   }
 
@@ -289,10 +289,10 @@ button.mult_submit {
 }
 
 .pma-table tr {
-  text-align: $left;
+  text-align: left;
 
   th {
-    text-align: $left;
+    text-align: left;
   }
 }
 
@@ -356,7 +356,7 @@ button.mult_submit {
 .pma-table {
   .valueHeader,
   .value {
-    text-align: $right;
+    text-align: right;
     white-space: normal;
   }
 
@@ -421,7 +421,7 @@ img.lightbulb {
 .icon {
   image-rendering: pixelated;
   vertical-align: middle;
-  margin-#{$left}: 0.3em;
+  margin-left: 0.3em;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -432,12 +432,12 @@ img.lightbulb {
 }
 
 .selectallarrow {
-  margin-#{$right}: 0.3em;
-  margin-#{$left}: 0.6em;
+  margin-right: 0.3em;
+  margin-left: 0.6em;
 }
 
 .with-selected {
-  margin-#{$left}: 2em;
+  margin-left: 2em;
 }
 
 /* message boxes: error, confirmation */
@@ -456,19 +456,13 @@ fieldset.confirmation {
   border: 0.1em solid #f00;
 
   legend {
-    border-#{$left}: 0.1em solid #f00;
-    border-#{$right}: 0.1em solid #f00;
+    border-left: 0.1em solid #f00;
+    border-right: 0.1em solid #f00;
     font-weight: bold;
     background-image: url("../img/s_really.png");
     background-repeat: no-repeat;
-
-    @if $direction == rtl {
-      background-position: 97% 50%;
-      padding: 0.2em 25px 0.2em 0.2em;
-    } @else {
-      background-position: 5px 50%;
-      padding: 0.2em 0.2em 0.2em 25px;
-    }
+    background-position: 5px 50% #{"/* rtl:97% 50% */"};
+    padding: 0.2em 0.2em 0.2em 25px;
   }
 }
 
@@ -596,7 +590,7 @@ div {
   }
 
   &#querychart {
-    float: $left;
+    float: left;
     width: 600px;
   }
 }
@@ -616,7 +610,7 @@ body#loginform {
   }
 
   div.container {
-    text-align: $left;
+    text-align: left;
     width: 30em;
     margin: 0 auto;
   }
@@ -631,11 +625,11 @@ div.container.modal_form {
 }
 
 #login_form {
-  text-align: $left;
+  text-align: left;
 }
 
 #login_form fieldset.tblFooters {
-  text-align: #{$right};
+  text-align: right;
 }
 
 #login_form select#select_server {
@@ -645,7 +639,7 @@ div.container.modal_form {
 div#modalOverlay {
   position: fixed;
   top: 0;
-  #{$left}: 0;
+  left: 0;
   height: 100%;
   width: 100%;
   background: #fff;
@@ -748,7 +742,7 @@ div#dataDisplay {
   input,
   select {
     margin: 0;
-    margin-#{$right}: 0.5em;
+    margin-right: 0.5em;
   }
 
   th {
@@ -791,23 +785,23 @@ form.clock {
 }
 
 div#tablestatistics table {
-  float: $left;
+  float: left;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  margin-#{$right}: 0.5em;
+  margin-right: 0.5em;
   min-width: 16em;
 }
 
 #topmenucontainer {
   background: white;
-  padding-#{$right}: 1em;
+  padding-right: 1em;
   width: 100%;
 }
 
 #page_nav_icons {
   position: fixed;
   top: 0;
-  #{$right}: 0;
+  right: 0;
   z-index: 99;
   padding: $breadcrumb-padding-y $breadcrumb-padding-x;
 }
@@ -850,20 +844,20 @@ div#tablestatistics table {
   }
 
   label {
-    float: $left;
+    float: left;
     display: block;
     width: 15em;
     max-width: 100%;
-    text-align: $right;
-    padding-#{$right}: 0.5em;
+    text-align: right;
+    padding-right: 0.5em;
   }
 
   span.options {
-    float: $left;
+    float: left;
     display: block;
     width: 12em;
     max-width: 100%;
-    padding-#{$right}: 0.5em;
+    padding-right: 0.5em;
 
     #select_pred_username,
     #select_pred_hostname,
@@ -875,7 +869,7 @@ div#tablestatistics table {
 
   input {
     width: 12em;
-    clear: $right;
+    clear: right;
     max-width: 100%;
   }
 
@@ -885,7 +879,7 @@ div#tablestatistics table {
 }
 
 #fieldset_user_priv div.item {
-  float: $left;
+  float: left;
   width: 9em;
   max-width: 100%;
 
@@ -904,11 +898,11 @@ div#tablestatistics table {
 
 #fieldset_user_global_rights fieldset,
 #fieldset_user_group_rights fieldset {
-  float: $left;
+  float: left;
 }
 
 #fieldset_user_global_rights > legend input {
-  margin-#{$left}: 2em;
+  margin-left: 2em;
 }
 
 .linkElem:hover {
@@ -923,7 +917,7 @@ h3#serverstatusqueries span {
 }
 
 .buttonlinks {
-  float: $right;
+  float: right;
   white-space: nowrap;
 }
 
@@ -936,15 +930,15 @@ div#serverStatusTabs {
 }
 
 caption a.top {
-  float: $right;
+  float: right;
 }
 
 div {
   &#serverstatusquerieschart {
-    float: $left;
+    float: left;
     width: 500px;
     height: 350px;
-    margin-#{$right}: 50px;
+    margin-right: 50px;
   }
 }
 
@@ -972,7 +966,7 @@ div {
 div#chartVariableSettings {
   border: 1px solid #ddd;
   background-color: #e6e6e6;
-  margin-#{$left}: 10px;
+  margin-left: 10px;
 }
 
 table#chartGrid {
@@ -988,13 +982,13 @@ table#chartGrid {
 }
 
 div.tabLinks {
-  margin-#{$left}: 0.3em;
-  float: $left;
+  margin-left: 0.3em;
+  float: left;
   padding: 5px 0;
 
   a,
   label {
-    margin-#{$right}: 7px;
+    margin-right: 7px;
   }
 
   .icon {
@@ -1025,7 +1019,7 @@ div#logTable {
 }
 
 .smallIndent {
-  padding-#{$left}: 7px;
+  padding-left: 7px;
 }
 
 #sectionlinks {
@@ -1034,7 +1028,7 @@ div#logTable {
   border: 1px solid #ccc;
 
   a {
-    margin-#{$right}: 7px;
+    margin-right: 7px;
   }
 }
 
@@ -1042,19 +1036,19 @@ div#logTable {
 div#profilingchart {
   width: 850px;
   height: 370px;
-  float: $left;
+  float: left;
 }
 
 #profilingchart .jqplot-highlighter-tooltip {
   top: auto !important;
-  #{$left}: 11px;
+  left: 11px;
   bottom: 24px;
 }
 
 /* table charting */
 .chartOption {
-  float: $left;
-  margin-#{$right}: 40px;
+  float: left;
+  margin-right: 40px;
 }
 
 textarea {
@@ -1081,7 +1075,7 @@ textarea {
 
 #mysqlmaininformation,
 #pmamaininformation {
-  float: $left;
+  float: left;
   width: 49%;
 }
 
@@ -1111,7 +1105,7 @@ textarea {
 
 li.no_bullets {
   list-style-type: none !important;
-  margin-#{$left}: -25px !important;
+  margin-left: -25px !important;
 }
 
 /* end iconic view for ul items */
@@ -1136,7 +1130,7 @@ li.no_bullets {
 }
 
 #fieldset_select_fields {
-  float: $left;
+  float: left;
 }
 
 #selflink {
@@ -1145,19 +1139,19 @@ li.no_bullets {
   margin-top: 1em;
   margin-bottom: 1em;
   width: 98%;
-  margin-#{$left}: 1%;
+  margin-left: 1%;
   border-top: 0.1em solid silver;
-  text-align: $right;
+  text-align: right;
 }
 
 #qbe_div_table_list,
 #qbe_div_sql_query {
-  float: $left;
+  float: left;
 }
 
 label.desc {
   width: 30em;
-  float: $left;
+  float: left;
 
   sup {
     position: absolute;
@@ -1175,7 +1169,7 @@ code {
 
   &.php {
     display: block;
-    padding-#{$left}: 0.3em;
+    padding-left: 0.3em;
     margin-top: 0;
     margin-bottom: 0;
     max-height: 10em;
@@ -1213,7 +1207,7 @@ div.sqlvalidate {
 }
 
 .result_query div.sqlOuter {
-  text-align: $left;
+  text-align: left;
 }
 
 #PMA_slidingMessage code.sql {
@@ -1268,13 +1262,13 @@ div {
   &.upload_progress_bar_outer div.percentage {
     position: absolute;
     top: 0;
-    #{$left}: 0;
+    left: 0;
     width: 202px;
   }
 
   &.upload_progress_bar_inner div.percentage {
     top: -1px;
-    #{$left}: -1px;
+    left: -1px;
   }
 
   &#statustext {
@@ -1287,7 +1281,7 @@ table {
   &#serverconnection_trg_remote,
   &#serverconnection_src_local,
   &#serverconnection_trg_local {
-    float: $left;
+    float: left;
   }
 }
 
@@ -1317,9 +1311,9 @@ select.invalid_value,
   top: 0;
   position: fixed;
   margin-top: 0;
-  margin-#{$right}: auto;
+  margin-right: auto;
   margin-bottom: 0;
-  margin-#{$left}: auto;
+  margin-left: auto;
   // Keep a little space on the sides of the text
   padding: 3px 5px;
   width: 350px;
@@ -1328,8 +1322,8 @@ select.invalid_value,
   z-index: 1100;
   text-align: center;
   display: block;
-  #{$left}: 0;
-  #{$right}: 0;
+  left: 0;
+  right: 0;
   background-image: url("../img/ajax_clock_small.gif");
   background-repeat: no-repeat;
   background-position: 2%;
@@ -1412,7 +1406,7 @@ select.invalid_value,
 #ldi_options label.desc,
 #latex_options label.desc,
 #output label.desc {
-  float: $left;
+  float: left;
   width: 15em;
 }
 
@@ -1495,7 +1489,7 @@ input#input_import_file {
   width: 100%;
   height: 100%;
   top: 0;
-  #{$left}: 0;
+  left: 0;
   background: #000;
   z-index: 1000;
   overflow: hidden;
@@ -1517,8 +1511,8 @@ input#input_import_file {
   list-style: none;
 
   li {
-    float: $left;
-    margin-#{$right}: 0.5em;
+    float: left;
+    margin-right: 0.5em;
   }
 
   .submenu li {
@@ -1532,17 +1526,17 @@ input#input_import_file {
 }
 
 #structure-action-links a {
-  margin-#{$right}: 1em;
+  margin-right: 1em;
 }
 
 #addColumns input {
   &[type="radio"] {
     margin: 0;
-    margin-#{$left}: 1em;
+    margin-left: 1em;
   }
 
   &[type="submit"] {
-    margin-#{$left}: 1em;
+    margin-left: 1em;
   }
 }
 
@@ -1565,14 +1559,14 @@ input#input_import_file {
   .slider {
     width: 10em;
     margin: 0.6em;
-    float: $left;
+    float: left;
   }
 
   .add_fields {
-    float: $left;
+    float: left;
 
     input {
-      margin-#{$left}: 1em;
+      margin-left: 1em;
     }
   }
 
@@ -1590,7 +1584,7 @@ table#index_columns {
 
   select {
     width: 85%;
-    float: $right;
+    float: right;
   }
 }
 
@@ -1628,7 +1622,7 @@ table#index_columns {
     font-weight: bold;
 
     li {
-      float: $left;
+      float: left;
 
       a {
         display: block;
@@ -1693,17 +1687,17 @@ table#index_columns {
 
     th {
       padding: 0.3em 0.3em 0.3em 0.5em;
-      text-align: $left;
+      text-align: left;
       vertical-align: top;
       background: transparent;
     }
 
     .doc {
-      margin-#{$left}: 1em;
+      margin-left: 1em;
     }
 
     .disabled-notice {
-      margin-#{$left}: 1em;
+      margin-left: 1em;
       font-size: 80%;
       text-transform: uppercase;
       color: #e00;
@@ -1744,16 +1738,16 @@ fieldset {
 
   .group-field-1 th,
   .group-header-2 th {
-    padding-#{$left}: 1.5em;
+    padding-left: 1.5em;
   }
 
   .group-field-2 th,
   .group-header-3 th {
-    padding-#{$left}: 3em;
+    padding-left: 3em;
   }
 
   .group-field-3 th {
-    padding-#{$left}: 4.5em;
+    padding-left: 4.5em;
   }
 
   .disabled-field {
@@ -1850,7 +1844,7 @@ fieldset {
   }
 
   dd {
-    margin-#{$left}: 0.5em;
+    margin-left: 0.5em;
 
     &::before {
       content: "\25B8  ";
@@ -1863,12 +1857,12 @@ fieldset {
 }
 
 .prefsmanage_opts {
-  margin-#{$left}: 2em;
+  margin-left: 2em;
 }
 
 #prefs_autoload {
   margin-bottom: 0.5em;
-  margin-#{$left}: 0.5em;
+  margin-left: 0.5em;
 }
 
 input#auto_increment_opt {
@@ -1890,7 +1884,7 @@ input#auto_increment_opt {
 }
 
 .wrapper {
-  float: $left;
+  float: left;
   margin-bottom: 0.5em;
 }
 
@@ -1902,8 +1896,8 @@ input#auto_increment_opt {
   line-height: 1.4em;
   height: 1.55em;
   overflow: hidden;
-  border-#{$right}: 0.1em solid #888;
-  border-#{$left}: 0.1em solid #888;
+  border-right: 0.1em solid #888;
+  border-left: 0.1em solid #888;
 
   table,
   td,
@@ -1934,20 +1928,20 @@ input#auto_increment_opt {
 .doubleFieldset {
   fieldset {
     width: 48%;
-    float: $left;
+    float: left;
     padding: 0;
 
     &.left {
-      margin-#{$right}: 1%;
+      margin-right: 1%;
     }
 
     &.right {
-      margin-#{$left}: 1%;
+      margin-left: 1%;
     }
   }
 
   legend {
-    margin-#{$left}: 0.5em;
+    margin-left: 0.5em;
   }
 
   div.wrap {
@@ -1995,7 +1989,7 @@ input#auto_increment_opt {
 #placeholder {
   position: relative;
   border: 1px solid #aaa;
-  float: $right;
+  float: right;
   overflow: hidden;
   width: 450px;
   height: 300px;
@@ -2015,50 +2009,50 @@ input#auto_increment_opt {
 }
 
 #left_arrow {
-  #{$left}: 8px;
+  left: 8px;
   top: 26px;
 }
 
 #right_arrow {
-  #{$left}: 26px;
+  left: 26px;
   top: 26px;
 }
 
 #up_arrow {
-  #{$left}: 17px;
+  left: 17px;
   top: 8px;
 }
 
 #down_arrow {
-  #{$left}: 17px;
+  left: 17px;
   top: 44px;
 }
 
 #zoom_in {
-  #{$left}: 17px;
+  left: 17px;
   top: 67px;
 }
 
 #zoom_world {
-  #{$left}: 17px;
+  left: 17px;
   top: 85px;
 }
 
 #zoom_out {
-  #{$left}: 17px;
+  left: 17px;
   top: 103px;
 }
 
 .colborder {
   cursor: col-resize;
   height: 100%;
-  margin-#{$left}: -5px;
+  margin-left: -5px;
   position: absolute;
   width: 5px;
 }
 
 .colborder_active {
-  border-#{$right}: 2px solid #a44;
+  border-right: 2px solid #a44;
 }
 
 .pma_table {
@@ -2120,7 +2114,7 @@ input#auto_increment_opt {
   height: $height;
   width: $width;
   margin-top: $height / -2;
-  margin-#{$left}: $width / -2;
+  margin-left: $width / -2;
   position: absolute;
   background: url("../img/col_pointer.png");
 }
@@ -2145,7 +2139,7 @@ input#auto_increment_opt {
 }
 
 .cDrop {
-  #{$left}: 0;
+  left: 0;
   position: absolute;
   top: 0;
 }
@@ -2154,7 +2148,7 @@ input#auto_increment_opt {
   background: url("../img/col_drop.png");
   cursor: pointer;
   height: 16px;
-  margin-#{$left}: 0.5em;
+  margin-left: 0.5em;
   margin-top: 0.3em;
   position: absolute;
   width: 16px;
@@ -2293,7 +2287,7 @@ input#auto_increment_opt {
 
   .edit_box_posting {
     background: #fff url("../img/ajax_clock_small.gif") no-repeat right center;
-    padding-#{$right}: 1.5em;
+    padding-right: 1.5em;
   }
 
   .edit_area_loading {
@@ -2310,7 +2304,7 @@ input#auto_increment_opt {
 
 .saving_edited_data {
   background: url("../img/ajax_clock_small.gif") no-repeat left;
-  padding-#{$left}: 20px;
+  padding-left: 20px;
 }
 
 /* css for timepicker */
@@ -2321,7 +2315,7 @@ input#auto_increment_opt {
   }
 
   dl {
-    text-align: $left;
+    text-align: left;
 
     dt {
       height: 25px;
@@ -2349,7 +2343,7 @@ input#auto_increment_opt {
   direction: rtl;
 
   dl {
-    text-align: $right;
+    text-align: right;
 
     dd {
       margin: 0 65px 10px 10px;
@@ -2385,7 +2379,7 @@ body #ui-datepicker-div {
 
   select {
     width: 125px;
-    margin-#{$right}: 5px;
+    margin-right: 5px;
   }
 }
 
@@ -2421,7 +2415,7 @@ table.show_create {
   margin-top: 1em;
 
   td {
-    border-#{$right}: 1px solid #bbb;
+    border-right: 1px solid #bbb;
   }
 }
 
@@ -2448,7 +2442,7 @@ table.show_create {
   width: 100%;
   position: fixed;
   bottom: 0;
-  #{$left}: 0;
+  left: 0;
   z-index: 100;
 }
 
@@ -2458,7 +2452,7 @@ textarea {
 
 #pma_console {
   position: relative;
-  margin-#{$left}: 240px;
+  margin-left: 240px;
   z-index: 100;
 
   .templates {
@@ -2485,7 +2479,7 @@ textarea {
       &:not(:hover) {
         display: inline-block;
         border-top-right-radius: 3px;
-        border-#{$right}: solid 1px #aaa;
+        border-right: solid 1px #aaa;
       }
 
       > .button {
@@ -2538,8 +2532,8 @@ textarea {
 
     .button,
     .text {
-      margin-#{$right}: 0.4em;
-      float: $right;
+      margin-right: 0.4em;
+      float: right;
     }
   }
 
@@ -2595,7 +2589,7 @@ textarea {
     }
 
     &::before {
-      #{$left}: -0.7em;
+      left: -0.7em;
       position: absolute;
       content: ">";
     }
@@ -2603,7 +2597,7 @@ textarea {
 
   .query_input {
     &::before {
-      #{$left}: -0.7em;
+      left: -0.7em;
       position: absolute;
       content: ">";
       top: -2px;
@@ -2781,17 +2775,17 @@ textarea {
     width: 94%;
     height: 100%;
     min-height: 48px;
-    #{$left}: 100%;
+    left: 100%;
     top: 0;
-    border-#{$left}: solid 1px #999;
+    border-left: solid 1px #999;
     z-index: 300;
-    transition: $left 0.2s;
-    -ms-transition: $left 0.2s;
-    -webkit-transition: $left 0.2s;
-    -moz-transition: $left 0.2s;
+    transition: left 0.2s;
+    -ms-transition: left 0.2s;
+    -webkit-transition: left 0.2s;
+    -moz-transition: left 0.2s;
 
     &.show {
-      #{$left}: 6%;
+      left: 6%;
       box-shadow: -2px 1px 4px -1px #999;
     }
   }
@@ -2804,7 +2798,7 @@ textarea {
 
 #pma_bookmarks .content.add_bookmark {
   .options {
-    margin-#{$left}: 1.4em;
+    margin-left: 1.4em;
     padding-bottom: 0.4em;
     margin-bottom: 0.4em;
     border-bottom: solid 1px #ccc;
@@ -2849,7 +2843,7 @@ textarea {
   }
 
   .count {
-    margin-#{$right}: 8px;
+    margin-right: 8px;
   }
 
   .show_trace .trace,
@@ -2885,13 +2879,13 @@ textarea {
   }
 
   .debug_summary {
-    float: $left;
+    float: left;
   }
 
   .trace.welcome .time,
   .traceStep .file,
   .script_name {
-    float: $right;
+    float: right;
   }
 
   .traceStep .args pre {
@@ -2935,7 +2929,7 @@ textarea {
   display: none;
   position: fixed;
   top: 0;
-  #{$left}: 0;
+  left: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.6);
   height: 100%;
@@ -2950,23 +2944,16 @@ textarea {
   display: none;
   position: fixed;
   bottom: 0;
-  #{$right}: 25px;
+  right: 25px;
   width: 400px;
   border: 1px solid #999;
   background: #f3f3f3;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-
-  @if $direction == rtl {
-    -moz-box-shadow: -2px 2px 5px #ccc;
-    -webkit-box-shadow: -2px 2px 5px #ccc;
-    box-shadow: -2px 2px 5px #ccc;
-  } @else {
-    -moz-box-shadow: 2px 2px 5px #ccc;
-    -webkit-box-shadow: 2px 2px 5px #ccc;
-    box-shadow: 2px 2px 5px #ccc;
-  }
+  -moz-box-shadow: 2px 2px 5px #ccc;
+  -webkit-box-shadow: 2px 2px 5px #ccc;
+  box-shadow: 2px 2px 5px #ccc;
 
   h2 {
     background-color: #bbb;
@@ -2977,16 +2964,9 @@ textarea {
     font-size: 1.6em;
     font-weight: normal;
     text-shadow: 0 1px 0 #777;
-
-    @if $direction == rtl {
-      -moz-box-shadow: -1px 1px 15px #999 inset;
-      -webkit-box-shadow: -1px 1px 15px #999 inset;
-      box-shadow: -1px 1px 15px #999 inset;
-    } @else {
-      -moz-box-shadow: 1px 1px 15px #999 inset;
-      -webkit-box-shadow: 1px 1px 15px #999 inset;
-      box-shadow: 1px 1px 15px #999 inset;
-    }
+    -moz-box-shadow: 1px 1px 15px #999 inset;
+    -webkit-box-shadow: 1px 1px 15px #999 inset;
+    box-shadow: 1px 1px 15px #999 inset;
   }
 }
 
@@ -2999,16 +2979,9 @@ textarea {
   font-size: 1.6em;
   font-weight: normal;
   text-shadow: 0 1px 0 #777;
-
-  @if $direction == rtl {
-    -moz-box-shadow: -1px 1px 15px #999 inset;
-    -webkit-box-shadow: -1px 1px 15px #999 inset;
-    box-shadow: -1px 1px 15px #999 inset;
-  } @else {
-    -moz-box-shadow: 1px 1px 15px #999 inset;
-    -webkit-box-shadow: 1px 1px 15px #999 inset;
-    box-shadow: 1px 1px 15px #999 inset;
-  }
+  -moz-box-shadow: 1px 1px 15px #999 inset;
+  -webkit-box-shadow: 1px 1px 15px #999 inset;
+  box-shadow: 1px 1px 15px #999 inset;
 }
 
 .pma_sql_import_status {
@@ -3025,21 +2998,21 @@ textarea {
       background: white;
 
       .filesize {
-        float: $right;
+        float: right;
       }
     }
   }
 
   h2 {
     .minimize {
-      float: $right;
-      margin-#{$right}: 5px;
+      float: right;
+      margin-right: 5px;
       padding: 0 10px;
     }
 
     .close {
-      float: $right;
-      margin-#{$right}: 5px;
+      float: right;
+      margin-right: 5px;
       padding: 0 10px;
       display: none;
     }
@@ -3069,7 +3042,7 @@ textarea {
 .pma_drop_result {
   position: fixed;
   top: 10%;
-  #{$left}: 20%;
+  left: 20%;
   width: 60%;
   background: white;
   min-height: 300px;
@@ -3079,8 +3052,8 @@ textarea {
   cursor: move;
 
   h2 .close {
-    float: $right;
-    margin-#{$right}: 5px;
+    float: right;
+    margin-right: 5px;
     padding: 0 10px;
   }
 }
@@ -3121,7 +3094,7 @@ span.drag_icon {
       background-position: right center;
       display: inline-table;
       vertical-align: middle;
-      float: $right;
+      float: right;
     }
   }
 
@@ -3151,16 +3124,16 @@ span.drag_icon {
 body {
   .ui-dialog {
     .ui-dialog-titlebar-close {
-      #{$right}: 0.3em;
-      #{$left}: initial;
+      right: 0.3em;
+      left: initial;
     }
 
     .ui-dialog-title {
-      float: $left;
+      float: left;
     }
 
     .ui-dialog-buttonpane .ui-dialog-buttonset {
-      float: $right;
+      float: right;
     }
   }
 
@@ -3366,11 +3339,11 @@ body {
 // Extra large devices (large desktops, 1200px and up)
 @include media-breakpoint-up(xl) {
   div.tools {
-    text-align: #{$left};
+    text-align: left;
   }
 
   fieldset.tblFooters,
   .tblFooters {
-    text-align: #{$left};
+    text-align: left;
   }
 }
