@@ -40,7 +40,7 @@ $resize-img: '../img/designer/resize.png';
 canvas.designer {
   display: inline-block;
   overflow: hidden;
-  text-align: $left;
+  text-align: left;
 
   * {
     behavior: url(#default#VML);
@@ -130,8 +130,8 @@ canvas.designer {
   text-decoration: none;
   text-indent: 3px;
   font-weight: bold;
-  margin-#{$left}: 2px;
-  text-align: $left;
+  margin-left: 2px;
+  text-align: left;
   background-color: #fff;
   background-image: url($left-panel-button-img);
   border: #ccc solid 1px;
@@ -145,7 +145,7 @@ canvas.designer {
     white-space: nowrap;
     text-decoration: none;
     border: #99f solid 1px;
-    text-align: $left;
+    text-align: left;
   }
 }
 
@@ -155,15 +155,15 @@ canvas.designer {
 }
 
 .option_tab {
-  padding-#{$left}: 2px;
-  padding-#{$right}: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
   width: 5px;
 }
 
 .select_all {
   vertical-align: top;
-  padding-#{$left}: 2px;
-  padding-#{$right}: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
   cursor: default;
   width: 1px;
   color: #000;
@@ -179,8 +179,8 @@ canvas.designer {
   cursor: default;
   text-align: center;
   font-weight: bold;
-  padding-#{$left}: 2px;
-  padding-#{$right}: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
   width: 1px;
   text-decoration: none;
 
@@ -189,8 +189,8 @@ canvas.designer {
     color: #fff;
     background-color: #f96;
     cursor: default;
-    padding-#{$left}: 2px;
-    padding-#{$right}: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
     text-align: center;
     font-weight: bold;
     width: 1px;
@@ -250,19 +250,19 @@ canvas.designer {
 }
 
 .frams1 {
-  background: url($frams1-img) no-repeat $right bottom;
+  background: url($frams1-img) no-repeat right bottom;
 }
 
 .frams2 {
-  background: url($frams2-img) no-repeat $left bottom;
+  background: url($frams2-img) no-repeat left bottom;
 }
 
 .frams3 {
-  background: url($frams3-img) no-repeat $left top;
+  background: url($frams3-img) no-repeat left top;
 }
 
 .frams4 {
-  background: url($frams4-img) no-repeat $right top;
+  background: url($frams4-img) no-repeat right top;
 }
 
 .frams5 {
@@ -270,7 +270,7 @@ canvas.designer {
 }
 
 .frams6 {
-  background: url($frams6-img) repeat-y $left;
+  background: url($frams6-img) repeat-y left;
 }
 
 .frams7 {
@@ -278,7 +278,7 @@ canvas.designer {
 }
 
 .frams8 {
-  background: url($frams8-img) repeat-y $right;
+  background: url($frams8-img) repeat-y right;
 }
 
 #osn_tab {
@@ -297,8 +297,8 @@ canvas.designer {
   background-image: url($top-panel-img);
   background-position: top;
   background-repeat: repeat-x;
-  border-#{$right}: #999 solid 1px;
-  border-#{$left}: #999 solid 1px;
+  border-right: #999 solid 1px;
+  border-left: #999 solid 1px;
   height: 28px;
   z-index: 101;
   width: 100%;
@@ -307,7 +307,7 @@ canvas.designer {
   a,
   span {
     display: block;
-    float: $left;
+    float: left;
     margin: 3px 1px 4px;
     height: 20px;
     border: 1px dotted #fff;
@@ -315,7 +315,7 @@ canvas.designer {
 
   .M_bord {
     display: block;
-    float: $left;
+    float: left;
     margin: 4px;
     height: 20px;
     width: 2px;
@@ -323,11 +323,11 @@ canvas.designer {
 
   a {
     &.first {
-      margin-#{$right}: 1em;
+      margin-right: 1em;
     }
 
     &.last {
-      margin-#{$left}: 1em;
+      margin-left: 1em;
     }
   }
 }
@@ -356,18 +356,18 @@ a {
 #layer_menu {
   z-index: 98;
   position: relative;
-  float: $right;
+  float: right;
   background-color: #eaeef0;
   border: #999 solid 1px;
 
   &.left {
-    float: $left;
+    float: left;
   }
 }
 
 #layer_upd_relation {
   position: absolute;
-  #{$left}: 637px;
+  left: 637px;
   top: 224px;
   z-index: 100;
 }
@@ -375,7 +375,7 @@ a {
 #layer_new_relation,
 #designer_optionse {
   position: absolute;
-  #{$left}: 636px;
+  left: 636px;
   top: 85px;
   z-index: 100;
   width: 153px;
@@ -393,7 +393,7 @@ a {
 .panel {
   position: fixed;
   top: 60px;
-  #{$right}: 0;
+  right: 0;
   width: 350px;
   max-height: 500px;
   display: none;
@@ -407,7 +407,7 @@ a {
     position: fixed;
     text-decoration: none;
     top: 60px;
-    #{$right}: 0;
+    right: 0;
     color: #fff;
     padding: 10px 40px 10px 15px;
     background: #333 url($plus-img) 85% 55% no-repeat;
@@ -460,12 +460,12 @@ a {
 }
 
 #foreignkeychk {
-  text-align: $left;
+  text-align: left;
   cursor: pointer;
 }
 
 .side-menu {
-  float: $left;
+  float: left;
   position: fixed;
   width: auto;
   height: auto;
@@ -476,8 +476,8 @@ a {
   padding: 2px;
 
   &.right {
-    float: $right;
-    #{$right}: 0;
+    float: right;
+    right: 0;
   }
 
   .hide {
@@ -493,7 +493,7 @@ a {
 
   img,
   .text {
-    float: $left;
+    float: left;
   }
 }
 
@@ -510,5 +510,5 @@ a {
 #container-form {
   width: 100%;
   position: absolute;
-  #{$left}: 0;
+  left: 0;
 }

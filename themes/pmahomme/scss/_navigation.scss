@@ -3,7 +3,7 @@
   width: $navi-width;
   position: fixed;
   top: 0;
-  #{$left}: 0;
+  left: 0;
   height: 100vh;
   background: url('../img/left_nav_bg.png') repeat-y right 0 $navi-background;
   color: $navi-color;
@@ -30,8 +30,8 @@
     &.pageselector {
       text-align: center;
       margin: 0;
-      margin-#{$left}: 0.75em;
-      border-#{$left}: 1px solid #666;
+      margin-left: 0.75em;
+      border-left: 1px solid #666;
     }
   }
 
@@ -71,7 +71,7 @@
   height: 100%;
   position: absolute;
   top: 0;
-  #{$left}: 0;
+  left: 0;
   z-index: 0;
 
   > img.throbber {
@@ -81,7 +81,7 @@
 }
 
 #pma_navigation_select_database {
-  text-align: $left;
+  text-align: left;
   padding: 0 0 0;
   border: 0;
   margin: 0;
@@ -89,7 +89,7 @@
 
 #pma_navigation_db_select {
   margin-top: 0.5em;
-  margin-#{$left}: 0.75em;
+  margin-left: 0.75em;
 
   select {
     background: url('../img/select_bg.png') repeat scroll 0 0;
@@ -121,7 +121,7 @@
 
 #pma_navigation_tree {
   margin: 0;
-  margin-#{$left}: 5px;
+  margin-left: 5px;
   overflow: hidden;
   color: #444;
   height: 74%;
@@ -157,13 +157,13 @@
     }
 
     .dbItemControls {
-      padding-#{$right}: 4px;
+      padding-right: 4px;
       float: right;
     }
 
     .navItemControls {
       display: none;
-      padding-#{$right}: 4px;
+      padding-right: 4px;
       float: right;
     }
 
@@ -204,7 +204,7 @@
       height: 1.5em;
       min-width: 16px;
       min-height: 16px;
-      float: $left;
+      float: left;
 
       &.double {
         width: 2.5em;
@@ -218,21 +218,21 @@
         min-height: 8px;
         position: absolute;
         bottom: 0.7em;
-        #{$left}: 0.75em;
+        left: 0.75em;
         z-index: 0;
       }
 
       // Top and right segments for the tree element connections
       i {
         display: block;
-        border-#{$left}: 1px solid #666;
+        border-left: 1px solid #666;
         border-bottom: 1px solid #666;
         position: relative;
         z-index: 0;
 
         // Removes top segment
         &.first {
-          border-#{$left}: 0;
+          border-left: 0;
         }
       }
 
@@ -241,44 +241,44 @@
         display: block;
         height: 0.75em;
         bottom: 0;
-        #{$left}: 0.75em;
-        border-#{$left}: 1px solid #666;
+        left: 0.75em;
+        border-left: 1px solid #666;
       }
 
       a,
       u {
         position: absolute;
-        #{$left}: 50%;
+        left: 50%;
         top: 50%;
         z-index: 10;
       }
 
       a + a {
-        #{$left}: 100%;
+        left: 100%;
       }
 
       &.double {
         a,
         u {
-          #{$left}: 33%;
+          left: 33%;
         }
 
         a + a {
-          #{$left}: 85%;
+          left: 85%;
         }
       }
 
       img {
         position: relative;
         top: -0.6em;
-        #{$left}: 0;
-        margin-#{$left}: -7px;
+        left: 0;
+        margin-left: -7px;
       }
     }
 
     &.throbber img {
       top: 2px;
-      #{$left}: 2px;
+      left: 2px;
     }
   }
 
@@ -292,28 +292,28 @@
       i {
         line-height: 1.5em;
         height: 1.5em;
-        padding-#{$left}: 0.3em;
+        padding-left: 0.3em;
       }
     }
   }
 
   .list_container {
-    border-#{$left}: 1px solid #666;
-    margin-#{$left}: 0.75em;
-    padding-#{$left}: 0.75em;
+    border-left: 1px solid #666;
+    margin-left: 0.75em;
+    padding-left: 0.75em;
   }
 
   .last > .list_container {
-    border-#{$left}: 0 solid #666;
+    border-left: 0 solid #666;
   }
 }
 
 // Fast filter
 li.fast_filter {
-  padding-#{$left}: 0.75em;
-  margin-#{$left}: 0.75em;
-  padding-#{$right}: 35px;
-  border-#{$left}: 1px solid #666;
+  padding-left: 0.75em;
+  margin-left: 0.75em;
+  padding-right: 35px;
+  border-left: 1px solid #666;
   list-style: none;
 
   input {
@@ -321,14 +321,14 @@ li.fast_filter {
     font-size: 0.7em;
     padding-top: 2px;
     padding-bottom: 2px;
-    padding-#{$left}: 4px;
-    padding-#{$right}: 1.7em;
+    padding-left: 4px;
+    padding-right: 1.7em;
     width: 100%;
   }
 
   span {
     position: relative;
-    #{$right}: 2.5em;
+    right: 2.5em;
     padding: 0.2em;
     cursor: pointer;
     font-weight: bold;
@@ -338,8 +338,8 @@ li.fast_filter {
 
   &.db_fast_filter {
     border: 0;
-    margin-#{$left}: 0;
-    margin-#{$right}: 10px;
+    margin-left: 0;
+    margin-right: 10px;
   }
 }
 
@@ -351,7 +351,7 @@ html.ie {
     }
 
     input {
-      padding-#{$right}: 0.2em;
+      padding-right: 0.2em;
     }
   }
 
@@ -363,7 +363,7 @@ html.ie {
       }
 
       input {
-        padding-#{$right}: 1.7em;
+        padding-right: 1.7em;
       }
     }
   }
@@ -378,8 +378,8 @@ html.ie {
 }
 
 #navigation_controls {
-  float: $right;
-  padding-#{$right}: 23px;
+  float: right;
+  padding-right: 23px;
 }
 
 // Resize handler
@@ -390,7 +390,7 @@ html.ie {
   cursor: col-resize;
   position: fixed;
   top: 0;
-  #{$left}: 240px;
+  left: 240px;
   z-index: 801;
 }
 
@@ -403,7 +403,7 @@ html.ie {
   font-weight: bold;
   position: fixed;
   top: 0;
-  #{$left}: $navi-width;
+  left: $navi-width;
   text-align: center;
   cursor: pointer;
   z-index: 800;
@@ -415,12 +415,12 @@ html.ie {
 // Quick warp links
 .pma_quick_warp {
   margin-top: 5px;
-  margin-#{$left}: 2px;
+  margin-left: 2px;
   position: relative;
 
   .drop_list {
-    float: $left;
-    margin-#{$left}: 3px;
+    float: left;
+    margin-left: 3px;
     padding: 2px 0;
 
     &:hover {
@@ -447,8 +447,8 @@ html.ie {
       border-bottom-right-radius: 0;
       box-shadow: 0 0 5px #ccc;
       top: 100%;
-      #{$left}: 3px;
-      #{$right}: 0;
+      left: 3px;
+      right: 0;
       display: none;
       z-index: 802;
     }
@@ -472,8 +472,8 @@ html.ie {
       padding: 0.2em 0.3em;
 
       &.favorite_table_anchor {
-        clear: $left;
-        float: $left;
+        clear: left;
+        float: left;
         padding: 0.1em 0.3em 0;
       }
     }

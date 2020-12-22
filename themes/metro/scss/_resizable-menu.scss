@@ -25,7 +25,7 @@ ul.resizable-menu {
     display: none;
     border: 1px #ddd solid;
     z-index: 2;
-    #{$right}: 0;
+    right: 0;
   }
 
   li:hover ul,

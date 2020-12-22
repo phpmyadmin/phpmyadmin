@@ -23,8 +23,8 @@
     display: block;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-#{$right}: 10px;
-    padding-#{$left}: 20px;
+    padding-right: 10px;
+    padding-left: 20px;
 
     &:hover {
       background: #f6f6f6;
@@ -34,5 +34,5 @@
 
 #li_select_theme::after {
   content: "Scheme: #{$color-scheme}";
-  margin-#{$left}: 10px;
+  margin-left: 10px;
 }

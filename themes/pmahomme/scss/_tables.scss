@@ -5,7 +5,7 @@
   }
 
   th {
-    text-align: $left;
+    text-align: left;
   }
 
   td {
@@ -14,7 +14,7 @@
   }
 
   thead th {
-    border-#{$right}: 1px solid #fff;
+    border-right: 1px solid #fff;
     background-image: linear-gradient(#fff, #ccc);
   }
 }

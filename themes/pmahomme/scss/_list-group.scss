@@ -1,5 +1,5 @@
 .list-group {
-  padding-#{$left}: 40px;
+  padding-left: 40px;
   margin: 1rem 0;
 }
 
@@ -16,6 +16,6 @@
 #li_select_theme {
   &.list-group-item {
     display: block;
-    margin-#{$left}: -20px;
+    margin-left: -20px;
   }
 }

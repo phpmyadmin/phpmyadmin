@@ -77,9 +77,9 @@ span {
 
 .autocomplete-column-hint {
   display: inline-block;
-  float: $right;
+  float: right;
   color: #666;
-  margin-#{$left}: 1em;
+  margin-left: 1em;
 }
 
 .CodeMirror-hints {
