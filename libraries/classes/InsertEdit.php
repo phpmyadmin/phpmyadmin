@@ -1841,16 +1841,16 @@ class InsertEdit
         $html_output = '<fieldset id="actions_panel">'
             . '<table cellpadding="5" cellspacing="0" class="pma-table tdblock w-100">'
             . '<tr>'
-            . '<td class="nowrap vmiddle">'
+            . '<td class="nowrap align-middle">'
             . $this->getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value)
             . "\n";
 
         $html_output .= '</td>'
-            . '<td class="vmiddle">'
+            . '<td class="align-middle">'
             . '&nbsp;&nbsp;&nbsp;<strong>'
             . __('and then') . '</strong>&nbsp;&nbsp;&nbsp;'
             . '</td>'
-            . '<td class="nowrap vmiddle">'
+            . '<td class="nowrap align-middle">'
             . $this->getAfterInsertDropDown(
                 $where_clause,
                 $after_insert,
@@ -1970,7 +1970,7 @@ class InsertEdit
                 )
             )
             . '</td>'
-            . '<td colspan="3" class="right vmiddle">'
+            . '<td colspan="3" class="right align-middle">'
             . '<input type="button" class="btn btn-secondary preview_sql" value="' . __('Preview SQL') . '"'
             . ' tabindex="' . ($tabindex + $tabindex_for_value + 6) . '">'
             . '<input type="reset" class="btn btn-secondary control_at_footer" value="' . __('Reset') . '"'

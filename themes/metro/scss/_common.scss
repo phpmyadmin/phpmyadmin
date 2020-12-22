@@ -419,19 +419,6 @@ select {
   clear: both;
 }
 
-.floatleft {
-  float: left;
-  margin-right: 1em;
-}
-
-.floatright {
-  float: right;
-}
-
-.displayblock {
-  display: block;
-}
-
 .pma-table {
   &.nospacing {
     border-spacing: 0;
@@ -454,42 +441,6 @@ select {
 .pma-table td.right {
   text-align: right;
   padding-right: 1em;
-}
-
-.pma-table tr.vtop {
-  th,
-  td {
-    vertical-align: top;
-  }
-}
-
-.pma-table th.vtop,
-.pma-table td.vtop {
-  vertical-align: top;
-}
-
-.pma-table tr.vmiddle {
-  th,
-  td {
-    vertical-align: middle;
-  }
-}
-
-.pma-table th.vmiddle,
-.pma-table td.vmiddle {
-  vertical-align: middle;
-}
-
-.pma-table tr.vbottom {
-  th,
-  td {
-    vertical-align: bottom;
-  }
-}
-
-.pma-table th.vbottom,
-.pma-table td.vbottom {
-  vertical-align: bottom;
 }
 
 .paddingtop {

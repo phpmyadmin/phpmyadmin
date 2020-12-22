@@ -70,16 +70,6 @@ thead th {
   border: 0.1em solid #000;
 }
 
-th.vtop,
-td.vtop {
-  vertical-align: top;
-}
-
-th.vbottom,
-td.vbottom {
-  vertical-align: bottom;
-}
-
 th {
   &.column_heading,
   &.column_action {

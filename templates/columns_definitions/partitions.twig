@@ -13,7 +13,7 @@
 {% set value_type_options = ['', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN'] %}
 
 <table class="pma-table" id="partition_table">
-    <tr class="vmiddle">
+    <tr class="align-middle">
         <td><label for="partition_by">{% trans 'Partition by:' %}</label></td>
         <td>
             <select name="partition_by" id="partition_by">
@@ -33,7 +33,7 @@
                 value="{{ partition_details['partition_expr'] }}">)
         </td>
     </tr>
-    <tr class="vmiddle">
+    <tr class="align-middle">
         <td><label for="partition_count">{% trans 'Partitions:' %}</label></td>
         <td colspan="2">
             <input name="partition_count" type="number" min="2"
@@ -41,7 +41,7 @@
         </td>
     </tr>
     {% if partition_details['can_have_subpartitions'] %}
-        <tr class="vmiddle">
+        <tr class="align-middle">
             <td><label for="subpartition_by">{% trans 'Subpartition by:' %}</label></td>
             <td>
                 <select name="subpartition_by" id="subpartition_by">
@@ -61,7 +61,7 @@
                     value="{{ partition_details['subpartition_expr'] }}">)
             </td>
         </tr>
-        <tr class="vmiddle">
+        <tr class="align-middle">
             <td><label for="subpartition_count">{% trans 'Subpartitions:' %}</label></td>
             <td colspan="2">
                 <input name="subpartition_count" type="number" min="2"
@@ -99,7 +99,7 @@
                         value="{{ partition['name'] }}">
                 </td>
                 {% if partition_details['value_enabled'] %}
-                    <td rowspan="{{ rowspan }}" class="vmiddle">
+                    <td rowspan="{{ rowspan }}" class="align-middle">
                         <select class="partition_value"
                             name="{{ partition['prefix'] }}[value_type]">
                             {% for option in value_type_options %}

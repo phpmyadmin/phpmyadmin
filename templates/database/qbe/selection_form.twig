@@ -50,7 +50,7 @@
   </div>
 
   <fieldset class="tblFooters">
-    <div class="floatleft">
+    <div class="float-start">
       <label for="criteriaRowAddSelect">{% trans 'Add/Delete criteria rows:' %}</label>
       <select size="1" name="criteriaRowAdd" id="criteriaRowAddSelect">
         <option value="-3">-3</option>
@@ -63,7 +63,7 @@
       </select>
     </div>
 
-    <div class="floatleft">
+    <div class="float-start">
       <label for="criteriaColumnAddSelect">{% trans 'Add/Delete columns:' %}</label>
       <select size="1" name="criteriaColumnAdd" id="criteriaColumnAddSelect">
         <option value="-3">-3</option>
@@ -76,12 +76,12 @@
       </select>
     </div>
 
-    <div class="floatleft">
+    <div class="float-start">
       <input class="btn btn-secondary" type="submit" name="modify" value="{% trans 'Update query' %}">
     </div>
   </fieldset>
 
-  <div class="floatleft w-100">
+  <div class="float-start w-100">
     <fieldset>
       <legend>{% trans 'Use tables' %}</legend>
 
@@ -102,7 +102,7 @@
   {{ get_hidden_inputs(db) }}
   <input type="hidden" name="submit_sql" value="1">
 
-  <div class="floatleft w-50">
+  <div class="float-start w-50">
     <fieldset id="tblQbe">
       <legend>{{ 'SQL query on database <b>%s</b>:'|trans|format(db_link)|raw }}</legend>
 

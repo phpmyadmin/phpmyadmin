@@ -160,15 +160,6 @@ button {
   clear: both;
 }
 
-.floatleft {
-  float: left;
-  margin-right: 1em;
-}
-
-.floatright {
-  float: right;
-}
-
 .pma-table {
   &.nospacing {
     border-spacing: 0;
@@ -191,24 +182,6 @@ button {
 .pma-table td.right {
   text-align: right;
   padding-right: 1em;
-}
-
-.pma-table tr.vtop,
-.pma-table th.vtop,
-.pma-table td.vtop {
-  vertical-align: top;
-}
-
-.pma-table tr.vmiddle,
-.pma-table th.vmiddle,
-.pma-table td.vmiddle {
-  vertical-align: middle;
-}
-
-.pma-table tr.vbottom,
-.pma-table th.vbottom,
-.pma-table td.vbottom {
-  vertical-align: bottom;
 }
 
 .paddingtop {
@@ -377,10 +350,6 @@ button.mult_submit {
 
 .allfine {
   color: green;
-}
-
-.displayblock {
-  display: block;
 }
 
 img.lightbulb {

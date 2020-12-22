@@ -17,7 +17,7 @@
 
         <div id="openlayersmap" style="width: {{width}}px; height: {{height}}px;"{{ srid == 0 ? ' class="hide"' }}></div>
 
-        <div class="choice floatright">
+        <div class="choice float-end">
             <input type="checkbox" id="choice" value="useBaseLayer"{{ srid != 0 ? ' checked="checked"' }}>
             <label for="choice">{% trans "Use OpenStreetMaps as Base Layer" %}</label>
         </div>

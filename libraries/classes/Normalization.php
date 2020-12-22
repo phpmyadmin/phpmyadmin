@@ -966,7 +966,7 @@ class Normalization
         $htmlOutput .= '</label></div>';
 
         $htmlOutput .= '</fieldset><fieldset class="tblFooters">'
-            . "<span class='floatleft'>" . __(
+            . "<span class='float-start'>" . __(
                 'Hint: Please follow the procedure carefully in order '
                 . 'to obtain correct normalization'
             ) . '</span>'
@@ -1042,7 +1042,7 @@ class Normalization
         )
             . '<div class="dependencies_box">';
         foreach ($dependencyList as $dependon => $colList) {
-            $html .= '<span class="displayblock">'
+            $html .= '<span class="d-block">'
                 . '<input type="button" class="btn btn-secondary pickPd" value="' . __('Pick') . '">'
                 . '<span class="determinants">'
                 . htmlspecialchars(str_replace('`', '', (string) $dependon)) . '</span> -> '
@@ -1052,7 +1052,7 @@ class Normalization
                 . '</span>';
         }
         if (empty($dependencyList)) {
-            $html .= '<p class="displayblock desc">'
+            $html .= '<p class="d-block desc">'
                 . __('No partial dependencies found!') . '</p>';
         }
         $html .= '</div>';

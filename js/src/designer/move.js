@@ -1724,8 +1724,8 @@ DesignerMove.sideMenuRight = function (idThis) {
     $('#layer_menu').toggleClass('left');
     var moveMenuIcon = $(idThis.getElementsByTagName('img')[0]);
     var resizeIcon = $('#layer_menu_sizer > img')
-        .toggleClass('floatleft')
-        .toggleClass('floatright');
+        .toggleClass('float-start')
+        .toggleClass('float-end');
 
     var srcResizeIcon = resizeIcon.attr('src');
     resizeIcon.attr('src', resizeIcon.attr('data-right'));

@@ -128,7 +128,7 @@ var ErrorReport = {
             Functions.getImage('s_error') + Messages.strErrorOccurred
         );
 
-        var $buttons = $('<div class="floatright"></div>');
+        var $buttons = $('<div class="float-end"></div>');
 
         var buttonHtml  = '<button class="btn btn-primary" id="show_error_report">';
         buttonHtml += Messages.strShowReportDetails;

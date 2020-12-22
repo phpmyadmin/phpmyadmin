@@ -674,7 +674,7 @@ Functions.displayGitRevision = function () {
  * for PhpMyAdmin\Display\ChangePassword and /user-password
  */
 Functions.displayPasswordGenerateButton = function () {
-    var generatePwdRow = $('<tr></tr>').addClass('vmiddle');
+    var generatePwdRow = $('<tr></tr>').addClass('align-middle');
     $('<td></td>').html(Messages.strGeneratePassword).appendTo(generatePwdRow);
     var pwdCell = $('<td></td>').appendTo(generatePwdRow);
     var pwdButton = $('<input>')

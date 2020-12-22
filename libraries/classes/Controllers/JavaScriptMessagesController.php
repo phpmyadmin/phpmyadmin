@@ -659,10 +659,10 @@ final class JavaScriptMessagesController
                 . '<div>'
                 . '<input id="pma_ignore_errors_popup" type="submit" value="'
                 . __('Ignore')
-                . '" class="btn btn-secondary floatright message_errors_found">'
+                . '" class="btn btn-secondary float-end message_errors_found">'
                 . '<input id="pma_ignore_all_errors_popup" type="submit" value="'
                 . __('Ignore All')
-                . '" class="btn btn-secondary floatright message_errors_found">'
+                . '" class="btn btn-secondary float-end message_errors_found">'
                 . '</div></div>',
 
             'phpErrorsBeingSubmitted' => '<div class="alert alert-danger" role="alert">'

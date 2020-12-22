@@ -33,7 +33,7 @@
                 {{- one_key['constraint'] is defined ? one_key['constraint'] -}}
                 " placeholder="{% trans 'Constraint name' %}" maxlength="64">
         </span>
-        <div class="floatleft">
+        <div class="float-start">
             {# For ON DELETE and ON UPDATE, the default action
                is RESTRICT as per MySQL doc; however, a SHOW CREATE TABLE
                won't display the clause if it's set as RESTRICT. #}

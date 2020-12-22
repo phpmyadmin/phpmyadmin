@@ -1285,14 +1285,14 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         width: '1em',
                         height: '1em',
                         background: chartObj.chart.seriesColors[i]
-                    }).addClass('floatleft')
+                    }).addClass('float-start')
                 ).append(
                     $('<div>').text(
                         chartObj.chart.series[i].label
-                    ).addClass('floatleft')
+                    ).addClass('float-start')
                 ).append(
                     $('<div class="clearfloat">')
-                ).addClass('floatleft')
+                ).addClass('float-start')
             );
         }
         $('#gridchart' + runtime.chartAI)
@@ -1903,7 +1903,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             // Display some stats at the bottom of the table
             $('#logTable').find('table tfoot tr')
                 .html('<th colspan="' + (runtime.logDataCols.length - 1) + '">' +
-                      Messages.strSumRows + ' ' + rowSum + '<span class="floatright">' +
+                      Messages.strSumRows + ' ' + rowSum + '<span class="float-end">' +
                       Messages.strTotal + '</span></th><th class="right">' + totalSum + '</th>');
         }
     }
@@ -1984,7 +1984,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
         $table.append('<tfoot>' +
                     '<tr><th colspan="' + (cols.length - 1) + '">' + Messages.strSumRows +
-                    ' ' + data.numRows + '<span class="floatright">' + Messages.strTotal +
+                    ' ' + data.numRows + '<span class="float-end">' + Messages.strTotal +
                     '</span></th><th class="right">' + data.sum.TOTAL + '</th></tr></tfoot>');
 
         // Append a tooltip to the count column, if there exist one
