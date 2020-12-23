@@ -185,7 +185,7 @@ class Utilities
 
         if ($result === false && $errorMessage !== null) {
             $dbgInfo['error']
-                = '<span class="color_red">'
+                = '<span class="text-danger">'
                 . htmlspecialchars($errorMessage) . '</span>';
         }
         $dbgInfo['query'] = htmlspecialchars($query);

@@ -883,10 +883,6 @@ label.col-3.d-flex.align-items-center {
   max-height: 400px;
 }
 
-.color_red {
-  color: red;
-}
-
 .pma_sliding_message {
   display: inline-block;
 }
@@ -907,25 +903,6 @@ ul.tabs {
 // default tab styles
 .tabactive {
   background: #fff !important;
-}
-
-span {
-  &.caution {
-    color: #f00;
-  }
-
-  &.success {
-    color: green;
-  }
-}
-
-fieldset.caution a {
-  color: #f00;
-
-  &:hover {
-    color: #fff;
-    background-color: #f00;
-  }
 }
 
 // zoom search

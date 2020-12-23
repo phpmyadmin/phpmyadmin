@@ -138,16 +138,16 @@ class Relation
         $retval = '<br>';
 
         $messages = [];
-        $messages['error'] = '<span class="caution"><strong>'
+        $messages['error'] = '<span class="text-danger"><strong>'
             . __('not OK')
             . '</strong></span>';
 
-        $messages['ok'] = '<span class="success"><strong>'
+        $messages['ok'] = '<span class="text-success"><strong>'
             . _pgettext('Correctly working', 'OK')
             . '</strong></span>';
 
-        $messages['enabled']  = '<span class="success">' . __('Enabled') . '</span>';
-        $messages['disabled'] = '<span class="caution">' . __('Disabled') . '</span>';
+        $messages['enabled']  = '<span class="text-success">' . __('Enabled') . '</span>';
+        $messages['disabled'] = '<span class="text-danger">' . __('Disabled') . '</span>';
 
         if (strlen((string) $cfgRelation['db']) == 0) {
             $retval .= __('Configuration of pmadb…') . ' '

@@ -655,10 +655,6 @@ form.login label {
   max-height: 400px;
 }
 
-.color_red {
-  color: red;
-}
-
 .pma_sliding_message {
   display: inline-block;
 }
@@ -674,25 +670,6 @@ ul.tabs {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-span {
-  &.caution {
-    color: #f00;
-  }
-
-  &.success {
-    color: green;
-  }
-}
-
-fieldset.caution a {
-  color: #f00;
-
-  &:hover {
-    color: #fff;
-    background-color: #f00;
-  }
 }
 
 /* zoom search */

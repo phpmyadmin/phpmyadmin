@@ -862,63 +862,11 @@ td.disabled {
   font-weight: bold;
 }
 
-.color_red {
-  color: red;
-}
-
 /* specific elements */
 
 ul.tabs {
   list-style-type: none;
   margin: 0;
-}
-
-span {
-  &.caution {
-    color: #f00;
-  }
-
-  &.success {
-    color: green;
-  }
-}
-
-fieldset.caution {
-  background: $browse-warning-color;
-  border: 1px solid $browse-warning-color;
-
-  legend {
-    background-color: #fff;
-  }
-
-  a {
-    font-family: $font-family-bold;
-    text-transform: uppercase;
-    color: $button-color;
-    font-weight: normal;
-  }
-
-  ul {
-    padding: 0;
-  }
-}
-
-fieldset.caution li {
-  display: block;
-}
-
-fieldset.caution li {
-  &::before {
-    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-    font-family: "IcoMoon";
-    content: "";
-    color: $button-color;
-    margin-right: 10px;
-  }
-
-  a:nth-child(2) img {
-    background: url('../img/s_info.png') !important;
-  }
 }
 
 /* zoom search */

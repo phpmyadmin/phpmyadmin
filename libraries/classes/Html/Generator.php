@@ -239,7 +239,7 @@ class Generator
     public static function getServerSSL(): string
     {
         $server = $GLOBALS['cfg']['Server'];
-        $class = 'caution';
+        $class = 'text-danger';
         if (! $server['ssl']) {
             $message = __('SSL is not being used');
             if (! empty($server['socket']) || in_array($server['host'], $GLOBALS['cfg']['MysqlSslWarningSafeHosts'])) {

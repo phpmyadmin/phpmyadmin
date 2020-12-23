@@ -295,7 +295,7 @@ class GeneratorTest extends AbstractTestCase
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
 
-        $sslNotUsedCaution = '<span class="caution">SSL is not being used</span>'
+        $sslNotUsedCaution = '<span class="text-danger">SSL is not being used</span>'
         . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
         . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
         . ' class="icon ic_b_help"></a>';
@@ -349,7 +349,7 @@ class GeneratorTest extends AbstractTestCase
         ];
 
         $this->assertEquals(
-            '<span class="caution">SSL is used with disabled verification</span>'
+            '<span class="text-danger">SSL is used with disabled verification</span>'
             . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
@@ -363,7 +363,7 @@ class GeneratorTest extends AbstractTestCase
         ];
 
         $this->assertEquals(
-            '<span class="caution">SSL is used without certification authority</span>'
+            '<span class="text-danger">SSL is used without certification authority</span>'
             . ' <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fsetup.html%23ssl"'
             . ' target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation"'
             . ' class="icon ic_b_help"></a>',
