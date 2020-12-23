@@ -23,7 +23,7 @@
             {% if result is iterable %}
                 {% for row in result %}
                     <tr>
-                        <td class="right">{{ row[2] }}</td>{# count #}
+                        <td class="text-end">{{ row[2] }}</td>{# count #}
                         <td>{{ row[0] }}</td>{# original #}
                         <td>{{ row[1] }}</td>{# replaced #}
                     </tr>

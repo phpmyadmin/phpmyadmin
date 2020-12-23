@@ -240,7 +240,7 @@ class Relation
                 $messages
             );
             if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
-                $retval .= '<tr><td colspan=2 class="left error">';
+                $retval .= '<tr><td colspan=2 class="text-start error">';
                 $retval .=  __(
                     'Please see the documentation on how to'
                     . ' update your column_info table.'
@@ -426,7 +426,7 @@ class Relation
         array $messages,
         $skip_line = true
     ) {
-        $retval = '    <tr><td colspan=2 class="right">' . $feature_name . ': ';
+        $retval = '    <tr><td colspan=2 class="text-end">' . $feature_name . ': ';
         if (isset($GLOBALS['cfgRelation'][$relation_parameter])
             && $GLOBALS['cfgRelation'][$relation_parameter]
         ) {
@@ -458,9 +458,9 @@ class Relation
         array $messages,
         $docAnchor
     ) {
-        $retval = '<tr><th class="left">';
+        $retval = '<tr><th class="text-start">';
         $retval .= '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... ';
-        $retval .= '</th><td class="right">';
+        $retval .= '</th><td class="text-end">';
         if ($relationParameterSet) {
             $retval .= $messages['ok'];
         } else {

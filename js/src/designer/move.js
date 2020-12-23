@@ -1721,7 +1721,7 @@ DesignerMove.showLeftMenu = function (idThis) {
 
 DesignerMove.sideMenuRight = function (idThis) {
     $('#side_menu').toggleClass('right');
-    $('#layer_menu').toggleClass('left');
+    $('#layer_menu').toggleClass('float-start');
     var moveMenuIcon = $(idThis.getElementsByTagName('img')[0]);
     var resizeIcon = $('#layer_menu_sizer > img')
         .toggleClass('float-start')

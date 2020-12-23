@@ -2029,7 +2029,7 @@ class Results
             return;
         }
 
-        $th_class[] = 'right';
+        $th_class[] = 'text-end';
     }
 
     /**
@@ -3450,7 +3450,7 @@ class Results
     ) {
         if (! isset($column) || $column === null) {
             $cell = $this->buildNullDisplay(
-                'right ' . $class,
+                'text-end ' . $class,
                 $condition_field,
                 $meta,
                 ''
@@ -3460,7 +3460,7 @@ class Results
             $where_comparison = ' = ' . $column;
 
             $cell = $this->getRowData(
-                'right ' . $class,
+                'text-end ' . $class,
                 $condition_field,
                 $analyzed_sql_results,
                 $meta,
@@ -3477,7 +3477,7 @@ class Results
             );
         } else {
             $cell = $this->buildEmptyDisplay(
-                'right ' . $class,
+                'text-end ' . $class,
                 $condition_field,
                 $meta,
                 ''

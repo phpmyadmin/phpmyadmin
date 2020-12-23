@@ -1970,7 +1970,7 @@ class InsertEdit
                 )
             )
             . '</td>'
-            . '<td colspan="3" class="right align-middle">'
+            . '<td colspan="3" class="text-end align-middle">'
             . '<input type="button" class="btn btn-secondary preview_sql" value="' . __('Preview SQL') . '"'
             . ' tabindex="' . ($tabindex + $tabindex_for_value + 6) . '">'
             . '<input type="reset" class="btn btn-secondary control_at_footer" value="' . __('Reset') . '"'
@@ -2008,7 +2008,7 @@ class InsertEdit
             . '</thead>'
             . ' <tfoot>'
             . '<tr>'
-            . '<th colspan="5" class="tblFooters right">'
+            . '<th colspan="5" class="tblFooters text-end">'
             . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
             . '</th>'
             . '</tr>'

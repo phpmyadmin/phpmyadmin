@@ -908,7 +908,7 @@ class ResultsTest extends AbstractTestCase
                 [],
                 0,
                 'binary',
-                '<td class="left grid_edit  transformed hex">' . "\n"
+                '<td class="text-start grid_edit  transformed hex">' . "\n"
                 . '    1001' . "\n"
                 . '</td>' . "\n",
             ],

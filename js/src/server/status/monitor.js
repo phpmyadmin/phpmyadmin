@@ -1904,7 +1904,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             $('#logTable').find('table tfoot tr')
                 .html('<th colspan="' + (runtime.logDataCols.length - 1) + '">' +
                       Messages.strSumRows + ' ' + rowSum + '<span class="float-end">' +
-                      Messages.strTotal + '</span></th><th class="right">' + totalSum + '</th>');
+                      Messages.strTotal + '</span></th><th class="text-end">' + totalSum + '</th>');
         }
     }
 
@@ -1985,7 +1985,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         $table.append('<tfoot>' +
                     '<tr><th colspan="' + (cols.length - 1) + '">' + Messages.strSumRows +
                     ' ' + data.numRows + '<span class="float-end">' + Messages.strTotal +
-                    '</span></th><th class="right">' + data.sum.TOTAL + '</th></tr></tfoot>');
+                    '</span></th><th class="text-end">' + data.sum.TOTAL + '</th></tr></tfoot>');
 
         // Append a tooltip to the count column, if there exist one
         if ($('#logTable').find('tr').first().find('th').last().text().indexOf('#') > -1) {

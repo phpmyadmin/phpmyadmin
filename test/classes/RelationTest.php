@@ -104,14 +104,14 @@ class RelationTest extends AbstractTestCase
         );
 
         //$cfg['Servers'][$i]['relation']
-        $result = "\$cfg['Servers'][\$i]['pmadb']  ... </th><td class=\"right\">"
+        $result = "\$cfg['Servers'][\$i]['pmadb']  ... </th><td class=\"text-end\">"
             . '<span class="success"><strong>OK</strong></span>';
         $this->assertStringContainsString(
             $result,
             $retval
         );
         // $cfg['Servers'][$i]['relation']
-        $result = "\$cfg['Servers'][\$i]['relation']  ... </th><td class=\"right\">"
+        $result = "\$cfg['Servers'][\$i]['relation']  ... </th><td class=\"text-end\">"
             . '<span class="caution"><strong>not OK</strong></span>';
         $this->assertStringContainsString(
             $result,
@@ -125,7 +125,7 @@ class RelationTest extends AbstractTestCase
         );
         // $cfg['Servers'][$i]['table_info']
         $result = "\$cfg['Servers'][\$i]['table_info']  ... </th>"
-            . '<td class="right">'
+            . '<td class="text-end">'
             . '<span class="caution"><strong>not OK</strong></span>';
         $this->assertStringContainsString(
             $result,

@@ -11,7 +11,7 @@
             {% for item in hidden[type] %}
               <tr>
                 <td>{{ item }}</td>
-                <td class="right">
+                <td class="text-end">
                   <a class="unhideNavItem ajax" href="{{ url('/navigation') }}" data-post="{{ get_common({
                     'unhideNavItem': true,
                     'itemType': type,

@@ -11,7 +11,7 @@
     <tbody>
         {% for entry in entries %}
             <tr class="noclick">
-                <td class="right"><small>{{ entry.line_number }}</small></td>
+                <td class="text-end"><small>{{ entry.line_number }}</small></td>
                 <td><small>{{ entry.date }}</small></td>
                 <td><small>{{ entry.username }}</small></td>
                 <td>{{ entry.formated_statement|raw }}</td>

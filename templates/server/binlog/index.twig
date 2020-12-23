@@ -94,10 +94,10 @@
     {% for value in values %}
       <tr class="noclick">
         <td>{{ value['Log_name'] }}</td>
-        <td class="right">{{ value['Pos'] }}</td>
+        <td class="text-end">{{ value['Pos'] }}</td>
         <td>{{ value['Event_type'] }}</td>
-        <td class="right">{{ value['Server_id'] }}</td>
-        <td class="right">
+        <td class="text-end">{{ value['Server_id'] }}</td>
+        <td class="text-end">
           {{- value['Orig_log_pos'] is defined ? value['Orig_log_pos'] : value['End_log_pos'] -}}
         </td>
         <td>{{ format_sql(value['Info'], not is_full_query) }}</td>

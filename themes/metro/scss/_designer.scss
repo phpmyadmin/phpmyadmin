@@ -281,12 +281,11 @@ a {
   margin-right: 0;
 }
 
-#layer_menu.left {
-  float: left;
+#layer_menu.float-start {
   margin-left: -20px;
 }
 
-.content_fullscreen #layer_menu.left {
+.content_fullscreen #layer_menu.float-start {
   margin-left: 0;
 }
 

@@ -381,17 +381,6 @@ select:not(.form-control) {
   }
 }
 
-.pma-table th.left,
-.pma-table td.left {
-  text-align: left;
-}
-
-.pma-table th.right,
-.pma-table td.right {
-  text-align: right;
-  padding-right: 1em;
-}
-
 .paddingtop {
   padding-top: 1em;
 }
@@ -2192,14 +2181,6 @@ input#auto_increment_opt {
     width: 48%;
     float: left;
     padding: 0;
-
-    &.left {
-      margin-right: 1%;
-    }
-
-    &.right {
-      margin-left: 1%;
-    }
   }
 
   legend {
@@ -2331,10 +2312,6 @@ input#auto_increment_opt {
   }
 
   th.draggable {
-    &.right span {
-      margin-right: 0;
-    }
-
     span {
       margin-right: 10px;
     }
