@@ -30,3 +30,16 @@ js/vendor
 vendor/
     The download kit includes various Composer packages as
     dependencies.
+
+Specific files LICENSES
+-----------------------
+
+phpMyAdmin distributed themes contain some content that is under licenses.
+
+- `themes/*/img/b_rename.svg` Is a `Icons8 <https://thenounproject.com/Icons8/>`_, icon from the `Android L Icon Pack Collection <https://thenounproject.com/Icons8/collection/android-l-icon-pack/>`_. The icon `rename <https://thenounproject.com/term/rename/61456/>`_.
+
+
+Licenses for vendors
+--------------------
+
+- `rename` from `Icons8` is under the `"public domain" <https://creativecommons.org/publicdomain/zero/1.0/>`_ (CC0 1.0) license.
