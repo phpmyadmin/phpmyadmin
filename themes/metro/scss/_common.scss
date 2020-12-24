@@ -39,12 +39,11 @@ body#loginform {
     margin-#{$right}: auto;
 
     &::before {
-      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-      font-family: 'IcoMoon';
-      font-size: 220px;
+      background-size: 220px;
       color: $body-bg;
       /* The user avatar icon */
-      content: "a";
+      background: url('../img/user.svg');
+      content: "";
       float: $left;
       margin-#{$right}: 20px;
       margin-bottom: 10px;
@@ -918,10 +917,7 @@ fieldset.caution li {
 
 fieldset.caution li {
   &::before {
-    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-    font-family: "IcoMoon";
-    /* Round crossed (x) */
-    content: "";
+    background: url('../img/cancel_circle.svg');
     color: $button-color;
     margin-#{$right}: 10px;
   }
