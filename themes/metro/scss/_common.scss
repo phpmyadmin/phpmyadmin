@@ -519,58 +519,6 @@ div.tools {
   }
 }
 
-.chrome {
-  input[type="checkbox"] {
-    #{$left}: -9999px;
-    position: relative;
-
-    &::before {
-      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-      font-family: 'IcoMoon';
-      content: "";
-      color: $th-color;
-      cursor: default;
-      position: absolute;
-      padding: 4px;
-      top: 0;
-      #{$left}: 9995px;
-    }
-
-    &:indeterminate::before {
-      content: "";
-    }
-
-    &:checked::before {
-      content: "";
-    }
-  }
-
-  .navigation input[type="checkbox"]::before {
-    color: #fff;
-  }
-
-  input[type="radio"] {
-    #{$left}: -9999px;
-    position: relative;
-
-    &::before {
-      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-      font-family: 'IcoMoon';
-      content: "";
-      color: $th-color;
-      cursor: default;
-      position: absolute;
-      padding: 4px;
-      top: 0;
-      #{$left}: 9995px;
-    }
-
-    &:checked::before {
-      content: "";
-    }
-  }
-}
-
 .pma-table tr.noclick td:first-child::before {
   content: "";
 }

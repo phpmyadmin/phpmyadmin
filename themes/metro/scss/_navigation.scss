@@ -120,20 +120,6 @@
   }
 }
 
-div#left_tableList li {
-  a:first-child::before {
-    color: $navi-pointer-color;
-    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-    font-family: "IcoMoon";
-    content: "";
-    margin: 10px;
-  }
-
-  &:hover a:first-child::before {
-    color: $button-color;
-  }
-}
-
 img {
   &.ic_b_home,
   &.ic_s_loggoff,
