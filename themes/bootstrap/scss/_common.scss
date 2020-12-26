@@ -6,26 +6,8 @@
   margin: 0 auto;
 }
 
-h2 {
-  font-size: 2em;
-  font-weight: normal;
-  text-shadow: 0 1px 0 #fff;
-  padding: 10px 0 10px;
-  padding-left: 3px;
-  color: #777;
-
-  a img {
-    display: inline;
-  }
-}
-
 .data {
   margin: 0 0 12px;
-}
-
-h3 {
-  font-weight: bold;
-  font-size: 1rem;
 }
 
 button.mult_submit,
@@ -82,15 +64,6 @@ button.mult_submit {
   }
 }
 
-dfn {
-  font-style: normal;
-
-  &:hover {
-    font-style: normal;
-    cursor: help;
-  }
-}
-
 .pma-table th {
   font-weight: bold;
   color: $th-color;
@@ -98,132 +71,9 @@ dfn {
   background: linear-gradient(#fff, #ccc);
 }
 
-a img {
-  border: 0;
-}
-
-hr {
-  color: $body-color;
-  background-color: $body-color;
-  border: 0;
-  height: 1px;
-}
-
-form {
-  padding: 0;
-  margin: 0;
-  display: inline;
-}
-
-input,
 select {
-  // Fix outline in Chrome
-  outline: none;
-}
-
-input {
-  &[type=text],
-  &[type=password],
-  &[type=number],
-  &[type=date] {
-    transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-  }
-}
-
-select {
-  transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-
   &#sel-lang {
     width: auto;
-  }
-}
-
-input {
-  &[type=text][disabled],
-  &[type=password][disabled],
-  &[type=number][disabled],
-  &[type=date][disabled] {
-    background: #e8e8e8;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-
-    &:hover {
-      background: #e8e8e8;
-      box-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-    }
-  }
-}
-
-select[disabled] {
-  background: #e8e8e8;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-
-  &:hover {
-    background: #e8e8e8;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-  }
-}
-
-input {
-  &[type=text] {
-    &:hover,
-    &:focus {
-      border: 1px solid #7c7c7c;
-      background: #fff;
-    }
-  }
-
-  &[type=password] {
-    &:hover,
-    &:focus {
-      border: 1px solid #7c7c7c;
-      background: #fff;
-    }
-  }
-
-  &[type=number] {
-    &:hover,
-    &:focus {
-      border: 1px solid #7c7c7c;
-      background: #fff;
-    }
-  }
-
-  &[type=date] {
-    &:hover,
-    &:focus {
-      border: 1px solid #7c7c7c;
-      background: #fff;
-    }
-  }
-}
-
-select:focus {
-  border: 1px solid #7c7c7c;
-  background: #fff;
-}
-
-input {
-  &[type=text]:hover,
-  &[type=password]:hover,
-  &[type=number]:hover,
-  &[type=date]:hover {
-    box-shadow: 0 1px 3px #aaa;
-    -webkit-box-shadow: 0 1px 3px #aaa;
-    -moz-box-shadow: 0 1px 3px #aaa;
   }
 }
 
@@ -284,11 +134,6 @@ fieldset {
   margin: 1.5em;
 }
 
-// buttons in some browsers (eg. Konqueror) are block elements, this breaks design
-button {
-  display: inline;
-}
-
 // 3.4
 .datatable {
   table-layout: fixed;
@@ -313,33 +158,6 @@ button {
 
 .pma-table th {
   text-align: left;
-}
-
-img,
-button {
-  vertical-align: middle;
-}
-
-input {
-  &:not(.form-check-input)[type=checkbox],
-  &[type=radio] {
-    vertical-align: -11%;
-  }
-}
-
-select:not(.form-control) {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  border: 1px solid #bbb;
-  color: #333;
-  padding: 3px;
-  background: white;
-  margin: 6px;
-
-  &[multiple] {
-    background: linear-gradient(#fff, #f2f2f2);
-  }
 }
 
 /* classes */
