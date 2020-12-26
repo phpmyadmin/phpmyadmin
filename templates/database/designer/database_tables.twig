@@ -46,7 +46,7 @@
                         title="{% trans 'See table structure' %}">
                 </td>
                 <td id="id_zag_{{ t_n_url }}"
-                    class="tab_zag nowrap tab_zag_noquery"
+                    class="tab_zag text-nowrap tab_zag_noquery"
                     table_name="{{ t_n_url }}"
                     query_set="{{ has_query ? 1 : 0 }}">
                     <span class="owner">{{ designerTable.getDatabaseName() }}</span>
@@ -97,7 +97,7 @@
                     {% endif %}
                     <td width="10px" colspan="3" id="{{ t_n_url }}.
                         {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}">
-                        <div class="nowrap">
+                        <div class="text-nowrap">
                             {% set type = columns_type[t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j]] %}
                             <img src="{{ theme.getImgPath(type) }}.png" alt="*">
                             {{ tab_column[t_n]['COLUMN_NAME'][j] }} : {{ tab_column[t_n]['TYPE'][j] }}

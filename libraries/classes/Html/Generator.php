@@ -218,7 +218,7 @@ class Generator
         }
         // Sometimes use a span (we rely on this in js/sql.js). But for menu bar
         // we don't need a span
-        $button = $menu_icon ? '' : '<span class="nowrap">';
+        $button = $menu_icon ? '' : '<span class="text-nowrap">';
         if ($include_icon) {
             $button .= self::getImage($icon, $alternate);
         }

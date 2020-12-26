@@ -53,7 +53,7 @@
                 <input type="checkbox" class="checkall" name="selected_fld[]" value="{{ row['Field'] }}" id="checkbox_row_{{ rownum }}">
             </td>
             <td class="text-end">{{ rownum }}</td>
-            <th class="nowrap">
+            <th class="text-nowrap">
                 <label for="checkbox_row_{{ rownum }}">
                     {% if displayed_fields[rownum].comment is defined %}
                         <span class="commented_column" title="{{ displayed_fields[rownum].comment }}">{{ displayed_fields[rownum].text }}</span>
@@ -63,7 +63,7 @@
                     {{ displayed_fields[rownum].icon|raw }}
                 </label>
             </th>
-            <td{{ 'set' != extracted_columnspec['type'] and 'enum' != extracted_columnspec['type'] ? ' class="nowrap"' }}>
+            <td{{ 'set' != extracted_columnspec['type'] and 'enum' != extracted_columnspec['type'] ? ' class="text-nowrap"' }}>
                 <bdo dir="ltr" lang="en">
                     {{ extracted_columnspec['displayed_type']|raw }}
                     {% if relation_commwork and relation_mimework and browse_mime
@@ -77,9 +77,9 @@
                 <dfn title="{{ collations[row['Collation']].description }}">{{ collations[row['Collation']].name }}</dfn>
             {% endif %}
             </td>
-            <td class="column_attribute nowrap">{{ attributes[rownum] }}</td>
+            <td class="column_attribute text-nowrap">{{ attributes[rownum] }}</td>
             <td>{{ row['Null'] == 'YES' ? 'Yes'|trans : 'No'|trans }}</td>
-            <td class="nowrap">
+            <td class="text-nowrap">
                 {% if row['Default'] is not null %}
                     {% if extracted_columnspec['type'] == 'bit' %}
                         {{ row['Default']|convert_bit_default_value }}
@@ -97,7 +97,7 @@
                     {{ comments }}
                 </td>
             {% endif %}
-            <td class="nowrap">{{ row['Extra']|upper }}</td>
+            <td class="text-nowrap">{{ row['Extra']|upper }}</td>
             {% if not tbl_is_view and not db_is_system_schema %}
                 <td class="edit text-center print_ignore">
                     <a class="change_column_anchor ajax" href="{{ url('/table/structure/change', {
@@ -129,11 +129,11 @@
                     <ul class="table-structure-actions resizable-menu">
                         {% if hide_structure_actions %}
                             <li class="submenu shown">
-                                <a href="#" class="tab nowrap">{{ get_icon('b_more', 'More'|trans) }}</a>
+                                <a href="#" class="tab text-nowrap">{{ get_icon('b_more', 'More'|trans) }}</a>
                                 <ul>
                         {% endif %}
 
-                        <li class="primary nowrap">
+                        <li class="primary text-nowrap">
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (primary and primary.hasColumn(field_name)) %}
                             {{ get_icon('bd_primary', 'Primary'|trans) }}
                           {% else %}
@@ -148,7 +148,7 @@
                           {% endif %}
                         </li>
 
-                        <li class="add_unique unique nowrap">
+                        <li class="add_unique unique text-nowrap">
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or field_name in columns_with_unique_index %}
                             {{ get_icon('bd_unique', 'Unique'|trans) }}
                           {% else %}
@@ -163,7 +163,7 @@
                           {% endif %}
                         </li>
 
-                        <li class="add_index nowrap">
+                        <li class="add_index text-nowrap">
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' %}
                             {{ get_icon('bd_index', 'Index'|trans) }}
                           {% else %}
@@ -188,7 +188,7 @@
                             'multipolygon',
                             'geomtrycollection'
                         ] %}
-                        <li class="spatial nowrap">
+                        <li class="spatial text-nowrap">
                           {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (type not in spatial_types and (tbl_storage_engine == 'MYISAM' or mysql_int_version >= 50705)) %}
                             {{ get_icon('bd_spatial', 'Spatial'|trans) }}
                           {% else %}
@@ -204,7 +204,7 @@
                         </li>
 
                         {# FULLTEXT is possible on TEXT, CHAR and VARCHAR #}
-                        <li class="fulltext nowrap">
+                        <li class="fulltext text-nowrap">
                         {% if tbl_storage_engine is not empty and (
                                 tbl_storage_engine == 'MYISAM'
                                 or tbl_storage_engine == 'ARIA'
@@ -225,7 +225,7 @@
                         </li>
 
                         {# Distinct value action #}
-                        <li class="browse nowrap">
+                        <li class="browse text-nowrap">
                             <a href="{{ url('/sql') }}" data-post="{{ get_common({
                               'db': db,
                               'table': table,
@@ -240,7 +240,7 @@
                             </a>
                         </li>
                         {% if central_columns_work %}
-                            <li class="browse nowrap">
+                            <li class="browse text-nowrap">
                             {% if row['Field'] in central_list %}
                                 <a href="#" class="central_columns remove_button">
                                     {{ get_icon('centralColumns_delete', 'Remove from central columns'|trans) }}

@@ -856,7 +856,7 @@ class Routines
         } else {
             $retval .= "<input name='item_type' type='hidden'"
                 . " value='" . $routine['item_type'] . "'>\n"
-                . "<div class='font_weight_bold text-center w-50'>\n"
+                . "<div class='fw-bold text-center w-50'>\n"
                 . $routine['item_type'] . "\n"
                 . "</div>\n"
                 . "<input type='submit' name='routine_changetype'\n"
@@ -1707,7 +1707,7 @@ class Routines
             } elseif ($routine['item_param_type'][$i] === 'DATE') {
                 $class = 'datefield';
             }
-            $retval .= "<td class='nowrap'>\n";
+            $retval .= "<td class='text-nowrap'>\n";
             if (in_array($routine['item_param_type'][$i], ['ENUM', 'SET'])) {
                 if ($routine['item_param_type'][$i] === 'ENUM') {
                     $input_type = 'radio';

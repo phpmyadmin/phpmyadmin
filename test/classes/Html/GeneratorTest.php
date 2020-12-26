@@ -112,7 +112,7 @@ class GeneratorTest extends AbstractTestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'text';
 
         $this->assertEquals(
-            '<span class="nowrap"></span>',
+            '<span class="text-nowrap"></span>',
             Generator::getIcon('b_comment')
         );
     }
@@ -125,7 +125,7 @@ class GeneratorTest extends AbstractTestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
 
         $this->assertEquals(
-            '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
+            '<span class="text-nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
             Generator::getIcon('b_comment')
         );
     }
@@ -139,7 +139,7 @@ class GeneratorTest extends AbstractTestCase
         $alternate_text = 'alt_str';
 
         $this->assertEquals(
-            '<span class="nowrap"><img src="themes/dot.gif" title="'
+            '<span class="text-nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment"></span>',
             Generator::getIcon('b_comment', $alternate_text)
@@ -157,7 +157,7 @@ class GeneratorTest extends AbstractTestCase
         // Here we are checking for an icon embedded inside a span (i.e not a menu
         // bar icon
         $this->assertEquals(
-            '<span class="nowrap"><img src="themes/dot.gif" title="'
+            '<span class="text-nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment">&nbsp;' . $alternate_text . '</span>',
             Generator::getIcon('b_comment', $alternate_text, true, false)

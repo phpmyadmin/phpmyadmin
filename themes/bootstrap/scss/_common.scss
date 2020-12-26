@@ -700,10 +700,6 @@ td.disabled {
   color: #aaa;
 }
 
-.nowrap {
-  white-space: nowrap;
-}
-
 .pre_wrap {
   white-space: pre-wrap;
 }
@@ -802,20 +798,12 @@ label.col-3.d-flex.align-items-center {
   width: 30px;
 }
 
-.font_weight_bold {
-  font-weight: bold;
-}
-
 .color_gray {
   color: gray;
 }
 
 .max_height_400 {
   max-height: 400px;
-}
-
-.pma_sliding_message {
-  display: inline-block;
 }
 
 li.last.database {

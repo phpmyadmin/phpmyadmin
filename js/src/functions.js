@@ -3612,7 +3612,7 @@ AJAX.registerOnload('functions.js', function () {
         var listSize = centralColumnList[db + '_' + table].length;
         var min = (listSize <= maxRows) ? listSize : maxRows;
         for (i = 0; i < min; i++) {
-            fields += '<tr><td><div><span class="font_weight_bold">' +
+            fields += '<tr><td><div><span class="fw-bold">' +
                 Functions.escapeHtml(centralColumnList[db + '_' + table][i].col_name) +
                 '</span><br><span class="color_gray">' + centralColumnList[db + '_' + table][i].col_type;
 
@@ -3638,7 +3638,7 @@ AJAX.registerOnload('functions.js', function () {
         }
         var seeMore = '';
         if (listSize > maxRows) {
-            seeMore = '<fieldset class="tblFooters text-center font_weight_bold">' +
+            seeMore = '<fieldset class="tblFooters text-center fw-bold">' +
                 '<a href=\'#\' id=\'seeMore\'>' + Messages.seeMore + '</a></fieldset>';
         }
         var centralColumnsDialog = '<div class=\'max_height_400\'>' +
@@ -3674,7 +3674,7 @@ AJAX.registerOnload('functions.js', function () {
                     fields = '';
                     min = (listSize <= maxRows + resultPointer) ? listSize : maxRows + resultPointer;
                     for (i = resultPointer; i < min; i++) {
-                        fields += '<tr><td><div><span class="font_weight_bold">' +
+                        fields += '<tr><td><div><span class="fw-bold">' +
                             centralColumnList[db + '_' + table][i].col_name +
                             '</span><br><span class="color_gray">' +
                             centralColumnList[db + '_' + table][i].col_type;
@@ -4327,7 +4327,7 @@ Functions.slidingMessage = function (msg, $object) {
         if ($('#PMA_slidingMessage').length === 0) {
             $('#page_content').prepend(
                 '<span id="PMA_slidingMessage" ' +
-                'class="pma_sliding_message"></span>'
+                'class="d-inline-block"></span>'
             );
         }
         $obj = $('#PMA_slidingMessage');

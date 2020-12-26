@@ -982,7 +982,7 @@ class ResultsTest extends AbstractTestCase
                 '',
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
-                . 'class="grid_edit nowrap transformed">foo bar baz</td>' . "\n",
+                . 'class="grid_edit text-nowrap transformed">foo bar baz</td>' . "\n",
             ],
             [
                 'all',
@@ -1007,7 +1007,7 @@ class ResultsTest extends AbstractTestCase
                 '',
                 '<td data-decimals="0" data-type="datetime" '
                 . 'data-originallength="19" '
-                . 'class="grid_edit nowrap">2020-09-20 16:35:00</td>' . "\n",
+                . 'class="grid_edit text-nowrap">2020-09-20 16:35:00</td>' . "\n",
             ],
         ];
     }

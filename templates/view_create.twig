@@ -17,7 +17,7 @@
         <table class="pma-table rte_table">
             {% if view['operation'] == 'create' %}
                 <tr>
-                    <td class="nowrap"><label for="or_replace">OR REPLACE</label></td>
+                    <td class="text-nowrap"><label for="or_replace">OR REPLACE</label></td>
                     <td>
                         <input type="checkbox" name="view[or_replace]" id="or_replace"
                             {% if (view['or_replace']) %} checked="checked" {% endif %}
@@ -27,7 +27,7 @@
             {% endif %}
 
             <tr>
-                <td class="nowrap"><label for="algorithm">ALGORITHM</label></td>
+                <td class="text-nowrap"><label for="algorithm">ALGORITHM</label></td>
                 <td>
                     <select name="view[algorithm]" id="algorithm">
                         {% for option in view_algorithm_options %}
@@ -42,12 +42,12 @@
             </tr>
 
             <tr>
-                <td class="nowrap">{% trans 'Definer' %}</td>
+                <td class="text-nowrap">{% trans 'Definer' %}</td>
                 <td><input type="text" maxlength="100" size="50" name="view[definer]" value="{{ view['definer'] }}"></td>
             </tr>
 
             <tr>
-                <td class="nowrap">SQL SECURITY</td>
+                <td class="text-nowrap">SQL SECURITY</td>
                 <td>
                     <select name="view[sql_security]">
                         <option value=""></option>
@@ -62,7 +62,7 @@
 
             {% if view['operation'] == 'create' %}
                 <tr>
-                    <td class="nowrap">{% trans 'VIEW name' %}</td>
+                    <td class="text-nowrap">{% trans 'VIEW name' %}</td>
                     <td>
                         <input type="text" size="20" name="view[name]" onfocus="this.select()" maxlength="64" value="{{ view['name'] }}">
                     </td>
@@ -76,14 +76,14 @@
             {% endif %}
 
             <tr>
-                <td class="nowrap">{% trans 'Column names' %}</td>
+                <td class="text-nowrap">{% trans 'Column names' %}</td>
                 <td>
                     <input type="text" maxlength="100" size="50" name="view[column_names]" onfocus="this.select()"  value="{{ view['column_names'] }}">
                 </td>
             </tr>
 
             <tr>
-                <td class="nowrap">AS</td>
+                <td class="text-nowrap">AS</td>
                 <td>
                     <textarea name="view[as]" rows="15" cols="40" dir="{{ text_dir }}" onclick="Functions.selectContent(this, sqlBoxLocked, true)">{{ view['as'] }}</textarea><br>
                     <input type="button" value="Format" id="format" class="btn btn-secondary button sqlbutton">
@@ -92,7 +92,7 @@
             </tr>
 
             <tr>
-                <td class="nowrap">WITH CHECK OPTION</td>
+                <td class="text-nowrap">WITH CHECK OPTION</td>
                 <td>
                     <select name="view[with]">
                         <option value=""></option>

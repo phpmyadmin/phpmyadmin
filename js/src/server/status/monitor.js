@@ -1961,7 +1961,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (i === 0) {
                 $.each(rows[0], tempPushKey);
                 $table.append('<thead>' +
-                              '<tr><th class="nowrap">' + cols.join('</th><th class="nowrap">') + '</th></tr>' +
+                              '<tr><th class="text-nowrap">' + cols.join('</th><th class="text-nowrap">') + '</th></tr>' +
                               '</thead>'
                 );
 

@@ -2256,7 +2256,7 @@ class Results
      */
     private function buildEmptyDisplay($class, $conditionField, $meta, $align = '')
     {
-        $classes = $this->addClass($class, $conditionField, $meta, 'nowrap');
+        $classes = $this->addClass($class, $conditionField, $meta, 'text-nowrap');
 
         return $this->template->render('display/results/empty_display', [
             'align' => $align,
@@ -3336,7 +3336,7 @@ class Results
         if (isset($GLOBALS['cfg']['RowActionType'])
             && $GLOBALS['cfg']['RowActionType'] === self::ACTION_LINK_CONTENT_ICONS
         ) {
-            $linkContent .= '<span class="nowrap">'
+            $linkContent .= '<span class="text-nowrap">'
                 . Generator::getImage(
                     $icon,
                     $display_text
@@ -3345,7 +3345,7 @@ class Results
         } elseif (isset($GLOBALS['cfg']['RowActionType'])
             && $GLOBALS['cfg']['RowActionType'] === self::ACTION_LINK_CONTENT_TEXT
         ) {
-            $linkContent .= '<span class="nowrap">' . $display_text . '</span>';
+            $linkContent .= '<span class="text-nowrap">' . $display_text . '</span>';
         } else {
             $linkContent .= Generator::getIcon(
                 $icon,
@@ -3456,7 +3456,7 @@ class Results
                 ''
             );
         } elseif ($column != '') {
-            $nowrap = ' nowrap';
+            $nowrap = ' text-nowrap';
             $where_comparison = ' = ' . $column;
 
             $cell = $this->getRowData(
@@ -3787,7 +3787,7 @@ class Results
         // do not wrap if date field type or if no-wrapping enabled by transform functions
         // otherwise, preserve whitespaces and wrap
         $nowrap = preg_match('@DATE|TIME@i', $meta->type)
-            || $bool_nowrap ? 'nowrap' : 'pre_wrap';
+            || $bool_nowrap ? 'text-nowrap' : 'pre_wrap';
 
         $where_comparison = ' = \''
             . $dbi->escapeString($column)

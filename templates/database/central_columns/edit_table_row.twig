@@ -1,6 +1,6 @@
 <tr>
   <input name="orig_col_name[{{ row_num }}]" type="hidden" value="{{ row['col_name'] }}">
-  <td name="col_name" class="nowrap">
+  <td name="col_name" class="text-nowrap">
     {% include 'columns_definitions/column_name.twig' with {
       'column_number': row_num,
       'ci': 0,
@@ -11,20 +11,20 @@
     } only %}
   </td>
 
-  <td name="col_type" class="nowrap">
+  <td name="col_type" class="text-nowrap">
     <select class="column_type" name="field_type[{{ row_num }}]" id="field_{{ row_num }}_1">
       {{ get_supported_datatypes(true, row['col_type']|upper) }}
     </select>
   </td>
 
-  <td class="nowrap" name="col_length">
+  <td class="text-nowrap" name="col_length">
     <input id="field_{{ row_num }}_2" type="text" name="field_length[{{ row_num }}]" size="8" value="{{ row['col_length'] }}" class="textfield">
     <p class="enum_notice" id="enum_notice_{{ row_num }}_2">
       <a href="#" class="open_enum_editor">{% trans 'Edit ENUM/SET values' %}</a>
     </p>
   </td>
 
-  <td class="nowrap" name="col_default">
+  <td class="text-nowrap" name="col_default">
     <select name="field_default_type[{{ row_num }}]" id="field_{{ row_num }}_3" class="default_type">
       <option value="NONE"{{ meta['DefaultType'] is defined and meta['DefaultType'] == 'NONE' ? ' selected' }}>
         {% trans %}None{% context %}for default{% endtrans %}
@@ -46,7 +46,7 @@
     {% endif %}
   </td>
 
-  <td name="collation" class="nowrap">
+  <td name="collation" class="text-nowrap">
     <select lang="en" dir="ltr" name="field_collation[{{ row_num }}]" id="field_{{ row_num }}_4">
       <option value=""></option>
       {% for charset in charsets %}
@@ -61,7 +61,7 @@
     </select>
   </td>
 
-  <td class="nowrap" name="col_attribute">
+  <td class="text-nowrap" name="col_attribute">
     {% include 'columns_definitions/column_attribute.twig' with {
       'column_number': row_num,
       'ci': 5,
@@ -73,12 +73,12 @@
     } only %}
   </td>
 
-  <td class="nowrap" name="col_isNull">
+  <td class="text-nowrap" name="col_isNull">
     <input name="field_null[{{ row_num }}]" id="field_{{ row_num }}_6" type="checkbox" value="YES" class="allow_null"
       {{- row['col_isNull'] is not empty and row['col_isNull'] != 'NO' and row['col_isNull'] != 'NOT NULL' ? ' checked' }}>
   </td>
 
-  <td class="nowrap" name="col_extra">
+  <td class="text-nowrap" name="col_extra">
     <input name="col_extra[{{ row_num }}]" id="field_{{ row_num }}_7" type="checkbox" value="auto_increment"
       {{- row['col_extra'] is not empty and row['col_extra'] == 'auto_increment' }}>
   </td>

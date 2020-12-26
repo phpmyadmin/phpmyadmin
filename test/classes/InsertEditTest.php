@@ -501,7 +501,7 @@ class InsertEditTest extends AbstractTestCase
 
         $this->assertEquals(
             $result['wrap'],
-            ' nowrap'
+            ' text-nowrap'
         );
 
         $this->assertEquals(
@@ -666,7 +666,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals(
             [
                 'date',
-                ' nowrap',
+                ' text-nowrap',
                 true,
             ],
             $this->callFunction(
@@ -685,7 +685,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals(
             [
                 'date',
-                ' nowrap',
+                ' text-nowrap',
                 false,
             ],
             $this->callFunction(
@@ -704,7 +704,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals(
             [
                 'num',
-                ' nowrap',
+                ' text-nowrap',
                 false,
             ],
             $this->callFunction(
@@ -723,7 +723,7 @@ class InsertEditTest extends AbstractTestCase
         $this->assertEquals(
             [
                 'num',
-                ' nowrap',
+                ' text-nowrap',
                 false,
             ],
             $this->callFunction(
@@ -2238,7 +2238,7 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['cfg']['LinkLengthLimit'] = 2;
         $this->assertStringContainsString(
-            '<a href="#" target="_blank"><span class="nowrap"><img src="themes/dot.'
+            '<a href="#" target="_blank"><span class="text-nowrap"><img src="themes/dot.'
             . 'gif" title="Edit/Insert" alt="Edit/Insert" class="icon ic_b_edit">'
             . '</span></a>',
             $this->callFunction(

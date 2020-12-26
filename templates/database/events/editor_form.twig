@@ -35,7 +35,7 @@
             </select>
           {% else %}
             <input name="item_type" type="hidden" value="{{ event.item_type }}">
-            <div class="font_weight_bold text-center w-50">
+            <div class="fw-bold text-center w-50">
               {{ event.item_type }}
             </div>
             <input type="submit" name="item_changetype" class="w-50" value="{{ 'Change to %s'|trans|format(event.item_type_toggle) }}">
@@ -44,7 +44,7 @@
       </tr>
       <tr class="onetime_event_row{{ event.item_type != 'ONE TIME' ? ' hide' }}">
         <td>{% trans 'Execute at' %}</td>
-        <td class="nowrap">
+        <td class="text-nowrap">
           <input type="text" name="item_execute_at" value="{{ event.item_execute_at }}" class="datetimefield">
         </td>
       </tr>
@@ -61,13 +61,13 @@
       </tr>
       <tr class="recurring_event_row{{ event.item_type != 'RECURRING' ? ' hide' }}">
         <td>{% trans %}Start{% context %}Start of recurring event{% endtrans %}</td>
-        <td class="nowrap">
+        <td class="text-nowrap">
           <input type="text" name="item_starts" value="{{ event.item_starts }}" class="datetimefield">
         </td>
       </tr>
       <tr class="recurring_event_row{{ event.item_type != 'RECURRING' ? ' hide' }}">
         <td>{% trans %}End{% context %}End of recurring event{% endtrans %}</td>
-        <td class="nowrap">
+        <td class="text-nowrap">
           <input type="text" name="item_ends" value="{{ event.item_ends }}" class="datetimefield">
         </td>
       </tr>

@@ -473,12 +473,12 @@ class InsertEdit
                     $column['first_timestamp'] = true;
                 }
                 $column['pma_type'] = $column['Type'];
-                $column['wrap']  = ' nowrap';
+                $column['wrap']  = ' text-nowrap';
                 break;
 
             default:
                 $column['pma_type'] = $column['Type'];
-                $column['wrap']  = ' nowrap';
+                $column['wrap']  = ' text-nowrap';
                 break;
         }
 
@@ -1841,7 +1841,7 @@ class InsertEdit
         $html_output = '<fieldset id="actions_panel">'
             . '<table cellpadding="5" cellspacing="0" class="pma-table tdblock w-100">'
             . '<tr>'
-            . '<td class="nowrap align-middle">'
+            . '<td class="text-nowrap align-middle">'
             . $this->getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value)
             . "\n";
 
@@ -1850,7 +1850,7 @@ class InsertEdit
             . '&nbsp;&nbsp;&nbsp;<strong>'
             . __('and then') . '</strong>&nbsp;&nbsp;&nbsp;'
             . '</td>'
-            . '<td class="nowrap align-middle">'
+            . '<td class="text-nowrap align-middle">'
             . $this->getAfterInsertDropDown(
                 $where_clause,
                 $after_insert,

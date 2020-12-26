@@ -15,7 +15,7 @@
                 <td><small>{{ entry.date }}</small></td>
                 <td><small>{{ entry.username }}</small></td>
                 <td>{{ entry.formated_statement|raw }}</td>
-                <td class="nowrap">
+                <td class="text-nowrap">
                     <a class="delete_entry_anchor ajax" href="{{ url('/table/tracking') }}" data-post="
                         {{- entry.url_params|raw }}">
                         {{ drop_image_or_text|raw }}
