@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-04-11 20:31+0000\n"
-"Last-Translator: Leslin K S <leslinks@icloud.com>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/4-9/ta/"
-">\n"
+"PO-Revision-Date: 2020-12-28 16:29+0000\n"
+"Last-Translator: Senthil Nathan <zsenthil@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/4-9/ta/>"
+"\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.0-dev\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -304,7 +304,7 @@ msgstr "தரவு"
 #: templates/display/export/select_options.twig:4
 #: templates/database/search/selection_form.twig:32
 msgid "Select all"
-msgstr "அனைத்தையும் தெரிவுசெய்க"
+msgstr "அனைத்தையும் தெரிவு செய்க"
 
 #: db_operations.php:58 tbl_create.php:27
 msgid "The database name is empty!"
@@ -342,10 +342,8 @@ msgid "Multi-table query"
 msgstr "வினவலை பாவித்து காண்பி"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "வினவல் தோல்வியடைந்தது"
+msgstr "எடுத்துக்காட்டுவாரியாக வினவல்"
 
 #: db_qbe.php:168
 #, php-format
