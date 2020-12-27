@@ -925,8 +925,6 @@ div.tabLinks {
   border: 1px solid #ccc;
   margin: 0;
   padding: 3px;
-  -moz-box-shadow: 1px 1px 6px #ddd;
-  -webkit-box-shadow: 2px 2px 3px #666;
   box-shadow: 2px 2px 3px #666;
   background-color: white;
   z-index: 2;
@@ -1473,9 +1471,6 @@ input#input_import_file {
     select {
       width: 100%;
       box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
     }
   }
 
@@ -1529,8 +1524,6 @@ table#index_columns {
     font-weight: bold;
     margin: 0.4em;
     padding: 0.2em;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
     border-radius: 2px;
   }
 }
@@ -1592,7 +1585,8 @@ table#index_columns {
       margin: 0 -2px 1em -2px;
       padding: 0.5em 1.5em;
       background: #fbead9;
-      border: 0 #c83838 solid;
+      border-color: #c83838;
+      border-style: solid;
       border-width: 1px 0;
       list-style: none;
       font-family: sans-serif;
@@ -1886,18 +1880,12 @@ input#auto_increment_opt {
     &[type="date"] {
       width: 10em;
       box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
     }
   }
 
   select {
     width: 10em;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
   }
 }
 
@@ -2039,8 +2027,6 @@ input#auto_increment_opt {
   opacity: 0.8 !important;
   z-index: 9999;
   border: 1px solid #000 !important;
-  -moz-border-radius: 0.3em !important;
-  -webkit-border-radius: 0.3em !important;
   border-radius: 0.3em !important;
   text-shadow: -1px -1px #000 !important;
   font-size: 0.8em !important;
@@ -2695,9 +2681,6 @@ textarea {
     border-left: solid 1px #999;
     z-index: 300;
     transition: left 0.2s;
-    -ms-transition: left 0.2s;
-    -webkit-transition: left 0.2s;
-    -moz-transition: left 0.2s;
 
     &.show {
       left: 6%;
@@ -2863,11 +2846,7 @@ textarea {
   width: 400px;
   border: 1px solid #999;
   background: #f3f3f3;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
   border-radius: 4px;
-  -moz-box-shadow: 2px 2px 5px #ccc;
-  -webkit-box-shadow: 2px 2px 5px #ccc;
   box-shadow: 2px 2px 5px #ccc;
 
   h2 {
@@ -2879,8 +2858,6 @@ textarea {
     font-size: 1.6em;
     font-weight: normal;
     text-shadow: 0 1px 0 #777;
-    -moz-box-shadow: 1px 1px 15px #999 inset;
-    -webkit-box-shadow: 1px 1px 15px #999 inset;
     box-shadow: 1px 1px 15px #999 inset;
   }
 }
@@ -2894,8 +2871,6 @@ textarea {
   font-size: 1.6em;
   font-weight: normal;
   text-shadow: 0 1px 0 #777;
-  -moz-box-shadow: 1px 1px 15px #999 inset;
-  -webkit-box-shadow: 1px 1px 15px #999 inset;
   box-shadow: 1px 1px 15px #999 inset;
 }
 
@@ -2962,7 +2937,7 @@ textarea {
   background: white;
   min-height: 300px;
   z-index: 800;
-  -webkit-box-shadow: 0 0 15px #999;
+  box-shadow: 0 0 15px #999;
   border-radius: 10px;
   cursor: move;
 

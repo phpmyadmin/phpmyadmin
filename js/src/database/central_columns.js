@@ -87,7 +87,7 @@ AJAX.registerOnload('database/central_columns.js', function () {
     $('#add_new input[type="text"], #add_new input[type="number"], #add_new select')
         .css({
             'width' : '10em',
-            '-moz-box-sizing' : 'border-box'
+            'box-sizing' : 'border-box'
         });
     window.scrollTo(0, 0);
     $(document).on('keyup', '.filter_rows', function () {

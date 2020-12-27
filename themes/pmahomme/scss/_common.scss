@@ -84,8 +84,6 @@ button.mult_submit {
   background: #f3f3f3;
   border: 1px solid #aaa;
   margin-bottom: 10px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
   border-radius: 5px;
 
   td {
@@ -96,8 +94,6 @@ button.mult_submit {
     border: 1px solid #aaa;
     background-color: #fff;
     padding: 4px 8px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
     background-image: linear-gradient(#fff, #e0e0e0);
 
@@ -121,8 +117,8 @@ dfn {
 .pma-table th {
   font-weight: bold;
   color: $th-color;
-  background: #f3f3f3;
-  background: linear-gradient(#fff, #ccc);
+  background-color: #f3f3f3;
+  background-image: linear-gradient(#fff, #ccc);
 }
 
 a img {
@@ -154,8 +150,6 @@ input {
   &[type=number],
   &[type=date] {
     border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     background: white;
     border: 1px solid #aaa;
     color: #555;
@@ -181,17 +175,11 @@ input {
   &[type=number],
   &[type=date] {
     transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
   }
 }
 
 select {
   transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
 
   &#sel-lang {
     width: auto;
@@ -205,14 +193,10 @@ input {
   &[type=date][disabled] {
     background: #e8e8e8;
     box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
 
     &:hover {
       background: #e8e8e8;
       box-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
     }
   }
 }
@@ -220,14 +204,10 @@ input {
 select[disabled] {
   background: #e8e8e8;
   box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
 
   &:hover {
     background: #e8e8e8;
     box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
   }
 }
 
@@ -276,8 +256,6 @@ input {
   &[type=number]:hover,
   &[type=date]:hover {
     box-shadow: 0 1px 3px #aaa;
-    -webkit-box-shadow: 0 1px 3px #aaa;
-    -moz-box-shadow: 0 1px 3px #aaa;
   }
 }
 
@@ -301,14 +279,10 @@ textarea {
 fieldset {
   margin-top: 1em;
   border-radius: 4px 4px 0 0;
-  -moz-border-radius: 4px 4px 0 0;
-  -webkit-border-radius: 4px 4px 0 0;
   border: #aaa solid 1px;
   padding: 0.5em;
   background: #eee;
   text-shadow: 1px 1px 2px #fff inset;
-  -moz-box-shadow: 1px 1px 2px #fff inset;
-  -webkit-box-shadow: 1px 1px 2px #fff inset;
   box-shadow: 1px 1px 2px #fff inset;
 }
 
@@ -324,13 +298,9 @@ fieldset {
     color: #444;
     padding: 5px 10px;
     border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     border: 1px solid #aaa;
     background-color: #fff;
     max-width: 100%;
-    -moz-box-shadow: 3px 3px 15px #bbb;
-    -webkit-box-shadow: 3px 3px 15px #bbb;
     box-shadow: 3px 3px 15px #bbb;
     width: initial;
     font-size: 1em;
@@ -386,8 +356,6 @@ input {
 }
 
 select {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
   border-radius: 2px;
   border: 1px solid #bbb;
   color: #333;
@@ -444,9 +412,7 @@ div.tools {
   text-align: right;
   float: none;
   clear: both;
-  -webkit-border-radius: 0 0 4px 4px;
-  -moz-border-radius: 0 0 4px 4px;
-  border-radius: 0 0 4px 5px;
+  border-radius: 0 0 4px 4px;
 }
 
 fieldset.tblFooters {
@@ -457,8 +423,6 @@ fieldset.tblFooters {
   text-align: right;
   float: none;
   clear: both;
-  -webkit-border-radius: 0 0 4px 4px;
-  -moz-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;
 }
 
@@ -1168,8 +1132,6 @@ div.tabLinks {
   padding: 3px;
   background-color: #fff;
   z-index: 2;
-  -moz-box-shadow: 2px 2px 3px #666;
-  -webkit-box-shadow: 2px 2px 3px #666;
   box-shadow: 2px 2px 3px #666;
 }
 
@@ -1266,11 +1228,7 @@ div#profilingchart {
   background: #f3f3f3;
   border: 1px solid #aaa;
   border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
   box-shadow: 0 1px 1px #fff inset;
-  -webkit-box-shadow: 0 1px 1px #fff inset;
-  -moz-box-shadow: 0 1px 1px #fff inset;
 }
 
 #sectionlinks a,
@@ -1287,8 +1245,6 @@ a.button {
   background-color: #ddd;
   white-space: nowrap;
   border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
   background-image: linear-gradient(#f8f8f8, #d8d8d8);
 
   &:hover {
@@ -1299,8 +1255,6 @@ a.button {
 textarea {
   &#sqlquery {
     width: 100%;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
     border: 1px solid #aaa;
     padding: 5px;
@@ -1567,11 +1521,7 @@ select.invalid_value,
   border: 1px solid #e2b709;
   background-color: #ffe57e;
   border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
   box-shadow: 0 5px 90px #888;
-  -moz-box-shadow: 0 5px 90px #888;
-  -webkit-box-shadow: 0 5px 90px #888;
 }
 
 #loading_parent {
@@ -1806,9 +1756,6 @@ input#import_merge {
       width: 100%;
       margin: 0;
       box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
     }
 
     div {
@@ -1871,8 +1818,6 @@ table#index_columns {
     font-weight: bold;
     margin: 0.4em;
     padding: 0.2em;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
     border-radius: 2px;
   }
 }
@@ -1896,8 +1841,6 @@ table#index_columns {
         border: 1px solid $bg-two;
         border-bottom: 1px solid #aaa;
         padding: 7px 10px;
-        -webkit-border-radius: 5px 5px 0 0;
-        -moz-border-radius: 5px 5px 0 0;
         border-radius: 5px 5px 0 0;
         background: #f2f2f2;
         color: #555;
@@ -1924,8 +1867,6 @@ table#index_columns {
     margin-top: 0;
     padding: 0;
     clear: both;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
     border-radius: 0;
 
     p {
@@ -1940,8 +1881,6 @@ table#index_columns {
       margin: 0 -2px 1em;
       padding: 0.5em 1.5em;
       background: #fbead9;
-      border: 0 #c83838 solid;
-      border-width: 1px 0;
       list-style: none;
       font-family: $font-family-base;
       font-size: small;
@@ -2176,8 +2115,6 @@ input#auto_increment_opt {
   overflow: hidden;
   border-right: 0.1em solid #888;
   border-left: 0.1em solid #888;
-  -webkit-border-radius: 0.3em;
-  -moz-border-radius: 0.3em;
   border-radius: 0.3em;
 
   table,
@@ -2244,18 +2181,12 @@ input#auto_increment_opt {
     &[type=number] {
       width: 10em;
       box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
     }
   }
 
   select {
     width: 10em;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
   }
 }
 
@@ -2368,11 +2299,7 @@ input#auto_increment_opt {
   padding: 0.3em;
   position: absolute;
   text-shadow: -1px -1px #000;
-  -moz-box-shadow: 0 0 0.7em #000;
-  -webkit-box-shadow: 0 0 0.7em #000;
   box-shadow: 0 0 0.7em #000;
-  -moz-border-radius: 0.3em;
-  -webkit-border-radius: 0.3em;
   border-radius: 0.3em;
 }
 
@@ -2393,8 +2320,6 @@ input#auto_increment_opt {
   opacity: 0.8 !important;
   z-index: 9999;
   border: 1px solid #000 !important;
-  -moz-border-radius: 0.3em !important;
-  -webkit-border-radius: 0.3em !important;
   border-radius: 0.3em !important;
   text-shadow: -1px -1px #000 !important;
   font-size: 0.8em !important;
@@ -2435,8 +2360,6 @@ input#auto_increment_opt {
   background: #eee;
   border: solid 1px #999;
   position: absolute;
-  -moz-box-shadow: 0 0.2em 0.5em #333;
-  -webkit-box-shadow: 0 0.2em 0.5em #333;
   box-shadow: 0 0.2em 0.5em #333;
 
   .lDiv div {
@@ -2469,17 +2392,12 @@ input#auto_increment_opt {
 }
 
 .turnOffSelect {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
   user-select: none;
 }
 
 .navigation {
   margin: 0.8em 0;
   border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
   background: linear-gradient(#eee, #ccc);
 
   td {
@@ -2497,8 +2415,6 @@ input#auto_increment_opt {
       margin: 0;
       padding: 0.8em 0.5em;
       border-radius: 0;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
 
       &:hover {
         color: #fff;
@@ -3078,9 +2994,6 @@ textarea {
     border-left: solid 1px #999;
     z-index: 300;
     transition: left 0.2s;
-    -ms-transition: left 0.2s;
-    -webkit-transition: left 0.2s;
-    -moz-transition: left 0.2s;
 
     &.show {
       left: 6%;
@@ -3243,11 +3156,7 @@ textarea {
   width: 400px;
   border: 1px solid #999;
   background: #f3f3f3;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
   border-radius: 4px;
-  -moz-box-shadow: 2px 2px 5px #ccc;
-  -webkit-box-shadow: 2px 2px 5px #ccc;
   box-shadow: 2px 2px 5px #ccc;
 
   h2 {
@@ -3259,8 +3168,6 @@ textarea {
     font-size: 1.6em;
     font-weight: normal;
     text-shadow: 0 1px 0 #777;
-    -moz-box-shadow: 1px 1px 15px #999 inset;
-    -webkit-box-shadow: 1px 1px 15px #999 inset;
     box-shadow: 1px 1px 15px #999 inset;
   }
 }
@@ -3274,8 +3181,6 @@ textarea {
   font-size: 1.6em;
   font-weight: normal;
   text-shadow: 0 1px 0 #777;
-  -moz-box-shadow: 1px 1px 15px #999 inset;
-  -webkit-box-shadow: 1px 1px 15px #999 inset;
   box-shadow: 1px 1px 15px #999 inset;
 }
 
@@ -3342,7 +3247,7 @@ textarea {
   background: white;
   min-height: 300px;
   z-index: 800;
-  -webkit-box-shadow: 0 0 15px #999;
+  box-shadow: 0 0 15px #999;
   border-radius: 10px;
   cursor: move;
 

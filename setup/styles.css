@@ -127,11 +127,7 @@ div.error {
   border: 1px solid;
   background: no-repeat 10px 10px;
   padding: 10px 10px 10px 25px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
   border-radius: 5px;
-  -moz-box-shadow: 0 1px 1px #fff inset;
-  -webkit-box-shadow: 0 1px 1px #fff inset;
   box-shadow: 0 1px 1px #fff inset;
 }
 
@@ -222,8 +218,6 @@ ul.tabs li a {
 
 ul.tabs li a {
   padding: 7px 10px;
-  -webkit-border-radius: 5px 5px 0 0;
-  -moz-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
   background: #f2f2f2;
   color: #555;
@@ -273,14 +267,10 @@ ul.tabs li.active a {
 fieldset {
   margin-top: 1em;
   border-radius: 4px 4px 0 0;
-  -moz-border-radius: 4px 4px 0 0;
-  -webkit-border-radius: 4px 4px 0 0;
   border: #aaa solid 1px;
   padding: 1.5em;
   background: #eee;
   text-shadow: 0 1px 0 #fff;
-  -moz-box-shadow: 1px 1px 2px #fff inset;
-  -webkit-box-shadow: 1px 1px 2px #fff inset;
   box-shadow: 1px 1px 2px #fff inset;
 }
 
@@ -303,12 +293,8 @@ fieldset legend {
   color: #444;
   padding: 5px 10px;
   border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
   border: 1px solid #aaa;
   background-color: #fff;
-  -moz-box-shadow: 3px 3px 15px #bbb;
-  -webkit-box-shadow: 3px 3px 15px #bbb;
   box-shadow: 3px 3px 15px #bbb;
 }
 
@@ -327,7 +313,8 @@ fieldset .errors { /* form error list */
   margin: 0 -2px 1em -2px;
   padding: 0.5em 1.5em;
   background: #fbead9;
-  border: 1px #c83838 solid;
+  border-color: #c83838;
+  border-style: solid;
   border-width: 1px 0;
   list-style: none;
   font-family: sans-serif;
@@ -428,11 +415,7 @@ input[type=text],
 input[type=password],
 input[type=number] {
   border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
   box-shadow: 0 1px 2px #ddd;
-  -moz-box-shadow: 0 1px 2px #ddd;
-  -webkit-box-shadow: 0 1px 2px #ddd;
   background: white;
   border: 1px solid #aaa;
   color: #555;
@@ -455,18 +438,11 @@ input.button {
   padding: 3px 7px;
   color: #111;
   text-decoration: none;
-  background: #ddd;
+  background-color: #ddd;
   border-radius: 12px;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
   text-shadow: 0 1px 0 #fff;
-  background-image: url(../themes/svg_gradient.php?from=ffffff&to=cccccc);
   background-size: 100% 100%;
-  background: -webkit-gradient(top, #fff, #ccc);
-  background: -webkit-linear-gradient(top, #fff, #ccc);
-  background: -moz-linear-gradient(top, #fff, #ccc);
-  background: -ms-linear-gradient(top, #fff, #ccc);
-  background: -o-linear-gradient(top, #fff, #ccc);
+  background-image: linear-gradient(top, #fff, #ccc);
 }
 
 input[type=submit]:hover,
@@ -475,13 +451,8 @@ input[type=reset]:hover,
 input[name=submit_reset]:hover,
 input.button:hover {
   position: relative;
-  background-image: url(../themes/svg_gradient.php?from=cccccc&to=dddddd);
   background-size: 100% 100%;
-  background: -webkit-gradient(top, #ccc, #ddd);
-  background: -webkit-linear-gradient(top, #ccc, #ddd);
-  background: -moz-linear-gradient(top, #ccc, #ddd);
-  background: -ms-linear-gradient(top, #ccc, #ddd);
-  background: -o-linear-gradient(top, #ccc, #ddd);
+  background-image: linear-gradient(top, #ccc, #ddd);
   cursor: pointer;
 }
 
@@ -501,11 +472,7 @@ input[type="radio"] {
 }
 
 select {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
   border-radius: 2px;
-  -moz-box-shadow: 0 1px 2px #ddd;
-  -webkit-box-shadow: 0 1px 2px #ddd;
   box-shadow: 0 1px 2px #ddd;
   border: 1px solid #aaa;
   color: #333;

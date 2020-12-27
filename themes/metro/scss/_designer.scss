@@ -36,7 +36,7 @@ canvas.designer {
   border-collapse: collapse;
   border: 1px solid #ccc;
   z-index: 1;
-  -moz-user-select: none;
+  user-select: none;
 
   .header {
     background-color: #f6f6f6;
@@ -361,7 +361,6 @@ a {
   border-top: 1px solid #999;
 
   img.ic_s_info {
-    -webkit-filter: invert(70%);
     filter: invert(70%);
   }
 }

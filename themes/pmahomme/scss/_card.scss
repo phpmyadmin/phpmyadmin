@@ -10,8 +10,6 @@
 .card,
 .card-footer {
   text-shadow: 1px 1px 2px #fff inset;
-  -moz-box-shadow: 1px 1px 2px #fff inset;
-  -webkit-box-shadow: 1px 1px 2px #fff inset;
   box-shadow: 1px 1px 2px #fff inset;
 }
 
@@ -25,14 +23,10 @@
   padding: 5px 10px;
   border: 1px solid #aaa;
   font-size: 1em;
-  -moz-box-shadow: 3px 3px 15px #bbb;
-  -webkit-box-shadow: 3px 3px 15px #bbb;
   box-shadow: 3px 3px 15px #bbb;
 
   &,
   &:first-child {
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     border-radius: 2px;
   }
 }
@@ -59,8 +53,6 @@
   .card {
     background-color: $navi-background;
     border: $card-border-width solid #999;
-    -moz-box-shadow: 2px 2px 5px #ccc;
-    -webkit-box-shadow: 2px 2px 5px #ccc;
     box-shadow: 2px 2px 5px #ccc;
 
     > .card-header + .card-body {
@@ -75,8 +67,6 @@
     font-size: 1.6em;
     font-weight: normal;
     text-shadow: 0 1px 0 #777;
-    -moz-box-shadow: 1px 1px 15px #999 inset;
-    -webkit-box-shadow: 1px 1px 15px #999 inset;
     box-shadow: 1px 1px 15px #999 inset;
   }
 }

@@ -82,8 +82,6 @@ body#loginform {
       background: $navi-color;
       color: $th-color;
       box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
       margin: 0;
 
       &:hover,
@@ -91,8 +89,6 @@ body#loginform {
         background-color: #fff;
         color: #333;
         box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
         margin: 0;
       }
     }
@@ -145,9 +141,6 @@ body#loginform {
 }
 
 .turnOffSelect {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -1759,9 +1752,6 @@ input#input_import_file {
     select {
       width: 14em;
       box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
     }
 
     div {
@@ -1893,7 +1883,8 @@ table#index_columns {
       margin: 0 -2px 1em;
       padding: 0.5em 1.5em;
       background: #fbead9;
-      border: 0 #c83838 solid;
+      border-color: #c83838;
+      border-style: solid;
       border-width: 1px 0;
       list-style: none;
       font-family: sans-serif;
@@ -2073,7 +2064,6 @@ form {
   }
 
   img.ic_s_reload {
-    -webkit-filter: invert(70%);
     filter: invert(70%);
   }
 
@@ -2232,18 +2222,12 @@ form.append_fields_form .tblFooters {
     &[type="date"] {
       width: 10em;
       box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
     }
   }
 
   select {
     width: 10em;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     margin: 6px;
   }
 }
@@ -3024,9 +3008,6 @@ textarea {
     border-left: solid 1px #999;
     z-index: 300;
     transition: left 0.2s;
-    -ms-transition: left 0.2s;
-    -webkit-transition: left 0.2s;
-    -moz-transition: left 0.2s;
 
     &.show {
       left: 6%;

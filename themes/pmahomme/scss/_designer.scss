@@ -53,7 +53,7 @@ canvas.designer {
   border-collapse: collapse;
   border: 1px solid #aaa;
   z-index: 1;
-  -moz-user-select: none;
+  user-select: none;
 
   .header {
     background-image: url($header-img);
