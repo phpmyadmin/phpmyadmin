@@ -2,7 +2,7 @@
   <form id="usersForm" action="{{ url('/server/privileges') }}">
     {{ get_hidden_inputs(db, table) }}
 
-    <fieldset>
+    <fieldset class="pma-fieldset">
       <legend>
         {{ get_icon('b_usrcheck') }}
         {{ 'Users having access to "%s"'|trans|format('<a href="' ~ table_url ~ get_common({
@@ -130,7 +130,7 @@
 {% if is_createuser %}
   <div class="row">
     <div class="col-12">
-      <fieldset id="fieldset_add_user">
+      <fieldset class="pma-fieldset" id="fieldset_add_user">
         <legend>{% trans %}New{% context %}Create new user{% endtrans %}</legend>
         <a id="add_user_anchor" href="{{ url('/server/privileges', {
           'adduser': true,

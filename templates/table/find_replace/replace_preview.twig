@@ -9,7 +9,7 @@
     <input type="hidden" name="replaceWith" value="{{ replace_with }}">
     <input type="hidden" name="useRegex" value="{{ use_regex }}">
 
-    <fieldset id="fieldset_find_replace_preview">
+    <fieldset class="pma-fieldset" id="fieldset_find_replace_preview">
         <legend>{% trans 'Find and replace - preview' %}</legend>
         <table class="pma-table" id="previewTable">
             <thead>
@@ -33,7 +33,7 @@
         </table>
     </fieldset>
 
-    <fieldset class="tblFooters">
+    <fieldset class="pma-fieldset tblFooters">
         <input class="btn btn-secondary" type="submit" name="replace" value="{% trans 'Replace' %}">
     </fieldset>
 </form>

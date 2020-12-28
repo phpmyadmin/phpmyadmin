@@ -228,7 +228,7 @@ class Normalization
         $html = "<h3 class='text-center'>"
             . __('First step of normalization (1NF)') . '</h3>';
         $html .= "<div id='mainContent' data-normalizeto='" . $normalizedTo . "'>" .
-            '<fieldset>' .
+            '<fieldset class="pma-fieldset">' .
             '<legend>' . __('Step 1.') . $step . ' ' . $stepTxt . '</legend>' .
             '<h4>' . __(
                 'Do you have any column which can be split into more than'
@@ -260,7 +260,7 @@ class Normalization
             . "</span><input id='numField' type='number' value='2'>"
             . '<input type="submit" class="btn btn-primary" id="splitGo" value="' . __('Go') . '"></div>'
             . "<div id='newCols'></div>"
-            . "</fieldset><fieldset class='tblFooters'>"
+            . '</fieldset><fieldset class="pma-fieldset tblFooters">'
             . '</fieldset>'
             . '</div>';
 
@@ -944,7 +944,7 @@ class Normalization
             . '>'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
             . '<input type="hidden" name="step1" value="1">';
-        $htmlOutput .= '<fieldset>';
+        $htmlOutput .= '<fieldset class="pma-fieldset">';
         $htmlOutput .= '<legend>'
             . __('Improve table structure (Normalization):') . '</legend>';
         $htmlOutput .= '<h3>' . __('Select up to what step you want to normalize')
@@ -965,7 +965,7 @@ class Normalization
         $htmlOutput .= __('Third step of normalization (1NF+2NF+3NF)');
         $htmlOutput .= '</label></div>';
 
-        $htmlOutput .= '</fieldset><fieldset class="tblFooters">'
+        $htmlOutput .= '</fieldset><fieldset class="pma-fieldset tblFooters">'
             . "<span class='float-start'>" . __(
                 'Hint: Please follow the procedure carefully in order '
                 . 'to obtain correct normalization'

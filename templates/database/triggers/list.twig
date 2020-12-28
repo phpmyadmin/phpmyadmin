@@ -1,7 +1,7 @@
 <form id="rteListForm" class="ajax" action="{{ url(table is not empty ? '/table/triggers' : '/database/triggers') }}">
   {{ get_hidden_inputs(db, table) }}
 
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>
       {% trans 'Triggers' %}
       {{ show_mysql_docu('TRIGGERS') }}

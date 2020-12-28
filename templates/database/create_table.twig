@@ -1,5 +1,5 @@
 <form id="create_table_form_minimal" method="post" action="{{ url('/table/create') }}" class="lock-page">
-    <fieldset>
+    <fieldset class="pma-fieldset">
         <legend>
         {% if show_icons('ActionLinksMode') -%}
             {{ get_image('b_table_add') }}
@@ -17,7 +17,7 @@
         </div>
         <div class="clearfloat"></div>
     </fieldset>
-    <fieldset class="tblFooters">
+    <fieldset class="pma-fieldset tblFooters">
         <input class="btn btn-primary" type="submit" value="{% trans "Go" %}">
     </fieldset>
 </form>

@@ -845,7 +845,7 @@ class PrivilegesTest extends AbstractTestCase
 
         //validate 1: fieldset
         $this->assertStringContainsString(
-            '<fieldset id="fieldset_user_privtable_footer" ',
+            '<fieldset id="fieldset_user_privtable_footer" class="pma-fieldset tblFooters">',
             $html
         );
 
@@ -857,7 +857,7 @@ class PrivilegesTest extends AbstractTestCase
 
         //validate 3: getHtmlForGlobalOrDbSpecificPrivs
         $this->assertStringContainsString(
-            '<fieldset id="fieldset_user_global_rights">',
+            '<fieldset class="pma-fieldset" id="fieldset_user_global_rights">',
             $html
         );
         $this->assertStringContainsString(

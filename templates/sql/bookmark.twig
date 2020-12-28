@@ -6,7 +6,7 @@
     <input type="hidden" name="bkm_fields[bkm_database]" value="{{ db }}">
     <input type="hidden" name="bkm_fields[bkm_user]" value="{{ user }}">
     <input type="hidden" name="bkm_fields[bkm_sql_query]" value="{{ sql_query }}">
-    <fieldset>
+    <fieldset class="pma-fieldset">
         <legend>
             {{ get_icon('b_bookmark', 'Bookmark this SQL query'|trans, true) }}
         </legend>
@@ -24,7 +24,7 @@
         </div>
         <div class="clearfloat"></div>
     </fieldset>
-    <fieldset class="tblFooters">
+    <fieldset class="pma-fieldset tblFooters">
         <input type="hidden" name="store_bkm" value="1">
         <input class="btn btn-secondary" type="submit" value="{% trans 'Bookmark this SQL query' %}">
     </fieldset>

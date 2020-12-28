@@ -1716,7 +1716,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 /* Add filter options if more than a bunch of rows there to filter */
                 if (logData.numRows > 12) {
                     $('#logTable').prepend(
-                        '<fieldset id="logDataFilter">' +
+                        '<fieldset class="pma-fieldset" id="logDataFilter">' +
                         '    <legend>' + Messages.strFiltersForLogTable + '</legend>' +
                         '    <div class="formelement">' +
                         '        <label for="filterQueryText">' + Messages.strFilterByWordRegexp + '</label>' +

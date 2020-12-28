@@ -3499,12 +3499,12 @@ AJAX.registerOnload('functions.js', function () {
          * @var dialog HTML code for the ENUM/SET dialog
          */
         var dialog = '<div id=\'enum_editor\'>' +
-                   '<fieldset>' +
+                   '<fieldset class="pma-fieldset">' +
                     '<legend>' + title + '</legend>' +
                     '<p>' + Functions.getImage('s_notice') +
                     Messages.enum_hint + '</p>' +
                     '<table class=\'pma-table values\'>' + fields + '</table>' +
-                    '</fieldset><fieldset class=\'tblFooters\'>' +
+                    '</fieldset><fieldset class="pma-fieldset tblFooters">' +
                     '<table class=\'pma-table add\'><tr><td>' +
                     '<div class=\'slider\'></div>' +
                     '</td><td>' +
@@ -3638,11 +3638,11 @@ AJAX.registerOnload('functions.js', function () {
         }
         var seeMore = '';
         if (listSize > maxRows) {
-            seeMore = '<fieldset class="tblFooters text-center fw-bold">' +
+            seeMore = '<fieldset class="pma-fieldset tblFooters text-center fw-bold">' +
                 '<a href=\'#\' id=\'seeMore\'>' + Messages.seeMore + '</a></fieldset>';
         }
         var centralColumnsDialog = '<div class=\'max_height_400\'>' +
-            '<fieldset>' +
+            '<fieldset class="pma-fieldset">' +
             searchIn +
             '<table id=\'col_list\' class=\'pma-table values w-100\'>' + fields + '</table>' +
             '</fieldset>' +

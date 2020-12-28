@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-12">
-    <fieldset id="tableFilter">
+    <fieldset class="pma-fieldset" id="tableFilter">
       <legend>{% trans "Filters" %}</legend>
       <div class="formelement">
         <label for="filterText">{% trans "Containing the word:" %}</label>
@@ -13,7 +13,7 @@
 <form id="rteListForm" class="ajax" action="{{ url('/database/routines') }}">
   {{ get_hidden_inputs(db, table) }}
 
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>
       {% trans 'Routines' %}
       {{ show_mysql_docu('STORED_ROUTINES') }}
@@ -58,7 +58,7 @@
   </fieldset>
 </form>
 
-<fieldset>
+<fieldset class="pma-fieldset">
   <legend>{% trans %}New{% context %}Create new routine{% endtrans %}</legend>
   <div class='wrap'>
     {% if has_privilege %}

@@ -2,7 +2,7 @@
   <h2>{% trans 'Showing create queries' %}</h2>
 
   {% if tables.tables is not empty %}
-    <fieldset>
+    <fieldset class="pma-fieldset">
       <legend>{% trans 'Tables' %}</legend>
       <table class="pma-table show_create">
         <thead>
@@ -24,7 +24,7 @@
   {% endif %}
 
   {% if tables.views is not empty %}
-    <fieldset>
+    <fieldset class="pma-fieldset">
       <legend>{% trans 'Views' %}</legend>
       <table class="pma-table show_create">
         <thead>

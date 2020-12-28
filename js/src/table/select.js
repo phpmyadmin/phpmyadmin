@@ -368,7 +368,7 @@ AJAX.registerOnload('table/select.js', function () {
 
                         // Display dialog box.
                         $('<div></div>').append(
-                            '<fieldset>' +
+                            '<fieldset class="pma-fieldset">' +
                             '<legend>' + operator + '</legend>' +
                             '<label for="min_value">' + Messages.strMinValue +
                             '</label>' +

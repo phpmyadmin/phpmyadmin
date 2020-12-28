@@ -1,4 +1,4 @@
-<fieldset>
+<fieldset class="pma-fieldset">
   <legend>{% trans 'Master configuration' %}</legend>
   <p>
     {% trans %}
@@ -24,7 +24,7 @@
   </p>
 </fieldset>
 
-<fieldset class="tblFooters">
+<fieldset class="pma-fieldset tblFooters">
   <form method="post" action="{{ url('/server/replication') }}">
     {{ get_hidden_inputs('', '') }}
     <input id="goButton" class="btn btn-primary" type="submit" value="{% trans 'Go' %}">

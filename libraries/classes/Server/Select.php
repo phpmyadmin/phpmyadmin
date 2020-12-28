@@ -49,7 +49,7 @@ class Select
                 . '" class="disableAjax">';
 
             if (! $omit_fieldset) {
-                $retval .= '<fieldset>';
+                $retval .= '<fieldset class="pma-fieldset">';
             }
 
             $retval .= Url::getHiddenFields([]);

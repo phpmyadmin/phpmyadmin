@@ -1,7 +1,7 @@
 <form id="ajax_form" action="{{ url('/database/structure/copy-table') }}" method="post">
   {{ get_hidden_inputs(url_params) }}
 
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <strong><label for="db_name_dropdown">{% trans 'Database:' %}</label></strong>
     <select id="db_name_dropdown" name="target_db">
       {% for each_db in options %}

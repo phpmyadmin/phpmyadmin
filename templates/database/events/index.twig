@@ -1,7 +1,7 @@
 <form id="rteListForm" class="ajax" action="{{ url('/database/events') }}">
   {{ get_hidden_inputs(db) }}
 
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>
       {% trans 'Events' %}
       {{ show_mysql_docu('EVENTS') }}
@@ -100,7 +100,7 @@
 </form>
 
 <div class="doubleFieldset">
-  <fieldset class="me-1">
+  <fieldset class="pma-fieldset me-1">
     <legend>{% trans %}New{% context %}Create new event{% endtrans %}</legend>
     <div class="wrap">
       {% if has_privilege %}
@@ -116,7 +116,7 @@
     </div>
   </fieldset>
 
-  <fieldset class="ms-1">
+  <fieldset class="pma-fieldset ms-1">
     <legend>{% trans 'Event scheduler status' %}</legend>
     <div class="wrap">
       <div class="wrapper toggleAjax hide">

@@ -16,7 +16,7 @@
 
 <form action="" id="multi_table_query_form" class="multi_table_query_form query_form">
     <input type="hidden" id="db_name" value="{{ db }}">
-    <fieldset>
+    <fieldset class="pma-fieldset">
         {% for table in tables %}
             <div class="query-form__div--hide" id="{{ table.hash }}">
                 <option value="*">*</option>
@@ -28,7 +28,7 @@
 
         {% for id in 0..default_no_of_columns %}
             {% if id == 0 %}<div class="query-form__div--hide" id="new_column_layout">{% endif %}
-            <fieldset class="column_details query-form__fieldset--inline">
+            <fieldset class="pma-fieldset column_details query-form__fieldset--inline">
                 <select class="tableNameSelect query-form__select--inline">
                     <option value="">{% trans 'select table' %}</option>
                     {% for table in tables|keys %}
@@ -150,12 +150,12 @@
             {% if id == 0 %}</div>{% endif %}
         {% endfor %}
 
-        <fieldset class="query-form__fieldset--inline">
+        <fieldset class="pma-fieldset query-form__fieldset--inline">
             <input class="btn btn-secondary" type="button" value="{% trans '+ Add column' %}" id="add_column_button">
         </fieldset>
 
-        <fieldset>
-              {# Keep the block without a space between the open and close tag #}
+        <fieldset class="pma-fieldset">
+              {# Keep the block without a space between the open and close tag #}
                 <textarea id="MultiSqlquery"
                     class="query-form__multi-sql-query"
                     cols="80"
@@ -165,7 +165,7 @@
         </fieldset>
     </fieldset>
 
-    <fieldset class="tblFooters">
+    <fieldset class="pma-fieldset tblFooters">
         <input class="btn btn-secondary" type="button" id="update_query_button" value="{% trans 'Update query' %}">
         <input class="btn btn-primary" type="button" id="submit_query" value="{% trans 'Submit query' %}">
     </fieldset>

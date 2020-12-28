@@ -104,17 +104,18 @@ textarea.charField {
   width: 95%;
 }
 
-fieldset {
+.pma-fieldset {
   margin-top: 1em;
   border: $main-color solid 1px;
   padding: 0.5em;
   background: $bg-one;
 
-  fieldset {
+  .pma-fieldset {
     margin: 0.8em;
   }
 
   legend {
+    float: none;
     font-weight: bold;
     color: #444;
     background-color: transparent;
@@ -190,7 +191,7 @@ div.tools {
   clear: both;
 }
 
-fieldset.tblFooters {
+.pma-fieldset.tblFooters {
   margin-top: 0;
   margin-bottom: 0.5em;
 
@@ -208,7 +209,7 @@ div.null_div {
   min-width: 50px;
 }
 
-fieldset {
+.pma-fieldset {
   .formelement {
     float: left;
     margin-right: 0.5em;
@@ -410,7 +411,7 @@ img.lightbulb {
   background-color: #ffc;
 }
 
-fieldset.confirmation {
+.pma-fieldset.confirmation {
   border: 0.1em solid #f00;
 
   legend {
@@ -582,7 +583,7 @@ div.container.modal_form {
   text-align: left;
 }
 
-#login_form fieldset.tblFooters {
+#login_form .pma-fieldset.tblFooters {
   text-align: right;
 }
 
@@ -819,8 +820,8 @@ div#tablestatistics table {
   }
 }
 
-#fieldset_user_global_rights fieldset,
-#fieldset_user_group_rights fieldset {
+#fieldset_user_global_rights .pma-fieldset,
+#fieldset_user_group_rights .pma-fieldset {
   float: left;
 }
 
@@ -844,7 +845,7 @@ h3#serverstatusqueries span {
   white-space: nowrap;
 }
 
-fieldset#tableFilter {
+.pma-fieldset#tableFilter {
   padding: 0.1em 1em;
 }
 
@@ -1563,7 +1564,7 @@ table#index_columns {
     }
   }
 
-  fieldset {
+  .pma-fieldset {
     margin-top: 0;
     padding: 0;
     clear: both;
@@ -1573,7 +1574,7 @@ table#index_columns {
     display: none;
   }
 
-  fieldset {
+  .pma-fieldset {
     p {
       margin: 0;
       padding: 0.5em;
@@ -1642,7 +1643,7 @@ table#index_columns {
   }
 }
 
-fieldset {
+.pma-fieldset {
   .group-header {
     th {
       background: $bg-two;
@@ -1843,7 +1844,7 @@ input#auto_increment_opt {
 }
 
 .doubleFieldset {
-  fieldset {
+  .pma-fieldset {
     width: 48%;
     float: left;
     padding: 0;
@@ -2265,7 +2266,7 @@ body #ui-datepicker-div {
   z-index: 9999 !important;
 }
 
-.ui-dialog fieldset legend a {
+.ui-dialog .pma-fieldset legend a {
   color: #00f;
 }
 
@@ -3171,7 +3172,7 @@ body {
     }
   }
 
-  .doubleFieldset fieldset {
+  .doubleFieldset .pma-fieldset {
     width: 98%;
   }
 
@@ -3232,7 +3233,7 @@ body {
     text-align: left;
   }
 
-  fieldset.tblFooters,
+  .pma-fieldset.tblFooters,
   .tblFooters {
     text-align: left;
   }

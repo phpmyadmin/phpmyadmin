@@ -1,6 +1,6 @@
 <form class="ajax" id="changeUserGroupForm" action="{{ url('/server/privileges') }}" method="post">
     {{ get_hidden_inputs(params) }}
-    <fieldset id="fieldset_user_group_selection">
+    <fieldset class="pma-fieldset" id="fieldset_user_group_selection">
         <legend>{% trans 'User group' %}</legend>
 
         <label for="userGroupSelect">{% trans 'User group:' %}</label>

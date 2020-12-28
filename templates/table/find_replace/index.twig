@@ -23,8 +23,8 @@
   <input type="hidden" name="goto" value="{{ goto }}">
   <input type="hidden" name="back" value="{{ url('/table/find-replace') }}">
 
-  <fieldset id="fieldset_find_replace">
-    <fieldset id="fieldset_find">
+  <fieldset class="pma-fieldset" id="fieldset_find_replace">
+    <fieldset class="pma-fieldset" id="fieldset_find">
       <legend>
         {% trans 'Find and replace' %}
       </legend>
@@ -55,7 +55,7 @@
     </fieldset>
   </fieldset>
 
-  <fieldset class="tblFooters">
+  <fieldset class="pma-fieldset tblFooters">
     <input class="btn btn-primary" type="submit" name="submit" value="{% trans 'Go' %}">
   </fieldset>
 </form>

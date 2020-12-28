@@ -180,7 +180,7 @@ class BrowseForeigners
         $output = '<form class="ajax" '
             . 'id="browse_foreign_form" name="browse_foreign_from" action="'
             . Url::getFromRoute('/browse-foreigners')
-            . '" method="post"><fieldset>'
+            . '" method="post"><fieldset class="pma-fieldset">'
             . Url::getHiddenInputs($db, $table)
             . '<input type="hidden" name="field" value="' . htmlspecialchars($field)
             . '">'

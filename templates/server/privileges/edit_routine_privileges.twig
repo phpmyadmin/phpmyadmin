@@ -42,7 +42,7 @@
     <input type="hidden" name="routinename" value="{{ routine }}">
     <input type="hidden" name="grant_count" value="{{ privileges|length }}">
 
-    <fieldset id="fieldset_user_global_rights">
+    <fieldset class="pma-fieldset" id="fieldset_user_global_rights">
       <legend data-submenu-label="{% trans 'Routine' %}">
         {% trans 'Routine-specific privileges' %}
       </legend>
@@ -52,7 +52,7 @@
         </small>
       </p>
 
-      <fieldset>
+      <fieldset class="pma-fieldset">
         <legend>
           <input type="checkbox" class="sub_checkall_box" id="checkall_Routine_priv" title="{% trans 'Check all' %}">
           <label for="checkall_Routine_priv">{% trans 'Routine' %}</label>
@@ -97,7 +97,7 @@
       </fieldset>
     </fieldset>
 
-    <fieldset id="fieldset_user_privtable_footer" class="tblFooters">
+    <fieldset id="fieldset_user_privtable_footer" class="pma-fieldset tblFooters">
       <input type="hidden" name="update_privs" value="1">
       <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
     </fieldset>

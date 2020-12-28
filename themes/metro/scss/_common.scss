@@ -67,7 +67,7 @@ body#loginform {
   }
 
   a.logo,
-  fieldset legend {
+  .pma-fieldset legend {
     display: none;
   }
 
@@ -119,7 +119,7 @@ body#loginform {
     display: none;
   }
 
-  fieldset {
+  .pma-fieldset {
     border: none;
     color: $navi-color;
     padding: 0;
@@ -338,13 +338,13 @@ textarea {
   background-color: $body-bg;
 }
 
-fieldset {
+.pma-fieldset {
   margin-top: 20px;
   border: 1px solid $border-color;
   padding: 20px;
   background-color: $th-background;
 
-  fieldset {
+  .pma-fieldset {
     margin: 20px;
     margin-bottom: 0;
     background-color: $body-bg;
@@ -353,6 +353,7 @@ fieldset {
 }
 
 legend {
+  float: none;
   padding: 0 5px;
   width: initial;
   font-size: 1em;
@@ -508,7 +509,7 @@ div.tools {
   content: "";
 }
 
-fieldset.tblFooters {
+.pma-fieldset.tblFooters {
   margin-top: -1px;
   border-top: 0;
   text-align: right;
@@ -523,7 +524,7 @@ div.null_div {
   min-width: 50px;
 }
 
-fieldset {
+.pma-fieldset {
   .formelement {
     float: left;
     margin-right: 0.5em;
@@ -751,7 +752,7 @@ img.lightbulb {
   background-color: $browse-warning-color;
 }
 
-fieldset.confirmation legend {
+.pma-fieldset.confirmation legend {
   background-color: $browse-warning-color;
 }
 
@@ -1033,8 +1034,8 @@ div#tablestatistics table {
   }
 }
 
-#fieldset_user_global_rights fieldset,
-#fieldset_user_group_rights fieldset {
+#fieldset_user_global_rights .pma-fieldset,
+#fieldset_user_group_rights .pma-fieldset {
   float: left;
 }
 
@@ -1059,7 +1060,7 @@ h3#serverstatusqueries span {
 }
 
 /* Also used for the variables page */
-fieldset#tableFilter {
+.pma-fieldset#tableFilter {
   padding: 0.1em 1em;
 
   input[type="submit"] {
@@ -1858,7 +1859,7 @@ table#index_columns {
     }
   }
 
-  fieldset {
+  .pma-fieldset {
     margin-top: 0;
     padding: 0;
     clear: both;
@@ -1869,7 +1870,7 @@ table#index_columns {
     display: none;
   }
 
-  fieldset {
+  .pma-fieldset {
     p {
       margin: 0;
       padding: 10px;
@@ -1921,7 +1922,7 @@ table#index_columns {
   padding: 5px;
 }
 
-.config-form fieldset {
+.config-form .pma-fieldset {
   th {
     padding: 10px;
     padding-left: 0.5em;
@@ -1963,7 +1964,7 @@ table#index_columns {
   }
 }
 
-fieldset {
+.pma-fieldset {
   .group-header {
     th {
       background: $bg-two;
@@ -2007,8 +2008,8 @@ fieldset {
 }
 
 form {
-  &.create_table_form fieldset.tblFooters,
-  &#multi_edit_central_columns fieldset.tblFooters {
+  &.create_table_form .pma-fieldset.tblFooters,
+  &#multi_edit_central_columns .pma-fieldset.tblFooters {
     background: none;
     border: none;
   }
@@ -2191,7 +2192,7 @@ input#auto_increment_opt {
 }
 
 .doubleFieldset {
-  fieldset {
+  .pma-fieldset {
     width: 48%;
     float: left;
     padding: 0;
@@ -2620,7 +2621,7 @@ body #ui-datepicker-div {
   z-index: 9999 !important;
 }
 
-.ui-dialog fieldset legend a {
+.ui-dialog .pma-fieldset legend a {
   color: #235a81;
 }
 
@@ -3490,7 +3491,7 @@ body {
     text-align: left;
   }
 
-  fieldset.tblFooters,
+  .pma-fieldset.tblFooters,
   .tblFooters {
     text-align: left;
   }

@@ -1018,7 +1018,7 @@ class Generator
 
             $_SESSION['Import_message']['go_back_url'] = $back_url;
 
-            $error_msg .= '<fieldset class="tblFooters">'
+            $error_msg .= '<fieldset class="pma-fieldset tblFooters">'
                 . '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]'
                 . '</fieldset>' . "\n\n";
         }

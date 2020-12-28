@@ -2,7 +2,7 @@
 
   <input type="hidden" name="grant_count" value="{{ row|length }}">
   <input type="hidden" name="column_count" value="{{ columns|length }}">
-  <fieldset id="fieldset_user_priv">
+  <fieldset class="pma-fieldset" id="fieldset_user_priv">
     <legend data-submenu-label="{% trans 'Table' %}">
       {% trans 'Table-specific privileges' %}
     </legend>
@@ -225,7 +225,7 @@
 {% else %}
 
 {% set grant_count = 0 %}
-<fieldset id="fieldset_user_global_rights">
+<fieldset class="pma-fieldset" id="fieldset_user_global_rights">
   <legend data-submenu-label="
     {%- if is_global %}
       {%- trans 'Global' -%}
@@ -248,7 +248,7 @@
     <small><em>{% trans 'Note: MySQL privilege names are expressed in English.' %}</em></small>
   </p>
 
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>
       <input type="checkbox" class="sub_checkall_box" id="checkall_Data_priv" title="{% trans 'Check all' %}">
       <label for="checkall_Data_priv">{% trans 'Data' %}</label>
@@ -322,7 +322,7 @@
     {% endif %}
   </fieldset>
 
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>
       <input type="checkbox" class="sub_checkall_box" id="checkall_Structure_priv" title="{% trans 'Check all' %}">
       <label for="checkall_Structure_priv">{% trans 'Structure' %}</label>
@@ -522,7 +522,7 @@
     {% endif %}
   </fieldset>
 
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>
       <input type="checkbox" class="sub_checkall_box" id="checkall_Administration_priv" title="{% trans 'Check all' %}">
       <label for="checkall_Administration_priv">{% trans 'Administration' %}</label>
@@ -692,7 +692,7 @@
   </fieldset>
 
   {% if is_global %}
-    <fieldset>
+    <fieldset class="pma-fieldset">
       <legend>{% trans 'Resource limits' %}</legend>
       <p>
         <small><em>{% trans 'Note: Setting these options to 0 (zero) removes the limit.' %}</em></small>
@@ -751,7 +751,7 @@
       </div>
     </fieldset>
 
-    <fieldset>
+    <fieldset class="pma-fieldset">
       <legend>SSL</legend>
       <div id="require_ssl_div">
         <div class="item">
@@ -828,7 +828,7 @@
 {% endif %}
 
 {% if has_submit %}
-  <fieldset id="fieldset_user_privtable_footer" class="tblFooters">
+  <fieldset id="fieldset_user_privtable_footer" class="pma-fieldset tblFooters">
     <input type="hidden" name="update_privs" value="1">
     <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
   </fieldset>

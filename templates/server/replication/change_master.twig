@@ -1,6 +1,6 @@
 <form method="post" action="{{ url('/server/replication') }}">
   {{ get_hidden_inputs('', '') }}
-  <fieldset id="fieldset_add_user_login">
+  <fieldset class="pma-fieldset" id="fieldset_add_user_login">
     <legend>
       {% trans 'Slave configuration' %} -
       {% trans 'Change or reconfigure master server' %}
@@ -27,7 +27,7 @@
       <input id="text_port" name="text_port" type="number" maxlength="6" value="3306" required>
     </div>
   </fieldset>
-  <fieldset id="fieldset_user_privtable_footer" class="tblFooters">
+  <fieldset id="fieldset_user_privtable_footer" class="pma-fieldset tblFooters">
     <input type="hidden" name="sr_take_action" value="true">
     <input type="hidden" name="{{ submit_name }}" value="1">
     <input class="btn btn-primary" type="submit" id="confslave_submit" value="{% trans 'Go' %}">

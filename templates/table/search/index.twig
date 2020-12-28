@@ -23,8 +23,8 @@
   <input type="hidden" name="goto" value="{{ goto }}">
   <input type="hidden" name="back" value="{{ url('/table/search') }}">
 
-  <fieldset id="fieldset_table_search">
-    <fieldset id="fieldset_table_qbe">
+  <fieldset class="pma-fieldset" id="fieldset_table_search">
+    <fieldset class="pma-fieldset" id="fieldset_table_qbe">
       <legend>
         {% trans 'Do a "query by example" (wildcard: "%")' %}
       </legend>
@@ -100,7 +100,7 @@
     {%- endif %}>
 
     {# Displays columns select list for selecting distinct columns in the search #}
-    <fieldset id="fieldset_select_fields">
+    <fieldset class="pma-fieldset" id="fieldset_select_fields">
       <legend>
         {% trans 'Select columns (at least one):' %}
       </legend>
@@ -116,7 +116,7 @@
     </fieldset>
 
     {# Displays input box for custom 'Where' clause to be used in the search #}
-    <fieldset id="fieldset_search_conditions">
+    <fieldset class="pma-fieldset" id="fieldset_search_conditions">
       <legend>
         <em>{% trans 'Or' %}</em>
         {% trans 'Add search conditions (body of the "where" clause):' %}
@@ -126,13 +126,13 @@
     </fieldset>
 
     {# Displays option of changing default number of rows displayed per page #}
-    <fieldset id="fieldset_limit_rows">
+    <fieldset class="pma-fieldset" id="fieldset_limit_rows">
       <legend>{% trans 'Number of rows per page' %}</legend>
       <input type="number" name="session_max_rows" min="1" value="{{ max_rows }}" class="textfield" required>
     </fieldset>
 
     {# Displays option for ordering search results by a column value (Asc or Desc) #}
-    <fieldset id="fieldset_display_order">
+    <fieldset class="pma-fieldset" id="fieldset_display_order">
       <legend>{% trans 'Display order:' %}</legend>
       <select name="orderByColumn"><option value="--nil--"></option>
         {% for each_field in column_names %}
@@ -156,7 +156,7 @@
     </div>
   </fieldset>
 
-  <fieldset class="tblFooters">
+  <fieldset class="pma-fieldset tblFooters">
     <input class="btn btn-primary" type="submit" name="submit" value="{% trans 'Go' %}">
   </fieldset>
 </form>

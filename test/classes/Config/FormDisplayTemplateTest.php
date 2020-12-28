@@ -111,7 +111,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
         $result = $this->formDisplayTemplate->displayFieldsetTop('TitleTest', 'DescTest', $errors, $attributes);
 
         $this->assertStringContainsString(
-            '<fieldset class="optbox" name="attrname">',
+            '<fieldset class="pma-fieldset optbox" name="attrname">',
             $result
         );
 

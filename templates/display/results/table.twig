@@ -107,7 +107,7 @@
       {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Options' %}"
     {%- endif %}>
 
-      <fieldset>
+      <fieldset class="pma-fieldset">
         <div class="formelement">
           <div>
             <input type="radio" name="pftext" id="partialFulltextRadioP{{ unique_id }}" value="P"{{ headers.options.pftext == 'P' ? ' checked' }}>
@@ -171,7 +171,7 @@
         <div class="clearfloat"></div>
       </fieldset>
 
-      <fieldset class="tblFooters">
+      <fieldset class="pma-fieldset tblFooters">
         <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
       </fieldset>
     </div>
@@ -234,7 +234,7 @@
 {{ navigation_html }}
 
 {% if operations is not empty %}
-  <fieldset class="print_ignore">
+  <fieldset class="pma-fieldset print_ignore">
     <legend>{% trans 'Query results operations' %}</legend>
 
     {% if operations.has_print_link %}

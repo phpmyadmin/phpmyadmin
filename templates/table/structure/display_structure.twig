@@ -397,7 +397,7 @@
 
 {% if not tbl_is_view and not db_is_system_schema and tbl_storage_engine != 'ARCHIVE' %}
   <div id="index_div" class="w-100 ajax">
-    <fieldset class="index_info">
+    <fieldset class="pma-fieldset index_info">
       <legend id="index_header">
         {% trans 'Indexes' %}
         {{ show_mysql_docu('optimizing-database-structure') }}
@@ -498,7 +498,7 @@
       {% endif %}
     </fieldset>
 
-    <fieldset class="tblFooters print_ignore text-start">
+    <fieldset class="pma-fieldset tblFooters print_ignore text-start">
       <form action="{{ url('/table/indexes') }}" method="post">
         {{ get_hidden_inputs(db, table) }}
         <input type="hidden" name="create_index" value="1">

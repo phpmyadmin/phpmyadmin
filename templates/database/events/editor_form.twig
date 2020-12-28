@@ -5,7 +5,7 @@
     <input name="item_original_name" type="hidden" value="{{ event.item_original_name }}">
   {% endif %}
 
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>{% trans 'Details' %}</legend>
     <table class="rte_table table table-borderless table-sm">
       <tr>
@@ -103,7 +103,7 @@
     <input type="hidden" name="editor_process_{{ mode }}" value="true">
     <input type="hidden" name="ajax_request" value="true">
   {% else %}
-    <fieldset class="tblFooters">
+    <fieldset class="pma-fieldset tblFooters">
       <input type="submit" name="editor_process_{{ mode }}" value="{% trans 'Go' %}">
     </fieldset>
   {% endif %}

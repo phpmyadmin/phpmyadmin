@@ -2,7 +2,7 @@
   <form action="{{ url('/server/privileges') }}" method="post" autocomplete="off" id="addUsersForm">
     {{ get_hidden_inputs('', '') }}
 
-    <fieldset id="fieldset_add_user_login">
+    <fieldset class="pma-fieldset" id="fieldset_add_user_login">
       <legend>{% trans 'Add slave replication user' %}</legend>
 
       <input type="hidden" name="grant_count" value="25">
@@ -76,7 +76,7 @@
       </div>
     </fieldset>
 
-    <fieldset id="fieldset_user_privtable_footer" class="tblFooters">
+    <fieldset id="fieldset_user_privtable_footer" class="pma-fieldset tblFooters">
       <input type="hidden" name="adduser_submit" value="1">
       <input class="btn btn-primary" type="submit" id="adduser_submit" value="{% trans 'Go' %}">
     </fieldset>

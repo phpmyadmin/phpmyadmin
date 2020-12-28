@@ -44,7 +44,7 @@ class VariablesControllerTest extends AbstractTestCase
         $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
-            '<fieldset id="tableFilter">',
+            '<fieldset class="pma-fieldset" id="tableFilter">',
             $html
         );
         $this->assertStringContainsString(

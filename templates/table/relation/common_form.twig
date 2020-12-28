@@ -5,7 +5,7 @@
     {{ get_hidden_inputs(db, table) }}
     {# InnoDB #}
     {% if is_foreign_key_supported(tbl_storage_engine) %}
-        <fieldset>
+        <fieldset class="pma-fieldset">
             <legend>{% trans 'Foreign key constraints' %}</legend>
             <div class="table-responsive-md jsresponsive">
             <table class="relationalTable table table-light table-striped">
@@ -106,7 +106,7 @@
             {%- endif %}>
         {% endif %}
 
-        <fieldset>
+        <fieldset class="pma-fieldset">
             <legend>
                 {% trans 'Internal relationships' %}
                 {{ show_docu('config', 'cfg_Servers_relation') }}
@@ -201,7 +201,7 @@
 
     {% if cfg_relation['displaywork'] %}
         {% set disp = get_display_field(db, table) %}
-        <fieldset>
+        <fieldset class="pma-fieldset">
             <label>{% trans 'Choose column to display:' %}</label>
             <select name="display_field">
                 <option value="">---</option>
@@ -217,7 +217,7 @@
         </fieldset>
     {% endif %}
 
-    <fieldset class="tblFooters">
+    <fieldset class="pma-fieldset tblFooters">
         <input class="btn btn-secondary preview_sql" type="button" value="{% trans 'Preview SQL' %}">
         <input class="btn btn-primary" type="submit" value="{% trans 'Save' %}">
     </fieldset>

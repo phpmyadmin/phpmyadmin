@@ -1,5 +1,5 @@
 <form class="ajax" action="{{ url('/navigation') }}" method="post">
-  <fieldset>
+  <fieldset class="pma-fieldset">
     {{ get_hidden_inputs(database, table) }}
 
     {% for type, label in types %}

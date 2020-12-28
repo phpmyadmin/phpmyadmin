@@ -7,7 +7,7 @@
     'fk_checks': '0'
   }) }}
 
-  <fieldset class="confirmation">
+  <fieldset class="pma-fieldset confirmation">
     <legend>
       {% trans 'Do you really want to execute the following query?' %}
     </legend>
@@ -19,7 +19,7 @@
     </ul>
   </fieldset>
 
-  <fieldset class="tblFooters">
+  <fieldset class="pma-fieldset tblFooters">
     <div id="foreignkeychk" class="float-start">
       <input type="checkbox" name="fk_checks" id="fk_checks" value="1"{{ is_foreign_key_check ? ' checked' }}>
       <label for="fk_checks">{% trans 'Enable foreign key checks' %}</label>

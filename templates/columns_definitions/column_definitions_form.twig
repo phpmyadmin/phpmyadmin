@@ -149,7 +149,7 @@
         </table>
         </div>
     {% endif %}
-    <fieldset class="tblFooters">
+    <fieldset class="pma-fieldset tblFooters">
         {% if action == url('/table/add-field') %}
             <input type="checkbox" name="online_transaction" value="ONLINE_TRANSACTION_ENABLED" />{% trans %}Online transaction{% context %}Online transaction part of the SQL DDL for InnoDB{% endtrans %}{{ show_mysql_docu('innodb-online-ddl') }}
         {% endif %}

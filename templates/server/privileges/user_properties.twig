@@ -102,14 +102,14 @@
       <input type="hidden" name="old_usergroup" value="{{ user_group }}">
     {% endif %}
 
-    <fieldset id="fieldset_change_copy_user">
+    <fieldset class="pma-fieldset" id="fieldset_change_copy_user">
       <legend data-submenu-label="{% trans 'Login Information' %}">
         {% trans 'Change login information / Copy user account' %}
       </legend>
 
       {{ change_login_info_fields|raw }}
 
-      <fieldset id="fieldset_mode">
+      <fieldset class="pma-fieldset" id="fieldset_mode">
         <legend>
           {% trans 'Create a new user account with the same privileges and …' %}
         </legend>
@@ -144,7 +144,7 @@
       </fieldset>
     </fieldset>
 
-    <fieldset id="fieldset_change_copy_user_footer" class="tblFooters">
+    <fieldset id="fieldset_change_copy_user_footer" class="pma-fieldset tblFooters">
       <input type="hidden" name="change_copy" value="1">
       <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
     </fieldset>

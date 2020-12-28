@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="row">
-<fieldset id="tableFilter">
+<fieldset class="pma-fieldset" id="tableFilter">
   <legend>{% trans 'Filters' %}</legend>
   <form action="{{ url('/server/status/processes') }}" method="post">
     {{ get_hidden_inputs(url_params) }}

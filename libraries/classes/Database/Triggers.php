@@ -385,7 +385,7 @@ class Triggers
         $retval .= "<input name='" . $mode . "_item' type='hidden' value='1'>\n";
         $retval .= $original_data;
         $retval .= Url::getHiddenInputs($db, $table) . "\n";
-        $retval .= "<fieldset>\n";
+        $retval .= "<fieldset class=\"pma-fieldset\">\n";
         $retval .= '<legend>' . __('Details') . "</legend>\n";
         $retval .= "<table class='rte_table table table-borderless table-sm'>\n";
         $retval .= "<tr>\n";
@@ -457,7 +457,7 @@ class Triggers
             $retval .= "       value='true'>\n";
             $retval .= "<input type='hidden' name='ajax_request' value='true'>\n";
         } else {
-            $retval .= "<fieldset class='tblFooters'>\n";
+            $retval .= "<fieldset class=\"pma-fieldset tblFooters\">\n";
             $retval .= "    <input type='submit' name='editor_process_" . $mode . "'\n";
             $retval .= "           value='" . __('Go') . "'>\n";
             $retval .= "</fieldset>\n";
@@ -625,7 +625,7 @@ class Triggers
 
             $exportData = '<textarea cols="40" rows="15" style="width: 100%;">'
                 . $exportData . '</textarea>';
-            echo "<fieldset>\n" . '<legend>' . $title . "</legend>\n"
+            echo "<fieldset class=\"pma-fieldset\">\n" . '<legend>' . $title . "</legend>\n"
                 . $exportData . "</fieldset>\n";
 
             return;

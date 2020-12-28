@@ -198,7 +198,7 @@ class BrowseForeignersTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<fieldset>',
+            '<fieldset class="pma-fieldset">',
             $result
         );
 

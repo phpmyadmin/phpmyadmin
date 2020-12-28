@@ -1,7 +1,7 @@
 {{ login_header|raw }}
 
 {% if is_demo %}
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>{% trans 'phpMyAdmin Demo Server' %}</legend>
     {% apply format('<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>')|raw %}
       {% trans %}
@@ -21,7 +21,7 @@
 
 <form method="post" id="login_form" action="index.php?route=/" name="login_form" class="
   {{- not is_session_expired ? 'disableAjax hide ' }}login js-show form-horizontal"{{ not has_autocomplete ? ' autocomplete="off"' }}>
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend class="col-form-label">
       <input type="hidden" name="set_session" value="{{ session_id }}">
       {% if is_session_expired %}
@@ -77,7 +77,7 @@
     {% endif %}
   </fieldset>
 
-  <fieldset class="tblFooters">
+  <fieldset class="pma-fieldset tblFooters">
     {% if has_captcha %}
       <script src="{{ captcha_api }}?hl={{ lang }}" async defer></script>
       {% if use_captcha_checkbox %}

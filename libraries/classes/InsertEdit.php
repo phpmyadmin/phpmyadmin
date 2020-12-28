@@ -1838,7 +1838,7 @@ class InsertEdit
         $tabindex_for_value,
         $found_unique_key
     ) {
-        $html_output = '<fieldset id="actions_panel">'
+        $html_output = '<fieldset class="pma-fieldset" id="actions_panel">'
             . '<table cellpadding="5" cellspacing="0" class="pma-table tdblock w-100">'
             . '<tr>'
             . '<td class="text-nowrap align-middle">'

@@ -471,7 +471,7 @@ Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex)
     var $compositeIndexRadio = $('<input type="radio" id="composite_index"' +
         ' name="index_choice">' +
         '<label for="composite_index">' + Messages.strCreateCompositeIndex + '</label>');
-    var $dialogContent = $('<fieldset id="advance_index_creator"></fieldset>');
+    var $dialogContent = $('<fieldset class="pma-fieldset" id="advance_index_creator"></fieldset>');
     $dialogContent.append('<legend>' + indexChoice.toUpperCase() + '</legend>');
 
 

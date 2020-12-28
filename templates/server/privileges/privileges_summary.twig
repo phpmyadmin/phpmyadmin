@@ -3,7 +3,7 @@
     <input type="hidden" name="username" value="{{ username }}">
     <input type="hidden" name="hostname" value="{{ hostname }}">
 
-    <fieldset>
+    <fieldset class="pma-fieldset">
         <legend data-submenu-label="{{ sub_menu_label }}">
             {{ legend }}
         </legend>
@@ -98,7 +98,7 @@
         {% endif %}
     </fieldset>
 
-    <fieldset class="tblFooters">
+    <fieldset class="pma-fieldset tblFooters">
         <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
     </fieldset>
 </form>

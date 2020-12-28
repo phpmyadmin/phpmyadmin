@@ -5,7 +5,7 @@
             <input type="hidden" name="selected[]" value="{{ selected_table }}">
         {% endfor %}
 
-        <fieldset>
+        <fieldset class="pma-fieldset">
             <legend>
                 {% if selected|length == 1 %}
                     {{ 'Create version %1$s of %2$s'|trans|format(
@@ -71,7 +71,7 @@
             TRUNCATE<br>
         </fieldset>
 
-        <fieldset class="tblFooters">
+        <fieldset class="pma-fieldset tblFooters">
             <input type="hidden" name="submit_create_version" value="1">
             <input class="btn btn-primary" type="submit" value="{% trans 'Create version' %}">
         </fieldset>

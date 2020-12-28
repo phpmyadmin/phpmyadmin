@@ -97,7 +97,7 @@
     <div>
         <form method="post" action="{{ url('/table/tracking', url_params) }}">
             {{ get_hidden_inputs(db, table) }}
-            <fieldset>
+            <fieldset class="pma-fieldset">
                 <legend>
                     {% if last_version_element['tracking_active'] == 0 %}
                         {% set legend = 'Activate tracking for %s'|trans %}

@@ -4,7 +4,7 @@
 
 {% if is_data_loaded %}
 <div class="row">
-  <fieldset id="tableFilter">
+  <fieldset class="pma-fieldset" id="tableFilter">
     <legend>{% trans 'Filters' %}</legend>
     <form action="{{ url('/server/status/variables') }}" method="post">
       {{ get_hidden_inputs() }}

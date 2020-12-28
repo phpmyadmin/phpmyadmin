@@ -837,7 +837,7 @@ class Routines
         $retval .= "<input name='" . $mode . "_item' type='hidden' value='1'>\n";
         $retval .= $original_routine;
         $retval .= Url::getHiddenInputs($db) . "\n";
-        $retval .= "<fieldset>\n";
+        $retval .= "<fieldset class=\"pma-fieldset\">\n";
         $retval .= '<legend>' . __('Details') . "</legend>\n";
         $retval .= '<table class="rte_table table table-borderless table-sm">' . "\n";
         $retval .= "<tr>\n";
@@ -1021,7 +1021,7 @@ class Routines
             $retval .= "       value='true'>";
             $retval .= "<input type='hidden' name='ajax_request' value='true'>";
         } else {
-            $retval .= "<fieldset class='tblFooters'>";
+            $retval .= '<fieldset class="pma-fieldset tblFooters">';
             $retval .= "    <input type='submit' name='editor_process_" . $mode . "'";
             $retval .= "           value='" . __('Go') . "'>";
             $retval .= '</fieldset>';
@@ -1434,7 +1434,7 @@ class Routines
             $output  = Generator::formatSql(implode("\n", $queries));
 
             // Display results
-            $output .= '<fieldset><legend>';
+            $output .= '<fieldset class="pma-fieldset"><legend>';
             $output .= sprintf(
                 __('Execution results of routine %s'),
                 Util::backquote(htmlspecialchars($routine['item_name']))
@@ -1639,7 +1639,7 @@ class Routines
         $retval .= "<input type='hidden' name='item_type'\n";
         $retval .= "       value='" . $routine['item_type'] . "'>\n";
         $retval .= Url::getHiddenInputs($db) . "\n";
-        $retval .= "<fieldset>\n";
+        $retval .= "<fieldset class=\"pma-fieldset\">\n";
         if (! $this->response->isAjax()) {
             $retval .= '<legend>' . $routine['item_name'] . "</legend>\n";
             $retval .= "<table class='pma-table rte_table'>\n";
@@ -1737,7 +1737,7 @@ class Routines
         $retval .= "\n</table>\n";
         if (! $this->response->isAjax()) {
             $retval .= "</fieldset>\n\n";
-            $retval .= "<fieldset class='tblFooters'>\n";
+            $retval .= "<fieldset class=\"pma-fieldset tblFooters\">\n";
             $retval .= "    <input type='submit' name='execute_routine'\n";
             $retval .= "           value='" . __('Go') . "'>\n";
             $retval .= "</fieldset>\n";
@@ -1903,7 +1903,7 @@ class Routines
 
             $exportData = '<textarea cols="40" rows="15" style="width: 100%;">'
                 . $exportData . '</textarea>';
-            echo "<fieldset>\n" . '<legend>' . $title . "</legend>\n"
+            echo "<fieldset class=\"pma-fieldset\">\n" . '<legend>' . $title . "</legend>\n"
                 . $exportData . "</fieldset>\n";
 
             return;

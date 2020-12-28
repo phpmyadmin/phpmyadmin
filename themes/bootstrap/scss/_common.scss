@@ -87,7 +87,7 @@ textarea {
   width: 80%;
 }
 
-fieldset {
+.pma-fieldset {
   margin-top: 1em;
   border-radius: 4px 4px 0 0;
   border: #aaa solid 1px;
@@ -97,14 +97,15 @@ fieldset {
   box-shadow: 1px 1px 2px #fff inset;
 }
 
-fieldset {
-  fieldset {
+.pma-fieldset {
+  .pma-fieldset {
     margin: 0.8em;
     border: 1px solid #aaa;
     background: #e8e8e8;
   }
 
   legend {
+    float: none;
     font-weight: bold;
     color: #444;
     padding: 5px 10px;
@@ -192,7 +193,7 @@ div.tools {
   border-radius: 0 0 4px 4px;
 }
 
-fieldset.tblFooters {
+.pma-fieldset.tblFooters {
   margin-top: 0;
   margin-bottom: 0.5em;
   // avoid a thick line since this should be used under another fieldset
@@ -210,7 +211,7 @@ div.null_div {
   min-width: 50px;
 }
 
-fieldset {
+.pma-fieldset {
   .formelement {
     float: left;
     margin-right: 0.5em;
@@ -534,7 +535,7 @@ body#loginform {
   text-align: left;
 }
 
-#login_form fieldset.tblFooters {
+#login_form .pma-fieldset.tblFooters {
   text-align: right;
 }
 
@@ -785,8 +786,8 @@ div#tablestatistics table {
   }
 }
 
-#fieldset_user_global_rights fieldset,
-#fieldset_user_group_rights fieldset {
+#fieldset_user_global_rights .pma-fieldset,
+#fieldset_user_group_rights .pma-fieldset {
   float: left;
 }
 
@@ -814,7 +815,7 @@ h3#serverstatusqueries span {
 }
 
 // Also used for the variables page
-fieldset#tableFilter {
+.pma-fieldset#tableFilter {
   padding: 0.1em 1em;
 }
 
@@ -1614,7 +1615,7 @@ table#index_columns {
     }
   }
 
-  fieldset {
+  .pma-fieldset {
     margin-top: 0;
     padding: 0;
     clear: both;
@@ -1773,7 +1774,7 @@ table#index_columns {
   }
 }
 
-fieldset {
+.pma-fieldset {
   .group-header {
     th {
       background: $bg-two;
@@ -1899,7 +1900,7 @@ input#auto_increment_opt {
 }
 
 .doubleFieldset {
-  fieldset {
+  .pma-fieldset {
     width: 48%;
     float: left;
     padding: 0;
@@ -2328,7 +2329,7 @@ body .ui-widget {
   font-size: 1em;
 }
 
-.ui-dialog fieldset legend a {
+.ui-dialog .pma-fieldset legend a {
   color: #235a81;
 }
 
@@ -3192,7 +3193,7 @@ body .ui-dialog {
     }
   }
 
-  .doubleFieldset fieldset {
+  .doubleFieldset .pma-fieldset {
     width: 98%;
   }
 
@@ -3253,7 +3254,7 @@ body .ui-dialog {
     text-align: left;
   }
 
-  fieldset.tblFooters,
+  .pma-fieldset.tblFooters,
   .tblFooters {
     text-align: left;
   }

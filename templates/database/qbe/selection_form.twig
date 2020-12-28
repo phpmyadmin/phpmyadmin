@@ -2,7 +2,7 @@
   {{ get_hidden_inputs(url_params) }}
 
   <div class="w-100">
-    <fieldset>
+    <fieldset class="pma-fieldset">
 
       {{ saved_searches_field|raw }}
 
@@ -49,7 +49,7 @@
     </fieldset>
   </div>
 
-  <fieldset class="tblFooters">
+  <fieldset class="pma-fieldset tblFooters">
     <div class="float-start">
       <label for="criteriaRowAddSelect">{% trans 'Add/Delete criteria rows:' %}</label>
       <select size="1" name="criteriaRowAdd" id="criteriaRowAddSelect">
@@ -82,7 +82,7 @@
   </fieldset>
 
   <div class="float-start w-100">
-    <fieldset>
+    <fieldset class="pma-fieldset">
       <legend>{% trans 'Use tables' %}</legend>
 
       <select name="TableList[]" id="listTable" size="{{ criteria_tables|length > 30 ? '15' : '7' }}" aria-label="{% trans 'Use tables' %}" multiple>
@@ -92,7 +92,7 @@
       </select>
     </fieldset>
 
-    <fieldset class="tblFooters">
+    <fieldset class="pma-fieldset tblFooters">
       <input class="btn btn-secondary" type="submit" name="modify" value="{% trans 'Update query' %}">
     </fieldset>
   </div>
@@ -103,7 +103,7 @@
   <input type="hidden" name="submit_sql" value="1">
 
   <div class="float-start w-50">
-    <fieldset id="tblQbe">
+    <fieldset class="pma-fieldset" id="tblQbe">
       <legend>{{ 'SQL query on database <b>%s</b>:'|trans|format(db_link)|raw }}</legend>
 
       <textarea cols="80" name="sql_query" id="textSqlquery" rows="{{ criteria_tables|length > 30 ? '15' : '7' }}" dir="ltr" aria-label="{% trans 'SQL query' %}">
@@ -111,7 +111,7 @@
       </textarea>
     </fieldset>
 
-    <fieldset class="tblFooters" id="tblQbeFooters">
+    <fieldset class="pma-fieldset tblFooters" id="tblQbeFooters">
       <input class="btn btn-primary" type="submit" value="{% trans 'Submit query' %}">
     </fieldset>
   </div>

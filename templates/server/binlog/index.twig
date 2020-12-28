@@ -5,7 +5,7 @@
 
 <form action="{{ url('/server/binlog') }}" method="post">
   {{ get_hidden_inputs(url_params) }}
-  <fieldset>
+  <fieldset class="pma-fieldset">
     <legend>
       {% trans 'Select binary log to view' %}
     </legend>
@@ -30,7 +30,7 @@
     {% endif %}
   </fieldset>
 
-  <fieldset class="tblFooters">
+  <fieldset class="pma-fieldset tblFooters">
     <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
   </fieldset>
 </form>

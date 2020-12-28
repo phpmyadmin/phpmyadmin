@@ -573,7 +573,7 @@ class Events
 
             $exportData = '<textarea cols="40" rows="15" style="width: 100%;">'
                 . $exportData . '</textarea>';
-            echo "<fieldset>\n" . '<legend>' . $title . "</legend>\n"
+            echo "<fieldset class=\"pma-fieldset\">\n" . '<legend>' . $title . "</legend>\n"
                 . $exportData . "</fieldset>\n";
 
             return;
