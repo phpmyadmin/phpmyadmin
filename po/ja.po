@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-18 22:27+0100\n"
-"PO-Revision-Date: 2020-11-12 16:28+0000\n"
-"Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ja/>\n"
+"PO-Revision-Date: 2020-12-29 11:29+0000\n"
+"Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
+"ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4311,42 +4311,38 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "reCaptcha サービスのサイト認証 URL を入力してください。"
+msgstr "reCaptcha v2 互換 API の URL を入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:960
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCaptcha v2 API"
-msgstr "reCaptcha サイト認証の URL"
+msgstr "reCaptcha v2 API の URL"
 
 #: libraries/classes/Config/Descriptions.php:961
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
-msgstr ""
+msgstr "reCaptcha v2 互換 API の Content-Security-Policy スニペットを入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:962
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API の Content-Security-Policy スニペット"
 
 #: libraries/classes/Config/Descriptions.php:963
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "reCaptcha v2 互換 API で使用されるリクエスト引数を入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API のリクエスト引数"
 
 #: libraries/classes/Config/Descriptions.php:965
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "reCaptcha v2 互換 API のレスポンス引数を入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Response parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API のレスポンス引数"
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "Enter your public key for your domain reCaptcha service."
@@ -5601,10 +5597,8 @@ msgstr "インデックスを編集"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:106
-#, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
-msgstr "インデックスの削除"
+msgstr "インデックスの名前変更"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 #: templates/table/index_form.twig:227
@@ -16322,10 +16316,8 @@ msgid "Character sets and collations"
 msgstr "文字セットと照合順序"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "デフォルト値"
+msgstr "（デフォルト値）"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -17952,28 +17944,20 @@ msgid "Relation view"
 msgstr "リレーションビュー"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "パーティション有り"
+msgstr "パーティションの分析"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "パーティション有り"
+msgstr "パーティションのチェック"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "パーティション有り"
+msgstr "パーティションの削除"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "パーティションを削除"
+msgstr "パーティションの最適化"
 
 #: templates/table/partition/rebuild.twig:2
 #, fuzzy
