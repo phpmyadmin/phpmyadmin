@@ -152,6 +152,13 @@ $blue-header: #3a7ead;
 
 $body-color: $main-color;
 
+// Links
+
+$link-color: $browse-pointer-color;
+$link-decoration: none;
+$link-hover-color: $browse-pointer-color;
+$link-hover-decoration: underline;
+
 // Typography
 
 $font-family-base: "Open Sans", "Segoe UI", sans-serif;

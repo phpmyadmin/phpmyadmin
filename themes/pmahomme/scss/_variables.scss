@@ -55,11 +55,17 @@ $bg-two: #d5d5d5;
 
 $body-color: $main-color;
 
+// Links
+
+$link-color: #235a81;
+$link-decoration: none;
+$link-hover-color: #235a81;
+$link-hover-decoration: underline;
+
 // Typography
 
 $font-family-base: sans-serif;
 $font-family-monospace: monospace;
-
 $font-size-base: 0.82rem;
 
 // Tables

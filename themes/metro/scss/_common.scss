@@ -189,33 +189,12 @@ h3 {
   font-size: 1rem;
 }
 
-a {
-  text-decoration: none;
-  color: #235a81;
-  cursor: pointer;
-  outline: none;
-
-  &:link,
-  &:visited,
-  &:active {
-    text-decoration: none;
-    color: #235a81;
-    cursor: pointer;
-    outline: none;
-  }
-}
-
 button.mult_submit,
 .checkall_box + label {
   text-decoration: none;
   color: #235a81;
   cursor: pointer;
   outline: none;
-}
-
-a:hover {
-  text-decoration: underline;
-  color: #235a81;
 }
 
 button.mult_submit {
