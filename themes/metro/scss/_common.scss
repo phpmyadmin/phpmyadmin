@@ -148,26 +148,7 @@ body#loginform {
   margin: 20px !important;
 }
 
-h1 {
-  font-family: $font-family-light;
-  font-weight: normal;
-  font-size: 3em;
-  color: $navi-background;
-  margin: 0;
-  letter-spacing: -1px;
-  line-height: 1;
-}
-
 h2 {
-  font-size: 3.6em;
-  font-weight: normal;
-  color: $navi-background;
-  font-family: $font-family-light;
-  margin-top: 10px;
-  margin-bottom: 0;
-  line-height: 1;
-  letter-spacing: -1px;
-
   // Hiding icons in the page titles
   img {
     display: none;
@@ -180,13 +161,6 @@ h2 {
 
 .data {
   margin: 10px 0;
-}
-
-h3 {
-  font-family: $font-family-extra-bold;
-  text-transform: uppercase;
-  font-weight: normal;
-  font-size: 1rem;
 }
 
 button.mult_submit,
