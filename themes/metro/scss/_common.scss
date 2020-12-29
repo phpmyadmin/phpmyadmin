@@ -184,22 +184,6 @@ button.mult_submit {
   color: #235a81;
 }
 
-#initials_table {
-  background: $th-background;
-  border: 1px solid $border-color;
-  margin-bottom: 10px;
-
-  td {
-    padding: 8px !important;
-  }
-
-  a {
-    border: 1px solid $border-color;
-    background: $body-bg;
-    padding: 4px 8px;
-  }
-}
-
 dfn:hover {
   cursor: help;
 }

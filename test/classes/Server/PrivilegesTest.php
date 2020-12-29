@@ -1984,16 +1984,22 @@ class PrivilegesTest extends AbstractTestCase
             ->will($this->onConsecutiveCalls(['-']));
         $this->serverPrivileges->dbi = $GLOBALS['dbi'];
         $actual = $this->serverPrivileges->getHtmlForInitials(['"' => true]);
-        $this->assertStringContainsString('<td>A</td>', $actual);
-        $this->assertStringContainsString('<td>Z</td>', $actual);
         $this->assertStringContainsString(
-            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=-'
+            '<a class="page-link" href="#" tabindex="-1" aria-disabled="true">A</a>',
+            $actual
+        );
+        $this->assertStringContainsString(
+            '<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Z</a>',
+            $actual
+        );
+        $this->assertStringContainsString(
+            '<a class="page-link" href="index.php?route=/server/privileges&amp;initial=-'
             . '&amp;lang=en">-</a>',
             $actual
         );
         $this->assertStringContainsString(
-            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=%22'
-            . '&amp;lang=en">"</a>',
+            '<a class="page-link" href="index.php?route=/server/privileges&amp;initial=%22'
+            . '&amp;lang=en">&quot;</a>',
             $actual
         );
         $this->assertStringContainsString('Show all', $actual);

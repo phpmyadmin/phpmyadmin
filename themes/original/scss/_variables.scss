@@ -63,6 +63,10 @@ $link-decoration: none;
 $link-hover-color: #f00;
 $link-hover-decoration: underline;
 
+// Components
+
+$border-radius: 0;
+
 // Typography
 
 $font-family-base: sans-serif;
@@ -106,6 +110,13 @@ $navbar-light-color: #00f;
 $navbar-light-hover-color: #f00;
 $navbar-light-active-color: #00f;
 $navbar-light-disabled-color: #00f;
+
+// Pagination
+
+$pagination-border-color: $main-color;
+$pagination-hover-border-color: $main-color;
+$pagination-active-border-color: $main-color;
+$pagination-disabled-border-color: $main-color;
 
 // Card
 

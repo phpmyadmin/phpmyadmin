@@ -2229,6 +2229,7 @@ class Privileges
         return $this->template->render('server/privileges/initials_row', [
             'array_initials' => $array_initials,
             'initial' => $_GET['initial'] ?? null,
+            'viewing_mode' => $_GET['viewing_mode'] ?? null,
         ]);
     }
 

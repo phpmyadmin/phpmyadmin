@@ -54,7 +54,6 @@ AJAX.registerTeardown('server/privileges.js', function () {
     $(document).off('click', 'a.edit_user_group_anchor.ajax');
     $(document).off('click', 'button.mult_submit[value=export]');
     $(document).off('click', 'a.export_user_anchor.ajax');
-    $(document).off('click',  '#initials_table a.ajax');
     $('#dropUsersDbCheckbox').off('click');
     $(document).off('click', '.checkall_box');
     $(document).off('change', '#checkbox_SSL_priv');
@@ -166,9 +165,13 @@ AJAX.registerOnload('server/privileges.js', function () {
                         var thisUserInitial = $(this).find('input:checkbox').val().charAt(0).toUpperCase();
                         $(this).remove();
 
-                        // If this is the last user with this_user_initial, remove the link from #initials_table
+                        // If this is the last user with thisUserInitial, remove the link from #userAccountsPagination
                         if ($('#userRightsTable').find('input:checkbox[value^="' + thisUserInitial + '"], input:checkbox[value^="' + thisUserInitial.toLowerCase() + '"]').length === 0) {
-                            $('#initials_table').find('td > a:contains(' + thisUserInitial + ')').parent('td').html(thisUserInitial);
+                            $('#userAccountsPagination')
+                                .find('.page-item > .page-link:contains(' + thisUserInitial + ')')
+                                .parent('.page-item')
+                                .addClass('disabled')
+                                .html('<a class="page-link" href="#" tabindex="-1" aria-disabled="true">' + thisUserInitial + '</a>');
                         }
 
                         // Re-check the classes of each row
@@ -338,40 +341,6 @@ AJAX.registerOnload('server/privileges.js', function () {
             }
         }); // end $.get
     }); // end export privileges
-
-    /**
-     * AJAX handler to Paginate the Users Table
-     *
-     * @see         Functions.ajaxShowMessage()
-     * @name        paginate_users_table_click
-     * @memberOf    jQuery
-     */
-    $(document).on('click', '#initials_table a.ajax', function (event) {
-        event.preventDefault();
-        var $msgbox = Functions.ajaxShowMessage();
-        $.get($(this).attr('href'), { 'ajax_request' : true }, function (data) {
-            if (typeof data !== 'undefined' && data.success === true) {
-                Functions.ajaxRemoveMessage($msgbox);
-                // This form is not on screen when first entering Privileges
-                // if there are more than 50 users
-                $('.alert-primary').remove();
-                $('#usersForm').hide('medium').remove();
-                $('#fieldset_add_user').hide('medium').remove();
-                $('#initials_table')
-                    .prop('id', 'initials_table_old')
-                    .after(data.message).show('medium')
-                    .siblings('h2').not($('#initials_table')
-                        .prop('id', 'initials_table_old')
-                        .after(data.message).show('medium')
-                        .siblings('h2').first())
-                    .remove();
-                // prevent double initials table
-                $('#initials_table_old').remove();
-            } else {
-                Functions.ajaxShowMessage(data.error, false);
-            }
-        }); // end $.get
-    }); // end of the paginate users table
 
     $(document).on('change', 'input[name="ssl_type"]', function () {
         var $div = $('#specified_div');

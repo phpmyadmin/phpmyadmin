@@ -35,31 +35,6 @@ button.mult_submit {
   display: none;
 }
 
-#initials_table {
-  background: #f3f3f3;
-  border: 1px solid #aaa;
-  margin-bottom: 10px;
-  border-radius: 5px;
-
-  td {
-    padding: 8px !important;
-  }
-
-  a {
-    border: 1px solid #aaa;
-    background-color: #fff;
-    padding: 4px 8px;
-    border-radius: 5px;
-    background-image: linear-gradient(#fff, #e0e0e0);
-
-    &.active {
-      border: 1px solid #666;
-      box-shadow: 0 0 2px #999;
-      background: linear-gradient(#bbb, #fff);
-    }
-  }
-}
-
 .pma-table th {
   font-weight: bold;
   color: $th-color;

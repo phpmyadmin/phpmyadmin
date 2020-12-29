@@ -159,6 +159,10 @@ $link-decoration: none;
 $link-hover-color: $browse-pointer-color;
 $link-hover-decoration: underline;
 
+// Components
+
+$border-radius: 0;
+
 // Typography
 
 $font-family-base: "Open Sans", "Segoe UI", sans-serif;
@@ -220,6 +224,15 @@ $navbar-light-color: #666;
 $navbar-light-hover-color: #333;
 $navbar-light-active-color: #666;
 $navbar-light-disabled-color: #666;
+
+// Pagination
+
+$pagination-bg: $th-background;
+$pagination-hover-bg: $browse-marker-background;
+$pagination-border-color: $border-color;
+$pagination-hover-border-color: $border-color;
+$pagination-active-border-color: $border-color;
+$pagination-disabled-border-color: $border-color;
 
 // Card
 
