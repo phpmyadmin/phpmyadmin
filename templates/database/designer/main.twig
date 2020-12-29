@@ -155,23 +155,19 @@ var designerConfig = {{ designer_config|raw }};
             {% trans 'Toggle relationship lines' %}
         </span>
     </a>
+    <a id="build_query_button" class="M_butt" href="#">
+        <img title="{% trans 'Build Query' %}"
+                src="{{ theme.getImgPath('designer/query_builder.png') }}">
+        <span class="hide hidable">
+            {% trans 'Build Query' %}
+        </span>
+    </a>
     {% if not visual_builder %}
         <a href="#" id="exportPages" class="M_butt" >
             <img title="{% trans 'Export schema' %}"
                  src="{{ theme.getImgPath('designer/export.png') }}">
             <span class="hide hidable">
                 {% trans 'Export schema' %}
-            </span>
-        </a>
-    {% else %}
-        <a id="build_query_button"
-           class="M_butt"
-           href="#"
-           class="M_butt">
-            <img title="{% trans 'Build Query' %}"
-                 src="{{ theme.getImgPath('designer/query_builder.png') }}">
-            <span class="hide hidable">
-                {% trans 'Build Query' %}
             </span>
         </a>
     {% endif %}
