@@ -68,7 +68,7 @@ textarea {
   border: #aaa solid 1px;
   padding: 0.5em;
   background: #eee;
-  text-shadow: 1px 1px 2px #fff inset;
+  text-shadow: 1px 1px 2px #fff;
   box-shadow: 1px 1px 2px #fff inset;
 }
 
@@ -3040,21 +3040,21 @@ th {
   }
 
   &.headerSortUp .sorticon {
-    background-image: url("../img/s_desc.png");
+    background-image: url("../img/sort-desc.svg");
   }
 
   &.headerSortDown {
     &:hover .sorticon {
-      background-image: url("../img/s_desc.png");
+      background-image: url("../img/sort-desc.svg");
     }
 
     .sorticon {
-      background-image: url("../img/s_asc.png");
+      background-image: url("../img/sort-asc.svg");
     }
   }
 
   &.headerSortUp:hover .sorticon {
-    background-image: url("../img/s_asc.png");
+    background-image: url("../img/sort-asc.svg");
   }
 }
 
