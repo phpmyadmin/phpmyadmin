@@ -343,32 +343,6 @@ li.fast_filter {
   }
 }
 
-// IE10+ has its own reset X
-html.ie {
-  li.fast_filter {
-    span {
-      display: none;
-    }
-
-    input {
-      padding-right: 0.2em;
-    }
-  }
-
-  &.ie9,
-  &.ie8 {
-    li.fast_filter {
-      span {
-        display: auto;
-      }
-
-      input {
-        padding-right: 1.7em;
-      }
-    }
-  }
-}
-
 #navigation_controls_outer {
   min-height: 21px !important;
 

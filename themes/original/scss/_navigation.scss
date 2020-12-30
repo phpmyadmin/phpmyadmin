@@ -332,26 +332,6 @@ li.fast_filter {
   }
 }
 
-html.ie {
-  li.fast_filter span {
-    display: none;
-  }
-
-  &.ie9 li.fast_filter span,
-  &.ie8 li.fast_filter span {
-    display: auto;
-  }
-
-  li.fast_filter input {
-    padding-right: 0.2em;
-  }
-
-  &.ie9 li.fast_filter input,
-  &.ie8 li.fast_filter input {
-    padding-right: 1.7em;
-  }
-}
-
 li.fast_filter.db_fast_filter {
   border: 0;
 }
