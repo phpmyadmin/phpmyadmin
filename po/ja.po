@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-18 22:27+0100\n"
-"PO-Revision-Date: 2020-12-29 11:29+0000\n"
-"Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
+"PO-Revision-Date: 2020-12-31 23:29+0000\n"
+"Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ja/>\n"
 "Language: ja\n"
@@ -17360,10 +17360,8 @@ msgstr "クエリ数"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "/ 時"
+msgstr "0 / 時"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -17960,22 +17958,16 @@ msgid "Optimize partition"
 msgstr "パーティションの最適化"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "サブパーティション"
+msgstr "パーティションの再構築"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "パーティションを削除"
+msgstr "パーティションの修復"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "サブパーティション"
+msgstr "パーティションの切捨て"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -17987,7 +17979,7 @@ msgstr "外部キー制約"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
-msgstr "アクション"
+msgstr "操作"
 
 #: templates/table/relation/common_form.twig:15
 msgid "Constraint properties"
@@ -18184,10 +18176,8 @@ msgid "at beginning of table"
 msgstr "テーブルの先頭"
 
 #: templates/table/structure/display_structure.twig:445
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "変更後の名称"
+msgstr "名前の変更"
 
 #: templates/table/structure/display_structure.twig:507
 #, php-format
