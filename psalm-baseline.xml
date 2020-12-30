@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.3.1@2feba22a005a18bf31d4c7b9bdb9252c73897476">
+<files psalm-version="4.3.2@57b53ff26237074fdf5cbcb034f7da5172be4524">
   <file src="libraries/classes/Bookmark.php">
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
@@ -256,6 +256,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/OperationsController.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$_POST['db_collation']</code>
+    </PossiblyNullArgument>
     <TypeDoesNotContainNull occurrences="1">
       <code>''</code>
     </TypeDoesNotContainNull>
@@ -385,8 +388,19 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Server/PrivilegesController.php">
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$dbname</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="11">
+      <code>$dbname</code>
+      <code>$hostname</code>
+      <code>$hostname</code>
+      <code>$hostname</code>
       <code>$hostname ?? null</code>
+      <code>$username</code>
+      <code>$username</code>
+      <code>$username</code>
+      <code>$username</code>
       <code>$username ?? null</code>
       <code>$username ?? null</code>
     </PossiblyNullArgument>
@@ -637,9 +651,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="libraries/classes/Database/Search.php">
-    <RedundantCast occurrences="1">
-      <code>(int) $_POST['criteriaSearchType']</code>
-    </RedundantCast>
     <RedundantPropertyInitializationCheck occurrences="3">
       <code>$this-&gt;criteriaColumnName</code>
       <code>isset($this-&gt;criteriaColumnName)</code>
@@ -1137,8 +1148,7 @@
     <PossiblyNullArrayAccess occurrences="1">
       <code>$additional_sql[$i]</code>
     </PossiblyNullArrayAccess>
-    <RedundantCast occurrences="5">
-      <code>(int) (mb_ord($name[$char_pos]) - 64)</code>
+    <RedundantCast occurrences="4">
       <code>(string) $cell</code>
       <code>(string) $cell</code>
       <code>(string) $cell</code>
@@ -1573,12 +1583,15 @@
       <code>$cell_attrs</code>
       <code>$text</code>
     </InvalidArgument>
-    <PossiblyNullArrayAccess occurrences="4">
-      <code>$attr['number-columns-repeated']</code>
-      <code>$attr['number-columns-repeated']</code>
-      <code>$tbl_attr['name']</code>
-      <code>$tbl_attr['name']</code>
-    </PossiblyNullArrayAccess>
+    <UndefinedMethod occurrences="4">
+      <code>$attr</code>
+      <code>$attr</code>
+      <code>$tbl_attr</code>
+      <code>$tbl_attr</code>
+    </UndefinedMethod>
+    <UndefinedPropertyFetch occurrences="1">
+      <code>$xml-&gt;children('office', true)-&gt;{'body'}</code>
+    </UndefinedPropertyFetch>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportShp.php">
     <InvalidArgument occurrences="1">
@@ -1589,35 +1602,33 @@
     <InvalidArgument occurrences="2"/>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportXml.php">
-    <ImplicitToStringCast occurrences="1">
-      <code>$attrs['name']</code>
-    </ImplicitToStringCast>
     <InvalidArgument occurrences="1">
       <code>[]</code>
     </InvalidArgument>
     <PossiblyInvalidArgument occurrences="1">
       <code>$tables[$i][Import::TBL_NAME]</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="2">
-      <code>$attrs['name']</code>
-      <code>$namespaces['pma'] ?? null</code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="10">
-      <code>$attrs['name']</code>
-      <code>$db_attr['charset']</code>
-      <code>$db_attr['collation']</code>
-      <code>$db_attr['name']</code>
-      <code>$db_attr['name']</code>
-      <code>$row_attr['name']</code>
-      <code>$row_attr['name']</code>
-      <code>$tbl_attr['name']</code>
-      <code>$tbl_attr['name']</code>
-      <code>$tbl_attr['name']</code>
-    </PossiblyNullArrayAccess>
+    <PossiblyNullReference occurrences="2">
+      <code>attributes</code>
+      <code>attributes</code>
+    </PossiblyNullReference>
     <TypeDoesNotContainNull occurrences="2">
       <code>$db_name === null</code>
       <code>$db_name === null</code>
     </TypeDoesNotContainNull>
+    <UndefinedMethod occurrences="10">
+      <code>$attrs</code>
+      <code>$db_attr</code>
+      <code>$db_attr</code>
+      <code>$db_attr</code>
+      <code>$db_attr</code>
+      <code>$row_attr</code>
+      <code>$row_attr</code>
+      <code>$tbl_attr</code>
+      <code>$tbl_attr</code>
+      <code>$tbl_attr</code>
+    </UndefinedMethod>
+    <UndefinedPropertyFetch occurrences="1"/>
   </file>
   <file src="libraries/classes/Plugins/Import/ShapeFileImport.php">
     <ImplementedReturnTypeMismatch occurrences="1">
@@ -2102,9 +2113,6 @@
       <code>setXScale</code>
       <code>setXyScale</code>
     </PossiblyUndefinedMethod>
-    <ReferenceConstraintViolation occurrences="1">
-      <code>$sameWideWidth</code>
-    </ReferenceConstraintViolation>
     <UndefinedPropertyAssignment occurrences="2">
       <code>$this-&gt;diagram-&gt;customLinks</code>
       <code>$this-&gt;diagram-&gt;customLinks</code>
@@ -2318,10 +2326,6 @@
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strrpos($currentUser, '@')</code>
     </PossiblyFalseOperand>
-    <TooFewArguments occurrences="2">
-      <code>strtok('()')</code>
-      <code>strtok('()')</code>
-    </TooFewArguments>
   </file>
   <file src="libraries/classes/Sanitize.php">
     <RedundantCast occurrences="4">
