@@ -71,6 +71,7 @@ phpMyAdmin - ChangeLog
 - issue #16467 Fixed a PHP notice "Trying to access array offset on value of type null" on Designer PDF export
 - issue #15658 Fixed saving UI displayed columns on a non database request fails
 - issue #16495 Fix drop tables checkbox is above the checkbox for foreign keys
+- issue #16485 Fix visual query builder missing "Build Query" button
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
