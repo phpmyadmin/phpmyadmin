@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-21 16:13+0100\n"
-"PO-Revision-Date: 2020-11-19 15:47+0000\n"
+"PO-Revision-Date: 2021-01-02 20:29+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -10306,7 +10306,7 @@ msgstr "Ignorando o código de linguagem não suportado."
 #: libraries/classes/LanguageManager.php:1008 templates/setup/home/index.twig:8
 #: templates/setup/home/index.twig:9
 msgid "Language"
-msgstr "Linguagem"
+msgstr "Idioma"
 
 #: libraries/classes/Linter.php:109
 msgid ""
