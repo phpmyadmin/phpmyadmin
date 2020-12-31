@@ -77,22 +77,24 @@ class FormDisplayTemplateTest extends AbstractTestCase
         $result = $this->formDisplayTemplate->displayTabsTop(['one', 'two']);
 
         $this->assertStringContainsString(
-            '<ul class="tabs responsivetable row"',
+            '<ul class="nav nav-tabs" id="configFormDisplayTab" role="tablist">',
             $result
         );
 
         $this->assertStringContainsString(
-            '<a href="#0"',
+            '<a class="nav-link active" id="0-tab" href="#0" data-bs-toggle="tab"'
+                . ' role="tab" aria-controls="0" aria-selected="true">one</a>',
             $result
         );
 
         $this->assertStringContainsString(
-            '<a href="#1"',
+            '<a class="nav-link" id="1-tab" href="#1" data-bs-toggle="tab"'
+                . ' role="tab" aria-controls="1" aria-selected="false">two</a>',
             $result
         );
 
         $this->assertStringContainsString(
-            '<div class="tabs_contents col"',
+            '<div class="tab-content">',
             $result
         );
     }

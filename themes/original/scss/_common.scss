@@ -1498,38 +1498,6 @@ table#index_columns {
 /* config forms */
 
 .config-form {
-  ul.tabs {
-    margin: 1.1em 0.2em 0;
-    padding: 0 0 0.3em 0;
-    list-style: none;
-    font-weight: bold;
-
-    li {
-      float: left;
-
-      a {
-        display: block;
-        margin: 0.1em 0.2em 0;
-        padding: 0.1em 0.4em;
-        white-space: nowrap;
-        text-decoration: none;
-        border: 1px solid $bg-two;
-        border-bottom: none;
-
-        &:hover,
-        &:active,
-        &.active {
-          margin: 0;
-          padding: 0.1em 0.6em 0.2em;
-        }
-      }
-
-      &.active a {
-        background-color: $bg-one;
-      }
-    }
-  }
-
   .pma-fieldset {
     margin-top: 0;
     padding: 0;
@@ -3096,12 +3064,6 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  ul {
-    &.tabs {
-      display: flex;
-    }
-  }
-
   .responsivetable {
     overflow-x: auto;
   }

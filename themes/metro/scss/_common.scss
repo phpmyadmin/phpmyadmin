@@ -785,13 +785,6 @@ td.disabled {
   display: none;
 }
 
-/* specific elements */
-
-ul.tabs {
-  list-style-type: none;
-  margin: 0;
-}
-
 /* zoom search */
 div#dataDisplay {
   input,
@@ -1758,44 +1751,6 @@ table#index_columns {
 /* config forms */
 
 .config-form {
-  ul.tabs {
-    margin: 1.1em 0.2em 0;
-    padding: 0 0 0.3em 0;
-    list-style: none;
-    font-weight: bold;
-
-    li {
-      float: left;
-      margin-bottom: -1px;
-
-      a {
-        display: block;
-        margin: 0.1em 0.2em 0;
-        white-space: nowrap;
-        text-decoration: none;
-        border: 1px solid $bg-two;
-        border-bottom: 1px solid #ddd;
-        font-family: $font-family-bold;
-        padding: 7px 10px;
-        background: #f2f2f2;
-        color: #555;
-
-        &:hover,
-        &:active {
-          background: #e5e5e5;
-        }
-      }
-
-      &.active a {
-        background-color: #fff;
-        margin-top: 1px;
-        color: #000;
-        border-color: #ddd;
-        border-bottom: 1px solid #fff;
-      }
-    }
-  }
-
   .pma-fieldset {
     margin-top: 0;
     padding: 0;

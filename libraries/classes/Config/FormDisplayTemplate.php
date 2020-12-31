@@ -106,7 +106,8 @@ class FormDisplayTemplate
         $title = '',
         $description = '',
         $errors = null,
-        array $attributes = []
+        array $attributes = [],
+        bool $firstTab = false
     ): string {
         $this->group = 0;
 
@@ -117,6 +118,7 @@ class FormDisplayTemplate
             'title' => $title,
             'description' => $description,
             'errors' => $errors,
+            'first_tab' => $firstTab,
         ]);
     }
 

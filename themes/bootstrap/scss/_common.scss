@@ -588,13 +588,6 @@ li.last.database {
   margin-bottom: 15px;
 }
 
-ul.tabs {
-  font-weight: bold;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
 // zoom search
 div#dataDisplay {
   input,
@@ -1551,45 +1544,6 @@ table#index_columns {
 
 // config forms
 .config-form {
-  ul.tabs {
-    margin: 1.1em 0.2em 0;
-    list-style: none;
-    font-weight: bold;
-
-    li {
-      float: left;
-      margin-bottom: -1px;
-
-      a {
-        display: block;
-        margin: 0.1em 0.2em 0;
-        white-space: nowrap;
-        text-decoration: none;
-        border: 1px solid $bg-two;
-        border-bottom: 1px solid #aaa;
-        padding: 7px 10px;
-        border-radius: 5px 5px 0 0;
-        background: #f2f2f2;
-        color: #555;
-        text-shadow: 0 1px 0 #fff;
-
-        &:hover,
-        &:active {
-          background: #e5e5e5;
-        }
-      }
-
-      &.active a {
-        background-color: #fff;
-        margin-top: 1px;
-        color: #000;
-        text-shadow: none;
-        border-color: #aaa;
-        border-bottom: 1px solid #fff;
-      }
-    }
-  }
-
   .pma-fieldset {
     margin-top: 0;
     padding: 0;
@@ -3126,12 +3080,6 @@ body .ui-dialog {
 }
 
 @media only screen and (max-width: 768px) {
-  ul {
-    &.tabs {
-      display: flex;
-    }
-  }
-
   .responsivetable {
     overflow-x: auto;
   }

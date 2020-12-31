@@ -4,7 +4,7 @@
  * @package phpMyAdmin-Navigation
  */
 
-/* global isStorageSupported, setupConfigTabs, setupRestoreField, setupValidation */ // js/config.js
+/* global isStorageSupported, setupRestoreField, setupValidation */ // js/config.js
 /* global RTE */ // js/rte.js
 
 var Navigation = {};
@@ -982,7 +982,6 @@ Navigation.ensureSettings = function (selflink) {
                 $('#pma_navi_settings_container').html(data.message);
                 setupRestoreField();
                 setupValidation();
-                setupConfigTabs();
                 $('#pma_navigation_settings').find('form').attr('action', selflink);
             } else {
                 Functions.ajaxShowMessage(data.error);

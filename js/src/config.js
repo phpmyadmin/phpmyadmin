@@ -36,7 +36,7 @@ function isStorageSupported (type, warn) {
 AJAX.registerTeardown('config.js', function () {
     $('.optbox input[id], .optbox select[id], .optbox textarea[id]').off('change').off('keyup');
     $('.optbox input[type=button][name=submit_reset]').off('click');
-    $('div.tabs_contents').off();
+    $('div.tab-content').off();
     $('#import_local_storage, #export_local_storage').off('click');
     $('form.prefs-form').off('change').off('submit');
     $(document).off('click', 'div.click-hide-message');
@@ -577,51 +577,6 @@ AJAX.registerOnload('config.js', function () {
 // END: Form validation and field operations
 // ------------------------------------------------------------------
 
-// ------------------------------------------------------------------
-// Tabbed forms
-//
-
-/**
- * Sets active tab
- *
- * @param {String} tabId
- */
-function setTab (tabId) {
-    $('ul.tabs').each(function () {
-        var $this = $(this);
-        if (!$this.find('li a[href="#' + tabId + '"]').length) {
-            return;
-        }
-        $this.find('li').removeClass('active').find('a[href="#' + tabId + '"]').parent().addClass('active');
-        $this.parent().find('div.tabs_contents fieldset').hide().filter('#' + tabId).show();
-        var hashValue = 'tab_' + tabId;
-        location.hash = hashValue;
-        $this.parent().find('input[name=tab_hash]').val(hashValue);
-    });
-}
-
-function setupConfigTabs () {
-    var forms = $('form.config-form');
-    forms.each(function () {
-        var $this = $(this);
-        var $tabs = $this.find('ul.tabs');
-        if (!$tabs.length) {
-            return;
-        }
-        // add tabs events and activate one tab (the first one or indicated by location hash)
-        $tabs.find('li').removeClass('active');
-        $tabs.find('a')
-            .on('click', function (e) {
-                e.preventDefault();
-                setTab($(this).attr('href').substr(1));
-            })
-            .first()
-            .parent()
-            .addClass('active');
-        $this.find('div.tabs_contents fieldset').hide().first().show();
-    });
-}
-
 function adjustPrefsNotification () {
     var $prefsAutoLoad = $('#prefs_autoload');
     var $tableNameControl = $('#table_name_col_no');
@@ -633,26 +588,8 @@ function adjustPrefsNotification () {
 }
 
 AJAX.registerOnload('config.js', function () {
-    setupConfigTabs();
     adjustPrefsNotification();
-
-    // tab links handling
-    // (works with history in FF, further browser support here would be an overkill)
-    window.onhashchange = function () {
-        if (location.hash.match(/^#tab_[a-zA-Z0-9_]+$/)) {
-            // session ID is sometimes appended here
-            var hash = location.hash.substr(5).split('&')[0];
-            if ($('#' + hash).length) {
-                setTab(hash);
-            }
-        }
-    };
-    window.onhashchange();
 });
-
-//
-// END: Tabbed forms
-// ------------------------------------------------------------------
 
 // ------------------------------------------------------------------
 // Form reset buttons
@@ -690,7 +627,7 @@ function restoreField (fieldId) {
 }
 
 function setupRestoreField () {
-    $('div.tabs_contents')
+    $('div.tab-content')
         .on('mouseenter', '.restore-default, .set-value', function () {
             $(this).css('opacity', 1);
         })

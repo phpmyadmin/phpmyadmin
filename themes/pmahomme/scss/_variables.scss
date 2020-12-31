@@ -108,6 +108,13 @@ $dropdown-item-padding-x: 0;
 
 $form-check-input-margin-y: 0.1rem;
 
+// Navs
+
+$nav-tabs-border-color: #aaa;
+$nav-tabs-link-active-border-color: #aaa #aaa #fff;
+$nav-tabs-link-hover-border-color: $bg-two $bg-two #aaa;
+$nav-tabs-link-active-color: #000;
+
 // Navbar
 
 $enable-caret: false;

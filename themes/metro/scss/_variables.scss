@@ -213,6 +213,13 @@ $dropdown-border-radius: 0;
 $input-border-radius: 0;
 $form-check-input-margin-y: 0;
 
+// Navs
+
+$nav-tabs-border-color: #ddd;
+$nav-tabs-link-active-border-color: #ddd #ddd #fff;
+$nav-tabs-link-hover-border-color: $bg-two $bg-two #ddd;
+$nav-tabs-link-active-color: #000;
+
 // Navbar
 
 $enable-caret: false;

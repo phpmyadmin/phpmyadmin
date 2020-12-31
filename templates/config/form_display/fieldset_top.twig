@@ -1,3 +1,5 @@
+<div class="tab-pane fade{{ first_tab ? ' show active' }}" id="{{ attributes.id }}" role="tabpanel" aria-labelledby="{{ attributes.id }}-tab">
+
 <fieldset
     {%- for key, value in attributes -%}
         {{- ' ' }}{{ key }}="{{ value }}"

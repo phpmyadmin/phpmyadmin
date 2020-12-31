@@ -98,6 +98,14 @@ $dropdown-padding-y: 0;
 $dropdown-item-padding-y: 0;
 $dropdown-item-padding-x: 0;
 
+// Navs
+
+$nav-tabs-border-color: transparent;
+$nav-tabs-link-active-border-color: $bg-two $bg-two #f5f5f5;
+$nav-tabs-link-hover-border-color: $bg-two $bg-two #f5f5f5;
+$nav-tabs-link-active-color: #00f;
+$nav-tabs-link-active-bg: $bg-one;
+
 // Navbar
 
 $enable-transitions: false;

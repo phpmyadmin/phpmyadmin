@@ -259,6 +259,7 @@ class FormDisplay
     ) {
         $htmlOutput = '';
         $validators = Validator::getValidators($this->configFile);
+        $firstTab = true;
 
         foreach ($this->forms as $form) {
             /** @var Form $form */
@@ -267,8 +268,11 @@ class FormDisplay
                 Descriptions::get('Form_' . $form->name),
                 Descriptions::get('Form_' . $form->name, 'desc'),
                 $formErrors,
-                ['id' => $form->name]
+                ['id' => $form->name],
+                $firstTab
             );
+
+            $firstTab = false;
 
             foreach ($form->fields as $field => $path) {
                 $workPath = array_search($path, $this->systemPaths);

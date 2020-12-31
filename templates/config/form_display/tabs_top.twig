@@ -1,6 +1,8 @@
-<ul class="tabs responsivetable row">
+<ul class="nav nav-tabs" id="configFormDisplayTab" role="tablist">
   {% for id, name in tabs %}
-    <li><a href="#{{ id }}">{{ name }}</a></li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link{{ loop.first ? ' active' }}" id="{{ id }}-tab" href="#{{ id }}" data-bs-toggle="tab" role="tab" aria-controls="{{ id }}" aria-selected="{{ loop.first ? 'true' : 'false' }}">{{ name }}</a>
+    </li>
   {% endfor %}
 </ul>
-<div class="tabs_contents col">
+<div class="tab-content">
