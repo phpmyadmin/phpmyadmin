@@ -26,7 +26,8 @@ class ConfigController extends AbstractController
             'config.inc.php',
             '',
             null,
-            ['class' => 'simple']
+            ['class' => 'simple'],
+            true
         );
         $formBottom = $formDisplayTemplate->displayFieldsetBottom(false);
         $fieldsetBottom = $formDisplayTemplate->displayFormBottom();

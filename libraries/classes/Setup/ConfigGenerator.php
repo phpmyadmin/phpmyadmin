@@ -76,7 +76,7 @@ class ConfigGenerator
             $ret .= self::getVarExport($k, $cf->getDefault($k), $crlf);
         }
 
-        return $ret . '?>';
+        return $ret . $crlf;
     }
 
     /**

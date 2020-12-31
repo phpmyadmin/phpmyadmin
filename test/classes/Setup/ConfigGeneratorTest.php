@@ -74,11 +74,6 @@ class ConfigGeneratorTest extends AbstractTestCase
             "/* End of servers configuration */\n\n",
             $result
         );
-
-        $this->assertStringContainsString(
-            '?>',
-            $result
-        );
     }
 
     /**
