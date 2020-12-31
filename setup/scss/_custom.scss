@@ -7,7 +7,7 @@ body {
   color: #444;
   font: 0.8em sans-serif;
   background: linear-gradient(to right, #f3f3f3, #dadcde);
-  background-position: 180px 0px;
+  background-position: 180px 0;
   background-repeat: repeat-y;
   background-color: #f3f3f3;
   background-size: 25px auto;
@@ -195,7 +195,6 @@ div.notice[id^=version_check] {
 div.notice[id^=version_check] h4 {
   border-color: #002dff;
 }
-
 
 /* form tabs */
 
@@ -446,7 +445,7 @@ input.button {
   border-radius: 12px;
   text-shadow: 0 1px 0 #fff;
   background-size: 100% 100%;
-  background-image: linear-gradient(top, #fff, #ccc);
+  background-image: linear-gradient(to top, #fff, #ccc);
 }
 
 input[type=submit]:hover,
@@ -456,7 +455,7 @@ input[name=submit_reset]:hover,
 input.button:hover {
   position: relative;
   background-size: 100% 100%;
-  background-image: linear-gradient(top, #ccc, #ddd);
+  background-image: linear-gradient(to top, #ccc, #ddd);
   cursor: pointer;
 }
 
