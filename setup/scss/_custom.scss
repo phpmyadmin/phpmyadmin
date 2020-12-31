@@ -6,7 +6,7 @@ body {
   padding-bottom: 1em;
   color: #444;
   font: 0.8em sans-serif;
-  background: linear-gradient(to right, #f3f3f3, #dadcde);
+  background-image: linear-gradient(to right, #f3f3f3, #dadcde);
   background-position: 180px 0;
   background-repeat: repeat-y;
   background-color: #f3f3f3;
@@ -26,19 +26,21 @@ img {
   border: 0;
 }
 
-a,
-a:link,
-a:visited,
-a:active {
-  text-decoration: none;
-  color: #235a81;
-  cursor: pointer;
-  outline: none;
-}
+a {
+  &,
+  &:link,
+  &:visited,
+  &:active {
+    text-decoration: none;
+    color: #235a81;
+    cursor: pointer;
+    outline: none;
+  }
 
-a:hover {
-  text-decoration: underline;
-  color: #235a81;
+  &:hover {
+    text-decoration: underline;
+    color: #235a81;
+  }
 }
 
 h1 {
@@ -59,27 +61,26 @@ h1 {
   float: left;
   width: 220px;
   font-size: 1.1em;
-}
 
-#menu ul {
-  margin: 1em 1em 1em 0.5em;
-  padding: 0;
-  list-style: none;
-}
+  ul {
+    margin: 1em 1em 1em 0.5em;
+    padding: 0;
+    list-style: none;
+  }
 
-#menu li a {
-  padding: 0.5em 0.6em;
-  margin-right: 0.6em;
-  display: block;
-  color: #333;
-  text-decoration: none;
-  zoom: 1; /* IE fix */
-}
+  li a {
+    padding: 0.5em 0.6em;
+    margin-right: 0.6em;
+    display: block;
+    color: #333;
+    text-decoration: none;
 
-#menu li a:hover,
-#menu li a:active,
-#menu li a.active {
-  background-color: #e4e4e4;
+    &:hover,
+    &:active,
+    &.active {
+      background-color: #e4e4e4;
+    }
+  }
 }
 
 /* page contents and footer layout */
@@ -91,12 +92,12 @@ h1 {
 
 #footer {
   margin-top: 1em;
-}
 
-#footer a {
-  margin-right: 0.5em;
-  text-decoration: none;
-  font-size: small;
+  a {
+    margin-right: 0.5em;
+    text-decoration: none;
+    font-size: small;
+  }
 }
 
 /* phpMyAdmin logo colors */
@@ -196,63 +197,6 @@ div.notice[id^=version_check] h4 {
   border-color: #002dff;
 }
 
-/* form tabs */
-
-ul.tabs {
-  margin: 1.1em 2px 0;
-  padding: 0 0 3px 0;
-  list-style: none;
-  font-weight: bold;
-}
-
-ul.tabs li {
-  float: left;
-  margin-bottom: -1px;
-}
-
-ul.tabs li a {
-  display: block;
-  margin: 1px 0.2em 0;
-  white-space: nowrap;
-  text-decoration: none;
-  border: 1px solid #d5d5d5;
-  border-bottom: 1px solid #aaa;
-}
-
-ul.tabs li a {
-  padding: 7px 10px;
-  border-radius: 5px 5px 0 0;
-  background: #f2f2f2;
-  color: #555;
-  text-shadow: 0 1px 0 #fff;
-}
-
-ul.tabs li a:hover,
-ul.tabs li a:active {
-  background: #e5e5e5;
-}
-
-ul.tabs li.active a {
-  background-color: #fff;
-  margin-top: 1px;
-  color: #000;
-  text-shadow: none;
-  border-color: #aaa;
-  border-bottom: 1px solid #fff;
-}
-
-.tabs_contents {
-  margin-top: 13px;
-}
-
-.tabs_contents fieldset {
-  margin-top: 0;
-}
-
-.tabs_contents legend {
-  display: none;
-}
-
 /* "restore default value" and "set value: foo" buttons */
 
 .restore-default img,
@@ -265,7 +209,15 @@ ul.tabs li.active a {
   float: right;
 }
 
-/* forms */
+.form {
+  border: 2px #dee1ff solid;
+}
+
+table caption,
+table th,
+table td {
+  text-shadow: 0 1px 0 #fff;
+}
 
 fieldset {
   margin-top: 1em;
@@ -275,138 +227,136 @@ fieldset {
   background: #eee;
   text-shadow: 0 1px 0 #fff;
   box-shadow: 1px 1px 2px #fff inset;
-}
 
-fieldset.optbox {
-  padding: 0;
-}
+  &.optbox {
+    padding: 0;
+  }
 
-.setup-page fieldset.optbox {
-  width: 100%;
-}
+  fieldset {
+    margin: 0.8em;
+    border: 1px solid #aaa;
+    background: #e8e8e8;
+  }
 
-fieldset fieldset {
-  margin: 0.8em;
-  border: 1px solid #aaa;
-  background: #e8e8e8;
-}
+  legend {
+    float: none;
+    width: auto;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #444;
+    padding: 5px 10px;
+    border-radius: 2px;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    box-shadow: 3px 3px 15px #bbb;
+  }
 
-fieldset legend {
-  float: none;
-  width: auto;
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #444;
-  padding: 5px 10px;
-  border-radius: 2px;
-  border: 1px solid #aaa;
-  background-color: #fff;
-  box-shadow: 3px 3px 15px #bbb;
-}
+  p {
+    margin: 0;
+    padding: 0.5em;
+    background: #fff;
+    border-top: 0;
+  }
 
-.form {
-  border: 2px #dee1ff solid;
-}
+  .errors { /* form error list */
+    margin: 0 -2px 1em -2px;
+    padding: 0.5em 1.5em;
+    background: #fbead9;
+    border-color: #c83838;
+    border-style: solid;
+    border-width: 1px 0;
+    list-style: none;
+    font-family: sans-serif;
+    font-size: small;
+  }
 
-fieldset p {
-  margin: 0;
-  padding: 0.5em;
-  background: #fff;
-  border-top: 0;
-}
+  .inline_errors { /* field error list */
+    margin: 0.3em 0.3em 0.3em 0;
+    padding: 0;
+    list-style: none;
+    color: #9a0000;
+    font-size: small;
+  }
 
-fieldset .errors { /* form error list */
-  margin: 0 -2px 1em -2px;
-  padding: 0.5em 1.5em;
-  background: #fbead9;
-  border-color: #c83838;
-  border-style: solid;
-  border-width: 1px 0;
-  list-style: none;
-  font-family: sans-serif;
-  font-size: small;
-}
+  th {
+    width: 40%;
+    min-width: 350px;
+    padding: 0.3em 0.3em 0.3em 0.5em;
+    text-align: left;
+    font-weight: bold;
+    vertical-align: top;
+  }
 
-fieldset .inline_errors { /* field error list */
-  margin: 0.3em 0.3em 0.3em 0;
-  padding: 0;
-  list-style: none;
-  color: #9a0000;
-  font-size: small;
-}
+  &.simple {
+    th {
+      width: auto;
+      min-width: 0;
+    }
 
-table caption,
-table th,
-table td {
-  text-shadow: 0 1px 0 #fff;
-}
+    th,
+    td {
+      border-top: none;
+      border-bottom: 1px #555 dotted;
+    }
 
-fieldset th {
-  width: 40%;
-  min-width: 350px;
-  padding: 0.3em 0.3em 0.3em 0.5em;
-  text-align: left;
-  font-weight: bold;
-  vertical-align: top;
-}
+    .lastrow {
+      border: 0;
+    }
+  }
 
-fieldset.simple th {
-  width: auto;
-  min-width: 0;
-}
+  .doc {
+    margin-left: 1em;
+  }
 
-fieldset .doc {
-  margin-left: 1em;
-}
+  td {
+    padding-top: 0.3em;
+    vertical-align: top;
+  }
 
-fieldset td {
-  padding-top: 0.3em;
-  vertical-align: top;
-}
+  td.userprefs-allow {
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+    width: 3em;
 
-fieldset td.userprefs-allow {
-  padding: 0;
-  vertical-align: middle;
-  text-align: center;
-  width: 3em;
-}
+    &:hover {
+      cursor: pointer;
+      background-color: #eee;
+    }
+  }
 
-fieldset td.userprefs-allow:hover {
-  cursor: pointer;
-  background-color: #eee;
-}
+  th small {
+    display: block;
+    font-weight: normal;
+    font-family: sans-serif;
+    font-size: x-small;
+    color: #666;
+  }
 
-fieldset th small {
-  display: block;
-  font-weight: normal;
-  font-family: sans-serif;
-  font-size: x-small;
-  color: #666;
+  .group-header th {
+    background: #eaedff;
+    border: none;
+  }
+
+  .group-field-1 th,
+  .group-header-2 th {
+    padding-left: 1em;
+  }
+
+  .group-field-2 th,
+  .group-header-3 th {
+    padding-left: 2em;
+  }
+
+  .group-field-3 th {
+    padding-left: 3em;
+  }
 }
 
 fieldset th,
 fieldset td,
 .form .lastrow {
   border-top: 1px solid #d5d5d5;
-}
-
-fieldset .group-header th {
-  background: #eaedff;
-  border: none;
-}
-
-fieldset .group-field-1 th,
-fieldset .group-header-2 th {
-  padding-left: 1em;
-}
-
-fieldset .group-field-2 th,
-fieldset .group-header-3 th {
-  padding-left: 2em;
-}
-
-fieldset .group-field-3 th {
-  padding-left: 3em;
 }
 
 fieldset .lastrow,
@@ -449,27 +399,19 @@ input.button {
   text-shadow: 0 1px 0 #fff;
   background-size: 100% 100%;
   background-image: linear-gradient(to top, #fff, #ccc);
-}
 
-input[type=submit]:hover,
-button[type=submit]:not(.mult_submit):hover,
-input[type=reset]:hover,
-input[name=submit_reset]:hover,
-input.button:hover {
-  position: relative;
-  background-size: 100% 100%;
-  background-image: linear-gradient(to top, #ccc, #ddd);
-  cursor: pointer;
-}
+  &:hover {
+    position: relative;
+    background-size: 100% 100%;
+    background-image: linear-gradient(to top, #ccc, #ddd);
+    cursor: pointer;
+  }
 
-input[type=submit]:active,
-button[type=submit]:not(.mult_submit):active,
-input[type=reset]:active,
-input[name=submit_reset]:active,
-input.button:active {
-  position: relative;
-  top: 1px;
-  left: 1px;
+  &:active {
+    position: relative;
+    top: 1px;
+    left: 1px;
+  }
 }
 
 input[type="checkbox"],
@@ -485,16 +427,6 @@ select {
   padding: 3px;
   background: white;
   margin: 6px;
-}
-
-fieldset.simple th,
-fieldset.simple td {
-  border-top: none;
-  border-bottom: 1px #555 dotted;
-}
-
-fieldset.simple .lastrow {
-  border: 0;
 }
 
 /* form elements */
@@ -538,17 +470,17 @@ span.checkbox {
 
 table.datatable {
   margin: 0.5em 0 1em;
-}
 
-table.datatable th {
-  padding: 0 1em 0 0.5em;
-  border-bottom: 1px #999 solid;
-  text-align: left;
-}
+  th {
+    padding: 0 1em 0 0.5em;
+    border-bottom: 1px #999 solid;
+    text-align: left;
+  }
 
-table.datatable td {
-  padding: 1px 0.5em;
-  border-bottom: 1px #dee1ff solid;
+  td {
+    padding: 1px 0.5em;
+    border-bottom: 1px #dee1ff solid;
+  }
 }
 
 /* textarea with config file's contents */
@@ -562,10 +494,10 @@ table.datatable td {
 
 dd {
   margin-left: 0.5em;
-}
 
-dd::before {
-  content: "\25B8  ";
+  &::before {
+    content: "▸ ";
+  }
 }
 
 /* links on failed validation page, when saving a form */
@@ -578,12 +510,12 @@ a.btn {
   border-top-color: #afd0ff;
   border-left-color: #afd0ff;
   font-weight: bold;
-}
 
-a.btn:hover,
-a.btn:active {
-  background: #e6f5ff;
-  color: #004c96;
+  &:hover,
+  &:active {
+    background: #e6f5ff;
+    color: #004c96;
+  }
 }
 
 .hide {
