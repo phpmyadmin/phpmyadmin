@@ -165,7 +165,9 @@ class DesignerController extends AbstractController
         $display_page = -1;
         $selected_page = null;
 
-        if (isset($_GET['query'])) {
+        $visualBuilderMode = isset($_GET['query']);
+
+        if ($visualBuilderMode) {
             $display_page = $this->designerCommon->getDefaultPage($_GET['db']);
         } elseif (! empty($_GET['page'])) {
             $display_page = $_GET['page'];
@@ -242,7 +244,7 @@ class DesignerController extends AbstractController
                 $script_contr,
                 $script_display_field,
                 $display_page,
-                isset($_GET['query']),
+                $visualBuilderMode,
                 $selected_page,
                 $classes_side_menu,
                 $tab_pos,

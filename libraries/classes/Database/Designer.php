@@ -311,7 +311,7 @@ class Designer
      * @param array           $scriptContr          initialization data array
      * @param DesignerTable[] $scriptDisplayField   displayed tables in designer with their display fields
      * @param int             $displayPage          page number of the selected page
-     * @param bool            $hasQuery             whether this is visual query builder
+     * @param bool            $visualBuilderMode    whether this is visual query builder
      * @param string          $selectedPage         name of the selected page
      * @param array           $paramsArray          array with class name for various buttons on side menu
      * @param array|null      $tabPos               table positions
@@ -329,7 +329,7 @@ class Designer
         array $scriptContr,
         array $scriptDisplayField,
         $displayPage,
-        $hasQuery,
+        bool $visualBuilderMode,
         $selectedPage,
         array $paramsArray,
         ?array $tabPos,
@@ -391,7 +391,8 @@ class Designer
             'get_db' => $getDb,
             'designer_config' => json_encode($designerConfig),
             'display_page' => (int) $displayPage,
-            'has_query' => $hasQuery,
+            'has_query' => $visualBuilderMode,
+            'visual_builder' => $visualBuilderMode,
             'selected_page' => $selectedPage,
             'params_array' => $paramsArray,
             'theme' => $GLOBALS['PMA_Theme'],
