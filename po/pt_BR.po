@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2020-08-31 20:54+0000\n"
+"PO-Revision-Date: 2021-01-01 20:29+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.2.1-dev\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -8778,7 +8778,7 @@ msgstr "Ignorando o código de linguagem não suportado."
 #: libraries/classes/LanguageManager.php:989 templates/setup/home/index.twig:8
 #: templates/setup/home/index.twig:9
 msgid "Language"
-msgstr "Linguagem"
+msgstr "Idioma"
 
 #: libraries/classes/Linter.php:104
 msgid ""
