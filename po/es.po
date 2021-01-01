@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-21 16:13+0100\n"
-"PO-Revision-Date: 2020-12-02 15:29+0000\n"
-"Last-Translator: Alfredo Vierna <p4p4p1tuf0@gmail.com>\n"
+"PO-Revision-Date: 2021-01-02 20:29+0000\n"
+"Last-Translator: Alvaro Enrique Ruano <alvaro.ruano90@outlook.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1571,12 +1571,9 @@ msgid "accent-sensitive"
 msgstr "dependiente de acentos"
 
 #: libraries/classes/Charsets/Collation.php:300
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "dependiente de acentos"
+msgstr "Sensible al kanatipo"
 
 #: libraries/classes/Charsets/Collation.php:304
 msgctxt "Collation variant"
@@ -1591,7 +1588,7 @@ msgstr "binario"
 #: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "sin relleno"
 
 #: libraries/classes/Charsets/Collation.php:326
 msgctxt "Collation"
@@ -7208,10 +7205,8 @@ msgid "%d object(s) created."
 msgstr "%d objeto(s) creado(s)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:551
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Nombre de las columnas"
+msgstr "Nombre de la columna"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:552
 #: templates/sql/query.twig:165
@@ -7584,12 +7579,11 @@ msgid "Failed security key activation (%s)."
 msgstr "Ha fallado la activación de la llave de seguridad (%s)."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:719
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "La tabla %s ya existe!"
+msgstr "¡La tabla %s ya existe!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:721
 #: libraries/classes/InsertEdit.php:337
