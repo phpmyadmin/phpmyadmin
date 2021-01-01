@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2019-04-21 22:36+0000\n"
-"Last-Translator: Pablo Mayordomo <cartman322es@yahoo.es>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"PO-Revision-Date: 2021-01-02 20:29+0000\n"
+"Last-Translator: Alvaro Enrique Ruano <alvaro.ruano90@outlook.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -540,15 +540,11 @@ msgid "Output"
 msgstr "Salida"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Seleccione «GeomFromText» de la columna \"Función\" y pegue la cadena "
+"Seleccione «ST_GeomFromText» de la columna \"Función\" y pegue la cadena "
 "ubicada debajo en el campo \"Valor\"."
 
 #: import.php:73
@@ -2386,10 +2382,8 @@ msgid "%d object(s) created."
 msgstr "%d objeto(s) creado(s)."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
-msgstr "Nombre de las columnas"
+msgstr "Nombre de la columna"
 
 #: js/messages.php:583 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -2748,12 +2742,11 @@ msgid "Failed security key activation (%s)."
 msgstr "Ha fallado la activación de la llave de seguridad (%s)."
 
 #: js/messages.php:755
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "La tabla %s ya existe!"
+msgstr "¡La tabla %s ya existe!"
 
 #: js/messages.php:756 libraries/classes/InsertEdit.php:289
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:54
@@ -3581,12 +3574,9 @@ msgid "accent-sensitive"
 msgstr "dependiente de acentos"
 
 #: libraries/classes/Charsets.php:679
-#, fuzzy
-#| msgctxt "Collation variant"
-#| msgid "accent-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "dependiente de acentos"
+msgstr "Sensible al kanatipo"
 
 #: libraries/classes/Charsets.php:683
 msgctxt "Collation variant"
@@ -3601,7 +3591,7 @@ msgstr "binario"
 #: libraries/classes/Charsets.php:689
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "sin relleno"
 
 #: libraries/classes/Config.php:1132
 #, php-format
