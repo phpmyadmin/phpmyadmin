@@ -104,16 +104,15 @@ class FormDisplayTemplateTest extends AbstractTestCase
      */
     public function testDisplayFieldsetTop(): void
     {
-        $attributes = ['name' => 'attrname'];
         $errors = [
             'e1',
             'e2',
         ];
 
-        $result = $this->formDisplayTemplate->displayFieldsetTop('TitleTest', 'DescTest', $errors, $attributes);
+        $result = $this->formDisplayTemplate->displayFieldsetTop('TitleTest', 'DescTest', $errors, 'attrname');
 
         $this->assertStringContainsString(
-            '<fieldset class="pma-fieldset optbox" name="attrname">',
+            '<fieldset class="optbox">',
             $result
         );
 
@@ -123,7 +122,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<p>',
+            '<div class="tab-pane fade" id="attrname" role="tabpanel" aria-labelledby="attrname-tab">',
             $result
         );
 
@@ -138,7 +137,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table class="pma-table" width="100%" cellspacing="0">',
+            '<table class="table table-borderless">',
             $result
         );
     }
@@ -443,18 +442,15 @@ class FormDisplayTemplateTest extends AbstractTestCase
      */
     public function testDisplayFieldsetBottom(): void
     {
-        // with PMA_SETUP
-        $this->config->set('is_setup', true);
-
         $result = $this->formDisplayTemplate->displayFieldsetBottom();
 
         $this->assertStringContainsString(
-            '<td colspan="3" class="lastrow">',
+            '<div class="card-footer">',
             $result
         );
 
         $this->assertStringContainsString(
-            '<input class="btn btn-primary green" type="submit" name="submit_save" value="Apply"',
+            '<input class="btn btn-primary" type="submit" name="submit_save" value="Apply">',
             $result
         );
 
@@ -468,13 +464,10 @@ class FormDisplayTemplateTest extends AbstractTestCase
             $result
         );
 
-        // without PMA_SETUP
-        $this->config->set('is_setup', false);
+        $result = $this->formDisplayTemplate->displayFieldsetBottom(false);
 
-        $result = $this->formDisplayTemplate->displayFieldsetBottom();
-
-        $this->assertStringContainsString(
-            '<td colspan="2" class="lastrow">',
+        $this->assertStringNotContainsString(
+            '<div class="card-footer">',
             $result
         );
     }

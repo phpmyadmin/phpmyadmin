@@ -12,7 +12,6 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use function array_flip;
-use function array_merge;
 use function array_shift;
 use function defined;
 use function htmlspecialchars;
@@ -100,21 +99,18 @@ class FormDisplayTemplate
      * @param string     $title       title of fieldset
      * @param string     $description description shown on top of fieldset
      * @param array|null $errors      error messages to display
-     * @param array      $attributes  optional extra attributes of fieldset
      */
     public function displayFieldsetTop(
         $title = '',
         $description = '',
         $errors = null,
-        array $attributes = [],
+        string $name = '',
         bool $firstTab = false
     ): string {
         $this->group = 0;
 
-        $attributes = array_merge(['class' => 'pma-fieldset optbox'], $attributes);
-
         return $this->template->render('config/form_display/fieldset_top', [
-            'attributes' => $attributes,
+            'name' => $name,
             'title' => $title,
             'description' => $description,
             'errors' => $errors,
@@ -418,10 +414,7 @@ class FormDisplayTemplate
      */
     public function displayFieldsetBottom(bool $showButtons = true): string
     {
-        return $this->template->render('config/form_display/fieldset_bottom', [
-            'show_buttons' => $showButtons,
-            'is_setup' => $this->config->get('is_setup'),
-        ]);
+        return $this->template->render('config/form_display/fieldset_bottom', ['show_buttons' => $showButtons]);
     }
 
     /**

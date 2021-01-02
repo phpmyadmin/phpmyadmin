@@ -268,7 +268,7 @@ class FormDisplay
                 Descriptions::get('Form_' . $form->name),
                 Descriptions::get('Form_' . $form->name, 'desc'),
                 $formErrors,
-                ['id' => $form->name],
+                $form->name,
                 $firstTab
             );
 

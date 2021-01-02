@@ -1814,7 +1814,11 @@ table#index_columns {
   padding: 5px;
 }
 
-.config-form .pma-fieldset {
+.config-form .card {
+  margin-top: 0;
+}
+
+.config-form fieldset {
   th {
     padding: 10px;
     padding-left: 0.5em;
@@ -1856,7 +1860,7 @@ table#index_columns {
   }
 }
 
-.pma-fieldset {
+fieldset {
   .group-header {
     th {
       background: $bg-two;
@@ -1935,11 +1939,6 @@ form {
 }
 
 .config-form {
-  .lastrow {
-    padding: 0.5em;
-    text-align: center;
-  }
-
   span.checkbox {
     padding: 2px;
     display: inline-block;

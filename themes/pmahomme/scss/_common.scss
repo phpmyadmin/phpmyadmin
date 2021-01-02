@@ -1748,7 +1748,13 @@ table#index_columns {
 
 // config forms
 .config-form {
-  .pma-fieldset {
+  .card {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  fieldset {
     margin-top: 0;
     padding: 0;
     clear: both;
@@ -1825,17 +1831,6 @@ table#index_columns {
     display: none;
   }
 
-  .lastrow {
-    border-top: 1px #000 solid;
-    background: $th-background;
-    padding: 0.5em;
-    text-align: center;
-
-    input {
-      font-weight: bold;
-    }
-  }
-
   span.checkbox {
     padding: 2px;
     display: inline-block;
@@ -1904,7 +1899,7 @@ table#index_columns {
   }
 }
 
-.pma-fieldset {
+fieldset {
   .group-header {
     th {
       background: $bg-two;

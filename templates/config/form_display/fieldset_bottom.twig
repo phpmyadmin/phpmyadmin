@@ -1,15 +1,12 @@
-{% set colspan = 2 %}
-{% if is_setup %}
-    {% set colspan = colspan + 1 %}
-{% endif %}
-{% if show_buttons %}
-    <tr>
-        <td colspan="{{ colspan }}" class="lastrow">
-            <input class="btn btn-primary green" type="submit" name="submit_save" value="{% trans 'Apply' %}">
-            <input class="btn btn-secondary" type="button" name="submit_reset" value="{% trans 'Reset' %}">
-        </td>
-    </tr>
-{% endif %}
-</table>
-</fieldset>
+        </table>
+      </fieldset>
+    </div>
+
+    {% if show_buttons %}
+      <div class="card-footer">
+        <input class="btn btn-primary" type="submit" name="submit_save" value="{% trans 'Apply' %}">
+        <input class="btn btn-secondary" type="button" name="submit_reset" value="{% trans 'Reset' %}">
+      </div>
+    {% endif %}
+  </div>
 </div>
