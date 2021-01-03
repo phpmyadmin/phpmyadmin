@@ -76,16 +76,6 @@ parameters:
 			path: libraries/classes/Config/FormDisplay.php
 
 		-
-			message: "#^Offset 'values' does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Config/FormDisplayTemplate.php
-
-		-
-			message: "#^Offset 'errors' does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Config/FormDisplayTemplate.php
-
-		-
 			message: "#^Cannot call static method getFields\\(\\) on string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Config/Forms/BaseFormList.php

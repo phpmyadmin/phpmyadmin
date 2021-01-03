@@ -197,8 +197,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<input type="text" class="w-75" name="test/path" id="test/path" ' .
-            'class="custom field-error" value="val">',
+            '<input type="text" name="test/path" id="test/path" value="val"' .
+            ' class="w-75 custom field-error">',
             $result
         );
 
@@ -207,10 +207,9 @@ class FormDisplayTemplateTest extends AbstractTestCase
             $result
         );
 
-        $this->assertStringContainsString(
-            '<dl class="inline_errors"><dd>e1</dd></dl>',
-            $result
-        );
+        $this->assertStringContainsString('<dl class="inline_errors">', $result);
+        $this->assertStringContainsString('<dd>e1</dd>', $result);
+        $this->assertStringContainsString('</dl>', $result);
 
         // second case
 
@@ -240,7 +239,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<input type="checkbox" name="test/path" id="test/path" ' .
-            'checked="checked">',
+            'checked>',
             $result
         );
 
@@ -277,7 +276,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<input type="text" size="25" name="test/path" id="test/path" ' .
-            'value="val">',
+            'value="val" class="">',
             $result
         );
 
@@ -294,7 +293,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<input type="number" name="test/path" ' .
-            'id="test/path" value="val">',
+            'id="test/path" value="val" class="">',
             $result
         );
 
@@ -319,12 +318,12 @@ class FormDisplayTemplateTest extends AbstractTestCase
             $opts
         );
         $this->assertStringContainsString(
-            '<select class="w-75" name="test/path" id="test/path">',
+            '<select name="test/path" id="test/path" class="w-75">',
             $result
         );
 
         $this->assertStringContainsString(
-            '<option value="1" selected="selected" disabled="disabled">',
+            '<option value="1" selected disabled>',
             $result
         );
 
@@ -360,7 +359,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<select class="w-75" name="test/path" id="test/path">',
+            '<select name="test/path" id="test/path" class="w-75">',
             $result
         );
 
@@ -385,7 +384,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<textarea cols="35" rows="5" name="test/path" id="test/path">',
+            '<textarea cols="35" rows="5" name="test/path" id="test/path" class="">',
             $result
         );
     }
