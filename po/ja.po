@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-18 22:27+0100\n"
-"PO-Revision-Date: 2020-12-31 23:29+0000\n"
-"Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
+"PO-Revision-Date: 2021-01-04 06:09+0000\n"
+"Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ja/>\n"
 "Language: ja\n"
@@ -2230,7 +2230,7 @@ msgstr "ラベルキー"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
 msgid "Media type"
-msgstr "メディアタイプ"
+msgstr "メディア型"
 
 #: libraries/classes/Config/Descriptions.php:249
 #: libraries/classes/Config/Descriptions.php:261
@@ -3590,15 +3590,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:716
 msgid "Central columns table"
-msgstr "中央カラムテーブル"
+msgstr "主要カラムテーブル"
 
 #: libraries/classes/Config/Descriptions.php:718
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
-msgstr ""
-"中央カラムを使用しない場合は空欄にします。[kbd]pma__central_columns[/kbd] と"
-"しておくのがいいでしょう。"
+msgstr "主要カラムを使用しない場合は空欄にします。[kbd]pma__central_columns[/kbd] としておくのがいいでしょう。"
 
 #: libraries/classes/Config/Descriptions.php:722
 msgid ""
@@ -3801,7 +3799,7 @@ msgstr "DROP VIEW を追加する"
 
 #: libraries/classes/Config/Descriptions.php:797
 msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr "新しい世代に対して自動生成使用するコマンドのリストを定義します。"
+msgstr "使用されたときに新しい版を自動生成する文のリストを定義します。"
 
 #: libraries/classes/Config/Descriptions.php:799
 msgid "Statements to track"
@@ -3823,9 +3821,7 @@ msgstr "SQL コマンド追跡テーブル"
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
-msgstr ""
-"SQL コマンドの追跡機能が、テーブルやビューに対して自動的に世代を作成するかど"
-"うか。"
+msgstr "SQL コマンドの追跡機能が、テーブルやビューに対して自動的に版を作成するかどうか。"
 
 #: libraries/classes/Config/Descriptions.php:809
 msgid "Automatically create versions"
@@ -5487,7 +5483,7 @@ msgstr "選択されたユーザー「%s」を本当に無効にしますか？"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:60
 msgid "Do you really want to delete this central column?"
-msgstr "本当に中心カラム「%s」の削除を実行しますか？"
+msgstr "この主要カラムを削除してよろしいですか？"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:61
 msgid "Do you really want to delete the selected items?"
@@ -6511,9 +6507,7 @@ msgstr "このリストの検索"
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
-msgstr ""
-"中央のリストの列はありません。データベース「%s」の中央列リストが現在のテーブ"
-"ルの列が存在しないことを確認してください。"
+msgstr "リストに主要カラムがありません。データベース「%s」の主要カラムリストに現在のテーブルに存在しないカラムがあることを確認してください。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:407
 msgid "See more"
@@ -8482,12 +8476,12 @@ msgstr ""
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr "構成ストレージは、カラムの中央リスト機能の準備ができていません。"
+msgstr "構成ストレージは、主要カラムリスト機能の準備ができていません。"
 
 #: libraries/classes/Database/CentralColumns.php:379
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr "「%1$s」は中央リストに既に存在するので、追加できませんでした!"
+msgstr "すでに %1$s は主要カラムリストに存在するので、追加できませんでした。"
 
 #: libraries/classes/Database/CentralColumns.php:395
 msgid "Could not add columns!"
@@ -8497,8 +8491,7 @@ msgstr "カラムを追加できませんでした！"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr ""
-"Central columns list に存在しないため、 カラム %1$s を削除できませんでした！"
+msgstr "カラム %1$s は主要カラムリストに存在しないため、削除できませんでした。"
 
 #: libraries/classes/Database/CentralColumns.php:493
 msgid "Could not remove columns!"
@@ -10187,7 +10180,7 @@ msgstr "デザイナ"
 #: libraries/classes/Menu.php:489 libraries/classes/Util.php:2459
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
-msgstr "中央カラム"
+msgstr "主要カラム"
 
 #: libraries/classes/Menu.php:550
 msgid "User accounts"
@@ -10429,7 +10422,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:241
 msgid "Show me the central list of columns that are not already in this table"
-msgstr "このテーブルに存在しないカラムの中央リストを表示"
+msgstr "このテーブルに存在しない主要カラムのリストを表示します"
 
 #: libraries/classes/Normalization.php:244
 msgid ""
@@ -12115,11 +12108,11 @@ msgstr "ナビゲーション項目を表示/非表示"
 
 #: libraries/classes/Relation.php:366
 msgid "Saving Query-By-Example searches"
-msgstr "「例によるクエリ」検索を保存しています"
+msgstr "定型問い合わせ検索を保存しています"
 
 #: libraries/classes/Relation.php:377
 msgid "Managing Central list of columns"
-msgstr "中央リストカラムの管理"
+msgstr "主要カラムのリストを管理"
 
 #: libraries/classes/Relation.php:388
 msgid "Remembering Designer Settings"
@@ -13790,7 +13783,7 @@ msgstr "外部キーです。"
 
 #: templates/columns_definitions/column_name.twig:39
 msgid "Pick from Central Columns"
-msgstr "中央カラムから選択"
+msgstr "主要カラムから選択"
 
 #: templates/columns_definitions/partitions.twig:17
 msgid "Partition by:"
@@ -14113,7 +14106,7 @@ msgstr "オート・インクリメント"
 
 #: templates/database/central_columns/main.twig:131
 msgid "The central list of columns for the current database is empty"
-msgstr "現在のデータベースのカラムの中央リストは空です"
+msgstr "現在のデータベースの主要カラムリストは空です"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:62
@@ -14967,19 +14960,19 @@ msgstr "テーブル名の接頭辞を付け替える"
 
 #: templates/database/structure/check_all_tables.twig:33
 msgid "Add columns to central list"
-msgstr "中央リストにカラムを追加する"
+msgstr "主要カラムリストへ追加"
 
 #: templates/database/structure/check_all_tables.twig:34
 msgid "Remove columns from central list"
-msgstr "中央リストからカラムを削除"
+msgstr "主要カラムリストから削除"
 
 #: templates/database/structure/check_all_tables.twig:35
 msgid "Make consistent with central list"
-msgstr "中央のリストと整合性にする"
+msgstr "主要カラムリストと整合を取る"
 
 #: templates/database/structure/copy_form.twig:14
 msgid "Options:"
-msgstr "オプション："
+msgstr "オプション:"
 
 #: templates/database/structure/copy_form.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -17559,7 +17552,7 @@ msgstr "新しいサーバの追加"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
-msgstr "この SQL をブックマークする"
+msgstr "この SQL をブックマーク"
 
 #: templates/sql/bookmark.twig:15
 msgid "Label:"
@@ -17608,7 +17601,7 @@ msgstr "バインドパラメータ"
 
 #: templates/sql/query.twig:85
 msgid "Bookmark this SQL query:"
-msgstr "この SQL をブックマークする。"
+msgstr "この SQL をブックマーク:"
 
 #: templates/sql/query.twig:96
 msgid "Replace existing bookmark of same name"
@@ -18133,12 +18126,12 @@ msgstr "件数集計"
 #: templates/table/structure/display_structure.twig:246
 #: templates/table/structure/display_structure.twig:308
 msgid "Remove from central columns"
-msgstr "中央カラムから削除"
+msgstr "主要カラムから削除"
 
 #: templates/table/structure/display_structure.twig:250
 #: templates/table/structure/display_structure.twig:305
 msgid "Add to central columns"
-msgstr "中央カラムに追加"
+msgstr "主要カラムに追加"
 
 #: templates/table/structure/display_structure.twig:316
 #: templates/table/structure/display_structure.twig:357
