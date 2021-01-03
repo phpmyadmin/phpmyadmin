@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-11-03 08:26+0000\n"
+"PO-Revision-Date: 2021-01-04 06:09+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.3.2-dev\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -6326,7 +6326,8 @@ msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:169
 msgid "You should use SSL connections if your database server supports it."
-msgstr "Měli byste použít SSL připojení, pokud to váš databázový podporuje."
+msgstr ""
+"Měli byste použít SSL připojení, pokud to váš databázový server podporuje."
 
 #: libraries/classes/Config/ServerConfigChecks.php:176
 msgid ""
