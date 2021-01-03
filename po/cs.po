@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-21 16:13+0100\n"
-"PO-Revision-Date: 2020-11-01 21:51+0000\n"
+"PO-Revision-Date: 2021-01-04 06:09+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.3.2-dev\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4424,12 +4424,10 @@ msgid "Show current browsing query"
 msgstr "Zobrazit aktuálně prohlížený dotaz"
 
 #: libraries/classes/Config/Descriptions.php:991
-#, fuzzy
-#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
-"Spouštět dotazy stisknutím klávesy Enter a vložit nový řádek pomocí Shift + "
-"Enter"
+"Spouštět dotazy stisknutím klávesy Enter a vložit nový řádek pomocí "
+"Shift+Enter"
 
 #: libraries/classes/Config/Descriptions.php:992
 #: templates/console/display.twig:168
@@ -4830,7 +4828,8 @@ msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:168
 msgid "You should use SSL connections if your database server supports it."
-msgstr "Měli byste použít SSL připojení, pokud to váš databázový podporuje."
+msgstr ""
+"Měli byste použít SSL připojení, pokud to váš databázový server podporuje."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
 msgid ""
