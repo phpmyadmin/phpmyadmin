@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-21 16:13+0100\n"
-"PO-Revision-Date: 2021-01-04 06:09+0000\n"
+"PO-Revision-Date: 2021-01-05 22:29+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -2993,7 +2993,7 @@ msgstr "メモリ制限"
 
 #: libraries/classes/Config/Descriptions.php:517
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr "ナビゲーション画面でデータベースツリーをセレクタで置き換えます"
+msgstr "ナビゲーションパネルでデータベースツリーをセレクタで置き換えます"
 
 #: libraries/classes/Config/Descriptions.php:519
 msgid "Show databases navigation as tree"
