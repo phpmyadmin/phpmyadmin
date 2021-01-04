@@ -38,7 +38,7 @@
         }
     ],
     "require": {
-        "php": "^7.1.3 || ^8.0",
+        "php": "^7.2.5 || ^8.0",
         "ext-hash": "*",
         "ext-iconv": "*",
         "ext-json": "*",
@@ -57,7 +57,7 @@
         "symfony/expression-language": "^4.4.9",
         "symfony/polyfill-ctype": "^1.17.0",
         "symfony/polyfill-mbstring": "^1.17.0",
-        "twig/twig": "^2.9 || ^3",
+        "twig/twig": "^3.0.1",
         "williamdes/mariadb-mysql-kbs": "^1.2"
     },
     "conflict": {
@@ -86,7 +86,7 @@
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^0.12.77",
         "phpstan/phpstan-phpunit": "^0.12.17",
-        "phpunit/phpunit": "^7.5 || ^8.0 || ^9.0",
+        "phpunit/phpunit": "^8.0 || ^9.0",
         "pragmarx/google2fa-qrcode": "^1.0.1",
         "samyoul/u2f-php-server": "^1.1",
         "symfony/console": "^4.4",
