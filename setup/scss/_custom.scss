@@ -521,3 +521,28 @@ a.btn {
 .hide {
   display: none;
 }
+
+// Icons
+
+.icon {
+  margin: 0 0 0 0.3em;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.ic_b_edit {
+  background-image: url('../themes/pmahomme/img/b_edit.png');
+}
+
+.ic_b_help {
+  background-image: url('../themes/pmahomme/img/b_help.png');
+}
+
+.ic_b_tblops {
+  background-image: url('../themes/pmahomme/img/b_tblops.png');
+}
+
+.ic_s_reload {
+  background-image: url('../themes/pmahomme/img/s_reload.png');
+}

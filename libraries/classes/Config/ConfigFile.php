@@ -425,11 +425,11 @@ class ConfigFile
     /**
      * Returns server list
      *
-     * @return array|null
+     * @return array
      */
-    public function getServers()
+    public function getServers(): array
     {
-        return $_SESSION[$this->id]['Servers'] ?? null;
+        return $_SESSION[$this->id]['Servers'] ?? [];
     }
 
     /**

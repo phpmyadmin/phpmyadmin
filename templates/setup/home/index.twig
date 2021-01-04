@@ -33,7 +33,13 @@
 <fieldset class="pma-fieldset simple">
   <legend>{% trans 'Servers' %}</legend>
 
-  {{ servers_form_top_html|raw }}
+  <form method="get" action="index.php" class="config-form disableAjax">
+    <input type="hidden" name="tab_hash" value="">
+    {% if has_check_page_refresh %}
+      <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
+    {% endif %}
+    {{ get_hidden_inputs('', '', 0, 'server') }}
+    {{ get_hidden_fields({'page': 'servers', 'mode': 'add'}, '', true) }}
 
   <div class="form">
     {% if server_count > 0 %}
@@ -85,19 +91,73 @@
     </table>
   </div>
 
-  {{ form_bottom_html|raw }}
-
+  </form>
 </fieldset>
 
 <fieldset class="pma-fieldset simple">
   <legend>{% trans 'Configuration file' %}</legend>
 
-  {{ config_form_top_html|raw }}
+  <form method="post" action="config.php" class="config-form disableAjax">
+    <input type="hidden" name="tab_hash" value="">
+    {% if has_check_page_refresh %}
+      <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
+    {% endif %}
+    {{ get_hidden_inputs('', '', 0, 'server') }}
 
-  <table class="pma-table" width="100%" cellspacing="0">
-    {{ default_language_input|raw }}
-    {{ server_default_input|raw }}
-    {{ eol_input|raw }}
+  <table class="table table-borderless">
+    <tr>
+      <th>
+        <label for="DefaultLang">{% trans 'Default language' %}</label>
+        <span class="doc">
+          <a href="{{ get_docu_link('config', 'cfg_DefaultLang', '../') }}" target="_blank" rel="noreferrer noopener">
+            {{- get_image('b_help', 'Documentation'|trans) -}}
+          </a>
+        </span>
+      </th>
+      <td>
+        <select name="DefaultLang" id="DefaultLang" class="w-75">
+          {% for language in languages %}
+            <option value="{{ language.code }}"{{ language.is_active ? ' selected' }}>{{ language.name|raw }}</option>
+          {% endfor %}
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <th>
+        <label for="ServerDefault">{% trans 'Default server' %}</label>
+        <span class="doc">
+          <a href="{{ get_docu_link('config', 'cfg_ServerDefault', '../') }}" target="_blank" rel="noreferrer noopener">
+            {{- get_image('b_help', 'Documentation'|trans) -}}
+          </a>
+        </span>
+      </th>
+      <td>
+        <select name="ServerDefault" id="ServerDefault" class="w-75">
+          {% if server_count > 0 %}
+            {% if server_count > 1 %}
+              <option value="0">{% trans 'let the user choose' %}</option>
+              <option value="" disabled>------------------------------</option>
+            {% endif %}
+            {% for server in servers %}
+              <option value="{{ server.id }}"{{ server.id == 1 ? ' selected' }}>{{ server.name }} [{{ server.id }}]</option>
+            {% endfor %}
+          {% else %}
+            <option value="1">{% trans '- none -' %}</option>
+          {% endif %}
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <th><label for="eol">{% trans 'End of line' %}</label></th>
+      <td>
+        <select name="eol" id="eol" class="w-75">
+          <option value="unix"{{ eol == 'unix' ? ' selected' }}>UNIX / Linux (\n)</option>
+          <option value="win"{{ eol == 'win' ? ' selected' }}>Windows (\r\n)</option>
+        </select>
+      </td>
+    </tr>
 
     <tr>
       <td colspan="2" class="lastrow text-start">
@@ -108,8 +168,7 @@
     </tr>
   </table>
 
-  {{ form_bottom_html|raw }}
-
+  </form>
 </fieldset>
 
 <div id="footer">

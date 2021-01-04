@@ -178,16 +178,6 @@
       <code>$values[$path]</code>
     </PossiblyInvalidIterator>
   </file>
-  <file src="libraries/classes/Config/FormDisplayTemplate.php">
-    <PossiblyNullArrayAccess occurrences="2">
-      <code>$opts['errors']</code>
-      <code>$opts['values']</code>
-    </PossiblyNullArrayAccess>
-    <PossiblyNullIterator occurrences="2">
-      <code>$opts['errors']</code>
-      <code>$opts['values']</code>
-    </PossiblyNullIterator>
-  </file>
   <file src="libraries/classes/Config/Forms/BaseFormList.php">
     <UndefinedClass occurrences="2">
       <code>$class::getFields()</code>
@@ -431,9 +421,9 @@
     </UndefinedClass>
   </file>
   <file src="libraries/classes/Controllers/Setup/HomeController.php">
-    <PossiblyNullIterator occurrences="1">
-      <code>$this-&gt;config-&gt;getServers()</code>
-    </PossiblyNullIterator>
+    <TypeDoesNotContainType occurrences="1">
+      <code>PMA_IS_WINDOWS</code>
+    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Setup/ServersController.php">
     <PossiblyNullArgument occurrences="1">
