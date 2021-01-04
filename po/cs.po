@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-18 22:27+0100\n"
-"PO-Revision-Date: 2021-01-04 06:09+0000\n"
+"PO-Revision-Date: 2021-01-06 09:29+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-1/cs/>"
 "\n"
@@ -4285,42 +4285,43 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "Zadejte URL pro ověření služby reCaptcha."
+msgstr "Zadejte adresu URL vašeho API kompatibilního s reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:960
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCaptcha v2 API"
-msgstr "URL pro ověření reCaptcha"
+msgstr "URL pro API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:961
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
 msgstr ""
+"Zadejte fragment Content-Security-Policy pro vaše API kompatibilní s "
+"reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:962
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "Fragment Content-Security-Policy pro API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:963
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"Zadejte parametr požadavku, který používá vaše API kompatibilní s reCaptcha "
+"v2."
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Parametr požadavku pro API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:965
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"Zadejte parametr odezvy, který používá vaše API kompatibilní s reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Response parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Parametr odezvy pro API reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "Enter your public key for your domain reCaptcha service."
@@ -4371,12 +4372,12 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
-"Povolí mód Automatické konfigurace, který vám dovolí nastavit phpMyAdmin "
-"konfigurační úložiště tabulek automaticky."
+"Povolit režim Automatické konfigurace, který umožňuje automatické nastavení "
+"tabulek konfiguračního úložiště phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:987
 msgid "Enable Zero Configuration mode"
-msgstr "Umožnit mód Automatické konfigurace"
+msgstr "Povolit režim Automatické konfigurace"
 
 #: libraries/classes/Config/Descriptions.php:988
 #: templates/console/display.twig:153
@@ -5591,10 +5592,8 @@ msgstr "Upravit index"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:106
-#, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
-msgstr "Odstranit klíče"
+msgstr "Přejmenovat index"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 #: templates/table/index_form.twig:227
@@ -7340,7 +7339,7 @@ msgstr "Řetězce"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:87
 msgid "phpMyAdmin configuration snippet"
-msgstr "Úryvek konfigurace phpMyAdmina"
+msgstr "Fragment konfigurace phpMyAdmina"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:88
 msgid "Paste it to your config.inc.php"
@@ -10874,6 +10873,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Vaše heslo je příliš dlouhé. Aby se předešlo útokům typu odmítnutí služby, "
+"omezuje phpMyAdmin délku hesla na méně než 1000 znaků."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -16344,10 +16345,8 @@ msgid "Character sets and collations"
 msgstr "Znakové sady a řazení"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "Výchozí"
+msgstr "(výchozí)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -17390,10 +17389,8 @@ msgstr "#"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "za hodinu"
+msgstr "ø za hodinu"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -17970,46 +17967,32 @@ msgid "Relation view"
 msgstr "Zobrazení relací"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "používá oddíly"
+msgstr "Analyzovat oddíl"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "používá oddíly"
+msgstr "Zkontrolovat oddíl"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "používá oddíly"
+msgstr "Zrušit oddíl"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Zrušit dělení"
+msgstr "Optimalizovat oddíl"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Pododdíl"
+msgstr "Znovu sestavit oddíl"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Zrušit dělení"
+msgstr "Opravit oddíl"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Pododdíl"
+msgstr "Vyprázdnit oddíl"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -18218,10 +18201,8 @@ msgid "at beginning of table"
 msgstr "na začátku tabulky"
 
 #: templates/table/structure/display_structure.twig:445
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Přejmenovat na"
+msgstr "Přejmenovat"
 
 #: templates/table/structure/display_structure.twig:507
 #, php-format
