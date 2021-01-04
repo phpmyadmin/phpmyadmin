@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-01-04 06:09+0000\n"
+"PO-Revision-Date: 2021-01-05 22:29+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-0/cs/>"
 "\n"
@@ -5770,12 +5770,12 @@ msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
-"Povolí mód Automatické konfigurace, který vám dovolí nastavit phpMyAdmin "
-"konfigurační úložiště tabulek automaticky."
+"Povolit režim Automatické konfigurace, který umožňuje automatické nastavení "
+"tabulek konfiguračního úložiště phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:916
 msgid "Enable Zero Configuration mode"
-msgstr "Umožnit mód Automatické konfigurace"
+msgstr "Povolit režim Automatické konfigurace"
 
 #: libraries/classes/Config/Descriptions.php:917
 #: templates/console/display.twig:153
@@ -13227,7 +13227,7 @@ msgstr "Chyba: Navigace je přístupná jen přes AJAX"
 
 #: prefs_manage.php:63
 msgid "phpMyAdmin configuration snippet"
-msgstr "Úryvek konfigurace phpMyAdmina"
+msgstr "Fragment konfigurace phpMyAdmina"
 
 #: prefs_manage.php:64
 msgid "Paste it to your config.inc.php"
