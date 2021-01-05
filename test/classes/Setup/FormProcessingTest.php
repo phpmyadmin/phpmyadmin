@@ -59,8 +59,7 @@ class FormProcessingTest extends AbstractNetworkTestCase
             ->will($this->returnValue(false));
 
         $formDisplay->expects($this->once())
-            ->method('getDisplay')
-            ->with(true, true);
+            ->method('getDisplay');
 
         FormProcessing::process($formDisplay);
 

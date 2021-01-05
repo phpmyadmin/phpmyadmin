@@ -37,7 +37,7 @@ class FormProcessing
 
         if (! $form_display->process(false)) {
             // handle form view and failed POST
-            echo $form_display->getDisplay(true, true);
+            echo $form_display->getDisplay();
 
             return;
         }

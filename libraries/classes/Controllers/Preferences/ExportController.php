@@ -102,8 +102,6 @@ class ExportController extends AbstractController
             'errors' => $formErrors ?? null,
             'form' => $formDisplay->getDisplay(
                 true,
-                true,
-                true,
                 Url::getFromRoute('/preferences/export'),
                 ['server' => $server]
             ),

@@ -82,14 +82,6 @@ class FormDisplay
     private $systemPaths = [];
 
     /**
-     * Language strings which will be sent to Messages JS variable
-     * Will be looked up in $GLOBALS: str{value} or strSetup{value}
-     *
-     * @var array
-     */
-    private $jsLangStrings = [];
-
-    /**
      * Tells whether forms have been validated
      *
      * @var bool
@@ -119,13 +111,6 @@ class FormDisplay
     public function __construct(ConfigFile $cf)
     {
         $this->formDisplayTemplate = new FormDisplayTemplate($GLOBALS['PMA_Config']);
-        $this->jsLangStrings = [
-            'error_nan_p' => __('Not a positive number!'),
-            'error_nan_nneg' => __('Not a non-negative number!'),
-            'error_incorrect_port' => __('Not a valid port number!'),
-            'error_invalid_value' => __('Incorrect value!'),
-            'error_value_lte' => __('Value must be less than or equal to %s!'),
-        ];
         $this->configFile = $cf;
         // initialize validators
         Validator::getValidators($this->configFile);
@@ -240,107 +225,35 @@ class FormDisplay
     }
 
     /**
-     * Outputs HTML for the forms under the menu tab
-     *
-     * @param bool  $showRestoreDefault whether to show "restore default"
-     *                                  button besides the input field
-     * @param array $jsDefault          stores JavaScript code
-     *                                  to be displayed
-     * @param array $js                 will be updated with javascript code
-     * @param bool  $showButtons        whether show submit and reset button
-     *
-     * @return string
-     */
-    private function displayForms(
-        $showRestoreDefault,
-        array &$jsDefault,
-        array &$js,
-        $showButtons
-    ) {
-        $htmlOutput = '';
-        $validators = Validator::getValidators($this->configFile);
-        $firstTab = true;
-
-        foreach ($this->forms as $form) {
-            /** @var Form $form */
-            $formErrors = $this->errors[$form->name] ?? null;
-            $htmlOutput .= $this->formDisplayTemplate->displayFieldsetTop(
-                Descriptions::get('Form_' . $form->name),
-                Descriptions::get('Form_' . $form->name, 'desc'),
-                $formErrors,
-                $form->name,
-                $firstTab
-            );
-
-            $firstTab = false;
-
-            foreach ($form->fields as $field => $path) {
-                $workPath = array_search($path, $this->systemPaths);
-                $translatedPath = $this->translatedPaths[$workPath];
-                // always true/false for user preferences display
-                // otherwise null
-                $userPrefsAllow = isset($this->userprefsKeys[$path])
-                    ? ! isset($this->userprefsDisallow[$path])
-                    : null;
-                // display input
-                $htmlOutput .= $this->displayFieldInput(
-                    $form,
-                    $field,
-                    $path,
-                    $workPath,
-                    $translatedPath,
-                    $showRestoreDefault,
-                    $userPrefsAllow,
-                    $jsDefault
-                );
-                // register JS validators for this field
-                if (! isset($validators[$path])) {
-                    continue;
-                }
-
-                $this->formDisplayTemplate->addJsValidate($translatedPath, $validators[$path], $js);
-            }
-            $htmlOutput .= $this->formDisplayTemplate->displayFieldsetBottom($showButtons);
-        }
-
-        return $htmlOutput;
-    }
-
-    /**
      * Outputs HTML for forms
      *
-     * @param bool       $tabbedForm         if true, use a form with tabs
-     * @param bool       $showRestoreDefault whether show "restore default" button
-     *                                       besides the input field
-     * @param bool       $showButtons        whether show submit and reset button
-     * @param string     $formAction         action attribute for the form
-     * @param array|null $hiddenFields       array of form hidden fields (key: field
-     *                                       name)
+     * @param bool       $showButtons  whether show submit and reset button
+     * @param string     $formAction   action attribute for the form
+     * @param array|null $hiddenFields array of form hidden fields (key: field
+     *                                 name)
      *
      * @return string HTML for forms
      */
     public function getDisplay(
-        $tabbedForm = false,
-        $showRestoreDefault = false,
         $showButtons = true,
         $formAction = null,
         $hiddenFields = null
     ) {
-        static $jsLangSent = false;
-
-        $htmlOutput = '';
-
         $js = [];
         $jsDefault = [];
 
-        $htmlOutput .= $this->formDisplayTemplate->displayFormTop($formAction, 'post', $hiddenFields);
+        /**
+         * We do validation on page refresh when browser remembers field values,
+         * add a field with known value which will be used for checks.
+         */
+        static $hasCheckPageRefresh = false;
+        if (! $hasCheckPageRefresh) {
+            $hasCheckPageRefresh = true;
+        }
 
-        if ($tabbedForm) {
-            $tabs = [];
-            foreach ($this->forms as $form) {
-                $tabs[$form->name] = Descriptions::get('Form_' . $form->name);
-            }
-            $htmlOutput .= $this->formDisplayTemplate->displayTabsTop($tabs);
+        $tabs = [];
+        foreach ($this->forms as $form) {
+            $tabs[$form->name] = Descriptions::get('Form_' . $form->name);
         }
 
         // validate only when we aren't displaying a "new server" form
@@ -359,34 +272,59 @@ class FormDisplay
         // user preferences
         $this->loadUserprefsInfo();
 
-        // display forms
-        $htmlOutput .= $this->displayForms(
-            $showRestoreDefault,
-            $jsDefault,
-            $js,
-            $showButtons
-        );
+        $validators = Validator::getValidators($this->configFile);
+        $forms = [];
 
-        if ($tabbedForm) {
-            $htmlOutput .= $this->formDisplayTemplate->displayTabsBottom();
-        }
-        $htmlOutput .= $this->formDisplayTemplate->displayFormBottom();
+        foreach ($this->forms as $key => $form) {
+            $this->formDisplayTemplate->group = 0;
+            $forms[$key] = [
+                'name' => $form->name,
+                'descriptions' => [
+                    'name' => Descriptions::get('Form_' . $form->name, 'name'),
+                    'desc' => Descriptions::get('Form_' . $form->name, 'desc'),
+                ],
+                'errors' => $this->errors[$form->name] ?? null,
+                'fields_html' => '',
+            ];
 
-        // if not already done, send strings used for validation to JavaScript
-        if (! $jsLangSent) {
-            $jsLangSent = true;
-            $jsLang = [];
-            foreach ($this->jsLangStrings as $strName => $strValue) {
-                $jsLang[] = "'" . $strName . "': '" . Sanitize::jsFormat($strValue, false) . '\'';
+            foreach ($form->fields as $field => $path) {
+                $workPath = array_search($path, $this->systemPaths);
+                $translatedPath = $this->translatedPaths[$workPath];
+                // always true/false for user preferences display
+                // otherwise null
+                $userPrefsAllow = isset($this->userprefsKeys[$path])
+                    ? ! isset($this->userprefsDisallow[$path])
+                    : null;
+                // display input
+                $forms[$key]['fields_html'] .= $this->displayFieldInput(
+                    $form,
+                    $field,
+                    $path,
+                    $workPath,
+                    $translatedPath,
+                    true,
+                    $userPrefsAllow,
+                    $jsDefault
+                );
+                // register JS validators for this field
+                if (! isset($validators[$path])) {
+                    continue;
+                }
+
+                $this->formDisplayTemplate->addJsValidate($translatedPath, $validators[$path], $js);
             }
-            $js[] = "$.extend(Messages, {\n\t"
-                . implode(",\n\t", $jsLang) . '})';
         }
 
-        $js[] = "$.extend(defaultValues, {\n\t"
-            . implode(",\n\t", $jsDefault) . '})';
-
-        return $htmlOutput . $this->formDisplayTemplate->displayJavascript($js);
+        return $this->formDisplayTemplate->display([
+            'action' => $formAction,
+            'has_check_page_refresh' => $hasCheckPageRefresh,
+            'hidden_fields' => (array) $hiddenFields,
+            'tabs' => $tabs,
+            'forms' => $forms,
+            'show_buttons' => $showButtons,
+            'js_array' => $js,
+            'js_default' => $jsDefault,
+        ]);
     }
 
     /**

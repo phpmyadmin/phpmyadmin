@@ -37,79 +37,6 @@ class FormDisplayTemplate
     }
 
     /**
-     * Displays top part of the form
-     *
-     * @param string     $action       default: $_SERVER['REQUEST_URI']
-     * @param string     $method       'post' or 'get'
-     * @param array|null $hiddenFields array of form hidden fields (key: field name)
-     */
-    public function displayFormTop(
-        $action = null,
-        $method = 'post',
-        $hiddenFields = null
-    ): string {
-        static $hasCheckPageRefresh = false;
-
-        if ($action === null) {
-            $action = $_SERVER['REQUEST_URI'];
-        }
-        if ($method !== 'post') {
-            $method = 'get';
-        }
-
-        /**
-         * We do validation on page refresh when browser remembers field values,
-         * add a field with known value which will be used for checks.
-         */
-        if (! $hasCheckPageRefresh) {
-            $hasCheckPageRefresh = true;
-        }
-
-        return $this->template->render('config/form_display/form_top', [
-            'method' => $method,
-            'action' => $action,
-            'has_check_page_refresh' => $hasCheckPageRefresh,
-            'hidden_fields' => (array) $hiddenFields,
-        ]);
-    }
-
-    /**
-     * Displays form tabs which are given by an array indexed by fieldset id
-     * ({@link self::displayFieldsetTop}), with values being tab titles.
-     *
-     * @param array $tabs tab names
-     */
-    public function displayTabsTop(array $tabs): string
-    {
-        return $this->template->render('config/form_display/tabs_top', ['tabs' => $tabs]);
-    }
-
-    /**
-     * Displays top part of a fieldset
-     *
-     * @param string     $title       title of fieldset
-     * @param string     $description description shown on top of fieldset
-     * @param array|null $errors      error messages to display
-     */
-    public function displayFieldsetTop(
-        $title = '',
-        $description = '',
-        $errors = null,
-        string $name = '',
-        bool $firstTab = false
-    ): string {
-        $this->group = 0;
-
-        return $this->template->render('config/form_display/fieldset_top', [
-            'name' => $name,
-            'title' => $title,
-            'description' => $description,
-            'errors' => $errors,
-            'first_tab' => $firstTab,
-        ]);
-    }
-
-    /**
      * Displays input field
      *
      * $opts keys:
@@ -204,32 +131,6 @@ class FormDisplayTemplate
     }
 
     /**
-     * Displays bottom part of a fieldset
-     *
-     * @param bool $showButtons Whether show submit and reset button
-     */
-    public function displayFieldsetBottom(bool $showButtons = true): string
-    {
-        return $this->template->render('config/form_display/fieldset_bottom', ['show_buttons' => $showButtons]);
-    }
-
-    /**
-     * Closes form tabs
-     */
-    public function displayTabsBottom(): string
-    {
-        return $this->template->render('config/form_display/tabs_bottom');
-    }
-
-    /**
-     * Displays bottom part of the form
-     */
-    public function displayFormBottom(): string
-    {
-        return $this->template->render('config/form_display/form_bottom');
-    }
-
-    /**
      * Appends JS validation code to $js_array
      *
      * @param string       $fieldId    ID of field to validate
@@ -251,20 +152,6 @@ class FormDisplayTemplate
     }
 
     /**
-     * Displays JavaScript code
-     *
-     * @param array $jsArray lines of javascript code
-     */
-    public function displayJavascript(array $jsArray): string
-    {
-        if (empty($jsArray)) {
-            return '';
-        }
-
-        return $this->template->render('javascript/display', ['js_array' => $jsArray]);
-    }
-
-    /**
      * Displays error list
      *
      * @param string $name      Name of item with errors
@@ -278,5 +165,10 @@ class FormDisplayTemplate
             'name' => $name,
             'error_list' => $errorList,
         ]);
+    }
+
+    public function display(array $data): string
+    {
+        return $this->template->render('config/form_display/display', $data);
     }
 }

@@ -102,8 +102,6 @@ class MainPanelController extends AbstractController
             'errors' => $formErrors ?? null,
             'form' => $formDisplay->getDisplay(
                 true,
-                true,
-                true,
                 Url::getFromRoute('/preferences/main-panel'),
                 ['server' => $server]
             ),

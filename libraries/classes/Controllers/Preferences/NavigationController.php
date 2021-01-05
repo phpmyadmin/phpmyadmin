@@ -102,8 +102,6 @@ class NavigationController extends AbstractController
             'errors' => $formErrors ?? null,
             'form' => $formDisplay->getDisplay(
                 true,
-                true,
-                true,
                 Url::getFromRoute('/preferences/navigation'),
                 ['server' => $server]
             ),

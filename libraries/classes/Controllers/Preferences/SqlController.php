@@ -102,8 +102,6 @@ class SqlController extends AbstractController
             'errors' => $formErrors ?? null,
             'form' => $formDisplay->getDisplay(
                 true,
-                true,
-                true,
                 Url::getFromRoute('/preferences/sql'),
                 ['server' => $server]
             ),

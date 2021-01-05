@@ -163,8 +163,6 @@ class PageSettings
         $retval .= '<div id="' . $this->elemId . '">';
         $retval .= '<div class="page_settings">';
         $retval .= $formDisplay->getDisplay(
-            true,
-            true,
             false,
             $response->getFooter()->getSelfUrl(),
             [

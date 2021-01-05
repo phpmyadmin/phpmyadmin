@@ -44,22 +44,6 @@ class FormDisplayTest extends AbstractTestCase
     }
 
     /**
-     * Test for FormDisplay::__constructor
-     *
-     * @group medium
-     */
-    public function testFormDisplayContructor(): void
-    {
-        $reflection = new ReflectionProperty(FormDisplay::class, 'jsLangStrings');
-        $reflection->setAccessible(true);
-
-        $this->assertCount(
-            5,
-            $reflection->getValue($this->object)
-        );
-    }
-
-    /**
      * Test for FormDisplay::registerForm
      *
      * @group medium
