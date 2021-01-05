@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-21 16:13+0100\n"
-"PO-Revision-Date: 2021-01-04 06:09+0000\n"
+"PO-Revision-Date: 2021-01-05 22:29+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -2214,8 +2214,6 @@ msgid "Export as separate files"
 msgstr "Exportovat jako samostatné soubory"
 
 #: libraries/classes/Config/Descriptions.php:268
-#, fuzzy
-#| msgid "Remember file name template"
 msgid "Remember filename template"
 msgstr "Pamatovat si vzor pro názvy souborů"
 
@@ -4241,28 +4239,20 @@ msgid "Version check"
 msgstr "Kontrola verze"
 
 #: libraries/classes/Config/Descriptions.php:941
-#, fuzzy
-#| msgid ""
-#| "The url of the proxy to be used when retrieving the information about the "
-#| "latest version of phpMyAdmin or when submitting error reports. You need "
-#| "this if the server where phpMyAdmin is installed does not have direct "
-#| "access to the internet. The format is: \"hostname:portnumber\"."
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
 "this if the server where phpMyAdmin is installed does not have direct access "
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
-"Adresa URL proxy serveru, který má být použit při načítání informací o "
-"nejnovější verzi phpMyAdmina nebo při odesílání chybových hlášení. Toto "
-"potřebujete pokud na serveru, kde je nainstalován phpMyAdmin, nemá přímý "
-"přístup k internetu. Formát je: \"hostname:portnumber\"."
+"Adresa URL proxy serveru, který se má použít při načítání informací o "
+"nejnovější verzi phpMyAdmina nebo při odesílání chybových hlášení. Toto je "
+"zapotřebí, pokud server, na kterém je nainstalován phpMyAdmin, nemá přímý "
+"přístup k internetu. Formát je: \"názevpočítače:čísloportu\"."
 
 #: libraries/classes/Config/Descriptions.php:946
-#, fuzzy
-#| msgid "Proxy url"
 msgid "Proxy URL"
-msgstr "Adresa proxy"
+msgstr "Adresa URL proxy"
 
 #: libraries/classes/Config/Descriptions.php:948
 msgid ""
@@ -4295,82 +4285,67 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr "Zadejte URL pro ověření služby reCaptcha."
+msgstr "Zadejte adresu URL vašeho API kompatibilního s reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:960
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCAPTCHA v2 API"
-msgstr "URL pro ověření reCaptcha"
+msgstr "URL pro API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:961
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
-msgstr "Zadejte URL pro ověření služby reCaptcha."
+msgstr ""
+"Zadejte fragment Content-Security-Policy pro vaše API kompatibilní s "
+"reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:962
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Fragment Content-Security-Policy pro API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:963
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Zadejte URL pro ověření služby reCaptcha."
+msgstr ""
+"Zadejte parametr požadavku, který používá vaše API kompatibilní s reCAPTCHA "
+"v2."
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "Request parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Parametr požadavku pro API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:965
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Zadejte URL pro ověření služby reCaptcha."
+msgstr ""
+"Zadejte parametr odezvy, který používá vaše API kompatibilní s reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Response parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Parametr odezvy pro API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:967
-#, fuzzy
-#| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr "Zadejte veřejný klíč pro službu reCaptcha."
+msgstr "Zadejte veřejný klíč pro službu reCAPTCHA ve vaší doméně."
 
 #: libraries/classes/Config/Descriptions.php:968
-#, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Public key for reCAPTCHA"
-msgstr "Veřejný klíč reCaptcha"
+msgstr "Veřejný klíč reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:969
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr "Zadejte soukromý klíč pro službu reCaptcha."
+msgstr "Zadejte soukromý klíč pro službu reCAPTCHA ve vaší doméně."
 
 #: libraries/classes/Config/Descriptions.php:970
 msgid "Private key for reCaptcha"
 msgstr "Soukromý klíč reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:971
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr "Zadejte URL pro ověření služby reCaptcha."
+msgstr "Zadejte URL pro ověření služby reCAPTCHA."
 
 #: libraries/classes/Config/Descriptions.php:972
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCAPTCHA siteverify"
-msgstr "URL pro ověření reCaptcha"
+msgstr "URL pro ověření reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:974
 msgid "Choose the default action when sending error reports."
@@ -4393,20 +4368,16 @@ msgid "Enter executes queries in console"
 msgstr "Enter spustí dotazy v konzoli"
 
 #: libraries/classes/Config/Descriptions.php:984
-#, fuzzy
-#| msgid ""
-#| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
-#| "configuration storage tables automatically."
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
 msgstr ""
-"Povolí mód Automatické konfigurace, který vám dovolí nastavit phpMyAdmin "
-"konfigurační úložiště tabulek automaticky."
+"Povolit režim Automatické konfigurace, který umožňuje automatické nastavení "
+"tabulek konfiguračního úložiště phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:987
 msgid "Enable Zero Configuration mode"
-msgstr "Umožnit mód Automatické konfigurace"
+msgstr "Povolit režim Automatické konfigurace"
 
 #: libraries/classes/Config/Descriptions.php:988
 #: templates/console/display.twig:153
@@ -5621,10 +5592,8 @@ msgstr "Upravit index"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:106
-#, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
-msgstr "Odstranit klíče"
+msgstr "Přejmenovat index"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 #: templates/table/index_form.twig:227
@@ -7370,7 +7339,7 @@ msgstr "Řetězce"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:87
 msgid "phpMyAdmin configuration snippet"
-msgstr "Úryvek konfigurace phpMyAdmina"
+msgstr "Fragment konfigurace phpMyAdmina"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:88
 msgid "Paste it to your config.inc.php"
@@ -10904,6 +10873,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Vaše heslo je příliš dlouhé. Aby se předešlo útokům typu odmítnutí služby, "
+"omezuje phpMyAdmin délku hesla na méně než 1000 znaků."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -14115,16 +14086,12 @@ msgid "Set default"
 msgstr "Nastavit výchozí"
 
 #: templates/console/display.twig:162
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
 msgstr ""
-"Spustit dotazy zmáčknutím klávesy Enter a vložit nový řádek pomocí Shift + "
-"Enter.Chcete-li to nastavit trvale, podívejte se na nastavení."
+"Spouštět dotazy stisknutím klávesy Enter a vložit nový řádek pomocí Shift+"
+"Enter. Chcete-li toto chování nastavit trvale, přejděte do nastavení."
 
 #: templates/create_tracking_version.twig:11
 #, php-format
@@ -16378,10 +16345,8 @@ msgid "Character sets and collations"
 msgstr "Znakové sady a řazení"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "Výchozí"
+msgstr "(výchozí)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -17424,10 +17389,8 @@ msgstr "#"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "za hodinu"
+msgstr "ø za hodinu"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -18004,46 +17967,32 @@ msgid "Relation view"
 msgstr "Zobrazení relací"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "používá oddíly"
+msgstr "Analyzovat oddíl"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "používá oddíly"
+msgstr "Zkontrolovat oddíl"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "používá oddíly"
+msgstr "Zrušit oddíl"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Zrušit dělení"
+msgstr "Optimalizovat oddíl"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Pododdíl"
+msgstr "Znovu sestavit oddíl"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Zrušit dělení"
+msgstr "Opravit oddíl"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Pododdíl"
+msgstr "Vyprázdnit oddíl"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -18252,10 +18201,8 @@ msgid "at beginning of table"
 msgstr "na začátku tabulky"
 
 #: templates/table/structure/display_structure.twig:445
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Přejmenovat na"
+msgstr "Přejmenovat"
 
 #: templates/table/structure/display_structure.twig:507
 #, php-format
