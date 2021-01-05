@@ -4,20 +4,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-18 22:27+0100\n"
-"PO-Revision-Date: 2018-05-10 20:57+0000\n"
-"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"PO-Revision-Date: 2021-01-06 09:29+0000\n"
+"Last-Translator: Viktor Šulák <vsulak.svk@gmail.com>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/5-1/sk/"
+">\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Doba prevádzky je menšia ako 1 deň"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
@@ -62,7 +62,7 @@ msgstr "Percento pomalých dopytov"
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Je veľa pomalých dopytov vzhľadom na celkový počet dopytov."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:57
@@ -74,7 +74,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:46
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Miera pomalých dopytov by mala byť pod 5%%, vaša hodnota je %s%%."
 
 #: libraries/advisory_rules_generic.php:51
 msgid "Slow query rate"
@@ -83,7 +83,7 @@ msgstr "Miera pomalých dopytov"
 #: libraries/advisory_rules_generic.php:55
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
+msgstr "Je vysoké percento pomalých dopytov vzhľadom na dobu prevádzky serveru."
 
 #: libraries/advisory_rules_generic.php:60
 #, php-format
@@ -15298,7 +15298,7 @@ msgstr "Operácie s výsledkami dopytu"
 
 #: templates/display/results/table.twig:248
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopírovať do schránky"
 
 #: templates/display/results/table.twig:264
 #: templates/table/chart/tbl_chart.twig:7
