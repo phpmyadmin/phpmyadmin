@@ -466,11 +466,6 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Display\\\\Results\\:\\:getOffsets\\(\\) should return array\\<int\\> but returns array\\<int, \\(array\\|float\\|int\\)\\>\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Parameter \\#4 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array given\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
