@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-01-05 22:29+0000\n"
+"PO-Revision-Date: 2021-01-08 17:32+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ja/>\n"
@@ -348,7 +348,7 @@ msgstr "例によるクエリ"
 #: db_qbe.php:168
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "%sビジュアル・クエリ・ビルダ%sに切り替える"
+msgstr "%sビジュアルビルダ%sに切り替え"
 
 #: db_search.php:32 libraries/classes/Plugins/Auth/AuthenticationConfig.php:84
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:99
@@ -6105,7 +6105,7 @@ msgstr "暗いテーマに切り替える"
 
 #: libraries/classes/Config/Descriptions.php:1476
 msgid "Console height"
-msgstr "コンソール高さ"
+msgstr "コンソールの高さ"
 
 #: libraries/classes/Config/Descriptions.php:1478
 msgid "Console mode"
@@ -13565,7 +13565,7 @@ msgstr "クエリを実行する"
 #: libraries/classes/Util.php:1166
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "インラインを編集する"
+msgstr "インライン編集"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:1506
