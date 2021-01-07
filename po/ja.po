@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-21 16:13+0100\n"
-"PO-Revision-Date: 2021-01-05 22:29+0000\n"
+"PO-Revision-Date: 2021-01-08 17:32+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -2391,7 +2391,7 @@ msgstr "外部キーのチェック"
 
 #: libraries/classes/Config/Descriptions.php:316
 msgid "First day of calendar"
-msgstr "カレンダーの最初の日"
+msgstr "カレンダーの最初の曜日"
 
 #: libraries/classes/Config/Descriptions.php:317
 msgid "Browse mode"
@@ -4419,7 +4419,7 @@ msgstr "暗いテーマに切り替える"
 
 #: libraries/classes/Config/Descriptions.php:993
 msgid "Console height"
-msgstr "コンソール高さ"
+msgstr "コンソールの高さ"
 
 #: libraries/classes/Config/Descriptions.php:994
 msgid "Console mode"
@@ -9837,7 +9837,7 @@ msgstr "プロファイリング"
 #: libraries/classes/Html/Generator.php:763
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "インラインを編集する"
+msgstr "インライン編集"
 
 #: libraries/classes/Html/Generator.php:901
 msgid "Static analysis:"
@@ -14722,7 +14722,7 @@ msgstr "ユーザアカウントを追加する"
 #: templates/database/qbe/index.twig:16
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "%sビジュアル・クエリ・ビルダ%sに切り替える"
+msgstr "%sビジュアルビルダ%sに切り替え"
 
 #: templates/database/qbe/index.twig:20
 msgid "You have to choose at least one column to display!"
