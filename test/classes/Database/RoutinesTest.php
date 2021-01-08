@@ -23,6 +23,7 @@ class RoutinesTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
+        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
@@ -33,6 +34,8 @@ class RoutinesTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['proc_priv'] = false;
+        $GLOBALS['is_reload_priv'] = false;
 
         $this->routines = new Routines(
             $GLOBALS['dbi'],
@@ -507,67 +510,67 @@ class RoutinesTest extends AbstractTestCase
         return [
             [
                 $data,
-                "<input name='add_item'",
+                '<input name="add_item"',
             ],
             [
                 $data,
-                "<input type='text' name='item_name'",
+                '<input type="text" name="item_name"',
             ],
             [
                 $data,
-                "<input name='item_type'",
+                '<input name="item_type"',
             ],
             [
                 $data,
-                "name='routine_changetype'",
+                'name="routine_changetype"',
             ],
             [
                 $data,
-                "name='routine_addparameter'",
+                'name="routine_addparameter"',
             ],
             [
                 $data,
-                "name='routine_removeparameter'",
+                'name="routine_removeparameter"',
             ],
             [
                 $data,
-                "select name='item_returntype'",
+                'select name="item_returntype"',
             ],
             [
                 $data,
-                "name='item_returnlength'",
+                'name="item_returnlength"',
             ],
             [
                 $data,
-                "select name='item_returnopts_num'",
+                'select name="item_returnopts_num"',
             ],
             [
                 $data,
-                "<textarea name='item_definition'",
+                '<textarea name="item_definition"',
             ],
             [
                 $data,
-                "name='item_isdeterministic'",
+                'name="item_isdeterministic"',
             ],
             [
                 $data,
-                "name='item_definer'",
+                'name="item_definer"',
             ],
             [
                 $data,
-                "select name='item_securitytype'",
+                'select name="item_securitytype"',
             ],
             [
                 $data,
-                "select name='item_sqldataaccess'",
+                'select name="item_sqldataaccess"',
             ],
             [
                 $data,
-                "name='item_comment'",
+                'name="item_comment"',
             ],
             [
                 $data,
-                "name='editor_process_add'",
+                'name="editor_process_add"',
             ],
         ];
     }
@@ -624,67 +627,67 @@ class RoutinesTest extends AbstractTestCase
         return [
             [
                 $data,
-                "name='edit_item'",
+                'name="edit_item"',
             ],
             [
                 $data,
-                "name='item_name'",
+                'name="item_name"',
             ],
             [
                 $data,
-                "<input name='item_type' type='hidden' value='FUNCTION'",
+                '<input name="item_type" type="hidden" value="FUNCTION"',
             ],
             [
                 $data,
-                "name='routine_changetype'",
+                'name="routine_changetype"',
             ],
             [
                 $data,
-                "name='routine_addparameter'",
+                'name="routine_addparameter"',
             ],
             [
                 $data,
-                "name='routine_removeparameter'",
+                'name="routine_removeparameter"',
             ],
             [
                 $data,
-                "name='item_returntype'",
+                'name="item_returntype"',
             ],
             [
                 $data,
-                "name='item_returnlength'",
+                'name="item_returnlength"',
             ],
             [
                 $data,
-                "name='item_returnopts_num'",
+                'name="item_returnopts_num"',
             ],
             [
                 $data,
-                "<textarea name='item_definition'",
+                '<textarea name="item_definition"',
             ],
             [
                 $data,
-                "name='item_isdeterministic'",
+                'name="item_isdeterministic"',
             ],
             [
                 $data,
-                "name='item_definer'",
+                'name="item_definer"',
             ],
             [
                 $data,
-                "<select name='item_securitytype'",
+                '<select name="item_securitytype"',
             ],
             [
                 $data,
-                "<select name='item_sqldataaccess'",
+                '<select name="item_sqldataaccess"',
             ],
             [
                 $data,
-                "name='item_comment'",
+                'name="item_comment"',
             ],
             [
                 $data,
-                "name='editor_process_edit'",
+                'name="editor_process_edit"',
             ],
         ];
     }
@@ -743,67 +746,67 @@ class RoutinesTest extends AbstractTestCase
         return [
             [
                 $data,
-                "name='edit_item'",
+                'name="edit_item"',
             ],
             [
                 $data,
-                "name='item_name'",
+                'name="item_name"',
             ],
             [
                 $data,
-                "<select name='item_type'",
+                '<select name="item_type"',
             ],
             [
                 $data,
-                "name='routine_addparameter'",
+                'name="routine_addparameter"',
             ],
             [
                 $data,
-                "name='routine_removeparameter'",
+                'name="routine_removeparameter"',
             ],
             [
                 $data,
-                "<select name='item_returntype'",
+                '<select name="item_returntype"',
             ],
             [
                 $data,
-                "name='item_returnlength'",
+                'name="item_returnlength"',
             ],
             [
                 $data,
-                "<select name='item_returnopts_num'",
+                '<select name="item_returnopts_num"',
             ],
             [
                 $data,
-                "<textarea name='item_definition'",
+                '<textarea name="item_definition"',
             ],
             [
                 $data,
-                "name='item_isdeterministic'",
+                'name="item_isdeterministic"',
             ],
             [
                 $data,
-                "name='item_definer'",
+                'name="item_definer"',
             ],
             [
                 $data,
-                "<select name='item_securitytype'",
+                '<select name="item_securitytype"',
             ],
             [
                 $data,
-                "<select name='item_sqldataaccess'",
+                '<select name="item_sqldataaccess"',
             ],
             [
                 $data,
-                "name='item_comment'",
+                'name="item_comment"',
             ],
             [
                 $data,
-                "name='ajax_request'",
+                'name="ajax_request"',
             ],
             [
                 $data,
-                "name='editor_process_edit'",
+                'name="editor_process_edit"',
             ],
         ];
     }
@@ -860,7 +863,7 @@ class RoutinesTest extends AbstractTestCase
         return [
             [
                 $data,
-                "<input name='item_type' type='hidden' value='PROCEDURE'",
+                '<input name="item_type" type="hidden" value="PROCEDURE"',
             ],
         ];
     }

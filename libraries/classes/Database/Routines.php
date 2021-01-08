@@ -8,7 +8,6 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
-use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
@@ -750,18 +749,6 @@ class Routines
     {
         global $db, $errors;
 
-        // Escape special characters
-        $need_escape = [
-            'item_original_name',
-            'item_name',
-            'item_returnlength',
-            'item_definition',
-            'item_definer',
-            'item_comment',
-        ];
-        foreach ($need_escape as $key => $index) {
-            $routine[$index] = htmlentities($routine[$index], ENT_QUOTES, 'UTF-8');
-        }
         for ($i = 0; $i < $routine['item_num_params']; $i++) {
             $routine['item_param_name'][$i]   = htmlentities(
                 $routine['item_param_name'][$i],
@@ -803,233 +790,25 @@ class Routines
             );
             $routine['item_num_params']--;
         }
-        $disableRemoveParam = '';
-        if (! $routine['item_num_params']) {
-            $disableRemoveParam = " class='isdisableremoveparam_class' disabled=disabled";
-        }
-        $original_routine = '';
-        if ($mode === 'edit') {
-            $original_routine = "<input name='item_original_name' "
-                              . "type='hidden' "
-                              . "value='" . $routine['item_original_name'] . "'>\n"
-                              . "<input name='item_original_type' "
-                              . "type='hidden' "
-                              . "value='" . $routine['item_original_type'] . "'>\n";
-        }
-        $isfunction_class   = '';
-        $isprocedure_class  = '';
-        $isfunction_select  = '';
-        $isprocedure_select = '';
-        if ($routine['item_type'] === 'PROCEDURE') {
-            $isfunction_class   = ' hide';
-            $isprocedure_select = " selected='selected'";
-        } else {
-            $isprocedure_class = ' hide';
-            $isfunction_select = " selected='selected'";
-        }
 
-        // Create the output
-        $retval  = '';
-        $retval .= '<!-- START ' . mb_strtoupper($mode)
-            . " ROUTINE FORM -->\n\n";
-        $retval .= '<form class="rte_form" action="' . Url::getFromRoute('/database/routines')
-            . '" method="post">' . "\n";
-        $retval .= "<input name='" . $mode . "_item' type='hidden' value='1'>\n";
-        $retval .= $original_routine;
-        $retval .= Url::getHiddenInputs($db) . "\n";
-        $retval .= "<fieldset class=\"pma-fieldset\">\n";
-        $retval .= '<legend>' . __('Details') . "</legend>\n";
-        $retval .= '<table class="rte_table table table-borderless table-sm">' . "\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Routine name') . "</td>\n";
-        $retval .= "    <td><input type='text' name='item_name' maxlength='64'\n";
-        $retval .= "               value='" . $routine['item_name'] . "'></td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Type') . "</td>\n";
-        $retval .= "    <td>\n";
-        if ($this->response->isAjax()) {
-            $retval .= "        <select name='item_type'>\n"
-                . "<option value='PROCEDURE'" . $isprocedure_select . ">PROCEDURE</option>\n"
-                . "<option value='FUNCTION'" . $isfunction_select . ">FUNCTION</option>\n"
-                . "</select>\n";
-        } else {
-            $retval .= "<input name='item_type' type='hidden'"
-                . " value='" . $routine['item_type'] . "'>\n"
-                . "<div class='fw-bold text-center w-50'>\n"
-                . $routine['item_type'] . "\n"
-                . "</div>\n"
-                . "<input type='submit' name='routine_changetype'\n"
-                . " value='" . sprintf(__('Change to %s'), $routine['item_type_toggle'])
-                . "'>\n";
+        $parameterRows = '';
+        for ($i = 0; $i < $routine['item_num_params']; $i++) {
+            $parameterRows .= $this->getParameterRow($routine, $i, $routine['item_type'] === 'FUNCTION' ? ' hide' : '');
         }
-        $retval .= "    </td>\n";
-        $retval .= "</tr>\n";
-        $retval .= "<tr>\n";
-        $retval .= '    <td>' . __('Parameters') . "</td>\n";
-        $retval .= "    <td>\n";
-        // parameter handling start
-        $retval .= "        <table class='routine_params_table table table-borderless table-sm'>\n";
-        $retval .= "        <thead>\n";
-        $retval .= "        <tr>\n";
-        $retval .= "            <td></td>\n";
-        $retval .= "            <th class='routine_direction_cell" . $isprocedure_class . "'>"
-            . __('Direction') . "</th>\n";
-        $retval .= '            <th>' . __('Name') . "</th>\n";
-        $retval .= '            <th>' . __('Type') . "</th>\n";
-        $retval .= '            <th>' . __('Length/Values') . "</th>\n";
-        $retval .= "            <th colspan='2'>" . __('Options') . "</th>\n";
-        $retval .= "            <th class='routine_param_remove hide'>&nbsp;</th>\n";
-        $retval .= '        </tr>';
-        $retval .= "        </thead>\n";
-        $retval .= "        <tbody>\n";
-        for ($i = 0; $i < $routine['item_num_params']; $i++) { // each parameter
-            $retval .= $this->getParameterRow($routine, $i, $isprocedure_class);
-        }
-        $retval .= "        </tbody>\n";
-        $retval .= '        </table>';
-        $retval .= '    </td>';
-        $retval .= '</tr>';
-        $retval .= '<tr>';
-        $retval .= '    <td>&nbsp;</td>';
-        $retval .= '    <td>';
-        $retval .= '        <input type="button" class="btn btn-primary"';
-        $retval .= "               name='routine_addparameter'";
-        $retval .= "               value='" . __('Add parameter') . "'>";
-        $retval .= '        <input ' . $disableRemoveParam . '';
-        $retval .= "               type='submit' ";
-        $retval .= "               name='routine_removeparameter'";
-        $retval .= "               value='" . __('Remove last parameter') . "'>";
-        $retval .= '    </td>';
-        $retval .= '</tr>';
-        // parameter handling end
-        $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
-        $retval .= '    <td>' . __('Return type') . '</td>';
-        $retval .= "    <td><select name='item_returntype'>";
-        $retval .= Util::getSupportedDatatypes(true, $routine['item_returntype']);
-        $retval .= '    </select></td>';
-        $retval .= '</tr>';
-        $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
-        $retval .= '    <td>' . __('Return length/values') . '</td>';
-        $retval .= "    <td><input type='text' name='item_returnlength'";
-        $retval .= "        value='" . $routine['item_returnlength'] . "'></td>";
-        $retval .= "    <td class='hide no_len'>---</td>";
-        $retval .= '</tr>';
-        $retval .= "<tr class='routine_return_row" . $isfunction_class . "'>";
-        $retval .= '    <td>' . __('Return options') . '</td>';
-        $retval .= '    <td><div>';
-        $retval .= '<select lang="en" dir="ltr" name="item_returnopts_text">' . "\n";
-        $retval .= '<option value="">' . __('Charset') . '</option>' . "\n";
-        $retval .= '<option value=""></option>' . "\n";
 
         $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-        /** @var Charset $charset */
-        foreach ($charsets as $charset) {
-            $retval .= '<option value="' . $charset->getName()
-                . '" title="' . $charset->getDescription() . '"'
-                . ($routine['item_returnopts_text'] == $charset->getName() ? ' selected' : '') . '>'
-                . $charset->getName() . '</option>' . "\n";
-        }
 
-        $retval .= '</select>' . "\n";
-        $retval .= '    </div>';
-        $retval .= "    <div><select name='item_returnopts_num'>";
-        $retval .= "        <option value=''></option>";
-        foreach ($this->numericOptions as $key => $value) {
-            $selected = '';
-            if (! empty($routine['item_returnopts_num'])
-                && $routine['item_returnopts_num'] == $value
-            ) {
-                $selected = " selected='selected'";
-            }
-            $retval .= '<option' . $selected . '>' . $value . '</option>';
-        }
-        $retval .= '    </select></div>';
-        $retval .= "    <div class='hide no_opts'>---</div>";
-        $retval .= '</td>';
-        $retval .= '</tr>';
-        $retval .= '<tr>';
-        $retval .= '    <td>' . __('Definition') . '</td>';
-        $retval .= "    <td><textarea name='item_definition' rows='15' cols='40'>";
-        $retval .= $routine['item_definition'];
-        $retval .= '</textarea></td>';
-        $retval .= '</tr>';
-        $retval .= '<tr>';
-        $retval .= '    <td>' . __('Is deterministic') . '</td>';
-        $retval .= "    <td><input type='checkbox' name='item_isdeterministic'"
-            . $routine['item_isdeterministic'] . '></td>';
-        $retval .= '</tr>';
-        if (isset($_REQUEST['edit_item'])
-            && ! empty($_REQUEST['edit_item'])
-        ) {
-            $retval .= '<tr>';
-            $retval .= '    <td>' . __('Adjust privileges');
-            $retval .= MySQLDocumentation::showDocumentation('faq', 'faq6-39');
-            $retval .= '</td>';
-            if ($GLOBALS['proc_priv']
-                && $GLOBALS['is_reload_priv']
-            ) {
-                $retval .= "    <td><input type='checkbox' "
-                    . "name='item_adjust_privileges' value='1' checked></td>";
-            } else {
-                $retval .= "    <td><input type='checkbox' "
-                    . "name='item_adjust_privileges' value='1' title='" . __(
-                        'You do not have sufficient privileges to perform this '
-                        . 'operation; Please refer to the documentation for more '
-                        . 'details'
-                    )
-                    . "' disabled></td>";
-            }
-            $retval .= '</tr>';
-        }
-
-        $retval .= '<tr>';
-        $retval .= '    <td>' . __('Definer') . '</td>';
-        $retval .= "    <td><input type='text' name='item_definer'";
-        $retval .= "               value='" . $routine['item_definer'] . "'></td>";
-        $retval .= '</tr>';
-        $retval .= '<tr>';
-        $retval .= '    <td>' . __('Security type') . '</td>';
-        $retval .= "    <td><select name='item_securitytype'>";
-        $retval .= "        <option value='DEFINER'"
-            . $routine['item_securitytype_definer'] . '>DEFINER</option>';
-        $retval .= "        <option value='INVOKER'"
-            . $routine['item_securitytype_invoker'] . '>INVOKER</option>';
-        $retval .= '    </select></td>';
-        $retval .= '</tr>';
-        $retval .= '<tr>';
-        $retval .= '    <td>' . __('SQL data access') . '</td>';
-        $retval .= "    <td><select name='item_sqldataaccess'>";
-        foreach ($this->sqlDataAccess as $key => $value) {
-            $selected = '';
-            if ($routine['item_sqldataaccess'] == $value) {
-                $selected = " selected='selected'";
-            }
-            $retval .= '        <option' . $selected . '>' . $value . '</option>';
-        }
-        $retval .= '    </select></td>';
-        $retval .= '</tr>';
-        $retval .= '<tr>';
-        $retval .= '    <td>' . __('Comment') . '</td>';
-        $retval .= "    <td><input type='text' name='item_comment' maxlength='64'";
-        $retval .= "    value='" . $routine['item_comment'] . "'></td>";
-        $retval .= '</tr>';
-        $retval .= '</table>';
-        $retval .= '</fieldset>';
-        if ($this->response->isAjax()) {
-            $retval .= "<input type='hidden' name='editor_process_" . $mode . "'";
-            $retval .= "       value='true'>";
-            $retval .= "<input type='hidden' name='ajax_request' value='true'>";
-        } else {
-            $retval .= '<fieldset class="pma-fieldset tblFooters">';
-            $retval .= "    <input type='submit' name='editor_process_" . $mode . "'";
-            $retval .= "           value='" . __('Go') . "'>";
-            $retval .= '</fieldset>';
-        }
-        $retval .= '</form>';
-        $retval .= '<!-- END ' . mb_strtoupper($mode) . ' ROUTINE FORM -->';
-
-        return $retval;
+        return $this->template->render('database/routines/editor_form', [
+            'db' => $db,
+            'routine' => $routine,
+            'is_edit_mode' => $mode === 'edit',
+            'is_ajax' => $this->response->isAjax(),
+            'parameter_rows' => $parameterRows,
+            'charsets' => $charsets,
+            'numeric_options' => $this->numericOptions,
+            'has_privileges' => $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'],
+            'sql_data_access' => $this->sqlDataAccess,
+        ]);
     }
 
     /**
