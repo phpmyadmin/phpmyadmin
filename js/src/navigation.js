@@ -5,7 +5,6 @@
  */
 
 /* global isStorageSupported, setupRestoreField, setupValidation */ // js/config.js
-/* global RTE */ // js/rte.js
 
 var Navigation = {};
 
@@ -439,55 +438,6 @@ $(function () {
             $(this).removeClass('activePointer');
         }
     );
-
-    /** Create a Routine, Trigger or Event */
-    $(document).on('click', 'li.new_procedure a.ajax, li.new_function a.ajax', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('routine');
-        dialog.editorDialog(1, $(this));
-    });
-    $(document).on('click', 'li.new_trigger a.ajax', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('trigger');
-        dialog.editorDialog(1, $(this));
-    });
-    $(document).on('click', 'li.new_event a.ajax', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('event');
-        dialog.editorDialog(1, $(this));
-    });
-
-    /** Edit Routines, Triggers or Events */
-    $(document).on('click', 'li.procedure > a.ajax, li.function > a.ajax', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('routine');
-        dialog.editorDialog(0, $(this));
-    });
-    $(document).on('click', 'li.trigger > a.ajax', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('trigger');
-        dialog.editorDialog(0, $(this));
-    });
-    $(document).on('click', 'li.event > a.ajax', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('event');
-        dialog.editorDialog(0, $(this));
-    });
-
-    /** Execute Routines */
-    $(document).on('click', 'li.procedure div a.ajax img,' +
-        ' li.function div a.ajax img', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object('routine');
-        dialog.executeDialog($(this).parent());
-    });
-    /** Export Triggers and Events */
-    $(document).on('click', 'li.trigger div.second a.ajax img,' +
-        ' li.event div.second a.ajax img', function (event) {
-        event.preventDefault();
-        var dialog = new RTE.Object();
-        dialog.exportDialog($(this).parent());
-    });
 
     /** New index */
     $(document).on('click', '#pma_navigation_tree li.new_index a.ajax', function (event) {

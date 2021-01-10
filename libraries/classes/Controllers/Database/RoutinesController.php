@@ -45,6 +45,8 @@ class RoutinesController extends AbstractController
         global $tooltip_truename, $tooltip_aliasname, $pos;
         global $errors, $PMA_Theme, $text_dir, $err_url, $url_params, $cfg;
 
+        $this->addScriptFiles(['rte.js']);
+
         $type = $_REQUEST['type'] ?? null;
 
         $this->checkUserPrivileges->getPrivileges();

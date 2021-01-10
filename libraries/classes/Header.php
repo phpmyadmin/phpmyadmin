@@ -181,7 +181,6 @@ class Header
             $this->scripts->addFile('cross_framing_protection.js');
         }
 
-        $this->scripts->addFile('rte.js');
         if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
             $this->scripts->addFile('vendor/tracekit.js');
             $this->scripts->addFile('error_report.js');
