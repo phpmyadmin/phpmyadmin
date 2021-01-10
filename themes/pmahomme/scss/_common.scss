@@ -92,7 +92,9 @@ input {
     color: #555;
     padding: 4px;
   }
-
+  &:checked[type=checkbox]{
+    background: #0075FF;
+  }
   &:not(.form-control)[type=text],
   &[type=password],
   &:not(.form-control)[type=number],
