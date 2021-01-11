@@ -39,7 +39,7 @@ class TriggersController extends AbstractController
         global $tooltip_truename, $tooltip_aliasname, $pos;
         global $errors, $url_params, $err_url, $cfg;
 
-        $this->addScriptFiles(['rte.js']);
+        $this->addScriptFiles(['database/triggers.js']);
 
         if (! $this->response->isAjax()) {
             /**

@@ -46,11 +46,11 @@ class LintController extends AbstractController
         if (! empty($params['options'])) {
             $options = $params['options'];
 
-            if (! empty($options['routine_editor'])) {
+            if (! empty($options['routineEditor'])) {
                 $sqlQuery = 'CREATE PROCEDURE `a`() ' . $sqlQuery;
-            } elseif (! empty($options['trigger_editor'])) {
+            } elseif (! empty($options['triggerEditor'])) {
                 $sqlQuery = 'CREATE TRIGGER `a` AFTER INSERT ON `b` FOR EACH ROW ' . $sqlQuery;
-            } elseif (! empty($options['event_editor'])) {
+            } elseif (! empty($options['eventEditor'])) {
                 $sqlQuery = 'CREATE EVENT `a` ON SCHEDULE EVERY MINUTE DO ' . $sqlQuery;
             }
         }

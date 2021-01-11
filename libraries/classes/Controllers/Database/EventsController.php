@@ -37,7 +37,7 @@ final class EventsController extends AbstractController
         global $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $text_dir, $PMA_Theme;
         global $tooltip_truename, $tooltip_aliasname, $pos, $cfg, $err_url;
 
-        $this->addScriptFiles(['rte.js']);
+        $this->addScriptFiles(['database/events.js']);
 
         if (! $this->response->isAjax()) {
             Util::checkParameters(['db']);
