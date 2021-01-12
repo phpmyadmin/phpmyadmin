@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-21 16:13+0100\n"
-"PO-Revision-Date: 2020-10-25 02:26+0000\n"
+"PO-Revision-Date: 2021-01-13 17:32+0000\n"
 "Last-Translator: Пламен <plamen_mbx@yahoo.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2-dev\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2294,10 +2294,8 @@ msgstr ""
 "Стойностти по подразбиране за проверките на чужди ключове за някои заявки."
 
 #: libraries/classes/Config/Descriptions.php:315
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Проверки на външен ключ:"
+msgstr "Проверки на външен ключ"
 
 #: libraries/classes/Config/Descriptions.php:316
 msgid "First day of calendar"
@@ -4491,10 +4489,8 @@ msgid "Order"
 msgstr "Друго"
 
 #: libraries/classes/Config/Descriptions.php:997
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Подредени по:"
+msgstr "Подредени по"
 
 #: libraries/classes/Config/Descriptions.php:998
 msgid "Server connection collation"
@@ -11484,10 +11480,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:126
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Имена на колони: "
+msgstr "Имена на колони:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:265
 #: libraries/classes/Plugins/Import/ImportCsv.php:635
@@ -14914,10 +14908,8 @@ msgid "Ins:"
 msgstr "Инс:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "И:"
+msgstr "И"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -14953,16 +14945,12 @@ msgid "Modify:"
 msgstr "Промени:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Добавяне/изтриване ред по критерий"
+msgstr "Добавяне/изтриване на критерии:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Добавяне/изтриване колони"
+msgstr "Добавяне/изтриване на колони:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
@@ -15175,10 +15163,8 @@ msgid "Make consistent with central list"
 msgstr "Колони за CHAR текство поле"
 
 #: templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Настройки"
+msgstr "Настройки:"
 
 #: templates/database/structure/copy_form.twig:39
 #, fuzzy
@@ -15883,10 +15869,8 @@ msgid "Browse your computer:"
 msgstr "Разглеждане на компютъра:"
 
 #: templates/import.twig:62
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "Разглеждане на компютъра:"
+msgstr "Във вашия компютър"
 
 #: templates/import.twig:68 templates/import.twig:101
 msgid "You may also drag and drop a file on any page."
@@ -15899,10 +15883,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Избор от директорията за качване <b>%s</b>:"
 
 #: templates/import.twig:80
-#, fuzzy
-#| msgid "File to Import:"
 msgid "Select file to import"
-msgstr "Файл за импортиране:"
+msgstr "Изберете файл за импорт"
 
 #: templates/import.twig:85 templates/import.twig:115
 msgid "There are no files to upload!"
