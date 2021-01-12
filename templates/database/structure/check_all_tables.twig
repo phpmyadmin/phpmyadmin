@@ -38,3 +38,41 @@
     </select>
     {{ hidden_fields|join('\n')|raw }}
 </div>
+
+<div class="modal fade" id="bulkActionModal" data-bs-backdrop="static" data-bs-keyboard="false"
+     tabindex="-1" aria-labelledby="bulkActionLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bulkActionLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Cancel' %}"></button>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Cancel' %}</button>
+        <button type="button" class="btn btn-primary" id="bulkActionContinue">{% trans 'Continue' %}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if central_columns_work is defined and central_columns_work %}
+  <div class="modal fade" id="makeConsistentWithCentralListModal" data-bs-backdrop="static" data-bs-keyboard="false"
+       tabindex="-1" aria-labelledby="makeConsistentWithCentralListModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="makeConsistentWithCentralListModalLabel">{% trans 'Are you sure?' %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Cancel' %}"></button>
+        </div>
+        <div class="modal-body">
+          {{ 'This action may change some of the columns definition.[br]Are you sure you want to continue?'|trans|sanitize }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Cancel' %}</button>
+          <button type="button" class="btn btn-primary" id="makeConsistentWithCentralListContinue">{% trans 'Continue' %}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

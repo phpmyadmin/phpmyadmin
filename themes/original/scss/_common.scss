@@ -2212,20 +2212,6 @@ body #ui-datepicker-div {
   }
 }
 
-.report-data {
-  height: 13em;
-  overflow: scroll;
-  width: 570px;
-  border: solid 1px;
-  background: white;
-  padding: 2px;
-}
-
-.report-description {
-  height: 10em;
-  width: 570px;
-}
-
 div#page_content div {
   &#tableslistcontainer {
     margin-top: 1em;
@@ -3146,6 +3132,12 @@ body {
   margin-left: 20px;
   margin-top: 4px;
   height: 0.75rem;
+}
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
 }
 
 // Extra large devices (large desktops, 1200px and up)

@@ -405,12 +405,6 @@ final class JavaScriptMessagesController
                 . 'database %s has columns that are not present in the current table.'
             ),
             'seeMore' => __('See more'),
-            'confirmTitle' => __('Are you sure?'),
-            'makeConsistentMessage' => __(
-                'This action may change some of the columns definition.<br>Are you sure you '
-                . 'want to continue?'
-            ),
-            'strContinue' => __('Continue'),
 
             /** For normalization */
             'strAddPrimaryKey' => __('Add primary key'),
@@ -635,8 +629,6 @@ final class JavaScriptMessagesController
             'strCreateView' => __('Create view'),
 
             /* Error Reporting */
-            'strSendErrorReport' => __('Send error report'),
-            'strSubmitErrorReport' => __('Submit error report'),
             'strErrorOccurred' => __(
                 'A fatal JavaScript error has occurred. Would you like to send an error report?'
             ),

@@ -556,11 +556,6 @@ parameters:
 			path: libraries/classes/ErrorHandler.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ErrorReport\\:\\:getPrettyData\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/ErrorReport.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/ErrorReport.php
