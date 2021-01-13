@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-18 22:27+0100\n"
-"PO-Revision-Date: 2020-11-16 06:28+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"PO-Revision-Date: 2021-01-14 22:32+0000\n"
+"Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
+"it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -294,12 +294,6 @@ msgid "Suboptimal caching method."
 msgstr "Metodo di caching subottimale."
 
 #: libraries/advisory_rules_generic.php:192
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -308,7 +302,7 @@ msgid ""
 msgstr ""
 "State usando la cache delle query MySQL con un traffico di database "
 "piuttosto alto. Potrebbe essere utile prendere in considerazione <a href="
-"\"https://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> "
+"\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> "
 "invece della cache delle query MySQL, soprattutto se avete slave multipli."
 
 #: libraries/advisory_rules_generic.php:198
@@ -621,10 +615,9 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size è uguale a 0"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "Massima %% di utilizzo del key buffer MyISAM"
+msgstr "Massima percentuale di utilizzo del key buffer MyISAM"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
@@ -758,10 +751,9 @@ msgstr ""
 "Tasso di file aperti: %s, questo valore dovrebbe essere inferiore a 5 all'ora"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "%% di lock immediati delle tabelle"
+msgstr "Percentuale di lock immediati delle tabelle"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -814,8 +806,7 @@ msgid "The thread cache is set to 0"
 msgstr "La cache dei thread è impostata a 0"
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
 msgstr "Percentuale hit nella cache del thread"
 
@@ -1017,18 +1008,7 @@ msgstr ""
 "dimensione del buffer pool InnoDB."
 
 #: libraries/advisory_rules_generic.php:622
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -1040,7 +1020,7 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Si dovrebbe impostare {innodb_log_file_size} al 25%% di "
+"Si dovrebbe impostare {innodb_log_file_size} al 25% di "
 "{innodb_buffer_pool_size}, soprattutto in sistemi che processano numerose "
 "scritture in tabelle InnoDB. Tuttavia più questo valore è alto maggiore sarà "
 "il tempo necessario per recuperare i database in seguito a crash, quindi "
@@ -1069,17 +1049,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "La dimensione del file di log InnoDB è eccessivamente grande."
 
 #: libraries/advisory_rules_generic.php:646
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -1091,12 +1061,12 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Di solito è sufficiente impostare {innodb_log_file_size} al 25%% della "
+"Di solito è sufficiente impostare {innodb_log_file_size} al 25% della "
 "dimensione di {innodb_buffer_pool_size}. Un {innodb_log_file_size} molto "
 "grande rallenta considerevolmente il tempo di ripristino in seguito ad un "
-"crash del database. Vedere anche <a href=\"https://www.percona.com/"
-"blog/2006/07/03/choosing-proper-innodb_log_file_size/\">questo articolo</a>. "
-"È necessario fare uno shutdown del server, rimuovere i file log InnoDB, "
+"crash del database. Vedere anche <a href=\"https://www.percona.com/blog/2006/"
+"07/03/choosing-proper-innodb_log_file_size/\">questo articolo</a>. È "
+"necessario fare uno shutdown del server, rimuovere i file log InnoDB, "
 "impostare il nuovo valore in my.cnf, avviare il server, quindi controllare "
 "nei log degli errori se tutto è andato a buon fine. Consultare anche <a href="
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
@@ -1213,10 +1183,9 @@ msgstr ""
 "query_cache_size è impostato a 0 or query_cache_type è impostato a 'OFF'"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Efficienza della cache delle query (%%)"
+msgstr "Efficienza della cache delle query (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1240,10 +1209,9 @@ msgid "Query Cache usage"
 msgstr "Utilizzo della cache della query"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "Verrà utilizzato meno dell'80%% della cache delle query."
+msgstr "Verrà utilizzato meno dell'80% della cache delle query."
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -1359,7 +1327,7 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.php:102
 #, php-format
 msgid "Current query cache size: %s"
-msgstr "La dimensione attuale della cache delle delle query è: %s"
+msgstr "La dimensione attuale della cache delle query è: %s"
 
 #: libraries/advisory_rules_mysql_before80003.php:107
 msgid "Query cache min result size"
@@ -3092,16 +3060,13 @@ msgid "Maximum tables"
 msgstr "Il massimo numero di tabelle"
 
 #: libraries/classes/Config/Descriptions.php:512
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Il numero massimo di byte che uno script può allocare, ad esempio [kbd]32M[/"
-"kbd] ([kbd]-1[/kbd] per nessun limite e [kbd]0[/kbd] per nessun cambiamento)."
+"Il numero massimo di byte che uno script può allocare, ad esempio "
+"[kbd]32M[/kbd] ([kbd]-1[/kbd] per nessun limite e [kbd]0[/kbd] per nessun "
+"cambiamento)."
 
 #: libraries/classes/Config/Descriptions.php:515
 msgid "Memory limit"
@@ -3154,16 +3119,12 @@ msgid "Logo link URL"
 msgstr "URL del collegamento per il logo"
 
 #: libraries/classes/Config/Descriptions.php:531
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Apri i link nella finestra principale ([kbd]main[/kbd]) o in una finestra "
-"nuova ([kbd]new[/kbd])."
+"Apri i link nella finestra principale ([code]main[/code]) o in una finestra "
+"nuova ([code]new[/code])."
 
 #: libraries/classes/Config/Descriptions.php:534
 msgid "Logo link target"
@@ -4200,8 +4161,6 @@ msgid "Retain query box"
 msgstr "Conserva il riquadro della query"
 
 #: libraries/classes/Config/Descriptions.php:883
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Consenti la visualizzazione delle statistiche dei database e tabelle (ad "
@@ -5258,8 +5217,6 @@ msgstr ""
 #: libraries/classes/Controllers/Table/MaintenanceController.php:117
 #: libraries/classes/Controllers/Table/MaintenanceController.php:153
 #: libraries/classes/Controllers/Table/MaintenanceController.php:188
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "Nessuna tabella selezionata."
 
@@ -14692,10 +14649,9 @@ msgid "See table structure"
 msgstr "Guarda la struttura della tabella"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Seleziona tutto"
+msgstr "Seleziona \"%s\""
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -15989,10 +15945,9 @@ msgid "no branch"
 msgstr "nessuna diramazione"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s dalla diramazione %2$s"
+msgstr "dalla diramazione %s"
 
 #: templates/home/git_info.twig:25
 #, fuzzy, php-format
@@ -16014,8 +15969,8 @@ msgid ""
 "at %s."
 msgstr ""
 "Stai utilizzando il server dimostrativo. Puoi fare qualsiasi cosa, ma per "
-"favore non cambiare gli utenti root, debian-sys-maint e pma.\n"
-"Maggiori informazioni sono disponibili su %s."
+"favore non cambiare gli utenti root, debian-sys-maint e pma. Maggiori "
+"informazioni sono disponibili su %s."
 
 #: templates/home/index.twig:32
 msgid "General settings"
@@ -16183,10 +16138,10 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Puoi anche trascinare e rilasciare un file su qualsiasi pagina."
 
 #: templates/import.twig:74 templates/import.twig:104
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Selezionare dalla cartella di upload del server web <b>%s</b>:"
+msgstr ""
+"Selezionare dalla cartella di upload del server web [strong]%s[/strong]:"
 
 #: templates/import.twig:80
 #, fuzzy
