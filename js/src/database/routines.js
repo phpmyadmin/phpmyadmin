@@ -364,7 +364,7 @@ const DatabaseRoutines = {
                      * @var $table Object containing reference
                      *             to the main list of elements
                      */
-                    var $table = $currRow.parent();
+                    var $table = $currRow.parent().parent();
                     // Check how many rows will be left after we remove
                     // the one that the user has requested us to remove
                     if ($table.find('tr').length === 3) {
@@ -440,7 +440,7 @@ const DatabaseRoutines = {
                          * @var $table Object containing reference
                          *             to the main list of elements
                          */
-                        var $table = $currRow.parent();
+                        var $table = $currRow.parent().parent();
                         // Check how many rows will be left after we remove
                         // the one that the user has requested us to remove
                         if ($table.find('tr').length === 3) {
