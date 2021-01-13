@@ -101,7 +101,7 @@ class Events
                         'EVENT',
                         $_POST['item_original_name']
                     );
-                    $drop_item = 'DROP EVENT '
+                    $drop_item = 'DROP EVENT IF EXISTS '
                         . Util::backquote($_POST['item_original_name'])
                         . ";\n";
                     $result = $this->dbi->tryQuery($drop_item);
