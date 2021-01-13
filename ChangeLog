@@ -72,6 +72,7 @@ phpMyAdmin - ChangeLog
 - issue #15658 Fixed saving UI displayed columns on a non database request fails
 - issue #16495 Fix drop tables checkbox is above the checkbox for foreign keys
 - issue #16485 Fix visual query builder missing "Build Query" button
+- issue #16565 Added 'IF EXISTS' to 'DROP EVENT' when updating events to avoid replication issues
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
