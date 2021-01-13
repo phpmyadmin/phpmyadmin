@@ -7,7 +7,12 @@
   {{ get_hidden_inputs(db) }}
 
   <fieldset class="pma-fieldset">
-    <legend>{% trans 'Details' %}</legend>
+    <legend>
+      {% trans 'Details' %}
+      {% if not is_edit_mode %}
+        {{ show_mysql_docu('CREATE_PROCEDURE') }}
+      {% endif %}
+    </legend>
 
     <table class="rte_table table table-borderless table-sm">
       <tr>

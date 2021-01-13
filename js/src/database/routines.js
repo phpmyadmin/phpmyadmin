@@ -3,9 +3,9 @@ AJAX.registerTeardown('database/routines.js', function () {
     $(document).off('click', 'a.ajax.edit_anchor');
     $(document).off('click', 'a.ajax.exec_anchor');
     $(document).off('click', 'a.ajax.export_anchor');
-    $(document).off('click', '#rteListForm.ajax .mult_submit[value="export"]');
+    $(document).off('click', '#bulkActionExportButton');
     $(document).off('click', 'a.ajax.drop_anchor');
-    $(document).off('click', '#rteListForm.ajax .mult_submit[value="drop"]');
+    $(document).off('click', '#bulkActionDropButton');
     $(document).off('change', 'select[name=item_type]');
     $(document).off('change', 'select[name^=item_param_type]');
     $(document).off('change', 'select[name=item_returntype]');
@@ -66,7 +66,7 @@ const DatabaseRoutines = {
 
     exportDialog: function ($this) {
         var $msg = Functions.ajaxShowMessage();
-        if ($this.hasClass('mult_submit')) {
+        if ($this.attr('id') === 'bulkActionExportButton') {
             var combined = {
                 success: true,
                 title: Messages.strExport,
@@ -850,7 +850,7 @@ AJAX.registerOnload('database/routines.js', function () {
         event.preventDefault();
         DatabaseRoutines.exportDialog($(this));
     });
-    $(document).on('click', '#rteListForm.ajax .mult_submit[value="export"]', function (event) {
+    $(document).on('click', '#bulkActionExportButton', function (event) {
         event.preventDefault();
         DatabaseRoutines.exportDialog($(this));
     });
@@ -859,7 +859,7 @@ AJAX.registerOnload('database/routines.js', function () {
         event.preventDefault();
         DatabaseRoutines.dropDialog($(this));
     });
-    $(document).on('click', '#rteListForm.ajax .mult_submit[value="drop"]', function (event) {
+    $(document).on('click', '#bulkActionDropButton', function (event) {
         event.preventDefault();
         DatabaseRoutines.dropMultipleDialog($(this));
     });
