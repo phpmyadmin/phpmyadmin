@@ -3,16 +3,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-18 22:27+0100\n"
-"PO-Revision-Date: 2020-11-16 06:28+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-01-14 22:32+0000\n"
+"Last-Translator: wickedr0se <andrejulian30@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/id/>\n"
+"5-1/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: libraries/advisory_rules_generic.php:9
@@ -67,7 +67,6 @@ msgid "Percentage of slow queries"
 msgstr "Persentase kueri lambat"
 
 #: libraries/advisory_rules_generic.php:41
-#, fuzzy
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
@@ -120,19 +119,17 @@ msgstr ""
 "yang membutuhkan waktu di atas 10 detik yang dicatat."
 
 #: libraries/advisory_rules_generic.php:73
-#, fuzzy
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
 "Disarankan untuk mengatur {long_query_time} ke nilai yang lebih rendah, "
-"tergantung pada lingkungan Anda. Biasanya nilai dari 1-5 detik disarankan."
+"tergantung pada sistem anda. Biasanya nilai 1-5 detik disarankan."
 
 #: libraries/advisory_rules_generic.php:76
-#, fuzzy, php-format
-#| msgid "long_query_time is set to %d second(s)."
+#, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time disetel menjadi %d detik."
+msgstr "long_query_time saat ini disetel menjadi %d detik."
 
 #: libraries/advisory_rules_generic.php:81
 #: libraries/advisory_rules_generic.php:94
@@ -197,7 +194,6 @@ msgid "Minor Version"
 msgstr "Versi Minor"
 
 #: libraries/advisory_rules_generic.php:124
-#, fuzzy
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "Versi kurang dari 5.1.30 (GA rilis pertama dari 5.1)."
 
@@ -207,8 +203,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
-"Anda harus meng-upgrade, karena versi terbaru MySQL 5.1 telah meningkatkan "
-"kinerja dan MySQL 5.5 bahkan lebih."
+"Anda harus memperbaharui, karena versi terbaru MySQL 5.1 telah meningkatkan "
+"kinerja dan bahkan MySQL 5.5 lebih baik."
 
 #: libraries/advisory_rules_generic.php:138
 #, fuzzy
@@ -216,10 +212,8 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Versi kurang dari 5.5.8 (GA rilis pertama dari 5.5)."
 
 #: libraries/advisory_rules_generic.php:139
-#, fuzzy
-#| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Anda harus memperbarui ke versi stabil MySQL 5.5"
+msgstr "Anda harus memperbarui ke versi stabil MySQL 5.5."
 
 #: libraries/advisory_rules_generic.php:145
 #: libraries/advisory_rules_generic.php:158
@@ -227,7 +221,6 @@ msgid "Distribution"
 msgstr "Distribusi"
 
 #: libraries/advisory_rules_generic.php:148
-#, fuzzy
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr "Versi dikompilasi dari sumber, bukan biner resmi MySQL."
 
