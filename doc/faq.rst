@@ -1531,7 +1531,7 @@ create the example tables:
 To setup appropriate links and display information:
 
 * on table "REL\_persons" click Structure, then Relation view
-* for "town\_code", choose from dropdowns, "mydb", "REL\_towns", "code"
+* for "town\_code", choose from dropdowns, "mydb", "REL\_towns", "town\_code"
   for foreign database, table and column respectively
 * for "country\_code", choose  from dropdowns, "mydb", "REL\_countries",
   "country\_code" for foreign database, table and column respectively
