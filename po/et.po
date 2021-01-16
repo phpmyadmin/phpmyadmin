@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2020-10-10 15:54+0000\n"
+"PO-Revision-Date: 2021-01-17 13:32+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -11274,8 +11274,8 @@ msgstr "%s funktsiooni käivitamise tulemused"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "Toimingu viimane käsk mõjutas %d rida."
-msgstr[1] "Toimingu viimane käsk mõjutas %d rida."
+msgstr[0] "Protseduuri viimane käsk mõjutas %d rida."
+msgstr[1] "Protseduuri viimane käsk mõjutas %d rida."
 
 #: libraries/classes/Rte/Routines.php:1551
 #: libraries/classes/Rte/Routines.php:1558
