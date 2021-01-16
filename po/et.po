@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-18 22:27+0100\n"
-"PO-Revision-Date: 2020-10-10 15:54+0000\n"
+"PO-Revision-Date: 2021-01-17 13:32+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/et/>\n"
+"Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
+"et/>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4286,42 +4286,39 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "Sisesta siteverify URL reCaptcha teenusele."
+msgstr "Sisesta oma reCaptcha v2 ühilduva teenuse URL."
 
 #: libraries/classes/Config/Descriptions.php:960
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCaptcha v2 API"
-msgstr "reCaptcha siteverify URL"
+msgstr "reCaptcha v2 URL"
 
 #: libraries/classes/Config/Descriptions.php:961
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
 msgstr ""
+"Sisesta reCaptcha v2-ga ühilduva API sisuturvalisuse-poliitika väljavõte."
 
 #: libraries/classes/Config/Descriptions.php:962
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "ReCaptcha v2 API sisuturbe-poliitika väljavõte"
 
 #: libraries/classes/Config/Descriptions.php:963
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "Sisestage reCaptcha v2-ga ühilduva API päringuparameeter."
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "ReCaptcha v2-ga ühilduva API päringu parameeter"
 
 #: libraries/classes/Config/Descriptions.php:965
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "Sisesta oma reCaptcha v2-ga ühilduva API vastuse parameeter."
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Response parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "ReCaptcha v2-ga ühilduva API vastuse parameeter"
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "Enter your public key for your domain reCaptcha service."
@@ -5585,10 +5582,8 @@ msgstr "Muuda indeksit"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:106
-#, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
-msgstr "Kustuta indeks(eid)"
+msgstr "Nimeta indeks ümber"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 #: templates/table/index_form.twig:227
@@ -9060,8 +9055,8 @@ msgstr "%s funktsiooni käivitamise tulemused"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "Toimingu viimane käsk mõjutas %d rida."
-msgstr[1] "Toimingu viimane käsk mõjutas %d rida."
+msgstr[0] "Protseduuri viimane käsk mõjutas %d rida."
+msgstr[1] "Protseduuri viimane käsk mõjutas %d rida."
 
 #: libraries/classes/Database/Routines.php:1562
 #: libraries/classes/Database/Routines.php:1569
@@ -10876,6 +10871,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Su salasõna on liiga pikk. Teenusetõrke rünnaku vältimiseks lubab phpMyAdmin "
+"salasõnu pikkusega kuni 1000 märki."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -14124,11 +14121,9 @@ msgid "Create version"
 msgstr "Loo versioon"
 
 #: templates/database/central_columns/edit.twig:13
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
-msgstr "T_I"
+msgstr "A_I"
 
 #: templates/database/central_columns/main.twig:4
 msgid "Add new column"
@@ -16351,10 +16346,8 @@ msgid "Character sets and collations"
 msgstr "Märgitabelid ja kodeeringud"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "Vaikimisi"
+msgstr "(vaikimisi)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -17400,10 +17393,8 @@ msgstr "#"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "tunnis"
+msgstr "ø tunnis"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -17978,46 +17969,32 @@ msgid "Relation view"
 msgstr "Seoste vaade"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "partitsioneeritud"
+msgstr "Analüüsi partitsiooni"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "partitsioneeritud"
+msgstr "Kontrolli partitsiooni"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "partitsioneeritud"
+msgstr "Kustuta partitsioon"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Eemalda partitsioneerimine"
+msgstr "Optimeeri partitsiooni"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Alampartitsioon"
+msgstr "Taasta partitsioon"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Eemalda partitsioneerimine"
+msgstr "Paranda partitsioon"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Alampartitsioon"
+msgstr "Kärbi partitsiooni"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -18225,10 +18202,8 @@ msgid "at beginning of table"
 msgstr "tabeli alguses"
 
 #: templates/table/structure/display_structure.twig:445
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Muuda nimeks"
+msgstr "Nimeta ümber"
 
 #: templates/table/structure/display_structure.twig:507
 #, php-format
