@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-21 16:13+0100\n"
-"PO-Revision-Date: 2020-10-10 15:54+0000\n"
+"PO-Revision-Date: 2021-01-17 13:32+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2228,10 +2228,8 @@ msgid "Export as separate files"
 msgstr "Ekspordi eraldi failidena"
 
 #: libraries/classes/Config/Descriptions.php:268
-#, fuzzy
-#| msgid "Remember file name template"
 msgid "Remember filename template"
-msgstr "Jäta meelde faili nime mall"
+msgstr "Jäta faili nime mall meelde"
 
 #: libraries/classes/Config/Descriptions.php:269
 #: templates/database/operations/index.twig:165
@@ -4242,12 +4240,6 @@ msgid "Version check"
 msgstr "Versiooni kontroll"
 
 #: libraries/classes/Config/Descriptions.php:941
-#, fuzzy
-#| msgid ""
-#| "The url of the proxy to be used when retrieving the information about the "
-#| "latest version of phpMyAdmin or when submitting error reports. You need "
-#| "this if the server where phpMyAdmin is installed does not have direct "
-#| "access to the internet. The format is: \"hostname:portnumber\"."
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -4255,13 +4247,11 @@ msgid ""
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 "phpMyAdmin'i versiooniuuendusteks ja vearaportite saatmiseks kasutatava "
-"proksiserveri aadress. See on vajalik siis, kui server, kuhu on phpMyAdmin "
-"on paigaldatud, ei oma otseühendust Internetiga. Formaat on \"hostinimi:port"
-"\"."
+"proksiserveri aadress. See on vajalik juhul kui server, kuhu on phpMyAdmin "
+"on paigaldatud, ei oma otseühendust Internetiga. Vorming on \"hostinimi:"
+"port\"."
 
 #: libraries/classes/Config/Descriptions.php:946
-#, fuzzy
-#| msgid "Proxy url"
 msgid "Proxy URL"
 msgstr "Proksi aadress"
 
@@ -4296,82 +4286,63 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr "Sisesta siteverify URL reCaptcha teenusele."
+msgstr "Sisesta oma reCaptcha v2-ga ühilduva teenuse aadress."
 
 #: libraries/classes/Config/Descriptions.php:960
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCAPTCHA v2 API"
-msgstr "reCaptcha siteverify URL"
+msgstr "reCAPTCHA v2 API aadress"
 
 #: libraries/classes/Config/Descriptions.php:961
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
-msgstr "Sisesta siteverify URL reCaptcha teenusele."
+msgstr ""
+"Sisesta reCAPTCHA v2-ga ühilduva API sisuturvalisuse-poliitika väljavõte."
 
 #: libraries/classes/Config/Descriptions.php:962
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
-msgstr ""
+msgstr "ReCaptcha v2 API sisuturbe-poliitika väljavõte"
 
 #: libraries/classes/Config/Descriptions.php:963
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Sisesta siteverify URL reCaptcha teenusele."
+msgstr "Sisestage reCAPTCHA v2-ga ühilduva API päringuparameeter."
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "Request parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "ReCaptcha v2-ga ühilduva API päringu parameeter"
 
 #: libraries/classes/Config/Descriptions.php:965
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Sisesta siteverify URL reCaptcha teenusele."
+msgstr "Sisesta oma reCAPTCHA v2-ga ühilduva API vastuse parameeter."
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Response parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "ReCaptcha v2-ga ühilduva API vastuse parameeter"
 
 #: libraries/classes/Config/Descriptions.php:967
-#, fuzzy
-#| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr "Sisesta oma domeeni reCaptcha teenusele oma avalik võti."
+msgstr "Sisesta oma domeeni reCAPTCHA teenuse avalik võti."
 
 #: libraries/classes/Config/Descriptions.php:968
-#, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Public key for reCAPTCHA"
-msgstr "reCaptcha avalik võti"
+msgstr "reCAPTCHA avalik võti"
 
 #: libraries/classes/Config/Descriptions.php:969
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr "Sisesta oma domeeni reCaptcha teenusele oma salajane võti."
+msgstr "Sisesta oma domeeni reCAPTCHA teenuse salajane võti."
 
 #: libraries/classes/Config/Descriptions.php:970
 msgid "Private key for reCaptcha"
 msgstr "reCaptcha salajane võti"
 
 #: libraries/classes/Config/Descriptions.php:971
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr "Sisesta siteverify URL reCaptcha teenusele."
+msgstr "Sisesta reCAPTCHA teenuse siteverify aadress."
 
 #: libraries/classes/Config/Descriptions.php:972
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCAPTCHA siteverify"
-msgstr "reCaptcha siteverify URL"
+msgstr "reCAPTCHA siteverify aadress"
 
 #: libraries/classes/Config/Descriptions.php:974
 msgid "Choose the default action when sending error reports."
@@ -4394,10 +4365,6 @@ msgid "Enter executes queries in console"
 msgstr "Enter käivitab päringud konsoolil"
 
 #: libraries/classes/Config/Descriptions.php:984
-#, fuzzy
-#| msgid ""
-#| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
-#| "configuration storage tables automatically."
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
@@ -4425,12 +4392,10 @@ msgid "Show current browsing query"
 msgstr "Kuva valitud lehitsemise päring"
 
 #: libraries/classes/Config/Descriptions.php:991
-#, fuzzy
-#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
-"Käivita päringud klahviga Enter ja lisa reavahetused kombinatsiooniga Shift "
-"+ Enter"
+"Käivita päringud klahviga Enter ja lisa reavahetused kombinatsiooniga "
+"Shift+Enter"
 
 #: libraries/classes/Config/Descriptions.php:992
 #: templates/console/display.twig:168
@@ -5617,10 +5582,8 @@ msgstr "Muuda indeksit"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:106
-#, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
-msgstr "Kustuta indeks(eid)"
+msgstr "Nimeta indeks ümber"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 #: templates/table/index_form.twig:227
@@ -9092,8 +9055,8 @@ msgstr "%s funktsiooni käivitamise tulemused"
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "Toimingu viimane käsk mõjutas %d rida."
-msgstr[1] "Toimingu viimane käsk mõjutas %d rida."
+msgstr[0] "Protseduuri viimane käsk mõjutas %d rida."
+msgstr[1] "Protseduuri viimane käsk mõjutas %d rida."
 
 #: libraries/classes/Database/Routines.php:1562
 #: libraries/classes/Database/Routines.php:1569
@@ -10908,6 +10871,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Su salasõna on liiga pikk. Teenusetõrke rünnaku vältimiseks lubab phpMyAdmin "
+"salasõnu pikkusega kuni 1000 märki."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -14126,15 +14091,11 @@ msgid "Set default"
 msgstr "Määra vaikeväärtuseks"
 
 #: templates/console/display.twig:162
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
 msgstr ""
-"Käivita päringud klahviga Enter ja sisesta reavahetused Shift + Enter "
+"Käivita päringud klahviga Enter ja sisesta reavahetused Shift+Enter "
 "kombinatsiooniga. Selle püsivaks tegemiseks vaata sätteid."
 
 #: templates/create_tracking_version.twig:11
@@ -14160,11 +14121,9 @@ msgid "Create version"
 msgstr "Loo versioon"
 
 #: templates/database/central_columns/edit.twig:13
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
-msgstr "T_I"
+msgstr "A_I"
 
 #: templates/database/central_columns/main.twig:4
 msgid "Add new column"
@@ -16387,10 +16346,8 @@ msgid "Character sets and collations"
 msgstr "Märgitabelid ja kodeeringud"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "Vaikimisi"
+msgstr "(vaikimisi)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -17436,10 +17393,8 @@ msgstr "#"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "tunnis"
+msgstr "ø tunnis"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -18014,46 +17969,32 @@ msgid "Relation view"
 msgstr "Seoste vaade"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "partitsioneeritud"
+msgstr "Analüüsi partitsiooni"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "partitsioneeritud"
+msgstr "Kontrolli partitsiooni"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "partitsioneeritud"
+msgstr "Kustuta partitsioon"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Eemalda partitsioneerimine"
+msgstr "Optimeeri partitsiooni"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Alampartitsioon"
+msgstr "Taasta partitsioon"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Eemalda partitsioneerimine"
+msgstr "Paranda partitsioon"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Alampartitsioon"
+msgstr "Kärbi partitsiooni"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -18261,10 +18202,8 @@ msgid "at beginning of table"
 msgstr "tabeli alguses"
 
 #: templates/table/structure/display_structure.twig:445
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Muuda nimeks"
+msgstr "Nimeta ümber"
 
 #: templates/table/structure/display_structure.twig:507
 #, php-format
