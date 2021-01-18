@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-01-17 13:32+0000\n"
+"PO-Revision-Date: 2021-01-18 17:27+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "ja/>\n"
@@ -5907,11 +5907,11 @@ msgstr "Microsoft Word 2000"
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Config/Forms/User/ImportForm.php:56
 msgid "OpenDocument Spreadsheet"
-msgstr "OpenDocument スプレッドシート"
+msgstr "OpenDocument Spreadsheet"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:132
 msgid "OpenDocument Text"
-msgstr "OpenDocument テキスト"
+msgstr "OpenDocument Text"
 
 #: libraries/classes/Config/Forms/User/FeaturesForm.php:93
 msgid "Features"
@@ -7246,7 +7246,7 @@ msgstr "クエリエラー"
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "テーブル %1$s は正常に変更されました。特権が変更されました。"
+msgstr "テーブル %1$s は正常に変更されました。権限が変更されました。"
 
 #: libraries/classes/Controllers/Table/StructureController.php:1267
 #: templates/table/structure/display_structure.twig:284
@@ -8642,7 +8642,7 @@ msgstr "挿入"
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
 msgid "Privileges"
-msgstr "特権"
+msgstr "権限"
 
 #: libraries/classes/Menu.php:409 libraries/classes/Menu.php:417
 #: libraries/classes/Menu.php:503 libraries/classes/Util.php:3169
@@ -8787,7 +8787,7 @@ msgstr "制約を追加する"
 #: libraries/classes/Rte/Routines.php:1047
 #: templates/columns_definitions/table_fields_definitions.twig:36
 msgid "Adjust privileges"
-msgstr "特権を編集"
+msgstr "権限を調整"
 
 #: libraries/classes/MultSubmits.php:452
 msgid "From"
@@ -9284,9 +9284,7 @@ msgstr "データベース名の変更"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr ""
-"この操作を実行する十分な特権がありません。詳細についてはドキュメンテーション"
-"を参照してください"
+msgstr "この操作を実行する十分な権限がありません。詳細についてはドキュメンテーションを参照してください"
 
 #: libraries/classes/Operations.php:161
 #, php-format
@@ -9482,12 +9480,12 @@ msgstr "同じテーブルにはコピーできません!"
 #: libraries/classes/Operations.php:2209
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "テーブル%sは%sに移動されました。 特権が変更されました。"
+msgstr "テーブル %s が %s に移動されました。 権限が変更されました。"
 
 #: libraries/classes/Operations.php:2216
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "テーブル %s を %s にコピーしました。特権が変更されました。"
+msgstr "テーブル %s を %s にコピーしました。権限が変更されました。"
 
 #: libraries/classes/Operations.php:2224
 #, php-format
@@ -10914,8 +10912,7 @@ msgstr "マスタ %s に接続していません。"
 #: libraries/classes/ReplicationGui.php:515
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
-msgstr ""
-"マスタのログの位置が読み込めません。マスター上の特権問題の可能性があります。"
+msgstr "マスタのログの位置が読み込めません。マスタ上の権限の問題の可能性があります。"
 
 #: libraries/classes/ReplicationGui.php:533
 msgid "Unable to change master!"
@@ -11100,7 +11097,7 @@ msgstr "申し訳ありませんが、削除されたルーチンの復元に失
 #: libraries/classes/Rte/Routines.php:509
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "ルーチン %1$s を変更しました。特権が変更されました。"
+msgstr "ルーチン %1$s を変更しました。権限が変更されました。"
 
 #: libraries/classes/Rte/Routines.php:514
 #, php-format
@@ -11153,9 +11150,7 @@ msgstr "DETERMINISTIC"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
-msgstr ""
-"この操作を行うのに十分な権限はありません。詳細についてはドキュメンテーション"
-"を参照してください"
+msgstr "この操作を行うのに十分な権限がありません。詳細についてはドキュメンテーションを参照してください"
 
 #: libraries/classes/Rte/Routines.php:1073
 msgid "Security type"
@@ -11282,7 +11277,7 @@ msgstr "ルーチン"
 
 #: libraries/classes/Rte/Words.php:39
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "ルーチンを作成する特権がありません。"
+msgstr "ルーチンを作成する権限がありません。"
 
 #: libraries/classes/Rte/Words.php:42
 #, php-format
@@ -11326,7 +11321,7 @@ msgstr "トリガ"
 
 #: libraries/classes/Rte/Words.php:61
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "トリガを作成する特権がありません。"
+msgstr "トリガを作成する権限がありません。"
 
 #: libraries/classes/Rte/Words.php:63
 #, php-format
@@ -11352,7 +11347,7 @@ msgstr "イベント"
 
 #: libraries/classes/Rte/Words.php:75
 msgid "You do not have the necessary privileges to create an event."
-msgstr "イベントを作成する特権がありません。"
+msgstr "イベントを作成する権限がありません。"
 
 #: libraries/classes/Rte/Words.php:77
 #, php-format
@@ -11390,11 +11385,11 @@ msgstr "検索の読み込み中にエラーが発生しました。"
 
 #: libraries/classes/Server/Privileges.php:264 server_privileges.php:135
 msgid "No privileges."
-msgstr "特権はありません。"
+msgstr "権限がありません。"
 
 #: libraries/classes/Server/Privileges.php:274 server_privileges.php:79
 msgid "Includes all privileges except GRANT."
-msgstr "GRANT 以外のすべての特権を付与する。"
+msgstr "GRANT 以外のすべての権限を付与する。"
 
 #: libraries/classes/Server/Privileges.php:347
 #: libraries/classes/Server/Privileges.php:1110
@@ -11616,14 +11611,14 @@ msgstr "このルーチンの実行を許可する。"
 #: libraries/classes/Server/Privileges.php:3522
 #: templates/server/privileges/privileges_summary.twig:18
 msgid "Table-specific privileges"
-msgstr "テーブル固有の特権"
+msgstr "テーブル固有の権限"
 
 #: libraries/classes/Server/Privileges.php:1074
 #: libraries/classes/Server/Privileges.php:1270
 #: libraries/classes/Server/Privileges.php:3715
 #: templates/server/privileges/edit_routine_privileges.twig:16
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "注意: MySQL の特権名は英語で表示されます。"
+msgstr "注意: MySQL の権限名は英語で表示されます。"
 
 #: libraries/classes/Server/Privileges.php:1239
 msgid "Administration"
@@ -11632,7 +11627,7 @@ msgstr "管理"
 #: libraries/classes/Server/Privileges.php:1254
 #: libraries/classes/Server/Privileges.php:3713
 msgid "Global privileges"
-msgstr "グローバル特権"
+msgstr "グローバル権限"
 
 #: libraries/classes/Server/Privileges.php:1255
 msgid "Global"
@@ -11641,7 +11636,7 @@ msgstr "グローバル"
 #: libraries/classes/Server/Privileges.php:1257
 #: libraries/classes/Server/Privileges.php:3516
 msgid "Database-specific privileges"
-msgstr "データベースに固有の特権"
+msgstr "データベース固有の権限"
 
 #: libraries/classes/Server/Privileges.php:1266
 #: libraries/classes/Server/Privileges.php:1267
@@ -11664,7 +11659,7 @@ msgstr "テーブルの削除を許可する。"
 #: libraries/classes/Server/Privileges.php:1441
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
-msgstr "特権テーブルの再読み込みなしでユーザ・特権の追加を許可する。"
+msgstr "権限テーブルの再読み込みなしでユーザと権限の追加を許可する。"
 
 #: libraries/classes/Server/Privileges.php:1482 server_privileges.php:96
 msgid ""
@@ -11803,7 +11798,7 @@ msgstr "%s のパスワードは正しく変更されました。"
 #: libraries/classes/Server/Privileges.php:2208
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "%s の特権を取り消しました。"
+msgstr "%s の権限を取り消しました。"
 
 #: libraries/classes/Server/Privileges.php:2311
 #: templates/server/privileges/add_user_fieldset.twig:7
@@ -11816,17 +11811,16 @@ msgstr "ユーザアカウント専用データベース"
 
 #: libraries/classes/Server/Privileges.php:2324
 msgid "Create database with same name and grant all privileges."
-msgstr "同名のデータベースを作成してすべての特権を与える。"
+msgstr "同名のデータベースを作成してすべての権限を与える。"
 
 #: libraries/classes/Server/Privileges.php:2332
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr ""
-"ワイルドカード(ユーザ名_%)に該当するデータベースにすべての特権を与える。"
+msgstr "ワイルドカード(ユーザ名_%)に該当するデータベースにすべての権限を与える。"
 
 #: libraries/classes/Server/Privileges.php:2342
 #, php-format
 msgid "Grant all privileges on database %s."
-msgstr "データベース %s への全ての特権を与える。"
+msgstr "データベース %s へのすべての権限を与える。"
 
 #: libraries/classes/Server/Privileges.php:2518
 #: libraries/classes/Server/Privileges.php:2593
@@ -11846,7 +11840,7 @@ msgstr "権限委譲"
 
 #: libraries/classes/Server/Privileges.php:2732
 msgid "Not enough privilege to view users."
-msgstr "ユーザを表示する為に十分な権限はありません。"
+msgstr "ユーザを表示するために十分な権限がありません。"
 
 #: libraries/classes/Server/Privileges.php:2751
 #: libraries/classes/Server/Privileges.php:4177
@@ -11877,7 +11871,7 @@ msgstr "テーブル固有"
 
 #: libraries/classes/Server/Privileges.php:2996
 msgid "Edit privileges"
-msgstr "特権を編集"
+msgstr "権限を編集"
 
 #: libraries/classes/Server/Privileges.php:2999
 msgid "Revoke"
@@ -11898,13 +11892,13 @@ msgstr "ユーザテーブルから元のユーザを削除する。"
 #: libraries/classes/Server/Privileges.php:3250
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
-msgstr "元のユーザの特権をすべて無効にしてから削除する。"
+msgstr "元のユーザの権限をすべて無効にしてから削除する。"
 
 #: libraries/classes/Server/Privileges.php:3254
 msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
-msgstr "ユーザテーブルから元のユーザを削除し、特権の再読み込みをする。"
+msgstr "ユーザテーブルから元のユーザを削除し、権限の再読み込みをする。"
 
 #: libraries/classes/Server/Privileges.php:3276
 msgid "Change login information / Copy user account"
@@ -11912,12 +11906,12 @@ msgstr "ログイン情報の変更 / ユーザアカウントの複製"
 
 #: libraries/classes/Server/Privileges.php:3282
 msgid "Create a new user account with the same privileges and …"
-msgstr "同じ特権を持つ新しいユーザアカウントを作る…"
+msgstr "同じ権限を持つ新しいユーザアカウントを作成…"
 
 #: libraries/classes/Server/Privileges.php:3528
 #: templates/server/privileges/edit_routine_privileges.twig:12
 msgid "Routine-specific privileges"
-msgstr "ルーチンに固有の特権"
+msgstr "ルーチン固有の権限"
 
 #: libraries/classes/Server/Privileges.php:3719
 #: libraries/classes/Server/UserGroups.php:91
@@ -11929,7 +11923,7 @@ msgstr "ユーザグループ"
 #: libraries/classes/Server/Privileges.php:3842
 #: libraries/classes/Server/Privileges.php:5051
 msgid "The selected user was not found in the privilege table."
-msgstr "特権テーブルには選択したユーザがいません。"
+msgstr "選択したユーザが権限テーブルで見つかりません。"
 
 #: libraries/classes/Server/Privileges.php:4018
 msgid "No users selected for deleting!"
@@ -11937,7 +11931,7 @@ msgstr "削除するユーザが選択されていません!"
 
 #: libraries/classes/Server/Privileges.php:4021
 msgid "Reloading the privileges"
-msgstr "特権を再読み込みしています"
+msgstr "権限を再読み込みしています"
 
 #: libraries/classes/Server/Privileges.php:4040
 msgid "The selected users have been deleted successfully."
@@ -11946,7 +11940,7 @@ msgstr "選択されたユーザは正常に削除されました。"
 #: libraries/classes/Server/Privileges.php:4147
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr "%s の特権を更新しました。"
+msgstr "%s の権限を更新しました。"
 
 #: libraries/classes/Server/Privileges.php:4257
 #, php-format
@@ -11955,7 +11949,7 @@ msgstr "%s を削除中です"
 
 #: libraries/classes/Server/Privileges.php:4287
 msgid "The privileges were reloaded successfully."
-msgstr "特権を正常に再読み込みしました。"
+msgstr "権限を正常に再読み込みしました。"
 
 #: libraries/classes/Server/Privileges.php:4385
 #, php-format
@@ -11965,11 +11959,11 @@ msgstr "ユーザ %s は既に存在します!"
 #: libraries/classes/Server/Privileges.php:4676
 #, php-format
 msgid "Privileges for %s"
-msgstr "%s に対する特権"
+msgstr "%s に対する権限"
 
 #: libraries/classes/Server/Privileges.php:4758
 msgid "Edit privileges:"
-msgstr "特権を編集:"
+msgstr "権限を編集:"
 
 #: libraries/classes/Server/Privileges.php:4759
 msgid "User account"
@@ -11979,7 +11973,7 @@ msgstr "ユーザアカウント"
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
-msgstr "注意:現在ログインしているユーザーの権限を編集しようとしています。"
+msgstr "注意: 現在ログインしているユーザーの権限を編集しようとしています。"
 
 #: libraries/classes/Server/Privileges.php:4851
 #: libraries/classes/Server/Users.php:32
@@ -12004,10 +11998,8 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
-"作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
-"特権の内容が一致しなくなることがありますので、作業を続ける前に %s特権の再読み"
-"込み%s をしてください。"
+"注意: phpMyAdmin は MySQL の権限テーブルから直接ユーザ権限を取得しますが、手作業で権限を更新した場合は phpMyAdmin "
+"が利用しているテーブルの内容とサーバ権限の内容が一致しなくなることがありますので、作業を続ける前に %s権限の再読み込み%s をしてください。"
 
 #: libraries/classes/Server/Privileges.php:4988
 msgid ""
@@ -12017,11 +12009,8 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
-"作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
-"特権の内容が一致しなくなることがありますので、作業を続ける前に %s特権の再読み"
-"込み%s する必要がありますが、この利用しているユーザは特権の再読み込みがないで"
-"す。"
+"注意: phpMyAdmin は MySQL の権限テーブルから直接ユーザ権限を取得します。手作業でテーブルの内容を変更すると、テーブルの内容がサーバの使"
+"用している権限と一致しなくなることがあります。この場合、権限を再読み込みする必要がありますが、あなたは RELOAD 権限を持っていません。"
 
 #: libraries/classes/Server/Privileges.php:5299
 msgid "You have added a new user."
@@ -12249,7 +12238,7 @@ msgstr "自動保存されたクエリを取得"
 
 #: libraries/classes/SqlQueryForm.php:276
 msgid "Bind parameters"
-msgstr "バインドパラメータ"
+msgstr "パラメータのバインド"
 
 #: libraries/classes/SqlQueryForm.php:324
 msgid "Bookmark this SQL query:"
@@ -12488,9 +12477,7 @@ msgstr "追跡データ操作コマンドは正常に削除されました"
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
-msgstr ""
-"作成された一時的なデータベースを使用してダンプを実行することができます。これ"
-"を実行できる特権を持っていることを確認してください。"
+msgstr "作成された一時的なデータベースを使用してダンプを実行することができます。これを実行できる権限を持っていることを確認してください。"
 
 #: libraries/classes/Tracking.php:839
 msgid "Comment out these two lines if you do not need them."
@@ -13166,11 +13153,11 @@ msgstr "実績行の削除を許可する。"
 
 #: server_privileges.php:160 server_user_groups.php:44
 msgid "No Privileges"
-msgstr "特権はありません"
+msgstr "権限がありません"
 
 #: server_privileges.php:167
 msgid "You do not have the privileges to administrate the users!"
-msgstr "ユーザを管理する特権がありません!"
+msgstr "ユーザを管理する権限がありません!"
 
 #: server_privileges.php:181
 msgid ""
@@ -14955,7 +14942,7 @@ msgstr "データベースを作成する"
 
 #: templates/server/databases/index.twig:68
 msgid "No privileges to create databases"
-msgstr "データベースを作成する特権がありません"
+msgstr "データベースを作成する権限がありません"
 
 #: templates/server/databases/index.twig:153
 #: templates/server/replication/index.twig:14
@@ -14976,11 +14963,11 @@ msgstr "データベース「%s」に移動"
 #: templates/server/databases/index.twig:241
 #, php-format
 msgid "Check privileges for database \"%s\"."
-msgstr "データベース「%s」の特権を確認します。"
+msgstr "データベース「%s」の権限を確認します。"
 
 #: templates/server/databases/index.twig:242
 msgid "Check privileges"
-msgstr "特権をチェックする"
+msgstr "権限をチェックする"
 
 #: templates/server/databases/index.twig:310
 msgid ""
@@ -15052,7 +15039,7 @@ msgstr "選択したユーザアカウントを削除する"
 
 #: templates/server/privileges/delete_user_fieldset.twig:6
 msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "特権をすべて取り消してユーザを削除する。"
+msgstr "権限をすべて取り消してユーザを削除する。"
 
 #: templates/server/privileges/delete_user_fieldset.twig:7
 #: templates/server/privileges/delete_user_fieldset.twig:10
@@ -15062,11 +15049,11 @@ msgstr "ユーザと同名のデータベースを削除する。"
 
 #: templates/server/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
-msgstr "このカラムに固有の特権"
+msgstr "カラム固有の権限"
 
 #: templates/server/privileges/privileges_summary.twig:54
 msgid "Add privileges on the following database(s):"
-msgstr "データベースに特権を追加:"
+msgstr "以下のデータベースに権限を追加:"
 
 #: templates/server/privileges/privileges_summary.twig:67
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
@@ -15076,11 +15063,11 @@ msgstr ""
 
 #: templates/server/privileges/privileges_summary.twig:71
 msgid "Add privileges on the following table:"
-msgstr "テーブルに特権を追加:"
+msgstr "以下のテーブルに権限を追加:"
 
 #: templates/server/privileges/privileges_summary.twig:86
 msgid "Add privileges on the following routine:"
-msgstr "ルーチンに特権を追加:"
+msgstr "以下のルーチンに権限を追加:"
 
 #: templates/server/privileges/resource_limits.twig:2
 msgid "Resource limits"
@@ -15122,7 +15109,7 @@ msgstr ""
 
 #: templates/server/replication/index.twig:35
 msgid "No privileges"
-msgstr "特権はありません"
+msgstr "権限がありません"
 
 #: templates/server/replication/master_add_slave_user.twig:6
 #: templates/server/replication/master_replication.twig:43
@@ -15341,7 +15328,7 @@ msgstr ""
 
 #: templates/server/status/advisor/index.twig:36
 msgid "Not enough privilege to view the advisor."
-msgstr "アドバイザを表示する為に十分な権限はありません。"
+msgstr "アドバイザを表示する為に十分な権限がありません。"
 
 #: templates/server/status/base.twig:15
 msgid "Query statistics"
@@ -15607,7 +15594,7 @@ msgstr "クエリ数"
 
 #: templates/server/status/queries/index.twig:53
 msgid "Not enough privilege to view query statistics."
-msgstr "クエリ統計を表示するのに十分な権限はありません。"
+msgstr "クエリ統計を表示するのに十分な権限がありません。"
 
 #: templates/server/status/status/index.twig:6
 #, php-format
@@ -15653,7 +15640,7 @@ msgstr "レプリケーションステータス"
 
 #: templates/server/status/status/index.twig:73
 msgid "Not enough privilege to view server status."
-msgstr "サーバ状態を表示する為に十分な権限はありません。"
+msgstr "サーバ状態を表示する為に十分な権限がありません。"
 
 #: templates/server/status/variables/index.twig:21
 msgid "Show only alert values"
@@ -15673,7 +15660,7 @@ msgstr "関連リンク:"
 
 #: templates/server/status/variables/index.twig:134
 msgid "Not enough privilege to view status variables."
-msgstr "ステータス変数を表示する権限は十分ありません。"
+msgstr "ステータス変数を表示する権限が十分ありません。"
 
 #: templates/server/variables/index.twig:3
 msgid "Server variables and settings"
@@ -15690,7 +15677,7 @@ msgstr "セッション値"
 #: templates/server/variables/index.twig:75
 #, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "サーバ変数と設定を表示するのに十分な権限はありません。%s"
+msgstr "サーバ変数と設定を表示するのに十分な権限がありません。%s"
 
 #: templates/setup/base.twig:27 templates/setup/home/index.twig:20
 msgid "Overview"
@@ -16329,7 +16316,7 @@ msgstr "ターゲットサイトにアクセスします。"
 
 #: user_password.php:48
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr "特権不足でアクセスできません!"
+msgstr "権限不足でアクセスできません!"
 
 #: view_create.php:63
 msgid "View name can not be empty!"
