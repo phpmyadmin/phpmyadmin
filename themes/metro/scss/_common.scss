@@ -39,15 +39,15 @@ body#loginform {
     margin-#{$right}: auto;
 
     &::before {
-      background-size: 220px;
       color: $body-bg;
-      /* The user avatar icon */
-      background: url('../img/user.svg');
+      background: url('../img/user.svg');/* The user avatar icon */
       content: "";
       float: $left;
       margin-#{$right}: 20px;
       margin-bottom: 10px;
       background-color: $th-color;
+      background-repeat: no-repeat;
+      background-size: cover;
       overflow: hidden;
       height: 240px;
       width: 240px;
