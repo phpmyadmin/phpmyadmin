@@ -13,15 +13,6 @@ install:
   - composer install --no-interaction
   - yarn install --non-interactive
 
-script:
-  - ./scripts/generate-mo --quiet
-  - ./vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-  - if [ -f build/logs/clover.xml ] ; then curl -LsO https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi
-  - if [ -f build/logs/clover.xml ] ; then bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l php -r build/logs/clover.xml --partial; fi
-
 services:
   - mysql
 
@@ -36,61 +27,10 @@ jobs:
   allow_failures:
     - php: nightly
     - os: osx
-    - name: "PHPUnit tests in random order"
     # https://github.com/phpmyadmin/phpmyadmin/issues/16479
     - name: "Run selenium tests on Google Chrome"
 
   include:
-    - stage: "Lint and analyse code"
-      name: "Lint files"
-      before_install: phpenv config-rm xdebug.ini
-      before_script: skip
-      after_script: skip
-      after_success: skip
-      script:
-        - ./test/ci-phplint
-        - composer phpcs
-        - yarn run js-lint --quiet
-        - yarn run css-lint
-        - php scripts/console lint:twig templates --show-deprecations
-
-    - stage: "Lint and analyse code"
-      name: "Run phpstan"
-      before_install: phpenv config-rm xdebug.ini
-      before_script: skip
-      after_script: skip
-      after_success: skip
-      script: composer phpstan -- --memory-limit 2G
-
-    - stage: "Lint and analyse code"
-      name: "Run psalm"
-      before_install: phpenv config-rm xdebug.ini
-      before_script: skip
-      after_script: skip
-      after_success: skip
-      script: composer psalm
-
-    - stage: "PHP Unit tests"
-      php: 7.1
-      name: "PHP 7.1"
-      env: CI_MODE=test
-
-    - stage: "PHP Unit tests"
-      php: 7.2
-      name: "PHP 7.2"
-      env: CI_MODE=test
-
-    - stage: "PHP Unit tests"
-      php: 7.3
-      name: "PHP 7.3"
-      env: CI_MODE=test
-
-    - stage: "PHP Unit tests"
-      php: 7.4
-      name: "PHP 7.4"
-      env: CI_MODE=test
-      before_install: phpenv config-rm xdebug.ini
-
     - stage: "PHP Unit tests"
       php: nightly
       name: "PHP nightly"
@@ -140,58 +80,6 @@ jobs:
         - PHP_EXTENSIONS="mysqli curl bz2 gd2 pdo_mysql"
         - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php80/php.ini ; done
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php80/php.ini
-
-    - stage: "PHP Unit tests"
-      php: 7.1
-      name: "PHP 7.1 with dbase extension"
-      env: CI_MODE=test
-      install:
-        - pecl channel-update pecl.php.net
-        - pecl install dbase
-        - php -m |grep -F 'dbase'
-        - composer install --no-interaction
-        - nvm install 10
-        - yarn install --non-interactive
-
-    - stage: "PHP Unit tests"
-      php: 7.4
-      name: "PHPUnit tests in random order"
-      env: CI_MODE=test
-      script:
-        - scripts/generate-mo --quiet
-        - vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium --order-by=random --stop-on-failure
-
-    - stage: "Documentation"
-      name: "Build docs"
-      before_script: skip
-      after_script: skip
-      after_success: skip
-      install:
-        - source ~/virtualenv/python3.6/bin/activate
-        - pip install 'Sphinx'
-      script: ./test/ci-docs
-
-    - stage: "Documentation"
-      name: "Build API docs"
-      before_install: phpenv config-rm xdebug.ini
-      before_script: skip
-      after_script: skip
-      after_success: skip
-      install: composer global require "code-lts/doctum:^5.3"
-      script: $(composer global config bin-dir --absolute --quiet)/doctum.php --no-interaction update ./test/doctum-config.php -v --no-progress --no-ansi
-
-    - stage: "Other tests"
-      name: "Build release"
-      before_script: skip
-      after_script:
-        # Mark Codacy coverage final here because all steps of the previous stage did succeed
-        - bash <(curl -Ls https://coverage.codacy.com/get.sh) final
-      after_success: skip
-      install:
-        - nvm install 10
-        - source ~/virtualenv/python3.6/bin/activate
-        - pip install 'Sphinx'
-      script: ./scripts/create-release.sh --ci
 
     - stage: "Other tests"
       name: "Run selenium tests on Google Chrome"

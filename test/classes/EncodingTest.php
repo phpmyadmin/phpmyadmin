@@ -17,6 +17,8 @@ use function fwrite;
 use function mb_convert_encoding;
 use function mb_convert_kana;
 use function unlink;
+use function setlocale;
+use const LC_ALL;
 
 /**
  * Tests for Charset Conversions
@@ -87,6 +89,15 @@ class EncodingTest extends AbstractTestCase
         if (! function_exists('iconv')) {
             $this->markTestSkipped('iconv extension missing');
         }
+
+        // Set PHP native locale
+        if (function_exists('setlocale')) {
+            if (setlocale(0, 'POSIX') === false) {
+                $this->markTestSkipped('native setlocale failed');
+            }
+        }
+
+        _setlocale(LC_ALL, 'POSIX');
 
         if (PHP_INT_SIZE === 8) {
             $GLOBALS['cfg']['IconvExtraParams'] = '//TRANSLIT';
