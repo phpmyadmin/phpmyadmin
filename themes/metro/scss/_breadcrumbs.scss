@@ -14,11 +14,11 @@
 .breadcrumb-item {
   + .breadcrumb-item::before,
   &::before {
-    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-    font-family: "IcoMoon";
-    font-size: 10px;
+    width: 10px;
     color: #eee;
-    content: "";
+
+    /* The arrow "U+0203A" (SINGLE RIGHT-POINTING ANGLE QUOTATION MARK) */
+    content: "\203A";
   }
 
   + .breadcrumb-comment {

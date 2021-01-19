@@ -8,6 +8,10 @@ https://www.phpmyadmin.net/
 Code status
 -----------
 
+.. image:: https://github.com/phpmyadmin/phpmyadmin/workflows/Run%20tests/badge.svg?branch=master
+    :alt: Testsuite
+    :target: https://github.com/phpmyadmin/phpmyadmin/actions
+
 .. image:: https://travis-ci.org/phpmyadmin/phpmyadmin.svg?branch=master
     :alt: Build status
     :target: https://travis-ci.org/phpmyadmin/phpmyadmin
@@ -17,9 +21,11 @@ Code status
     :target: https://hosted.weblate.org/engage/phpmyadmin/?utm_source=widget
 
 .. image:: https://codecov.io/gh/phpmyadmin/phpmyadmin/branch/master/graph/badge.svg
+    :alt: Coverage percentage
     :target: https://codecov.io/gh/phpmyadmin/phpmyadmin
 
 .. image:: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/badges/quality-score.png
+    :alt: Code quality score
     :target: https://scrutinizer-ci.com/g/phpmyadmin/phpmyadmin/
 
 .. image:: https://bestpractices.coreinfrastructure.org/projects/213/badge

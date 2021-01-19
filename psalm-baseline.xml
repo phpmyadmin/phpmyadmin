@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.3.2@57b53ff26237074fdf5cbcb034f7da5172be4524">
+<files psalm-version="4.4.1@9fd7a7d885b3a216cff8dec9d8c21a132f275224">
   <file src="libraries/classes/Bookmark.php">
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
@@ -624,10 +624,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Database/Routines.php">
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$routine['item_returntype']</code>
-      <code>$routine['item_type_toggle']</code>
-    </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="5">
       <code>$create_routine</code>
       <code>$itemReturnType</code>
@@ -1573,12 +1569,6 @@
       <code>$cell_attrs</code>
       <code>$text</code>
     </InvalidArgument>
-    <UndefinedMethod occurrences="4">
-      <code>$attr</code>
-      <code>$attr</code>
-      <code>$tbl_attr</code>
-      <code>$tbl_attr</code>
-    </UndefinedMethod>
     <UndefinedPropertyFetch occurrences="1">
       <code>$xml-&gt;children('office', true)-&gt;{'body'}</code>
     </UndefinedPropertyFetch>
@@ -1602,22 +1592,6 @@
       <code>attributes</code>
       <code>attributes</code>
     </PossiblyNullReference>
-    <TypeDoesNotContainNull occurrences="2">
-      <code>$db_name === null</code>
-      <code>$db_name === null</code>
-    </TypeDoesNotContainNull>
-    <UndefinedMethod occurrences="10">
-      <code>$attrs</code>
-      <code>$db_attr</code>
-      <code>$db_attr</code>
-      <code>$db_attr</code>
-      <code>$db_attr</code>
-      <code>$row_attr</code>
-      <code>$row_attr</code>
-      <code>$tbl_attr</code>
-      <code>$tbl_attr</code>
-      <code>$tbl_attr</code>
-    </UndefinedMethod>
     <UndefinedPropertyFetch occurrences="1"/>
   </file>
   <file src="libraries/classes/Plugins/Import/ShapeFileImport.php">
