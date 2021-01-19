@@ -29,7 +29,7 @@ jobs:
               uses: shivammathur/setup-php@v2
               with:
                   php-version: 7.1
-                  extensions: mbstring, iconv
+                  extensions: mbstring, iconv, mysqli, zip, gd
                   tools: composer:v2
             - name: Cache module
               uses: actions/cache@v2

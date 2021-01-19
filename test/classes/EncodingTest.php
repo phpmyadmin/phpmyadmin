@@ -97,7 +97,7 @@ class EncodingTest extends AbstractTestCase
             }
         }
 
-        _setlocale(LC_ALL, 'POSIX')
+        _setlocale(LC_ALL, 'POSIX');
 
         if (PHP_INT_SIZE === 8) {
             $GLOBALS['cfg']['IconvExtraParams'] = '//TRANSLIT';
