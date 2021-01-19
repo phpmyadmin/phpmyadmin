@@ -891,42 +891,6 @@ span {
   }
 }
 
-fieldset.caution {
-  background: $browse-warning-color;
-  border: 1px solid $browse-warning-color;
-
-  legend {
-    background-color: #fff;
-  }
-
-  a {
-    font-family: $font-family-bold;
-    text-transform: uppercase;
-    color: $button-color;
-    font-weight: normal;
-  }
-
-  ul {
-    padding: 0;
-  }
-}
-
-fieldset.caution li {
-  display: block;
-}
-
-fieldset.caution li {
-  &::before {
-    background: url('../img/cancel_circle.svg');
-    color: $button-color;
-    margin-#{$right}: 10px;
-  }
-
-  a:nth-child(2) img {
-    background: url('../img/s_info.png') !important;
-  }
-}
-
 /* zoom search */
 div#dataDisplay {
   input,

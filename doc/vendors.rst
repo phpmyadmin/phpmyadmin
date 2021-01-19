@@ -37,7 +37,6 @@ Specific files LICENSES
 phpMyAdmin distributed themes contain some content that is under licenses.
 
 - `themes/*/img/b_rename.svg` Is a `Icons8 <https://thenounproject.com/Icons8/>`_, icon from the `Android L Icon Pack Collection <https://thenounproject.com/Icons8/collection/android-l-icon-pack/>`_. The icon `rename <https://thenounproject.com/term/rename/61456/>`_.
-- `themes/metro/img/cancel_circle.svg` Is a IcoMoon the `cancel-circle <https://github.com/Keyamoon/IcoMoon-Free/blob/master/SVG/270-cancel-circle.svg>`_
 - `themes/metro/img/user.svg` Is a IcoMoon the `user <https://github.com/Keyamoon/IcoMoon-Free/blob/master/SVG/114-user.svg>`_
 
 CC BY 4.0 or GPL
