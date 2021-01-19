@@ -42,7 +42,7 @@ body#loginform {
       color: $body-bg;
       background: url('../img/user.svg');/* The user avatar icon */
       content: "";
-      float: $left;
+      float: left;
       margin-right: 20px;
       margin-bottom: 10px;
       background-color: $th-color;
