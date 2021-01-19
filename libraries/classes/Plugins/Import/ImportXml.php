@@ -213,10 +213,7 @@ class ImportXml extends ImportPlugin
                      *          into another database.
                      */
                     $attrs = $val2->attributes();
-                    $create[] = 'USE '
-                        . Util::backquote(
-                            $attrs['name']
-                        );
+                    $create[] = 'USE ' . Util::backquote((string) $attrs['name']);
 
                     foreach ($val2 as $val3) {
                         /**

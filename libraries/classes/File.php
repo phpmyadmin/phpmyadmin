@@ -765,9 +765,9 @@ class File
     {
         switch ($this->compression) {
             case 'application/bzip2':
-                return bzread($this->handle, $size);
+                return (string) bzread($this->handle, $size);
             case 'application/gzip':
-                return gzread($this->handle, $size);
+                return (string) gzread($this->handle, $size);
             case 'application/zip':
                 $result = mb_strcut($this->content, $this->offset, $size);
                 $this->offset += strlen($result);
@@ -775,7 +775,7 @@ class File
                 return $result;
             case 'none':
             default:
-                return fread($this->handle, $size);
+                return (string) fread($this->handle, $size);
         }
     }
 

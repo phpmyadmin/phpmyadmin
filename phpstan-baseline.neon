@@ -641,11 +641,6 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\File\\:\\:read\\(\\) should return string but returns string\\|false\\.$#"
-			count: 3
-			path: libraries/classes/File.php
-
-		-
 			message: "#^Parameter \\#1 \\$bz of function bzread expects resource, resource\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/File.php
