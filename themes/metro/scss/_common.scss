@@ -39,15 +39,15 @@ body#loginform {
     margin-#{$right}: auto;
 
     &::before {
-      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-      font-family: 'IcoMoon';
-      font-size: 220px;
       color: $body-bg;
-      content: "a";
+      background: url('../img/user.svg');/* The user avatar icon */
+      content: "";
       float: $left;
       margin-#{$right}: 20px;
       margin-bottom: 10px;
       background-color: $th-color;
+      background-repeat: no-repeat;
+      background-size: cover;
       overflow: hidden;
       height: 240px;
       width: 240px;
@@ -519,58 +519,6 @@ div.tools {
   }
 }
 
-.chrome {
-  input[type="checkbox"] {
-    #{$left}: -9999px;
-    position: relative;
-
-    &::before {
-      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-      font-family: 'IcoMoon';
-      content: "";
-      color: $th-color;
-      cursor: default;
-      position: absolute;
-      padding: 4px;
-      top: 0;
-      #{$left}: 9995px;
-    }
-
-    &:indeterminate::before {
-      content: "";
-    }
-
-    &:checked::before {
-      content: "";
-    }
-  }
-
-  .navigation input[type="checkbox"]::before {
-    color: #fff;
-  }
-
-  input[type="radio"] {
-    #{$left}: -9999px;
-    position: relative;
-
-    &::before {
-      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-      font-family: 'IcoMoon';
-      content: "";
-      color: $th-color;
-      cursor: default;
-      position: absolute;
-      padding: 4px;
-      top: 0;
-      #{$left}: 9995px;
-    }
-
-    &:checked::before {
-      content: "";
-    }
-  }
-}
-
 .pma-table tr.noclick td:first-child::before {
   content: "";
 }
@@ -940,44 +888,6 @@ span {
 
   &.success {
     color: green;
-  }
-}
-
-fieldset.caution {
-  background: $browse-warning-color;
-  border: 1px solid $browse-warning-color;
-
-  legend {
-    background-color: #fff;
-  }
-
-  a {
-    font-family: $font-family-bold;
-    text-transform: uppercase;
-    color: $button-color;
-    font-weight: normal;
-  }
-
-  ul {
-    padding: 0;
-  }
-}
-
-fieldset.caution li {
-  display: block;
-}
-
-fieldset.caution li {
-  &::before {
-    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-    font-family: "IcoMoon";
-    content: "";
-    color: $button-color;
-    margin-#{$right}: 10px;
-  }
-
-  a:nth-child(2) img {
-    background: url('../img/s_info.png') !important;
   }
 }
 
