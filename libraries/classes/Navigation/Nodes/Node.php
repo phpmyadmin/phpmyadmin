@@ -21,6 +21,7 @@ use function in_array;
 use function is_string;
 use function preg_match;
 use function sort;
+use function sprintf;
 use function strlen;
 use function strpos;
 use function strstr;
@@ -362,20 +363,23 @@ class Node
             if (isset($GLOBALS['cfg']['Server']['DisableIS'])
                 && ! $GLOBALS['cfg']['Server']['DisableIS']
             ) {
-                $query = 'SELECT `SCHEMA_NAME` ';
-                $query .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA` ';
-                $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
-                $query .= 'ORDER BY `SCHEMA_NAME` ';
-                $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
+                $query = sprintf(
+                    'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA` %s'
+                        . 'ORDER BY `SCHEMA_NAME` LIMIT %d, %d',
+                    $this->getWhereClause('SCHEMA_NAME', $searchClause),
+                    $pos,
+                    $maxItems
+                );
 
                 return $dbi->fetchResult($query);
             }
 
             if ($GLOBALS['dbs_to_test'] === false) {
                 $retval = [];
-                $query = 'SHOW DATABASES ';
-                $query .= $this->getWhereClause('Database', $searchClause);
-                $handle = $dbi->tryQuery($query);
+                $handle = $dbi->tryQuery(sprintf(
+                    'SHOW DATABASES %s',
+                    $this->getWhereClause('Database', $searchClause)
+                ));
                 if ($handle === false) {
                     return $retval;
                 }
@@ -400,8 +404,7 @@ class Node
             $retval = [];
             $count = 0;
             foreach ($this->getDatabasesToSearch($searchClause) as $db) {
-                $query = "SHOW DATABASES LIKE '" . $db . "'";
-                $handle = $dbi->tryQuery($query);
+                $handle = $dbi->tryQuery(sprintf('SHOW DATABASES LIKE \'%s\'', $db));
                 if ($handle === false) {
                     continue;
                 }
@@ -430,34 +433,27 @@ class Node
         if (isset($GLOBALS['cfg']['Server']['DisableIS'])
             && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {
-            $query = 'SELECT `SCHEMA_NAME` ';
-            $query .= 'FROM `INFORMATION_SCHEMA`.`SCHEMATA`, ';
-            $query .= '(';
-            $query .= 'SELECT DB_first_level ';
-            $query .= 'FROM ( ';
-            $query .= 'SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, ';
-            $query .= "'" . $dbi->escapeString($dbSeparator) . "', 1) ";
-            $query .= 'DB_first_level ';
-            $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
-            $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
-            $query .= ') t ';
-            $query .= 'ORDER BY DB_first_level ASC ';
-            $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
-            $query .= ') t2 ';
-            $query .= $this->getWhereClause('SCHEMA_NAME', $searchClause);
-            $query .= 'AND 1 = LOCATE(CONCAT(DB_first_level, ';
-            $query .= "'" . $dbi->escapeString($dbSeparator) . "'), ";
-            $query .= 'CONCAT(SCHEMA_NAME, ';
-            $query .= "'" . $dbi->escapeString($dbSeparator) . "')) ";
-            $query .= 'ORDER BY SCHEMA_NAME ASC';
+            $query = sprintf(
+                'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level'
+                    . ' FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, \'%1$s\', 1) DB_first_level'
+                    . ' FROM INFORMATION_SCHEMA.SCHEMATA %2$s) t'
+                    . ' ORDER BY DB_first_level ASC LIMIT %3$d, %4$d) t2'
+                    . ' %2$sAND 1 = LOCATE(CONCAT(DB_first_level, \'%1$s\'),'
+                    . ' CONCAT(SCHEMA_NAME, \'%1$s\')) ORDER BY SCHEMA_NAME ASC',
+                $dbi->escapeString($dbSeparator),
+                $this->getWhereClause('SCHEMA_NAME', $searchClause),
+                $pos,
+                $maxItems
+            );
 
             return $dbi->fetchResult($query);
         }
 
         if ($GLOBALS['dbs_to_test'] === false) {
-            $query = 'SHOW DATABASES ';
-            $query .= $this->getWhereClause('Database', $searchClause);
-            $handle = $dbi->tryQuery($query);
+            $handle = $dbi->tryQuery(sprintf(
+                'SHOW DATABASES %s',
+                $this->getWhereClause('Database', $searchClause)
+            ));
             $prefixes = [];
             if ($handle !== false) {
                 $prefixMap = [];
@@ -475,17 +471,19 @@ class Node
                 $prefixes = array_slice(array_keys($prefixMap), (int) $pos);
             }
 
-            $query = 'SHOW DATABASES ';
-            $query .= $this->getWhereClause('Database', $searchClause);
-            $query .= 'AND (';
             $subClauses = [];
             foreach ($prefixes as $prefix) {
-                $subClauses[] = " LOCATE('"
-                    . $dbi->escapeString((string) $prefix) . $dbSeparator
-                    . "', "
-                    . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
+                $subClauses[] = sprintf(
+                    ' LOCATE(\'%1$s%2$s\', CONCAT(`Database`, \'%2$s\')) = 1 ',
+                    $dbi->escapeString((string) $prefix),
+                    $dbSeparator
+                );
             }
-            $query .= implode('OR', $subClauses) . ')';
+            $query = sprintf(
+                'SHOW DATABASES %sAND (%s)',
+                $this->getWhereClause('Database', $searchClause),
+                implode('OR', $subClauses)
+            );
 
             return $dbi->fetchResult($query);
         }
@@ -494,8 +492,7 @@ class Node
         $prefixMap = [];
         $total = $pos + $maxItems;
         foreach ($this->getDatabasesToSearch($searchClause) as $db) {
-            $query = "SHOW DATABASES LIKE '" . $db . "'";
-            $handle = $dbi->tryQuery($query);
+            $handle = $dbi->tryQuery(sprintf('SHOW DATABASES LIKE \'%s\'', $db));
             if ($handle === false) {
                 continue;
             }
@@ -517,8 +514,7 @@ class Node
         $prefixes = array_slice(array_keys($prefixMap), $pos);
 
         foreach ($this->getDatabasesToSearch($searchClause) as $db) {
-            $query = "SHOW DATABASES LIKE '" . $db . "'";
-            $handle = $dbi->tryQuery($query);
+            $handle = $dbi->tryQuery(sprintf('SHOW DATABASES LIKE \'%s\'', $db));
             if ($handle === false) {
                 continue;
             }
