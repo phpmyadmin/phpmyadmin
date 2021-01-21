@@ -75,6 +75,7 @@ phpMyAdmin - ChangeLog
 - issue #16565 Added 'IF EXISTS' to 'DROP EVENT' when updating events to avoid replication issues
 - issue        Removed metro fonts that where Apache-2.0 files that are incompatible with GPL-2.0
 - issue #16464 Made the relation view default to the current database when creating relations
+- issue #16463 Fixed 'REFERENCES' privilege checkbox's title on new MySQL versions and on MariaDB
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
