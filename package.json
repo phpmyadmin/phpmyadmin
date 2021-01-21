@@ -16,7 +16,7 @@
     "@popperjs/core": "^2.6.0",
     "blueimp-md5": "^2.18.0",
     "bootstrap": "5.0.0-beta1",
-    "codemirror": "5.59.0",
+    "codemirror": "5.59.2",
     "jquery": "3.5.1",
     "jquery-debounce-throttle": "^1.0.6-rc.0",
     "jquery-fullscreen-plugin": "^1.1.5",
