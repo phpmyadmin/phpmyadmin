@@ -12,6 +12,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
@@ -736,6 +737,8 @@ class Privileges
             'row' => $row,
             'columns' => $columns ?? [],
             'has_submit' => $submit,
+            'supports_references_privilege' => Compatibility::supportsReferencesPrivilege($this->dbi),
+            'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
     }
 

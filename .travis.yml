@@ -13,8 +13,9 @@ install:
   - composer install --no-interaction
   - yarn install --non-interactive
 
-services:
-  - mysql
+script:
+  - ./scripts/generate-mo --quiet
+  - composer run phpunit -- --exclude-group selenium
 
 cache:
   pip: true
@@ -50,16 +51,11 @@ jobs:
         - export PATH="/usr/local/opt/gettext/bin:$PATH"
         - echo "memory_limit=-1" > /usr/local/etc/php/7.4/conf.d/50-travis.ini
         - echo "pcre.jit=0" >> /usr/local/etc/php/7.4/conf.d/50-travis.ini
-        - mysql.server start
-        - sleep 5
-        # Enable password access
-        - mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('');"
       addons:
         homebrew:
           packages:
             - php
             - composer
-            - mariadb
           update: true
 
     - stage: "PHP Unit tests"
@@ -75,9 +71,8 @@ jobs:
         - yarn install --non-interactive
       before_install:
         - choco install php composer
-        - choco install mariadb --version=10.4.8
-        - export PATH=/c/tools/php80:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.4"/bin:$PATH
-        - PHP_EXTENSIONS="mysqli curl bz2 gd2 pdo_mysql"
+        - export PATH=/c/tools/php80:/c/ProgramData/ComposerSetup/bin:$PATH
+        - PHP_EXTENSIONS="mysqli curl bz2 gd2"
         - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php80/php.ini ; done
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php80/php.ini
 
