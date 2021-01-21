@@ -13,6 +13,10 @@ install:
   - composer install --no-interaction
   - yarn install --non-interactive
 
+script:
+  - ./scripts/generate-mo --quiet
+  - composer run phpunit -- --exclude-group selenium
+
 services:
   - mysql
 
