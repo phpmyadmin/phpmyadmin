@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Query;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
 use function is_string;
 use function strlen;
@@ -184,5 +185,21 @@ class Compatibility
         }
 
         return false;
+    }
+
+    public static function supportsReferencesPrivilege(DatabaseInterface $dbi): bool
+    {
+        // See: https://mariadb.com/kb/en/grant/#table-privileges
+        // Unused
+        if ($dbi->isMariaDB()) {
+            return false;
+        }
+
+        // https://dev.mysql.com/doc/refman/5.6/en/privileges-provided.html#priv_references
+        // This privilege is unused before MySQL 5.6.22.
+        // As of 5.6.22, creation of a foreign key constraint
+        // requires at least one of the SELECT, INSERT, UPDATE, DELETE,
+        // or REFERENCES privileges for the parent table.
+        return $dbi->getVersion() >= 50622;
     }
 }
