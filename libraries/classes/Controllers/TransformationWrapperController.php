@@ -24,6 +24,7 @@ use function imagesx;
 use function imagesy;
 use function in_array;
 use function intval;
+use function round;
 use function str_replace;
 use function stripos;
 use function substr;
@@ -194,11 +195,11 @@ class TransformationWrapperController extends AbstractController
             $ratioHeight = $srcHeight / $_REQUEST['newHeight'];
 
             if ($ratioWidth < $ratioHeight) {
-                $destWidth = $srcWidth / $ratioHeight;
-                $destHeight = $_REQUEST['newHeight'];
+                $destWidth = intval(round($srcWidth / $ratioHeight));
+                $destHeight = intval($_REQUEST['newHeight']);
             } else {
-                $destWidth = $_REQUEST['newWidth'];
-                $destHeight = $srcHeight / $ratioWidth;
+                $destWidth = intval($_REQUEST['newWidth']);
+                $destHeight = intval(round($srcHeight / $ratioWidth));
             }
 
             if ($_REQUEST['resize']) {
