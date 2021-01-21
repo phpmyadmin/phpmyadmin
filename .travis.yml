@@ -49,12 +49,12 @@ jobs:
       node_js: 10
       before_install:
         - export PATH="/usr/local/opt/gettext/bin:$PATH"
-        - echo "memory_limit=-1" > /usr/local/etc/php/7.4/conf.d/50-travis.ini
-        - echo "pcre.jit=0" >> /usr/local/etc/php/7.4/conf.d/50-travis.ini
+        - echo "memory_limit=-1" > /usr/local/etc/php/8.0/conf.d/50-travis.ini
+        - echo "pcre.jit=0" >> /usr/local/etc/php/8.0/conf.d/50-travis.ini
       addons:
         homebrew:
           packages:
-            - php
+            - php@8.0
             - composer
           update: true
 
