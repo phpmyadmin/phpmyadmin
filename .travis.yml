@@ -81,7 +81,7 @@ jobs:
         - choco install php composer
         - choco install mariadb --version=10.4.8
         - export PATH=/c/tools/php80:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.4"/bin:$PATH
-        - PHP_EXTENSIONS="mysqli curl bz2 gd2 pdo_mysql"
+        - PHP_EXTENSIONS="mysqli curl bz2 gd2"
         - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php80/php.ini ; done
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php80/php.ini
 
