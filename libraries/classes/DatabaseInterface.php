@@ -2407,6 +2407,8 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Server version as number
+     *
+     * @example 80011
      */
     public function getVersion(): int
     {
