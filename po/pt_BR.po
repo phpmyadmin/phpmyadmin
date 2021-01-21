@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2020-12-18 22:27+0100\n"
+"POT-Creation-Date: 2021-01-22 00:35+0100\n"
 "PO-Revision-Date: 2020-11-19 15:47+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -1397,7 +1397,7 @@ msgstr "Procurar:"
 #: templates/server/privileges/change_password.twig:70
 #: templates/server/privileges/edit_routine_privileges.twig:102
 #: templates/server/privileges/privileges_summary.twig:102
-#: templates/server/privileges/privileges_table.twig:833
+#: templates/server/privileges/privileges_table.twig:834
 #: templates/server/privileges/user_properties.twig:149
 #: templates/server/privileges/users_overview.twig:143
 #: templates/server/replication/change_master.twig:33
@@ -4210,8 +4210,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
-#: libraries/classes/Server/Privileges.php:1942
-#: libraries/classes/Server/Privileges.php:1944
+#: libraries/classes/Server/Privileges.php:1945
+#: libraries/classes/Server/Privileges.php:1947
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4252,8 +4252,8 @@ msgstr "Título da janela do navegador quando uma tabela está selecionada."
 #: libraries/classes/Config/Descriptions.php:921
 #: libraries/classes/Database/Triggers.php:397
 #: libraries/classes/Plugins/Export/ExportXml.php:521
-#: libraries/classes/Server/Privileges.php:1948
-#: libraries/classes/Server/Privileges.php:1950
+#: libraries/classes/Server/Privileges.php:1951
+#: libraries/classes/Server/Privileges.php:1953
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4268,7 +4268,7 @@ msgstr "Título da janela do navegador quando uma tabela está selecionada."
 #: templates/table/operations/index.twig:244
 #: templates/table/relation/common_form.twig:37
 #: templates/table/relation/common_form.twig:179
-#: templates/table/relation/foreign_key_row.twig:106
+#: templates/table/relation/foreign_key_row.twig:107
 msgid "Table"
 msgstr "Tabela"
 
@@ -4763,7 +4763,7 @@ msgstr "Texto OpenDocument"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 #: libraries/classes/Menu.php:309 libraries/classes/Menu.php:423
-#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1618
+#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1621
 #: libraries/classes/Util.php:2435 libraries/classes/Util.php:2450
 #: libraries/classes/Util.php:2467 templates/database/events/index.twig:58
 #: templates/database/events/index.twig:91
@@ -5107,13 +5107,13 @@ msgstr "Mostrando registros %1$s - %2$s."
 msgid "No tables found in database."
 msgstr "Nenhuma tabela encontrada no banco de dados."
 
-#: libraries/classes/Controllers/Database/ExportController.php:152
+#: libraries/classes/Controllers/Database/ExportController.php:149
 #: libraries/classes/Controllers/Server/ExportController.php:73
 #: libraries/classes/Controllers/Table/ExportController.php:116
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Não pôde carregar os plugins de exportação, verifique sua instalação!"
 
-#: libraries/classes/Controllers/Database/ExportController.php:180
+#: libraries/classes/Controllers/Database/ExportController.php:177
 #: libraries/classes/Controllers/Database/StructureController.php:1174
 #: libraries/classes/Controllers/Database/StructureController.php:1215
 #: libraries/classes/Controllers/Database/StructureController.php:1248
@@ -5765,13 +5765,13 @@ msgid "The user name is empty!"
 msgstr "O nome do usuário está em branco!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
-#: libraries/classes/Server/Privileges.php:1021
+#: libraries/classes/Server/Privileges.php:1024
 #: libraries/classes/UserPassword.php:39
 msgid "The password is empty!"
 msgstr "A senha está em branco!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
-#: libraries/classes/Server/Privileges.php:1019
+#: libraries/classes/Server/Privileges.php:1022
 #: libraries/classes/UserPassword.php:43
 msgid "The passwords aren't the same!"
 msgstr "As senhas não são iguais!"
@@ -7578,7 +7578,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Server/Privileges.php:2995
+#: libraries/classes/Server/Privileges.php:2998
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Usuário"
@@ -8900,7 +8900,7 @@ msgstr ""
 "A conexão para o controle do usuário, como definida nas configurações, "
 "falhou."
 
-#: libraries/classes/DatabaseInterface.php:2461
+#: libraries/classes/DatabaseInterface.php:2463
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Verifique %snossa documentação%s para mais informações."
@@ -8985,8 +8985,7 @@ msgstr "A rotina %1$s foi modificada."
 
 #: libraries/classes/Database/Routines.php:841
 #: libraries/classes/Database/Triggers.php:389
-#: templates/database/events/editor_form.twig:9
-#: templates/database/events/editor_form.twig:12 templates/view_create.twig:8
+#: templates/database/events/editor_form.twig:9 templates/view_create.twig:8
 msgid "Details"
 msgstr "Detalhes"
 
@@ -10221,8 +10220,8 @@ msgstr ""
 #: templates/table/relation/common_form.twig:38
 #: templates/table/relation/common_form.twig:117
 #: templates/table/relation/common_form.twig:186
-#: templates/table/relation/foreign_key_row.twig:118
-#: templates/table/relation/foreign_key_row.twig:128
+#: templates/table/relation/foreign_key_row.twig:119
+#: templates/table/relation/foreign_key_row.twig:129
 #: templates/table/search/index.twig:38
 #: templates/table/structure/display_structure.twig:418
 #: templates/table/tracking/structure_snapshot_columns.twig:6
@@ -10320,7 +10319,7 @@ msgid "Insert"
 msgstr "Inserir"
 
 #: libraries/classes/Menu.php:329 libraries/classes/Menu.php:447
-#: libraries/classes/Server/Privileges.php:2969 libraries/classes/Util.php:2453
+#: libraries/classes/Server/Privileges.php:2972 libraries/classes/Util.php:2453
 #: libraries/classes/Util.php:2469 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -12509,16 +12508,16 @@ msgstr "Faltam informações para carregar a pesquisa."
 msgid "Error while loading the search."
 msgstr "Erro ao carregar a pesquisa."
 
-#: libraries/classes/Server/Privileges.php:243
+#: libraries/classes/Server/Privileges.php:244
 msgid "No privileges."
 msgstr "Sem privilégios."
 
-#: libraries/classes/Server/Privileges.php:253
+#: libraries/classes/Server/Privileges.php:254
 msgid "Includes all privileges except GRANT."
 msgstr "Incluir todos os privilégios exceto o GRANT."
 
-#: libraries/classes/Server/Privileges.php:275
-#: libraries/classes/Server/Privileges.php:342
+#: libraries/classes/Server/Privileges.php:276
+#: libraries/classes/Server/Privileges.php:343
 #: templates/server/privileges/privileges_table.twig:100
 #: templates/server/privileges/privileges_table.twig:103
 #: templates/server/privileges/privileges_table.twig:299
@@ -12526,7 +12525,7 @@ msgstr "Incluir todos os privilégios exceto o GRANT."
 msgid "Allows deleting data."
 msgstr "Permitir apagar dados."
 
-#: libraries/classes/Server/Privileges.php:280
+#: libraries/classes/Server/Privileges.php:281
 #: templates/server/privileges/privileges_table.twig:112
 #: templates/server/privileges/privileges_table.twig:115
 #: templates/server/privileges/privileges_table.twig:337
@@ -12534,7 +12533,7 @@ msgstr "Permitir apagar dados."
 msgid "Allows creating new tables."
 msgstr "Permitir criar novas tabelas."
 
-#: libraries/classes/Server/Privileges.php:285
+#: libraries/classes/Server/Privileges.php:286
 #: templates/server/privileges/privileges_table.twig:124
 #: templates/server/privileges/privileges_table.twig:127
 #: templates/server/privileges/privileges_table.twig:385
@@ -12542,8 +12541,8 @@ msgstr "Permitir criar novas tabelas."
 msgid "Allows dropping tables."
 msgstr "Permitir eliminar tabelas."
 
-#: libraries/classes/Server/Privileges.php:290
-#: libraries/classes/Server/Privileges.php:382
+#: libraries/classes/Server/Privileges.php:291
+#: libraries/classes/Server/Privileges.php:383
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:369
@@ -12551,8 +12550,8 @@ msgstr "Permitir eliminar tabelas."
 msgid "Allows creating and dropping indexes."
 msgstr "Permitir criar e eliminar índices."
 
-#: libraries/classes/Server/Privileges.php:295
-#: libraries/classes/Server/Privileges.php:387
+#: libraries/classes/Server/Privileges.php:296
+#: libraries/classes/Server/Privileges.php:388
 #: templates/server/privileges/privileges_table.twig:161
 #: templates/server/privileges/privileges_table.twig:164
 #: templates/server/privileges/privileges_table.twig:356
@@ -12560,9 +12559,9 @@ msgstr "Permitir criar e eliminar índices."
 msgid "Allows altering the structure of existing tables."
 msgstr "Permitir alterar a estrutura das tabelas existentes."
 
-#: libraries/classes/Server/Privileges.php:300
-#: libraries/classes/Server/Privileges.php:426
-#: libraries/classes/Server/Privileges.php:442
+#: libraries/classes/Server/Privileges.php:301
+#: libraries/classes/Server/Privileges.php:427
+#: libraries/classes/Server/Privileges.php:443
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:470
@@ -12572,9 +12571,9 @@ msgstr "Permitir alterar a estrutura das tabelas existentes."
 msgid "Allows creating new views."
 msgstr "Permitir criar novas views."
 
-#: libraries/classes/Server/Privileges.php:305
-#: libraries/classes/Server/Privileges.php:447
-#: libraries/classes/Server/Privileges.php:453
+#: libraries/classes/Server/Privileges.php:306
+#: libraries/classes/Server/Privileges.php:448
+#: libraries/classes/Server/Privileges.php:454
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:417
@@ -12582,8 +12581,8 @@ msgstr "Permitir criar novas views."
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Permitir executar consultas SHOW CREATE VIEW."
 
-#: libraries/classes/Server/Privileges.php:310
-#: libraries/classes/Server/Privileges.php:436
+#: libraries/classes/Server/Privileges.php:311
+#: libraries/classes/Server/Privileges.php:437
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:513
@@ -12591,78 +12590,77 @@ msgstr "Permitir executar consultas SHOW CREATE VIEW."
 msgid "Allows creating and dropping triggers."
 msgstr "Permitir criar e apagar gatilhos."
 
-#: libraries/classes/Server/Privileges.php:327
+#: libraries/classes/Server/Privileges.php:328
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/privileges_table.twig:263
 msgid "Allows reading data."
 msgstr "Permitir leitura de dados."
 
-#: libraries/classes/Server/Privileges.php:332
+#: libraries/classes/Server/Privileges.php:333
 #: templates/server/privileges/privileges_table.twig:36
 #: templates/server/privileges/privileges_table.twig:273
 #: templates/server/privileges/privileges_table.twig:276
 msgid "Allows inserting and replacing data."
 msgstr "Permitir inserir e substituir dados."
 
-#: libraries/classes/Server/Privileges.php:337
+#: libraries/classes/Server/Privileges.php:338
 #: templates/server/privileges/privileges_table.twig:57
 #: templates/server/privileges/privileges_table.twig:286
 #: templates/server/privileges/privileges_table.twig:289
 msgid "Allows changing data."
 msgstr "Permitir modificar dados."
 
-#: libraries/classes/Server/Privileges.php:347
+#: libraries/classes/Server/Privileges.php:348
 #: templates/server/privileges/privileges_table.twig:335
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows creating new databases and tables."
 msgstr "Permitir criar novos bancos de dados e tabelas."
 
-#: libraries/classes/Server/Privileges.php:352
+#: libraries/classes/Server/Privileges.php:353
 #: templates/server/privileges/privileges_table.twig:383
 #: templates/server/privileges/privileges_table.twig:391
 msgid "Allows dropping databases and tables."
 msgstr "Permitir eliminar bancos de dados e tabelas."
 
-#: libraries/classes/Server/Privileges.php:357
+#: libraries/classes/Server/Privileges.php:358
 #: templates/server/privileges/privileges_table.twig:575
 #: templates/server/privileges/privileges_table.twig:578
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Permitir recarregar configurações do servidor e limpar o cache do servidor."
 
-#: libraries/classes/Server/Privileges.php:362
+#: libraries/classes/Server/Privileges.php:363
 #: templates/server/privileges/privileges_table.twig:588
 #: templates/server/privileges/privileges_table.twig:591
 msgid "Allows shutting down the server."
 msgstr "Permitir desligar o servidor."
 
-#: libraries/classes/Server/Privileges.php:367
+#: libraries/classes/Server/Privileges.php:368
 #: templates/server/privileges/privileges_table.twig:562
 #: templates/server/privileges/privileges_table.twig:565
 msgid "Allows viewing processes of all users."
 msgstr "Permitir visualizar processos de todos os usuários."
 
-#: libraries/classes/Server/Privileges.php:372
+#: libraries/classes/Server/Privileges.php:373
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows importing data from and exporting data into files."
 msgstr "Permitir importar dados e exportar dados em arquivos."
 
-#: libraries/classes/Server/Privileges.php:377
+#: libraries/classes/Server/Privileges.php:378
 #: templates/server/privileges/privileges_table.twig:78
 #: templates/server/privileges/privileges_table.twig:642
-#: templates/server/privileges/privileges_table.twig:645
 msgid "Has no effect in this MySQL version."
 msgstr "Não tem nenhum efeito nessa versão do MySQL."
 
-#: libraries/classes/Server/Privileges.php:392
+#: libraries/classes/Server/Privileges.php:393
 #: templates/server/privileges/privileges_table.twig:601
 #: templates/server/privileges/privileges_table.twig:604
 msgid "Gives access to the complete list of databases."
 msgstr "Dá acesso à lista completa de bancos de dados."
 
-#: libraries/classes/Server/Privileges.php:398
+#: libraries/classes/Server/Privileges.php:399
 #: templates/server/privileges/privileges_table.twig:548
 #: templates/server/privileges/privileges_table.twig:552
 msgid ""
@@ -12674,95 +12672,95 @@ msgstr ""
 "necessário para a maioria das operações administrativas, como definir "
 "variáveis globais e matar processos de outros usuários."
 
-#: libraries/classes/Server/Privileges.php:406
+#: libraries/classes/Server/Privileges.php:407
 #: templates/server/privileges/privileges_table.twig:404
 #: templates/server/privileges/privileges_table.twig:407
 msgid "Allows creating temporary tables."
 msgstr "Permitir criar tabelas temporárias."
 
-#: libraries/classes/Server/Privileges.php:411
+#: libraries/classes/Server/Privileges.php:412
 #: templates/server/privileges/privileges_table.twig:629
 #: templates/server/privileges/privileges_table.twig:632
 msgid "Allows locking tables for the current thread."
 msgstr "Permitir bloquear tabelas para a processo atual."
 
-#: libraries/classes/Server/Privileges.php:416
-#: templates/server/privileges/privileges_table.twig:669
-#: templates/server/privileges/privileges_table.twig:672
+#: libraries/classes/Server/Privileges.php:417
+#: templates/server/privileges/privileges_table.twig:670
+#: templates/server/privileges/privileges_table.twig:673
 msgid "Needed for the replication slaves."
 msgstr "Necessário para a replicação dos slaves."
 
-#: libraries/classes/Server/Privileges.php:421
-#: templates/server/privileges/privileges_table.twig:656
-#: templates/server/privileges/privileges_table.twig:659
+#: libraries/classes/Server/Privileges.php:422
+#: templates/server/privileges/privileges_table.twig:657
+#: templates/server/privileges/privileges_table.twig:660
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Permitir que o usuário pergunte onde estão os escravos / mestres."
 
-#: libraries/classes/Server/Privileges.php:431
+#: libraries/classes/Server/Privileges.php:432
 #: templates/server/privileges/privileges_table.twig:500
 #: templates/server/privileges/privileges_table.twig:503
 msgid "Allows to set up events for the event scheduler."
 msgstr "Permitir definir eventos no agendador de eventos."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:460
-#: libraries/classes/Server/Privileges.php:467
+#: libraries/classes/Server/Privileges.php:461
+#: libraries/classes/Server/Privileges.php:468
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 msgid "Allows deleting historical rows."
 msgstr "Permite apagar linhas históricas."
 
-#: libraries/classes/Server/Privileges.php:472
+#: libraries/classes/Server/Privileges.php:473
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
 msgstr "Permitir criar rotinas armazenadas."
 
-#: libraries/classes/Server/Privileges.php:477
+#: libraries/classes/Server/Privileges.php:478
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
 msgstr "Permitir alterar e apagar rotinas armazenadas."
 
-#: libraries/classes/Server/Privileges.php:482
-#: templates/server/privileges/privileges_table.twig:682
-#: templates/server/privileges/privileges_table.twig:685
+#: libraries/classes/Server/Privileges.php:483
+#: templates/server/privileges/privileges_table.twig:683
+#: templates/server/privileges/privileges_table.twig:686
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Permitir criar, apagar e renomear contas dos usuários."
 
-#: libraries/classes/Server/Privileges.php:487
+#: libraries/classes/Server/Privileges.php:488
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
 msgstr "Permitir executar rotinas armazenadas."
 
-#: libraries/classes/Server/Privileges.php:790
-#: libraries/classes/Server/Privileges.php:864
-#: libraries/classes/Server/Privileges.php:3962
+#: libraries/classes/Server/Privileges.php:793
+#: libraries/classes/Server/Privileges.php:867
+#: libraries/classes/Server/Privileges.php:3965
 msgid "Native MySQL authentication"
 msgstr "Autenticação nativa do MySQL"
 
-#: libraries/classes/Server/Privileges.php:792
+#: libraries/classes/Server/Privileges.php:795
 msgid "SHA256 password authentication"
 msgstr "Autenticação com senha SHA256"
 
-#: libraries/classes/Server/Privileges.php:1160
+#: libraries/classes/Server/Privileges.php:1163
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "A senha para %s foi modificada com sucesso."
 
-#: libraries/classes/Server/Privileges.php:1209
+#: libraries/classes/Server/Privileges.php:1212
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Você revogou os privilégios para %s."
 
-#: libraries/classes/Server/Privileges.php:1545
+#: libraries/classes/Server/Privileges.php:1548
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Privilégio insuficiente para exibir o(s) usuário(s)."
 
-#: libraries/classes/Server/Privileges.php:1612
+#: libraries/classes/Server/Privileges.php:1615
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -12770,78 +12768,78 @@ msgstr "Privilégio insuficiente para exibir o(s) usuário(s)."
 msgid "Edit privileges"
 msgstr "Editar privilégios"
 
-#: libraries/classes/Server/Privileges.php:1615
+#: libraries/classes/Server/Privileges.php:1618
 msgid "Revoke"
 msgstr "Revogar"
 
-#: libraries/classes/Server/Privileges.php:1943
+#: libraries/classes/Server/Privileges.php:1946
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Privilégios específicos de banco de dados"
 
-#: libraries/classes/Server/Privileges.php:1949
+#: libraries/classes/Server/Privileges.php:1952
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Privilégios específicos de tabela"
 
-#: libraries/classes/Server/Privileges.php:1954
-#: libraries/classes/Server/Privileges.php:1956
+#: libraries/classes/Server/Privileges.php:1957
+#: libraries/classes/Server/Privileges.php:1959
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "Rotinas"
 
-#: libraries/classes/Server/Privileges.php:1955
+#: libraries/classes/Server/Privileges.php:1958
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Privilégios específicos de rotina"
 
-#: libraries/classes/Server/Privileges.php:2303
+#: libraries/classes/Server/Privileges.php:2306
 msgid "No users selected for deleting!"
 msgstr "Nenhum usuário selecionado para exclusão!"
 
-#: libraries/classes/Server/Privileges.php:2306
+#: libraries/classes/Server/Privileges.php:2309
 msgid "Reloading the privileges"
 msgstr "Recarregando os privilégios"
 
-#: libraries/classes/Server/Privileges.php:2329
+#: libraries/classes/Server/Privileges.php:2332
 msgid "The selected users have been deleted successfully."
 msgstr "Os usuários selecionados foram apagados com sucesso."
 
-#: libraries/classes/Server/Privileges.php:2406
+#: libraries/classes/Server/Privileges.php:2409
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Você mudou os privilégios para %s."
 
-#: libraries/classes/Server/Privileges.php:2493
+#: libraries/classes/Server/Privileges.php:2496
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Nenhum usuário encontrado."
 
-#: libraries/classes/Server/Privileges.php:2573
+#: libraries/classes/Server/Privileges.php:2576
 #, php-format
 msgid "Deleting %s"
 msgstr "Eliminando %s"
 
-#: libraries/classes/Server/Privileges.php:2604
+#: libraries/classes/Server/Privileges.php:2607
 msgid "The privileges were reloaded successfully."
 msgstr "Os privilégios foram recarregados com sucesso."
 
-#: libraries/classes/Server/Privileges.php:2702
+#: libraries/classes/Server/Privileges.php:2705
 #, php-format
 msgid "The user %s already exists!"
 msgstr "O usuário %s já existe!"
 
-#: libraries/classes/Server/Privileges.php:2986
+#: libraries/classes/Server/Privileges.php:2989
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilégios para %s"
 
-#: libraries/classes/Server/Privileges.php:3125
+#: libraries/classes/Server/Privileges.php:3128
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12851,7 +12849,7 @@ msgstr ""
 "conecte. Isso impedirá que outros usuários se conectem se a parte do host "
 "dessas contas permitir uma conexão de qualquer host (%)."
 
-#: libraries/classes/Server/Privileges.php:3168
+#: libraries/classes/Server/Privileges.php:3171
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12864,7 +12862,7 @@ msgstr ""
 "privilégios que o servidor usa, se eles foram modificados manualmente. Neste "
 "caso, você deve %srecarregar os privilégios%s antes de continuar."
 
-#: libraries/classes/Server/Privileges.php:3184
+#: libraries/classes/Server/Privileges.php:3187
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12878,7 +12876,7 @@ msgstr ""
 "caso, os privilégios devem ser recarregados, mas atualmente você não tem o "
 "privilégio RELOAD."
 
-#: libraries/classes/Server/Privileges.php:3520
+#: libraries/classes/Server/Privileges.php:3523
 msgid "You have added a new user."
 msgstr "Você adicionou um novo usuário."
 
@@ -14670,6 +14668,10 @@ msgstr "Selecionar página"
 #: templates/database/designer/schema_export.twig:4
 msgid "Select Export Relational Type"
 msgstr "Selecione o tipo de exportação relacional"
+
+#: templates/database/events/editor_form.twig:12
+msgid "Event name"
+msgstr "Nome do evento"
 
 #: templates/database/events/editor_form.twig:28
 #: templates/server/binlog/index.twig:86
@@ -16989,22 +16991,38 @@ msgstr ""
 "Permitir adicionar usuários e privilégios sem recarregar a tabela de "
 "privilégios."
 
-#: templates/server/privileges/privileges_table.twig:696
+#: templates/server/privileges/privileges_table.twig:646
+#, fuzzy
+#| msgid "Allows creating stored routines."
+msgid "Allows creating foreign key relations."
+msgstr "Permitir criar rotinas armazenadas."
+
+#: templates/server/privileges/privileges_table.twig:646
+msgid "Not used on MariaDB."
+msgstr ""
+
+#: templates/server/privileges/privileges_table.twig:646
+#, fuzzy
+#| msgid "Has no effect in this MySQL version."
+msgid "Not used for this MySQL version."
+msgstr "Não tem nenhum efeito nessa versão do MySQL."
+
+#: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
 msgstr "Limites de recursos"
 
-#: templates/server/privileges/privileges_table.twig:698
+#: templates/server/privileges/privileges_table.twig:699
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr "Nota: Ajustar essa opção para 0 (zero) remove os limites."
 
-#: templates/server/privileges/privileges_table.twig:704
-#: templates/server/privileges/privileges_table.twig:711
+#: templates/server/privileges/privileges_table.twig:705
+#: templates/server/privileges/privileges_table.twig:712
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Limitar o número de consultas que podem ser enviadas ao servidor por hora."
 
-#: templates/server/privileges/privileges_table.twig:717
-#: templates/server/privileges/privileges_table.twig:724
+#: templates/server/privileges/privileges_table.twig:718
+#: templates/server/privileges/privileges_table.twig:725
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -17012,39 +17030,39 @@ msgstr ""
 "Limitar o número de comandos que alteram tabelas ou bancos de dados que o "
 "usuário pode executar por hora."
 
-#: templates/server/privileges/privileges_table.twig:730
-#: templates/server/privileges/privileges_table.twig:737
+#: templates/server/privileges/privileges_table.twig:731
+#: templates/server/privileges/privileges_table.twig:738
 msgid "Limits the number of new connections the user may open per hour."
 msgstr "Limitar o numero de novas conexões que o usuário pode abrir por hora."
 
-#: templates/server/privileges/privileges_table.twig:743
-#: templates/server/privileges/privileges_table.twig:750
+#: templates/server/privileges/privileges_table.twig:744
+#: templates/server/privileges/privileges_table.twig:751
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Limitar o número de conexões simultâneas que o usuário pode ter."
 
-#: templates/server/privileges/privileges_table.twig:759
+#: templates/server/privileges/privileges_table.twig:760
 msgid "Does not require SSL-encrypted connections."
 msgstr "Não requer conexões criptografadas com SSL."
 
-#: templates/server/privileges/privileges_table.twig:768
+#: templates/server/privileges/privileges_table.twig:769
 msgid "Requires SSL-encrypted connections."
 msgstr "Requer conexões criptografadas SSL."
 
-#: templates/server/privileges/privileges_table.twig:777
+#: templates/server/privileges/privileges_table.twig:778
 msgid "Requires a valid X509 certificate."
 msgstr "Requer um certificado X509 válido."
 
-#: templates/server/privileges/privileges_table.twig:798
+#: templates/server/privileges/privileges_table.twig:799
 msgid "Requires that a specific cipher method be used for a connection."
 msgstr ""
 "Requer que um método de criptografia específico seja usado para uma conexão."
 
-#: templates/server/privileges/privileges_table.twig:807
+#: templates/server/privileges/privileges_table.twig:808
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
 "Requer que um certificado X509 válido emitido por esta AC seja apresentado."
 
-#: templates/server/privileges/privileges_table.twig:816
+#: templates/server/privileges/privileges_table.twig:817
 msgid "Requires that a valid X509 certificate with this subject be presented."
 msgstr ""
 "Requer que um certificado X509 válido com este assunto seja apresentado."
@@ -18714,9 +18732,6 @@ msgstr "Indo para o site alvo."
 
 #~ msgid "No activity within %s seconds; please log in again."
 #~ msgstr "Sem atividade por %s segundos ou mais, faça o login novamente."
-
-#~ msgid "Event name"
-#~ msgstr "Nome do evento"
 
 #~ msgid "You do not have the necessary privileges to create a routine."
 #~ msgstr "Você não possui privilégios suficientes para criar uma nova rotina."
