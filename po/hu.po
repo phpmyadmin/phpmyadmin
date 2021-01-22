@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2021-01-22 02:40+0000\n"
+"PO-Revision-Date: 2021-01-22 03:16+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "hu/>\n"
@@ -7224,19 +7224,14 @@ msgid "Click to sort results by this column."
 msgstr "Kattintson az eredmények rendezéséhez ezen oszlop szerint."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:563
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "ORDER BY kikötés hozzáadása ehhez az oszlophoz Shift+kattintással, vagy ASC/"
-"DESC váltogatása.<br />- Oszlop eltávolítása az ORDER BY kikötésből Ctrl"
-"+kattintás vagy Alt+kattintás (Mac: Shift+Option+kattintás) használatával"
+"DESC váltogatása.<br>- Oszlop eltávolítása az ORDER BY kikötésből Ctrl+"
+"kattintás vagy Alt+kattintás (Mac: Shift+Option+kattintás) használatával"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:567
 msgid "Click to mark/unmark."
@@ -7247,12 +7242,9 @@ msgid "Double-click to copy column name."
 msgstr "Az oszlopnév másolásához kattintson duplán."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:570
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
-"Kattintson a legördülő nyílra<br />az oszlop láthatóságának ki/"
-"bekapcsolásához."
+"Kattintson a legördülő nyílra<br>az oszlop láthatóságának ki/bekapcsolásához."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid ""
@@ -7316,17 +7308,12 @@ msgid "Print"
 msgstr "Nyomtatás"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:599
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
-msgstr "Az elemek nagy része szerkeszthetővé válik<br />dupla kattintással."
+msgstr "Az elemek nagy része szerkeszthetővé válik<br>dupla kattintással."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr "Az elem szerkeszthetővé <br />válik kattintással."
+msgstr "Az elem szerkeszthetővé <br>válik kattintással."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:604
 msgid "Go to link:"
@@ -10270,10 +10257,8 @@ msgid "Binary"
 msgstr "Bináris"
 
 #: libraries/classes/InsertEdit.php:792
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "A hossza miatt ez az<br /> oszlop talán nem szerkeszthető."
+msgstr "A hossza miatt ez az<br> oszlop talán nem szerkeszthető."
 
 #: libraries/classes/InsertEdit.php:1414
 msgid "Binary - do not edit"
@@ -11002,12 +10987,6 @@ msgid "Find transitive dependencies"
 msgstr "Tranzitív függőségek keresése"
 
 #: libraries/classes/Normalization.php:866
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -11016,8 +10995,8 @@ msgid ""
 msgstr ""
 "Minden lenti oszlopnál válassza ki az oszlopok <b>legkisebb halmazát</b> a "
 "megadott halmaz közül, amelyek értékei egymással összekapcsolva elegendőek "
-"az oszlop értékének meghatározásához.<br />Megjegyzés: egy oszlopnak nem "
-"lehet tranzitív függősége, ebben az esetben nem kell kiválasztania semmit."
+"az oszlop értékének meghatározásához.<br>Megjegyzés: egy oszlopnak nem lehet "
+"tranzitív függősége, ebben az esetben nem kell kiválasztania semmit."
 
 #: libraries/classes/Normalization.php:919
 msgid ""
@@ -11660,58 +11639,40 @@ msgid "Syntax to use when inserting data:"
 msgstr "Adatbeszúrás során használandó szintaxis:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:465
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"tartalmazza az oszlopneveket minden <code>INSERT</code> utasítás <br /> "
-"&nbsp; &nbsp; &nbsp; Példa: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-"VALUES (1,2,3)</code>"
+"tartalmazza az oszlopneveket minden <code>INSERT</code> utasítás <br> &nbsp; "
+"&nbsp; &nbsp; Példa: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:470
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"több sor beszúrása minden <code>INSERT</code> utasításba<br /> &nbsp; &nbsp; "
-"&nbsp; Példa: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</"
-"code>"
+"több sor beszúrása minden <code>INSERT</code> utasításba<br> &nbsp; &nbsp; "
+"&nbsp; Példa: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:475
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"mindkettő a fentiek közül<br /> &nbsp; &nbsp; &nbsp; Példa:<code>INSERT INTO "
+"mindkettő a fentiek közül<br> &nbsp; &nbsp; &nbsp; Példa:<code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:480
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"egyik sem a fentiek közül<br /> &nbsp; &nbsp; &nbsp; Példa: <code>INSERT "
-"INTO tbl_name VALUES (1,2,3)</code>"
+"egyik sem a fentiek közül<br> &nbsp; &nbsp; &nbsp; Példa: <code>INSERT INTO "
+"tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:499
 msgid ""
@@ -11932,10 +11893,9 @@ msgid "MediaWiki Table"
 msgstr "MediaWiki tábla"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:291
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Érvénytelen mediawiki bemeneti formátum ebben a sorban:<br />%s."
+msgstr "Érvénytelen mediawiki bemeneti formátum ebben a sorban:<br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:83
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -14379,12 +14339,6 @@ msgstr "Böngésző megjelenítés átalakítási beállítások"
 
 #: templates/columns_definitions/table_fields_definitions.twig:82
 #: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -14392,7 +14346,7 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Írja be az átalakítási beállítások értékeit a következő formátumban: 'a', "
-"100, b,'c'…<br />Ha fordított perjelet („\\”) vagy aposztrófot („'”) akar "
+"100, b,'c'…<br>Ha fordított perjelet („\\”) vagy aposztrófot („'”) akar "
 "beszúrni az értékekbe, akkor kezdje fordított perjellel (például: '\\\\xyz' "
 "vagy 'a\\'b')."
 
