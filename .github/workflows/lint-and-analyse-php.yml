@@ -11,6 +11,7 @@ on:
 jobs:
     lint-node:
         runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v1
@@ -35,6 +36,7 @@ jobs:
 
     lint-php-files:
         runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
         steps:
             - uses: actions/checkout@v2
             - name: Lint PHP files
@@ -68,6 +70,7 @@ jobs:
 
     analyse-php:
         runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
         steps:
             - uses: actions/checkout@v2
             - name: Use php 7.2
