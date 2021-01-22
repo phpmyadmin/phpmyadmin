@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 00:42+0100\n"
-"PO-Revision-Date: 2021-01-22 01:10+0000\n"
+"PO-Revision-Date: 2021-01-22 01:27+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
@@ -7131,8 +7131,8 @@ msgid ""
 "from ORDER BY clause"
 msgstr ""
 "Skrót klawiszowy Shift+Kliknięcie dodaje tę kolumnę do przypadku ORDER BY "
-"lub przełącza ASC/DESC. <br/> Skrót klawiaturowy CTRL+Kliknięcie lub Alt"
-"+Kliknięcie (Mac: Shift+Opcja+Kliknięcie) usuwa te kolumnę z przypadku ORDER "
+"lub przełącza ASC/DESC. <br> Skrót klawiaturowy CTRL+Kliknięcie lub Alt+"
+"Kliknięcie (Mac: Shift+Opcja+Kliknięcie) usuwa te kolumnę z przypadku ORDER "
 "BY"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:561
@@ -7145,7 +7145,7 @@ msgstr "Kliknij dwukrotnie, aby skopiować nazwę kolumny."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:564
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Kliknij rozwijane strzałki, <br/> aby przełączyć widoczność kolumn."
+msgstr "Kliknij rozwijane strzałki, <br> aby przełączyć widoczność kolumn."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid ""
@@ -7210,7 +7210,7 @@ msgstr "Drukuj"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:593
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Można również edytować większość wartości <br/> klikając dwukrotnie "
+"Można również edytować większość wartości <br> klikając dwukrotnie "
 "bezpośrednio na nich."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
