@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-01-22 01:28+0000\n"
+"PO-Revision-Date: 2021-01-22 17:27+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "ro/>\n"
@@ -1980,19 +1980,14 @@ msgid "Click to sort results by this column."
 msgstr "Dă clic pentru a sorta rezultatele după această coloană."
 
 #: js/messages.php:603
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "Shift+Clic pentru a adăuga această coloană la ORDONEAZĂ DUPĂ sau pentru a "
-"comuta ASC/DESC.<br />- Ctrl+Clic sau Alt+Clic (Mac: Shift+Option+Clic) "
-"pentru a înlătura coloana din ORDONEAZĂ DUPĂ"
+"comuta ASC/DESC.<br>- Ctrl+Clic sau Alt+Clic (Mac: Shift+Option+Clic) pentru "
+"a înlătura coloana din ORDONEAZĂ DUPĂ"
 
 #: js/messages.php:607
 msgid "Click to mark/unmark."
@@ -2003,10 +1998,8 @@ msgid "Double-click to copy column name."
 msgstr "Dă dublu clic pentru a copia numele coloanei."
 
 #: js/messages.php:610
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Dă clic pe săgeată jos<br />pentru a comuta vizibilitatea coloanei."
+msgstr "Dă clic pe săgeată jos<br>pentru a comuta vizibilitatea coloanei."
 
 #: js/messages.php:612 libraries/classes/BrowseForeigners.php:355
 #: templates/display/results/table_navigation.twig:19
@@ -8628,11 +8621,9 @@ msgid "Binary"
 msgstr "Binar"
 
 #: libraries/classes/InsertEdit.php:760
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
 msgstr ""
-"Datorită lungimii sale,<br /> probabil această coloană nu poată fi editată."
+"Datorită lungimii sale,<br> probabil această coloană nu poată fi editată."
 
 #: libraries/classes/InsertEdit.php:1378
 msgid "Binary - do not edit"
@@ -9386,12 +9377,6 @@ msgid "Find transitive dependencies"
 msgstr "Găsește dependențe tranzitive"
 
 #: libraries/classes/Normalization.php:837
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -9400,7 +9385,7 @@ msgid ""
 msgstr ""
 "Pentru fiecare coloană de mai jos, te rog selectează <b>setul minim</b> de "
 "coloanele din setul dat ale cărui valori combinate sunt suficiente pentru a "
-"determina valoarea coloanei.<br />Notă: o coloană poate să nu aibă nicio "
+"determina valoarea coloanei.<br>Notă: o coloană poate să nu aibă nicio "
 "dependență tranzitivă, în acest caz nu trebuie să selectezi niciuna."
 
 #: libraries/classes/Normalization.php:886
@@ -10189,57 +10174,39 @@ msgid "Syntax to use when inserting data:"
 msgstr "Sintaxă de folosit când se inserează date:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"include numele coloanelor în fiecare declarație <code>INSEREAZĂ</code><br /"
-">&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN tbl_name (col_A,col_B,"
-"col_C) VALORILE (1,2,3)</code>"
+"include numele coloanelor în fiecare declarație "
+"<code>INSEREAZĂ</code><br>&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN "
+"tbl_name (col_A,col_B,col_C) VALORILE (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"inserează mai multe rînduri în fiecare declarație <code>INSEREAZĂ</code><br /"
-">&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN tbl_name (col_A,col_B,"
-"col_C) VALORILE (1,2,3), (4,5,6), (7,8,9)</code>"
+"inserează mai multe rînduri în fiecare declarație "
+"<code>INSEREAZĂ</code><br>&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN "
+"tbl_name (col_A,col_B,col_C) VALORILE (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:443
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"ambele de mai sus<br />&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN "
+"ambele de mai sus<br>&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN "
 "tbl_name (col_A,col_B,col_C) VALORILE (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"niciuna de mai sus<br />&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN "
+"niciuna de mai sus<br>&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN "
 "tbl_name VALORILE (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:467
@@ -10457,10 +10424,9 @@ msgid "MediaWiki Table"
 msgstr "Tabel MediaWiki"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Format invalid pentru intrarea mediawiki pe linia: <br />%s."
+msgstr "Format invalid pentru intrarea mediawiki pe linia: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
