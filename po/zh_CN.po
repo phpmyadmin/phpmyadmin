@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2021-01-22 02:40+0000\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-1/zh_Hans/>\n"
@@ -271,9 +271,8 @@ msgid ""
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
-"您正在一台具有相当高流量的数据库中使用 MySQL 查询缓存。除非您有多台从服务器，"
-"使用 <a href=\"https://dev.mysql.com/doc/refman/5.5/en/ha-memcached.html"
-"\">memcached</a> 代替 MySQL 查询缓存将更好。"
+"您正在一台具有相当高流量的数据库中使用 MySQL 查询缓存。除非您有多台从服务器，使用 <a href=\"https://dev.mysql.com/"
+"doc/refman/5.6/en/ha-memcached.html\">memcached</a> 代替 MySQL 查询缓存将更好。"
 
 #: libraries/advisory_rules_generic.php:198
 #, php-format
@@ -2897,14 +2896,10 @@ msgid "Logo link URL"
 msgstr "徽标链接地址"
 
 #: libraries/classes/Config/Descriptions.php:531
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
-msgstr "在主窗口（[kbd]main[/kbd]）或新窗口（[kbd]new[/kbd]）打开目标页面。"
+msgstr "在主窗口（[code]main[/code]）或新窗口（[code]new[/code]）打开目标页面。"
 
 #: libraries/classes/Config/Descriptions.php:534
 msgid "Logo link target"
