@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2017-08-22 09:47+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Punjabi <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pa/>\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Language-Team: Punjabi <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
+"pa/>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -429,7 +429,6 @@ msgstr "ਬਿੰਦੂ:"
 
 #: gis_data_editor.php:222 gis_data_editor.php:249 gis_data_editor.php:305
 #: gis_data_editor.php:378 js/messages.php:521
-#, fuzzy
 msgid "X"
 msgstr "X"
 
