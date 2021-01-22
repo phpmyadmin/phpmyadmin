@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 00:42+0100\n"
-"PO-Revision-Date: 2018-05-10 20:57+0000\n"
-"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
+"PO-Revision-Date: 2021-01-22 01:10+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "sk/>\n"
 "Language: sk\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -15091,15 +15091,11 @@ msgid "Are you sure?"
 msgstr "Ste si istí?"
 
 #: templates/database/structure/check_all_tables.twig:69
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.[br]Are you sure you "
 "want to continue?"
 msgstr ""
-"Táto akcia môže zmeniť niektoré definície stĺpcov. <br/>Naozaj chcete "
+"Táto akcia môže zmeniť niektoré definície stĺpcov.[br]Naozaj chcete "
 "pokračovať?"
 
 #: templates/database/structure/copy_form.twig:14
