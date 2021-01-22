@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 01:10+0000\n"
+"PO-Revision-Date: 2021-01-22 03:16+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/az/>\n"
@@ -9591,10 +9591,8 @@ msgid "Binary"
 msgstr ""
 
 #: libraries/classes/InsertEdit.php:792
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Uzun olduğuna görə,<br /> bu sütun redaktə edilməyə bilər."
+msgstr "Uzun olduğuna görə,<br> bu sütun redaktə edilməyə bilər."
 
 #: libraries/classes/InsertEdit.php:1414
 msgid "Binary - do not edit"
