@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2019-04-27 17:19+0000\n"
+"PO-Revision-Date: 2021-01-22 03:16+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hy/>\n"
+"Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
+"hy/>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6785,10 +6785,8 @@ msgid "Double-click to copy column name."
 msgstr "Երկկտտացրեք՝ սյունակի անունը պատճենելու համար։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:570
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Կտտացրեք ելնող սլաքը՝<br />սյունակի տեսանելիությունը փոխարկելու համար։"
+msgstr "Կտտացրեք ելնող սլաքը<br>սյունակի տեսանելիությունը փոխարկելու համար։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid ""
@@ -6852,20 +6850,15 @@ msgid "Print"
 msgstr "Տպել"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:599
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Դուք կարող եք խմբագրել արժեքների մեծ մասը՝<br />դրանց վրա անմիջապես "
+"Դուք կարող եք խմբագրել արժեքների մեծ մասը<br>դրանց վրա անմիջապես "
 "երկկտտացնելով։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Դուք կարող եք նաև խմբագրել տվյալների մեծ մասը<br />անմիջապես դրանց վրա "
+"Դուք կարող եք նաև խմբագրել տվյալների մեծ մասը<br>անմիջապես դրանց վրա "
 "կտտացնելով։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:604
