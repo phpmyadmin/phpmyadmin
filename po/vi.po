@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2020-08-09 15:50+0000\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/vi/>\n"
+"5-1/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6848,19 +6848,14 @@ msgid "Click to sort results by this column."
 msgstr "Bấm để sắp xếp kết quả theo cột này."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:563
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
-"Shift+Click để thêm cột này vào mệnh đề ORDER BY hoặc để bật/tắt ASC/DESC."
-"<br />- Ctrl+Click hay Alt+Click (Mac: Shift+Option+Click) để xóa cột khỏi "
-"mệnh đề ORDER BY"
+"Shift+Click để thêm cột này vào mệnh đề ORDER BY hoặc để bật/tắt ASC/"
+"DESC.<br>- Ctrl+Click hay Alt+Click (Mac: Shift+Option+Click) để xóa cột "
+"khỏi mệnh đề ORDER BY"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:567
 msgid "Click to mark/unmark."
@@ -6871,10 +6866,8 @@ msgid "Double-click to copy column name."
 msgstr "Bấm đúp chuột để sao chép tên cột"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:570
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Bấm vào mũi tên chỉ xuống<br /> để bật/tắt tính khả kiến của cột."
+msgstr "Bấm vào mũi tên chỉ xuống<br> để bật/tắt tính khả kiến của cột."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid ""
@@ -6937,20 +6930,15 @@ msgid "Print"
 msgstr "In"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:599
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Bạn cũng có thể sửa phần lớn các giá trị<br />bằng cách bấm đúp chuột trực "
+"Bạn cũng có thể sửa phần lớn các giá trị<br>bằng cách bấm đúp chuột trực "
 "tiếp vào chúng."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Bạn cũng có thể sửa phần lớn các giá trị<br />bằng cách bấm chuột trực tiếp "
+"Bạn cũng có thể sửa phần lớn các giá trị<br>bằng cách bấm chuột trực tiếp "
 "vào chúng."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:604
@@ -9739,10 +9727,8 @@ msgid "Binary"
 msgstr "Nhị phân"
 
 #: libraries/classes/InsertEdit.php:792
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Bởi vì chiều dài của nó,<br /> cột này có thể không sửa được."
+msgstr "Bởi vì chiều dài của nó,<br> cột này có thể không sửa được."
 
 #: libraries/classes/InsertEdit.php:1414
 msgid "Binary - do not edit"
@@ -11047,56 +11033,38 @@ msgid "Syntax to use when inserting data:"
 msgstr "Cú pháp khi sử dụng chèn thêm dữ liệu:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:465
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"đưa vào các tên cột cho mỗi lệnh <code>INSERT</code> <br /> &nbsp; &nbsp; "
-"&nbsp; Ví dụ: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</"
-"code>"
+"đưa vào các tên cột cho mỗi lệnh <code>INSERT</code> <br> &nbsp; &nbsp; "
+"&nbsp; Ví dụ: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:470
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"chèn nhiều dòng mỗi lệnh <code>INSERT</code><br /> &nbsp; &nbsp; &nbsp; Ví "
-"dụ: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"chèn nhiều dòng mỗi lệnh <code>INSERT</code><br> &nbsp; &nbsp; &nbsp; Ví dụ: "
+"<code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:475
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"cả hai cái trên<br /> &nbsp; &nbsp; &nbsp; Ví dụ: <code>INSERT INTO tbl_tên "
+"cả hai cái trên<br> &nbsp; &nbsp; &nbsp; Ví dụ: <code>INSERT INTO tbl_tên "
 "(cột_A,cột_B,cột_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:480
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"không theo hai kiểu trên<br /> &nbsp; &nbsp; &nbsp; Ví dụ: <code>INSERT INTO "
+"không theo hai kiểu trên<br> &nbsp; &nbsp; &nbsp; Ví dụ: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:499
@@ -11313,10 +11281,9 @@ msgid "MediaWiki Table"
 msgstr "Bảng MediaWiki"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:291
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Định dạng đầu vào của mediawiki không hợp lệ tại dòng: <br />%s."
+msgstr "Định dạng đầu vào của mediawiki không hợp lệ tại dòng: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:83
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
