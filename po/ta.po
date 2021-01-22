@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 00:35+0100\n"
-"PO-Revision-Date: 2019-04-27 17:19+0000\n"
+"PO-Revision-Date: 2021-01-22 01:27+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ta/>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/>"
+"\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6704,10 +6704,8 @@ msgid "Double-click to copy column name."
 msgstr "நிரல்வரிசை பெயரை படியெடுக்க இருமுறை சொடுக்குக."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:570
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "நிரல்வரிசையின் காட்சிப்பண்பை <br/>மாற்ற கீழிறங்கு குறியை சொடுக்குக."
+msgstr "நிரல்வரிசையின் காட்சிப்பண்பை <br>மாற்ற கீழிறங்கு குறியை சொடுக்குக."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid ""
@@ -6768,17 +6766,12 @@ msgid "Print"
 msgstr "அச்சிடுக"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:599
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
-msgstr "நீங்கள் பெரும்பாலான மதிப்புகளை தொகுக்க <br/> அவற்றை இருமுறை-சொடுக்குக."
+msgstr "நீங்கள் பெரும்பாலான மதிப்புகளை தொகுக்க <br> அவற்றை இருமுறை-சொடுக்குக."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr "நீங்கள் பெரும்பாலான மதிப்புகளை தொகுக்க <br/> அவற்றை சொடுக்குக."
+msgstr "நீங்கள் பெரும்பாலான மதிப்புகளை தொகுக்க <br> அவற்றை சொடுக்குக."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:604
 msgid "Go to link:"
