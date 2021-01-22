@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 02:40+0000\n"
+"PO-Revision-Date: 2021-01-22 03:16+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sq/>\n"
@@ -3128,16 +3128,12 @@ msgid "Logo link URL"
 msgstr "URL e lidhjes së logos"
 
 #: libraries/classes/Config/Descriptions.php:531
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Hap faqen e lidhur në dritaren kryesore ([kbd]kryesore[/kbd]) ose në një të "
-"re ([kbd]e re[/kbd])."
+"Hap faqen e lidhur në dritaren kryesore ([code]kryesore[/code]) ose në një "
+"të re ([code]e re[/code])."
 
 #: libraries/classes/Config/Descriptions.php:534
 msgid "Logo link target"
@@ -7179,19 +7175,14 @@ msgid "Click to sort results by this column."
 msgstr "Kliko të klasifikoni rezultatet sipas kësaj kolone."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:557
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "Shift+klikim për të shtuar këtë kolonë tek klauzola ORDER BY, ose për të "
-"bashkuar ASC/DESC.<br />- Ctrl+klikim ose Alt+klikim (Mac: Shift+Option"
-"+klikim), për të larguar kolonën nga klauzola ORDER BY"
+"bashkuar ASC/DESC.<br>- Ctrl+klikim ose Alt+klikim (Mac: Shift+Option+klikim)"
+", për të larguar kolonën nga klauzola ORDER BY"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:561
 msgid "Click to mark/unmark."
@@ -7202,11 +7193,9 @@ msgid "Double-click to copy column name."
 msgstr "Kliko dyfish për të kopjuar emrin e kolonës."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:564
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
-"Kliko shigjetën lësho-poshtë<br />për të shkëmbyer shikueshmërinë e kolonës."
+"Kliko shigjetën lësho-poshtë<br>për të shkëmbyer shikueshmërinë e kolonës."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid ""
@@ -7270,20 +7259,13 @@ msgid "Print"
 msgstr "Printo"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:593
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Mund të korrigjoni vlerat më të shumta<br />duke klikuar dyfish direkt mbi "
-"to."
+"Mund të korrigjoni vlerat më të shumta<br>duke klikuar dyfish direkt mbi to."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr ""
-"Mund të korrigjoni vlerat më të shumta<br />duke klikuar direkt mbi to."
+msgstr "Mund të korrigjoni vlerat më të shumta<br>duke klikuar direkt mbi to."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 msgid "Go to link:"
@@ -10136,11 +10118,9 @@ msgid "Binary"
 msgstr "Binar"
 
 #: libraries/classes/InsertEdit.php:792
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
 msgstr ""
-"Për arsye të gjatësisë,<br /> kjo kolonë mund të mos jetë e korrigjueshme."
+"Për arsye të gjatësisë,<br> kjo kolonë mund të mos jetë e korrigjueshme."
 
 #: libraries/classes/InsertEdit.php:1414
 msgid "Binary - do not edit"
@@ -10866,12 +10846,6 @@ msgid "Find transitive dependencies"
 msgstr "Gjej varësitë kalimtare"
 
 #: libraries/classes/Normalization.php:866
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -10880,7 +10854,7 @@ msgid ""
 msgstr ""
 "Për çdo kolonë më poshtë, ju lutem zgjedh <b>set minimal</b> të kolonave, në "
 "mesin e setit të dhënë, vlerat e të cilit, të kombinuara së bashku, janë të "
-"mjaftueshme për të përcaktuar vlerën e kolonës.<br />Shënim: Një kolonë mund "
+"mjaftueshme për të përcaktuar vlerën e kolonës.<br>Shënim: Një kolonë mund "
 "të mos ketë varësi kalimtare, në këtë rast, ju nuk keni për të zgjedhur "
 "ndonjë."
 
@@ -11518,58 +11492,40 @@ msgid "Syntax to use when inserting data:"
 msgstr "Sintaksa që përdoret kur fut të dhënat:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:465
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"përfshij emrat e kolonave në çdo deklaratë <code>INSERT</code><br /> &nbsp; "
+"përfshij emrat e kolonave në çdo deklaratë <code>INSERT</code><br> &nbsp; "
 "&nbsp; &nbsp; Shembull: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
 "VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:470
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"fut radhë të shumëfishta në çdo deklaratë <code>INSERT</code><br /> &nbsp; "
+"fut radhë të shumëfishta në çdo deklaratë <code>INSERT</code><br> &nbsp; "
 "&nbsp; &nbsp; Shembull: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:475
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"të dyja më sipër<br /> &nbsp; &nbsp; &nbsp; Shembull: <code>INSERT INTO "
+"të dyja më sipër<br> &nbsp; &nbsp; &nbsp; Shembull: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:480
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"asnjë nga ato më sipër<br /> &nbsp; &nbsp; &nbsp; Shembull: <code>INSERT "
-"INTO tbl_name VALUES (1,2,3)</code>"
+"asnjë nga ato më sipër<br> &nbsp; &nbsp; &nbsp; Shembull: <code>INSERT INTO "
+"tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:499
 msgid ""
@@ -11792,10 +11748,9 @@ msgid "MediaWiki Table"
 msgstr "Tabela MediaWiki"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:291
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Format i pavlefshëm i hyrjes mediawiki në linjë: <br />%s."
+msgstr "Format i pavlefshëm i hyrjes mediawiki në linjë: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:83
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -14271,12 +14226,6 @@ msgstr "Opsionet e transformimit të shfaqjes së shfletuesit"
 
 #: templates/columns_definitions/table_fields_definitions.twig:82
 #: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -14284,8 +14233,8 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Ju lutem, fut vlerat për opsionet e transformimit me anë të këtij formati: "
-"'a', 100, b,'c'…<br />Nëse do të doni ndonjëherë të vendosni një backslash "
-"(thyesë të përkundët) (\"\\\") ose një thonjëz teke (\"'\") ndërmjet këtyre "
+"'a', 100, b,'c'…<br>Nëse do të doni ndonjëherë të vendosni një backslash ("
+"thyesë të përkundët) (\"\\\") ose një thonjëz teke (\"'\") ndërmjet këtyre "
 "vlerave, paraprije atë me një backslash (për shembull '\\\\xyz' ose 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:88
@@ -15364,13 +15313,10 @@ msgstr[0] "%1$s përkim në <strong>%2$s</strong>"
 msgstr[1] "%1$s përkime në <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Gjithsejt:</b> <i>%s</i> përkim"
-msgstr[1] "<b>Gjithsejt:</b> <i>%s</i> përkime"
+msgstr[0] "<strong>Gjithsejt:</strong> <em>%s</em> përkim"
+msgstr[1] "<strong>Gjithsejt:</strong> <em>%s</em> përkime"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
@@ -15798,10 +15744,9 @@ msgid "Output:"
 msgstr "Rezultat:"
 
 #: templates/export.twig:143 templates/export.twig:309
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Ruaj në server në drejtorinë <b>%s</b>"
+msgstr "Ruaj në server në drejtorinë <strong>%s</strong>"
 
 #: templates/export.twig:157 templates/export.twig:284
 msgid "Rename exported databases/tables/columns"
@@ -16205,16 +16150,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Fili mund të jetë i kompresuar (%s) ose i pakompresuar."
 
 #: templates/import.twig:47
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Një emër fili i kompresuar duhet të mbarojë me <b>.[format].[compression]</"
-"b>. Shembull: <b>.sql.zip</b>"
+"Një emër fili i kompresuar duhet të mbarojë me "
+"<strong>.[format].[compression]</strong>. Shembull: <strong>.sql.zip</strong>"
 
 #: templates/import.twig:57 templates/import.twig:90
 #: templates/preferences/manage/main.twig:22
@@ -16232,10 +16173,9 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Mundeni gjithashtu të tërhiqni dhe lëshoni një fil për çdo faqe."
 
 #: templates/import.twig:74 templates/import.twig:104
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Zgjedh nga drejtoria e ngarkimit <b>%s</b> të ueb serverit:"
+msgstr "Zgjedh nga drejtoria e ngarkimit [strong]%s[/strong] të ueb serverit:"
 
 #: templates/import.twig:80
 #, fuzzy
@@ -16264,19 +16204,14 @@ msgstr ""
 "pozicioni %d."
 
 #: templates/import.twig:165
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Lejo ndërprerjen e një importi, në rast se skripti zbulon që është afër "
-"limitit kohor të skadimit PHP. <i>(Kjo mund të jetë një mënyrë e mirë për të "
-"importuar file të mëdha, por mund të thyejë transaksionet.)</i>"
+"limitit kohor të skadimit PHP. <em>(Kjo mund të jetë një mënyrë e mirë për "
+"të importuar file të mëdha, por mund të thyejë transaksionet.)</em>"
 
 #: templates/import.twig:172
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -17273,18 +17208,13 @@ msgid "Password hashing method"
 msgstr "Metoda e ngatërrimit të fjalëkalimit"
 
 #: templates/server/privileges/login_information_fields.twig:83
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Kjo metodë kërkon përdorimin e një '<i>lidhje SSL</i>' ose një '<i>lidhje të "
-"pakriptuar, që kripton fjalëkalimet me anë të RSA</i>'; ndërsa lidhet me "
+"Kjo metodë kërkon përdorimin e një '<em>lidhje SSL</em>' ose një '<em>lidhje "
+"të pakriptuar, që kripton fjalëkalimet me anë të RSA</em>'; ndërsa lidhet me "
 "serverin."
 
 #: templates/server/privileges/new_user_ajax.twig:52
@@ -17584,18 +17514,13 @@ msgstr ""
 "dhe ju lutem, rifillo serverin MySQL më pas."
 
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
 "Pasi të keni rifilluar serverin MySQL, ju lutem, kliko butonin Shko. Më pas, "
-"do të shihni një mesazh, që ju informon, se ky server <b>është</b> "
+"do të shihni një mesazh, që ju informon, se ky server <strong>është</strong> "
 "konfiguruar si master."
 
 #: templates/server/replication/master_replication.twig:5
