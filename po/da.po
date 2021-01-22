@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 02:40+0000\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "da/>\n"
@@ -304,7 +304,7 @@ msgid ""
 msgstr ""
 "Du bruger MySQL forespørgselsmellemlager med en databe med temmelig høj "
 "trafik. Det bør overvejes at anvende <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/ha-memcached.html\">memcached</a> i stedet for MySQL "
+"refman/5.6/en/ha-memcached.html\">memcached</a> i stedet for MySQL "
 "forespørgselsmellemlager, særligt hvis du har flere slaver."
 
 #: libraries/advisory_rules_generic.php:198
@@ -3088,16 +3088,12 @@ msgid "Logo link URL"
 msgstr "Logo link-URL"
 
 #: libraries/classes/Config/Descriptions.php:531
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Åbn den linkede side i hovedvinduet ([kbd]main[/kbd]) eller i et nyt "
-"([kbd]new[/kbd])."
+"Åbn den linkede side i hovedvinduet ([code]main[/code]) eller i et nyt "
+"([code]new[/code])."
 
 #: libraries/classes/Config/Descriptions.php:534
 msgid "Logo link target"
