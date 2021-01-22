@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-01-22 00:42+0100\n"
+"POT-Creation-Date: 2021-01-22 03:09+0100\n"
 "PO-Revision-Date: 2021-01-22 01:34+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -7163,7 +7163,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr "Du kan også redigere de fleste værdier<br>ved at klikke direkte på dem."
+msgstr ""
+"Du kan også redigere de fleste værdier<br>ved at klikke direkte på dem."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 msgid "Go to link:"
@@ -11361,8 +11362,8 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"indsæt flere rækker i hver <code>INSERT</code> forespørgsel<br> &nbsp; &nbsp;"
-" &nbsp; Eksempel: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"indsæt flere rækker i hver <code>INSERT</code> forespørgsel<br> &nbsp; "
+"&nbsp; &nbsp; Eksempel: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:475
@@ -13986,9 +13987,15 @@ msgid "Length/Values"
 msgstr "Længde/Værdi*"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
+#, fuzzy
+#| msgid ""
+#| "If column type is \"enum\" or \"set\", please enter the values using this "
+#| "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
+#| "single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
+"format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
