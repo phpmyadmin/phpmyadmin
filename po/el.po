@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 01:27+0000\n"
+"PO-Revision-Date: 2021-01-22 03:16+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "el/>\n"
@@ -7217,18 +7217,13 @@ msgid "Click to sort results by this column."
 msgstr "Πατήστε για ταξινόμηση των αποτελεσμάτων κατά αυτή τη στήλη."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:557
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "Shift+Κλικ για προσθήκη αυτής της στήλης στη δήλωση ORDER BY ή για εναλλαγή "
-"ASC/DESC.<br />- Control+Κλικ ή Alt+Κλικ (Για Mac: Shift+Option+Click) για "
+"ASC/DESC.<br>- Control+Κλικ ή Alt+Κλικ (Για Mac: Shift+Option+Click) για "
 "απομάκρυνση της στήλης από τη δήλωση ORDER BY"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:561
@@ -7240,10 +7235,8 @@ msgid "Double-click to copy column name."
 msgstr "Διπλό κλικ για αντιγραφή ονόματος στήλης."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:564
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Πατήστε το προς τα κάτω βέλος<br />για εναλλαγή της εμφάνισης στηλών."
+msgstr "Πατήστε το προς τα κάτω βέλος<br>για εναλλαγή της εμφάνισης στηλών."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid ""
@@ -7306,20 +7299,15 @@ msgid "Print"
 msgstr "Εκτύπωση"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:593
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Μπορείτε επίσης να επεξεργαστείτε τις περισσότερες τιμές<br />πατώντας με "
+"Μπορείτε επίσης να επεξεργαστείτε τις περισσότερες τιμές<br>πατώντας με "
 "διπλό κλικ κατευθείαν σε αυτές."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Μπορείτε επίσης να επεξεργαστείτε τις περισσότερες τιμές<br />πατώντας "
+"Μπορείτε επίσης να επεξεργαστείτε τις περισσότερες τιμές<br>πατώντας "
 "κατευθείαν σε αυτές."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
@@ -10193,11 +10181,9 @@ msgid "Binary"
 msgstr "Δυαδικό"
 
 #: libraries/classes/InsertEdit.php:792
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
 msgstr ""
-"Εξαιτίας του μεγέθος του,<br /> αυτό το πεδίο ίσως να μη μπορεί να διορθωθεί."
+"Εξαιτίας του μεγέθος του,<br> αυτό το πεδίο ίσως να μη μπορεί να διορθωθεί."
 
 #: libraries/classes/InsertEdit.php:1414
 msgid "Binary - do not edit"
@@ -10924,12 +10910,6 @@ msgid "Find transitive dependencies"
 msgstr "Εύρεση μεταβατικών εξαρτήσεων"
 
 #: libraries/classes/Normalization.php:866
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -10938,7 +10918,7 @@ msgid ""
 msgstr ""
 "Για κάθε μια από τις στήλες παρακάτω, επιλέξτε την <b>ελάχιστη ομάδα</b> "
 "στηλών μεταξύ των δοθέντων ομάδων των οποίων οι συνδυασμένες τιμές είναι "
-"επαρκείς για να ορίσουν την τιμή της στήλης.<br />Σημείωση: Μια στήλη μπορεί "
+"επαρκείς για να ορίσουν την τιμή της στήλης.<br>Σημείωση: Μια στήλη μπορεί "
 "να μην έχει μεταβατική εξάρτηση, σε αυτή την περίπτωση δεν έχετε να "
 "επιλέξετε κάποια."
 
@@ -11582,57 +11562,39 @@ msgid "Syntax to use when inserting data:"
 msgstr "Η σύνταξη που θα χρησιμοποιηθεί κατά την εισαγωγή δεδομένων:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:465
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"συμπεριλαμβάνει ονόματα στηλών σε κάθε δήλωση <code>INSERT</code><br /> "
-"&nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name (col_A,col_B,"
-"col_C) VALUES (1,2,3)</code>"
+"συμπεριλαμβάνει ονόματα στηλών σε κάθε δήλωση <code>INSERT</code><br> &nbsp; "
+"&nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
+"VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:470
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"εισάγει πολλαπλές εγγραφές σε κάθε δήλωση <code>INSERT</code><br /> &nbsp; "
-"&nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-"(4,5,6), (7,8,9)</code>"
+"εισάγει πολλαπλές εγγραφές σε κάθε δήλωση <code>INSERT</code><br> &nbsp; "
+"&nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6)"
+", (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:475
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"όλα τα παραπάνω<br /> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO "
+"όλα τα παραπάνω<br> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:480
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"κανένα από τα παραπάνω<br /> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT "
+"κανένα από τα παραπάνω<br> &nbsp; &nbsp; &nbsp; Παράδειγμα: <code>INSERT "
 "INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:499
@@ -11856,10 +11818,9 @@ msgid "MediaWiki Table"
 msgstr "Πίνακας MediaWiki"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:291
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Μη έγκυρη μορφή του εισαγόμενου mediawiki στη γραμμή <br />%s."
+msgstr "Μη έγκυρη μορφή του εισαγόμενου mediawiki στη γραμμή <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:83
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -14271,12 +14232,6 @@ msgid "Length/Values"
 msgstr "Μήκος/Τιμές*"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
@@ -14284,7 +14239,7 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Αν ο τύπος του πεδίου είναι «enum» ή «set», παρακαλώ εισάγετε τις τιμές "
-"χρησιμοποιώντας την εξής μορφή: 'α','β','γ'…<br />Αν χρειάζεται να εισάγετε "
+"χρησιμοποιώντας την εξής μορφή: 'α','β','γ'…<br>Αν χρειάζεται να εισάγετε "
 "την ανάποδη κάθετο («\\») ή απλά εισαγωγικά («'»), προθέστε τα με ανάποδη "
 "κάθετο στην αρχή (για παράδειγμα '\\\\χψω' ή 'α\\'β')."
 
@@ -14354,12 +14309,6 @@ msgstr "Επιλογές μετατροπής προβολής περιηγητ�
 
 #: templates/columns_definitions/table_fields_definitions.twig:82
 #: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -14367,9 +14316,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Παρακαλώ εισάγετε τις τιμές για τη μετατροπή χρησιμοποιώντας τη μορφή: 'α', "
-"100, β,'γ'…<br />Εάν χρειαστεί να χρησιμοποιήσετε ανάποδη κάθετο («\\») ή "
-"μονά εισαγωγικά («'») στις τιμές, βάλτε ως πρόθεμα ανάποδη κάθετο "
-"(παράδειγμα '\\\\χψω' ή 'α\\'β')."
+"100, β,'γ'…<br>Εάν χρειαστεί να χρησιμοποιήσετε ανάποδη κάθετο («\\») ή μονά "
+"εισαγωγικά («'») στις τιμές, βάλτε ως πρόθεμα ανάποδη κάθετο (παράδειγμα '\\"
+"\\χψω' ή 'α\\'β')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:88
 #: templates/transformation_overview.twig:37
