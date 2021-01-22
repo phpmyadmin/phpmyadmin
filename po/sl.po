@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 00:42+0100\n"
-"PO-Revision-Date: 2020-12-25 00:29+0000\n"
-"Last-Translator: Domen <mitenem@outlook.com>\n"
+"PO-Revision-Date: 2021-01-22 01:10+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
 "Language: sl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.4.1-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -15084,15 +15084,11 @@ msgid "Are you sure?"
 msgstr "Ste prepričani?"
 
 #: templates/database/structure/check_all_tables.twig:69
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.[br]Are you sure you "
 "want to continue?"
 msgstr ""
-"Dejanje bo morda spremenilo nekatere opredelitve stolpcev.<br>Ste "
+"Dejanje bo morda spremenilo nekatere opredelitve stolpcev.[br]Ste "
 "prepričani, da želite nadaljevati?"
 
 #: templates/database/structure/copy_form.twig:14
