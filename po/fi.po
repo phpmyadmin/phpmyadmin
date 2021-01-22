@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-01-22 01:27+0000\n"
+"PO-Revision-Date: 2021-01-22 03:17+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "fi/>\n"
@@ -1985,18 +1985,13 @@ msgid "Click to sort results by this column."
 msgstr "Järjestä tämän sarakkeen tulokset napsauttamalla."
 
 #: js/messages.php:603
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "Paina Shift+Click lisätäksesi sarakkeen ORDER BY - klausuuliin tai "
-"laittaaksesi ASC/DESC - ehdon päälle.<br />- Ctrl+Click tai Alt+Click (Mac: "
+"laittaaksesi ASC/DESC - ehdon päälle.<br>- Ctrl+Click tai Alt+Click (Mac: "
 "Shift+Option+Click) poistaaksesi sarakkeen ORDER BY - klausuulista"
 
 #: js/messages.php:607
@@ -2008,10 +2003,8 @@ msgid "Double-click to copy column name."
 msgstr "Kopioi kentän nimi kaksoisnapsauttamalla."
 
 #: js/messages.php:610
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Muuta sarakkeen näkyvyyttä<br />napsauttamalla pudotusvalikon nuolta."
+msgstr "Muuta sarakkeen näkyvyyttä<br>napsauttamalla pudotusvalikon nuolta."
 
 #: js/messages.php:612 libraries/classes/BrowseForeigners.php:355
 #: templates/display/results/table_navigation.twig:19
@@ -2080,13 +2073,9 @@ msgid "Print"
 msgstr "Tulosta"
 
 #: js/messages.php:642
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Useimpia sarakkeita voi myös muokata <br />\n"
-"painamalla suoraan niiden sisältöä."
+"Useimpia sarakkeita voi myös muokata <br>painamalla suoraan niiden sisältöä."
 
 #: js/messages.php:647
 msgid "You can also edit most values<br>by clicking directly on them."
@@ -14229,21 +14218,15 @@ msgstr "Selaimen muunnos (transformation)"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Syötä muunnosvalinnoille arvot käyttäen tätä muotoa: 'a', 100, b,'c'…<br /"
-">Jos tarvitset arvoissa kenoviivaa (\"\\\") tai yksittäistä lainausmerkkiä "
-"(\"'\"), lisää merkin eteen kenoviiva (esim. '\\\\xyz' tai 'a\\'b')."
+"Syötä muunnosvalinnoille arvot käyttäen tätä muotoa: 'a', 100, b,'c'…<br>Jos "
+"tarvitset arvoissa kenoviivaa (\"\\\") tai yksittäistä lainausmerkkiä (\"'\")"
+", lisää merkin eteen kenoviiva (esim. '\\\\xyz' tai 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:89
 #: templates/transformation_overview.twig:37
