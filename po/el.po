@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 00:42+0100\n"
-"PO-Revision-Date: 2021-01-22 01:10+0000\n"
+"PO-Revision-Date: 2021-01-22 01:27+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "el/>\n"
@@ -10725,17 +10725,12 @@ msgid "Primary key already exists."
 msgstr "Πρωτεύον κλειδί υπάρχει ήδη."
 
 #: libraries/classes/Normalization.php:292
-#, fuzzy
-#| msgid ""
-#| "There is no primary key; please add one.<br/>Hint: A primary key is a "
-#| "column (or combination of columns) that uniquely identify all rows."
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"Δεν υπάρχει κανένα πρωτεύον κλειδί. Προσθέστε ένα.<br/>Σημείωση: Ένα "
-"πρωτεύον κλειδί (ή συνδυασμός στηλών) που ταυτοποιεί μοναδικά όλες τις "
-"εγγραφές."
+"Δεν υπάρχει κανένα πρωτεύον κλειδί. Προσθέστε ένα.<br>Σημείωση: Ένα πρωτεύον "
+"κλειδί (ή συνδυασμός στηλών) που ταυτοποιεί μοναδικά όλες τις εγγραφές."
 
 #: libraries/classes/Normalization.php:300
 msgid "Add a primary key on existing column(s)"
