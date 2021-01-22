@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 02:41+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
+"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -14912,16 +14912,12 @@ msgid "Is deterministic"
 msgstr "Belirleyici"
 
 #: templates/database/routines/editor_form.twig:130
-#, fuzzy
-#| msgid ""
-#| "You do not have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
 "Bu işlemi yapmak için yeterli yetkilere sahip değilsiniz; Lütfen daha fazla "
-"ayrıntı için belgelere bakın"
+"ayrıntı için belgelere bakın."
 
 #: templates/database/routines/editor_form.twig:143
 msgid "Security type"
@@ -14932,10 +14928,8 @@ msgid "SQL data access"
 msgstr "SQL veri erişimi"
 
 #: templates/database/routines/index.twig:33
-#, fuzzy
-#| msgid "Create routine"
 msgid "Create new routine"
-msgstr "Yordam oluştur"
+msgstr "Yeni yordam oluştur"
 
 #: templates/database/routines/index.twig:42
 msgid "There are no routines to display."
@@ -16695,10 +16689,8 @@ msgid "Allows executing this routine."
 msgstr "Bu yordamın yürütülmesine izin verir."
 
 #: templates/server/privileges/initials_row.twig:1
-#, fuzzy
-#| msgid "Change login information / Copy user account"
 msgid "Pagination of user accounts"
-msgstr "Oturum açma bilgisini değiştir / Kullanıcı hesabını kopyala"
+msgstr "Kullanıcı hesaplarının sayfalandırılması"
 
 #: templates/server/privileges/login_information_fields.twig:2
 #: templates/server/privileges/user_properties.twig:106
@@ -16880,20 +16872,16 @@ msgstr ""
 "eklenmesine izin verir."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Saklanan yordamların oluşturulmasına izin verir."
+msgstr "Dış anahtar ilişkileri oluşturmaya izin verir."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "MariaDB'de kullanılmaz."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "Bu MySQL sürümünde etkisi yoktur."
+msgstr "Bu MySQL sürümü için kullanılmaz."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -17662,10 +17650,8 @@ msgid "Table level tabs"
 msgstr "Tablo seviyesi sekmeler"
 
 #: templates/server/user_groups/user_groups.twig:50
-#, fuzzy
-#| msgid "Edit user group"
 msgid "Delete user group"
-msgstr "Kullanıcı grubunu düzenle"
+msgstr "Kullanıcı grubunu sil"
 
 #: templates/server/user_groups/user_listings.twig:1
 #, php-format
@@ -17703,10 +17689,8 @@ msgid "Configuration file"
 msgstr "Yapılandırma dosyası"
 
 #: templates/setup/config/index.twig:16
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Generated configuration file"
-msgstr "Yapılandırma dosyasını okuma başarısız!"
+msgstr "Oluşturulan yapılandırma dosyası"
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
 msgid "Download"
