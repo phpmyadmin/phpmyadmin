@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2019-11-21 14:33+0000\n"
-"Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"th/>\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-1/th/>"
+"\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6925,8 +6925,9 @@ msgid "Double-click to copy column name."
 msgstr "คลิกสองครั้งเพื่อคัดลอกชื่อคอลัมน์"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:570
+#, fuzzy
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "คลิกที่ลูกศรชี้ลง<br>เพื่อสลับการมองเห็นคอลัมน์"
+msgstr "กดเพื่อเลือก <br>เพื่อดูสดมภ์."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid ""
@@ -14011,16 +14012,16 @@ msgstr "การแปลงที่เรียกใช้ได้"
 
 #: templates/columns_definitions/table_fields_definitions.twig:82
 #: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"ถ้าชนิดของฟิลด์เป็น \"enum\" หรือ \"set\" โปรดใส่ค่าตามรูปแบบ: 'a','b','c'…<br /"
-">ถ้าต้องการใส่เครื่องหมาย backslash (\"\\\") หรือ อัญประกาศเดี่ยว (\"'\") "
-"เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย แบ๊กแสลช นำหน้า (ตัวอย่าง: '\\\\xyz' or 'a\\'b')"
+"ถ้าชนิดของฟิลด์เป็น \"enum\" หรือ \"set\" โปรดใส่ค่าตามรูปแบบ: "
+"'a','b','c'…<br>ถ้าต้องการใส่เครื่องหมาย backslash (\"\\\") หรือ "
+"อัญประกาศเดี่ยว (\"'\") เข้าไปในค่าเหล่านั้น ให้ใส่เครื่องหมาย แบ๊กแสลช นำหน้"
+"า (ตัวอย่าง: '\\\\xyz' or 'a\\'b')"
 
 #: templates/columns_definitions/table_fields_definitions.twig:88
 #: templates/transformation_overview.twig:37
