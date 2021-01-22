@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 00:42+0100\n"
-"PO-Revision-Date: 2020-12-19 19:26+0000\n"
-"Last-Translator: Robmaistah <xetebah803@febeks.com>\n"
+"PO-Revision-Date: 2021-01-22 01:10+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
 "Language: ro\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -15328,15 +15328,11 @@ msgid "Are you sure?"
 msgstr "Sigur?"
 
 #: templates/database/structure/check_all_tables.twig:69
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.[br]Are you sure you "
 "want to continue?"
 msgstr ""
-"Această acțiune poate modifica definiția unor coloane.<br/>Sigur vrei să "
+"Această acțiune poate modifica definiția unor coloane.[br]Sigur vrei să "
 "continui?"
 
 #: templates/database/structure/copy_form.twig:14
