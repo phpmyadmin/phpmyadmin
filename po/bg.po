@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 02:41+0000\n"
+"PO-Revision-Date: 2021-01-22 03:17+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
@@ -6978,8 +6978,8 @@ msgid ""
 "from ORDER BY clause"
 msgstr ""
 "Shift+кликване за добавяне на колоната в ORDER BY клаузата или за "
-"превключване на ASC/DESC.<br />- Control+кликване за премахване на колоната "
-"от ORDER BY клаузата"
+"превключване на ASC/DESC.<br>- Control+кликване за премахване на колоната от "
+"ORDER BY клаузата"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:561
 msgid "Click to mark/unmark."
@@ -8272,10 +8272,9 @@ msgid "The columns have been moved successfully."
 msgstr "Колоните бяха преместени упешно."
 
 #: libraries/classes/Controllers/Table/StructureController.php:772
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Неточно преброяване на редовете."
+msgstr "Неуспешно получаване на описание на колона %s!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:1013
 #: libraries/classes/Controllers/Table/StructureController.php:1299
@@ -9729,10 +9728,8 @@ msgid "Binary"
 msgstr "двоичен"
 
 #: libraries/classes/InsertEdit.php:792
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Поради дължината си,<br />това поле може да е нередактируемо"
+msgstr "Поради дължината си,<br>това поле може да е нередактируемо."
 
 #: libraries/classes/InsertEdit.php:1414
 msgid "Binary - do not edit"
@@ -11097,59 +11094,41 @@ msgid "Syntax to use when inserting data:"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:465
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"включване на имената на полетата във всеки <code>INSERT</code> израз <br /> "
+"включване на имената на полетата във всеки <code>INSERT</code> израз <br> "
 "&nbsp; &nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
 "VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:470
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"включване на няколко реда във всеки <code>INSERT</code> израз<br /> &nbsp; "
+"включване на няколко реда във всеки <code>INSERT</code> израз<br> &nbsp; "
 "&nbsp; &nbsp; Пример: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:475
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"комбинация от двата горни варианта<br /> &nbsp; &nbsp; &nbsp; Пример: "
-"<code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</"
-"code>"
+"комбинация от двата горни варианта<br> &nbsp; &nbsp; &nbsp; Пример: "
+"<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:480
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"нито един от горните варианти<br /> &nbsp; &nbsp; &nbsp; Пример: "
-"<code>INSERT INTO tbl_name VALUES (1,2,3)</code>"
+"нито един от горните варианти<br> &nbsp; &nbsp; &nbsp; Пример: <code>INSERT "
+"INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:499
 msgid ""
@@ -13646,10 +13625,8 @@ msgid "Collation:"
 msgstr "Колация:"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
-#, fuzzy
-#| msgid "Storage Engine"
 msgid "Storage Engine:"
-msgstr "Storage Engine:"
+msgstr "Хранилище:"
 
 #: templates/columns_definitions/column_definitions_form.twig:82
 msgid "Connection:"
@@ -13703,8 +13680,6 @@ msgid "Expression or column list"
 msgstr "Стойности за колоната %s"
 
 #: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Position"
 msgid "Partitions:"
 msgstr "Дялове:"
 
@@ -13881,12 +13856,6 @@ msgstr "Браузърна трансформация"
 
 #: templates/columns_definitions/table_fields_definitions.twig:82
 #: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -13894,7 +13863,7 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Моля въведете стойностите за опциите на трансформацията като използвате "
-"следния формат: 'a', 100, b,'c'…<br />Ако трябва да поставите обратно "
+"следния формат: 'a', 100, b,'c'…<br>Ако трябва да поставите обратно "
 "наклонена черта (\"\\\") или единична кавичка (\"'\") между тези стойности, "
 "поставете пред тях допълнителна обратно наклонена черта (например '\\\\xyz' "
 "или 'a\\'b')."
