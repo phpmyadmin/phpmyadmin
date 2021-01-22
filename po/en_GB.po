@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2020-09-01 09:12+0000\n"
+"PO-Revision-Date: 2021-01-22 02:40+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/en_GB/>\n"
+"phpmyadmin/5-1/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2.1-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -31,7 +31,7 @@ msgid ""
 "longer than a day before running this analyzer"
 msgstr ""
 "To have more accurate averages it is recommended to let the server run for "
-"longer than a day before running this analyser"
+"longer than a day before running this analyzer"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
@@ -5566,10 +5566,8 @@ msgstr "Edit index"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:106
-#, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
-msgstr "Remove index(s)"
+msgstr "Rename index"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 #: templates/table/index_form.twig:227
@@ -10852,6 +10850,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
+"restricts passwords to less than 1000 characters."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -13865,12 +13865,6 @@ msgid "Node group"
 msgstr "Node group"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
@@ -13878,7 +13872,7 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
+"format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 
@@ -14105,8 +14099,6 @@ msgid "Create version"
 msgstr "Create version"
 
 #: templates/database/central_columns/edit.twig:13
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr "A_I"
@@ -16340,10 +16332,8 @@ msgid "Character sets and collations"
 msgstr "Character sets and collations"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "Default"
+msgstr "(default)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -16734,20 +16724,16 @@ msgstr ""
 "Allows adding users and privileges without reloading the privilege tables."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Allows creating stored routines."
+msgstr "Allows creating foreign key relations."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Not used on MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "Has no effect in this MySQL version."
+msgstr "Not used for this MySQL version."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -17405,10 +17391,8 @@ msgstr "#"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "per hour"
+msgstr "ø per hour"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -17985,46 +17969,32 @@ msgid "Relation view"
 msgstr "Relation view"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "partitioned"
+msgstr "Analyze partition"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "partitioned"
+msgstr "Check partition"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "partitioned"
+msgstr "Drop partition"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Remove partitioning"
+msgstr "Optimize partition"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Subpartition"
+msgstr "Rebuild partition"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Remove partitioning"
+msgstr "Repair partition"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Subpartition"
+msgstr "Truncate partition"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -18233,10 +18203,8 @@ msgid "at beginning of table"
 msgstr "at beginning of table"
 
 #: templates/table/structure/display_structure.twig:445
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Rename to"
+msgstr "Rename"
 
 #: templates/table/structure/display_structure.twig:507
 #, php-format
