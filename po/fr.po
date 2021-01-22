@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 00:35+0100\n"
-"PO-Revision-Date: 2020-12-09 07:47+0000\n"
+"PO-Revision-Date: 2021-01-22 01:09+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-1/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -11591,7 +11591,7 @@ msgid ""
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "les deux modes ci-dessus<br> &nbsp; &nbsp; &nbsp; Par exemple : <code>INSERT "
-"INTO tbl_name (col_A,col_B, col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:480
 msgid ""
@@ -17095,20 +17095,16 @@ msgstr ""
 "recharger les privilèges."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Permission de créer des procédures stockées."
+msgstr "Permet de créer des relations de clés étrangères."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Non utilisé sur MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "N'a pas d'effet dans cette version de MySQL."
+msgstr "Non utilisé pour cette version de MySQL."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
