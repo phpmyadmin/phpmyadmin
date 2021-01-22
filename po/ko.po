@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 00:42+0100\n"
-"PO-Revision-Date: 2020-07-16 11:41+0000\n"
-"Last-Translator: junseong kim <anima94@naver.com>\n"
+"PO-Revision-Date: 2021-01-22 01:09+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -15117,14 +15117,10 @@ msgid "Are you sure?"
 msgstr "확실합니까?"
 
 #: templates/database/structure/check_all_tables.twig:69
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.[br]Are you sure you "
 "want to continue?"
-msgstr "컬럼 정의의 일부가 변경될 수도 있습니다.<br/>계속하겠습니까?"
+msgstr "컬럼 정의의 일부가 변경될 수도 있습니다.[br]계속하겠습니까?"
 
 #: templates/database/structure/copy_form.twig:14
 #, fuzzy
