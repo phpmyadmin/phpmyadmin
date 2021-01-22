@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2018-12-18 22:09+0000\n"
-"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
-"Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"PO-Revision-Date: 2021-01-22 03:16+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "si/>\n"
 "Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -309,7 +309,7 @@ msgstr "දත්තගබඩා නම හිස්ව පවතී!"
 
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "එකම  නමට  දත්තගබඩාව පිටපත් කළ නොහැක. නම වෙනස් කර නැවත උත්සාහ කරන්න."
+msgstr "එකම නමට දත්තගබඩාව පිටපත් කළ නොහැක. නම වෙනස් කර නැවත උත්සාහ කරන්න."
 
 #: db_operations.php:156
 #, php-format
@@ -810,10 +810,10 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
-"පිහිටුවීමේ විධානාවලිය විසින් භාවිතා කරන [code]config[/code] ඩිරෙක්ටරිය තවමත් ඔබගේ "
-"phpMyAdmin ඩිරෙක්ටරිය තුල ඇත. phpMyAdmin වින්‍යාස සකසා අවසන් වූ පසු ඔබ එය ඉවත් කිරීම "
-"නිර්දේශිතයි. නැතහොත් ඔබගේ සේවාදායකයේ ආරක්ෂාව මෙම වින්‍යස අනවසරයෙන් බාගත කරගන්නන් විසින් "
-"තර්ජනයට ලක්කල  හැකිය."
+"පිහිටුවීමේ විධානාවලිය විසින් භාවිතා කරන [code]config[/code] ඩිරෙක්ටරිය තවමත් "
+"ඔබගේ phpMyAdmin ඩිරෙක්ටරිය තුල ඇත. phpMyAdmin වින්‍යාස සකසා අවසන් වූ පසු ඔබ "
+"එය ඉවත් කිරීම නිර්දේශිතයි. නැතහොත් ඔබගේ සේවාදායකයේ ආරක්ෂාව මෙම වින්‍යස "
+"අනවසරයෙන් බාගත කරගන්නන් විසින් තර්ජනයට ලක්කල හැකිය."
 
 #: index.php:616
 #, php-format
@@ -10042,16 +10042,12 @@ msgstr ""
 "(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:425
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "ඉහත දෙවර්ගයම<br /> &nbsp; &nbsp; &nbsp; උදාහරණ: <code>INSERT INTO tbl_name "
-"(col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:430
 msgid ""
