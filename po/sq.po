@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2018-03-19 23:34+0000\n"
-"Last-Translator: M. M. <m.mirena@gmail.com>\n"
-"Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/sq/>\n"
+"PO-Revision-Date: 2021-01-22 03:16+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
+"sq/>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -14910,10 +14910,9 @@ msgstr "Shto një opsion për kolonë \"%s\"."
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Ruaj në server në drejtorinë <b>%s</b>"
+msgstr "Ruaj në server në drejtorinë <strong>%s</strong>"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
@@ -15727,16 +15726,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Fili mund të jetë i kompresuar (%s) ose i pakompresuar."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Një emër fili i kompresuar duhet të mbarojë me <b>.[format].[compression]</"
-"b>. Shembull: <b>.sql.zip</b>"
+"Një emër fili i kompresuar duhet të mbarojë me "
+"<strong>.[format].[compression]</strong>. Shembull: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -15760,19 +15755,14 @@ msgstr ""
 "pozicioni %d."
 
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Lejo ndërprerjen e një importi, në rast se skripti zbulon që është afër "
-"limitit kohor të skadimit PHP. <i>(Kjo mund të jetë një mënyrë e mirë për të "
-"importuar file të mëdha, por mund të thyejë transaksionet.)</i>"
+"limitit kohor të skadimit PHP. <em>(Kjo mund të jetë një mënyrë e mirë për "
+"të importuar file të mëdha, por mund të thyejë transaksionet.)</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -15876,13 +15866,10 @@ msgstr[0] "%1$s përkim në <strong>%2$s</strong>"
 msgstr[1] "%1$s përkime në <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Gjithsejt:</b> <i>%s</i> përkim"
-msgstr[1] "<b>Gjithsejt:</b> <i>%s</i> përkime"
+msgstr[0] "<strong>Gjithsejt:</strong> <em>%s</em> përkim"
+msgstr[1] "<strong>Gjithsejt:</strong> <em>%s</em> përkime"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
