@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 02:41+0000\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -2280,8 +2280,6 @@ msgid "Export as separate files"
 msgstr "Exportiere als separate Dateien"
 
 #: libraries/classes/Config/Descriptions.php:268
-#, fuzzy
-#| msgid "Remember file name template"
 msgid "Remember filename template"
 msgstr "Schablone für Dateinamen merken"
 
@@ -4359,14 +4357,12 @@ msgid ""
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
 "Die URL des Proxies, der verwendet wird, wenn Informationen über die neueste "
-"Version von PhpMyAdmin abgerufen wird oder Fehlerberichte gesendet werden. "
+"Version von PhpMyAdmin, abgerufen wird oder Fehlerberichte gesendet werden. "
 "Sie benötigen dies, wenn der Server auf dem PhpMyAdmin installiert ist "
-"keinen direkten Zugriff auf das Internet hat. Das Format ist: \"Hostname:Port"
-"\"."
+"keinen direkten Zugriff auf das Internet hat. Das Format ist: \"Hostname:"
+"Port\"."
 
 #: libraries/classes/Config/Descriptions.php:946
-#, fuzzy
-#| msgid "Proxy url"
 msgid "Proxy URL"
 msgstr "Proxy-URL"
 
