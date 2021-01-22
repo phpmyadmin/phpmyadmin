@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 00:42+0100\n"
-"PO-Revision-Date: 2021-01-22 01:10+0000\n"
+"PO-Revision-Date: 2021-01-22 01:27+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
@@ -7193,20 +7193,15 @@ msgid "Print"
 msgstr "Imprimare"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:593
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"De asemenea, poți edita majoritatea valorilor<br/>dând dublu-clic direct pe "
+"De asemenea, poți edita majoritatea valorilor<br>dând dublu-clic direct pe "
 "ele."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"De asemenea, poți edita majoritatea valorilor<br/>dând clic direct pe ele."
+"De asemenea, poți edita majoritatea valorilor<br>dând clic direct pe ele."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 msgid "Go to link:"
@@ -10525,15 +10520,11 @@ msgid "Primary key already exists."
 msgstr "Cheia principală există deja."
 
 #: libraries/classes/Normalization.php:292
-#, fuzzy
-#| msgid ""
-#| "There is no primary key; please add one.<br/>Hint: A primary key is a "
-#| "column (or combination of columns) that uniquely identify all rows."
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"Nu există nicio cheie principală; te rog adaugă una.<br/>Sugestie: o cheie "
+"Nu există nicio cheie principală; te rog adaugă una.<br>Sugestie: o cheie "
 "principală este o coloană (sau o combinație de coloane) care identifică în "
 "mod unic toate rândurile."
 
