@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2020-11-15 18:28+0000\n"
+"PO-Revision-Date: 2021-01-22 03:17+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-0/az/>\n"
+"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-0/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1526,15 +1526,11 @@ msgid "Are you sure?"
 msgstr "Əminsiniz?"
 
 #: js/messages.php:449
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
-"Bu addım bəzi sütunların tərifini dəyişdirə bilər. <br/>Davam etmək "
+"Bu addım bəzi sütunların tərifini dəyişdirə bilər. <br>Davam etmək "
 "istəyirsinizmi?"
 
 #: js/messages.php:452
@@ -8522,10 +8518,8 @@ msgid "Binary"
 msgstr ""
 
 #: libraries/classes/InsertEdit.php:760
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Uzun olduğuna görə,<br /> bu sütun redaktə edilməyə bilər."
+msgstr "Uzun olduğuna görə,<br> bu sütun redaktə edilməyə bilər."
 
 #: libraries/classes/InsertEdit.php:1378
 msgid "Binary - do not edit"
