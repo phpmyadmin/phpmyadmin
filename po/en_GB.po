@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2021-01-22 02:40+0000\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-1/en_GB/>\n"
@@ -4277,42 +4277,40 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "Enter your siteverify URL for your reCaptcha service."
+msgstr "Enter the URL for your reCaptcha v2 compatible API."
 
 #: libraries/classes/Config/Descriptions.php:960
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCaptcha v2 API"
-msgstr "URL for reCaptcha siteverify"
+msgstr "URL for reCaptcha v2 API"
 
 #: libraries/classes/Config/Descriptions.php:961
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
 msgstr ""
+"Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
+"API."
 
 #: libraries/classes/Config/Descriptions.php:962
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "Content-Security-Policy snippet for reCaptcha v2 API"
 
 #: libraries/classes/Config/Descriptions.php:963
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "Enter the request parameter used by your reCaptcha v2 compatible API."
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Request parameter for reCaptcha v2 API"
 
 #: libraries/classes/Config/Descriptions.php:965
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "Enter the response parameter used by your reCaptcha v2 compatible API."
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "Response parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Response parameter for reCaptcha v2 API"
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "Enter your public key for your domain reCaptcha service."
