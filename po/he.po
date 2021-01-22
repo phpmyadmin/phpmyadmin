@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2019-11-18 09:04+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/5-0/he/"
 ">\n"
 "Language: he\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1951,10 +1951,8 @@ msgid "Double-click to copy column name."
 msgstr "יש ללחוץ לחיצה כפולה כדי להעתיק שם עמודה."
 
 #: js/messages.php:610
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "יש ללחוץ על חץ הפתיחה<br />כדי לחשוף או להסתיר את העמודה."
+msgstr "יש ללחוץ על חץ הפתיחה<br>כדי לחשוף או להסתיר את העמודה."
 
 #: js/messages.php:612 libraries/classes/BrowseForeigners.php:355
 #: templates/display/results/table_navigation.twig:19
@@ -2016,17 +2014,12 @@ msgid "Print"
 msgstr "הדפסה"
 
 #: js/messages.php:642
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
-msgstr "ניתן לערוך את רוב הערכים<br />על ידי לחיצה כפולה ישירות עליהם."
+msgstr "ניתן לערוך את רוב הערכים<br>על ידי לחיצה כפולה ישירות עליהם."
 
 #: js/messages.php:647
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr "ניתן לערוך את רוב הערכים<br />על ידי לחיצה ישירה עליהם."
+msgstr "ניתן לערוך את רוב הערכים<br>על ידי לחיצה ישירה עליהם."
 
 #: js/messages.php:653
 msgid "Go to link:"
