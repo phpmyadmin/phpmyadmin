@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2019-06-02 20:11+0000\n"
-"Last-Translator: Alexander Anzorena <linkana2016@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/es/>\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
+"es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1523,7 +1523,7 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"No hay columnas en la lista central. Asegúrese que la lista central de  "
+"No hay columnas en la lista central. Asegúrese que la lista central de "
 "columnas para la base de datos %s tenga columnas que no estén en la tabla "
 "actual."
 
@@ -6472,7 +6472,7 @@ msgid ""
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 "Su servidor se está ejecutando con valores predeterminados para el usuario "
-"de control  y la contraseña (controlpass) y está abierto a intrusiones; "
+"de control y la contraseña (controlpass) y está abierto a intrusiones; "
 "realmente debería corregir esta debilidad de seguridad cambiando la "
 "contraseña para el usuario de control 'pma'."
 
@@ -9113,7 +9113,7 @@ msgid ""
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 "Hay un gran conjunto de datos en el panel de navegación que podrían afectar "
-"el rendimiento. Considere deshabilitar la  agrupación de elementos en el "
+"el rendimiento. Considere deshabilitar la agrupación de elementos en el "
 "panel de navegación."
 
 #: libraries/classes/Navigation/NavigationTree.php:789
@@ -14406,13 +14406,10 @@ msgstr[0] "%1$s coincidencia en la tabla <strong>%2$s</strong>"
 msgstr[1] "%1$s coincidencias en la tabla <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
-msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
+msgstr[0] "<strong>Total:</strong> <em>%count%</em> resultado"
+msgstr[1] "<strong>Total:</strong> <em>%count%</em> resultados"
 
 # singular: tabla
 # plural: tablas
@@ -14642,10 +14639,9 @@ msgstr "Ver salida como texto"
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Guardar en el servidor en el directorio <b>%s</b>"
+msgstr "Guardar en el servidor en el directorio <strong>%s</strong>"
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -14755,16 +14751,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "El archivo puede ser comprimido (%s) o descomprimido."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Un archivo comprimido tiene que terminar en <b>.[formato].[compresión]</b>. "
-"Por ejemplo: <b>.sql.zip</b>"
+"Un archivo comprimido tiene que terminar en <strong>.[formato].[compresión]</"
+"strong>. Por ejemplo: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -14789,20 +14781,15 @@ msgstr ""
 
 # not too fond of "script" and "break transactions"
 #: templates/display/import/import.twig:138
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Permitir la interrupción de una importación en caso que el script detecte "
-"que se ha acercado al límite de tiempo PHP. <i>(Esto podría ser un buen "
+"que se ha acercado al límite de tiempo PHP. <em>(Esto podría ser un buen "
 "método para importar archivos grandes; sin embargo, puede dañar las "
-"transacciones.)</i>"
+"transacciones.)</em>"
 
 #: templates/display/import/import.twig:145
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -15666,16 +15653,13 @@ msgid "Port:"
 msgstr "Puerto:"
 
 #: templates/server/replication/index.twig:16
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Este servidor no está configurado como maestro en un proceso de replicación. "
-"¿Desea <a href=\"%s\">configurarlo</a>?"
+"¿Desea %sconfigurarlo%s?"
 
 #: templates/server/replication/index.twig:35
 msgid "No privileges"
@@ -15742,19 +15726,14 @@ msgstr ""
 
 # See translation string 4
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
 "Una vez reiniciado el servidor MySQL, pulse el botón Continuar. A "
-"continuación deberás ver un mensaje informando que el servidor <b>está</b> "
-"configurado como maestro."
+"continuación deberás ver un mensaje informando que el servidor <strong>está</"
+"strong> configurado como maestro."
 
 #: templates/server/replication/master_replication.twig:4
 msgid "This server is configured as master in a replication process."
@@ -15840,16 +15819,13 @@ msgid "Skip next %s errors."
 msgstr "Omitir los siguientes %s errores."
 
 #: templates/server/replication/slave_configuration.twig:106
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Este servidor no está configurado como esclavo en un proceso de replicación. "
-"¿Desea <a href=\"%s\">configurarlo</a>?"
+"¿Desea %sconfigurarlo%s?"
 
 #: templates/server/replication/status_table.twig:6
 msgid "Master status"
@@ -18157,7 +18133,7 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
-"El caché está  %s%% fragmentado actualmente. Una fragmentación del 100%% "
+"El caché está %s%% fragmentado actualmente. Una fragmentación del 100%% "
 "significa que el caché de consulta es un patrón alternante de bloques "
 "utilizados y libres. Este valor debería ser menor al 20%%."
 
