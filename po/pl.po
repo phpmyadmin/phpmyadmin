@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-01-22 03:16+0000\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-9/pl/"
 ">\n"
@@ -6427,13 +6427,7 @@ msgstr ""
 "ISP, w którym tysiące użytkowników, łącznie z Tobą, są podłączeni."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6444,8 +6438,8 @@ msgstr ""
 "Ustaw [kbd]konfigurację[/kbd] typu uwierzytelniania i zawiera nazwę "
 "użytkownika i hasło automatycznego logowania, która nie jest pożądanym "
 "rozwiązaniem dla hsotów na żywo. Każdy, kto zna lub odwiedza adres "
-"phpMyAdmin URL ma bezpośredni dostęp do panelu phpMyAdmin. Ustaw %styp "
-"autoryzacji%s do [kbd]cookie[/kbd] lub [kbd]http[/kbd]."
+"phpMyAdmin URL ma bezpośredni dostęp do panelu phpMyAdmin. Ustaw %1$styp "
+"autoryzacji%2$s do [kbd]cookie[/kbd] lub [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
 msgid "You allow for connecting to the server without a password."
@@ -6488,19 +6482,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Klucz powinien zawierać litery, cyfry [em]i[/em] znaki specjalne."
 
 #: libraries/classes/Config/ServerConfigChecks.php:418
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sWażność ciasteczka logowania%s większa niż %ssession.gc_maxlifetime%s może "
-"powodować losowe wygasanie sesji (aktualnie session.gc_maxlifetime wynosi "
-"%d)."
+"%1$sWażność ciasteczka logowania%2$s większa niż %3$ssession."
+"gc_maxlifetime%4$s może powodować losowe wygasanie sesji (aktualnie "
+"session.gc_maxlifetime wynosi %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:442
 #, php-format
@@ -15787,14 +15777,11 @@ msgstr[1] "%1$s dopasowania w <strong>%2$s</strong>"
 msgstr[2] "%1$s dopasowań w <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Ogółem:</b> <i>%s</i> dopasowania"
-msgstr[1] "<b>Ogółem:</b> <i>%s</i> dopasowania"
-msgstr[2] "<b>Ogółem:</b> <i>%s</i> dopasowania"
+msgstr[0] "<strong>Ogółem:</strong> <em>%s</em> dopasowania"
+msgstr[1] "<strong>Ogółem:</strong> <em>%s</em> dopasowania"
+msgstr[2] "<strong>Ogółem:</strong> <em>%s</em> dopasowania"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 msgid ""
