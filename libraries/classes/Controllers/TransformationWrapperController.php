@@ -168,10 +168,10 @@ class TransformationWrapperController extends AbstractController
                 . ($mime_options['charset'] ?? '');
         }
 
-        Core::downloadHeader($cn, $mime_type);
+        Core::downloadHeader($cn ?? '', $mime_type ?? '');
 
         if (! isset($_REQUEST['resize'])) {
-            if (stripos($mime_type, 'html') === false) {
+            if (stripos($mime_type ?? '', 'html') === false) {
                 echo $row[$transform_key];
             } else {
                 echo htmlspecialchars($row[$transform_key]);
