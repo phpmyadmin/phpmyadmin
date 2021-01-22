@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2020-01-22 22:05+0000\n"
+"PO-Revision-Date: 2021-01-22 03:17+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Serbian (latin) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/sr_Latn/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.11-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1983,7 +1983,7 @@ msgstr "Dupli klik za kopiranje imena kolone."
 
 #: js/messages.php:610
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Kliknite strelicu na dole<br>da bi ste izmenili vidljivost kolone."
+msgstr "Kliknite strelici na dole<br>da bi ste izmenili vidljivost kolone."
 
 #: js/messages.php:612 libraries/classes/BrowseForeigners.php:355
 #: templates/display/results/table_navigation.twig:19
