@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2020-11-16 06:28+0000\n"
+"PO-Revision-Date: 2021-01-22 03:16+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"hi/>\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/5-1/hi/>"
+"\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7528,10 +7528,8 @@ msgid "Double-click to copy column name."
 msgstr "कोलम के नाम"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:570
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "कॉलम को दिखने / छुपाने के लिए <br /> ड्रॉप-डाउन तीर पर क्लिक करें"
+msgstr "कॉलम को दिखने / छुपाने के लिए <br> ड्रॉप-डाउन तीर पर क्लिक करें."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid ""
