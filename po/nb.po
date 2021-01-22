@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2020-11-25 22:28+0000\n"
-"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/nb_NO/>\n"
+"phpmyadmin/5-1/nb_NO/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7318,19 +7318,14 @@ msgid "Click to sort results by this column."
 msgstr "Klikk for å sortere resultatene etter denne kolonnen."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:563
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "Shift + Klikk for å legge denne kolonnen til BESTILLT AV-ledd eller veksle "
-"mellom STIGENDE/ SYNKENDE<br /> - Ctrl + klikk eller Alt + klikk (Mac: Shift "
-"+ Option + Klikk). For å fjerne kolonnen fra BESTILLT AV-leddet"
+"mellom STIGENDE/ SYNKENDE<br> - Ctrl + klikk eller Alt + klikk (Mac: Shift + "
+"Option + Klikk). For å fjerne kolonnen fra BESTILLT AV-leddet"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:567
 msgid "Click to mark/unmark."
@@ -7341,10 +7336,8 @@ msgid "Double-click to copy column name."
 msgstr "Dobbelklikk for å kopiere kolonnenavn."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:570
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Klikk pilen som peker ned<br />for å bytte på kolonnens synlighet."
+msgstr "Klikk pilen som peker ned<br>for å bytte på kolonnens synlighet."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid ""
@@ -7406,17 +7399,12 @@ msgid "Print"
 msgstr "Skriv ut"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:599
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
-msgstr "Du kan også endre de fleste verdiene<br /> ved å dobbeltklikke på dem."
+msgstr "Du kan også endre de fleste verdiene<br> ved å dobbeltklikke på dem."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr "Du kan også endre de fleste verdiene<br />ved å dobbeltklikke på dem."
+msgstr "Du kan også endre de fleste verdiene<br>ved å dobbeltklikke på dem."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:604
 msgid "Go to link:"
@@ -10453,12 +10441,10 @@ msgid "Binary"
 msgstr "Binær"
 
 #: libraries/classes/InsertEdit.php:792
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br> this column might not be editable."
 msgstr ""
-"På grunn av sin lengde,<br /> så vil muligens denne kolonnen ikke være "
-"redigerbar"
+"På grunn av sin lengde,<br> så vil muligens denne kolonnen ikke være "
+"redigerbar."
 
 #: libraries/classes/InsertEdit.php:1414
 msgid "Binary - do not edit"
@@ -14644,12 +14630,6 @@ msgid "Node group"
 msgstr "Brukere"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
@@ -14657,7 +14637,7 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Hvis kolonnetypen er \"enum\" eller \"set\", skriv inn verdien med dette "
-"formatet: 'a','b','c'…<br />Hvis du skulle trenge å ha en skråstrek (\"\\\") "
+"formatet: 'a','b','c'…<br>Hvis du skulle trenge å ha en skråstrek (\"\\\") "
 "eller en enkel apostrof (\"'\") blant disse verdiene, skriv en skråstrek "
 "foran (eks. '\\\\xyz' eller 'a\\'b')."
 
@@ -14724,12 +14704,6 @@ msgstr "Nettvisertransformasjon"
 
 #: templates/columns_definitions/table_fields_definitions.twig:82
 #: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -14737,9 +14711,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Skriv inn verdiene for transformasjon med dette formatet: 'a', 100, b,'c'…"
-"<br />Hvis du trenger å bruke en skråstrek (\"\\\") eller en enkel apostrof "
-"(\"'\") blant disse verdiene så sett en skråstrek foran (eks. '\\\\xyz' "
-"eller 'a\\'b')."
+"<br>Hvis du trenger å bruke en skråstrek (\"\\\") eller en enkel apostrof (\""
+"'\") blant disse verdiene så sett en skråstrek foran (eks. '\\\\xyz' eller '"
+"a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:88
 #: templates/transformation_overview.twig:37
@@ -19626,10 +19600,9 @@ msgid "Delete version"
 msgstr "Opprett versjon"
 
 #: templates/table/tracking/main.twig:103
-#, fuzzy, php-format
-#| msgid "Activate tracking for %s.%s"
+#, php-format
 msgid "Activate tracking for %s"
-msgstr "Aktiver overvåkning av %s.%s"
+msgstr "Aktiver overvåkning av %s"
 
 #: templates/table/tracking/main.twig:105
 msgid "Activate now"
