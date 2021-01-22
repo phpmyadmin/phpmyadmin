@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 00:42+0100\n"
-"PO-Revision-Date: 2021-01-22 01:09+0000\n"
+"PO-Revision-Date: 2021-01-22 01:27+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fi/>\n"
@@ -7141,11 +7141,9 @@ msgstr ""
 "painamalla suoraan niiden sisältöä."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Useimpia sarakkeita voi myös muokata<br/>painamalla suoraan niiden sisältöä."
+"Useimpia sarakkeita voi myös muokata<br>painamalla suoraan niiden sisältöä."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 msgid "Go to link:"
@@ -10085,10 +10083,8 @@ msgid "Binary"
 msgstr "Binääritietoa"
 
 #: libraries/classes/InsertEdit.php:792
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable"
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Koska sen pituus, <br/> Tätä saraketta ei ehkä voi muokata"
+msgstr "Koska sen pituus, <br> Tätä saraketta ei ehkä voi muokata."
 
 #: libraries/classes/InsertEdit.php:1414
 msgid "Binary - do not edit"
