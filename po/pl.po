@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-01-22 03:17+0000\n"
+"PO-Revision-Date: 2021-01-22 17:27+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/5-0/pl/"
 ">\n"
@@ -6106,13 +6106,7 @@ msgstr ""
 "ISP, w którym tysiące użytkowników, łącznie z Tobą, są podłączeni."
 
 #: libraries/classes/Config/ServerConfigChecks.php:212
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6123,8 +6117,8 @@ msgstr ""
 "Ustaw [kbd]konfigurację[/kbd] typu uwierzytelniania i zawiera nazwę "
 "użytkownika i hasło automatycznego logowania, która nie jest pożądanym "
 "rozwiązaniem dla hsotów na żywo. Każdy, kto zna lub odwiedza adres "
-"phpMyAdmin URL ma bezpośredni dostęp do panelu phpMyAdmin. Ustaw %styp "
-"autoryzacji%s do [kbd]cookie[/kbd] lub [kbd]http[/kbd]."
+"phpMyAdmin URL ma bezpośredni dostęp do panelu phpMyAdmin. Ustaw %1$styp "
+"autoryzacji%2$s do [kbd]cookie[/kbd] lub [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:239
 msgid "You allow for connecting to the server without a password."
@@ -6167,19 +6161,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Klucz powinien zawierać litery, cyfry [em]i[/em] znaki specjalne."
 
 #: libraries/classes/Config/ServerConfigChecks.php:441
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sWażność ciasteczka logowania%s większa niż %ssession.gc_maxlifetime%s może "
-"powodować losowe wygasanie sesji (aktualnie session.gc_maxlifetime wynosi "
-"%d)."
+"%1$sWażność ciasteczka logowania%2$s większa niż %3$ssession."
+"gc_maxlifetime%4$s może powodować losowe wygasanie sesji (aktualnie "
+"session.gc_maxlifetime wynosi %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:465
 #, php-format
@@ -10195,32 +10185,22 @@ msgid "Syntax to use when inserting data:"
 msgstr "Składnia do użycia podczas wstawiania danych:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"dołączaj nazwy kolumn w każdym zapytaniu <code>INSERT</code> <br />&nbsp; "
-"&nbsp; &nbsp; Np: <code>INSERTI NTO tbl_name (col_A,col_B,col_C) VALUES "
+"dołączaj nazwy kolumn w każdym zapytaniu <code>INSERT</code> <br>&nbsp; "
+"&nbsp; &nbsp; Np: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"wstawić wiele wierszy w każdym <code>INSERT</code>oświadczeniu<br />&nbsp; "
+"wstawić wiele wierszy w każdym <code>INSERT</code>oświadczeniu<br>&nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
@@ -10233,16 +10213,12 @@ msgstr ""
 "VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"żadne z powyższych<br />Przykład: <code>INSERT INTO tbl_name VALUES (1,2,3)</"
-"code>"
+"żadne z powyższych<br>Przykład: <code>INSERT INTO tbl_name VALUES "
+"(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:467
 msgid ""
@@ -14191,14 +14167,11 @@ msgstr[1] "%1$s dopasowania w <strong>%2$s</strong>"
 msgstr[2] "%1$s dopasowań w <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Ogółem:</b> <i>%s</i> dopasowania"
-msgstr[1] "<b>Ogółem:</b> <i>%s</i> dopasowania"
-msgstr[2] "<b>Ogółem:</b> <i>%s</i> dopasowania"
+msgstr[0] "<strong>Ogółem:</strong> <em>%s</em> dopasowania"
+msgstr[1] "<strong>Ogółem:</strong> <em>%s</em> dopasowania"
+msgstr[2] "<strong>Ogółem:</strong> <em>%s</em> dopasowania"
 
 #: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
