@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2020-11-15 18:28+0000\n"
+"PO-Revision-Date: 2021-01-22 01:34+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/5-0/da/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -1987,18 +1987,13 @@ msgid "Click to sort results by this column."
 msgstr "Klik for at sortere resultater efter denne kolonne."
 
 #: js/messages.php:603
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "Skift+ḱlik for at tilføje denne kolonne til klausulen ORDER BY eller skifte "
-"mellem tiltagende og aftagende, ASC/DESC.<br />- Ctrl+klik eller Alt+Click "
+"mellem tiltagende og aftagende, ASC/DESC.<br>- Ctrl+klik eller Alt+Click "
 "(Mac: Shift+Option+Klik) for at fjerne kolonne fra klausulen ORDER BY"
 
 #: js/messages.php:607
@@ -2010,10 +2005,8 @@ msgid "Double-click to copy column name."
 msgstr "Dobbeltklik for at kopiere kolonnenavn."
 
 #: js/messages.php:610
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Klik på pilen for valgboks<br />for at skifte kolonnens synlighed."
+msgstr "Klik på pilen for valgboks<br>for at skifte kolonnens synlighed."
 
 #: js/messages.php:612 libraries/classes/BrowseForeigners.php:355
 #: templates/display/results/table_navigation.twig:19
@@ -2080,20 +2073,14 @@ msgid "Print"
 msgstr "Udskriv"
 
 #: js/messages.php:642
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Du kan også redigere de fleste værdier<br />ved at dobbelt-klikke direkte på "
+"Du kan også redigere de fleste værdier<br>ved at dobbelt-klikke direkte på "
 "dem."
 
 #: js/messages.php:647
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr ""
-"Du kan også redigere de fleste værdier<br />ved at klikke direkte på dem."
+msgstr "Du kan også redigere de fleste værdier<br>ved at klikke direkte på dem."
 
 #: js/messages.php:653
 msgid "Go to link:"
@@ -8637,10 +8624,8 @@ msgid "Binary"
 msgstr "Binært"
 
 #: libraries/classes/InsertEdit.php:760
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "På grund af feltets længde,<br /> kan det muligvis ikke ændres."
+msgstr "På grund af feltets længde,<br> kan det muligvis ikke ændres."
 
 #: libraries/classes/InsertEdit.php:1378
 msgid "Binary - do not edit"
@@ -9192,17 +9177,12 @@ msgid "Primary key already exists."
 msgstr "Primær nøgle findes allerede."
 
 #: libraries/classes/Normalization.php:278
-#, fuzzy
-#| msgid ""
-#| "There is no primary key; please add one.<br/>Hint: A primary key is a "
-#| "column (or combination of columns) that uniquely identify all rows."
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
-"Der er ingen primær nøgle; tilføj venligst én.<br />Tip: En primær nøgle er "
-"en kolonne (eller kombination af kolonner) som unikt identificerer alle "
-"rækker."
+"Der er ingen primær nøgle; tilføj venligst én.<br>Tip: En primær nøgle er en "
+"kolonne (eller kombination af kolonner) som unikt identificerer alle rækker."
 
 #: libraries/classes/Normalization.php:286
 msgid "Add a primary key on existing column(s)"
@@ -9396,12 +9376,6 @@ msgid "Find transitive dependencies"
 msgstr "Find transitive afhængigheder"
 
 #: libraries/classes/Normalization.php:837
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -9410,8 +9384,8 @@ msgid ""
 msgstr ""
 "For hver kolonne nedenfor - vælg venligst det <b>mindste sæt</b> af kolonner "
 "blandt de givne sæt, hvis værdier i kombination er tilstrækkelige til at "
-"afgøre værdien af kolonnen.<br />Bemærk: En kolonne må ikke have en "
-"transitiv afhængighed - i dette tilfælde behøver du ikke at vælge nogen."
+"afgøre værdien af kolonnen.<br>Bemærk: En kolonne må ikke have en transitiv "
+"afhængighed - i dette tilfælde behøver du ikke at vælge nogen."
 
 #: libraries/classes/Normalization.php:886
 msgid ""
@@ -10191,57 +10165,39 @@ msgid "Syntax to use when inserting data:"
 msgstr "Syntaks der bruges, når data indsættes:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:433
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"inkluder kolonnenavne i hver <code>INSERT</code> forespørgsel <br /> &nbsp; "
+"inkluder kolonnenavne i hver <code>INSERT</code> forespørgsel <br> &nbsp; "
 "&nbsp; &nbsp; Eksempel: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
 "VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:438
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"indsæt flere rækker i hver <code>INSERT</code> forespørgsel<br /> &nbsp; "
-"&nbsp; &nbsp; Eksempel: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"indsæt flere rækker i hver <code>INSERT</code> forespørgsel<br> &nbsp; &nbsp;"
+" &nbsp; Eksempel: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:443
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"begge af ovenstående<br /> &nbsp; &nbsp; &nbsp; Eksempel: <code>INSERT INTO "
+"begge af ovenstående<br> &nbsp; &nbsp; &nbsp; Eksempel: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:448
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"ingen af ovenstående<br /> &nbsp; &nbsp; &nbsp; Eksempel: <code>INSERT INTO "
+"ingen af ovenstående<br> &nbsp; &nbsp; &nbsp; Eksempel: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:467
@@ -10463,10 +10419,9 @@ msgid "MediaWiki Table"
 msgstr "MediaWiki tabel"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Ugyldigt format for mediawiki-input på linje: <br />%s."
+msgstr "Ugyldigt format for mediawiki-input på linje: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -13640,12 +13595,6 @@ msgid "Node group"
 msgstr "Nodegruppe"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
@@ -13653,7 +13602,7 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Hvis et felt er af typen \"enum\" eller \"set\", skal værdierne angives på "
-"formen: 'a','b','c'…<br />Skulle du få brug for en backslash (\"\") eller et "
+"formen: 'a','b','c'…<br>Skulle du få brug for en backslash (\"\") eller et "
 "enkelt anførselstegn (\"'\") blandt disse værdier, så tilføj en ekstra "
 "backslash (fx '\\\\xyz' eller 'a\\'b')."
 
@@ -13689,12 +13638,6 @@ msgstr "Tilvalg for transformation af browservisning"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -13702,9 +13645,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Indtast værdier for transformationsindstillinger ud fra følgende format: "
-"'a', 100, b,'c'…<br />Skulle du få brug for at indsætte en backslash (\"\\"
-"\") eller en apostrof (\"'\") i værdierne, backslash det (for eksempel '\\"
-"\\xyz' eller 'a\\'b')."
+"'a', 100, b,'c'…<br>Skulle du få brug for at indsætte en backslash (\"\\\") "
+"eller en apostrof (\"'\") i værdierne, backslash det (for eksempel '\\\\xyz' "
+"eller 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:89
 #: templates/transformation_overview.twig:37
