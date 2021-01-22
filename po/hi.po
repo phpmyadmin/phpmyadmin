@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 01:10+0000\n"
+"PO-Revision-Date: 2021-01-22 03:16+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "hi/>\n"
@@ -7487,10 +7487,8 @@ msgid "Double-click to copy column name."
 msgstr "कोलम के नाम"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:564
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "कॉलम को दिखने / छुपाने के लिए <br /> ड्रॉप-डाउन तीर पर क्लिक करें"
+msgstr "कॉलम को दिखने / छुपाने के लिए <br> ड्रॉप-डाउन तीर पर क्लिक करें."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid ""
