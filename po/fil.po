@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 01:10+0000\n"
+"PO-Revision-Date: 2021-01-22 03:17+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Filipino <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fil/>\n"
@@ -6517,12 +6517,9 @@ msgid "Double-click to copy column name."
 msgstr "Mag-double-click upang kopyahin ang pangalan ng haligi."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:564
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
-"I-click ang drop-down na arrow <br /> upang maipakita ang visibility ng "
-"haligi."
+"I-click ang drop-down na arrow <br> upang maipakita ang visibility ng haligi."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid ""
@@ -6586,21 +6583,16 @@ msgid "Print"
 msgstr "I-print"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:593
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Maaari mo ring i-edit ang karamihan sa mga halaga<br /> sa pamamagitan ng "
-"pag-double-click nang direkta sa mga ito."
+"Maaari mo ring i-edit ang karamihan sa mga halaga<br> sa pamamagitan ng pag-"
+"double-click nang direkta sa mga ito."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Maaari mo ring i-edit ang karamihan ng mga halaga <br /> sa pamamagitan ng "
-"pag-click nang direkta sa mga ito."
+"Maaari mo ring i-edit ang karamihan ng mga halaga <br> sa pamamagitan ng pag-"
+"click nang direkta sa mga ito."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 msgid "Go to link:"
