@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 00:42+0100\n"
-"PO-Revision-Date: 2021-01-22 01:09+0000\n"
+"PO-Revision-Date: 2021-01-22 01:27+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -6662,10 +6662,8 @@ msgid "Double-click to copy column name."
 msgstr "நிரல்வரிசை பெயரை படியெடுக்க இருமுறை சொடுக்குக."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:564
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "நிரல்வரிசையின் காட்சிப்பண்பை <br/>மாற்ற கீழிறங்கு குறியை சொடுக்குக."
+msgstr "நிரல்வரிசையின் காட்சிப்பண்பை <br>மாற்ற கீழிறங்கு குறியை சொடுக்குக."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid ""
@@ -6726,17 +6724,12 @@ msgid "Print"
 msgstr "அச்சிடுக"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:593
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
-msgstr "நீங்கள் பெரும்பாலான மதிப்புகளை தொகுக்க <br/> அவற்றை இருமுறை-சொடுக்குக."
+msgstr "நீங்கள் பெரும்பாலான மதிப்புகளை தொகுக்க <br> அவற்றை இருமுறை-சொடுக்குக."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr "நீங்கள் பெரும்பாலான மதிப்புகளை தொகுக்க <br/> அவற்றை சொடுக்குக."
+msgstr "நீங்கள் பெரும்பாலான மதிப்புகளை தொகுக்க <br> அவற்றை சொடுக்குக."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 msgid "Go to link:"
