@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2019-07-25 19:55+0000\n"
-"Last-Translator: Alba Kaydus <sareli1951@gmail.com>\n"
-"Language-Team: Filipino <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/fil/>\n"
+"PO-Revision-Date: 2021-01-22 03:16+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"Language-Team: Filipino <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
+"fil/>\n"
 "Language: fil\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
 "|| n % 10 == 6 || n % 10 == 9);\n"
-"X-Generator: Weblate 3.8-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6561,12 +6561,9 @@ msgid "Double-click to copy column name."
 msgstr "Mag-double-click upang kopyahin ang pangalan ng haligi."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:570
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
-"I-click ang drop-down na arrow <br /> upang maipakita ang visibility ng "
-"haligi."
+"I-click ang drop-down na arrow <br> upang maipakita ang visibility ng haligi."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid ""
@@ -6630,21 +6627,16 @@ msgid "Print"
 msgstr "I-print"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:599
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Maaari mo ring i-edit ang karamihan sa mga halaga<br /> sa pamamagitan ng "
-"pag-double-click nang direkta sa mga ito."
+"Maaari mo ring i-edit ang karamihan sa mga halaga<br> sa pamamagitan ng pag-"
+"double-click nang direkta sa mga ito."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Maaari mo ring i-edit ang karamihan ng mga halaga <br /> sa pamamagitan ng "
-"pag-click nang direkta sa mga ito."
+"Maaari mo ring i-edit ang karamihan ng mga halaga <br> sa pamamagitan ng pag-"
+"click nang direkta sa mga ito."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:604
 msgid "Go to link:"
