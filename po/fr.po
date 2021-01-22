@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 00:42+0100\n"
-"PO-Revision-Date: 2020-12-22 16:29+0000\n"
+"PO-Revision-Date: 2021-01-22 01:10+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -11439,7 +11439,7 @@ msgid ""
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "les deux modes ci-dessus<br> &nbsp; &nbsp; &nbsp; Par exemple : <code>INSERT "
-"INTO tbl_name (col_A,col_B, col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:480
 msgid ""
@@ -15110,16 +15110,12 @@ msgid "Is deterministic"
 msgstr "Est déterministe"
 
 #: templates/database/routines/editor_form.twig:130
-#, fuzzy
-#| msgid ""
-#| "You do not have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
 "L'utilisateur n'a pas de privilèges suffisants pour effectuer cette "
-"opération ; merci de se reporter à la documentation pour plus de détails"
+"opération ; merci de se reporter à la documentation pour plus de détails."
 
 #: templates/database/routines/editor_form.twig:143
 msgid "Security type"
@@ -15130,8 +15126,6 @@ msgid "SQL data access"
 msgstr "Accès aux données SQL"
 
 #: templates/database/routines/index.twig:33
-#, fuzzy
-#| msgid "Create routine"
 msgid "Create new routine"
 msgstr "Créer une procédure"
 
@@ -15310,15 +15304,11 @@ msgid "Are you sure?"
 msgstr "Faut-il confirmer ?"
 
 #: templates/database/structure/check_all_tables.twig:69
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.[br]Are you sure you "
 "want to continue?"
 msgstr ""
-"Cette action peut changer certaines définitions de colonnes.<br>Faut-il "
+"Cette action peut changer certaines définitions de colonnes.[br]Faut-il "
 "vraiment continuer ?"
 
 #: templates/database/structure/copy_form.twig:14
@@ -16912,10 +16902,8 @@ msgid "Allows executing this routine."
 msgstr "Permission d'exécuter cette procédure."
 
 #: templates/server/privileges/initials_row.twig:1
-#, fuzzy
-#| msgid "Change login information / Copy user account"
 msgid "Pagination of user accounts"
-msgstr "Modifier les informations de connexion/Copier un compte d'utilisateur"
+msgstr "Pagination des comptes d'utilisateurs"
 
 #: templates/server/privileges/login_information_fields.twig:2
 #: templates/server/privileges/user_properties.twig:106
@@ -17098,20 +17086,16 @@ msgstr ""
 "recharger les privilèges."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Permission de créer des procédures stockées."
+msgstr "Permet de créer des relations de clés étrangères."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Non utilisé sur MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "N'a pas d'effet dans cette version de MySQL."
+msgstr "Non utilisé pour cette version de MySQL."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -17895,10 +17879,8 @@ msgid "Table level tabs"
 msgstr "Onglets de niveau table"
 
 #: templates/server/user_groups/user_groups.twig:50
-#, fuzzy
-#| msgid "Edit user group"
 msgid "Delete user group"
-msgstr "Éditer un groupe d'utilisateurs"
+msgstr "Supprimer le groupe d’utilisateurs"
 
 #: templates/server/user_groups/user_listings.twig:1
 #, php-format
@@ -17937,10 +17919,8 @@ msgid "Configuration file"
 msgstr "Fichier de configuration"
 
 #: templates/setup/config/index.twig:16
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Generated configuration file"
-msgstr "Impossible de lire le fichier de configuration !"
+msgstr "Fichier de configuration généré"
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
 msgid "Download"
