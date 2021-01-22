@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 01:10+0000\n"
+"PO-Revision-Date: 2021-01-22 03:17+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/hy/>\n"
@@ -6743,10 +6743,8 @@ msgid "Double-click to copy column name."
 msgstr "Երկկտտացրեք՝ սյունակի անունը պատճենելու համար։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:564
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Կտտացրեք ելնող սլաքը՝<br />սյունակի տեսանելիությունը փոխարկելու համար։"
+msgstr "Կտտացրեք ելնող սլաքը<br>սյունակի տեսանելիությունը փոխարկելու համար։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid ""
@@ -6810,20 +6808,15 @@ msgid "Print"
 msgstr "Տպել"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:593
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Դուք կարող եք խմբագրել արժեքների մեծ մասը՝<br />դրանց վրա անմիջապես "
+"Դուք կարող եք խմբագրել արժեքների մեծ մասը<br>դրանց վրա անմիջապես "
 "երկկտտացնելով։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Դուք կարող եք նաև խմբագրել տվյալների մեծ մասը<br />անմիջապես դրանց վրա "
+"Դուք կարող եք նաև խմբագրել տվյալների մեծ մասը<br>անմիջապես դրանց վրա "
 "կտտացնելով։"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
