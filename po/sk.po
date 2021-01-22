@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 02:41+0000\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "sk/>\n"
@@ -6970,11 +6970,9 @@ msgid "Double-click to copy column name."
 msgstr "Dvakrát kliknite pre skopírovanie názvu stĺpca."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:564
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr ""
-"Kliknite na šípku rozbaľovacieho zoznamu<br />pre zmenu viditeľnosti stĺpca."
+"Kliknite na šípku rozbaľovacieho zoznamu<br>pre zmenu viditeľnosti stĺpca."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid ""
@@ -7036,17 +7034,12 @@ msgid "Print"
 msgstr "Vytlačiť"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:593
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
-msgstr "Väčšinu stĺpcov môžete upraviť<br />dvojkliknutím na ich obsah."
+msgstr "Väčšinu stĺpcov môžete upraviť<br>dvojkliknutím na ich obsah."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
-msgstr "Väčšinu stĺpcov môžete upraviť<br />kliknutím na ich obsah."
+msgstr "Väčšinu stĺpcov môžete upraviť<br>kliknutím na ich obsah."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 msgid "Go to link:"
@@ -9831,10 +9824,8 @@ msgid "Binary"
 msgstr "Binárny"
 
 #: libraries/classes/InsertEdit.php:792
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Kvôli jeho dĺžke,<br /> sa toto pole nemusí dať upraviť."
+msgstr "Kvôli jeho dĺžke,<br> sa toto pole nemusí dať upraviť."
 
 #: libraries/classes/InsertEdit.php:1414
 msgid "Binary - do not edit"
@@ -11394,10 +11385,9 @@ msgid "MediaWiki Table"
 msgstr "MediaWiki tabuľka"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:291
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Chybný formát vo vstupe z mediawiki na riadku: <br />%s."
+msgstr "Chybný formát vo vstupe z mediawiki na riadku: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:83
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -13864,12 +13854,6 @@ msgstr "Možnosti transformácie pri zobrazení"
 
 #: templates/columns_definitions/table_fields_definitions.twig:82
 #: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -13877,7 +13861,7 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Prosím zadajte hodnoty pre parametre transformácie v nasledujúcom tvare: "
-"'a', 100, b,'c'…<br />Ak potrebujete použiť spätné lomítko (\"\\\") alebo "
+"'a', 100, b,'c'…<br>Ak potrebujete použiť spätné lomítko (\"\\\") alebo "
 "jednoduché úvodzovky (\"'\") medzi týmito hodnotami, vložte pred nich spätné "
 "lomítko (napr. '\\\\xyz' alebo 'a\\'b')."
 
