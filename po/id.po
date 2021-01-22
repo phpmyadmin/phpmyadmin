@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-11-16 03:28+0000\n"
+"PO-Revision-Date: 2021-01-22 03:16+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/id/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
@@ -16004,10 +16004,9 @@ msgid "Activate now"
 msgstr "Aktifkan sekarang"
 
 #: templates/table/tracking/activate_deactivate.twig:11
-#, fuzzy, php-format
-#| msgid "Deactivate tracking for %s.%s"
+#, php-format
 msgid "Deactivate tracking for %s"
-msgstr "Nonaktifkan pelacakan untuk %s.%s"
+msgstr "Nonaktifkan pelacakan untuk %s"
 
 #: templates/table/tracking/activate_deactivate.twig:13
 msgid "Deactivate now"
