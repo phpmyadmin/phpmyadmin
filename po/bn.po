@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 03:16+0000\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bn/>\n"
@@ -288,10 +288,10 @@ msgid ""
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
-"আপনি অনেক ব্যবহৃত একটি ডাটাবেইজে MySQL অনুসন্ধান ক্যাশ ব্যবহার করছেন। এটি অনেক "
-"মুল্যবান হতে পারে, MySQL অনুসন্ধান ক্যাশের পরিবর্তে <a href=\"https://dev.mysql."
-"com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> ব্যবহার করতে পারেন, "
-"বিশেষত আপনার যদি অনেকগুলো slave থাকে।"
+"আপনি অনেক ব্যবহৃত একটি ডাটাবেইজে MySQL অনুসন্ধান ক্যাশ ব্যবহার করছেন। এটি অনে"
+"ক মুল্যবান হতে পারে, MySQL অনুসন্ধান ক্যাশের পরিবর্তে <a href=\"https://dev."
+"mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> ব্যবহার করতে "
+"পারেন, বিশেষত আপনার যদি অনেকগুলো slave থাকে।"
 
 #: libraries/advisory_rules_generic.php:198
 #, php-format
@@ -3163,16 +3163,12 @@ msgid "Logo link URL"
 msgstr "লোগো সংযোগের URL"
 
 #: libraries/classes/Config/Descriptions.php:531
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"সংযুক্ত পাতাটি একটি নতুন উইন্ডোতে ([kbd]new[/kbd]) খোল বা প্রধান উইন্ডোটিতে "
-"([kbd]main[/kbd]) খোল।"
+"সংযুক্ত পাতাটি একটি নতুন উইন্ডোতে ([code]new[/code]) খোল বা প্রধান উইন্ডোটিতে"
+" ([code]main[/code]) খোল।"
 
 #: libraries/classes/Config/Descriptions.php:534
 msgid "Logo link target"
