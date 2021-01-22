@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 01:27+0000\n"
+"PO-Revision-Date: 2021-01-22 03:16+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
@@ -7343,10 +7343,8 @@ msgid "Double-click to copy column name."
 msgstr "Klik dua kali untuk menyalin nama kolom."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:564
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Klik tanda panah ke bawah<br />untuk beralih visibilitas kolom."
+msgstr "Klik tanda panah ke bawah<br>untuk beralih visibilitas kolom."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:568
 msgid ""
@@ -7408,21 +7406,14 @@ msgid "Print"
 msgstr "Cetak"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:593
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Anda juga dapat mengedit sebagian nilai<br />dengan mengeklik langsung "
-"konten."
+"Anda juga dapat mengedit sebagian nilai<br>dengan mengeklik langsung konten."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Anda juga dapat mengedit sebagian nilai<br />dengan mengeklik langsung "
-"konten."
+"Anda juga dapat mengedit sebagian nilai<br>dengan mengeklik langsung konten."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:598
 msgid "Go to link:"
@@ -10382,10 +10373,8 @@ msgid "Binary"
 msgstr "Biner"
 
 #: libraries/classes/InsertEdit.php:792
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "Karena panjangnya,<br /> kolom ini mungkin tidak dapat diedit."
+msgstr "Karena panjangnya,<br> kolom ini mungkin tidak dapat diedit."
 
 #: libraries/classes/InsertEdit.php:1414
 msgid "Binary - do not edit"
@@ -11808,43 +11797,39 @@ msgid "Syntax to use when inserting data:"
 msgstr "Sintaks yang digunakan sewaktu menambah data:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:465
-#, fuzzy
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"termasuk nama kolom dalam setiap <code> INSERT </ code> pernyataan <br /> "
+"termasuk nama kolom dalam setiap <code> INSERT </ code> pernyataan <br> "
 "&nbsp; &nbsp; &nbsp; Contoh: <code> INSERT INTO tbl_name (col_A, col_B, "
 "col_C) VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:470
-#, fuzzy
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
 "menyisipkan beberapa baris dalam setiap <code> INSERT </ code> pernyataan "
-"<br /> &nbsp; &nbsp; &nbsp; Contoh: <code> INSERT INTO NILAI tbl_name "
-"(1,2,3), (4,5,6), (7,8,9)</code>"
+"<br> &nbsp; &nbsp; &nbsp; Contoh: <code> INSERT INTO NILAI tbl_name (1,2,3), "
+"(4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:475
-#, fuzzy
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"kedua hal di atas <br /> &nbsp; &nbsp; &nbsp; Contoh: <code>INSERT INTO "
-"tbl_name (col_A, col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"kedua hal di atas <br> &nbsp; &nbsp; &nbsp; Contoh: <code>INSERT INTO "
+"tbl_name (col_A, col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:480
-#, fuzzy
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"hal tersebut di atas <br /> &nbsp; &nbsp; &nbsp; Contoh: <code>INSERT INTO "
+"hal tersebut di atas <br> &nbsp; &nbsp; &nbsp; Contoh: <code>INSERT INTO "
 "NILAI tbl_name (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:499
@@ -12076,10 +12061,9 @@ msgid "MediaWiki Table"
 msgstr "Tabel MediaWiki"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:291
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Format tidak valid pada input mediawiki pada baris: <br /> %s."
+msgstr "Format tidak valid pada input mediawiki pada baris: <br> %s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:83
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -19664,10 +19648,9 @@ msgid "Activate now"
 msgstr "Aktifkan sekarang"
 
 #: templates/table/tracking/main.twig:107
-#, fuzzy, php-format
-#| msgid "Deactivate tracking for %s.%s"
+#, php-format
 msgid "Deactivate tracking for %s"
-msgstr "Nonaktifkan pelacakan untuk %s.%s"
+msgstr "Nonaktifkan pelacakan untuk %s"
 
 #: templates/table/tracking/main.twig:109
 msgid "Deactivate now"
