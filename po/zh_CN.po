@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-12-19 04:29+0000\n"
-"Last-Translator: Andady Zhang <andady@qq.com>\n"
+"PO-Revision-Date: 2021-01-22 02:40+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1358,8 +1358,7 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"已启用 slow_query_log，但服务器仅记录查询时间超过 %d 秒的查询。请根据您的系统"
-"适当设置  long_query_time 为 0-2 秒。"
+"已启用 slow_query_log，但服务器仅记录查询时间超过 %d 秒的查询。请根据您的系统适当设置 long_query_time 为 0-2 秒。"
 
 #: js/messages.php:237
 #, php-format
@@ -1934,8 +1933,7 @@ msgstr "在该列表中搜索"
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
-msgstr ""
-"中心列表中没有列。请确保数据库  %s 的中心列表存在没有显示在当前表中的列。"
+msgstr "中心列表中没有列。请确保数据库 %s 的中心列表存在没有显示在当前表中的列。"
 
 #: js/messages.php:437
 msgid "See more"
@@ -4941,9 +4939,7 @@ msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
-msgstr ""
-"允许使用基于数据库的查询历史 (需要 phpMyAdmin  高级功能)。如果禁用，将使用 "
-"JS 程序来显示查询历史 (关闭窗口即丢失)。"
+msgstr "允许使用基于数据库的查询历史 (需要 phpMyAdmin 高级功能)。如果禁用，将使用 JS 程序来显示查询历史 (关闭窗口即丢失)。"
 
 #: libraries/classes/Config/Descriptions.php:933
 msgid "Permanent query history"
@@ -5251,8 +5247,8 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"关系、书签、PDF 功能所用的数据库。参见 [doc@linked-tables]pmadb (外链，英文)"
-"[/doc]。不使用请留空。推荐:  [kbd]phpmyadmin[/kbd]。"
+"关系、书签、PDF 功能所用的数据库。参见 [doc@linked-tables]pmadb (外链，英文)[/doc]。不使用请留空。推荐: "
+"[kbd]phpmyadmin[/kbd]。"
 
 #: libraries/classes/Config/Descriptions.php:1112
 #: templates/server/databases/create.twig:21
