@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2019-04-27 16:55+0000\n"
+"PO-Revision-Date: 2021-01-22 02:40+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -4109,8 +4109,9 @@ msgid "Use %s statement"
 msgstr "Usar unha instrución %s"
 
 #: libraries/classes/Config/Descriptions.php:254
+#, fuzzy
 msgid "Save as file"
-msgstr "Enviar <i>(gravar nun ficheiro)</i><br />"
+msgstr "Gardar como ficheiro"
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Config/Descriptions.php:629
@@ -14769,13 +14770,13 @@ msgstr ""
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Enviar <i>(gravar nun ficheiro)</i><br />"
+msgstr "Gardar como ficheiro JSON"
 
 #: prefs_manage.php:314
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Enviar <i>(gravar nun ficheiro)</i><br />"
+msgstr "Gardar como ficheiro PHP"
 
 #: prefs_manage.php:319
 msgid "Save to browser's storage"
@@ -15607,7 +15608,7 @@ msgstr "Valores para a columna %s"
 #, fuzzy
 #| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Enviar <i>(gravar nun ficheiro)</i><br />"
+msgstr "Salva mapa como imaxe"
 
 #: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
