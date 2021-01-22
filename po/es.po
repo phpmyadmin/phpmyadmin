@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 01:10+0000\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
@@ -293,12 +293,6 @@ msgid "Suboptimal caching method."
 msgstr "Método de caché sub-óptimo."
 
 #: libraries/advisory_rules_generic.php:192
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -306,9 +300,9 @@ msgid ""
 "cache, especially if you have multiple slaves."
 msgstr ""
 "Está utilizando el caché de consultas MySQL en una base de datos de bastante "
-"tráfico. Probablemente quiera considerar utilizar <a href=\"https://dev."
-"mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> en lugar del "
-"caché de consultas de MySQL, especialmente si tiene muchos esclavos."
+"tráfico. Probablemente quiera considerar utilizar <a href=\"https://dev.mysql"
+".com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> en lugar del caché "
+"de consultas de MySQL, especialmente si tiene muchos esclavos."
 
 #: libraries/advisory_rules_generic.php:198
 #, php-format
@@ -1293,7 +1287,7 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
-"El caché está  %s%% fragmentado actualmente. Una fragmentación del 100%% "
+"El caché está %s%% fragmentado actualmente. Una fragmentación del 100%% "
 "significa que el caché de consulta es un patrón alternante de bloques "
 "utilizados y libres. Este valor debería ser menor al 20%%."
 
@@ -5438,7 +5432,7 @@ msgid ""
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 "Su servidor se está ejecutando con valores predeterminados para el usuario "
-"de control  y la contraseña (controlpass) y está abierto a intrusiones; "
+"de control y la contraseña (controlpass) y está abierto a intrusiones; "
 "realmente debería corregir esta debilidad de seguridad cambiando la "
 "contraseña para el usuario de control 'pma'."
 
@@ -6745,7 +6739,7 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
-"No hay columnas en la lista central. Asegúrese que la lista central de  "
+"No hay columnas en la lista central. Asegúrese que la lista central de "
 "columnas para la base de datos %s tenga columnas que no estén en la tabla "
 "actual."
 
@@ -10499,7 +10493,7 @@ msgid ""
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 "Hay un gran conjunto de datos en el panel de navegación que podrían afectar "
-"el rendimiento. Considere deshabilitar la  agrupación de elementos en el "
+"el rendimiento. Considere deshabilitar la agrupación de elementos en el "
 "panel de navegación."
 
 #: libraries/classes/Navigation/NavigationTree.php:816
@@ -15399,13 +15393,10 @@ msgstr[0] "%1$s coincidencia en la tabla <strong>%2$s</strong>"
 msgstr[1] "%1$s coincidencias en la tabla <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> resultado"
-msgstr[1] "<b>Total:</b> <i>%s</i> resultados"
+msgstr[0] "<strong>Total:</strong> <em>%count%</em> resultado"
+msgstr[1] "<strong>Total:</strong> <em>%count%</em> resultados"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
@@ -15838,10 +15829,9 @@ msgid "Output:"
 msgstr "Salida:"
 
 #: templates/export.twig:143 templates/export.twig:309
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Guardar en el servidor en el directorio <b>%s</b>"
+msgstr "Guardar en el servidor en el directorio <strong>%s</strong>"
 
 #: templates/export.twig:157 templates/export.twig:284
 msgid "Rename exported databases/tables/columns"
@@ -16078,16 +16068,14 @@ msgid "from %s branch"
 msgstr "%1$s de rama %2$s"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "incorporada el %1$s por %2$s"
+msgstr "incorporada el %s por %s"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "creada el %1$s por %2$s"
+msgstr "creada el %s por %s"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
@@ -16245,16 +16233,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "El archivo puede ser comprimido (%s) o descomprimido."
 
 #: templates/import.twig:47
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Un archivo comprimido tiene que terminar en <b>.[formato].[compresión]</b>. "
-"Por ejemplo: <b>.sql.zip</b>"
+"Un archivo comprimido tiene que terminar en <strong>.[formato].[compresión]</"
+"strong>. Por ejemplo: <strong>.sql.zip</strong>"
 
 #: templates/import.twig:57 templates/import.twig:90
 #: templates/preferences/manage/main.twig:22
@@ -16306,20 +16290,15 @@ msgstr ""
 
 # not too fond of "script" and "break transactions"
 #: templates/import.twig:165
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Permitir la interrupción de una importación en caso que el script detecte "
-"que se ha acercado al límite de tiempo PHP. <i>(Esto podría ser un buen "
+"que se ha acercado al límite de tiempo PHP. <em>(Esto podría ser un buen "
 "método para importar archivos grandes; sin embargo, puede dañar las "
-"transacciones.)</i>"
+"transacciones.)</em>"
 
 #: templates/import.twig:172
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -17337,19 +17316,14 @@ msgid "Password hashing method"
 msgstr "Método hash de contraseña"
 
 #: templates/server/privileges/login_information_fields.twig:83
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Este método requiere el uso de una '<i>conexión SSL</i>' o una '<i>conexión "
-"sin cifrar, que cifra la contraseña utilizando RSA</i>'; mientras el "
-"servidor está conectado."
+"Este método requiere el uso de una '<em>conexión SSL</em>' o una "
+"'<em>conexión sin cifrar, que cifra la contraseña utilizando RSA</em>'; "
+"mientras el servidor está conectado."
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:80
@@ -17583,16 +17557,13 @@ msgid "Port:"
 msgstr "Puerto:"
 
 #: templates/server/replication/index.twig:21
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Este servidor no está configurado como maestro en un proceso de replicación. "
-"¿Desea <a href=\"%s\">configurarlo</a>?"
+"¿Desea %sconfigurarlo%s?"
 
 #: templates/server/replication/index.twig:43
 msgid "No privileges"
@@ -17653,19 +17624,14 @@ msgstr ""
 
 # See translation string 4
 #: templates/server/replication/master_configuration.twig:21
-#, fuzzy
-#| msgid ""
-#| "Once you restarted MySQL server, please click on Go button. Afterwards, "
-#| "you should see a message informing you, that this server <b>is</b> "
-#| "configured as master."
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as master."
 msgstr ""
 "Una vez reiniciado el servidor MySQL, pulse el botón Continuar. A "
-"continuación deberás ver un mensaje informando que el servidor <b>está</b> "
-"configurado como maestro."
+"continuación deberás ver un mensaje informando que el servidor <strong>está</"
+"strong> configurado como maestro."
 
 #: templates/server/replication/master_replication.twig:5
 msgid "This server is configured as master in a replication process."
@@ -17751,16 +17717,13 @@ msgid "Skip next %s errors."
 msgstr "Omitir los siguientes %s errores."
 
 #: templates/server/replication/slave_configuration.twig:107
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Este servidor no está configurado como esclavo en un proceso de replicación. "
-"¿Desea <a href=\"%s\">configurarlo</a>?"
+"¿Desea %sconfigurarlo%s?"
 
 #: templates/server/replication/status_table.twig:6
 msgid "Master status"
