@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2021-01-22 02:40+0000\n"
+"PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "sv/>\n"
@@ -299,7 +299,7 @@ msgid ""
 msgstr ""
 "Du använder MySQL:s frågecache med en ganska högbelastad databas. Det kan "
 "vara värt att överväga att använda <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/ha-memcached.html\">memcached</a> istället för frågecachen, "
+"refman/5.6/en/ha-memcached.html\">memcached</a> istället för frågecachen, "
 "speciellt om du har flera slavar."
 
 #: libraries/advisory_rules_generic.php:198
@@ -3198,16 +3198,12 @@ msgid "Logo link URL"
 msgstr "Länkadress för logo"
 
 #: libraries/classes/Config/Descriptions.php:531
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Öppna den länkade sidan i huvudfönstret ([kbd]main[/kbd]) eller i ett nytt "
-"([kbd]new[/kbd])."
+"Öppna den länkade sidan i huvudfönstret ([code]main[/code]) eller i ett nytt "
+"([code]new[/code])."
 
 #: libraries/classes/Config/Descriptions.php:534
 msgid "Logo link target"
@@ -7226,19 +7222,14 @@ msgid "Click to sort results by this column."
 msgstr "Klicka på sortera efter den här kolumnen."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:563
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove "
-#| "column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 "Skift-klicka för att lägga till kolumnen i \"SORTERA VID\"-sats eller att "
-"växla ASC/DESC.<br />-Ctrl-klicka eller Alt-klicka (Mac: Skift+Alt+klicka) "
-"för att  ta bort kolumnen från SORTERA VID-instruktionen"
+"växla ASC/DESC.<br>-Ctrl-klicka eller Alt-klicka (Mac: Skift+Alt+klicka) för "
+"att ta bort kolumnen från SORTERA VID-instruktionen"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:567
 msgid "Click to mark/unmark."
@@ -7249,10 +7240,8 @@ msgid "Double-click to copy column name."
 msgstr "Dubbelklicka för att kopiera kolumnnamn."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:570
-#, fuzzy
-#| msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
-msgstr "Klicka på pilen<br />för att växla kolumnens synlighet."
+msgstr "Klicka på pilen<br>för att växla kolumnens synlighet."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid ""
@@ -7313,20 +7302,15 @@ msgid "Print"
 msgstr "Skriv ut"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:599
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br />by double-clicking directly on them."
 msgid "You can also edit most values<br>by double-clicking directly on them."
 msgstr ""
-"Du kan även redigera de flesta värden<br />genom att dubbelklicka direkt på "
+"Du kan även redigera de flesta värden<br>genom att dubbelklicka direkt på "
 "dessa."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#, fuzzy
-#| msgid "You can also edit most values<br />by clicking directly on them."
 msgid "You can also edit most values<br>by clicking directly on them."
 msgstr ""
-"Du kan även redigera de flesta värden<br />genom att klicka direkt på dessa."
+"Du kan även redigera de flesta värden<br>genom att klicka direkt på dessa."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:604
 msgid "Go to link:"
@@ -10284,10 +10268,8 @@ msgid "Binary"
 msgstr "Binär"
 
 #: libraries/classes/InsertEdit.php:792
-#, fuzzy
-#| msgid "Because of its length,<br /> this column might not be editable."
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "På grund av sin längd,<br /> är denna kolumn kanske inte redigerbar."
+msgstr "På grund av sin längd,<br> är denna kolumn kanske inte redigerbar."
 
 #: libraries/classes/InsertEdit.php:1414
 msgid "Binary - do not edit"
@@ -11003,12 +10985,6 @@ msgid "Find transitive dependencies"
 msgstr "Hitta transitiva beroenden"
 
 #: libraries/classes/Normalization.php:866
-#, fuzzy
-#| msgid ""
-#| "For each column below, please select the <b>minimal set</b> of columns "
-#| "among given set whose values combined together are sufficient to "
-#| "determine the value of the column.<br />Note: A column may have no "
-#| "transitive dependency, in that case you don't have to select any."
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -11017,7 +10993,7 @@ msgid ""
 msgstr ""
 "För varje kolumn nedan, Välj <b>minimal uppsättning</b> kolumner av givna "
 "värden vilka kombinerade ihop är tillräckliga för att fastställa värdet i "
-"kolumn. <br /> Obs: om kolumn inte har transitiva beroende behöver du inte "
+"kolumn. <br> Obs: om kolumn inte har transitiva beroende behöver du inte "
 "välja något."
 
 #: libraries/classes/Normalization.php:919
@@ -11653,57 +11629,39 @@ msgid "Syntax to use when inserting data:"
 msgstr "Syntax att använda när data infogas:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:465
-#, fuzzy
-#| msgid ""
-#| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
-#| "VALUES (1,2,3)</code>"
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"inkludera kolumnnamn i varje <code>INSERT</code>-kommando <br /> &nbsp; "
-"&nbsp; &nbsp; Exempel: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
+"inkludera kolumnnamn i varje <code>INSERT</code>-kommando <br> &nbsp; &nbsp; "
+"&nbsp; Exempel: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:470
-#, fuzzy
-#| msgid ""
-#| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
-#| "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), "
-#| "(4,5,6), (7,8,9)</code>"
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"mata in flera rader i varje <code>INSERT</code>-kommando<br /> &nbsp; &nbsp; "
-"&nbsp; Exempel: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</"
-"code>"
+"mata in flera rader i varje <code>INSERT</code>-kommando<br> &nbsp; &nbsp; "
+"&nbsp; Exempel: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:475
-#, fuzzy
-#| msgid ""
-#| "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
-#| "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"båda av ovanstående<br /> &nbsp; &nbsp; &nbsp; Exempel: <code>INSERT INTO "
+"båda av ovanstående<br> &nbsp; &nbsp; &nbsp; Exempel: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:480
-#, fuzzy
-#| msgid ""
-#| "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT "
-#| "INTO tbl_name VALUES (1,2,3)</code>"
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"inget av ovanstående<br /> &nbsp; &nbsp; &nbsp; Exempel: <code>INSERT INTO "
+"inget av ovanstående<br> &nbsp; &nbsp; &nbsp; Exempel: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:499
@@ -11933,10 +11891,9 @@ msgid "MediaWiki Table"
 msgstr "MediaWiki-tabell"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:291
-#, fuzzy, php-format
-#| msgid "Invalid format of mediawiki input on line: <br />%s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Ogiltigt format på mediawiki-data på rad:<br />%s."
+msgstr "Ogiltigt format på mediawiki-data på rad:<br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:83
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -14413,12 +14370,6 @@ msgstr "Webbläsaromvandling"
 
 #: templates/columns_definitions/table_fields_definitions.twig:82
 #: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br>If you ever need to put a backslash (\"\\\") or a single "
@@ -14426,7 +14377,7 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Ange värdena för omvandlingsparametrar enligt följande format: 'a', 100, "
-"b,'c'…<br />Om du behöver lägga till ett bakåtstreck (\"\\\") eller ett "
+"b,'c'…<br>Om du behöver lägga till ett bakåtstreck (\"\\\") eller ett "
 "enkelcitat (\"'\") i värdena, skriv ett bakåtstreck före tecknet (t.ex. '\\"
 "\\xyz' eller 'a\\'b')."
 
@@ -16287,10 +16238,9 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Du kan också dra och släppa en fil på valfri sida."
 
 #: templates/import.twig:74 templates/import.twig:104
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Välj från webbserverns uppladdningskatalog <b>%s</b>:"
+msgstr "Välj från webbserverns uppladdningskatalog [strong]%s[/strong]:"
 
 #: templates/import.twig:80
 #, fuzzy
