@@ -6,6 +6,8 @@
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
+ *
+ * @test-module AJAX
  */
 var AJAX = {
     /**

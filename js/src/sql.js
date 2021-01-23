@@ -4,6 +4,7 @@
  * @requires    jQuery
  * @requires    js/functions.js
  *
+ * @test-module Sql
  */
 
 /* global Stickyfill */

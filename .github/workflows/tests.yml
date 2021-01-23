@@ -191,3 +191,26 @@ jobs:
               # This one is allowed to fail, but we hope it will not
               continue-on-error: true
               run: composer run phpunit --  --exclude-group selenium --order-by=random --stop-on-failure
+
+    test-js:
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "::set-output name=dir::$(yarn cache dir)"
+            - name: yarn cache
+              uses: actions/cache@v2
+              with:
+                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
+            - name: Install modules
+              run: yarn install --non-interactive
+            - name: Run tests
+              run: yarn test
