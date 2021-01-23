@@ -1,9 +1,9 @@
 AJAX.registerTeardown('database/triggers.js', function () {
     $(document).off('click', 'a.ajax.add_anchor, a.ajax.edit_anchor');
     $(document).off('click', 'a.ajax.export_anchor');
-    $(document).off('click', '#rteListForm.ajax .mult_submit[value="export"]');
+    $(document).off('click', '#bulkActionExportButton');
     $(document).off('click', 'a.ajax.drop_anchor');
-    $(document).off('click', '#rteListForm.ajax .mult_submit[value="drop"]');
+    $(document).off('click', '#bulkActionDropButton');
 });
 
 const DatabaseTriggers = {
@@ -63,7 +63,7 @@ const DatabaseTriggers = {
 
     exportDialog: function ($this) {
         var $msg = Functions.ajaxShowMessage();
-        if ($this.hasClass('mult_submit')) {
+        if ($this.attr('id') === 'bulkActionExportButton') {
             var combined = {
                 success: true,
                 title: Messages.strExport,
@@ -506,7 +506,7 @@ AJAX.registerOnload('database/triggers.js', function () {
         DatabaseTriggers.exportDialog($(this));
     });
 
-    $(document).on('click', '#rteListForm.ajax .mult_submit[value="export"]', function (event) {
+    $(document).on('click', '#bulkActionExportButton', function (event) {
         event.preventDefault();
         DatabaseTriggers.exportDialog($(this));
     });
@@ -519,7 +519,7 @@ AJAX.registerOnload('database/triggers.js', function () {
         DatabaseTriggers.dropDialog($(this));
     });
 
-    $(document).on('click', '#rteListForm.ajax .mult_submit[value="drop"]', function (event) {
+    $(document).on('click', '#bulkActionDropButton', function (event) {
         event.preventDefault();
         DatabaseTriggers.dropMultipleDialog($(this));
     });
