@@ -3,15 +3,11 @@ dist: xenial
 language: php
 
 stages:
-  - name: "Lint and analyse code"
   - name: "PHP Unit tests"
   - name: "Other tests"
-  - name: "Documentation"
 
 install:
-  - nvm install 10
   - composer install --no-interaction
-  - yarn install --non-interactive
 
 script:
   - ./scripts/generate-mo --quiet
@@ -35,16 +31,12 @@ jobs:
     - stage: "PHP Unit tests"
       php: nightly
       name: "PHP nightly"
-      env: CI_MODE=test
       install:
         - composer install --no-interaction --ignore-platform-reqs
-        - nvm install 10
-        - yarn install --non-interactive
 
     - stage: "PHP Unit tests"
       name: "OSX"
       os: osx
-      env: CI_MODE=test
       language: node_js
       node_js: 10
       before_install:
@@ -63,12 +55,8 @@ jobs:
       os: windows
       language: node_js
       node_js: 10
-      env:
-        - CI_MODE=test
-        - YARN_GPG=no
       install:
         - composer install --no-interaction --ignore-platform-reqs
-        - yarn install --non-interactive
       before_install:
         - choco install php composer
         - export PATH=/c/tools/php80:/c/ProgramData/ComposerSetup/bin:$PATH
@@ -88,6 +76,10 @@ jobs:
         - TESTSUITE_SELENIUM_HOST="127.0.0.1"
         - TESTSUITE_SELENIUM_PORT="4444"
         - SKIP_STANDALONE=1
+      install:
+        - nvm install 10
+        - composer install --no-interaction
+        - yarn install --non-interactive
       before_install:
         - docker run -d -e SCREEN_WIDTH=1920 -e SCREEN_HEIGHT=1080 --rm --name=selenium --net=host -v /dev/shm:/dev/shm selenium/standalone-chrome:3.141.59
         - phpenv config-rm xdebug.ini
