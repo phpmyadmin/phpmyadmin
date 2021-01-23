@@ -43,9 +43,11 @@
     "zxcvbn": "4.4.2"
   },
   "devDependencies": {
+    "babel-jest": "^26.5.2",
     "eslint": "^7.16.0",
     "eslint-plugin-compat": "^3.9.0",
     "eslint-plugin-no-jquery": "^2.5.0",
+    "jest": "^26.5.3",
     "stylelint": "^13.8.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-config-standard": "^20.0.0",
@@ -61,7 +63,8 @@
     "css-compile": "sass themes/pmahomme/scss:themes/pmahomme/css themes/original/scss:themes/original/css themes/metro/scss:themes/metro/css themes/bootstrap/scss:themes/bootstrap/css setup/scss:setup",
     "css-lint": "stylelint -s scss \"themes/**/scss/*.scss\" \"setup/scss/*.scss\"",
     "css-rtl": "find themes/*/css/*theme.css -exec yarn run rtlcss -c .rtlcssrc.json {} \\;",
-    "js-lint": "eslint js/src",
-    "js-compile": "babel js/src -d js/dist"
+    "js-lint": "eslint js/src test/javascript test/jest jest.config.js",
+    "js-compile": "babel js/src -d js/dist",
+    "test": "jest"
   }
 }

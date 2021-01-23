@@ -8,6 +8,8 @@ $(function () {
  *
  * The content for this is normally loaded from Header.php or
  * Response.php and executed by ajax.js
+ *
+ * @test-module CommonParams
  */
 var CommonParams = (function () {
     /**
