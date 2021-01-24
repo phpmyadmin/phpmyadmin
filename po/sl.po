@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 02:41+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-01-26 06:32+0000\n"
+"Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
 "Language: sl\n"
@@ -14878,16 +14878,12 @@ msgid "Is deterministic"
 msgstr "Je deterministično"
 
 #: templates/database/routines/editor_form.twig:130
-#, fuzzy
-#| msgid ""
-#| "You do not have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
 "Nimate zadostnih pravic za izvedbo posega; prosimo, oglejte si dokumentacijo "
-"za več podrobnosti"
+"za več podrobnosti."
 
 #: templates/database/routines/editor_form.twig:143
 msgid "Security type"
@@ -14898,10 +14894,8 @@ msgid "SQL data access"
 msgstr "Dostop do podatkov SQL"
 
 #: templates/database/routines/index.twig:33
-#, fuzzy
-#| msgid "Create version"
 msgid "Create new routine"
-msgstr "Ustvari različico"
+msgstr "Ustvari novo rutino"
 
 #: templates/database/routines/index.twig:42
 msgid "There are no routines to display."
@@ -16661,10 +16655,8 @@ msgid "Allows executing this routine."
 msgstr "Omogoča izvajanje rutine."
 
 #: templates/server/privileges/initials_row.twig:1
-#, fuzzy
-#| msgid "Change login information / Copy user account"
 msgid "Pagination of user accounts"
-msgstr "Spremeni prijavne informacije / Kopiraj uporabniški račun"
+msgstr "Paginacija uporabniških računov"
 
 #: templates/server/privileges/login_information_fields.twig:2
 #: templates/server/privileges/user_properties.twig:106
@@ -16847,20 +16839,16 @@ msgstr ""
 "Omogoča dodajanje uporabnikov in privilegijev brez osveževanja privilegijev."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Omogoča ustvarjanje shranjenih rutin."
+msgstr "Omogoča ustvarjanje razmerij tujih ključev."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Se ne uporablja na MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "V tej različici MySQL nima pomena."
+msgstr "Se ne uporablja v tej različici MySQL."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -17628,10 +17616,8 @@ msgid "Table level tabs"
 msgstr "Zavihki stopenj tabele"
 
 #: templates/server/user_groups/user_groups.twig:50
-#, fuzzy
-#| msgid "Edit user group"
 msgid "Delete user group"
-msgstr "Uredi uporabniško skupino"
+msgstr "Izbriši uporabniško skupino"
 
 #: templates/server/user_groups/user_listings.twig:1
 #, php-format
@@ -17670,10 +17656,8 @@ msgid "Configuration file"
 msgstr "Konfiguracijska datoteka"
 
 #: templates/setup/config/index.twig:16
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Generated configuration file"
-msgstr "Ne morem prebrati konfiguracijske datoteke!"
+msgstr "Ustvarjena konfiguracijska datoteka"
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
 msgid "Download"
