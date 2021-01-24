@@ -136,6 +136,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
         var pos2Name = $expandElem.find('span.pos2_nav');
         var pathsNav = $expandElem.find('span.paths_nav');
         params = {
+            'server': CommonParams.get('server'),
             'aPath': pathsNav.attr('data-apath'),
             'vPath': pathsNav.attr('data-vpath'),
             'pos': pathsNav.attr('data-pos'),
@@ -151,6 +152,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
     } else {
         $destination = $('#pma_navigation_tree_content');
         params = {
+            'server': CommonParams.get('server'),
             'aPath': $expandElem.attr('data-apath'),
             'vPath': $expandElem.attr('data-vpath'),
             'pos': $expandElem.attr('data-pos'),
