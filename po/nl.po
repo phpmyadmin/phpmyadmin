@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-22 02:41+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-01-26 06:32+0000\n"
+"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
 "Language: nl\n"
@@ -15048,16 +15048,12 @@ msgid "Is deterministic"
 msgstr "Is vast bepaald"
 
 #: templates/database/routines/editor_form.twig:130
-#, fuzzy
-#| msgid ""
-#| "You do not have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
 "U heeft niet genoeg rechten om deze actie uit te voeren; Kijk a.u.b. naar de "
-"documentatie voor meer details"
+"documentatie voor meer details."
 
 #: templates/database/routines/editor_form.twig:143
 msgid "Security type"
@@ -15068,10 +15064,8 @@ msgid "SQL data access"
 msgstr "SQL-gegevenstoegang"
 
 #: templates/database/routines/index.twig:33
-#, fuzzy
-#| msgid "Create version"
 msgid "Create new routine"
-msgstr "Versie aanmaken"
+msgstr "Nieuwe routine aanmaken"
 
 #: templates/database/routines/index.twig:42
 msgid "There are no routines to display."
@@ -16839,10 +16833,8 @@ msgid "Allows executing this routine."
 msgstr "Staat het toe deze routine uit te voeren."
 
 #: templates/server/privileges/initials_row.twig:1
-#, fuzzy
-#| msgid "Change login information / Copy user account"
 msgid "Pagination of user accounts"
-msgstr "Aanmeldingsinformatie wijzigen / Gebruikersaccount kopiëren"
+msgstr "Pagineren van gebruikersaccounts"
 
 #: templates/server/privileges/login_information_fields.twig:2
 #: templates/server/privileges/user_properties.twig:106
@@ -17027,20 +17019,16 @@ msgstr ""
 "rechtentabel opnieuw op te vragen."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Maakt het mogelijk om opgeslagen routines aan te maken."
+msgstr "Sta creëren externe sleutelrelaties toe."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Niet in gebruik bij MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "Heeft geen effect in deze MySQL-versie."
+msgstr "Niet gebruikt voor deze MySQL-versie."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -17822,10 +17810,8 @@ msgid "Table level tabs"
 msgstr "Tabs op tabelniveau"
 
 #: templates/server/user_groups/user_groups.twig:50
-#, fuzzy
-#| msgid "Edit user group"
 msgid "Delete user group"
-msgstr "Gebruikersgroep bewerken"
+msgstr "Verwijder gebruikersgroep"
 
 #: templates/server/user_groups/user_listings.twig:1
 #, php-format
@@ -17863,10 +17849,8 @@ msgid "Configuration file"
 msgstr "Configuratiebestand"
 
 #: templates/setup/config/index.twig:16
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Generated configuration file"
-msgstr "Lezen van het configuratiebestand is niet gelukt!"
+msgstr "Gegenereerd configuratiebestand"
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
 msgid "Download"
