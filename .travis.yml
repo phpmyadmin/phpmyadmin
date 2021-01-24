@@ -12,6 +12,8 @@ install:
 script:
   - ./scripts/generate-mo --quiet
   - composer run phpunit -- --exclude-group selenium
+  - echo 'The testsuite did run.'
+  - sleep 1
 
 cache:
   pip: true
