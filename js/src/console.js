@@ -61,8 +61,16 @@ var Console = {
             return;
         }
 
-        Console.config = Functions.configGet('Console', false);
+        Functions.configGet('Console', false, (data) => {
+            Console.config = data;
+            Console.setupAfterInit();
+        });
+    },
 
+    /**
+     * Setup the console after the config has been set at initialize stage
+     */
+    setupAfterInit: function () {
         Console.isEnabled = true;
 
         // Vars init
@@ -208,6 +216,7 @@ var Console = {
             Console.info();
         }
     },
+
     /**
      * Execute query and show results in console
      *
