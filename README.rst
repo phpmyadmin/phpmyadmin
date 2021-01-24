@@ -16,6 +16,10 @@ Code status
     :alt: Build status
     :target: https://travis-ci.org/phpmyadmin/phpmyadmin
 
+.. image:: https://readthedocs.org/projects/phpmyadmin/badge/?version=latest
+    :target: https://docs.phpmyadmin.net/en/latest/
+    :alt: Documentation build status
+
 .. image:: https://hosted.weblate.org/widgets/phpmyadmin/-/master/svg-badge.svg
     :alt: Translation status
     :target: https://hosted.weblate.org/engage/phpmyadmin/?utm_source=widget

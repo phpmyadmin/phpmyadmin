@@ -11,10 +11,9 @@ install:
 
 script:
   - ./scripts/generate-mo --quiet
-  - composer run phpunit -- --exclude-group selenium
+  - ./vendor/bin/phpunit --exclude-group selenium
 
 cache:
-  pip: true
   yarn: true
   directories:
     - $HOME/.composer/cache/
@@ -24,6 +23,7 @@ jobs:
   allow_failures:
     - php: nightly
     - os: osx
+    - os: windows
     # https://github.com/phpmyadmin/phpmyadmin/issues/16479
     - name: "Run selenium tests on Google Chrome"
 
@@ -55,6 +55,7 @@ jobs:
       os: windows
       language: node_js
       node_js: 10
+      cache: false
       install:
         - composer install --no-interaction --ignore-platform-reqs
       before_install:
