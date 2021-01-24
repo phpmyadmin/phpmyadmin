@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2021-01-22 02:40+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-01-26 06:32+0000\n"
+"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-1/nl/>"
 "\n"
 "Language: nl\n"
@@ -17029,20 +17029,16 @@ msgstr ""
 "rechtentabel opnieuw op te vragen."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Maakt het mogelijk om opgeslagen routines aan te maken."
+msgstr "Sta creëren externe sleutelrelaties toe."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Niet in gebruik bij MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "Heeft geen effect in deze MySQL-versie."
+msgstr "Niet gebruikt voor deze MySQL-versie."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
