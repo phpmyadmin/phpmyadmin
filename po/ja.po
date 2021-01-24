@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-01-22 01:28+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-01-25 10:32+0000\n"
+"Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "ja/>\n"
 "Language: ja\n"
@@ -346,7 +346,7 @@ msgstr "この作業には時間がかかることがあります。続行しま
 #: js/messages.php:70
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "本当にユーザーグループ「%s」を削除しますか？"
+msgstr "本当にユーザグループ「%s」を削除しますか？"
 
 #: js/messages.php:72
 #, php-format
@@ -901,8 +901,7 @@ msgstr "一般クエリログより"
 
 #: js/messages.php:270
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
-"サーバーログ内にあるこのクエリに記述されたデータベース名が認識できません。"
+msgstr "サーバログ内にあるこのクエリに記述されたデータベース名が認識できません。"
 
 #: js/messages.php:272
 msgid "Analysing logs"
@@ -1104,7 +1103,7 @@ msgstr "有効なデータベース名を入力してください。"
 
 #: js/messages.php:342
 msgid "No files available on server for import!"
-msgstr "インポートに利用可能なファイルがサーバー上に存在しません!"
+msgstr "インポートに利用可能なファイルがサーバ上に存在しません!"
 
 #: js/messages.php:344
 msgid "Analyse query"
@@ -1253,9 +1252,7 @@ msgstr "エラーテキスト：%s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr ""
-"ネットワーク接続が失われているようです。接続状況とサーバーの状態を確認してく"
-"ださい。"
+msgstr "ネットワーク接続が失われているようです。接続状況とサーバの状態を確認してください。"
 
 #: js/messages.php:381
 #: libraries/classes/Controllers/Server/DatabasesController.php:232
@@ -2170,7 +2167,7 @@ msgstr ""
 
 #: js/messages.php:708 js/messages.php:721
 msgid "Some errors have been detected on the server!"
-msgstr "サーバー上でいくつかのエラーが検出されました！"
+msgstr "サーバ上でいくつかのエラーが検出されました！"
 
 #: js/messages.php:710
 msgid "Please look at the bottom of this window."
@@ -2740,7 +2737,7 @@ msgstr "ページ番号:"
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr "構成ストレージは、主要カラムリスト機能の準備ができていません。"
+msgstr "環境保管領域には、主要カラムリスト機能の準備ができていません。"
 
 #: libraries/classes/CentralColumns.php:388
 #, php-format
@@ -2813,7 +2810,7 @@ msgstr "名前"
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 msgid "Type"
-msgstr "データ型"
+msgstr "種別"
 
 #: libraries/classes/CentralColumns.php:1030
 #: libraries/classes/Rte/Routines.php:961
@@ -3212,7 +3209,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:76
 msgid "Restrict login to MySQL server"
-msgstr "MySQLサーバーへのログインの制限"
+msgstr "MySQLサーバへのログインの制限"
 
 #: libraries/classes/Config/Descriptions.php:78
 msgid ""
@@ -4893,8 +4890,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"権限を制限して設定しておいた特別な MySQL ユーザを使います。詳細は "
-"[doc@linked-tables]wiki[/doc] を参照してください。"
+"権限を制限して設定しておいた特別な MySQL ユーザを使います。詳細は [doc@linked-tables]ドキュメント[/doc] "
+"を参照してください。"
 
 #: libraries/classes/Config/Descriptions.php:627
 msgid "Control user"
@@ -5664,9 +5661,8 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
-"プロキシサーバで認証するユーザ名。デフォルトでは認証は行われません。ユーザー"
-"名が供給される場合、基本認証が利用されます。現在、他の認証種類はサポートされ"
-"ていません。"
+"プロキシサーバで認証するユーザ名。デフォルトでは認証は行われません。ユーザ名が与えられた場合は、 Basic "
+"認証が行われます。現在のところ、他の種類の認証には対応していません。"
 
 #: libraries/classes/Config/Descriptions.php:892
 msgid "Proxy username"
@@ -5674,7 +5670,7 @@ msgstr "プロキシユーザ名"
 
 #: libraries/classes/Config/Descriptions.php:893
 msgid "The password for authenticating with the proxy."
-msgstr "プロキシサーバへログインする為のパスワード。"
+msgstr "プロキシサーバへログインするためのパスワード。"
 
 #: libraries/classes/Config/Descriptions.php:894
 msgid "Proxy password"
@@ -5907,11 +5903,11 @@ msgstr "Microsoft Word 2000"
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Config/Forms/User/ImportForm.php:56
 msgid "OpenDocument Spreadsheet"
-msgstr "OpenDocument Spreadsheet"
+msgstr "OpenDocument スプレッドシート"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:132
 msgid "OpenDocument Text"
-msgstr "OpenDocument Text"
+msgstr "OpenDocument テキスト"
 
 #: libraries/classes/Config/Forms/User/FeaturesForm.php:93
 msgid "Features"
@@ -6281,9 +6277,8 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
-"サーバーは制御ユーザー 'pma' とデフォルトのパスワード 'controlpass' で実行さ"
-"れており、侵入者に開かれた状態です。 あなたは真剣にこの脆弱なパスワードを変更"
-"することによるセキュリティの弱点の修正に取り組むべきです。"
+"サーバは制御ユーザ 'pma' とデフォルトのパスワード 'controlpass' で実行されており、侵入者に開かれた状態です。 "
+"あなたは真剣にこの脆弱なパスワードを変更することによるセキュリティの弱点の修正に取り組むべきです。"
 
 #: libraries/classes/Controllers/HomeController.php:427
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -7438,7 +7433,7 @@ msgstr "サーバが応答しません。"
 
 #: libraries/classes/DatabaseInterface.php:2278
 msgid "Logout and try as another user."
-msgstr "ログアウトし、別のユーザーとして試してみてください。"
+msgstr "ログアウトし、別のユーザとして試してみてください。"
 
 #: libraries/classes/DatabaseInterface.php:2284
 msgid "Please check privileges of directory containing database."
@@ -7460,7 +7455,7 @@ msgstr ""
 #: libraries/classes/DatabaseInterface.php:3166
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr "詳しくは%sドキュメンテーション%sを参照してください。"
+msgstr "詳しくは%sドキュメント%sを参照してください。"
 
 #: libraries/classes/Database/Qbe.php:478
 #: templates/table/search/selection_form.twig:186
@@ -7582,7 +7577,7 @@ msgstr "各単語は空白文字 (\" \") で区切ってください。"
 
 #: libraries/classes/Dbi/DbiMysqli.php:149
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr "サーバーによりSSL接続が自動的に有効に（強制）されています。"
+msgstr "サーバによりSSL接続が自動的に有効に（強制）されています。"
 
 #: libraries/classes/Display/ChangePassword.php:81
 #: libraries/classes/Server/Privileges.php:1804
@@ -8253,7 +8248,7 @@ msgstr ""
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:150
 #: templates/home/index.twig:16
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin デモ サーバー"
+msgstr "phpMyAdmin デモ サーバ"
 
 #: libraries/classes/Footer.php:84
 #, php-format
@@ -10862,9 +10857,7 @@ msgstr "不足している環境保管領域のテーブルを%s作成%sしま�
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
-msgstr ""
-"サーバーへの接続が無効になっています。phpMyAdmin設定で"
-"$cfg['AllowArbitraryServer']を有効にしてください。"
+msgstr "サーバへの接続が無効になっています。phpMyAdmin設定で$cfg['AllowArbitraryServer']を有効にしてください。"
 
 #: libraries/classes/ReplicationGui.php:432
 msgid "Replication started successfully."
@@ -11971,7 +11964,7 @@ msgstr "ユーザアカウント"
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
-msgstr "注意: 現在ログインしているユーザーの権限を編集しようとしています。"
+msgstr "注意: 現在ログインしているユーザの権限を編集しようとしています。"
 
 #: libraries/classes/Server/Privileges.php:4851
 #: libraries/classes/Server/Users.php:32
@@ -11984,9 +11977,8 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
-"localhostから任意のユーザーに接続を許可するユーザが存在します。 これにより、"
-"そのアカウントのホスト部分で任意ホスト（％）からの接続が許可されている場合、"
-"他のユーザーは接続できなくなります。"
+"localhostから任意のユーザに接続を許可するユーザが存在します。 "
+"これにより、そのアカウントのホスト部分で任意ホスト（％）からの接続が許可されている場合、他のユーザは接続できなくなります。"
 
 #: libraries/classes/Server/Privileges.php:4971
 #, php-format
@@ -15797,7 +15789,7 @@ msgstr "横棒グラフ"
 #: templates/table/chart/tbl_chart.twig:19
 msgctxt "Chart type"
 msgid "Column"
-msgstr "カラム"
+msgstr "縦棒グラフ"
 
 #: templates/table/chart/tbl_chart.twig:23
 msgctxt "Chart type"
@@ -17424,9 +17416,9 @@ msgid ""
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
-"{concurrent_insert} を 1 に設定すると、一つのテーブル内における読み書きの衝突"
-"を減らすことができます。<a href=\"https://dev.mysql.com/doc/refman/5.1/ja/"
-"concurrent-inserts.html\">MySQL ドキュメント</a>もご覧になってください"
+"{concurrent_insert} を 1 に設定すると、一つのテーブル内における読み書きの衝突を減らすことができます。 <a href="
+"\"https://dev.mysql.com/doc/refman/5.5/ja/concurrent-inserts.html\">MySQL "
+"ドキュメント</a>もご覧になってください"
 
 #: libraries/advisory_rules_generic.txt:396
 msgid "concurrent_insert is set to 0"
