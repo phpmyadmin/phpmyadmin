@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 02:59+0100\n"
-"PO-Revision-Date: 2021-01-22 02:40+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-01-26 06:32+0000\n"
+"Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ja/>\n"
 "Language: ja\n"
@@ -298,11 +298,9 @@ msgid ""
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
-"MySQL のクエリ キャッシュをかなり高いトラフィックのデータベースに対して使用し"
-"ています。MySQL のクエリ キャッシュの代わりに <a href=\"https://dev.mysql."
-"com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> の使用を検討する価値"
-"があると思われます。これは、マルチスレーブを使用している場合は、特に推奨しま"
-"す。"
+"MySQL のクエリ キャッシュをかなり高いトラフィックのデータベースに対して使用しています。MySQL のクエリ キャッシュの代わりに <a href="
+"\"https://dev.mysql.com/doc/refman/5.6/ja/ha-memcached.html\">memcached</a> "
+"の使用を検討する価値があると思われます。これは、マルチスレーブを使用している場合は、特に推奨します。"
 
 #: libraries/advisory_rules_generic.php:198
 #, php-format
@@ -559,12 +557,11 @@ msgid ""
 "mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもし"
-"れません。しかしながら、これらの変数値に関わりなく、常にディスクに展開される"
-"一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカ"
-"ラムもしくは 512 バイトを超えるカラムを使わないように、クエリを書き直す必要が"
-"あるでしょう。このことは、<a href=\"https://dev.mysql.com/doc/refman/8.0/en/"
-"internal-temporary-tables.html\">MySQL ドキュメント</a>に詳しく記載しています"
+"{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもしれません。しかしながら、これらの変数値"
+"に関わりなく、常にディスクに展開される一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカラムもしくは 512 "
+"バイトを超えるカラムを使わないように、クエリを書き直す必要があるでしょう。このことは、<a href=\"https://dev.mysql.com/"
+"doc/refman/8.0/ja/internal-temporary-tables.html\">MySQL "
+"ドキュメント</a>に詳しく記載しています"
 
 #: libraries/advisory_rules_generic.php:354
 #, php-format
@@ -1114,9 +1111,9 @@ msgid ""
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
-"{concurrent_insert} を 1 に設定すると、一つのテーブル内における読み書きの衝突"
-"を減らすことができます。<a href=\"https://dev.mysql.com/doc/refman/5.1/ja/"
-"concurrent-inserts.html\">MySQL ドキュメント</a>もご覧になってください"
+"{concurrent_insert} を 1 に設定すると、一つのテーブル内における読み書きの衝突を減らすことができます。 <a href="
+"\"https://dev.mysql.com/doc/refman/5.5/ja/concurrent-inserts.html\">MySQL "
+"ドキュメント</a>もご覧になってください"
 
 #: libraries/advisory_rules_generic.php:696
 msgid "concurrent_insert is set to 0"
@@ -1769,7 +1766,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:77
 msgid "Restrict login to MySQL server"
-msgstr "MySQLサーバーへのログインの制限"
+msgstr "MySQLサーバへのログインの制限"
 
 #: libraries/classes/Config/Descriptions.php:79
 msgid ""
@@ -3474,8 +3471,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"権限を制限して設定しておいた特別な MySQL ユーザを使います。詳細は "
-"[doc@linked-tables]wiki[/doc] を参照してください。"
+"権限を制限して設定しておいた特別な MySQL ユーザを使います。詳細は [doc@linked-tables]ドキュメント[/doc] "
+"を参照してください。"
 
 #: libraries/classes/Config/Descriptions.php:674
 msgid "Control user"
@@ -4289,9 +4286,8 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
-"プロキシサーバで認証するユーザ名。デフォルトでは認証は行われません。ユーザー"
-"名が供給される場合、基本認証が利用されます。現在、他の認証種類はサポートされ"
-"ていません。"
+"プロキシサーバで認証するユーザ名。デフォルトでは認証は行われません。ユーザ名が与えられた場合は、 Basic "
+"認証が行われます。現在のところ、他の種類の認証には対応していません。"
 
 #: libraries/classes/Config/Descriptions.php:953
 msgid "Proxy username"
@@ -4299,7 +4295,7 @@ msgstr "プロキシユーザ名"
 
 #: libraries/classes/Config/Descriptions.php:954
 msgid "The password for authenticating with the proxy."
-msgstr "プロキシサーバへログインする為のパスワード。"
+msgstr "プロキシサーバへログインするためのパスワード。"
 
 #: libraries/classes/Config/Descriptions.php:955
 msgid "Proxy password"
@@ -4686,11 +4682,11 @@ msgstr "Microsoft Word 2000"
 #: libraries/classes/Config/Forms/User/ExportForm.php:120
 #: libraries/classes/Config/Forms/User/ImportForm.php:50
 msgid "OpenDocument Spreadsheet"
-msgstr "OpenDocument Spreadsheet"
+msgstr "OpenDocument スプレッドシート"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:124
 msgid "OpenDocument Text"
-msgstr "OpenDocument Text"
+msgstr "OpenDocument テキスト"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:371
@@ -5275,9 +5271,8 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
-"サーバーは制御ユーザー 'pma' とデフォルトのパスワード 'controlpass' で実行さ"
-"れており、侵入者に開かれた状態です。 あなたは真剣にこの脆弱なパスワードを変更"
-"することによるセキュリティの弱点の修正に取り組むべきです。"
+"サーバは制御ユーザ 'pma' とデフォルトのパスワード 'controlpass' で実行されており、侵入者に開かれた状態です。 "
+"あなたは真剣にこの脆弱なパスワードを変更することによるセキュリティの弱点の修正に取り組むべきです。"
 
 #: libraries/classes/Controllers/HomeController.php:406
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -5467,7 +5462,7 @@ msgstr "この作業には時間がかかることがあります。続行しま
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:52
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "本当にユーザーグループ「%s」を削除しますか？"
+msgstr "本当にユーザグループ「%s」を削除しますか？"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:53
 #, php-format
@@ -6054,8 +6049,7 @@ msgstr "一般クエリログより"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:249
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
-"サーバーログ内にあるこのクエリに記述されたデータベース名が認識できません。"
+msgstr "サーバログ内にあるこのクエリに記述されたデータベース名が認識できません。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:251
 msgid "Analysing logs"
@@ -6255,7 +6249,7 @@ msgstr "有効なデータベース名を入力してください。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "No files available on server for import!"
-msgstr "インポートに利用可能なファイルがサーバー上に存在しません!"
+msgstr "インポートに利用可能なファイルがサーバ上に存在しません!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid "Analyse query"
@@ -6327,9 +6321,7 @@ msgstr "エラーテキスト：%s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr ""
-"ネットワーク接続が失われているようです。接続状況とサーバーの状態を確認してく"
-"ださい。"
+msgstr "ネットワーク接続が失われているようです。接続状況とサーバの状態を確認してください。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:343
 msgid "No accounts selected."
@@ -7179,7 +7171,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:656
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:669
 msgid "Some errors have been detected on the server!"
-msgstr "サーバー上でいくつかのエラーが検出されました！"
+msgstr "サーバ上でいくつかのエラーが検出されました！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:658
 msgid "Please look at the bottom of this window."
@@ -8487,7 +8479,7 @@ msgstr ""
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr "構成ストレージは、主要カラムリスト機能の準備ができていません。"
+msgstr "環境保管領域には、主要カラムリスト機能の準備ができていません。"
 
 #: libraries/classes/Database/CentralColumns.php:379
 #, php-format
@@ -8720,7 +8712,7 @@ msgstr ""
 #: libraries/classes/DatabaseInterface.php:2463
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr "詳しくは%sドキュメンテーション%sを参照してください。"
+msgstr "詳しくは%sドキュメント%sを参照してください。"
 
 #: libraries/classes/Database/Qbe.php:790
 #: templates/database/qbe/ins_del_and_or_cell.twig:21
@@ -8842,7 +8834,7 @@ msgstr "ルーチン名"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/zoom_search/index.twig:39
 msgid "Type"
-msgstr "データ型"
+msgstr "種別"
 
 #: libraries/classes/Database/Routines.php:863
 #: templates/database/events/editor_form.twig:41
@@ -9207,7 +9199,7 @@ msgstr ""
 
 #: libraries/classes/Dbal/DbiMysqli.php:188
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr "サーバーによりSSL接続が自動的に有効に（強制）されています。"
+msgstr "サーバによりSSL接続が自動的に有効に（強制）されています。"
 
 #: libraries/classes/Display/Results.php:906
 #: libraries/classes/Html/Generator.php:1222
@@ -9769,7 +9761,7 @@ msgstr ""
 #: libraries/classes/Footer.php:82 templates/home/index.twig:18
 #: templates/login/form.twig:5
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin デモ サーバー"
+msgstr "phpMyAdmin デモ サーバ"
 
 #: libraries/classes/Footer.php:91
 #, php-format
@@ -11399,7 +11391,7 @@ msgstr "テーブルの AUTO_INCREMENT"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1971
 msgid "MEDIA TYPES FOR TABLE"
-msgstr "テーブルに含まれている メディア タイプ"
+msgstr "テーブルに含まれているメディアタイプ"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1994
 msgid "RELATIONSHIPS FOR TABLE"
@@ -11998,7 +11990,7 @@ msgstr "サーバが応答しません。"
 
 #: libraries/classes/Query/Utilities.php:102
 msgid "Logout and try as another user."
-msgstr "ログアウトし、別のユーザーとして試してみてください。"
+msgstr "ログアウトし、別のユーザとして試してみてください。"
 
 #: libraries/classes/Query/Utilities.php:108
 msgid "Please check privileges of directory containing database."
@@ -12169,9 +12161,7 @@ msgstr "不足している環境保管領域のテーブルを%s作成%sしま�
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
-msgstr ""
-"サーバーへの接続が無効になっています。phpMyAdmin設定で"
-"$cfg['AllowArbitraryServer']を有効にしてください。"
+msgstr "サーバへの接続が無効になっています。phpMyAdmin設定で$cfg['AllowArbitraryServer']を有効にしてください。"
 
 #: libraries/classes/ReplicationGui.php:460
 msgid "Replication started successfully."
@@ -12599,9 +12589,8 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
-"localhostから任意のユーザーに接続を許可するユーザが存在します。 これにより、"
-"そのアカウントのホスト部分で任意ホスト（％）からの接続が許可されている場合、"
-"他のユーザーは接続できなくなります。"
+"localhostから任意のユーザに接続を許可するユーザが存在します。 "
+"これにより、そのアカウントのホスト部分で任意ホスト（％）からの接続が許可されている場合、他のユーザは接続できなくなります。"
 
 #: libraries/classes/Server/Privileges.php:3171
 #, php-format
@@ -14510,7 +14499,7 @@ msgstr "オフ"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr "@SERVER@ はサーバー名、@DATABASE@ はデータベース名になります。"
+msgstr "@SERVER@ はサーバ名、@DATABASE@ はデータベース名になります。"
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5
@@ -16392,7 +16381,7 @@ msgstr "不明なストレージ エンジン。"
 
 #: templates/server/export/index.twig:32
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ はサーバー名になります。"
+msgstr "@SERVER@ はサーバ名になります。"
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -16503,7 +16492,7 @@ msgstr "ユーザアカウント"
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
-msgstr "注意: 現在ログインしているユーザーの権限を編集しようとしています。"
+msgstr "注意: 現在ログインしているユーザの権限を編集しようとしています。"
 
 #: templates/server/privileges/edit_routine_privileges.twig:51
 #: templates/server/privileges/privileges_table.twig:10
@@ -16710,20 +16699,16 @@ msgid ""
 msgstr "権限テーブルの再読み込みなしでユーザと権限の追加を許可する。"
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "ストアドルーチンの作成を許可する。"
+msgstr "外部キーリレーションの作成を許可します。"
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "MariaDB では使用されません。"
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "このバージョンの MySQL では無効です。"
+msgstr "MySQL のこのバージョンでは使用されません。"
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -17674,7 +17659,7 @@ msgstr "横棒グラフ"
 #: templates/table/chart/tbl_chart.twig:16
 msgctxt "Chart type"
 msgid "Column"
-msgstr "カラム"
+msgstr "縦棒グラフ"
 
 #: templates/table/chart/tbl_chart.twig:20
 msgctxt "Chart type"
@@ -17758,9 +17743,7 @@ msgstr "グラフをイメージとして保存"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr ""
-"@SERVER@ はサーバー名、@DATABASE@ はデータベース名、@TABLE@ はテーブル名にな"
-"ります。"
+msgstr "@SERVER@ はサーバ名、@DATABASE@ はデータベース名、@TABLE@ はテーブル名になります。"
 
 #: templates/table/export/index.twig:5
 #, php-format
