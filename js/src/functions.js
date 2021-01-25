@@ -5151,12 +5151,13 @@ Functions.configSet = function (key, value) {
  * If value should not be cached and the up-to-date configuration value from
  * right from the server is required, the third parameter should be `false`.
  *
- * @param {string}     key         Configuration key.
- * @param {boolean}    cached      Configuration type.
+ * @param {string}     key             Configuration key.
+ * @param {boolean}    cached          Configuration type.
+ * @param {Function}   successCallback  The callback to call after the value is received
  *
  * @return {object}                Configuration value.
  */
-Functions.configGet = function (key, cached) {
+Functions.configGet = function (key, cached, successCallback) {
     var isCached = (typeof cached !== 'undefined') ? cached : true;
     var value = localStorage.getItem(key);
     if (isCached && value !== undefined && value !== null) {
@@ -5166,10 +5167,8 @@ Functions.configGet = function (key, cached) {
     // Result not found in local storage or ignored.
     // Hitting the server.
     $.ajax({
-        // TODO: This is ugly, but usually when a configuration is needed,
-        // processing cannot continue until that value is found.
-        // Another solution is to provide a callback as a parameter.
-        async: false,
+        // Value at false to be synchronous (then ignore the callback on success)
+        async: typeof successCallback === 'function',
         url: 'index.php?route=/config/get',
         type: 'POST',
         dataType: 'json',
@@ -5185,7 +5184,11 @@ Functions.configGet = function (key, cached) {
             } else {
                 Functions.ajaxShowMessage(data.message);
             }
-            // Eventually, call callback.
+            // Call the callback if it is defined
+            if (typeof successCallback === 'function') {
+                // Feed it the value previously saved like on async mode
+                successCallback(JSON.parse(localStorage.getItem(key)));
+            }
         }
     });
     return JSON.parse(localStorage.getItem(key));

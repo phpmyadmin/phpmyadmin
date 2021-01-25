@@ -83,6 +83,7 @@ phpMyAdmin - ChangeLog
 - issue #16405 Added jest as a Unit Testing tool for our javascript code
 - issue #16252 Fixed the too small font size when editing rows (textareas)
 - issue #16585 Fixed BLOB to JPG transformation PHP errors
+- issue        Made the console setup async to avoid blocking the page render
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
