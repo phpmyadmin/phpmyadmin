@@ -30,7 +30,7 @@
     </div>
     <div class="ms-2">
       <a class="ajax add_anchor btn btn-primary{{ not has_privilege ? ' disabled' }}" href="{{ url('/database/routines', {'db': db, 'table': table, 'add_item': true}) }}" role="button"{{ not has_privilege ? ' tabindex="-1" aria-disabled="true"' }}>
-        {% trans 'Create new routine' %}
+        {{ get_icon('b_routine_add', 'Create new routine'|trans) }}
       </a>
     </div>
   </div>

@@ -6,7 +6,12 @@
   {% endif %}
 
   <fieldset class="pma-fieldset">
-    <legend>{% trans 'Details' %}</legend>
+    <legend>
+      {% trans 'Details' %}
+      {% if mode != 'edit' %}
+        {{ show_mysql_docu('CREATE_EVENT') }}
+      {% endif %}
+    </legend>
     <table class="rte_table table table-borderless table-sm">
       <tr>
         <td>{% trans 'Event name' %}</td>

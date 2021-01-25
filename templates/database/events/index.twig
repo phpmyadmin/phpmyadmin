@@ -1,11 +1,36 @@
-<form id="rteListForm" class="ajax" action="{{ url('/database/events') }}">
-  {{ get_hidden_inputs(db) }}
+<div class="container-fluid my-3">
+  <h2>
+    {{ get_icon('b_events', 'Events'|trans) }}
+    {{ show_mysql_docu('EVENTS') }}
+  </h2>
 
-  <fieldset class="pma-fieldset">
-    <legend>
-      {% trans 'Events' %}
-      {{ show_mysql_docu('EVENTS') }}
-    </legend>
+  <div class="d-flex flex-wrap my-3">
+    <div>
+      <div class="input-group">
+        <div class="input-group-text">
+          <div class="form-check mb-0">
+            <input class="form-check-input checkall_box" type="checkbox" value="" id="checkAllCheckbox" form="rteListForm">
+            <label class="form-check-label" for="checkAllCheckbox">{% trans 'Check all' %}</label>
+          </div>
+        </div>
+        <button class="btn btn-outline-secondary" id="bulkActionExportButton" type="submit" name="submit_mult" value="export" form="rteListForm" title="{% trans 'Export' %}">
+          {{ get_icon('b_export', 'Export'|trans) }}
+        </button>
+        <button class="btn btn-outline-secondary" id="bulkActionDropButton" type="submit" name="submit_mult" value="drop" form="rteListForm" title="{% trans 'Drop' %}">
+          {{ get_icon('b_drop', 'Drop'|trans) }}
+        </button>
+      </div>
+    </div>
+
+    <div class="ms-auto">
+      <a class="ajax add_anchor btn btn-primary{{ not has_privilege ? ' disabled' }}" href="{{ url('/database/events', {'db': db, 'add_item': true}) }}" role="button"{{ not has_privilege ? ' tabindex="-1" aria-disabled="true"' }}>
+        {{ get_icon('b_event_add', 'Create new event'|trans) }}
+      </a>
+    </div>
+  </div>
+
+  <form id="rteListForm" class="ajax" action="{{ url('/database/events') }}">
+    {{ get_hidden_inputs(db) }}
 
     <div id="nothing2display"{{ items is not empty ? ' class="hide"' }}>
       {% trans 'There are no events to display.' %}
@@ -17,8 +42,8 @@
         <th></th>
         <th>{% trans 'Name' %}</th>
         <th>{% trans 'Status' %}</th>
-        <th colspan="3">{% trans 'Action' %}</th>
         <th>{% trans 'Type' %}</th>
+        <th colspan="3"></th>
       </tr>
       </thead>
       <tbody>
@@ -35,6 +60,9 @@
           </td>
           <td>
             {{ event.status }}
+          </td>
+          <td>
+            {{ event.type }}
           </td>
           <td>
             {% if has_privilege %}
@@ -73,60 +101,24 @@
               {{ get_icon('bd_drop', 'Drop'|trans) }}
             {% endif %}
           </td>
-          <td>
-            {{ event.type }}
-          </td>
         </tr>
       {% endfor %}
       </tbody>
     </table>
+  </form>
 
-    {% if items is not empty %}
-      <div class="withSelected">
-        <img class="selectallarrow" src="{{ select_all_arrow_src }}" width="38" height="22" alt="{% trans 'With selected:' %}">
-        <input type="checkbox" id="rteListForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
-        <label for="rteListForm_checkall">{% trans 'Check all' %}</label>
-        <em class="with-selected">{% trans 'With selected:' %}</em>
-
-        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{% trans 'Export' %}">
-          {{ get_icon('b_export', 'Export'|trans) }}
-        </button>
-        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="drop" title="{% trans 'Drop' %}">
-          {{ get_icon('b_drop', 'Drop'|trans) }}
-        </button>
-      </div>
-    {% endif %}
-  </fieldset>
-</form>
-
-<div class="doubleFieldset">
-  <fieldset class="pma-fieldset me-1">
-    <legend>{% trans %}New{% context %}Create new event{% endtrans %}</legend>
-    <div class="wrap">
-      {% if has_privilege %}
-        <a class="ajax add_anchor" href="{{ url('/database/events', {'db': db, 'add_item': true}) }}">
-          {{ get_icon('b_event_add') }}
-          {% trans 'Add event' %}
-        </a>
-      {% else %}
-        {{ get_icon('bd_event_add') }}
-        {% trans 'Add event' %}
-      {% endif %}
-      {{ show_mysql_docu('CREATE_EVENT') }}
-    </div>
-  </fieldset>
-
-  <fieldset class="pma-fieldset ms-1">
-    <legend>{% trans 'Event scheduler status' %}</legend>
-    <div class="wrap">
-      <div class="wrapper toggleAjax hide">
-        <div class="toggleButton">
-          <div title="{% trans 'Click to toggle' %}" class="toggle-container {{ scheduler_state ? 'on' : 'off' }}">
-            <img src="{{ theme_image_path }}toggle-{{ text_dir }}.png">
-            <table class="pma-table nospacing nopadding">
-              <tbody>
-              <tr>
-                <td class="toggleOn">
+  <div class="card mt-3">
+    <div class="card-header">{% trans 'Event scheduler status' %}</div>
+    <div class="card-body">
+      <div class="wrap">
+        <div class="wrapper toggleAjax hide">
+          <div class="toggleButton">
+            <div title="{% trans 'Click to toggle' %}" class="toggle-container {{ scheduler_state ? 'on' : 'off' }}">
+              <img src="{{ theme_image_path }}toggle-{{ text_dir }}.png">
+              <table class="pma-table nospacing nopadding">
+                <tbody>
+                <tr>
+                  <td class="toggleOn">
                   <span class="hide">
                     {{- url('/sql', {
                       'db': db,
@@ -134,10 +126,10 @@
                       'sql_query': 'SET GLOBAL event_scheduler="ON"',
                     }) -}}
                   </span>
-                  <div>{% trans 'ON' %}</div>
-                </td>
-                <td><div>&nbsp;</div></td>
-                <td class="toggleOff">
+                    <div>{% trans 'ON' %}</div>
+                  </td>
+                  <td><div>&nbsp;</div></td>
+                  <td class="toggleOff">
                   <span class="hide">
                     {{- url('/sql', {
                       'db': db,
@@ -145,17 +137,17 @@
                       'sql_query': 'SET GLOBAL event_scheduler="OFF"',
                     }) -}}
                   </span>
-                  <div>{% trans 'OFF' %}</div>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-            <span class="hide callback">Functions.slidingMessage(data.sql_query);</span>
-            <span class="hide text_direction">{{ text_dir }}</span>
+                    <div>{% trans 'OFF' %}</div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <span class="hide callback">Functions.slidingMessage(data.sql_query);</span>
+              <span class="hide text_direction">{{ text_dir }}</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </fieldset>
-  <div class="clearfloat"></div>
+  </div>
 </div>

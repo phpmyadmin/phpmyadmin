@@ -24,7 +24,7 @@
 
     <div class="ms-auto">
       <a class="ajax add_anchor btn btn-primary{{ not has_privilege ? ' disabled' }}" href="{{ url('/database/triggers', {'db': db, 'table': table, 'add_item': true}) }}" role="button"{{ not has_privilege ? ' tabindex="-1" aria-disabled="true"' }}>
-        {% trans 'Create new trigger' %}
+        {{ get_icon('b_trigger_add', 'Create new trigger'|trans) }}
       </a>
     </div>
   </div>

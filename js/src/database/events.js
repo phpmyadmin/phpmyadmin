@@ -1,9 +1,9 @@
 AJAX.registerTeardown('database/events.js', function () {
     $(document).off('click', 'a.ajax.add_anchor, a.ajax.edit_anchor');
     $(document).off('click', 'a.ajax.export_anchor');
-    $(document).off('click', '#rteListForm.ajax .mult_submit[value="export"]');
+    $(document).off('click', '#bulkActionExportButton');
     $(document).off('click', 'a.ajax.drop_anchor');
-    $(document).off('click', '#rteListForm.ajax .mult_submit[value="drop"]');
+    $(document).off('click', '#bulkActionDropButton');
     $(document).off('change', 'select[name=item_type]');
 });
 
@@ -56,7 +56,7 @@ const DatabaseEvents = {
 
     exportDialog: function ($this) {
         var $msg = Functions.ajaxShowMessage();
-        if ($this.hasClass('mult_submit')) {
+        if ($this.attr('id') === 'bulkActionExportButton') {
             var combined = {
                 success: true,
                 title: Messages.strExport,
@@ -527,7 +527,7 @@ AJAX.registerOnload('database/events.js', function () {
         DatabaseEvents.exportDialog($(this));
     }); // end $(document).on()
 
-    $(document).on('click', '#rteListForm.ajax .mult_submit[value="export"]', function (event) {
+    $(document).on('click', '#bulkActionExportButton', function (event) {
         event.preventDefault();
         DatabaseEvents.exportDialog($(this));
     }); // end $(document).on()
@@ -540,7 +540,7 @@ AJAX.registerOnload('database/events.js', function () {
         DatabaseEvents.dropDialog($(this));
     }); // end $(document).on()
 
-    $(document).on('click', '#rteListForm.ajax .mult_submit[value="drop"]', function (event) {
+    $(document).on('click', '#bulkActionDropButton', function (event) {
         event.preventDefault();
         DatabaseEvents.dropMultipleDialog($(this));
     }); // end $(document).on()
