@@ -394,7 +394,7 @@ class Header
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
         $uniqueValue = $GLOBALS['PMA_Config']->getThemeUniqueValue();
-        $themePath = $PMA_Theme !== null ? $PMA_Theme->getPath() : '';
+        $themePath = $PMA_Theme instanceof Theme ? $PMA_Theme->getPath() : '';
         $version = self::getVersionParameter();
 
         // The user preferences have been merged at this point
@@ -710,7 +710,7 @@ class Header
 
         return $this->template->render('javascript/variables', [
             'first_day_of_calendar' => $cfg['FirstDayOfCalendar'],
-            'theme_image_path' => $PMA_Theme !== null ? $PMA_Theme->getImgPath() : '',
+            'theme_image_path' => $PMA_Theme instanceof Theme ? $PMA_Theme->getImgPath() : '',
             'max_input_vars' => $maxInputVarsValue,
         ]);
     }

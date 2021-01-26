@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Theme;
 use function json_encode;
 
 /**
@@ -28,7 +29,7 @@ final class JavaScriptMessagesController
     {
         global $cfg, $PMA_Theme;
 
-        $ajaxClockSmallGifPath = $PMA_Theme !== null ? $PMA_Theme->getImgPath('ajax_clock_small.gif') : '';
+        $ajaxClockSmallGifPath = $PMA_Theme instanceof Theme ? $PMA_Theme->getImgPath('ajax_clock_small.gif') : '';
 
         $this->messages = [
             /* For confirmations */
