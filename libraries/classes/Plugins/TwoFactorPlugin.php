@@ -143,7 +143,7 @@ class TwoFactorPlugin
     }
 
     /**
-     * Return an applicaiton ID
+     * Return an application ID
      *
      * Either hostname or hostname with scheme.
      *
