@@ -1297,6 +1297,10 @@ class Util
             $pages = array_unique($pages);
         }
 
+        if ($pageNow > $nbTotalPage) {
+            $pages[] = $pageNow;
+        }
+
         foreach ($pages as $i) {
             if ($i == $pageNow) {
                 $selected = 'selected="selected" style="font-weight: bold"';
