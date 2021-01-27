@@ -102,8 +102,9 @@ class ThemeTest extends AbstractTestCase
      */
     public function testLoad(): void
     {
-        $newTheme = Theme::load('./themes/original', ROOT_PATH . 'themes/original');
+        $newTheme = Theme::load('original');
         $this->assertNotNull($newTheme);
+        $this->assertInstanceOf(Theme::class, $newTheme);
     }
 
     /**
@@ -111,7 +112,7 @@ class ThemeTest extends AbstractTestCase
      */
     public function testLoadNotExisted(): void
     {
-        $this->assertFalse(Theme::load('/path/to/nowhere', '/path/to/nowhere'));
+        $this->assertNull(Theme::load('nonexistent'));
     }
 
     /**

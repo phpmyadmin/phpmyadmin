@@ -157,30 +157,19 @@ class Theme
         return true;
     }
 
-    /**
-     * returns theme object loaded from given folder
-     * or false if theme is invalid
-     *
-     * @param string $folder path to theme
-     * @param string $fsPath file-system path to theme
-     *
-     * @return Theme|false
-     *
-     * @static
-     * @access public
-     */
-    public static function load(string $folder, string $fsPath)
+    public static function load(string $themeDirectory): ?self
     {
-        $theme = new Theme();
+        $theme = new self();
 
-        $theme->setPath($folder);
-        $theme->setFsPath($fsPath);
+        $theme->setPath('./themes/' . $themeDirectory);
+        $theme->setFsPath(ROOT_PATH . 'themes/' . $themeDirectory . '/');
 
         if (! $theme->loadInfo()) {
-            return false;
+            return null;
         }
 
         $theme->checkImgPath();
+        $theme->setId($themeDirectory);
 
         return $theme;
     }
