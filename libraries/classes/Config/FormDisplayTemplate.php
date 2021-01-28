@@ -277,7 +277,7 @@ class FormDisplayTemplate
                 // As seen in the reporting server (#15042) we sometimes receive
                 // an array here. No clue about its origin nor content, so let's avoid
                 // a notice on htmlspecialchars().
-                if (! is_array($value)) {
+                if (is_string($value)) {
                     $htmlOutput .= '<input type="text" size="25" ' . $nameId
                     . $fieldClass . ' value="' . htmlspecialchars($value)
                     . '">';
