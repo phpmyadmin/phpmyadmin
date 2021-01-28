@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-01-27 14:32+0000\n"
+"PO-Revision-Date: 2021-01-29 13:32+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-0/"
 "ja/>\n"
@@ -2810,7 +2810,7 @@ msgstr "名前"
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 msgid "Type"
-msgstr "種別"
+msgstr "タイプ"
 
 #: libraries/classes/CentralColumns.php:1030
 #: libraries/classes/Rte/Routines.php:961
