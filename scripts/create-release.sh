@@ -243,7 +243,7 @@ if [ ! -d libraries/tcpdf ] ; then
     cp composer.json composer.json.backup
     echo "* Running composer"
     composer config platform.php "$PHP_REQ"
-    composer update --no-dev --optimize-autoloader
+    composer update --no-interaction --no-dev --optimize-autoloader
 
     # Parse the required versions from composer.json
     PACKAGES_VERSIONS=''
@@ -256,7 +256,7 @@ if [ ! -d libraries/tcpdf ] ; then
     do
         PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:`awk "/require-dev/ {printline = 1; print; next } printline" composer.json | grep "$PACKAGES" | awk -F [\\"] '{print $4}'`"
     done
-    composer require --optimize-autoloader --update-no-dev $PACKAGES_VERSIONS
+    composer require --no-interaction --optimize-autoloader --update-no-dev $PACKAGES_VERSIONS
 
     mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"
@@ -305,10 +305,10 @@ fi
 rm -rf themes/bootstrap
 
 if [ -f ./scripts/console ]; then
-    composer update
+    composer update --no-interaction
     # Warm up the routing cache for 5.1+ releases
     ./scripts/console cache:warmup --routing
-    composer update --no-dev --optimize-autoloader
+    composer update --no-interaction --no-dev --optimize-autoloader
 fi
 
 # Remove git metadata
@@ -317,7 +317,7 @@ find . -name .gitignore -print0 | xargs -0 -r rm -f
 find . -name .gitattributes -print0 | xargs -0 -r rm -f
 
 if [ $do_test -eq 1 ] ; then
-    composer update
+    composer update --no-interaction
     ./vendor/bin/phpunit --no-coverage --exclude-group selenium
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
@@ -336,7 +336,7 @@ if [ $do_test -eq 1 ] ; then
     rm -f .phpunit.result.cache
     # Remove libs installed for testing
     rm -rf build
-    composer update --no-dev --optimize-autoloader
+    composer update --no-interaction --no-dev --optimize-autoloader
 fi
 
 

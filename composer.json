@@ -116,6 +116,7 @@
         "twig-lint": "php scripts/console lint:twig templates --ansi --show-deprecations"
     },
     "config":{
-        "sort-packages": true
+        "sort-packages": true,
+        "discard-changes": true
     }
 }
