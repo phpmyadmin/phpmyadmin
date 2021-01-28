@@ -2721,6 +2721,10 @@ class Results
         $whereClauseMap = $this->properties['whereClauseMap'];
 
         $columnCount = $this->properties['fields_cnt'];
+
+        // Load SpecialSchemaLinks for all rows
+        $specialSchemaLinks = SpecialSchemaLinks::get();
+
         for ($currentColumn = 0; $currentColumn < $columnCount; ++$currentColumn) {
             // assign $i with appropriate column order
             $i = is_array($col_order) ? $col_order[$currentColumn] : $currentColumn;
@@ -2824,8 +2828,6 @@ class Results
             }
 
             // Check for the predefined fields need to show as link in schemas
-            $specialSchemaLinks = SpecialSchemaLinks::get();
-
             if (! empty($specialSchemaLinks[$dbLower][$tblLower][$nameLower])) {
                 $linking_url = $this->getSpecialLinkUrl(
                     $specialSchemaLinks,
