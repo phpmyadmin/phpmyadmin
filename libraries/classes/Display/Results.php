@@ -126,91 +126,91 @@ class Results
 
     /** @var array<string, mixed> */
     public $properties = [
-        /** integer server id */
+        /* integer server id */
         'server' => null,
 
-        /** string Database name */
+        /* string Database name */
         'db' => null,
 
-        /** string Table name */
+        /* string Table name */
         'table' => null,
 
-        /** string the URL to go back in case of errors */
+        /* string the URL to go back in case of errors */
         'goto' => null,
 
-        /** string the SQL query */
+        /* string the SQL query */
         'sql_query' => null,
 
-        /**
+        /*
          * integer the total number of rows returned by the SQL query without any
          *         appended "LIMIT" clause programmatically
          */
         'unlim_num_rows' => null,
 
-        /** array meta information about fields */
+        /* array meta information about fields */
         'fields_meta' => null,
 
-        /** boolean */
+        /* boolean */
         'is_count' => null,
 
-        /** integer */
+        /* integer */
         'is_export' => null,
 
-        /** boolean */
+        /* boolean */
         'is_func' => null,
 
-        /** integer */
+        /* integer */
         'is_analyse' => null,
 
-        /** integer the total number of rows returned by the SQL query */
+        /* integer the total number of rows returned by the SQL query */
         'num_rows' => null,
 
-        /** integer the total number of fields returned by the SQL query */
+        /* integer the total number of fields returned by the SQL query */
         'fields_cnt' => null,
 
-        /** double time taken for execute the SQL query */
+        /* double time taken for execute the SQL query */
         'querytime' => null,
 
-        /** string path for theme images directory */
+        /* string path for theme images directory */
         'theme_image_path' => null,
 
-        /** string */
+        /* string */
         'text_dir' => null,
 
-        /** boolean */
+        /* boolean */
         'is_maint' => null,
 
-        /** boolean */
+        /* boolean */
         'is_explain' => null,
 
-        /** boolean */
+        /* boolean */
         'is_show' => null,
 
-        /** boolean */
+        /* boolean */
         'is_browse_distinct' => null,
 
-        /** array table definitions */
+        /* array table definitions */
         'showtable' => null,
 
-        /** string */
+        /* string */
         'printview' => null,
 
-        /** array column names to highlight */
+        /* array column names to highlight */
         'highlight_columns' => null,
 
-        /** array holding various display information */
+        /* array holding various display information */
         'display_params' => null,
 
-        /** array mime types information of fields */
+        /* array mime types information of fields */
         'mime_map' => null,
 
-        /** boolean */
+        /* boolean */
         'editable' => null,
 
-        /** random unique ID to distinguish result set */
+        /* random unique ID to distinguish result set */
         'unique_id' => null,
 
-        /** where clauses for each row, each table in the row */
+        /* where clauses for each row, each table in the row */
         'whereClauseMap' => [],
     ];
 
