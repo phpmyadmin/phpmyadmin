@@ -203,8 +203,6 @@ class StructureController extends AbstractController
 
     public function browse(): void
     {
-        global $PMA_Theme;
-
         if (empty($_POST['selected_fld'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
@@ -212,10 +210,7 @@ class StructureController extends AbstractController
             return;
         }
 
-        $this->displayTableBrowseForSelectedColumns(
-            $GLOBALS['goto'],
-            $PMA_Theme->getImgPath()
-        );
+        $this->displayTableBrowseForSelectedColumns($GLOBALS['goto']);
     }
 
     public function change(): void
@@ -1029,12 +1024,11 @@ class StructureController extends AbstractController
     /**
      * Function to display table browse for selected columns
      *
-     * @param string $goto           goto page url
-     * @param string $themeImagePath URI of the pma theme image
+     * @param string $goto goto page url
      *
      * @return void
      */
-    protected function displayTableBrowseForSelectedColumns($goto, $themeImagePath)
+    protected function displayTableBrowseForSelectedColumns($goto)
     {
         $GLOBALS['active_page'] = Url::getFromRoute('/sql');
         $fields = [];
@@ -1076,7 +1070,6 @@ class StructureController extends AbstractController
                 null, // message_to_show
                 null, // sql_data
                 $goto, // goto
-                $themeImagePath,
                 null, // disp_query
                 null, // disp_message
                 $sql_query, // sql_query
@@ -1457,7 +1450,7 @@ class StructureController extends AbstractController
         array $columns_with_index,
         bool $isSystemSchema
     ) {
-        global $route, $tbl_is_view, $tbl_storage_engine, $PMA_Theme;
+        global $route, $tbl_is_view, $tbl_storage_engine;
 
         // prepare comments
         $comments_map = [];
@@ -1578,7 +1571,6 @@ class StructureController extends AbstractController
             'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
             'mysql_int_version' => $this->dbi->getVersion(),
             'is_mariadb' => $this->dbi->isMariaDB(),
-            'theme_image_path' => $PMA_Theme->getImgPath(),
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),

@@ -45,7 +45,7 @@
                               <div class="wrapper toggleAjax hide">
                                 <div class="toggleButton">
                                   <div title="{% trans 'Click to toggle' %}" class="toggle-container {{ version.tracking_active == 1 ? 'on' : 'off' }}">
-                                    <img src="{{ theme_image_path }}toggle-{{ text_dir }}.png">
+                                    <img src="{{ image('toggle-' ~ text_dir ~ '.png') }}">
                                     <table class="pma-table nospacing nopadding">
                                       <tbody>
                                       <tr>
@@ -131,7 +131,6 @@
                 </tbody>
             </table>
             {% include 'select_all.twig' with {
-                'theme_image_path': theme_image_path,
                 'text_dir': text_dir,
                 'form_name': 'trackedForm'
             } only %}
@@ -183,7 +182,6 @@
             </tbody>
         </table>
         {% include 'select_all.twig' with {
-            'theme_image_path': theme_image_path,
             'text_dir': text_dir,
             'form_name': 'untrackedForm'
         } only %}

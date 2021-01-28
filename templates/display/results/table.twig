@@ -202,7 +202,7 @@
 
 {% if bulk_links is not empty %}
     <div class="print_ignore">
-      <img class="selectallarrow" src="{{ select_all_arrow }}" width="38" height="22" alt="{% trans 'With selected:' %}">
+      <img class="selectallarrow" src="{{ image('arrow_' ~ text_dir ~ '.png') }}" width="38" height="22" alt="{% trans 'With selected:' %}">
       <input type="checkbox" id="resultsForm_{{ unique_id }}_checkall" class="checkall_box" title="{% trans 'Check all' %}">
       <label for="resultsForm_{{ unique_id }}_checkall">{% trans 'Check all' %}</label>
       <em class="with-selected">{% trans 'With selected:' %}</em>

@@ -1,6 +1,6 @@
 {% autoescape 'js' %}
 var firstDayOfCalendar = '{{ first_day_of_calendar }}';
-var themeImagePath = '{{ theme_image_path }}';
+var themeImagePath = '{{ image() }}';
 var mysqlDocTemplate = '{{ get_mysql_docu_url('%s') }}';
 var maxInputVars = {{ max_input_vars }};
 

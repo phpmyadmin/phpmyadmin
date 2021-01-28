@@ -43,8 +43,6 @@ class MultiTableQueryController extends AbstractController
 
     public function displayResults(): void
     {
-        global $PMA_Theme;
-
         $params = [
             'sql_query' => $_POST['sql_query'],
             'db' => $_POST['db'] ?? $_GET['db'] ?? null,
@@ -52,8 +50,7 @@ class MultiTableQueryController extends AbstractController
 
         $this->response->addHTML(MultiTableQuery::displayResults(
             $params['sql_query'],
-            $params['db'],
-            $PMA_Theme->getImgPath()
+            $params['db']
         ));
     }
 

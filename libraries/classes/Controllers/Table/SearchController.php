@@ -269,8 +269,6 @@ class SearchController extends AbstractController
      */
     public function doSelectionAction()
     {
-        global $PMA_Theme;
-
         /**
          * Selection criteria have been submitted -> do the work
          */
@@ -299,7 +297,6 @@ class SearchController extends AbstractController
             null, // message_to_show
             null, // sql_data
             $GLOBALS['goto'], // goto
-            $PMA_Theme->getImgPath(),
             null, // disp_query
             null, // disp_message
             $sql_query, // sql_query

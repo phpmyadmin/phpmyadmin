@@ -42,7 +42,7 @@ class PrivilegesController extends AbstractController
      */
     public function index(array $params): string
     {
-        global $cfg, $text_dir, $PMA_Theme;
+        global $cfg, $text_dir;
 
         $scriptName = Util::getScriptNameForOption(
             $cfg['DefaultTabTable'],
@@ -62,7 +62,6 @@ class PrivilegesController extends AbstractController
             'table' => $params['checkprivstable'],
             'is_superuser' => $this->dbi->isSuperUser(),
             'table_url' => $scriptName,
-            'theme_image_path' => $PMA_Theme->getImgPath(),
             'text_dir' => $text_dir,
             'is_createuser' => $this->dbi->isCreateUser(),
             'is_grantuser' => $this->dbi->isGrantUser(),

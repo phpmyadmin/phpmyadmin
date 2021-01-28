@@ -703,14 +703,13 @@ class Header
 
     private function getVariablesForJavaScript(): string
     {
-        global $cfg, $PMA_Theme;
+        global $cfg;
 
         $maxInputVars = ini_get('max_input_vars');
         $maxInputVarsValue = $maxInputVars === false || $maxInputVars === '' ? 'false' : (int) $maxInputVars;
 
         return $this->template->render('javascript/variables', [
             'first_day_of_calendar' => $cfg['FirstDayOfCalendar'],
-            'theme_image_path' => $PMA_Theme instanceof Theme ? $PMA_Theme->getImgPath() : '',
             'max_input_vars' => $maxInputVarsValue,
         ]);
     }

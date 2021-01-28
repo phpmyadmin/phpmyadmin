@@ -37,7 +37,7 @@ class MonitorController extends AbstractController
 
     public function index(): void
     {
-        global $PMA_Theme, $err_url;
+        global $err_url;
 
         $err_url = Url::getFromRoute('/');
 
@@ -78,7 +78,6 @@ class MonitorController extends AbstractController
         }
 
         $this->render('server/status/monitor/index', [
-            'image_path' => $PMA_Theme->getImgPath(),
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,
         ]);

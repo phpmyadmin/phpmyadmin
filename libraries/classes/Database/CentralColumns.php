@@ -960,11 +960,10 @@ class CentralColumns
     /**
      * Adding a new user defined column to central list
      *
-     * @param string $db             current database
-     * @param int    $total_rows     number of rows in central columns
-     * @param int    $pos            offset of first result with complete result set
-     * @param string $themeImagePath table footer theme image directorie
-     * @param string $text_dir       table footer arrow direction
+     * @param string $db         current database
+     * @param int    $total_rows number of rows in central columns
+     * @param int    $pos        offset of first result with complete result set
+     * @param string $text_dir   table footer arrow direction
      *
      * @return array
      */
@@ -972,7 +971,6 @@ class CentralColumns
         string $db,
         int $total_rows,
         int $pos,
-        string $themeImagePath,
         string $text_dir
     ): array {
         $max_rows = $this->maxRows;
@@ -1057,7 +1055,6 @@ class CentralColumns
             'rows_meta' => $rows_meta,
             'default_values' => $defaultValues,
             'types_upper' => $types_upper,
-            'theme_image_path' => $themeImagePath,
             'text_dir' => $text_dir,
             'charsets' => $charsetsList,
         ];
