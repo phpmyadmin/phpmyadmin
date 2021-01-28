@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-01-28 16:15+0100\n"
-"PO-Revision-Date: 2021-01-27 14:32+0000\n"
+"POT-Creation-Date: 2021-01-22 02:59+0100\n"
+"PO-Revision-Date: 2021-01-28 15:17+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ja/>\n"
@@ -8843,7 +8843,7 @@ msgstr "ルーチン名"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/zoom_search/index.twig:39
 msgid "Type"
-msgstr "種別"
+msgstr "タイプ"
 
 #: libraries/classes/Database/Routines.php:863
 #: templates/database/events/editor_form.twig:41
