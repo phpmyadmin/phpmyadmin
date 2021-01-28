@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-01-22 02:59+0100\n"
+"POT-Creation-Date: 2021-01-28 16:15+0100\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
@@ -1809,7 +1809,13 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: libraries/classes/Config/Descriptions.php:69
+#: libraries/classes/Config/Descriptions.php:58
+#: libraries/classes/Config/Descriptions.php:59
+#: libraries/classes/Config/Descriptions.php:60
+msgid "Users cannot set a higher value"
+msgstr "Los usuarios no pueden definir un valor más alto"
+
+#: libraries/classes/Config/Descriptions.php:68
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
@@ -1817,10 +1823,6 @@ msgstr ""
 "inicio de sesión para la autenticación con cookies."
 
 #: libraries/classes/Config/Descriptions.php:71
-msgid "Allow login to any MySQL server"
-msgstr "Permitir el inicio de sesión en cualquier servidor MySQL"
-
-#: libraries/classes/Config/Descriptions.php:73
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
@@ -1831,11 +1833,7 @@ msgstr ""
 "haciendo coincidir la IP o nombre de host del servidor MySQL para la "
 "expresión regular dada."
 
-#: libraries/classes/Config/Descriptions.php:77
-msgid "Restrict login to MySQL server"
-msgstr "Restringir el acceso al servidor MySQL"
-
-#: libraries/classes/Config/Descriptions.php:79
+#: libraries/classes/Config/Descriptions.php:76
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -1845,15 +1843,7 @@ msgstr ""
 "phpMyAdmin dentro de un frame, y es un potencial [strong]agujero de "
 "seguridad[/strong] que permite ataques de cross-frame scripting (XSS)."
 
-#: libraries/classes/Config/Descriptions.php:83
-msgid "Allow third party framing"
-msgstr "Permitir framing de terceros"
-
-#: libraries/classes/Config/Descriptions.php:84
-msgid "Show \"Drop database\" link to normal users"
-msgstr "Mostrar el enlace \"Eliminar base de datos\" a usuarios normales"
-
-#: libraries/classes/Config/Descriptions.php:86
+#: libraries/classes/Config/Descriptions.php:81
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
@@ -1861,35 +1851,45 @@ msgstr ""
 "Passphrase secreta que se usa para encriptar las cookies en la autenticación "
 "con [kbd]cookie[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:89
-msgid "Blowfish secret"
-msgstr "Secreto Blowfish"
-
-#: libraries/classes/Config/Descriptions.php:90
-msgid "Highlight selected rows."
-msgstr "Resaltar las filas seleccionadas."
-
-#: libraries/classes/Config/Descriptions.php:91
-msgid "Row marker"
-msgstr "Marcador de fila"
-
-#: libraries/classes/Config/Descriptions.php:92
-msgid "Highlight row pointed by the mouse cursor."
-msgstr "Resaltar las filas señaladas por el cursor del ratón."
-
-#: libraries/classes/Config/Descriptions.php:93
-msgid "Highlight pointer"
-msgstr "Resaltar puntero"
-
-#: libraries/classes/Config/Descriptions.php:95
+#: libraries/classes/Config/Descriptions.php:85
 msgid "Enable bzip2 compression for import operations."
 msgstr "Habilitar compresión bzip2, para las operaciones de importación."
 
-#: libraries/classes/Config/Descriptions.php:98
-msgid "Bzip2"
-msgstr "Bzip2"
+#: libraries/classes/Config/Descriptions.php:88
+#, fuzzy
+#| msgid "Enter your private key for your domain reCaptcha service."
+msgid "Enter the URL for your reCaptcha v2 compatible API."
+msgstr "Introduzca su llave privada para el servicio reCaptcha de su dominio."
 
-#: libraries/classes/Config/Descriptions.php:100
+#: libraries/classes/Config/Descriptions.php:89
+msgid ""
+"Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
+"API."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:90
+msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:91
+msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:92
+msgid "Enter your public key for your domain reCaptcha service."
+msgstr "Introduzca su llave pública para el servicio reCaptcha de su dominio."
+
+#: libraries/classes/Config/Descriptions.php:93
+msgid "Enter your private key for your domain reCaptcha service."
+msgstr "Introduzca su llave privada para el servicio reCaptcha de su dominio."
+
+#: libraries/classes/Config/Descriptions.php:94
+#, fuzzy
+#| msgid "Enter your private key for your domain reCaptcha service."
+msgid "Enter your siteverify URL for your reCaptcha service."
+msgstr "Introduzca su llave privada para el servicio reCaptcha de su dominio."
+
+#: libraries/classes/Config/Descriptions.php:96
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -1899,11 +1899,7 @@ msgstr ""
 "VARCHAR; [kbd]input[/kbd] - permite limitar la longitud del input, "
 "[kbd]textarea[/kbd] - permite líneas nuevas en los campos."
 
-#: libraries/classes/Config/Descriptions.php:104
-msgid "CHAR columns editing"
-msgstr "Edición de columnas CHAR"
-
-#: libraries/classes/Config/Descriptions.php:106
+#: libraries/classes/Config/Descriptions.php:101
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -1911,11 +1907,7 @@ msgstr ""
 "Utilizar el editor SQL (CodeMirror) con resaltado de sintaxis y números de "
 "línea."
 
-#: libraries/classes/Config/Descriptions.php:110
-msgid "Enable CodeMirror"
-msgstr "Activar «CodeMirror»"
-
-#: libraries/classes/Config/Descriptions.php:112
+#: libraries/classes/Config/Descriptions.php:106
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
@@ -1923,11 +1915,7 @@ msgstr ""
 "Encuentre errores en la consulta antes de ejecutarlo. Requiere que "
 "CodeMirror esté habilitado."
 
-#: libraries/classes/Config/Descriptions.php:115
-msgid "Enable linter"
-msgstr "Habilitar Linter"
-
-#: libraries/classes/Config/Descriptions.php:117
+#: libraries/classes/Config/Descriptions.php:110
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -1935,11 +1923,7 @@ msgstr ""
 "Define el tamaño mínimo de los campos de entrada para columnas CHAR y "
 "VARCHAR."
 
-#: libraries/classes/Config/Descriptions.php:120
-msgid "Minimum size for input field"
-msgstr "Tamaño mínimo para campos de entrada"
-
-#: libraries/classes/Config/Descriptions.php:122
+#: libraries/classes/Config/Descriptions.php:114
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
@@ -1947,31 +1931,7 @@ msgstr ""
 "Define el tamaño máximo de los campos de entrada para columnas CHAR y "
 "VARCHAR."
 
-#: libraries/classes/Config/Descriptions.php:125
-msgid "Maximum size for input field"
-msgstr "Tamaño máximo para campos de entrada"
-
-#: libraries/classes/Config/Descriptions.php:126
-msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Número de columnas para las áreas de texto CHAR/VARCHAR."
-
-#: libraries/classes/Config/Descriptions.php:127
-msgid "CHAR textarea columns"
-msgstr "Columnas para las áreas de texto CHAR"
-
-#: libraries/classes/Config/Descriptions.php:128
-msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "Número de filas para las áreas de texto CHAR/VARCHAR."
-
-#: libraries/classes/Config/Descriptions.php:129
-msgid "CHAR textarea rows"
-msgstr "Filas para las áreas de texto CHAR"
-
-#: libraries/classes/Config/Descriptions.php:130
-msgid "Check config file permissions"
-msgstr "Revise los permisos en el archivo de configuración"
-
-#: libraries/classes/Config/Descriptions.php:132
+#: libraries/classes/Config/Descriptions.php:118
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
@@ -1980,11 +1940,7 @@ msgstr ""
 "memoria; si halla problemas con archivos comprimidos con gzip deshabilite "
 "esta opción."
 
-#: libraries/classes/Config/Descriptions.php:135
-msgid "Compress on the fly"
-msgstr "Comprimir sobre la marcha"
-
-#: libraries/classes/Config/Descriptions.php:137
+#: libraries/classes/Config/Descriptions.php:122
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
@@ -1992,85 +1948,19 @@ msgstr ""
 "Si se debe mostrar o no una advertencia (\"Está absolutamente seguro…\") "
 "cuando está a punto de perder datos."
 
-#: libraries/classes/Config/Descriptions.php:140
-msgid "Confirm DROP queries"
-msgstr "Confirmar las consultas DROP"
-
-#: libraries/classes/Config/Descriptions.php:141
-msgid ""
-"Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
-"El registro de consultas SQL y su tiempo de ejecución, se mostrará en la "
-"consola"
-
-#: libraries/classes/Config/Descriptions.php:142
-#: templates/console/display.twig:11 templates/console/display.twig:64
-msgid "Debug SQL"
-msgstr "Depuración SQL"
-
-#: libraries/classes/Config/Descriptions.php:143
-msgid "Tab that is displayed when entering a database."
-msgstr "Pestaña que se muestra cuando accede a una base de datos."
-
-#: libraries/classes/Config/Descriptions.php:144
-msgid "Default database tab"
-msgstr "Ceja predeterminada de la base de datos"
-
-#: libraries/classes/Config/Descriptions.php:145
-msgid "Tab that is displayed when entering a server."
-msgstr "Pestaña que se muestra cuando accede a un servidor."
-
-#: libraries/classes/Config/Descriptions.php:146
-msgid "Default server tab"
-msgstr "Ceja predeterminada para el servidor"
-
-#: libraries/classes/Config/Descriptions.php:147
-msgid "Tab that is displayed when entering a table."
-msgstr "Pestaña que se muestra cuando accede a una tabla."
-
-#: libraries/classes/Config/Descriptions.php:148
-msgid "Default table tab"
-msgstr "Ceja predeterminada de la tabla"
-
-#: libraries/classes/Config/Descriptions.php:150
+#: libraries/classes/Config/Descriptions.php:126
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Autocompletado de nombres de tablas y columnas en la consulta SQL."
 
-#: libraries/classes/Config/Descriptions.php:152
-msgid "Enable autocomplete for table and column names"
-msgstr "Permitir autocompletado para nombres de tablas y columnas"
-
+#: libraries/classes/Config/Descriptions.php:129
+#: libraries/classes/Config/Descriptions.php:133
+#: libraries/classes/Config/Descriptions.php:137
+#: libraries/classes/Config/Descriptions.php:141
+#: libraries/classes/Config/Descriptions.php:145
+#: libraries/classes/Config/Descriptions.php:149
 #: libraries/classes/Config/Descriptions.php:153
-msgid "Whether the table structure actions should be hidden."
-msgstr "Si se debe esconder las acciones sobre la estructura de la tabla."
-
-#: libraries/classes/Config/Descriptions.php:154
-msgid "Show column comments"
-msgstr "Mostrar comentarios de la columna"
-
-#: libraries/classes/Config/Descriptions.php:155
-msgid "Whether column comments should be shown in table structure view"
-msgstr ""
-"Si los comentarios de la columna deben mostrarse en la vista de la "
-"estructura de tabla"
-
-#: libraries/classes/Config/Descriptions.php:156
-msgid "Hide table structure actions"
-msgstr "Esconder acciones sobre la estructura de la tabla"
-
 #: libraries/classes/Config/Descriptions.php:157
-msgid "Default transformations for Hex"
-msgstr "Transformaciones predeterminadas para Hex"
-
-#: libraries/classes/Config/Descriptions.php:159
-#: libraries/classes/Config/Descriptions.php:164
-#: libraries/classes/Config/Descriptions.php:169
-#: libraries/classes/Config/Descriptions.php:174
-#: libraries/classes/Config/Descriptions.php:179
-#: libraries/classes/Config/Descriptions.php:184
-#: libraries/classes/Config/Descriptions.php:189
-#: libraries/classes/Config/Descriptions.php:194
-#: libraries/classes/Config/Descriptions.php:199
+#: libraries/classes/Config/Descriptions.php:161
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
@@ -2079,47 +1969,7 @@ msgstr ""
 "Se sobrescribirán si la transformación se rellena en la página de estructura "
 "de la tabla."
 
-#: libraries/classes/Config/Descriptions.php:162
-msgid "Default transformations for Substring"
-msgstr "Transformaciones predeterminadas para Substring"
-
-#: libraries/classes/Config/Descriptions.php:167
-msgid "Default transformations for Bool2Text"
-msgstr "Transformaciones predeterminadas para Bool2Text"
-
-#: libraries/classes/Config/Descriptions.php:172
-msgid "Default transformations for External"
-msgstr "Transformaciones predeterminadas para External"
-
-#: libraries/classes/Config/Descriptions.php:177
-msgid "Default transformations for PreApPend"
-msgstr "Transformaciones predeterminadas para PreApPend"
-
-#: libraries/classes/Config/Descriptions.php:182
-msgid "Default transformations for DateFormat"
-msgstr "Transformaciones predeterminadas para DateFormat"
-
-#: libraries/classes/Config/Descriptions.php:187
-msgid "Default transformations for Inline"
-msgstr "Transformaciones predeterminadas para Inline"
-
-#: libraries/classes/Config/Descriptions.php:192
-msgid "Default transformations for TextImageLink"
-msgstr "Transformaciones predeterminadas para TextImageLink"
-
-#: libraries/classes/Config/Descriptions.php:197
-msgid "Default transformations for TextLink"
-msgstr "Transformaciones predeterminadas para TextLink"
-
-#: libraries/classes/Config/Descriptions.php:203
-msgid "Show server listing as a list instead of a drop down."
-msgstr "Mostrar los servidores en una lista en lugar de una caja desplegable."
-
-#: libraries/classes/Config/Descriptions.php:204
-msgid "Display servers as a list"
-msgstr "Mostrar los servidores en una lista"
-
-#: libraries/classes/Config/Descriptions.php:206
+#: libraries/classes/Config/Descriptions.php:165
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
@@ -2127,11 +1977,7 @@ msgstr ""
 "Desactivar las operaciones masivas de mantenimiento en tablas como "
 "optimización y reparación de las tablas seleccionadas de una base de datos."
 
-#: libraries/classes/Config/Descriptions.php:209
-msgid "Disable multi table maintenance"
-msgstr "Desactivar mantenimiento multi tabla"
-
-#: libraries/classes/Config/Descriptions.php:211
+#: libraries/classes/Config/Descriptions.php:169
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
@@ -2139,41 +1985,1345 @@ msgstr ""
 "Definir el tiempo máximo permitido (en segundos) para la ejecución de un "
 "script ([kbd]0[/kbd] para ilimitado)."
 
+#: libraries/classes/Config/Descriptions.php:172
+#: libraries/classes/Config/Descriptions.php:737
+#: libraries/classes/Plugins/Export/ExportSql.php:348
+msgid "Exclude definition of current user"
+msgstr "Excluir la definición de usuario actual"
+
+#: libraries/classes/Config/Descriptions.php:174
+msgid ""
+"Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
+"the referenced data, [kbd]id[/kbd] is the key value."
+msgstr ""
+"Orden en el que se agrupa el contenido de una caja desplegable de claves "
+"foráneas; [kbd]content[/kbd] son los datos referidos, [kbd]id[/kbd] es el "
+"valor clave."
+
+#: libraries/classes/Config/Descriptions.php:178
+msgid ""
+"Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
+"for magic strings that can be used to get special values."
+msgstr ""
+"Especificar el texto de la barra de título del navegador. Consulte la "
+"[doc@faq6-27]documentación[/doc] para ver las palabras mágicas que podrán "
+"ser usadas para obtener valores especiales."
+
+#: libraries/classes/Config/Descriptions.php:183
+msgid ""
+"Please note that phpMyAdmin is just a user interface and its features do not "
+"limit MySQL."
+msgstr ""
+"Tenga en cuenta que phpMyAdmin es solamente una interfaz y sus opciones no "
+"limitan a MySQL."
+
+#: libraries/classes/Config/Descriptions.php:187
+msgid ""
+"Advanced server configuration, do not change these options unless you know "
+"what they are for."
+msgstr ""
+"Configuración avanzada del servidor, no cambie estas opciones a menos que "
+"usted conozca como funcionan."
+
+#: libraries/classes/Config/Descriptions.php:191
+msgid ""
+"Configure phpMyAdmin configuration storage to gain access to additional "
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation."
+msgstr ""
+"Configure la base de datos de phpMyAdmin para obtener acceso a funciones "
+"adicionales, mire [doc@linked-tables]linked-tables infrastructure[/doc] en "
+"la documentación."
+
+#: libraries/classes/Config/Descriptions.php:196
+msgid ""
+"Tracking of changes made in database. Requires the phpMyAdmin configuration "
+"storage."
+msgstr ""
+"Seguimiento de cambios hechos en la base de datos. Requiere almacenamiento "
+"de configuración phpMyAdmin."
+
+#: libraries/classes/Config/Descriptions.php:200
+msgid "Customize browse mode."
+msgstr "Cambiar las opciones de la modalidad de visualización."
+
+#: libraries/classes/Config/Descriptions.php:201
+#: libraries/classes/Config/Descriptions.php:202
+#: libraries/classes/Config/Descriptions.php:209
+#: libraries/classes/Config/Descriptions.php:215
+#: libraries/classes/Config/Descriptions.php:216
+#: libraries/classes/Config/Descriptions.php:221
+msgid "Customize default options."
+msgstr "Personalizar las opciones predeteminadas."
+
+#: libraries/classes/Config/Descriptions.php:203
+msgid "Settings for phpMyAdmin developers."
+msgstr "Configuración para desarrolladores de phpMyAdmin."
+
+#: libraries/classes/Config/Descriptions.php:204
+msgid "Customize edit mode."
+msgstr "Cambiar las opciones de la modalidad de edición."
+
+#: libraries/classes/Config/Descriptions.php:205
+msgid "Customize default export options."
+msgstr "Personalizar las opciones comunes de exportación predeteminadas."
+
+#: libraries/classes/Config/Descriptions.php:206
+msgid "Set some commonly used options."
+msgstr "Definir algunas opciones usadas normalmente."
+
+#: libraries/classes/Config/Descriptions.php:207
+msgid "Customize default common import options."
+msgstr "Personalizar las opciones comunes de importación predeteminadas."
+
+#: libraries/classes/Config/Descriptions.php:208
+msgid "Set import and export directories and compression options."
+msgstr ""
+"Seleccione los directorios para importar y exportar así como las opciones de "
+"compresión."
+
+#: libraries/classes/Config/Descriptions.php:210
+msgid "Databases display options."
+msgstr "Opciones para visualizar las bases de datos."
+
+#: libraries/classes/Config/Descriptions.php:211
+msgid "Customize appearance of the navigation panel."
+msgstr "Cambiar la apariencia del panel de navegación."
+
+#: libraries/classes/Config/Descriptions.php:212
+msgid "Customize the navigation tree."
+msgstr "Personalizar el árbol de navegación."
+
+#: libraries/classes/Config/Descriptions.php:213
+msgid "Servers display options."
+msgstr "Opciones para visualizar los servidores."
+
 #: libraries/classes/Config/Descriptions.php:214
+msgid "Tables display options."
+msgstr "Opciones para visualizar las tablas."
+
+#: libraries/classes/Config/Descriptions.php:217
+msgid "Settings that didn't fit anywhere else."
+msgstr "Parámetros que no encajaban en otra parte."
+
+#: libraries/classes/Config/Descriptions.php:218
+msgid "Authentication settings."
+msgstr "Configuración de autentificación."
+
+#: libraries/classes/Config/Descriptions.php:219
+msgid "Enter server connection parameters."
+msgstr "Escriba los ajustes básicos del servidor."
+
+#: libraries/classes/Config/Descriptions.php:220
+msgid "Customize links shown in SQL Query boxes."
+msgstr "Cambiar los enlaces mostrados en las ventanas de consulta SQL."
+
+#: libraries/classes/Config/Descriptions.php:222
+msgid "SQL queries settings."
+msgstr "Configuración de las consultas SQL."
+
+#: libraries/classes/Config/Descriptions.php:223
+msgid "Customize startup page."
+msgstr "Cambiar las opciones de la página de arranque."
+
+#: libraries/classes/Config/Descriptions.php:224
+msgid ""
+"Choose which details to show in the database structure (list of tables)."
+msgstr ""
+"Elija los detalles a mostrar en la estructura de base de datos (lista de "
+"tablas)."
+
+#: libraries/classes/Config/Descriptions.php:225
+msgid "Settings for the table structure (list of columns)."
+msgstr "Configuración de la estructura de la tabla (lista de columnas)."
+
+#: libraries/classes/Config/Descriptions.php:226
+msgid "Choose how you want tabs to work."
+msgstr "Seleccione como quiere que funcionen las tabulaciones."
+
+#: libraries/classes/Config/Descriptions.php:227
+msgid "Customize text input fields."
+msgstr "Personalizar los campos de entrada de texto."
+
+#: libraries/classes/Config/Descriptions.php:228
+msgid "Customize default options"
+msgstr "Personalizar las opciones predeteminadas"
+
+#: libraries/classes/Config/Descriptions.php:229
+msgid "Disable some of the warnings shown by phpMyAdmin."
+msgstr "Desactivar algunas de las advertencias mostradas por phpMyAdmin."
+
+#: libraries/classes/Config/Descriptions.php:232
+msgid "Enable gzip compression for import and export operations."
+msgstr ""
+"Habilitar compresión gzip para las operaciones de importación y exportación."
+
+#: libraries/classes/Config/Descriptions.php:236
+msgid ""
+"If enabled, phpMyAdmin continues computing multiple-statement queries even "
+"if one of the queries failed."
+msgstr ""
+"De estar activado, phpMyAdmin continúa computando consultas con múltiples "
+"sentencias incluso si falló una de las consultas."
+
+#: libraries/classes/Config/Descriptions.php:240
+msgid ""
+"Allow interrupt of import in case script detects it is close to time limit. "
+"This might be a good way to import large files, however it can break "
+"transactions."
+msgstr ""
+"Permitir la interrupción de la importación si el script detecta que se está "
+"acercando al límite de tiempo. Esta puede ser una buena forma para importar "
+"archivos grandes, sin embargo, puede romper las transacciones."
+
+#: libraries/classes/Config/Descriptions.php:245
+msgid ""
+"Default format; be aware that this list depends on location (database, "
+"table) and only SQL is always available."
+msgstr ""
+"Formato predeterminado; tenga presente que esta lista depende de la "
+"localización (base de datos, tabla) y solamente SQL está disponible siempre."
+
+#: libraries/classes/Config/Descriptions.php:248
+#: libraries/classes/Config/Descriptions.php:249
+msgid "Update data when duplicate keys found on import"
+msgstr "Actualizar datos cuando las importaciones de llaves están duplicadas"
+
+#: libraries/classes/Config/Descriptions.php:250
+msgid "Number of queries to skip from start."
+msgstr "Número de consultas a saltarse desde el inicio."
+
+#: libraries/classes/Config/Descriptions.php:252
+msgid ""
+"If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
+"only occurs for the current server. Setting this to FALSE makes it easy to "
+"forget to log out from other servers when connected to multiple servers."
+msgstr ""
+"Si está en TRUE, el final de la sesión elimina las cookies en todos los "
+"servidores; cuando se deja en FALSE, el final de la sesión ocurre solamente "
+"para el sevidor actual. Colocar este parámetro en FALSE hace fácil olvidar "
+"que debe finalizar sesión de otros servidores cuando se conecta a múltiples "
+"servidores."
+
+#: libraries/classes/Config/Descriptions.php:257
+msgid ""
+"Define whether the previous login should be recalled or not in [kbd]cookie[/"
+"kbd] authentication mode."
+msgstr ""
+"Define si el inicio de sesión anterior se debe recordar o no en la modalidad "
+"autenticación mediante [kbd]cookie[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:261
+msgid ""
+"Defines how long (in seconds) a login cookie should be stored in browser. "
+"The default of 0 means that it will be kept for the existing session only, "
+"and will be deleted as soon as you close the browser window. This is "
+"recommended for non-trusted environments."
+msgstr ""
+"Defina cuán largo (en segundos) una cookie de inicio de sesión es almacenada "
+"en el navegador. El predeterminado de 0 significa que se mantendrá solamente "
+"para la sesión actual y se borrará tan pronto cierre la ventana del "
+"navegador. Esto es recomendable para entornos no confiables."
+
+#: libraries/classes/Config/Descriptions.php:267
+msgid "Maximum number of characters used when a SQL query is displayed."
+msgstr "Número máximo de caracteres usados al mostrar una consulta SQL."
+
+#: libraries/classes/Config/Descriptions.php:270
+msgid ""
+"The number of items that can be displayed on each page on the first level of "
+"the navigation tree."
+msgstr ""
+"El número de elementos que pueden ser mostrados en cada página en el primer "
+"nivel del árbol de navegación."
+
+#: libraries/classes/Config/Descriptions.php:274
+msgid ""
+"The number of items that can be displayed on each page of the navigation "
+"tree."
+msgstr ""
+"El número de elementos que pueden ser mostrados en cada página del árbol de "
+"navegación."
+
+#: libraries/classes/Config/Descriptions.php:277
+msgid ""
+"Number of rows displayed when browsing a result set. If the result set "
+"contains more rows, \"Previous\" and \"Next\" links will be shown."
+msgstr ""
+"Número de filas mostradas cuando se visualiza un juego de resultados. Si el "
+"juego de resultados contiene más filas, aparecerán enlaces \"Anterior\" y "
+"\"Siguiente\"."
+
+#: libraries/classes/Config/Descriptions.php:282
+#, fuzzy
+#| msgid ""
+#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
+#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
+msgid ""
+"The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
+"([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
+msgstr ""
+"El número de bytes que un script tiene permitido reservar. ej. [kbd]32M[/"
+"kbd] ([kbd]-1[/kbd] para ilimitado y [kbd]0[/kbd] para no cambiar).."
+
+#: libraries/classes/Config/Descriptions.php:286
+msgid "In the navigation panel, replaces the database tree with a selector"
+msgstr ""
+"En el panel de navegación, reemplaza el árbol de base de datos con un "
+"selector"
+
+#: libraries/classes/Config/Descriptions.php:289
+msgid "Link with main panel by highlighting the current database or table."
+msgstr ""
+"Enlace con el panel principal resaltando la base de datos o tabla actual."
+
+#: libraries/classes/Config/Descriptions.php:292
+msgid ""
+"Open the linked page in the main window ([code]main[/code]) or in a new one "
+"([code]new[/code])."
+msgstr ""
+"Abrir la página enlazada en la ventana principal ([code]principal[/code]) o "
+"en una nueva ([code]nueva[/code])."
+
+#: libraries/classes/Config/Descriptions.php:296
+msgid ""
+"Defines the minimum number of items (tables, views, routines and events) to "
+"display a filter box."
+msgstr ""
+"Define el número mínimo de elementos (tablas, vistas, rutinas y eventos) "
+"para mostrar un cuadro de filtro."
+
+#: libraries/classes/Config/Descriptions.php:300
+msgid ""
+"Group items in the navigation tree (determined by the separator defined in "
+"the Databases and Tables tabs above)."
+msgstr ""
+"Agrupar elementos en el árbol de navegación (determinado por el separador "
+"definido abajo en las pestañas superiores de Bases de datos y Tablas)."
+
+#: libraries/classes/Config/Descriptions.php:304
+msgid ""
+"Whether to offer the possibility of tree expansion in the navigation panel."
+msgstr ""
+"Si tendrá la posibilidad de expandir el árbol en el panel de navegación."
+
+#: libraries/classes/Config/Descriptions.php:307
+msgid "Whether to show procedures under database in the navigation tree"
+msgstr ""
+"Si se muestran los procedimientos bajo la base de datos en el árbol de "
+"navegación"
+
+#: libraries/classes/Config/Descriptions.php:310
+msgid "Whether to expand single database in the navigation tree automatically."
+msgstr ""
+"Si se debe desglosar automáticamente una base de datos individual en el "
+"árbol de navegación."
+
+#: libraries/classes/Config/Descriptions.php:312
+msgid "Set to 0 to collapse navigation panel."
+msgstr "Asignar 0 para ocular el panel de navegación."
+
+#: libraries/classes/Config/Descriptions.php:313
+msgid "Show logo in navigation panel."
+msgstr "Mostrar el logo en el panel de navegación."
+
+#: libraries/classes/Config/Descriptions.php:314
+msgid "URL where logo in the navigation panel will point to."
+msgstr "URL a la que apuntará el logo en el panel de navegación."
+
+#: libraries/classes/Config/Descriptions.php:315
+msgid "Display server choice at the top of the navigation panel."
+msgstr ""
+"Mostrar la elección de servidor en la parte superior del panel de navegación."
+
+#: libraries/classes/Config/Descriptions.php:316
+msgid "String that separates databases into different tree levels."
+msgstr "Cadena que separa bases de datos en diferentes niveles de árbol."
+
+#: libraries/classes/Config/Descriptions.php:317
+msgid "String that separates tables into different tree levels."
+msgstr "Cadena que separa tablas en diferentes niveles de árbol."
+
+#: libraries/classes/Config/Descriptions.php:318
+msgid "Highlight server under the mouse cursor."
+msgstr "Resaltar servidor bajo el cursor."
+
+#: libraries/classes/Config/Descriptions.php:319
+msgid "Whether to show tables under database in the navigation tree"
+msgstr "Si se muestran las tablas bajo base de datos en el árbol de navegación"
+
+#: libraries/classes/Config/Descriptions.php:320
+msgid "Whether to show views under database in the navigation tree"
+msgstr "Si se muestran vistas bajo base de datos en el árbol de navegación"
+
+#: libraries/classes/Config/Descriptions.php:321
+msgid "Whether to show functions under database in the navigation tree"
+msgstr ""
+"Si se muestran las funciones bajo la base de datos en el árbol de navegación"
+
+#: libraries/classes/Config/Descriptions.php:322
+msgid "Whether to show events under database in the navigation tree"
+msgstr "Si se muestran eventos bajo la base de datos en el árbol de navegación"
+
+#: libraries/classes/Config/Descriptions.php:324
+msgid ""
+"[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
+"DATETIME and TIMESTAMP, ascending order otherwise."
+msgstr ""
+"[kbd]SMART[/kbd] - es decir: orden descendente para columnas de tipo TIME, "
+"DATE, DATETIME y TIMESTAMP, ascendente en los demás casos."
+
+#: libraries/classes/Config/Descriptions.php:328
+msgid ""
+"Disable the default warning that is displayed on the database details "
+"Structure page if any of the required tables for the phpMyAdmin "
+"configuration storage could not be found."
+msgstr ""
+"Desactivar advertencia por defecto que se muestra en la página de Estructura "
+"de los detalles de la base de datos si alguna de las tablas requeridas por "
+"phpMyAdmin no pudo ser encontrada en el almacenamiento de configuración."
+
+#: libraries/classes/Config/Descriptions.php:333
+msgid ""
+"Disable the default warning that is displayed on the Structure page if "
+"column names in a table are reserved MySQL words."
+msgstr ""
+"Desactivar la advertencia predeterminada que se muestra en la página de "
+"Estructura si algún nombre de columna en una tabla es una palabra reservada "
+"de MySQL."
+
+#: libraries/classes/Config/Descriptions.php:337
+msgid ""
+"Enable if you want DB-based query history (requires phpMyAdmin configuration "
+"storage). If disabled, this utilizes JS-routines to display query history "
+"(lost by window close)."
+msgstr ""
+"Activar si se desea histórico de consultas basado en base de datos (necesita "
+"de almacenamiento de configuración phpMyAdmin). Cuando desactivado, utiliza "
+"rutinas JavaScript para mostrar el histórico de consultas (olvidado al "
+"cerrar la ventana)."
+
+#: libraries/classes/Config/Descriptions.php:342
+msgid ""
+"Sets the effective timezone; possibly different than the one from your "
+"database server"
+msgstr ""
+"Establece la zona horaria efectiva; posiblemente diferente a la de su "
+"servidor de base de datos"
+
+#: libraries/classes/Config/Descriptions.php:346
+msgid ""
+"Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
+"[kbd]pma__bookmark[/kbd]"
+msgstr ""
+"Deje en blanco para no dar soporte [doc@bookmarks@]bookmark[/doc], de manera "
+"predeterminada: [kbd]pma_bookmark[/kbd]"
+
+#: libraries/classes/Config/Descriptions.php:350
+#, fuzzy
+#| msgid ""
+#| "Leave blank for no column comments/mime types, suggested: "
+#| "[kbd]pma__column_info[/kbd]."
+msgid ""
+"Leave blank for no column comments/media types, suggested: "
+"[kbd]pma__column_info[/kbd]."
+msgstr ""
+"Dejar en blanco para evitar comentarios/tipos MIME en celdas, sugerido: "
+"[kbd]pma__column_info[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:354
+msgid ""
+"A special MySQL user configured with limited permissions, more information "
+"available on [doc@linked-tables]documentation[/doc]."
+msgstr ""
+"Un usuario MySQL especial configurado con permisos limitados, más "
+"información disponible en la [doc@linked-tables]documentación[/doc]."
+
+#: libraries/classes/Config/Descriptions.php:358
+msgid ""
+"An alternate host to hold the configuration storage; leave blank to use the "
+"already defined host."
+msgstr ""
+"Alternativa para guardar el almacenamiento de configuración; deje vacío para "
+"utilizar el ya definido."
+
+#: libraries/classes/Config/Descriptions.php:362
+msgid ""
+"An alternate port to connect to the host that holds the configuration "
+"storage; leave blank to use the default port, or the already defined port, "
+"if the controlhost equals host."
+msgstr ""
+"Puerto alternativo para conectarse al servidor que posee el almacenamiento "
+"de configuración; deje vacío para utilizar el puerto predeterminado o el "
+"puerto ya definido si el servidor de control es el mismo."
+
+#: libraries/classes/Config/Descriptions.php:367
+msgid ""
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
+"com/19588]MySQL Bugs[/a]"
+msgstr ""
+"Más información en[a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]Rastreador de problemas de phpMyAdmin[/a] y[a@https://bugs.mysql."
+"com/19588]Errores de MySQL[/a]"
+
+#: libraries/classes/Config/Descriptions.php:371
+msgid ""
+"Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
+"kbd]."
+msgstr ""
+"Dejar en blanco para evitar soporte de histórico de consultas SQL, sugerido: "
+"[kbd]pma__history[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:375
+msgid ""
+"Limits number of table preferences which are stored in database, the oldest "
+"records are automatically removed."
+msgstr ""
+"Limita la cantidad de preferencias sobre tablas que serán almacenadas en la "
+"base de datos, las más antiguas serán eliminadas automáticamente."
+
+#: libraries/classes/Config/Descriptions.php:379
+msgid ""
+"Leave blank for no QBE saved searches support, suggested: "
+"[kbd]pma__savedsearches[/kbd]."
+msgstr ""
+"Dejar en blanco para omitir la compatibilidad con búsquedas guardadas QBE, "
+"sugerido: [kbd]pma__savedsearches[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:383
+msgid ""
+"Leave blank for no export template support, suggested: "
+"[kbd]pma__export_templates[/kbd]."
+msgstr ""
+"Dejar en blanco para evitar exportar el soporte de plantilla, sugerido: "
+"[kbd]pma__export_templates[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:387
+msgid ""
+"Leave blank for no central columns support, suggested: "
+"[kbd]pma__central_columns[/kbd]."
+msgstr ""
+"Dejar en blanco para desactivar el soporte a las columnas centrales, "
+"sugerencia: [kbd]pma__table_coords[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:391
+msgid ""
+"You can use MySQL wildcard characters (% and _), escape them if you want to "
+"use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
+"[kbd]'my_db'[/kbd]."
+msgstr ""
+"Puede usar caracteres comodín MySQL (% y _), y usar caracteres de escape si "
+"desea usar sus instancias literales, es decir, use [kbd]'my\\_db'[/kbd] y no "
+"[kbd]'my_db'[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:396
+msgid ""
+"Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
+msgstr ""
+"Dejar en blanco para evitar soporte para esquema en PDF, sugerido: "
+"[kbd]pma__pdf_pages[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:399
+msgid ""
+"Database used for relations, bookmarks, and PDF features. See [doc@linked-"
+"tables]pmadb[/doc] for complete information. Leave blank for no support. "
+"Suggested: [kbd]phpmyadmin[/kbd]."
+msgstr ""
+"Base de datos usada para relaciones, favoritos, y características de los "
+"PDF. Ver [doc@linked-tables]pmadb[/doc] para información completa. Deje en "
+"blanco para que no exista soporte. Predeterminado: [kbd]phpmyadmin[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:404
+msgid ""
+"Leave blank for no \"persistent\" recently used tables across sessions, "
+"suggested: [kbd]pma__recent[/kbd]."
+msgstr ""
+"Deje en blanco para eliminar la \"persistencia\" de las tablas recientemente "
+"utilizadas entre sesiones, valor sugerido: [kbd]pma__recent[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:408
+msgid ""
+"Leave blank for no \"persistent\" favorite tables across sessions, "
+"suggested: [kbd]pma__favorite[/kbd]."
+msgstr ""
+"Deje en blanco para evitar conservar de manera \"persistente\" sus tablas "
+"favoritas, valor sugerido: [kbd]pma__recent[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:412
+msgid ""
+"Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
+"[kbd]pma__relation[/kbd]."
+msgstr ""
+"Deje en blanco para no dar soporte a [doc@relations@]relation-links[/doc], "
+"sugerida: [kbd]pma__relation[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:417
+msgid ""
+"See [doc@authentication-modes]authentication types[/doc] for an example."
+msgstr ""
+"Ver [doc@authentication-modes]tipos de autenticación[/doc] para conocer un "
+"ejemplo."
+
+#: libraries/classes/Config/Descriptions.php:421
+msgid ""
+"Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
+"kbd]."
+msgstr ""
+"Dejar en blanco para evitar soporte de esquema en PDF, sugerido: "
+"[kbd]pma__table_coords[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:424
+msgid ""
+"Table to describe the display columns, leave blank for no support; "
+"suggested: [kbd]pma__table_info[/kbd]."
+msgstr ""
+"Tabla para describir la presentación de las celdas, deje en blanco para "
+"quitar soporte, sugerido: [kbd]pma__table_info[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:428
+msgid ""
+"Leave blank for no \"persistent\" tables' UI preferences across sessions, "
+"suggested: [kbd]pma__table_uiprefs[/kbd]."
+msgstr ""
+"Deje en blanco para eliminar la «persistencia» de las preferencias de "
+"interfaz de tablas entre sesiones, valor sugerido: [kbd]pma__table_uiprefs[/"
+"kbd]."
+
+#: libraries/classes/Config/Descriptions.php:432
+msgid ""
+"Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
+"the log when creating a database."
+msgstr ""
+"Si se incluye la sentencia DROP DATABASE IF EXISTS como primera línea del "
+"registro al crear una base de datos o no."
+
+#: libraries/classes/Config/Descriptions.php:436
+msgid ""
+"Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
+"log when creating a table."
+msgstr ""
+"Si se incluye la sentencia DROP TABLE IF EXISTS como primera línea del "
+"registro al crear una tabla."
+
+#: libraries/classes/Config/Descriptions.php:440
+msgid ""
+"Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
+"log when creating a view."
+msgstr ""
+"Si se incluye la sentencia DROP VIEW IF EXISTS como primera línea del "
+"registro al crear una vista."
+
+#: libraries/classes/Config/Descriptions.php:444
+msgid "Defines the list of statements the auto-creation uses for new versions."
+msgstr ""
+"Definir la lista de sentencias que la creación automática usa para nuevas "
+"versiones."
+
+#: libraries/classes/Config/Descriptions.php:447
+msgid ""
+"Leave blank for no SQL query tracking support, suggested: "
+"[kbd]pma__tracking[/kbd]."
+msgstr ""
+"Deje en blanco para eliminar soporte de seguimiento de consultas SQL, valor "
+"sugerido: [kbd]pma__tracking[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:451
+msgid ""
+"Whether the tracking mechanism creates versions for tables and views "
+"automatically."
+msgstr ""
+"Si el mecanismo de seguimiento crea versiones para tablas y vistas "
+"automáticamente o no."
+
+#: libraries/classes/Config/Descriptions.php:455
+msgid ""
+"Leave blank for no user preferences storage in database, suggested: "
+"[kbd]pma__userconfig[/kbd]."
+msgstr ""
+"Deje en blanco para evitar el almacenamiento de preferencias en la base de "
+"datos, valor sugerido: [kbd]pma__userconfig[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:459
+msgid ""
+"Both this table and the user groups table are required to enable the "
+"configurable menus feature; leaving either one of them blank will disable "
+"this feature, suggested: [kbd]pma__users[/kbd]."
+msgstr ""
+"Esta tabla y la tabla de grupos de usuario son necesarias para activar la "
+"característica de menús configurables; dejar en blanco cada uno de ellos, "
+"deshabilitará esta característica, sugerido: [kbd]pma__users[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:464
+msgid ""
+"Both this table and the users table are required to enable the configurable "
+"menus feature; leaving either one of them blank will disable this feature, "
+"suggested: [kbd]pma__usergroups[/kbd]."
+msgstr ""
+"Son necesarias tanto esta tabla como la de usuarios para activar los menúes "
+"personalizables; dejar cualquiera de ellas en blanco desactivará esta "
+"funcionalidad; valor sugerido: [kbd]pma__usergroups[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:469
+msgid ""
+"Leave blank to disable the feature to hide and show navigation items, "
+"suggested: [kbd]pma__navigationhiding[/kbd]."
+msgstr ""
+"Deje en blanco para desactivar la funcionalidad para mostrar y ocultar los "
+"elementos de navegación, valor sugerido: [kbd]pma__navigationhiding[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:473
+msgid ""
+"A user-friendly description of this server. Leave blank to display the "
+"hostname instead."
+msgstr "Nombre del servidor donde el servidor SQL se está ejecutando."
+
+#: libraries/classes/Config/Descriptions.php:476
+msgid "Leave blank if not used."
+msgstr "Deje en blanco si no necesita usarlo."
+
+#: libraries/classes/Config/Descriptions.php:477
+msgid "Leave blank for defaults."
+msgstr "Deje en blanco para usar los valores predeterminados."
+
+#: libraries/classes/Config/Descriptions.php:478
+msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
+msgstr ""
+"Nombre a mostrar como dominio (HTTP Basic Auth Realm) durante la "
+"autenticación HTTP."
+
+#: libraries/classes/Config/Descriptions.php:479
+msgid "Authentication method to use."
+msgstr "Método de autenticación a usar."
+
+#: libraries/classes/Config/Descriptions.php:480
+msgid "Compress connection to MySQL server."
+msgstr "Conexión de compresión con el servidor SQL."
+
+#: libraries/classes/Config/Descriptions.php:481
+msgid "Hide databases matching regular expression (PCRE)."
+msgstr ""
+"Ocultar las bases de datos que cumplen con los criterios de las expresiones "
+"regulares (PCRE)."
+
+#: libraries/classes/Config/Descriptions.php:482
+msgid "Hostname where MySQL server is running."
+msgstr "Descripción del servidor."
+
+#: libraries/classes/Config/Descriptions.php:483
+#: libraries/classes/Config/Descriptions.php:487
+msgid "Leave empty if not using config auth."
+msgstr "Deje vacío si no está usando config auth."
+
+#: libraries/classes/Config/Descriptions.php:484
+msgid "Port on which MySQL server is listening, leave empty for default."
+msgstr ""
+"El puerto al cual ha sido asociado el servidor MySQL, deje vacío para usar "
+"el predeterminado."
+
+#: libraries/classes/Config/Descriptions.php:485
+msgid "Socket on which MySQL server is listening, leave empty for default."
+msgstr ""
+"El puerto escuchado por el servidor MySQL, deje vacío para usar los valores "
+"predeterminados."
+
+#: libraries/classes/Config/Descriptions.php:486
+msgid "Enable SSL for connection to MySQL server."
+msgstr "Habilitar SSL para conexión con el servidor SQL."
+
+#: libraries/classes/Config/Descriptions.php:489
+msgid ""
+"Please note that enabling this has no effect with [kbd]config[/kbd] "
+"authentication mode because the password is hard coded in the configuration "
+"file; this does not limit the ability to execute the same command directly."
+msgstr ""
+"Note que no tiene efecto en el modo de autenticación [kbd]config[/kbd] "
+"debido a que la contraseña está incluída en el archivo de configuración; "
+"esto no limita la capacidad de ejecutar la misma orden directamente."
+
+#: libraries/classes/Config/Descriptions.php:494
+msgid "Show or hide a column displaying the Creation timestamp for all tables."
+msgstr ""
+"Mostrar o esconder una columna con las marcas temporales de creación para "
+"todas las tablas."
+
+#: libraries/classes/Config/Descriptions.php:497
+msgid ""
+"Show or hide a column displaying the Last update timestamp for all tables."
+msgstr ""
+"Mostrar o esconder una columna con la marca temporal de la última "
+"actualización para todas las tablas."
+
+#: libraries/classes/Config/Descriptions.php:500
+msgid ""
+"Show or hide a column displaying the Last check timestamp for all tables."
+msgstr ""
+"Mostrar o esconder una columna con la marca temporal de la última revisión "
+"para todas las tablas."
+
+#: libraries/classes/Config/Descriptions.php:503
+msgid ""
+"Defines whether or not type fields should be initially displayed in edit/"
+"insert mode."
+msgstr ""
+"Si inicialmente se muestran los campos de tipo en el modo de edición/"
+"inserción o no."
+
+#: libraries/classes/Config/Descriptions.php:507
+msgid ""
+"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"output."
+msgstr ""
+"Mostrar enlace a [a@https://php.net/manual/es/function.phpinfo.php]phpinfo()"
+"[/a]."
+
+#: libraries/classes/Config/Descriptions.php:510
+msgid "Whether a user should be displayed a \"show all (rows)\" button."
+msgstr ""
+"Si el usuario puede ver un botón \"mostrar todos (los registros)\" o no."
+
+#: libraries/classes/Config/Descriptions.php:511
+msgid "Show or hide a column displaying the comments for all tables."
+msgstr ""
+"Mostrar u ocultar una columna, mostrando los comentarios de todas las tablas."
+
+#: libraries/classes/Config/Descriptions.php:512
+msgid "Show or hide a column displaying the charset for all tables."
+msgstr ""
+"Mostrar u ocultar una columna, mostrando conjunto de caracteres de todas las "
+"tablas."
+
+#: libraries/classes/Config/Descriptions.php:513
+msgid "Display the function fields in edit/insert mode."
+msgstr "Mostrar campos de función en el modo de edición/inserción."
+
+#: libraries/classes/Config/Descriptions.php:514
+msgid "Whether to show hint or not."
+msgstr "Si mostrar ayudas o no."
+
+#: libraries/classes/Config/Descriptions.php:515
+msgid ""
+"Defines whether SQL queries generated by phpMyAdmin should be displayed."
+msgstr ""
+"Define si los enunciados SQL generados por phpMyAdmin se deben mostrar."
+
+#: libraries/classes/Config/Descriptions.php:516
+#, fuzzy
+#| msgid "Allow to display database and table statistics (eg. space usage)."
+msgid "Allow to display database and table statistics (e.g. space usage)."
+msgstr ""
+"Permitir mostrar estadísiticas de base de datos y tablas (por ejemplo uso de "
+"espacio)."
+
+#: libraries/classes/Config/Descriptions.php:518
+msgid ""
+"Mark used tables and make it possible to show databases with locked tables."
+msgstr ""
+"Marcar tablas usadas y hacer posible el mostrar bases de datos con tablas "
+"bloqueadas."
+
+#: libraries/classes/Config/Descriptions.php:521
+msgid ""
+"Disable the default warning that is displayed on the main page if Suhosin is "
+"detected."
+msgstr ""
+"Desactivar el aviso predeterminado que se muestra en la página principal, si "
+"se detecta Suhosin."
+
+#: libraries/classes/Config/Descriptions.php:525
+msgid ""
+"Disable the default warning that is displayed on the main page if the value "
+"of the PHP setting session.gc_maxlifetime is less than the value of "
+"`LoginCookieValidity`."
+msgstr ""
+"Desactivar la advertencia predeterminada que se muestra en la página de "
+"Estructura si algún nombre de columna en una tabla es una palabra reservada "
+"de MySQL."
+
+#: libraries/classes/Config/Descriptions.php:530
+msgid ""
+"Textarea size (columns) in edit mode, this value will be emphasized for SQL "
+"query textareas (*2)."
+msgstr ""
+"Tamaño (en columnas) del área de texto en el modo de edición, este valor "
+"será aumentado en áreas de texto para consultas SQL (x2)."
+
+# See translation string 813
+#: libraries/classes/Config/Descriptions.php:534
+msgid ""
+"Textarea size (rows) in edit mode, this value will be emphasized for SQL "
+"query textareas (*2)."
+msgstr ""
+"Tamaño (en filas) del área de texto en el modo de edición, este valor será "
+"aumentado en áreas de texto para consultas SQL (x2)."
+
+#: libraries/classes/Config/Descriptions.php:538
+msgid ""
+"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
+"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
+"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]."
+msgstr ""
+"Introduzca proxies de la forma [kbd]IP: cabecera HTTP confiable[/kbd]. El "
+"siguiente ejemplo especifica que phpMyAdmin debe confiar una cabecera "
+"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente del proxy 1.2.3.4:[br]"
+"[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
+
+#: libraries/classes/Config/Descriptions.php:544
+msgid ""
+"When disabled, users cannot set any of the options below, regardless of the "
+"checkbox on the right."
+msgstr ""
+"Cuando esta desactivado, los usuarios no pueden establecer ninguna de las "
+"opciones situadas más abajo, sin importar la casilla de la derecha."
+
+#: libraries/classes/Config/Descriptions.php:548
+msgid ""
+"The url of the proxy to be used when retrieving the information about the "
+"latest version of phpMyAdmin or when submitting error reports. You need this "
+"if the server where phpMyAdmin is installed does not have direct access to "
+"the internet. The format is: \"hostname:portnumber\"."
+msgstr ""
+"La URL del proxy a utilizar para obtener información sobre la última versión "
+"de phpMyAdmin o al enviar reportes de error. Lo necesitará si el servidor en "
+"el que está instalado phpMyAdmin no tiene acceso directo a internet. El "
+"formato es: \"servidor:puerto\"."
+
+#: libraries/classes/Config/Descriptions.php:554
+msgid ""
+"The username for authenticating with the proxy. By default, no "
+"authentication is performed. If a username is supplied, Basic Authentication "
+"will be performed. No other types of authentication are currently supported."
+msgstr ""
+"El nombre de usuario para autenticar con el proxy. De forma predeterminada, "
+"no se realiza autenticación. Si provee un nombre de usuario, se realizará "
+"una autenticación básica. Actualmente no se posee compatibilidad con otros "
+"tipos de autenticación."
+
+#: libraries/classes/Config/Descriptions.php:560
+msgid ""
+"Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
+"will be inserted with Shift+Enter."
+msgstr ""
+"Las consultas se ejecutan pulsando Enter (en lugar de Ctrl+Enter). Las "
+"nuevas líneas se insertarán con Shift+Enter."
+
+#: libraries/classes/Config/Descriptions.php:564
+msgid ""
+"Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
+"storage tables automatically."
+msgstr ""
+"Activar el modo de «Configuración Zero» que le permite definir las tablas "
+"del almacenamiento de configuración de phpMyAdmin automáticamente."
+
+#: libraries/classes/Config/Descriptions.php:567
+msgid "Highlight selected rows."
+msgstr "Resaltar las filas seleccionadas."
+
+#: libraries/classes/Config/Descriptions.php:568
+msgid "Highlight row pointed by the mouse cursor."
+msgstr "Resaltar las filas señaladas por el cursor del ratón."
+
+#: libraries/classes/Config/Descriptions.php:569
+msgid "Number of columns for CHAR/VARCHAR textareas."
+msgstr "Número de columnas para las áreas de texto CHAR/VARCHAR."
+
+#: libraries/classes/Config/Descriptions.php:570
+msgid "Number of rows for CHAR/VARCHAR textareas."
+msgstr "Número de filas para las áreas de texto CHAR/VARCHAR."
+
+#: libraries/classes/Config/Descriptions.php:571
+msgid ""
+"Log SQL queries and their execution time, to be displayed in the console"
+msgstr ""
+"El registro de consultas SQL y su tiempo de ejecución, se mostrará en la "
+"consola"
+
+#: libraries/classes/Config/Descriptions.php:572
+msgid "Tab that is displayed when entering a database."
+msgstr "Pestaña que se muestra cuando accede a una base de datos."
+
+#: libraries/classes/Config/Descriptions.php:573
+msgid "Tab that is displayed when entering a server."
+msgstr "Pestaña que se muestra cuando accede a un servidor."
+
+#: libraries/classes/Config/Descriptions.php:574
+msgid "Tab that is displayed when entering a table."
+msgstr "Pestaña que se muestra cuando accede a una tabla."
+
+#: libraries/classes/Config/Descriptions.php:575
+msgid "Whether the table structure actions should be hidden."
+msgstr "Si se debe esconder las acciones sobre la estructura de la tabla."
+
+#: libraries/classes/Config/Descriptions.php:576
+msgid "Whether column comments should be shown in table structure view"
+msgstr ""
+"Si los comentarios de la columna deben mostrarse en la vista de la "
+"estructura de tabla"
+
+#: libraries/classes/Config/Descriptions.php:577
+msgid "Show server listing as a list instead of a drop down."
+msgstr "Mostrar los servidores en una lista en lugar de una caja desplegable."
+
+#: libraries/classes/Config/Descriptions.php:578
+msgid "A dropdown will be used if fewer items are present."
+msgstr "Se usará un menú dropdown si hay menos ítems presentes."
+
+#: libraries/classes/Config/Descriptions.php:579
+msgid "Default value for foreign key checks checkbox for some queries."
+msgstr ""
+"El valor predeterminado de la clave externa, controla los checkbox para "
+"algunas consultas."
+
+#: libraries/classes/Config/Descriptions.php:580
+msgid "Uncheck the checkbox to disable drag and drop import"
+msgstr ""
+"Desmarque la casilla de verificación para desactivar la importación de "
+"arrastrar y soltar"
+
+#: libraries/classes/Config/Descriptions.php:581
+msgid "How many rows can be inserted at one time."
+msgstr "Cuántas filas se pueden insertar de una vez."
+
+#: libraries/classes/Config/Descriptions.php:582
+msgid ""
+"Maximum number of characters shown in any non-numeric column on browse view."
+msgstr ""
+"Cantidad máxima de caracteres a mostrar en un campo no-numérico en vista de "
+"navegación."
+
+#: libraries/classes/Config/Descriptions.php:583
+msgid "Define how long (in seconds) a login cookie is valid."
+msgstr ""
+"Define por cuánto tiempo (en segundos) es válido un cookie de inicio de "
+"sesión."
+
+#: libraries/classes/Config/Descriptions.php:584
+msgid "Double size of textarea for LONGTEXT columns."
+msgstr "Doble tamaño del textarea para las columnas LONGTEXT."
+
+#: libraries/classes/Config/Descriptions.php:585
+msgid "Maximum number of databases displayed in database list."
+msgstr ""
+"Número máximo de bases de datos mostradas en una lista de bases de datos."
+
+#: libraries/classes/Config/Descriptions.php:586
+msgid "Maximum number of tables displayed in table list."
+msgstr "Número máximo de tablas mostradas en una lista de tablas."
+
+#: libraries/classes/Config/Descriptions.php:587
+msgid "Maximum number of recently used tables; set 0 to disable."
+msgstr "Número máximo de tablas recientemente utilizadas; 0 para desactivar."
+
+#: libraries/classes/Config/Descriptions.php:588
+msgid "Maximum number of favorite tables; set 0 to disable."
+msgstr "Cantidad máxima de tablas favoritas; 0 para desactivar."
+
+#: libraries/classes/Config/Descriptions.php:589
+msgid "These are Edit, Copy and Delete links."
+msgstr "Estos son los enlaces para Editar, Copiar y Borrar."
+
+#: libraries/classes/Config/Descriptions.php:590
+msgid "Whether to show row links even in the absence of a unique key."
+msgstr ""
+"Si se muestran enlaces de fila, incluso en ausencia de una clave única."
+
+#: libraries/classes/Config/Descriptions.php:591
+#: libraries/classes/Config/Descriptions.php:867
+msgid "Disable shortcut keys"
+msgstr "Deshabilitar teclas de atajos"
+
+#: libraries/classes/Config/Descriptions.php:592
+msgid "Use natural order for sorting table and database names."
+msgstr ""
+"Utilizar orden natural para ordenar nombres de tablas y bases de datos."
+
+#: libraries/classes/Config/Descriptions.php:593
+#: libraries/classes/Config/Descriptions.php:596
+#: libraries/classes/Config/Descriptions.php:597
+msgid "Use only icons, only text or both."
+msgstr "Use solamente íconos, solamente texto o ambos."
+
+#: libraries/classes/Config/Descriptions.php:594
+msgid "Use GZip output buffering for increased speed in HTTP transfers."
+msgstr ""
+"Utilizar búfer en salida de GZip para mayor velocidad en transferencias HTTP."
+
+#: libraries/classes/Config/Descriptions.php:595
+msgid "Use persistent connections to MySQL databases."
+msgstr "Use conexiones persistentes para las bases de datos MySQL."
+
+#: libraries/classes/Config/Descriptions.php:598
+msgid "Disallow BLOB and BINARY columns from editing."
+msgstr "No permitir la edición de columnas BLOB y BINARIAS."
+
+#: libraries/classes/Config/Descriptions.php:599
+msgid "How many queries are kept in history."
+msgstr "Cuántas consultas se guardan en el histórico."
+
+#: libraries/classes/Config/Descriptions.php:600
+msgid "Select which functions will be used for character set conversion."
+msgstr ""
+"Seleccione cuáles funciones se usarán para la conversión del conjunto de "
+"caracteres."
+
+#: libraries/classes/Config/Descriptions.php:601
+msgid "When browsing tables, the sorting of each table is remembered."
+msgstr "Al explorar tablas, se recordará el ordenamiento de cada tabla."
+
+#: libraries/classes/Config/Descriptions.php:602
+msgid "Default sort order for tables with a primary key."
+msgstr "Ordenación predeterminada para tablas con una clave primaria."
+
+#: libraries/classes/Config/Descriptions.php:603
+msgid ""
+"Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
+msgstr ""
+"Repetir cabecera cada X celdas, [kbd]0[/kbd] desactiva esta funcionalidad."
+
+#: libraries/classes/Config/Descriptions.php:604
+msgid "For display Options"
+msgstr "Opciones de visualización"
+
+#: libraries/classes/Config/Descriptions.php:605
+msgid "Directory where exports can be saved on server."
+msgstr ""
+"Directorio donde los archivos exportados se pueden guardar en el servidor."
+
+#: libraries/classes/Config/Descriptions.php:606
+msgid ""
+"Defines whether the query box should stay on-screen after its submission."
+msgstr "Define si la consulta se mostrará aún después de enviar el formulario."
+
+#: libraries/classes/Config/Descriptions.php:607
+msgid "Title of browser window when a database is selected."
+msgstr "Título de la ventana al seleccionar una base de datos."
+
+#: libraries/classes/Config/Descriptions.php:608
+msgid "Title of browser window when nothing is selected."
+msgstr "Título de la ventana cuando no hay nada seleccionado."
+
+#: libraries/classes/Config/Descriptions.php:609
+msgid "Title of browser window when a server is selected."
+msgstr "Título de la ventana cuando se ha seleccionado un servidor."
+
+#: libraries/classes/Config/Descriptions.php:610
+msgid "Title of browser window when a table is selected."
+msgstr "Título de la ventana cuando se ha seleccionado un tabla."
+
+#: libraries/classes/Config/Descriptions.php:611
+msgid "Directory on server where you can upload files for import."
+msgstr "Directorio en el servidor donde puede subir archivos para importar."
+
+#: libraries/classes/Config/Descriptions.php:612
+msgid "Allow for searching inside the entire database."
+msgstr "Permite hacer una búsqueda dentro de toda la base de datos."
+
+#: libraries/classes/Config/Descriptions.php:613
+msgid "Enables check for latest version on main phpMyAdmin page."
+msgstr ""
+"Habilita la verificación de la última versión en la página principal de "
+"phpMyAdmin."
+
+#: libraries/classes/Config/Descriptions.php:614
+msgid "The password for authenticating with the proxy."
+msgstr "La contraseña para autenticar con el proxy."
+
+#: libraries/classes/Config/Descriptions.php:615
+msgid "Enable ZIP compression for import and export operations."
+msgstr ""
+"Habilitar compresión ZIP para las operaciones de importación y exportación."
+
+#: libraries/classes/Config/Descriptions.php:616
+msgid "Choose the default action when sending error reports."
+msgstr "Elija la acción predefinida en el envio de reportes de error."
+
+#: libraries/classes/Config/Descriptions.php:623
+msgid "Allow login to any MySQL server"
+msgstr "Permitir el inicio de sesión en cualquier servidor MySQL"
+
+#: libraries/classes/Config/Descriptions.php:624
+msgid "Restrict login to MySQL server"
+msgstr "Restringir el acceso al servidor MySQL"
+
+#: libraries/classes/Config/Descriptions.php:625
+msgid "Allow third party framing"
+msgstr "Permitir framing de terceros"
+
+#: libraries/classes/Config/Descriptions.php:626
+msgid "Show \"Drop database\" link to normal users"
+msgstr "Mostrar el enlace \"Eliminar base de datos\" a usuarios normales"
+
+#: libraries/classes/Config/Descriptions.php:627
+msgid "Blowfish secret"
+msgstr "Secreto Blowfish"
+
+#: libraries/classes/Config/Descriptions.php:628
+msgid "Row marker"
+msgstr "Marcador de fila"
+
+#: libraries/classes/Config/Descriptions.php:629
+msgid "Highlight pointer"
+msgstr "Resaltar puntero"
+
+#: libraries/classes/Config/Descriptions.php:630
+msgid "Bzip2"
+msgstr "Bzip2"
+
+#: libraries/classes/Config/Descriptions.php:631
+msgid "CHAR columns editing"
+msgstr "Edición de columnas CHAR"
+
+#: libraries/classes/Config/Descriptions.php:632
+msgid "Enable CodeMirror"
+msgstr "Activar «CodeMirror»"
+
+#: libraries/classes/Config/Descriptions.php:633
+msgid "Enable linter"
+msgstr "Habilitar Linter"
+
+#: libraries/classes/Config/Descriptions.php:634
+msgid "Minimum size for input field"
+msgstr "Tamaño mínimo para campos de entrada"
+
+#: libraries/classes/Config/Descriptions.php:635
+msgid "Maximum size for input field"
+msgstr "Tamaño máximo para campos de entrada"
+
+#: libraries/classes/Config/Descriptions.php:636
+msgid "CHAR textarea columns"
+msgstr "Columnas para las áreas de texto CHAR"
+
+#: libraries/classes/Config/Descriptions.php:637
+msgid "CHAR textarea rows"
+msgstr "Filas para las áreas de texto CHAR"
+
+#: libraries/classes/Config/Descriptions.php:638
+msgid "Check config file permissions"
+msgstr "Revise los permisos en el archivo de configuración"
+
+#: libraries/classes/Config/Descriptions.php:639
+msgid "Compress on the fly"
+msgstr "Comprimir sobre la marcha"
+
+#: libraries/classes/Config/Descriptions.php:640
+msgid "Confirm DROP queries"
+msgstr "Confirmar las consultas DROP"
+
+#: libraries/classes/Config/Descriptions.php:641
+#: templates/console/display.twig:11 templates/console/display.twig:64
+msgid "Debug SQL"
+msgstr "Depuración SQL"
+
+#: libraries/classes/Config/Descriptions.php:642
+#: libraries/classes/Plugins/Schema/SchemaDia.php:65
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:73
+msgid "Paper size"
+msgstr "Tamaño del papel"
+
+#: libraries/classes/Config/Descriptions.php:643
+msgid "Default database tab"
+msgstr "Ceja predeterminada de la base de datos"
+
+#: libraries/classes/Config/Descriptions.php:644
+msgid "Default server tab"
+msgstr "Ceja predeterminada para el servidor"
+
+#: libraries/classes/Config/Descriptions.php:645
+msgid "Default table tab"
+msgstr "Ceja predeterminada de la tabla"
+
+#: libraries/classes/Config/Descriptions.php:646
+msgid "Enable autocomplete for table and column names"
+msgstr "Permitir autocompletado para nombres de tablas y columnas"
+
+#: libraries/classes/Config/Descriptions.php:647
+msgid "Show column comments"
+msgstr "Mostrar comentarios de la columna"
+
+#: libraries/classes/Config/Descriptions.php:648
+msgid "Hide table structure actions"
+msgstr "Esconder acciones sobre la estructura de la tabla"
+
+#: libraries/classes/Config/Descriptions.php:649
+msgid "Default transformations for Hex"
+msgstr "Transformaciones predeterminadas para Hex"
+
+#: libraries/classes/Config/Descriptions.php:650
+msgid "Default transformations for Substring"
+msgstr "Transformaciones predeterminadas para Substring"
+
+#: libraries/classes/Config/Descriptions.php:651
+msgid "Default transformations for Bool2Text"
+msgstr "Transformaciones predeterminadas para Bool2Text"
+
+#: libraries/classes/Config/Descriptions.php:652
+msgid "Default transformations for External"
+msgstr "Transformaciones predeterminadas para External"
+
+#: libraries/classes/Config/Descriptions.php:653
+msgid "Default transformations for PreApPend"
+msgstr "Transformaciones predeterminadas para PreApPend"
+
+#: libraries/classes/Config/Descriptions.php:654
+msgid "Default transformations for DateFormat"
+msgstr "Transformaciones predeterminadas para DateFormat"
+
+#: libraries/classes/Config/Descriptions.php:655
+msgid "Default transformations for Inline"
+msgstr "Transformaciones predeterminadas para Inline"
+
+#: libraries/classes/Config/Descriptions.php:656
+msgid "Default transformations for TextImageLink"
+msgstr "Transformaciones predeterminadas para TextImageLink"
+
+#: libraries/classes/Config/Descriptions.php:657
+msgid "Default transformations for TextLink"
+msgstr "Transformaciones predeterminadas para TextLink"
+
+#: libraries/classes/Config/Descriptions.php:658
+msgid "Display servers as a list"
+msgstr "Mostrar los servidores en una lista"
+
+#: libraries/classes/Config/Descriptions.php:659
+msgid "Disable multi table maintenance"
+msgstr "Desactivar mantenimiento multi tabla"
+
+#: libraries/classes/Config/Descriptions.php:660
 msgid "Maximum execution time"
 msgstr "Tiempo máximo de ejecución"
 
-#: libraries/classes/Config/Descriptions.php:216 templates/export.twig:293
+#: libraries/classes/Config/Descriptions.php:662 templates/export.twig:293
 #, php-format
 msgid "Use %s statement"
 msgstr "Usar sentencia %s"
 
-#: libraries/classes/Config/Descriptions.php:219
+#: libraries/classes/Config/Descriptions.php:665
 msgid "Save as file"
 msgstr "Guardar como archivo"
 
-#: libraries/classes/Config/Descriptions.php:220
-#: libraries/classes/Config/Descriptions.php:430
+#: libraries/classes/Config/Descriptions.php:666
+#: libraries/classes/Config/Descriptions.php:801
 msgid "Character set of the file"
 msgstr "Conjunto de caracteres del archivo"
 
-#: libraries/classes/Config/Descriptions.php:221
-#: libraries/classes/Config/Descriptions.php:237 templates/sql/query.twig:41
+#: libraries/classes/Config/Descriptions.php:667
+#: libraries/classes/Config/Descriptions.php:683 templates/sql/query.twig:41
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr "Formato"
 
-#: libraries/classes/Config/Descriptions.php:222
+#: libraries/classes/Config/Descriptions.php:668
 msgid "Compression"
 msgstr "Compresión"
 
-#: libraries/classes/Config/Descriptions.php:223
-#: libraries/classes/Config/Descriptions.php:230
-#: libraries/classes/Config/Descriptions.php:238
-#: libraries/classes/Config/Descriptions.php:242
-#: libraries/classes/Config/Descriptions.php:255
-#: libraries/classes/Config/Descriptions.php:257
-#: libraries/classes/Config/Descriptions.php:304
+#: libraries/classes/Config/Descriptions.php:669
+#: libraries/classes/Config/Descriptions.php:676
+#: libraries/classes/Config/Descriptions.php:684
+#: libraries/classes/Config/Descriptions.php:688
+#: libraries/classes/Config/Descriptions.php:701
+#: libraries/classes/Config/Descriptions.php:703
+#: libraries/classes/Config/Descriptions.php:750
 #: libraries/classes/Plugins/Export/ExportCsv.php:91
 #: libraries/classes/Plugins/Export/ExportExcel.php:58
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:88
@@ -2183,71 +3333,71 @@ msgstr "Compresión"
 msgid "Put columns names in the first row"
 msgstr "Poner los nombres de campo en la primera fila"
 
-#: libraries/classes/Config/Descriptions.php:224
-#: libraries/classes/Config/Descriptions.php:432
-#: libraries/classes/Config/Descriptions.php:443
+#: libraries/classes/Config/Descriptions.php:670
+#: libraries/classes/Config/Descriptions.php:803
+#: libraries/classes/Config/Descriptions.php:809
 #: libraries/classes/Plugins/Import/ImportCsv.php:670
 msgid "Columns enclosed with"
 msgstr "Columnas encerradas entre"
 
-#: libraries/classes/Config/Descriptions.php:225
-#: libraries/classes/Config/Descriptions.php:433
-#: libraries/classes/Config/Descriptions.php:444
+#: libraries/classes/Config/Descriptions.php:671
+#: libraries/classes/Config/Descriptions.php:804
+#: libraries/classes/Config/Descriptions.php:810
 #: libraries/classes/Plugins/Import/ImportCsv.php:681
 msgid "Columns escaped with"
 msgstr "Caracter de escape de columnas"
 
-#: libraries/classes/Config/Descriptions.php:226
-#: libraries/classes/Config/Descriptions.php:232
-#: libraries/classes/Config/Descriptions.php:239
-#: libraries/classes/Config/Descriptions.php:248
-#: libraries/classes/Config/Descriptions.php:256
-#: libraries/classes/Config/Descriptions.php:260
-#: libraries/classes/Config/Descriptions.php:305
+#: libraries/classes/Config/Descriptions.php:672
+#: libraries/classes/Config/Descriptions.php:678
+#: libraries/classes/Config/Descriptions.php:685
+#: libraries/classes/Config/Descriptions.php:694
+#: libraries/classes/Config/Descriptions.php:702
+#: libraries/classes/Config/Descriptions.php:706
+#: libraries/classes/Config/Descriptions.php:751
 msgid "Replace NULL with"
 msgstr "Reemplazar NULL con"
 
-#: libraries/classes/Config/Descriptions.php:227
-#: libraries/classes/Config/Descriptions.php:233
+#: libraries/classes/Config/Descriptions.php:673
+#: libraries/classes/Config/Descriptions.php:679
 msgid "Remove CRLF characters within columns"
 msgstr "Eliminar los caracteres CRLF en las columnas"
 
-#: libraries/classes/Config/Descriptions.php:228
-#: libraries/classes/Config/Descriptions.php:437
-#: libraries/classes/Config/Descriptions.php:449
+#: libraries/classes/Config/Descriptions.php:674
+#: libraries/classes/Config/Descriptions.php:807
+#: libraries/classes/Config/Descriptions.php:814
 #: libraries/classes/Plugins/Import/ImportCsv.php:655
 msgid "Columns terminated with"
 msgstr "Columnas terminadas con"
 
-#: libraries/classes/Config/Descriptions.php:229
-#: libraries/classes/Config/Descriptions.php:431
+#: libraries/classes/Config/Descriptions.php:675
+#: libraries/classes/Config/Descriptions.php:802
 #: libraries/classes/Plugins/Import/ImportCsv.php:690
 msgid "Lines terminated with"
 msgstr "Líneas terminadas en"
 
 # Used on libraries/export/csv.php to decide what level of compatibility needs
 # due to excel version
-#: libraries/classes/Config/Descriptions.php:231
+#: libraries/classes/Config/Descriptions.php:677
 msgid "Excel edition"
 msgstr "Versión de Excel"
 
-#: libraries/classes/Config/Descriptions.php:234
+#: libraries/classes/Config/Descriptions.php:680
 msgid "Database name template"
 msgstr "Nombre de la plantilla de la base de datos"
 
-#: libraries/classes/Config/Descriptions.php:235
+#: libraries/classes/Config/Descriptions.php:681
 msgid "Server name template"
 msgstr "Nombre de la plantilla del servidor"
 
-#: libraries/classes/Config/Descriptions.php:236
+#: libraries/classes/Config/Descriptions.php:682
 msgid "Table name template"
 msgstr "Nombre de la plantilla de la tabla"
 
-#: libraries/classes/Config/Descriptions.php:240
-#: libraries/classes/Config/Descriptions.php:253
-#: libraries/classes/Config/Descriptions.php:262
-#: libraries/classes/Config/Descriptions.php:300
-#: libraries/classes/Config/Descriptions.php:306
+#: libraries/classes/Config/Descriptions.php:686
+#: libraries/classes/Config/Descriptions.php:699
+#: libraries/classes/Config/Descriptions.php:708
+#: libraries/classes/Config/Descriptions.php:746
+#: libraries/classes/Config/Descriptions.php:752
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:59
 #: libraries/classes/Plugins/Export/ExportLatex.php:95
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:58
@@ -2259,14 +3409,14 @@ msgstr "Nombre de la plantilla de la tabla"
 msgid "Dump table"
 msgstr "Volcar tabla"
 
-#: libraries/classes/Config/Descriptions.php:241
+#: libraries/classes/Config/Descriptions.php:687
 #: libraries/classes/Plugins/Export/ExportLatex.php:86
 msgid "Include table caption"
 msgstr "Incluir el subtitulado de la tabla"
 
-#: libraries/classes/Config/Descriptions.php:243
-#: libraries/classes/Config/Descriptions.php:258
-#: libraries/classes/Config/Descriptions.php:294
+#: libraries/classes/Config/Descriptions.php:689
+#: libraries/classes/Config/Descriptions.php:704
+#: libraries/classes/Config/Descriptions.php:740
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:407
 #: libraries/classes/Plugins/Export/ExportLatex.php:561
 #: libraries/classes/Plugins/Export/ExportOdt.php:516
@@ -2280,24 +3430,24 @@ msgstr "Incluir el subtitulado de la tabla"
 msgid "Comments"
 msgstr "Comentarios"
 
-#: libraries/classes/Config/Descriptions.php:244
-#: libraries/classes/Config/Descriptions.php:250
+#: libraries/classes/Config/Descriptions.php:690
+#: libraries/classes/Config/Descriptions.php:696
 msgid "Table caption"
 msgstr "Subtitulado de la tabla"
 
-#: libraries/classes/Config/Descriptions.php:245
-#: libraries/classes/Config/Descriptions.php:251
+#: libraries/classes/Config/Descriptions.php:691
+#: libraries/classes/Config/Descriptions.php:697
 msgid "Continued table caption"
 msgstr "Continuación del subtitulado de la tabla"
 
-#: libraries/classes/Config/Descriptions.php:246
-#: libraries/classes/Config/Descriptions.php:252
+#: libraries/classes/Config/Descriptions.php:692
+#: libraries/classes/Config/Descriptions.php:698
 msgid "Label key"
 msgstr "Clave de la etiqueta"
 
-#: libraries/classes/Config/Descriptions.php:247
-#: libraries/classes/Config/Descriptions.php:259
-#: libraries/classes/Config/Descriptions.php:297
+#: libraries/classes/Config/Descriptions.php:693
+#: libraries/classes/Config/Descriptions.php:705
+#: libraries/classes/Config/Descriptions.php:743
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:413
 #: libraries/classes/Plugins/Export/ExportOdt.php:522
 #: libraries/classes/Plugins/Export/ExportTexytext.php:409
@@ -2309,92 +3459,92 @@ msgstr "Clave de la etiqueta"
 msgid "Media type"
 msgstr "MIME-type"
 
-#: libraries/classes/Config/Descriptions.php:249
-#: libraries/classes/Config/Descriptions.php:261
-#: libraries/classes/Config/Descriptions.php:299
+#: libraries/classes/Config/Descriptions.php:695
+#: libraries/classes/Config/Descriptions.php:707
+#: libraries/classes/Config/Descriptions.php:745
 msgid "Relationships"
 msgstr "Relaciones"
 
-#: libraries/classes/Config/Descriptions.php:254
+#: libraries/classes/Config/Descriptions.php:700
 msgid "Export method"
 msgstr "Método de exportación"
 
-#: libraries/classes/Config/Descriptions.php:263
-#: libraries/classes/Config/Descriptions.php:266
+#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:712
 msgid "Save on server"
 msgstr "Guardar en el servidor"
 
-#: libraries/classes/Config/Descriptions.php:264
-#: libraries/classes/Config/Descriptions.php:267 templates/export.twig:150
+#: libraries/classes/Config/Descriptions.php:710
+#: libraries/classes/Config/Descriptions.php:713 templates/export.twig:150
 #: templates/export.twig:316
 msgid "Overwrite existing file(s)"
 msgstr "Sobreescribir el(los) archivo(s) existente(s)"
 
-#: libraries/classes/Config/Descriptions.php:265
+#: libraries/classes/Config/Descriptions.php:711
 msgid "Export as separate files"
 msgstr "Exportar como archivos separados"
 
-#: libraries/classes/Config/Descriptions.php:268
+#: libraries/classes/Config/Descriptions.php:714
 msgid "Remember file name template"
 msgstr "Recordar el nombre de la plantilla del archivo"
 
-#: libraries/classes/Config/Descriptions.php:269
+#: libraries/classes/Config/Descriptions.php:715
 #: templates/database/operations/index.twig:165
 #: templates/table/operations/index.twig:74
 #: templates/table/operations/index.twig:278
 msgid "Add AUTO_INCREMENT value"
 msgstr "Añadir el valor AUTO_INCREMENT"
 
-#: libraries/classes/Config/Descriptions.php:270
+#: libraries/classes/Config/Descriptions.php:716
 msgid "Enclose table and column names with backquotes"
 msgstr "Encerrar nombres de tabla y columna con comillas invertidas"
 
-#: libraries/classes/Config/Descriptions.php:271
-#: libraries/classes/Config/Descriptions.php:456
+#: libraries/classes/Config/Descriptions.php:717
+#: libraries/classes/Config/Descriptions.php:820
 msgid "SQL compatibility mode"
 msgstr "Modo compatible con SQL"
 
-#: libraries/classes/Config/Descriptions.php:272
+#: libraries/classes/Config/Descriptions.php:718
 msgid "Creation/Update/Check dates"
 msgstr "Fechas de creación/actualización/revisión"
 
-#: libraries/classes/Config/Descriptions.php:273
+#: libraries/classes/Config/Descriptions.php:719
 msgid "Use delayed inserts"
 msgstr "Utilizar inserciones con retraso"
 
-#: libraries/classes/Config/Descriptions.php:274
+#: libraries/classes/Config/Descriptions.php:720
 #: libraries/classes/Plugins/Export/ExportSql.php:180
 msgid "Disable foreign key checks"
 msgstr "Deshabilitar la revisión de las claves foráneas"
 
-#: libraries/classes/Config/Descriptions.php:275
+#: libraries/classes/Config/Descriptions.php:721
 #: libraries/classes/Plugins/Export/ExportSql.php:194
 msgid "Export views as tables"
 msgstr "Exportar vistas como tablas"
 
-#: libraries/classes/Config/Descriptions.php:276
+#: libraries/classes/Config/Descriptions.php:722
 msgid "Export related metadata from phpMyAdmin configuration storage"
 msgstr ""
 "Exportar metadatos relacionados de la configuración almacenada de phpMyAdmin"
 
-#: libraries/classes/Config/Descriptions.php:277
-#: libraries/classes/Config/Descriptions.php:278
-#: libraries/classes/Config/Descriptions.php:280
-#: libraries/classes/Config/Descriptions.php:283
-#: libraries/classes/Config/Descriptions.php:284
-#: libraries/classes/Config/Descriptions.php:285
-#: libraries/classes/Config/Descriptions.php:298
+#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:724
+#: libraries/classes/Config/Descriptions.php:726
+#: libraries/classes/Config/Descriptions.php:729
+#: libraries/classes/Config/Descriptions.php:730
+#: libraries/classes/Config/Descriptions.php:731
+#: libraries/classes/Config/Descriptions.php:744
 #: templates/database/operations/index.twig:160
 #: templates/table/operations/index.twig:273
 #, php-format
 msgid "Add %s"
 msgstr "Añada %s"
 
-#: libraries/classes/Config/Descriptions.php:286
+#: libraries/classes/Config/Descriptions.php:732
 msgid "Use hexadecimal for BINARY & BLOB"
 msgstr "Use hexadecimal para BINATY y BLOB"
 
-#: libraries/classes/Config/Descriptions.php:288
+#: libraries/classes/Config/Descriptions.php:734
 msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
@@ -2402,159 +3552,58 @@ msgstr ""
 "Añadir SI NO EXISTE (menos eficiente porque los índices se generarán durante "
 "la creación de la tabla)"
 
-#: libraries/classes/Config/Descriptions.php:291
-#: libraries/classes/Plugins/Export/ExportSql.php:348
-msgid "Exclude definition of current user"
-msgstr "Excluir la definición de usuario actual"
-
-#: libraries/classes/Config/Descriptions.php:292
+#: libraries/classes/Config/Descriptions.php:738
 #: libraries/classes/Plugins/Export/ExportSql.php:354
 #, php-format
 msgid "%s view"
 msgstr "%s vista"
 
-#: libraries/classes/Config/Descriptions.php:293
+#: libraries/classes/Config/Descriptions.php:739
 msgid "Use ignore inserts"
 msgstr "Usar la opción ignore inserts"
 
-#: libraries/classes/Config/Descriptions.php:295
+#: libraries/classes/Config/Descriptions.php:741
 msgid "Syntax to use when inserting data"
 msgstr "Sintaxis a utilizar para insertar datos"
 
-#: libraries/classes/Config/Descriptions.php:296
+#: libraries/classes/Config/Descriptions.php:742
 #: libraries/classes/Plugins/Export/ExportSql.php:491
 msgid "Maximal length of created query"
 msgstr "Longitud máxima de la consulta creada"
 
 # Used as description for SQL syntax Export Type (options are INSERT, UPDATE
 # and REPLACE)
-#: libraries/classes/Config/Descriptions.php:301
+#: libraries/classes/Config/Descriptions.php:747
 msgid "Export type"
 msgstr "Tipo de exportación"
 
-#: libraries/classes/Config/Descriptions.php:302
+#: libraries/classes/Config/Descriptions.php:748
 #: libraries/classes/Plugins/Export/ExportSql.php:166
 msgid "Enclose export in a transaction"
 msgstr "Incluir lo exportado en una transacción"
 
-#: libraries/classes/Config/Descriptions.php:303
+#: libraries/classes/Config/Descriptions.php:749
 msgid "Export time in UTC"
 msgstr "Exportar hora en UTC"
 
-#: libraries/classes/Config/Descriptions.php:308
-msgid ""
-"Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
-"the referenced data, [kbd]id[/kbd] is the key value."
-msgstr ""
-"Orden en el que se agrupa el contenido de una caja desplegable de claves "
-"foráneas; [kbd]content[/kbd] son los datos referidos, [kbd]id[/kbd] es el "
-"valor clave."
-
-#: libraries/classes/Config/Descriptions.php:311
+#: libraries/classes/Config/Descriptions.php:753
 msgid "Foreign key dropdown order"
 msgstr "Orden de despliegue de las claves foráneas"
 
-#: libraries/classes/Config/Descriptions.php:312
-msgid "A dropdown will be used if fewer items are present."
-msgstr "Se usará un menú dropdown si hay menos ítems presentes."
-
-#: libraries/classes/Config/Descriptions.php:313
+#: libraries/classes/Config/Descriptions.php:754
 msgid "Foreign key limit"
 msgstr "Límite de las claves foráneas"
 
-#: libraries/classes/Config/Descriptions.php:314
-msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
-"El valor predeterminado de la clave externa, controla los checkbox para "
-"algunas consultas."
-
-#: libraries/classes/Config/Descriptions.php:315
+#: libraries/classes/Config/Descriptions.php:755
 msgid "Foreign key checks"
 msgstr "Revisión de claves foráneas"
 
-#: libraries/classes/Config/Descriptions.php:316
+#: libraries/classes/Config/Descriptions.php:756
 msgid "First day of calendar"
 msgstr "Primer día del calendario"
 
-#: libraries/classes/Config/Descriptions.php:317
-msgid "Browse mode"
-msgstr "Modalidad de navegación"
-
-#: libraries/classes/Config/Descriptions.php:318
-msgid "Customize browse mode."
-msgstr "Cambiar las opciones de la modalidad de visualización."
-
-#: libraries/classes/Config/Descriptions.php:320
-#: libraries/classes/Config/Descriptions.php:322
-#: libraries/classes/Config/Descriptions.php:336
-#: libraries/classes/Config/Descriptions.php:349
-#: libraries/classes/Config/Descriptions.php:351
-#: libraries/classes/Config/Descriptions.php:388
-msgid "Customize default options."
-msgstr "Personalizar las opciones predeteminadas."
-
-#: libraries/classes/Config/Descriptions.php:321
-#: libraries/classes/Config/Forms/User/ExportForm.php:80
-#: libraries/classes/Config/Forms/User/ImportForm.php:33
-msgid "CSV"
-msgstr "CSV"
-
-#: libraries/classes/Config/Descriptions.php:323
-msgid "Developer"
-msgstr "Desarrollador"
-
-#: libraries/classes/Config/Descriptions.php:324
-msgid "Settings for phpMyAdmin developers."
-msgstr "Configuración para desarrolladores de phpMyAdmin."
-
-#: libraries/classes/Config/Descriptions.php:325
-msgid "Edit mode"
-msgstr "Modalidad de edición"
-
-#: libraries/classes/Config/Descriptions.php:326
-msgid "Customize edit mode."
-msgstr "Cambiar las opciones de la modalidad de edición."
-
-#: libraries/classes/Config/Descriptions.php:327
-msgid "Export defaults"
-msgstr "Exportar las opciones predeterminadas"
-
-#: libraries/classes/Config/Descriptions.php:328
-msgid "Customize default export options."
-msgstr "Personalizar las opciones comunes de exportación predeteminadas."
-
-#: libraries/classes/Config/Descriptions.php:329
-msgid "General"
-msgstr "General"
-
-#: libraries/classes/Config/Descriptions.php:330
-msgid "Set some commonly used options."
-msgstr "Definir algunas opciones usadas normalmente."
-
-#: libraries/classes/Config/Descriptions.php:331
-msgid "Import defaults"
-msgstr "Importar las opciones predeterminadas"
-
-#: libraries/classes/Config/Descriptions.php:332
-msgid "Customize default common import options."
-msgstr "Personalizar las opciones comunes de importación predeteminadas."
-
-#: libraries/classes/Config/Descriptions.php:333
-msgid "Import / export"
-msgstr "Importar / exportar"
-
-#: libraries/classes/Config/Descriptions.php:334
-msgid "Set import and export directories and compression options."
-msgstr ""
-"Seleccione los directorios para importar y exportar así como las opciones de "
-"compresión."
-
-#: libraries/classes/Config/Descriptions.php:335
-msgid "LaTeX"
-msgstr "LaTeX"
-
-#: libraries/classes/Config/Descriptions.php:337
-#: libraries/classes/Config/Descriptions.php:403 libraries/classes/Menu.php:527
+#: libraries/classes/Config/Descriptions.php:757
+#: libraries/classes/Config/Descriptions.php:768 libraries/classes/Menu.php:527
 #: libraries/classes/Util.php:2431 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:8
@@ -2562,38 +3611,60 @@ msgstr "LaTeX"
 msgid "Databases"
 msgstr "Bases de datos"
 
-#: libraries/classes/Config/Descriptions.php:338
-msgid "Databases display options."
-msgstr "Opciones para visualizar las bases de datos."
+#: libraries/classes/Config/Descriptions.php:758
+msgid "Browse mode"
+msgstr "Modalidad de navegación"
 
-#: libraries/classes/Config/Descriptions.php:339
+#: libraries/classes/Config/Descriptions.php:760
+#: libraries/classes/Config/Forms/User/ExportForm.php:80
+#: libraries/classes/Config/Forms/User/ImportForm.php:33
+msgid "CSV"
+msgstr "CSV"
+
+#: libraries/classes/Config/Descriptions.php:761
+msgid "Developer"
+msgstr "Desarrollador"
+
+#: libraries/classes/Config/Descriptions.php:762
+msgid "Edit mode"
+msgstr "Modalidad de edición"
+
+#: libraries/classes/Config/Descriptions.php:763
+msgid "Export defaults"
+msgstr "Exportar las opciones predeterminadas"
+
+#: libraries/classes/Config/Descriptions.php:764
+msgid "General"
+msgstr "General"
+
+#: libraries/classes/Config/Descriptions.php:765
+msgid "Import defaults"
+msgstr "Importar las opciones predeterminadas"
+
+#: libraries/classes/Config/Descriptions.php:766
+msgid "Import / export"
+msgstr "Importar / exportar"
+
+#: libraries/classes/Config/Descriptions.php:767
+msgid "LaTeX"
+msgstr "LaTeX"
+
+#: libraries/classes/Config/Descriptions.php:769
 #: libraries/classes/Config/Forms/User/NaviForm.php:66
 #: templates/preferences/header.twig:30
 msgid "Navigation panel"
 msgstr "Panel de navegación"
 
-#: libraries/classes/Config/Descriptions.php:340
-msgid "Customize appearance of the navigation panel."
-msgstr "Cambiar la apariencia del panel de navegación."
-
-#: libraries/classes/Config/Descriptions.php:341
+#: libraries/classes/Config/Descriptions.php:770
 msgid "Navigation tree"
 msgstr "Árbol de navegación"
 
-#: libraries/classes/Config/Descriptions.php:342
-msgid "Customize the navigation tree."
-msgstr "Personalizar el árbol de navegación."
-
-#: libraries/classes/Config/Descriptions.php:343
+#: libraries/classes/Config/Descriptions.php:771
 #: libraries/classes/Server/Select.php:60 templates/setup/home/index.twig:34
 msgid "Servers"
 msgstr "Servidores"
 
-#: libraries/classes/Config/Descriptions.php:344
-msgid "Servers display options."
-msgstr "Opciones para visualizar los servidores."
-
-#: libraries/classes/Config/Descriptions.php:345
+#: libraries/classes/Config/Descriptions.php:772
 #: libraries/classes/Controllers/Server/DatabasesController.php:478
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
@@ -2604,108 +3675,49 @@ msgstr "Opciones para visualizar los servidores."
 msgid "Tables"
 msgstr "Tablas"
 
-#: libraries/classes/Config/Descriptions.php:346
-msgid "Tables display options."
-msgstr "Opciones para visualizar las tablas."
-
-#: libraries/classes/Config/Descriptions.php:347
+#: libraries/classes/Config/Descriptions.php:773
 #: libraries/classes/Config/Forms/User/MainForm.php:88
 #: templates/preferences/header.twig:36
 msgid "Main panel"
 msgstr "Panel principal"
 
-#: libraries/classes/Config/Descriptions.php:348
+#: libraries/classes/Config/Descriptions.php:774
 msgid "Microsoft Office"
 msgstr "Microsoft Office"
 
-#: libraries/classes/Config/Descriptions.php:352
+#: libraries/classes/Config/Descriptions.php:776
 msgid "Other core settings"
 msgstr "Otros parámetros cruciales"
 
-#: libraries/classes/Config/Descriptions.php:353
-msgid "Settings that didn't fit anywhere else."
-msgstr "Parámetros que no encajaban en otra parte."
-
-#: libraries/classes/Config/Descriptions.php:354
+#: libraries/classes/Config/Descriptions.php:777
 msgid "Page titles"
 msgstr "Títulos de página"
 
-#: libraries/classes/Config/Descriptions.php:356
-msgid ""
-"Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
-"for magic strings that can be used to get special values."
-msgstr ""
-"Especificar el texto de la barra de título del navegador. Consulte la "
-"[doc@faq6-27]documentación[/doc] para ver las palabras mágicas que podrán "
-"ser usadas para obtener valores especiales."
-
-#: libraries/classes/Config/Descriptions.php:360
+#: libraries/classes/Config/Descriptions.php:778
 msgid "Security"
 msgstr "Seguridad"
 
-#: libraries/classes/Config/Descriptions.php:362
-msgid ""
-"Please note that phpMyAdmin is just a user interface and its features do not "
-"limit MySQL."
-msgstr ""
-"Tenga en cuenta que phpMyAdmin es solamente una interfaz y sus opciones no "
-"limitan a MySQL."
-
-#: libraries/classes/Config/Descriptions.php:365
+#: libraries/classes/Config/Descriptions.php:779
 msgid "Basic settings"
 msgstr "Configuraciones básicas"
 
-#: libraries/classes/Config/Descriptions.php:366
+#: libraries/classes/Config/Descriptions.php:780
 msgid "Authentication"
 msgstr "Autentificación"
 
-#: libraries/classes/Config/Descriptions.php:367
-msgid "Authentication settings."
-msgstr "Configuración de autentificación."
-
-#: libraries/classes/Config/Descriptions.php:368
+#: libraries/classes/Config/Descriptions.php:781
 msgid "Server configuration"
 msgstr "Configuración del servidor"
 
-#: libraries/classes/Config/Descriptions.php:370
-msgid ""
-"Advanced server configuration, do not change these options unless you know "
-"what they are for."
-msgstr ""
-"Configuración avanzada del servidor, no cambie estas opciones a menos que "
-"usted conozca como funcionan."
-
-#: libraries/classes/Config/Descriptions.php:373
-msgid "Enter server connection parameters."
-msgstr "Escriba los ajustes básicos del servidor."
-
-#: libraries/classes/Config/Descriptions.php:374
+#: libraries/classes/Config/Descriptions.php:782
 msgid "Configuration storage"
 msgstr "Almacenamiento de configuración"
 
-#: libraries/classes/Config/Descriptions.php:376
-msgid ""
-"Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
-"documentation."
-msgstr ""
-"Configure la base de datos de phpMyAdmin para obtener acceso a funciones "
-"adicionales, mire [doc@linked-tables]linked-tables infrastructure[/doc] en "
-"la documentación."
-
-#: libraries/classes/Config/Descriptions.php:380
+#: libraries/classes/Config/Descriptions.php:783
 msgid "Changes tracking"
 msgstr "Seguimiento de cambios"
 
-#: libraries/classes/Config/Descriptions.php:382
-msgid ""
-"Tracking of changes made in database. Requires the phpMyAdmin configuration "
-"storage."
-msgstr ""
-"Seguimiento de cambios hechos en la base de datos. Requiere almacenamiento "
-"de configuración phpMyAdmin."
-
-#: libraries/classes/Config/Descriptions.php:385 libraries/classes/Menu.php:287
+#: libraries/classes/Config/Descriptions.php:784 libraries/classes/Menu.php:287
 #: libraries/classes/Menu.php:403 libraries/classes/Menu.php:532
 #: libraries/classes/Navigation/Nodes/NodeTable.php:319
 #: libraries/classes/Util.php:1712 libraries/classes/Util.php:2432
@@ -2715,1495 +3727,655 @@ msgstr ""
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/classes/Config/Descriptions.php:386
+#: libraries/classes/Config/Descriptions.php:785
 msgid "SQL Query box"
 msgstr "Ventana de consultas SQL"
 
-#: libraries/classes/Config/Descriptions.php:387
-msgid "Customize links shown in SQL Query boxes."
-msgstr "Cambiar los enlaces mostrados en las ventanas de consulta SQL."
-
-#: libraries/classes/Config/Descriptions.php:389
+#: libraries/classes/Config/Descriptions.php:786
 #: libraries/classes/Config/Forms/User/SqlForm.php:46
 #: templates/preferences/header.twig:24
 msgid "SQL queries"
 msgstr "Consultas SQL"
 
-#: libraries/classes/Config/Descriptions.php:390
-msgid "SQL queries settings."
-msgstr "Configuración de las consultas SQL."
-
-#: libraries/classes/Config/Descriptions.php:391
+#: libraries/classes/Config/Descriptions.php:787
 msgid "Startup"
 msgstr "Inicio"
 
-#: libraries/classes/Config/Descriptions.php:392
-msgid "Customize startup page."
-msgstr "Cambiar las opciones de la página de arranque."
-
-#: libraries/classes/Config/Descriptions.php:393
+#: libraries/classes/Config/Descriptions.php:788
 msgid "Database structure"
 msgstr "Estructura de base de datos"
 
-#: libraries/classes/Config/Descriptions.php:394
-msgid ""
-"Choose which details to show in the database structure (list of tables)."
-msgstr ""
-"Elija los detalles a mostrar en la estructura de base de datos (lista de "
-"tablas)."
-
-#: libraries/classes/Config/Descriptions.php:395
+#: libraries/classes/Config/Descriptions.php:789
 #: libraries/classes/Plugins/Export/ExportPdf.php:304
 #: templates/table/page_with_secondary_tabs.twig:5
 msgid "Table structure"
 msgstr "Estructura de tabla"
 
-#: libraries/classes/Config/Descriptions.php:396
-msgid "Settings for the table structure (list of columns)."
-msgstr "Configuración de la estructura de la tabla (lista de columnas)."
-
-#: libraries/classes/Config/Descriptions.php:397
+#: libraries/classes/Config/Descriptions.php:790
 msgid "Tabs"
 msgstr "Tabulaciones"
 
-#: libraries/classes/Config/Descriptions.php:398
-msgid "Choose how you want tabs to work."
-msgstr "Seleccione como quiere que funcionen las tabulaciones."
-
-#: libraries/classes/Config/Descriptions.php:399
+#: libraries/classes/Config/Descriptions.php:791
 msgid "Display relational schema"
 msgstr "Mostrar esquema relacional"
 
-#: libraries/classes/Config/Descriptions.php:401
-#: libraries/classes/Plugins/Schema/SchemaDia.php:65
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:73
-msgid "Paper size"
-msgstr "Tamaño del papel"
-
-#: libraries/classes/Config/Descriptions.php:404
+#: libraries/classes/Config/Descriptions.php:792
 msgid "Text fields"
 msgstr "Campos de texto"
 
-#: libraries/classes/Config/Descriptions.php:405
-msgid "Customize text input fields."
-msgstr "Personalizar los campos de entrada de texto."
-
-#: libraries/classes/Config/Descriptions.php:406
+#: libraries/classes/Config/Descriptions.php:793
 msgid "Texy! text"
 msgstr "Texto «Texy!»"
 
-#: libraries/classes/Config/Descriptions.php:407
-msgid "Customize default options"
-msgstr "Personalizar las opciones predeteminadas"
-
-#: libraries/classes/Config/Descriptions.php:408
+#: libraries/classes/Config/Descriptions.php:794
 msgid "Warnings"
 msgstr "Advertencias"
 
-#: libraries/classes/Config/Descriptions.php:409
-msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr "Desactivar algunas de las advertencias mostradas por phpMyAdmin."
-
-#: libraries/classes/Config/Descriptions.php:410
+#: libraries/classes/Config/Descriptions.php:795
 #: templates/console/display.twig:4
 msgid "Console"
 msgstr "Consola"
 
-#: libraries/classes/Config/Descriptions.php:412
-msgid "Enable gzip compression for import and export operations."
-msgstr ""
-"Habilitar compresión gzip para las operaciones de importación y exportación."
-
-#: libraries/classes/Config/Descriptions.php:415
+#: libraries/classes/Config/Descriptions.php:796
 msgid "GZip"
 msgstr "GZip"
 
-#: libraries/classes/Config/Descriptions.php:416
+#: libraries/classes/Config/Descriptions.php:797
 msgid "Extra parameters for iconv"
 msgstr "Parámetros adicionales para iconv"
 
-#: libraries/classes/Config/Descriptions.php:418
-msgid ""
-"If enabled, phpMyAdmin continues computing multiple-statement queries even "
-"if one of the queries failed."
-msgstr ""
-"De estar activado, phpMyAdmin continúa computando consultas con múltiples "
-"sentencias incluso si falló una de las consultas."
-
-#: libraries/classes/Config/Descriptions.php:421
+#: libraries/classes/Config/Descriptions.php:798
 msgid "Ignore multiple statement errors"
 msgstr "Ignorar errores en sentencias múltiples"
 
-#: libraries/classes/Config/Descriptions.php:423
-msgid ""
-"Allow interrupt of import in case script detects it is close to time limit. "
-"This might be a good way to import large files, however it can break "
-"transactions."
-msgstr ""
-"Permitir la interrupción de la importación si el script detecta que se está "
-"acercando al límite de tiempo. Esta puede ser una buena forma para importar "
-"archivos grandes, sin embargo, puede romper las transacciones."
-
-#: libraries/classes/Config/Descriptions.php:427
+#: libraries/classes/Config/Descriptions.php:799
 msgid "Enable drag and drop import"
 msgstr "Habilitar la importación arrastrando y soltando"
 
-#: libraries/classes/Config/Descriptions.php:428
-msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
-"Desmarque la casilla de verificación para desactivar la importación de "
-"arrastrar y soltar"
-
-#: libraries/classes/Config/Descriptions.php:429
+#: libraries/classes/Config/Descriptions.php:800
 msgid "Partial import: allow interrupt"
 msgstr "Importación parcial: permitir interrupciones"
 
-#: libraries/classes/Config/Descriptions.php:434
-#: libraries/classes/Config/Descriptions.php:445
+#: libraries/classes/Config/Descriptions.php:805
+#: libraries/classes/Config/Descriptions.php:811
 #: libraries/classes/Plugins/Import/ImportCsv.php:133
 #: libraries/classes/Plugins/Import/ImportLdi.php:80
 msgid "Do not abort on INSERT error"
 msgstr "No abortar si ocurre un error con INSERT"
 
-#: libraries/classes/Config/Descriptions.php:435
-#: libraries/classes/Config/Descriptions.php:447
+#: libraries/classes/Config/Descriptions.php:806
+#: libraries/classes/Config/Descriptions.php:813
 msgid "Add ON DUPLICATE KEY UPDATE"
 msgstr "Agregar ON DUPLICATE KEY UPDATE"
 
-#: libraries/classes/Config/Descriptions.php:436
-#: libraries/classes/Config/Descriptions.php:448
-msgid "Update data when duplicate keys found on import"
-msgstr "Actualizar datos cuando las importaciones de llaves están duplicadas"
-
-#: libraries/classes/Config/Descriptions.php:439
-msgid ""
-"Default format; be aware that this list depends on location (database, "
-"table) and only SQL is always available."
-msgstr ""
-"Formato predeterminado; tenga presente que esta lista depende de la "
-"localización (base de datos, tabla) y solamente SQL está disponible siempre."
-
-#: libraries/classes/Config/Descriptions.php:442
+#: libraries/classes/Config/Descriptions.php:808
 msgid "Format of imported file"
 msgstr "Formato del archivo importado"
 
-#: libraries/classes/Config/Descriptions.php:446
+#: libraries/classes/Config/Descriptions.php:812
 #: libraries/classes/Plugins/Import/ImportLdi.php:86
 msgid "Use LOCAL keyword"
 msgstr "Use la palabra clave LOCAL"
 
-#: libraries/classes/Config/Descriptions.php:450
+#: libraries/classes/Config/Descriptions.php:815
 msgid "Column names in first row"
 msgstr "Nombres de columna en la primera fila"
 
-#: libraries/classes/Config/Descriptions.php:451
+#: libraries/classes/Config/Descriptions.php:816
 #: libraries/classes/Plugins/Import/ImportOds.php:77
 msgid "Do not import empty rows"
 msgstr "No importar filas vacías"
 
-#: libraries/classes/Config/Descriptions.php:452
+#: libraries/classes/Config/Descriptions.php:817
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importar monedas (€5.00 como 5.00)"
 
-#: libraries/classes/Config/Descriptions.php:453
+#: libraries/classes/Config/Descriptions.php:818
 msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Importar porcentajes como números decimales (12.00% como .12)"
 
-#: libraries/classes/Config/Descriptions.php:454
-msgid "Number of queries to skip from start."
-msgstr "Número de consultas a saltarse desde el inicio."
-
-#: libraries/classes/Config/Descriptions.php:455
+#: libraries/classes/Config/Descriptions.php:819
 msgid "Partial import: skip queries"
 msgstr "Importación parcial: saltarse las consultas"
 
-#: libraries/classes/Config/Descriptions.php:457
+#: libraries/classes/Config/Descriptions.php:821
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "No utilizar AUTO_INCREMENT para los valores iguales a cero"
 
-#: libraries/classes/Config/Descriptions.php:458
+#: libraries/classes/Config/Descriptions.php:822
 msgid "Read as multibytes"
 msgstr "Leer como conjunto de Bytes"
 
-#: libraries/classes/Config/Descriptions.php:459
+#: libraries/classes/Config/Descriptions.php:823
 msgid "Initial state for sliders"
 msgstr "Estado inicial de los deslizadores"
 
-#: libraries/classes/Config/Descriptions.php:460
-msgid "How many rows can be inserted at one time."
-msgstr "Cuántas filas se pueden insertar de una vez."
-
-#: libraries/classes/Config/Descriptions.php:461
+#: libraries/classes/Config/Descriptions.php:824
 msgid "Number of inserted rows"
 msgstr "Número de filas insertadas"
 
-#: libraries/classes/Config/Descriptions.php:462
-msgid ""
-"Maximum number of characters shown in any non-numeric column on browse view."
-msgstr ""
-"Cantidad máxima de caracteres a mostrar en un campo no-numérico en vista de "
-"navegación."
-
-#: libraries/classes/Config/Descriptions.php:463
+#: libraries/classes/Config/Descriptions.php:825
 msgid "Limit column characters"
 msgstr "Límite de caracteres de la columna"
 
-#: libraries/classes/Config/Descriptions.php:465
-msgid ""
-"If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
-"only occurs for the current server. Setting this to FALSE makes it easy to "
-"forget to log out from other servers when connected to multiple servers."
-msgstr ""
-"Si está en TRUE, el final de la sesión elimina las cookies en todos los "
-"servidores; cuando se deja en FALSE, el final de la sesión ocurre solamente "
-"para el sevidor actual. Colocar este parámetro en FALSE hace fácil olvidar "
-"que debe finalizar sesión de otros servidores cuando se conecta a múltiples "
-"servidores."
-
-#: libraries/classes/Config/Descriptions.php:469
+#: libraries/classes/Config/Descriptions.php:826
 msgid "Delete all cookies on logout"
 msgstr "Eliminar todas las cookies al finalizar sesión"
 
-#: libraries/classes/Config/Descriptions.php:471
-msgid ""
-"Define whether the previous login should be recalled or not in [kbd]cookie[/"
-"kbd] authentication mode."
-msgstr ""
-"Define si el inicio de sesión anterior se debe recordar o no en la modalidad "
-"autenticación mediante [kbd]cookie[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:474
+#: libraries/classes/Config/Descriptions.php:827
 msgid "Recall user name"
 msgstr "Recordar el nombre del usuario"
 
-#: libraries/classes/Config/Descriptions.php:476
-msgid ""
-"Defines how long (in seconds) a login cookie should be stored in browser. "
-"The default of 0 means that it will be kept for the existing session only, "
-"and will be deleted as soon as you close the browser window. This is "
-"recommended for non-trusted environments."
-msgstr ""
-"Defina cuán largo (en segundos) una cookie de inicio de sesión es almacenada "
-"en el navegador. El predeterminado de 0 significa que se mantendrá solamente "
-"para la sesión actual y se borrará tan pronto cierre la ventana del "
-"navegador. Esto es recomendable para entornos no confiables."
-
-#: libraries/classes/Config/Descriptions.php:481
+#: libraries/classes/Config/Descriptions.php:828
 msgid "Login cookie store"
 msgstr "Almacenamiento de cookies de inicio de sesión"
 
-#: libraries/classes/Config/Descriptions.php:482
-msgid "Define how long (in seconds) a login cookie is valid."
-msgstr ""
-"Define por cuánto tiempo (en segundos) es válido un cookie de inicio de "
-"sesión."
-
-#: libraries/classes/Config/Descriptions.php:483
+#: libraries/classes/Config/Descriptions.php:829
 msgid "Login cookie validity"
 msgstr "Validez del cookie usado para el inicio de sesión"
 
-#: libraries/classes/Config/Descriptions.php:484
-msgid "Double size of textarea for LONGTEXT columns."
-msgstr "Doble tamaño del textarea para las columnas LONGTEXT."
-
-#: libraries/classes/Config/Descriptions.php:485
+#: libraries/classes/Config/Descriptions.php:830
 msgid "Bigger textarea for LONGTEXT"
 msgstr "textarea más grande para LONGTEXT"
 
-#: libraries/classes/Config/Descriptions.php:487
-msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr "Número máximo de caracteres usados al mostrar una consulta SQL."
-
-#: libraries/classes/Config/Descriptions.php:489
+#: libraries/classes/Config/Descriptions.php:831
 msgid "Maximum displayed SQL length"
 msgstr "Máxima longitud al mostrar consulta SQL"
 
-#: libraries/classes/Config/Descriptions.php:490
-#: libraries/classes/Config/Descriptions.php:508
-#: libraries/classes/Config/Descriptions.php:625
-msgid "Users cannot set a higher value"
-msgstr "Los usuarios no pueden definir un valor más alto"
-
-#: libraries/classes/Config/Descriptions.php:491
-msgid "Maximum number of databases displayed in database list."
-msgstr ""
-"Número máximo de bases de datos mostradas en una lista de bases de datos."
-
-#: libraries/classes/Config/Descriptions.php:492
+#: libraries/classes/Config/Descriptions.php:832
 msgid "Maximum databases"
 msgstr "Número máximo de bases de datos"
 
-#: libraries/classes/Config/Descriptions.php:494
-msgid ""
-"The number of items that can be displayed on each page on the first level of "
-"the navigation tree."
-msgstr ""
-"El número de elementos que pueden ser mostrados en cada página en el primer "
-"nivel del árbol de navegación."
-
-#: libraries/classes/Config/Descriptions.php:497
+#: libraries/classes/Config/Descriptions.php:833
 msgid "Maximum items on first level"
 msgstr "Cantidad máxima de elementos en el primer nivel"
 
-#: libraries/classes/Config/Descriptions.php:499
-msgid ""
-"The number of items that can be displayed on each page of the navigation "
-"tree."
-msgstr ""
-"El número de elementos que pueden ser mostrados en cada página del árbol de "
-"navegación."
-
-#: libraries/classes/Config/Descriptions.php:501
+#: libraries/classes/Config/Descriptions.php:834
 msgid "Maximum items in branch"
 msgstr "Cantidad máxima de elementos en una rama"
 
-#: libraries/classes/Config/Descriptions.php:503
-msgid ""
-"Number of rows displayed when browsing a result set. If the result set "
-"contains more rows, \"Previous\" and \"Next\" links will be shown."
-msgstr ""
-"Número de filas mostradas cuando se visualiza un juego de resultados. Si el "
-"juego de resultados contiene más filas, aparecerán enlaces \"Anterior\" y "
-"\"Siguiente\"."
-
-#: libraries/classes/Config/Descriptions.php:507
+#: libraries/classes/Config/Descriptions.php:835
 msgid "Maximum number of rows to display"
 msgstr "Máximo número de filas a mostrar"
 
-#: libraries/classes/Config/Descriptions.php:509
-msgid "Maximum number of tables displayed in table list."
-msgstr "Número máximo de tablas mostradas en una lista de tablas."
-
-#: libraries/classes/Config/Descriptions.php:510
+#: libraries/classes/Config/Descriptions.php:836
 msgid "Maximum tables"
 msgstr "Número máximo de tablas"
 
-#: libraries/classes/Config/Descriptions.php:512
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
-msgid ""
-"The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
-"([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
-msgstr ""
-"El número de bytes que un script tiene permitido reservar. ej. [kbd]32M[/"
-"kbd] ([kbd]-1[/kbd] para ilimitado y [kbd]0[/kbd] para no cambiar).."
-
-#: libraries/classes/Config/Descriptions.php:515
+#: libraries/classes/Config/Descriptions.php:837
 msgid "Memory limit"
 msgstr "Límite de la memoria"
 
-#: libraries/classes/Config/Descriptions.php:517
-msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
-"En el panel de navegación, reemplaza el árbol de base de datos con un "
-"selector"
-
-#: libraries/classes/Config/Descriptions.php:519
+#: libraries/classes/Config/Descriptions.php:838
 msgid "Show databases navigation as tree"
 msgstr "Mostrar las bases de datos navegación como árbol"
 
-#: libraries/classes/Config/Descriptions.php:520
+#: libraries/classes/Config/Descriptions.php:839
 msgid "Navigation panel width"
 msgstr "Anchura del panel de navegación"
 
-#: libraries/classes/Config/Descriptions.php:521
-msgid "Set to 0 to collapse navigation panel."
-msgstr "Asignar 0 para ocular el panel de navegación."
-
-#: libraries/classes/Config/Descriptions.php:523
-msgid "Link with main panel by highlighting the current database or table."
-msgstr ""
-"Enlace con el panel principal resaltando la base de datos o tabla actual."
-
-#: libraries/classes/Config/Descriptions.php:525
+#: libraries/classes/Config/Descriptions.php:840
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:620
 #: libraries/classes/Navigation/NavigationTree.php:1472
 msgid "Link with main panel"
 msgstr "Enlace al panel principal"
 
-#: libraries/classes/Config/Descriptions.php:526
-msgid "Show logo in navigation panel."
-msgstr "Mostrar el logo en el panel de navegación."
-
-#: libraries/classes/Config/Descriptions.php:527
+#: libraries/classes/Config/Descriptions.php:841
 msgid "Display logo"
 msgstr "Mostrar el logo"
 
-#: libraries/classes/Config/Descriptions.php:528
-msgid "URL where logo in the navigation panel will point to."
-msgstr "URL a la que apuntará el logo en el panel de navegación."
-
-#: libraries/classes/Config/Descriptions.php:529
+#: libraries/classes/Config/Descriptions.php:842
 msgid "Logo link URL"
 msgstr "URL para enlace del logo"
 
-#: libraries/classes/Config/Descriptions.php:531
-msgid ""
-"Open the linked page in the main window ([code]main[/code]) or in a new one "
-"([code]new[/code])."
-msgstr ""
-"Abrir la página enlazada en la ventana principal ([code]principal[/code]) o "
-"en una nueva ([code]nueva[/code])."
-
-#: libraries/classes/Config/Descriptions.php:534
+#: libraries/classes/Config/Descriptions.php:843
 msgid "Logo link target"
 msgstr "Logo destino del enlace"
 
-#: libraries/classes/Config/Descriptions.php:535
-msgid "Display server choice at the top of the navigation panel."
-msgstr ""
-"Mostrar la elección de servidor en la parte superior del panel de navegación."
-
-#: libraries/classes/Config/Descriptions.php:536
+#: libraries/classes/Config/Descriptions.php:844
 msgid "Display servers selection"
 msgstr "Mostrar la selección de servidores"
 
-#: libraries/classes/Config/Descriptions.php:537
+#: libraries/classes/Config/Descriptions.php:845
 msgid "Target for quick access icon"
 msgstr "Destino para el icono de acceso rápido"
 
-#: libraries/classes/Config/Descriptions.php:538
+#: libraries/classes/Config/Descriptions.php:846
 msgid "Target for second quick access icon"
 msgstr "Objetivo para el segundo icono de acceso rápido"
 
-#: libraries/classes/Config/Descriptions.php:540
-msgid ""
-"Defines the minimum number of items (tables, views, routines and events) to "
-"display a filter box."
-msgstr ""
-"Define el número mínimo de elementos (tablas, vistas, rutinas y eventos) "
-"para mostrar un cuadro de filtro."
-
-#: libraries/classes/Config/Descriptions.php:543
+#: libraries/classes/Config/Descriptions.php:847
 msgid "Minimum number of items to display the filter box"
 msgstr "Número mínimo de elementos para mostrar la caja de filtro"
 
-#: libraries/classes/Config/Descriptions.php:545
+#: libraries/classes/Config/Descriptions.php:849
 msgid "Minimum number of databases to display the database filter box"
 msgstr ""
 "Número mínimo de bases de datos a mostrar en la ventana de filtro de bases "
 "de datos"
 
-#: libraries/classes/Config/Descriptions.php:548
-msgid ""
-"Group items in the navigation tree (determined by the separator defined in "
-"the Databases and Tables tabs above)."
-msgstr ""
-"Agrupar elementos en el árbol de navegación (determinado por el separador "
-"definido abajo en las pestañas superiores de Bases de datos y Tablas)."
-
-#: libraries/classes/Config/Descriptions.php:551
+#: libraries/classes/Config/Descriptions.php:851
 msgid "Group items in the tree"
 msgstr "Agrupar elementos en el árbol"
 
-#: libraries/classes/Config/Descriptions.php:552
-msgid "String that separates databases into different tree levels."
-msgstr "Cadena que separa bases de datos en diferentes niveles de árbol."
-
-#: libraries/classes/Config/Descriptions.php:553
+#: libraries/classes/Config/Descriptions.php:852
 msgid "Database tree separator"
 msgstr "Separador de árbol de base de datos"
 
-#: libraries/classes/Config/Descriptions.php:554
-msgid "String that separates tables into different tree levels."
-msgstr "Cadena que separa tablas en diferentes niveles de árbol."
-
-#: libraries/classes/Config/Descriptions.php:555
+#: libraries/classes/Config/Descriptions.php:853
 msgid "Table tree separator"
 msgstr "Separador de árbol de tablas"
 
-#: libraries/classes/Config/Descriptions.php:556
+#: libraries/classes/Config/Descriptions.php:854
 msgid "Maximum table tree depth"
 msgstr "Profundidad máxima del árbol de tablas"
 
-#: libraries/classes/Config/Descriptions.php:557
-msgid "Highlight server under the mouse cursor."
-msgstr "Resaltar servidor bajo el cursor."
-
-#: libraries/classes/Config/Descriptions.php:558
+#: libraries/classes/Config/Descriptions.php:855
 msgid "Enable highlighting"
 msgstr "Permitir destacar"
 
-#: libraries/classes/Config/Descriptions.php:560
-msgid ""
-"Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
-"Si tendrá la posibilidad de expandir el árbol en el panel de navegación."
-
-#: libraries/classes/Config/Descriptions.php:562
+#: libraries/classes/Config/Descriptions.php:856
 msgid "Enable navigation tree expansion"
 msgstr "Activar la expansión del árbol de navegación"
 
-#: libraries/classes/Config/Descriptions.php:563
+#: libraries/classes/Config/Descriptions.php:857
 msgid "Show tables in tree"
 msgstr "Mostrar tablas en árbol"
 
-#: libraries/classes/Config/Descriptions.php:564
-msgid "Whether to show tables under database in the navigation tree"
-msgstr "Si se muestran las tablas bajo base de datos en el árbol de navegación"
-
-#: libraries/classes/Config/Descriptions.php:565
+#: libraries/classes/Config/Descriptions.php:858
 msgid "Show views in tree"
 msgstr "Mostrar vistas en árbol"
 
-#: libraries/classes/Config/Descriptions.php:566
-msgid "Whether to show views under database in the navigation tree"
-msgstr "Si se muestran vistas bajo base de datos en el árbol de navegación"
-
-#: libraries/classes/Config/Descriptions.php:567
+#: libraries/classes/Config/Descriptions.php:859
 msgid "Show functions in tree"
 msgstr "Mostrar funciones en árbol"
 
-#: libraries/classes/Config/Descriptions.php:568
-msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
-"Si se muestran las funciones bajo la base de datos en el árbol de navegación"
-
-#: libraries/classes/Config/Descriptions.php:569
+#: libraries/classes/Config/Descriptions.php:860
 msgid "Show procedures in tree"
 msgstr "Mostrar procedimientos en árbol"
 
-#: libraries/classes/Config/Descriptions.php:571
-msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
-"Si se muestran los procedimientos bajo la base de datos en el árbol de "
-"navegación"
-
-#: libraries/classes/Config/Descriptions.php:573
+#: libraries/classes/Config/Descriptions.php:861
 msgid "Show events in tree"
 msgstr "Mostrar eventos en árbol"
 
-#: libraries/classes/Config/Descriptions.php:574
-msgid "Whether to show events under database in the navigation tree"
-msgstr "Si se muestran eventos bajo la base de datos en el árbol de navegación"
-
-#: libraries/classes/Config/Descriptions.php:575
+#: libraries/classes/Config/Descriptions.php:862
 msgid "Expand single database"
 msgstr "Expandir la base de datos única"
 
-#: libraries/classes/Config/Descriptions.php:577
-msgid "Whether to expand single database in the navigation tree automatically."
-msgstr ""
-"Si se debe desglosar automáticamente una base de datos individual en el "
-"árbol de navegación."
-
-#: libraries/classes/Config/Descriptions.php:579
-msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr "Número máximo de tablas recientemente utilizadas; 0 para desactivar."
-
-#: libraries/classes/Config/Descriptions.php:580
-msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "Cantidad máxima de tablas favoritas; 0 para desactivar."
-
-#: libraries/classes/Config/Descriptions.php:581
+#: libraries/classes/Config/Descriptions.php:863
 msgid "Recently used tables"
 msgstr "Tablas recientemente utilizadas"
 
-#: libraries/classes/Config/Descriptions.php:582
+#: libraries/classes/Config/Descriptions.php:864
 #: libraries/classes/RecentFavoriteTable.php:273
 msgid "Favorite tables"
 msgstr "Tablas favoritas"
 
-#: libraries/classes/Config/Descriptions.php:583
-msgid "These are Edit, Copy and Delete links."
-msgstr "Estos son los enlaces para Editar, Copiar y Borrar."
-
-#: libraries/classes/Config/Descriptions.php:584
+#: libraries/classes/Config/Descriptions.php:865
 msgid "Where to show the table row links"
 msgstr "Donde mostrar los enlaces de filas de tabla"
 
-#: libraries/classes/Config/Descriptions.php:585
-msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
-"Si se muestran enlaces de fila, incluso en ausencia de una clave única."
-
-#: libraries/classes/Config/Descriptions.php:586
+#: libraries/classes/Config/Descriptions.php:866
 msgid "Show row links anyway"
 msgstr "Mostrar enlaces de fila de todas maneras"
 
-#: libraries/classes/Config/Descriptions.php:587
-#: libraries/classes/Config/Descriptions.php:588
-msgid "Disable shortcut keys"
-msgstr "Deshabilitar teclas de atajos"
-
-#: libraries/classes/Config/Descriptions.php:589
-msgid "Use natural order for sorting table and database names."
-msgstr ""
-"Utilizar orden natural para ordenar nombres de tablas y bases de datos."
-
-#: libraries/classes/Config/Descriptions.php:590
+#: libraries/classes/Config/Descriptions.php:868
 msgid "Natural order"
 msgstr "Orden natural"
 
-#: libraries/classes/Config/Descriptions.php:591
-#: libraries/classes/Config/Descriptions.php:613
-#: libraries/classes/Config/Descriptions.php:615
-msgid "Use only icons, only text or both."
-msgstr "Use solamente íconos, solamente texto o ambos."
-
-#: libraries/classes/Config/Descriptions.php:592
+#: libraries/classes/Config/Descriptions.php:869
 msgid "Table navigation bar"
 msgstr "Barra de navegación mediante tablas"
 
-#: libraries/classes/Config/Descriptions.php:593
-msgid "Use GZip output buffering for increased speed in HTTP transfers."
-msgstr ""
-"Utilizar búfer en salida de GZip para mayor velocidad en transferencias HTTP."
-
-#: libraries/classes/Config/Descriptions.php:594
+#: libraries/classes/Config/Descriptions.php:870
 msgid "GZip output buffering"
 msgstr "Buffer de salida de GZip"
 
-#: libraries/classes/Config/Descriptions.php:596
-msgid ""
-"[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
-"DATETIME and TIMESTAMP, ascending order otherwise."
-msgstr ""
-"[kbd]SMART[/kbd] - es decir: orden descendente para columnas de tipo TIME, "
-"DATE, DATETIME y TIMESTAMP, ascendente en los demás casos."
-
-#: libraries/classes/Config/Descriptions.php:599
+#: libraries/classes/Config/Descriptions.php:871
 msgid "Default sorting order"
 msgstr "Orden de despliegue predeterminado"
 
-#: libraries/classes/Config/Descriptions.php:600
-msgid "Use persistent connections to MySQL databases."
-msgstr "Use conexiones persistentes para las bases de datos MySQL."
-
-#: libraries/classes/Config/Descriptions.php:601
+#: libraries/classes/Config/Descriptions.php:872
 msgid "Persistent connections"
 msgstr "Conexiones persistentes"
 
-#: libraries/classes/Config/Descriptions.php:603
-msgid ""
-"Disable the default warning that is displayed on the database details "
-"Structure page if any of the required tables for the phpMyAdmin "
-"configuration storage could not be found."
-msgstr ""
-"Desactivar advertencia por defecto que se muestra en la página de Estructura "
-"de los detalles de la base de datos si alguna de las tablas requeridas por "
-"phpMyAdmin no pudo ser encontrada en el almacenamiento de configuración."
-
-#: libraries/classes/Config/Descriptions.php:607
+#: libraries/classes/Config/Descriptions.php:873
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Faltan las tablas de almacenaje de configuración de phpMyAdmin"
 
-#: libraries/classes/Config/Descriptions.php:609
-msgid ""
-"Disable the default warning that is displayed on the Structure page if "
-"column names in a table are reserved MySQL words."
-msgstr ""
-"Desactivar la advertencia predeterminada que se muestra en la página de "
-"Estructura si algún nombre de columna en una tabla es una palabra reservada "
-"de MySQL."
-
-#: libraries/classes/Config/Descriptions.php:612
+#: libraries/classes/Config/Descriptions.php:874
 msgid "MySQL reserved word warning"
 msgstr "Advertencia de palabra reservada de MySQL"
 
-#: libraries/classes/Config/Descriptions.php:614
+#: libraries/classes/Config/Descriptions.php:875
 msgid "How to display the menu tabs"
 msgstr "Cómo mostrar las pestañas del menú"
 
-#: libraries/classes/Config/Descriptions.php:616
+#: libraries/classes/Config/Descriptions.php:876
 msgid "How to display various action links"
 msgstr "Cómo mostrar varios enlaces de acciones"
 
-#: libraries/classes/Config/Descriptions.php:617
-msgid "Disallow BLOB and BINARY columns from editing."
-msgstr "No permitir la edición de columnas BLOB y BINARIAS."
-
-#: libraries/classes/Config/Descriptions.php:618
+#: libraries/classes/Config/Descriptions.php:877
 msgid "Protect binary columns"
 msgstr "Proteger los campos binarios"
 
-#: libraries/classes/Config/Descriptions.php:620
-msgid ""
-"Enable if you want DB-based query history (requires phpMyAdmin configuration "
-"storage). If disabled, this utilizes JS-routines to display query history "
-"(lost by window close)."
-msgstr ""
-"Activar si se desea histórico de consultas basado en base de datos (necesita "
-"de almacenamiento de configuración phpMyAdmin). Cuando desactivado, utiliza "
-"rutinas JavaScript para mostrar el histórico de consultas (olvidado al "
-"cerrar la ventana)."
-
-#: libraries/classes/Config/Descriptions.php:624
+#: libraries/classes/Config/Descriptions.php:878
 msgid "Permanent query history"
 msgstr "Histórico permanente de consultas"
 
-#: libraries/classes/Config/Descriptions.php:626
-msgid "How many queries are kept in history."
-msgstr "Cuántas consultas se guardan en el histórico."
-
-#: libraries/classes/Config/Descriptions.php:627
+#: libraries/classes/Config/Descriptions.php:879
 msgid "Query history length"
 msgstr "Longitud del histórico de consultas"
 
-#: libraries/classes/Config/Descriptions.php:628
-msgid "Select which functions will be used for character set conversion."
-msgstr ""
-"Seleccione cuáles funciones se usarán para la conversión del conjunto de "
-"caracteres."
-
-#: libraries/classes/Config/Descriptions.php:629
+#: libraries/classes/Config/Descriptions.php:880
 msgid "Recoding engine"
 msgstr "Motor de recodificación"
 
-#: libraries/classes/Config/Descriptions.php:630
-msgid "When browsing tables, the sorting of each table is remembered."
-msgstr "Al explorar tablas, se recordará el ordenamiento de cada tabla."
-
-#: libraries/classes/Config/Descriptions.php:631
+#: libraries/classes/Config/Descriptions.php:881
 msgid "Remember table's sorting"
 msgstr "Recordar ordenamiento de la tabla"
 
-#: libraries/classes/Config/Descriptions.php:632
-msgid "Default sort order for tables with a primary key."
-msgstr "Ordenación predeterminada para tablas con una clave primaria."
-
-#: libraries/classes/Config/Descriptions.php:633
+#: libraries/classes/Config/Descriptions.php:882
 msgid "Primary key default sort order"
 msgstr "Ordenación predeterminada por clave primaria"
 
-#: libraries/classes/Config/Descriptions.php:634
-msgid ""
-"Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
-msgstr ""
-"Repetir cabecera cada X celdas, [kbd]0[/kbd] desactiva esta funcionalidad."
-
-#: libraries/classes/Config/Descriptions.php:635
+#: libraries/classes/Config/Descriptions.php:883
 msgid "Repeat headers"
 msgstr "Repetir cabeceras"
 
-#: libraries/classes/Config/Descriptions.php:636
+#: libraries/classes/Config/Descriptions.php:884
 msgid "Grid editing: trigger action"
 msgstr "Edición de grilla: disparador de acción"
 
 # Display option apparently related to
 # https://www.phpmyadmin.net/documentation/#relation
-#: libraries/classes/Config/Descriptions.php:637
+#: libraries/classes/Config/Descriptions.php:885
 msgid "Relational display"
 msgstr "Mostrar columna de relación"
 
-#: libraries/classes/Config/Descriptions.php:638
-msgid "For display Options"
-msgstr "Opciones de visualización"
-
-#: libraries/classes/Config/Descriptions.php:639
+#: libraries/classes/Config/Descriptions.php:886
 msgid "Grid editing: save all edited cells at once"
 msgstr "Edición de grilla: guardar todas las celdas editadas simultáneamente"
 
-#: libraries/classes/Config/Descriptions.php:640
-msgid "Directory where exports can be saved on server."
-msgstr ""
-"Directorio donde los archivos exportados se pueden guardar en el servidor."
-
-#: libraries/classes/Config/Descriptions.php:641
+#: libraries/classes/Config/Descriptions.php:887
 msgid "Save directory"
 msgstr "Directorio de almacenamiento"
 
-#: libraries/classes/Config/Descriptions.php:642
-msgid "Leave blank if not used."
-msgstr "Deje en blanco si no necesita usarlo."
-
-#: libraries/classes/Config/Descriptions.php:643
+#: libraries/classes/Config/Descriptions.php:888
 msgid "Host authorization order"
 msgstr "Orden en que se autentica el Host"
 
-#: libraries/classes/Config/Descriptions.php:644
-msgid "Leave blank for defaults."
-msgstr "Deje en blanco para usar los valores predeterminados."
-
-#: libraries/classes/Config/Descriptions.php:645
+#: libraries/classes/Config/Descriptions.php:889
 msgid "Host authorization rules"
 msgstr "Reglas de autorización del Host"
 
-#: libraries/classes/Config/Descriptions.php:646
+#: libraries/classes/Config/Descriptions.php:890
 msgid "Allow logins without a password"
 msgstr "Permitir inicio de sesión sin contraseña"
 
-#: libraries/classes/Config/Descriptions.php:647
+#: libraries/classes/Config/Descriptions.php:891
 msgid "Allow root login"
 msgstr "Permitir el inicio de sesión como root"
 
-#: libraries/classes/Config/Descriptions.php:648
+#: libraries/classes/Config/Descriptions.php:892
 msgid "Session timezone"
 msgstr "Huso horario de la sesión"
 
-#: libraries/classes/Config/Descriptions.php:650
-msgid ""
-"Sets the effective timezone; possibly different than the one from your "
-"database server"
-msgstr ""
-"Establece la zona horaria efectiva; posiblemente diferente a la de su "
-"servidor de base de datos"
-
-#: libraries/classes/Config/Descriptions.php:653
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
-msgstr ""
-"Nombre a mostrar como dominio (HTTP Basic Auth Realm) durante la "
-"autenticación HTTP."
-
-#: libraries/classes/Config/Descriptions.php:654
+#: libraries/classes/Config/Descriptions.php:893
 msgid "HTTP Realm"
 msgstr "Dominio HTTP (Realm)"
 
-#: libraries/classes/Config/Descriptions.php:655
-msgid "Authentication method to use."
-msgstr "Método de autenticación a usar."
-
-#: libraries/classes/Config/Descriptions.php:656
+#: libraries/classes/Config/Descriptions.php:894
 #: templates/setup/home/index.twig:44
 msgid "Authentication type"
 msgstr "Tipo de autenticación"
 
-#: libraries/classes/Config/Descriptions.php:658
-msgid ""
-"Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
-"[kbd]pma__bookmark[/kbd]"
-msgstr ""
-"Deje en blanco para no dar soporte [doc@bookmarks@]bookmark[/doc], de manera "
-"predeterminada: [kbd]pma_bookmark[/kbd]"
-
-#: libraries/classes/Config/Descriptions.php:661
+#: libraries/classes/Config/Descriptions.php:895
 msgid "Bookmark table"
 msgstr "Agregar tabla a favoritos"
 
-#: libraries/classes/Config/Descriptions.php:663
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no column comments/mime types, suggested: "
-#| "[kbd]pma__column_info[/kbd]."
-msgid ""
-"Leave blank for no column comments/media types, suggested: "
-"[kbd]pma__column_info[/kbd]."
-msgstr ""
-"Dejar en blanco para evitar comentarios/tipos MIME en celdas, sugerido: "
-"[kbd]pma__column_info[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:666
+#: libraries/classes/Config/Descriptions.php:896
 msgid "Column information table"
 msgstr "Tabla con información de la columna"
 
-#: libraries/classes/Config/Descriptions.php:667
-msgid "Compress connection to MySQL server."
-msgstr "Conexión de compresión con el servidor SQL."
-
-#: libraries/classes/Config/Descriptions.php:668
+#: libraries/classes/Config/Descriptions.php:897
 msgid "Compress connection"
 msgstr "Conexión de compresión"
 
-#: libraries/classes/Config/Descriptions.php:669
+#: libraries/classes/Config/Descriptions.php:898
 msgid "Control user password"
 msgstr "Controlar la contraseña del usuario"
 
-#: libraries/classes/Config/Descriptions.php:671
-msgid ""
-"A special MySQL user configured with limited permissions, more information "
-"available on [doc@linked-tables]documentation[/doc]."
-msgstr ""
-"Un usuario MySQL especial configurado con permisos limitados, más "
-"información disponible en la [doc@linked-tables]documentación[/doc]."
-
-#: libraries/classes/Config/Descriptions.php:674
+#: libraries/classes/Config/Descriptions.php:899
 msgid "Control user"
 msgstr "Controlar al usuario"
 
-#: libraries/classes/Config/Descriptions.php:676
-msgid ""
-"An alternate host to hold the configuration storage; leave blank to use the "
-"already defined host."
-msgstr ""
-"Alternativa para guardar el almacenamiento de configuración; deje vacío para "
-"utilizar el ya definido."
-
-#: libraries/classes/Config/Descriptions.php:679
+#: libraries/classes/Config/Descriptions.php:900
 msgid "Control host"
 msgstr "Anfitrión de control"
 
-#: libraries/classes/Config/Descriptions.php:681
-msgid ""
-"An alternate port to connect to the host that holds the configuration "
-"storage; leave blank to use the default port, or the already defined port, "
-"if the controlhost equals host."
-msgstr ""
-"Puerto alternativo para conectarse al servidor que posee el almacenamiento "
-"de configuración; deje vacío para utilizar el puerto predeterminado o el "
-"puerto ya definido si el servidor de control es el mismo."
-
-#: libraries/classes/Config/Descriptions.php:685
+#: libraries/classes/Config/Descriptions.php:901
 msgid "Control port"
 msgstr "Puerto de control"
 
-#: libraries/classes/Config/Descriptions.php:686
-msgid "Hide databases matching regular expression (PCRE)."
-msgstr ""
-"Ocultar las bases de datos que cumplen con los criterios de las expresiones "
-"regulares (PCRE)."
-
-#: libraries/classes/Config/Descriptions.php:688
-msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
-msgstr ""
-"Más información en[a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]Rastreador de problemas de phpMyAdmin[/a] y[a@https://bugs.mysql."
-"com/19588]Errores de MySQL[/a]"
-
-#: libraries/classes/Config/Descriptions.php:691
+#: libraries/classes/Config/Descriptions.php:902
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Deshabilitar el uso de INFORMATION_SCHEMA"
 
-#: libraries/classes/Config/Descriptions.php:692
+#: libraries/classes/Config/Descriptions.php:903
 msgid "Hide databases"
 msgstr "Ocultar las bases de datos"
 
-#: libraries/classes/Config/Descriptions.php:694
-msgid ""
-"Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
-"kbd]."
-msgstr ""
-"Dejar en blanco para evitar soporte de histórico de consultas SQL, sugerido: "
-"[kbd]pma__history[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:697
+#: libraries/classes/Config/Descriptions.php:904
 msgid "SQL query history table"
 msgstr "Tabla de histórico de consultas SQL"
 
-#: libraries/classes/Config/Descriptions.php:698
-msgid "Hostname where MySQL server is running."
-msgstr "Descripción del servidor."
-
-#: libraries/classes/Config/Descriptions.php:699
+#: libraries/classes/Config/Descriptions.php:905
 msgid "Server hostname"
 msgstr "Nombre del servidor"
 
-#: libraries/classes/Config/Descriptions.php:700
+#: libraries/classes/Config/Descriptions.php:906
 msgid "Logout URL"
 msgstr "URL de fin de sesión"
 
-#: libraries/classes/Config/Descriptions.php:702
-msgid ""
-"Limits number of table preferences which are stored in database, the oldest "
-"records are automatically removed."
-msgstr ""
-"Limita la cantidad de preferencias sobre tablas que serán almacenadas en la "
-"base de datos, las más antiguas serán eliminadas automáticamente."
-
-#: libraries/classes/Config/Descriptions.php:705
+#: libraries/classes/Config/Descriptions.php:907
 msgid "Maximal number of table preferences to store"
 msgstr "Número máximo de preferencias sobre tablas a almacenar"
 
-#: libraries/classes/Config/Descriptions.php:706
+#: libraries/classes/Config/Descriptions.php:908
 msgid "QBE saved searches table"
 msgstr "Tabla QBE de búsquedas guardadas"
 
-#: libraries/classes/Config/Descriptions.php:708
-msgid ""
-"Leave blank for no QBE saved searches support, suggested: "
-"[kbd]pma__savedsearches[/kbd]."
-msgstr ""
-"Dejar en blanco para omitir la compatibilidad con búsquedas guardadas QBE, "
-"sugerido: [kbd]pma__savedsearches[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:711
+#: libraries/classes/Config/Descriptions.php:909
 msgid "Export templates table"
 msgstr "Exportar tabla de plantillas"
 
-#: libraries/classes/Config/Descriptions.php:713
-msgid ""
-"Leave blank for no export template support, suggested: "
-"[kbd]pma__export_templates[/kbd]."
-msgstr ""
-"Dejar en blanco para evitar exportar el soporte de plantilla, sugerido: "
-"[kbd]pma__export_templates[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:716
+#: libraries/classes/Config/Descriptions.php:910
 msgid "Central columns table"
 msgstr "Tabla de columnas centrales"
 
-#: libraries/classes/Config/Descriptions.php:718
-msgid ""
-"Leave blank for no central columns support, suggested: "
-"[kbd]pma__central_columns[/kbd]."
-msgstr ""
-"Dejar en blanco para desactivar el soporte a las columnas centrales, "
-"sugerencia: [kbd]pma__table_coords[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:722
-msgid ""
-"You can use MySQL wildcard characters (% and _), escape them if you want to "
-"use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
-"[kbd]'my_db'[/kbd]."
-msgstr ""
-"Puede usar caracteres comodín MySQL (% y _), y usar caracteres de escape si "
-"desea usar sus instancias literales, es decir, use [kbd]'my\\_db'[/kbd] y no "
-"[kbd]'my_db'[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:726
+#: libraries/classes/Config/Descriptions.php:911
 msgid "Show only listed databases"
 msgstr "Muestre solamente las bases de datos listadas"
 
-#: libraries/classes/Config/Descriptions.php:727
-#: libraries/classes/Config/Descriptions.php:832
-msgid "Leave empty if not using config auth."
-msgstr "Deje vacío si no está usando config auth."
-
-#: libraries/classes/Config/Descriptions.php:728
+#: libraries/classes/Config/Descriptions.php:912
 msgid "Password for config auth"
 msgstr "Contraseña para config auth"
 
-#: libraries/classes/Config/Descriptions.php:730
-msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
-msgstr ""
-"Dejar en blanco para evitar soporte para esquema en PDF, sugerido: "
-"[kbd]pma__pdf_pages[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:732
+#: libraries/classes/Config/Descriptions.php:913
 msgid "PDF schema: pages table"
 msgstr "Esquema de PDF: tabla de páginas"
 
-#: libraries/classes/Config/Descriptions.php:734
-msgid ""
-"Database used for relations, bookmarks, and PDF features. See [doc@linked-"
-"tables]pmadb[/doc] for complete information. Leave blank for no support. "
-"Suggested: [kbd]phpmyadmin[/kbd]."
-msgstr ""
-"Base de datos usada para relaciones, favoritos, y características de los "
-"PDF. Ver [doc@linked-tables]pmadb[/doc] para información completa. Deje en "
-"blanco para que no exista soporte. Predeterminado: [kbd]phpmyadmin[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:738
+#: libraries/classes/Config/Descriptions.php:914
 #: templates/database/operations/index.twig:127
 #: templates/server/databases/index.twig:37
 msgid "Database name"
 msgstr "Nombre de la base de datos"
 
-#: libraries/classes/Config/Descriptions.php:739
-msgid "Port on which MySQL server is listening, leave empty for default."
-msgstr ""
-"El puerto al cual ha sido asociado el servidor MySQL, deje vacío para usar "
-"el predeterminado."
-
-#: libraries/classes/Config/Descriptions.php:740
+#: libraries/classes/Config/Descriptions.php:915
 msgid "Server port"
 msgstr "Puerto del servidor"
 
-#: libraries/classes/Config/Descriptions.php:742
-msgid ""
-"Leave blank for no \"persistent\" recently used tables across sessions, "
-"suggested: [kbd]pma__recent[/kbd]."
-msgstr ""
-"Deje en blanco para eliminar la \"persistencia\" de las tablas recientemente "
-"utilizadas entre sesiones, valor sugerido: [kbd]pma__recent[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:745
+#: libraries/classes/Config/Descriptions.php:916
 msgid "Recently used table"
 msgstr "Tabla recientemente utilizada"
 
-#: libraries/classes/Config/Descriptions.php:747
-msgid ""
-"Leave blank for no \"persistent\" favorite tables across sessions, "
-"suggested: [kbd]pma__favorite[/kbd]."
-msgstr ""
-"Deje en blanco para evitar conservar de manera \"persistente\" sus tablas "
-"favoritas, valor sugerido: [kbd]pma__recent[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:750
+#: libraries/classes/Config/Descriptions.php:917
 msgid "Favorites table"
 msgstr "Tablas favoritas"
 
-#: libraries/classes/Config/Descriptions.php:752
-msgid ""
-"Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
-"[kbd]pma__relation[/kbd]."
-msgstr ""
-"Deje en blanco para no dar soporte a [doc@relations@]relation-links[/doc], "
-"sugerida: [kbd]pma__relation[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:756
+#: libraries/classes/Config/Descriptions.php:918
 msgid "Relation table"
 msgstr "Tabla de relaciones"
 
-#: libraries/classes/Config/Descriptions.php:758
-msgid ""
-"See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"Ver [doc@authentication-modes]tipos de autenticación[/doc] para conocer un "
-"ejemplo."
-
-#: libraries/classes/Config/Descriptions.php:761
+#: libraries/classes/Config/Descriptions.php:919
 msgid "Signon session name"
 msgstr "Nombre de la sesión al signon"
 
-#: libraries/classes/Config/Descriptions.php:762
+#: libraries/classes/Config/Descriptions.php:920
 msgid "Signon URL"
 msgstr "URL de signon"
 
-#: libraries/classes/Config/Descriptions.php:763
-msgid "Socket on which MySQL server is listening, leave empty for default."
-msgstr ""
-"El puerto escuchado por el servidor MySQL, deje vacío para usar los valores "
-"predeterminados."
-
-#: libraries/classes/Config/Descriptions.php:764
+#: libraries/classes/Config/Descriptions.php:921
 msgid "Server socket"
 msgstr "Puerto del servidor"
 
-#: libraries/classes/Config/Descriptions.php:765
-msgid "Enable SSL for connection to MySQL server."
-msgstr "Habilitar SSL para conexión con el servidor SQL."
-
-#: libraries/classes/Config/Descriptions.php:766
+#: libraries/classes/Config/Descriptions.php:922
 msgid "Use SSL"
 msgstr "Usar SSL"
 
-#: libraries/classes/Config/Descriptions.php:768
-msgid ""
-"Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
-"kbd]."
-msgstr ""
-"Dejar en blanco para evitar soporte de esquema en PDF, sugerido: "
-"[kbd]pma__table_coords[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:770
+#: libraries/classes/Config/Descriptions.php:923
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Esquema en PDF y diseñador: tabla de coordenadas"
 
-#: libraries/classes/Config/Descriptions.php:772
-msgid ""
-"Table to describe the display columns, leave blank for no support; "
-"suggested: [kbd]pma__table_info[/kbd]."
-msgstr ""
-"Tabla para describir la presentación de las celdas, deje en blanco para "
-"quitar soporte, sugerido: [kbd]pma__table_info[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:775
+#: libraries/classes/Config/Descriptions.php:924
 msgid "Display columns table"
 msgstr "Mostrar tabla de columnas"
 
-#: libraries/classes/Config/Descriptions.php:777
-msgid ""
-"Leave blank for no \"persistent\" tables' UI preferences across sessions, "
-"suggested: [kbd]pma__table_uiprefs[/kbd]."
-msgstr ""
-"Deje en blanco para eliminar la «persistencia» de las preferencias de "
-"interfaz de tablas entre sesiones, valor sugerido: [kbd]pma__table_uiprefs[/"
-"kbd]."
-
-#: libraries/classes/Config/Descriptions.php:780
+#: libraries/classes/Config/Descriptions.php:925
 msgid "UI preferences table"
 msgstr "Preferencias de interfaz de tablas"
 
-#: libraries/classes/Config/Descriptions.php:782
-msgid ""
-"Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
-"the log when creating a database."
-msgstr ""
-"Si se incluye la sentencia DROP DATABASE IF EXISTS como primera línea del "
-"registro al crear una base de datos o no."
-
-#: libraries/classes/Config/Descriptions.php:785
+#: libraries/classes/Config/Descriptions.php:926
 msgid "Add DROP DATABASE"
 msgstr "Agregar DROP DATABASE"
 
-#: libraries/classes/Config/Descriptions.php:787
-msgid ""
-"Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
-"log when creating a table."
-msgstr ""
-"Si se incluye la sentencia DROP TABLE IF EXISTS como primera línea del "
-"registro al crear una tabla."
-
-#: libraries/classes/Config/Descriptions.php:790
+#: libraries/classes/Config/Descriptions.php:927
 #: templates/database/structure/copy_form.twig:34
 msgid "Add DROP TABLE"
 msgstr "Agregar DROP TABLE"
 
-#: libraries/classes/Config/Descriptions.php:792
-msgid ""
-"Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
-"log when creating a view."
-msgstr ""
-"Si se incluye la sentencia DROP VIEW IF EXISTS como primera línea del "
-"registro al crear una vista."
-
-#: libraries/classes/Config/Descriptions.php:795
+#: libraries/classes/Config/Descriptions.php:928
 msgid "Add DROP VIEW"
 msgstr "Agregar DROP VIEW"
 
-#: libraries/classes/Config/Descriptions.php:797
-msgid "Defines the list of statements the auto-creation uses for new versions."
-msgstr ""
-"Definir la lista de sentencias que la creación automática usa para nuevas "
-"versiones."
-
-#: libraries/classes/Config/Descriptions.php:799
+#: libraries/classes/Config/Descriptions.php:929
 msgid "Statements to track"
 msgstr "Sentencias a hacer seguimiento"
 
-#: libraries/classes/Config/Descriptions.php:801
-msgid ""
-"Leave blank for no SQL query tracking support, suggested: "
-"[kbd]pma__tracking[/kbd]."
-msgstr ""
-"Deje en blanco para eliminar soporte de seguimiento de consultas SQL, valor "
-"sugerido: [kbd]pma__tracking[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:804
+#: libraries/classes/Config/Descriptions.php:930
 msgid "SQL query tracking table"
 msgstr "Tabla de seguimiento de consultas SQL"
 
-#: libraries/classes/Config/Descriptions.php:806
-msgid ""
-"Whether the tracking mechanism creates versions for tables and views "
-"automatically."
-msgstr ""
-"Si el mecanismo de seguimiento crea versiones para tablas y vistas "
-"automáticamente o no."
-
-#: libraries/classes/Config/Descriptions.php:809
+#: libraries/classes/Config/Descriptions.php:931
 msgid "Automatically create versions"
 msgstr "Crear versiones automáticamente"
 
-#: libraries/classes/Config/Descriptions.php:811
-msgid ""
-"Leave blank for no user preferences storage in database, suggested: "
-"[kbd]pma__userconfig[/kbd]."
-msgstr ""
-"Deje en blanco para evitar el almacenamiento de preferencias en la base de "
-"datos, valor sugerido: [kbd]pma__userconfig[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:814
+#: libraries/classes/Config/Descriptions.php:932
 msgid "User preferences storage table"
 msgstr "Tabla de almacenamiento de preferencias de usuario"
 
-#: libraries/classes/Config/Descriptions.php:816
-msgid ""
-"Both this table and the user groups table are required to enable the "
-"configurable menus feature; leaving either one of them blank will disable "
-"this feature, suggested: [kbd]pma__users[/kbd]."
-msgstr ""
-"Esta tabla y la tabla de grupos de usuario son necesarias para activar la "
-"característica de menús configurables; dejar en blanco cada uno de ellos, "
-"deshabilitará esta característica, sugerido: [kbd]pma__users[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:820
+#: libraries/classes/Config/Descriptions.php:933
 msgid "Users table"
 msgstr "Tabla de usuarios"
 
-#: libraries/classes/Config/Descriptions.php:822
-msgid ""
-"Both this table and the users table are required to enable the configurable "
-"menus feature; leaving either one of them blank will disable this feature, "
-"suggested: [kbd]pma__usergroups[/kbd]."
-msgstr ""
-"Son necesarias tanto esta tabla como la de usuarios para activar los menúes "
-"personalizables; dejar cualquiera de ellas en blanco desactivará esta "
-"funcionalidad; valor sugerido: [kbd]pma__usergroups[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:826
+#: libraries/classes/Config/Descriptions.php:934
 msgid "User groups table"
 msgstr "Usar la tabla de groupos («groups»)"
 
-#: libraries/classes/Config/Descriptions.php:828
-msgid ""
-"Leave blank to disable the feature to hide and show navigation items, "
-"suggested: [kbd]pma__navigationhiding[/kbd]."
-msgstr ""
-"Deje en blanco para desactivar la funcionalidad para mostrar y ocultar los "
-"elementos de navegación, valor sugerido: [kbd]pma__navigationhiding[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:831
+#: libraries/classes/Config/Descriptions.php:935
 msgid "Hidden navigation items table"
 msgstr "Tabla de elementos de navegación ocultos"
 
-#: libraries/classes/Config/Descriptions.php:833
+#: libraries/classes/Config/Descriptions.php:936
 msgid "User for config auth"
 msgstr "Usuario para config auth"
 
-#: libraries/classes/Config/Descriptions.php:835
-msgid ""
-"A user-friendly description of this server. Leave blank to display the "
-"hostname instead."
-msgstr "Nombre del servidor donde el servidor SQL se está ejecutando."
-
-#: libraries/classes/Config/Descriptions.php:838
+#: libraries/classes/Config/Descriptions.php:937
 msgid "Verbose name of this server"
 msgstr "Nombre del servidor, forma extendida"
 
-#: libraries/classes/Config/Descriptions.php:839
-msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr ""
-"Si el usuario puede ver un botón \"mostrar todos (los registros)\" o no."
-
-#: libraries/classes/Config/Descriptions.php:840
+#: libraries/classes/Config/Descriptions.php:938
 msgid "Allow to display all the rows"
 msgstr "Permitir que se muestren todas las filas"
 
-#: libraries/classes/Config/Descriptions.php:842
-msgid ""
-"Please note that enabling this has no effect with [kbd]config[/kbd] "
-"authentication mode because the password is hard coded in the configuration "
-"file; this does not limit the ability to execute the same command directly."
-msgstr ""
-"Note que no tiene efecto en el modo de autenticación [kbd]config[/kbd] "
-"debido a que la contraseña está incluída en el archivo de configuración; "
-"esto no limita la capacidad de ejecutar la misma orden directamente."
-
-#: libraries/classes/Config/Descriptions.php:846
+#: libraries/classes/Config/Descriptions.php:939
 msgid "Show password change form"
 msgstr "Mostrar el formulario para cambio de contraseña"
 
-#: libraries/classes/Config/Descriptions.php:847
+#: libraries/classes/Config/Descriptions.php:940
 msgid "Show create database form"
 msgstr "Mostrar el formulario para crear una base de datos"
 
-#: libraries/classes/Config/Descriptions.php:848
-msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
-"Mostrar u ocultar una columna, mostrando los comentarios de todas las tablas."
-
-#: libraries/classes/Config/Descriptions.php:849
+#: libraries/classes/Config/Descriptions.php:941
 msgid "Show table comments"
 msgstr "Mostrar comentarios de la tabla"
 
-#: libraries/classes/Config/Descriptions.php:851
-msgid "Show or hide a column displaying the Creation timestamp for all tables."
-msgstr ""
-"Mostrar o esconder una columna con las marcas temporales de creación para "
-"todas las tablas."
-
-#: libraries/classes/Config/Descriptions.php:853
+#: libraries/classes/Config/Descriptions.php:942
 msgid "Show creation timestamp"
 msgstr "Mostrar marca temporal de creación"
 
-#: libraries/classes/Config/Descriptions.php:855
-msgid ""
-"Show or hide a column displaying the Last update timestamp for all tables."
-msgstr ""
-"Mostrar o esconder una columna con la marca temporal de la última "
-"actualización para todas las tablas."
-
-#: libraries/classes/Config/Descriptions.php:857
+#: libraries/classes/Config/Descriptions.php:943
 msgid "Show last update timestamp"
 msgstr "Mostrar marca temporal de la última actualización"
 
-#: libraries/classes/Config/Descriptions.php:859
-msgid ""
-"Show or hide a column displaying the Last check timestamp for all tables."
-msgstr ""
-"Mostrar o esconder una columna con la marca temporal de la última revisión "
-"para todas las tablas."
-
-#: libraries/classes/Config/Descriptions.php:861
+#: libraries/classes/Config/Descriptions.php:944
 msgid "Show last check timestamp"
 msgstr "Mostrar marca temporal de la última revisión"
 
-#: libraries/classes/Config/Descriptions.php:862
-msgid "Show or hide a column displaying the charset for all tables."
-msgstr ""
-"Mostrar u ocultar una columna, mostrando conjunto de caracteres de todas las "
-"tablas."
-
-#: libraries/classes/Config/Descriptions.php:863
+#: libraries/classes/Config/Descriptions.php:945
 msgid "Show table charset"
 msgstr "Mostrar conjunto de caracteres de la tabla"
 
-#: libraries/classes/Config/Descriptions.php:865
-msgid ""
-"Defines whether or not type fields should be initially displayed in edit/"
-"insert mode."
-msgstr ""
-"Si inicialmente se muestran los campos de tipo en el modo de edición/"
-"inserción o no."
-
-#: libraries/classes/Config/Descriptions.php:868
+#: libraries/classes/Config/Descriptions.php:946
 msgid "Show field types"
 msgstr "Mostrar tipo de campos"
 
-#: libraries/classes/Config/Descriptions.php:869
-msgid "Display the function fields in edit/insert mode."
-msgstr "Mostrar campos de función en el modo de edición/inserción."
-
-#: libraries/classes/Config/Descriptions.php:870
+#: libraries/classes/Config/Descriptions.php:947
 msgid "Show function fields"
 msgstr "Mostrar los campos de función"
 
-#: libraries/classes/Config/Descriptions.php:871
-msgid "Whether to show hint or not."
-msgstr "Si mostrar ayudas o no."
-
-#: libraries/classes/Config/Descriptions.php:872
+#: libraries/classes/Config/Descriptions.php:948
 msgid "Show hint"
 msgstr "Mostrar ayudas"
 
-#: libraries/classes/Config/Descriptions.php:874
-msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
-"output."
-msgstr ""
-"Mostrar enlace a [a@https://php.net/manual/es/function.phpinfo.php]phpinfo()"
-"[/a]."
-
-#: libraries/classes/Config/Descriptions.php:877
+#: libraries/classes/Config/Descriptions.php:949
 msgid "Show phpinfo() link"
 msgstr "Mostrar el enlace phpinfo()"
 
-#: libraries/classes/Config/Descriptions.php:878
+#: libraries/classes/Config/Descriptions.php:950
 msgid "Show detailed MySQL server information"
 msgstr "Mostrar información detallada acerca del servidor SQL"
 
-#: libraries/classes/Config/Descriptions.php:879
-msgid ""
-"Defines whether SQL queries generated by phpMyAdmin should be displayed."
-msgstr ""
-"Define si los enunciados SQL generados por phpMyAdmin se deben mostrar."
-
-#: libraries/classes/Config/Descriptions.php:880
+#: libraries/classes/Config/Descriptions.php:951
 msgid "Show SQL queries"
 msgstr "Mostrar las consultas SQL"
 
-#: libraries/classes/Config/Descriptions.php:881
-msgid ""
-"Defines whether the query box should stay on-screen after its submission."
-msgstr "Define si la consulta se mostrará aún después de enviar el formulario."
-
-#: libraries/classes/Config/Descriptions.php:882 templates/sql/query.twig:120
+#: libraries/classes/Config/Descriptions.php:952 templates/sql/query.twig:120
 msgid "Retain query box"
 msgstr "Mantener la caja de texto con la consulta"
 
-#: libraries/classes/Config/Descriptions.php:883
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
-msgid "Allow to display database and table statistics (e.g. space usage)."
-msgstr ""
-"Permitir mostrar estadísiticas de base de datos y tablas (por ejemplo uso de "
-"espacio)."
-
-#: libraries/classes/Config/Descriptions.php:884
+#: libraries/classes/Config/Descriptions.php:953
 msgid "Show statistics"
 msgstr "Mostrar estadísticas"
 
-#: libraries/classes/Config/Descriptions.php:886
-msgid ""
-"Mark used tables and make it possible to show databases with locked tables."
-msgstr ""
-"Marcar tablas usadas y hacer posible el mostrar bases de datos con tablas "
-"bloqueadas."
-
-#: libraries/classes/Config/Descriptions.php:888
+#: libraries/classes/Config/Descriptions.php:954
 msgid "Skip locked tables"
 msgstr "Saltarse las tablas bloqueadas"
 
-#: libraries/classes/Config/Descriptions.php:889
+#: libraries/classes/Config/Descriptions.php:955
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3213
+#: libraries/classes/Display/Results.php:3215
 #: libraries/classes/Html/Generator.php:684
 #: libraries/classes/Html/Generator.php:946
 #: libraries/classes/Server/UserGroups.php:125
@@ -4228,12 +4400,12 @@ msgstr "Saltarse las tablas bloqueadas"
 msgid "Edit"
 msgstr "Editar"
 
-#: libraries/classes/Config/Descriptions.php:890
+#: libraries/classes/Config/Descriptions.php:956
 #: libraries/classes/Html/Generator.php:648
 msgid "Explain SQL"
 msgstr "Explicar SQL"
 
-#: libraries/classes/Config/Descriptions.php:891
+#: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Export.php:604 libraries/classes/Html/Generator.php:728
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
@@ -4241,67 +4413,28 @@ msgstr "Explicar SQL"
 msgid "Refresh"
 msgstr "Actualizar"
 
-#: libraries/classes/Config/Descriptions.php:892
+#: libraries/classes/Config/Descriptions.php:958
 #: libraries/classes/Html/Generator.php:713
 msgid "Create PHP code"
 msgstr "Crear código PHP"
 
-#: libraries/classes/Config/Descriptions.php:894
-msgid ""
-"Disable the default warning that is displayed on the main page if Suhosin is "
-"detected."
-msgstr ""
-"Desactivar el aviso predeterminado que se muestra en la página principal, si "
-"se detecta Suhosin."
-
-#: libraries/classes/Config/Descriptions.php:897
+#: libraries/classes/Config/Descriptions.php:959
 msgid "Suhosin warning"
 msgstr "Advertencia Suhosin"
 
-#: libraries/classes/Config/Descriptions.php:899
-msgid ""
-"Disable the default warning that is displayed on the main page if the value "
-"of the PHP setting session.gc_maxlifetime is less than the value of "
-"`LoginCookieValidity`."
-msgstr ""
-"Desactivar la advertencia predeterminada que se muestra en la página de "
-"Estructura si algún nombre de columna en una tabla es una palabra reservada "
-"de MySQL."
-
-#: libraries/classes/Config/Descriptions.php:903
+#: libraries/classes/Config/Descriptions.php:960
 msgid "Login cookie validity warning"
 msgstr "ADVERTENCIA de inicio de sesión cookie validez"
 
-#: libraries/classes/Config/Descriptions.php:905
-msgid ""
-"Textarea size (columns) in edit mode, this value will be emphasized for SQL "
-"query textareas (*2)."
-msgstr ""
-"Tamaño (en columnas) del área de texto en el modo de edición, este valor "
-"será aumentado en áreas de texto para consultas SQL (x2)."
-
-#: libraries/classes/Config/Descriptions.php:908
+#: libraries/classes/Config/Descriptions.php:961
 msgid "Textarea columns"
 msgstr "Columnas para las áreas de texto"
 
-# See translation string 813
-#: libraries/classes/Config/Descriptions.php:910
-msgid ""
-"Textarea size (rows) in edit mode, this value will be emphasized for SQL "
-"query textareas (*2)."
-msgstr ""
-"Tamaño (en filas) del área de texto en el modo de edición, este valor será "
-"aumentado en áreas de texto para consultas SQL (x2)."
-
-#: libraries/classes/Config/Descriptions.php:913
+#: libraries/classes/Config/Descriptions.php:962
 msgid "Textarea rows"
 msgstr "Filas para áreas de texto"
 
-#: libraries/classes/Config/Descriptions.php:914
-msgid "Title of browser window when a database is selected."
-msgstr "Título de la ventana al seleccionar una base de datos."
-
-#: libraries/classes/Config/Descriptions.php:915
+#: libraries/classes/Config/Descriptions.php:963
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:159
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
@@ -4324,28 +4457,16 @@ msgstr "Título de la ventana al seleccionar una base de datos."
 msgid "Database"
 msgstr "Base de datos"
 
-#: libraries/classes/Config/Descriptions.php:916
-msgid "Title of browser window when nothing is selected."
-msgstr "Título de la ventana cuando no hay nada seleccionado."
-
-#: libraries/classes/Config/Descriptions.php:917
+#: libraries/classes/Config/Descriptions.php:964
 msgid "Default title"
 msgstr "Título predeterminado"
 
-#: libraries/classes/Config/Descriptions.php:918
-msgid "Title of browser window when a server is selected."
-msgstr "Título de la ventana cuando se ha seleccionado un servidor."
-
-#: libraries/classes/Config/Descriptions.php:919
+#: libraries/classes/Config/Descriptions.php:965
 #: templates/server/status/base.twig:6
 msgid "Server"
 msgstr "Servidor"
 
-#: libraries/classes/Config/Descriptions.php:920
-msgid "Title of browser window when a table is selected."
-msgstr "Título de la ventana cuando se ha seleccionado un tabla."
-
-#: libraries/classes/Config/Descriptions.php:921
+#: libraries/classes/Config/Descriptions.php:966
 #: libraries/classes/Database/Triggers.php:397
 #: libraries/classes/Plugins/Export/ExportXml.php:521
 #: libraries/classes/Server/Privileges.php:1951
@@ -4368,254 +4489,134 @@ msgstr "Título de la ventana cuando se ha seleccionado un tabla."
 msgid "Table"
 msgstr "Tabla"
 
-#: libraries/classes/Config/Descriptions.php:923
-msgid ""
-"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
-"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
-"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-"HTTP_X_FORWARDED_FOR[/kbd]."
-msgstr ""
-"Introduzca proxies de la forma [kbd]IP: cabecera HTTP confiable[/kbd]. El "
-"siguiente ejemplo especifica que phpMyAdmin debe confiar una cabecera "
-"HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente del proxy 1.2.3.4:[br]"
-"[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
-
-#: libraries/classes/Config/Descriptions.php:928
+#: libraries/classes/Config/Descriptions.php:967
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Listado de proxies de confianza para autorización/bloqueo de IP"
 
-#: libraries/classes/Config/Descriptions.php:929
-msgid "Directory on server where you can upload files for import."
-msgstr "Directorio en el servidor donde puede subir archivos para importar."
-
-#: libraries/classes/Config/Descriptions.php:930
+#: libraries/classes/Config/Descriptions.php:968
 msgid "Upload directory"
 msgstr "Directorio desde donde se cargarán los archivos"
 
-#: libraries/classes/Config/Descriptions.php:931
-msgid "Allow for searching inside the entire database."
-msgstr "Permite hacer una búsqueda dentro de toda la base de datos."
-
-#: libraries/classes/Config/Descriptions.php:932
+#: libraries/classes/Config/Descriptions.php:969
 msgid "Use database search"
 msgstr "Use búsquedas en la base de datos"
 
-#: libraries/classes/Config/Descriptions.php:934
-msgid ""
-"When disabled, users cannot set any of the options below, regardless of the "
-"checkbox on the right."
-msgstr ""
-"Cuando esta desactivado, los usuarios no pueden establecer ninguna de las "
-"opciones situadas más abajo, sin importar la casilla de la derecha."
-
 # see translation string 529
-#: libraries/classes/Config/Descriptions.php:937
+#: libraries/classes/Config/Descriptions.php:970
 msgid "Enable the Developer tab in settings"
 msgstr "Habilitar la pestaña Desarrolladores en la configuración"
 
-#: libraries/classes/Config/Descriptions.php:938
-msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr ""
-"Habilita la verificación de la última versión en la página principal de "
-"phpMyAdmin."
-
-#: libraries/classes/Config/Descriptions.php:939
+#: libraries/classes/Config/Descriptions.php:971
 #: libraries/classes/Setup/Index.php:132 libraries/classes/Setup/Index.php:156
 #: libraries/classes/Setup/Index.php:170 libraries/classes/Setup/Index.php:183
 #: libraries/classes/Setup/Index.php:192 libraries/classes/Setup/Index.php:200
 msgid "Version check"
 msgstr "Revise la versión"
 
-#: libraries/classes/Config/Descriptions.php:941
-msgid ""
-"The url of the proxy to be used when retrieving the information about the "
-"latest version of phpMyAdmin or when submitting error reports. You need this "
-"if the server where phpMyAdmin is installed does not have direct access to "
-"the internet. The format is: \"hostname:portnumber\"."
-msgstr ""
-"La URL del proxy a utilizar para obtener información sobre la última versión "
-"de phpMyAdmin o al enviar reportes de error. Lo necesitará si el servidor en "
-"el que está instalado phpMyAdmin no tiene acceso directo a internet. El "
-"formato es: \"servidor:puerto\"."
-
-#: libraries/classes/Config/Descriptions.php:946
+#: libraries/classes/Config/Descriptions.php:972
 msgid "Proxy url"
 msgstr "URL de proxy"
 
-#: libraries/classes/Config/Descriptions.php:948
-msgid ""
-"The username for authenticating with the proxy. By default, no "
-"authentication is performed. If a username is supplied, Basic Authentication "
-"will be performed. No other types of authentication are currently supported."
-msgstr ""
-"El nombre de usuario para autenticar con el proxy. De forma predeterminada, "
-"no se realiza autenticación. Si provee un nombre de usuario, se realizará "
-"una autenticación básica. Actualmente no se posee compatibilidad con otros "
-"tipos de autenticación."
-
-#: libraries/classes/Config/Descriptions.php:953
+#: libraries/classes/Config/Descriptions.php:973
 msgid "Proxy username"
 msgstr "Nombre de usuario del proxy"
 
-#: libraries/classes/Config/Descriptions.php:954
-msgid "The password for authenticating with the proxy."
-msgstr "La contraseña para autenticar con el proxy."
-
-#: libraries/classes/Config/Descriptions.php:955
+#: libraries/classes/Config/Descriptions.php:974
 msgid "Proxy password"
 msgstr "Contraseña del proxy"
 
-#: libraries/classes/Config/Descriptions.php:957
-msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Habilitar compresión ZIP para las operaciones de importación y exportación."
-
-#: libraries/classes/Config/Descriptions.php:958
+#: libraries/classes/Config/Descriptions.php:975
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
-msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "Introduzca su llave privada para el servicio reCaptcha de su dominio."
-
-#: libraries/classes/Config/Descriptions.php:960
+#: libraries/classes/Config/Descriptions.php:976
 msgid "URL for reCaptcha v2 API"
 msgstr "URL para la API de reCaptcha v2"
 
-#: libraries/classes/Config/Descriptions.php:961
-msgid ""
-"Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
-"API."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:962
+#: libraries/classes/Config/Descriptions.php:977
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:963
-msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:964
+#: libraries/classes/Config/Descriptions.php:978
 msgid "Request parameter for reCaptcha v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:965
-msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:966
+#: libraries/classes/Config/Descriptions.php:979
 msgid "Response parameter for reCaptcha v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:967
-msgid "Enter your public key for your domain reCaptcha service."
-msgstr "Introduzca su llave pública para el servicio reCaptcha de su dominio."
-
-#: libraries/classes/Config/Descriptions.php:968
+#: libraries/classes/Config/Descriptions.php:980
 msgid "Public key for reCaptcha"
 msgstr "Llave púlica para reCaptcha"
 
-#: libraries/classes/Config/Descriptions.php:969
-msgid "Enter your private key for your domain reCaptcha service."
-msgstr "Introduzca su llave privada para el servicio reCaptcha de su dominio."
-
-#: libraries/classes/Config/Descriptions.php:970
+#: libraries/classes/Config/Descriptions.php:981
 msgid "Private key for reCaptcha"
 msgstr "Llave privada para reCaptcha"
 
-#: libraries/classes/Config/Descriptions.php:971
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
-msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr "Introduzca su llave privada para el servicio reCaptcha de su dominio."
-
-#: libraries/classes/Config/Descriptions.php:972
+#: libraries/classes/Config/Descriptions.php:982
 msgid "URL for reCaptcha siteverify"
 msgstr "URL para la verificación de reCaptcha"
 
-#: libraries/classes/Config/Descriptions.php:974
-msgid "Choose the default action when sending error reports."
-msgstr "Elija la acción predefinida en el envio de reportes de error."
-
-#: libraries/classes/Config/Descriptions.php:975
+#: libraries/classes/Config/Descriptions.php:983
 msgid "Send error reports"
 msgstr "Enviar reportes de error"
 
-#: libraries/classes/Config/Descriptions.php:978
-msgid ""
-"Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
-"will be inserted with Shift+Enter."
-msgstr ""
-"Las consultas se ejecutan pulsando Enter (en lugar de Ctrl+Enter). Las "
-"nuevas líneas se insertarán con Shift+Enter."
-
-#: libraries/classes/Config/Descriptions.php:981
+#: libraries/classes/Config/Descriptions.php:984
 msgid "Enter executes queries in console"
 msgstr "Ingrese ejecución de consultas en consola"
 
-#: libraries/classes/Config/Descriptions.php:984
-msgid ""
-"Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
-"storage tables automatically."
-msgstr ""
-"Activar el modo de «Configuración Zero» que le permite definir las tablas "
-"del almacenamiento de configuración de phpMyAdmin automáticamente."
-
-#: libraries/classes/Config/Descriptions.php:987
+#: libraries/classes/Config/Descriptions.php:985
 msgid "Enable Zero Configuration mode"
 msgstr "Activar modo «Configuración Zero»"
 
-#: libraries/classes/Config/Descriptions.php:988
+#: libraries/classes/Config/Descriptions.php:986
 #: templates/console/display.twig:153
 msgid "Show query history at start"
 msgstr "Mostrar histórico de consultas al iniciar"
 
-#: libraries/classes/Config/Descriptions.php:989
+#: libraries/classes/Config/Descriptions.php:987
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
 msgstr "Siempre expandir mensajes de consultas"
 
-#: libraries/classes/Config/Descriptions.php:990
+#: libraries/classes/Config/Descriptions.php:988
 #: templates/console/display.twig:157
 msgid "Show current browsing query"
 msgstr "Mostrar consulta de navegación actual"
 
-#: libraries/classes/Config/Descriptions.php:991
+#: libraries/classes/Config/Descriptions.php:989
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
 "Ejecute consultas con Enter e introduce la nueva línea con Shift + Enter"
 
-#: libraries/classes/Config/Descriptions.php:992
+#: libraries/classes/Config/Descriptions.php:990
 #: templates/console/display.twig:168
 msgid "Switch to dark theme"
 msgstr "Cambiar al tema oscuro"
 
-#: libraries/classes/Config/Descriptions.php:993
+#: libraries/classes/Config/Descriptions.php:991
 msgid "Console height"
 msgstr "Altura de la consola"
 
-#: libraries/classes/Config/Descriptions.php:994
+#: libraries/classes/Config/Descriptions.php:992
 msgid "Console mode"
 msgstr "Modo de la consola"
 
-#: libraries/classes/Config/Descriptions.php:995
+#: libraries/classes/Config/Descriptions.php:993
 #: templates/console/display.twig:64
 msgid "Group queries"
 msgstr "Consultas grupales"
 
-#: libraries/classes/Config/Descriptions.php:996
+#: libraries/classes/Config/Descriptions.php:994
 #: templates/sql/profiling_chart.twig:9
 msgid "Order"
 msgstr "Orden"
 
-#: libraries/classes/Config/Descriptions.php:997
+#: libraries/classes/Config/Descriptions.php:995
 msgid "Order by"
 msgstr "Ordenar por"
 
-#: libraries/classes/Config/Descriptions.php:998
+#: libraries/classes/Config/Descriptions.php:996
 msgid "Server connection collation"
 msgstr "Cotejamiento de la conexión al servidor"
 
@@ -5311,7 +5312,7 @@ msgid "Table %s has been emptied."
 msgstr "Se ha vaciado la tabla %s."
 
 #: libraries/classes/Controllers/Database/StructureController.php:795
-#: libraries/classes/Display/Results.php:4427
+#: libraries/classes/Display/Results.php:4429
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -6666,7 +6667,7 @@ msgid "Show query box"
 msgstr "Mostrar ventana de consultas SQL"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:390
-#: libraries/classes/Display/Results.php:3284
+#: libraries/classes/Display/Results.php:3286
 #: libraries/classes/Server/UserGroups.php:134
 #: libraries/classes/Tracking.php:258 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
@@ -6964,7 +6965,7 @@ msgid "Ignore"
 msgstr "Ignorar"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
-#: libraries/classes/Display/Results.php:3217
+#: libraries/classes/Display/Results.php:3219
 #: libraries/classes/Html/Generator.php:72
 #: templates/display/results/table.twig:214
 #: templates/display/results/table.twig:215
@@ -8580,7 +8581,7 @@ msgstr "La tabla %s ya existe!"
 #: libraries/classes/Controllers/Table/RelationController.php:273
 #: libraries/classes/Controllers/ViewOperationsController.php:84
 #: libraries/classes/Database/Routines.php:1481
-#: libraries/classes/Display/Results.php:4093 libraries/classes/Message.php:174
+#: libraries/classes/Display/Results.php:4095 libraries/classes/Message.php:174
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Su consulta se ejecutó con éxito."
@@ -8591,7 +8592,7 @@ msgstr "El nombre de la tabla no es válido"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:70
-#: libraries/classes/Controllers/TransformationWrapperController.php:110
+#: libraries/classes/Controllers/TransformationWrapperController.php:111
 #, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
@@ -9593,41 +9594,41 @@ msgstr "Descendente"
 msgid "Ascending"
 msgstr "Ascendente"
 
-#: libraries/classes/Display/Results.php:3260
-#: libraries/classes/Display/Results.php:3275
+#: libraries/classes/Display/Results.php:3262
+#: libraries/classes/Display/Results.php:3277
 msgid "The row has been deleted."
 msgstr "La fila se ha borrado."
 
-#: libraries/classes/Display/Results.php:3307
+#: libraries/classes/Display/Results.php:3309
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Matar el proceso"
 
-#: libraries/classes/Display/Results.php:4017
+#: libraries/classes/Display/Results.php:4019
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Podría ser aproximado. Ver [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4439
+#: libraries/classes/Display/Results.php:4441
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Mostrando filas %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4453
+#: libraries/classes/Display/Results.php:4455
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d en total, %2$d en la consulta"
 
-#: libraries/classes/Display/Results.php:4458
+#: libraries/classes/Display/Results.php:4460
 #, php-format
 msgid "%d total"
 msgstr "total de %d"
 
-#: libraries/classes/Display/Results.php:4470 libraries/classes/Sql.php:1039
+#: libraries/classes/Display/Results.php:4472 libraries/classes/Sql.php:1039
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "La consulta tardó %01.4f segundos."
 
-#: libraries/classes/Display/Results.php:4838
+#: libraries/classes/Display/Results.php:4840
 msgid "Link not found!"
 msgstr "¡No se encontró el enlace!"
 

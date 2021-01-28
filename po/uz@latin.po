@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-01-22 02:59+0100\n"
+"POT-Creation-Date: 2021-01-28 16:15+0100\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1757,7 +1757,13 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Jadval nomi"
 
-#: libraries/classes/Config/Descriptions.php:69
+#: libraries/classes/Config/Descriptions.php:58
+#: libraries/classes/Config/Descriptions.php:59
+#: libraries/classes/Config/Descriptions.php:60
+msgid "Users cannot set a higher value"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:68
 #, fuzzy
 #| msgid ""
 #| "If enabled user can enter any MySQL server in login form for cookie auth"
@@ -1768,39 +1774,20 @@ msgstr ""
 "formasiga istalgan MySQL-servernikiritishi mumkin"
 
 #: libraries/classes/Config/Descriptions.php:71
-msgid "Allow login to any MySQL server"
-msgstr "Istalgan MySQL-serverga login qilishga ruxsat berish"
-
-#: libraries/classes/Config/Descriptions.php:73
 msgid ""
 "Restricts the MySQL servers the user can enter when a login to an arbitrary "
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:77
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
-msgid "Restrict login to MySQL server"
-msgstr "MySQL serveriga ulanib bo‘lmadi"
-
-#: libraries/classes/Config/Descriptions.php:79
+#: libraries/classes/Config/Descriptions.php:76
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:83
-msgid "Allow third party framing"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:84
-msgid "Show \"Drop database\" link to normal users"
-msgstr ""
-"\"Ma`lumotlar bazasini o‘chirish\" bog‘ini foydalanuvchilarga ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:86
+#: libraries/classes/Config/Descriptions.php:81
 #, fuzzy
 #| msgid ""
 #| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
@@ -1812,29 +1799,7 @@ msgstr ""
 "[kbd]cookie[/kbd]-autentifikatsiya usulida cookie-larni shifrlash uchun "
 "ishlatiladigan sirli ibora"
 
-#: libraries/classes/Config/Descriptions.php:89
-msgid "Blowfish secret"
-msgstr "Sirli kalit so‘z (Blowfish)"
-
-#: libraries/classes/Config/Descriptions.php:90
-msgid "Highlight selected rows."
-msgstr "Tanlangan qatorlarni belgilash."
-
-#: libraries/classes/Config/Descriptions.php:91
-msgid "Row marker"
-msgstr "Qator markeri"
-
-#: libraries/classes/Config/Descriptions.php:92
-#, fuzzy
-#| msgid "Highlight row pointed by the mouse cursor"
-msgid "Highlight row pointed by the mouse cursor."
-msgstr "Sichqoncha kursori ko‘rsatib turgan qatorni belgilash"
-
-#: libraries/classes/Config/Descriptions.php:93
-msgid "Highlight pointer"
-msgstr "Ko‘rsatgichni belgilash"
-
-#: libraries/classes/Config/Descriptions.php:95
+#: libraries/classes/Config/Descriptions.php:85
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
@@ -1844,11 +1809,37 @@ msgstr ""
 "Import va eksport operatsiyalarida    [a@https://en.wikipedia.org/wiki/"
 "Bzip2]bzip2[/a] yordamida siqishni yoqish"
 
-#: libraries/classes/Config/Descriptions.php:98
-msgid "Bzip2"
-msgstr "Bzip2"
+#: libraries/classes/Config/Descriptions.php:88
+msgid "Enter the URL for your reCaptcha v2 compatible API."
+msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:100
+#: libraries/classes/Config/Descriptions.php:89
+msgid ""
+"Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
+"API."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:90
+msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:91
+msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:92
+msgid "Enter your public key for your domain reCaptcha service."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:93
+msgid "Enter your private key for your domain reCaptcha service."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:94
+msgid "Enter your siteverify URL for your reCaptcha service."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:96
 #, fuzzy
 #| msgid ""
 #| "ines which type of editing controls should be used for CHAR and CHAR "
@@ -1864,83 +1855,31 @@ msgstr ""
 "cheklashga imkon beradi, [kbd]textarea[/kbd] - maydonlarda bir necha "
 "qatorlar ishlatish imkonini beradi"
 
-#: libraries/classes/Config/Descriptions.php:104
-#, fuzzy
-#| msgid "CHAR fields editing"
-msgid "CHAR columns editing"
-msgstr "CHAR maydonlarini tahrirlash"
-
-#: libraries/classes/Config/Descriptions.php:106
+#: libraries/classes/Config/Descriptions.php:101
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:110
-msgid "Enable CodeMirror"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:112
+#: libraries/classes/Config/Descriptions.php:106
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:115
-#, fuzzy
-#| msgid "Enabled"
-msgid "Enable linter"
-msgstr "Faollashtirilgan"
-
-#: libraries/classes/Config/Descriptions.php:117
+#: libraries/classes/Config/Descriptions.php:110
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:120
-#, fuzzy
-#| msgid "Customize export options"
-msgid "Minimum size for input field"
-msgstr "Eksport tanlovlarini moslashtirish"
-
-#: libraries/classes/Config/Descriptions.php:122
+#: libraries/classes/Config/Descriptions.php:114
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:125
-#, fuzzy
-#| msgid "Maximum size for temporary sort files"
-msgid "Maximum size for input field"
-msgstr "Vaqtinchalik indeks fayllarining maksimal hajmi"
-
-#: libraries/classes/Config/Descriptions.php:126
-#, fuzzy
-#| msgid "Number of columns for CHAR/VARCHAR textareas"
-msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "CHAR/VARCHAR maydonlaridagi ustunlar soni"
-
-#: libraries/classes/Config/Descriptions.php:127
-msgid "CHAR textarea columns"
-msgstr "CHAR maydonidagi ustunlar soni"
-
-#: libraries/classes/Config/Descriptions.php:128
-#, fuzzy
-#| msgid "Number of rows for CHAR/VARCHAR textareas"
-msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "CHAR/VARCHAR maydonlaridagi qatorlar soni"
-
-#: libraries/classes/Config/Descriptions.php:129
-msgid "CHAR textarea rows"
-msgstr "CHAR maydonidagi qatorlar soni"
-
-#: libraries/classes/Config/Descriptions.php:130
-msgid "Check config file permissions"
-msgstr "Konfiguratsion faylning yozish ruxsatlarini tekshiring"
-
-#: libraries/classes/Config/Descriptions.php:132
+#: libraries/classes/Config/Descriptions.php:118
 #, fuzzy
 #| msgid ""
 #| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
@@ -1954,11 +1893,7 @@ msgstr ""
 "miqdordagi xotira talab etmaydi; agar Sizda gzip/bzip2 fayllari tuzishda "
 "muammo yuzaga kelsa, ushbu xususiyatni o‘chirib qo‘ying"
 
-#: libraries/classes/Config/Descriptions.php:135
-msgid "Compress on the fly"
-msgstr "Biryo‘la qisish"
-
-#: libraries/classes/Config/Descriptions.php:137
+#: libraries/classes/Config/Descriptions.php:122
 #, fuzzy
 #| msgid ""
 #| "Whether a warning (\"Are your really sure…\") should be displayed when "
@@ -1970,175 +1905,33 @@ msgstr ""
 "Ma`lumot yo‘qolishi mumkin bo‘lgan vaziyatlarda ogohlantirish (\"Siz "
 "haqiqatdan ham …\") ko‘rsatish kerakmi"
 
-#: libraries/classes/Config/Descriptions.php:140
-msgid "Confirm DROP queries"
-msgstr "DROP-so‘rovlarini tasdiqlash"
-
-#: libraries/classes/Config/Descriptions.php:141
-msgid ""
-"Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:142
-#: templates/console/display.twig:11 templates/console/display.twig:64
-msgid "Debug SQL"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:143
-#, fuzzy
-#| msgid "Tab that is displayed when entering a database"
-msgid "Tab that is displayed when entering a database."
-msgstr "Ma`lumotlar bazasiga kirishda ko‘rsatiladigan yorliq"
-
-#: libraries/classes/Config/Descriptions.php:144
-msgid "Default database tab"
-msgstr "Ma`lumotlar bazasi yorlig‘i"
-
-#: libraries/classes/Config/Descriptions.php:145
-#, fuzzy
-#| msgid "Tab that is displayed when entering a server"
-msgid "Tab that is displayed when entering a server."
-msgstr "Serverga kirishda ko‘rsatiladigan yorliq"
-
-#: libraries/classes/Config/Descriptions.php:146
-msgid "Default server tab"
-msgstr "Server yorlig‘i"
-
-#: libraries/classes/Config/Descriptions.php:147
-#, fuzzy
-#| msgid "Tab that is displayed when entering a table"
-msgid "Tab that is displayed when entering a table."
-msgstr "Jadvalga kirishda ko‘rsatiladigan yorliq"
-
-#: libraries/classes/Config/Descriptions.php:148
-msgid "Default table tab"
-msgstr "Jadval yorlig‘i"
-
-#: libraries/classes/Config/Descriptions.php:150
+#: libraries/classes/Config/Descriptions.php:126
 #, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr "Jadval va maydon nomlarini teskari qo‘shtirnoqqa olish"
 
-#: libraries/classes/Config/Descriptions.php:152
-#, fuzzy
-#| msgid "Enclose table and field names with backquotes"
-msgid "Enable autocomplete for table and column names"
-msgstr "Jadval va maydon nomlarini teskari qo‘shtirnoqqa olish"
-
+#: libraries/classes/Config/Descriptions.php:129
+#: libraries/classes/Config/Descriptions.php:133
+#: libraries/classes/Config/Descriptions.php:137
+#: libraries/classes/Config/Descriptions.php:141
+#: libraries/classes/Config/Descriptions.php:145
+#: libraries/classes/Config/Descriptions.php:149
 #: libraries/classes/Config/Descriptions.php:153
-#, fuzzy
-#| msgid "Propose table structure"
-msgid "Whether the table structure actions should be hidden."
-msgstr "Jadval tuzilishi tahlili"
-
-#: libraries/classes/Config/Descriptions.php:154
-#, fuzzy
-#| msgid "Table comments"
-msgid "Show column comments"
-msgstr "Jadval izohi"
-
-#: libraries/classes/Config/Descriptions.php:155
-msgid "Whether column comments should be shown in table structure view"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:156
-#, fuzzy
-#| msgid "Propose table structure"
-msgid "Hide table structure actions"
-msgstr "Jadval tuzilishi tahlili"
-
 #: libraries/classes/Config/Descriptions.php:157
-#, fuzzy
-#| msgid "Default sorting order"
-msgid "Default transformations for Hex"
-msgstr "Asl tartiblash qoidasi"
-
-#: libraries/classes/Config/Descriptions.php:159
-#: libraries/classes/Config/Descriptions.php:164
-#: libraries/classes/Config/Descriptions.php:169
-#: libraries/classes/Config/Descriptions.php:174
-#: libraries/classes/Config/Descriptions.php:179
-#: libraries/classes/Config/Descriptions.php:184
-#: libraries/classes/Config/Descriptions.php:189
-#: libraries/classes/Config/Descriptions.php:194
-#: libraries/classes/Config/Descriptions.php:199
+#: libraries/classes/Config/Descriptions.php:161
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:162
-#, fuzzy
-#| msgid "Transformation options"
-msgid "Default transformations for Substring"
-msgstr "O‘girishlar parametrlari"
-
-#: libraries/classes/Config/Descriptions.php:167
-#, fuzzy
-#| msgid "Default sorting order"
-msgid "Default transformations for Bool2Text"
-msgstr "Asl tartiblash qoidasi"
-
-#: libraries/classes/Config/Descriptions.php:172
-#, fuzzy
-#| msgid "Default sorting order"
-msgid "Default transformations for External"
-msgstr "Asl tartiblash qoidasi"
-
-#: libraries/classes/Config/Descriptions.php:177
-#, fuzzy
-#| msgid "Transformation options"
-msgid "Default transformations for PreApPend"
-msgstr "O‘girishlar parametrlari"
-
-#: libraries/classes/Config/Descriptions.php:182
-#, fuzzy
-#| msgid "Default sorting order"
-msgid "Default transformations for DateFormat"
-msgstr "Asl tartiblash qoidasi"
-
-#: libraries/classes/Config/Descriptions.php:187
-#, fuzzy
-#| msgid "Transformation options"
-msgid "Default transformations for Inline"
-msgstr "O‘girishlar parametrlari"
-
-#: libraries/classes/Config/Descriptions.php:192
-#, fuzzy
-#| msgid "Transformation options"
-msgid "Default transformations for TextImageLink"
-msgstr "O‘girishlar parametrlari"
-
-#: libraries/classes/Config/Descriptions.php:197
-#, fuzzy
-#| msgid "Transformation options"
-msgid "Default transformations for TextLink"
-msgstr "O‘girishlar parametrlari"
-
-#: libraries/classes/Config/Descriptions.php:203
-msgid "Show server listing as a list instead of a drop down."
-msgstr ""
-"Serverlar ro‘yxatini pastga tushadigan menyu o‘rniga oddiy ro‘yxat shaklida "
-"ko‘rsatish."
-
-#: libraries/classes/Config/Descriptions.php:204
-msgid "Display servers as a list"
-msgstr "Serverlar ro‘yxatini ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:206
+#: libraries/classes/Config/Descriptions.php:165
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:209
-#, fuzzy
-#| msgid "Table maintenance"
-msgid "Disable multi table maintenance"
-msgstr "Jadvalga xizmat ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:211
+#: libraries/classes/Config/Descriptions.php:169
 #, fuzzy
 #| msgid ""
 #| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
@@ -2150,341 +1943,13 @@ msgstr ""
 "Skript ishlashi mumkin bo‘lgan sekundlar soni (chegaramaslik uchun [kbd]0[/"
 "kbd] kiriting)"
 
-#: libraries/classes/Config/Descriptions.php:214
-msgid "Maximum execution time"
-msgstr "Maksimum bajarilish vaqti"
-
-#: libraries/classes/Config/Descriptions.php:216 templates/export.twig:293
-#, fuzzy, php-format
-#| msgid "Statements"
-msgid "Use %s statement"
-msgstr "Tavsif"
-
-#: libraries/classes/Config/Descriptions.php:219
-msgid "Save as file"
-msgstr "Fayl kabi saqlash"
-
-#: libraries/classes/Config/Descriptions.php:220
-#: libraries/classes/Config/Descriptions.php:430
-msgid "Character set of the file"
-msgstr "Fayl kodirovkasi"
-
-#: libraries/classes/Config/Descriptions.php:221
-#: libraries/classes/Config/Descriptions.php:237 templates/sql/query.twig:41
-#: templates/table/structure/display_table_stats.twig:84
-msgid "Format"
-msgstr "Format"
-
-#: libraries/classes/Config/Descriptions.php:222
-msgid "Compression"
-msgstr "Siqish"
-
-#: libraries/classes/Config/Descriptions.php:223
-#: libraries/classes/Config/Descriptions.php:230
-#: libraries/classes/Config/Descriptions.php:238
-#: libraries/classes/Config/Descriptions.php:242
-#: libraries/classes/Config/Descriptions.php:255
-#: libraries/classes/Config/Descriptions.php:257
-#: libraries/classes/Config/Descriptions.php:304
-#: libraries/classes/Plugins/Export/ExportCsv.php:91
-#: libraries/classes/Plugins/Export/ExportExcel.php:58
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:88
-#: libraries/classes/Plugins/Export/ExportOds.php:71
-#: libraries/classes/Plugins/Export/ExportOdt.php:127
-#: libraries/classes/Plugins/Export/ExportTexytext.php:82
-#, fuzzy
-#| msgid "Put fields names in the first row"
-msgid "Put columns names in the first row"
-msgstr "Maydon nomlarini birinchi qatorga joylashtirish"
-
-#: libraries/classes/Config/Descriptions.php:224
-#: libraries/classes/Config/Descriptions.php:432
-#: libraries/classes/Config/Descriptions.php:443
-#: libraries/classes/Plugins/Import/ImportCsv.php:670
-#, fuzzy
-#| msgid "Fields enclosed by"
-msgid "Columns enclosed with"
-msgstr "Maydon qiymatlari quyidagi belgi ichiga olingan "
-
-#: libraries/classes/Config/Descriptions.php:225
-#: libraries/classes/Config/Descriptions.php:433
-#: libraries/classes/Config/Descriptions.php:444
-#: libraries/classes/Plugins/Import/ImportCsv.php:681
-#, fuzzy
-#| msgid "Fields escaped by"
-msgid "Columns escaped with"
-msgstr "Belgi oldida quyidagi belgi mavjud "
-
-#: libraries/classes/Config/Descriptions.php:226
-#: libraries/classes/Config/Descriptions.php:232
-#: libraries/classes/Config/Descriptions.php:239
-#: libraries/classes/Config/Descriptions.php:248
-#: libraries/classes/Config/Descriptions.php:256
-#: libraries/classes/Config/Descriptions.php:260
-#: libraries/classes/Config/Descriptions.php:305
-#, fuzzy
-#| msgid "Replace NULL by"
-msgid "Replace NULL with"
-msgstr "NULL qiymatni quyidagiga almashtirish"
-
-#: libraries/classes/Config/Descriptions.php:227
-#: libraries/classes/Config/Descriptions.php:233
-#, fuzzy
-#| msgid "Remove CRLF characters within fields"
-msgid "Remove CRLF characters within columns"
-msgstr "Maydonlar ichidagi satrdan-satrga ko‘chirish belgilarini olib tashlash"
-
-#: libraries/classes/Config/Descriptions.php:228
-#: libraries/classes/Config/Descriptions.php:437
-#: libraries/classes/Config/Descriptions.php:449
-#: libraries/classes/Plugins/Import/ImportCsv.php:655
-#, fuzzy
-#| msgid "Lines terminated by"
-msgid "Columns terminated with"
-msgstr "Qatorlar bo‘luvchisi"
-
-#: libraries/classes/Config/Descriptions.php:229
-#: libraries/classes/Config/Descriptions.php:431
-#: libraries/classes/Plugins/Import/ImportCsv.php:690
-#, fuzzy
-#| msgid "Lines terminated by"
-msgid "Lines terminated with"
-msgstr "Qatorlar bo‘luvchisi"
-
-#: libraries/classes/Config/Descriptions.php:231
-#, fuzzy
-#| msgid "Excel edition"
-msgid "Excel edition"
-msgstr "Excel-versiyasi"
-
-#: libraries/classes/Config/Descriptions.php:234
-msgid "Database name template"
-msgstr "Ma`lumotlar bazasi nomi shabloni"
-
-#: libraries/classes/Config/Descriptions.php:235
-msgid "Server name template"
-msgstr "Server nomi shabloni"
-
-#: libraries/classes/Config/Descriptions.php:236
-msgid "Table name template"
-msgstr "Jadval nomi shabloni"
-
-#: libraries/classes/Config/Descriptions.php:240
-#: libraries/classes/Config/Descriptions.php:253
-#: libraries/classes/Config/Descriptions.php:262
-#: libraries/classes/Config/Descriptions.php:300
-#: libraries/classes/Config/Descriptions.php:306
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:59
-#: libraries/classes/Plugins/Export/ExportLatex.php:95
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:58
-#: libraries/classes/Plugins/Export/ExportMediawiki.php:64
-#: libraries/classes/Plugins/Export/ExportOdt.php:72
-#: libraries/classes/Plugins/Export/ExportPdf.php:107
-#: libraries/classes/Plugins/Export/ExportSql.php:235
-#: libraries/classes/Plugins/Export/ExportTexytext.php:58
-#, fuzzy
-#| msgid "%s table(s)"
-msgid "Dump table"
-msgstr "Jadvallar soni: \"%s\""
-
-#: libraries/classes/Config/Descriptions.php:241
-#: libraries/classes/Plugins/Export/ExportLatex.php:86
-msgid "Include table caption"
-msgstr "Jadvalga sarlavha qo‘shish"
-
-#: libraries/classes/Config/Descriptions.php:243
-#: libraries/classes/Config/Descriptions.php:258
-#: libraries/classes/Config/Descriptions.php:294
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:407
-#: libraries/classes/Plugins/Export/ExportLatex.php:561
-#: libraries/classes/Plugins/Export/ExportOdt.php:516
-#: libraries/classes/Plugins/Export/ExportTexytext.php:405
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:598
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:727
-#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:750
-#: templates/columns_definitions/table_fields_definitions.twig:54
-#: templates/database/data_dictionary/index.twig:23
-#: templates/table/structure/display_structure.twig:29
-msgid "Comments"
-msgstr "Izohlar"
-
-#: libraries/classes/Config/Descriptions.php:244
-#: libraries/classes/Config/Descriptions.php:250
-msgid "Table caption"
-msgstr "Jadval sarlavhasi"
-
-#: libraries/classes/Config/Descriptions.php:245
-#: libraries/classes/Config/Descriptions.php:251
-msgid "Continued table caption"
-msgstr "Jadval sarlavhasi (davomi)"
-
-#: libraries/classes/Config/Descriptions.php:246
-#: libraries/classes/Config/Descriptions.php:252
-msgid "Label key"
-msgstr "Belgi identifikatori"
-
-#: libraries/classes/Config/Descriptions.php:247
-#: libraries/classes/Config/Descriptions.php:259
-#: libraries/classes/Config/Descriptions.php:297
-#: libraries/classes/Plugins/Export/ExportHtmlword.php:413
-#: libraries/classes/Plugins/Export/ExportOdt.php:522
-#: libraries/classes/Plugins/Export/ExportTexytext.php:409
-#: libraries/classes/Plugins/Export/Helpers/Pdf.php:605
-#: templates/columns_definitions/table_fields_definitions.twig:71
-#: templates/database/data_dictionary/index.twig:25
-#, fuzzy
-#| msgid "MIME type"
-msgid "Media type"
-msgstr "MIME turi"
-
-#: libraries/classes/Config/Descriptions.php:249
-#: libraries/classes/Config/Descriptions.php:261
-#: libraries/classes/Config/Descriptions.php:299
-#, fuzzy
-#| msgid "Relations"
-msgid "Relationships"
-msgstr "Aloqalar"
-
-#: libraries/classes/Config/Descriptions.php:254
-#, fuzzy
-#| msgid "Export type"
-msgid "Export method"
-msgstr "Eskport turi"
-
-#: libraries/classes/Config/Descriptions.php:263
-#: libraries/classes/Config/Descriptions.php:266
-msgid "Save on server"
-msgstr "Serverga saqlash"
-
-#: libraries/classes/Config/Descriptions.php:264
-#: libraries/classes/Config/Descriptions.php:267 templates/export.twig:150
-#: templates/export.twig:316
-msgid "Overwrite existing file(s)"
-msgstr "Mavjud fayl(lar) ustidan yozish"
-
-#: libraries/classes/Config/Descriptions.php:265
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
-msgid "Export as separate files"
-msgstr "gorizontal (aylantirilgan sarlavhalar)"
-
-#: libraries/classes/Config/Descriptions.php:268
-msgid "Remember file name template"
-msgstr "Fayl nomi shablonini yodda saqlash"
-
-#: libraries/classes/Config/Descriptions.php:269
-#: templates/database/operations/index.twig:165
-#: templates/table/operations/index.twig:74
-#: templates/table/operations/index.twig:278
-msgid "Add AUTO_INCREMENT value"
-msgstr "AUTO_INCREMENT qo‘shish"
-
-#: libraries/classes/Config/Descriptions.php:270
-#, fuzzy
-#| msgid "Enclose table and field names with backquotes"
-msgid "Enclose table and column names with backquotes"
-msgstr "Jadval va maydon nomlarini teskari qo‘shtirnoqqa olish"
-
-#: libraries/classes/Config/Descriptions.php:271
-#: libraries/classes/Config/Descriptions.php:456
-msgid "SQL compatibility mode"
-msgstr "SQL bilan moslik rejimi"
-
-#: libraries/classes/Config/Descriptions.php:272
-msgid "Creation/Update/Check dates"
-msgstr "Tuzish, yangilash va tekshirish sanalari"
-
-#: libraries/classes/Config/Descriptions.php:273
-msgid "Use delayed inserts"
-msgstr "Kechiktirilgan qo‘yish (DELAYED INSERTS) dan foydalanish"
-
-#: libraries/classes/Config/Descriptions.php:274
-#: libraries/classes/Plugins/Export/ExportSql.php:180
-msgid "Disable foreign key checks"
-msgstr "Tashqi kalitlarni tekshirishni o‘chirish"
-
-#: libraries/classes/Config/Descriptions.php:275
-#: libraries/classes/Plugins/Export/ExportSql.php:194
-#, fuzzy
-#| msgid "Export views"
-msgid "Export views as tables"
-msgstr "Ko‘rinishlarni eksport qilish"
-
-#: libraries/classes/Config/Descriptions.php:276
-#, fuzzy
-#| msgid ""
-#| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
-msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr ""
-"pmadb usuli ishlatilmoqda, lekin phpMyAdmin konfiguratsion faylida "
-"foydalanuvchi belgilanmagan"
-
-#: libraries/classes/Config/Descriptions.php:277
-#: libraries/classes/Config/Descriptions.php:278
-#: libraries/classes/Config/Descriptions.php:280
-#: libraries/classes/Config/Descriptions.php:283
-#: libraries/classes/Config/Descriptions.php:284
-#: libraries/classes/Config/Descriptions.php:285
-#: libraries/classes/Config/Descriptions.php:298
-#: templates/database/operations/index.twig:160
-#: templates/table/operations/index.twig:273
-#, php-format
-msgid "Add %s"
-msgstr "\"%s\" qo‘shish"
-
-#: libraries/classes/Config/Descriptions.php:286
-#, fuzzy
-#| msgid "Use hexadecimal for BLOB"
-msgid "Use hexadecimal for BINARY & BLOB"
-msgstr "BLOB turidagi ma`lumotlarni o‘n oltilik shaklda namoyish etish"
-
-#: libraries/classes/Config/Descriptions.php:288
-msgid ""
-"Add IF NOT EXISTS (less efficient as indexes will be generated during table "
-"creation)"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:291
+#: libraries/classes/Config/Descriptions.php:172
+#: libraries/classes/Config/Descriptions.php:737
 #: libraries/classes/Plugins/Export/ExportSql.php:348
 msgid "Exclude definition of current user"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:292
-#: libraries/classes/Plugins/Export/ExportSql.php:354
-#, fuzzy, php-format
-#| msgid "Session value"
-msgid "%s view"
-msgstr "Sessiya qiymatlari"
-
-#: libraries/classes/Config/Descriptions.php:293
-msgid "Use ignore inserts"
-msgstr "E`tibor bermaslik (IGNORE) qo‘yilmalardan foydalanish"
-
-#: libraries/classes/Config/Descriptions.php:295
-msgid "Syntax to use when inserting data"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:296
-#: libraries/classes/Plugins/Export/ExportSql.php:491
-msgid "Maximal length of created query"
-msgstr "Tuzilayogan so‘rovning maksimal uzunligi"
-
-#: libraries/classes/Config/Descriptions.php:301
-#, fuzzy
-#| msgid "Export tables"
-msgid "Export type"
-msgstr "Jadvallarni eksport qilish"
-
-#: libraries/classes/Config/Descriptions.php:302
-#: libraries/classes/Plugins/Export/ExportSql.php:166
-msgid "Enclose export in a transaction"
-msgstr "Tranzaksiyaga eksportni qo‘shish"
-
-#: libraries/classes/Config/Descriptions.php:303
-msgid "Export time in UTC"
-msgstr "Vaqtni UTC shaklda eksport qilish"
-
-#: libraries/classes/Config/Descriptions.php:308
+#: libraries/classes/Config/Descriptions.php:174
 #, fuzzy
 #| msgid ""
 #| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
@@ -2496,231 +1961,13 @@ msgstr ""
 "Tashqi kalit menyusining tartiblash usuli: [kbd]content[/kbd] - murojaat "
 "ma`lumotlari bo‘yicha, [kbd]id[/kbd] - kalit qiymatlar bo‘yicha"
 
-#: libraries/classes/Config/Descriptions.php:311
-msgid "Foreign key dropdown order"
-msgstr "Tashqi kalit menyusi tartibi"
-
-#: libraries/classes/Config/Descriptions.php:312
-#, fuzzy
-#| msgid "A dropdown will be used if fewer items are present"
-msgid "A dropdown will be used if fewer items are present."
-msgstr "Agar kamroq qiymat bo‘lsa, pastga tushuvchi menyu ishlatiladi"
-
-#: libraries/classes/Config/Descriptions.php:313
-msgid "Foreign key limit"
-msgstr "Tashqi kalit chegaralari"
-
-#: libraries/classes/Config/Descriptions.php:314
-msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:315
-#, fuzzy
-#| msgid "Disable foreign key checks"
-msgid "Foreign key checks"
-msgstr "Tashqi kalitlarni tekshirishni o‘chirish"
-
-#: libraries/classes/Config/Descriptions.php:316
-msgid "First day of calendar"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:317
-msgid "Browse mode"
-msgstr "Ko‘rib chiqish usul"
-
-#: libraries/classes/Config/Descriptions.php:318
-#, fuzzy
-#| msgid "Customize browse mode"
-msgid "Customize browse mode."
-msgstr "Ko‘rib chiqish usulini sozlash"
-
-#: libraries/classes/Config/Descriptions.php:320
-#: libraries/classes/Config/Descriptions.php:322
-#: libraries/classes/Config/Descriptions.php:336
-#: libraries/classes/Config/Descriptions.php:349
-#: libraries/classes/Config/Descriptions.php:351
-#: libraries/classes/Config/Descriptions.php:388
-#, fuzzy
-#| msgid "Customize default export options"
-msgid "Customize default options."
-msgstr "Eksport afzalliklarini sozlash"
-
-#: libraries/classes/Config/Descriptions.php:321
-#: libraries/classes/Config/Forms/User/ExportForm.php:80
-#: libraries/classes/Config/Forms/User/ImportForm.php:33
-msgid "CSV"
-msgstr "CSV"
-
-#: libraries/classes/Config/Descriptions.php:323
-msgid "Developer"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:324
-msgid "Settings for phpMyAdmin developers."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:325
-msgid "Edit mode"
-msgstr "Tahrirlash usuli"
-
-#: libraries/classes/Config/Descriptions.php:326
-#, fuzzy
-#| msgid "Customize edit mode"
-msgid "Customize edit mode."
-msgstr "Tahrirlash usulini sozlash"
-
-#: libraries/classes/Config/Descriptions.php:327
-msgid "Export defaults"
-msgstr "Eksport"
-
-#: libraries/classes/Config/Descriptions.php:328
-#, fuzzy
-#| msgid "Customize default export options"
-msgid "Customize default export options."
-msgstr "Eksport afzalliklarini sozlash"
-
-#: libraries/classes/Config/Descriptions.php:329
-#, fuzzy
-#| msgid "Generate"
-msgid "General"
-msgstr "Generatsiya qilish"
-
-#: libraries/classes/Config/Descriptions.php:330
-msgid "Set some commonly used options."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:331
-msgid "Import defaults"
-msgstr "Import"
-
-#: libraries/classes/Config/Descriptions.php:332
-#, fuzzy
-#| msgid "Customize default common import options"
-msgid "Customize default common import options."
-msgstr "Import afzalliklarini sozlash"
-
-#: libraries/classes/Config/Descriptions.php:333
-msgid "Import / export"
-msgstr "Import/Eksport"
-
-#: libraries/classes/Config/Descriptions.php:334
-#, fuzzy
-#| msgid "Set import and export directories and compression options"
-msgid "Set import and export directories and compression options."
-msgstr "Import va eksport kataloglari va qisish usullarini belgilash"
-
-#: libraries/classes/Config/Descriptions.php:335
-msgid "LaTeX"
-msgstr "LaTeX"
-
-#: libraries/classes/Config/Descriptions.php:337
-#: libraries/classes/Config/Descriptions.php:403 libraries/classes/Menu.php:527
-#: libraries/classes/Util.php:2431 libraries/config.values.php:155
-#: templates/navigation/tree/database_select.twig:11
-#: templates/server/databases/index.twig:8
-#: templates/server/privileges/user_properties.twig:20
-msgid "Databases"
-msgstr "Ma`lumotlar bazalari"
-
-#: libraries/classes/Config/Descriptions.php:338
-#, fuzzy
-#| msgid "Databases display options"
-msgid "Databases display options."
-msgstr "Ma`lumotlar bazalarini ko‘rsatish afzalliklari"
-
-#: libraries/classes/Config/Descriptions.php:339
-#: libraries/classes/Config/Forms/User/NaviForm.php:66
-#: templates/preferences/header.twig:30
-#, fuzzy
-#| msgid "Navigation frame"
-msgid "Navigation panel"
-msgstr "Navigatsiya paneli"
-
-#: libraries/classes/Config/Descriptions.php:340
-#, fuzzy
-#| msgid "Customize appearance of the navigation frame"
-msgid "Customize appearance of the navigation panel."
-msgstr "Navigatsiya paneli ko‘rinishini sozlash"
-
-#: libraries/classes/Config/Descriptions.php:341
-#, fuzzy
-#| msgid "Navigation frame"
-msgid "Navigation tree"
-msgstr "Navigatsiya paneli"
-
-#: libraries/classes/Config/Descriptions.php:342
-#, fuzzy
-#| msgid "Customize navigation frame"
-msgid "Customize the navigation tree."
-msgstr "Navigatsiya panelini moslashtirish"
-
-#: libraries/classes/Config/Descriptions.php:343
-#: libraries/classes/Server/Select.php:60 templates/setup/home/index.twig:34
-msgid "Servers"
-msgstr "Serverlar"
-
-#: libraries/classes/Config/Descriptions.php:344
-#, fuzzy
-#| msgid "Servers display options"
-msgid "Servers display options."
-msgstr "Serverlar ko‘rinishini sozlash"
-
-#: libraries/classes/Config/Descriptions.php:345
-#: libraries/classes/Controllers/Server/DatabasesController.php:478
-#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
-#: libraries/classes/Plugins/Export/ExportXml.php:130
-#: libraries/classes/Server/Status/Data.php:159
-#: templates/database/export/index.twig:23
-#: templates/database/structure/show_create.twig:6
-msgid "Tables"
-msgstr "Jadvallar"
-
-#: libraries/classes/Config/Descriptions.php:346
-#, fuzzy
-#| msgid "Tables display options"
-msgid "Tables display options."
-msgstr "Jadvallar ko‘rinishini sozlash"
-
-#: libraries/classes/Config/Descriptions.php:347
-#: libraries/classes/Config/Forms/User/MainForm.php:88
-#: templates/preferences/header.twig:36
-#, fuzzy
-#| msgid "Main frame"
-msgid "Main panel"
-msgstr "Asosiy ramka"
-
-#: libraries/classes/Config/Descriptions.php:348
-msgid "Microsoft Office"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:352
-msgid "Other core settings"
-msgstr "Boshqa sozlanishlar"
-
-#: libraries/classes/Config/Descriptions.php:353
-#, fuzzy
-#| msgid "Settings that didn't fit anywhere else"
-msgid "Settings that didn't fit anywhere else."
-msgstr "Boshqa joyga sig‘magan sozlanishlar"
-
-#: libraries/classes/Config/Descriptions.php:354
-#, fuzzy
-#| msgid "Page number:"
-msgid "Page titles"
-msgstr "Sahifa raqami: "
-
-#: libraries/classes/Config/Descriptions.php:356
+#: libraries/classes/Config/Descriptions.php:178
 msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:360
-msgid "Security"
-msgstr "Xavfsizlik"
-
-#: libraries/classes/Config/Descriptions.php:362
+#: libraries/classes/Config/Descriptions.php:183
 #, fuzzy
 #| msgid ""
 #| "Please note that phpMyAdmin is just a user interface and its features do "
@@ -2732,27 +1979,7 @@ msgstr ""
 "Esda tuting, phpMyAdmin - bu faqatgina foydalanuvchi interfeysi bo‘lib, "
 "uning xususiyatlari MySQL-serverining funksiyalarini chegaralamaydi"
 
-#: libraries/classes/Config/Descriptions.php:365
-msgid "Basic settings"
-msgstr "Asosiy sozlanishlar"
-
-#: libraries/classes/Config/Descriptions.php:366
-#, fuzzy
-#| msgid "Authentication type"
-msgid "Authentication"
-msgstr "Autentifikatsiya usuli"
-
-#: libraries/classes/Config/Descriptions.php:367
-#, fuzzy
-#| msgid "Authentication type"
-msgid "Authentication settings."
-msgstr "Autentifikatsiya usuli"
-
-#: libraries/classes/Config/Descriptions.php:368
-msgid "Server configuration"
-msgstr "Server konfiguratsiyasi"
-
-#: libraries/classes/Config/Descriptions.php:370
+#: libraries/classes/Config/Descriptions.php:187
 #, fuzzy
 #| msgid ""
 #| "Advanced server configuration, do not change these options unless you "
@@ -2764,19 +1991,7 @@ msgstr ""
 "Kengaytirilgan server konfiguarsiyasi, agar ularning ma`nosini aniq "
 "bilmasangiz, yaxshisi, ularga tegmang"
 
-#: libraries/classes/Config/Descriptions.php:373
-#, fuzzy
-#| msgid "Enter server connection parameters"
-msgid "Enter server connection parameters."
-msgstr "Serverning ulanish parametrlarini kiritish"
-
-#: libraries/classes/Config/Descriptions.php:374
-#, fuzzy
-#| msgid "Configuration file"
-msgid "Configuration storage"
-msgstr "Konfiguratsion fayl"
-
-#: libraries/classes/Config/Descriptions.php:376
+#: libraries/classes/Config/Descriptions.php:191
 #, fuzzy
 #| msgid ""
 #| "figure phpMyAdmin database to gain access to additional features, see ../"
@@ -2792,141 +2007,159 @@ msgstr ""
 "Documentation.html#linked-tables]ulangan jadvallar infratuzilmasini[/a] "
 "qarab chiqing"
 
-#: libraries/classes/Config/Descriptions.php:380
-msgid "Changes tracking"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:382
+#: libraries/classes/Config/Descriptions.php:196
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:385 libraries/classes/Menu.php:287
-#: libraries/classes/Menu.php:403 libraries/classes/Menu.php:532
-#: libraries/classes/Navigation/Nodes/NodeTable.php:319
-#: libraries/classes/Util.php:1712 libraries/classes/Util.php:2432
-#: libraries/classes/Util.php:2447 libraries/classes/Util.php:2464
-#: libraries/config.values.php:62 libraries/config.values.php:76
-#: libraries/config.values.php:167 libraries/config.values.php:177
-msgid "SQL"
-msgstr "SQL"
+#: libraries/classes/Config/Descriptions.php:200
+#, fuzzy
+#| msgid "Customize browse mode"
+msgid "Customize browse mode."
+msgstr "Ko‘rib chiqish usulini sozlash"
 
-#: libraries/classes/Config/Descriptions.php:386
-msgid "SQL Query box"
-msgstr "SQL so‘rovlari qutisi"
+#: libraries/classes/Config/Descriptions.php:201
+#: libraries/classes/Config/Descriptions.php:202
+#: libraries/classes/Config/Descriptions.php:209
+#: libraries/classes/Config/Descriptions.php:215
+#: libraries/classes/Config/Descriptions.php:216
+#: libraries/classes/Config/Descriptions.php:221
+#, fuzzy
+#| msgid "Customize default export options"
+msgid "Customize default options."
+msgstr "Eksport afzalliklarini sozlash"
 
-#: libraries/classes/Config/Descriptions.php:387
+#: libraries/classes/Config/Descriptions.php:203
+msgid "Settings for phpMyAdmin developers."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:204
+#, fuzzy
+#| msgid "Customize edit mode"
+msgid "Customize edit mode."
+msgstr "Tahrirlash usulini sozlash"
+
+#: libraries/classes/Config/Descriptions.php:205
+#, fuzzy
+#| msgid "Customize default export options"
+msgid "Customize default export options."
+msgstr "Eksport afzalliklarini sozlash"
+
+#: libraries/classes/Config/Descriptions.php:206
+msgid "Set some commonly used options."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:207
+#, fuzzy
+#| msgid "Customize default common import options"
+msgid "Customize default common import options."
+msgstr "Import afzalliklarini sozlash"
+
+#: libraries/classes/Config/Descriptions.php:208
+#, fuzzy
+#| msgid "Set import and export directories and compression options"
+msgid "Set import and export directories and compression options."
+msgstr "Import va eksport kataloglari va qisish usullarini belgilash"
+
+#: libraries/classes/Config/Descriptions.php:210
+#, fuzzy
+#| msgid "Databases display options"
+msgid "Databases display options."
+msgstr "Ma`lumotlar bazalarini ko‘rsatish afzalliklari"
+
+#: libraries/classes/Config/Descriptions.php:211
+#, fuzzy
+#| msgid "Customize appearance of the navigation frame"
+msgid "Customize appearance of the navigation panel."
+msgstr "Navigatsiya paneli ko‘rinishini sozlash"
+
+#: libraries/classes/Config/Descriptions.php:212
+#, fuzzy
+#| msgid "Customize navigation frame"
+msgid "Customize the navigation tree."
+msgstr "Navigatsiya panelini moslashtirish"
+
+#: libraries/classes/Config/Descriptions.php:213
+#, fuzzy
+#| msgid "Servers display options"
+msgid "Servers display options."
+msgstr "Serverlar ko‘rinishini sozlash"
+
+#: libraries/classes/Config/Descriptions.php:214
+#, fuzzy
+#| msgid "Tables display options"
+msgid "Tables display options."
+msgstr "Jadvallar ko‘rinishini sozlash"
+
+#: libraries/classes/Config/Descriptions.php:217
+#, fuzzy
+#| msgid "Settings that didn't fit anywhere else"
+msgid "Settings that didn't fit anywhere else."
+msgstr "Boshqa joyga sig‘magan sozlanishlar"
+
+#: libraries/classes/Config/Descriptions.php:218
+#, fuzzy
+#| msgid "Authentication type"
+msgid "Authentication settings."
+msgstr "Autentifikatsiya usuli"
+
+#: libraries/classes/Config/Descriptions.php:219
+#, fuzzy
+#| msgid "Enter server connection parameters"
+msgid "Enter server connection parameters."
+msgstr "Serverning ulanish parametrlarini kiritish"
+
+#: libraries/classes/Config/Descriptions.php:220
 #, fuzzy
 #| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
 msgstr "SQL so‘rovlari qutisida ko‘rsatiladigan bog‘larni sozlash"
 
-#: libraries/classes/Config/Descriptions.php:389
-#: libraries/classes/Config/Forms/User/SqlForm.php:46
-#: templates/preferences/header.twig:24
-msgid "SQL queries"
-msgstr "SQL so‘rovlari"
-
-#: libraries/classes/Config/Descriptions.php:390
+#: libraries/classes/Config/Descriptions.php:222
 #, fuzzy
 #| msgid "SQL queries"
 msgid "SQL queries settings."
 msgstr "SQL so‘rovlari"
 
-#: libraries/classes/Config/Descriptions.php:391
-msgid "Startup"
-msgstr "Boshlang‘ich"
-
-#: libraries/classes/Config/Descriptions.php:392
+#: libraries/classes/Config/Descriptions.php:223
 #, fuzzy
 #| msgid "Customize startup page"
 msgid "Customize startup page."
 msgstr "Boshlang‘ich sahifani sozlash"
 
-#: libraries/classes/Config/Descriptions.php:393
-#, fuzzy
-#| msgid "Database for user"
-msgid "Database structure"
-msgstr "Foydalanuvchi uchun ma`lumotlar bazasi"
-
-#: libraries/classes/Config/Descriptions.php:394
+#: libraries/classes/Config/Descriptions.php:224
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:395
-#: libraries/classes/Plugins/Export/ExportPdf.php:304
-#: templates/table/page_with_secondary_tabs.twig:5
-#, fuzzy
-#| msgid "Database for user"
-msgid "Table structure"
-msgstr "Foydalanuvchi uchun ma`lumotlar bazasi"
-
-#: libraries/classes/Config/Descriptions.php:396
+#: libraries/classes/Config/Descriptions.php:225
 msgid "Settings for the table structure (list of columns)."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:397
-msgid "Tabs"
-msgstr "Yorliqlar"
-
-#: libraries/classes/Config/Descriptions.php:398
+#: libraries/classes/Config/Descriptions.php:226
 #, fuzzy
 #| msgid "Choose how you want tabs to work"
 msgid "Choose how you want tabs to work."
 msgstr "Yorliqlar qanday ishlashini tanlang"
 
-#: libraries/classes/Config/Descriptions.php:399
-#, fuzzy
-#| msgid "Relational schema"
-msgid "Display relational schema"
-msgstr "Aloqalar sxemasi"
-
-#: libraries/classes/Config/Descriptions.php:401
-#: libraries/classes/Plugins/Schema/SchemaDia.php:65
-#: libraries/classes/Plugins/Schema/SchemaPdf.php:73
-msgid "Paper size"
-msgstr "Qog‘oz o‘lchami"
-
-#: libraries/classes/Config/Descriptions.php:404
-#, fuzzy
-#| msgid "Use text field"
-msgid "Text fields"
-msgstr "Matnmaydonini ishlatish"
-
-#: libraries/classes/Config/Descriptions.php:405
+#: libraries/classes/Config/Descriptions.php:227
 #, fuzzy
 #| msgid "Customize export options"
 msgid "Customize text input fields."
 msgstr "Eksport tanlovlarini moslashtirish"
 
-#: libraries/classes/Config/Descriptions.php:406
-msgid "Texy! text"
-msgstr "Texy! matn"
-
-#: libraries/classes/Config/Descriptions.php:407
+#: libraries/classes/Config/Descriptions.php:228
 #, fuzzy
 #| msgid "Customize default export options"
 msgid "Customize default options"
 msgstr "Eksport afzalliklarini sozlash"
 
-#: libraries/classes/Config/Descriptions.php:408
-#, fuzzy
-#| msgid "Warning"
-msgid "Warnings"
-msgstr "Ogohlantirish"
-
-#: libraries/classes/Config/Descriptions.php:409
+#: libraries/classes/Config/Descriptions.php:229
 msgid "Disable some of the warnings shown by phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:410
-#: templates/console/display.twig:4
-msgid "Console"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:412
+#: libraries/classes/Config/Descriptions.php:232
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
@@ -2936,15 +2169,7 @@ msgstr ""
 "Import va eksport operatsiyalarida    [a@https://en.wikipedia.org/wiki/"
 "Gzip]gzip[/a] yordamida siqishni yoqish"
 
-#: libraries/classes/Config/Descriptions.php:415
-msgid "GZip"
-msgstr "GZip"
-
-#: libraries/classes/Config/Descriptions.php:416
-msgid "Extra parameters for iconv"
-msgstr "iconv uchun qo‘shimcha parametrlar"
-
-#: libraries/classes/Config/Descriptions.php:418
+#: libraries/classes/Config/Descriptions.php:236
 #, fuzzy
 #| msgid ""
 #| "If enabled, phpMyAdmin continues computing multiple-statement queries "
@@ -2956,11 +2181,7 @@ msgstr ""
 "Agar yoqilgan bo‘lsa, phpMyAdmin, hatto so‘rovlardan biri barbod bo‘lganda "
 "ham, ko‘p qismli so‘rovlarni hisoblashni davom etadi"
 
-#: libraries/classes/Config/Descriptions.php:421
-msgid "Ignore multiple statement errors"
-msgstr "Ko‘p qismli so‘rovlardagi xatolarga e`tibor bermaslik"
-
-#: libraries/classes/Config/Descriptions.php:423
+#: libraries/classes/Config/Descriptions.php:240
 msgid ""
 "Allow interrupt of import in case script detects it is close to time limit. "
 "This might be a good way to import large files, however it can break "
@@ -2970,36 +2191,7 @@ msgstr ""
 "ruxsat berish. Bu katta fayllarni yuklash uchun yaxshi usul, lekin u "
 "tranzaksiyalarni buzishi mumkin."
 
-#: libraries/classes/Config/Descriptions.php:427
-msgid "Enable drag and drop import"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:428
-msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:429
-msgid "Partial import: allow interrupt"
-msgstr "Qisman import: uzishga ruxsat berish"
-
-#: libraries/classes/Config/Descriptions.php:434
-#: libraries/classes/Config/Descriptions.php:445
-#: libraries/classes/Plugins/Import/ImportCsv.php:133
-#: libraries/classes/Plugins/Import/ImportLdi.php:80
-msgid "Do not abort on INSERT error"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:435
-#: libraries/classes/Config/Descriptions.php:447
-msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:436
-#: libraries/classes/Config/Descriptions.php:448
-msgid "Update data when duplicate keys found on import"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:439
+#: libraries/classes/Config/Descriptions.php:245
 #, fuzzy
 #| msgid ""
 #| "Default format; be aware that this list depends on location (database, "
@@ -3011,86 +2203,19 @@ msgstr ""
 "Import fayl formati; yodda tutingki, ushbu ro‘yxat (ma`lumotlar bazasi, "
 "jadval) joylashishiga bog‘liq va faqat SQL ishlaydi"
 
-#: libraries/classes/Config/Descriptions.php:442
-msgid "Format of imported file"
-msgstr "Import qilinayotgan fayl formati"
-
-#: libraries/classes/Config/Descriptions.php:446
-#: libraries/classes/Plugins/Import/ImportLdi.php:86
-msgid "Use LOCAL keyword"
-msgstr "\"LOCAL\" kalit so‘zini ishlatish"
-
-#: libraries/classes/Config/Descriptions.php:450
-msgid "Column names in first row"
-msgstr "Birinchi qatorga ustun nomlari"
-
-#: libraries/classes/Config/Descriptions.php:451
-#: libraries/classes/Plugins/Import/ImportOds.php:77
-msgid "Do not import empty rows"
-msgstr "Bo‘sh qatorlarni import qilmaslik"
-
-#: libraries/classes/Config/Descriptions.php:452
-#, fuzzy
-#| msgid "Import currencies ($5.00 to 5.00)"
-msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Pul birliklarini import qilish (masalan, $5.00 ni 5.00 ga)"
-
-#: libraries/classes/Config/Descriptions.php:453
-#, fuzzy
-#| msgid "Import percentages as proper decimals (12.00% to .12)"
-msgid "Import percentages as proper decimals (12.00% to .12)"
+#: libraries/classes/Config/Descriptions.php:248
+#: libraries/classes/Config/Descriptions.php:249
+msgid "Update data when duplicate keys found on import"
 msgstr ""
-"Foizlarni mos o‘nli kasrlar kabi import qilish (masalan, 12.00% o‘rniga 0.12)"
 
-#: libraries/classes/Config/Descriptions.php:454
+#: libraries/classes/Config/Descriptions.php:250
 #, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start."
 msgstr ""
 "Fayl boshidagi e`tibor berish kerak bo‘lmagan qatorlar (so‘rovlar) soni"
 
-#: libraries/classes/Config/Descriptions.php:455
-msgid "Partial import: skip queries"
-msgstr "Qisman import: so‘rovlarga e`tibor bermaslik"
-
-#: libraries/classes/Config/Descriptions.php:457
-#, fuzzy
-#| msgid "Do not use AUTO_INCREMENT for zero values"
-msgid "Do not use AUTO_INCREMENT for zero values"
-msgstr "Nol qiymatlari uchun \"AUTO_INCREMENT\" ishlatmaslik"
-
-#: libraries/classes/Config/Descriptions.php:458
-#, fuzzy
-#| msgid "Read misses"
-msgid "Read as multibytes"
-msgstr "Buferni o‘qishda qoldirishlar mavjud"
-
-#: libraries/classes/Config/Descriptions.php:459
-msgid "Initial state for sliders"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:460
-#, fuzzy
-#| msgid "How many rows can be inserted at one time"
-msgid "How many rows can be inserted at one time."
-msgstr "Bir vaqtning o‘zidanechta qator qo‘yilishi mumkin"
-
-#: libraries/classes/Config/Descriptions.php:461
-msgid "Number of inserted rows"
-msgstr "Qo‘yilgan qatorlar soni"
-
-#: libraries/classes/Config/Descriptions.php:462
-#, fuzzy
-#| msgid "Maximum number of characters used when a SQL query is displayed"
-msgid ""
-"Maximum number of characters shown in any non-numeric column on browse view."
-msgstr "SQL so‘rovi ko‘rsatilganda ishlatiladigan belgilarning maksimal soni"
-
-#: libraries/classes/Config/Descriptions.php:463
-msgid "Limit column characters"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:465
+#: libraries/classes/Config/Descriptions.php:252
 msgid ""
 "If TRUE, logout deletes cookies for all servers; when set to FALSE, logout "
 "only occurs for the current server. Setting this to FALSE makes it easy to "
@@ -3102,11 +2227,7 @@ msgstr ""
 "ulanganbo‘lsa, unda YOLG‘ON (FALSE) tanlovi boshqa serverlardan chiqish "
 "unitilishiga olib kelishi mumkin."
 
-#: libraries/classes/Config/Descriptions.php:469
-msgid "Delete all cookies on logout"
-msgstr "Chiqishda barcha \"cookies\"larni o‘chirish"
-
-#: libraries/classes/Config/Descriptions.php:471
+#: libraries/classes/Config/Descriptions.php:257
 #, fuzzy
 #| msgid ""
 #| "Define whether the previous login should be recalled or not in cookie "
@@ -3118,11 +2239,7 @@ msgstr ""
 "cookie-autentifikatsiya usulidan foydalanilganda oldingi login sessiyasi "
 "qayta chaqirilib olinishi kerakmi"
 
-#: libraries/classes/Config/Descriptions.php:474
-msgid "Recall user name"
-msgstr "Foydalanuvchi nomini chaqirib olish"
-
-#: libraries/classes/Config/Descriptions.php:476
+#: libraries/classes/Config/Descriptions.php:261
 msgid ""
 "Defines how long (in seconds) a login cookie should be stored in browser. "
 "The default of 0 means that it will be kept for the existing session only, "
@@ -3134,56 +2251,13 @@ msgstr ""
 "sessiya uchun saqlanadi va brauzer oynasi yopilgan zahoti o‘chiriladi. Bu "
 "qiymat ishonchsiz muhitlar uchun tavsiya etiladi."
 
-#: libraries/classes/Config/Descriptions.php:481
-msgid "Login cookie store"
-msgstr "Login ma`lumotini cookie-da saqlash"
-
-#: libraries/classes/Config/Descriptions.php:482
-#, fuzzy
-#| msgid "Define how long (in seconds) a login cookie is valid"
-msgid "Define how long (in seconds) a login cookie is valid."
-msgstr ""
-"cookie-login usuli qancha vaqt (sekundlarda) yaroqli bo‘lishini belgilang"
-
-#: libraries/classes/Config/Descriptions.php:483
-msgid "Login cookie validity"
-msgstr "cookie-login yaroqligi"
-
-#: libraries/classes/Config/Descriptions.php:484
-msgid "Double size of textarea for LONGTEXT columns."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:485
-msgid "Bigger textarea for LONGTEXT"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:487
+#: libraries/classes/Config/Descriptions.php:267
 #, fuzzy
 #| msgid "Maximum number of characters used when a SQL query is displayed"
 msgid "Maximum number of characters used when a SQL query is displayed."
 msgstr "SQL so‘rovi ko‘rsatilganda ishlatiladigan belgilarning maksimal soni"
 
-#: libraries/classes/Config/Descriptions.php:489
-msgid "Maximum displayed SQL length"
-msgstr "SQL so‘rovining maksimal uzunligi"
-
-#: libraries/classes/Config/Descriptions.php:490
-#: libraries/classes/Config/Descriptions.php:508
-#: libraries/classes/Config/Descriptions.php:625
-msgid "Users cannot set a higher value"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:491
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
-msgid "Maximum number of databases displayed in database list."
-msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
-
-#: libraries/classes/Config/Descriptions.php:492
-msgid "Maximum databases"
-msgstr "Ma`lumotlar bazalarining maksimal soni"
-
-#: libraries/classes/Config/Descriptions.php:494
+#: libraries/classes/Config/Descriptions.php:270
 #, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
@@ -3193,13 +2267,7 @@ msgstr ""
 "Birinchi jadvalga nisbatan to‘laligicha qidiruv ishlatgan holda bajarilgan "
 "birlashma so‘rovlar soni."
 
-#: libraries/classes/Config/Descriptions.php:497
-#, fuzzy
-#| msgid "Maximum size for temporary sort files"
-msgid "Maximum items on first level"
-msgstr "Vaqtinchalik indeks fayllarining maksimal hajmi"
-
-#: libraries/classes/Config/Descriptions.php:499
+#: libraries/classes/Config/Descriptions.php:274
 #, fuzzy
 #| msgid "The number of joins that did a full scan of the first table."
 msgid ""
@@ -3209,11 +2277,7 @@ msgstr ""
 "Birinchi jadvalga nisbatan to‘laligicha qidiruv ishlatgan holda bajarilgan "
 "birlashma so‘rovlar soni."
 
-#: libraries/classes/Config/Descriptions.php:501
-msgid "Maximum items in branch"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:503
+#: libraries/classes/Config/Descriptions.php:277
 msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
@@ -3222,21 +2286,7 @@ msgstr ""
 "ko‘rsatilgan qiymatdan ko‘p bo‘lsa, \"Oldingi\" va \"Keyingi\" bog‘lanishlar "
 "ko‘rsatiladi."
 
-#: libraries/classes/Config/Descriptions.php:507
-msgid "Maximum number of rows to display"
-msgstr "Ko‘rsatiladigan qatorlarning maksimal soni"
-
-#: libraries/classes/Config/Descriptions.php:509
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
-msgid "Maximum number of tables displayed in table list."
-msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
-
-#: libraries/classes/Config/Descriptions.php:510
-msgid "Maximum tables"
-msgstr "Maksimal jadvallar soni"
-
-#: libraries/classes/Config/Descriptions.php:512
+#: libraries/classes/Config/Descriptions.php:282
 #, fuzzy
 #| msgid ""
 #| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
@@ -3248,65 +2298,15 @@ msgstr ""
 "Skript uchun ajratiladigan baylardagi xotira miqdori, masalan [kbd]32M[/kbd] "
 "([kbd]0[/kbd] - chegaralanmagan)"
 
-#: libraries/classes/Config/Descriptions.php:515
-msgid "Memory limit"
-msgstr "Xotira miqdori"
-
-#: libraries/classes/Config/Descriptions.php:517
+#: libraries/classes/Config/Descriptions.php:286
 msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:519
-#, fuzzy
-#| msgid "Show logo in left frame"
-msgid "Show databases navigation as tree"
-msgstr "Chap ramkada logotipni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:520
-#, fuzzy
-#| msgid "Navigation frame"
-msgid "Navigation panel width"
-msgstr "Navigatsiya paneli"
-
-#: libraries/classes/Config/Descriptions.php:521
-#, fuzzy
-#| msgid "Show logo in left frame"
-msgid "Set to 0 to collapse navigation panel."
-msgstr "Chap ramkada logotipni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:523
+#: libraries/classes/Config/Descriptions.php:289
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:525
-#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
-#: libraries/classes/Navigation/NavigationTree.php:1472
-#, fuzzy
-#| msgid "Customize main frame"
-msgid "Link with main panel"
-msgstr "Asosiy ramkani moslashtirish"
-
-#: libraries/classes/Config/Descriptions.php:526
-#, fuzzy
-#| msgid "Show logo in left frame"
-msgid "Show logo in navigation panel."
-msgstr "Chap ramkada logotipni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:527
-msgid "Display logo"
-msgstr "Logotipni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:528
-#, fuzzy
-#| msgid "Show logo in left frame"
-msgid "URL where logo in the navigation panel will point to."
-msgstr "Chap ramkada logotipni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:529
-msgid "Logo link URL"
-msgstr "Logotip bog‘langan URL"
-
-#: libraries/classes/Config/Descriptions.php:531
+#: libraries/classes/Config/Descriptions.php:292
 #, fuzzy
 #| msgid ""
 #| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
@@ -3318,31 +2318,7 @@ msgstr ""
 "Bog‘langan sahifani bosh oynada ([kbd]bosh[/kbd]) yoki yangi oynada "
 "([kbd]yangi[/kbd]) ochish"
 
-#: libraries/classes/Config/Descriptions.php:534
-msgid "Logo link target"
-msgstr "Logotip bog‘langan nishon"
-
-#: libraries/classes/Config/Descriptions.php:535
-#, fuzzy
-#| msgid "Display server choice at the top of the left frame"
-msgid "Display server choice at the top of the navigation panel."
-msgstr "Chap ramkaning yuqori qismida server tanlovini ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:536
-msgid "Display servers selection"
-msgstr "Server tanlovini ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:537
-msgid "Target for quick access icon"
-msgstr "Tezkor murojaat piktogrammasi uchun nishon"
-
-#: libraries/classes/Config/Descriptions.php:538
-#, fuzzy
-#| msgid "Target for quick access icon"
-msgid "Target for second quick access icon"
-msgstr "Tezkor murojaat piktogrammasi uchun nishon"
-
-#: libraries/classes/Config/Descriptions.php:540
+#: libraries/classes/Config/Descriptions.php:296
 #, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid ""
@@ -3350,19 +2326,7 @@ msgid ""
 "display a filter box."
 msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
 
-#: libraries/classes/Config/Descriptions.php:543
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
-msgid "Minimum number of items to display the filter box"
-msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
-
-#: libraries/classes/Config/Descriptions.php:545
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
-msgid "Minimum number of databases to display the database filter box"
-msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
-
-#: libraries/classes/Config/Descriptions.php:548
+#: libraries/classes/Config/Descriptions.php:300
 #, fuzzy
 #| msgid ""
 #| "Only light version; display databases in a tree (determined by the "
@@ -3374,208 +2338,86 @@ msgstr ""
 "Yengil versiya; ma`lumotlar bazalarini daraxtda ko‘rsatish (quyida "
 "belgilangan satr bilan bo‘linadi)"
 
-#: libraries/classes/Config/Descriptions.php:551
-msgid "Group items in the tree"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:552
-#, fuzzy
-#| msgid "String that separates databases into different tree levels"
-msgid "String that separates databases into different tree levels."
-msgstr "Ma`lumotlar bazalarini daraxtning turli darajalariga bo‘luvchi satr"
-
-#: libraries/classes/Config/Descriptions.php:553
-msgid "Database tree separator"
-msgstr "Ma`lumotlar bazasi daraxtining bo‘luvchisi"
-
-#: libraries/classes/Config/Descriptions.php:554
-#, fuzzy
-#| msgid "String that separates tables into different tree levels"
-msgid "String that separates tables into different tree levels."
-msgstr "Jadvallarni daraxtning turli darajalariga bo‘luvchi satr"
-
-#: libraries/classes/Config/Descriptions.php:555
-msgid "Table tree separator"
-msgstr "Jadval daraxtining bo‘luvchisi"
-
-#: libraries/classes/Config/Descriptions.php:556
-msgid "Maximum table tree depth"
-msgstr "Jadvallar daraxtining maksimum chuqurligi"
-
-#: libraries/classes/Config/Descriptions.php:557
-#, fuzzy
-#| msgid "Highlight server under the mouse cursor"
-msgid "Highlight server under the mouse cursor."
-msgstr "Sichqoncha kursori turgan serverni belgilash"
-
-#: libraries/classes/Config/Descriptions.php:558
-msgid "Enable highlighting"
-msgstr "Belgilashni yoqish"
-
-#: libraries/classes/Config/Descriptions.php:560
+#: libraries/classes/Config/Descriptions.php:304
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:562
-#, fuzzy
-#| msgid "Iconic navigation bar"
-msgid "Enable navigation tree expansion"
-msgstr "Piktogrammali navigatsiya menyusi"
-
-#: libraries/classes/Config/Descriptions.php:563
-#, fuzzy
-#| msgid "Show tables"
-msgid "Show tables in tree"
-msgstr "Jadvallarni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:564
-#, fuzzy
-#| msgid "Show logo in left frame"
-msgid "Whether to show tables under database in the navigation tree"
-msgstr "Chap ramkada logotipni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:565
-#, fuzzy
-#| msgid "Show versions"
-msgid "Show views in tree"
-msgstr "Vеrsiyalarni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:566
-#, fuzzy
-#| msgid "Show logo in left frame"
-msgid "Whether to show views under database in the navigation tree"
-msgstr "Chap ramkada logotipni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:567
-#, fuzzy
-#| msgid "Show function fields"
-msgid "Show functions in tree"
-msgstr "Fuknsiyalarmaydonini ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:568
-msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:569
-#, fuzzy
-#| msgid "Show processes"
-msgid "Show procedures in tree"
-msgstr "Jarayonlar ro‘yxati"
-
-#: libraries/classes/Config/Descriptions.php:571
+#: libraries/classes/Config/Descriptions.php:307
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:573
-#, fuzzy
-#| msgid "Show versions"
-msgid "Show events in tree"
-msgstr "Vеrsiyalarni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:574
-#, fuzzy
-#| msgid "Show logo in left frame"
-msgid "Whether to show events under database in the navigation tree"
-msgstr "Chap ramkada logotipni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:575
-#, fuzzy
-#| msgid "Copy database to"
-msgid "Expand single database"
-msgstr "Ma`lumotlar bazasidan quyidagiga nusxa olish"
-
-#: libraries/classes/Config/Descriptions.php:577
+#: libraries/classes/Config/Descriptions.php:310
 #, fuzzy
 #| msgid "Show logo in left frame"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: libraries/classes/Config/Descriptions.php:579
+#: libraries/classes/Config/Descriptions.php:312
 #, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
-msgid "Maximum number of recently used tables; set 0 to disable."
-msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
+#| msgid "Show logo in left frame"
+msgid "Set to 0 to collapse navigation panel."
+msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: libraries/classes/Config/Descriptions.php:580
+#: libraries/classes/Config/Descriptions.php:313
 #, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
-msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
+#| msgid "Show logo in left frame"
+msgid "Show logo in navigation panel."
+msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: libraries/classes/Config/Descriptions.php:581
+#: libraries/classes/Config/Descriptions.php:314
 #, fuzzy
-#| msgid "Untracked tables"
-msgid "Recently used tables"
-msgstr "Kuzatilmagan jadvallar"
+#| msgid "Show logo in left frame"
+msgid "URL where logo in the navigation panel will point to."
+msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: libraries/classes/Config/Descriptions.php:582
-#: libraries/classes/RecentFavoriteTable.php:273
+#: libraries/classes/Config/Descriptions.php:315
 #, fuzzy
-#| msgid "Variables"
-msgid "Favorite tables"
-msgstr "O‘zgaruvchilar"
+#| msgid "Display server choice at the top of the left frame"
+msgid "Display server choice at the top of the navigation panel."
+msgstr "Chap ramkaning yuqori qismida server tanlovini ko‘rsatish"
 
-#: libraries/classes/Config/Descriptions.php:583
-msgid "These are Edit, Copy and Delete links."
+#: libraries/classes/Config/Descriptions.php:316
+#, fuzzy
+#| msgid "String that separates databases into different tree levels"
+msgid "String that separates databases into different tree levels."
+msgstr "Ma`lumotlar bazalarini daraxtning turli darajalariga bo‘luvchi satr"
+
+#: libraries/classes/Config/Descriptions.php:317
+#, fuzzy
+#| msgid "String that separates tables into different tree levels"
+msgid "String that separates tables into different tree levels."
+msgstr "Jadvallarni daraxtning turli darajalariga bo‘luvchi satr"
+
+#: libraries/classes/Config/Descriptions.php:318
+#, fuzzy
+#| msgid "Highlight server under the mouse cursor"
+msgid "Highlight server under the mouse cursor."
+msgstr "Sichqoncha kursori turgan serverni belgilash"
+
+#: libraries/classes/Config/Descriptions.php:319
+#, fuzzy
+#| msgid "Show logo in left frame"
+msgid "Whether to show tables under database in the navigation tree"
+msgstr "Chap ramkada logotipni ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:320
+#, fuzzy
+#| msgid "Show logo in left frame"
+msgid "Whether to show views under database in the navigation tree"
+msgstr "Chap ramkada logotipni ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:321
+msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:584
-msgid "Where to show the table row links"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:585
-msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:586
-msgid "Show row links anyway"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:587
-#: libraries/classes/Config/Descriptions.php:588
+#: libraries/classes/Config/Descriptions.php:322
 #, fuzzy
-#| msgid "Disable foreign key checks"
-msgid "Disable shortcut keys"
-msgstr "Tashqi kalitlarni tekshirishni o‘chirish"
+#| msgid "Show logo in left frame"
+msgid "Whether to show events under database in the navigation tree"
+msgstr "Chap ramkada logotipni ko‘rsatish"
 
-#: libraries/classes/Config/Descriptions.php:589
-msgid "Use natural order for sorting table and database names."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:590
-#, fuzzy
-#| msgid "Alter table order by"
-msgid "Natural order"
-msgstr "Jadval sortirovkasini o‘zgartirish"
-
-#: libraries/classes/Config/Descriptions.php:591
-#: libraries/classes/Config/Descriptions.php:613
-#: libraries/classes/Config/Descriptions.php:615
-#, fuzzy
-#| msgid "Use only icons, only text or both"
-msgid "Use only icons, only text or both."
-msgstr "Faqat piktogramma, faqat matn yoki har ikkisini ishlatish"
-
-#: libraries/classes/Config/Descriptions.php:592
-#, fuzzy
-#| msgid "Iconic navigation bar"
-msgid "Table navigation bar"
-msgstr "Piktogrammali navigatsiya menyusi"
-
-#: libraries/classes/Config/Descriptions.php:593
-#, fuzzy
-#| msgid "use GZip output buffering for increased speed in HTTP transfers"
-msgid "Use GZip output buffering for increased speed in HTTP transfers."
-msgstr ""
-"HTTP orqali ma`lumot uzatishda yuqori tezlikka erishish uchun GZip "
-"buferizatsiyadan foydalaning"
-
-#: libraries/classes/Config/Descriptions.php:594
-msgid "GZip output buffering"
-msgstr "GZip buferizatsiya"
-
-#: libraries/classes/Config/Descriptions.php:596
+#: libraries/classes/Config/Descriptions.php:324
 #, fuzzy
 #| msgid ""
 #| "d]SMART[/kbd] - i.e. descending order for fields of type TIME, DATE, "
@@ -3587,64 +2429,20 @@ msgstr ""
 "[kbd]SMART[/kbd] – ya`ni, TIME, DATE, DATETIME va TIMESTAMP turidagi "
 "maydonlar uchun kamayish tartibida, aks holda ko‘payish tartibida"
 
-#: libraries/classes/Config/Descriptions.php:599
-msgid "Default sorting order"
-msgstr "Asl tartiblash qoidasi"
-
-#: libraries/classes/Config/Descriptions.php:600
-#, fuzzy
-#| msgid "Use persistent connections to MySQL databases"
-msgid "Use persistent connections to MySQL databases."
-msgstr "MySQL ma`lumotlar bazalarida doimiy ulanishlardan foydalanish"
-
-#: libraries/classes/Config/Descriptions.php:601
-msgid "Persistent connections"
-msgstr "Doimiy ulanishlar"
-
-#: libraries/classes/Config/Descriptions.php:603
+#: libraries/classes/Config/Descriptions.php:328
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:607
-msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:609
+#: libraries/classes/Config/Descriptions.php:333
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:612
-msgid "MySQL reserved word warning"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:614
-#, fuzzy
-#| msgid "Allow to display all the rows"
-msgid "How to display the menu tabs"
-msgstr "Barcha qatorlarni ko‘rsatishga ruxsat berish"
-
-#: libraries/classes/Config/Descriptions.php:616
-msgid "How to display various action links"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:617
-#, fuzzy
-#| msgid "Disallow BLOB and BINARY fields from editing"
-msgid "Disallow BLOB and BINARY columns from editing."
-msgstr "BLOB va BINARY maydonlarini tahirlashni man etish"
-
-#: libraries/classes/Config/Descriptions.php:618
-#, fuzzy
-#| msgid "Protect binary fields"
-msgid "Protect binary columns"
-msgstr "Binar (ikkilik) maydonlarni himoyalash"
-
-#: libraries/classes/Config/Descriptions.php:620
+#: libraries/classes/Config/Descriptions.php:337
 #, fuzzy
 #| msgid ""
 #| "ble if you want DB-based query history (requires phpMyAdmin configuration "
@@ -3659,160 +2457,13 @@ msgstr ""
 "tanlovni yoqing (pmadb talab etiladi). Ushbu tanlov o‘chirilgan bo‘lsa, oyna "
 "yopilgan zahoti so‘rovlar tarixi yo‘qoladi."
 
-#: libraries/classes/Config/Descriptions.php:624
-msgid "Permanent query history"
-msgstr "Doimiy so‘rovlar tarixi"
-
-#: libraries/classes/Config/Descriptions.php:626
-#, fuzzy
-#| msgid "How many queries are kept in history"
-msgid "How many queries are kept in history."
-msgstr "Jurnalda saqlanadigan so‘rovlar soni"
-
-#: libraries/classes/Config/Descriptions.php:627
-msgid "Query history length"
-msgstr "So‘rovlar tarixi uzunligi"
-
-#: libraries/classes/Config/Descriptions.php:628
-#, fuzzy
-#| msgid "Select which functions will be used for character set conversion"
-msgid "Select which functions will be used for character set conversion."
-msgstr ""
-"Kodirovkalarni bir-biriga o‘tkazishda foydalaniladigan funksiyalarni tanlang"
-
-#: libraries/classes/Config/Descriptions.php:629
-msgid "Recoding engine"
-msgstr "Kodirovkalash funksiyasi"
-
-#: libraries/classes/Config/Descriptions.php:630
-msgid "When browsing tables, the sorting of each table is remembered."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:631
-#, fuzzy
-#| msgid "Rename table to"
-msgid "Remember table's sorting"
-msgstr "Jadval nomini o‘zgartirish"
-
-#: libraries/classes/Config/Descriptions.php:632
-msgid "Default sort order for tables with a primary key."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:633
-#, fuzzy
-#| msgid "Default sorting order"
-msgid "Primary key default sort order"
-msgstr "Asl tartiblash qoidasi"
-
-#: libraries/classes/Config/Descriptions.php:634
-msgid ""
-"Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:635
-#, fuzzy
-#| msgid "Repair threads"
-msgid "Repeat headers"
-msgstr "Oqimli tiklash"
-
-#: libraries/classes/Config/Descriptions.php:636
-msgid "Grid editing: trigger action"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:637
-#, fuzzy
-#| msgid "Relational display field"
-msgid "Relational display"
-msgstr "Aloqador maydon qiymati"
-
-#: libraries/classes/Config/Descriptions.php:638
-#, fuzzy
-#| msgid "Servers display options"
-msgid "For display Options"
-msgstr "Serverlar ko‘rinishini sozlash"
-
-#: libraries/classes/Config/Descriptions.php:639
-msgid "Grid editing: save all edited cells at once"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:640
-#, fuzzy
-#| msgid "Directory where exports can be saved on server"
-msgid "Directory where exports can be saved on server."
-msgstr "Serverdagi eksport fayllar saqlanadigan direktoriya"
-
-#: libraries/classes/Config/Descriptions.php:641
-msgid "Save directory"
-msgstr "Saqlash direktoriyasi"
-
-#: libraries/classes/Config/Descriptions.php:642
-#, fuzzy
-#| msgid "Leave blank if not used"
-msgid "Leave blank if not used."
-msgstr "Agar ishlatilmasa bo‘sh qoldiring"
-
-#: libraries/classes/Config/Descriptions.php:643
-#, fuzzy
-#| msgid "Host authentication order"
-msgid "Host authorization order"
-msgstr "Autentifikatsiya tartibi"
-
-#: libraries/classes/Config/Descriptions.php:644
-#, fuzzy
-#| msgid "Leave blank for defaults"
-msgid "Leave blank for defaults."
-msgstr "Asl qoidalarni ishlatish uchun bo‘sh qoldiring"
-
-#: libraries/classes/Config/Descriptions.php:645
-#, fuzzy
-#| msgid "Host authentication rules"
-msgid "Host authorization rules"
-msgstr "Autentifikatsiya qoidalari"
-
-#: libraries/classes/Config/Descriptions.php:646
-msgid "Allow logins without a password"
-msgstr "Parolsiz qirishga ruxsat bеrish"
-
-#: libraries/classes/Config/Descriptions.php:647
-msgid "Allow root login"
-msgstr "\"root\"ga kirishga ruxsat berish"
-
-#: libraries/classes/Config/Descriptions.php:648
-#, fuzzy
-#| msgid "Session value"
-msgid "Session timezone"
-msgstr "Sessiya qiymatlari"
-
-#: libraries/classes/Config/Descriptions.php:650
+#: libraries/classes/Config/Descriptions.php:342
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:653
-#, fuzzy
-#| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
-msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
-msgstr ""
-"HTTP Avtorizatsiya vaqtida ko‘rsatiladigan Oddiy HTTP Avtorizatsiya Bo‘limi "
-"nomi"
-
-#: libraries/classes/Config/Descriptions.php:654
-msgid "HTTP Realm"
-msgstr "HTTP Bo‘limi"
-
-#: libraries/classes/Config/Descriptions.php:655
-#, fuzzy
-#| msgid "Authentication method to use"
-msgid "Authentication method to use."
-msgstr "Foydalaniladigan autentifikatsiya usuli"
-
-#: libraries/classes/Config/Descriptions.php:656
-#: templates/setup/home/index.twig:44
-msgid "Authentication type"
-msgstr "Autentifikatsiya usuli"
-
-#: libraries/classes/Config/Descriptions.php:658
+#: libraries/classes/Config/Descriptions.php:346
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
@@ -3824,11 +2475,7 @@ msgstr ""
 "[a@https://wiki.phpmyadmin.net/pma/bookmark]Xatcho‘p[/a] ishlatmaslik uchun "
 "bo‘sh qoldiring, asli: [kbd]pma_bookmark[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:661
-msgid "Bookmark table"
-msgstr "Xatcho‘plar jadvali"
-
-#: libraries/classes/Config/Descriptions.php:663
+#: libraries/classes/Config/Descriptions.php:350
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no column comments/mime types, suggested: "
@@ -3840,25 +2487,7 @@ msgstr ""
 "Ustun izohlari/\"mime\"-turlari haqidagi ma`lumotlarni ishlatmaslik uchun "
 "bo‘sh qoldiring, asli: [kbd]pma_column_info[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:666
-msgid "Column information table"
-msgstr "Ustun ma`lumotlari jadvali"
-
-#: libraries/classes/Config/Descriptions.php:667
-#, fuzzy
-#| msgid "Compress connection to MySQL server"
-msgid "Compress connection to MySQL server."
-msgstr "MySQL serveiga ulanishni qisish"
-
-#: libraries/classes/Config/Descriptions.php:668
-msgid "Compress connection"
-msgstr "Ulanishni qisish"
-
-#: libraries/classes/Config/Descriptions.php:669
-msgid "Control user password"
-msgstr "Nazorat foydalanuvchisi paroli"
-
-#: libraries/classes/Config/Descriptions.php:671
+#: libraries/classes/Config/Descriptions.php:354
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
@@ -3872,43 +2501,20 @@ msgstr ""
 "batafsil ma`lumot [a@https://wiki.phpmyadmin.net/pma/controluser]\"wiki\"[/"
 "a]da mavjud"
 
-#: libraries/classes/Config/Descriptions.php:674
-msgid "Control user"
-msgstr "Nazorat foydalanuvchisi"
-
-#: libraries/classes/Config/Descriptions.php:676
+#: libraries/classes/Config/Descriptions.php:358
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:679
-#, fuzzy
-#| msgid "Control user"
-msgid "Control host"
-msgstr "Nazorat foydalanuvchisi"
-
-#: libraries/classes/Config/Descriptions.php:681
+#: libraries/classes/Config/Descriptions.php:362
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:685
-#, fuzzy
-#| msgid "Control user"
-msgid "Control port"
-msgstr "Nazorat foydalanuvchisi"
-
-#: libraries/classes/Config/Descriptions.php:686
-#, fuzzy
-#| msgid "Hide databases matching regular expression (PCRE)"
-msgid "Hide databases matching regular expression (PCRE)."
-msgstr ""
-"Muntazam iboralar(PCRE)ga to‘g‘ri keladigan ma`lumotlar bazalarini yashirish"
-
-#: libraries/classes/Config/Descriptions.php:688
+#: libraries/classes/Config/Descriptions.php:367
 #, fuzzy
 #| msgid ""
 #| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
@@ -3923,15 +2529,7 @@ msgstr ""
 "bugs/2606/]\"PMA bug tracker\"[/a] va [a@https://bugs.mysql."
 "com/19588]\"MySQL Bugs\"[/a]larga qarang"
 
-#: libraries/classes/Config/Descriptions.php:691
-msgid "Disable use of INFORMATION_SCHEMA"
-msgstr "INFORMATION_SCHEMA ishlatishni o‘chirish"
-
-#: libraries/classes/Config/Descriptions.php:692
-msgid "Hide databases"
-msgstr "Bazalarni yashirish"
-
-#: libraries/classes/Config/Descriptions.php:694
+#: libraries/classes/Config/Descriptions.php:371
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no SQL query history support, suggested: "
@@ -3943,43 +2541,13 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:697
-msgid "SQL query history table"
-msgstr "SQL so‘rovlari tarixi jadvali"
-
-#: libraries/classes/Config/Descriptions.php:698
-#, fuzzy
-#| msgid "Hostname where MySQL server is running"
-msgid "Hostname where MySQL server is running."
-msgstr "MySQL sеrvеri ishlayotgan xost nomi"
-
-#: libraries/classes/Config/Descriptions.php:699
-msgid "Server hostname"
-msgstr "Sеrvеr xost nomi"
-
-#: libraries/classes/Config/Descriptions.php:700
-msgid "Logout URL"
-msgstr "Chiqish URL"
-
-#: libraries/classes/Config/Descriptions.php:702
+#: libraries/classes/Config/Descriptions.php:375
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:705
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
-msgid "Maximal number of table preferences to store"
-msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
-
-#: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "See slave status table"
-msgid "QBE saved searches table"
-msgstr "Tobе sеrvеr statusi jadvalini ko‘rish"
-
-#: libraries/classes/Config/Descriptions.php:708
+#: libraries/classes/Config/Descriptions.php:379
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
@@ -3990,13 +2558,7 @@ msgstr ""
 "Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: "
 "[kbd]\"pma_pdf_pages\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:711
-#, fuzzy
-#| msgid "Export views"
-msgid "Export templates table"
-msgstr "Ko‘rinishlarni eksport qilish"
-
-#: libraries/classes/Config/Descriptions.php:713
+#: libraries/classes/Config/Descriptions.php:383
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
@@ -4007,13 +2569,7 @@ msgstr ""
 "Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: "
 "[kbd]\"pma_pdf_pages\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:716
-#, fuzzy
-#| msgid "CHAR textarea columns"
-msgid "Central columns table"
-msgstr "CHAR maydonidagi ustunlar soni"
-
-#: libraries/classes/Config/Descriptions.php:718
+#: libraries/classes/Config/Descriptions.php:387
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
@@ -4025,7 +2581,7 @@ msgstr ""
 "PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: "
 "[kbd]\"pma_table_coords\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:722
+#: libraries/classes/Config/Descriptions.php:391
 #, fuzzy
 #| msgid ""
 #| " can use MySQL wildcard characters (% and _), escape them if you want use "
@@ -4039,23 +2595,7 @@ msgstr ""
 "oldiga teskari egri chiziq (\\) qo‘yishingiz kerak, masalan \\\"my\\_db\\"
 "\" (lekin \"my_db\" emas)"
 
-#: libraries/classes/Config/Descriptions.php:726
-msgid "Show only listed databases"
-msgstr "Faqat ro‘yxatdagi bazalarni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:727
-#: libraries/classes/Config/Descriptions.php:832
-#, fuzzy
-#| msgid "Leave empty if not using config auth"
-msgid "Leave empty if not using config auth."
-msgstr ""
-"Agar \"config\" autentifikatsiya usulidan foydalanmasangiz, bo‘sh qoldiring"
-
-#: libraries/classes/Config/Descriptions.php:728
-msgid "Password for config auth"
-msgstr "\"config\" autentifikatsiya usuli paroli"
-
-#: libraries/classes/Config/Descriptions.php:730
+#: libraries/classes/Config/Descriptions.php:396
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
@@ -4065,11 +2605,7 @@ msgstr ""
 "Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: "
 "[kbd]\"pma_pdf_pages\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:732
-msgid "PDF schema: pages table"
-msgstr "PDF-sxema: sahifalar jadvali"
-
-#: libraries/classes/Config/Descriptions.php:734
+#: libraries/classes/Config/Descriptions.php:399
 #, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@https://"
@@ -4085,26 +2621,7 @@ msgstr ""
 "a]ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: "
 "[kbd]\"phpmyadmin\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:738
-#: templates/database/operations/index.twig:127
-#: templates/server/databases/index.twig:37
-#, fuzzy
-#| msgid "database name"
-msgid "Database name"
-msgstr "ma`lumotlar bazasi nomi"
-
-#: libraries/classes/Config/Descriptions.php:739
-#, fuzzy
-#| msgid "Port on which MySQL server is listening, leave empty for default"
-msgid "Port on which MySQL server is listening, leave empty for default."
-msgstr ""
-"MySQL serveri tinglaydigan port, asl qiymatni qoldirish uchun bo‘sh qoldiring"
-
-#: libraries/classes/Config/Descriptions.php:740
-msgid "Server port"
-msgstr "Server porti"
-
-#: libraries/classes/Config/Descriptions.php:742
+#: libraries/classes/Config/Descriptions.php:404
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -4115,13 +2632,7 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:745
-#, fuzzy
-#| msgid "Recall user name"
-msgid "Recently used table"
-msgstr "Foydalanuvchi nomini chaqirib olish"
-
-#: libraries/classes/Config/Descriptions.php:747
+#: libraries/classes/Config/Descriptions.php:408
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -4132,13 +2643,7 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:750
-#, fuzzy
-#| msgid "Variables"
-msgid "Favorites table"
-msgstr "O‘zgaruvchilar"
-
-#: libraries/classes/Config/Descriptions.php:752
+#: libraries/classes/Config/Descriptions.php:412
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
@@ -4150,11 +2655,7 @@ msgstr ""
 "[a@https://wiki.phpmyadmin.net/pma/relation]Aloqa bog‘lanishlari[/a]ni "
 "ishlatmaslik uchun, bo‘sh qoldiring, asl qiymati: [kbd]\"pma_relation\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:756
-msgid "Relation table"
-msgstr "Aloqalar jadvali"
-
-#: libraries/classes/Config/Descriptions.php:758
+#: libraries/classes/Config/Descriptions.php:417
 #, fuzzy
 #| msgid ""
 #| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
@@ -4165,37 +2666,7 @@ msgstr ""
 "Namuna  uchun [a@https://wiki.phpmyadmin.net/pma/"
 "auth_types#signon]autentifikatsiya usullari[/a]ga qarang"
 
-#: libraries/classes/Config/Descriptions.php:761
-msgid "Signon session name"
-msgstr "Kirish sessiyasi nomi"
-
-#: libraries/classes/Config/Descriptions.php:762
-msgid "Signon URL"
-msgstr "Kirish URL"
-
-#: libraries/classes/Config/Descriptions.php:763
-#, fuzzy
-#| msgid "Socket on which MySQL server is listening, leave empty for default"
-msgid "Socket on which MySQL server is listening, leave empty for default."
-msgstr "MySQL serveri tinglaydigan soket, asl qiymati uchun bo‘sh qoldiring"
-
-#: libraries/classes/Config/Descriptions.php:764
-msgid "Server socket"
-msgstr "Server soketi"
-
-#: libraries/classes/Config/Descriptions.php:765
-#, fuzzy
-#| msgid "Enable SSL for connection to MySQL server"
-msgid "Enable SSL for connection to MySQL server."
-msgstr ""
-"SSL (Secure Sockets Layer - himoyalangan soketlar protokoli) ulanishdan "
-"foydalanish"
-
-#: libraries/classes/Config/Descriptions.php:766
-msgid "Use SSL"
-msgstr "SSL ulanishdan foydalanish"
-
-#: libraries/classes/Config/Descriptions.php:768
+#: libraries/classes/Config/Descriptions.php:421
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma_table_coords[/"
@@ -4207,13 +2678,7 @@ msgstr ""
 "PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: "
 "[kbd]\"pma_table_coords\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:770
-#, fuzzy
-#| msgid "PDF schema: table coordinates"
-msgid "Designer and PDF schema: table coordinates"
-msgstr "PDF-sxema: jadval koordinatalari"
-
-#: libraries/classes/Config/Descriptions.php:772
+#: libraries/classes/Config/Descriptions.php:424
 #, fuzzy
 #| msgid ""
 #| "le to describe the display fields, leave blank for no support; gested: "
@@ -4225,13 +2690,7 @@ msgstr ""
 "Ko‘rsatiladigan maydonlar sharhlari saqlanadigan jadval, ishlatmaslik uchun "
 "bo‘sh qoldiring, asl qiymati: [kbd]\"pma_table_info\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:775
-#, fuzzy
-#| msgid "Display fields table"
-msgid "Display columns table"
-msgstr "Maydonlar jadvalini ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:777
+#: libraries/classes/Config/Descriptions.php:428
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -4242,54 +2701,29 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:780
-#, fuzzy
-#| msgid "Defragment table"
-msgid "UI preferences table"
-msgstr "Jadvalni defragmentatsiyalash"
-
-#: libraries/classes/Config/Descriptions.php:782
+#: libraries/classes/Config/Descriptions.php:432
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:785
-msgid "Add DROP DATABASE"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:787
+#: libraries/classes/Config/Descriptions.php:436
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:790
-#: templates/database/structure/copy_form.twig:34
-msgid "Add DROP TABLE"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:792
+#: libraries/classes/Config/Descriptions.php:440
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:795
-msgid "Add DROP VIEW"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:797
+#: libraries/classes/Config/Descriptions.php:444
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:799
-#, fuzzy
-#| msgid "Statements"
-msgid "Statements to track"
-msgstr "Tavsif"
-
-#: libraries/classes/Config/Descriptions.php:801
+#: libraries/classes/Config/Descriptions.php:447
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -4300,25 +2734,13 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:804
-#, fuzzy
-#| msgid "SQL query history table"
-msgid "SQL query tracking table"
-msgstr "SQL so‘rovlari tarixi jadvali"
-
-#: libraries/classes/Config/Descriptions.php:806
+#: libraries/classes/Config/Descriptions.php:451
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:809
-#, fuzzy
-#| msgid "Automatic recovery mode"
-msgid "Automatically create versions"
-msgstr "Avtomatik tiklash rejimi"
-
-#: libraries/classes/Config/Descriptions.php:811
+#: libraries/classes/Config/Descriptions.php:455
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -4329,37 +2751,21 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:814
-msgid "User preferences storage table"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:816
+#: libraries/classes/Config/Descriptions.php:459
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:820
-#, fuzzy
-#| msgid "Use Tables"
-msgid "Users table"
-msgstr "Jadvallarni ishlatish"
-
-#: libraries/classes/Config/Descriptions.php:822
+#: libraries/classes/Config/Descriptions.php:464
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:826
-#, fuzzy
-#| msgid "Use Host Table"
-msgid "User groups table"
-msgstr "Xostlar jadvalidan foydalanish"
-
-#: libraries/classes/Config/Descriptions.php:828
+#: libraries/classes/Config/Descriptions.php:469
 #, fuzzy
 #| msgid ""
 #| "ve blank for no SQL query history support, suggested: [kbd]pma_historybd]"
@@ -4370,36 +2776,87 @@ msgstr ""
 "Agar SQL so‘rovlar tarixidan foydalanmoqchi bo‘lmasangiz, bo‘sh qoldiring, "
 "asl qiymati: [kbd]\"pma_history\"[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:831
-msgid "Hidden navigation items table"
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:833
-msgid "User for config auth"
-msgstr "\"config\" autentifikatsiya usuli foydalanuvchisi"
-
-#: libraries/classes/Config/Descriptions.php:835
+#: libraries/classes/Config/Descriptions.php:473
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr "MySQL serveri ishlayotgan xost server nomi."
 
-#: libraries/classes/Config/Descriptions.php:838
-msgid "Verbose name of this server"
-msgstr "Ushbu serverning kengaytirilgan nomi"
-
-#: libraries/classes/Config/Descriptions.php:839
+#: libraries/classes/Config/Descriptions.php:476
 #, fuzzy
-#| msgid "ther a user should be displayed a \"show all (records)\" button"
-msgid "Whether a user should be displayed a \"show all (rows)\" button."
+#| msgid "Leave blank if not used"
+msgid "Leave blank if not used."
+msgstr "Agar ishlatilmasa bo‘sh qoldiring"
+
+#: libraries/classes/Config/Descriptions.php:477
+#, fuzzy
+#| msgid "Leave blank for defaults"
+msgid "Leave blank for defaults."
+msgstr "Asl qoidalarni ishlatish uchun bo‘sh qoldiring"
+
+#: libraries/classes/Config/Descriptions.php:478
+#, fuzzy
+#| msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
+msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
-"Foydalanuvchiga \"barcha (yozuvlar)ni ko‘rsatish\" tugmasi ko‘rsatilsinmi?"
+"HTTP Avtorizatsiya vaqtida ko‘rsatiladigan Oddiy HTTP Avtorizatsiya Bo‘limi "
+"nomi"
 
-#: libraries/classes/Config/Descriptions.php:840
-msgid "Allow to display all the rows"
-msgstr "Barcha qatorlarni ko‘rsatishga ruxsat berish"
+#: libraries/classes/Config/Descriptions.php:479
+#, fuzzy
+#| msgid "Authentication method to use"
+msgid "Authentication method to use."
+msgstr "Foydalaniladigan autentifikatsiya usuli"
 
-#: libraries/classes/Config/Descriptions.php:842
+#: libraries/classes/Config/Descriptions.php:480
+#, fuzzy
+#| msgid "Compress connection to MySQL server"
+msgid "Compress connection to MySQL server."
+msgstr "MySQL serveiga ulanishni qisish"
+
+#: libraries/classes/Config/Descriptions.php:481
+#, fuzzy
+#| msgid "Hide databases matching regular expression (PCRE)"
+msgid "Hide databases matching regular expression (PCRE)."
+msgstr ""
+"Muntazam iboralar(PCRE)ga to‘g‘ri keladigan ma`lumotlar bazalarini yashirish"
+
+#: libraries/classes/Config/Descriptions.php:482
+#, fuzzy
+#| msgid "Hostname where MySQL server is running"
+msgid "Hostname where MySQL server is running."
+msgstr "MySQL sеrvеri ishlayotgan xost nomi"
+
+#: libraries/classes/Config/Descriptions.php:483
+#: libraries/classes/Config/Descriptions.php:487
+#, fuzzy
+#| msgid "Leave empty if not using config auth"
+msgid "Leave empty if not using config auth."
+msgstr ""
+"Agar \"config\" autentifikatsiya usulidan foydalanmasangiz, bo‘sh qoldiring"
+
+#: libraries/classes/Config/Descriptions.php:484
+#, fuzzy
+#| msgid "Port on which MySQL server is listening, leave empty for default"
+msgid "Port on which MySQL server is listening, leave empty for default."
+msgstr ""
+"MySQL serveri tinglaydigan port, asl qiymatni qoldirish uchun bo‘sh qoldiring"
+
+#: libraries/classes/Config/Descriptions.php:485
+#, fuzzy
+#| msgid "Socket on which MySQL server is listening, leave empty for default"
+msgid "Socket on which MySQL server is listening, leave empty for default."
+msgstr "MySQL serveri tinglaydigan soket, asl qiymati uchun bo‘sh qoldiring"
+
+#: libraries/classes/Config/Descriptions.php:486
+#, fuzzy
+#| msgid "Enable SSL for connection to MySQL server"
+msgid "Enable SSL for connection to MySQL server."
+msgstr ""
+"SSL (Secure Sockets Layer - himoyalangan soketlar protokoli) ulanishdan "
+"foydalanish"
+
+#: libraries/classes/Config/Descriptions.php:489
 #, fuzzy
 #| msgid ""
 #| "Please note that enabling this has no effect with [kbd]config[/kbd] "
@@ -4414,99 +2871,27 @@ msgstr ""
 "Esda tuting, ushbu tanlovni yoqishingiz [kbd]\"config\"[/kbd] "
 "autentifikatsiya usulidagi parolga ta`sir etmaydi"
 
-#: libraries/classes/Config/Descriptions.php:846
-msgid "Show password change form"
-msgstr "Parolni o‘zgartirish formasini ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:847
-msgid "Show create database form"
-msgstr "Ma`lumotlar bazasi tuzish formasini ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:848
-msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:849
-#, fuzzy
-#| msgid "Table comments"
-msgid "Show table comments"
-msgstr "Jadval izohi"
-
-#: libraries/classes/Config/Descriptions.php:851
+#: libraries/classes/Config/Descriptions.php:494
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:853
-#, fuzzy
-#| msgid "Show versions"
-msgid "Show creation timestamp"
-msgstr "Vеrsiyalarni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:855
+#: libraries/classes/Config/Descriptions.php:497
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:857
-#, fuzzy
-#| msgid "Show master status"
-msgid "Show last update timestamp"
-msgstr "Ulangan bosh sеrvеrlarni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:859
+#: libraries/classes/Config/Descriptions.php:500
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:861
-#, fuzzy
-#| msgid "Show master status"
-msgid "Show last check timestamp"
-msgstr "Ulangan bosh sеrvеrlarni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:862
-msgid "Show or hide a column displaying the charset for all tables."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:863
-#, fuzzy
-#| msgid "Table comments"
-msgid "Show table charset"
-msgstr "Jadval izohi"
-
-#: libraries/classes/Config/Descriptions.php:865
+#: libraries/classes/Config/Descriptions.php:503
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:868
-#, fuzzy
-#| msgid "Show open tables"
-msgid "Show field types"
-msgstr "Ochiq jadvallar ro‘yxati"
-
-#: libraries/classes/Config/Descriptions.php:869
-#, fuzzy
-#| msgid "Display the function fields in edit/insert mode"
-msgid "Display the function fields in edit/insert mode."
-msgstr "Tahrirlash/qo‘yish rejimida funksiyalar maydonini ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:870
-msgid "Show function fields"
-msgstr "Fuknsiyalarmaydonini ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:871
-msgid "Whether to show hint or not."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:872
-#, fuzzy
-#| msgid "Show grid"
-msgid "Show hint"
-msgstr "To‘rni ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:874
+#: libraries/classes/Config/Descriptions.php:507
 #, fuzzy
 #| msgid ""
 #| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
@@ -4518,15 +2903,32 @@ msgstr ""
 "[a@https://secure.php.net/manual/function.phpinfo.php]\"phpinfo()\"[/a] "
 "funksiyasi natijasiga bog‘ ko‘rsatish"
 
-#: libraries/classes/Config/Descriptions.php:877
-msgid "Show phpinfo() link"
-msgstr "\"phpinfo()\" funksiyasiga bog‘ ko‘rsatish"
+#: libraries/classes/Config/Descriptions.php:510
+#, fuzzy
+#| msgid "ther a user should be displayed a \"show all (records)\" button"
+msgid "Whether a user should be displayed a \"show all (rows)\" button."
+msgstr ""
+"Foydalanuvchiga \"barcha (yozuvlar)ni ko‘rsatish\" tugmasi ko‘rsatilsinmi?"
 
-#: libraries/classes/Config/Descriptions.php:878
-msgid "Show detailed MySQL server information"
-msgstr "MySQL serveri haqida batafsil ma`lumot ko‘rsatish"
+#: libraries/classes/Config/Descriptions.php:511
+msgid "Show or hide a column displaying the comments for all tables."
+msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:879
+#: libraries/classes/Config/Descriptions.php:512
+msgid "Show or hide a column displaying the charset for all tables."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:513
+#, fuzzy
+#| msgid "Display the function fields in edit/insert mode"
+msgid "Display the function fields in edit/insert mode."
+msgstr "Tahrirlash/qo‘yish rejimida funksiyalar maydonini ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:514
+msgid "Whether to show hint or not."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:515
 #, fuzzy
 #| msgid ""
 #| "Defines whether SQL queries generated by phpMyAdmin should be displayed"
@@ -4535,22 +2937,7 @@ msgid ""
 msgstr ""
 "phpMyAdmin tomonidan generatsiya qilingan SQL so‘rovlarini ko‘rsatish kerakmi"
 
-#: libraries/classes/Config/Descriptions.php:880
-msgid "Show SQL queries"
-msgstr "Show SQL so‘rovlarini ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:881
-msgid ""
-"Defines whether the query box should stay on-screen after its submission."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:882 templates/sql/query.twig:120
-#, fuzzy
-#| msgid "SQL Query box"
-msgid "Retain query box"
-msgstr "SQL so‘rovlari qutisi"
-
-#: libraries/classes/Config/Descriptions.php:883
+#: libraries/classes/Config/Descriptions.php:516
 #, fuzzy
 #| msgid "Allow to display database and table statistics (eg. space usage)"
 msgid "Allow to display database and table statistics (e.g. space usage)."
@@ -4558,11 +2945,7 @@ msgstr ""
 "Ma`lumotlar bazalari va jadvallar statiskasini (masalan, diskda egallagan "
 "joyi) ko‘rsatish"
 
-#: libraries/classes/Config/Descriptions.php:884
-msgid "Show statistics"
-msgstr "Statiskani ko‘rsatish"
-
-#: libraries/classes/Config/Descriptions.php:886
+#: libraries/classes/Config/Descriptions.php:518
 #, fuzzy
 #| msgid ""
 #| "Mark used tables and make it possible to show databases with locked tables"
@@ -4572,13 +2955,1801 @@ msgstr ""
 "Ishlatilayotgan jadvallarni belgilash va qulflangan jadvallari mavjud "
 "bo‘lgan ma`lumotlar bazalarini ko‘rishga imkon berish"
 
+#: libraries/classes/Config/Descriptions.php:521
+#, fuzzy
+#| msgid ""
+#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+#| "authentication"
+msgid ""
+"Disable the default warning that is displayed on the main page if Suhosin is "
+"detected."
+msgstr ""
+"[kbd]cookie[/kbd]-autentifikatsiya usulida cookie-larni shifrlash uchun "
+"ishlatiladigan sirli ibora"
+
+#: libraries/classes/Config/Descriptions.php:525
+#, fuzzy
+#| msgid ""
+#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+#| "authentication"
+msgid ""
+"Disable the default warning that is displayed on the main page if the value "
+"of the PHP setting session.gc_maxlifetime is less than the value of "
+"`LoginCookieValidity`."
+msgstr ""
+"[kbd]cookie[/kbd]-autentifikatsiya usulida cookie-larni shifrlash uchun "
+"ishlatiladigan sirli ibora"
+
+#: libraries/classes/Config/Descriptions.php:530
+msgid ""
+"Textarea size (columns) in edit mode, this value will be emphasized for SQL "
+"query textareas (*2)."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:534
+msgid ""
+"Textarea size (rows) in edit mode, this value will be emphasized for SQL "
+"query textareas (*2)."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:538
+#, fuzzy
+#| msgid ""
+#| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
+#| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
+#| "Forwarded-For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
+#| "HTTP_X_FORWARDED_FOR[/kbd]"
+msgid ""
+"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
+"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
+"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
+"HTTP_X_FORWARDED_FOR[/kbd]."
+msgstr ""
+"Proksi-serverlarni quyidagicha kiriting [kbd]IP: trusted HTTP header[/kbd]. "
+"Quyidagi namuna phpMyAdmin dasturi 1.2.3.4 IP adresli proksi-serverdan "
+"kelayotgan HTTP_X_FORWARDED_FOR (X-Forwarded-For) sarlavhani ishonchli deb "
+"qabul qilishini ta`minlaydi: [br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
+
+#: libraries/classes/Config/Descriptions.php:544
+msgid ""
+"When disabled, users cannot set any of the options below, regardless of the "
+"checkbox on the right."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:548
+msgid ""
+"The url of the proxy to be used when retrieving the information about the "
+"latest version of phpMyAdmin or when submitting error reports. You need this "
+"if the server where phpMyAdmin is installed does not have direct access to "
+"the internet. The format is: \"hostname:portnumber\"."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:554
+msgid ""
+"The username for authenticating with the proxy. By default, no "
+"authentication is performed. If a username is supplied, Basic Authentication "
+"will be performed. No other types of authentication are currently supported."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:560
+msgid ""
+"Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
+"will be inserted with Shift+Enter."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:564
+msgid ""
+"Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
+"storage tables automatically."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:567
+msgid "Highlight selected rows."
+msgstr "Tanlangan qatorlarni belgilash."
+
+#: libraries/classes/Config/Descriptions.php:568
+#, fuzzy
+#| msgid "Highlight row pointed by the mouse cursor"
+msgid "Highlight row pointed by the mouse cursor."
+msgstr "Sichqoncha kursori ko‘rsatib turgan qatorni belgilash"
+
+#: libraries/classes/Config/Descriptions.php:569
+#, fuzzy
+#| msgid "Number of columns for CHAR/VARCHAR textareas"
+msgid "Number of columns for CHAR/VARCHAR textareas."
+msgstr "CHAR/VARCHAR maydonlaridagi ustunlar soni"
+
+#: libraries/classes/Config/Descriptions.php:570
+#, fuzzy
+#| msgid "Number of rows for CHAR/VARCHAR textareas"
+msgid "Number of rows for CHAR/VARCHAR textareas."
+msgstr "CHAR/VARCHAR maydonlaridagi qatorlar soni"
+
+#: libraries/classes/Config/Descriptions.php:571
+msgid ""
+"Log SQL queries and their execution time, to be displayed in the console"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:572
+#, fuzzy
+#| msgid "Tab that is displayed when entering a database"
+msgid "Tab that is displayed when entering a database."
+msgstr "Ma`lumotlar bazasiga kirishda ko‘rsatiladigan yorliq"
+
+#: libraries/classes/Config/Descriptions.php:573
+#, fuzzy
+#| msgid "Tab that is displayed when entering a server"
+msgid "Tab that is displayed when entering a server."
+msgstr "Serverga kirishda ko‘rsatiladigan yorliq"
+
+#: libraries/classes/Config/Descriptions.php:574
+#, fuzzy
+#| msgid "Tab that is displayed when entering a table"
+msgid "Tab that is displayed when entering a table."
+msgstr "Jadvalga kirishda ko‘rsatiladigan yorliq"
+
+#: libraries/classes/Config/Descriptions.php:575
+#, fuzzy
+#| msgid "Propose table structure"
+msgid "Whether the table structure actions should be hidden."
+msgstr "Jadval tuzilishi tahlili"
+
+#: libraries/classes/Config/Descriptions.php:576
+msgid "Whether column comments should be shown in table structure view"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:577
+msgid "Show server listing as a list instead of a drop down."
+msgstr ""
+"Serverlar ro‘yxatini pastga tushadigan menyu o‘rniga oddiy ro‘yxat shaklida "
+"ko‘rsatish."
+
+#: libraries/classes/Config/Descriptions.php:578
+#, fuzzy
+#| msgid "A dropdown will be used if fewer items are present"
+msgid "A dropdown will be used if fewer items are present."
+msgstr "Agar kamroq qiymat bo‘lsa, pastga tushuvchi menyu ishlatiladi"
+
+#: libraries/classes/Config/Descriptions.php:579
+msgid "Default value for foreign key checks checkbox for some queries."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:580
+msgid "Uncheck the checkbox to disable drag and drop import"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:581
+#, fuzzy
+#| msgid "How many rows can be inserted at one time"
+msgid "How many rows can be inserted at one time."
+msgstr "Bir vaqtning o‘zidanechta qator qo‘yilishi mumkin"
+
+#: libraries/classes/Config/Descriptions.php:582
+#, fuzzy
+#| msgid "Maximum number of characters used when a SQL query is displayed"
+msgid ""
+"Maximum number of characters shown in any non-numeric column on browse view."
+msgstr "SQL so‘rovi ko‘rsatilganda ishlatiladigan belgilarning maksimal soni"
+
+#: libraries/classes/Config/Descriptions.php:583
+#, fuzzy
+#| msgid "Define how long (in seconds) a login cookie is valid"
+msgid "Define how long (in seconds) a login cookie is valid."
+msgstr ""
+"cookie-login usuli qancha vaqt (sekundlarda) yaroqli bo‘lishini belgilang"
+
+#: libraries/classes/Config/Descriptions.php:584
+msgid "Double size of textarea for LONGTEXT columns."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:585
+#, fuzzy
+#| msgid "Maximum number of tables displayed in table list"
+msgid "Maximum number of databases displayed in database list."
+msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
+
+#: libraries/classes/Config/Descriptions.php:586
+#, fuzzy
+#| msgid "Maximum number of tables displayed in table list"
+msgid "Maximum number of tables displayed in table list."
+msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
+
+#: libraries/classes/Config/Descriptions.php:587
+#, fuzzy
+#| msgid "Maximum number of tables displayed in table list"
+msgid "Maximum number of recently used tables; set 0 to disable."
+msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
+
+#: libraries/classes/Config/Descriptions.php:588
+#, fuzzy
+#| msgid "Maximum number of tables displayed in table list"
+msgid "Maximum number of favorite tables; set 0 to disable."
+msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
+
+#: libraries/classes/Config/Descriptions.php:589
+msgid "These are Edit, Copy and Delete links."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:590
+msgid "Whether to show row links even in the absence of a unique key."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:591
+#: libraries/classes/Config/Descriptions.php:867
+#, fuzzy
+#| msgid "Disable foreign key checks"
+msgid "Disable shortcut keys"
+msgstr "Tashqi kalitlarni tekshirishni o‘chirish"
+
+#: libraries/classes/Config/Descriptions.php:592
+msgid "Use natural order for sorting table and database names."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:593
+#: libraries/classes/Config/Descriptions.php:596
+#: libraries/classes/Config/Descriptions.php:597
+#, fuzzy
+#| msgid "Use only icons, only text or both"
+msgid "Use only icons, only text or both."
+msgstr "Faqat piktogramma, faqat matn yoki har ikkisini ishlatish"
+
+#: libraries/classes/Config/Descriptions.php:594
+#, fuzzy
+#| msgid "use GZip output buffering for increased speed in HTTP transfers"
+msgid "Use GZip output buffering for increased speed in HTTP transfers."
+msgstr ""
+"HTTP orqali ma`lumot uzatishda yuqori tezlikka erishish uchun GZip "
+"buferizatsiyadan foydalaning"
+
+#: libraries/classes/Config/Descriptions.php:595
+#, fuzzy
+#| msgid "Use persistent connections to MySQL databases"
+msgid "Use persistent connections to MySQL databases."
+msgstr "MySQL ma`lumotlar bazalarida doimiy ulanishlardan foydalanish"
+
+#: libraries/classes/Config/Descriptions.php:598
+#, fuzzy
+#| msgid "Disallow BLOB and BINARY fields from editing"
+msgid "Disallow BLOB and BINARY columns from editing."
+msgstr "BLOB va BINARY maydonlarini tahirlashni man etish"
+
+#: libraries/classes/Config/Descriptions.php:599
+#, fuzzy
+#| msgid "How many queries are kept in history"
+msgid "How many queries are kept in history."
+msgstr "Jurnalda saqlanadigan so‘rovlar soni"
+
+#: libraries/classes/Config/Descriptions.php:600
+#, fuzzy
+#| msgid "Select which functions will be used for character set conversion"
+msgid "Select which functions will be used for character set conversion."
+msgstr ""
+"Kodirovkalarni bir-biriga o‘tkazishda foydalaniladigan funksiyalarni tanlang"
+
+#: libraries/classes/Config/Descriptions.php:601
+msgid "When browsing tables, the sorting of each table is remembered."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:602
+msgid "Default sort order for tables with a primary key."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:603
+msgid ""
+"Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:604
+#, fuzzy
+#| msgid "Servers display options"
+msgid "For display Options"
+msgstr "Serverlar ko‘rinishini sozlash"
+
+#: libraries/classes/Config/Descriptions.php:605
+#, fuzzy
+#| msgid "Directory where exports can be saved on server"
+msgid "Directory where exports can be saved on server."
+msgstr "Serverdagi eksport fayllar saqlanadigan direktoriya"
+
+#: libraries/classes/Config/Descriptions.php:606
+msgid ""
+"Defines whether the query box should stay on-screen after its submission."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:607
+msgid "Title of browser window when a database is selected."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:608
+msgid "Title of browser window when nothing is selected."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:609
+msgid "Title of browser window when a server is selected."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:610
+msgid "Title of browser window when a table is selected."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:611
+#, fuzzy
+#| msgid "Directory on server where you can upload files for import"
+msgid "Directory on server where you can upload files for import."
+msgstr "Serverda import fayllari saqlanadigan direktoriya"
+
+#: libraries/classes/Config/Descriptions.php:612
+#, fuzzy
+#| msgid "Allow for searching inside the entire database"
+msgid "Allow for searching inside the entire database."
+msgstr ""
+"Ma`lumotlar bazasi ichidagi ma`lumotlarni to‘laligicha qidirishga ruxsat "
+"berish"
+
+#: libraries/classes/Config/Descriptions.php:613
+msgid "Enables check for latest version on main phpMyAdmin page."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:614
+msgid "The password for authenticating with the proxy."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:615
+#, fuzzy
+#| msgid ""
+#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
+#| "import and export operations"
+msgid "Enable ZIP compression for import and export operations."
+msgstr ""
+"Import va eksport operatsiyalarida    [a@https://en.wikipedia.org/wiki/"
+"Gzip]gzip[/a] yordamida siqishni yoqish"
+
+#: libraries/classes/Config/Descriptions.php:616
+msgid "Choose the default action when sending error reports."
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:623
+msgid "Allow login to any MySQL server"
+msgstr "Istalgan MySQL-serverga login qilishga ruxsat berish"
+
+#: libraries/classes/Config/Descriptions.php:624
+#, fuzzy
+#| msgid "Cannot log in to the MySQL server"
+msgid "Restrict login to MySQL server"
+msgstr "MySQL serveriga ulanib bo‘lmadi"
+
+#: libraries/classes/Config/Descriptions.php:625
+msgid "Allow third party framing"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:626
+msgid "Show \"Drop database\" link to normal users"
+msgstr ""
+"\"Ma`lumotlar bazasini o‘chirish\" bog‘ini foydalanuvchilarga ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:627
+msgid "Blowfish secret"
+msgstr "Sirli kalit so‘z (Blowfish)"
+
+#: libraries/classes/Config/Descriptions.php:628
+msgid "Row marker"
+msgstr "Qator markeri"
+
+#: libraries/classes/Config/Descriptions.php:629
+msgid "Highlight pointer"
+msgstr "Ko‘rsatgichni belgilash"
+
+#: libraries/classes/Config/Descriptions.php:630
+msgid "Bzip2"
+msgstr "Bzip2"
+
+#: libraries/classes/Config/Descriptions.php:631
+#, fuzzy
+#| msgid "CHAR fields editing"
+msgid "CHAR columns editing"
+msgstr "CHAR maydonlarini tahrirlash"
+
+#: libraries/classes/Config/Descriptions.php:632
+msgid "Enable CodeMirror"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:633
+#, fuzzy
+#| msgid "Enabled"
+msgid "Enable linter"
+msgstr "Faollashtirilgan"
+
+#: libraries/classes/Config/Descriptions.php:634
+#, fuzzy
+#| msgid "Customize export options"
+msgid "Minimum size for input field"
+msgstr "Eksport tanlovlarini moslashtirish"
+
+#: libraries/classes/Config/Descriptions.php:635
+#, fuzzy
+#| msgid "Maximum size for temporary sort files"
+msgid "Maximum size for input field"
+msgstr "Vaqtinchalik indeks fayllarining maksimal hajmi"
+
+#: libraries/classes/Config/Descriptions.php:636
+msgid "CHAR textarea columns"
+msgstr "CHAR maydonidagi ustunlar soni"
+
+#: libraries/classes/Config/Descriptions.php:637
+msgid "CHAR textarea rows"
+msgstr "CHAR maydonidagi qatorlar soni"
+
+#: libraries/classes/Config/Descriptions.php:638
+msgid "Check config file permissions"
+msgstr "Konfiguratsion faylning yozish ruxsatlarini tekshiring"
+
+#: libraries/classes/Config/Descriptions.php:639
+msgid "Compress on the fly"
+msgstr "Biryo‘la qisish"
+
+#: libraries/classes/Config/Descriptions.php:640
+msgid "Confirm DROP queries"
+msgstr "DROP-so‘rovlarini tasdiqlash"
+
+#: libraries/classes/Config/Descriptions.php:641
+#: templates/console/display.twig:11 templates/console/display.twig:64
+msgid "Debug SQL"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:642
+#: libraries/classes/Plugins/Schema/SchemaDia.php:65
+#: libraries/classes/Plugins/Schema/SchemaPdf.php:73
+msgid "Paper size"
+msgstr "Qog‘oz o‘lchami"
+
+#: libraries/classes/Config/Descriptions.php:643
+msgid "Default database tab"
+msgstr "Ma`lumotlar bazasi yorlig‘i"
+
+#: libraries/classes/Config/Descriptions.php:644
+msgid "Default server tab"
+msgstr "Server yorlig‘i"
+
+#: libraries/classes/Config/Descriptions.php:645
+msgid "Default table tab"
+msgstr "Jadval yorlig‘i"
+
+#: libraries/classes/Config/Descriptions.php:646
+#, fuzzy
+#| msgid "Enclose table and field names with backquotes"
+msgid "Enable autocomplete for table and column names"
+msgstr "Jadval va maydon nomlarini teskari qo‘shtirnoqqa olish"
+
+#: libraries/classes/Config/Descriptions.php:647
+#, fuzzy
+#| msgid "Table comments"
+msgid "Show column comments"
+msgstr "Jadval izohi"
+
+#: libraries/classes/Config/Descriptions.php:648
+#, fuzzy
+#| msgid "Propose table structure"
+msgid "Hide table structure actions"
+msgstr "Jadval tuzilishi tahlili"
+
+#: libraries/classes/Config/Descriptions.php:649
+#, fuzzy
+#| msgid "Default sorting order"
+msgid "Default transformations for Hex"
+msgstr "Asl tartiblash qoidasi"
+
+#: libraries/classes/Config/Descriptions.php:650
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Default transformations for Substring"
+msgstr "O‘girishlar parametrlari"
+
+#: libraries/classes/Config/Descriptions.php:651
+#, fuzzy
+#| msgid "Default sorting order"
+msgid "Default transformations for Bool2Text"
+msgstr "Asl tartiblash qoidasi"
+
+#: libraries/classes/Config/Descriptions.php:652
+#, fuzzy
+#| msgid "Default sorting order"
+msgid "Default transformations for External"
+msgstr "Asl tartiblash qoidasi"
+
+#: libraries/classes/Config/Descriptions.php:653
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Default transformations for PreApPend"
+msgstr "O‘girishlar parametrlari"
+
+#: libraries/classes/Config/Descriptions.php:654
+#, fuzzy
+#| msgid "Default sorting order"
+msgid "Default transformations for DateFormat"
+msgstr "Asl tartiblash qoidasi"
+
+#: libraries/classes/Config/Descriptions.php:655
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Default transformations for Inline"
+msgstr "O‘girishlar parametrlari"
+
+#: libraries/classes/Config/Descriptions.php:656
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Default transformations for TextImageLink"
+msgstr "O‘girishlar parametrlari"
+
+#: libraries/classes/Config/Descriptions.php:657
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Default transformations for TextLink"
+msgstr "O‘girishlar parametrlari"
+
+#: libraries/classes/Config/Descriptions.php:658
+msgid "Display servers as a list"
+msgstr "Serverlar ro‘yxatini ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:659
+#, fuzzy
+#| msgid "Table maintenance"
+msgid "Disable multi table maintenance"
+msgstr "Jadvalga xizmat ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:660
+msgid "Maximum execution time"
+msgstr "Maksimum bajarilish vaqti"
+
+#: libraries/classes/Config/Descriptions.php:662 templates/export.twig:293
+#, fuzzy, php-format
+#| msgid "Statements"
+msgid "Use %s statement"
+msgstr "Tavsif"
+
+#: libraries/classes/Config/Descriptions.php:665
+msgid "Save as file"
+msgstr "Fayl kabi saqlash"
+
+#: libraries/classes/Config/Descriptions.php:666
+#: libraries/classes/Config/Descriptions.php:801
+msgid "Character set of the file"
+msgstr "Fayl kodirovkasi"
+
+#: libraries/classes/Config/Descriptions.php:667
+#: libraries/classes/Config/Descriptions.php:683 templates/sql/query.twig:41
+#: templates/table/structure/display_table_stats.twig:84
+msgid "Format"
+msgstr "Format"
+
+#: libraries/classes/Config/Descriptions.php:668
+msgid "Compression"
+msgstr "Siqish"
+
+#: libraries/classes/Config/Descriptions.php:669
+#: libraries/classes/Config/Descriptions.php:676
+#: libraries/classes/Config/Descriptions.php:684
+#: libraries/classes/Config/Descriptions.php:688
+#: libraries/classes/Config/Descriptions.php:701
+#: libraries/classes/Config/Descriptions.php:703
+#: libraries/classes/Config/Descriptions.php:750
+#: libraries/classes/Plugins/Export/ExportCsv.php:91
+#: libraries/classes/Plugins/Export/ExportExcel.php:58
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:88
+#: libraries/classes/Plugins/Export/ExportOds.php:71
+#: libraries/classes/Plugins/Export/ExportOdt.php:127
+#: libraries/classes/Plugins/Export/ExportTexytext.php:82
+#, fuzzy
+#| msgid "Put fields names in the first row"
+msgid "Put columns names in the first row"
+msgstr "Maydon nomlarini birinchi qatorga joylashtirish"
+
+#: libraries/classes/Config/Descriptions.php:670
+#: libraries/classes/Config/Descriptions.php:803
+#: libraries/classes/Config/Descriptions.php:809
+#: libraries/classes/Plugins/Import/ImportCsv.php:670
+#, fuzzy
+#| msgid "Fields enclosed by"
+msgid "Columns enclosed with"
+msgstr "Maydon qiymatlari quyidagi belgi ichiga olingan "
+
+#: libraries/classes/Config/Descriptions.php:671
+#: libraries/classes/Config/Descriptions.php:804
+#: libraries/classes/Config/Descriptions.php:810
+#: libraries/classes/Plugins/Import/ImportCsv.php:681
+#, fuzzy
+#| msgid "Fields escaped by"
+msgid "Columns escaped with"
+msgstr "Belgi oldida quyidagi belgi mavjud "
+
+#: libraries/classes/Config/Descriptions.php:672
+#: libraries/classes/Config/Descriptions.php:678
+#: libraries/classes/Config/Descriptions.php:685
+#: libraries/classes/Config/Descriptions.php:694
+#: libraries/classes/Config/Descriptions.php:702
+#: libraries/classes/Config/Descriptions.php:706
+#: libraries/classes/Config/Descriptions.php:751
+#, fuzzy
+#| msgid "Replace NULL by"
+msgid "Replace NULL with"
+msgstr "NULL qiymatni quyidagiga almashtirish"
+
+#: libraries/classes/Config/Descriptions.php:673
+#: libraries/classes/Config/Descriptions.php:679
+#, fuzzy
+#| msgid "Remove CRLF characters within fields"
+msgid "Remove CRLF characters within columns"
+msgstr "Maydonlar ichidagi satrdan-satrga ko‘chirish belgilarini olib tashlash"
+
+#: libraries/classes/Config/Descriptions.php:674
+#: libraries/classes/Config/Descriptions.php:807
+#: libraries/classes/Config/Descriptions.php:814
+#: libraries/classes/Plugins/Import/ImportCsv.php:655
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "Columns terminated with"
+msgstr "Qatorlar bo‘luvchisi"
+
+#: libraries/classes/Config/Descriptions.php:675
+#: libraries/classes/Config/Descriptions.php:802
+#: libraries/classes/Plugins/Import/ImportCsv.php:690
+#, fuzzy
+#| msgid "Lines terminated by"
+msgid "Lines terminated with"
+msgstr "Qatorlar bo‘luvchisi"
+
+#: libraries/classes/Config/Descriptions.php:677
+#, fuzzy
+#| msgid "Excel edition"
+msgid "Excel edition"
+msgstr "Excel-versiyasi"
+
+#: libraries/classes/Config/Descriptions.php:680
+msgid "Database name template"
+msgstr "Ma`lumotlar bazasi nomi shabloni"
+
+#: libraries/classes/Config/Descriptions.php:681
+msgid "Server name template"
+msgstr "Server nomi shabloni"
+
+#: libraries/classes/Config/Descriptions.php:682
+msgid "Table name template"
+msgstr "Jadval nomi shabloni"
+
+#: libraries/classes/Config/Descriptions.php:686
+#: libraries/classes/Config/Descriptions.php:699
+#: libraries/classes/Config/Descriptions.php:708
+#: libraries/classes/Config/Descriptions.php:746
+#: libraries/classes/Config/Descriptions.php:752
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:59
+#: libraries/classes/Plugins/Export/ExportLatex.php:95
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:58
+#: libraries/classes/Plugins/Export/ExportMediawiki.php:64
+#: libraries/classes/Plugins/Export/ExportOdt.php:72
+#: libraries/classes/Plugins/Export/ExportPdf.php:107
+#: libraries/classes/Plugins/Export/ExportSql.php:235
+#: libraries/classes/Plugins/Export/ExportTexytext.php:58
+#, fuzzy
+#| msgid "%s table(s)"
+msgid "Dump table"
+msgstr "Jadvallar soni: \"%s\""
+
+#: libraries/classes/Config/Descriptions.php:687
+#: libraries/classes/Plugins/Export/ExportLatex.php:86
+msgid "Include table caption"
+msgstr "Jadvalga sarlavha qo‘shish"
+
+#: libraries/classes/Config/Descriptions.php:689
+#: libraries/classes/Config/Descriptions.php:704
+#: libraries/classes/Config/Descriptions.php:740
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:407
+#: libraries/classes/Plugins/Export/ExportLatex.php:561
+#: libraries/classes/Plugins/Export/ExportOdt.php:516
+#: libraries/classes/Plugins/Export/ExportTexytext.php:405
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:598
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:727
+#: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:750
+#: templates/columns_definitions/table_fields_definitions.twig:54
+#: templates/database/data_dictionary/index.twig:23
+#: templates/table/structure/display_structure.twig:29
+msgid "Comments"
+msgstr "Izohlar"
+
+#: libraries/classes/Config/Descriptions.php:690
+#: libraries/classes/Config/Descriptions.php:696
+msgid "Table caption"
+msgstr "Jadval sarlavhasi"
+
+#: libraries/classes/Config/Descriptions.php:691
+#: libraries/classes/Config/Descriptions.php:697
+msgid "Continued table caption"
+msgstr "Jadval sarlavhasi (davomi)"
+
+#: libraries/classes/Config/Descriptions.php:692
+#: libraries/classes/Config/Descriptions.php:698
+msgid "Label key"
+msgstr "Belgi identifikatori"
+
+#: libraries/classes/Config/Descriptions.php:693
+#: libraries/classes/Config/Descriptions.php:705
+#: libraries/classes/Config/Descriptions.php:743
+#: libraries/classes/Plugins/Export/ExportHtmlword.php:413
+#: libraries/classes/Plugins/Export/ExportOdt.php:522
+#: libraries/classes/Plugins/Export/ExportTexytext.php:409
+#: libraries/classes/Plugins/Export/Helpers/Pdf.php:605
+#: templates/columns_definitions/table_fields_definitions.twig:71
+#: templates/database/data_dictionary/index.twig:25
+#, fuzzy
+#| msgid "MIME type"
+msgid "Media type"
+msgstr "MIME turi"
+
+#: libraries/classes/Config/Descriptions.php:695
+#: libraries/classes/Config/Descriptions.php:707
+#: libraries/classes/Config/Descriptions.php:745
+#, fuzzy
+#| msgid "Relations"
+msgid "Relationships"
+msgstr "Aloqalar"
+
+#: libraries/classes/Config/Descriptions.php:700
+#, fuzzy
+#| msgid "Export type"
+msgid "Export method"
+msgstr "Eskport turi"
+
+#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:712
+msgid "Save on server"
+msgstr "Serverga saqlash"
+
+#: libraries/classes/Config/Descriptions.php:710
+#: libraries/classes/Config/Descriptions.php:713 templates/export.twig:150
+#: templates/export.twig:316
+msgid "Overwrite existing file(s)"
+msgstr "Mavjud fayl(lar) ustidan yozish"
+
+#: libraries/classes/Config/Descriptions.php:711
+#, fuzzy
+#| msgid "horizontal (rotated headers)"
+msgid "Export as separate files"
+msgstr "gorizontal (aylantirilgan sarlavhalar)"
+
+#: libraries/classes/Config/Descriptions.php:714
+msgid "Remember file name template"
+msgstr "Fayl nomi shablonini yodda saqlash"
+
+#: libraries/classes/Config/Descriptions.php:715
+#: templates/database/operations/index.twig:165
+#: templates/table/operations/index.twig:74
+#: templates/table/operations/index.twig:278
+msgid "Add AUTO_INCREMENT value"
+msgstr "AUTO_INCREMENT qo‘shish"
+
+#: libraries/classes/Config/Descriptions.php:716
+#, fuzzy
+#| msgid "Enclose table and field names with backquotes"
+msgid "Enclose table and column names with backquotes"
+msgstr "Jadval va maydon nomlarini teskari qo‘shtirnoqqa olish"
+
+#: libraries/classes/Config/Descriptions.php:717
+#: libraries/classes/Config/Descriptions.php:820
+msgid "SQL compatibility mode"
+msgstr "SQL bilan moslik rejimi"
+
+#: libraries/classes/Config/Descriptions.php:718
+msgid "Creation/Update/Check dates"
+msgstr "Tuzish, yangilash va tekshirish sanalari"
+
+#: libraries/classes/Config/Descriptions.php:719
+msgid "Use delayed inserts"
+msgstr "Kechiktirilgan qo‘yish (DELAYED INSERTS) dan foydalanish"
+
+#: libraries/classes/Config/Descriptions.php:720
+#: libraries/classes/Plugins/Export/ExportSql.php:180
+msgid "Disable foreign key checks"
+msgstr "Tashqi kalitlarni tekshirishni o‘chirish"
+
+#: libraries/classes/Config/Descriptions.php:721
+#: libraries/classes/Plugins/Export/ExportSql.php:194
+#, fuzzy
+#| msgid "Export views"
+msgid "Export views as tables"
+msgstr "Ko‘rinishlarni eksport qilish"
+
+#: libraries/classes/Config/Descriptions.php:722
+#, fuzzy
+#| msgid ""
+#| "Empty phpMyAdmin control user while using phpMyAdmin configuration storage"
+msgid "Export related metadata from phpMyAdmin configuration storage"
+msgstr ""
+"pmadb usuli ishlatilmoqda, lekin phpMyAdmin konfiguratsion faylida "
+"foydalanuvchi belgilanmagan"
+
+#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:724
+#: libraries/classes/Config/Descriptions.php:726
+#: libraries/classes/Config/Descriptions.php:729
+#: libraries/classes/Config/Descriptions.php:730
+#: libraries/classes/Config/Descriptions.php:731
+#: libraries/classes/Config/Descriptions.php:744
+#: templates/database/operations/index.twig:160
+#: templates/table/operations/index.twig:273
+#, php-format
+msgid "Add %s"
+msgstr "\"%s\" qo‘shish"
+
+#: libraries/classes/Config/Descriptions.php:732
+#, fuzzy
+#| msgid "Use hexadecimal for BLOB"
+msgid "Use hexadecimal for BINARY & BLOB"
+msgstr "BLOB turidagi ma`lumotlarni o‘n oltilik shaklda namoyish etish"
+
+#: libraries/classes/Config/Descriptions.php:734
+msgid ""
+"Add IF NOT EXISTS (less efficient as indexes will be generated during table "
+"creation)"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:738
+#: libraries/classes/Plugins/Export/ExportSql.php:354
+#, fuzzy, php-format
+#| msgid "Session value"
+msgid "%s view"
+msgstr "Sessiya qiymatlari"
+
+#: libraries/classes/Config/Descriptions.php:739
+msgid "Use ignore inserts"
+msgstr "E`tibor bermaslik (IGNORE) qo‘yilmalardan foydalanish"
+
+#: libraries/classes/Config/Descriptions.php:741
+msgid "Syntax to use when inserting data"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:742
+#: libraries/classes/Plugins/Export/ExportSql.php:491
+msgid "Maximal length of created query"
+msgstr "Tuzilayogan so‘rovning maksimal uzunligi"
+
+#: libraries/classes/Config/Descriptions.php:747
+#, fuzzy
+#| msgid "Export tables"
+msgid "Export type"
+msgstr "Jadvallarni eksport qilish"
+
+#: libraries/classes/Config/Descriptions.php:748
+#: libraries/classes/Plugins/Export/ExportSql.php:166
+msgid "Enclose export in a transaction"
+msgstr "Tranzaksiyaga eksportni qo‘shish"
+
+#: libraries/classes/Config/Descriptions.php:749
+msgid "Export time in UTC"
+msgstr "Vaqtni UTC shaklda eksport qilish"
+
+#: libraries/classes/Config/Descriptions.php:753
+msgid "Foreign key dropdown order"
+msgstr "Tashqi kalit menyusi tartibi"
+
+#: libraries/classes/Config/Descriptions.php:754
+msgid "Foreign key limit"
+msgstr "Tashqi kalit chegaralari"
+
+#: libraries/classes/Config/Descriptions.php:755
+#, fuzzy
+#| msgid "Disable foreign key checks"
+msgid "Foreign key checks"
+msgstr "Tashqi kalitlarni tekshirishni o‘chirish"
+
+#: libraries/classes/Config/Descriptions.php:756
+msgid "First day of calendar"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:757
+#: libraries/classes/Config/Descriptions.php:768 libraries/classes/Menu.php:527
+#: libraries/classes/Util.php:2431 libraries/config.values.php:155
+#: templates/navigation/tree/database_select.twig:11
+#: templates/server/databases/index.twig:8
+#: templates/server/privileges/user_properties.twig:20
+msgid "Databases"
+msgstr "Ma`lumotlar bazalari"
+
+#: libraries/classes/Config/Descriptions.php:758
+msgid "Browse mode"
+msgstr "Ko‘rib chiqish usul"
+
+#: libraries/classes/Config/Descriptions.php:760
+#: libraries/classes/Config/Forms/User/ExportForm.php:80
+#: libraries/classes/Config/Forms/User/ImportForm.php:33
+msgid "CSV"
+msgstr "CSV"
+
+#: libraries/classes/Config/Descriptions.php:761
+msgid "Developer"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:762
+msgid "Edit mode"
+msgstr "Tahrirlash usuli"
+
+#: libraries/classes/Config/Descriptions.php:763
+msgid "Export defaults"
+msgstr "Eksport"
+
+#: libraries/classes/Config/Descriptions.php:764
+#, fuzzy
+#| msgid "Generate"
+msgid "General"
+msgstr "Generatsiya qilish"
+
+#: libraries/classes/Config/Descriptions.php:765
+msgid "Import defaults"
+msgstr "Import"
+
+#: libraries/classes/Config/Descriptions.php:766
+msgid "Import / export"
+msgstr "Import/Eksport"
+
+#: libraries/classes/Config/Descriptions.php:767
+msgid "LaTeX"
+msgstr "LaTeX"
+
+#: libraries/classes/Config/Descriptions.php:769
+#: libraries/classes/Config/Forms/User/NaviForm.php:66
+#: templates/preferences/header.twig:30
+#, fuzzy
+#| msgid "Navigation frame"
+msgid "Navigation panel"
+msgstr "Navigatsiya paneli"
+
+#: libraries/classes/Config/Descriptions.php:770
+#, fuzzy
+#| msgid "Navigation frame"
+msgid "Navigation tree"
+msgstr "Navigatsiya paneli"
+
+#: libraries/classes/Config/Descriptions.php:771
+#: libraries/classes/Server/Select.php:60 templates/setup/home/index.twig:34
+msgid "Servers"
+msgstr "Serverlar"
+
+#: libraries/classes/Config/Descriptions.php:772
+#: libraries/classes/Controllers/Server/DatabasesController.php:478
+#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
+#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
+#: libraries/classes/Plugins/Export/ExportXml.php:130
+#: libraries/classes/Server/Status/Data.php:159
+#: templates/database/export/index.twig:23
+#: templates/database/structure/show_create.twig:6
+msgid "Tables"
+msgstr "Jadvallar"
+
+#: libraries/classes/Config/Descriptions.php:773
+#: libraries/classes/Config/Forms/User/MainForm.php:88
+#: templates/preferences/header.twig:36
+#, fuzzy
+#| msgid "Main frame"
+msgid "Main panel"
+msgstr "Asosiy ramka"
+
+#: libraries/classes/Config/Descriptions.php:774
+msgid "Microsoft Office"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:776
+msgid "Other core settings"
+msgstr "Boshqa sozlanishlar"
+
+#: libraries/classes/Config/Descriptions.php:777
+#, fuzzy
+#| msgid "Page number:"
+msgid "Page titles"
+msgstr "Sahifa raqami: "
+
+#: libraries/classes/Config/Descriptions.php:778
+msgid "Security"
+msgstr "Xavfsizlik"
+
+#: libraries/classes/Config/Descriptions.php:779
+msgid "Basic settings"
+msgstr "Asosiy sozlanishlar"
+
+#: libraries/classes/Config/Descriptions.php:780
+#, fuzzy
+#| msgid "Authentication type"
+msgid "Authentication"
+msgstr "Autentifikatsiya usuli"
+
+#: libraries/classes/Config/Descriptions.php:781
+msgid "Server configuration"
+msgstr "Server konfiguratsiyasi"
+
+#: libraries/classes/Config/Descriptions.php:782
+#, fuzzy
+#| msgid "Configuration file"
+msgid "Configuration storage"
+msgstr "Konfiguratsion fayl"
+
+#: libraries/classes/Config/Descriptions.php:783
+msgid "Changes tracking"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:784 libraries/classes/Menu.php:287
+#: libraries/classes/Menu.php:403 libraries/classes/Menu.php:532
+#: libraries/classes/Navigation/Nodes/NodeTable.php:319
+#: libraries/classes/Util.php:1712 libraries/classes/Util.php:2432
+#: libraries/classes/Util.php:2447 libraries/classes/Util.php:2464
+#: libraries/config.values.php:62 libraries/config.values.php:76
+#: libraries/config.values.php:167 libraries/config.values.php:177
+msgid "SQL"
+msgstr "SQL"
+
+#: libraries/classes/Config/Descriptions.php:785
+msgid "SQL Query box"
+msgstr "SQL so‘rovlari qutisi"
+
+#: libraries/classes/Config/Descriptions.php:786
+#: libraries/classes/Config/Forms/User/SqlForm.php:46
+#: templates/preferences/header.twig:24
+msgid "SQL queries"
+msgstr "SQL so‘rovlari"
+
+#: libraries/classes/Config/Descriptions.php:787
+msgid "Startup"
+msgstr "Boshlang‘ich"
+
+#: libraries/classes/Config/Descriptions.php:788
+#, fuzzy
+#| msgid "Database for user"
+msgid "Database structure"
+msgstr "Foydalanuvchi uchun ma`lumotlar bazasi"
+
+#: libraries/classes/Config/Descriptions.php:789
+#: libraries/classes/Plugins/Export/ExportPdf.php:304
+#: templates/table/page_with_secondary_tabs.twig:5
+#, fuzzy
+#| msgid "Database for user"
+msgid "Table structure"
+msgstr "Foydalanuvchi uchun ma`lumotlar bazasi"
+
+#: libraries/classes/Config/Descriptions.php:790
+msgid "Tabs"
+msgstr "Yorliqlar"
+
+#: libraries/classes/Config/Descriptions.php:791
+#, fuzzy
+#| msgid "Relational schema"
+msgid "Display relational schema"
+msgstr "Aloqalar sxemasi"
+
+#: libraries/classes/Config/Descriptions.php:792
+#, fuzzy
+#| msgid "Use text field"
+msgid "Text fields"
+msgstr "Matnmaydonini ishlatish"
+
+#: libraries/classes/Config/Descriptions.php:793
+msgid "Texy! text"
+msgstr "Texy! matn"
+
+#: libraries/classes/Config/Descriptions.php:794
+#, fuzzy
+#| msgid "Warning"
+msgid "Warnings"
+msgstr "Ogohlantirish"
+
+#: libraries/classes/Config/Descriptions.php:795
+#: templates/console/display.twig:4
+msgid "Console"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:796
+msgid "GZip"
+msgstr "GZip"
+
+#: libraries/classes/Config/Descriptions.php:797
+msgid "Extra parameters for iconv"
+msgstr "iconv uchun qo‘shimcha parametrlar"
+
+#: libraries/classes/Config/Descriptions.php:798
+msgid "Ignore multiple statement errors"
+msgstr "Ko‘p qismli so‘rovlardagi xatolarga e`tibor bermaslik"
+
+#: libraries/classes/Config/Descriptions.php:799
+msgid "Enable drag and drop import"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:800
+msgid "Partial import: allow interrupt"
+msgstr "Qisman import: uzishga ruxsat berish"
+
+#: libraries/classes/Config/Descriptions.php:805
+#: libraries/classes/Config/Descriptions.php:811
+#: libraries/classes/Plugins/Import/ImportCsv.php:133
+#: libraries/classes/Plugins/Import/ImportLdi.php:80
+msgid "Do not abort on INSERT error"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:806
+#: libraries/classes/Config/Descriptions.php:813
+msgid "Add ON DUPLICATE KEY UPDATE"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:808
+msgid "Format of imported file"
+msgstr "Import qilinayotgan fayl formati"
+
+#: libraries/classes/Config/Descriptions.php:812
+#: libraries/classes/Plugins/Import/ImportLdi.php:86
+msgid "Use LOCAL keyword"
+msgstr "\"LOCAL\" kalit so‘zini ishlatish"
+
+#: libraries/classes/Config/Descriptions.php:815
+msgid "Column names in first row"
+msgstr "Birinchi qatorga ustun nomlari"
+
+#: libraries/classes/Config/Descriptions.php:816
+#: libraries/classes/Plugins/Import/ImportOds.php:77
+msgid "Do not import empty rows"
+msgstr "Bo‘sh qatorlarni import qilmaslik"
+
+#: libraries/classes/Config/Descriptions.php:817
+#, fuzzy
+#| msgid "Import currencies ($5.00 to 5.00)"
+msgid "Import currencies ($5.00 to 5.00)"
+msgstr "Pul birliklarini import qilish (masalan, $5.00 ni 5.00 ga)"
+
+#: libraries/classes/Config/Descriptions.php:818
+#, fuzzy
+#| msgid "Import percentages as proper decimals (12.00% to .12)"
+msgid "Import percentages as proper decimals (12.00% to .12)"
+msgstr ""
+"Foizlarni mos o‘nli kasrlar kabi import qilish (masalan, 12.00% o‘rniga 0.12)"
+
+#: libraries/classes/Config/Descriptions.php:819
+msgid "Partial import: skip queries"
+msgstr "Qisman import: so‘rovlarga e`tibor bermaslik"
+
+#: libraries/classes/Config/Descriptions.php:821
+#, fuzzy
+#| msgid "Do not use AUTO_INCREMENT for zero values"
+msgid "Do not use AUTO_INCREMENT for zero values"
+msgstr "Nol qiymatlari uchun \"AUTO_INCREMENT\" ishlatmaslik"
+
+#: libraries/classes/Config/Descriptions.php:822
+#, fuzzy
+#| msgid "Read misses"
+msgid "Read as multibytes"
+msgstr "Buferni o‘qishda qoldirishlar mavjud"
+
+#: libraries/classes/Config/Descriptions.php:823
+msgid "Initial state for sliders"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:824
+msgid "Number of inserted rows"
+msgstr "Qo‘yilgan qatorlar soni"
+
+#: libraries/classes/Config/Descriptions.php:825
+msgid "Limit column characters"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:826
+msgid "Delete all cookies on logout"
+msgstr "Chiqishda barcha \"cookies\"larni o‘chirish"
+
+#: libraries/classes/Config/Descriptions.php:827
+msgid "Recall user name"
+msgstr "Foydalanuvchi nomini chaqirib olish"
+
+#: libraries/classes/Config/Descriptions.php:828
+msgid "Login cookie store"
+msgstr "Login ma`lumotini cookie-da saqlash"
+
+#: libraries/classes/Config/Descriptions.php:829
+msgid "Login cookie validity"
+msgstr "cookie-login yaroqligi"
+
+#: libraries/classes/Config/Descriptions.php:830
+msgid "Bigger textarea for LONGTEXT"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:831
+msgid "Maximum displayed SQL length"
+msgstr "SQL so‘rovining maksimal uzunligi"
+
+#: libraries/classes/Config/Descriptions.php:832
+msgid "Maximum databases"
+msgstr "Ma`lumotlar bazalarining maksimal soni"
+
+#: libraries/classes/Config/Descriptions.php:833
+#, fuzzy
+#| msgid "Maximum size for temporary sort files"
+msgid "Maximum items on first level"
+msgstr "Vaqtinchalik indeks fayllarining maksimal hajmi"
+
+#: libraries/classes/Config/Descriptions.php:834
+msgid "Maximum items in branch"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:835
+msgid "Maximum number of rows to display"
+msgstr "Ko‘rsatiladigan qatorlarning maksimal soni"
+
+#: libraries/classes/Config/Descriptions.php:836
+msgid "Maximum tables"
+msgstr "Maksimal jadvallar soni"
+
+#: libraries/classes/Config/Descriptions.php:837
+msgid "Memory limit"
+msgstr "Xotira miqdori"
+
+#: libraries/classes/Config/Descriptions.php:838
+#, fuzzy
+#| msgid "Show logo in left frame"
+msgid "Show databases navigation as tree"
+msgstr "Chap ramkada logotipni ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:839
+#, fuzzy
+#| msgid "Navigation frame"
+msgid "Navigation panel width"
+msgstr "Navigatsiya paneli"
+
+#: libraries/classes/Config/Descriptions.php:840
+#: libraries/classes/Controllers/JavaScriptMessagesController.php:620
+#: libraries/classes/Navigation/NavigationTree.php:1472
+#, fuzzy
+#| msgid "Customize main frame"
+msgid "Link with main panel"
+msgstr "Asosiy ramkani moslashtirish"
+
+#: libraries/classes/Config/Descriptions.php:841
+msgid "Display logo"
+msgstr "Logotipni ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:842
+msgid "Logo link URL"
+msgstr "Logotip bog‘langan URL"
+
+#: libraries/classes/Config/Descriptions.php:843
+msgid "Logo link target"
+msgstr "Logotip bog‘langan nishon"
+
+#: libraries/classes/Config/Descriptions.php:844
+msgid "Display servers selection"
+msgstr "Server tanlovini ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:845
+msgid "Target for quick access icon"
+msgstr "Tezkor murojaat piktogrammasi uchun nishon"
+
+#: libraries/classes/Config/Descriptions.php:846
+#, fuzzy
+#| msgid "Target for quick access icon"
+msgid "Target for second quick access icon"
+msgstr "Tezkor murojaat piktogrammasi uchun nishon"
+
+#: libraries/classes/Config/Descriptions.php:847
+#, fuzzy
+#| msgid "Maximum number of tables displayed in table list"
+msgid "Minimum number of items to display the filter box"
+msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
+
+#: libraries/classes/Config/Descriptions.php:849
+#, fuzzy
+#| msgid "Maximum number of tables displayed in table list"
+msgid "Minimum number of databases to display the database filter box"
+msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
+
+#: libraries/classes/Config/Descriptions.php:851
+msgid "Group items in the tree"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:852
+msgid "Database tree separator"
+msgstr "Ma`lumotlar bazasi daraxtining bo‘luvchisi"
+
+#: libraries/classes/Config/Descriptions.php:853
+msgid "Table tree separator"
+msgstr "Jadval daraxtining bo‘luvchisi"
+
+#: libraries/classes/Config/Descriptions.php:854
+msgid "Maximum table tree depth"
+msgstr "Jadvallar daraxtining maksimum chuqurligi"
+
+#: libraries/classes/Config/Descriptions.php:855
+msgid "Enable highlighting"
+msgstr "Belgilashni yoqish"
+
+#: libraries/classes/Config/Descriptions.php:856
+#, fuzzy
+#| msgid "Iconic navigation bar"
+msgid "Enable navigation tree expansion"
+msgstr "Piktogrammali navigatsiya menyusi"
+
+#: libraries/classes/Config/Descriptions.php:857
+#, fuzzy
+#| msgid "Show tables"
+msgid "Show tables in tree"
+msgstr "Jadvallarni ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:858
+#, fuzzy
+#| msgid "Show versions"
+msgid "Show views in tree"
+msgstr "Vеrsiyalarni ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:859
+#, fuzzy
+#| msgid "Show function fields"
+msgid "Show functions in tree"
+msgstr "Fuknsiyalarmaydonini ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:860
+#, fuzzy
+#| msgid "Show processes"
+msgid "Show procedures in tree"
+msgstr "Jarayonlar ro‘yxati"
+
+#: libraries/classes/Config/Descriptions.php:861
+#, fuzzy
+#| msgid "Show versions"
+msgid "Show events in tree"
+msgstr "Vеrsiyalarni ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:862
+#, fuzzy
+#| msgid "Copy database to"
+msgid "Expand single database"
+msgstr "Ma`lumotlar bazasidan quyidagiga nusxa olish"
+
+#: libraries/classes/Config/Descriptions.php:863
+#, fuzzy
+#| msgid "Untracked tables"
+msgid "Recently used tables"
+msgstr "Kuzatilmagan jadvallar"
+
+#: libraries/classes/Config/Descriptions.php:864
+#: libraries/classes/RecentFavoriteTable.php:273
+#, fuzzy
+#| msgid "Variables"
+msgid "Favorite tables"
+msgstr "O‘zgaruvchilar"
+
+#: libraries/classes/Config/Descriptions.php:865
+msgid "Where to show the table row links"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:866
+msgid "Show row links anyway"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:868
+#, fuzzy
+#| msgid "Alter table order by"
+msgid "Natural order"
+msgstr "Jadval sortirovkasini o‘zgartirish"
+
+#: libraries/classes/Config/Descriptions.php:869
+#, fuzzy
+#| msgid "Iconic navigation bar"
+msgid "Table navigation bar"
+msgstr "Piktogrammali navigatsiya menyusi"
+
+#: libraries/classes/Config/Descriptions.php:870
+msgid "GZip output buffering"
+msgstr "GZip buferizatsiya"
+
+#: libraries/classes/Config/Descriptions.php:871
+msgid "Default sorting order"
+msgstr "Asl tartiblash qoidasi"
+
+#: libraries/classes/Config/Descriptions.php:872
+msgid "Persistent connections"
+msgstr "Doimiy ulanishlar"
+
+#: libraries/classes/Config/Descriptions.php:873
+msgid "Missing phpMyAdmin configuration storage tables"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:874
+msgid "MySQL reserved word warning"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:875
+#, fuzzy
+#| msgid "Allow to display all the rows"
+msgid "How to display the menu tabs"
+msgstr "Barcha qatorlarni ko‘rsatishga ruxsat berish"
+
+#: libraries/classes/Config/Descriptions.php:876
+msgid "How to display various action links"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:877
+#, fuzzy
+#| msgid "Protect binary fields"
+msgid "Protect binary columns"
+msgstr "Binar (ikkilik) maydonlarni himoyalash"
+
+#: libraries/classes/Config/Descriptions.php:878
+msgid "Permanent query history"
+msgstr "Doimiy so‘rovlar tarixi"
+
+#: libraries/classes/Config/Descriptions.php:879
+msgid "Query history length"
+msgstr "So‘rovlar tarixi uzunligi"
+
+#: libraries/classes/Config/Descriptions.php:880
+msgid "Recoding engine"
+msgstr "Kodirovkalash funksiyasi"
+
+#: libraries/classes/Config/Descriptions.php:881
+#, fuzzy
+#| msgid "Rename table to"
+msgid "Remember table's sorting"
+msgstr "Jadval nomini o‘zgartirish"
+
+#: libraries/classes/Config/Descriptions.php:882
+#, fuzzy
+#| msgid "Default sorting order"
+msgid "Primary key default sort order"
+msgstr "Asl tartiblash qoidasi"
+
+#: libraries/classes/Config/Descriptions.php:883
+#, fuzzy
+#| msgid "Repair threads"
+msgid "Repeat headers"
+msgstr "Oqimli tiklash"
+
+#: libraries/classes/Config/Descriptions.php:884
+msgid "Grid editing: trigger action"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:885
+#, fuzzy
+#| msgid "Relational display field"
+msgid "Relational display"
+msgstr "Aloqador maydon qiymati"
+
+#: libraries/classes/Config/Descriptions.php:886
+msgid "Grid editing: save all edited cells at once"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:887
+msgid "Save directory"
+msgstr "Saqlash direktoriyasi"
+
 #: libraries/classes/Config/Descriptions.php:888
+#, fuzzy
+#| msgid "Host authentication order"
+msgid "Host authorization order"
+msgstr "Autentifikatsiya tartibi"
+
+#: libraries/classes/Config/Descriptions.php:889
+#, fuzzy
+#| msgid "Host authentication rules"
+msgid "Host authorization rules"
+msgstr "Autentifikatsiya qoidalari"
+
+#: libraries/classes/Config/Descriptions.php:890
+msgid "Allow logins without a password"
+msgstr "Parolsiz qirishga ruxsat bеrish"
+
+#: libraries/classes/Config/Descriptions.php:891
+msgid "Allow root login"
+msgstr "\"root\"ga kirishga ruxsat berish"
+
+#: libraries/classes/Config/Descriptions.php:892
+#, fuzzy
+#| msgid "Session value"
+msgid "Session timezone"
+msgstr "Sessiya qiymatlari"
+
+#: libraries/classes/Config/Descriptions.php:893
+msgid "HTTP Realm"
+msgstr "HTTP Bo‘limi"
+
+#: libraries/classes/Config/Descriptions.php:894
+#: templates/setup/home/index.twig:44
+msgid "Authentication type"
+msgstr "Autentifikatsiya usuli"
+
+#: libraries/classes/Config/Descriptions.php:895
+msgid "Bookmark table"
+msgstr "Xatcho‘plar jadvali"
+
+#: libraries/classes/Config/Descriptions.php:896
+msgid "Column information table"
+msgstr "Ustun ma`lumotlari jadvali"
+
+#: libraries/classes/Config/Descriptions.php:897
+msgid "Compress connection"
+msgstr "Ulanishni qisish"
+
+#: libraries/classes/Config/Descriptions.php:898
+msgid "Control user password"
+msgstr "Nazorat foydalanuvchisi paroli"
+
+#: libraries/classes/Config/Descriptions.php:899
+msgid "Control user"
+msgstr "Nazorat foydalanuvchisi"
+
+#: libraries/classes/Config/Descriptions.php:900
+#, fuzzy
+#| msgid "Control user"
+msgid "Control host"
+msgstr "Nazorat foydalanuvchisi"
+
+#: libraries/classes/Config/Descriptions.php:901
+#, fuzzy
+#| msgid "Control user"
+msgid "Control port"
+msgstr "Nazorat foydalanuvchisi"
+
+#: libraries/classes/Config/Descriptions.php:902
+msgid "Disable use of INFORMATION_SCHEMA"
+msgstr "INFORMATION_SCHEMA ishlatishni o‘chirish"
+
+#: libraries/classes/Config/Descriptions.php:903
+msgid "Hide databases"
+msgstr "Bazalarni yashirish"
+
+#: libraries/classes/Config/Descriptions.php:904
+msgid "SQL query history table"
+msgstr "SQL so‘rovlari tarixi jadvali"
+
+#: libraries/classes/Config/Descriptions.php:905
+msgid "Server hostname"
+msgstr "Sеrvеr xost nomi"
+
+#: libraries/classes/Config/Descriptions.php:906
+msgid "Logout URL"
+msgstr "Chiqish URL"
+
+#: libraries/classes/Config/Descriptions.php:907
+#, fuzzy
+#| msgid "Maximum number of tables displayed in table list"
+msgid "Maximal number of table preferences to store"
+msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
+
+#: libraries/classes/Config/Descriptions.php:908
+#, fuzzy
+#| msgid "See slave status table"
+msgid "QBE saved searches table"
+msgstr "Tobе sеrvеr statusi jadvalini ko‘rish"
+
+#: libraries/classes/Config/Descriptions.php:909
+#, fuzzy
+#| msgid "Export views"
+msgid "Export templates table"
+msgstr "Ko‘rinishlarni eksport qilish"
+
+#: libraries/classes/Config/Descriptions.php:910
+#, fuzzy
+#| msgid "CHAR textarea columns"
+msgid "Central columns table"
+msgstr "CHAR maydonidagi ustunlar soni"
+
+#: libraries/classes/Config/Descriptions.php:911
+msgid "Show only listed databases"
+msgstr "Faqat ro‘yxatdagi bazalarni ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:912
+msgid "Password for config auth"
+msgstr "\"config\" autentifikatsiya usuli paroli"
+
+#: libraries/classes/Config/Descriptions.php:913
+msgid "PDF schema: pages table"
+msgstr "PDF-sxema: sahifalar jadvali"
+
+#: libraries/classes/Config/Descriptions.php:914
+#: templates/database/operations/index.twig:127
+#: templates/server/databases/index.twig:37
+#, fuzzy
+#| msgid "database name"
+msgid "Database name"
+msgstr "ma`lumotlar bazasi nomi"
+
+#: libraries/classes/Config/Descriptions.php:915
+msgid "Server port"
+msgstr "Server porti"
+
+#: libraries/classes/Config/Descriptions.php:916
+#, fuzzy
+#| msgid "Recall user name"
+msgid "Recently used table"
+msgstr "Foydalanuvchi nomini chaqirib olish"
+
+#: libraries/classes/Config/Descriptions.php:917
+#, fuzzy
+#| msgid "Variables"
+msgid "Favorites table"
+msgstr "O‘zgaruvchilar"
+
+#: libraries/classes/Config/Descriptions.php:918
+msgid "Relation table"
+msgstr "Aloqalar jadvali"
+
+#: libraries/classes/Config/Descriptions.php:919
+msgid "Signon session name"
+msgstr "Kirish sessiyasi nomi"
+
+#: libraries/classes/Config/Descriptions.php:920
+msgid "Signon URL"
+msgstr "Kirish URL"
+
+#: libraries/classes/Config/Descriptions.php:921
+msgid "Server socket"
+msgstr "Server soketi"
+
+#: libraries/classes/Config/Descriptions.php:922
+msgid "Use SSL"
+msgstr "SSL ulanishdan foydalanish"
+
+#: libraries/classes/Config/Descriptions.php:923
+#, fuzzy
+#| msgid "PDF schema: table coordinates"
+msgid "Designer and PDF schema: table coordinates"
+msgstr "PDF-sxema: jadval koordinatalari"
+
+#: libraries/classes/Config/Descriptions.php:924
+#, fuzzy
+#| msgid "Display fields table"
+msgid "Display columns table"
+msgstr "Maydonlar jadvalini ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:925
+#, fuzzy
+#| msgid "Defragment table"
+msgid "UI preferences table"
+msgstr "Jadvalni defragmentatsiyalash"
+
+#: libraries/classes/Config/Descriptions.php:926
+msgid "Add DROP DATABASE"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:927
+#: templates/database/structure/copy_form.twig:34
+msgid "Add DROP TABLE"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:928
+msgid "Add DROP VIEW"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:929
+#, fuzzy
+#| msgid "Statements"
+msgid "Statements to track"
+msgstr "Tavsif"
+
+#: libraries/classes/Config/Descriptions.php:930
+#, fuzzy
+#| msgid "SQL query history table"
+msgid "SQL query tracking table"
+msgstr "SQL so‘rovlari tarixi jadvali"
+
+#: libraries/classes/Config/Descriptions.php:931
+#, fuzzy
+#| msgid "Automatic recovery mode"
+msgid "Automatically create versions"
+msgstr "Avtomatik tiklash rejimi"
+
+#: libraries/classes/Config/Descriptions.php:932
+msgid "User preferences storage table"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:933
+#, fuzzy
+#| msgid "Use Tables"
+msgid "Users table"
+msgstr "Jadvallarni ishlatish"
+
+#: libraries/classes/Config/Descriptions.php:934
+#, fuzzy
+#| msgid "Use Host Table"
+msgid "User groups table"
+msgstr "Xostlar jadvalidan foydalanish"
+
+#: libraries/classes/Config/Descriptions.php:935
+msgid "Hidden navigation items table"
+msgstr ""
+
+#: libraries/classes/Config/Descriptions.php:936
+msgid "User for config auth"
+msgstr "\"config\" autentifikatsiya usuli foydalanuvchisi"
+
+#: libraries/classes/Config/Descriptions.php:937
+msgid "Verbose name of this server"
+msgstr "Ushbu serverning kengaytirilgan nomi"
+
+#: libraries/classes/Config/Descriptions.php:938
+msgid "Allow to display all the rows"
+msgstr "Barcha qatorlarni ko‘rsatishga ruxsat berish"
+
+#: libraries/classes/Config/Descriptions.php:939
+msgid "Show password change form"
+msgstr "Parolni o‘zgartirish formasini ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:940
+msgid "Show create database form"
+msgstr "Ma`lumotlar bazasi tuzish formasini ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:941
+#, fuzzy
+#| msgid "Table comments"
+msgid "Show table comments"
+msgstr "Jadval izohi"
+
+#: libraries/classes/Config/Descriptions.php:942
+#, fuzzy
+#| msgid "Show versions"
+msgid "Show creation timestamp"
+msgstr "Vеrsiyalarni ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:943
+#, fuzzy
+#| msgid "Show master status"
+msgid "Show last update timestamp"
+msgstr "Ulangan bosh sеrvеrlarni ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:944
+#, fuzzy
+#| msgid "Show master status"
+msgid "Show last check timestamp"
+msgstr "Ulangan bosh sеrvеrlarni ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:945
+#, fuzzy
+#| msgid "Table comments"
+msgid "Show table charset"
+msgstr "Jadval izohi"
+
+#: libraries/classes/Config/Descriptions.php:946
+#, fuzzy
+#| msgid "Show open tables"
+msgid "Show field types"
+msgstr "Ochiq jadvallar ro‘yxati"
+
+#: libraries/classes/Config/Descriptions.php:947
+msgid "Show function fields"
+msgstr "Fuknsiyalarmaydonini ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:948
+#, fuzzy
+#| msgid "Show grid"
+msgid "Show hint"
+msgstr "To‘rni ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:949
+msgid "Show phpinfo() link"
+msgstr "\"phpinfo()\" funksiyasiga bog‘ ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:950
+msgid "Show detailed MySQL server information"
+msgstr "MySQL serveri haqida batafsil ma`lumot ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:951
+msgid "Show SQL queries"
+msgstr "Show SQL so‘rovlarini ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:952 templates/sql/query.twig:120
+#, fuzzy
+#| msgid "SQL Query box"
+msgid "Retain query box"
+msgstr "SQL so‘rovlari qutisi"
+
+#: libraries/classes/Config/Descriptions.php:953
+msgid "Show statistics"
+msgstr "Statiskani ko‘rsatish"
+
+#: libraries/classes/Config/Descriptions.php:954
 msgid "Skip locked tables"
 msgstr "Qulflangan jadvallarni tashlab ketishlik"
 
-#: libraries/classes/Config/Descriptions.php:889
+#: libraries/classes/Config/Descriptions.php:955
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3213
+#: libraries/classes/Display/Results.php:3215
 #: libraries/classes/Html/Generator.php:684
 #: libraries/classes/Html/Generator.php:946
 #: libraries/classes/Server/UserGroups.php:125
@@ -4603,12 +4774,12 @@ msgstr "Qulflangan jadvallarni tashlab ketishlik"
 msgid "Edit"
 msgstr "Tahrirlash"
 
-#: libraries/classes/Config/Descriptions.php:890
+#: libraries/classes/Config/Descriptions.php:956
 #: libraries/classes/Html/Generator.php:648
 msgid "Explain SQL"
 msgstr "So‘rov tahlili"
 
-#: libraries/classes/Config/Descriptions.php:891
+#: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Export.php:604 libraries/classes/Html/Generator.php:728
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
@@ -4616,77 +4787,36 @@ msgstr "So‘rov tahlili"
 msgid "Refresh"
 msgstr "Yangilash"
 
-#: libraries/classes/Config/Descriptions.php:892
+#: libraries/classes/Config/Descriptions.php:958
 #: libraries/classes/Html/Generator.php:713
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "PHP-kod"
 
-#: libraries/classes/Config/Descriptions.php:894
-#, fuzzy
-#| msgid ""
-#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
-#| "authentication"
-msgid ""
-"Disable the default warning that is displayed on the main page if Suhosin is "
-"detected."
-msgstr ""
-"[kbd]cookie[/kbd]-autentifikatsiya usulida cookie-larni shifrlash uchun "
-"ishlatiladigan sirli ibora"
-
-#: libraries/classes/Config/Descriptions.php:897
+#: libraries/classes/Config/Descriptions.php:959
 msgid "Suhosin warning"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:899
-#, fuzzy
-#| msgid ""
-#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
-#| "authentication"
-msgid ""
-"Disable the default warning that is displayed on the main page if the value "
-"of the PHP setting session.gc_maxlifetime is less than the value of "
-"`LoginCookieValidity`."
-msgstr ""
-"[kbd]cookie[/kbd]-autentifikatsiya usulida cookie-larni shifrlash uchun "
-"ishlatiladigan sirli ibora"
-
-#: libraries/classes/Config/Descriptions.php:903
+#: libraries/classes/Config/Descriptions.php:960
 #, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "cookie-login yaroqligi"
 
-#: libraries/classes/Config/Descriptions.php:905
-msgid ""
-"Textarea size (columns) in edit mode, this value will be emphasized for SQL "
-"query textareas (*2)."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:908
+#: libraries/classes/Config/Descriptions.php:961
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Textarea columns"
 msgstr "CHAR maydonidagi ustunlar soni"
 
-#: libraries/classes/Config/Descriptions.php:910
-msgid ""
-"Textarea size (rows) in edit mode, this value will be emphasized for SQL "
-"query textareas (*2)."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:913
+#: libraries/classes/Config/Descriptions.php:962
 #, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Textarea rows"
 msgstr "CHAR maydonidagi qatorlar soni"
 
-#: libraries/classes/Config/Descriptions.php:914
-msgid "Title of browser window when a database is selected."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:915
+#: libraries/classes/Config/Descriptions.php:963
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:159
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
@@ -4709,30 +4839,18 @@ msgstr ""
 msgid "Database"
 msgstr "Ma`lumotlar bazasi"
 
-#: libraries/classes/Config/Descriptions.php:916
-msgid "Title of browser window when nothing is selected."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:917
+#: libraries/classes/Config/Descriptions.php:964
 #, fuzzy
 #| msgid "Default table tab"
 msgid "Default title"
 msgstr "Jadval yorlig‘i"
 
-#: libraries/classes/Config/Descriptions.php:918
-msgid "Title of browser window when a server is selected."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:919
+#: libraries/classes/Config/Descriptions.php:965
 #: templates/server/status/base.twig:6
 msgid "Server"
 msgstr "Server"
 
-#: libraries/classes/Config/Descriptions.php:920
-msgid "Title of browser window when a table is selected."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:921
+#: libraries/classes/Config/Descriptions.php:966
 #: libraries/classes/Database/Triggers.php:397
 #: libraries/classes/Plugins/Export/ExportXml.php:521
 #: libraries/classes/Server/Privileges.php:1951
@@ -4755,267 +4873,150 @@ msgstr ""
 msgid "Table"
 msgstr "Jadval"
 
-#: libraries/classes/Config/Descriptions.php:923
-#, fuzzy
-#| msgid ""
-#| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
-#| "example specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-"
-#| "Forwarded-For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-#| "HTTP_X_FORWARDED_FOR[/kbd]"
-msgid ""
-"Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
-"specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
-"For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
-"HTTP_X_FORWARDED_FOR[/kbd]."
-msgstr ""
-"Proksi-serverlarni quyidagicha kiriting [kbd]IP: trusted HTTP header[/kbd]. "
-"Quyidagi namuna phpMyAdmin dasturi 1.2.3.4 IP adresli proksi-serverdan "
-"kelayotgan HTTP_X_FORWARDED_FOR (X-Forwarded-For) sarlavhani ishonchli deb "
-"qabul qilishini ta`minlaydi: [br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
-
-#: libraries/classes/Config/Descriptions.php:928
+#: libraries/classes/Config/Descriptions.php:967
 msgid "List of trusted proxies for IP allow/deny"
 msgstr ""
 "IP bo‘yicha ruxsat berish/rad etish uchun ishonarli proksi-serverlar ro‘yxati"
 
-#: libraries/classes/Config/Descriptions.php:929
-#, fuzzy
-#| msgid "Directory on server where you can upload files for import"
-msgid "Directory on server where you can upload files for import."
-msgstr "Serverda import fayllari saqlanadigan direktoriya"
-
-#: libraries/classes/Config/Descriptions.php:930
+#: libraries/classes/Config/Descriptions.php:968
 msgid "Upload directory"
 msgstr "Import  direktoriyasi"
 
-#: libraries/classes/Config/Descriptions.php:931
-#, fuzzy
-#| msgid "Allow for searching inside the entire database"
-msgid "Allow for searching inside the entire database."
-msgstr ""
-"Ma`lumotlar bazasi ichidagi ma`lumotlarni to‘laligicha qidirishga ruxsat "
-"berish"
-
-#: libraries/classes/Config/Descriptions.php:932
+#: libraries/classes/Config/Descriptions.php:969
 msgid "Use database search"
 msgstr "Bazani qidirishdan foydalanish"
 
-#: libraries/classes/Config/Descriptions.php:934
-msgid ""
-"When disabled, users cannot set any of the options below, regardless of the "
-"checkbox on the right."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:937
+#: libraries/classes/Config/Descriptions.php:970
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:938
-msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:939
+#: libraries/classes/Config/Descriptions.php:971
 #: libraries/classes/Setup/Index.php:132 libraries/classes/Setup/Index.php:156
 #: libraries/classes/Setup/Index.php:170 libraries/classes/Setup/Index.php:183
 #: libraries/classes/Setup/Index.php:192 libraries/classes/Setup/Index.php:200
 msgid "Version check"
 msgstr "Versiyani tekshirish"
 
-#: libraries/classes/Config/Descriptions.php:941
-msgid ""
-"The url of the proxy to be used when retrieving the information about the "
-"latest version of phpMyAdmin or when submitting error reports. You need this "
-"if the server where phpMyAdmin is installed does not have direct access to "
-"the internet. The format is: \"hostname:portnumber\"."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:946
+#: libraries/classes/Config/Descriptions.php:972
 msgid "Proxy url"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:948
-msgid ""
-"The username for authenticating with the proxy. By default, no "
-"authentication is performed. If a username is supplied, Basic Authentication "
-"will be performed. No other types of authentication are currently supported."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:953
+#: libraries/classes/Config/Descriptions.php:973
 #, fuzzy
 #| msgid "Username"
 msgid "Proxy username"
 msgstr "Foydalanuvchi"
 
-#: libraries/classes/Config/Descriptions.php:954
-msgid "The password for authenticating with the proxy."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:955
+#: libraries/classes/Config/Descriptions.php:974
 #, fuzzy
 #| msgid "Password"
 msgid "Proxy password"
 msgstr "Parol"
 
-#: libraries/classes/Config/Descriptions.php:957
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
-#| "import and export operations"
-msgid "Enable ZIP compression for import and export operations."
-msgstr ""
-"Import va eksport operatsiyalarida    [a@https://en.wikipedia.org/wiki/"
-"Gzip]gzip[/a] yordamida siqishni yoqish"
-
-#: libraries/classes/Config/Descriptions.php:958
+#: libraries/classes/Config/Descriptions.php:975
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/classes/Config/Descriptions.php:959
-msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:960
+#: libraries/classes/Config/Descriptions.php:976
 msgid "URL for reCaptcha v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:961
-msgid ""
-"Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
-"API."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:962
+#: libraries/classes/Config/Descriptions.php:977
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:963
-msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:964
+#: libraries/classes/Config/Descriptions.php:978
 msgid "Request parameter for reCaptcha v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:965
-msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:966
+#: libraries/classes/Config/Descriptions.php:979
 msgid "Response parameter for reCaptcha v2 API"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:967
-msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:968
+#: libraries/classes/Config/Descriptions.php:980
 msgid "Public key for reCaptcha"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:969
-msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:970
+#: libraries/classes/Config/Descriptions.php:981
 msgid "Private key for reCaptcha"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:971
-msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:972
+#: libraries/classes/Config/Descriptions.php:982
 msgid "URL for reCaptcha siteverify"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:974
-msgid "Choose the default action when sending error reports."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:975
+#: libraries/classes/Config/Descriptions.php:983
 #, fuzzy
 #| msgid "Server port"
 msgid "Send error reports"
 msgstr "Server porti"
 
-#: libraries/classes/Config/Descriptions.php:978
-msgid ""
-"Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
-"will be inserted with Shift+Enter."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:981
+#: libraries/classes/Config/Descriptions.php:984
 #, fuzzy
 msgid "Enter executes queries in console"
 msgstr "SQL so‘rovlari"
 
-#: libraries/classes/Config/Descriptions.php:984
-msgid ""
-"Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
-"storage tables automatically."
-msgstr ""
-
-#: libraries/classes/Config/Descriptions.php:987
+#: libraries/classes/Config/Descriptions.php:985
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
 msgstr "Server konfiguratsiyasi"
 
-#: libraries/classes/Config/Descriptions.php:988
+#: libraries/classes/Config/Descriptions.php:986
 #: templates/console/display.twig:153
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Show query history at start"
 msgstr "SQL so‘rovlari tarixi jadvali"
 
-#: libraries/classes/Config/Descriptions.php:989
+#: libraries/classes/Config/Descriptions.php:987
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:990
+#: libraries/classes/Config/Descriptions.php:988
 #: templates/console/display.twig:157
 msgid "Show current browsing query"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:991
+#: libraries/classes/Config/Descriptions.php:989
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:992
+#: libraries/classes/Config/Descriptions.php:990
 #: templates/console/display.twig:168
 #, fuzzy
 #| msgid "Switch to copied table"
 msgid "Switch to dark theme"
 msgstr "Nusxa olingan jadvalga o‘tish"
 
-#: libraries/classes/Config/Descriptions.php:993
+#: libraries/classes/Config/Descriptions.php:991
 msgid "Console height"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:994
+#: libraries/classes/Config/Descriptions.php:992
 #, fuzzy
 #| msgid "Browse mode"
 msgid "Console mode"
 msgstr "Ko‘rib chiqish usul"
 
-#: libraries/classes/Config/Descriptions.php:995
+#: libraries/classes/Config/Descriptions.php:993
 #: templates/console/display.twig:64
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Group queries"
 msgstr "SQL so‘rovlari"
 
-#: libraries/classes/Config/Descriptions.php:996
+#: libraries/classes/Config/Descriptions.php:994
 #: templates/sql/profiling_chart.twig:9
 msgid "Order"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:997
+#: libraries/classes/Config/Descriptions.php:995
 msgid "Order by"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:998
+#: libraries/classes/Config/Descriptions.php:996
 #, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
@@ -5811,7 +5812,7 @@ msgid "Table %s has been emptied."
 msgstr "\"%s\" jadvali tozalandi."
 
 #: libraries/classes/Controllers/Database/StructureController.php:795
-#: libraries/classes/Display/Results.php:4427
+#: libraries/classes/Display/Results.php:4429
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -7340,7 +7341,7 @@ msgid "Show query box"
 msgstr "SQL so‘rovlari qutisi"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:390
-#: libraries/classes/Display/Results.php:3284
+#: libraries/classes/Display/Results.php:3286
 #: libraries/classes/Server/UserGroups.php:134
 #: libraries/classes/Tracking.php:258 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
@@ -7667,7 +7668,7 @@ msgid "Ignore"
 msgstr "E`tibor bermaslik"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
-#: libraries/classes/Display/Results.php:3217
+#: libraries/classes/Display/Results.php:3219
 #: libraries/classes/Html/Generator.php:72
 #: templates/display/results/table.twig:214
 #: templates/display/results/table.twig:215
@@ -9360,7 +9361,7 @@ msgstr "\"%s\" nomli jadval mavjud!"
 #: libraries/classes/Controllers/Table/RelationController.php:273
 #: libraries/classes/Controllers/ViewOperationsController.php:84
 #: libraries/classes/Database/Routines.php:1481
-#: libraries/classes/Display/Results.php:4093 libraries/classes/Message.php:174
+#: libraries/classes/Display/Results.php:4095 libraries/classes/Message.php:174
 #: templates/sql/query.twig:7
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -9373,7 +9374,7 @@ msgstr "Jadval nomi noto‘g‘ri"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:70
-#: libraries/classes/Controllers/TransformationWrapperController.php:110
+#: libraries/classes/Controllers/TransformationWrapperController.php:111
 #, fuzzy
 #| msgid "There are no configured servers"
 msgid "There is an issue with your request."
@@ -10496,48 +10497,48 @@ msgstr "Kamayish tartibida"
 msgid "Ascending"
 msgstr "O‘sish tartibida"
 
-#: libraries/classes/Display/Results.php:3260
-#: libraries/classes/Display/Results.php:3275
+#: libraries/classes/Display/Results.php:3262
+#: libraries/classes/Display/Results.php:3277
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Yozuv o‘chirildi"
 
-#: libraries/classes/Display/Results.php:3307
+#: libraries/classes/Display/Results.php:3309
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Tugatish"
 
-#: libraries/classes/Display/Results.php:4017
+#: libraries/classes/Display/Results.php:4019
 #, fuzzy
 #| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Taxminiy bo‘lishi mumkin. [doc@faq3-11]\"FAQ 3.11\"[/doc]ga qarang"
 
-#: libraries/classes/Display/Results.php:4439
+#: libraries/classes/Display/Results.php:4441
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Yozuvlarni ko‘rsatish"
 
-#: libraries/classes/Display/Results.php:4453
+#: libraries/classes/Display/Results.php:4455
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4458
+#: libraries/classes/Display/Results.php:4460
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%d total"
 msgstr "jami"
 
-#: libraries/classes/Display/Results.php:4470 libraries/classes/Sql.php:1039
+#: libraries/classes/Display/Results.php:4472 libraries/classes/Sql.php:1039
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "So‘rov %01.4f sekund vaqt oldi"
 
-#: libraries/classes/Display/Results.php:4838
+#: libraries/classes/Display/Results.php:4840
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
