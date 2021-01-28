@@ -92,7 +92,7 @@
         "symfony/console": "^4.4",
         "symfony/finder": "^4.4",
         "symfony/twig-bridge": "^4.4",
-        "tecnickcom/tcpdf": "^6.3",
+        "tecnickcom/tcpdf": "dev-main#456b794f1fae9aee5c151a1ee515aae2aaa619a3",
         "vimeo/psalm": "^4.4.0"
     },
     "extra": {
@@ -116,6 +116,7 @@
         "twig-lint": "php scripts/console lint:twig templates --ansi --show-deprecations"
     },
     "config":{
-        "sort-packages": true
+        "sort-packages": true,
+        "discard-changes": true
     }
 }
