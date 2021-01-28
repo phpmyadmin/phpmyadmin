@@ -11,10 +11,41 @@ var ErrorReport = {
      */
     lastException: null,
     /**
+     * @var object stores the Error Report Data to prevent unnecessary data fetching
+     */
+    errorReportData: null,
+    /**
+     * @var object maintains unique keys already used
+     */
+    keyDict: {},
+    /**
      * handles thrown error exceptions based on user preferences
      *
      * @return void
      */
+    errorDataHandler: function (data, exception) {
+        if (data.success !== true) {
+            Functions.ajaxShowMessage(data.error, false);
+            return;
+        }
+        if (data.report_setting === 'ask') {
+            ErrorReport.showErrorNotification();
+        } else if (data.report_setting === 'always') {
+            var reportData = ErrorReport.getReportData(exception);
+            var postData = $.extend(reportData, {
+                'send_error_report': true,
+                'automatic': true
+            });
+            $.post('index.php?route=/error-report', postData, function (data) {
+                if (data.success === false) {
+                    // in the case of an error, show the error message returned.
+                    Functions.ajaxShowMessage(data.error, false);
+                } else {
+                    Functions.ajaxShowMessage(data.message, false);
+                }
+            });
+        }
+    },
     errorHandler: function (exception) {
         // issue: 14359
         if (JSON.stringify(ErrorReport.lastException) === JSON.stringify(exception)) {
@@ -24,34 +55,19 @@ var ErrorReport = {
             exception.name = ErrorReport.extractExceptionName(exception);
         }
         ErrorReport.lastException = exception;
-        $.post('index.php?route=/error-report', {
-            'ajax_request': true,
-            'server': CommonParams.get('server'),
-            'get_settings': true,
-            'exception_type': 'js'
-        }, function (data) {
-            if (data.success !== true) {
-                Functions.ajaxShowMessage(data.error, false);
-                return;
-            }
-            if (data.report_setting === 'ask') {
-                ErrorReport.showErrorNotification();
-            } else if (data.report_setting === 'always') {
-                var reportData = ErrorReport.getReportData(exception);
-                var postData = $.extend(reportData, {
-                    'send_error_report': true,
-                    'automatic': true
-                });
-                $.post('index.php?route=/error-report', postData, function (data) {
-                    if (data.success === false) {
-                        // in the case of an error, show the error message returned.
-                        Functions.ajaxShowMessage(data.error, false);
-                    } else {
-                        Functions.ajaxShowMessage(data.message, false);
-                    }
-                });
-            }
-        });
+        if (ErrorReport.errorReportData === null) {
+            $.post('index.php?route=/error-report', {
+                'ajax_request': true,
+                'server': CommonParams.get('server'),
+                'get_settings': true,
+                'exception_type': 'js'
+            }, function (data) {
+                ErrorReport.errorReportData = data;
+                ErrorReport.errorDataHandler(data, exception);
+            });
+        } else {
+            ErrorReport.errorDataHandler(ErrorReport.errorReportData, exception);
+        }
     },
     /**
      * Shows the modal dialog previewing the report
@@ -82,7 +98,9 @@ var ErrorReport = {
         $.post('index.php?route=/error-report', reportData).done(function (data) {
             const $errorReportModal = $('#errorReportModal');
             $errorReportModal.on('show.bs.modal', function () {
-                $('#errorReportModalConfirm').on('click', sendErrorReport);
+                // Prevents multiple onClick events
+                $('#errorReportModalConfirm').unbind('click', sendErrorReport);
+                $('#errorReportModalConfirm').bind('click', sendErrorReport);
                 this.querySelector('.modal-body').innerHTML = data.message;
             });
             $errorReportModal.modal('show');
@@ -97,14 +115,18 @@ var ErrorReport = {
         ErrorReport.removeErrorNotification();
 
         var $div = $(
-            '<div class="alert alert-danger userPermissionModal" role="alert" id="error_notification"></div>'
+            '<div class="alert alert-danger userPermissionModal error_message" role="alert" id="error_notification"></div>'
         ).append(
             Functions.getImage('s_error') + Messages.strErrorOccurred
         );
 
         var $buttons = $('<div class="float-end"></div>');
-
-        var buttonHtml  = '<button class="btn btn-primary" id="show_error_report">';
+        var key = Math.random().toString(36).substring(2, 12);
+        while (key in ErrorReport.keyDict) {
+            key = Math.random().toString(36).substring(2, 12);
+        }
+        ErrorReport.keyDict[key] = 1;
+        var buttonHtml  = '<button class="btn btn-primary" id="show_error_report_' + key + '">';
         buttonHtml += Messages.strShowReportDetails;
         buttonHtml += '</button>';
 
@@ -120,8 +142,8 @@ var ErrorReport = {
 
         $div.append($buttons);
         $div.appendTo(document.body);
+        $(document).on('click', '#show_error_report_' + key, ErrorReport.createReportDialog);
         $(document).on('click', '#change_error_settings', ErrorReport.redirectToSettings);
-        $(document).on('click', '#show_error_report', ErrorReport.createReportDialog);
         $(document).on('click', '#ignore_error', ErrorReport.removeErrorNotification);
     },
     /**
@@ -134,7 +156,7 @@ var ErrorReport = {
             // don't remove the hash fragment by navigating to #
             e.preventDefault();
         }
-        $('#error_notification').fadeOut(function () {
+        $('.error_message').fadeOut(function () {
             $(this).remove();
         });
     },
