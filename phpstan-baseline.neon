@@ -2071,12 +2071,12 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#15 \\$showtable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array, bool given\\.$#"
+			message: "#^Parameter \\#14 \\$showtable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array, bool given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#16 \\$printview of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#15 \\$printview of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 

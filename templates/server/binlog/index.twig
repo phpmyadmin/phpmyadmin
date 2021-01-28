@@ -57,11 +57,11 @@
 
         {% if is_full_query %}
           <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(full_queries_params, '') }}" title="{% trans 'Truncate shown queries' %}">
-            <img src="{{ image_path }}s_partialtext.png" alt="{% trans 'Truncate shown queries' %}">
+            <img src="{{ image('s_partialtext.png') }}" alt="{% trans 'Truncate shown queries' %}">
           </a>
         {% else %}
           <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(full_queries_params, '') }}" title="{% trans 'Show full queries' %}">
-            <img src="{{ image_path }}s_fulltext.png" alt="{% trans 'Show full queries' %}">
+            <img src="{{ image('s_fulltext.png') }}" alt="{% trans 'Show full queries' %}">
           </a>
         {% endif %}
 

@@ -1568,14 +1568,12 @@ class PrivilegesTest extends AbstractTestCase
     {
         $result = [];
         $db_rights = [];
-        $themeImagePath = 'themeImagePath';
         $text_dir = 'text_dir';
         $GLOBALS['cfgRelation']['menuswork'] = true;
 
         $html = $this->serverPrivileges->getUsersOverview(
             $result,
             $db_rights,
-            $themeImagePath,
             $text_dir
         );
 
@@ -1622,11 +1620,6 @@ class PrivilegesTest extends AbstractTestCase
         );
         $this->assertStringContainsString(
             __('Action'),
-            $html
-        );
-
-        $this->assertStringContainsString(
-            $themeImagePath,
             $html
         );
 
@@ -1920,7 +1913,7 @@ class PrivilegesTest extends AbstractTestCase
      */
     public function testGetHtmlForUserOverview(): void
     {
-        $actual = $this->serverPrivileges->getHtmlForUserOverview('theme', '');
+        $actual = $this->serverPrivileges->getHtmlForUserOverview('ltr');
         $this->assertStringContainsString(
             'Note: MySQL privilege names are expressed in English.',
             $actual

@@ -101,7 +101,7 @@
   <div class="float-start row">
     <div class="col-12">
       <img class="selectallarrow" width="38" height="22" src="
-        {{- theme_image_path }}arrow_{{ text_dir }}.png" alt="{% trans 'With selected:' %}">
+        {{- image('arrow_' ~ text_dir ~ '.png') }}" alt="{% trans 'With selected:' %}">
       <input type="checkbox" id="usersForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
       <label for="usersForm_checkall">{% trans 'Check all' %}</label>
       <em class="with-selected">{% trans 'With selected:' %}</em>

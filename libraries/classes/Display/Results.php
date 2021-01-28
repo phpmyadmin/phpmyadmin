@@ -23,6 +23,7 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Theme;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -170,9 +171,6 @@ class Results
 
         /* double time taken for execute the SQL query */
         'querytime' => null,
-
-        /* string path for theme images directory */
-        'theme_image_path' => null,
 
         /* string */
         'text_dir' => null,
@@ -374,7 +372,6 @@ class Results
      * @param int      $num_rows       total no. of rows returned by SQL query
      * @param int      $fields_cnt     total no.of fields returned by SQL query
      * @param double   $querytime      time taken for execute the SQL query
-     * @param string   $themeImagePath path for theme images directory
      * @param string   $text_dir       text direction
      * @param bool     $is_maint       statement contains a maintenance command
      * @param bool     $is_explain     statement contains EXPLAIN
@@ -396,7 +393,6 @@ class Results
         $num_rows,
         $fields_cnt,
         $querytime,
-        $themeImagePath,
         $text_dir,
         $is_maint,
         $is_explain,
@@ -415,7 +411,6 @@ class Results
         $this->properties['num_rows'] = $num_rows;
         $this->properties['fields_cnt'] = $fields_cnt;
         $this->properties['querytime'] = $querytime;
-        $this->properties['theme_image_path'] = $themeImagePath;
         $this->properties['text_dir'] = $text_dir;
         $this->properties['is_maint'] = $is_maint;
         $this->properties['is_explain'] = $is_explain;
@@ -1528,6 +1523,8 @@ class Results
      */
     private function getFullOrPartialTextButtonOrLink()
     {
+        global $PMA_Theme;
+
         $url_params_full_text = [
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
@@ -1538,17 +1535,18 @@ class Results
 
         if ($_SESSION['tmpval']['pftext'] === self::DISPLAY_FULL_TEXT) {
             // currently in fulltext mode so show the opposite link
-            $tmp_image_file = $this->properties['theme_image_path'] . 's_partialtext.png';
+            $tmp_image_file = 's_partialtext.png';
             $tmp_txt = __('Partial texts');
             $url_params_full_text['pftext'] = self::DISPLAY_PARTIAL_TEXT;
         } else {
-            $tmp_image_file = $this->properties['theme_image_path'] . 's_fulltext.png';
+            $tmp_image_file = 's_fulltext.png';
             $tmp_txt = __('Full texts');
             $url_params_full_text['pftext'] = self::DISPLAY_FULL_TEXT;
         }
 
-        $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
-                     . $tmp_txt . '" title="' . $tmp_txt . '">';
+        $tmp_image = '<img class="fulltext" src="'
+            . ($PMA_Theme instanceof Theme ? $PMA_Theme->getImgPath($tmp_image_file) : '')
+            . '" alt="' . $tmp_txt . '" title="' . $tmp_txt . '">';
         $tmp_url = Url::getFromRoute('/sql', $url_params_full_text);
 
         return Generator::linkOrButton($tmp_url, $tmp_image);
@@ -4209,8 +4207,7 @@ class Results
             'relwork' => $GLOBALS['cfgRelation']['relwork'],
             'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-            'select_all_arrow' => $this->properties['theme_image_path'] . 'arrow_'
-                . $this->properties['text_dir'] . '.png',
+            'text_dir' => $this->properties['text_dir'],
         ]);
     }
 

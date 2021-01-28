@@ -54,7 +54,7 @@ class SqlController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $db, $display_query, $sql_query, $table, $PMA_Theme;
+        global $cfg, $db, $display_query, $sql_query, $table;
         global $ajax_reload, $goto, $err_url, $find_real_end, $unlim_num_rows, $import_text, $disp_query;
         global $extra_data, $message_to_show, $sql_data, $disp_message, $complete_query;
         global $is_gotofile, $back, $table_from_sql;
@@ -212,7 +212,6 @@ class SqlController extends AbstractController
             $message_to_show ?? null,
             $sql_data ?? null,
             $goto,
-            $PMA_Theme->getImgPath(),
             isset($disp_query) ? $display_query : null,
             $disp_message ?? null,
             $sql_query,

@@ -37,7 +37,7 @@ class DeleteController extends AbstractController
 
     public function rows(): void
     {
-        global $db, $goto, $sql_query, $table, $disp_message, $disp_query, $PMA_Theme, $active_page;
+        global $db, $goto, $sql_query, $table, $disp_message, $disp_query, $active_page;
 
         $mult_btn = $_POST['mult_btn'] ?? '';
         $original_sql_query = $_POST['original_sql_query'] ?? '';
@@ -102,7 +102,6 @@ class DeleteController extends AbstractController
             null,
             null,
             $goto,
-            $PMA_Theme->getImgPath(),
             null,
             null,
             $sql_query,

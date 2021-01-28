@@ -149,7 +149,7 @@ class CentralColumnsController extends AbstractController
      */
     public function main(array $params): void
     {
-        global $text_dir, $PMA_Theme;
+        global $text_dir;
 
         if (! empty($params['total_rows'])
             && Core::isValid($params['total_rows'], 'integer')
@@ -168,7 +168,6 @@ class CentralColumnsController extends AbstractController
             $this->db,
             $totalRows,
             $pos,
-            $PMA_Theme->getImgPath(),
             $text_dir
         );
 

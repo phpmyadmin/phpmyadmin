@@ -34,7 +34,7 @@ final class EventsController extends AbstractController
 
     public function index(): void
     {
-        global $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $text_dir, $PMA_Theme;
+        global $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $text_dir;
         global $tooltip_truename, $tooltip_aliasname, $pos, $cfg, $err_url;
 
         $this->addScriptFiles(['database/events.js']);
@@ -76,11 +76,9 @@ final class EventsController extends AbstractController
         $this->render('database/events/index', [
             'db' => $db,
             'items' => $items,
-            'select_all_arrow_src' => $PMA_Theme->getImgPath() . 'arrow_' . $text_dir . '.png',
             'has_privilege' => Util::currentUserHasPrivilege('EVENT', $db),
             'scheduler_state' => $this->events->getEventSchedulerStatus(),
             'text_dir' => $text_dir,
-            'theme_image_path' => $PMA_Theme->getImgPath(),
             'is_ajax' => $this->response->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);
     }
