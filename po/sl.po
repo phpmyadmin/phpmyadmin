@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-28 16:31+0100\n"
-"PO-Revision-Date: 2021-01-26 06:32+0000\n"
+"PO-Revision-Date: 2021-01-29 20:33+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -4395,10 +4395,8 @@ msgid "Public key for reCAPTCHA"
 msgstr "Javni ključ za reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:981
-#, fuzzy
-#| msgid "Public key for reCAPTCHA"
 msgid "Private key for reCAPTCHA"
-msgstr "Javni ključ za reCAPTCHA"
+msgstr "Zasebni ključ za reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:982
 msgid "URL for reCAPTCHA siteverify"
@@ -14486,10 +14484,8 @@ msgid "Check all"
 msgstr "Označi vse"
 
 #: templates/database/events/index.twig:27
-#, fuzzy
-#| msgid "Create event"
 msgid "Create new event"
-msgstr "Ustvari dogodek"
+msgstr "Ustvari nov dogodek"
 
 #: templates/database/events/index.twig:36
 msgid "There are no events to display."
@@ -15201,10 +15197,8 @@ msgid "Track table"
 msgstr "Sledi tabeli"
 
 #: templates/database/triggers/list.twig:27
-#, fuzzy
-#| msgid "Create trigger"
 msgid "Create new trigger"
-msgstr "Ustvari sprožilec"
+msgstr "Ustvari nov sprožilec"
 
 #: templates/database/triggers/list.twig:36
 msgid "There are no triggers to display."
