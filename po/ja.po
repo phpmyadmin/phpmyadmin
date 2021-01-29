@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-01-28 15:36+0000\n"
+"PO-Revision-Date: 2021-01-29 20:33+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -4387,10 +4387,8 @@ msgid "Public key for reCAPTCHA"
 msgstr "reCAPTCHA の公開鍵"
 
 #: libraries/classes/Config/Descriptions.php:981
-#, fuzzy
-#| msgid "Public key for reCAPTCHA"
 msgid "Private key for reCAPTCHA"
-msgstr "reCAPTCHA の公開鍵"
+msgstr "reCAPTCHA の秘密鍵"
 
 #: libraries/classes/Config/Descriptions.php:982
 msgid "URL for reCAPTCHA siteverify"
@@ -14366,10 +14364,8 @@ msgid "Check all"
 msgstr "すべてチェックする"
 
 #: templates/database/events/index.twig:27
-#, fuzzy
-#| msgid "Create event"
 msgid "Create new event"
-msgstr "イベントを作成する"
+msgstr "新しいイベントを作成する"
 
 #: templates/database/events/index.twig:36
 msgid "There are no events to display."
@@ -15068,10 +15064,8 @@ msgid "Track table"
 msgstr "テーブルを追跡する"
 
 #: templates/database/triggers/list.twig:27
-#, fuzzy
-#| msgid "Create trigger"
 msgid "Create new trigger"
-msgstr "トリガを作成する"
+msgstr "新しいトリガを作成する"
 
 #: templates/database/triggers/list.twig:36
 msgid "There are no triggers to display."
