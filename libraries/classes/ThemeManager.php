@@ -31,7 +31,7 @@ class ThemeManager
      */
     private static $instance;
 
-    /** @var array available themes */
+    /** @var array<string, Theme> available themes */
     public $themes = [];
 
     /** @var string  cookie name */
@@ -254,37 +254,19 @@ class ThemeManager
         return array_key_exists($theme ?? '', $this->themes);
     }
 
-    /**
-     * returns HTML selectbox
-     *
-     * @access public
-     */
-    public function getHtmlSelectBox(): string
+    public function getThemesArray(): array
     {
-        $select_box = '';
-
-        $select_box .= '<form name="setTheme" method="post"';
-        $select_box .= ' action="index.php?route=/set-theme" class="disableAjax">';
-        $select_box .= Url::getHiddenInputs();
-
-        $theme_preview_href = '<a href="'
-            . Url::getFromRoute('/themes') . '" target="themes" class="themeselect">';
-        $select_box .=  $theme_preview_href . __('Theme:') . '</a>' . "\n";
-
-        $select_box .=  '<select name="set_theme" lang="en" dir="ltr"'
-            . ' class="autosubmit">';
-        foreach ($this->themes as $each_theme_id => $each_theme) {
-            $select_box .=  '<option value="' . $each_theme_id . '"';
-            if ($this->activeTheme === $each_theme_id) {
-                $select_box .=  ' selected="selected"';
-            }
-            $select_box .=  '>' . htmlspecialchars($each_theme->getName())
-                . '</option>';
+        $themes = [];
+        foreach ($this->themes as $theme) {
+            $themes[] = [
+                'id' => $theme->getId(),
+                'name' => $theme->getName(),
+                'version' => $theme->getVersion(),
+                'is_active' => $theme->getId() === $this->activeTheme,
+            ];
         }
-        $select_box .= '</select>';
-        $select_box .= '</form>';
 
-        return $select_box;
+        return $themes;
     }
 
     /**

@@ -139,11 +139,6 @@ class HomeController extends AbstractController
             $languageSelector = $languageManager->getSelectorDisplay($this->template);
         }
 
-        $themeSelection = '';
-        if ($cfg['ThemeManager']) {
-            $themeSelection = $this->themeManager->getHtmlSelectBox();
-        }
-
         $databaseServer = [];
         if ($server > 0 && $cfg['ShowServerInfo']) {
             $hostInfo = '';
@@ -237,13 +232,14 @@ class HomeController extends AbstractController
             'has_change_password_link' => $cfg['Server']['auth_type'] !== 'config' && $cfg['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
             'language_selector' => $languageSelector,
-            'theme_selection' => $themeSelection,
             'database_server' => $databaseServer,
             'web_server' => $webServer,
             'show_php_info' => $cfg['ShowPhpInfo'],
             'is_version_checked' => $cfg['VersionCheck'],
             'phpmyadmin_version' => PMA_VERSION,
             'config_storage_message' => $configStorageMessage ?? '',
+            'has_theme_manager' => $cfg['ThemeManager'],
+            'themes' => $this->themeManager->getThemesArray(),
         ]);
     }
 

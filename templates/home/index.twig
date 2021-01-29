@@ -96,10 +96,21 @@
                   </li>
                 {% endif %}
 
-                {% if theme_selection is not empty %}
+                {% if has_theme_manager %}
                   <li id="li_select_theme" class="list-group-item">
                     {{ get_image('s_theme') }}
-                    {{ theme_selection|raw }}
+                    <form name="setTheme" method="post" action="{{ url('/set-theme') }}" class="disableAjax">
+                      {{ get_hidden_inputs() }}
+
+                      <a href="{{ url('/themes') }}" target="themes" class="themeselect">
+                        {% trans 'Theme:' %}
+                      </a>
+                      <select name="set_theme" lang="en" dir="ltr" class="autosubmit" aria-label="{% trans 'Theme' %}">
+                        {% for theme in themes %}
+                          <option value="{{ theme.id }}"{{ theme.is_active ? ' selected' }}>{{ theme.name }}</option>
+                        {% endfor %}
+                      </select>
+                    </form>
                   </li>
                 {% endif %}
               </ul>
