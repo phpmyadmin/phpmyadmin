@@ -10,6 +10,7 @@
 
 'use strict';
 
+var globalChange = 0;
 var UIColorPicker = (function UIColorPicker() {
 
     function getElemById(id) {
@@ -44,7 +45,7 @@ var UIColorPicker = (function UIColorPicker() {
         this.saturation = 0;
         this.value = 0;
         this.lightness = 0;
-        this.format = 'HSV';
+        this.format = 'HSB';
     }
 
     function RGBColor(r, g, b) {
@@ -59,26 +60,26 @@ var UIColorPicker = (function UIColorPicker() {
         return color;
     }
 
-    function HSVColor(h, s, v) {
+    function HSBColor (h, s, v) {
         var color = new Color();
-        color.setHSV(h, s, v);
+        color.setHSB(h, s, v);
         return color;
     }
 
-    function HSVAColor(h, s, v, a) {
+    function HSBAColor (h, s, v, a) {
         var color = new Color();
-        color.setHSV(h, s, v);
+        color.setHSB(h, s, v);
         color.a = a;
         return color;
     }
 
-    function HSLColor(h, s, l) {
+    function HSLColor (h, s, l) {
         var color = new Color();
         color.setHSL(h, s, l);
         return color;
     }
 
-    function HSLAColor(h, s, l, a) {
+    function HSLAColor (h, s, l, a) {
         var color = new Color();
         color.setHSL(h, s, l);
         color.a = a;
@@ -103,8 +104,8 @@ var UIColorPicker = (function UIColorPicker() {
     };
 
     Color.prototype.setFormat = function setFormat(format) {
-        if (format === 'HSV')
-            this.format = 'HSV';
+        if (format === 'HSB')
+            this.format = 'HSB';
         if (format === 'HSL')
             this.format = 'HSL';
     };
@@ -122,9 +123,9 @@ var UIColorPicker = (function UIColorPicker() {
             this.isValidRGBValue(blue) === false)
             return;
 
-            this.r = red | 0;
-            this.g = green | 0;
-            this.b = blue | 0;
+        this.r = red | 0;
+        this.g = green | 0;
+        this.b = blue | 0;
 
         if (this.isValidRGBValue(alpha) === true)
             this.a = alpha | 0;
@@ -140,11 +141,11 @@ var UIColorPicker = (function UIColorPicker() {
         }
     };
 
-    Color.prototype.setHSV = function setHSV(hue, saturation, value) {
+    Color.prototype.setHSB = function setHSB(hue, saturation, value) {
         this.hue = hue;
         this.saturation = saturation;
         this.value = value;
-        this.HSVtoRGB();
+        this.HSBtoRGB();
     };
 
     Color.prototype.setHSL = function setHSL(hue, saturation, lightness) {
@@ -175,7 +176,7 @@ var UIColorPicker = (function UIColorPicker() {
             value < 0 || value > 100)
             return;
         this.value = value;
-        this.HSVtoRGB();
+        this.HSBtoRGB();
     };
 
     Color.prototype.setLightness = function setLightness(value) {
@@ -203,7 +204,7 @@ var UIColorPicker = (function UIColorPicker() {
         this.b = parseInt(value.substr(4, 2), 16);
 
         this.alpha	= 1;
-        this.RGBtoHSV();
+        this.RGBtoHSB();
     };
 
     /*========== Conversion Methods ==========*/
@@ -216,19 +217,19 @@ var UIColorPicker = (function UIColorPicker() {
         this.RGBtoHSL();
     };
 
-    Color.prototype.convertToHSV = function convertToHSV() {
-        if (this.format === 'HSV')
+    Color.prototype.convertToHSB = function convertToHSB() {
+        if (this.format === 'HSB')
             return;
 
-        this.setFormat('HSV');
-        this.RGBtoHSV();
+        this.setFormat('HSB');
+        this.RGBtoHSB();
     };
 
     /*========== Update Methods ==========*/
 
     Color.prototype.updateRGB = function updateRGB() {
-        if (this.format === 'HSV') {
-            this.HSVtoRGB();
+        if (this.format === 'HSB') {
+            this.HSBtoRGB();
             return;
         }
 
@@ -239,8 +240,8 @@ var UIColorPicker = (function UIColorPicker() {
     };
 
     Color.prototype.updateHSX = function updateHSX() {
-        if (this.format === 'HSV') {
-            this.RGBtoHSV();
+        if (this.format === 'HSB') {
+            this.RGBtoHSB();
             return;
         }
 
@@ -250,7 +251,7 @@ var UIColorPicker = (function UIColorPicker() {
         }
     };
 
-    Color.prototype.HSVtoRGB = function HSVtoRGB() {
+    Color.prototype.HSBtoRGB = function HSBtoRGB() {
         var sat = this.saturation / 100;
         var value = this.value / 100;
         var C = sat * value;
@@ -292,7 +293,7 @@ var UIColorPicker = (function UIColorPicker() {
         if (H >= 5 && H < 6) {	this.setRGBA(C, m, X);	return; }
     };
 
-    Color.prototype.RGBtoHSV = function RGBtoHSV() {
+    Color.prototype.RGBtoHSB = function RGBtoHSB() {
         var red		= this.r / 255;
         var green	= this.g / 255;
         var blue	= this.b / 255;
@@ -371,7 +372,7 @@ var UIColorPicker = (function UIColorPicker() {
     };
 
     Color.prototype.getHSLA = function getHSLA() {
-        if (this.format === 'HSV') {
+        if (this.format === 'HSB') {
             var color = new Color(this);
             color.setFormat('HSL');
             color.updateHSX();
@@ -426,7 +427,7 @@ var UIColorPicker = (function UIColorPicker() {
         var topic = this.node.getAttribute('data-topic');
 
         this.topic = topic;
-        this.picker_mode = (type === 'HSL') ? 'HSL' : 'HSV';
+        this.picker_mode = (type === 'HSL') ? 'HSL' : 'HSB';
         this.color.setFormat(this.picker_mode);
 
         this.createPickingArea();
@@ -434,19 +435,15 @@ var UIColorPicker = (function UIColorPicker() {
 
         this.newInputComponent('H', 'hue', this.inputChangeHue.bind(this));
         this.newInputComponent('S', 'saturation', this.inputChangeSaturation.bind(this));
-        this.newInputComponent('V', 'value', this.inputChangeValue.bind(this));
+        this.newInputComponent('B', 'value', this.inputChangeValue.bind(this));
         this.newInputComponent('L', 'lightness', this.inputChangeLightness.bind(this));
-
-        this.createAlphaArea();
 
         this.newInputComponent('R', 'red', this.inputChangeRed.bind(this));
         this.newInputComponent('G', 'green', this.inputChangeGreen.bind(this));
         this.newInputComponent('B', 'blue', this.inputChangeBlue.bind(this));
 
         this.createPreviewBox();
-        this.createChangeModeButton();
 
-        this.newInputComponent('alpha', 'alpha', this.inputChangeAlpha.bind(this));
         this.newInputComponent('hexa', 'hexa', this.inputChangeHexa.bind(this));
 
         this.setColor(this.color);
@@ -464,8 +461,8 @@ var UIColorPicker = (function UIColorPicker() {
         area.className = 'picking-area';
         picker.className = 'picker';
 
-        this.picking_area = area;
-        this.color_picker = picker;
+        this.pickingArea = area;
+        this.colorPicker = picker;
         setMouseTracking(area, this.updateColor.bind(this));
 
         area.appendChild(picker);
@@ -479,8 +476,8 @@ var UIColorPicker = (function UIColorPicker() {
         area.className = 'hue';
         picker.className ='slider-picker';
 
-        this.hue_area = area;
-        this.hue_picker = picker;
+        this.hueArea = area;
+        this.huePicker = picker;
         setMouseTracking(area, this.updateHueSlider.bind(this));
 
         area.appendChild(picker);
@@ -496,7 +493,7 @@ var UIColorPicker = (function UIColorPicker() {
         mask.className = 'alpha-mask';
         picker.className = 'slider-picker';
 
-        this.alpha_area = area;
+        this.alphaArea = area;
         this.alpha_mask = mask;
         this.alpha_picker = picker;
         setMouseTracking(area, this.updateAlphaSlider.bind(this));
@@ -544,32 +541,34 @@ var UIColorPicker = (function UIColorPicker() {
         });
     };
 
-    ColorPicker.prototype.createChangeModeButton = function createChangeModeButton() {
-
-        var button = document.createElement('div');
-        button.className = 'switch_mode';
-        button.addEventListener('click', function() {
-            if (this.picker_mode === 'HSV')
-                this.setPickerMode('HSL');
-            else
-                this.setPickerMode('HSV');
-
-        }.bind(this));
-
-        this.node.appendChild(button);
-    };
+    // ColorPicker.prototype.createChangeModeButton = function createChangeModeButton() {
+    //
+    //     var button = document.createElement('div');
+    //     button.className = 'switch_mode';
+    //     button.addEventListener('click', function() {
+    //         if (this.picker_mode === 'HSV')
+    //             this.setPickerMode('HSL');
+    //         else
+    //             this.setPickerMode('HSV');
+    //
+    //     }.bind(this));
+    //
+    //     this.node.appendChild(button);
+    // };
 
     /*************************************************************************/
     //					Updates properties of UI elements
     /*************************************************************************/
 
     ColorPicker.prototype.updateColor = function updateColor(e) {
-        var x = e.pageX - this.picking_area.offsetLeft;
-        var y = e.pageY - this.picking_area.offsetTop;
+        var x = e.pageX - this.pickingArea.offsetLeft
+            - this.pickingArea.offsetParent.offsetLeft - this.pickingArea.offsetParent.offsetParent.offsetLeft;
+        var y = e.pageY - this.pickingArea.offsetTop
+            - this.pickingArea.offsetParent.offsetTop - this.pickingArea.offsetParent.offsetParent.offsetTop;
         var picker_offset = 5;
 
         // width and height should be the same
-        var size = this.picking_area.clientWidth;
+        var size = this.pickingArea.clientWidth;
 
         if (x > size) x = size;
         if (y > size) y = size;
@@ -579,15 +578,15 @@ var UIColorPicker = (function UIColorPicker() {
         var value = 100 - (y * 100 / size) | 0;
         var saturation = x * 100 / size | 0;
 
-        if (this.picker_mode === 'HSV')
-            this.color.setHSV(this.color.hue, saturation, value);
+        if (this.picker_mode === 'HSB')
+            this.color.setHSB(this.color.hue, saturation, value);
         if (this.picker_mode === 'HSL')
             this.color.setHSL(this.color.hue, saturation, value);
 
-        this.color_picker.style.left = x - picker_offset + 'px';
-        this.color_picker.style.top = y - picker_offset + 'px';
+        this.colorPicker.style.left = x - picker_offset + 'px';
+        this.colorPicker.style.top = y - picker_offset + 'px';
 
-        this.updateAlphaGradient();
+        // this.updateAlphaGradient();
         this.updatePreviewColor();
 
         this.notify('value', value);
@@ -603,8 +602,9 @@ var UIColorPicker = (function UIColorPicker() {
     };
 
     ColorPicker.prototype.updateHueSlider = function updateHueSlider(e) {
-        var x = e.pageX - this.hue_area.offsetLeft;
-        var width = this.hue_area.clientWidth;
+        var x = e.pageX - this.hueArea.offsetLeft
+            - this.hueArea.offsetParent.offsetLeft - this.hueArea.offsetParent.offsetParent.offsetLeft;
+        var width = this.hueArea.clientWidth;
 
         if (x < 0) x = 0;
         if (x > width) x = width;
@@ -613,31 +613,30 @@ var UIColorPicker = (function UIColorPicker() {
         var hue = ((359 * x) / width) | 0;
         // if (hue === 360) hue = 359;
 
-        this.updateSliderPosition(this.hue_picker, x);
+        this.updateSliderPosition(this.huePicker, x);
         this.setHue(hue);
     };
 
-    ColorPicker.prototype.updateAlphaSlider = function updateAlphaSlider(e) {
-        var x = e.pageX - this.alpha_area.offsetLeft;
-        var width = this.alpha_area.clientWidth;
-
-        if (x < 0) x = 0;
-        if (x > width) x = width;
-
-        this.color.a = (x / width).toFixed(2);
-
-        this.updateSliderPosition(this.alpha_picker, x);
-        this.updatePreviewColor();
-
-        this.notify('alpha', this.color.a);
-        notify(this.topic, this.color);
-    };
+    // ColorPicker.prototype.updateAlphaSlider = function updateAlphaSlider(e) {
+    //     var x = e.pageX - this.alphaArea.offsetLeft;
+    //     var width = this.alphaArea.clientWidth;
+    //
+    //     if (x < 0) x = 0;
+    //     if (x > width) x = width;
+    //
+    //     this.color.a = (x / width).toFixed(2);
+    //
+    //     this.updateSliderPosition(this.alpha_picker, x);
+    //     this.updatePreviewColor();
+    //
+    //     this.notify('alpha', this.color.a);
+    //     notify(this.topic, this.color);
+    // };
 
     ColorPicker.prototype.setHue = function setHue(value) {
         this.color.setHue(value);
 
         this.updatePickerBackground();
-        this.updateAlphaGradient();
         this.updatePreviewColor();
 
         this.notify('red', this.color.r);
@@ -668,11 +667,11 @@ var UIColorPicker = (function UIColorPicker() {
     /*************************************************************************/
 
     ColorPicker.prototype.updatePickerPosition = function updatePickerPosition() {
-        var size = this.picking_area.clientWidth;
+        var size = this.pickingArea.clientWidth;
         var value = 0;
         var offset = 5;
 
-        if (this.picker_mode === 'HSV')
+        if (this.picker_mode === 'HSB')
             value = this.color.value;
         if (this.picker_mode === 'HSL')
             value = this.color.lightness;
@@ -680,8 +679,8 @@ var UIColorPicker = (function UIColorPicker() {
         var x = (this.color.saturation * size / 100) | 0;
         var y = size - (value * size / 100) | 0;
 
-        this.color_picker.style.left = x - offset + 'px';
-        this.color_picker.style.top = y - offset + 'px';
+        this.colorPicker.style.left = x - offset + 'px';
+        this.colorPicker.style.top = y - offset + 'px';
     };
 
     ColorPicker.prototype.updateSliderPosition = function updateSliderPosition(elem, pos) {
@@ -689,18 +688,18 @@ var UIColorPicker = (function UIColorPicker() {
     };
 
     ColorPicker.prototype.updateHuePicker = function updateHuePicker() {
-        var size = this.hue_area.clientWidth;
+        var size = this.hueArea.clientWidth;
         var offset = 1;
         var pos = (this.color.hue * size / 360 ) | 0;
-        this.hue_picker.style.left = pos - offset + 'px';
+        this.huePicker.style.left = pos - offset + 'px';
     };
 
-    ColorPicker.prototype.updateAlphaPicker = function updateAlphaPicker() {
-        var size = this.alpha_area.clientWidth;
-        var offset = 1;
-        var pos = (this.color.a * size) | 0;
-        this.alpha_picker.style.left = pos - offset + 'px';
-    };
+    // ColorPicker.prototype.updateAlphaPicker = function updateAlphaPicker() {
+    //     var size = this.alphaArea.clientWidth;
+    //     var offset = 1;
+    //     var pos = (this.color.a * size) | 0;
+    //     this.alpha_picker.style.left = pos - offset + 'px';
+    // };
 
     /*************************************************************************/
     //						Update background colors
@@ -708,13 +707,13 @@ var UIColorPicker = (function UIColorPicker() {
 
     ColorPicker.prototype.updatePickerBackground = function updatePickerBackground() {
         var nc = new Color(this.color);
-        nc.setHSV(nc.hue, 100, 100);
-        this.picking_area.style.backgroundColor = nc.getHexa();
+        nc.setHSB(nc.hue, 100, 100);
+        this.pickingArea.style.backgroundColor = nc.getHexa();
     };
 
-    ColorPicker.prototype.updateAlphaGradient = function updateAlphaGradient() {
-        this.alpha_mask.style.backgroundColor = this.color.getHexa();
-    };
+    // ColorPicker.prototype.updateAlphaGradient = function updateAlphaGradient() {
+    //     this.alpha_mask.style.backgroundColor = this.color.getHexa();
+    // };
 
     ColorPicker.prototype.updatePreviewColor = function updatePreviewColor() {
         this.preview_color.style.backgroundColor = this.color.getColor();
@@ -821,8 +820,8 @@ var UIColorPicker = (function UIColorPicker() {
         this.updateHuePicker();
         this.updatePickerPosition();
         this.updatePickerBackground();
-        this.updateAlphaPicker();
-        this.updateAlphaGradient();
+        // this.updateAlphaPicker();
+        // this.updateAlphaGradient();
         this.updatePreviewColor();
 
         this.notify('red', this.color.r);
@@ -840,7 +839,7 @@ var UIColorPicker = (function UIColorPicker() {
     };
 
     ColorPicker.prototype.setPickerMode = function setPickerMode(mode) {
-        if (mode !== 'HSV' && mode !== 'HSL')
+        if (mode !== 'HSB' && mode !== 'HSL')
             return;
 
         this.picker_mode = mode;
@@ -900,8 +899,8 @@ var UIColorPicker = (function UIColorPicker() {
         Color : Color,
         RGBColor : RGBColor,
         RGBAColor : RGBAColor,
-        HSVColor : HSVColor,
-        HSVAColor : HSVAColor,
+        HSBColor : HSBColor,
+        HSBAColor : HSBAColor,
         HSLColor : HSLColor,
         HSLAColor : HSLAColor,
         setColor : setColor,
@@ -1305,7 +1304,8 @@ var ColorPickerTool = (function ColorPickerTool() {
     var ColorPalette = (function ColorPalette() {
 
         var samples = [];
-        var color_palette;
+        var colorPalette;
+        var palleteSize = 10;
         var complementary;
 
         var hideNode = function(node) {
@@ -1353,6 +1353,47 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.updateBgColor();
         };
 
+        ColorSample.prototype.updateTriadic = function updateTriadic (color, size, steps) {
+            var h = color.hue;
+            var hue;
+            var saturation;
+            var brightness;
+            if ((steps * 3 / size) < 1 || globalChange) {
+                hue = h;
+            } else if ((steps * 3 / size) < 2) {
+                if (h - 120 < 0) {
+                    hue = 240 + h;
+                } else {
+                    hue = h - 120;
+                }
+            } else {
+                if (h + 120 >= 360) {
+                    hue = h - 240;
+                } else {
+                    hue = h + 120;
+                }
+            }
+
+            if (globalChange) {
+                saturation = color.saturation;
+                brightness = color.value;
+            } else {
+                saturation = this.updateSaturation(color.saturation, size / 3, steps % (size / 3));
+                brightness = this.updateBrightness(color.value, size / 3, steps % (size / 3));
+            }
+
+            if (saturation > 100 || brightness > 100) {
+                saturation = 0;
+                brightness = 100;
+            }
+            this.node.removeAttribute('data-hidden');
+            this.color.copy(color);
+            this.color.setValue(brightness);
+            this.color.setSaturation(saturation);
+            this.color.setHue(hue);
+            this.updateBgColor();
+        };
+
         ColorSample.prototype.updateHue = function updateHue(color, degree, steps) {
             this.color.copy(color);
             var hue = (steps * degree + this.color.hue) % 360;
@@ -1361,17 +1402,36 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.updateBgColor();
         };
 
-        ColorSample.prototype.updateSaturation = function updateSaturation(color, value, steps) {
-            var saturation = color.saturation + value * steps;
-            if (saturation <= 0) {
-                this.node.setAttribute('data-hidden', 'true');
-                return;
+        ColorSample.prototype.updateSaturation = function updateSaturation (s, size, steps) {
+            var saturation;
+            if (steps) {
+                if (s < 20) {
+                    saturation = 100 - ((100 / size) * steps);
+                } else if (3 * s / 2 >= 100) {
+                    saturation = (((200 - s) * steps) + (s * (size - 1) - 200)) / (2 * (size - 2));
+                } else {
+                    saturation = ((s / (size - 2)) * (steps - 1)) + (s / 2);
+                }
+            } else {
+                saturation = s;
             }
+            return saturation;
+        };
 
-            this.node.removeAttribute('data-hidden');
-            this.color.copy(color);
-            this.color.setSaturation(saturation);
-            this.updateBgColor();
+        ColorSample.prototype.updateBrightness = function updateBrightness (b, size, steps) {
+            var brightness;
+            if (steps) {
+                if (b < 20) {
+                    brightness = (100 / (size - 1)) * steps;
+                } else if (3 * b / 2 >= 100) {
+                    brightness = (((200 - b) * (size - steps)) + (b * (size - 1) - 200)) / (2 * (size - 2));
+                } else {
+                    brightness = ((b / (size - 2)) * ((size - steps) - 1)) + (b / 2);
+                }
+            } else {
+                brightness = b;
+            }
+            return brightness;
         };
 
         ColorSample.prototype.updateLightness = function updateLightness(color, value, steps) {
@@ -1386,15 +1446,102 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.updateBgColor();
         };
 
-        ColorSample.prototype.updateBrightness = function updateBrightness(color, value, steps) {
-            var brightness = color.value + value * steps;
-            if (brightness <= 0) {
-                this.node.setAttribute('data-hidden', 'true');
-                return;
+        ColorSample.prototype.updateAdjacent = function updateAdjacent (color, size, steps) {
+            var h = color.hue;
+            var hue;
+            var saturation;
+            var brightness;
+            if ((steps * 3 / size) < 1 || globalChange) {
+                hue = h;
+            } else if ((steps * 3 / size) < 2) {
+                if (h - 60 < 0) {
+                    hue = 300 + h;
+                } else {
+                    hue = h - 60;
+                }
+            } else {
+                if (h + 60 >= 360) {
+                    hue = h - 300;
+                } else {
+                    hue = h + 60;
+                }
+            }
+
+            if (globalChange) {
+                saturation = color.saturation;
+                brightness = color.value;
+            } else {
+                saturation = this.updateSaturation(color.saturation, size / 3, steps % (size / 3));
+                brightness = this.updateBrightness(color.value, size / 3, steps % (size / 3));
+            }
+
+            if (saturation > 100 || brightness > 100) {
+                saturation = 0;
+                brightness = 100;
+            }
+
+            this.node.removeAttribute('data-hidden');
+            this.color.copy(color);
+            this.color.setValue(brightness);
+            this.color.setSaturation(saturation);
+            this.color.setHue(hue);
+            this.updateBgColor();
+        };
+
+        ColorSample.prototype.updateMonochrome = function updateMonochrome (color, size, steps) {
+            var saturation;
+            var brightness;
+            if (globalChange) {
+                saturation = color.saturation;
+                brightness = color.value;
+            } else {
+                saturation = this.updateSaturation(color.saturation, size, steps % (size));
+                brightness = this.updateBrightness(color.value, size, steps % (size));
+            }
+
+            if (saturation > 100 || brightness > 100) {
+                saturation = 0;
+                brightness = 100;
             }
             this.node.removeAttribute('data-hidden');
             this.color.copy(color);
             this.color.setValue(brightness);
+            this.color.setSaturation(saturation);
+            this.updateBgColor();
+        };
+
+        ColorSample.prototype.updateComplementary = function updateComplementary (color, size, steps) {
+            var h = color.hue;
+            var hue;
+            var saturation;
+            var brightness;
+            if ((steps * 2 / size) < 1 || globalChange) {
+                hue = h;
+            } else {
+                if (h  < 180) {
+                    hue = h + 180;
+                } else {
+                    hue = h - 180;
+                }
+            }
+
+            if (globalChange) {
+                saturation = color.saturation;
+                brightness = color.value;
+            } else {
+                saturation = this.updateSaturation(color.saturation, size / 2, steps % (size / 2));
+                brightness = this.updateBrightness(color.value, size / 2, steps % (size / 2));
+            }
+
+            if (saturation > 100 || brightness > 100) {
+                saturation = 0;
+                brightness = 100;
+            }
+            this.node.removeAttribute('data-hidden');
+            this.color.copy(color);
+            this.color.setValue(brightness);
+            this.color.setSaturation(saturation);
+            this.color.setHue(hue);
             this.updateBgColor();
         };
 
@@ -1411,12 +1558,51 @@ var ColorPickerTool = (function ColorPickerTool() {
         };
 
         ColorSample.prototype.pickColor = function pickColor() {
+            if (this.uid % palleteSize === 0) {
+                globalChange = 0;
+            } else {
+                globalChange = this.uid;
+            }
             UIColorPicker.setColor('picker', this.color);
         };
 
         ColorSample.prototype.dragStart = function dragStart(e) {
             e.dataTransfer.setData('sampleID', this.uid);
             e.dataTransfer.setData('location', 'palette-samples');
+        };
+
+        ColorSample.prototype.improveContrastRatio = function improveContrastRatio (group , background) {
+            var brightness = 50;
+            var saturation = 50;
+            var max1 = 1;
+            var max2 = 1;
+            var maxBrightness = brightness;
+            var maxSaturation = saturation;
+            for (var i = 0 ; i < 11 ; i ++) {
+                var contrast1 = getColorContrast(this.color,group);
+                var contrast2 = getColorContrast(this.color,background);
+                if (contrast1 > 4.5 && contrast2 > 4.5) {
+                    this.updateBgColor();
+                    return;
+                }
+                if (max1 < contrast1 && max2 < contrast2 && i > 0) {
+                    max1 = contrast1;
+                    max2 = contrast2;
+                    maxBrightness = this.color.value;
+                    maxBrightness = this.color.saturation;
+                }
+                if (i % 2 === 1) {
+                    saturation += i * 10;
+                } else {
+                    saturation = brightness;
+                }
+                brightness = 100 - saturation;
+                this.color.setSaturation(saturation);
+                this.color.setValue(brightness);
+            }
+            this.color.setValue(maxBrightness);
+            this.color.setValue(maxSaturation);
+            this.updateBgColor();
         };
 
         var Palette = function Palette(text, size) {
@@ -1456,82 +1642,112 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.title = title;
         };
 
-        var createHuePalette = function createHuePalette() {
-            var palette = new Palette('Hue', 12);
-
-            UIColorPicker.subscribe('picker', function(color) {
-                if (palette.locked === true)
-                    return;
-
-                for(var i = 0; i < 12; i++) {
-                    palette.samples[i].updateHue(color, 30, i);
+        var paletteTextUpdate = function paletteTextUpdate (palette) {
+            if (document.getElementsByName('text_contrast')[0].checked) {
+                for (var i = 0; i < palleteSize; i++) {
+                    var title = palette.samples[i].node.title;
+                    if (title === 'Navigation Panel') {
+                        var group = palette.samples[i].color;
+                    } if (title === 'Background Colour') {
+                        var background = palette.samples[i].color;
+                    }
                 }
-            });
-
-            color_palette.appendChild(palette.container);
+                for (i = 0; i < palleteSize; i++) {
+                    title = palette.samples[i].node.title;
+                    if (title === 'Text Colour' || title === 'Hyperlink Text') {
+                        palette.samples[i].improveContrastRatio(group , background);
+                    }
+                }
+            }
         };
 
-        var createSaturationPalette = function createSaturationPalette() {
-            var palette = new Palette('Saturation', 11);
-
-            UIColorPicker.subscribe('picker', function(color) {
-                if (palette.locked === true)
-                    return;
-
-                for(var i = 0; i < 11; i++) {
-                    palette.samples[i].updateSaturation(color, -10, i);
+        var createTriadicPalette = function createTriadicPalette () {
+            var palette = new Palette('Triadic', palleteSize);
+            var i;
+            UIColorPicker.subscribe('picker', function (color) {
+                if (globalChange / palleteSize > 0 && globalChange / palleteSize < 1) {
+                    i = globalChange % palleteSize;
+                    palette.samples[i].updateTriadic(color, palleteSize, i);
+                } else if (globalChange === 0) {
+                    for (i = 0; i < palleteSize; i++) {
+                        palette.samples[i].updateTriadic(color, palleteSize, i);
+                    }
                 }
+                paletteTextUpdate (palette);
+            });
+            var checkbox = document.getElementsByName('text_contrast')[0];
+            checkbox.addEventListener('click', function () {
+                paletteTextUpdate (palette);
             });
 
-            color_palette.appendChild(palette.container);
+            colorPalette.appendChild(palette.container);
+        };
+
+        var createComplementaryPalette = function createComplementaryPalette () {
+            var palette = new Palette('Complementary', palleteSize);
+            var i;
+            UIColorPicker.subscribe('picker', function (color) {
+                if (globalChange / palleteSize > 1 && globalChange / palleteSize < 2) {
+                    i = globalChange % palleteSize;
+                    palette.samples[i].updateComplementary(color, palleteSize, i);
+                } else if (globalChange === 0) {
+                    for (i = 0; i < palleteSize; i++) {
+                        palette.samples[i].updateComplementary(color, palleteSize, i);
+                    }
+                }
+                paletteTextUpdate (palette);
+            });
+            var checkbox = document.getElementsByName('text_contrast')[0];
+            checkbox.addEventListener('click', function () {
+                paletteTextUpdate (palette);
+            });
+
+            colorPalette.appendChild(palette.container);
         };
 
         /* Brightness or Lightness - depends on the picker mode */
-        var createVLPalette = function createSaturationPalette() {
-            var palette = new Palette('Lightness', 11);
-
-            UIColorPicker.subscribe('picker', function(color) {
-                if (palette.locked === true)
-                    return;
-
-                if(color.format === 'HSL') {
-                    palette.title.textContent = 'Lightness';
-                    for(var i = 0; i < 11; i++)
-                        palette.samples[i].updateLightness(color, -10, i);
+        var createAdjacentPalette = function createAdjacentPalette () {
+            var palette = new Palette('Adjacent', palleteSize);
+            var i;
+            UIColorPicker.subscribe('picker', function (color) {
+                if (globalChange / palleteSize > 2 && globalChange / palleteSize < 3) {
+                    i = globalChange % palleteSize;
+                    palette.samples[i].updateAdjacent(color, palleteSize, i);
+                } else if (globalChange === 0) {
+                    for (i = 0; i < palleteSize; i++) {
+                        palette.samples[i].updateAdjacent(color, palleteSize, i);
+                    }
                 }
-                else {
-                    palette.title.textContent = 'Value';
-                    for(var i = 0; i < 11; i++)
-                        palette.samples[i].updateBrightness(color, -10, i);
-                }
+                paletteTextUpdate (palette);
+            });
+            var checkbox = document.getElementsByName('text_contrast')[0];
+            checkbox.addEventListener('click', function () {
+                paletteTextUpdate (palette);
             });
 
-            color_palette.appendChild(palette.container);
+            colorPalette.appendChild(palette.container);
         };
 
-        var isBlankPalette = function isBlankPalette(container, value) {
-            if (value === 0) {
-                container.setAttribute('data-collapsed', 'true');
-                return true;
-            }
-
-            container.removeAttribute('data-collapsed');
-            return false;
-        };
-
-        var createAlphaPalette = function createAlphaPalette() {
-            var palette = new Palette('Alpha', 10);
-
-            UIColorPicker.subscribe('picker', function(color) {
-                if (palette.locked === true)
-                    return;
-
-                for(var i = 0; i < 10; i++) {
-                    palette.samples[i].updateAlpha(color, -0.1, i);
+        var createMonochromePalette = function createMonochromePalette () {
+            var palette = new Palette('Monochrome', palleteSize);
+            var i;
+            UIColorPicker.subscribe('picker', function (color) {
+                if (globalChange / palleteSize > 3) {
+                    i = globalChange % palleteSize;
+                    palette.samples[i].updateMonochrome(color, palleteSize, i);
+                } else if (globalChange === 0) {
+                    for (i = 0; i < palleteSize; i++) {
+                        palette.samples[i].updateMonochrome(color, palleteSize, i);
+                    }
                 }
+                paletteTextUpdate (palette);
+            });
+            var checkbox = document.getElementsByName('text_contrast')[0];
+            checkbox.addEventListener('click', function () {
+                paletteTextUpdate (palette);
             });
 
-            color_palette.appendChild(palette.container);
+            colorPalette.appendChild(palette.container);
         };
 
         var getSampleColor = function getSampleColor(id) {
@@ -1539,13 +1755,35 @@ var ColorPickerTool = (function ColorPickerTool() {
                 return new Color(samples[id].color);
         };
 
-        var init = function init() {
-            color_palette = getElemById('color-palette');
 
-            createHuePalette();
-            createSaturationPalette();
-            createVLPalette();
-            createAlphaPalette();
+        var getColorContrast = function getColorContrast (c1 , c2) {
+            var lum1 = luminance(c1.r , c1.g , c1.b) + 0.05;
+            var lum2 = luminance(c2.r , c2.g , c2.b) + 0.05;
+            if (lum1 / lum2 > 1) {
+                return lum1 / lum2;
+            } else {
+                return lum2 / lum1;
+            }
+        };
+
+        var luminance = function luminanace (r, g, b) {
+            var a = [r, g, b].map(function (v) {
+                var newV = v;
+                newV /= 255;
+                return newV <= 0.03928
+                    ? newV / 12.92
+                    : Math.pow((newV + 0.055) / 1.055, 2.4);
+            });
+            return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+        };
+
+        var init = function init() {
+            colorPalette = getElemById('color-palette');
+
+            createTriadicPalette();
+            createComplementaryPalette();
+            createAdjacentPalette();
+            createMonochromePalette();
 
         };
 
@@ -1633,387 +1871,387 @@ var ColorPickerTool = (function ColorPickerTool() {
     /**
      * ColorPicker Samples
      */
-    var ColorPickerSamples = (function ColorPickerSamples() {
-
-        var samples = [];
-        var nr_samples = 0;
-        var active = null;
-        var container = null;
-        var	samples_per_line = 10;
-        var trash_can = null;
-        var base_color = new HSLColor(0, 50, 100);
-        var add_btn;
-        var add_btn_pos;
-
-        var ColorSample = function ColorSample() {
-            var node = document.createElement('div');
-            node.className = 'sample';
-
-            this.uid = samples.length;
-            this.index = nr_samples++;
-            this.node = node;
-            this.color = new Color(base_color);
-
-            node.setAttribute('sample-id', this.uid);
-            node.setAttribute('draggable', 'true');
-
-            node.addEventListener('dragstart', this.dragStart.bind(this));
-            node.addEventListener('dragover' , allowDropEvent);
-            node.addEventListener('drop'     , this.dragDrop.bind(this));
-
-            this.updatePosition(this.index);
-            this.updateBgColor();
-            samples.push(this);
-        };
-
-        ColorSample.prototype.updateBgColor = function updateBgColor() {
-            this.node.style.backgroundColor = this.color.getColor();
-        };
-
-        ColorSample.prototype.updatePosition = function updatePosition(index) {
-            this.index = index;
-            this.posY = 5 + ((index / samples_per_line) | 0) * 52;
-            this.posX = 5 + ((index % samples_per_line) | 0) * 52;
-            this.node.style.top  = this.posY + 'px';
-            this.node.style.left = this.posX + 'px';
-        };
-
-        ColorSample.prototype.updateColor = function updateColor(color) {
-            this.color.copy(color);
-            this.updateBgColor();
-        };
-
-        ColorSample.prototype.activate = function activate() {
-            UIColorPicker.setColor('picker', this.color);
-            this.node.setAttribute('data-active', 'true');
-        };
-
-        ColorSample.prototype.deactivate = function deactivate() {
-            this.node.removeAttribute('data-active');
-        };
-
-        ColorSample.prototype.dragStart = function dragStart(e) {
-            e.dataTransfer.setData('sampleID', this.uid);
-            e.dataTransfer.setData('location', 'picker-samples');
-        };
-
-        ColorSample.prototype.dragDrop = function dragDrop(e) {
-            e.stopPropagation();
-            this.color = Tool.getSampleColorFrom(e);
-            this.updateBgColor();
-        };
-
-        ColorSample.prototype.deleteSample = function deleteSample() {
-            container.removeChild(this.node);
-            samples[this.uid] = null;
-            nr_samples--;
-        };
-
-        var updateUI = function updateUI() {
-            updateContainerProp();
-
-            var index = 0;
-            var nr = samples.length;
-            for (var i=0; i < nr; i++)
-                if (samples[i] !== null) {
-                    samples[i].updatePosition(index);
-                    index++;
-                }
-
-            AddSampleButton.updatePosition(index);
-        };
-
-        var deleteSample = function deleteSample(e) {
-            trash_can.parentElement.setAttribute('drag-state', 'none');
-
-            var location = e.dataTransfer.getData('location');
-            if (location !== 'picker-samples')
-                return;
-
-            var sampleID = e.dataTransfer.getData('sampleID');
-            samples[sampleID].deleteSample();
-            console.log(samples);
-
-            updateUI();
-        };
-
-        var createDropSample = function createDropSample() {
-            var sample = document.createElement('div');
-            sample.id = 'drop-effect-sample';
-            sample.className = 'sample';
-            container.appendChild(sample);
-        };
-
-        var setActivateSample = function setActivateSample(e) {
-            if (e.target.className !== 'sample')
-                return;
-
-            unsetActiveSample(active);
-            Tool.unsetVoidSample();
-            CanvasSamples.unsetActiveSample();
-            active = samples[e.target.getAttribute('sample-id')];
-            active.activate();
-        };
-
-        var unsetActiveSample = function unsetActiveSample() {
-            if (active)
-                active.deactivate();
-            active = null;
-        };
-
-        var getSampleColor = function getSampleColor(id) {
-            if (samples[id] !== undefined && samples[id]!== null)
-                return new Color(samples[id].color);
-        };
-
-        var updateContainerProp = function updateContainerProp() {
-            samples_per_line = ((container.clientWidth - 5) / 52) | 0;
-            var height = 52 * (1 + (nr_samples / samples_per_line) | 0);
-            container.style.height = height + 10 + 'px';
-        };
-
-        var AddSampleButton = (function AddSampleButton() {
-            var node;
-            var _index = 0;
-            var _posX;
-            var _posY;
-
-            var updatePosition = function updatePosition(index) {
-                _index = index;
-                _posY = 5 + ((index / samples_per_line) | 0) * 52;
-                _posX = 5 + ((index % samples_per_line) | 0) * 52;
-
-                node.style.top  = _posY + 'px';
-                node.style.left = _posX + 'px';
-            };
-
-            var addButtonClick = function addButtonClick() {
-                var sample = new ColorSample();
-                container.appendChild(sample.node);
-                updatePosition(_index + 1);
-                updateUI();
-            };
-
-            var init = function init() {
-                node = document.createElement('div');
-                var icon = document.createElement('div');
-
-                node.className = 'sample';
-                icon.id = 'add-icon';
-                node.appendChild(icon);
-                node.addEventListener('click', addButtonClick);
-
-                updatePosition(0);
-                container.appendChild(node);
-            };
-
-            return {
-                init : init,
-                updatePosition : updatePosition
-            };
-        })();
-
-        var init = function init() {
-            container = getElemById('picker-samples');
-            trash_can = getElemById('trash-can');
-
-            AddSampleButton.init();
-
-            for (var i=0; i<16; i++) {
-                var sample = new ColorSample();
-                container.appendChild(sample.node);
-            }
-
-            AddSampleButton.updatePosition(samples.length);
-            updateUI();
-
-            active = samples[0];
-            active.activate();
-
-            container.addEventListener('click', setActivateSample);
-
-            trash_can.addEventListener('dragover', allowDropEvent);
-            trash_can.addEventListener('dragenter', function() {
-                this.parentElement.setAttribute('drag-state', 'enter');
-            });
-            trash_can.addEventListener('dragleave', function(e) {
-                this.parentElement.setAttribute('drag-state', 'none');
-            });
-            trash_can.addEventListener('drop', deleteSample);
-
-            UIColorPicker.subscribe('picker', function(color) {
-                if (active)
-                    active.updateColor(color);
-            });
-
-        };
-
-        return {
-            init : init,
-            getSampleColor : getSampleColor,
-            unsetActiveSample : unsetActiveSample
-        };
-
-    })();
+    // var ColorPickerSamples = (function ColorPickerSamples() {
+    //
+    //     var samples = [];
+    //     var nr_samples = 0;
+    //     var active = null;
+    //     var container = null;
+    //     var	samples_per_line = 10;
+    //     var trash_can = null;
+    //     var base_color = new HSLColor(0, 50, 100);
+    //     var add_btn;
+    //     var add_btn_pos;
+    //
+    //     var ColorSample = function ColorSample() {
+    //         var node = document.createElement('div');
+    //         node.className = 'sample';
+    //
+    //         this.uid = samples.length;
+    //         this.index = nr_samples++;
+    //         this.node = node;
+    //         this.color = new Color(base_color);
+    //
+    //         node.setAttribute('sample-id', this.uid);
+    //         node.setAttribute('draggable', 'true');
+    //
+    //         node.addEventListener('dragstart', this.dragStart.bind(this));
+    //         node.addEventListener('dragover' , allowDropEvent);
+    //         node.addEventListener('drop'     , this.dragDrop.bind(this));
+    //
+    //         this.updatePosition(this.index);
+    //         this.updateBgColor();
+    //         samples.push(this);
+    //     };
+    //
+    //     ColorSample.prototype.updateBgColor = function updateBgColor() {
+    //         this.node.style.backgroundColor = this.color.getColor();
+    //     };
+    //
+    //     ColorSample.prototype.updatePosition = function updatePosition(index) {
+    //         this.index = index;
+    //         this.posY = 5 + ((index / samples_per_line) | 0) * 52;
+    //         this.posX = 5 + ((index % samples_per_line) | 0) * 52;
+    //         this.node.style.top  = this.posY + 'px';
+    //         this.node.style.left = this.posX + 'px';
+    //     };
+    //
+    //     ColorSample.prototype.updateColor = function updateColor(color) {
+    //         this.color.copy(color);
+    //         this.updateBgColor();
+    //     };
+    //
+    //     ColorSample.prototype.activate = function activate() {
+    //         UIColorPicker.setColor('picker', this.color);
+    //         this.node.setAttribute('data-active', 'true');
+    //     };
+    //
+    //     ColorSample.prototype.deactivate = function deactivate() {
+    //         this.node.removeAttribute('data-active');
+    //     };
+    //
+    //     ColorSample.prototype.dragStart = function dragStart(e) {
+    //         e.dataTransfer.setData('sampleID', this.uid);
+    //         e.dataTransfer.setData('location', 'picker-samples');
+    //     };
+    //
+    //     ColorSample.prototype.dragDrop = function dragDrop(e) {
+    //         e.stopPropagation();
+    //         this.color = Tool.getSampleColorFrom(e);
+    //         this.updateBgColor();
+    //     };
+    //
+    //     ColorSample.prototype.deleteSample = function deleteSample() {
+    //         container.removeChild(this.node);
+    //         samples[this.uid] = null;
+    //         nr_samples--;
+    //     };
+    //
+    //     var updateUI = function updateUI() {
+    //         updateContainerProp();
+    //
+    //         var index = 0;
+    //         var nr = samples.length;
+    //         for (var i=0; i < nr; i++)
+    //             if (samples[i] !== null) {
+    //                 samples[i].updatePosition(index);
+    //                 index++;
+    //             }
+    //
+    //         AddSampleButton.updatePosition(index);
+    //     };
+    //
+    //     var deleteSample = function deleteSample(e) {
+    //         trash_can.parentElement.setAttribute('drag-state', 'none');
+    //
+    //         var location = e.dataTransfer.getData('location');
+    //         if (location !== 'picker-samples')
+    //             return;
+    //
+    //         var sampleID = e.dataTransfer.getData('sampleID');
+    //         samples[sampleID].deleteSample();
+    //         console.log(samples);
+    //
+    //         updateUI();
+    //     };
+    //
+    //     var createDropSample = function createDropSample() {
+    //         var sample = document.createElement('div');
+    //         sample.id = 'drop-effect-sample';
+    //         sample.className = 'sample';
+    //         container.appendChild(sample);
+    //     };
+    //
+    //     var setActivateSample = function setActivateSample(e) {
+    //         if (e.target.className !== 'sample')
+    //             return;
+    //
+    //         unsetActiveSample(active);
+    //         Tool.unsetVoidSample();
+    //         CanvasSamples.unsetActiveSample();
+    //         active = samples[e.target.getAttribute('sample-id')];
+    //         active.activate();
+    //     };
+    //
+    //     var unsetActiveSample = function unsetActiveSample() {
+    //         if (active)
+    //             active.deactivate();
+    //         active = null;
+    //     };
+    //
+    //     var getSampleColor = function getSampleColor(id) {
+    //         if (samples[id] !== undefined && samples[id]!== null)
+    //             return new Color(samples[id].color);
+    //     };
+    //
+    //     var updateContainerProp = function updateContainerProp() {
+    //         samples_per_line = ((container.clientWidth - 5) / 52) | 0;
+    //         var height = 52 * (1 + (nr_samples / samples_per_line) | 0);
+    //         container.style.height = height + 10 + 'px';
+    //     };
+    //
+    //     var AddSampleButton = (function AddSampleButton() {
+    //         var node;
+    //         var _index = 0;
+    //         var _posX;
+    //         var _posY;
+    //
+    //         var updatePosition = function updatePosition(index) {
+    //             _index = index;
+    //             _posY = 5 + ((index / samples_per_line) | 0) * 52;
+    //             _posX = 5 + ((index % samples_per_line) | 0) * 52;
+    //
+    //             node.style.top  = _posY + 'px';
+    //             node.style.left = _posX + 'px';
+    //         };
+    //
+    //         var addButtonClick = function addButtonClick() {
+    //             var sample = new ColorSample();
+    //             container.appendChild(sample.node);
+    //             updatePosition(_index + 1);
+    //             updateUI();
+    //         };
+    //
+    //         var init = function init() {
+    //             node = document.createElement('div');
+    //             var icon = document.createElement('div');
+    //
+    //             node.className = 'sample';
+    //             icon.id = 'add-icon';
+    //             node.appendChild(icon);
+    //             node.addEventListener('click', addButtonClick);
+    //
+    //             updatePosition(0);
+    //             container.appendChild(node);
+    //         };
+    //
+    //         return {
+    //             init : init,
+    //             updatePosition : updatePosition
+    //         };
+    //     })();
+    //
+    //     var init = function init() {
+    //         container = getElemById('picker-samples');
+    //         trash_can = getElemById('trash-can');
+    //
+    //         AddSampleButton.init();
+    //
+    //         for (var i=0; i<16; i++) {
+    //             var sample = new ColorSample();
+    //             container.appendChild(sample.node);
+    //         }
+    //
+    //         AddSampleButton.updatePosition(samples.length);
+    //         updateUI();
+    //
+    //         active = samples[0];
+    //         active.activate();
+    //
+    //         container.addEventListener('click', setActivateSample);
+    //
+    //         trash_can.addEventListener('dragover', allowDropEvent);
+    //         trash_can.addEventListener('dragenter', function() {
+    //             this.parentElement.setAttribute('drag-state', 'enter');
+    //         });
+    //         trash_can.addEventListener('dragleave', function(e) {
+    //             this.parentElement.setAttribute('drag-state', 'none');
+    //         });
+    //         trash_can.addEventListener('drop', deleteSample);
+    //
+    //         UIColorPicker.subscribe('picker', function(color) {
+    //             if (active)
+    //                 active.updateColor(color);
+    //         });
+    //
+    //     };
+    //
+    //     return {
+    //         init : init,
+    //         getSampleColor : getSampleColor,
+    //         unsetActiveSample : unsetActiveSample
+    //     };
+    //
+    // })();
 
     /**
      * Canvas Samples
      */
-    var CanvasSamples = (function CanvasSamples() {
-
-        var active = null;
-        var canvas = null;
-        var samples = [];
-        var zindex = null;
-        var tutorial = true;
-
-        var CanvasSample = function CanvasSample(color, posX, posY) {
-
-            var node = document.createElement('div');
-            var pick = document.createElement('div');
-            var delete_btn = document.createElement('div');
-            node.className = 'sample';
-            pick.className = 'pick';
-            delete_btn.className = 'delete';
-
-            this.uid = samples.length;
-            this.node = node;
-            this.color = color;
-            this.updateBgColor();
-            this.zIndex = 1;
-
-            node.style.top = posY - 50 + 'px';
-            node.style.left = posX - 50 + 'px';
-            node.setAttribute('sample-id', this.uid);
-
-            node.appendChild(pick);
-            node.appendChild(delete_btn);
-
-            var activate = function activate() {
-                setActiveSample(this);
-            }.bind(this);
-
-            node.addEventListener('dblclick', activate);
-            pick.addEventListener('click', activate);
-            delete_btn.addEventListener('click', this.deleteSample.bind(this));
-
-            UIComponent.makeDraggable(node);
-            UIComponent.makeResizable(node);
-
-            samples.push(this);
-            canvas.appendChild(node);
-            return this;
-        };
-
-        CanvasSample.prototype.updateBgColor = function updateBgColor() {
-            this.node.style.backgroundColor = this.color.getColor();
-        };
-
-        CanvasSample.prototype.updateColor = function updateColor(color) {
-            this.color.copy(color);
-            this.updateBgColor();
-        };
-
-        CanvasSample.prototype.updateZIndex = function updateZIndex(value) {
-            this.zIndex = value;
-            this.node.style.zIndex = value;
-        };
-
-        CanvasSample.prototype.activate = function activate() {
-            this.node.setAttribute('data-active', 'true');
-            zindex.setAttribute('data-active', 'true');
-
-            UIColorPicker.setColor('picker', this.color);
-            InputSliderManager.setValue('z-index', this.zIndex);
-        };
-
-        CanvasSample.prototype.deactivate = function deactivate() {
-            this.node.removeAttribute('data-active');
-            zindex.removeAttribute('data-active');
-        };
-
-        CanvasSample.prototype.deleteSample = function deleteSample() {
-            if (active === this)
-                unsetActiveSample();
-            canvas.removeChild(this.node);
-            samples[this.uid] = null;
-        };
-
-        CanvasSample.prototype.updatePosition = function updatePosition(posX, posY) {
-            this.node.style.top = posY - this.startY + 'px';
-            this.node.style.left = posX - this.startX + 'px';
-        };
-
-        var canvasDropEvent = function canvasDropEvent(e) {
-            var color = Tool.getSampleColorFrom(e);
-
-            if (color) {
-                var offsetX = e.pageX - canvas.offsetLeft;
-                var offsetY = e.pageY - canvas.offsetTop;
-                var sample = new CanvasSample(color, offsetX, offsetY);
-                if (tutorial) {
-                    tutorial = false;
-                    canvas.removeAttribute('data-tutorial');
-                    var info = new CanvasSample(new Color(), 100, 100);
-                    info.node.setAttribute('data-tutorial', 'dblclick');
-                }
-            }
-
-        };
-
-        var setActiveSample = function setActiveSample(sample) {
-            ColorPickerSamples.unsetActiveSample();
-            Tool.unsetVoidSample();
-            unsetActiveSample();
-            active = sample;
-            active.activate();
-        };
-
-        var unsetActiveSample = function unsetActiveSample() {
-            if (active)
-                active.deactivate();
-            active = null;
-        };
-
-        var createToggleBgButton = function createToggleBgButton() {
-            var button = document.createElement('div');
-            var state = false;
-            button.className = 'toggle-bg';
-            canvas.appendChild(button);
-
-            button.addEventListener('click', function() {
-                console.log(state);
-                state = !state;
-                canvas.setAttribute('data-bg', state);
-            });
-        };
-
-        var init = function init() {
-            canvas = getElemById('canvas');
-            zindex = getElemById('zindex');
-
-            canvas.addEventListener('dragover', allowDropEvent);
-            canvas.addEventListener('drop', canvasDropEvent);
-
-            createToggleBgButton();
-
-            UIColorPicker.subscribe('picker', function(color) {
-                if (active)	active.updateColor(color);
-            });
-
-            InputSliderManager.subscribe('z-index', function (value) {
-                if (active)	active.updateZIndex(value);
-            });
-
-            UIComponent.makeResizable(canvas, 'height');
-        };
-
-        return {
-            init : init,
-            unsetActiveSample : unsetActiveSample
-        };
-
-    })();
+    // var CanvasSamples = (function CanvasSamples() {
+    //
+    //     var active = null;
+    //     var canvas = null;
+    //     var samples = [];
+    //     var zindex = null;
+    //     var tutorial = true;
+    //
+    //     var CanvasSample = function CanvasSample(color, posX, posY) {
+    //
+    //         var node = document.createElement('div');
+    //         var pick = document.createElement('div');
+    //         var delete_btn = document.createElement('div');
+    //         node.className = 'sample';
+    //         pick.className = 'pick';
+    //         delete_btn.className = 'delete';
+    //
+    //         this.uid = samples.length;
+    //         this.node = node;
+    //         this.color = color;
+    //         this.updateBgColor();
+    //         this.zIndex = 1;
+    //
+    //         node.style.top = posY - 50 + 'px';
+    //         node.style.left = posX - 50 + 'px';
+    //         node.setAttribute('sample-id', this.uid);
+    //
+    //         node.appendChild(pick);
+    //         node.appendChild(delete_btn);
+    //
+    //         var activate = function activate() {
+    //             setActiveSample(this);
+    //         }.bind(this);
+    //
+    //         node.addEventListener('dblclick', activate);
+    //         pick.addEventListener('click', activate);
+    //         delete_btn.addEventListener('click', this.deleteSample.bind(this));
+    //
+    //         UIComponent.makeDraggable(node);
+    //         UIComponent.makeResizable(node);
+    //
+    //         samples.push(this);
+    //         canvas.appendChild(node);
+    //         return this;
+    //     };
+    //
+    //     CanvasSample.prototype.updateBgColor = function updateBgColor() {
+    //         this.node.style.backgroundColor = this.color.getColor();
+    //     };
+    //
+    //     CanvasSample.prototype.updateColor = function updateColor(color) {
+    //         this.color.copy(color);
+    //         this.updateBgColor();
+    //     };
+    //
+    //     CanvasSample.prototype.updateZIndex = function updateZIndex(value) {
+    //         this.zIndex = value;
+    //         this.node.style.zIndex = value;
+    //     };
+    //
+    //     CanvasSample.prototype.activate = function activate() {
+    //         this.node.setAttribute('data-active', 'true');
+    //         zindex.setAttribute('data-active', 'true');
+    //
+    //         UIColorPicker.setColor('picker', this.color);
+    //         InputSliderManager.setValue('z-index', this.zIndex);
+    //     };
+    //
+    //     CanvasSample.prototype.deactivate = function deactivate() {
+    //         this.node.removeAttribute('data-active');
+    //         zindex.removeAttribute('data-active');
+    //     };
+    //
+    //     CanvasSample.prototype.deleteSample = function deleteSample() {
+    //         if (active === this)
+    //             unsetActiveSample();
+    //         canvas.removeChild(this.node);
+    //         samples[this.uid] = null;
+    //     };
+    //
+    //     CanvasSample.prototype.updatePosition = function updatePosition(posX, posY) {
+    //         this.node.style.top = posY - this.startY + 'px';
+    //         this.node.style.left = posX - this.startX + 'px';
+    //     };
+    //
+    //     var canvasDropEvent = function canvasDropEvent(e) {
+    //         var color = Tool.getSampleColorFrom(e);
+    //
+    //         if (color) {
+    //             var offsetX = e.pageX - canvas.offsetLeft;
+    //             var offsetY = e.pageY - canvas.offsetTop;
+    //             var sample = new CanvasSample(color, offsetX, offsetY);
+    //             if (tutorial) {
+    //                 tutorial = false;
+    //                 canvas.removeAttribute('data-tutorial');
+    //                 var info = new CanvasSample(new Color(), 100, 100);
+    //                 info.node.setAttribute('data-tutorial', 'dblclick');
+    //             }
+    //         }
+    //
+    //     };
+    //
+    //     var setActiveSample = function setActiveSample(sample) {
+    //         ColorPickerSamples.unsetActiveSample();
+    //         Tool.unsetVoidSample();
+    //         unsetActiveSample();
+    //         active = sample;
+    //         active.activate();
+    //     };
+    //
+    //     var unsetActiveSample = function unsetActiveSample() {
+    //         if (active)
+    //             active.deactivate();
+    //         active = null;
+    //     };
+    //
+    //     var createToggleBgButton = function createToggleBgButton() {
+    //         var button = document.createElement('div');
+    //         var state = false;
+    //         button.className = 'toggle-bg';
+    //         canvas.appendChild(button);
+    //
+    //         button.addEventListener('click', function() {
+    //             console.log(state);
+    //             state = !state;
+    //             canvas.setAttribute('data-bg', state);
+    //         });
+    //     };
+    //
+    //     var init = function init() {
+    //         canvas = getElemById('canvas');
+    //         zindex = getElemById('zindex');
+    //
+    //         canvas.addEventListener('dragover', allowDropEvent);
+    //         canvas.addEventListener('drop', canvasDropEvent);
+    //
+    //         createToggleBgButton();
+    //
+    //         UIColorPicker.subscribe('picker', function(color) {
+    //             if (active)	active.updateColor(color);
+    //         });
+    //
+    //         InputSliderManager.subscribe('z-index', function (value) {
+    //             if (active)	active.updateZIndex(value);
+    //         });
+    //
+    //         UIComponent.makeResizable(canvas, 'height');
+    //     };
+    //
+    //     return {
+    //         init : init,
+    //         unsetActiveSample : unsetActiveSample
+    //     };
+    //
+    // })();
 
     var StateButton = function StateButton(node, state) {
         this.state = false;
@@ -2045,136 +2283,136 @@ var ColorPickerTool = (function ColorPickerTool() {
     /**
      * Tool
      */
-    var Tool = (function Tool() {
-
-        var samples = [];
-        var controls = null;
-        var void_sw;
-
-        var createPickerModeSwitch = function createPickerModeSwitch() {
-            var parent = getElemById('controls');
-            var icon = document.createElement('div');
-            var button = document.createElement('div');
-            var hsv = document.createElement('div');
-            var hsl = document.createElement('div');
-            var active = null;
-
-            icon.className = 'icon picker-icon';
-            button.className = 'switch';
-            button.appendChild(hsv);
-            button.appendChild(hsl);
-
-            hsv.textContent = 'HSV';
-            hsl.textContent = 'HSL';
-
-            active = hsl;
-            active.setAttribute('data-active', 'true');
-
-            function switchPickingModeTo(elem) {
-                active.removeAttribute('data-active');
-                active = elem;
-                active.setAttribute('data-active', 'true');
-                UIColorPicker.setPickerMode('picker', active.textContent);
-            };
-
-            var picker_sw = new StateButton(icon);
-            picker_sw.subscribe(function() {
-                if (active === hsv)
-                    switchPickingModeTo(hsl);
-                else
-                    switchPickingModeTo(hsv);
-            });
-
-            hsv.addEventListener('click', function() {
-                switchPickingModeTo(hsv);
-            });
-            hsl.addEventListener('click', function() {
-                switchPickingModeTo(hsl);
-            });
-
-            parent.appendChild(icon);
-            parent.appendChild(button);
-        };
-
-        var setPickerDragAndDrop = function setPickerDragAndDrop() {
-            var preview = document.querySelector('#picker .preview-color');
-            var picking_area = document.querySelector('#picker .picking-area');
-
-            preview.setAttribute('draggable', 'true');
-            preview.addEventListener('drop', drop);
-            preview.addEventListener('dragstart', dragStart);
-            preview.addEventListener('dragover', allowDropEvent);
-
-            picking_area.addEventListener('drop', drop);
-            picking_area.addEventListener('dragover', allowDropEvent);
-
-            function drop(e) {
-                var color = getSampleColorFrom(e);
-                UIColorPicker.setColor('picker', color);
-            };
-
-            function dragStart(e) {
-                e.dataTransfer.setData('sampleID', 'picker');
-                e.dataTransfer.setData('location', 'picker');
-            };
-        };
-
-        var getSampleColorFrom = function getSampleColorFrom(e) {
-            var sampleID = e.dataTransfer.getData('sampleID');
-            var location = e.dataTransfer.getData('location');
-
-            if (location === 'picker')
-                return UIColorPicker.getColor(sampleID);
-            if (location === 'picker-samples')
-                return ColorPickerSamples.getSampleColor(sampleID);
-            if (location === 'palette-samples')
-                return ColorPalette.getSampleColor(sampleID);
-        };
-
-        var setVoidSwitch = function setVoidSwitch() {
-            var void_sample = getElemById('void-sample');
-            void_sw = new StateButton(void_sample);
-            void_sw.subscribe( function (state) {
-                void_sample.setAttribute('data-active', state);
-                if (state === true) {
-                    ColorPickerSamples.unsetActiveSample();
-                    CanvasSamples.unsetActiveSample();
-                }
-            });
-        };
-
-        var unsetVoidSample = function unsetVoidSample() {
-            void_sw.unset();
-        };
-
-        var init = function init() {
-            controls = getElemById('controls');
-
-            var color = new Color();
-            color.setHSL(0, 51, 51);
-            UIColorPicker.setColor('picker', color);
-
-            setPickerDragAndDrop();
-            createPickerModeSwitch();
-            setVoidSwitch();
-        };
-
-        return {
-            init : init,
-            unsetVoidSample : unsetVoidSample,
-            getSampleColorFrom : getSampleColorFrom
-        };
-
-    })();
+    // var Tool = (function Tool() {
+    //
+    //     var samples = [];
+    //     var controls = null;
+    //     var void_sw;
+    //
+    //     var createPickerModeSwitch = function createPickerModeSwitch() {
+    //         var parent = getElemById('controls');
+    //         var icon = document.createElement('div');
+    //         var button = document.createElement('div');
+    //         var hsv = document.createElement('div');
+    //         var hsl = document.createElement('div');
+    //         var active = null;
+    //
+    //         icon.className = 'icon picker-icon';
+    //         button.className = 'switch';
+    //         button.appendChild(hsv);
+    //         button.appendChild(hsl);
+    //
+    //         hsv.textContent = 'HSV';
+    //         hsl.textContent = 'HSL';
+    //
+    //         active = hsl;
+    //         active.setAttribute('data-active', 'true');
+    //
+    //         function switchPickingModeTo(elem) {
+    //             active.removeAttribute('data-active');
+    //             active = elem;
+    //             active.setAttribute('data-active', 'true');
+    //             UIColorPicker.setPickerMode('picker', active.textContent);
+    //         };
+    //
+    //         var picker_sw = new StateButton(icon);
+    //         picker_sw.subscribe(function() {
+    //             if (active === hsv)
+    //                 switchPickingModeTo(hsl);
+    //             else
+    //                 switchPickingModeTo(hsv);
+    //         });
+    //
+    //         hsv.addEventListener('click', function() {
+    //             switchPickingModeTo(hsv);
+    //         });
+    //         hsl.addEventListener('click', function() {
+    //             switchPickingModeTo(hsl);
+    //         });
+    //
+    //         parent.appendChild(icon);
+    //         parent.appendChild(button);
+    //     };
+    //
+    //     var setPickerDragAndDrop = function setPickerDragAndDrop() {
+    //         var preview = document.querySelector('#picker .preview-color');
+    //         var pickingArea = document.querySelector('#picker .picking-area');
+    //
+    //         preview.setAttribute('draggable', 'true');
+    //         preview.addEventListener('drop', drop);
+    //         preview.addEventListener('dragstart', dragStart);
+    //         preview.addEventListener('dragover', allowDropEvent);
+    //
+    //         pickingArea.addEventListener('drop', drop);
+    //         pickingArea.addEventListener('dragover', allowDropEvent);
+    //
+    //         function drop(e) {
+    //             var color = getSampleColorFrom(e);
+    //             UIColorPicker.setColor('picker', color);
+    //         };
+    //
+    //         function dragStart(e) {
+    //             e.dataTransfer.setData('sampleID', 'picker');
+    //             e.dataTransfer.setData('location', 'picker');
+    //         };
+    //     };
+    //
+    //     var getSampleColorFrom = function getSampleColorFrom(e) {
+    //         var sampleID = e.dataTransfer.getData('sampleID');
+    //         var location = e.dataTransfer.getData('location');
+    //
+    //         if (location === 'picker')
+    //             return UIColorPicker.getColor(sampleID);
+    //         if (location === 'picker-samples')
+    //             return ColorPickerSamples.getSampleColor(sampleID);
+    //         if (location === 'palette-samples')
+    //             return ColorPalette.getSampleColor(sampleID);
+    //     };
+    //
+    //     var setVoidSwitch = function setVoidSwitch() {
+    //         var void_sample = getElemById('void-sample');
+    //         void_sw = new StateButton(void_sample);
+    //         void_sw.subscribe( function (state) {
+    //             void_sample.setAttribute('data-active', state);
+    //             if (state === true) {
+    //                 ColorPickerSamples.unsetActiveSample();
+    //                 CanvasSamples.unsetActiveSample();
+    //             }
+    //         });
+    //     };
+    //
+    //     var unsetVoidSample = function unsetVoidSample() {
+    //         void_sw.unset();
+    //     };
+    //
+    //     var init = function init() {
+    //         controls = getElemById('controls');
+    //
+    //         var color = new Color();
+    //         color.setHSL(0, 51, 51);
+    //         UIColorPicker.setColor('picker', color);
+    //
+    //         setPickerDragAndDrop();
+    //         createPickerModeSwitch();
+    //         setVoidSwitch();
+    //     };
+    //
+    //     return {
+    //         init : init,
+    //         unsetVoidSample : unsetVoidSample,
+    //         getSampleColorFrom : getSampleColorFrom
+    //     };
+    //
+    // })();
 
     var init = function init() {
         UIColorPicker.init();
         InputSliderManager.init();
         ColorInfo.init();
         ColorPalette.init();
-        ColorPickerSamples.init();
-        CanvasSamples.init();
-        Tool.init();
+        // ColorPickerSamples.init();
+        // CanvasSamples.init();
+        // Tool.init();
     };
 
     return {
