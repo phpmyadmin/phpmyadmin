@@ -18,10 +18,10 @@ use function defined;
 use function htmlspecialchars;
 use function htmlspecialchars_decode;
 use function implode;
-use function is_array;
 use function is_bool;
 use function mb_strtolower;
 use function sprintf;
+use function is_string;
 
 /**
  * PhpMyAdmin\Config\FormDisplayTemplate class
