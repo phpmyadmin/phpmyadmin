@@ -2120,7 +2120,7 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SHOW FULL COLUMNS FROM `testdb`.`mytable` LIKE \'_id\'',
+                'query' => 'SHOW FULL COLUMNS FROM `testdb`.`mytable` LIKE \'\_id\'',
                 'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
                     [
