@@ -741,11 +741,9 @@ class StructureController extends AbstractController
     /**
      * Displays HTML for changing one or more columns
      *
-     * @param array $selected the selected columns
-     *
-     * @return void
+     * @param array|null $selected the selected columns
      */
-    protected function displayHtmlForColumnChange($selected)
+    protected function displayHtmlForColumnChange($selected): void
     {
         global $action, $num_fields;
 
@@ -764,7 +762,7 @@ class StructureController extends AbstractController
             $value = $this->dbi->getColumns(
                 $this->db,
                 $this->table,
-                $this->dbi->escapeString($selected[$i]),
+                $selected[$i],
                 true
             );
             if (count($value) === 0) {
