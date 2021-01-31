@@ -84,7 +84,7 @@
         "php-webdriver/webdriver": "^1.8",
         "phpmyadmin/coding-standard": "^2.1.1",
         "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan": "^0.12.64",
+        "phpstan/phpstan": "^0.12.70",
         "phpstan/phpstan-phpunit": "^0.12.17",
         "phpunit/phpunit": "^7.5 || ^8.0 || ^9.0",
         "pragmarx/google2fa-qrcode": "^1.0.1",
@@ -93,7 +93,7 @@
         "symfony/finder": "^4.4",
         "symfony/twig-bridge": "^4.4",
         "tecnickcom/tcpdf": "dev-main#456b794f1fae9aee5c151a1ee515aae2aaa619a3",
-        "vimeo/psalm": "^4.4.0"
+        "vimeo/psalm": "^4.4.1"
     },
     "extra": {
         "branch-alias": {
