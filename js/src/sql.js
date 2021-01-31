@@ -128,9 +128,9 @@ Sql.autoSaveWithSort = function (query) {
  */
 Sql.clearAutoSavedSort = function () {
     if (isStorageSupported('localStorage')) {
-        window.localStorage.removeItem('auto_saved_sql_sort');
+        window.localStorage.removeItem('autoSavedSqlSort');
     } else {
-        Cookies.set('auto_saved_sql_sort', '');
+        Cookies.set('autoSavedSqlSort', '');
     }
 };
 
@@ -242,7 +242,7 @@ AJAX.registerOnload('sql.js', function () {
             $('#sqlquery').on('input propertychange', function () {
                 Sql.autoSave($('#sqlquery').val());
             });
-            var useLocalStorageValue = isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql_sort !== 'undefined';
+            var useLocalStorageValue = isStorageSupported('localStorage') && typeof window.localStorage.autoSavedSqlSort !== 'undefined';
             // Save sql query with sort
             if ($('#RememberSorting') !== undefined && $('#RememberSorting').is(':checked')) {
                 $('select[name="sql_query"]').on('change', function () {
@@ -255,7 +255,7 @@ AJAX.registerOnload('sql.js', function () {
                 Sql.clearAutoSavedSort();
             }
             // If sql query with sort for current table is stored, change sort by key select value
-            var sortStoredQuery = useLocalStorageValue ? window.localStorage.auto_saved_sql_sort : Cookies.get('auto_saved_sql_sort');
+            var sortStoredQuery = useLocalStorageValue ? window.localStorage.autoSavedSqlSort : Cookies.get('autoSavedSqlSort');
             if (typeof sortStoredQuery !== 'undefined' && sortStoredQuery !== $('select[name="sql_query"]').val() && $('select[name="sql_query"] option[value="' + sortStoredQuery + '"]').length !== 0) {
                 $('select[name="sql_query"]').val(sortStoredQuery).trigger('change');
             }
