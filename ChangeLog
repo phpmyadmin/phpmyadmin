@@ -86,6 +86,7 @@ phpMyAdmin - ChangeLog
 - issue        Made the console setup async to avoid blocking the page render
 - issue #16429 Use PHP 8.0 fixed version (commit) for TCPDF
 - issue #16005 Major performance improvements on browsing a lot of rows
+- issue #16595 Fixed editing columns having a `_` in their name in specific conditions
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning

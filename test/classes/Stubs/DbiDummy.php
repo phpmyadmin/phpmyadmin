@@ -2119,6 +2119,79 @@ class DbiDummy implements DbiExtension
                     ],
                 ],
             ],
+            [
+                'query' => 'SHOW FULL COLUMNS FROM `testdb`.`mytable` LIKE \'\_id\'',
+                'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
+                'result' => [
+                    [
+                        '_id',
+                        'tinyint(4)',
+                        null,
+                        'NO',
+                        '',
+                        null,
+                        '',
+                        'select,insert,update,references',
+                        '',
+                    ],
+                ],
+            ],
+            [
+                'query' => 'SHOW FULL COLUMNS FROM `testdb`.`mytable`',
+                'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
+                'result' => [
+                    [
+                        'aid',
+                        'tinyint(4)',
+                        null,
+                        'NO',
+                        'PRI',
+                        null,
+                        '',
+                        'select,insert,update,references',
+                        '',
+                    ],
+                    [
+                        '_id',
+                        'tinyint(4)',
+                        null,
+                        'NO',
+                        '',
+                        null,
+                        '',
+                        'select,insert,update,references',
+                        '',
+                    ],
+                ],
+            ],
+            [
+                'query'  => 'SHOW INDEXES FROM `testdb`.`mytable`',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW CREATE TABLE `testdb`.`mytable`',
+                'columns' => ['Table', 'Create Table'],
+                'result' => [
+                    [
+                        'test',
+                        'CREATE TABLE `test` ('
+                        . '    `aid` tinyint(4) NOT NULL,'
+                        . '    `_id` tinyint(4) NOT NULL,'
+                        . '    PRIMARY KEY (`aid`)'
+                        . ') ENGINE=InnoDB DEFAULT CHARSET=latin1',
+                    ],
+                ],
+            ],
+            [
+                'query' => 'SELECT * FROM `testdb`.`mytable` LIMIT 1',
+                'columns' => ['aid', '_id'],
+                'result' => [
+                    [
+                        1,
+                        1,
+                    ],
+                ],
+            ],
         ];
         /**
          * Current database.

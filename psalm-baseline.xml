@@ -492,9 +492,6 @@
     <InvalidReturnType occurrences="1">
       <code>array[]|null</code>
     </InvalidReturnType>
-    <NullArgument occurrences="1">
-      <code>null</code>
-    </NullArgument>
     <PossiblyFalseArgument occurrences="4">
       <code>$openPos</code>
       <code>$openPos</code>
