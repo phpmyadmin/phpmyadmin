@@ -202,7 +202,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 g.reposDrop();
                 g.colRsz = false;
                 $(g.cRsz).find('div').removeClass('colborder_active');
-                Sql.rearrangeStickyColumns($(t).prev('.sticky_columns'), $(t));
             } else if (g.colReorder) {
                 // shift columns
                 if (g.colReorder.newn !== g.colReorder.n) {
@@ -229,7 +228,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 $(g.cPointer).css('visibility', 'hidden');
 
                 g.colReorder = false;
-                Sql.rearrangeStickyColumns($(t).prev('.sticky_columns'), $(t));
             }
             $(document.body).css('cursor', 'inherit').noSelect(false);
         },

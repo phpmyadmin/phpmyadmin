@@ -186,7 +186,6 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('submit', '.bookmarkQueryForm');
     $('input#bkm_label').off('input');
     $(document).off('makegrid', '.sqlqueryresults');
-    $(document).off('stickycolumns', '.sqlqueryresults');
     $('#togglequerybox').off('click');
     $(document).off('click', '#button_submit_query');
     $(document).off('change', '#id_bookmark');
