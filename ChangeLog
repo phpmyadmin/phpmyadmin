@@ -87,6 +87,7 @@ phpMyAdmin - ChangeLog
 - issue #16429 Use PHP 8.0 fixed version (commit) for TCPDF
 - issue #16005 Major performance improvements on browsing a lot of rows
 - issue #16595 Fixed editing columns having a `_` in their name in specific conditions
+- issue #16608 Fix "Sort by key" restore auto saved value
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
@@ -94,6 +95,7 @@ phpMyAdmin - ChangeLog
 - issue #16429 Fixed PHP 8.0 errors on preg_replace and operand types
 - issue #16490 Fixed PHP 8.0 function libxml_disable_entity_loader() is deprecated
 - issue #16429 Fixed failing unit tests on PHP 8.0
+- issue #16609 Fixed Sql.rearrangeStickyColumns is not a function
 
 5.0.4 (2020-10-15)
 - issue #16245 Fix failed Zoom search clears existing values
