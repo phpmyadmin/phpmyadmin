@@ -11,7 +11,7 @@
             {{ value }}
         </option>
     {% endfor %}
-    {% if foreign is not same as(false) and not seen_key %}
+    {% if foreign is not same as(false) and foreign != "" and not seen_key %}
         <option value="{{ foreign }}" selected="selected">
             {{ foreign }}
         </option>
