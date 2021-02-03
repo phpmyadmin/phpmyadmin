@@ -1038,8 +1038,8 @@ class Routines
      * @param string[] $itemParamName     The parameter names
      * @param string[] $itemParamDir      The direction parameter (see $this->directions)
      * @param array    $itemParamType     The parameter type
-     * @param array    $itemParamLength   A length or not for the paramter
-     * @param array    $itemParamOpsText  An optional charset for the paramter
+     * @param array    $itemParamLength   A length or not for the parameter
+     * @param array    $itemParamOpsText  An optional charset for the parameter
      * @param array    $itemParamOpsNum   An optional parameter for a $itemParamType NUMBER
      * @param string   $itemType          The item type (PROCEDURE/FUNCTION)
      * @param bool     $warnedAboutLength A boolean that will be switched if a the length warning is given

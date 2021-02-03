@@ -815,7 +815,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
     /**
      * Decryption using openssl's AES or phpseclib's AES
-     * (phpseclib uses anoher extension when it is available)
+     * (phpseclib uses another extension when it is available)
      *
      * @param string $encdata encrypted data
      * @param string $secret  the secret
