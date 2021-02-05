@@ -43,57 +43,57 @@ $alphaMask : url('../img/theme_generator/alpha_mask.png');
 .ui-color-picker[data-mode='HSL'] .picking-area {
   background:
     -moz-linear-gradient(
-        top,
-        hsl(0, 0%, 100%) 0%,
-        hsla(0, 0%, 100%, 0) 50%,
-        hsla(0, 0%, 0%, 0) 50%,
-        hsl(0, 0%, 0%) 100%
+      top,
+      hsl(0, 0%, 100%) 0%,
+      hsla(0, 0%, 100%, 0) 50%,
+      hsla(0, 0%, 0%, 0) 50%,
+      hsl(0, 0%, 0%) 100%
     ),
     -moz-linear-gradient(
-        left,
-        hsl(0, 0%, 50%) 0%,
-        hsla(0, 0%, 50%, 0) 100%
+      left,
+      hsl(0, 0%, 50%) 0%,
+      hsla(0, 0%, 50%, 0) 100%
     );
   background:
     -webkit-linear-gradient(
-        top,
-        hsl(0, 0%, 100%) 0%,
-        hsla(0, 0%, 100%, 0) 50%,
-        hsla(0, 0%, 0%, 0) 50%,
-        hsl(0, 0%, 0%) 100%
+      top,
+      hsl(0, 0%, 100%) 0%,
+      hsla(0, 0%, 100%, 0) 50%,
+      hsla(0, 0%, 0%, 0) 50%,
+      hsl(0, 0%, 0%) 100%
     ),
     -webkit-linear-gradient(
-        left,
-        hsl(0, 0%, 50%) 0%,
-        hsla(0, 0%, 50%, 0) 100%
+      left,
+      hsl(0, 0%, 50%) 0%,
+      hsla(0, 0%, 50%, 0) 100%
     );
   background:
     -ms-linear-gradient(
-        top,
-        hsl(0, 0%, 100%) 0%,
-        hsla(0, 0%, 100%, 0) 50%,
-        hsla(0, 0%, 0%, 0) 50%,
-        hsl(0, 0%, 0%) 100%
+      top,
+      hsl(0, 0%, 100%) 0%,
+      hsla(0, 0%, 100%, 0) 50%,
+      hsla(0, 0%, 0%, 0) 50%,
+      hsl(0, 0%, 0%) 100%
     ),
     -ms-linear-gradient(
-        left,
-        hsl(0, 0%, 50%) 0%,
-        hsla(0, 0%, 50%, 0)
-        100%
+      left,
+      hsl(0, 0%, 50%) 0%,
+      hsla(0, 0%, 50%, 0)
+      100%
     );
   background:
     -o-linear-gradient(
-        top,
-        hsl(0, 0%, 100%) 0%,
-        hsla(0, 0%, 100%, 0) 50%,
-        hsla(0, 0%, 0%, 0) 50%,
-        hsl(0, 0%, 0%) 100%
+      top,
+      hsl(0, 0%, 100%) 0%,
+      hsla(0, 0%, 100%, 0) 50%,
+      hsla(0, 0%, 0%, 0) 50%,
+      hsl(0, 0%, 0%) 100%
     ),
     -o-linear-gradient(
-        left,
-        hsl(0, 0%, 50%) 0%,
-        hsla(0, 0%, 50%, 0)
-        100%
+      left,
+      hsl(0, 0%, 50%) 0%,
+      hsla(0, 0%, 50%, 0)
+      100%
     );
   background-color: #f00;
 }
@@ -130,47 +130,47 @@ $alphaMask : url('../img/theme_generator/alpha_mask.png');
   background: $hue center;
   background:
     -moz-linear-gradient(
-        left,
-        #f00 0%,
-        #ff0 16.66%,
-        #0f0 33.33%,
-        #0ff 50%,
-        #00f 66.66%,
-        #f0f 83.33%,
-        #f00 100%
+      left,
+      #f00 0%,
+      #ff0 16.66%,
+      #0f0 33.33%,
+      #0ff 50%,
+      #00f 66.66%,
+      #f0f 83.33%,
+      #f00 100%
     );
   background:
     -webkit-linear-gradient(
-        left,
-        #f00 0%,
-        #ff0 16.66%,
-        #0f0 33.33%,
-        #0ff 50%,
-        #00f 66.66%,
-        #f0f 83.33%,
-        #f00 100%
+      left,
+      #f00 0%,
+      #ff0 16.66%,
+      #0f0 33.33%,
+      #0ff 50%,
+      #00f 66.66%,
+      #f0f 83.33%,
+      #f00 100%
     );
   background:
     -ms-linear-gradient(
-        left,
-        #f00 0%,
-        #ff0 16.66%,
-        #0f0 33.33%,
-        #0ff 50%,
-        #00f 66.66%,
-        #f0f 83.33%,
-        #f00 100%
+      left,
+      #f00 0%,
+      #ff0 16.66%,
+      #0f0 33.33%,
+      #0ff 50%,
+      #00f 66.66%,
+      #f0f 83.33%,
+      #f00 100%
     );
   background:
     -o-linear-gradient(
-        left,
-        #f00 0%,
-        #ff0 16.66%,
-        #0f0 33.33%,
-        #0ff 50%,
-        #00f 66.66%,
-        #f0f 83.33%,
-        #f00 100%
+      left,
+      #f00 0%,
+      #ff0 16.66%,
+      #0f0 33.33%,
+      #0ff 50%,
+      #00f 66.66%,
+      #f0f 83.33%,
+      #f00 100%
     );
 }
 
@@ -324,7 +324,6 @@ $alphaMask : url('../img/theme_generator/alpha_mask.png');
   background-color: #ccc;
   cursor: pointer;
 }
-
 
 /**
 * 	Container

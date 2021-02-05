@@ -232,7 +232,6 @@ class HomeController extends AbstractController
             'has_change_password_link' => $cfg['Server']['auth_type'] !== 'config' && $cfg['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
             'language_selector' => $languageSelector,
-            'theme_selection' => $themeSelection,
             'theme_generator' => $cfg['ThemeGenerator'],
             'database_server' => $databaseServer,
             'web_server' => $webServer,

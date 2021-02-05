@@ -3376,6 +3376,7 @@ Theme manager settings
 
     :type: boolean
     :default: false
+
     .. versionadded:: 5.1.0
 
     Whether to enable the theme generator.
