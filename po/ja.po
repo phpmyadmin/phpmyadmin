@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-01-29 13:32+0000\n"
+"PO-Revision-Date: 2021-02-06 17:50+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ja/>\n"
@@ -1624,7 +1624,7 @@ msgstr "ログの読み込み"
 
 #: js/messages.php:314
 msgid "Monitor refresh failed"
-msgstr "モニタの再描画に失敗しました"
+msgstr "モニタの更新に失敗しました"
 
 #: js/messages.php:316
 msgid ""
@@ -3649,9 +3649,7 @@ msgstr "ポインタを目立たせる"
 
 #: libraries/classes/Config/Descriptions.php:100
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"インポート操作に対して [a@https://ja.wikipedia.org/wiki/Bzip2]bzip2[/a] 圧縮"
-"を有効にします。"
+msgstr "インポート操作に対して bzip2 圧縮を有効にします。"
 
 #: libraries/classes/Config/Descriptions.php:104
 msgid "Bzip2"
@@ -3831,9 +3829,7 @@ msgstr "16進数(Hex)のデフォルト変換"
 msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
-msgstr ""
-"変換オプションのデフォールトです。テーブル構造ページで設定した場合、オーバー"
-"ライドされます。"
+msgstr "変換オプションのデフォルトです。テーブル構造ページで設定した場合、オーバーライドされます。"
 
 #: libraries/classes/Config/Descriptions.php:199
 msgid "Default transformations for Substring"
@@ -5810,7 +5806,7 @@ msgstr "EXPLAIN で確認"
 #: libraries/classes/Server/Status/Variables.php:50
 #: libraries/classes/Util.php:1124 templates/console/display.twig:99
 msgid "Refresh"
-msgstr "再描画"
+msgstr "更新"
 
 #: libraries/classes/Config/Descriptions.php:1335
 #: libraries/classes/Util.php:1109
@@ -11877,9 +11873,8 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"表示されている全てのグラフは、ブラウザよって一定間隔で更新されます。「設定」"
-"のところよりグラフを追加や再描画間隔の変更することができ、それぞれのグラフに"
-"ある歯車のアイコンを通じて削除が行えます。"
+"表示されている全てのグラフは、ブラウザよって一定間隔で更新されます。「設定」のところよりグラフを追加や更新間隔の変更することができ、それぞれのグラフにある"
+"歯車のアイコンを通じて削除が行えます。"
 
 #: libraries/classes/Server/Status/Monitor.php:144
 msgid ""
@@ -11983,7 +11978,7 @@ msgstr "グラフをドラッグするを有効"
 #: libraries/classes/Server/Status/Monitor.php:294
 #: libraries/classes/Server/Status/Processes.php:38
 msgid "Refresh rate"
-msgstr "再描画間隔"
+msgstr "更新間隔"
 
 #: libraries/classes/Server/Status/Monitor.php:303
 msgid "Chart columns"
@@ -12009,9 +12004,7 @@ msgstr "デフォルトに戻す"
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
-msgstr ""
-"注意: 自動再描画を有効にするとウェブサーバと MySQL サーバの間の通信量が激増す"
-"ることがあります。"
+msgstr "注意: 自動更新を有効にするとウェブサーバと MySQL サーバの間の通信量が激増することがあります。"
 
 #: libraries/classes/Server/Status/Processes.php:65
 msgid "ID"
@@ -12041,15 +12034,15 @@ msgstr "起動以後の問い合わせ数：%s"
 
 #: libraries/classes/Server/Status/Queries.php:51
 msgid "per hour:"
-msgstr "1時間当たり："
+msgstr "1 時間当たり:"
 
 #: libraries/classes/Server/Status/Queries.php:54
 msgid "per minute:"
-msgstr "一分当たり:"
+msgstr "1 分当たり:"
 
 #: libraries/classes/Server/Status/Queries.php:61
 msgid "per second:"
-msgstr "１秒当たり："
+msgstr "1 秒当たり:"
 
 #: libraries/classes/Server/Status/Queries.php:98
 msgid "Statements"
@@ -16211,8 +16204,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
-"スロークエリの割合は 5%% 未満がいいと言われています。現在は %s%% です。"
+msgstr "スロークエリの割合は 5%% 未満にすべきです。現在は %s%% です。"
 
 #: libraries/advisory_rules_generic.txt:70
 msgid "Slow query rate"
@@ -16221,17 +16213,14 @@ msgstr "スロークエリの割合"
 #: libraries/advisory_rules_generic.txt:73
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
-"サーバの稼働時間と比較して長時間処理であるスロークエリの比率が高いです。"
+msgstr "サーバの稼働時間と比較してスロークエリの比率が高いです。"
 
 #: libraries/advisory_rules_generic.txt:75
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
-msgstr ""
-"現在のスロークエリの割合は 1 時間当たり %s です。この値は、1 時間当たり 1%% "
-"未満がいいと言われています。"
+msgstr "現在のスロークエリの割合は 1 時間当たり %s です。この値は、1 時間当たり 1%% 未満にすべきです。"
 
 #: libraries/advisory_rules_generic.txt:77
 msgid "Long query time"
@@ -16249,9 +16238,7 @@ msgstr ""
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
-msgstr ""
-"環境によっては、{long_query_time} を低い値に設定するほうがいいでしょう。通"
-"常、1～5 秒の値が推奨されます。"
+msgstr "環境によっては、{long_query_time} を低い値に設定したほうがいいでしょう。通常、1～5 秒の値が推奨されます。"
 
 #: libraries/advisory_rules_generic.txt:82
 #, php-format
@@ -16294,7 +16281,7 @@ msgstr "slow_query_log が「OFF」に設定されています"
 
 #: libraries/advisory_rules_generic.txt:100
 msgid "Release Series"
-msgstr "バージョン系統"
+msgstr "リリース系列"
 
 #: libraries/advisory_rules_generic.txt:103
 msgid "The MySQL server version less than 5.1."
@@ -16322,7 +16309,7 @@ msgstr "マイナーバージョン"
 
 #: libraries/advisory_rules_generic.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "バージョン 5.1.30 (5.1 の 最初の安定版) 未満です。"
+msgstr "バージョン 5.1.30 (5.1 の 最初の安定版) 以前です。"
 
 #: libraries/advisory_rules_generic.txt:111
 msgid ""
@@ -16334,7 +16321,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr "バージョン 5.5.8 (5.5 の 最初の安定版) 未満です。"
+msgstr "バージョン 5.5.8 (5.5 の 最初の安定版) 以前です。"
 
 #: libraries/advisory_rules_generic.txt:118
 msgid "You should upgrade, to a stable version of MySQL 5.5."
@@ -16347,9 +16334,7 @@ msgstr "ディストリビューション"
 
 #: libraries/advisory_rules_generic.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
-"ご使用のバージョンはソースからコンパイルされたもので、MySQL オフィッシャルの"
-"バイナリではありません。"
+msgstr "ご使用のバージョンはソースからコンパイルされたもので、MySQL 公式のバイナリではありません。"
 
 #: libraries/advisory_rules_generic.txt:125
 msgid ""
@@ -16357,11 +16342,9 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
-"ユーザが独自にソースからコンパイルしたのでないのであれば、おそらくディストリ"
-"ビューションによるパッケージを使用しているものだと思われます。MySQL のマニュ"
-"アルは、MySQL オフィッシャルのバイナリに対しては厳格になっていますが、"
-"(RedHat、Debian/Ubuntu などのような) ディストリビューションのパッケージに対し"
-"ては多少異なる部分もあります。"
+"ユーザが独自にソースからコンパイルしたのでないのであれば、おそらくディストリビューションによるパッケージを使用しているものだと思われます。MySQL "
+"のマニュアルは、MySQL 公式のバイナリに対しては忠実ですが、(RedHat、Debian/Ubuntu などのような) "
+"ディストリビューションのパッケージに対しては多少異なる部分もあります。"
 
 #: libraries/advisory_rules_generic.txt:126
 msgid "'source' found in version_comment"
@@ -16369,18 +16352,15 @@ msgstr "バージョンコメント (version_comment) に 「source」という�
 
 #: libraries/advisory_rules_generic.txt:131
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
-"MySQL のマニュアルは、MySQL オフィッシャルのバイナリに対してだけ厳格になって"
-"います。"
+msgstr "MySQL のマニュアルは、MySQL 公式のバイナリに対してのみ忠実です。"
 
 #: libraries/advisory_rules_generic.txt:132
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"Percona ドキュメントは<a href=\"https://www.percona.com/software/"
-"documentation/\">https://www.percona.com/software/documentation/</a>にありま"
-"す"
+"Percona のドキュメントは <a href=\"https://www.percona.com/software/documentation/\""
+">https://www.percona.com/software/documentation/</a> にあります"
 
 #: libraries/advisory_rules_generic.txt:133
 msgid "'percona' found in version_comment"
@@ -16389,11 +16369,11 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:135
 msgid "MySQL Architecture"
-msgstr "MySQL 仕様"
+msgstr "MySQL のアーキテクチャ"
 
 #: libraries/advisory_rules_generic.txt:138
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr "MySQL が、64 ビットのパッケージとしてコンパイルされていません。"
+msgstr "MySQL が 64 ビットのパッケージとしてコンパイルされていません。"
 
 #: libraries/advisory_rules_generic.txt:139
 msgid ""
@@ -16401,9 +16381,8 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"メモリ上限が (このサーバ上において) 3 GiB になってしまいますので、MySQL はメ"
-"モリを十分活用できないでしょう。64 ビット版の MySQL の導入を検討してみてくだ"
-"さい。"
+"メモリ上限が 3 GiB になるので (サーバが localhost 上にあると思われます)、MySQL がメモリ全体にアクセスできない可能性があります。"
+" 64 ビット版の MySQL をインストールした方が良いかもしれません。"
 
 #: libraries/advisory_rules_generic.txt:140
 #, php-format
@@ -16437,8 +16416,7 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"クエリキャッシュが有効で、サーバが毎秒 %d 個のクエリを受信しています。毎秒 "
-"100 個を超えるのクエリがある場合、このルールが適用されます。"
+"クエリキャッシュが有効になっており、サーバが毎秒 %d 個のクエリを受信しています。毎秒 100 個を超えるクエリがある場合、このルールが適用されます。"
 
 #: libraries/advisory_rules_generic.txt:154
 msgid "Percentage of sorts that cause temporary tables"
@@ -16464,9 +16442,7 @@ msgstr ""
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
-msgstr ""
-"全ソートの内 %s%% が一時テーブルを使用しています。この値は、10%% 未満がいいと"
-"言われています。"
+msgstr "全ソートの内 %s%% が一時テーブルを使用しています。この値は、10%% 未満にすべきです。"
 
 #: libraries/advisory_rules_generic.txt:161
 msgid "Rate of sorts that cause temporary tables"
@@ -16476,9 +16452,7 @@ msgstr "ソート時に一時テーブルが使われる割合"
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr ""
-"一時テーブル使用率の平均：%s。この値は、1 時間当たり 1 未満がいいと言われてい"
-"ます。"
+msgstr "一時テーブル数の平均は %s です。この値は 1 時間当たり 1 未満であるべきです。"
 
 #: libraries/advisory_rules_generic.txt:168
 msgid "Sort rows"
@@ -16495,14 +16469,13 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
-"多くの行がソートされていても特に問題ないのであれば、多くのソートを必要とする"
-"クエリに対して、ORDER BY 節にインデックスのあるカラムを使うのを検討する程度で"
-"いいでしょう。そのクエリ結果のソートは、とても速くなるかもしれません。"
+"大量の行のソートを行うことに問題はありませんが、大量のソートを必要とするクエリでは、 ORDER BY "
+"句でインデックス付きのカラムを使用するようにした方が、より高速なソートが可能になるでしょう。"
 
 #: libraries/advisory_rules_generic.txt:173
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr "ソートされている行の平均：%s"
+msgstr "ソートされた行数の平均: %s"
 
 #: libraries/advisory_rules_generic.txt:176
 msgid "Rate of joins without indexes"
@@ -16524,8 +16497,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:181
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr ""
-"テーブル結合の平均：%s。この値は、1 時間当たり 1 未満がいいと言われています"
+msgstr "テーブル結合の平均は %s です。この値は、1 時間当たり 1 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:183
 msgid "Rate of reading first index entry"
@@ -16555,9 +16527,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:188
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr ""
-"インデックススキャンの平均：%s。この値は、1 時間当たり 1 未満がいいと言われて"
-"います"
+msgstr "インデックススキャンの平均が %s です。この値は、1 時間当たり 1 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:190
 msgid "Rate of reading fixed position"
@@ -16582,9 +16552,7 @@ msgstr ""
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
-msgstr ""
-"決まった位置を読み込む割合の平均：%s。この値は、1 時間当たり 1 未満がいいと言"
-"われています"
+msgstr "決まった位置を読み込む割合の平均は %s です。この値は、1 時間当たり 1 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:197
 msgid "Rate of reading next table row"
@@ -16606,13 +16574,11 @@ msgstr ""
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr ""
-"テーブルの次行を読み込む割合：%s。この値は、1 時間当たり 1 未満がいいと言われ"
-"ています"
+msgstr "テーブルの次行を読み込む割合が %s です。この値は、1 時間当たり 1 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:205
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr "異なるtmp_table_size と max_heap_table_size"
+msgstr "tmp_table_size と max_heap_table_size が異なる"
 
 #: libraries/advisory_rules_generic.txt:208
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
@@ -16632,7 +16598,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:210
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr "両者の現在の値は、tmp_table_size が %s、max_heap_table_size が %s です"
+msgstr "現在の値は tmp_table_size が %s、max_heap_table_size が %s です"
 
 #: libraries/advisory_rules_generic.txt:212
 msgid "Percentage of temp tables on disk"
@@ -16668,9 +16634,7 @@ msgstr ""
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
-msgstr ""
-"全一時テーブルの内 %s%% がディスク上に展開されています。この値は、25%% 未満が"
-"いいと言われています"
+msgstr "一時テーブルの %s%% がディスク上に展開されています。この値は、25%% 未満にすべきです"
 
 #: libraries/advisory_rules_generic.txt:219
 msgid "Temp disk rate"
@@ -16699,9 +16663,7 @@ msgstr ""
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
-msgstr ""
-"ディスク書き込みを伴う一時テーブル割合：%s。この値は、1 時間当たり 1 未満がい"
-"いと言われています"
+msgstr "ディスク書き込みを伴う一時テーブル割合は %s です。この値は、1 時間当たり 1 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:228
 msgid "MyISAM key buffer size"
@@ -16709,17 +16671,13 @@ msgstr "MyISAM キーバッファのサイズ"
 
 #: libraries/advisory_rules_generic.txt:231
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr ""
-"キーバッファが初期化されていません。おそらく、MyISAM インデックスはキャッシュ"
-"されていません。"
+msgstr "キーバッファが初期化されていません。 MyISAM インデックスはキャッシュされません。"
 
 #: libraries/advisory_rules_generic.txt:232
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
-msgstr ""
-"お使いの MyISAM インデックスのサイズに合わせた {key_buffer_size} を設定してく"
-"ださい。最初の設定としては、64M からがいいでしょう。"
+msgstr "{key_buffer_size} を MyISAM インデックスのサイズに合わせて設定してください。最初は 64M がいいでしょう。"
 
 #: libraries/advisory_rules_generic.txt:233
 msgid "key_buffer_size is 0"
@@ -16751,9 +16709,7 @@ msgstr ""
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr ""
-"使われていた %% MyISAM キーバッファの最大比率: %s%%。この値は、95%% 以上がい"
-"いと言われています"
+msgstr "使われている MyISAM キーバッファの最大比率は %s%% です。この値は 95%% より大きくすべきです"
 
 #: libraries/advisory_rules_generic.txt:243
 msgid "Percentage of MyISAM key buffer used"
@@ -16762,9 +16718,7 @@ msgstr "MyISAM キーバッファの使用比率"
 #: libraries/advisory_rules_generic.txt:248
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr ""
-"%% MyISAM キーバッファの使用比率: %s%%。この値は、95%% 以上がいいと言われてい"
-"ます"
+msgstr "MyISAM キーバッファの使用率は %s%% です。この値は 95%% よりも大きくあるべきです"
 
 #: libraries/advisory_rules_generic.txt:250
 msgid "Percentage of index reads from memory"
@@ -16782,9 +16736,7 @@ msgstr "{key_buffer_size} を増やす必要があるかもしれません。"
 #: libraries/advisory_rules_generic.txt:255
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
-"メモリから読み込まれるインデックスの比率: %s%%。この値は、95%% 以上がいいと言"
-"われています"
+msgstr "メモリから読み込まれるインデックスの比率は %s%% です。この値は 95%% よりも大きくあるべきです"
 
 #: libraries/advisory_rules_generic.txt:259
 msgid "Rate of table open"
@@ -16799,14 +16751,12 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
-"テーブルを開くというのは、負荷がかかるディスクへの入出力を行うということで"
-"す。{table_open_cache} を大きくすることで、これを緩和できることがあります。"
+"テーブルを開くと、高負荷のディスク入出力を必要とします。 {table_open_cache} を大きくすると、これを避けられるかもしれません。"
 
 #: libraries/advisory_rules_generic.txt:264
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr ""
-"テーブルを開く割合：%s この値は、1 時間当たり 10 未満が良いと言われています"
+msgstr "テーブルを開く割合は %s です。この値は、1 時間当たり 10 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:266
 msgid "Percentage of used open files limit"
@@ -16833,9 +16783,7 @@ msgstr ""
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr ""
-"開いているファイルの数は上限に対して %s%% です。この値は、85%% 未満がいいと言"
-"われています"
+msgstr "開いているファイルの数は上限の %s%% です。この値は 85%% 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:273
 msgid "Rate of open files"
@@ -16848,9 +16796,7 @@ msgstr "開いているファイルの割合が高いです。"
 #: libraries/advisory_rules_generic.txt:278
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
-"開いているファイルの割合：%s。この値は、1 時間当たり 5 未満がいいと言われてい"
-"ます"
+msgstr "開いているファイルの割合は %s です。この値は、1 時間当たり 5 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:280
 #, php-format
@@ -16860,21 +16806,17 @@ msgstr "速やかに行われたテーブルロック%%の比率"
 #: libraries/advisory_rules_generic.txt:283
 #: libraries/advisory_rules_generic.txt:290
 msgid "Too many table locks were not granted immediately."
-msgstr "テーブルロック要求に対して速やかに取得できないことが多いです。"
+msgstr "テーブルのロックが直ちに許可されなかったことが多すぎます。"
 
 #: libraries/advisory_rules_generic.txt:284
 #: libraries/advisory_rules_generic.txt:291
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
-"テーブルの最適化もしくは InnoDB のロック待ち時間の減少、のいずれかもしくは両"
-"方を行ってください。"
+msgstr "クエリを最適化したり、 InnoDB を使用したりするとロック時間が削減できます。"
 
 #: libraries/advisory_rules_generic.txt:285
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
-"速やかに行われたテーブルロック: %s%%。この値は、95%% 以上がいいと言われていま"
-"す"
+msgstr "テーブルのロックが直ちに行われたのは %s%% です。この値は 95%% 以上であるべきです"
 
 #: libraries/advisory_rules_generic.txt:287
 msgid "Table lock wait rate"
@@ -16883,9 +16825,7 @@ msgstr "テーブルロックの待つ割合"
 #: libraries/advisory_rules_generic.txt:292
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr ""
-"テーブルロックの待つ割合: %s。この値は、1 時間当たり 1 未満がいいと言われてい"
-"ます"
+msgstr "テーブルロックの待つ割合は %s です。この値は、1 時間当たり 1 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:294
 msgid "Thread cache"
@@ -16925,8 +16865,7 @@ msgstr "{thread_cache_size} を増やしてください。"
 #: libraries/advisory_rules_generic.txt:306
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr ""
-"スレッドキャッシュのヒット率: %s%%。この値は、80%% 以上がいいと言われています"
+msgstr "スレッドキャッシュのヒット率は %s%% です。この値は 80%% より大きくあるべきです"
 
 #: libraries/advisory_rules_generic.txt:308
 msgid "Threads that are slow to launch"
@@ -16947,9 +16886,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:313
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
-"%s スレッドの開始に %s 秒以上かかっています。この値は、0 がいいと言われていま"
-"す"
+msgstr "%s 件のスレッドが開始に %s 秒以上かかっています。この値は 0 であるべきです"
 
 #: libraries/advisory_rules_generic.txt:315
 msgid "Slow launch time"
@@ -17000,8 +16937,7 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections は max_connections の %s%% になっています。この値は、"
-"80%% 未満がいいと言われています"
+"max_used_connections が max_connections の %s%% になっています。これは 80%% 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:331
 msgid "Percentage of aborted connections"
@@ -17027,9 +16963,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:336
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
-"全接続のうち %s%% が中断されています。この値は、1%% 未満がいいと言われていま"
-"す"
+msgstr "全接続のうち %s%% が中断されています。この値は 1%% 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:338
 msgid "Rate of aborted connections"
@@ -17039,9 +16973,7 @@ msgstr "中断された接続の割合"
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr ""
-"中断された接続の割合は %s です。この値は、1 時間当たり 1 未満がいいと言われて"
-"います"
+msgstr "中断された接続の割合は %s です。この値は、1 時間当たり 1 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:345
 msgid "Percentage of aborted clients"
@@ -17050,7 +16982,7 @@ msgstr "クライアントによって中断された比率"
 #: libraries/advisory_rules_generic.txt:348
 #: libraries/advisory_rules_generic.txt:355
 msgid "Too many clients are aborted."
-msgstr "中断されたクライアントが多いです。"
+msgstr "中断されたクライアントが多すぎます。"
 
 #: libraries/advisory_rules_generic.txt:349
 #: libraries/advisory_rules_generic.txt:356
@@ -17067,9 +16999,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:350
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
-"全クライアントの内 %s%% が中断されています。この値は、2%% 未満がいいと言われ"
-"ています"
+msgstr "全クライアントのうち %s%% が中断されています。この値は 2%% 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:352
 msgid "Rate of aborted clients"
@@ -17078,9 +17008,7 @@ msgstr "中断されたクライアントの割合"
 #: libraries/advisory_rules_generic.txt:357
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr ""
-"中断されたクライアントの割合: %s。この値は、1 時間当たり 1 未満がいいと言われ"
-"ています"
+msgstr "中断されたクライアントの割合は %s です。この値は、1 時間当たり 1 未満であるべきです"
 
 #: libraries/advisory_rules_generic.txt:361
 msgid "Is InnoDB disabled?"
@@ -17140,8 +17068,7 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
-"ご使用されている InnoDB のログサイズは、関連のある InnoDB バッファプールの大"
-"きさに対して %s%% です。この値は、20%% 未満にしないほうがいいと言われています"
+"InnoDB のログサイズが、関連のある InnoDB バッファプールの大きさに対して %s%% です。この値は 20%% 未満であるべきではありません"
 
 #: libraries/advisory_rules_generic.txt:375
 msgid "Max InnoDB log size"
@@ -17317,9 +17244,7 @@ msgstr ""
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
-msgstr ""
-"クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は、%s%% で"
-"す。この値は、80%% 以上がいいと言われています"
+msgstr "クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は %s%% です。この値は 80%% よりも大きくあるべきです"
 
 #: libraries/advisory_rules_mysql_before80003.txt:31
 msgid "Query cache fragmentation"
@@ -17356,9 +17281,8 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
-"キャッシュは現在 %s%% 断片化しています。100%% の断片化とは、クエリキャッシュ"
-"が空きと使用済みブロックが交互に現れるパターンになっていることを意味していま"
-"す。この値は、20%% 未満がいいと言われています。"
+"キャッシュは現在 %s%% が断片化しています。100%% "
+"の断片化とは、クエリキャッシュが空きと使用済みブロックが交互に現れるパターンになっていることを意味しています。この値は、 20%% 未満であるべきです。"
 
 #: libraries/advisory_rules_mysql_before80003.txt:38
 msgid "Query cache low memory prunes"
