@@ -39,7 +39,7 @@ final class GisVisualizationController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $url_params, $PMA_Theme, $db, $err_url;
+        global $cfg, $url_params, $db, $err_url;
 
         Util::checkParameters(['db']);
 
@@ -183,7 +183,6 @@ final class GisVisualizationController extends AbstractController
             'sql_query' => $sqlQuery,
             'visualization' => $this->visualization->toImage('svg'),
             'draw_ol' => $this->visualization->asOl(),
-            'theme_image_path' => $PMA_Theme->getImgPath(),
         ]);
 
         $this->response->addHTML($html);

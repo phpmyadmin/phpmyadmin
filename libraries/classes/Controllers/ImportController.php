@@ -67,7 +67,7 @@ final class ImportController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $collation_connection, $db, $import_type, $table, $goto, $display_query, $PMA_Theme;
+        global $cfg, $collation_connection, $db, $import_type, $table, $goto, $display_query;
         global $format, $local_import_file, $ajax_reload, $import_text, $sql_query, $message, $err_url, $url_params;
         global $memory_limit, $read_limit, $finished, $offset, $charset_conversion, $charset_of_file;
         global $timestamp, $maximum_time, $timeout_passed, $import_file, $go_sql, $sql_file, $error, $max_sql_len, $msg;
@@ -809,7 +809,6 @@ final class ImportController extends AbstractController
                     null, // message_to_show
                     null, // sql_data
                     $goto, // goto
-                    $PMA_Theme->getImgPath(),
                     null, // disp_query
                     null, // disp_message
                     $sql_query, // sql_query

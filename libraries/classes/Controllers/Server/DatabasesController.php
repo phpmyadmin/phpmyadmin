@@ -86,7 +86,7 @@ class DatabasesController extends AbstractController
     public function index(): void
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
-        global $db_to_create, $text_dir, $PMA_Theme, $err_url;
+        global $db_to_create, $text_dir, $err_url;
 
         $params = [
             'statistics' => $_REQUEST['statistics'] ?? null,
@@ -179,7 +179,6 @@ class DatabasesController extends AbstractController
             'has_master_replication' => $primaryInfo['status'],
             'has_slave_replication' => $replicaInfo['status'],
             'is_drop_allowed' => $this->dbi->isSuperUser() || $cfg['AllowUserDropDatabase'],
-            'theme_image_path' => $PMA_Theme->getImgPath(),
             'text_dir' => $text_dir,
         ]);
     }

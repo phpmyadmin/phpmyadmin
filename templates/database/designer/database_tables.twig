@@ -42,7 +42,7 @@
                     db_url="{{ designerTable.getDatabaseName()|escape('url') }}"
                     table_name="{{ designerTable.getTableName() }}"
                     table_name_url="{{ designerTable.getTableName()|escape('url') }}">
-                    <img src="{{ theme.getImgPath('designer/exec_small.png') }}"
+                    <img src="{{ image('designer/exec_small.png') }}"
                         title="{% trans 'See table structure' %}">
                 </td>
                 <td id="id_zag_{{ t_n_url }}"
@@ -99,7 +99,7 @@
                         {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}">
                         <div class="text-nowrap">
                             {% set type = columns_type[t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j]] %}
-                            <img src="{{ theme.getImgPath(type) }}.png" alt="*">
+                            <img src="{{ image(type) }}.png" alt="*">
                             {{ tab_column[t_n]['COLUMN_NAME'][j] }} : {{ tab_column[t_n]['TYPE'][j] }}
                         </div>
                     </td>
@@ -111,7 +111,7 @@
                             table_name="{{ table_name }}"
                             col_name="{{ col_name }}"
                             db_table_name_url="{{ t_n_url }}">
-                            <img src="{{ theme.getImgPath('designer/exec_small.png') }}" title="{% trans 'Options'  %}" />
+                            <img src="{{ image('designer/exec_small.png') }}" title="{% trans 'Options'  %}" />
                         </td>
                     {% endif %}
                 </tr>

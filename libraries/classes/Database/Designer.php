@@ -297,7 +297,6 @@ class Designer
             'tables_pk_or_unique_keys' => $tables_pk_or_unique_keys,
             'tables' => $designerTables,
             'columns_type' => $columns_type,
-            'theme' => $GLOBALS['PMA_Theme'],
         ]);
     }
 
@@ -395,7 +394,6 @@ class Designer
             'visual_builder' => $visualBuilderMode,
             'selected_page' => $selectedPage,
             'params_array' => $paramsArray,
-            'theme' => $GLOBALS['PMA_Theme'],
             'tab_pos' => $tabPos,
             'tab_column' => $tabColumn,
             'tables_all_keys' => $tablesAllKeys,

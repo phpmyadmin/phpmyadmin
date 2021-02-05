@@ -139,11 +139,6 @@ class HomeController extends AbstractController
             $languageSelector = $languageManager->getSelectorDisplay($this->template);
         }
 
-        $themeSelection = '';
-        if ($cfg['ThemeManager']) {
-            $themeSelection = $this->themeManager->getHtmlSelectBox();
-        }
-
         $databaseServer = [];
         if ($server > 0 && $cfg['ShowServerInfo']) {
             $hostInfo = '';
@@ -245,6 +240,8 @@ class HomeController extends AbstractController
             'is_version_checked' => $cfg['VersionCheck'],
             'phpmyadmin_version' => PMA_VERSION,
             'config_storage_message' => $configStorageMessage ?? '',
+            'has_theme_manager' => $cfg['ThemeManager'],
+            'themes' => $this->themeManager->getThemesArray(),
         ]);
     }
 

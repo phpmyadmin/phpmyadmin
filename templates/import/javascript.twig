@@ -26,7 +26,7 @@ $( function() {
                             </div>
                         </div>
                         <div>
-                            <img src="{{ theme_image_path }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock"> {{ 'Uploading your import file…'|trans|js_format(false) -}}
+                            <img src="{{ image('ajax_clock_small.gif') }}" width="16" height="16" alt="ajax clock"> {{ 'Uploading your import file…'|trans|js_format(false) -}}
                         </div>
                         <div id="statustext"></div>
                     </div>
@@ -51,7 +51,7 @@ $( function() {
                     complete = response.complete;
 
                     if (total==0 && complete==0 && percent==0) {
-                        $("#upload_form_status_info").html('<img src="{{ theme_image_path }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock"> {{ promot_str|raw }}');
+                        $("#upload_form_status_info").html('<img src="{{ image('ajax_clock_small.gif') }}" width="16" height="16" alt="ajax clock"> {{ promot_str|raw }}');
                         $("#upload_form_status").css("display", "none");
                     } else {
                         var now = new Date();
@@ -132,7 +132,7 @@ $( function() {
                         $("#importmain").hide();
                         {# Loads the message, either success or mysql error #}
                         $("#import_form_status")
-                        .html('<img src="{{ theme_image_path }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock"> {{ processed_str|raw }}')
+                        .html('<img src="{{ image('ajax_clock_small.gif') }}" width="16" height="16" alt="ajax clock"> {{ processed_str|raw }}')
                         .show();
                         $("#import_form_status").load("index.php?route=/import-status&message=true&{{ import_url|raw }}");
                         Navigation.reload();
@@ -148,8 +148,7 @@ $( function() {
         {% else %}
             {# No plugin available #}
             {% set image_tag -%}
-                <img src="{{ theme_image_path -}}
-                    ajax_clock_small.gif" width="16" height="16" alt="ajax clock">
+                <img src="{{ image('ajax_clock_small.gif') }}" width="16" height="16" alt="ajax clock">
                 {{- 'Please be patient, the file is being uploaded. Details about the upload are not available.'|trans|js_format(false) -}}
                 {{- show_docu('faq', 'faq2-9') -}}
             {%- endset %}

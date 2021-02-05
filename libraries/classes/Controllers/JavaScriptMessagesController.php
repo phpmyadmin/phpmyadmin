@@ -547,7 +547,10 @@ final class JavaScriptMessagesController
             'strSubmit' => __('Submit'),
 
             /* For makegrid.js (column reordering, show/hide column, grid editing) */
-            'strCellEditHint' => __('Press escape to cancel editing.'),
+            'strCellEditHint' => __(
+                'Press escape to cancel editing.'
+                . '<br>- Shift+Enter for a newline.'
+            ),
             'strSaveCellWarning' => __(
                 'You have edited some data and they have not been saved. Are you sure you want '
                 . 'to leave this page before saving the data?'

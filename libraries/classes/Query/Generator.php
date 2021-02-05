@@ -129,11 +129,6 @@ class Generator
     /**
      * Returns SQL query for fetching columns for a table
      *
-     * The 'Key' column is not calculated properly, use $dbi->getColumns()
-     * to get correct values.
-     *
-     * @see getColumns()
-     *
      * @param string      $database      name of database
      * @param string      $table         name of table to retrieve columns from
      * @param string|null $escapedColumn name of column, null to show all columns
@@ -147,7 +142,7 @@ class Generator
     ): string {
         return 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table)
-            . ($escapedColumn !== null ? "LIKE '"
+            . ($escapedColumn !== null ? " LIKE '"
                 . $escapedColumn . "'" : '');
     }
 

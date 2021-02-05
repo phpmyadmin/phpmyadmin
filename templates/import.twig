@@ -4,14 +4,13 @@
 <iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" class="hide"></iframe>
 <div id="import_form_status" class="hide"></div>
 <div id="importmain" class="container-fluid">
-    <img src="{{ theme_image_path }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock" class="hide">
+    <img src="{{ image('ajax_clock_small.gif') }}" width="16" height="16" alt="ajax clock" class="hide">
 
     <script type="text/javascript">
         //<![CDATA[
         {% include 'import/javascript.twig' with {
             'upload_id': upload_id,
             'handler': handler,
-            'theme_image_path': theme_image_path
         } only %}
         //]]>
     </script>

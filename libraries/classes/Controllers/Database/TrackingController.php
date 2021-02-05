@@ -43,7 +43,7 @@ class TrackingController extends AbstractController
 
     public function index(): void
     {
-        global $db, $text_dir, $url_params, $tables, $num_tables, $PMA_Theme;
+        global $db, $text_dir, $url_params, $tables, $num_tables;
         global $total_num_tables, $sub_part, $pos, $data, $cfg;
         global $tooltip_truename, $tooltip_aliasname, $err_url;
 
@@ -140,7 +140,6 @@ class TrackingController extends AbstractController
         echo $this->tracking->getHtmlForDbTrackingTables(
             $db,
             $url_params,
-            $PMA_Theme->getImgPath(),
             $text_dir
         );
 

@@ -198,4 +198,46 @@ class StructureControllerTest extends AbstractTestCase
             $method->invokeArgs($ctrl, [[]])
         );
     }
+
+    /**
+     * Tests for displayHtmlForColumnChange()
+     */
+    public function testDisplayHtmlForColumnChange(): void
+    {
+        $_REQUEST['field'] = '_id';
+        $GLOBALS['db'] = 'testdb';
+        $GLOBALS['table'] = 'mytable';
+
+        $this->setGlobalDbi();
+
+        $class = new ReflectionClass(StructureController::class);
+        $method = $class->getMethod('displayHtmlForColumnChange');
+        $method->setAccessible(true);
+
+        $relation = new Relation($GLOBALS['dbi'], $this->template);
+        $ctrl = new StructureController(
+            $this->response,
+            $this->template,
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            $relation,
+            new Transformations(),
+            new CreateAddField($GLOBALS['dbi']),
+            new RelationCleanup($GLOBALS['dbi'], $relation),
+            $GLOBALS['dbi']
+        );
+
+        $method->invokeArgs($ctrl, [null]);
+        $this->assertStringContainsString(
+            '<input id="field_0_1"' . "\n"
+            . '        type="text"' . "\n"
+            . '    name="field_name[0]"' . "\n"
+            . '    maxlength="64"' . "\n"
+            . '    class="textfield"' . "\n"
+            . '    title="Column"' . "\n"
+            . '    size="10"' . "\n"
+            . '    value="_id">' . "\n",
+            $this->response->getHTMLResult()
+        );
+    }
 }

@@ -51,7 +51,7 @@ class PrivilegesController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $err_url, $message, $text_dir, $post_patterns, $PMA_Theme;
+        global $db, $table, $err_url, $message, $text_dir, $post_patterns;
         global $username, $hostname, $dbname, $tablename, $routinename, $db_and_table, $dbname_is_wildcard;
         global $queries, $password, $ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error;
         global $itemType, $tables, $num_tables, $total_num_tables, $sub_part;
@@ -442,7 +442,7 @@ class PrivilegesController extends AbstractController
             if (! isset($username)) {
                 // No username is given --> display the overview
                 $this->response->addHTML(
-                    $serverPrivileges->getHtmlForUserOverview($PMA_Theme->getImgPath(), $text_dir)
+                    $serverPrivileges->getHtmlForUserOverview($text_dir)
                 );
             } elseif (! empty($routinename)) {
                 $this->response->addHTML(

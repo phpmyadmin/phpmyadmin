@@ -43,7 +43,7 @@ class RoutinesController extends AbstractController
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part;
         global $tooltip_truename, $tooltip_aliasname, $pos;
-        global $errors, $PMA_Theme, $text_dir, $err_url, $url_params, $cfg;
+        global $errors, $err_url, $url_params, $cfg;
 
         $this->addScriptFiles(['database/routines.js']);
 
@@ -118,7 +118,6 @@ class RoutinesController extends AbstractController
             'table' => $table,
             'items' => $items,
             'rows' => $rows,
-            'select_all_arrow_src' => $PMA_Theme->getImgPath() . 'arrow_' . $text_dir . '.png',
             'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', $db, $table),
         ]);
     }

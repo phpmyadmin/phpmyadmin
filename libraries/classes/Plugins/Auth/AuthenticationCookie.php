@@ -156,13 +156,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         // wrap the login form in a div which overlays the whole page.
         if ($session_expired) {
             $loginHeader = $this->template->render('login/header', [
-                'theme' => $GLOBALS['PMA_Theme'],
                 'add_class' => ' modal_form',
                 'session_expired' => 1,
             ]);
         } else {
             $loginHeader = $this->template->render('login/header', [
-                'theme' => $GLOBALS['PMA_Theme'],
                 'add_class' => '',
                 'session_expired' => 0,
             ]);
@@ -815,7 +813,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
     /**
      * Decryption using openssl's AES or phpseclib's AES
-     * (phpseclib uses anoher extension when it is available)
+     * (phpseclib uses another extension when it is available)
      *
      * @param string $encdata encrypted data
      * @param string $secret  the secret

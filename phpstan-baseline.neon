@@ -256,11 +256,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:displayHtmlForColumnChange\\(\\) expects array, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
@@ -2071,12 +2066,12 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#15 \\$showtable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array, bool given\\.$#"
+			message: "#^Parameter \\#14 \\$showtable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array, bool given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#16 \\$printview of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#15 \\$printview of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 

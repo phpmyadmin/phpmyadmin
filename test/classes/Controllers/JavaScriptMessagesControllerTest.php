@@ -17,15 +17,9 @@ class JavaScriptMessagesControllerTest extends TestCase
 {
     public function testIndex(): void
     {
-        global $cfg, $PMA_Theme;
+        global $cfg;
 
         $cfg['GridEditing'] = 'double-click';
-        $PMA_Theme = new class {
-            public function getImgPath(string $img): string
-            {
-                return $img;
-            }
-        };
 
         $controller = new JavaScriptMessagesController();
 
