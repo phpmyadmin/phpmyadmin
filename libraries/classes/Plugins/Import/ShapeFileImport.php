@@ -22,20 +22,18 @@ class ShapeFileImport extends ShapeFile
      *
      * @return string|false
      */
-    public function readSHP($bytes)
+    public function readSHP(int $bytes)
     {
         return ImportShp::readFromBuffer($bytes);
     }
 
     /**
      * Checks whether file is at EOF
-     *
-     * @return bool
      */
-    public function eofSHP()
+    public function eofSHP(): bool
     {
         global $eof;
 
-        return $eof;
+        return (bool) $eof;
     }
 }

@@ -144,7 +144,7 @@ class ImportShp extends ImportPlugin
                             $temp_dbf_file = true;
 
                             // Replace the .dbf with .*, as required by the bsShapeFiles library.
-                            $shp->FileName = substr($dbf_file_path, 0, -4) . '.*';
+                            $shp->fileName = substr($dbf_file_path, 0, -4) . '.*';
                         }
                     }
                 }
@@ -161,7 +161,7 @@ class ImportShp extends ImportPlugin
                     0,
                     mb_strlen($import_file) - 4
                 ) . '.*';
-                $shp->FileName = $file_name;
+                $shp->fileName = $file_name;
             }
         }
 
@@ -236,12 +236,12 @@ class ImportShp extends ImportPlugin
                     $tempRow[] = null;
                 } else {
                     $tempRow[] = "GeomFromText('"
-                        . $gis_obj->getShape($record->SHPData) . "')";
+                        . $gis_obj->getShape($record->shpData) . "')";
                 }
 
                 if ($shp->getDBFHeader() !== null) {
                     foreach ($shp->getDBFHeader() as $c) {
-                        $cell = trim((string) $record->DBFData[$c[0]]);
+                        $cell = trim((string) $record->dbfData[$c[0]]);
 
                         if (! strcmp($cell, '')) {
                             $cell = 'NULL';
