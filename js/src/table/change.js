@@ -535,17 +535,17 @@ AJAX.registerOnload('table/change.js', function () {
     $('#insert_rows').on('keypress', function (e) {
         var key = e.which;
         if (key === 13) {
-            addNewContinueInsertionFiels(e);
+            addNewContinueInsertionFields(e);
         }
     });
 
     /**
      * Continue Insertion form
      */
-    $(document).on('change', '#insert_rows', addNewContinueInsertionFiels);
+    $(document).on('change', '#insert_rows', addNewContinueInsertionFields);
 });
 
-function addNewContinueInsertionFiels (event) {
+function addNewContinueInsertionFields (event) {
     event.preventDefault();
     /**
      * @var columnCount   Number of number of columns table has.

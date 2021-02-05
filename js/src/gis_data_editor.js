@@ -176,10 +176,10 @@ function openGISEditor () {
     var popupOffsetLeft = windowWidth / 2 - popupWidth / 2;
 
     var $gisEditor = $('#gis_editor');
-    var $backgrouond = $('#popup_background');
+    var $background = $('#popup_background');
 
     $gisEditor.css({ 'top': popupOffsetTop, 'left': popupOffsetLeft, 'width': popupWidth, 'height': popupHeight });
-    $backgrouond.css({ 'opacity' : '0.7' });
+    $background.css({ 'opacity' : '0.7' });
 
     $gisEditor.append(
         '<div id="gis_data_editor">' +
@@ -189,7 +189,7 @@ function openGISEditor () {
     );
 
     // Make it appear
-    $backgrouond.fadeIn('fast');
+    $background.fadeIn('fast');
     $gisEditor.fadeIn('fast');
 }
 
