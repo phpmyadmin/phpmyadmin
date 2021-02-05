@@ -84,6 +84,7 @@ phpMyAdmin - ChangeLog
 - issue #16005 Major performance improvements on browsing a lot of rows
 - issue #16595 Fixed editing columns having a `_` in their name in specific conditions
 - issue #16608 Fix "Sort by key" restore auto saved value
+- issue #16611 Fixed unable to add tables to rename aliases twice on Export
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
