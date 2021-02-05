@@ -854,6 +854,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
+                '$themeManager' => '@theme_manager',
             ],
         ],
         PhpMyAdmin\Controllers\TransformationOverviewController::class => [

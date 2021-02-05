@@ -93,14 +93,6 @@ class Theme
         'icons',
     ];
 
-    /** @var Template */
-    public $template;
-
-    public function __construct()
-    {
-        $this->template = new Template();
-    }
-
     /**
      * Loads theme information
      *
@@ -390,29 +382,5 @@ class Theme
         }
 
         return './themes/' . ThemeManager::FALLBACK_THEME . '/img/' . $file;
-    }
-
-    /**
-     * Renders the preview for this theme
-     *
-     * @return string
-     *
-     * @access public
-     */
-    public function getPrintPreview()
-    {
-        $url_params = ['set_theme' => $this->getId()];
-        $screen = null;
-        if (@file_exists($this->getFsPath() . 'screen.png')) {
-            $screen = $this->getPath() . '/screen.png';
-        }
-
-        return $this->template->render('theme_preview', [
-            'url_params' => $url_params,
-            'name' => $this->getName(),
-            'version' => $this->getVersion(),
-            'id' => $this->getId(),
-            'screen' => $screen,
-        ]);
     }
 }
