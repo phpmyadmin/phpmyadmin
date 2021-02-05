@@ -290,7 +290,7 @@ Indexes.getCompositeIndexList = function (sourceArray, colIndex) {
             (alreadyPresent ? 'checked="checked"' : '') +
             ' id="composite_index_' + i + '" value="' + i + '">' +
             '<label for="composite_index_' + i + '">' + columnNames.join(', ') +
-            '</lablel>' +
+            '</label>' +
             '</li>'
         );
     }

@@ -157,7 +157,7 @@ abstract class AuthenticationPlugin
             /* Redirect to login form (or configured URL) */
             Core::sendHeaderLocation($redirect_url);
         } else {
-            /* Redirect to other autenticated server */
+            /* Redirect to other authenticated server */
             $_SESSION['partial_logout'] = true;
             Core::sendHeaderLocation(
                 './index.php?route=/' . Url::getCommonRaw(['server' => $server], '&')
