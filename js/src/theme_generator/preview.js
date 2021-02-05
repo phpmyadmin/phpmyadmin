@@ -3,6 +3,24 @@
  */
 
 AJAX.registerTeardown('theme_generator/preview.js',function () {
+    document.getElementById('pma_navigation').style.background = '';
+    $('.breadcrumb').css('background-color', '');
+    document.getElementById('lock_page_icon').style.background = '';
+    document.getElementById('page_settings_icon').style.background = '';
+    document.getElementById('goto_pagetop').style.background = '';
+    document.getElementsByTagName('body')[0].style.background = '';
+    document.getElementsByTagName('body')[0].style.color = '';
+    $(document).on(
+        'mouseover',
+        '#pma_navigation_tree.highlight li:not(.fast_filter)',
+        function () {
+            if ($('li:visible', this).length === 0) {
+                $(this).css('background-color','');
+            }
+        }
+    );
+    var head = document.getElementsByTagName('head')[0];
+    head.removeChild(head.lastChild);
 });
 function rgbToHex (col) {
     if (col.charAt(0) === 'r') {
