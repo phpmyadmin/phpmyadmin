@@ -269,21 +269,6 @@ class ThemeManager
         return $themes;
     }
 
-    /**
-     * Renders the previews for all themes
-     *
-     * @access public
-     */
-    public function getPrintPreviews(): string
-    {
-        $retval = '';
-        foreach ($this->themes as $each_theme) {
-            $retval .= $each_theme->getPrintPreview();
-        }
-
-        return $retval;
-    }
-
     public static function initializeTheme(): ?Theme
     {
         $themeManager = self::getInstance();

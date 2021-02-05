@@ -201,26 +201,6 @@ class ThemeTest extends AbstractTestCase
     }
 
     /**
-     * Test for getPrintPreview().
-     */
-    public function testGetPrintPreview(): void
-    {
-        parent::setLanguage();
-        $this->assertStringContainsString(
-            '<h2>' . "\n" . '         (0.0.0.0)',
-            $this->object->getPrintPreview()
-        );
-        $this->assertStringContainsString(
-            'name="" href="index.php?route=/set-theme&amp;set_theme=&amp;server=99&amp;lang=en">',
-            $this->object->getPrintPreview()
-        );
-        $this->assertStringContainsString(
-            'No preview available.',
-            $this->object->getPrintPreview()
-        );
-    }
-
-    /**
      * Test for getImgPath
      *
      * @param string|null $file     file name for image
