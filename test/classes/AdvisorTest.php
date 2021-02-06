@@ -259,15 +259,18 @@ class AdvisorTest extends AbstractTestCase
                     'justification_formula' => 'ADVISOR_formatByteDown(1000000, 2, 2)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                    'recommendation' => 'See <a href="https://example.com/">web</a> and'
+                        . ' <a href="https://example.com/">web2</a>',
                 ],
                 [
                     'justification' => 'Memory: 0.95 MiB',
                     'justification_formula' => 'ADVISOR_formatByteDown(1000000, 2, 2)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
-                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F'
+                        . 'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>'
+                        . ' and <a href="./url.php?url=https%3A%2F%2Fexample.com%2F" target="_blank"'
+                        . ' rel="noopener noreferrer">web2</a>',
                     'id' => 'Distribution',
                 ],
                 null,
