@@ -137,8 +137,8 @@ class Config
     public function checkSystem(): void
     {
         // All the version handling is now done in the Version class
-        $this->set('PMA_VERSION', Version::phpMyAdminVersion());
-        $this->set('PMA_MAJOR_VERSION', Version::phpMyAdminSeriesVersion());
+        $this->set('PMA_VERSION', Version::VERSION);
+        $this->set('PMA_MAJOR_VERSION', Version::SERIES);
 
         $this->checkWebServerOs();
         $this->checkWebServer();

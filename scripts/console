@@ -2,6 +2,7 @@
 <?php
 
 use PhpMyAdmin\Command\CacheWarmupCommand;
+use PhpMyAdmin\Command\SetVersionCommand;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -65,5 +66,6 @@ $application = new Application('phpMyAdmin Console Tool');
 
 $application->add(new CacheWarmupCommand());
 $application->add(new LintCommand($twig));
+$application->add(new SetVersionCommand());
 
 $application->run();
