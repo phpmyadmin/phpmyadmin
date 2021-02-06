@@ -1261,11 +1261,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportShp.php
 
 		-
-			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportShp.php
-
-		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\|PhpMyAdmin\\\\Gis\\\\GisPoint\\|PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:getShape\\(\\)\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportShp.php
