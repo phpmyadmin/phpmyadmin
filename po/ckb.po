@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-28 16:31+0100\n"
-"PO-Revision-Date: 2020-08-06 13:11+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Central Kurdish <https://hosted.weblate.org/projects/"
+"PO-Revision-Date: 2021-02-08 11:50+0000\n"
+"Last-Translator: Jwtiyar Nariman <jwtiyar@gmail.com>\n"
+"Language-Team: Kurdish (Central) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/ckb/>\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -163,9 +163,9 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:115
 #: libraries/advisory_rules_generic.php:129
 #: libraries/advisory_rules_generic.php:140
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "ڕێکخستنەکانی هەنووکە"
+msgstr "وەشانی ئێستا: %s"
 
 #: libraries/advisory_rules_generic.php:120
 #: libraries/advisory_rules_generic.php:134
@@ -650,10 +650,9 @@ msgid "The thread cache is set to 0"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache is not efficient."
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "بەدواچوونەوە ناچالاکە."
+msgstr ""
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -938,10 +937,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "لێهاتوویی بیرگەی داواکاری"
+msgstr "لێهاتوویی بیرگەی داواکاری (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -2870,10 +2868,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:605
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
-#, fuzzy
-#| msgid "Bad type!"
 msgid "Media type"
-msgstr "جۆری هەڵە !"
+msgstr "جۆری میدیا"
 
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:707
@@ -4228,9 +4224,9 @@ msgid "Invalid server index: %s"
 msgstr ""
 
 #: libraries/classes/Config.php:1403
-#, fuzzy, php-format
+#, php-format
 msgid "Server %d"
-msgstr "سێرڤەر"
+msgstr "ڕاژە %d"
 
 #: libraries/classes/Config/ServerConfigChecks.php:72
 #, php-format
@@ -4470,8 +4466,6 @@ msgstr ""
 #: libraries/classes/Controllers/Table/MaintenanceController.php:117
 #: libraries/classes/Controllers/Table/MaintenanceController.php:153
 #: libraries/classes/Controllers/Table/MaintenanceController.php:188
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "هیچ خشتەیەک هەڵنەبژێردراوە."
 
@@ -5033,10 +5027,8 @@ msgstr "چاکردنی نیشاندەر"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename index"
-msgstr "ناونانەوە بە"
+msgstr "ناونانەوەی پێڕست"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:108
 #: templates/table/index_form.twig:227
@@ -5350,8 +5342,6 @@ msgstr "هیچ"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:204
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "داواکاری سیكوێڵ"
 
@@ -5950,9 +5940,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:398
-#, fuzzy, php-format
+#, php-format
 msgid "Variable %d:"
-msgstr "گۆڕاوەکان"
+msgstr "گۆڕاو %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:401
 #: libraries/classes/Normalization.php:1046
@@ -7646,9 +7636,9 @@ msgid "The columns have been moved successfully."
 msgstr ""
 
 #: libraries/classes/Controllers/Table/StructureController.php:772
-#, fuzzy, php-format
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "نەتوانرا ژمارەی ڕیزەکان بە درووستی بهێنرێت."
+msgstr "نەتوانرا پێناسەی ستوونەکان بهێندرێت %s!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:1013
 #: libraries/classes/Controllers/Table/StructureController.php:1299
@@ -7830,20 +7820,16 @@ msgid "Error: Internal relationship could not be added!"
 msgstr "ناتوانیت پەڕگە بخوێنیتەوە"
 
 #: libraries/classes/Database/Designer/Common.php:762
-#, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "ڕیزەکە سڕایەوە"
+msgstr ""
 
 #: libraries/classes/Database/Designer/Common.php:770
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "ناتوانیت پەڕگە بخوێنیتەوە"
 
 #: libraries/classes/Database/Designer/Common.php:798
-#, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
-msgstr "ناتوانیت پەڕگە بخوێنیتەوە"
+msgstr "هەڵە: پەیوەندی ناوخۆیی ناتوانرێت بسڕدرێتەوە!"
 
 #: libraries/classes/Database/Designer/Common.php:804
 msgid "Internal relationship has been removed."
@@ -7953,9 +7939,9 @@ msgid "Error in processing request:"
 msgstr "هەڵە لە کردنەوەی داواکاری"
 
 #: libraries/classes/Database/Events.php:533
-#, fuzzy, php-format
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "هیچ خشتەیەک نەدۆزرایەوە لەناو بنکەدراو."
+msgstr "هیچ کارێک بە ناوی %1$s نەدۆزرایەوە لە ناو بنکە دراوی %2$s."
 
 #: libraries/classes/Database/Events.php:565
 #, php-format
@@ -7963,11 +7949,12 @@ msgid "Export of event %s"
 msgstr ""
 
 #: libraries/classes/Database/Events.php:583
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "هیچ خشتەیەک نەدۆزرایەوە لەناو بنکەدراو."
+msgstr ""
+"هەڵە لە کاتی داواکاری: هیچ کارێک نە دۆزرایەوە بەناوی %1$s لە ناو بنەکدراوی "
+"%2$s."
 
 #: libraries/classes/DatabaseInterface.php:1100
 #, php-format
@@ -8098,9 +8085,9 @@ msgstr ""
 
 #: libraries/classes/Database/Routines.php:1179
 #: libraries/classes/Database/Routines.php:1357
-#, fuzzy, php-format
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "هیچ خشتەیەک نەدۆزرایەوە لەناو بنکەدراو."
+msgstr ""
 
 #: libraries/classes/Database/Routines.php:1218
 #, php-format
@@ -8326,9 +8313,9 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
 #: libraries/classes/Database/Triggers.php:580
-#, fuzzy, php-format
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "هیچ خشتەیەک نەدۆزرایەوە لەناو بنکەدراو."
+msgstr ""
 
 #: libraries/classes/Database/Triggers.php:616
 #, php-format
@@ -8336,12 +8323,11 @@ msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/classes/Database/Triggers.php:634
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "هیچ خشتەیەک نەدۆزرایەوە لەناو بنکەدراو."
+msgstr ""
 
 #: libraries/classes/Dbal/DbiMysqli.php:188
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -8430,9 +8416,9 @@ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 
 #: libraries/classes/Display/Results.php:4441
-#, fuzzy, php-format
+#, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "ڕیزە پێشاندراوەکان"
+msgstr "ڕیزە پێشاندراوەکان لە %1s - %2s"
 
 #: libraries/classes/Display/Results.php:4455
 #, php-format
@@ -8440,9 +8426,9 @@ msgid "%1$d total, %2$d in query"
 msgstr ""
 
 #: libraries/classes/Display/Results.php:4460
-#, fuzzy, php-format
+#, php-format
 msgid "%d total"
-msgstr "سەرجەم"
+msgstr "%d سەرجەم"
 
 #: libraries/classes/Display/Results.php:4472 libraries/classes/Sql.php:1039
 #, php-format
@@ -9432,9 +9418,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:66
-#, fuzzy, php-format
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "ستونەکان زیادبکە"
+msgstr "کلاس ناتوانرێت بهێندرێت \"%1$s\""
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
@@ -10172,10 +10158,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportLatex.php:151
 #: libraries/classes/Plugins/Export/ExportOdt.php:110
 #: libraries/classes/Plugins/Export/ExportSql.php:157
-#, fuzzy
-#| msgid "Display chart"
 msgid "Display media types"
-msgstr "پێشاندانی هێلکاری"
+msgstr "جۆرەکانی میدیا پیشان بدە"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:168
 msgid "Put columns names in the first row:"
@@ -10306,9 +10290,9 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:325
-#, fuzzy, php-format
+#, php-format
 msgid "%s value"
-msgstr "ئەم نرخە هەڵبژێرە"
+msgstr "%s نرخ"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
@@ -10404,14 +10388,14 @@ msgid "Metadata"
 msgstr "زانیاری نەجوڵاو"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1134
-#, fuzzy, php-format
+#, php-format
 msgid "Metadata for table %s"
-msgstr "سڕینەوە داتا شوێنکەوتووەکانی ئەم خشانە؟"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1141
-#, fuzzy, php-format
+#, php-format
 msgid "Metadata for database %s"
-msgstr "سڕینەوەی بنکەی دراوە"
+msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1476
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:674
