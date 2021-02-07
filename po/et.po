@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-28 16:15+0100\n"
-"PO-Revision-Date: 2021-01-17 13:32+0000\n"
+"PO-Revision-Date: 2021-02-08 11:50+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "et/>\n"
@@ -10236,8 +10236,8 @@ msgstr "Pluginad"
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "Muudeti %1$d rida."
-msgstr[1] "Muudeti %1$d rida."
+msgstr[0] "Mõjutati %1$d rida."
+msgstr[1] "Mõjutati %1$d rida."
 
 #: libraries/classes/Message.php:275
 #, php-format
@@ -13886,12 +13886,6 @@ msgid "Node group"
 msgstr "Sõlmede grupp"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
@@ -16745,20 +16739,16 @@ msgid ""
 msgstr "Lubab õiguste tabelit laadimata lisada kasutajaid ja õigusi."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Lubab luua salvestatud funktsioone."
+msgstr "Lubab luua välisvõtmete seoseid."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Pole kasutusel MariaDBs."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "Muudatusi selles MySQL versioonis ei toimunud."
+msgstr "Pole kasutusel selles MySQLi versioonis."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
