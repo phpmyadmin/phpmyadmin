@@ -4,6 +4,7 @@ phpMyAdmin - ChangeLog
 5.2.0 (not yet released)
 - issue #16521 Upgrade Bootstrap to version 5
 - issue #16521 Drop support for Internet Explorer and others
+- issue        Upgrade to shapefile 3
 
 5.1.0 (not yet released)
 - issue #15350 Change Media (MIME) type references to Media type
