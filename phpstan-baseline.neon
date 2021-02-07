@@ -291,11 +291,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: "#^Variable \\$error_handler in PHPDoc tag @var does not exist\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
-
-		-
 			message: "#^Comparison operation \"\\<\" between 1 and 43 is always true\\.$#"
 			count: 1
 			path: libraries/classes/Core.php
@@ -309,11 +304,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$message of method PhpMyAdmin\\\\Message\\:\\:addText\\(\\) expects string, bool\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Database/CentralColumns.php
-
-		-
-			message: "#^Variable \\$dbi in PHPDoc tag @var does not exist\\.$#"
-			count: 1
-			path: libraries/classes/Database/Designer.php
 
 		-
 			message: "#^Offset 'DTN' does not exist on array\\('C_NAME' \\=\\> array\\<int, string\\>, \\?'DCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'DTN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'SCN' \\=\\> array\\<int, string\\>&nonEmpty, \\?'STN' \\=\\> array\\<int, string\\>&nonEmpty\\)\\.$#"
@@ -1061,28 +1051,13 @@ parameters:
 			path: libraries/classes/Linter.php
 
 		-
-			message: "#^Variable \\$dbi in PHPDoc tag @var does not exist\\.$#"
-			count: 4
-			path: libraries/classes/Menu.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Menu\\:\\:getAllowedTabs\\(\\) should return array but returns array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Menu.php
 
 		-
-			message: "#^Variable \\$PMA_Theme in PHPDoc tag @var does not exist\\.$#"
-			count: 1
-			path: libraries/classes/Navigation/Navigation.php
-
-		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
-			path: libraries/classes/Navigation/Nodes/Node.php
-
-		-
-			message: "#^Variable \\$dbi in PHPDoc tag @var does not exist\\.$#"
-			count: 5
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
@@ -1941,11 +1916,6 @@ parameters:
 			path: libraries/classes/Replication.php
 
 		-
-			message: "#^Variable \\$dbi in PHPDoc tag @var does not exist\\.$#"
-			count: 1
-			path: libraries/classes/ReplicationGui.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:sanitizeFilename\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Sanitize.php
@@ -2433,11 +2403,6 @@ parameters:
 		-
 			message: "#^Parameter \\#8 \\$default_value of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, int given\\.$#"
 			count: 14
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Variable \\$dbi in PHPDoc tag @var does not exist\\.$#"
-			count: 2
 			path: test/classes/TableTest.php
 
 		-
