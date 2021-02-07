@@ -345,7 +345,7 @@ class Advisor
 
         // Replaces external Links with Core::linkURL() generated links
         $rule['recommendation'] = preg_replace_callback(
-            '#href=("|\')(https?://[^\1]+)\1#i',
+            '#href=("|\')(https?://[^"\']+)\1#i',
             function (array $matches) {
                 return $this->replaceLinkURL($matches);
             },
