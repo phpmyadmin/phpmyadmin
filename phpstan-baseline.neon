@@ -1921,16 +1921,6 @@ parameters:
 			path: libraries/classes/Replication.php
 
 		-
-			message: "#^Parameter \\#4 \\$port of method PhpMyAdmin\\\\Replication\\:\\:connectToMaster\\(\\) expects int\\|null, string given\\.$#"
-			count: 1
-			path: libraries/classes/ReplicationGui.php
-
-		-
-			message: "#^Parameter \\#4 \\$port of method PhpMyAdmin\\\\Replication\\:\\:slaveChangeMaster\\(\\) expects int, string given\\.$#"
-			count: 1
-			path: libraries/classes/ReplicationGui.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:sanitizeFilename\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Sanitize.php
