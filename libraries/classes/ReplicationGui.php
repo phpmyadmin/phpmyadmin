@@ -507,15 +507,17 @@ class ReplicationGui
         /** @var DatabaseInterface $dbi */
         global $dbi;
 
-        $sr = [];
-        $_SESSION['replication']['m_username'] = $sr['username']
-            = $dbi->escapeString($_POST['username']);
-        $_SESSION['replication']['m_password'] = $sr['pma_pw']
-            = $dbi->escapeString($_POST['pma_pw']);
-        $_SESSION['replication']['m_hostname'] = $sr['hostname']
-            = $dbi->escapeString($_POST['hostname']);
-        $_SESSION['replication']['m_port']     = $sr['port']
-            = $dbi->escapeString($_POST['text_port']);
+        $sr = [
+            'username' => $dbi->escapeString($_POST['username']),
+            'pma_pw' => $dbi->escapeString($_POST['pma_pw']),
+            'hostname' => $dbi->escapeString($_POST['hostname']),
+            'port' => (int) $dbi->escapeString($_POST['text_port']),
+        ];
+
+        $_SESSION['replication']['m_username'] = $sr['username'];
+        $_SESSION['replication']['m_password'] = $sr['pma_pw'];
+        $_SESSION['replication']['m_hostname'] = $sr['hostname'];
+        $_SESSION['replication']['m_port']     = $sr['port'];
         $_SESSION['replication']['m_correct']  = '';
         $_SESSION['replication']['sr_action_status'] = 'error';
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
