@@ -1061,6 +1061,11 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:getPresence\\(\\) should return int but returns int\\|string\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/Nodes/Node.php
+
+		-
 			message: "#^Cannot access property \\$realName on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php
@@ -1914,6 +1919,16 @@ parameters:
 			message: "#^Parameter \\#1 \\$name of static method PhpMyAdmin\\\\Core\\:\\:sanitizeMySQLHost\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Replication.php
+
+		-
+			message: "#^Parameter \\#4 \\$port of method PhpMyAdmin\\\\Replication\\:\\:connectToMaster\\(\\) expects int\\|null, string given\\.$#"
+			count: 1
+			path: libraries/classes/ReplicationGui.php
+
+		-
+			message: "#^Parameter \\#4 \\$port of method PhpMyAdmin\\\\Replication\\:\\:slaveChangeMaster\\(\\) expects int, string given\\.$#"
+			count: 1
+			path: libraries/classes/ReplicationGui.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Sanitize\\:\\:sanitizeFilename\\(\\) should return string but returns string\\|null\\.$#"
