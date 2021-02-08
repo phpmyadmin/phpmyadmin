@@ -21,9 +21,6 @@ jobs:
             ports:
               - "3306:3306"
             options: >-
-              --name database-server
-              --hostname database-server
-              --add-host database-server:127.0.0.1
               --health-cmd="mysqladmin ping"
               --health-interval=10s
               --health-timeout=5s
@@ -104,15 +101,15 @@ jobs:
                 CI_MODE: selenium
                 TESTSUITE_SELENIUM_BROWSER: chrome
                 TESTSUITE_USER: root
+                TESTSUITE_PASSWORD: testbench
                 # Port defined in test/nginx.conf
                 TESTSUITE_URL: http://docker-host-bridge:8000
-                TESTSUITE_SERVER: "database-server"
-                TESTSUITE_DATABASE: "selenium"
+                TESTSUITE_DATABASE_PREFIX: "selenium"
                 TESTSUITE_SELENIUM_HOST: "127.0.0.1"
                 TESTSUITE_SELENIUM_PORT: "4444"
               # Allowed errors: https://github.com/phpmyadmin/phpmyadmin/issues/16479
               continue-on-error: true
-              run: ./vendor/bin/phpunit --group selenium --verbose --debug
+              run: ./vendor/bin/phpunit --group selenium --verbose --debug --no-coverage
             - name: Output logs
               if: ${{ success() || failure() }}
               run: |
@@ -120,6 +117,7 @@ jobs:
                 if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
             - name: 'Upload screenshots'
               uses: actions/upload-artifact@v2
+              if: ${{ success() || failure() }}
               with:
                 name: selenium-screenshots
                 path: ${{ github.workspace }}/build/selenium/**/*

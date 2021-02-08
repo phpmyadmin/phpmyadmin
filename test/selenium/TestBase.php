@@ -626,6 +626,8 @@ abstract class TestBase extends TestCase
             $this->webDriver->switchTo()->window($this->sqlWindowHandle);
             if (! $this->isSuccessLogin()) {
                 $this->takeScrenshot('SQL_window_not_logged_in');
+
+                return false;
             }
             $this->byXPath('//*[contains(@class,"nav-item") and contains(., "SQL")]')->click();
             $this->waitAjax();

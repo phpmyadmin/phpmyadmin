@@ -47,10 +47,9 @@ TESTSUITE_BROWSERSTACK_KEY
 For example you can use following setup in ``phpunit.xml``::
 
     <php>
-        <env name="TESTSUITE_SERVER" value="localhost"/>
         <env name="TESTSUITE_USER" value="root"/>
         <env name="TESTSUITE_PASSWORD" value="root"/>
-        <env name="TESTSUITE_DATABASE" value="test"/>
+        <env name="TESTSUITE_DATABASE_PREFIX" value="test"/>
         <env name="TESTSUITE_URL" value="http://localhost/phpmyadmin/" />
         <env name="TESTSUITE_SELENIUM_HOST" value="127.0.0.1" />
         <env name="TESTSUITE_SELENIUM_PORT" value="4444" />
