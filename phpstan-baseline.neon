@@ -1036,6 +1036,11 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:getPresence\\(\\) should return int but returns int\\|string\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/Nodes/Node.php
+
+		-
 			message: "#^Cannot access property \\$realName on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php
