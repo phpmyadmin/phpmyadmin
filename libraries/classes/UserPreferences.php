@@ -118,6 +118,12 @@ class UserPreferences
         $cfgRelation = $this->relation->getRelationsParam();
         $server = $GLOBALS['server'] ?? $GLOBALS['cfg']['ServerDefault'];
         $cache_key = 'server_' . $server;
+        foreach ($config_array as $key => $value) {
+            if ($value != '') {
+                continue;
+            }
+            unset($config_array[$key]);
+        }
         if (! $cfgRelation['userconfigwork']) {
             // no pmadb table, use session storage
             $_SESSION['userconfig'] = [
