@@ -266,8 +266,12 @@ class ImportShp extends ImportPlugin
         // Column names for spatial column and the rest of the columns,
         // if they are available
         $col_names[] = 'SPATIAL';
+        $dbfHeader = $shp->getDBFHeader();
         for ($n = 0; $n < $num_data_cols; $n++) {
-            $col_names[] = $shp->getDBFHeader()[$n][0];
+            if ($dbfHeader === null) {
+                continue;
+            }
+            $col_names[] = $dbfHeader[$n][0];
         }
 
         // Set table name based on the number of tables
