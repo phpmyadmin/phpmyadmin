@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-28 16:15+0100\n"
-"PO-Revision-Date: 2021-02-06 17:50+0000\n"
+"PO-Revision-Date: 2021-02-10 13:50+0000\n"
 "Last-Translator: Michalis <michalisntovas@yahoo.gr>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/5-1/el/>"
 "\n"
@@ -7285,7 +7285,7 @@ msgstr "Αρχικό μήκος"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:585
 msgid "cancel"
-msgstr "ακύρωση"
+msgstr "άκυρο"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:586
 #: libraries/classes/Controllers/Server/Status/StatusController.php:220
@@ -8685,7 +8685,7 @@ msgstr "Προβολή"
 #: libraries/classes/InsertEdit.php:1574 libraries/classes/Message.php:194
 #: templates/error/generic.twig:37 templates/javascript/variables.twig:108
 msgid "Error"
-msgstr "Λάθος"
+msgstr "Σφάλμα"
 
 #: libraries/classes/Controllers/Table/RelationController.php:216
 msgid "Display column was successfully updated."
@@ -12652,7 +12652,7 @@ msgstr "Επιτυχία."
 
 #: libraries/classes/ReplicationGui.php:473
 msgid "Error."
-msgstr "Λάθος."
+msgstr "Σφάλμα."
 
 #: libraries/classes/ReplicationGui.php:521
 msgid "Unknown error"
@@ -15818,7 +15818,7 @@ msgstr "Ορισμένες ετικέτες"
 #: templates/export.twig:177 templates/export.twig:191
 #: templates/export.twig:204 templates/export.twig:221
 msgid "Remove"
-msgstr "Απομάκρυνση"
+msgstr "Αφαίρεση"
 
 #: templates/export.twig:230
 msgid "Define new aliases"
@@ -18379,7 +18379,7 @@ msgstr "Καμπύλη γραμμή"
 #: templates/table/chart/tbl_chart.twig:28
 msgctxt "Chart type"
 msgid "Area"
-msgstr "Επιφάνεια"
+msgstr "Περιοχή"
 
 #: templates/table/chart/tbl_chart.twig:32
 msgctxt "Chart type"
