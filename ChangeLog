@@ -86,6 +86,7 @@ phpMyAdmin - ChangeLog
 - issue #16608 Fix "Sort by key" restore auto saved value
 - issue #16611 Fixed unable to add tables to rename aliases twice on Export
 - issue #16621 Fixed link HTML messed up in Advisor
+- issue #16622 Fixed Advisor formatting incorrect for long_query_time notice
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning

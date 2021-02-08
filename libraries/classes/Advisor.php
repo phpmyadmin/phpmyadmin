@@ -342,6 +342,13 @@ class Advisor
             },
             $rule['recommendation']
         );
+        $rule['issue'] = preg_replace_callback(
+            '/\{([a-z_0-9]+)\}/Ui',
+            function (array $matches) {
+                return $this->replaceVariable($matches);
+            },
+            $rule['issue']
+        );
 
         // Replaces external Links with Core::linkURL() generated links
         $rule['recommendation'] = preg_replace_callback(

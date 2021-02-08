@@ -69,14 +69,14 @@
           <div class="card">
             <div class="card-header" id="heading{{ loop.index }}">
               <button class="btn btn-link{{ not loop.first ? ' collapsed' }}" type="button" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="{{ loop.first ? 'true' : 'false' }}" aria-controls="collapse{{ loop.index }}">
-                {{ rule.issue }}
+                {{ rule.issue|striptags }}
               </button>
             </div>
             <div id="collapse{{ loop.index }}" class="collapse{{ loop.first ? ' show' }}" aria-labelledby="heading{{ loop.index }}" data-parent="#rulesAccordion">
               <div class="card-body">
                 <dl>
                   <dt>{% trans 'Issue:' %}</dt>
-                  <dd>{{ rule.issue }}</dd>
+                  <dd>{{ rule.issue|raw }}</dd>
 
                   <dt>{% trans 'Recommendation:' %}</dt>
                   <dd>{{ rule.recommendation|raw }}</dd>

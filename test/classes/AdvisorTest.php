@@ -281,16 +281,20 @@ class AdvisorTest extends AbstractTestCase
                     'justification' => 'Time: %s',
                     'justification_formula' => 'ADVISOR_bytime(0.02, 2)',
                     'name' => 'Distribution',
-                    'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                    'issue' => '{long_query_time} is set to 10 seconds or more',
+                    'recommendation' => 'See <a href=\'https://example.com/\'>web</a> and'
+                        . ' <a href=\'https://example.com/\'>web2</a>',
                 ],
                 [
                     'justification' => 'Time: 1.2 per minute',
                     'justification_formula' => 'ADVISOR_bytime(0.02, 2)',
                     'name' => 'Distribution',
-                    'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
-                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'issue' => '<a href="index.php?route=/server/variables&amp;filter=long_query_time&amp;lang=en">'
+                        . 'long_query_time</a> is set to 10 seconds or more',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F'
+                        . 'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>'
+                        . ' and <a href="./url.php?url=https%3A%2F%2Fexample.com%2F" target="_blank"'
+                        . ' rel="noopener noreferrer">web2</a>',
                     'id' => 'Distribution',
                 ],
                 null,
