@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-02-06 17:50+0000\n"
+"PO-Revision-Date: 2021-02-10 13:50+0000\n"
 "Last-Translator: Michalis <michalisntovas@yahoo.gr>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/4-9/el/>"
 "\n"
@@ -2482,7 +2482,7 @@ msgstr "Αρχικό μήκος"
 
 #: js/messages.php:617
 msgid "cancel"
-msgstr "ακύρωση"
+msgstr "άκυρο"
 
 #: js/messages.php:618 libraries/classes/Server/Status.php:288
 msgid "Aborted"
@@ -3091,7 +3091,7 @@ msgstr "Εισάγετε μια έγκυρη ΔΕΚΑΕΞΑΔΙΚΗ εισαγω
 #: libraries/classes/Message.php:191 libraries/classes/Util.php:542
 #: view_operations.php:72
 msgid "Error"
-msgstr "Λάθος"
+msgstr "Σφάλμα"
 
 #: libraries/classes/Advisor.php:259
 #, php-format
@@ -10894,7 +10894,7 @@ msgstr "Επιτυχία."
 
 #: libraries/classes/ReplicationGui.php:940
 msgid "Error."
-msgstr "Λάθος."
+msgstr "Σφάλμα."
 
 #: libraries/classes/ReplicationGui.php:986
 msgid "Unknown error"
@@ -15019,7 +15019,7 @@ msgstr "Καμπύλη γραμμή"
 #: templates/table/chart/tbl_chart.twig:31
 msgctxt "Chart type"
 msgid "Area"
-msgstr "Επιφάνεια"
+msgstr "Περιοχή"
 
 #: templates/table/chart/tbl_chart.twig:35
 msgctxt "Chart type"
@@ -16176,7 +16176,7 @@ msgstr "Επανφορά εστίασης"
 
 #: templates/export/alias_item.twig:8
 msgid "Remove"
-msgstr "Απομάκρυνση"
+msgstr "Αφαίρεση"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
