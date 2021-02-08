@@ -27,10 +27,6 @@ echo "Using temporary dir: ${DIR}"
 
 # You can define FPM_PATH to override the path for example FPM_PATH="php-fpm7.4"
 FPM_PATH="${FPM_PATH:-php-fpm}"
-if [ ! -z "${TRAVIS}" ]; then
-    PHP_VERSION=$(phpenv version-name)
-    FPM_PATH="$HOME/.phpenv/versions/$PHP_VERSION/sbin/php-fpm"
-fi
 
 # Start servers
 "$FPM_PATH" --fpm-config $DIR/php-fpm.conf -c $DIR/php.ini

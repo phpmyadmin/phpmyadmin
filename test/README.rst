@@ -59,9 +59,7 @@ For example you can use following setup in ``phpunit.xml``::
 Using BrowserStack
 ------------------
 
-We're using BrowserStack to run our tests on the Travis CI. If you are a team
-member, you can be granted access to the team account, but you can register own
-account there as well.
+We're using our selenium tests on the GitHub CI.
 
 To run tests locally, you need to install BrowserStack tool to enable local
 testing, see their website for instructions:

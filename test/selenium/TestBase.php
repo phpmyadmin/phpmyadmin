@@ -293,10 +293,10 @@ abstract class TestBase extends TestCase
             $buildId = getenv('BUILD_TAG');
             $buildLocal = false;
             $projectName = 'phpMyAdmin (Jenkins)';
-        } elseif (getenv('TRAVIS_JOB_NUMBER')) {
-            $buildId = 'travis-' . getenv('TRAVIS_JOB_NUMBER');
+        } elseif (getenv('GITHUB_ACTION')) {
+            $buildId = 'github-' . getenv('GITHUB_ACTION');
             $buildLocal = true;
-            $projectName = 'phpMyAdmin (Travis)';
+            $projectName = 'phpMyAdmin (GitHub - Actions)';
         }
 
         if (! $buildLocal) {
