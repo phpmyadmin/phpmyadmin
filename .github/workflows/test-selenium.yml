@@ -118,3 +118,9 @@ jobs:
               run: |
                 if [ -f php.log ] ; then cat php.log ; fi
                 if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
+            - name: 'Upload screenshots'
+              uses: actions/upload-artifact@v2
+              with:
+                name: selenium-screenshots
+                path: ${{ github.workspace }}/build/selenium/**/*
+                retention-days: 1

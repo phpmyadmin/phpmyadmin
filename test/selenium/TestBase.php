@@ -54,6 +54,9 @@ use function strlen;
 use function substr;
 use function trim;
 use function usleep;
+use const DIRECTORY_SEPARATOR;
+use function time;
+use function file_put_contents;
 
 /**
  * Base class for Selenium tests.
@@ -621,6 +624,9 @@ abstract class TestBase extends TestCase
 
         if ($this->sqlWindowHandle) {
             $this->webDriver->switchTo()->window($this->sqlWindowHandle);
+            if (! $this->isSuccessLogin()) {
+                $this->takeScrenshot('SQL_window_not_logged_in');
+            }
             $this->byXPath('//*[contains(@class,"nav-item") and contains(., "SQL")]')->click();
             $this->waitAjax();
             $this->typeInTextArea($query);
@@ -644,6 +650,24 @@ abstract class TestBase extends TestCase
         $this->webDriver->switchTo()->window($lastWindow);
 
         return $didSucceed;
+    }
+
+    public function takeScrenshot(string $comment): void
+    {
+        $screenshotDir =
+            __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
+            . '..' . DIRECTORY_SEPARATOR . 'build' . DIRECTORY_SEPARATOR
+            . 'selenium';
+        if ($this->webDriver === null) {
+            return;
+        }
+        // This call will also create the file path
+        $this->webDriver->takeScreenshot(
+            $screenshotDir . DIRECTORY_SEPARATOR
+            . 'screenshot_' . time() . '_' . $comment . '.png'
+        );
+        $htmlOutput = $screenshotDir . DIRECTORY_SEPARATOR . 'source_' . time() . '.html';
+        file_put_contents($htmlOutput, $this->webDriver->getPageSource());
     }
 
     /**
@@ -1180,7 +1204,7 @@ abstract class TestBase extends TestCase
     public function onNotSuccessfulTest(Throwable $t): void
     {
         $this->markTestAs('failed', $t->getMessage());
-
+        $this->takeScrenshot('test_failed');
         // End testing session
         if ($this->webDriver !== null) {
             $this->webDriver->quit();
