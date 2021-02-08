@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-02-06 17:50+0000\n"
+"PO-Revision-Date: 2021-02-10 13:50+0000\n"
 "Last-Translator: Michalis <michalisntovas@yahoo.gr>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/5-0/el/>"
 "\n"
@@ -2060,7 +2060,7 @@ msgstr "Αρχικό μήκος"
 
 #: js/messages.php:626
 msgid "cancel"
-msgstr "ακύρωση"
+msgstr "άκυρο"
 
 #: js/messages.php:627
 #: libraries/classes/Controllers/Server/Status/StatusController.php:205
@@ -2696,7 +2696,7 @@ msgstr "Εισάγετε μια έγκυρη ΔΕΚΑΕΞΑΔΙΚΗ εισαγω
 #: libraries/classes/Message.php:196 libraries/classes/Util.php:595
 #: view_operations.php:85
 msgid "Error"
-msgstr "Λάθος"
+msgstr "Σφάλμα"
 
 #: libraries/classes/Advisor.php:269
 #, php-format
@@ -11269,7 +11269,7 @@ msgstr "Επιτυχία."
 
 #: libraries/classes/ReplicationGui.php:445
 msgid "Error."
-msgstr "Λάθος."
+msgstr "Σφάλμα."
 
 #: libraries/classes/ReplicationGui.php:491
 msgid "Unknown error"
@@ -14917,7 +14917,7 @@ msgstr "Νέο ονόμα στήλης"
 
 #: templates/export/alias_item.twig:8
 msgid "Remove"
-msgstr "Απομάκρυνση"
+msgstr "Αφαίρεση"
 
 #: templates/filter.twig:2 templates/server/status/processes/index.twig:6
 #: templates/server/status/variables/index.twig:7
@@ -16350,7 +16350,7 @@ msgstr "Καμπύλη γραμμή"
 #: templates/table/chart/tbl_chart.twig:31
 msgctxt "Chart type"
 msgid "Area"
-msgstr "Επιφάνεια"
+msgstr "Περιοχή"
 
 #: templates/table/chart/tbl_chart.twig:35
 msgctxt "Chart type"
