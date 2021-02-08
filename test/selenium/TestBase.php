@@ -57,6 +57,8 @@ use function usleep;
 use const DIRECTORY_SEPARATOR;
 use function time;
 use function file_put_contents;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
 
 /**
  * Base class for Selenium tests.
@@ -274,6 +276,21 @@ abstract class TestBase extends TestCase
     }
 
     /**
+     * Get the current running test name
+     *
+     * Usefull for browserstack
+     *
+     * @see https://github.com/phpmyadmin/phpmyadmin/pull/14595#issuecomment-418541475
+     * Reports the name of the test to browserstack
+     */
+    public function getTestName(): string
+    {
+        $className = substr(static::class, strlen('PhpMyAdmin\Tests\Selenium\\'));
+
+        return $className . ': ' . $this->getName();
+    }
+
+    /**
      * Add specific capabilities
      *
      * @param DesiredCapabilities $capabilities The capabilities object
@@ -283,14 +300,6 @@ abstract class TestBase extends TestCase
         $buildLocal = true;
         $buildId = 'Manual';
         $projectName = 'phpMyAdmin';
-        /**
-         * Usefull for browserstack
-         *
-         * @see https://github.com/phpmyadmin/phpmyadmin/pull/14595#issuecomment-418541475
-         * Reports the name of the test to browserstack
-         */
-        $className = substr(static::class, strlen('PhpMyAdmin\Tests\Selenium\\'));
-        $testName = $className . ': ' . $this->getName();
 
         if (getenv('BUILD_TAG')) {
             $buildId = getenv('BUILD_TAG');
@@ -313,7 +322,7 @@ abstract class TestBase extends TestCase
                 'osVersion' => '10',
                 'resolution' => '1920x1080',
                 'projectName' => $projectName,
-                'sessionName' => $testName,
+                'sessionName' => $this->getTestName(),
                 'buildName' => $buildId,
                 'localIdentifier' => $buildId,
                 'local' => $buildLocal,
@@ -663,13 +672,23 @@ abstract class TestBase extends TestCase
         if ($this->webDriver === null) {
             return;
         }
+        $key = time();
+
         // This call will also create the file path
         $this->webDriver->takeScreenshot(
             $screenshotDir . DIRECTORY_SEPARATOR
-            . 'screenshot_' . time() . '_' . $comment . '.png'
+            . 'screenshot_' . $key . '_' . $comment . '.png'
         );
-        $htmlOutput = $screenshotDir . DIRECTORY_SEPARATOR . 'source_' . time() . '.html';
+        $htmlOutput = $screenshotDir . DIRECTORY_SEPARATOR . 'source_' . $key . '.html';
         file_put_contents($htmlOutput, $this->webDriver->getPageSource());
+        $testInfo = $screenshotDir . DIRECTORY_SEPARATOR . 'source_' . $key . '.json';
+        file_put_contents($testInfo, json_encode(
+            [
+                'filesKey' => $key,
+                'testName' => $this->getTestName(),
+            ],
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
+        ));
     }
 
     /**

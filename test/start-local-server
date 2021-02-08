@@ -42,7 +42,7 @@ if [ ! -z "$TESTSUITE_BROWSERSTACK_KEY" ] ; then
         unzip BrowserStackLocal-linux-x64.zip
     fi
     # Start BrowserStack Local forwarder
-    ~/browserstack/BrowserStackLocal --force-local --localIdentifier "travis-$TRAVIS_JOB_NUMBER" --onlyAutomate --key "$TESTSUITE_BROWSERSTACK_KEY" --daemon start
+    ~/browserstack/BrowserStackLocal --force-local --localIdentifier "gh-$GITHUB_ACTION" --onlyAutomate --key "$TESTSUITE_BROWSERSTACK_KEY" --daemon start
 elif [ -z "$SKIP_STANDALONE" ] ; then
     echo "Using: selenium-standalone"
     if [ ! -f selenium-standalone ]; then
@@ -54,3 +54,5 @@ elif [ -z "$SKIP_STANDALONE" ] ; then
 else
     echo "Using: nothing."
 fi
+
+echo "${DIR}" > /tmp/last_temp_dir_phpMyAdminTests

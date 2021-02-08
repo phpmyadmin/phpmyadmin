@@ -14,6 +14,8 @@ if [ "$CI_MODE" != "selenium" ] ; then
     exit 0
 fi
 
+SELENIUM_TEMPDIR="$(cat /tmp/last_temp_dir_phpMyAdminTests)"
+
 if [ ! -z "$TESTSUITE_BROWSERSTACK_KEY" ] ; then
     # Stop BrowserStack Local forwarder
     ~/browserstack/BrowserStackLocal --daemon stop
@@ -23,4 +25,20 @@ if [ -f ~/selenium-standalone.pid~ ] ; then
     # Stop selenium-standalone server
     kill $(cat ~/selenium-standalone.pid~)
     rm ~/selenium-standalone.pid~
+fi
+
+if [ ! -z "${SELENIUM_TEMPDIR}" ] && [ -f "${SELENIUM_TEMPDIR}/nginx.pid" ]; then
+    # Stop nginx server
+    kill $(cat "${SELENIUM_TEMPDIR}/nginx.pid")
+fi
+
+if [ ! -z "${SELENIUM_TEMPDIR}" ] && [ -f "${SELENIUM_TEMPDIR}/php-fpm.pid" ]; then
+    # Stop php-fpm server
+    kill $(cat "${SELENIUM_TEMPDIR}/php-fpm.pid")
+fi
+
+if [ ! -z "${SELENIUM_TEMPDIR}" ] && [ -d "${SELENIUM_TEMPDIR}" ]; then
+    # Delete the temporary folder
+    rm -rf "${SELENIUM_TEMPDIR}"
+    echo "Deleted temporary dir: ${SELENIUM_TEMPDIR}"
 fi

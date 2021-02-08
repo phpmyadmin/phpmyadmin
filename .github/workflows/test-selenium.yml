@@ -11,7 +11,7 @@ on:
 jobs:
     test-selenium:
         name: Selenium tests on php ${{ matrix.php-version }} and ${{ matrix.os }}
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
+        if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[ci selenium skip]')"
         runs-on: ${{ matrix.os }}
         services:
           database-server:
@@ -95,7 +95,10 @@ jobs:
                 CI_MODE: selenium
                 FPM_PATH: php-fpm8.0
                 SKIP_STANDALONE: 1
-              run: ./test/start-local-server
+              run: |
+                ./test/start-local-server
+                echo ::set-output name=SELENIUM_TEMPDIR::"$(cat /tmp/last_temp_dir_phpMyAdminTests)"
+              id: start-local-server
             - name: Run selenium tests
               env:
                 CI_MODE: selenium
@@ -110,11 +113,15 @@ jobs:
               # Allowed errors: https://github.com/phpmyadmin/phpmyadmin/issues/16479
               continue-on-error: true
               run: ./vendor/bin/phpunit --group selenium --verbose --debug --no-coverage
-            - name: Output logs
+            - name: Output logs and stop server
+              env:
+                CI_MODE: selenium
+                SELENIUM_TEMPDIR: ${{ steps.start-local-server.outputs.SELENIUM_TEMPDIR }}
               if: ${{ success() || failure() }}
               run: |
-                if [ -f php.log ] ; then cat php.log ; fi
-                if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
+                if [ -f "${SELENIUM_TEMPDIR}/php.log" ] ; then cat "${SELENIUM_TEMPDIR}/php.log" ; fi
+                if [ -f "${SELENIUM_TEMPDIR}/nginx-error.log" ] ; then cat "${SELENIUM_TEMPDIR}/nginx-error.log" ; fi
+                ./test/stop-local-server
             - name: 'Upload screenshots'
               uses: actions/upload-artifact@v2
               if: ${{ success() || failure() }}
