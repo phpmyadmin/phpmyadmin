@@ -260,7 +260,7 @@ input {
   margin-right: 14px !important;
 }
 
-button {
+button:not(.accordion-button) {
   margin-left: 14px;
   padding: 4px;
   color: $button-color;

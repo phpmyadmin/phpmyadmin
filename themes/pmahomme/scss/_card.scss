@@ -37,8 +37,7 @@
   padding: 0.5em;
 }
 
-#maincontainer .card-header,
-.accordion > .card > .card-header {
+#maincontainer .card-header {
   position: static;
   width: auto;
   margin: 0;
@@ -68,29 +67,5 @@
     font-weight: normal;
     text-shadow: 0 1px 0 #777;
     box-shadow: 1px 1px 15px #999 inset;
-  }
-}
-
-.accordion {
-  > .card {
-    margin-top: 0;
-    margin-bottom: 0;
-
-    > .card-header {
-      background-color: inherit;
-      box-shadow: none;
-
-      .btn {
-        color: #235a81;
-
-        &:active {
-          box-shadow: none;
-        }
-      }
-    }
-
-    .card-body {
-      background-color: #fff;
-    }
   }
 }

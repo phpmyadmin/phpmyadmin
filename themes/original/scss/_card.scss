@@ -18,8 +18,7 @@
   color: #444;
 }
 
-#maincontainer .card-header,
-.accordion > .card > .card-header {
+#maincontainer .card-header {
   position: static;
   width: auto;
   margin: 0;
@@ -51,26 +50,5 @@
   .card-body {
     padding: 1rem;
     padding-bottom: 0;
-  }
-}
-
-.accordion {
-  > .card {
-    margin-top: 0;
-    margin-bottom: 0;
-    background: none;
-
-    > .card-header {
-      background-color: $th-background;
-      padding: 0;
-
-      .btn {
-        color: #00f;
-
-        &:hover {
-          color: #f00;
-        }
-      }
-    }
   }
 }
