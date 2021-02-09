@@ -39,10 +39,10 @@
         <fieldset class="pma-fieldset">
             <legend>{% trans 'Inside tables:' %}</legend>
             <p>
-                <a href="#" onclick="Functions.setSelectOptions('db_search', 'criteriaTables[]', true); return false;">
+                <a href="#" id="select_all">
                     {% trans 'Select all' %}
                 </a> /
-                <a href="#" onclick="Functions.setSelectOptions('db_search', 'criteriaTables[]', false); return false;">
+                <a href="#" id="unselect_all">
                     {% trans 'Unselect all' %}
                 </a>
             </p>

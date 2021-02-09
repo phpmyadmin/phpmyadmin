@@ -12,6 +12,7 @@
 /* global codeMirrorEditor */ // js/functions.js
 /* global MicroHistory */ // js/microhistory.js
 /* global makeGrid */ // js/makegrid.js
+/* global sqlBoxLocked */ // js/functions.js
 
 var Sql = {};
 
@@ -213,6 +214,7 @@ AJAX.registerTeardown('sql.js', function () {
     $('body').off('keyup', '#sqlqueryform');
     $('body').off('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]');
     $(document).off('submit', '#maxRowsForm');
+    $(document).off('click', '#view_as');
 });
 
 /**
@@ -868,6 +870,10 @@ AJAX.registerOnload('sql.js', function () {
 
     $('#insertBtn').on('click', function () {
         Functions.insertValueQuery();
+    });
+
+    $('#view_as').on('click', function () {
+        Functions.selectContent(this, sqlBoxLocked, true);
     });
 }); // end $()
 
