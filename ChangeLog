@@ -92,6 +92,7 @@ phpMyAdmin - ChangeLog
 - issue #16611 Fixed unable to add tables to rename aliases twice on Export
 - issue #16621 Fixed link HTML messed up in Advisor
 - issue #16622 Fixed Advisor formatting incorrect for long_query_time notice
+- issue #15389 Fixed reset current page indicator after deleting all rows to current page and not page 1
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning

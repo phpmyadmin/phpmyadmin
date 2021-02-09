@@ -89,6 +89,8 @@
     {% set tables = [] %}
     {% if foreign_db %}
         {% set tables = get_tables(foreign_db, tbl_storage_engine) %}
+    {% else %}
+        {% set tables = get_tables(db, tbl_storage_engine) %}
     {% endif %}
     <td>
         <span class="formelement clearfloat">
