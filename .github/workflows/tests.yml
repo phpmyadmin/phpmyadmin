@@ -36,11 +36,7 @@ jobs:
                   path: ~/.composer/cache/
                   key: composer-cache
             - name: Install dependencies
-              if: ${{ matrix.php-version != '8.0' }}
               run: composer install --no-interaction
-            - name: Install dependencies for php 8.0
-              if: ${{ matrix.php-version == '8.0' }}
-              run: composer install --no-interaction --ignore-platform-reqs
             - name: Run php tests
               run: composer run phpunit --  --exclude-group selenium
             - name: Send coverage

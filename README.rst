@@ -12,9 +12,9 @@ Code status
     :alt: Testsuite
     :target: https://github.com/phpmyadmin/phpmyadmin/actions
 
-.. image:: https://travis-ci.org/phpmyadmin/phpmyadmin.svg?branch=master
-    :alt: Build status
-    :target: https://travis-ci.org/phpmyadmin/phpmyadmin
+.. image:: https://github.com/phpmyadmin/phpmyadmin/workflows/Run%20selenium%20tests/badge.svg?branch=master
+    :alt: Selenium tests
+    :target: https://github.com/phpmyadmin/phpmyadmin/actions
 
 .. image:: https://readthedocs.org/projects/phpmyadmin/badge/?version=latest
     :target: https://docs.phpmyadmin.net/en/latest/
