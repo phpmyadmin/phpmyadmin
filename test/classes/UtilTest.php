@@ -2280,4 +2280,117 @@ class UtilTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $oldDbi;
     }
+
+    /**
+     * @return array[]
+     */
+    public function providerFkChecks(): array
+    {
+        return [
+            [
+                '',
+                'OFF',
+            ],
+            [
+                '0',
+                'OFF',
+            ],
+            [
+                '1',
+                'ON',
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider providerFkChecks
+     */
+    public function testHandleDisableFKCheckInit(string $fkChecksValue, string $setVariableParam): void
+    {
+        $oldDbi = $GLOBALS['dbi'];
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $GLOBALS['dbi'] = $dbi;
+
+        $_REQUEST['fk_checks'] = $fkChecksValue;
+
+        $dbi->expects($this->once())
+            ->method('getVariable')
+            ->will($this->returnValue('ON'));
+
+        $dbi->expects($this->once())
+            ->method('setVariable')
+            ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
+            ->will($this->returnValue(true));
+
+        $this->assertTrue(Util::handleDisableFKCheckInit());
+
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    /**
+     * @dataProvider providerFkChecks
+     */
+    public function testHandleDisableFKCheckInitVarFalse(string $fkChecksValue, string $setVariableParam): void
+    {
+        $oldDbi = $GLOBALS['dbi'];
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $GLOBALS['dbi'] = $dbi;
+
+        $_REQUEST['fk_checks'] = $fkChecksValue;
+
+        $dbi->expects($this->once())
+            ->method('getVariable')
+            ->will($this->returnValue('OFF'));
+
+        $dbi->expects($this->once())
+            ->method('setVariable')
+            ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
+            ->will($this->returnValue(true));
+
+        $this->assertFalse(Util::handleDisableFKCheckInit());
+
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    /**
+     * @return array[]
+     */
+    public function providerFkCheckCleanup(): array
+    {
+        return [
+            [
+                true,
+                'ON',
+            ],
+            [
+                false,
+                'OFF',
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider providerFkCheckCleanup
+     */
+    public function testHandleDisableFKCheckCleanup(bool $fkChecksValue, string $setVariableParam): void
+    {
+        $oldDbi = $GLOBALS['dbi'];
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $GLOBALS['dbi'] = $dbi;
+
+        $dbi->expects($this->once())
+            ->method('setVariable')
+            ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
+            ->will($this->returnValue(true));
+
+        Util::handleDisableFKCheckCleanup($fkChecksValue);
+
+        $GLOBALS['dbi'] = $oldDbi;
+    }
 }
