@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-22 03:09+0100\n"
-"PO-Revision-Date: 2021-02-06 17:50+0000\n"
+"PO-Revision-Date: 2021-02-10 13:50+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -1067,16 +1067,13 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
-"クエリキャッシュは、的確に設定されているとパフォーマンスがとても改善されるこ"
-"とが知られています。クエリキャッシュを有効にするには、{query_cache_size} を "
-"2 桁 MiB にして、{query_cache_type} を「ON」に設定してください。<b>注：</"
-"b>memcached を使用している場合は、この事象に関することは無視してください。"
+"クエリキャッシュは、正しく設定されていればパフォーマンスがとても改善されることが知られています。クエリキャッシュを有効にするには、{query_cache"
+"_size} を 2 桁の MiB にして、{query_cache_type} を 'ON' "
+"に設定してください。<b>注：</b>メモリキャッシュを使用している場合は、この推奨事項は無視してください。"
 
 #: libraries/advisory_rules_mysql_before80003.php:18
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
-"query_cache_size が 0 に設定されているか、query_cache_type が「OFF」に設定さ"
-"れています"
+msgstr "query_cache_size が 0 に設定されているか、query_cache_type が 'OFF' に設定されています"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
 #, no-php-format
@@ -2197,8 +2194,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
-"[kbd]SMART[/kbd] とは TIME、DATE、DATETIME、TIMESTAMP 型のカラムに対しては "
-"DESC、それ以外は ASC の並び順にします。"
+"[kbd]SMART[/kbd] とは TIME、DATE、DATETIME、TIMESTAMP "
+"型のカラムに対しては降順、それ以外は昇順の並び順にします。"
 
 #: libraries/classes/Config/Descriptions.php:328
 msgid ""
@@ -2378,7 +2375,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:417
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr "設定例は[doc@authentication-modes]認証モード[/doc]を参照してください。"
+msgstr "設定例は[doc@authentication-modes]認証タイプ[/doc]を参照してください。"
 
 #: libraries/classes/Config/Descriptions.php:421
 msgid ""
@@ -4100,7 +4097,7 @@ msgstr "テーブルの文字セットを表示"
 
 #: libraries/classes/Config/Descriptions.php:946
 msgid "Show field types"
-msgstr "データ型項目を表示する"
+msgstr "フィールドのデータ型を表示"
 
 #: libraries/classes/Config/Descriptions.php:947
 msgid "Show function fields"
@@ -4738,7 +4735,7 @@ msgstr "データベースに接続できませんでした!"
 
 #: libraries/classes/Config/Validator.php:269
 msgid "Invalid authentication type!"
-msgstr "無効な認証タイプ!"
+msgstr "無効な認証タイプです!"
 
 #: libraries/classes/Config/Validator.php:276
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
