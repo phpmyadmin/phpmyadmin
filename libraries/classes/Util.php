@@ -1602,8 +1602,9 @@ class Util
      *
      * @return bool Default foreign key checks value
      */
-    public static function handleDisableFKCheckInit()
+    public static function handleDisableFKCheckInit(): bool
     {
+        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $default_fk_check_value = $dbi->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
@@ -1625,8 +1626,9 @@ class Util
      *
      * @param bool $default_fk_check_value original value for 'FOREIGN_KEY_CHECKS'
      */
-    public static function handleDisableFKCheckCleanup($default_fk_check_value): void
+    public static function handleDisableFKCheckCleanup(bool $default_fk_check_value): void
     {
+        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $dbi->setVariable(
