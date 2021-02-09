@@ -372,6 +372,12 @@ class UtilTest extends AbstractTestCase
             '<select class="pageselector ajax" name="pma" >',
             Util::pageselector('pma', 3)
         );
+
+        // If pageNow > nbTotalPage, show the pageNow number to avoid confusion
+        $this->assertStringContainsString(
+            '<option selected="selected" style="font-weight: bold" value="297">100</option>',
+            Util::pageselector('pma', 3, 100, 50)
+        );
     }
 
     /**
