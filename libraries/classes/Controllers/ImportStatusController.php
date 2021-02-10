@@ -54,7 +54,7 @@ class ImportStatusController
             $maximumTime = ini_get('max_execution_time');
             $timestamp = time();
             // wait until message is available
-            while ($_SESSION['Import_message']['message'] == null) {
+            while (($_SESSION['Import_message']['message'] ?? null) == null) {
                 // close session before sleeping
                 session_write_close();
                 // sleep
