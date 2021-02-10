@@ -318,7 +318,7 @@ final class ImportController extends AbstractController
             $goto = Url::getFromRoute('/database/import');
         } elseif ($import_type === 'server') {
             $goto = Url::getFromRoute('/server/import');
-        } elseif (empty($goto) || ! preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
+        } elseif (empty($goto) || ! preg_match('@^index\.php$@i', $goto)) {
             if (strlen($table) > 0 && strlen($db) > 0) {
                 $goto = Url::getFromRoute('/table/structure');
             } elseif (strlen($db) > 0) {
@@ -327,7 +327,7 @@ final class ImportController extends AbstractController
                 $goto = Url::getFromRoute('/server/sql');
             }
         }
-        $err_url = $goto . Url::getCommon($url_params);
+        $err_url = $goto . Url::getCommon($url_params, '&');
         $_SESSION['Import_message']['go_back_url'] = $err_url;
 
         if (strlen($db) > 0) {
@@ -697,7 +697,7 @@ final class ImportController extends AbstractController
                 $url_params['local_import_file'] = $local_import_file;
             }
 
-            $importUrl = $err_url = $goto . Url::getCommon($url_params);
+            $importUrl = $err_url = $goto . Url::getCommon($url_params, '&');
 
             $message = Message::error(
                 __(
