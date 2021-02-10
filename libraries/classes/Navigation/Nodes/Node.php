@@ -75,7 +75,7 @@ class Node
      *          Only relevant if the node is of type CONTAINER
      */
     public $separatorDepth = 1;
-    /** @var string An IMG tag, used when rendering the node*/
+    /** @var mixed An IMG tag, used when rendering the node*/
     public $icon;
     /**
      * @var array An array of A tags, used when rendering the node

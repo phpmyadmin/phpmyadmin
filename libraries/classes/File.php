@@ -624,7 +624,7 @@ class File
     /**
      * Returns the file handle
      *
-     * @return resource file handle
+     * @return resource|null file handle
      */
     public function getHandle()
     {

@@ -475,7 +475,7 @@ final class ImportController extends AbstractController
             $memory_limit = 2 * 1024 * 1024;
         }
         // In case no memory limit we work on 10MB chunks
-        if ($memory_limit == -1) {
+        if ($memory_limit === '-1') {
             $memory_limit = 10 * 1024 * 1024;
         }
 

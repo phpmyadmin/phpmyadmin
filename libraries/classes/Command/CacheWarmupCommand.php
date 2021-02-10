@@ -37,7 +37,7 @@ use function strpos;
 
 final class CacheWarmupCommand extends Command
 {
-    /** @var string */
+    /** @var string|null */
     protected static $defaultName = 'cache:warmup';
 
     protected function configure(): void

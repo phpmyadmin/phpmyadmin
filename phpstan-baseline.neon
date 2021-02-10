@@ -616,11 +616,6 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\File\\:\\:getHandle\\(\\) should return resource but returns resource\\|null\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$handle \\(resource\\|null\\) does not accept resource\\|false\\.$#"
 			count: 4
 			path: libraries/classes/File.php
@@ -1298,11 +1293,6 @@ parameters:
 		-
 			message: "#^Offset 'charset' does not exist on SimpleXMLElement\\|null\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
-			count: 2
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
