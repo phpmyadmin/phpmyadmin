@@ -806,11 +806,6 @@ h3#serverstatusqueries span {
   display: inline;
 }
 
-.buttonlinks {
-  float: right;
-  white-space: nowrap;
-}
-
 .pma-fieldset#tableFilter {
   padding: 0.1em 1em;
 }
@@ -908,16 +903,6 @@ div#logTable {
 
 .smallIndent {
   padding-left: 7px;
-}
-
-#sectionlinks {
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ccc;
-
-  a {
-    margin-right: 7px;
-  }
 }
 
 /* profiling */

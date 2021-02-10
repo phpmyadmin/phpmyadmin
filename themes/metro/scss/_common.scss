@@ -932,11 +932,6 @@ h3#serverstatusqueries span {
   display: inline;
 }
 
-.buttonlinks {
-  float: right;
-  white-space: nowrap;
-}
-
 /* Also used for the variables page */
 .pma-fieldset#tableFilter {
   padding: 0.1em 1em;
@@ -1102,39 +1097,6 @@ div#profilingchart {
   font-weight: normal;
   color: #999;
   font-size: 1.7em;
-}
-
-#sectionlinks {
-  padding: 16px;
-  background: #f3f3f3;
-  border: 1px solid #aaa;
-
-  a {
-    font-size: 0.88em;
-    font-weight: bold;
-    line-height: 35px;
-    margin-left: 7px;
-    border: 1px solid #aaa;
-    padding: 5px 10px;
-    color: #111;
-    text-decoration: none;
-    background: #ddd;
-    white-space: nowrap;
-  }
-}
-
-.buttonlinks a,
-a.button {
-  font-size: 0.88em;
-  font-weight: bold;
-  line-height: 35px;
-  margin-left: 7px;
-  border: 1px solid #aaa;
-  padding: 5px 10px;
-  color: #111;
-  text-decoration: none;
-  background: #ddd;
-  white-space: nowrap;
 }
 
 textarea {
