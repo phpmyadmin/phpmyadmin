@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.4.1@9fd7a7d885b3a216cff8dec9d8c21a132f275224">
+<files psalm-version="4.5.0@a45b5e2ae01d43175ff02684f592c83cfbd48533">
   <file src="libraries/classes/Bookmark.php">
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
@@ -103,6 +103,9 @@
     </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Command/CacheWarmupCommand.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$defaultName</code>
+    </NonInvariantDocblockPropertyType>
     <TooFewArguments occurrences="1">
       <code>loadTemplate</code>
     </TooFewArguments>
@@ -325,9 +328,10 @@
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_FILES['import_file']</code>
     </PossiblyUndefinedArrayOffset>
-    <TypeDoesNotContainType occurrences="3">
+    <TypeDoesNotContainType occurrences="4">
       <code>$bookmark_created</code>
       <code>$finished</code>
+      <code>$memory_limit == -1</code>
       <code>$timeout_passed</code>
     </TypeDoesNotContainType>
   </file>
@@ -938,6 +942,9 @@
     <InvalidFalsableReturnType occurrences="1">
       <code>string</code>
     </InvalidFalsableReturnType>
+    <InvalidNullableReturnType occurrences="1">
+      <code>resource</code>
+    </InvalidNullableReturnType>
     <InvalidPropertyAssignmentValue occurrences="1">
       <code>$this-&gt;handle</code>
     </InvalidPropertyAssignmentValue>
@@ -947,6 +954,9 @@
     <InvalidReturnType occurrences="1">
       <code>string</code>
     </InvalidReturnType>
+    <NullableReturnStatement occurrences="1">
+      <code>$this-&gt;handle</code>
+    </NullableReturnStatement>
     <PossiblyInvalidArgument occurrences="1">
       <code>$_FILES['fields_upload']</code>
     </PossiblyInvalidArgument>
@@ -1304,6 +1314,9 @@
     </PossiblyInvalidPropertyFetch>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTable.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$icon</code>
+    </NonInvariantDocblockPropertyType>
     <PossiblyInvalidPropertyFetch occurrences="2">
       <code>$this-&gt;realParent()-&gt;realName</code>
       <code>$this-&gt;realParent()-&gt;realName</code>
@@ -1612,6 +1625,10 @@
       <code>attributes</code>
       <code>attributes</code>
     </PossiblyNullReference>
+    <TypeDoesNotContainNull occurrences="2">
+      <code>$db_name === null</code>
+      <code>$db_name === null</code>
+    </TypeDoesNotContainNull>
     <UndefinedPropertyFetch occurrences="1"/>
   </file>
   <file src="libraries/classes/Plugins/Import/ShapeFileImport.php">
