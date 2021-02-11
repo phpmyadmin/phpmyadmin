@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-02-10 13:50+0000\n"
+"PO-Revision-Date: 2021-02-12 17:50+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ja/>\n"
@@ -3139,7 +3139,7 @@ msgstr "環境保管領域には、主要カラムリスト機能の準備がで
 #: libraries/classes/CentralColumns.php:362
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr "すでに %1$s は主要カラムリストに存在するので、追加できませんでした。"
+msgstr "すでに %1$s は主要カラムリストに存在するので、追加できませんでした!"
 
 #: libraries/classes/CentralColumns.php:377
 msgid "Could not add columns!"
@@ -3149,7 +3149,7 @@ msgstr "カラムを追加できませんでした！"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "カラム %1$s は主要カラムリストに存在しないため、削除できませんでした。"
+msgstr "カラム %1$s は主要カラムリストに存在しないため、削除できませんでした!"
 
 #: libraries/classes/CentralColumns.php:466
 msgid "Could not remove columns!"
