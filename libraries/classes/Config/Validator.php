@@ -9,9 +9,11 @@ namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Util;
+use function mysqli_report;
 use const FILTER_FLAG_IPV4;
 use const FILTER_FLAG_IPV6;
 use const FILTER_VALIDATE_IP;
+use const MYSQLI_REPORT_OFF;
 use const PHP_INT_MAX;
 use function array_map;
 use function array_merge;
@@ -228,6 +230,8 @@ class Validator
 
         $socket = empty($socket) ? null : $socket;
         $port = empty($port) ? null : $port;
+
+        mysqli_report(MYSQLI_REPORT_OFF);
 
         $conn = @mysqli_connect($host, $user, (string) $pass, '', $port, (string) $socket);
         if (! $conn) {
