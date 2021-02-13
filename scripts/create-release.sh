@@ -241,7 +241,7 @@ ensure_local_branch $branch
 VERSION_FILE=libraries/classes/Version.php
 
 fetchReleaseFromFile() {
-    php -r "require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::phpMyAdminVersion();"
+    php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;"
 }
 
 echo "The actual configured release is: $(fetchReleaseFromFile)"
@@ -250,14 +250,9 @@ if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
     cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
+     - run ./scripts/console set-version $version
      - in $VERSION_FILE Version class:
-        - check that VERSION_MAJOR, VERSION_MINOR and VERSION_PATCH are correct.
-        - for a normal release
-            - check that IS_DEV is false
-            - check that PRE_RELEASE_NAME is empty
-        - for a -rc release
-            - check that IS_DEV is false
-            - change PRE_RELEASE_NAME to "rc1"
+        - check that VERSION, MAJOR, MINOR and PATCH are correct.
      - in doc/conf.py the line
           " version = '$version' "
      - in README the "Version" line
@@ -297,7 +292,7 @@ fi
 
 # Check release version
 if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
-    if ! grep -q "'PMA_VERSION', '$version'" $VERSION_FILE ; then
+    if ! grep -q "VERSION = '$version'" $VERSION_FILE ; then
         echo "There seems to be wrong version in $VERSION_FILE!"
         exit 2
     fi
@@ -608,16 +603,9 @@ Todo now:
     based on documentation.
 
  7. increment rc count or version in the repository :
+        - run ./scripts/console set-version $version
         - in $VERSION_FILE Version class:
-            - for a dev cycle
-                - set IS_DEV to true
-                - check that PRE_RELEASE_NAME is empty
-            - for a normal release
-                - check that IS_DEV is false
-                - check that PRE_RELEASE_NAME is empty
-            - for a -rc release
-                - check that IS_DEV is false
-                - change PRE_RELEASE_NAME to "rc1"
+            - check that VERSION, MAJOR, MINOR and PATCH are correct.
         - in README the "Version" line
               " Version 2.7.1-dev "
         - in package.json the line
