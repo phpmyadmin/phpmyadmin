@@ -11,6 +11,7 @@ use function htmlspecialchars;
 use function mb_strlen;
 use function rawurldecode;
 use function sprintf;
+use function is_writable;
 
 /**
  * Class used to warm up the routing cache and manage routing.
@@ -23,9 +24,16 @@ class Routing
 
         $routes = require ROOT_PATH . 'libraries/routes.php';
 
+        $cacheDisabled = ($cfg['environment'] ?? '') === 'development';
+        $cacheFile = CACHE_DIR . 'routes.cache.php';
+
+        if (! is_writable($cacheFile)) {
+            $cacheDisabled = true;
+        }
+
         return cachedDispatcher($routes, [
-            'cacheFile' => CACHE_DIR . 'routes.cache.php',
-            'cacheDisabled' => ($cfg['environment'] ?? '') === 'development',
+            'cacheFile' => $cacheFile,
+            'cacheDisabled' => $cacheDisabled,
         ]);
     }
 
