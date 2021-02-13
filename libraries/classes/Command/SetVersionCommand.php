@@ -73,7 +73,8 @@ PHP;
 
     private function getGeneratedClass(string $version): string
     {
-        $return = preg_match('/^(\d+)\.(\d{1,2})\.(\d{1,2})(-(\w+))?$/', $version, $matches);
+        // Do not allow any major below 5
+        $return = preg_match('/^([5-9]+)\.(\d{1,2})\.(\d{1,2})(-([a-z0-9]+))?$/', $version, $matches);
         if ($return === false || $return === 0) {
             throw new RangeException('The version number is in the wrong format: ' . $version);
         }
