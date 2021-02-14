@@ -90,6 +90,7 @@ phpMyAdmin - ChangeLog
 - issue #15389 Fixed reset current page indicator after deleting all rows to current page and not page 1
 - issue #15997 Fixed auto save query
 - issue #15997 Made auto saved query database or database+table independent
+- issue #16641 Fixed query generation that was allowing JSON to have a length
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
