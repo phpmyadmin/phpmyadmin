@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Export\ExportJson;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -15,6 +16,7 @@ use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
 use function array_shift;
+use const MYSQLI_TYPE_STRING;
 
 /**
  * @group medium
@@ -188,12 +190,9 @@ class ExportJsonTest extends AbstractTestCase
 
         $flags = [];
         $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = false;
-        $a->type = 'string';
         $a->name = 'f1';
         $a->length = 20;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $a);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')

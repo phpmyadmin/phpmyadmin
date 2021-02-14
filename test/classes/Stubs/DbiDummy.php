@@ -12,6 +12,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Dbal\DbiExtension;
+use PhpMyAdmin\FieldMetadata;
+
 use function addslashes;
 use function count;
 use function is_array;
@@ -347,9 +349,9 @@ class DbiDummy implements DbiExtension
      *
      * @param object $result result set identifier
      *
-     * @return array meta info for fields in $result
+     * @return FieldMetadata[]|null meta info for fields in $result
      */
-    public function getFieldsMeta($result)
+    public function getFieldsMeta($result): ?array
     {
         return [];
     }
@@ -393,19 +395,6 @@ class DbiDummy implements DbiExtension
      * @return string name of $i. field in $result
      */
     public function fieldName($result, $i)
-    {
-        return '';
-    }
-
-    /**
-     * returns concatenated string of human readable field flags
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string field flags
-     */
-    public function fieldFlags($result, $i)
     {
         return '';
     }

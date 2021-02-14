@@ -73,13 +73,13 @@ final class GisVisualizationController extends AbstractController
         // Execute the query and return the result
         $result = $this->dbi->tryQuery($sqlQuery);
         // Get the meta data of results
-        $meta = $this->dbi->getFieldsMeta($result);
+        $meta = $this->dbi->getFieldsMeta($result) ?? [];
 
         // Find the candidate fields for label column and spatial column
         $labelCandidates = [];
         $spatialCandidates = [];
         foreach ($meta as $column_meta) {
-            if ($column_meta->type === 'geometry') {
+            if ($column_meta->isMappedTypeGeometry) {
                 $spatialCandidates[] = $column_meta->name;
             } else {
                 $labelCandidates[] = $column_meta->name;

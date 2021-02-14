@@ -1226,7 +1226,8 @@ class Routines
 
                 if (($result !== false) && ($num_rows > 0)) {
                     $output .= '<table class="pma-table"><tr>';
-                    foreach ($this->dbi->getFieldsMeta($result) as $field) {
+                    $fieldsMeta = $this->dbi->getFieldsMeta($result) ?? [];
+                    foreach ($fieldsMeta as $field) {
                         $output .= '<th>';
                         $output .= htmlspecialchars($field->name);
                         $output .= '</th>';

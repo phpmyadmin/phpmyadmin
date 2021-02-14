@@ -249,7 +249,7 @@ class SearchController extends AbstractController
             // for bit fields we need to convert them to printable form
             $i = 0;
             foreach ($row as $col => $val) {
-                if ($fields_meta[$i]->type === 'bit') {
+                if (isset($fields_meta[$i]) && $fields_meta[$i]->isMappedTypeBit) {
                     $row[$col] = Util::printableBitValue(
                         (int) $val,
                         (int) $fields_meta[$i]->length

@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -19,7 +20,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use function bin2hex;
 use function date;
 use function htmlspecialchars;
-use function stripos;
 use function stripslashes;
 use function strtotime;
 
@@ -215,6 +215,7 @@ class ExportOds extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
+        /** @var DatabaseInterface $dbi */
         global $what, $dbi;
 
         $db_alias = $db;
@@ -227,11 +228,8 @@ class ExportOds extends ExportPlugin
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $dbi->numFields($result);
+        /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $dbi->getFieldsMeta($result);
-        $field_flags = [];
-        for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_flags[$j] = $dbi->fieldFlags($result, $j);
-        }
 
         $GLOBALS['ods_buffer']
             .= '<table:table table:name="' . htmlspecialchars($table_alias) . '">';
@@ -260,7 +258,7 @@ class ExportOds extends ExportPlugin
         while ($row = $dbi->fetchRow($result)) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if ($fields_meta[$j]->type === 'geometry') {
+                if ($fields_meta[$j]->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $row[$j] = '0x' . bin2hex($row[$j]);
                 }
@@ -271,15 +269,15 @@ class ExportOds extends ExportPlugin
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif (stripos($field_flags[$j], 'BINARY') !== false
-                    && $fields_meta[$j]->blob
+                } elseif ($fields_meta[$j]->isBinary
+                    && $fields_meta[$j]->isBlob
                 ) {
                     // ignore BLOB
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->type === 'date') {
+                } elseif ($fields_meta[$j]->isType(FieldMetadata::TYPE_DATE)) {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
@@ -289,7 +287,7 @@ class ExportOds extends ExportPlugin
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->type === 'time') {
+                } elseif ($fields_meta[$j]->isType(FieldMetadata::TYPE_TIME)) {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="time"'
                         . ' office:time-value="'
@@ -299,7 +297,7 @@ class ExportOds extends ExportPlugin
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->type === 'datetime') {
+                } elseif ($fields_meta[$j]->isType(FieldMetadata::TYPE_DATETIME)) {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
@@ -309,10 +307,10 @@ class ExportOds extends ExportPlugin
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif (($fields_meta[$j]->numeric
-                    && $fields_meta[$j]->type !== 'timestamp'
-                    && ! $fields_meta[$j]->blob)
-                    || $fields_meta[$j]->type === 'real'
+                } elseif (($fields_meta[$j]->isNumeric
+                    && ! $fields_meta[$j]->isMappedTypeTimestamp
+                    && ! $fields_meta[$j]->isBlob)
+                    || $fields_meta[$j]->isType(FieldMetadata::TYPE_REAL)
                 ) {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="float"'

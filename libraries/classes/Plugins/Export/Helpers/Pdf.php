@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
@@ -16,7 +17,6 @@ use TCPDF_STATIC;
 use function array_key_exists;
 use function count;
 use function ksort;
-use function stripos;
 
 /**
  * Adapted from a LGPL script by Philip Clarke
@@ -71,7 +71,7 @@ class Pdf extends PdfLib
     /** @var int */
     private $numFields;
 
-    /** @var array */
+    /** @var FieldMetadata[] */
     private $fields;
 
     /** @var int|float */
@@ -736,6 +736,7 @@ class Pdf extends PdfLib
      */
     public function mysqlReport($query)
     {
+        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         unset(
@@ -756,7 +757,7 @@ class Pdf extends PdfLib
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $this->numFields = $dbi->numFields($this->results);
-        $this->fields = $dbi->getFieldsMeta($this->results);
+        $this->fields = $dbi->getFieldsMeta($this->results) ?? [];
 
         // sColWidth = starting col width (an average size width)
         $availableWidth = $this->w - $this->lMargin - $this->rMargin;
@@ -789,27 +790,25 @@ class Pdf extends PdfLib
             $this->colTitles[$i] = $col_as;
             $this->displayColumn[$i] = true;
 
-            switch ($this->fields[$i]->type) {
-                case 'int':
-                    $this->colAlign[$i] = 'R';
-                    break;
-                case 'blob':
-                case 'tinyblob':
-                case 'mediumblob':
-                case 'longblob':
-                    /**
-                 * @todo do not deactivate completely the display
-                 * but show the field's name and [BLOB]
-                 */
-                    if (stripos($this->fields[$i]->flags, 'BINARY') !== false) {
-                        $this->displayColumn[$i] = false;
-                        unset($this->colTitles[$i]);
-                    }
-                    $this->colAlign[$i] = 'L';
-                    break;
-                default:
-                    $this->colAlign[$i] = 'L';
+            $this->colAlign[$i] = 'L';
+
+            if ($this->fields[$i]->isType(FieldMetadata::TYPE_INT)) {
+                $this->colAlign[$i] = 'R';
             }
+
+            if (! $this->fields[$i]->isType(FieldMetadata::TYPE_BLOB)) {
+                continue;
+            }
+
+            /**
+             * @todo do not deactivate completely the display
+             * but show the field's name and [BLOB]
+             */
+            if ($this->fields[$i]->isBinary()) {
+                $this->displayColumn[$i] = false;
+                unset($this->colTitles[$i]);
+            }
+            $this->colAlign[$i] = 'L';
         }
 
         // title width verification
