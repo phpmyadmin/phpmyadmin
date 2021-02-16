@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.5.0@a45b5e2ae01d43175ff02684f592c83cfbd48533">
+<files psalm-version="4.6.0@77feecb3707bd50378c21ae4d3fe9e320e6cea65">
   <file src="libraries/classes/Bookmark.php">
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
@@ -2543,8 +2543,10 @@
       <code>$existrel_foreign[$master_field_md5]</code>
       <code>$existrel_foreign[$master_field_md5]</code>
     </PossiblyNullReference>
-    <RedundantCastGivenDocblockType occurrences="7">
+    <RedundantCastGivenDocblockType occurrences="9">
       <code>(string) $db</code>
+      <code>(string) $default_value</code>
+      <code>(string) $default_value</code>
       <code>(string) $default_value</code>
       <code>(string) $default_value</code>
       <code>(string) $default_value</code>
