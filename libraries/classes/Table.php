@@ -591,6 +591,13 @@ class Table
                             // a TIMESTAMP does not accept DEFAULT '0'
                             // but DEFAULT 0 works
                             $query .= ' DEFAULT 0';
+                        } elseif ($is_timestamp
+                            && preg_match(
+                                '/^\'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(\.\d{1,6})?\'$/',
+                                (string) $default_value
+                            )
+                        ) {
+                            $query .= ' DEFAULT ' . (string) $default_value;
                         } elseif ($type === 'BIT') {
                             $query .= ' DEFAULT b\''
                             . preg_replace('/[^01]/', '0', (string) $default_value)
