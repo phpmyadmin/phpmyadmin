@@ -649,6 +649,84 @@ class TableTest extends AbstractTestCase
             $query
         );
 
+        $type = 'TIMESTAMP';
+        $length = '';
+        $extra = '';
+        $default_type = 'USER_DEFINED';
+        $default_value = '\'0000-00-00 00:00:00\'';
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            $extra,
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to
+        );
+        $this->assertEquals(
+            '`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00\' '
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
+        $type = 'TIMESTAMP';
+        $length = '';
+        $extra = '';
+        $default_type = 'USER_DEFINED';
+        $default_value = '\'0000-00-00 00:00:00.0\'';
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            $extra,
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to
+        );
+        $this->assertEquals(
+            '`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00.0\' '
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
+        $type = 'TIMESTAMP';
+        $length = '';
+        $extra = '';
+        $default_type = 'USER_DEFINED';
+        $default_value = '\'0000-00-00 00:00:00.000000\'';
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            $extra,
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to
+        );
+        $this->assertEquals(
+            '`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00.000000\' '
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
         //$default_type is NONE
         $type = 'BOOLEAN';
         $default_type = 'NONE';
