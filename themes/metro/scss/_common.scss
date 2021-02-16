@@ -695,12 +695,6 @@ div.tools,
   }
 }
 
-/* forbidden, no privileges */
-.noPrivileges {
-  color: #f00;
-  font-weight: bold;
-}
-
 /* disabled text */
 .disabled {
   color: #666;
@@ -1153,28 +1147,9 @@ li {
     display: none;
   }
 
-  &.no_bullets {
-    list-style-type: none !important;
-  }
-
   &#li_mysql_client_version {
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  &#li_create_database {
-    background-color: #f6f6f6;
-    padding: 10px;
-    border: 1px solid $border-color;
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  &#li_switch_dbstats {
-    background-color: #f6f6f6;
-    padding: 10px;
-    border: 1px solid $border-color;
-    display: block;
   }
 }
 

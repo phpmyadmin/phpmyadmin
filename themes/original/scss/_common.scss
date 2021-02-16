@@ -462,12 +462,6 @@ div.tools a {
   }
 }
 
-/* forbidden, no privilegs */
-.noPrivileges {
-  color: #f00;
-  font-weight: bold;
-}
-
 /* disabled text */
 
 .disabled {
@@ -971,17 +965,6 @@ textarea {
   border: solid 1px #888;
   background: #fff;
 }
-
-/* end main page */
-
-/* iconic view for ul items */
-
-li.no_bullets {
-  list-style-type: none !important;
-  margin-left: -25px !important;
-}
-
-/* end iconic view for ul items */
 
 #body_browse_foreigners {
   background: $navi-background;
