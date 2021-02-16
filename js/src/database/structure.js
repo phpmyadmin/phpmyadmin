@@ -141,7 +141,7 @@ DatabaseStructure.adjustTotals = function () {
 
 /**
  * Gets the real row count for a table or DB.
- * @param object $target Target for appending the real count value.
+ * @param {object} $target Target for appending the real count value.
  */
 DatabaseStructure.fetchRealRowCount = function ($target) {
     var $throbber = $('#pma_navigation').find('.throbber')

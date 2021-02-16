@@ -13,12 +13,12 @@
 /**
  * Modify form controls when the "NULL" checkbox is checked
  *
- * @param theType     string   the MySQL field type
- * @param urlField    string   the urlencoded field name - OBSOLETE
- * @param md5Field    string   the md5 hashed field name
- * @param multiEdit  string   the multi_edit row sequence number
+ * @param {string} theType   the MySQL field type
+ * @param {string} urlField  the urlencoded field name - OBSOLETE
+ * @param {string} md5Field  the md5 hashed field name
+ * @param {string} multiEdit the multi_edit row sequence number
  *
- * @return boolean  always true
+ * @returns {boolean} always true
  */
 function nullify (theType, urlField, md5Field, multiEdit) {
     var rowForm = document.forms.insertForm;

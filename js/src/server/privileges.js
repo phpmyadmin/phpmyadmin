@@ -11,7 +11,7 @@
 /**
  * Validates the "add a user" form
  *
- * @return boolean  whether the form is validated or not
+ * @returns {boolean} whether the form is validated or not
  */
 function checkAddUser (theForm) {
     if (theForm.elements.hostname.value === '') {

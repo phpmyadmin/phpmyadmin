@@ -15,7 +15,7 @@ var TableSelect = {};
  *
  * @param {string} dataType Column data-type
  *
- * @return {(boolean|string)}
+ * @returns {boolean | string}
  */
 TableSelect.checkIfDataTypeNumericOrDate = function (dataType) {
     // To test for numeric data-types.

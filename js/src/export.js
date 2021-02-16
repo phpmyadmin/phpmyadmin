@@ -764,7 +764,7 @@ Export.checkTimeOut = function (timeLimit) {
  *
  * @param event object the event object
  *
- * @return void
+ * @returns {void}
  */
 Export.aliasSelectHandler = function (event) {
     var sel = event.data.sel;
@@ -800,7 +800,7 @@ Export.aliasSelectHandler = function (event) {
  *
  * @param event object the event object
  *
- * @return void
+ * @returns {void}
  */
 Export.createAliasModal = function (event) {
     event.preventDefault();

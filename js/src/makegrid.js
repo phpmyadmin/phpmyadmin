@@ -324,7 +324,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * Find currently hovered table column's header (excluding actions column).
          *
          * @param e event
-         * @return the hovered column's th object or undefined if no hovered column found.
+         * @returns the hovered column's th object or undefined if no hovered column found.
          */
         getHoveredCol: function (e) {
             var hoveredCol;
@@ -343,7 +343,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * Get a zero-based index from a <th class="draggable"> tag in a table.
          *
          * @param obj table header <th> object
-         * @return zero-based index of the specified table header in the set of table headers (visible or not)
+         * @returns zero-based index of the specified table header in the set of table headers (visible or not)
          */
         getHeaderIdx: function (obj) {
             return $(obj).parents('tr').find('th.draggable').index(obj);
@@ -471,7 +471,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * Toggle column's visibility.
          * After calling this function and it returns true, afterToggleCol() must be called.
          *
-         * @return boolean True if the column is toggled successfully.
+         * @returns {boolean} True if the column is toggled successfully.
          */
         toggleCol: function (n) {
             if (g.colVisib[n]) {

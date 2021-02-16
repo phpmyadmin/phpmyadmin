@@ -1754,7 +1754,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
          * log table filters which are the filter by name and grouping
          * with ignoring data in WHERE clauses
          *
-         * @param boolean Should be true when the users enabled or disabled
+         * @param {boolean} varFilterChange Should be true when the users enabled or disabled
          *                to group queries ignoring data in WHERE clauses
         */
         function filterQueries (varFilterChange) {

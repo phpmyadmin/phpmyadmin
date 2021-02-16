@@ -60,8 +60,8 @@ DesignerHistory.detail = function (index) {
  * This function is called whenever changes are made in historyArray[]
  *
  *
- * @param {int}  init starting index of unsorted array
- * @param {int} finit   last index of unsorted array
+ * @param {number} init starting index of unsorted array
+ * @param {number} finit last index of unsorted array
  *
 **/
 
@@ -132,7 +132,7 @@ DesignerHistory.display = function (init, finit) {
  * To change And/Or relation in history tab
  *
  *
- * @param {int} index of historyArray where change is to be made
+ * @param {number} index index of historyArray where change is to be made
  *
 **/
 
@@ -171,7 +171,7 @@ DesignerHistory.historyDelete = function (index) {
 /**
  * To show where,rename,aggregate,having forms to edit a object
  *
- * @param{int} index index of historyArray where change is to be made
+ * @param {number} index index of historyArray where change is to be made
  *
 **/
 
@@ -445,7 +445,7 @@ DesignerHistory.Aggregate = function (nOperator) {
  * This function returns unique element from an array
  *
  * @param arrayName array from which duplicate elem are to be removed.
- * @return unique array
+ * @returns unique array
  */
 
 DesignerHistory.unique = function (arrayName) {
