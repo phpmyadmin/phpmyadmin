@@ -549,7 +549,7 @@ class Tracker
             $sql_query .= " AND FIND_IN_SET('"
                 . $statement . "',tracking) > 0";
         }
-        $row = $dbi->fetchArray($relation->queryAsControlUser($sql_query));
+        $row = $dbi->fetchArray($relation->queryAsControlUser($sql_query, false));
 
         return $row[0] ?? -1;
     }
