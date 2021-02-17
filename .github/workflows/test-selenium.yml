@@ -87,13 +87,13 @@ jobs:
             - name: Install modules
               run: yarn install --non-interactive --production
             - name: Install nginx and php-fpm
-              run: sudo apt-get install -y nginx php-fpm
+              run: sudo apt-get install -y nginx php7.1-fpm
             - name: Copy the config
               run: cp test/config.e2e.inc.php config.inc.php
             - name: Start server
               env:
                 CI_MODE: selenium
-                FPM_PATH: php-fpm8.0
+                FPM_PATH: php-fpm7.1
                 SKIP_STANDALONE: 1
               run: |
                 ./test/start-local-server
@@ -110,8 +110,6 @@ jobs:
                 TESTSUITE_DATABASE_PREFIX: "selenium"
                 TESTSUITE_SELENIUM_HOST: "127.0.0.1"
                 TESTSUITE_SELENIUM_PORT: "4444"
-              # Allowed errors: https://github.com/phpmyadmin/phpmyadmin/issues/16479
-              continue-on-error: true
               run: ./vendor/bin/phpunit --group selenium --verbose --debug --no-coverage
             - name: Output logs and stop server
               env:

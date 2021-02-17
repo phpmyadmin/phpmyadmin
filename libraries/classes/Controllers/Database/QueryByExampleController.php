@@ -50,9 +50,8 @@ class QueryByExampleController extends AbstractController
         $savedSearchList = [];
         $savedSearch = null;
         $currentSearchId = null;
+        $this->addScriptFiles(['database/qbe.js']);
         if ($cfgRelation['savedsearcheswork']) {
-            $this->addScriptFiles(['database/qbe.js']);
-
             //Get saved search list.
             $savedSearch = new SavedSearches($GLOBALS, $this->relation);
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])

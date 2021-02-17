@@ -98,12 +98,15 @@ class Menu
     {
         $url_params = [];
 
-        if (strlen((string) $this->table) > 0) {
+        $hasDbArg = strlen($this->db) > 0;
+
+        // The URL will not work if the table is defined without a database
+        if (strlen((string) $this->table) > 0 && $hasDbArg) {
             $tabs = $this->getTableTabs();
             $url_params['db'] = $this->db;
             $url_params['table'] = $this->table;
             $level = 'table';
-        } elseif (strlen($this->db) > 0) {
+        } elseif ($hasDbArg) {
             $tabs = $this->getDbTabs();
             $url_params['db'] = $this->db;
             $level = 'db';
@@ -195,20 +198,20 @@ class Menu
             ? $cfg['Server']['verbose'] : $cfg['Server']['host'];
         $server['name'] .= empty($cfg['Server']['port'])
             ? '' : ':' . $cfg['Server']['port'];
-        $server['url'] = Util::getScriptNameForOption(
+        $server['url'] = Util::getUrlForOption(
             $cfg['DefaultTabServer'],
             'server'
         );
 
         if (strlen($this->db) > 0) {
             $database['name'] = $this->db;
-            $database['url'] = Util::getScriptNameForOption(
+            $database['url'] = Util::getUrlForOption(
                 $cfg['DefaultTabDatabase'],
                 'database'
             );
             if (strlen((string) $this->table) > 0) {
                 $table['name'] = $this->table;
-                $table['url'] = Util::getScriptNameForOption(
+                $table['url'] = Util::getUrlForOption(
                     $cfg['DefaultTabTable'],
                     'table'
                 );

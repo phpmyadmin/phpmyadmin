@@ -225,7 +225,7 @@ class TriggersTest extends TestBase
         $this->dbQuery(
             'SHOW TRIGGERS FROM `' . $this->databaseName . '`;',
             function (): void {
-                $this->assertfalse($this->isElementPresent('className', 'table_results'));
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
             }
         );
     }
