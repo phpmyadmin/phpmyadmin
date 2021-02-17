@@ -195,20 +195,20 @@ class Menu
             ? $cfg['Server']['verbose'] : $cfg['Server']['host'];
         $server['name'] .= empty($cfg['Server']['port'])
             ? '' : ':' . $cfg['Server']['port'];
-        $server['url'] = Util::getScriptNameForOption(
+        $server['url'] = Util::getUrlForOption(
             $cfg['DefaultTabServer'],
             'server'
         );
 
         if (strlen($this->db) > 0) {
             $database['name'] = $this->db;
-            $database['url'] = Util::getScriptNameForOption(
+            $database['url'] = Util::getUrlForOption(
                 $cfg['DefaultTabDatabase'],
                 'database'
             );
             if (strlen((string) $this->table) > 0) {
                 $table['name'] = $this->table;
-                $table['url'] = Util::getScriptNameForOption(
+                $table['url'] = Util::getUrlForOption(
                     $cfg['DefaultTabTable'],
                     'table'
                 );

@@ -1738,33 +1738,56 @@ class Util
      *
      * @return string script name corresponding to the config word
      */
-    public static function getScriptNameForOption($target, $location)
+    public static function getScriptNameForOption($target, string $location): string
+    {
+        $url = self::getUrlForOption($target, $location);
+        if ($url === null) {
+            return '/';
+        }
+
+        return Url::getFromRoute($url);
+    }
+
+    /**
+     * Get the URL corresponding to a plain English config word
+     * in order to append in links on navigation and main panel
+     *
+     * @param string $target   a valid value for
+     *                         $cfg['NavigationTreeDefaultTabTable'],
+     *                         $cfg['NavigationTreeDefaultTabTable2'],
+     *                         $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
+     *                         $cfg['DefaultTabServer']
+     * @param string $location one out of 'server', 'table', 'database'
+     *
+     * @return string The URL corresponding to the config word or null if nothing was found
+     */
+    public static function getUrlForOption($target, string $location): ?string
     {
         if ($location === 'server') {
             // Values for $cfg['DefaultTabServer']
             switch ($target) {
                 case 'welcome':
-                    return Url::getFromRoute('/');
+                    return '/';
                 case 'databases':
-                    return Url::getFromRoute('/server/databases');
+                    return '/server/databases';
                 case 'status':
-                    return Url::getFromRoute('/server/status');
+                    return '/server/status';
                 case 'variables':
-                    return Url::getFromRoute('/server/variables');
+                    return '/server/variables';
                 case 'privileges':
-                    return Url::getFromRoute('/server/privileges');
+                    return '/server/privileges';
             }
         } elseif ($location === 'database') {
             // Values for $cfg['DefaultTabDatabase']
             switch ($target) {
                 case 'structure':
-                    return Url::getFromRoute('/database/structure');
+                    return '/database/structure';
                 case 'sql':
-                    return Url::getFromRoute('/database/sql');
+                    return '/database/sql';
                 case 'search':
-                    return Url::getFromRoute('/database/search');
+                    return '/database/search';
                 case 'operations':
-                    return Url::getFromRoute('/database/operations');
+                    return '/database/operations';
             }
         } elseif ($location === 'table') {
             // Values for $cfg['DefaultTabTable'],
@@ -1772,19 +1795,19 @@ class Util
             // $cfg['NavigationTreeDefaultTabTable2']
             switch ($target) {
                 case 'structure':
-                    return Url::getFromRoute('/table/structure');
+                    return '/table/structure';
                 case 'sql':
-                    return Url::getFromRoute('/table/sql');
+                    return '/table/sql';
                 case 'search':
-                    return Url::getFromRoute('/table/search');
+                    return '/table/search';
                 case 'insert':
-                    return Url::getFromRoute('/table/change');
+                    return '/table/change';
                 case 'browse':
-                    return Url::getFromRoute('/sql');
+                    return '/sql';
             }
         }
 
-        return $target;
+        return null;
     }
 
     /**
