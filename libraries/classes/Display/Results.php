@@ -4333,7 +4333,10 @@ class Results
         );
 
         // fetch last row of the result set
-        $dbi->dataSeek($dt_result, $this->properties['num_rows'] - 1);
+        $dbi->dataSeek(
+            $dt_result,
+            $this->properties['num_rows'] > 0 ? $this->properties['num_rows'] - 1 : 0
+        );
         $row = $dbi->fetchRow($dt_result);
 
         // check for non printable sorted row data
@@ -4563,7 +4566,10 @@ class Results
         }
 
         // fetch last row of the result set
-        $dbi->dataSeek($dt_result, $this->properties['num_rows'] - 1);
+        $dbi->dataSeek(
+            $dt_result,
+            $this->properties['num_rows'] > 0 ? $this->properties['num_rows'] - 1 : 0
+        );
         $row = $dbi->fetchRow($dt_result);
 
         // @see DbiMysqi::fetchRow & DatabaseInterface::fetchRow
