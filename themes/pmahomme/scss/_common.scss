@@ -632,12 +632,6 @@ div.tools a:hover,
   color: #f00;
 }
 
-// forbidden, no privileges
-.noPrivileges {
-  color: #f00;
-  font-weight: bold;
-}
-
 // disabled text
 .disabled {
   color: #666;
@@ -1187,17 +1181,6 @@ textarea {
   border: solid 1px #888;
   background: #fff;
 }
-
-/* end main page */
-
-/* iconic view for ul items */
-
-li.no_bullets {
-  list-style-type: none !important;
-  margin-left: -25px !important; //align with other list items which have bullets
-}
-
-// end iconic view for ul items
 
 #body_browse_foreigners {
   background: $navi-background;
