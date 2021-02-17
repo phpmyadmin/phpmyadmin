@@ -87,13 +87,13 @@ jobs:
             - name: Install modules
               run: yarn install --non-interactive --production
             - name: Install nginx and php-fpm
-              run: sudo apt-get install -y nginx php-fpm
+              run: sudo apt-get install -y nginx php7.1-fpm
             - name: Copy the config
               run: cp test/config.e2e.inc.php config.inc.php
             - name: Start server
               env:
                 CI_MODE: selenium
-                FPM_PATH: php-fpm8.0
+                FPM_PATH: php-fpm7.1
                 SKIP_STANDALONE: 1
               run: |
                 ./test/start-local-server
