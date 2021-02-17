@@ -84,7 +84,7 @@ class EventsTest extends TestBase
         $this->waitForElement('partialLinkText', 'Events')->click();
         $this->waitAjax();
 
-        $this->waitForElement('partialLinkText', 'Add event')->click();
+        $this->waitForElement('partialLinkText', 'Create new event')->click();
         $this->waitAjax();
 
         $this->waitForElement('className', 'rte_form');
