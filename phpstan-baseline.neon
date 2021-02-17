@@ -651,11 +651,6 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Offset 0 does not exist on array\\|null\\.$#"
-			count: 2
-			path: libraries/classes/Font.php
-
-		-
 			message: "#^Argument of an invalid type array\\|object supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: libraries/classes/Footer.php

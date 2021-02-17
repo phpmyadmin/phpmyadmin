@@ -255,6 +255,7 @@ class ProceduresTest extends TestBase
             'cssSelector',
             'span#PMA_slidingMessage table tbody'
         );
+        $this->waitUntilElementIsVisible('cssSelector', 'span#PMA_slidingMessage', 30);
         $head = $this->byCssSelector('span#PMA_slidingMessage table tbody')->getText();
         $this->assertEquals("outp\n" . $length, $head);
     }

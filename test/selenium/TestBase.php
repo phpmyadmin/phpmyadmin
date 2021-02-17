@@ -102,6 +102,13 @@ abstract class TestBase extends TestCase
     protected static $createDatabase = true;
 
     /**
+     * Did the test create the phpMyAdmin storage database ?
+     *
+     * @var bool
+     */
+    private $hadStorageDatabaseInstall = false;
+
+    /**
      * Configures the selenium and database link.
      *
      * @throws Exception
@@ -433,6 +440,24 @@ abstract class TestBase extends TestCase
     }
 
     /**
+     * Use the fix relation button to install phpMyAdmin storage
+     */
+    protected function fixUpPhpMyAdminStorage(): bool
+    {
+        $this->navigateTo('index.php?route=/check-relations');
+
+        $fixTextSelector = '//div[@class="alert alert-primary" and contains(., "Create a database named")]/a';
+        if ($this->isElementPresent('xpath', $fixTextSelector)) {
+            $this->byXPath($fixTextSelector)->click();
+            $this->waitAjax();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Skips test if pmadb is not configured.
      */
     protected function skipIfNotPMADB(): void
@@ -446,9 +471,13 @@ abstract class TestBase extends TestCase
             return;
         }
 
-        $this->markTestSkipped(
-            'The phpMyAdmin configuration storage is not working.'
-        );
+        if (! $this->fixUpPhpMyAdminStorage()) {
+            $this->markTestSkipped(
+                'The phpMyAdmin configuration storage is not working.'
+            );
+        }
+        // If it failed the code already has exited with markTestSkipped
+        $this->hadStorageDatabaseInstall = true;
     }
 
     /**
@@ -1127,6 +1156,9 @@ abstract class TestBase extends TestCase
     {
         if (static::$createDatabase) {
             $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->databaseName . '`;');
+        }
+        if ($this->hadStorageDatabaseInstall) {
+            $this->dbQuery('DROP DATABASE IF EXISTS `phpmyadmin`;');
         }
         if (! $this->hasFailed()) {
             $this->markTestAs('passed', '');

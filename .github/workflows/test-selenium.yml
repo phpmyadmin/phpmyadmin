@@ -110,7 +110,7 @@ jobs:
                 TESTSUITE_DATABASE_PREFIX: "selenium"
                 TESTSUITE_SELENIUM_HOST: "127.0.0.1"
                 TESTSUITE_SELENIUM_PORT: "4444"
-              run: ./vendor/bin/phpunit --group selenium --verbose --debug --no-coverage
+              run: ./vendor/bin/phpunit --group selenium --verbose --debug --no-coverage --stop-on-skipped
             - name: Output logs and stop server
               env:
                 CI_MODE: selenium

@@ -537,6 +537,7 @@ class Tracker
      */
     public static function getVersion($dbname, $tablename, $statement = null)
     {
+        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $relation = new Relation($dbi);
@@ -549,7 +550,14 @@ class Tracker
             $sql_query .= " AND FIND_IN_SET('"
                 . $statement . "',tracking) > 0";
         }
-        $row = $dbi->fetchArray($relation->queryAsControlUser($sql_query));
+
+        $result = $relation->queryAsControlUser($sql_query, false);
+
+        if ($result === false) {
+            return -1;
+        }
+
+        $row = $dbi->fetchArray($result);
 
         return $row[0] ?? -1;
     }
