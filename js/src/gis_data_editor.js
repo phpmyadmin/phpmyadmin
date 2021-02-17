@@ -56,7 +56,7 @@ function prepareJSVersion () {
  *
  * @param {number} pointNumber point number
  * @param {string} prefix      prefix of the name
- * @returns {string} the HTML for a data point
+ * @return {string} the HTML for a data point
  */
 function addDataPoint (pointNumber, prefix) {
     return '<br>' +

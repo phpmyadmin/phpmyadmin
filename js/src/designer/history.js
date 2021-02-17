@@ -445,7 +445,7 @@ DesignerHistory.Aggregate = function (nOperator) {
  * This function returns unique element from an array
  *
  * @param arrayName array from which duplicate elem are to be removed.
- * @returns unique array
+ * @return unique array
  */
 
 DesignerHistory.unique = function (arrayName) {
@@ -484,8 +484,10 @@ DesignerHistory.found = function (arrayName, value) {
 /**
  * This function concatenates two array
  *
- * @params add array elements of which are pushed in
- * @params arr array in which elements are added
+ * @param {object} add array elements of which are pushed in
+ * @param {obj[]} arr array in which elements are added
+ *
+ * @return {obj[]}
  */
 DesignerHistory.addArray = function (add, arr) {
     var addLength = add.length;
@@ -498,8 +500,10 @@ DesignerHistory.addArray = function (add, arr) {
 /**
  * This function removes all elements present in one array from the other.
  *
- * @params rem array from which each element is removed from other array.
- * @params arr array from which elements are removed.
+ * @param {object} rem array from which each element is removed from other array.
+ * @param {obj[]} arr array from which elements are removed.
+ *
+ * @return {obj[]}
  *
  */
 DesignerHistory.removeArray = function (rem, arr) {
@@ -646,7 +650,7 @@ DesignerHistory.checkRename = function (idThis) {
   * This function builds from clause of query
   * makes automatic joins.
   *
-  *
+  * @return {string}
   */
 DesignerHistory.queryFrom = function () {
     var i;

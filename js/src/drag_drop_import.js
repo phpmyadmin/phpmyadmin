@@ -31,7 +31,7 @@ var DragDropImport = {
      *
      * @param {string} file filename
      *
-     * @returns {string}, extension for valid extension, '' otherwise
+     * @return {string}, extension for valid extension, '' otherwise
      */
     getExtension: function (file) {
         var arr = file.split('.');
@@ -56,7 +56,7 @@ var DragDropImport = {
      * @param {string} hash, hash for specific file upload
      * @param {number} percent (float), file upload percentage
      *
-     * @returns {void}
+     * @return {void}
      */
     setProgress: function (hash, percent) {
         $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
@@ -68,7 +68,7 @@ var DragDropImport = {
      * @param {object} formData FormData object for a specific file
      * @param {string} hash hash of the current file upload
      *
-     * @returns {void}
+     * @return {void}
      */
     sendFileToServer: function (formData, hash) {
         var jqXHR = $.ajax({
@@ -142,7 +142,7 @@ var DragDropImport = {
      *
      * @param {MouseEvent} event obj
      *
-     * @returns {void}
+     * @return {void}
      */
     dragEnter : function (event) {
         // We don't want to prevent users from using
@@ -168,7 +168,7 @@ var DragDropImport = {
      *
      * @param event the event object
      *
-     * @returns {boolean}
+     * @return {boolean}
      */
     hasFiles: function (event) {
         return !(typeof event.originalEvent.dataTransfer.types === 'undefined' ||
@@ -183,7 +183,7 @@ var DragDropImport = {
      *
      * @param {MouseEvent} event obj
      *
-     * @returns {void}
+     * @return {void}
      */
     dragOver: function (event) {
         // We don't want to prevent users from using
@@ -204,7 +204,7 @@ var DragDropImport = {
      *
      * @param {MouseEvent} event obj
      *
-     * @returns {void}
+     * @return {void}
      */
     dragLeave: function (event) {
         // We don't want to prevent users from using
@@ -226,7 +226,7 @@ var DragDropImport = {
      * @param {boolean} aborted true if upload was aborted
      * @param {boolean} status status of sql upload, as sent by server
      *
-     * @returns {void}
+     * @return {void}
      */
     importFinished: function (hash, aborted, status) {
         $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
@@ -269,7 +269,7 @@ var DragDropImport = {
      *
      * @param event object
      *
-     * @returns {void}
+     * @return {void}
      */
     drop: function (event) {
         // We don't want to prevent users from using
@@ -354,7 +354,7 @@ var DragDropImport = {
  * Called when some user drags, dragover, leave
  *       a file to the PMA UI
  * @param {object}, Event data
- * @returns {void}
+ * @return {void}
  */
 $(document).on('dragenter', DragDropImport.dragEnter);
 $(document).on('dragover', DragDropImport.dragOver);

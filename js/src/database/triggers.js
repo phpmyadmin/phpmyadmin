@@ -23,6 +23,8 @@ const DatabaseTriggers = {
     buttonOptions: {},
     /**
      * Validate editor form fields.
+     *
+     * @return {bool}
      */
     validate: function () {
         /**
@@ -56,6 +58,8 @@ const DatabaseTriggers = {
      * Validate custom editor form fields.
      * This function can be overridden by
      * other files in this folder
+     *
+     * @return {bool}
      */
     validateCustom: function () {
         return true;

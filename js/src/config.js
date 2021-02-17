@@ -11,7 +11,7 @@ var configScriptLoaded;
  * @param {'localStorage' | 'sessionStorage'} type the type of storage i.e. localStorage or sessionStorage
  * @param {boolean} warn Wether to show a warning on error
  *
- * @returns {boolean}
+ * @return {boolean}
  */
 function isStorageSupported (type, warn = false) {
     try {
@@ -58,7 +58,7 @@ var defaultValues = {};
  *
  * @param {Element} field
  *
- * @returns {string}
+ * @return {string}
  */
 function getFieldType (field) {
     var $field = $(field);
@@ -79,7 +79,7 @@ function getFieldType (field) {
  * @param {Element} field
  * @param {boolean} display
  *
- * @returns {void}
+ * @return {void}
  */
 function setRestoreDefaultBtn (field, display) {
     var $el = $(field).closest('td').find('.restore-default img');
@@ -91,7 +91,7 @@ function setRestoreDefaultBtn (field, display) {
  *
  * @param {Element | JQuery<Element>} field
  *
- * @returns {void}
+ * @return {void}
  */
 function markField (field) {
     var $field = $(field);
@@ -150,7 +150,7 @@ function setFieldValue (field, fieldType, value) {
  * @param {Element} field
  * @param {string}  fieldType returned by {@link #getFieldType}
  *
- * @returns {boolean | string | string[] | null}
+ * @return {boolean | string | string[] | null}
  */
 function getFieldValue (field, fieldType) {
     var $field = $(field);
@@ -178,7 +178,7 @@ function getFieldValue (field, fieldType) {
 /**
  * Returns values for all fields in fieldsets
  *
- * @returns {object}
+ * @return {object}
  */
 // eslint-disable-next-line no-unused-vars
 function getAllValues () {
@@ -206,7 +206,7 @@ function getAllValues () {
  * @param {Element} field
  * @param {string}  type
  *
- * @returns {boolean}
+ * @return {boolean}
  */
 function checkFieldDefault (field, type) {
     var $field = $(field);
@@ -238,7 +238,7 @@ function checkFieldDefault (field, type) {
  * Returns element's id prefix
  * @param {Element} element
  *
- * @returns {string}
+ * @return {string}
  */
 // eslint-disable-next-line no-unused-vars
 function getIdPrefix (element) {
@@ -263,7 +263,7 @@ var validators = {
      *
      * @param {boolean} isKeyUp
      *
-     * @returns {boolean}
+     * @return {boolean}
      */
     validatePositiveNumber: function (isKeyUp) {
         if (isKeyUp && this.value === '') {
@@ -277,7 +277,7 @@ var validators = {
      *
      * @param {boolean} isKeyUp
      *
-     * @returns {boolean}
+     * @return {boolean}
      */
     validateNonNegativeNumber: function (isKeyUp) {
         if (isKeyUp && this.value === '') {
@@ -288,6 +288,8 @@ var validators = {
     },
     /**
      * Validates port number
+     *
+     * @return {true|string}
      */
     validatePortNumber: function () {
         if (this.value === '') {
@@ -301,6 +303,8 @@ var validators = {
      *
      * @param {boolean} isKeyUp
      * @param {string}  regexp
+     *
+     * @return {true|string}
      */
     validateByRegex: function (isKeyUp, regexp) {
         if (isKeyUp && this.value === '') {
@@ -316,6 +320,8 @@ var validators = {
      *
      * @param {boolean} isKeyUp
      * @param {number} maxValue
+     *
+     * @return {true|string}
      */
     validateUpperBound: function (isKeyUp, maxValue) {
         var val = parseInt(this.value, 10);
@@ -359,7 +365,7 @@ function registerFieldValidator (id, type, onKeyUp, params) {
  * @param {String}  fieldId     form field id
  * @param {boolean} onKeyUpOnly see registerFieldValidator
  *
- * @returns {any[]} of [function, parameters to be passed to function]
+ * @return {any[]} of [function, parameters to be passed to function]
  */
 function getFieldValidators (fieldId, onKeyUpOnly) {
     // look for field bound validator
@@ -463,7 +469,7 @@ function setDisplayError () {
  *
  * @param {Element} fieldset
  * @param {boolean} isKeyUp
- * @param {Object}  errors
+ * @param {object}  errors
  */
 function validateFieldset (fieldset, isKeyUp, errors) {
     var $fieldset = $(fieldset);
@@ -635,7 +641,7 @@ AJAX.registerOnload('config.js', function () {
  *
  * @param {string} fieldId
  *
- * @returns {void}
+ * @return {void}
  */
 function restoreField (fieldId) {
     var $field = $('#' + fieldId);

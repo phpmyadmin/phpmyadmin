@@ -22,7 +22,7 @@ var processList = {
     /**
      * Handles killing of a process
      *
-     * @returns {void}
+     * @return {void}
      */
     init: function () {
         processList.setRefreshLabel();
@@ -39,9 +39,9 @@ var processList = {
     /**
      * Handles killing of a process
      *
-     * @param {object} the event object
+     * @param {object} event the event object
      *
-     * @returns {void}
+     * @return {void}
      */
     killProcessHandler: function (event) {
         event.preventDefault();
@@ -79,7 +79,7 @@ var processList = {
      *
      * @param {object} the event object
      *
-     * @returns {void}
+     * @return {void}
      */
     refresh: function () {
         // abort any previous pending requests
@@ -110,7 +110,7 @@ var processList = {
     /**
      * Stop current request and clears timeout
      *
-     * @returns {void}
+     * @return {void}
      */
     abortRefresh: function () {
         if (processList.refreshRequest !== null) {
@@ -124,7 +124,7 @@ var processList = {
      * Set label of refresh button
      * change between play & pause
      *
-     * @returns {void}
+     * @return {void}
      */
     setRefreshLabel: function () {
         var img = 'play';
@@ -142,7 +142,7 @@ var processList = {
      * for autorefresh request,
      * includes showExecuting if the filter is checked
      *
-     * @returns urlParams - url parameters with autoRefresh request
+     * @return {object} urlParams - url parameters with autoRefresh request
      */
     getUrlParams: function () {
         var urlParams = {

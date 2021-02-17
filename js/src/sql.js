@@ -20,7 +20,7 @@ var Sql = {};
  * decode a string URL_encoded
  *
  * @param {string} str
- * @returns {string} the URL-decoded string
+ * @return {string} the URL-decoded string
  */
 Sql.urlDecode = function (str) {
     if (typeof str !== 'undefined') {
@@ -32,7 +32,7 @@ Sql.urlDecode = function (str) {
  * encode a string URL_decoded
  *
  * @param {string} str
- * @returns {string} the URL-encoded string
+ * @return {string} the URL-encoded string
  */
 Sql.urlEncode = function (str) {
     if (typeof str !== 'undefined') {
@@ -44,7 +44,7 @@ Sql.urlEncode = function (str) {
  * Saves SQL query in local storage or cookie
  *
  * @param {string} query SQL query
- * @returns {void}
+ * @return {void}
  */
 Sql.autoSave = function (query) {
     if (query) {
@@ -63,7 +63,7 @@ Sql.autoSave = function (query) {
  * @param {string} db database name
  * @param {string} table table name
  * @param {string} query SQL query
- * @returns {void}
+ * @return {void}
  */
 Sql.showThisQuery = function (db, table, query) {
     var showThisQueryObject = {
@@ -113,7 +113,7 @@ Sql.setShowThisQuery = function () {
  * Saves SQL query with sort in local storage or cookie
  *
  * @param {string} query SQL query
- * @returns {void}
+ * @return {void}
  */
 Sql.autoSaveWithSort = function (query) {
     if (query) {
@@ -128,7 +128,7 @@ Sql.autoSaveWithSort = function (query) {
 /**
  * Clear saved SQL query with sort in local storage or cookie
  *
- * @returns {void}
+ * @return {void}
  */
 Sql.clearAutoSavedSort = function () {
     if (isStorageSupported('localStorage')) {
@@ -144,6 +144,8 @@ Sql.clearAutoSavedSort = function () {
  *
  * @param $tableResults enclosing results table
  * @param $thisField    jQuery object that points to the current field's tr
+ *
+ * @return {string}
  */
 Sql.getFieldName = function ($tableResults, $thisField) {
     var thisFieldIndex = $thisField.index();
@@ -880,6 +882,10 @@ AJAX.registerOnload('sql.js', function () {
 /**
  * Starting from some th, change the class of all td under it.
  * If isAddClass is specified, it will be used to determine whether to add or remove the class.
+ *
+ * @param $thisTh
+ * @param {string} newClass
+ * @param isAddClass
  */
 Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
     // index 0 is the th containing the big T

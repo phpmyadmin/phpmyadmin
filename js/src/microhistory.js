@@ -40,7 +40,7 @@ var MicroHistory = {
      *                                   selflinks of the two pages are the same.
      *                                   'newpage' otherwise
      *
-     * @returns {void}
+     * @return {void}
      */
     add: function (hash, scripts, menu, params, rel) {
         if (this.pages.length > MicroHistory.MAX) {
@@ -81,7 +81,7 @@ var MicroHistory = {
      *
      * @param {string} index Which page from the history to load
      *
-     * @returns {void}
+     * @return {void}
      */
     navigate: function (index) {
         var localIndex = index;
@@ -111,7 +111,7 @@ var MicroHistory = {
      * Resaves the content of the current page in the cache.
      * Necessary in order not to show the user some outdated version of the page
      *
-     * @returns {void}
+     * @return {void}
      */
     update: function () {
         var page = this.pages[this.current - 1];
@@ -126,7 +126,9 @@ var MicroHistory = {
         /**
          * Returns the number of items in an associative array
          *
-         * @returns {number}
+         * @param {object} obj
+         *
+         * @return {number}
          */
         size: function (obj) {
             var size = 0;
@@ -148,7 +150,7 @@ var MicroHistory = {
          * @param {string} hash    The hash (trimmed md5) of the menu to be saved
          * @param {string} content The HTML code of the menu to be saved
          *
-         * @returns {void}
+         * @return {void}
          */
         add: function (hash, content) {
             if (this.size(this.data) > MicroHistory.MAX) {
@@ -177,7 +179,7 @@ var MicroHistory = {
          *
          * @param {string} hash The hash of the menu to be retrieved
          *
-         * @returns {string}
+         * @return {string}
          */
         get: function (hash) {
             if (this.data[hash]) {
@@ -192,7 +194,7 @@ var MicroHistory = {
          * Prepares part of the parameter string used during page requests,
          * this is necessary to tell the server which menus we have in the cache
          *
-         * @returns {string}
+         * @return {string}
          */
         getRequestParam: function () {
             var param = '';
@@ -209,7 +211,9 @@ var MicroHistory = {
         /**
          * Replaces the menu with new content
          *
-         * @returns {void}
+         * @param {string} content
+         *
+         * @return {void}
          */
         replace: function (content) {
             $('#floating_menubar').html(content)
@@ -260,6 +264,9 @@ MicroHistory.setUrlHash = (function (jQuery, window) {
 
     /**
      * Sets the hash part of the URL
+     *
+     * @param {string} index
+     * @param {string} hash
      *
      * @access public
      */

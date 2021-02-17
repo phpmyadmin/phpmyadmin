@@ -25,6 +25,7 @@ var AJAX = {
      * @var {object} lockedTargets, list of locked targets
      */
     lockedTargets: {},
+    // eslint-disable-next-line valid-jsdoc
     /**
      * @var {Function} callback Callback to execute after a successful request
      *                          Used by PMA_commonFunctions from common.js
@@ -45,7 +46,7 @@ var AJAX = {
      *
      * @param {string} key key The filename for which to get the event name
      *
-     * @returns {number}
+     * @return {number}
      */
     hash: function (key) {
         var newKey = key;
@@ -70,7 +71,7 @@ var AJAX = {
      * @param {string} file   The filename for which to register the event
      * @param {Function} func The function to execute when the page is ready
      *
-     * @returns self For chaining
+     * @return {self} For chaining
      */
     registerOnload: function (file, func) {
         var eventName = 'onload_' + AJAX.hash(file);
@@ -92,7 +93,7 @@ var AJAX = {
      * @param {Function} func The function to execute when
      *                        the page is about to be torn down
      *
-     * @returns self For chaining
+     * @return {self} For chaining
      */
     registerTeardown: function (file, func) {
         var eventName = 'teardown_' + AJAX.hash(file);
@@ -112,7 +113,7 @@ var AJAX = {
      *
      * @param {string} file The filename for which to fire the event
      *
-     * @returns {void}
+     * @return {void}
      */
     fireOnload: function (file) {
         var eventName = 'onload_' + AJAX.hash(file);
@@ -131,7 +132,7 @@ var AJAX = {
      *
      * @param {string} file The filename for which to fire the event
      *
-     * @returns {void}
+     * @return {void}
      */
     fireTeardown: function (file) {
         var eventName = 'teardown_' + AJAX.hash(file);
@@ -149,7 +150,7 @@ var AJAX = {
      *
      * @param event the event object
      *
-     * @returns {void}
+     * @return {void}
      */
     lockPageHandler: function (event) {
         // don't consider checkbox event
@@ -206,7 +207,7 @@ var AJAX = {
     /**
      * resets the lock
      *
-     * @returns {void}
+     * @return {void}
      */
     resetLock: function () {
         AJAX.lockedTargets = {};
@@ -226,7 +227,7 @@ var AJAX = {
      *
      * @param {KeyboardEvent} event Event data
      *
-     * @returns {boolean | void}
+     * @return {boolean | void}
      */
     requestHandler: function (event) {
         // In some cases we don't want to handle the request here and either
@@ -363,7 +364,7 @@ var AJAX = {
      *
      * @param {object} data Event data
      *
-     * @returns {void}
+     * @return {void}
      */
     loginResponseHandler: function (data) {
         if (typeof data === 'undefined' || data === null) {
@@ -469,7 +470,7 @@ var AJAX = {
      *
      * @param {object} data Event data
      *
-     * @returns {void}
+     * @return {void}
      */
     responseHandler: function (data) {
         if (typeof data === 'undefined' || data === null) {
@@ -673,7 +674,7 @@ var AJAX = {
          * @param {string} fire Whether this file will be registering
          *                      onload/teardown events
          *
-         * @returns self For chaining
+         * @return {self} For chaining
          */
         add: function (file, fire) {
             this.scripts.push(file);
@@ -690,7 +691,7 @@ var AJAX = {
          * @param {string[]} files An array of filenames and flags
          * @param {Function} callback
          *
-         * @returns {void}
+         * @return {void}
          */
         load: function (files, callback) {
             var self = this;
@@ -734,7 +735,7 @@ var AJAX = {
          * @param {string} script
          * @param {Function?} callback
          *
-         * @returns {void}
+         * @return {void}
          */
         done: function (script, callback) {
             if (typeof ErrorReport !== 'undefined') {
@@ -762,7 +763,7 @@ var AJAX = {
          * @param {string} name
          * @param {Function} callback
          *
-         * @returns {void}
+         * @return {void}
          */
         appendScript: function (name, callback) {
             var head = document.head || document.getElementsByTagName('head')[0];
@@ -784,7 +785,7 @@ var AJAX = {
          *
          * @param {Function} callback The callback to call after resetting
          *
-         * @returns {void}
+         * @return {void}
          */
         reset: function (callback) {
             for (var i in this.scriptsToBeFired) {

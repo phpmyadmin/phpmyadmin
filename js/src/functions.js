@@ -107,6 +107,8 @@ $.ajaxPrefilter(function (options, originalOptions) {
  * Adds a date/time picker to an element
  *
  * @param {object} $thisElement a jQuery object pointing to the element
+ * @param {string} type
+ * @param {object} options
  */
 Functions.addDatepicker = function ($thisElement, type, options) {
     if (type !== 'date' && type !== 'time' && type !== 'datetime' && type !== 'timestamp') {
@@ -262,8 +264,10 @@ Functions.handleRedirectAndReload = function (data) {
  *
  * @param $textarea   jQuery object wrapping the textarea to be made the editor
  * @param options     optional options for CodeMirror
- * @param resize      optional resizing ('vertical', 'horizontal', 'both')
+ * @param {'vertical'|'horizontal'|'both'} resize optional resizing ('vertical', 'horizontal', 'both')
  * @param lintOptions additional options for lint
+ *
+ * @return {object|null}
  */
 Functions.getSqlEditor = function ($textarea, options, resize, lintOptions) {
     var resizeType = resize;
@@ -381,7 +385,7 @@ Functions.tooltip = function ($elements, item, myContent, additionalOptions) {
  * HTML escaping
  *
  * @param {any} unsafe
- * @returns {string | false}
+ * @return {string | false}
  */
 Functions.escapeHtml = function (unsafe) {
     if (typeof(unsafe) !== 'undefined') {
@@ -401,7 +405,7 @@ Functions.escapeHtml = function (unsafe) {
  * JavaScript escaping
  *
  * @param {any} unsafe
- * @returns {string | false}
+ * @return {string | false}
  */
 Functions.escapeJsString = function (unsafe) {
     if (typeof(unsafe) !== 'undefined') {
@@ -423,6 +427,7 @@ Functions.escapeJsString = function (unsafe) {
 
 /**
  * @param {string} s
+ * @return {string}
  */
 Functions.escapeBacktick = function (s) {
     return s.replace('`', '``');
@@ -430,6 +435,7 @@ Functions.escapeBacktick = function (s) {
 
 /**
  * @param {string} s
+ * @return {string}
  */
 Functions.escapeSingleQuote = function (s) {
     return s.replace('\\', '\\\\').replace('\'', '\\\'');
@@ -534,7 +540,7 @@ Functions.checkPasswordStrength = function (value, meterObject, meterObjectLabel
  *
  * @param {object} passwordForm the form that holds the password fields
  *
- * @returns {boolean} always true
+ * @return {boolean} always true
  */
 Functions.suggestPassword = function (passwordForm) {
     // restrict the password to just letters and numbers to avoid problems:
@@ -642,7 +648,7 @@ Functions.selectContent = function (element, lock, onlyOnce) {
  * @param {object} theLink     the link
  * @param {object} theSqlQuery the sql query to submit
  *
- * @returns {boolean} whether to run the query or not
+ * @return {boolean} whether to run the query or not
  */
 Functions.confirmLink = function (theLink, theSqlQuery) {
     // Confirmation is not required in the configuration file
@@ -671,7 +677,7 @@ Functions.confirmLink = function (theLink, theSqlQuery) {
  * @param {object} theForm1  the form
  * @param {string} sqlQuery1 the sql query string
  *
- * @returns {boolean} whether to run the query or not
+ * @return {boolean} whether to run the query or not
  *
  * @see Functions.checkSqlQuery()
  */
@@ -728,7 +734,7 @@ Functions.confirmQuery = function (theForm1, sqlQuery1) {
  *
  * @param {object} theForm the form
  *
- * @returns {boolean} always false
+ * @return {boolean} always false
  *
  * @see Functions.confirmQuery()
  */
@@ -774,7 +780,7 @@ Functions.checkSqlQuery = function (theForm) {
  * @param {object} theForm      the form
  * @param {string} theFieldName the name of the form field to put the focus on
  *
- * @returns {boolean} whether the form field is empty or not
+ * @return {boolean} whether the form field is empty or not
  */
 Functions.emptyCheckTheField = function (theForm, theFieldName) {
     var theField = theForm.elements[theFieldName];
@@ -791,7 +797,7 @@ Functions.emptyCheckTheField = function (theForm, theFieldName) {
  * @param {number} minimum the minimum authorized value
  * @param {number} maximum the maximum authorized value
  *
- * @returns {boolean}  whether a valid number has been submitted or not
+ * @return {boolean}  whether a valid number has been submitted or not
  */
 Functions.checkFormElementInRange = function (theForm, theFieldName, message, minimum, maximum) {
     var theField         = theForm.elements[theFieldName];
@@ -1094,7 +1100,7 @@ AJAX.registerOnload('functions.js', function () {
   * @param {string} theSelect the element name
   * @param {boolean} doCheck  whether to check or to uncheck options
   *
-  * @returns {boolean} always true
+  * @return {boolean} always true
   */
 Functions.setSelectOptions = function (theForm, theSelect, doCheck) {
     $('form[name=\'' + theForm + '\'] select[name=\'' + theSelect + '\']').find('option').prop('selected', doCheck);
@@ -1103,6 +1109,8 @@ Functions.setSelectOptions = function (theForm, theSelect, doCheck) {
 
 /**
  * Sets current value for query box.
+ * @param {string} query
+ * @return {void}
  */
 Functions.setQuery = function (query) {
     if (codeMirrorEditor) {
@@ -1117,7 +1125,7 @@ Functions.setQuery = function (query) {
 /**
  * Handles 'Simulate query' button on SQL query box.
  *
- * @returns {void}
+ * @return {void}
  */
 Functions.handleSimulateQueryButton = function () {
     var updateRegExp = new RegExp('^\\s*UPDATE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+SET\\s', 'i');
@@ -1148,6 +1156,8 @@ Functions.handleSimulateQueryButton = function () {
 
 /**
   * Create quick sql statements.
+  *
+  * @param {'clear'|'format'|'saved'|'selectall'|'select'|'insert'|'update'|'delete'} queryType
   *
   */
 Functions.insertQuery = function (queryType) {
@@ -1420,6 +1430,10 @@ $(function () {
 
 /**
  * Returns paper sizes for a given format
+ *
+ * @param {string} format
+ * @param {'x'|'y'} axis
+ * @return {number}
  */
 Functions.pdfPaperSize = function (format, axis) {
     switch (format.toUpperCase()) {
@@ -1675,7 +1689,7 @@ Functions.pdfPaperSize = function (format, axis) {
 /**
  * Get checkbox for foreign key checks
  *
- * @returns {string}
+ * @return {string}
  */
 Functions.getForeignKeyCheckboxLoader = function () {
     var html = '';
@@ -1835,6 +1849,7 @@ AJAX.registerOnload('functions.js', function () {
 
 /**
  * "inputRead" event handler for CodeMirror SQL query editors for autocompletion
+ * @param instance
  */
 Functions.codeMirrorAutoCompleteOnInputRead = function (instance) {
     if (!sqlAutoCompleteInProgress
@@ -1964,6 +1979,9 @@ Functions.catchKeypressesFromSqlInlineEdit = function (event) {
 
 /**
  * Adds doc link to single highlighted SQL element
+ *
+ * @param $elm
+ * @param params
  */
 Functions.documentationAdd = function ($elm, params) {
     if (typeof mysqlDocTemplate === 'undefined') {
@@ -1984,6 +2002,9 @@ Functions.documentationAdd = function ($elm, params) {
 
 /**
  * Generates doc links for keywords inside highlighted SQL
+ *
+ * @param idx
+ * @param elm
  */
 Functions.documentationKeyword = function (idx, elm) {
     var $elm = $(elm);
@@ -2021,6 +2042,9 @@ Functions.documentationKeyword = function (idx, elm) {
 
 /**
  * Generates doc links for builtins inside highlighted SQL
+ *
+ * @param idx
+ * @param elm
  */
 Functions.documentationBuiltin = function (idx, elm) {
     var $elm = $(elm);
@@ -2032,6 +2056,8 @@ Functions.documentationBuiltin = function (idx, elm) {
 
 /**
  * Higlights SQL using CodeMirror.
+ *
+ * @param $base
  */
 Functions.highlightSql = function ($base) {
     var $elm = $base.find('code.sql');
@@ -2063,7 +2089,7 @@ Functions.highlightSql = function ($base) {
  *
  * @param {string} rawValue  raw code, used as a parameter for highlighter
  *
- * @returns {boolean}        whether content was updated or not
+ * @return {boolean}        whether content was updated or not
  */
 Functions.updateCode = function ($base, htmlValue, rawValue) {
     var $code = $base.find('code');
@@ -2137,7 +2163,7 @@ Functions.updateCode = function ($base, htmlValue, rawValue) {
  *                              with red background.
  *                              If set to 'success', the notification will show with
  *                              a green background.
- * @returns {JQuery<Element>}   jQuery Element that holds the message div
+ * @return {JQuery<Element>}   jQuery Element that holds the message div
  *                              this object can be passed to Functions.ajaxRemoveMessage()
  *                              to remove the notification
  */
@@ -2241,7 +2267,7 @@ Functions.ajaxShowMessage = function (message, timeout, type) {
  *
  * @param {JQuery} $thisMessageBox Element that holds the notification
  *
- * @returns {void}
+ * @return {void}
  */
 Functions.ajaxRemoveMessage = function ($thisMessageBox) {
     if ($thisMessageBox !== undefined && $thisMessageBox instanceof jQuery) {
@@ -2261,7 +2287,7 @@ Functions.ajaxRemoveMessage = function ($thisMessageBox) {
  *
  * @param {JQuery<HTMLElement>} $form Form containing query data
  *
- * @returns {void}
+ * @return {void}
  */
 Functions.previewSql = function ($form) {
     var formUrl = $form.attr('action');
@@ -2321,7 +2347,7 @@ Functions.previewSql = function ($form) {
  * @param {string}           url      Url to be sent to callback
  * @param {onSubmitCallback} callback On submit callback function
  *
- * @returns {void}
+ * @return {void}
  */
 Functions.confirmPreviewSql = function (sqlData, url, callback) {
     var $dialogContent = $('<div class="preview_sql"><code class="sql"><pre>'
@@ -2365,7 +2391,7 @@ Functions.confirmPreviewSql = function (sqlData, url, callback) {
  *
  * @param {JQuery} $form Form
  *
- * @returns {boolean}
+ * @return {boolean}
  */
 Functions.checkReservedWordColumns = function ($form) {
     var isConfirmed = true;
@@ -2422,7 +2448,7 @@ $(function () {
      *
      * @param {string | number | string[]} text to copy to clipboard
      *
-     * @returns {boolean}
+     * @return {boolean}
      */
     function copyToClipboard (text) {
         var $temp = $('<input>');
@@ -2455,6 +2481,8 @@ $(function () {
 
 /**
  * Hides/shows the "Open in ENUM/SET editor" message, depending on the data type of the column currently selected
+ *
+ * @param selectElement
  */
 Functions.showNoticeForEnum = function (selectElement) {
     var enumNoticeId = selectElement.attr('id').split('_')[1];
@@ -2470,6 +2498,11 @@ Functions.showNoticeForEnum = function (selectElement) {
 /**
  * Creates a Profiling Chart. Used in sql.js
  * and in server/status/monitor.js
+ *
+ * @param target
+ * @param data
+ *
+ * @return {object}
  */
 Functions.createProfilingChart = function (target, data) {
     // create the chart
@@ -2538,7 +2571,7 @@ Functions.createProfilingChart = function (target, data) {
  *
  * @param {number} number   Number to be formatted, should be in the range of microsecond to second
  * @param {number} accuracy Accuracy, how many numbers right to the comma should be
- * @returns {string}        The formatted number
+ * @return {string}        The formatted number
  */
 Functions.prettyProfilingNum = function (number, accuracy) {
     var num = number;
@@ -2562,7 +2595,7 @@ Functions.prettyProfilingNum = function (number, accuracy) {
  * Formats a SQL Query nicely with newlines and indentation. Depends on Codemirror and MySQL Mode!
  *
  * @param {string} string Query to be formatted
- * @returns {string}      The formatted query
+ * @return {string}      The formatted query
  */
 Functions.sqlPrettyPrint = function (string) {
     if (typeof CodeMirror === 'undefined') {
@@ -2711,6 +2744,8 @@ Functions.sqlPrettyPrint = function (string) {
  *                                an Ajax call to
  * @param {Function} callbackFn   callback to execute after user clicks on OK
  * @param {Function} openCallback optional callback to run when dialog is shown
+ *
+ * @return {bool}
  */
 Functions.confirm = function (question, url, callbackFn, openCallback) {
     var confirmState = CommonParams.get('confirm');
@@ -2767,7 +2802,7 @@ jQuery.fn.confirm = Functions.confirm;
  *
  * @param {string} textSelector string to select the sortKey's text
  *
- * @returns {JQuery<HTMLElement>} for chaining purposes
+ * @return {JQuery<HTMLElement>} for chaining purposes
  */
 Functions.sortTable = function (textSelector) {
     return this.each(function () {
@@ -2930,6 +2965,8 @@ AJAX.registerOnload('functions.js', function () {
     /**
      * Submits the intermediate changes in the table creation form
      * to refresh the UI accordingly
+     *
+     * @param actionParam
      */
     function submitChangesInCreateTableForm (actionParam) {
         /**
@@ -3012,7 +3049,7 @@ AJAX.registerOnload('functions.js', function () {
  * @see    Messages.strPasswordEmpty
  * @see    Messages.strPasswordNotSame
  * @param {object} $theForm The form to be validated
- * @returns {boolean}
+ * @return {boolean}
  */
 Functions.checkPassword = function ($theForm) {
     // Did the user select 'no password'?
@@ -3268,6 +3305,8 @@ Functions.hideShowConnection = function ($engineSelector) {
 
 /**
  * If the column does not allow NULL values, makes sure that default is not NULL
+ *
+ * @param $nullCheckbox
  */
 Functions.validateDefaultValue = function ($nullCheckbox) {
     if (! $nullCheckbox.prop('checked')) {
@@ -3664,7 +3703,7 @@ AJAX.registerOnload('functions.js', function () {
  * key, lock index name to 'PRIMARY'
  * @param {string} formId Variable which parses the form name as
  *                        the input
- * @returns {boolean} false if there is no index form, true else
+ * @return {boolean} false if there is no index form, true else
  */
 Functions.checkIndexName = function (formId) {
     if ($('#' + formId).length === 0) {
@@ -3920,6 +3959,8 @@ $(function () {
 
 /**
  * Changes status of slider
+ *
+ * @param $element
  */
 Functions.setStatusLabel = function ($element) {
     var text;
@@ -3935,6 +3976,8 @@ Functions.setStatusLabel = function ($element) {
  * var  toggleButton  This is a function that creates a toggle
  *                    sliding button given a jQuery reference
  *                    to the correct DOM element
+ *
+ * @param $obj
  */
 Functions.toggleButton = function ($obj) {
     // In rtl mode the toggle switch is flipped horizontally
@@ -4213,7 +4256,7 @@ AJAX.registerTeardown('functions.js', function () {
  *                 provided, one will be created below the
  *                 navigation links at the top of the page
  *
- * @returns {boolean} True on success, false on failure
+ * @return {boolean} True on success, false on failure
  */
 Functions.slidingMessage = function (msg, $object) {
     var $obj = $object;
@@ -4355,6 +4398,9 @@ AJAX.registerOnload('functions.js', function () {
 
 /**
  * Return value of a cell in a table.
+ *
+ * @param {string} td
+ * @return {string}
  */
 Functions.getCellValue = function (td) {
     var $td = $(td);
@@ -4688,6 +4734,8 @@ AJAX.registerOnload('functions.js', function () {
  * @param bytesToFormat the bytes to format
  * @param subDecimals optional subdecimals the number of digits after the point
  * @param pointChar optional pointchar the char to use as decimal point
+ *
+ * @return {string}
  */
 Functions.formatBytes = function (bytesToFormat, subDecimals, pointChar) {
     var bytes = bytesToFormat;
@@ -4733,6 +4781,10 @@ AJAX.registerOnload('functions.js', function () {
 
 /**
  * Formats timestamp for display
+ *
+ * @param {string} date
+ * @param {bool} seconds
+ * @return {string}
  */
 Functions.formatDateTime = function (date, seconds) {
     var result = $.datepicker.formatDate('yy-mm-dd', date);
@@ -4751,7 +4803,7 @@ Functions.formatDateTime = function (date, seconds) {
 
 /**
  * Check than forms have less fields than max allowed by PHP.
- * @returns {boolean}
+ * @return {boolean}
  */
 Functions.checkNumberOfFields = function () {
     if (typeof maxInputVars === 'undefined') {
@@ -4806,6 +4858,9 @@ Functions.ignorePhpErrors = function (clearPrevErrors) {
  * Toggle the Datetimepicker UI if the date value entered
  * by the user in the 'text box' is not going to be accepted
  * by the Datetimepicker plugin (but is accepted by MySQL)
+ *
+ * @param $td
+ * @param $inputField
  */
 Functions.toggleDatepickerIfInvalid = function ($td, $inputField) {
     // Regex allowed by the Datetimepicker UI
@@ -4903,7 +4958,7 @@ AJAX.registerOnload('functions.js', function () {
  * @param {string} alternate  Used to set 'alt' and 'title' attributes of the image
  * @param {object} attributes An associative array of other attributes
  *
- * @returns {object} The requested image, this object has two methods:
+ * @return {object} The requested image, this object has two methods:
  *                  .toString()        - Returns the IMG tag for the requested image
  *                  .attr(name)        - Returns a particular attribute of the IMG
  *                                       tag given it's name
@@ -5026,7 +5081,7 @@ Functions.configSet = function (key, value) {
  * @param {boolean}    cached          Configuration type.
  * @param {Function}   successCallback The callback to call after the value is received
  *
- * @returns {object}                Configuration value.
+ * @return {object}                Configuration value.
  */
 Functions.configGet = function (key, cached, successCallback) {
     var isCached = (typeof cached !== 'undefined') ? cached : true;
@@ -5067,6 +5122,8 @@ Functions.configGet = function (key, cached, successCallback) {
 
 /**
  * Return POST data as stored by Generator::linkOrButton
+ *
+ * @return {string}
  */
 Functions.getPostData = function () {
     var dataPost = this.attr('data-post');

@@ -14,7 +14,9 @@ var Indexes = {};
 /**
  * Returns the array of indexes based on the index choice
  *
- * @param indexChoice index choice
+ * @param {string} indexChoice index choice
+ *
+ * @return {null|object}
  */
 Indexes.getIndexArray = function (indexChoice) {
     var sourceArray = null;
@@ -129,7 +131,7 @@ Indexes.checkIndexType = function () {
  * @param {any[]}  sourceArray Array containing index columns
  * @param {string} indexChoice Choice of index
  *
- * @returns {void}
+ * @return {void}
  */
 Indexes.setIndexFormParameters = function (sourceArray, indexChoice) {
     if (indexChoice === 'index') {
@@ -144,7 +146,7 @@ Indexes.setIndexFormParameters = function (sourceArray, indexChoice) {
  *
  * @param {string} colIndex Index of column in form
  *
- * @returns {void}
+ * @return {void}
  */
 Indexes.removeColumnFromIndex = function (colIndex) {
     // Get previous index details.
@@ -185,7 +187,7 @@ Indexes.removeColumnFromIndex = function (colIndex) {
  * @param {string} indexChoice Choice of Index
  * @param {string} colIndex    Index of column on form
  *
- * @returns {void}
+ * @return {void}
  */
 Indexes.addColumnToIndex = function (sourceArray, arrayIndex, indexChoice, colIndex) {
     if (colIndex >= 0) {
@@ -253,7 +255,7 @@ Indexes.addColumnToIndex = function (sourceArray, arrayIndex, indexChoice, colIn
  * @param {any[]} sourceArray Array hodling columns for particular index
  * @param {string} colIndex Choice of index
  *
- * @returns {JQuery} jQuery Object
+ * @return {JQuery} jQuery Object
  */
 Indexes.getCompositeIndexList = function (sourceArray, colIndex) {
     // Remove any previous list.
@@ -308,7 +310,7 @@ Indexes.getCompositeIndexList = function (sourceArray, colIndex) {
  * @param {object} index         Index detail object
  * @param {boolean} showDialog   Whether to show index creation dialog or not
  *
- * @returns {void}
+ * @return {void}
  */
 Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, colIndex, index, showDialog) {
     var showDialogLocal = typeof showDialog !== 'undefined' ? showDialog : true;
@@ -462,7 +464,7 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
  * @param {string} indexChoice Choice of index
  * @param {string} colIndex    Index of new column on form
  *
- * @returns {void}
+ * @return {void}
  */
 Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex) {
     var $singleColumnRadio = $('<input type="radio" id="single_column" name="index_choice"' +

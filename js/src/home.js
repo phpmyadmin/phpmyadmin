@@ -2,7 +2,7 @@ const GitInfo = {
     /**
      * Version string to integer conversion.
      * @param {string} str
-     * @returns {number | false}
+     * @return {number | false}
      */
     parseVersionString: function (str) {
         if (typeof(str) !== 'string') {

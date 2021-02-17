@@ -25,7 +25,7 @@ var CommonParams = (function () {
          *
          * @param obj hash The input array
          *
-         * @returns {void}
+         * @return {void}
          */
         setAll: function (obj) {
             var updateNavigation = false;
@@ -49,7 +49,7 @@ var CommonParams = (function () {
          *
          * @param {string} name The key
          *
-         * @returns {string}
+         * @return {string}
          */
         get: function (name) {
             return params[name];
@@ -60,7 +60,7 @@ var CommonParams = (function () {
          * @param {string} name  The key
          * @param {string} value The value
          *
-         * @returns {CommonParams} For chainability
+         * @return {CommonParams} For chainability
          */
         set: function (name, value) {
             var updateNavigation = false;
@@ -82,7 +82,7 @@ var CommonParams = (function () {
          *
          * @param {string} separator New separator
          *
-         * @returns {string}
+         * @return {string}
          */
         getUrlQuery: function (separator) {
             var sep = (typeof separator !== 'undefined') ? separator : '?';
@@ -120,7 +120,7 @@ var CommonActions = {
      *
      * @param {string} newDb new_db The name of the new database
      *
-     * @returns {void}
+     * @return {void}
      */
     setDb: function (newDb) {
         if (newDb !== CommonParams.get('db')) {
@@ -132,7 +132,7 @@ var CommonActions = {
      *
      * @param {string} newDb The name of the new database
      *
-     * @returns {void}
+     * @return {void}
      */
     openDb: function (newDb) {
         CommonParams
@@ -149,7 +149,7 @@ var CommonActions = {
      *                  String to go to a different page, e.g: 'index.php'
      * @param {function | undefined} callback
      *
-     * @returns {void}
+     * @return {void}
      */
     refreshMain: function (url, callback = undefined) {
         var newUrl = url;

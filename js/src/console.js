@@ -54,7 +54,7 @@ var Console = {
     /**
      * Used for console initialize, reinit is ok, just some variable assignment
      *
-     * @returns {void}
+     * @return {void}
      */
     initialize: function () {
         if ($('#pma_console').length === 0) {
@@ -220,7 +220,10 @@ var Console = {
     /**
      * Execute query and show results in console
      *
-     * @returns {void}
+     * @param {string} queryString
+     * @param {object} options
+     *
+     * @return {void}
      */
     execute: function (queryString, options) {
         if (typeof(queryString) !== 'string' || ! /[a-z]|[A-Z]/.test(queryString)) {
@@ -266,7 +269,7 @@ var Console = {
     /**
      * Change console to collapse mode
      *
-     * @returns {void}
+     * @return {void}
      */
     collapse: function () {
         Console.setConfig('Mode', 'collapse');
@@ -286,7 +289,7 @@ var Console = {
      * Show console
      *
      * @param {boolean} inputFocus If true, focus the input line after show()
-     * @returns {void}
+     * @return {void}
      */
     show: function (inputFocus) {
         Console.setConfig('Mode', 'show');
@@ -312,7 +315,7 @@ var Console = {
      * this mode shows current SQL query
      * This mode is the default mode
      *
-     * @returns {void}
+     * @return {void}
      */
     info: function () {
         // Under construction
@@ -322,7 +325,7 @@ var Console = {
      * Toggle console mode between collapse/show
      * Used for toggle buttons and shortcuts
      *
-     * @returns {void}
+     * @return {void}
      */
     toggle: function () {
         switch (Console.config.Mode) {
@@ -338,7 +341,7 @@ var Console = {
     /**
      * Scroll console to bottom
      *
-     * @returns {void}
+     * @return {void}
      */
     scrollBottom: function () {
         Console.$consoleContent.scrollTop(Console.$consoleContent.prop('scrollHeight'));
@@ -349,7 +352,7 @@ var Console = {
      * @param {string | JQuery<Element>} cardSelector Selector, select string will be "#pma_console " + cardSelector
      * this param also can be JQuery object, if you need.
      *
-     * @returns {void}
+     * @return {void}
      */
     showCard: function (cardSelector) {
         var $card = null;
@@ -376,7 +379,7 @@ var Console = {
      * Scroll console to bottom
      *
      * @param {object} $targetCard Target card JQuery object, if it's empty, function will hide all cards
-     * @returns {void}
+     * @return {void}
      */
     hideCard: function ($targetCard) {
         if (! $targetCard) {
@@ -391,7 +394,7 @@ var Console = {
     /**
      * Used for update console config
      *
-     * @returns {void}
+     * @return {void}
      */
     updateConfig: function () {
         Console.setConfig('AlwaysExpand', $('#pma_console_options input[name=always_expand]').prop('checked'));
@@ -430,7 +433,7 @@ var ConsoleResizer = {
      *
      * @param {MouseEvent} event
      *
-     * @returns {void | false}
+     * @return {void}
      */
     mouseDown: function (event) {
         if (Console.config.Mode !== 'show') {
@@ -450,7 +453,7 @@ var ConsoleResizer = {
      *
      * @param {MouseEvent} event
      *
-     * @returns {void}
+     * @return {void}
      */
     mouseMove: function (event) {
         if (event.pageY < 35) {
@@ -475,7 +478,7 @@ var ConsoleResizer = {
     /**
      * Mouseup event handler for bind to resizer
      *
-     * @returns {void}
+     * @return {void}
      */
     mouseUp: function () {
         Console.setConfig('Height', ConsoleResizer.resultHeight);
@@ -487,7 +490,7 @@ var ConsoleResizer = {
     /**
      * Used for console resizer initialize
      *
-     * @returns {void}
+     * @return {void}
      */
     initialize: function () {
         $('#pma_console').find('.toolbar').off('mousedown');
@@ -522,7 +525,7 @@ var ConsoleInput = {
     /**
      * Used for console input initialize
      *
-     * @returns {void}
+     * @return {void}
      */
     initialize: function () {
         // _cm object can't be reinitialize
@@ -642,7 +645,7 @@ var ConsoleInput = {
      *
      * @param {KeyboardEvent} event
      *
-     * @returns {void}
+     * @return {void}
      */
     keyDown: function (event) {
         // Execute command
@@ -669,7 +672,7 @@ var ConsoleInput = {
     /**
      * Used for send text to Console.execute()
      *
-     * @returns {void}
+     * @return {void}
      */
     execute: function () {
         if (ConsoleInput.codeMirror) {
@@ -682,7 +685,7 @@ var ConsoleInput = {
      * Used for clear the input
      *
      * @param {string} target, default target is console input
-     * @returns {void}
+     * @return {void}
      */
     clear: function (target) {
         ConsoleInput.setText('', target);
@@ -690,7 +693,7 @@ var ConsoleInput = {
     /**
      * Used for set focus to input
      *
-     * @returns {void}
+     * @return {void}
      */
     focus: function () {
         ConsoleInput.inputs.console.focus();
@@ -698,7 +701,7 @@ var ConsoleInput = {
     /**
      * Used for blur input
      *
-     * @returns {void}
+     * @return {void}
      */
     blur: function () {
         if (ConsoleInput.codeMirror) {
@@ -712,7 +715,7 @@ var ConsoleInput = {
      *
      * @param {string} text
      * @param {string} target
-     * @returns {void}
+     * @return {void}
      */
     setText: function (text, target) {
         if (ConsoleInput.codeMirror) {
@@ -736,7 +739,8 @@ var ConsoleInput = {
         }
     },
     /**
-     * @param {string} target
+     * @param {'bookmark'|'console'} target
+     * @return {string}
      */
     getText: function (target) {
         if (ConsoleInput.codeMirror) {
@@ -767,7 +771,7 @@ var ConsoleMessages = {
     /**
      * Used for clear the messages
      *
-     * @returns {void}
+     * @return {void}
      */
     clear: function () {
         $('#pma_console').find('.content .console_message_container .message:not(.welcome)').addClass('hide');
@@ -777,7 +781,7 @@ var ConsoleMessages = {
     /**
      * Used for show history messages
      *
-     * @returns {void}
+     * @return {void}
      */
     showHistory: function () {
         $('#pma_console').find('.content .console_message_container .message.hide').removeClass('hide');
@@ -786,7 +790,7 @@ var ConsoleMessages = {
      * Used for getting a perticular history query
      *
      * @param {number} nthLast get nth query message from latest, i.e 1st is last
-     * @returns {string | false} message
+     * @return {string | false} message
      */
     getHistory: function (nthLast) {
         var $queries = $('#pma_console').find('.content .console_message_container .query');
@@ -803,7 +807,7 @@ var ConsoleMessages = {
      * combination executes the query (Ctrl+Enter or Enter).
      *
      * @param {boolean} enterExecutes Only Enter has to be pressed to execute query.
-     * @returns {void}
+     * @return {void}
      */
     showInstructions: function (enterExecutes) {
         var enter = +enterExecutes || 0; // conversion to int
@@ -816,7 +820,7 @@ var ConsoleMessages = {
      *
      * @param {string} msgString Message to show
      * @param {string} msgType Message type
-     * @returns {object | false}, {message_id, $message}
+     * @return {object | false}, {message_id, $message}
      */
     append: function (msgString, msgType) {
         if (typeof(msgString) !== 'string') {
@@ -860,7 +864,7 @@ var ConsoleMessages = {
      * @param {string} queryData Struct should be
      * {sql_query: "Query string", db: "Target DB", table: "Target Table"}
      * @param {string} state Message state
-     * @returns {object}, {message_id: string message id, $message: JQuery object}
+     * @return {object}, {message_id: string message id, $message: JQuery object}
      */
     appendQuery: function (queryData, state) {
         var targetMessage = ConsoleMessages.append(queryData.sql_query, 'query');
@@ -1032,7 +1036,7 @@ var ConsoleMessages = {
     /**
      * Used for console messages initialize
      *
-     * @returns {void}
+     * @return {void}
      */
     initialize: function () {
         ConsoleMessages.messageEventBinds($('#pma_console').find('.message:not(.binded)'));
@@ -1086,7 +1090,7 @@ var ConsoleBookmarks = {
      * Used for console bookmarks initialize
      * message events are already binded by ConsoleMsg.messageEventBinds
      *
-     * @returns {void}
+     * @return {void}
      */
     initialize: function () {
         if ($('#pma_bookmarks').length === 0) {

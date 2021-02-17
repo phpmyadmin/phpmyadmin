@@ -14,7 +14,7 @@ var ErrorReport = {
      * handles thrown error exceptions based on user preferences
      *
      * @param {any} exception
-     * @returns {void}
+     * @return {void}
      */
     errorHandler: function (exception) {
         // issue: 14359
@@ -59,7 +59,7 @@ var ErrorReport = {
      *
      * @param exception object error report info
      *
-     * @returns {void}
+     * @return {void}
      */
     showReportDialog: function (exception) {
         const reportData = ErrorReport.getReportData(exception);
@@ -92,7 +92,7 @@ var ErrorReport = {
     /**
      * Shows the small notification that asks for user permission
      *
-     * @returns {void}
+     * @return {void}
      */
     showErrorNotification: function () {
         ErrorReport.removeErrorNotification();
@@ -129,7 +129,7 @@ var ErrorReport = {
      * Removes the notification if it was displayed before
      *
      * @param {Event} e
-     * @returns {void}
+     * @return {void}
      */
     removeErrorNotification: function (e) {
         if (e) {
@@ -144,7 +144,7 @@ var ErrorReport = {
      * Extracts Exception name from message if it exists
      *
      * @param exception
-     * @returns {string}
+     * @return {string}
      */
     extractExceptionName: function (exception) {
         if (exception.message === null || typeof(exception.message) === 'undefined') {
@@ -162,7 +162,7 @@ var ErrorReport = {
     /**
      * Shows the modal dialog previewing the report
      *
-     * @returns {void}
+     * @return {void}
      */
     createReportDialog: function () {
         ErrorReport.removeErrorNotification();
@@ -172,7 +172,7 @@ var ErrorReport = {
      * Redirects to the settings page containing error report
      * preferences
      *
-     * @returns {void}
+     * @return {void}
      */
     redirectToSettings: function () {
         window.location.href = 'index.php?route=/preferences/features';
@@ -182,7 +182,7 @@ var ErrorReport = {
      *
      * @param exception object exception info
      *
-     * @returns {object}
+     * @return {object}
      */
     getReportData: function (exception) {
         if (exception && exception.stack && exception.stack.length) {
@@ -216,7 +216,7 @@ var ErrorReport = {
     /**
      * Wraps all global functions that start with PMA_
      *
-     * @returns {void}
+     * @return {void}
      */
     wrapGlobalFunctions: function () {
         for (var key in window) {
@@ -233,7 +233,7 @@ var ErrorReport = {
      *
      * @param {Function} func function to be wrapped
      *
-     * @returns {Function}
+     * @return {Function}
      */
     wrapFunction: function (func) {
         if (!func.wrapped) {
@@ -256,7 +256,7 @@ var ErrorReport = {
     /**
      * Automatically wraps the callback in AJAX.registerOnload
      *
-     * @returns {void}
+     * @return {void}
      */
     wrapAjaxOnloadCallback: function () {
         var oldOnload = AJAX.registerOnload;
@@ -268,7 +268,7 @@ var ErrorReport = {
     /**
      * Automatically wraps the callback in $.fn.on
      *
-     * @returns {void}
+     * @return {void}
      */
     wrapJqueryOnCallback: function () {
         var oldOn = $.fn.on;
@@ -286,7 +286,7 @@ var ErrorReport = {
      * Wraps all global functions that start with PMA_
      * also automatically wraps the callback in AJAX.registerOnload
      *
-     * @returns {void}
+     * @return {void}
      */
     setUpErrorReporting: function () {
         ErrorReport.wrapGlobalFunctions();
