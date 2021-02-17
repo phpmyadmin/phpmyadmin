@@ -94,6 +94,9 @@ phpMyAdmin - ChangeLog
 - issue #15994 Fixed the selected value detection for "on update current_timestamp"
 - issue #16614 Fixed PHP 8.0 dataseek offset call to the MySQLI extension
 - issue #16662 Fixed Uncaught TypeError on "delete" button click of a database search results page
+- issue        Fixed Undefined index: selected_usr when the user tried to delete no selected user
+- issue #16657 Fixed the QBE interface when the configuration storage is not enabled
+- issue #16479 Fix our Selenium test-suite
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
