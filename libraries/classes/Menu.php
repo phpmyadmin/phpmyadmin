@@ -98,12 +98,15 @@ class Menu
     {
         $url_params = [];
 
-        if (strlen((string) $this->table) > 0) {
+        $hasDbArg = strlen($this->db) > 0;
+
+        // The URL will not work if the table is defined without a database
+        if (strlen((string) $this->table) > 0 && $hasDbArg) {
             $tabs = $this->getTableTabs();
             $url_params['db'] = $this->db;
             $url_params['table'] = $this->table;
             $level = 'table';
-        } elseif (strlen($this->db) > 0) {
+        } elseif ($hasDbArg) {
             $tabs = $this->getDbTabs();
             $url_params['db'] = $this->db;
             $level = 'db';
