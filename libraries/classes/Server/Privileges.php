@@ -2560,7 +2560,8 @@ class Privileges
                 $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname'],
             ];
         } else {
-            $selected_usr = $_POST['selected_usr'];
+            // null happens when no user was selected
+            $selected_usr = $_POST['selected_usr'] ?? null;
             $queries = [];
         }
 
