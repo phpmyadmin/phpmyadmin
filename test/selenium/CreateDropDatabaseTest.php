@@ -76,7 +76,7 @@ class CreateDropDatabaseTest extends TestBase
         $this->scrollToElement($dbElement, 0, 20);
         $dbElement->click();
 
-        $multSubmit = $this->byCssSelector('button.mult_submit');
+        $multSubmit = $this->byCssSelector('button#bulkActionDropButton');
         $this->scrollToElement($multSubmit);
         $multSubmit->click();
         $this->byCssSelector('button.submitOK')->click();
