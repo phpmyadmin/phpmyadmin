@@ -412,7 +412,7 @@ class SearchController extends AbstractController
                             . 'data-max="' . $minMaxValues[1] . '"';
         }
 
-        $htmlAttributes .= ' onchange="return '
+        $htmlAttributes .= ' onfocus="return '
                         . 'verifyAfterSearchFieldChange(' . $column_index . ', \'#tbl_search_form\')"';
 
         $value = $this->template->render('table/search/input_box', [

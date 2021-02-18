@@ -152,15 +152,26 @@ function checkForCheckbox (multiEdit) {
 // eslint-disable-next-line no-unused-vars
 function verifyAfterSearchFieldChange (index, searchFormId) {
     var $thisInput = $('input[name=\'criteriaValues[' + index + ']\']');
+    // Add  data-skip-validators attribute to skip validation in changeValueFieldType function
+    if ($('#fieldID_' + index).data('data-skip-validators')) {
+        $(searchFormId).validate().destroy();
+        return;
+    }
     // validation for integer type
-    if ($thisInput.data('type') === 'INT') {
+    if ($thisInput.data('type') === 'INT' ||
+        $thisInput.data('type') === 'TINYINT') {
         // Trim spaces if it's an integer
         $thisInput.val($thisInput.val().trim());
 
         var hasMultiple = $thisInput.prop('multiple');
 
         if (hasMultiple) {
-            $(searchFormId).validate();
+            $(searchFormId).validate({
+                // update errors as we write
+                onkeyup: function (element) {
+                    $(element).valid();
+                }
+            });
             // validator method for IN(...), NOT IN(...)
             // BETWEEN and NOT BETWEEN
             jQuery.validator.addMethod('validationFunctionForMultipleInt', function (value) {
@@ -170,9 +181,16 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
             );
             validateMultipleIntField($thisInput, true);
         } else {
-            $(searchFormId).validate();
+            $(searchFormId).validate({
+                // update errors as we write
+                onkeyup: function (element) {
+                    $(element).valid();
+                }
+            });
             validateIntField($thisInput, true);
         }
+        // Update error on dropdown change
+        $thisInput.valid();
     }
 }
 
@@ -205,6 +223,9 @@ function validateMultipleIntField (jqueryInput, returnValueIfFine) {
 function validateIntField (jqueryInput, returnValueIfIsNumber) {
     var mini = parseInt(jqueryInput.data('min'));
     var maxi = parseInt(jqueryInput.data('max'));
+    // removing previous rules
+    jqueryInput.rules('remove');
+
     jqueryInput.rules('add', {
         number: {
             param: true,
@@ -797,8 +818,18 @@ function changeValueFieldType (elem, searchIndex) {
     if (0 === fieldsValue.size()) {
         return;
     }
-
     var type = $(elem).val();
+
+    if ('LIKE' === type ||
+        'LIKE %...%' === type ||
+        'NOT LIKE' === type
+    ) {
+        $('#fieldID_' + searchIndex).data('data-skip-validators', true);
+        return;
+    } else {
+        $('#fieldID_' + searchIndex).data('data-skip-validators', false);
+    }
+
     if ('IN (...)' === type ||
         'NOT IN (...)' === type ||
         'BETWEEN' === type ||
