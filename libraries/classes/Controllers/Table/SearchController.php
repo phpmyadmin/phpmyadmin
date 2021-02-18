@@ -413,7 +413,7 @@ class SearchController extends AbstractController
         }
 
         $htmlAttributes .= ' onfocus="return '
-                        . 'verifyAfterSearchFieldChange(' . $column_index . ', \'#tbl_search_form\')"';
+                        . 'verifyAfterSearchFieldChange(' . $search_index . ', \'#tbl_search_form\')"';
 
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
