@@ -124,7 +124,7 @@ class ProceduresTest extends TestBase
         $this->waitForElement('partialLinkText', 'Routines')->click();
         $this->waitAjax();
 
-        $this->waitForElement('partialLinkText', 'Add routine')->click();
+        $this->waitForElement('partialLinkText', 'Create new routine')->click();
 
         $this->waitForElement('className', 'rte_form');
 
@@ -185,8 +185,8 @@ class ProceduresTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'Routines')]"
+            'id',
+            'checkAllCheckbox'
         );
 
         $this->byPartialLinkText('Edit')->click();
@@ -217,8 +217,8 @@ class ProceduresTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'Routines')]"
+            'id',
+            'checkAllCheckbox'
         );
 
         $this->byPartialLinkText('Drop')->click();

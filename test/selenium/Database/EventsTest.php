@@ -175,7 +175,7 @@ class EventsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//legend[contains(., 'Events')]"
+            '//div[contains(., "Event scheduler status")]'
         );
 
         $this->byPartialLinkText('Edit')->click();
@@ -217,7 +217,7 @@ class EventsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            '//legend[contains(., "Events")]'
+            '//div[contains(., "Event scheduler status")]'
         );
 
         $this->byPartialLinkText('Drop')->click();
