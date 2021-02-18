@@ -20,8 +20,8 @@ function captureURL (url) {
 /**
  * This function is for navigating to the generated URL
  *
- * @param object   target HTMLAnchor element
- * @param object   parent HTMLDom Object
+ * @param {object} target HTMLAnchor element
+ * @param {object} parent HTMLDom Object
  */
 
 function removeColumnFromMultiSort (target, parent) {

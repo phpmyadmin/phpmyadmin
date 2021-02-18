@@ -34,6 +34,8 @@ const DatabaseRoutines = {
     buttonOptions: {},
     /**
      * Validate editor form fields.
+     *
+     * @return {bool}
      */
     validate: function () {
         /**
@@ -570,6 +572,8 @@ const DatabaseRoutines = {
     },
     /**
      * Validate custom editor form fields.
+     *
+     * @return {bool}
      */
     validateCustom: function () {
         /**
@@ -651,16 +655,16 @@ const DatabaseRoutines = {
      * parameters and the return variable in the routine editor
      * as necessary.
      *
-     * @param type a jQuery object containing the reference
-     *             to the "Type" dropdown box
-     * @param len  a jQuery object containing the reference
-     *             to the "Length" input box
-     * @param text a jQuery object containing the reference
-     *             to the dropdown box with options for
-     *             parameters of text type
-     * @param num  a jQuery object containing the reference
-     *             to the dropdown box with options for
-     *             parameters of numeric type
+     * @param $type a jQuery object containing the reference
+     *              to the "Type" dropdown box
+     * @param $len  a jQuery object containing the reference
+     *              to the "Length" input box
+     * @param $text a jQuery object containing the reference
+     *              to the dropdown box with options for
+     *              parameters of text type
+     * @param $num  a jQuery object containing the reference
+     *              to the dropdown box with options for
+     *              parameters of numeric type
      */
     setOptionsForParameter: function ($type, $len, $text, $num) {
         /**

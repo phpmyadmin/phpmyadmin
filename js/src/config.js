@@ -8,11 +8,12 @@ var configScriptLoaded;
 /**
  * checks whether browser supports web storage
  *
- * @param type the type of storage i.e. localStorage or sessionStorage
+ * @param {'localStorage' | 'sessionStorage'} type the type of storage i.e. localStorage or sessionStorage
+ * @param {boolean} warn Wether to show a warning on error
  *
- * @returns bool
+ * @return {boolean}
  */
-function isStorageSupported (type, warn) {
+function isStorageSupported (type, warn = false) {
     try {
         window[type].setItem('PMATest', 'test');
         // Check whether key-value pair was set successfully
@@ -56,6 +57,8 @@ var defaultValues = {};
  * Returns field type
  *
  * @param {Element} field
+ *
+ * @return {string}
  */
 function getFieldType (field) {
     var $field = $(field);
@@ -75,6 +78,8 @@ function getFieldType (field) {
  *
  * @param {Element} field
  * @param {boolean} display
+ *
+ * @return {void}
  */
 function setRestoreDefaultBtn (field, display) {
     var $el = $(field).closest('td').find('.restore-default img');
@@ -84,7 +89,9 @@ function setRestoreDefaultBtn (field, display) {
 /**
  * Marks field depending on its value (system default or custom)
  *
- * @param {Element} field
+ * @param {Element | JQuery<Element>} field
+ *
+ * @return {void}
  */
 function markField (field) {
     var $field = $(field);
@@ -107,8 +114,8 @@ function markField (field) {
  * o Array of values - if field_type is 'select'
  *
  * @param {Element} field
- * @param {String}  fieldType  see {@link #getFieldType}
- * @param {String|Boolean}  value
+ * @param {string}  fieldType see {@link #getFieldType}
+ * @param {string | boolean}  value
  */
 function setFieldValue (field, fieldType, value) {
     var $field = $(field);
@@ -141,8 +148,9 @@ function setFieldValue (field, fieldType, value) {
  * o Array of values - if type is 'select'
  *
  * @param {Element} field
- * @param {String}  fieldType returned by {@link #getFieldType}
- * @type Boolean|String|String[]
+ * @param {string}  fieldType returned by {@link #getFieldType}
+ *
+ * @return {boolean | string | string[] | null}
  */
 function getFieldValue (field, fieldType) {
     var $field = $(field);
@@ -169,6 +177,8 @@ function getFieldValue (field, fieldType) {
 
 /**
  * Returns values for all fields in fieldsets
+ *
+ * @return {object}
  */
 // eslint-disable-next-line no-unused-vars
 function getAllValues () {
@@ -194,8 +204,9 @@ function getAllValues () {
  * Checks whether field has its default value
  *
  * @param {Element} field
- * @param {String}  type
- * @return boolean
+ * @param {string}  type
+ *
+ * @return {boolean}
  */
 function checkFieldDefault (field, type) {
     var $field = $(field);
@@ -226,6 +237,8 @@ function checkFieldDefault (field, type) {
 /**
  * Returns element's id prefix
  * @param {Element} element
+ *
+ * @return {string}
  */
 // eslint-disable-next-line no-unused-vars
 function getIdPrefix (element) {
@@ -249,6 +262,8 @@ var validators = {
      * Validates positive number
      *
      * @param {boolean} isKeyUp
+     *
+     * @return {boolean}
      */
     validatePositiveNumber: function (isKeyUp) {
         if (isKeyUp && this.value === '') {
@@ -261,6 +276,8 @@ var validators = {
      * Validates non-negative number
      *
      * @param {boolean} isKeyUp
+     *
+     * @return {boolean}
      */
     validateNonNegativeNumber: function (isKeyUp) {
         if (isKeyUp && this.value === '') {
@@ -271,6 +288,8 @@ var validators = {
     },
     /**
      * Validates port number
+     *
+     * @return {true|string}
      */
     validatePortNumber: function () {
         if (this.value === '') {
@@ -284,6 +303,8 @@ var validators = {
      *
      * @param {boolean} isKeyUp
      * @param {string}  regexp
+     *
+     * @return {true|string}
      */
     validateByRegex: function (isKeyUp, regexp) {
         if (isKeyUp && this.value === '') {
@@ -298,7 +319,9 @@ var validators = {
      * Validates upper bound for numeric inputs
      *
      * @param {boolean} isKeyUp
-     * @param {int} maxValue
+     * @param {number} maxValue
+     *
+     * @return {true|string}
      */
     validateUpperBound: function (isKeyUp, maxValue) {
         var val = parseInt(this.value, 10);
@@ -318,8 +341,8 @@ var validators = {
 /**
  * Registers validator for given field
  *
- * @param {String}  id       field id
- * @param {String}  type     validator (key in validators object)
+ * @param {string}  id       field id
+ * @param {string}  type     validator (key in validators object)
  * @param {boolean} onKeyUp  whether fire on key up
  * @param {Array}   params   validation function parameters
  */
@@ -340,9 +363,9 @@ function registerFieldValidator (id, type, onKeyUp, params) {
  * Returns validation functions associated with form field
  *
  * @param {String}  fieldId     form field id
- * @param {boolean} onKeyUpOnly  see registerFieldValidator
- * @type Array
- * @return array of [function, parameters to be passed to function]
+ * @param {boolean} onKeyUpOnly see registerFieldValidator
+ *
+ * @return {any[]} of [function, parameters to be passed to function]
  */
 function getFieldValidators (fieldId, onKeyUpOnly) {
     // look for field bound validator
@@ -372,7 +395,7 @@ function getFieldValidators (fieldId, onKeyUpOnly) {
  * WARNING: created DOM elements must be identical with the ones made by
  * PhpMyAdmin\Config\FormDisplayTemplate::displayInput()!
  *
- * @param {Object} errorList list of errors in the form {field id: error array}
+ * @param {object} errorList list of errors in the form {field id: error array}
  */
 function displayErrors (errorList) {
     var tempIsEmpty = function (item) {
@@ -446,7 +469,7 @@ function setDisplayError () {
  *
  * @param {Element} fieldset
  * @param {boolean} isKeyUp
- * @param {Object}  errors
+ * @param {object}  errors
  */
 function validateFieldset (fieldset, isKeyUp, errors) {
     var $fieldset = $(fieldset);
@@ -469,7 +492,7 @@ function validateFieldset (fieldset, isKeyUp, errors) {
  *
  * @param {Element} field
  * @param {boolean} isKeyUp
- * @param {Object}  errors
+ * @param {object}  errors
  */
 function validateField (field, isKeyUp, errors) {
     var args;
@@ -616,7 +639,9 @@ AJAX.registerOnload('config.js', function () {
 /**
  * Restores field's default value
  *
- * @param {String} fieldId
+ * @param {string} fieldId
+ *
+ * @return {void}
  */
 function restoreField (fieldId) {
     var $field = $('#' + fieldId);

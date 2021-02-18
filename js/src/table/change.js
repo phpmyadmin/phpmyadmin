@@ -13,12 +13,12 @@
 /**
  * Modify form controls when the "NULL" checkbox is checked
  *
- * @param theType     string   the MySQL field type
- * @param urlField    string   the urlencoded field name - OBSOLETE
- * @param md5Field    string   the md5 hashed field name
- * @param multiEdit  string   the multi_edit row sequence number
+ * @param {string} theType   the MySQL field type
+ * @param {string} urlField  the urlencoded field name - OBSOLETE
+ * @param {string} md5Field  the md5 hashed field name
+ * @param {string} multiEdit the multi_edit row sequence number
  *
- * @return boolean  always true
+ * @return {boolean} always true
  */
 function nullify (theType, urlField, md5Field, multiEdit) {
     var rowForm = document.forms.insertForm;
@@ -140,6 +140,8 @@ function isTime (val) {
 
 /**
  * To check whether insert section is ignored or not
+ * @param {string} multiEdit
+ * @return {boolean}
  */
 function checkForCheckbox (multiEdit) {
     if ($('#insert_ignore_' + multiEdit).length) {
@@ -180,7 +182,7 @@ function verifyAfterSearchFieldChange (index, searchFormId) {
  * Validate the an input contains multiple int values
  * @param {jQuery} jqueryInput the Jquery object
  * @param {boolean} returnValueIfFine the value to return if the validator passes
- * @returns {void}
+ * @return {void}
  */
 function validateMultipleIntField (jqueryInput, returnValueIfFine) {
     // removing previous rules
@@ -200,7 +202,7 @@ function validateMultipleIntField (jqueryInput, returnValueIfFine) {
  * Validate the an input contains an int value
  * @param {jQuery} jqueryInput the Jquery object
  * @param {boolean} returnValueIfIsNumber the value to return if the validator passes
- * @returns {void}
+ * @return {void}
  */
 function validateIntField (jqueryInput, returnValueIfIsNumber) {
     var mini = parseInt(jqueryInput.data('min'));

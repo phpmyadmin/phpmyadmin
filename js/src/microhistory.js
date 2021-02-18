@@ -5,11 +5,11 @@
  */
 var MicroHistory = {
     /**
-     * @var int The maximum number of pages to keep in the cache
+     * @var {number} MAX The maximum number of pages to keep in the cache
      */
     MAX: 6,
     /**
-     * @var object A hash used to prime the cache with data about the initially
+     * @var {object} primer A hash used to prime the cache with data about the initially
      *             loaded page. This is set in the footer, and then loaded
      *             by a double-queued event further down this file.
      */
@@ -19,19 +19,19 @@ var MicroHistory = {
      */
     pages: [],
     /**
-     * @var int The index of the currently loaded page
+     * @var {number} current The index of the currently loaded page
      *          This is used to know at which point in the history we are
      */
     current: 0,
     /**
      * Saves a new page in the cache
      *
-     * @param string hash    The hash part of the url that is being loaded
-     * @param array  scripts A list of scripts that is required for the page
-     * @param string menu    A hash that links to a menu stored
+     * @param {string} hash    The hash part of the url that is being loaded
+     * @param {any[]}  scripts A list of scripts that is required for the page
+     * @param {string} menu    A hash that links to a menu stored
      *                       in a dedicated menu cache
-     * @param array  params  A list of parameters used by CommonParams()
-     * @param string rel     A relationship to the current page:
+     * @param {string[]} params A list of parameters used by CommonParams()
+     * @param {string} rel     A relationship to the current page:
      *                       'samepage': Forces the response to be treated as
      *                                   the same page as the current one
      *                       'newpage':  Forces the response to be treated as
@@ -40,7 +40,7 @@ var MicroHistory = {
      *                                   selflinks of the two pages are the same.
      *                                   'newpage' otherwise
      *
-     * @return void
+     * @return {void}
      */
     add: function (hash, scripts, menu, params, rel) {
         if (this.pages.length > MicroHistory.MAX) {
@@ -79,9 +79,9 @@ var MicroHistory = {
      * Restores a page from the cache. This is called when the hash
      * part of the url changes and it's structure appears to be valid
      *
-     * @param string index Which page from the history to load
+     * @param {string} index Which page from the history to load
      *
-     * @return void
+     * @return {void}
      */
     navigate: function (index) {
         var localIndex = index;
@@ -111,7 +111,7 @@ var MicroHistory = {
      * Resaves the content of the current page in the cache.
      * Necessary in order not to show the user some outdated version of the page
      *
-     * @return void
+     * @return {void}
      */
     update: function () {
         var page = this.pages[this.current - 1];
@@ -120,13 +120,15 @@ var MicroHistory = {
         }
     },
     /**
-     * @var object Dedicated menu cache
+     * @var {object} menus Dedicated menu cache
      */
     menus: {
         /**
          * Returns the number of items in an associative array
          *
-         * @return int
+         * @param {object} obj
+         *
+         * @return {number}
          */
         size: function (obj) {
             var size = 0;
@@ -145,10 +147,10 @@ var MicroHistory = {
         /**
          * Saves a new menu in the cache
          *
-         * @param string hash    The hash (trimmed md5) of the menu to be saved
-         * @param string content The HTML code of the menu to be saved
+         * @param {string} hash    The hash (trimmed md5) of the menu to be saved
+         * @param {string} content The HTML code of the menu to be saved
          *
-         * @return void
+         * @return {void}
          */
         add: function (hash, content) {
             if (this.size(this.data) > MicroHistory.MAX) {
@@ -175,9 +177,9 @@ var MicroHistory = {
         /**
          * Retrieves a menu given its hash
          *
-         * @param string hash The hash of the menu to be retrieved
+         * @param {string} hash The hash of the menu to be retrieved
          *
-         * @return string
+         * @return {string}
          */
         get: function (hash) {
             if (this.data[hash]) {
@@ -192,7 +194,7 @@ var MicroHistory = {
          * Prepares part of the parameter string used during page requests,
          * this is necessary to tell the server which menus we have in the cache
          *
-         * @return string
+         * @return {string}
          */
         getRequestParam: function () {
             var param = '';
@@ -209,7 +211,9 @@ var MicroHistory = {
         /**
          * Replaces the menu with new content
          *
-         * @return void
+         * @param {string} content
+         *
+         * @return {void}
          */
         replace: function (content) {
             $('#floating_menubar').html(content)
@@ -260,6 +264,9 @@ MicroHistory.setUrlHash = (function (jQuery, window) {
 
     /**
      * Sets the hash part of the URL
+     *
+     * @param {string} index
+     * @param {string} hash
      *
      * @access public
      */

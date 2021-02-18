@@ -1,6 +1,8 @@
 const GitInfo = {
     /**
      * Version string to integer conversion.
+     * @param {string} str
+     * @return {number | false}
      */
     parseVersionString: function (str) {
         if (typeof(str) !== 'string') {
@@ -33,6 +35,7 @@ const GitInfo = {
 
     /**
      * Indicates current available version on main page.
+     * @param {object} data
      */
     currentVersion: function (data) {
         if (data && data.version && data.date) {

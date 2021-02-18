@@ -324,7 +324,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * Find currently hovered table column's header (excluding actions column).
          *
          * @param e event
-         * @return the hovered column's th object or undefined if no hovered column found.
+         * @return {object|undefined} the hovered column's th object or undefined if no hovered column found.
          */
         getHoveredCol: function (e) {
             var hoveredCol;
@@ -343,7 +343,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * Get a zero-based index from a <th class="draggable"> tag in a table.
          *
          * @param obj table header <th> object
-         * @return zero-based index of the specified table header in the set of table headers (visible or not)
+         * @return {number} zero-based index of the specified table header in the set of table headers (visible or not)
          */
         getHeaderIdx: function (obj) {
             return $(obj).parents('tr').find('th.draggable').index(obj);
@@ -432,6 +432,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         /**
          * Update current hint using the boolean values (showReorderHint, showSortHint, etc.).
          *
+         * @return {string}
+         *
          */
         updateHint: function () {
             var text = '';
@@ -471,7 +473,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * Toggle column's visibility.
          * After calling this function and it returns true, afterToggleCol() must be called.
          *
-         * @return boolean True if the column is toggled successfully.
+         * @param {number} n
+         *
+         * @return {boolean} True if the column is toggled successfully.
          */
         toggleCol: function (n) {
             if (g.colVisib[n]) {
@@ -643,8 +647,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          *              or just specify "true", if we want to replace the edited field with the new value.
          * @param field Optional, the edited <td>. If not specified, the function will
          *              use currently edited <td> from g.currentEditCell.
-         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
-         *              and a <td> to which the grid_edit should move
+         * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
+         *                and a <td> to which the grid_edit should move
          */
         hideEditCell: function (force, data, field, options) {
             if (g.isCellEditActive && !force) {
@@ -1127,8 +1131,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         /**
          * Post the content of edited cell.
          *
-         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
-         *              and a <td> to which the grid_edit should move
+         * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
+         *                and a <td> to which the grid_edit should move
          */
         postEditedCell: function (options) {
             if (g.isSaving) {
@@ -1423,6 +1427,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Save edited cell, so it can be posted later.
+         *
+         * @return {bool}
          */
         saveEditedCell: function () {
             /**
@@ -1501,8 +1507,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         /**
          * Save or post currently edited cell, depending on the "saveCellsAtOnce" configuration.
          *
-         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
-         *              and a <td> to which the grid_edit should move
+         * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
+         *                and a <td> to which the grid_edit should move
          */
         saveOrPostEditedCell: function (options) {
             var saved = g.saveEditedCell();
@@ -1784,6 +1790,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Move currently Editing Cell to Up
+         *
+         * @param e
+         *
          */
         moveUp: function (e) {
             e.preventDefault();
@@ -1823,6 +1832,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Move currently Editing Cell to Down
+         *
+         * @param e
+         *
          */
         moveDown: function (e) {
             e.preventDefault();
@@ -1868,6 +1880,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Move currently Editing Cell to Left
+         *
+         * @param e
+         *
          */
         moveLeft: function (e) {
             e.preventDefault();
@@ -1908,6 +1923,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Move currently Editing Cell to Right
+         *
+         * @param e
+         *
          */
         moveRight: function (e) {
             e.preventDefault();

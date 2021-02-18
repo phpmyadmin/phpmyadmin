@@ -19,8 +19,8 @@ var Sql = {};
 /**
  * decode a string URL_encoded
  *
- * @param string str
- * @return string the URL-decoded string
+ * @param {string} str
+ * @return {string} the URL-decoded string
  */
 Sql.urlDecode = function (str) {
     if (typeof str !== 'undefined') {
@@ -31,8 +31,8 @@ Sql.urlDecode = function (str) {
 /**
  * encode a string URL_decoded
  *
- * @param string str
- * @return string the URL-encoded string
+ * @param {string} str
+ * @return {string} the URL-encoded string
  */
 Sql.urlEncode = function (str) {
     if (typeof str !== 'undefined') {
@@ -43,8 +43,8 @@ Sql.urlEncode = function (str) {
 /**
  * Saves SQL query in local storage or cookie
  *
- * @param string SQL query
- * @return void
+ * @param {string} query SQL query
+ * @return {void}
  */
 Sql.autoSave = function (query) {
     if (query) {
@@ -60,10 +60,10 @@ Sql.autoSave = function (query) {
 /**
  * Saves SQL query in local storage or cookie
  *
- * @param string database name
- * @param string table name
- * @param string SQL query
- * @return void
+ * @param {string} db database name
+ * @param {string} table table name
+ * @param {string} query SQL query
+ * @return {void}
  */
 Sql.showThisQuery = function (db, table, query) {
     var showThisQueryObject = {
@@ -112,8 +112,8 @@ Sql.setShowThisQuery = function () {
 /**
  * Saves SQL query with sort in local storage or cookie
  *
- * @param {String} query SQL query
- * @return void
+ * @param {string} query SQL query
+ * @return {void}
  */
 Sql.autoSaveWithSort = function (query) {
     if (query) {
@@ -128,7 +128,7 @@ Sql.autoSaveWithSort = function (query) {
 /**
  * Clear saved SQL query with sort in local storage or cookie
  *
- * @return void
+ * @return {void}
  */
 Sql.clearAutoSavedSort = function () {
     if (isStorageSupported('localStorage')) {
@@ -144,6 +144,8 @@ Sql.clearAutoSavedSort = function () {
  *
  * @param $tableResults enclosing results table
  * @param $thisField    jQuery object that points to the current field's tr
+ *
+ * @return {string}
  */
 Sql.getFieldName = function ($tableResults, $thisField) {
     var thisFieldIndex = $thisField.index();
@@ -880,6 +882,10 @@ AJAX.registerOnload('sql.js', function () {
 /**
  * Starting from some th, change the class of all td under it.
  * If isAddClass is specified, it will be used to determine whether to add or remove the class.
+ *
+ * @param $thisTh
+ * @param {string} newClass
+ * @param isAddClass
  */
 Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
     // index 0 is the th containing the big T
@@ -904,7 +910,7 @@ Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
 /**
  * Handles browse foreign values modal dialog
  *
- * @param object $this_a reference to the browse foreign value link
+ * @param {object} $thisA reference to the browse foreign value link
  */
 Sql.browseForeignDialog = function ($thisA) {
     var formId = '#browse_foreign_form';

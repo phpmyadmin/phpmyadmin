@@ -25,7 +25,7 @@ var CommonParams = (function () {
          *
          * @param obj hash The input array
          *
-         * @return void
+         * @return {void}
          */
         setAll: function (obj) {
             var updateNavigation = false;
@@ -47,9 +47,9 @@ var CommonParams = (function () {
          * Retrieves a value given its key
          * Returns empty string for undefined values
          *
-         * @param name string The key
+         * @param {string} name The key
          *
-         * @return string
+         * @return {string}
          */
         get: function (name) {
             return params[name];
@@ -57,10 +57,10 @@ var CommonParams = (function () {
         /**
          * Saves a single key value pair
          *
-         * @param name  string The key
-         * @param value string The value
+         * @param {string} name  The key
+         * @param {string} value The value
          *
-         * @return self For chainability
+         * @return {CommonParams} For chainability
          */
         set: function (name, value) {
             var updateNavigation = false;
@@ -82,7 +82,7 @@ var CommonParams = (function () {
          *
          * @param {string} separator New separator
          *
-         * @return string
+         * @return {string}
          */
         getUrlQuery: function (separator) {
             var sep = (typeof separator !== 'undefined') ? separator : '?';
@@ -118,9 +118,9 @@ var CommonActions = {
      * Saves the database name when it's changed
      * and reloads the query window, if necessary
      *
-     * @param newDb string new_db The name of the new database
+     * @param {string} newDb new_db The name of the new database
      *
-     * @return void
+     * @return {void}
      */
     setDb: function (newDb) {
         if (newDb !== CommonParams.get('db')) {
@@ -130,9 +130,9 @@ var CommonActions = {
     /**
      * Opens a database in the main part of the page
      *
-     * @param newDb string The name of the new database
+     * @param {string} newDb The name of the new database
      *
-     * @return void
+     * @return {void}
      */
     openDb: function (newDb) {
         CommonParams
@@ -145,12 +145,13 @@ var CommonActions = {
     /**
      * Refreshes the main frame
      *
-     * @param mixed url Undefined to refresh to the same page
+     * @param {any} url Undefined to refresh to the same page
      *                  String to go to a different page, e.g: 'index.php'
+     * @param {function | undefined} callback
      *
-     * @return void
+     * @return {void}
      */
-    refreshMain: function (url, callback) {
+    refreshMain: function (url, callback = undefined) {
         var newUrl = url;
         if (! newUrl) {
             newUrl = $('#selflink').find('a').attr('href') || window.location.pathname;
@@ -165,6 +166,8 @@ var CommonActions = {
             .appendTo('body')
             .trigger('click')
             .remove();
-        AJAX.callback = callback;
+        if (typeof callback !== 'undefined') {
+            AJAX.callback = callback;
+        }
     }
 };
