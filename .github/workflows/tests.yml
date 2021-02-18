@@ -15,7 +15,7 @@ jobs:
         runs-on: ${{ matrix.os }}
         strategy:
             matrix:
-                php-version: ["7.1", "7.2", "7.3", "7.4", "8.0"]
+                php-version: ["7.2", "7.3", "7.4", "8.0"]
                 os: [ubuntu-latest]
         steps:
             - uses: actions/checkout@v2
@@ -64,7 +64,7 @@ jobs:
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
         strategy:
             matrix:
-                php-version: ["7.1"]
+                php-version: ["7.2"]
                 os: [ubuntu-latest]
         steps:
             - uses: actions/checkout@v2
@@ -92,7 +92,7 @@ jobs:
               uses: codecov/codecov-action@v1
               with:
                 flags: dbase-extension
-                name: php-7.1-dbase-enabled
+                name: php-7.2-dbase-enabled
             - name: Send coverage to Scrutinizer
               uses: sudo-bot/action-scrutinizer@latest
               # Upload can fail on forks
@@ -113,7 +113,7 @@ jobs:
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
         strategy:
             matrix:
-                php-version: ["7.1"]
+                php-version: ["7.2"]
                 os: [ubuntu-latest]
         steps:
             - uses: actions/checkout@v2
@@ -141,7 +141,7 @@ jobs:
               uses: codecov/codecov-action@v1
               with:
                 flags: recode-extension
-                name: php-7.1-recode-enabled
+                name: php-7.2-recode-enabled
             - name: Send coverage to Scrutinizer
               uses: sudo-bot/action-scrutinizer@latest
               # Upload can fail on forks

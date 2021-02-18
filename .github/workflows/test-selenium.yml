@@ -49,7 +49,7 @@ jobs:
               --restart on-failure
         strategy:
             matrix:
-                php-version: ["7.1"]
+                php-version: ["7.2"]
                 os: [ubuntu-latest]
                 db-server: ["mysql:5.7"]
         steps:
@@ -87,13 +87,13 @@ jobs:
             - name: Install modules
               run: yarn install --non-interactive --production
             - name: Install nginx and php-fpm
-              run: sudo apt-get install -y nginx php7.1-fpm
+              run: sudo apt-get install -y nginx php7.2-fpm
             - name: Copy the config
               run: cp test/config.e2e.inc.php config.inc.php
             - name: Start server
               env:
                 CI_MODE: selenium
-                FPM_PATH: php-fpm7.1
+                FPM_PATH: php-fpm7.2
                 SKIP_STANDALONE: 1
               run: |
                 ./test/start-local-server
