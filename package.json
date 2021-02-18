@@ -62,7 +62,7 @@
     "build": "yarn run css-compile --style=compressed && yarn run css-rtl && yarn run js-compile",
     "css-compile": "sass themes/pmahomme/scss:themes/pmahomme/css themes/original/scss:themes/original/css themes/metro/scss:themes/metro/css themes/bootstrap/scss:themes/bootstrap/css setup/scss:setup",
     "css-lint": "stylelint -s scss \"themes/**/scss/*.scss\" \"setup/scss/*.scss\"",
-    "css-rtl": "find themes/*/css/*theme.css -exec yarn run rtlcss -c .rtlcssrc.json {} \\;",
+    "css-rtl": "yarn run rtlcss -c .rtlcssrc.json themes/bootstrap/css/theme.css && yarn run rtlcss -c .rtlcssrc.json themes/pmahomme/css/theme.css && yarn run rtlcss -c .rtlcssrc.json themes/original/css/theme.css && yarn run rtlcss -c .rtlcssrc.json themes/metro/css/theme.css && yarn run rtlcss -c .rtlcssrc.json themes/metro/css/blueeyes-theme.css && yarn run rtlcss -c .rtlcssrc.json themes/metro/css/mono-theme.css && yarn run rtlcss -c .rtlcssrc.json themes/metro/css/redmond-theme.css && yarn run rtlcss -c .rtlcssrc.json themes/metro/css/teal-theme.css",
     "js-lint": "eslint js/src test/javascript test/jest jest.config.js",
     "js-compile": "babel js/src -d js/dist",
     "test": "jest"
