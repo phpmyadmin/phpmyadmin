@@ -468,8 +468,8 @@ class ZoomSearchController extends AbstractController
                             . 'data-max="' . $minMaxValues[1] . '"';
         }
 
-        $htmlAttributes .= ' onchange="return '
-                        . 'verifyAfterSearchFieldChange(' . $column_index . ', \'#zoom_search_form\')"';
+        $htmlAttributes .= ' onfocus="return '
+                        . 'verifyAfterSearchFieldChange(' . $search_index . ', \'#zoom_search_form\')"';
 
         $value = $this->template->render('table/search/input_box', [
             'str' => '',
