@@ -103,6 +103,9 @@ phpMyAdmin - ChangeLog
 - issue        Fixed Undefined index: selected_usr when the user tried to delete no selected user
 - issue #16657 Fixed the QBE interface when the configuration storage is not enabled
 - issue #16479 Fix our Selenium test-suite
+- issue #16669 Fixed table search modal for BETWEEN
+- issue #16667 Fixed LIKE and TINYINT in search not working properly
+- issue #16424 Fixed numerical search in table and zoom
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning

@@ -6,6 +6,7 @@
  * @requires    js/functions.js
  **/
 
+/* global changeValueFieldType, verifyAfterSearchFieldChange */ // js/table/change.js
 
 /**
  *  Display Help/Info
@@ -140,8 +141,8 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         var tableRows = $('#inputSection select.column-operator');
         $.each(tableRows, function (index, item) {
             $(item).on('change', function () {
-                // eslint-disable-next-line no-undef
                 changeValueFieldType(this, index);
+                verifyAfterSearchFieldChange(index, '#zoom_search_form');
             });
         });
     };
