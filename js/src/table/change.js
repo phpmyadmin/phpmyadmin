@@ -740,7 +740,7 @@ function addNewContinueInsertionFields (event) {
             // Insert/Clone the ignore checkboxes
             if (currRows === 1) {
                 $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked">')
-                    .insertBefore('table.insertRowTable').last()
+                    .insertBefore($('table.insertRowTable').last())
                     .after('<label for="insert_ignore_1">' + Messages.strIgnore + '</label>');
             } else {
                 /**
@@ -756,21 +756,21 @@ function addNewContinueInsertionFields (event) {
                 var newName = lastCheckboxName.replace(/\d+/, lastCheckboxIndex + 1);
 
                 $('<br><div class="clearfloat"></div>')
-                    .insertBefore('table.insertRowTable').last();
+                    .insertBefore($('table.insertRowTable').last());
 
                 $lastCheckbox
                     .clone()
                     .attr({ 'id': newName, 'name': newName })
                     .prop('checked', true)
-                    .insertBefore('table.insertRowTable').last();
+                    .insertBefore($('table.insertRowTable').last());
 
                 $('label[for^=insert_ignore]').last()
                     .clone()
                     .attr('for', newName)
-                    .insertBefore('table.insertRowTable').last();
+                    .insertBefore($('table.insertRowTable').last());
 
                 $('<br>')
-                    .insertBefore('table.insertRowTable').last();
+                    .insertBefore($('table.insertRowTable').last());
             }
             currRows++;
         }
