@@ -176,7 +176,7 @@ class ImportXml extends ImportPlugin
         /**
          * The XML was malformed
          */
-        if ($db_name === null) {
+        if ($db_name === '') {
             echo Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
@@ -213,10 +213,7 @@ class ImportXml extends ImportPlugin
                      *          into another database.
                      */
                     $attrs = $val2->attributes();
-                    $create[] = 'USE '
-                        . Util::backquote(
-                            $attrs['name']
-                        );
+                    $create[] = 'USE ' . Util::backquote((string) $attrs['name']);
 
                     foreach ($val2 as $val3) {
                         /**
@@ -353,10 +350,6 @@ class ImportXml extends ImportPlugin
             $db_name = $db;
             $options = ['create_db' => false];
         } else {
-            if ($db_name === null) {
-                $db_name = 'XML_DB';
-            }
-
             /* Set database collation/charset */
             $options = [
                 'db_collation' => $collation,

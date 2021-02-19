@@ -14,7 +14,9 @@ var Indexes = {};
 /**
  * Returns the array of indexes based on the index choice
  *
- * @param indexChoice index choice
+ * @param {string} indexChoice index choice
+ *
+ * @return {null|object}
  */
 Indexes.getIndexArray = function (indexChoice) {
     var sourceArray = null;
@@ -47,27 +49,27 @@ Indexes.getIndexArray = function (indexChoice) {
  */
 Indexes.checkIndexType = function () {
     /**
-     * @var Object Dropdown to select the index choice.
+     * @var {JQuery<HTMLElement}, Dropdown to select the index choice.
      */
     var $selectIndexChoice = $('#select_index_choice');
     /**
-     * @var Object Dropdown to select the index type.
+     * @var {JQuery<HTMLElement}, Dropdown to select the index type.
      */
     var $selectIndexType = $('#select_index_type');
     /**
-     * @var Object Table header for the size column.
+     * @var {JQuery<HTMLElement}, Table header for the size column.
      */
     var $sizeHeader = $('#index_columns').find('thead tr').children('th').eq(1);
     /**
-     * @var Object Inputs to specify the columns for the index.
+     * @var {JQuery<HTMLElement}, Inputs to specify the columns for the index.
      */
     var $columnInputs = $('select[name="index[columns][names][]"]');
     /**
-     * @var Object Inputs to specify sizes for columns of the index.
+     * @var {JQuery<HTMLElement}, Inputs to specify sizes for columns of the index.
      */
     var $sizeInputs = $('input[name="index[columns][sub_parts][]"]');
     /**
-     * @var Object Footer containing the controllers to add more columns
+     * @var {JQuery<HTMLElement}, Footer containing the controllers to add more columns
      */
     var $addMore = $('#index_frm').find('.add_more');
 
@@ -126,10 +128,10 @@ Indexes.checkIndexType = function () {
 /**
  * Sets current index information into form parameters.
  *
- * @param array  source_array Array containing index columns
- * @param string index_choice Choice of index
+ * @param {any[]}  sourceArray Array containing index columns
+ * @param {string} indexChoice Choice of index
  *
- * @return void
+ * @return {void}
  */
 Indexes.setIndexFormParameters = function (sourceArray, indexChoice) {
     if (indexChoice === 'index') {
@@ -142,9 +144,9 @@ Indexes.setIndexFormParameters = function (sourceArray, indexChoice) {
 /**
  * Removes a column from an Index.
  *
- * @param string col_index Index of column in form
+ * @param {string} colIndex Index of column in form
  *
- * @return void
+ * @return {void}
  */
 Indexes.removeColumnFromIndex = function (colIndex) {
     // Get previous index details.
@@ -180,12 +182,12 @@ Indexes.removeColumnFromIndex = function (colIndex) {
 /**
  * Adds a column to an Index.
  *
- * @param array  source_array Array holding corresponding indexes
- * @param string array_index  Index of an INDEX in array
- * @param string index_choice Choice of Index
- * @param string col_index    Index of column on form
+ * @param {any[]}  sourceArray Array holding corresponding indexes
+ * @param {string} arrayIndex  Index of an INDEX in array
+ * @param {string} indexChoice Choice of Index
+ * @param {string} colIndex    Index of column on form
  *
- * @return void
+ * @return {void}
  */
 Indexes.addColumnToIndex = function (sourceArray, arrayIndex, indexChoice, colIndex) {
     if (colIndex >= 0) {
@@ -250,10 +252,10 @@ Indexes.addColumnToIndex = function (sourceArray, arrayIndex, indexChoice, colIn
 /**
  * Get choices list for a column to create a composite index with.
  *
- * @param string index_choice Choice of index
- * @param array  source_array Array hodling columns for particular index
+ * @param {any[]} sourceArray Array hodling columns for particular index
+ * @param {string} colIndex Choice of index
  *
- * @return jQuery Object
+ * @return {JQuery} jQuery Object
  */
 Indexes.getCompositeIndexList = function (sourceArray, colIndex) {
     // Remove any previous list.
@@ -290,7 +292,7 @@ Indexes.getCompositeIndexList = function (sourceArray, colIndex) {
             (alreadyPresent ? 'checked="checked"' : '') +
             ' id="composite_index_' + i + '" value="' + i + '">' +
             '<label for="composite_index_' + i + '">' + columnNames.join(', ') +
-            '</lablel>' +
+            '</label>' +
             '</li>'
         );
     }
@@ -301,14 +303,14 @@ Indexes.getCompositeIndexList = function (sourceArray, colIndex) {
 /**
  * Shows 'Add Index' dialog.
  *
- * @param array  source_array   Array holding particular index
- * @param string array_index    Index of an INDEX in array
- * @param array  target_columns Columns for an INDEX
- * @param string col_index      Index of column on form
- * @param object index          Index detail object
- * @param bool showDialog       Whether to show index creation dialog or not
+ * @param {any[]}  sourceArray   Array holding particular index
+ * @param {string} arrayIndex    Index of an INDEX in array
+ * @param {any[]}  targetColumns Columns for an INDEX
+ * @param {string} colIndex      Index of column on form
+ * @param {object} index         Index detail object
+ * @param {boolean} showDialog   Whether to show index creation dialog or not
  *
- * @return void
+ * @return {void}
  */
 Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, colIndex, index, showDialog) {
     var showDialogLocal = typeof showDialog !== 'undefined' ? showDialog : true;
@@ -458,11 +460,11 @@ Indexes.showAddIndexDialog = function (sourceArray, arrayIndex, targetColumns, c
 /**
  * Creates a advanced index type selection dialog.
  *
- * @param array  source_array Array holding a particular type of indexes
- * @param string index_choice Choice of index
- * @param string col_index    Index of new column on form
+ * @param {any[]}  sourceArray Array holding a particular type of indexes
+ * @param {string} indexChoice Choice of index
+ * @param {string} colIndex    Index of new column on form
  *
- * @return void
+ * @return {void}
  */
 Indexes.indexTypeSelectionDialog = function (sourceArray, indexChoice, colIndex) {
     var $singleColumnRadio = $('<input type="radio" id="single_column" name="index_choice"' +

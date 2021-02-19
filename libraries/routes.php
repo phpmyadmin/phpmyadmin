@@ -106,7 +106,6 @@ if (! defined('PHPMYADMIN')) {
 return static function (RouteCollector $routes): void {
     $routes->addGroup('', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '[/]', [HomeController::class, 'index']);
-        $routes->post('/set-theme', [HomeController::class, 'setTheme']);
         $routes->post('/collation-connection', [HomeController::class, 'setCollationConnection']);
         $routes->addRoute(['GET', 'POST'], '/recent-table', [HomeController::class, 'reloadRecentTablesList']);
         $routes->addRoute(['GET', 'POST'], '/git-revision', [HomeController::class, 'gitRevision']);
@@ -331,7 +330,10 @@ return static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/zoom-search', [ZoomSearchController::class, 'index']);
     });
     $routes->post('/tables', [TableController::class, 'all']);
-    $routes->get('/themes', [ThemesController::class, 'index']);
+    $routes->addGroup('/themes', static function (RouteCollector $routes): void {
+        $routes->get('', [ThemesController::class, 'index']);
+        $routes->post('/set', [ThemesController::class, 'setTheme']);
+    });
     $routes->addGroup('/transformation', static function (RouteCollector $routes): void {
         $routes->addRoute(['GET', 'POST'], '/overview', [TransformationOverviewController::class, 'index']);
         $routes->addRoute(['GET', 'POST'], '/wrapper', [TransformationWrapperController::class, 'index']);

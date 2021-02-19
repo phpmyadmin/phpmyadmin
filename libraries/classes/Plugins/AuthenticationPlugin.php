@@ -157,7 +157,7 @@ abstract class AuthenticationPlugin
             /* Redirect to login form (or configured URL) */
             Core::sendHeaderLocation($redirect_url);
         } else {
-            /* Redirect to other autenticated server */
+            /* Redirect to other authenticated server */
             $_SESSION['partial_logout'] = true;
             Core::sendHeaderLocation(
                 './index.php?route=/' . Url::getCommonRaw(['server' => $server], '&')
@@ -359,7 +359,7 @@ abstract class AuthenticationPlugin
 
             exit;
         }
-        echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme']]);
+        echo $this->template->render('login/header');
         echo Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.')
         )->getDisplay();

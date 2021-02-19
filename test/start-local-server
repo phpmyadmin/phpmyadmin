@@ -27,10 +27,6 @@ echo "Using temporary dir: ${DIR}"
 
 # You can define FPM_PATH to override the path for example FPM_PATH="php-fpm7.4"
 FPM_PATH="${FPM_PATH:-php-fpm}"
-if [ ! -z "${TRAVIS}" ]; then
-    PHP_VERSION=$(phpenv version-name)
-    FPM_PATH="$HOME/.phpenv/versions/$PHP_VERSION/sbin/php-fpm"
-fi
 
 # Start servers
 "$FPM_PATH" --fpm-config $DIR/php-fpm.conf -c $DIR/php.ini
@@ -46,7 +42,7 @@ if [ ! -z "$TESTSUITE_BROWSERSTACK_KEY" ] ; then
         unzip BrowserStackLocal-linux-x64.zip
     fi
     # Start BrowserStack Local forwarder
-    ~/browserstack/BrowserStackLocal --force-local --localIdentifier "travis-$TRAVIS_JOB_NUMBER" --onlyAutomate --key "$TESTSUITE_BROWSERSTACK_KEY" --daemon start
+    ~/browserstack/BrowserStackLocal --force-local --localIdentifier "gh-$GITHUB_ACTION" --onlyAutomate --key "$TESTSUITE_BROWSERSTACK_KEY" --daemon start
 elif [ -z "$SKIP_STANDALONE" ] ; then
     echo "Using: selenium-standalone"
     if [ ! -f selenium-standalone ]; then
@@ -58,3 +54,5 @@ elif [ -z "$SKIP_STANDALONE" ] ; then
 else
     echo "Using: nothing."
 fi
+
+echo "${DIR}" > /tmp/last_temp_dir_phpMyAdminTests

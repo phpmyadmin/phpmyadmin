@@ -1,14 +1,16 @@
 // TODO: change the axis
 /**
- ** @fileoverview JavaScript functions used on /table/search
- **
- ** @requires    jQuery
- ** @requires    js/functions.js
+ * @fileoverview JavaScript functions used on /table/search
+ *
+ * @requires    jQuery
+ * @requires    js/functions.js
  **/
 
+/* global changeValueFieldType, verifyAfterSearchFieldChange */ // js/table/change.js
 
 /**
- **  Display Help/Info
+ *  Display Help/Info
+ * @return {false}
  **/
 function displayHelp () {
     $('<div></div>')
@@ -23,24 +25,27 @@ function displayHelp () {
 }
 
 /**
- ** Extend the array object for max function
- ** @param array
+ * Extend the array object for max function
+ * @param {number[]} array
+ * @return {int}
  **/
 Array.max = function (array) {
     return Math.max.apply(Math, array);
 };
 
 /**
- ** Extend the array object for min function
- ** @param array
+ * Extend the array object for min function
+ * @param {number[]} array
+ * @return {int}
  **/
 Array.min = function (array) {
     return Math.min.apply(Math, array);
 };
 
 /**
- ** Checks if a string contains only numeric value
- ** @param n: String (to be checked)
+ * Checks if a string contains only numeric value
+ * @param {string} n (to be checked)
+ * @return {bool}
  **/
 function isNumeric (n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
@@ -48,7 +53,8 @@ function isNumeric (n) {
 
 /**
  ** Checks if an object is empty
- ** @param n: Object (to be checked)
+ * @param {object} obj (to be checked)
+ * @return {bool}
  **/
 function isEmpty (obj) {
     var name;
@@ -59,9 +65,10 @@ function isEmpty (obj) {
 }
 
 /**
- ** Converts a date/time into timestamp
- ** @param val  String Date
- ** @param type String  Field type(datetime/timestamp/time/date)
+ * Converts a date/time into timestamp
+ * @param {string} val Date
+ * @param {string} type Field type(datetime/timestamp/time/date)
+ * @return {any} A value
  **/
 function getTimeStamp (val, type) {
     if (type.toString().search(/datetime/i) !== -1 ||
@@ -76,8 +83,9 @@ function getTimeStamp (val, type) {
 }
 
 /**
- ** Classifies the field type into numeric,timeseries or text
- ** @param field: field type (as in database structure)
+ * Classifies the field type into numeric,timeseries or text
+ * @param {object} field field type (as in database structure)
+ * @return {'text'|'numeric'|'time'}
  **/
 function getType (field) {
     if (field.toString().search(/int/i) !== -1 ||
@@ -133,8 +141,8 @@ AJAX.registerOnload('table/zoom_plot_jqplot.js', function () {
         var tableRows = $('#inputSection select.column-operator');
         $.each(tableRows, function (index, item) {
             $(item).on('change', function () {
-                // eslint-disable-next-line no-undef
                 changeValueFieldType(this, index);
+                verifyAfterSearchFieldChange(index, '#zoom_search_form');
             });
         });
     };

@@ -136,16 +136,9 @@ class UserGroupsTest extends AbstractTestCase
             $url_tag,
             $html
         );
-        $url_tag = '<a class="deleteUserGroup ajax" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
-            . Url::getCommon(
-                [
-                    'deleteUserGroup' => 1,
-                    'userGroup' => htmlspecialchars('usergroup'),
-                ],
-                ''
-            );
         $this->assertStringContainsString(
-            $url_tag,
+            '<button type="button" class="btn btn-link" data-bs-toggle="modal"'
+            . ' data-bs-target="#deleteUserGroupModal" data-user-group="usergroup">',
             $html
         );
     }

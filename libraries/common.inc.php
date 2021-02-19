@@ -65,9 +65,9 @@ if (getcwd() == __DIR__) {
  * Minimum PHP version; can't call Core::fatalError() which uses a
  * PHP 5 function, so cannot easily localize this message.
  */
-if (PHP_VERSION_ID < 70103) {
+if (PHP_VERSION_ID < 70205) {
     die(
-        '<p>PHP 7.1.3+ is required.</p>'
+        '<p>PHP 7.2.5+ is required.</p>'
         . '<p>Currently installed version is: ' . PHP_VERSION . '</p>'
     );
 }

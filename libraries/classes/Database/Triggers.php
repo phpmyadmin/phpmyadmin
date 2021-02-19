@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -61,7 +62,7 @@ class Triggers
      */
     public function main()
     {
-        global $db, $table, $text_dir, $PMA_Theme;
+        global $db, $table;
 
         /**
          * Process all requests
@@ -91,12 +92,6 @@ class Triggers
             'table' => $table,
             'items' => $items,
             'rows' => $rows,
-            'select_all_arrow_src' => $PMA_Theme->getImgPath() . 'arrow_' . $text_dir . '.png',
-        ]);
-
-        echo $this->template->render('database/triggers/footer', [
-            'db' => $db,
-            'table' => $table,
             'has_privilege' => Util::currentUserHasPrivilege('TRIGGER', $db, $table),
         ]);
     }
@@ -386,7 +381,11 @@ class Triggers
         $retval .= $original_data;
         $retval .= Url::getHiddenInputs($db, $table) . "\n";
         $retval .= "<fieldset class=\"pma-fieldset\">\n";
-        $retval .= '<legend>' . __('Details') . "</legend>\n";
+        $retval .= '<legend>' . __('Details');
+        if ($mode !== 'edit') {
+            $retval .= MySQLDocumentation::show('CREATE_TRIGGER');
+        }
+        $retval .= '</legend>' . "\n";
         $retval .= "<table class='rte_table table table-borderless table-sm'>\n";
         $retval .= "<tr>\n";
         $retval .= '    <td>' . __('Trigger name') . "</td>\n";

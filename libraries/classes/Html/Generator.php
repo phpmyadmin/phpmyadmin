@@ -468,7 +468,7 @@ class Generator
      *
      * @param string $sqlQuery EXPLAIN query
      *
-     * @return string query resuls
+     * @return string query results
      */
     private static function generateRowQueryOutput($sqlQuery): string
     {
@@ -741,7 +741,7 @@ class Generator
                 . htmlspecialchars($sql_query) . '">';
 
             // avoid displaying a Profiling checkbox that could
-            // be checked, which would reexecute an INSERT, for example
+            // be checked, which would re-execute an INSERT, for example
             if (! empty($refresh_link) && Profiling::isSupported($dbi)) {
                 $retval .= '<input type="hidden" name="profiling_form" value="1">';
                 $retval .= '<input type="checkbox" name="profiling" id="profilingCheckbox" class="autosubmit"';

@@ -534,7 +534,7 @@ class Table
         // MySQL permits a non-standard syntax for FLOAT and DOUBLE,
         // see https://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
         $pattern = '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
-            . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i';
+            . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID|JSON)$@i';
         if (strlen($length) !== 0 && ! preg_match($pattern, $type)) {
             // Note: The variable $length here can contain several other things
             // besides length - ENUM/SET value or length of DECIMAL (eg. 12,3)
@@ -591,6 +591,13 @@ class Table
                             // a TIMESTAMP does not accept DEFAULT '0'
                             // but DEFAULT 0 works
                             $query .= ' DEFAULT 0';
+                        } elseif ($is_timestamp
+                            && preg_match(
+                                '/^\'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(\.\d{1,6})?\'$/',
+                                (string) $default_value
+                            )
+                        ) {
+                            $query .= ' DEFAULT ' . (string) $default_value;
                         } elseif ($type === 'BIT') {
                             $query .= ' DEFAULT b\''
                             . preg_replace('/[^01]/', '0', (string) $default_value)

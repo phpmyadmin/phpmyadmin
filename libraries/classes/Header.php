@@ -181,7 +181,6 @@ class Header
             $this->scripts->addFile('cross_framing_protection.js');
         }
 
-        $this->scripts->addFile('rte.js');
         if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
             $this->scripts->addFile('vendor/tracekit.js');
             $this->scripts->addFile('error_report.js');
@@ -395,7 +394,7 @@ class Header
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
         $uniqueValue = $GLOBALS['PMA_Config']->getThemeUniqueValue();
-        $themePath = $PMA_Theme !== null ? $PMA_Theme->getPath() : '';
+        $themePath = $PMA_Theme instanceof Theme ? $PMA_Theme->getPath() : '';
         $version = self::getVersionParameter();
 
         // The user preferences have been merged at this point
@@ -704,14 +703,13 @@ class Header
 
     private function getVariablesForJavaScript(): string
     {
-        global $cfg, $PMA_Theme;
+        global $cfg;
 
         $maxInputVars = ini_get('max_input_vars');
         $maxInputVarsValue = $maxInputVars === false || $maxInputVars === '' ? 'false' : (int) $maxInputVars;
 
         return $this->template->render('javascript/variables', [
             'first_day_of_calendar' => $cfg['FirstDayOfCalendar'],
-            'theme_image_path' => $PMA_Theme !== null ? $PMA_Theme->getImgPath() : '',
             'max_input_vars' => $maxInputVarsValue,
         ]);
     }

@@ -440,12 +440,6 @@ div.tools a:hover,
   color: #f00;
 }
 
-// forbidden, no privileges
-.noPrivileges {
-  color: #f00;
-  font-weight: bold;
-}
-
 .error {
   border: 1px solid maroon !important;
   margin-left: 2px;
@@ -777,11 +771,6 @@ h3#serverstatusqueries span {
   display: inline;
 }
 
-.buttonlinks {
-  float: right;
-  white-space: nowrap;
-}
-
 // Also used for the variables page
 .pma-fieldset#tableFilter {
   padding: 0.1em 1em;
@@ -953,36 +942,6 @@ div#profilingchart {
   font-size: 1.7em;
 }
 
-#sectionlinks {
-  margin-bottom: 15px;
-  padding: 16px;
-  background: #f3f3f3;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  box-shadow: 0 1px 1px #fff inset;
-}
-
-#sectionlinks a,
-.buttonlinks a,
-a.button {
-  font-weight: bold;
-  text-shadow: 0 1px 0 #fff;
-  margin-bottom: 7px;
-  margin-left: 7px;
-  border: 1px solid #aaa;
-  padding: 7px;
-  color: #111 !important;
-  text-decoration: none;
-  background-color: #ddd;
-  white-space: nowrap;
-  border-radius: 20px;
-  background-image: linear-gradient(#f8f8f8, #d8d8d8);
-
-  &:hover {
-    background: linear-gradient(#fff, #ddd);
-  }
-}
-
 textarea {
   &#sqlquery {
     width: 100%;
@@ -1029,17 +988,6 @@ textarea {
   border: solid 1px #888;
   background: #fff;
 }
-
-/* end main page */
-
-/* iconic view for ul items */
-
-li.no_bullets {
-  list-style-type: none !important;
-  margin-left: -25px !important; //align with other list items which have bullets
-}
-
-// end iconic view for ul items
 
 #body_browse_foreigners {
   background: $navi-background;
@@ -2266,20 +2214,6 @@ body .ui-widget {
   overflow: hidden;
 }
 
-.report-data {
-  height: 13em;
-  overflow: scroll;
-  width: 570px;
-  border: solid 1px;
-  background: white;
-  padding: 2px;
-}
-
-.report-description {
-  height: 10em;
-  width: 570px;
-}
-
 div#page_content div {
   &#tableslistcontainer {
     margin-top: 1em;
@@ -3066,6 +3000,12 @@ body .ui-dialog {
 // side menu
 #name-panel {
   overflow: hidden;
+}
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
 }
 
 @media only screen and (max-width: 768px) {

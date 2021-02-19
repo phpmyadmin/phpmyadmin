@@ -13,6 +13,7 @@ use mysqli_stmt;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Query\Utilities;
 use stdClass;
+use function mysqli_report;
 use const E_USER_WARNING;
 use const MYSQLI_ASSOC;
 use const MYSQLI_AUTO_INCREMENT_FLAG;
@@ -30,6 +31,7 @@ use const MYSQLI_OPT_LOCAL_INFILE;
 use const MYSQLI_OPT_SSL_VERIFY_SERVER_CERT;
 use const MYSQLI_PART_KEY_FLAG;
 use const MYSQLI_PRI_KEY_FLAG;
+use const MYSQLI_REPORT_OFF;
 use const MYSQLI_SET_FLAG;
 use const MYSQLI_STORE_RESULT;
 use const MYSQLI_TIMESTAMP_FLAG;
@@ -111,6 +113,8 @@ class DbiMysqli implements DbiExtension
                 ? 'localhost'
                 : $server['host'];
         }
+
+        mysqli_report(MYSQLI_REPORT_OFF);
 
         $mysqli = mysqli_init();
 

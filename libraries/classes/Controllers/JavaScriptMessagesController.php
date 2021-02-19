@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
+use PhpMyAdmin\Theme;
 use function json_encode;
 
 /**
@@ -28,7 +29,7 @@ final class JavaScriptMessagesController
     {
         global $cfg, $PMA_Theme;
 
-        $ajaxClockSmallGifPath = $PMA_Theme !== null ? $PMA_Theme->getImgPath('ajax_clock_small.gif') : '';
+        $ajaxClockSmallGifPath = $PMA_Theme instanceof Theme ? $PMA_Theme->getImgPath('ajax_clock_small.gif') : '';
 
         $this->messages = [
             /* For confirmations */
@@ -405,12 +406,6 @@ final class JavaScriptMessagesController
                 . 'database %s has columns that are not present in the current table.'
             ),
             'seeMore' => __('See more'),
-            'confirmTitle' => __('Are you sure?'),
-            'makeConsistentMessage' => __(
-                'This action may change some of the columns definition.<br>Are you sure you '
-                . 'want to continue?'
-            ),
-            'strContinue' => __('Continue'),
 
             /** For normalization */
             'strAddPrimaryKey' => __('Add primary key'),
@@ -552,7 +547,10 @@ final class JavaScriptMessagesController
             'strSubmit' => __('Submit'),
 
             /* For makegrid.js (column reordering, show/hide column, grid editing) */
-            'strCellEditHint' => __('Press escape to cancel editing.'),
+            'strCellEditHint' => __(
+                'Press escape to cancel editing.'
+                . '<br>- Shift+Enter for a newline.'
+            ),
             'strSaveCellWarning' => __(
                 'You have edited some data and they have not been saved. Are you sure you want '
                 . 'to leave this page before saving the data?'
@@ -635,8 +633,6 @@ final class JavaScriptMessagesController
             'strCreateView' => __('Create view'),
 
             /* Error Reporting */
-            'strSendErrorReport' => __('Send error report'),
-            'strSubmitErrorReport' => __('Submit error report'),
             'strErrorOccurred' => __(
                 'A fatal JavaScript error has occurred. Would you like to send an error report?'
             ),

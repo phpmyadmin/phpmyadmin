@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Twig\AssetExtension;
 use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
@@ -67,6 +68,7 @@ class Template
             $twig->enableDebug();
             $twig->addExtension(new DebugExtension());
         }
+        $twig->addExtension(new AssetExtension());
         $twig->addExtension(new CoreExtension());
         $twig->addExtension(new I18nExtension());
         $twig->addExtension(new MessageExtension());

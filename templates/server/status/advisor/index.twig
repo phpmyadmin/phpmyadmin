@@ -64,17 +64,17 @@
 
       <div class="accordion mb-4" id="rulesAccordion">
         {% for rule in data.fired %}
-          <div class="card">
-            <div class="card-header" id="heading{{ loop.index }}">
-              <button class="btn btn-link{{ not loop.first ? ' collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="{{ loop.first ? 'true' : 'false' }}" aria-controls="collapse{{ loop.index }}">
-                {{ rule.issue }}
+          <div class="accordion-item">
+            <div class="accordion-header" id="heading{{ loop.index }}">
+              <button class="accordion-button{{ not loop.first ? ' collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="{{ loop.first ? 'true' : 'false' }}" aria-controls="collapse{{ loop.index }}">
+                {{ rule.issue|striptags }}
               </button>
             </div>
-            <div id="collapse{{ loop.index }}" class="collapse{{ loop.first ? ' show' }}" aria-labelledby="heading{{ loop.index }}" data-parent="#rulesAccordion">
-              <div class="card-body">
+            <div id="collapse{{ loop.index }}" class="accordion-collapse collapse{{ loop.first ? ' show' }}" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#rulesAccordion">
+              <div class="accordion-body">
                 <dl>
                   <dt>{% trans 'Issue:' %}</dt>
-                  <dd>{{ rule.issue }}</dd>
+                  <dd>{{ rule.issue|raw }}</dd>
 
                   <dt>{% trans 'Recommendation:' %}</dt>
                   <dd>{{ rule.recommendation|raw }}</dd>

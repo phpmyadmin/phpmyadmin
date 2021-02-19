@@ -33,14 +33,31 @@
                             <a class="" href="{{ groupName.userGroupUrl|raw }}" data-post="{{ groupName.viewUsersUrl|raw }}">{{ groupName.viewUsersIcon|raw }}</a>
                             &nbsp;&nbsp;
                             <a class="" href="{{ groupName.userGroupUrl|raw }}" data-post="{{ groupName.editUsersUrl|raw }}">{{ groupName.editUsersIcon|raw }}</a>
-                            &nbsp;&nbsp;
-                            <a class="deleteUserGroup ajax" href="{{ groupName.userGroupUrl|raw }}" data-post="{{ groupName.deleteUsersUrl|raw }}">{{ groupName.deleteUsersIcon|raw }}</a>
+                          <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#deleteUserGroupModal" data-user-group="{{ groupName.name }}">
+                            {{ get_icon('b_drop', 'Delete'|trans) }}
+                          </button>
                         </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
     </form>
+
+  <div class="modal fade" id="deleteUserGroupModal" tabindex="-1" aria-labelledby="deleteUserGroupModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteUserGroupModalLabel">{% trans 'Delete user group' %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+          <button type="button" class="btn btn-danger" id="deleteUserGroupConfirm">{% trans 'Delete' %}</button>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endif %}
 <div class="row">
     <fieldset class="pma-fieldset" id="fieldset_add_user_group">

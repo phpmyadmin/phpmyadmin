@@ -1,51 +1,23 @@
-/**
- * JavaScript functionality for Routines, Triggers and Events.
- *
- * @package PhpMyadmin
- */
-/**
- * @var RTE Contains all the JavaScript functionality
- *          for Routines, Triggers and Events
- */
-var RTE = {
-    /**
-     * Construct for the object that provides the
-     * functionality for Routines, Triggers and Events
-     */
-    Object: function (type) {
-        $.extend(this, RTE.COMMON);
-        this.editorType = type;
+AJAX.registerTeardown('database/routines.js', function () {
+    $(document).off('click', 'a.ajax.add_anchor');
+    $(document).off('click', 'a.ajax.edit_anchor');
+    $(document).off('click', 'a.ajax.exec_anchor');
+    $(document).off('click', 'a.ajax.export_anchor');
+    $(document).off('click', '#bulkActionExportButton');
+    $(document).off('click', 'a.ajax.drop_anchor');
+    $(document).off('click', '#bulkActionDropButton');
+    $(document).off('change', 'select[name=item_type]');
+    $(document).off('change', 'select[name^=item_param_type]');
+    $(document).off('change', 'select[name=item_returntype]');
+    $(document).off('click', 'input[name=routine_addparameter]');
+    $(document).off('click', 'a.routine_param_remove_anchor');
+});
 
-        switch (type) {
-        case 'routine':
-            $.extend(this, RTE.ROUTINE);
-            break;
-        case 'trigger':
-            // nothing extra yet for triggers
-            break;
-        case 'event':
-            $.extend(this, RTE.EVENT);
-            break;
-        default:
-            break;
-        }
-    },
-
+const DatabaseRoutines = {
     /**
      * @var {string} paramTemplate Template for a row in the routine editor
      */
-    paramTemplate: ''
-};
-
-/**
- * @var RTE.COMMON a JavaScript namespace containing the functionality
- *                 for Routines, Triggers and Events
- *
- *                 This namespace is extended by the functionality required
- *                 to handle a specific item (a routine, trigger or event)
- *                 in the relevant javascript files in this folder
- */
-RTE.COMMON = {
+    paramTemplate: '',
     /**
      * @var $ajaxDialog Query object containing the reference to the
      *                  dialog that contains the editor
@@ -61,11 +33,9 @@ RTE.COMMON = {
      */
     buttonOptions: {},
     /**
-     * @var editorType Type of the editor
-     */
-    editorType: null,
-    /**
      * Validate editor form fields.
+     *
+     * @return {bool}
      */
     validate: function () {
         /**
@@ -94,28 +64,11 @@ RTE.COMMON = {
         // The validation has so far passed, so now
         // we can validate item-specific fields.
         return this.validateCustom();
-    }, // end validate()
-    /**
-     * Validate custom editor form fields.
-     * This function can be overridden by
-     * other files in this folder
-     */
-    validateCustom: function () {
-        return true;
-    }, // end validateCustom()
-    /**
-     * Execute some code after the ajax
-     * dialog for the editor is shown.
-     * This function can be overridden by
-     * other files in this folder
-     */
-    postDialogShow: function () {
-        // Nothing by default
-    }, // end postDialogShow()
+    },
 
     exportDialog: function ($this) {
         var $msg = Functions.ajaxShowMessage();
-        if ($this.hasClass('mult_submit')) {
+        if ($this.attr('id') === 'bulkActionExportButton') {
             var combined = {
                 success: true,
                 title: Messages.strExport,
@@ -377,7 +330,7 @@ RTE.COMMON = {
                  */
                 var $elm = $('textarea[name=item_definition]').last();
                 var linterOptions = {};
-                linterOptions[that.editorType + '_editor'] = true;
+                linterOptions.routineEditor = true;
                 that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'both', linterOptions);
 
                 // Execute item-specific code
@@ -413,7 +366,7 @@ RTE.COMMON = {
                      * @var $table Object containing reference
                      *             to the main list of elements
                      */
-                    var $table = $currRow.parent();
+                    var $table = $currRow.parent().parent();
                     // Check how many rows will be left after we remove
                     // the one that the user has requested us to remove
                     if ($table.find('tr').length === 3) {
@@ -489,7 +442,7 @@ RTE.COMMON = {
                          * @var $table Object containing reference
                          *             to the main list of elements
                          */
-                        var $table = $currRow.parent();
+                        var $table = $currRow.parent().parent();
                         // Check how many rows will be left after we remove
                         // the one that the user has requested us to remove
                         if ($table.find('tr').length === 3) {
@@ -541,52 +494,16 @@ RTE.COMMON = {
                 }); // end $.post()
             }); // end drop_anchors.each()
         });
-    }
-}; // end RTE namespace
+    },
 
-/**
- * @var RTE.EVENT JavaScript functionality for events
- */
-RTE.EVENT = {
-    validateCustom: function () {
-        /**
-         * @var elm a jQuery object containing the reference
-         *          to an element that is being validated
-         */
-        var $elm = null;
-        if (this.$ajaxDialog.find('select[name=item_type]').find(':selected').val() === 'RECURRING') {
-            // The interval field must not be empty for recurring events
-            $elm = this.$ajaxDialog.find('input[name=item_interval_value]');
-            if ($elm.val() === '') {
-                $elm.trigger('focus');
-                alert(Messages.strFormEmpty);
-                return false;
-            }
-        } else {
-            // The execute_at field must not be empty for "once off" events
-            $elm = this.$ajaxDialog.find('input[name=item_execute_at]');
-            if ($elm.val() === '') {
-                $elm.trigger('focus');
-                alert(Messages.strFormEmpty);
-                return false;
-            }
-        }
-        return true;
-    }
-};
-
-/**
- * @var RTE.ROUTINE JavaScript functionality for routines
- */
-RTE.ROUTINE = {
     /**
-     * Overriding the postDialogShow() function defined in common.js
+     * Execute some code after the ajax dialog for the editor is shown.
      *
      * @param data JSON-encoded data from the ajax request
      */
     postDialogShow: function (data) {
         // Cache the template for a parameter table row
-        RTE.paramTemplate = data.paramTemplate;
+        DatabaseRoutines.paramTemplate = data.paramTemplate;
         var that = this;
         // Make adjustments in the dialog to make it AJAX compatible
         $('td.routine_param_remove').show();
@@ -654,7 +571,9 @@ RTE.ROUTINE = {
         });
     },
     /**
-     * Overriding the validateCustom() function defined in common.js
+     * Validate custom editor form fields.
+     *
+     * @return {bool}
      */
     validateCustom: function () {
         /**
@@ -736,16 +655,16 @@ RTE.ROUTINE = {
      * parameters and the return variable in the routine editor
      * as necessary.
      *
-     * @param type a jQuery object containing the reference
-     *             to the "Type" dropdown box
-     * @param len  a jQuery object containing the reference
-     *             to the "Length" input box
-     * @param text a jQuery object containing the reference
-     *             to the dropdown box with options for
-     *             parameters of text type
-     * @param num  a jQuery object containing the reference
-     *             to the dropdown box with options for
-     *             parameters of numeric type
+     * @param $type a jQuery object containing the reference
+     *              to the "Type" dropdown box
+     * @param $len  a jQuery object containing the reference
+     *              to the "Length" input box
+     * @param $text a jQuery object containing the reference
+     *              to the dropdown box with options for
+     *              parameters of text type
+     * @param $num  a jQuery object containing the reference
+     *              to the dropdown box with options for
+     *              parameters of numeric type
      */
     setOptionsForParameter: function ($type, $len, $text, $num) {
         /**
@@ -885,8 +804,8 @@ RTE.ROUTINE = {
                         event.preventDefault();
                         if (event.keyCode === 13) {
                             /**
-                            * @var data Form data to be sent in the AJAX request
-                            */
+                             * @var data Form data to be sent in the AJAX request
+                             */
                             var data = $(this).serialize();
                             $msg = Functions.ajaxShowMessage(
                                 Messages.strProcessingRequest
@@ -916,138 +835,75 @@ RTE.ROUTINE = {
     }
 };
 
-/**
- * Attach Ajax event handlers for the Routines, Triggers and Events editor
- */
-$(function () {
-    /**
-     * Attach Ajax event handlers for the Add/Edit functionality.
-     */
-    $(document).on('click', 'a.ajax.add_anchor, a.ajax.edit_anchor', function (event) {
+AJAX.registerOnload('database/routines.js', function () {
+    $(document).on('click', 'a.ajax.add_anchor', function (event) {
         event.preventDefault();
-
-        if ($(this).hasClass('add_anchor')) {
-            $.datepicker.initialized = false;
-        }
-
-        var type = $(this).attr('href').substr(0, $(this).attr('href').indexOf('&'));
-        if (type.indexOf('routine') !== -1) {
-            type = 'routine';
-        } else if (type.indexOf('trigger') !== -1) {
-            type = 'trigger';
-        } else if (type.indexOf('event') !== -1) {
-            type = 'event';
-        } else {
-            type = '';
-        }
-        var dialog = new RTE.Object(type);
-        dialog.editorDialog($(this).hasClass('add_anchor'), $(this));
-    }); // end $(document).on()
-
-    /**
-     * Attach Ajax event handlers for the Execute routine functionality
-     */
+        $.datepicker.initialized = false;
+        DatabaseRoutines.editorDialog(true, $(this));
+    });
+    $(document).on('click', 'a.ajax.edit_anchor', function (event) {
+        event.preventDefault();
+        DatabaseRoutines.editorDialog(false, $(this));
+    });
     $(document).on('click', 'a.ajax.exec_anchor', function (event) {
         event.preventDefault();
-        var dialog = new RTE.Object('routine');
-        dialog.executeDialog($(this));
-    }); // end $(document).on()
+        DatabaseRoutines.executeDialog($(this));
+    });
 
-    /**
-     * Attach Ajax event handlers for Export of Routines, Triggers and Events
-     */
     $(document).on('click', 'a.ajax.export_anchor', function (event) {
         event.preventDefault();
-        var dialog = new RTE.Object();
-        dialog.exportDialog($(this));
-    }); // end $(document).on()
-
-    $(document).on('click', '#rteListForm.ajax .mult_submit[value="export"]', function (event) {
+        DatabaseRoutines.exportDialog($(this));
+    });
+    $(document).on('click', '#bulkActionExportButton', function (event) {
         event.preventDefault();
-        var dialog = new RTE.Object();
-        dialog.exportDialog($(this));
-    }); // end $(document).on()
+        DatabaseRoutines.exportDialog($(this));
+    });
 
-    /**
-     * Attach Ajax event handlers for Drop functionality
-     * of Routines, Triggers and Events.
-     */
     $(document).on('click', 'a.ajax.drop_anchor', function (event) {
         event.preventDefault();
-        var dialog = new RTE.Object();
-        dialog.dropDialog($(this));
-    }); // end $(document).on()
-
-    $(document).on('click', '#rteListForm.ajax .mult_submit[value="drop"]', function (event) {
+        DatabaseRoutines.dropDialog($(this));
+    });
+    $(document).on('click', '#bulkActionDropButton', function (event) {
         event.preventDefault();
-        var dialog = new RTE.Object();
-        dialog.dropMultipleDialog($(this));
-    }); // end $(document).on()
+        DatabaseRoutines.dropMultipleDialog($(this));
+    });
 
-    /**
-     * Attach Ajax event handlers for the "Change event/routine type"
-     * functionality in the events editor, so that the correct
-     * rows are shown in the editor when changing the event type
-     */
     $(document).on('change', 'select[name=item_type]', function () {
-        $(this)
-            .closest('table')
-            .find('tr.recurring_event_row, tr.onetime_event_row, tr.routine_return_row, .routine_direction_cell')
-            .toggle();
-    }); // end $(document).on()
+        $(this).closest('table').find('tr.routine_return_row, .routine_direction_cell').toggle();
+    });
 
-    /**
-     * Attach Ajax event handlers for the "Change parameter type"
-     * functionality in the routines editor, so that the correct
-     * option/length fields, if any, are shown when changing
-     * a parameter type
-     */
     $(document).on('change', 'select[name^=item_param_type]', function () {
-        /**
-         * @var row jQuery object containing the reference to
-         *          a row in the routine parameters table
-         */
-        var $row = $(this).parents('tr').first();
-        var rte = new RTE.Object('routine');
-        rte.setOptionsForParameter(
+        const $row = $(this).parents('tr').first();
+        DatabaseRoutines.setOptionsForParameter(
             $row.find('select[name^=item_param_type]'),
             $row.find('input[name^=item_param_length]'),
             $row.find('select[name^=item_param_opts_text]'),
             $row.find('select[name^=item_param_opts_num]')
         );
-    }); // end $(document).on()
+    });
 
-    /**
-     * Attach Ajax event handlers for the "Change the type of return
-     * variable of function" functionality, so that the correct fields,
-     * if any, are shown when changing the function return type type
-     */
     $(document).on('change', 'select[name=item_returntype]', function () {
-        var rte = new RTE.Object('routine');
-        var $table = $(this).closest('table.rte_table');
-        rte.setOptionsForParameter(
+        const $table = $(this).closest('table.rte_table');
+        DatabaseRoutines.setOptionsForParameter(
             $table.find('select[name=item_returntype]'),
             $table.find('input[name=item_returnlength]'),
             $table.find('select[name=item_returnopts_text]'),
             $table.find('select[name=item_returnopts_num]')
         );
-    }); // end $(document).on()
+    });
 
-    /**
-     * Attach Ajax event handlers for the "Add parameter to routine" functionality
-     */
     $(document).on('click', 'input[name=routine_addparameter]', function (event) {
         event.preventDefault();
         /**
          * @var routine_params_table jQuery object containing the reference
          *                           to the routine parameters table
          */
-        var $routineParamsTable = $(this).closest('div.ui-dialog').find('.routine_params_table');
+        const $routineParamsTable = $(this).closest('div.ui-dialog').find('.routine_params_table');
         /**
          * @var new_param_row A string containing the HTML code for the
          *                    new row for the routine parameters table
          */
-        var newParamRow = RTE.paramTemplate.replace(/%s/g, $routineParamsTable.find('tr').length - 1);
+        const newParamRow = DatabaseRoutines.paramTemplate.replace(/%s/g, $routineParamsTable.find('tr').length - 1);
         // Append the new row to the parameters table
         $routineParamsTable.append(newParamRow);
         // Make sure that the row is correctly shown according to the type of routine
@@ -1059,26 +915,21 @@ $(function () {
          * @var newrow jQuery object containing the reference to the newly
          *             inserted row in the routine parameters table
          */
-        var $newrow = $(this).closest('div.ui-dialog').find('table.routine_params_table').find('tr').has('td').last();
+        const $newrow = $(this).closest('div.ui-dialog').find('table.routine_params_table').find('tr').has('td').last();
         // Enable/disable the 'options' dropdowns for parameters as necessary
-        var rte = new RTE.Object('routine');
-        rte.setOptionsForParameter(
+        DatabaseRoutines.setOptionsForParameter(
             $newrow.find('select[name^=item_param_type]'),
             $newrow.find('input[name^=item_param_length]'),
             $newrow.find('select[name^=item_param_opts_text]'),
             $newrow.find('select[name^=item_param_opts_num]')
         );
-    }); // end $(document).on()
+    });
 
-    /**
-     * Attach Ajax event handlers for the
-     * "Remove parameter from routine" functionality
-     */
     $(document).on('click', 'a.routine_param_remove_anchor', function (event) {
         event.preventDefault();
         $(this).parent().parent().remove();
         // After removing a parameter, the indices of the name attributes in
         // the input fields lose the correct order and need to be reordered.
-        RTE.ROUTINE.reindexParameters();
-    }); // end $(document).on()
-}); // end of $()
+        DatabaseRoutines.reindexParameters();
+    });
+});

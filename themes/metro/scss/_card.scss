@@ -31,24 +31,3 @@
     padding-left: 0;
   }
 }
-
-.accordion {
-  > .card {
-    margin-top: 0;
-    border-radius: 0;
-
-    > .card-header {
-      background-color: $button-background;
-      padding: 0.3rem;
-
-      .btn {
-        color: $button-color;
-
-        &:hover,
-        &:active {
-          text-decoration: none;
-        }
-      }
-    }
-  }
-}

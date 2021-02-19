@@ -192,6 +192,7 @@ class HttpRequestTest extends AbstractTestCase
         } elseif ($expected === null) {
             $this->assertNull($result);
         } else {
+            $this->assertNotNull($result, 'The request maybe has failed');
             $this->assertStringContainsString($expected, $result);
         }
     }

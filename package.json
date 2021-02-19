@@ -16,7 +16,7 @@
     "@popperjs/core": "^2.6.0",
     "blueimp-md5": "^2.18.0",
     "bootstrap": "5.0.0-beta1",
-    "codemirror": "5.59.0",
+    "codemirror": "5.59.2",
     "jquery": "3.5.1",
     "jquery-debounce-throttle": "^1.0.6-rc.0",
     "jquery-fullscreen-plugin": "^1.1.5",
@@ -26,7 +26,7 @@
     "jquery-ui-dist": "1.12.1",
     "jquery-ui-timepicker-addon": "1.6.3",
     "jquery-uitablefilter": "^1.0.0",
-    "jquery-validation": "1.19.2",
+    "jquery-validation": "1.19.3",
     "jquery.event.drag": "2.2.2",
     "js-cookie": "2.2.1",
     "kbwood-jquery-svg": "https://github.com/kbwood/svg/archive/1.5.0.tar.gz",
@@ -43,9 +43,11 @@
     "zxcvbn": "4.4.2"
   },
   "devDependencies": {
+    "babel-jest": "^26.5.2",
     "eslint": "^7.16.0",
     "eslint-plugin-compat": "^3.9.0",
     "eslint-plugin-no-jquery": "^2.5.0",
+    "jest": "^26.5.3",
     "stylelint": "^13.8.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-config-standard": "^20.0.0",
@@ -60,8 +62,9 @@
     "build": "yarn run css-compile --style=compressed && yarn run css-rtl && yarn run js-compile",
     "css-compile": "sass themes/pmahomme/scss:themes/pmahomme/css themes/original/scss:themes/original/css themes/metro/scss:themes/metro/css themes/bootstrap/scss:themes/bootstrap/css setup/scss:setup",
     "css-lint": "stylelint -s scss \"themes/**/scss/*.scss\" \"setup/scss/*.scss\"",
-    "css-rtl": "find themes/*/css/*theme.css -exec yarn run rtlcss -c .rtlcssrc.json {} \\;",
-    "js-lint": "eslint js/src",
-    "js-compile": "babel js/src -d js/dist"
+    "css-rtl": "yarn run rtlcss -c .rtlcssrc.json themes/bootstrap/css/theme.css && yarn run rtlcss -c .rtlcssrc.json themes/pmahomme/css/theme.css && yarn run rtlcss -c .rtlcssrc.json themes/original/css/theme.css && yarn run rtlcss -c .rtlcssrc.json themes/metro/css/theme.css && yarn run rtlcss -c .rtlcssrc.json themes/metro/css/blueeyes-theme.css && yarn run rtlcss -c .rtlcssrc.json themes/metro/css/mono-theme.css && yarn run rtlcss -c .rtlcssrc.json themes/metro/css/redmond-theme.css && yarn run rtlcss -c .rtlcssrc.json themes/metro/css/teal-theme.css",
+    "js-lint": "eslint js/src test/javascript test/jest jest.config.js",
+    "js-compile": "babel js/src -d js/dist",
+    "test": "jest"
   }
 }

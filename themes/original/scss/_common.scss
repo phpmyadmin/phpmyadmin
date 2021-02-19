@@ -462,12 +462,6 @@ div.tools a {
   }
 }
 
-/* forbidden, no privilegs */
-.noPrivileges {
-  color: #f00;
-  font-weight: bold;
-}
-
 /* disabled text */
 
 .disabled {
@@ -806,11 +800,6 @@ h3#serverstatusqueries span {
   display: inline;
 }
 
-.buttonlinks {
-  float: right;
-  white-space: nowrap;
-}
-
 .pma-fieldset#tableFilter {
   padding: 0.1em 1em;
 }
@@ -910,16 +899,6 @@ div#logTable {
   padding-left: 7px;
 }
 
-#sectionlinks {
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ccc;
-
-  a {
-    margin-right: 7px;
-  }
-}
-
 /* profiling */
 div#profilingchart {
   width: 850px;
@@ -986,17 +965,6 @@ textarea {
   border: solid 1px #888;
   background: #fff;
 }
-
-/* end main page */
-
-/* iconic view for ul items */
-
-li.no_bullets {
-  list-style-type: none !important;
-  margin-left: -25px !important;
-}
-
-/* end iconic view for ul items */
 
 #body_browse_foreigners {
   background: $navi-background;
@@ -2212,20 +2180,6 @@ body #ui-datepicker-div {
   }
 }
 
-.report-data {
-  height: 13em;
-  overflow: scroll;
-  width: 570px;
-  border: solid 1px;
-  background: white;
-  padding: 2px;
-}
-
-.report-description {
-  height: 10em;
-  width: 570px;
-}
-
 div#page_content div {
   &#tableslistcontainer {
     margin-top: 1em;
@@ -3146,6 +3100,12 @@ body {
   margin-left: 20px;
   margin-top: 4px;
   height: 0.75rem;
+}
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
 }
 
 // Extra large devices (large desktops, 1200px and up)

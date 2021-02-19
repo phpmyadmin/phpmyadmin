@@ -7,13 +7,14 @@
  */
 var ErrorReport = {
     /**
-     * @var object stores the last exception info
+     * @var {object}, stores the last exception info
      */
     lastException: null,
     /**
      * handles thrown error exceptions based on user preferences
      *
-     * @return void
+     * @param {any} exception
+     * @return {void}
      */
     errorHandler: function (exception) {
         // issue: 14359
@@ -58,66 +59,40 @@ var ErrorReport = {
      *
      * @param exception object error report info
      *
-     * @return void
+     * @return {void}
      */
     showReportDialog: function (exception) {
-        var reportData = ErrorReport.getReportData(exception);
+        const reportData = ErrorReport.getReportData(exception);
 
-        /* Remove the hidden dialogs if there are*/
-        if ($('#error_report_dialog').length !== 0) {
-            $('#error_report_dialog').remove();
-        }
-        var $div = $('<div id="error_report_dialog"></div>');
-        $div.css('z-index', '1000');
-
-        var buttonOptions = {};
-
-        buttonOptions[Messages.strSendErrorReport] = function () {
-            var $dialog = $(this);
-            var postData = $.extend(reportData, {
+        const sendErrorReport = function () {
+            const postData = $.extend(reportData, {
                 'send_error_report': true,
-                'description': $('#report_description').val(),
-                'always_send': $('#always_send_checkbox')[0].checked
+                'description': $('#errorReportDescription').val(),
+                'always_send': $('#errorReportAlwaysSendCheckbox')[0].checked
             });
             $.post('index.php?route=/error-report', postData, function (data) {
-                $dialog.dialog('close');
                 if (data.success === false) {
-                    // in the case of an error, show the error message returned.
                     Functions.ajaxShowMessage(data.error, false);
                 } else {
                     Functions.ajaxShowMessage(data.message, 3000);
                 }
             });
+            $('#errorReportModal').modal('hide');
         };
 
-        buttonOptions[Messages.strCancel] = function () {
-            $(this).dialog('close');
-        };
-
-        $.post('index.php?route=/error-report', reportData, function (data) {
-            if (data.success === false) {
-                // in the case of an error, show the error message returned.
-                Functions.ajaxShowMessage(data.error, false);
-            } else {
-                // Show dialog if the request was successful
-                $div
-                    .append(data.message)
-                    .dialog({
-                        title: Messages.strSubmitErrorReport,
-                        width: 650,
-                        modal: true,
-                        buttons: buttonOptions,
-                        close: function () {
-                            $(this).remove();
-                        }
-                    });
-            }
+        $.post('index.php?route=/error-report', reportData).done(function (data) {
+            const $errorReportModal = $('#errorReportModal');
+            $errorReportModal.on('show.bs.modal', function () {
+                $('#errorReportModalConfirm').on('click', sendErrorReport);
+                this.querySelector('.modal-body').innerHTML = data.message;
+            });
+            $errorReportModal.modal('show');
         });
     },
     /**
      * Shows the small notification that asks for user permission
      *
-     * @return void
+     * @return {void}
      */
     showErrorNotification: function () {
         ErrorReport.removeErrorNotification();
@@ -153,7 +128,8 @@ var ErrorReport = {
     /**
      * Removes the notification if it was displayed before
      *
-     * @return void
+     * @param {Event} e
+     * @return {void}
      */
     removeErrorNotification: function (e) {
         if (e) {
@@ -167,7 +143,8 @@ var ErrorReport = {
     /**
      * Extracts Exception name from message if it exists
      *
-     * @return String
+     * @param exception
+     * @return {string}
      */
     extractExceptionName: function (exception) {
         if (exception.message === null || typeof(exception.message) === 'undefined') {
@@ -185,7 +162,7 @@ var ErrorReport = {
     /**
      * Shows the modal dialog previewing the report
      *
-     * @return void
+     * @return {void}
      */
     createReportDialog: function () {
         ErrorReport.removeErrorNotification();
@@ -195,7 +172,7 @@ var ErrorReport = {
      * Redirects to the settings page containing error report
      * preferences
      *
-     * @return void
+     * @return {void}
      */
     redirectToSettings: function () {
         window.location.href = 'index.php?route=/preferences/features';
@@ -205,7 +182,7 @@ var ErrorReport = {
      *
      * @param exception object exception info
      *
-     * @return object
+     * @return {object}
      */
     getReportData: function (exception) {
         if (exception && exception.stack && exception.stack.length) {
@@ -239,7 +216,7 @@ var ErrorReport = {
     /**
      * Wraps all global functions that start with PMA_
      *
-     * @return void
+     * @return {void}
      */
     wrapGlobalFunctions: function () {
         for (var key in window) {
@@ -254,9 +231,9 @@ var ErrorReport = {
     /**
      * Wraps given function in error reporting code and returns wrapped function
      *
-     * @param func function to be wrapped
+     * @param {Function} func function to be wrapped
      *
-     * @return function
+     * @return {Function}
      */
     wrapFunction: function (func) {
         if (!func.wrapped) {
@@ -279,7 +256,7 @@ var ErrorReport = {
     /**
      * Automatically wraps the callback in AJAX.registerOnload
      *
-     * @return void
+     * @return {void}
      */
     wrapAjaxOnloadCallback: function () {
         var oldOnload = AJAX.registerOnload;
@@ -291,7 +268,7 @@ var ErrorReport = {
     /**
      * Automatically wraps the callback in $.fn.on
      *
-     * @return void
+     * @return {void}
      */
     wrapJqueryOnCallback: function () {
         var oldOn = $.fn.on;
@@ -309,7 +286,7 @@ var ErrorReport = {
      * Wraps all global functions that start with PMA_
      * also automatically wraps the callback in AJAX.registerOnload
      *
-     * @return void
+     * @return {void}
      */
     setUpErrorReporting: function () {
         ErrorReport.wrapGlobalFunctions();

@@ -11,6 +11,7 @@ use PhpMyAdmin\Scripts;
 use ReflectionProperty;
 use function define;
 use function defined;
+use function rawurlencode;
 
 /**
  * Tests for Script.php
@@ -59,7 +60,7 @@ class ScriptsTest extends AbstractTestCase
         $actual = $this->object->getDisplay();
 
         $this->assertStringContainsString(
-            'src="js/dist/common.js?v=' . PMA_VERSION . '"',
+            'src="js/dist/common.js?v=' . rawurlencode(PMA_VERSION) . '"',
             $actual
         );
         $this->assertStringContainsString(

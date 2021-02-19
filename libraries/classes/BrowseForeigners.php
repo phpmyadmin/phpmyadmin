@@ -28,8 +28,6 @@ class BrowseForeigners
     private $repeatCells;
     /** @var bool */
     private $showAll;
-    /** @var string */
-    private $themeImage;
 
     /** @var Template */
     public $template;
@@ -39,7 +37,7 @@ class BrowseForeigners
      */
     public function __construct(Template $template)
     {
-        global $cfg, $PMA_Theme;
+        global $cfg;
 
         $this->template = $template;
 
@@ -47,7 +45,6 @@ class BrowseForeigners
         $this->maxRows = (int) $cfg['MaxRows'];
         $this->repeatCells = (int) $cfg['RepeatCells'];
         $this->showAll = (bool) $cfg['ShowAll'];
-        $this->themeImage = $PMA_Theme->getImgPath();
     }
 
     /**
@@ -72,6 +69,8 @@ class BrowseForeigners
         int $indexByDescription,
         string $current_value
     ): array {
+        global $PMA_Theme;
+
         $horizontal_count++;
         $output = '';
 
@@ -124,9 +123,9 @@ class BrowseForeigners
             'nowrap' => false,
         ]);
 
-        $output .= '<td width="20%">'
-            . '<img src="' . $this->themeImage . 'spacer.png" alt=""'
-            . ' width="1" height="1"></td>';
+        $output .= '<td width="20%"><img src="'
+            . ($PMA_Theme instanceof Theme ? $PMA_Theme->getImgPath('spacer.png') : '')
+            . '" alt="" width="1" height="1"></td>';
 
         $output .= $this->template->render('table/browse_foreigners/column_element', [
             'keyname' => $rightKeyname,

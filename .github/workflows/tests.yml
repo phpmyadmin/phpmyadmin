@@ -1,0 +1,212 @@
+name: Run tests
+
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - master
+      - QA_**
+
+jobs:
+    test-php:
+        name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                php-version: ["7.2", "7.3", "7.4", "8.0"]
+                os: [ubuntu-latest]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install gettext
+              run: sudo apt-get install -y gettext
+            - name: Generate mo files
+              run: ./scripts/generate-mo --quiet
+            - name: Use php ${{ matrix.php-version }}
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  extensions: mbstring, iconv, mysqli, zip, gd
+                  coverage: xdebug
+                  tools: composer:v2
+            - name: Cache module
+              uses: actions/cache@v2
+              with:
+                  path: ~/.composer/cache/
+                  key: composer-cache
+            - name: Install dependencies
+              run: composer install --no-interaction
+            - name: Run php tests
+              run: composer run phpunit --  --exclude-group selenium
+            - name: Send coverage
+              uses: codecov/codecov-action@v1
+              with:
+                flags: unit-${{ matrix.php-version }}-${{ matrix.os }}
+                name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
+            - name: Send coverage to Scrutinizer
+              uses: sudo-bot/action-scrutinizer@latest
+              # Upload can fail on forks
+              continue-on-error: true
+              with:
+                  cli-args: "--format=php-clover build/logs/clover.xml"
+            - name: Send coverage to Codacy
+              # Upload can fail on forks or if the secret is missing
+              continue-on-error: true
+              uses: codacy/codacy-coverage-reporter-action@master
+              with:
+                project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+                coverage-reports: build/logs/clover.xml
+
+    test-php-dbase:
+        name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
+        strategy:
+            matrix:
+                php-version: ["7.2"]
+                os: [ubuntu-latest]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install gettext
+              run: sudo apt-get install -y gettext
+            - name: Generate mo files
+              run: ./scripts/generate-mo --quiet
+            - name: Use php ${{ matrix.php-version }}
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  extensions: dbase, mbstring, iconv, mysqli, zip, gd
+                  coverage: xdebug
+                  tools: composer:v2
+            - name: Cache module
+              uses: actions/cache@v2
+              with:
+                  path: ~/.composer/cache/
+                  key: composer-cache
+            - name: Install dependencies
+              run: composer install
+            - name: Run php tests
+              run: composer run phpunit --  --exclude-group selenium
+            - name: Send coverage
+              uses: codecov/codecov-action@v1
+              with:
+                flags: dbase-extension
+                name: php-7.2-dbase-enabled
+            - name: Send coverage to Scrutinizer
+              uses: sudo-bot/action-scrutinizer@latest
+              # Upload can fail on forks
+              continue-on-error: true
+              with:
+                  cli-args: "--format=php-clover build/logs/clover.xml"
+            - name: Send coverage to Codacy
+              # Upload can fail on forks or if the secret is missing
+              continue-on-error: true
+              uses: codacy/codacy-coverage-reporter-action@master
+              with:
+                project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+                coverage-reports: build/logs/clover.xml
+
+    test-php-recode:
+        name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
+        strategy:
+            matrix:
+                php-version: ["7.2"]
+                os: [ubuntu-latest]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install gettext
+              run: sudo apt-get install -y gettext
+            - name: Generate mo files
+              run: ./scripts/generate-mo --quiet
+            - name: Use php ${{ matrix.php-version }}
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  extensions: recode, mbstring, iconv, mysqli, zip, gd
+                  coverage: xdebug
+                  tools: composer:v2
+            - name: Cache module
+              uses: actions/cache@v2
+              with:
+                  path: ~/.composer/cache/
+                  key: composer-cache
+            - name: Install dependencies
+              run: composer install
+            - name: Run php tests
+              run: composer run phpunit --  --exclude-group selenium
+            - name: Send coverage
+              uses: codecov/codecov-action@v1
+              with:
+                flags: recode-extension
+                name: php-7.2-recode-enabled
+            - name: Send coverage to Scrutinizer
+              uses: sudo-bot/action-scrutinizer@latest
+              # Upload can fail on forks
+              continue-on-error: true
+              with:
+                  cli-args: "--format=php-clover build/logs/clover.xml"
+            - name: Send coverage to Codacy
+              # Upload can fail on forks or if the secret is missing
+              continue-on-error: true
+              uses: codacy/codacy-coverage-reporter-action@master
+              with:
+                project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+                coverage-reports: build/logs/clover.xml
+
+    test-php-random:
+        name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
+        strategy:
+            matrix:
+                php-version: ["7.4"]
+                os: [ubuntu-latest]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install gettext
+              run: sudo apt-get install -y gettext
+            - name: Generate mo files
+              run: ./scripts/generate-mo --quiet
+            - name: Use php ${{ matrix.php-version }}
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  extensions: mbstring, iconv, mysqli, zip, gd
+                  tools: composer:v2
+            - name: Cache module
+              uses: actions/cache@v2
+              with:
+                  path: ~/.composer/cache/
+                  key: composer-cache
+            - name: Install dependencies
+              run: composer install
+            - name: Run php tests
+              # This one is allowed to fail, but we hope it will not
+              continue-on-error: true
+              run: composer run phpunit --  --exclude-group selenium --order-by=random --stop-on-failure
+
+    test-js:
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "::set-output name=dir::$(yarn cache dir)"
+            - name: yarn cache
+              uses: actions/cache@v2
+              with:
+                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
+            - name: Install modules
+              run: yarn install --non-interactive
+            - name: Run tests
+              run: yarn test

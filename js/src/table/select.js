@@ -5,7 +5,7 @@
  * @requires    js/functions.js
  */
 
-/* global changeValueFieldType */ // js/table/change.js
+/* global changeValueFieldType, verifyAfterSearchFieldChange */ // js/table/change.js
 /* global openGISEditor, gisEditorLoaded, loadJSAndGISEditor, loadGISEditor */ // js/gis_data_editor.js
 
 var TableSelect = {};
@@ -15,7 +15,7 @@ var TableSelect = {};
  *
  * @param {string} dataType Column data-type
  *
- * @return {(boolean|string)}
+ * @return {boolean | string}
  */
 TableSelect.checkIfDataTypeNumericOrDate = function (dataType) {
     // To test for numeric data-types.
@@ -81,6 +81,7 @@ AJAX.registerOnload('table/select.js', function () {
     $.each(tableRows, function (index, item) {
         $(item).on('change', function () {
             changeValueFieldType(this, index);
+            verifyAfterSearchFieldChange(index, '#tbl_search_form');
         });
     });
 
@@ -160,7 +161,7 @@ AJAX.registerOnload('table/select.js', function () {
                     $('#sqlqueryresultsouter').html(data.sql_query);
                 } else { // results found
                     $('#sqlqueryresultsouter').html(data.message);
-                    $('.sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
+                    $('.sqlqueryresults').trigger('makegrid');
                 }
                 $('#tbl_search_form')
                     // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.

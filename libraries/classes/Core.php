@@ -1364,7 +1364,9 @@ class Core
             $container->setParameter('goto', $goto);
             $container->setParameter('url_params', $url_params);
         } else {
-            $config->removeCookie('goto');
+            if ($config->issetCookie('goto')) {
+                $config->removeCookie('goto');
+            }
             unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto']);
         }
 
@@ -1373,7 +1375,9 @@ class Core
             $back = $_REQUEST['back'];
             $container->setParameter('back', $back);
         } else {
-            $config->removeCookie('back');
+            if ($config->issetCookie('back')) {
+                $config->removeCookie('back');
+            }
             unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
         }
     }

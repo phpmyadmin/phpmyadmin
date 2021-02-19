@@ -892,7 +892,7 @@ class DatabaseInterface implements DbalInterface
         $sql = QueryGenerator::getColumnsSql(
             $database,
             $table,
-            $column === null ? null : $this->escapeString($column),
+            $column === null ? null : Util::escapeMysqlWildcards($this->escapeString($column)),
             $full
         );
         $fields = $this->fetchResult($sql, 'Field', null, $link);
@@ -2407,6 +2407,8 @@ class DatabaseInterface implements DbalInterface
 
     /**
      * Server version as number
+     *
+     * @example 80011
      */
     public function getVersion(): int
     {

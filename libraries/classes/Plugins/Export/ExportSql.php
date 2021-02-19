@@ -1709,28 +1709,28 @@ class ExportSql extends ExportPlugin
             if (! empty($statement->fields) && (empty($engine) || strtoupper($engine) !== 'ARCHIVE')) {
 
                 /**
-                 * Fragments containining definition of each constraint.
+                 * Fragments containing definition of each constraint.
                  *
                  * @var array
                  */
                 $constraints = [];
 
                 /**
-                 * Fragments containining definition of each index.
+                 * Fragments containing definition of each index.
                  *
                  * @var array
                  */
                 $indexes = [];
 
                 /**
-                 * Fragments containining definition of each FULLTEXT index.
+                 * Fragments containing definition of each FULLTEXT index.
                  *
                  * @var array
                  */
                 $indexes_fulltext = [];
 
                 /**
-                 * Fragments containining definition of each foreign key that will
+                 * Fragments containing definition of each foreign key that will
                  * be dropped.
                  *
                  * @var array
@@ -1738,7 +1738,7 @@ class ExportSql extends ExportPlugin
                 $dropped = [];
 
                 /**
-                 * Fragment containining definition of the `AUTO_INCREMENT`.
+                 * Fragment containing definition of the `AUTO_INCREMENT`.
                  *
                  * @var array
                  */
@@ -2800,7 +2800,7 @@ class ExportSql extends ExportPlugin
         // Replacing aliases in `CREATE TABLE` statement.
         if ($statement->options->has('TABLE')) {
             // Extracting the name of the old database and table from the
-            // statement to make sure the parameters are corect.
+            // statement to make sure the parameters are correct.
             if (! empty($statement->name->database)) {
                 $old_database = $statement->name->database;
             }
@@ -2887,7 +2887,7 @@ class ExportSql extends ExportPlugin
             }
         } elseif ($statement->options->has('TRIGGER')) {
             // Extracting the name of the old database and table from the
-            // statement to make sure the parameters are corect.
+            // statement to make sure the parameters are correct.
             if (! empty($statement->table->database)) {
                 $old_database = $statement->table->database;
             }
@@ -2912,7 +2912,7 @@ class ExportSql extends ExportPlugin
             || $statement->options->has('FUNCTION')
             || $statement->options->has('VIEW')
         ) {
-            // Repalcing the body.
+            // Replacing the body.
             for ($i = 0, $count = count((array) $statement->body); $i < $count; ++$i) {
 
                 /**

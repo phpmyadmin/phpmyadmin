@@ -96,10 +96,19 @@
                   </li>
                 {% endif %}
 
-                {% if theme_selection is not empty %}
+                {% if has_theme_manager %}
                   <li id="li_select_theme" class="list-group-item">
-                    {{ get_image('s_theme') }}
-                    {{ theme_selection|raw }}
+                    <form method="post" action="{{ url('/themes/set') }}" class="disableAjax">
+                      {{ get_hidden_inputs() }}
+                      <a href="#" data-bs-toggle="modal" data-bs-target="#themesModal" role="button">
+                        {{- get_icon('s_theme', 'Theme:'|trans) -}}
+                      </a>
+                      <select name="set_theme" lang="en" dir="ltr" class="autosubmit" aria-label="{% trans 'Theme' %}">
+                        {% for theme in themes %}
+                          <option value="{{ theme.id }}"{{ theme.is_active ? ' selected' }}>{{ theme.name }}</option>
+                        {% endfor %}
+                      </select>
+                    </form>
                   </li>
                 {% endif %}
               </ul>
@@ -229,5 +238,29 @@
       </div>
     </div>
   </div>
+
+{% if has_theme_manager %}
+  <div class="modal fade" id="themesModal" tabindex="-1" aria-labelledby="themesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="themesModalLabel">{% trans 'phpMyAdmin Themes' %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+        </div>
+        <div class="modal-body">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">{% trans 'Loading…' %}</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+          <a href="{{ 'https://www.phpmyadmin.net/themes/'|link }}#pma_{{ phpmyadmin_major_version|replace({'.': '_'}) }}" class="btn btn-primary" rel="noopener noreferrer" target="_blank">
+            {% trans 'Get more themes!' %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
 
 {{ config_storage_message|raw }}

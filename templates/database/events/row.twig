@@ -10,6 +10,9 @@
     {{ event.status }}
   </td>
   <td>
+    {{ event.type }}
+  </td>
+  <td>
     {% if has_privilege %}
       <a class="ajax edit_anchor" href="{{ url('/database/events', {
         'db': db,
@@ -48,8 +51,5 @@
     {% else %}
       {{ get_icon('bd_drop', 'Drop'|trans) }}
     {% endif %}
-  </td>
-  <td>
-    {{ event.type }}
   </td>
 </tr>

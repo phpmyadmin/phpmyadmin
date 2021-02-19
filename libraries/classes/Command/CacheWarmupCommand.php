@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Routing;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Twig\AssetExtension;
 use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
@@ -36,7 +37,7 @@ use function strpos;
 
 final class CacheWarmupCommand extends Command
 {
-    /** @var string */
+    /** @var string|null */
     protected static $defaultName = 'cache:warmup';
 
     protected function configure(): void
@@ -108,6 +109,7 @@ final class CacheWarmupCommand extends Command
             'cache' => $tmpDir,
         ]);
         $twig->setExtensions([
+            new AssetExtension(),
             new CoreExtension(),
             new I18nExtension(),
             new MessageExtension(),

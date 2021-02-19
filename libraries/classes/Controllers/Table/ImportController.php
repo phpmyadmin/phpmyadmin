@@ -40,7 +40,7 @@ final class ImportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $max_upload_size, $table, $url_params, $SESSION_KEY, $cfg, $PMA_Theme, $err_url;
+        global $db, $max_upload_size, $table, $url_params, $SESSION_KEY, $cfg, $err_url;
 
         $pageSettings = new PageSettings('Import');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
@@ -103,7 +103,6 @@ final class ImportController extends AbstractController
             'page_settings_html' => $pageSettingsHtml,
             'upload_id' => $uploadId,
             'handler' => $_SESSION[$SESSION_KEY]['handler'],
-            'theme_image_path' => $PMA_Theme->getImgPath(),
             'hidden_inputs' => $hiddenInputs,
             'db' => $db,
             'table' => $table,

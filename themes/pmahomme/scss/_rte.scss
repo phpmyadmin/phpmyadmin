@@ -14,9 +14,10 @@
 
   input,
   select,
-  textarea {
+  textarea,
+  .CodeMirror {
     width: 100%;
-    margin: 0;
+    margin: 6px;
     box-sizing: border-box;
   }
 

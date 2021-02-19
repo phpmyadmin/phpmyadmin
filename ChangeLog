@@ -4,6 +4,8 @@ phpMyAdmin - ChangeLog
 5.2.0 (not yet released)
 - issue #16521 Upgrade Bootstrap to version 5
 - issue #16521 Drop support for Internet Explorer and others
+- issue        Upgrade to shapefile 3
+- issue #16555 Bump minimum PHP version to 7.2
 
 5.1.0 (not yet released)
 - issue #15350 Change Media (MIME) type references to Media type
@@ -76,6 +78,34 @@ phpMyAdmin - ChangeLog
 - issue #15658 Fixed saving UI displayed columns on a non database request fails
 - issue #16495 Fix drop tables checkbox is above the checkbox for foreign keys
 - issue #16485 Fix visual query builder missing "Build Query" button
+- issue #16565 Added 'IF EXISTS' to 'DROP EVENT' when updating events to avoid replication issues
+- issue        Removed metro fonts that where Apache-2.0 files that are incompatible with GPL-2.0
+- issue #16464 Made the relation view default to the current database when creating relations
+- issue #16463 Fixed 'REFERENCES' privilege checkbox's title on new MySQL versions and on MariaDB
+- issue #16405 Added jest as a Unit Testing tool for our javascript code
+- issue #16252 Fixed the too small font size when editing rows (textareas)
+- issue #16585 Fixed BLOB to JPG transformation PHP errors
+- issue        Made the console setup async to avoid blocking the page render
+- issue #16429 Use PHP 8.0 fixed version (commit) for TCPDF
+- issue #16005 Major performance improvements on browsing a lot of rows
+- issue #16595 Fixed editing columns having a `_` in their name in specific conditions
+- issue #16608 Fix "Sort by key" restore auto saved value
+- issue #16611 Fixed unable to add tables to rename aliases twice on Export
+- issue #16621 Fixed link HTML messed up in Advisor
+- issue #16622 Fixed Advisor formatting incorrect for long_query_time notice
+- issue #15389 Fixed reset current page indicator after deleting all rows to current page and not page 1
+- issue #15997 Fixed auto save query
+- issue #15997 Made auto saved query database or database+table independent
+- issue #16641 Fixed query generation that was allowing JSON to have a length
+- issue #15994 Fixed the selected value detection for "on update current_timestamp"
+- issue #16614 Fixed PHP 8.0 dataseek offset call to the MySQLI extension
+- issue #16662 Fixed Uncaught TypeError on "delete" button click of a database search results page
+- issue        Fixed Undefined index: selected_usr when the user tried to delete no selected user
+- issue #16657 Fixed the QBE interface when the configuration storage is not enabled
+- issue #16479 Fix our Selenium test-suite
+- issue #16669 Fixed table search modal for BETWEEN
+- issue #16667 Fixed LIKE and TINYINT in search not working properly
+- issue #16424 Fixed numerical search in table and zoom
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
@@ -83,6 +113,7 @@ phpMyAdmin - ChangeLog
 - issue #16429 Fixed PHP 8.0 errors on preg_replace and operand types
 - issue #16490 Fixed PHP 8.0 function libxml_disable_entity_loader() is deprecated
 - issue #16429 Fixed failing unit tests on PHP 8.0
+- issue #16609 Fixed Sql.rearrangeStickyColumns is not a function
 
 5.0.4 (2020-10-15)
 - issue #16245 Fix failed Zoom search clears existing values

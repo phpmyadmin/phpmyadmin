@@ -40,7 +40,7 @@ class QueryByExampleController extends AbstractController
 
     public function index(): void
     {
-        global $db, $savedSearchList, $savedSearch, $currentSearchId, $PMA_Theme;
+        global $db, $savedSearchList, $savedSearch, $currentSearchId;
         global $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
         global $tooltip_truename, $tooltip_aliasname, $pos, $url_params, $cfg, $err_url;
 
@@ -50,9 +50,8 @@ class QueryByExampleController extends AbstractController
         $savedSearchList = [];
         $savedSearch = null;
         $currentSearchId = null;
+        $this->addScriptFiles(['database/qbe.js']);
         if ($cfgRelation['savedsearcheswork']) {
-            $this->addScriptFiles(['database/qbe.js']);
-
             //Get saved search list.
             $savedSearch = new SavedSearches($GLOBALS, $this->relation);
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
@@ -127,7 +126,6 @@ class QueryByExampleController extends AbstractController
                     null, // message_to_show
                     null, // sql_data
                     $goto, // goto
-                    $PMA_Theme->getImgPath(),
                     null, // disp_query
                     null, // disp_message
                     $sql_query, // sql_query

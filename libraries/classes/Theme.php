@@ -93,14 +93,6 @@ class Theme
         'icons',
     ];
 
-    /** @var Template */
-    public $template;
-
-    public function __construct()
-    {
-        $this->template = new Template();
-    }
-
     /**
      * Loads theme information
      *
@@ -157,30 +149,19 @@ class Theme
         return true;
     }
 
-    /**
-     * returns theme object loaded from given folder
-     * or false if theme is invalid
-     *
-     * @param string $folder path to theme
-     * @param string $fsPath file-system path to theme
-     *
-     * @return Theme|false
-     *
-     * @static
-     * @access public
-     */
-    public static function load(string $folder, string $fsPath)
+    public static function load(string $themeDirectory): ?self
     {
-        $theme = new Theme();
+        $theme = new self();
 
-        $theme->setPath($folder);
-        $theme->setFsPath($fsPath);
+        $theme->setPath('./themes/' . $themeDirectory);
+        $theme->setFsPath(ROOT_PATH . 'themes/' . $themeDirectory . '/');
 
         if (! $theme->loadInfo()) {
-            return false;
+            return null;
         }
 
         $theme->checkImgPath();
+        $theme->setId($themeDirectory);
 
         return $theme;
     }
@@ -401,29 +382,5 @@ class Theme
         }
 
         return './themes/' . ThemeManager::FALLBACK_THEME . '/img/' . $file;
-    }
-
-    /**
-     * Renders the preview for this theme
-     *
-     * @return string
-     *
-     * @access public
-     */
-    public function getPrintPreview()
-    {
-        $url_params = ['set_theme' => $this->getId()];
-        $screen = null;
-        if (@file_exists($this->getFsPath() . 'screen.png')) {
-            $screen = $this->getPath() . '/screen.png';
-        }
-
-        return $this->template->render('theme_preview', [
-            'url_params' => $url_params,
-            'name' => $this->getName(),
-            'version' => $this->getVersion(),
-            'id' => $this->getId(),
-            'screen' => $screen,
-        ]);
     }
 }

@@ -102,8 +102,9 @@ class ThemeTest extends AbstractTestCase
      */
     public function testLoad(): void
     {
-        $newTheme = Theme::load('./themes/original', ROOT_PATH . 'themes/original');
+        $newTheme = Theme::load('original');
         $this->assertNotNull($newTheme);
+        $this->assertInstanceOf(Theme::class, $newTheme);
     }
 
     /**
@@ -111,7 +112,7 @@ class ThemeTest extends AbstractTestCase
      */
     public function testLoadNotExisted(): void
     {
-        $this->assertFalse(Theme::load('/path/to/nowhere', '/path/to/nowhere'));
+        $this->assertNull(Theme::load('nonexistent'));
     }
 
     /**
@@ -197,26 +198,6 @@ class ThemeTest extends AbstractTestCase
         $this->object->setImgPath('/new/path');
 
         $this->assertEquals('/new/path', $this->object->getImgPath());
-    }
-
-    /**
-     * Test for getPrintPreview().
-     */
-    public function testGetPrintPreview(): void
-    {
-        parent::setLanguage();
-        $this->assertStringContainsString(
-            '<h2>' . "\n" . '         (0.0.0.0)',
-            $this->object->getPrintPreview()
-        );
-        $this->assertStringContainsString(
-            'name="" href="index.php?route=/set-theme&amp;set_theme=&amp;server=99&amp;lang=en">',
-            $this->object->getPrintPreview()
-        );
-        $this->assertStringContainsString(
-            'No preview available.',
-            $this->object->getPrintPreview()
-        );
     }
 
     /**

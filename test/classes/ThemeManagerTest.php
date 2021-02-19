@@ -48,16 +48,17 @@ class ThemeManagerTest extends AbstractTestCase
         $this->assertEquals('pma_theme-99', $tm->getThemeCookieName());
     }
 
-    /**
-     * Test for ThemeManager::getHtmlSelectBox
-     */
-    public function testHtmlSelectBox(): void
+    public function testGetThemesArray(): void
     {
         $tm = new ThemeManager();
-        $this->assertStringContainsString(
-            '<option value="pmahomme" selected="selected">',
-            $tm->getHtmlSelectBox()
-        );
+        $themes = $tm->getThemesArray();
+        $this->assertIsArray($themes);
+        $this->assertArrayHasKey(0, $themes);
+        $this->assertIsArray($themes[0]);
+        $this->assertArrayHasKey('id', $themes[0]);
+        $this->assertArrayHasKey('name', $themes[0]);
+        $this->assertArrayHasKey('version', $themes[0]);
+        $this->assertArrayHasKey('is_active', $themes[0]);
     }
 
     /**
@@ -69,19 +70,5 @@ class ThemeManagerTest extends AbstractTestCase
         $this->assertTrue(
             $tm->setThemeCookie()
         );
-    }
-
-    /**
-     * Test for getPrintPreviews
-     */
-    public function testGetPrintPreviews(): void
-    {
-        $tm = new ThemeManager();
-        $preview = $tm->getPrintPreviews();
-        $this->assertStringContainsString('<div class="theme_preview"', $preview);
-        $this->assertStringContainsString('Original', $preview);
-        $this->assertStringContainsString('set_theme=original', $preview);
-        $this->assertStringContainsString('pmahomme', $preview);
-        $this->assertStringContainsString('set_theme=pmahomme', $preview);
     }
 }

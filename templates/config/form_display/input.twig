@@ -18,7 +18,7 @@
     {% endif %}
 
     {% if description is not empty %}
-      <small>{{ description }}</small>
+      <small>{{ description|raw }}</small>
     {% endif %}
   </th>
 

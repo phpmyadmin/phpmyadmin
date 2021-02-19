@@ -28,7 +28,7 @@ Export.enableDumpSomeRowsSubOptions = function () {
 /**
  * Return template data as a json object
  *
- * @returns template data
+ * @return {object} template data
  */
 Export.getTemplateData = function () {
     var $form = $('form[name="dump"]');
@@ -764,7 +764,7 @@ Export.checkTimeOut = function (timeLimit) {
  *
  * @param event object the event object
  *
- * @return void
+ * @return {void}
  */
 Export.aliasSelectHandler = function (event) {
     var sel = event.data.sel;
@@ -800,7 +800,7 @@ Export.aliasSelectHandler = function (event) {
  *
  * @param event object the event object
  *
- * @return void
+ * @return {void}
  */
 Export.createAliasModal = function (event) {
     event.preventDefault();
@@ -869,12 +869,17 @@ Export.aliasToggleRow = function (elm) {
     }
 };
 
+Export.aliasRow = null;
+
 Export.addAlias = function (type, name, field, value) {
     if (value === '') {
         return;
     }
 
-    var row = $('#alias_data tfoot tr').clone();
+    if (Export.aliasRow === null) {
+        Export.aliasRow = $('#alias_data tfoot tr');
+    }
+    var row = Export.aliasRow.clone();
     row.find('th').text(type);
     row.find('td').first().text(name);
     row.find('input').attr('name', field);

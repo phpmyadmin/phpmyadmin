@@ -256,11 +256,6 @@ parameters:
 			path: libraries/classes/Controllers/Table/SearchController.php
 
 		-
-			message: "#^Parameter \\#1 \\$selected of method PhpMyAdmin\\\\Controllers\\\\Table\\\\StructureController\\:\\:displayHtmlForColumnChange\\(\\) expects array, null given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Table/StructureController.php
-
-		-
 			message: "#^Parameter \\#1 \\$content of method PhpMyAdmin\\\\Response\\:\\:addHTML\\(\\) expects string, PhpMyAdmin\\\\Message given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/StructureController.php
@@ -556,11 +551,6 @@ parameters:
 			path: libraries/classes/ErrorHandler.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\ErrorReport\\:\\:getPrettyData\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/ErrorReport.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/ErrorReport.php
@@ -626,11 +616,6 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\File\\:\\:getHandle\\(\\) should return resource but returns resource\\|null\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$handle \\(resource\\|null\\) does not accept resource\\|false\\.$#"
 			count: 4
 			path: libraries/classes/File.php
@@ -643,11 +628,6 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$file of method PhpMyAdmin\\\\ZipExtension\\:\\:getContents\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\File\\:\\:read\\(\\) should return string but returns string\\|false\\.$#"
-			count: 3
 			path: libraries/classes/File.php
 
 		-
@@ -669,11 +649,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\File\\:\\:getCompression\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/File.php
-
-		-
-			message: "#^Offset 0 does not exist on array\\|null\\.$#"
-			count: 2
-			path: libraries/classes/Font.php
 
 		-
 			message: "#^Argument of an invalid type array\\|object supplied for foreach, only iterables are supported\\.$#"
@@ -1051,6 +1026,11 @@ parameters:
 			path: libraries/classes/Navigation/Nodes/Node.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\:\\:getPresence\\(\\) should return int but returns int\\|string\\.$#"
+			count: 1
+			path: libraries/classes/Navigation/Nodes/Node.php
+
+		-
 			message: "#^Cannot access property \\$realName on PhpMyAdmin\\\\Navigation\\\\Nodes\\\\Node\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php
@@ -1276,11 +1256,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportShp.php
 
 		-
-			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportShp.php
-
-		-
 			message: "#^Call to an undefined method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\|PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\|PhpMyAdmin\\\\Gis\\\\GisPoint\\|PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:getShape\\(\\)\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportShp.php
@@ -1313,11 +1288,6 @@ parameters:
 		-
 			message: "#^Offset 'charset' does not exist on SimpleXMLElement\\|null\\.$#"
 			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
-			count: 2
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
 		-
@@ -2081,12 +2051,12 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#15 \\$showtable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array, bool given\\.$#"
+			message: "#^Parameter \\#14 \\$showtable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array, bool given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#16 \\$printview of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#15 \\$printview of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
@@ -2392,7 +2362,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#8 \\$default_value of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, int given\\.$#"
-			count: 14
+			count: 7
 			path: test/classes/TableTest.php
 
 		-

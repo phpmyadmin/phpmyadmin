@@ -1,0 +1,92 @@
+name: Lint and analyse php files
+
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - master
+      - QA_**
+
+jobs:
+    lint-node:
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "::set-output name=dir::$(yarn cache dir)"
+            - name: yarn cache
+              uses: actions/cache@v2
+              with:
+                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
+            - name: Install modules
+              run: yarn install --non-interactive
+            - name: Lint JS files
+              run: yarn run js-lint --quiet
+            - name: Lint CSS files
+              run: yarn run css-lint
+
+    lint-php-files:
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
+        steps:
+            - uses: actions/checkout@v2
+            - name: Lint PHP files
+              run: ./test/ci-phplint
+            - name: Use php 7.2
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 7.2
+                  extensions: mbstring, iconv, mysqli, zip, gd
+                  tools: composer:v2
+            - name: Validate composer.json and composer.lock
+              run: composer validate
+            - name: Cache module
+              uses: actions/cache@v2
+              with:
+                  path: ~/.composer/cache/
+                  key: composer-cache
+            - name: Cache coding-standard
+              uses: actions/cache@v2
+              with:
+                  path: .phpcs-cache
+                  key: phpcs-cache
+            - name: Install dependencies
+              run: composer install
+            - name: Lint PHP files
+              run: ./test/ci-phplint
+            - name: Check coding-standard
+              run: composer phpcs
+            - name: Check twig templates
+              run: php scripts/console lint:twig templates --show-deprecations
+
+    analyse-php:
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[ci skip]')"
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use php 7.2
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 7.2
+                  extensions: mbstring, iconv, mysqli, zip, gd
+                  tools: composer:v2
+            - name: Cache module
+              uses: actions/cache@v2
+              with:
+                  path: ~/.composer/cache/
+                  key: composer-cache
+            - name: Install dependencies
+              run: composer install
+            - name: Analyse files with phpstan
+              run: composer phpstan -- --memory-limit 2G
+            - name: Analyse files with psalm
+              run: composer psalm

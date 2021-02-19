@@ -373,9 +373,8 @@
             </table>
 
             {% include 'select_all.twig' with {
-                'theme_image_path': theme_image_path,
-                'text_dir'       : text_dir,
-                'form_name'      : 'tableslistcontainer',
+                'text_dir': text_dir,
+                'form_name': 'tableslistcontainer',
             } only %}
             <button class="btn btn-link mult_submit change_central_columns" type="submit" name="edit_central_columns"
                     value="edit central columns" title="{% trans 'Edit' %}">

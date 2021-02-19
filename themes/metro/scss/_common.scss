@@ -39,15 +39,15 @@ body#loginform {
     margin-right: auto;
 
     &::before {
-      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-      font-family: 'IcoMoon';
-      font-size: 220px;
       color: $body-bg;
-      content: "a";
+      background: url('../img/user.svg');/* The user avatar icon */
+      content: "";
       float: left;
       margin-right: 20px;
       margin-bottom: 10px;
       background-color: $th-color;
+      background-repeat: no-repeat;
+      background-size: cover;
       overflow: hidden;
       height: 240px;
       width: 240px;
@@ -260,7 +260,7 @@ input {
   margin-right: 14px !important;
 }
 
-button {
+button:not(.accordion-button) {
   margin-left: 14px;
   padding: 4px;
   color: $button-color;
@@ -387,58 +387,6 @@ div.tools {
 
   a {
     color: $blue-header !important;
-  }
-}
-
-.chrome {
-  input[type="checkbox"] {
-    left: -9999px;
-    position: relative;
-
-    &::before {
-      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-      font-family: 'IcoMoon';
-      content: "";
-      color: $th-color;
-      cursor: default;
-      position: absolute;
-      padding: 4px;
-      top: 0;
-      left: 9995px;
-    }
-
-    &:indeterminate::before {
-      content: "";
-    }
-
-    &:checked::before {
-      content: "";
-    }
-  }
-
-  .navigation input[type="checkbox"]::before {
-    color: #fff;
-  }
-
-  input[type="radio"] {
-    left: -9999px;
-    position: relative;
-
-    &::before {
-      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-      font-family: 'IcoMoon';
-      content: "";
-      color: $th-color;
-      cursor: default;
-      position: absolute;
-      padding: 4px;
-      top: 0;
-      left: 9995px;
-    }
-
-    &:checked::before {
-      content: "";
-    }
   }
 }
 
@@ -747,12 +695,6 @@ div.tools,
   }
 }
 
-/* forbidden, no privileges */
-.noPrivileges {
-  color: #f00;
-  font-weight: bold;
-}
-
 /* disabled text */
 .disabled {
   color: #666;
@@ -984,11 +926,6 @@ h3#serverstatusqueries span {
   display: inline;
 }
 
-.buttonlinks {
-  float: right;
-  white-space: nowrap;
-}
-
 /* Also used for the variables page */
 .pma-fieldset#tableFilter {
   padding: 0.1em 1em;
@@ -1156,39 +1093,6 @@ div#profilingchart {
   font-size: 1.7em;
 }
 
-#sectionlinks {
-  padding: 16px;
-  background: #f3f3f3;
-  border: 1px solid #aaa;
-
-  a {
-    font-size: 0.88em;
-    font-weight: bold;
-    line-height: 35px;
-    margin-left: 7px;
-    border: 1px solid #aaa;
-    padding: 5px 10px;
-    color: #111;
-    text-decoration: none;
-    background: #ddd;
-    white-space: nowrap;
-  }
-}
-
-.buttonlinks a,
-a.button {
-  font-size: 0.88em;
-  font-weight: bold;
-  line-height: 35px;
-  margin-left: 7px;
-  border: 1px solid #aaa;
-  padding: 5px 10px;
-  color: #111;
-  text-decoration: none;
-  background: #ddd;
-  white-space: nowrap;
-}
-
 textarea {
   &#sqlquery {
     width: 100%;
@@ -1243,28 +1147,9 @@ li {
     display: none;
   }
 
-  &.no_bullets {
-    list-style-type: none !important;
-  }
-
   &#li_mysql_client_version {
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  &#li_create_database {
-    background-color: #f6f6f6;
-    padding: 10px;
-    border: 1px solid $border-color;
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  &#li_switch_dbstats {
-    background-color: #f6f6f6;
-    padding: 10px;
-    border: 1px solid $border-color;
-    display: block;
   }
 }
 
@@ -2516,20 +2401,6 @@ body #ui-datepicker-div {
   color: #235a81;
 }
 
-.report-data {
-  height: 13em;
-  overflow: scroll;
-  width: 570px;
-  border: solid 1px;
-  background: white;
-  padding: 2px;
-}
-
-.report-description {
-  height: 10em;
-  width: 570px;
-}
-
 div#page_content div {
   &#tableslistcontainer {
     margin-top: 1em;
@@ -3374,6 +3245,12 @@ body {
   .query-form__multi-sql-query {
     float: left;
   }
+}
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
 }
 
 // Extra large devices (large desktops, 1200px and up)

@@ -1,0 +1,129 @@
+name: Run selenium tests
+
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - master
+      - QA_**
+
+jobs:
+    test-selenium:
+        name: Selenium tests on php ${{ matrix.php-version }} and ${{ matrix.os }}
+        if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[ci selenium skip]')"
+        runs-on: ${{ matrix.os }}
+        services:
+          database-server:
+            image: ${{ matrix.db-server }}
+            env:
+              MYSQL_ROOT_PASSWORD: testbench
+            ports:
+              - "3306:3306"
+            options: >-
+              --health-cmd="mysqladmin ping"
+              --health-interval=10s
+              --health-timeout=5s
+              --health-retries=3
+          selenium-server:
+            image: selenium/standalone-chrome:3.141.59
+            volumes:
+              - /dev/shm:/dev/shm
+            options: >-
+              --health-cmd "/opt/bin/check-grid.sh"
+            env:
+              SCREEN_WIDTH: 1920
+              SCREEN_HEIGHT: 1080
+            ports:
+              - "4444:4444"
+          docker-host-bridge:
+            # Allow accessing localhost ports from docker containers.
+            # See https://github.com/qoomon/docker-host
+            image: qoomon/docker-host
+            options: >-
+              --name docker-host-bridge
+              --hostname docker-host-bridge
+              --add-host docker-host-bridge:127.0.0.1
+              --cap-add=NET_ADMIN
+              --cap-add=NET_RAW
+              --restart on-failure
+        strategy:
+            matrix:
+                php-version: ["7.2"]
+                os: [ubuntu-latest]
+                db-server: ["mysql:5.7"]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install gettext
+              run: sudo apt-get install -y gettext
+            - name: Generate mo files
+              run: ./scripts/generate-mo --quiet
+            - name: Use php ${{ matrix.php-version }}
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  extensions: mbstring, iconv, mysqli, zip, gd
+                  tools: composer:v2
+            - name: Cache module
+              uses: actions/cache@v2
+              with:
+                  path: ~/.composer/cache/
+                  key: composer-cache
+            - name: Install dependencies
+              run: composer install --no-interaction
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "::set-output name=dir::$(yarn cache dir)"
+            - name: yarn cache
+              uses: actions/cache@v2
+              with:
+                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
+            - name: Install modules
+              run: yarn install --non-interactive --production
+            - name: Install nginx and php-fpm
+              run: sudo apt-get install -y nginx php7.2-fpm
+            - name: Copy the config
+              run: cp test/config.e2e.inc.php config.inc.php
+            - name: Start server
+              env:
+                CI_MODE: selenium
+                FPM_PATH: php-fpm7.2
+                SKIP_STANDALONE: 1
+              run: |
+                ./test/start-local-server
+                echo ::set-output name=SELENIUM_TEMPDIR::"$(cat /tmp/last_temp_dir_phpMyAdminTests)"
+              id: start-local-server
+            - name: Run selenium tests
+              env:
+                CI_MODE: selenium
+                TESTSUITE_SELENIUM_BROWSER: chrome
+                TESTSUITE_USER: root
+                TESTSUITE_PASSWORD: testbench
+                # Port defined in test/nginx.conf
+                TESTSUITE_URL: http://docker-host-bridge:8000
+                TESTSUITE_DATABASE_PREFIX: "selenium"
+                TESTSUITE_SELENIUM_HOST: "127.0.0.1"
+                TESTSUITE_SELENIUM_PORT: "4444"
+              run: ./vendor/bin/phpunit --group selenium --verbose --debug --no-coverage --stop-on-skipped
+            - name: Output logs and stop server
+              env:
+                CI_MODE: selenium
+                SELENIUM_TEMPDIR: ${{ steps.start-local-server.outputs.SELENIUM_TEMPDIR }}
+              if: ${{ success() || failure() }}
+              run: |
+                if [ -f "${SELENIUM_TEMPDIR}/php.log" ] ; then cat "${SELENIUM_TEMPDIR}/php.log" ; fi
+                if [ -f "${SELENIUM_TEMPDIR}/nginx-error.log" ] ; then cat "${SELENIUM_TEMPDIR}/nginx-error.log" ; fi
+                ./test/stop-local-server
+            - name: 'Upload screenshots'
+              uses: actions/upload-artifact@v2
+              if: ${{ success() || failure() }}
+              with:
+                name: selenium-screenshots
+                path: ${{ github.workspace }}/build/selenium/**/*
+                retention-days: 1

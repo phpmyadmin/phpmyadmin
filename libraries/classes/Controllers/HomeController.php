@@ -21,7 +21,6 @@ use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
@@ -67,6 +66,8 @@ class HomeController extends AbstractController
         if ($this->response->isAjax() && ! empty($_REQUEST['access_time'])) {
             return;
         }
+
+        $this->addScriptFiles(['home.js']);
 
         // This is for $cfg['ShowDatabasesNavigationAsTree'] = false;
         // See: https://github.com/phpmyadmin/phpmyadmin/issues/16520
@@ -137,11 +138,6 @@ class HomeController extends AbstractController
         $languageSelector = '';
         if (empty($cfg['Lang']) && $languageManager->hasChoice()) {
             $languageSelector = $languageManager->getSelectorDisplay($this->template);
-        }
-
-        $themeSelection = '';
-        if ($cfg['ThemeManager']) {
-            $themeSelection = $this->themeManager->getHtmlSelectBox();
         }
 
         $databaseServer = [];
@@ -237,27 +233,16 @@ class HomeController extends AbstractController
             'has_change_password_link' => $cfg['Server']['auth_type'] !== 'config' && $cfg['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
             'language_selector' => $languageSelector,
-            'theme_selection' => $themeSelection,
             'database_server' => $databaseServer,
             'web_server' => $webServer,
             'show_php_info' => $cfg['ShowPhpInfo'],
             'is_version_checked' => $cfg['VersionCheck'],
             'phpmyadmin_version' => PMA_VERSION,
+            'phpmyadmin_major_version' => PMA_MAJOR_VERSION,
             'config_storage_message' => $configStorageMessage ?? '',
+            'has_theme_manager' => $cfg['ThemeManager'],
+            'themes' => $this->themeManager->getThemesArray(),
         ]);
-    }
-
-    public function setTheme(): void
-    {
-        $this->themeManager->setActiveTheme($_POST['set_theme']);
-        $this->themeManager->setThemeCookie();
-
-        $userPreferences = new UserPreferences();
-        $preferences = $userPreferences->load();
-        $preferences['config_data']['ThemeDefault'] = $_POST['set_theme'];
-        $userPreferences->save($preferences['config_data']);
-
-        $this->response->header('Location: index.php?route=/' . Url::getCommonRaw([], '&'));
     }
 
     public function setCollationConnection(): void

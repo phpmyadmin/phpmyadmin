@@ -54,9 +54,9 @@ function prepareJSVersion () {
 /**
  * Returns the HTML for a data point.
  *
- * @param pointNumber point number
- * @param prefix      prefix of the name
- * @returns the HTML for a data point
+ * @param {number} pointNumber point number
+ * @param {string} prefix      prefix of the name
+ * @return {string} the HTML for a data point
  */
 function addDataPoint (pointNumber, prefix) {
     return '<br>' +
@@ -176,10 +176,10 @@ function openGISEditor () {
     var popupOffsetLeft = windowWidth / 2 - popupWidth / 2;
 
     var $gisEditor = $('#gis_editor');
-    var $backgrouond = $('#popup_background');
+    var $background = $('#popup_background');
 
     $gisEditor.css({ 'top': popupOffsetTop, 'left': popupOffsetLeft, 'width': popupWidth, 'height': popupHeight });
-    $backgrouond.css({ 'opacity' : '0.7' });
+    $background.css({ 'opacity' : '0.7' });
 
     $gisEditor.append(
         '<div id="gis_data_editor">' +
@@ -189,7 +189,7 @@ function openGISEditor () {
     );
 
     // Make it appear
-    $backgrouond.fadeIn('fast');
+    $background.fadeIn('fast');
     $gisEditor.fadeIn('fast');
 }
 

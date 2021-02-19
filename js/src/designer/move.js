@@ -386,6 +386,11 @@ DesignerMove.reload = function () {
 
 /**
  * draws a line from x1:y1 to x2:y2 with color
+ * @param x1
+ * @param y1
+ * @param x2
+ * @param y2
+ * @param colorLine
  */
 DesignerMove.line = function (x1, y1, x2, y2, colorLine) {
     var canvas = document.getElementById('canvas');
@@ -400,6 +405,11 @@ DesignerMove.line = function (x1, y1, x2, y2, colorLine) {
 
 /**
  * draws a relation/constraint line, whether angular or not
+ * @param x1
+ * @param y1
+ * @param x2
+ * @param y2
+ * @param colorLine
  */
 DesignerMove.line0 = function (x1, y1, x2, y2, colorLine) {
     if (! showRelationLines) {
@@ -417,6 +427,11 @@ DesignerMove.line0 = function (x1, y1, x2, y2, colorLine) {
 
 /**
  * draws a angular relation/constraint line
+ * @param x1
+ * @param y1
+ * @param x2
+ * @param y2
+ * @param colorLine
  */
 DesignerMove.line2 = function (x1, y1, x2, y2, colorLine) {
     var x1Local = x1;
@@ -443,6 +458,11 @@ DesignerMove.line2 = function (x1, y1, x2, y2, colorLine) {
 
 /**
  * draws a relation/constraint line
+ * @param x1
+ * @param y1
+ * @param x2
+ * @param y2
+ * @param colorLine
  */
 DesignerMove.line3 = function (x1, y1, x2, y2, colorLine) {
     var x1Local = x1;
@@ -1901,6 +1921,10 @@ DesignerMove.tableOnOver = function (idThis, val, buil) {
 /**
  * This function stores selected column information in selectField[]
  * In case column is checked it add else it deletes
+ *
+ * @param {string} tableName
+ * @param {string} colName
+ * @param {string} checkboxId
  */
 DesignerMove.storeColumn = function (tableName, colName, checkboxId) {
     var i;
@@ -1929,6 +1953,11 @@ DesignerMove.storeColumn = function (tableName, colName, checkboxId) {
  * This function builds object and adds them to historyArray
  * first it does a few checks on each object, then makes an object(where,rename,groupby,aggregate,orderby)
  * then a new history object is made and finally all these history objects are added to historyArray[]
+ *
+ * @param {string} dbName
+ * @param {string} tableName
+ * @param {string} colName
+ * @param {string} dbTableNameUrl
  */
 DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     var p;
@@ -2007,6 +2036,8 @@ DesignerMove.enablePageContentEvents = function () {
 /**
  * This function enables the events on table items.
  * It helps to enable them on page loading and when a table is added on the fly.
+ * @param {number} index
+ * @param {object} element
  */
 DesignerMove.enableTableEvents = function (index, element) {
     $(element).on('click', '.select_all_1', function () {

@@ -410,8 +410,6 @@ class StructureController extends AbstractController
      */
     protected function displayTableList($replicaInfo): string
     {
-        global $PMA_Theme;
-
         $html = '';
 
         // filtering
@@ -719,7 +717,6 @@ class StructureController extends AbstractController
                 'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
             ],
             'check_all_tables' => [
-                'theme_image_path' => $PMA_Theme->getImgPath(),
                 'text_dir' => $GLOBALS['text_dir'],
                 'overhead_check' => $overhead_check,
                 'db_is_system_schema' => $this->dbIsSystemSchema,

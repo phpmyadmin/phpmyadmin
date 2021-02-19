@@ -269,9 +269,9 @@ class Navigation
      */
     private function getLogoSource(): string
     {
-        /** @var Theme|null $PMA_Theme */
         global $PMA_Theme;
-        if ($PMA_Theme !== null) {
+
+        if ($PMA_Theme instanceof Theme) {
             if (@file_exists($PMA_Theme->getFsPath() . 'img/logo_left.png')) {
                 return $PMA_Theme->getPath() . '/img/logo_left.png';
             }

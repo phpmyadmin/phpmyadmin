@@ -105,11 +105,10 @@ class MultiTableQuery
     /**
      * Displays multi-table query results
      *
-     * @param string $sqlQuery       The query to parse
-     * @param string $db             The current database
-     * @param string $themeImagePath Uri of the PMA theme image
+     * @param string $sqlQuery The query to parse
+     * @param string $db       The current database
      */
-    public static function displayResults($sqlQuery, $db, $themeImagePath): string
+    public static function displayResults($sqlQuery, $db): string
     {
         global $dbi;
 
@@ -138,7 +137,6 @@ class MultiTableQuery
             null, // message_to_show
             null, // sql_data
             $goto, // goto
-            $themeImagePath,
             null, // disp_query
             null, // disp_message
             $sqlQuery, // sql_query

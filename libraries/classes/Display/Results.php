@@ -23,6 +23,7 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Theme;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -126,91 +127,88 @@ class Results
 
     /** @var array<string, mixed> */
     public $properties = [
-        /** integer server id */
+        /* integer server id */
         'server' => null,
 
-        /** string Database name */
+        /* string Database name */
         'db' => null,
 
-        /** string Table name */
+        /* string Table name */
         'table' => null,
 
-        /** string the URL to go back in case of errors */
+        /* string the URL to go back in case of errors */
         'goto' => null,
 
-        /** string the SQL query */
+        /* string the SQL query */
         'sql_query' => null,
 
-        /**
+        /*
          * integer the total number of rows returned by the SQL query without any
          *         appended "LIMIT" clause programmatically
          */
         'unlim_num_rows' => null,
 
-        /** array meta information about fields */
+        /* array meta information about fields */
         'fields_meta' => null,
 
-        /** boolean */
+        /* boolean */
         'is_count' => null,
 
-        /** integer */
+        /* integer */
         'is_export' => null,
 
-        /** boolean */
+        /* boolean */
         'is_func' => null,
 
-        /** integer */
+        /* integer */
         'is_analyse' => null,
 
-        /** integer the total number of rows returned by the SQL query */
+        /* integer the total number of rows returned by the SQL query */
         'num_rows' => null,
 
-        /** integer the total number of fields returned by the SQL query */
+        /* integer the total number of fields returned by the SQL query */
         'fields_cnt' => null,
 
-        /** double time taken for execute the SQL query */
+        /* double time taken for execute the SQL query */
         'querytime' => null,
 
-        /** string path for theme images directory */
-        'theme_image_path' => null,
-
-        /** string */
+        /* string */
         'text_dir' => null,
 
-        /** boolean */
+        /* boolean */
         'is_maint' => null,
 
-        /** boolean */
+        /* boolean */
         'is_explain' => null,
 
-        /** boolean */
+        /* boolean */
         'is_show' => null,
 
-        /** boolean */
+        /* boolean */
         'is_browse_distinct' => null,
 
-        /** array table definitions */
+        /* array table definitions */
         'showtable' => null,
 
-        /** string */
+        /* string */
         'printview' => null,
 
-        /** array column names to highlight */
+        /* array column names to highlight */
         'highlight_columns' => null,
 
-        /** array holding various display information */
+        /* array holding various display information */
         'display_params' => null,
 
-        /** array mime types information of fields */
+        /* array mime types information of fields */
         'mime_map' => null,
 
-        /** boolean */
+        /* boolean */
         'editable' => null,
 
-        /** random unique ID to distinguish result set */
+        /* random unique ID to distinguish result set */
         'unique_id' => null,
 
-        /** where clauses for each row, each table in the row */
+        /* where clauses for each row, each table in the row */
         'whereClauseMap' => [],
     ];
 
@@ -374,7 +372,6 @@ class Results
      * @param int      $num_rows       total no. of rows returned by SQL query
      * @param int      $fields_cnt     total no.of fields returned by SQL query
      * @param double   $querytime      time taken for execute the SQL query
-     * @param string   $themeImagePath path for theme images directory
      * @param string   $text_dir       text direction
      * @param bool     $is_maint       statement contains a maintenance command
      * @param bool     $is_explain     statement contains EXPLAIN
@@ -396,7 +393,6 @@ class Results
         $num_rows,
         $fields_cnt,
         $querytime,
-        $themeImagePath,
         $text_dir,
         $is_maint,
         $is_explain,
@@ -415,7 +411,6 @@ class Results
         $this->properties['num_rows'] = $num_rows;
         $this->properties['fields_cnt'] = $fields_cnt;
         $this->properties['querytime'] = $querytime;
-        $this->properties['theme_image_path'] = $themeImagePath;
         $this->properties['text_dir'] = $text_dir;
         $this->properties['is_maint'] = $is_maint;
         $this->properties['is_explain'] = $is_explain;
@@ -1528,6 +1523,8 @@ class Results
      */
     private function getFullOrPartialTextButtonOrLink()
     {
+        global $PMA_Theme;
+
         $url_params_full_text = [
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
@@ -1538,17 +1535,18 @@ class Results
 
         if ($_SESSION['tmpval']['pftext'] === self::DISPLAY_FULL_TEXT) {
             // currently in fulltext mode so show the opposite link
-            $tmp_image_file = $this->properties['theme_image_path'] . 's_partialtext.png';
+            $tmp_image_file = 's_partialtext.png';
             $tmp_txt = __('Partial texts');
             $url_params_full_text['pftext'] = self::DISPLAY_PARTIAL_TEXT;
         } else {
-            $tmp_image_file = $this->properties['theme_image_path'] . 's_fulltext.png';
+            $tmp_image_file = 's_fulltext.png';
             $tmp_txt = __('Full texts');
             $url_params_full_text['pftext'] = self::DISPLAY_FULL_TEXT;
         }
 
-        $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
-                     . $tmp_txt . '" title="' . $tmp_txt . '">';
+        $tmp_image = '<img class="fulltext" src="'
+            . ($PMA_Theme instanceof Theme ? $PMA_Theme->getImgPath($tmp_image_file) : '')
+            . '" alt="' . $tmp_txt . '" title="' . $tmp_txt . '">';
         $tmp_url = Url::getFromRoute('/sql', $url_params_full_text);
 
         return Generator::linkOrButton($tmp_url, $tmp_image);
@@ -2721,6 +2719,10 @@ class Results
         $whereClauseMap = $this->properties['whereClauseMap'];
 
         $columnCount = $this->properties['fields_cnt'];
+
+        // Load SpecialSchemaLinks for all rows
+        $specialSchemaLinks = SpecialSchemaLinks::get();
+
         for ($currentColumn = 0; $currentColumn < $columnCount; ++$currentColumn) {
             // assign $i with appropriate column order
             $i = is_array($col_order) ? $col_order[$currentColumn] : $currentColumn;
@@ -2824,8 +2826,6 @@ class Results
             }
 
             // Check for the predefined fields need to show as link in schemas
-            $specialSchemaLinks = SpecialSchemaLinks::get();
-
             if (! empty($specialSchemaLinks[$dbLower][$tblLower][$nameLower])) {
                 $linking_url = $this->getSpecialLinkUrl(
                     $specialSchemaLinks,
@@ -4207,8 +4207,7 @@ class Results
             'relwork' => $GLOBALS['cfgRelation']['relwork'],
             'save_cells_at_once' => $GLOBALS['cfg']['SaveCellsAtOnce'],
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
-            'select_all_arrow' => $this->properties['theme_image_path'] . 'arrow_'
-                . $this->properties['text_dir'] . '.png',
+            'text_dir' => $this->properties['text_dir'],
         ]);
     }
 
@@ -4334,7 +4333,10 @@ class Results
         );
 
         // fetch last row of the result set
-        $dbi->dataSeek($dt_result, $this->properties['num_rows'] - 1);
+        $dbi->dataSeek(
+            $dt_result,
+            $this->properties['num_rows'] > 0 ? $this->properties['num_rows'] - 1 : 0
+        );
         $row = $dbi->fetchRow($dt_result);
 
         // check for non printable sorted row data
@@ -4564,7 +4566,10 @@ class Results
         }
 
         // fetch last row of the result set
-        $dbi->dataSeek($dt_result, $this->properties['num_rows'] - 1);
+        $dbi->dataSeek(
+            $dt_result,
+            $this->properties['num_rows'] > 0 ? $this->properties['num_rows'] - 1 : 0
+        );
         $row = $dbi->fetchRow($dt_result);
 
         // @see DbiMysqi::fetchRow & DatabaseInterface::fetchRow

@@ -1136,7 +1136,7 @@ class Config
                     $httpCookieName,
                     $value,
                     $validity,
-                    $this->getRootPath() . '/; samesite=' . $cfg['CookieSameSite'],
+                    $this->getRootPath() . '; samesite=' . $cfg['CookieSameSite'],
                     '',
                     $this->isHttps(),
                     $httponly

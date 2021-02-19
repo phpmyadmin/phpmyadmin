@@ -54,6 +54,11 @@ use function strlen;
 use function substr;
 use function trim;
 use function usleep;
+use const DIRECTORY_SEPARATOR;
+use function time;
+use function file_put_contents;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
 
 /**
  * Base class for Selenium tests.
@@ -95,6 +100,13 @@ abstract class TestBase extends TestCase
      * @var bool
      */
     protected static $createDatabase = true;
+
+    /**
+     * Did the test create the phpMyAdmin storage database ?
+     *
+     * @var bool
+     */
+    private $hadStorageDatabaseInstall = false;
 
     /**
      * Configures the selenium and database link.
@@ -271,6 +283,21 @@ abstract class TestBase extends TestCase
     }
 
     /**
+     * Get the current running test name
+     *
+     * Usefull for browserstack
+     *
+     * @see https://github.com/phpmyadmin/phpmyadmin/pull/14595#issuecomment-418541475
+     * Reports the name of the test to browserstack
+     */
+    public function getTestName(): string
+    {
+        $className = substr(static::class, strlen('PhpMyAdmin\Tests\Selenium\\'));
+
+        return $className . ': ' . $this->getName();
+    }
+
+    /**
      * Add specific capabilities
      *
      * @param DesiredCapabilities $capabilities The capabilities object
@@ -280,23 +307,15 @@ abstract class TestBase extends TestCase
         $buildLocal = true;
         $buildId = 'Manual';
         $projectName = 'phpMyAdmin';
-        /**
-         * Usefull for browserstack
-         *
-         * @see https://github.com/phpmyadmin/phpmyadmin/pull/14595#issuecomment-418541475
-         * Reports the name of the test to browserstack
-         */
-        $className = substr(static::class, strlen('PhpMyAdmin\Tests\Selenium\\'));
-        $testName = $className . ': ' . $this->getName();
 
         if (getenv('BUILD_TAG')) {
             $buildId = getenv('BUILD_TAG');
             $buildLocal = false;
             $projectName = 'phpMyAdmin (Jenkins)';
-        } elseif (getenv('TRAVIS_JOB_NUMBER')) {
-            $buildId = 'travis-' . getenv('TRAVIS_JOB_NUMBER');
+        } elseif (getenv('GITHUB_ACTION')) {
+            $buildId = 'github-' . getenv('GITHUB_ACTION');
             $buildLocal = true;
-            $projectName = 'phpMyAdmin (Travis)';
+            $projectName = 'phpMyAdmin (GitHub - Actions)';
         }
 
         if (! $buildLocal) {
@@ -310,7 +329,7 @@ abstract class TestBase extends TestCase
                 'osVersion' => '10',
                 'resolution' => '1920x1080',
                 'projectName' => $projectName,
-                'sessionName' => $testName,
+                'sessionName' => $this->getTestName(),
                 'buildName' => $buildId,
                 'localIdentifier' => $buildId,
                 'local' => $buildLocal,
@@ -421,6 +440,24 @@ abstract class TestBase extends TestCase
     }
 
     /**
+     * Use the fix relation button to install phpMyAdmin storage
+     */
+    protected function fixUpPhpMyAdminStorage(): bool
+    {
+        $this->navigateTo('index.php?route=/check-relations');
+
+        $fixTextSelector = '//div[@class="alert alert-primary" and contains(., "Create a database named")]/a';
+        if ($this->isElementPresent('xpath', $fixTextSelector)) {
+            $this->byXPath($fixTextSelector)->click();
+            $this->waitAjax();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Skips test if pmadb is not configured.
      */
     protected function skipIfNotPMADB(): void
@@ -434,9 +471,13 @@ abstract class TestBase extends TestCase
             return;
         }
 
-        $this->markTestSkipped(
-            'The phpMyAdmin configuration storage is not working.'
-        );
+        if (! $this->fixUpPhpMyAdminStorage()) {
+            $this->markTestSkipped(
+                'The phpMyAdmin configuration storage is not working.'
+            );
+        }
+        // If it failed the code already has exited with markTestSkipped
+        $this->hadStorageDatabaseInstall = true;
     }
 
     /**
@@ -621,6 +662,11 @@ abstract class TestBase extends TestCase
 
         if ($this->sqlWindowHandle) {
             $this->webDriver->switchTo()->window($this->sqlWindowHandle);
+            if (! $this->isSuccessLogin()) {
+                $this->takeScrenshot('SQL_window_not_logged_in');
+
+                return false;
+            }
             $this->byXPath('//*[contains(@class,"nav-item") and contains(., "SQL")]')->click();
             $this->waitAjax();
             $this->typeInTextArea($query);
@@ -644,6 +690,34 @@ abstract class TestBase extends TestCase
         $this->webDriver->switchTo()->window($lastWindow);
 
         return $didSucceed;
+    }
+
+    public function takeScrenshot(string $comment): void
+    {
+        $screenshotDir =
+            __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
+            . '..' . DIRECTORY_SEPARATOR . 'build' . DIRECTORY_SEPARATOR
+            . 'selenium';
+        if ($this->webDriver === null) {
+            return;
+        }
+        $key = time();
+
+        // This call will also create the file path
+        $this->webDriver->takeScreenshot(
+            $screenshotDir . DIRECTORY_SEPARATOR
+            . 'screenshot_' . $key . '_' . $comment . '.png'
+        );
+        $htmlOutput = $screenshotDir . DIRECTORY_SEPARATOR . 'source_' . $key . '.html';
+        file_put_contents($htmlOutput, $this->webDriver->getPageSource());
+        $testInfo = $screenshotDir . DIRECTORY_SEPARATOR . 'source_' . $key . '.json';
+        file_put_contents($testInfo, json_encode(
+            [
+                'filesKey' => $key,
+                'testName' => $this->getTestName(),
+            ],
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
+        ));
     }
 
     /**
@@ -1083,6 +1157,9 @@ abstract class TestBase extends TestCase
         if (static::$createDatabase) {
             $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->databaseName . '`;');
         }
+        if ($this->hadStorageDatabaseInstall) {
+            $this->dbQuery('DROP DATABASE IF EXISTS `phpmyadmin`;');
+        }
         if (! $this->hasFailed()) {
             $this->markTestAs('passed', '');
         }
@@ -1180,7 +1257,7 @@ abstract class TestBase extends TestCase
     public function onNotSuccessfulTest(Throwable $t): void
     {
         $this->markTestAs('failed', $t->getMessage());
-
+        $this->takeScrenshot('test_failed');
         // End testing session
         if ($this->webDriver !== null) {
             $this->webDriver->quit();

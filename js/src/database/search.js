@@ -26,6 +26,8 @@ AJAX.registerTeardown('database/search.js', function () {
     $('#togglesearchresultlink').off('click');
     $('#togglequerybox').off('click');
     $('#togglesearchformlink').off('click');
+    $('#select_all').off('click');
+    $('#unselect_all').off('click');
     $(document).off('submit', '#db_search_form.ajax');
 });
 
@@ -184,7 +186,7 @@ AJAX.registerOnload('database/search.js', function () {
 
                 $('#sqlqueryform').html(data.sql_query);
                 /** Refresh the search results after the deletion */
-                document.getElementById('buttonGo').trigger('click');
+                $('#buttonGo').trigger('click');
                 $('#togglequerybox').html(Messages.strHideQueryBox);
                 /** Show the results of the deletion option */
                 $('#browse-results').hide();
@@ -243,5 +245,14 @@ AJAX.registerOnload('database/search.js', function () {
 
             Functions.ajaxRemoveMessage($msgbox);
         });
+    });
+
+    $('#select_all').on('click', function () {
+        Functions.setSelectOptions('db_search', 'criteriaTables[]', true);
+        return false;
+    });
+    $('#unselect_all').on('click', function () {
+        Functions.setSelectOptions('db_search', 'criteriaTables[]', false);
+        return false;
     });
 }); // end $()

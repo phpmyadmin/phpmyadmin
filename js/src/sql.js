@@ -4,6 +4,7 @@
  * @requires    jQuery
  * @requires    js/functions.js
  *
+ * @test-module Sql
  */
 
 /* global Stickyfill */
@@ -11,14 +12,15 @@
 /* global codeMirrorEditor */ // js/functions.js
 /* global MicroHistory */ // js/microhistory.js
 /* global makeGrid */ // js/makegrid.js
+/* global sqlBoxLocked */ // js/functions.js
 
 var Sql = {};
 
 /**
  * decode a string URL_encoded
  *
- * @param string str
- * @return string the URL-decoded string
+ * @param {string} str
+ * @return {string} the URL-decoded string
  */
 Sql.urlDecode = function (str) {
     if (typeof str !== 'undefined') {
@@ -29,8 +31,8 @@ Sql.urlDecode = function (str) {
 /**
  * encode a string URL_decoded
  *
- * @param string str
- * @return string the URL-encoded string
+ * @param {string} str
+ * @return {string} the URL-encoded string
  */
 Sql.urlEncode = function (str) {
     if (typeof str !== 'undefined') {
@@ -41,24 +43,27 @@ Sql.urlEncode = function (str) {
 /**
  * Saves SQL query in local storage or cookie
  *
- * @param string SQL query
- * @return void
+ * @param {string} query SQL query
+ * @return {void}
  */
 Sql.autoSave = function (query) {
-    if (isStorageSupported('localStorage')) {
-        window.localStorage.autoSavedSql = query;
-    } else {
-        Cookies.set('autoSavedSql', query);
+    if (query) {
+        var key = Sql.getAutoSavedKey();
+        if (isStorageSupported('localStorage')) {
+            window.localStorage.setItem(key, query);
+        } else {
+            Cookies.set(key, query);
+        }
     }
 };
 
 /**
  * Saves SQL query in local storage or cookie
  *
- * @param string database name
- * @param string table name
- * @param string SQL query
- * @return void
+ * @param {string} db database name
+ * @param {string} table table name
+ * @param {string} query SQL query
+ * @return {void}
  */
 Sql.showThisQuery = function (db, table, query) {
     var showThisQueryObject = {
@@ -107,13 +112,13 @@ Sql.setShowThisQuery = function () {
 /**
  * Saves SQL query with sort in local storage or cookie
  *
- * @param string SQL query
- * @return void
+ * @param {string} query SQL query
+ * @return {void}
  */
 Sql.autoSaveWithSort = function (query) {
     if (query) {
         if (isStorageSupported('localStorage')) {
-            window.localStorage.autoSavedSqlSort = query;
+            window.localStorage.setItem('autoSavedSqlSort', query);
         } else {
             Cookies.set('autoSavedSqlSort', query);
         }
@@ -123,13 +128,13 @@ Sql.autoSaveWithSort = function (query) {
 /**
  * Clear saved SQL query with sort in local storage or cookie
  *
- * @return void
+ * @return {void}
  */
 Sql.clearAutoSavedSort = function () {
     if (isStorageSupported('localStorage')) {
-        window.localStorage.removeItem('auto_saved_sql_sort');
+        window.localStorage.removeItem('autoSavedSqlSort');
     } else {
-        Cookies.set('auto_saved_sql_sort', '');
+        Cookies.set('autoSavedSqlSort', '');
     }
 };
 
@@ -139,6 +144,8 @@ Sql.clearAutoSavedSort = function () {
  *
  * @param $tableResults enclosing results table
  * @param $thisField    jQuery object that points to the current field's tr
+ *
+ * @return {string}
  */
 Sql.getFieldName = function ($tableResults, $thisField) {
     var thisFieldIndex = $thisField.index();
@@ -185,7 +192,6 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('submit', '.bookmarkQueryForm');
     $('input#bkm_label').off('input');
     $(document).off('makegrid', '.sqlqueryresults');
-    $(document).off('stickycolumns', '.sqlqueryresults');
     $('#togglequerybox').off('click');
     $(document).off('click', '#button_submit_query');
     $(document).off('change', '#id_bookmark');
@@ -210,6 +216,7 @@ AJAX.registerTeardown('sql.js', function () {
     $('body').off('keyup', '#sqlqueryform');
     $('body').off('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]');
     $(document).off('submit', '#maxRowsForm');
+    $(document).off('click', '#view_as');
 });
 
 /**
@@ -241,7 +248,7 @@ AJAX.registerOnload('sql.js', function () {
             $('#sqlquery').on('input propertychange', function () {
                 Sql.autoSave($('#sqlquery').val());
             });
-            var useLocalStorageValue = isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql_sort !== 'undefined';
+            var useLocalStorageValue = isStorageSupported('localStorage') && typeof window.localStorage.autoSavedSqlSort !== 'undefined';
             // Save sql query with sort
             if ($('#RememberSorting') !== undefined && $('#RememberSorting').is(':checked')) {
                 $('select[name="sql_query"]').on('change', function () {
@@ -254,7 +261,7 @@ AJAX.registerOnload('sql.js', function () {
                 Sql.clearAutoSavedSort();
             }
             // If sql query with sort for current table is stored, change sort by key select value
-            var sortStoredQuery = useLocalStorageValue ? window.localStorage.auto_saved_sql_sort : Cookies.get('auto_saved_sql_sort');
+            var sortStoredQuery = useLocalStorageValue ? window.localStorage.autoSavedSqlSort : Cookies.get('autoSavedSqlSort');
             if (typeof sortStoredQuery !== 'undefined' && sortStoredQuery !== $('select[name="sql_query"]').val() && $('select[name="sql_query"] option[value="' + sortStoredQuery + '"]').length !== 0) {
                 $('select[name="sql_query"]').val(sortStoredQuery).trigger('change');
             }
@@ -460,12 +467,6 @@ AJAX.registerOnload('sql.js', function () {
         // id_bookmark selector to avoid misinterpretation in
         // /import about what needs to be done
         $form.find('select[name=id_bookmark]').val('');
-        // let normal event propagation happen
-        if (isStorageSupported('localStorage')) {
-            window.localStorage.removeItem('autoSavedSql');
-        } else {
-            Cookies.set('autoSavedSql', '');
-        }
         var isShowQuery =  $('input[name="show_query"]').is(':checked');
         if (isShowQuery) {
             window.localStorage.showThisQuery = '1';
@@ -872,11 +873,19 @@ AJAX.registerOnload('sql.js', function () {
     $('#insertBtn').on('click', function () {
         Functions.insertValueQuery();
     });
+
+    $('#view_as').on('click', function () {
+        Functions.selectContent(this, sqlBoxLocked, true);
+    });
 }); // end $()
 
 /**
  * Starting from some th, change the class of all td under it.
  * If isAddClass is specified, it will be used to determine whether to add or remove the class.
+ *
+ * @param $thisTh
+ * @param {string} newClass
+ * @param isAddClass
  */
 Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
     // index 0 is the th containing the big T
@@ -901,7 +910,7 @@ Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
 /**
  * Handles browse foreign values modal dialog
  *
- * @param object $this_a reference to the browse foreign value link
+ * @param {object} $thisA reference to the browse foreign value link
  */
 Sql.browseForeignDialog = function ($thisA) {
     var formId = '#browse_foreign_form';
@@ -972,8 +981,27 @@ Sql.browseForeignDialog = function ($thisA) {
     });
 };
 
+/**
+ * Get the auto saved query key
+ * @return {String}
+ */
+Sql.getAutoSavedKey = function () {
+    var db = $('input[name="db"]').val();
+    var table = $('input[name="table"]').val();
+    var key = db;
+    if (table !== undefined) {
+        key += '.' + table;
+    }
+    return 'autoSavedSql_' + key;
+};
+
 Sql.checkSavedQuery = function () {
-    if (isStorageSupported('localStorage') && window.localStorage.autoSavedSql !== undefined) {
+    var key = Sql.getAutoSavedKey();
+
+    if (isStorageSupported('localStorage') &&
+        typeof window.localStorage.getItem(key) === 'string') {
+        Functions.ajaxShowMessage(Messages.strPreviousSaveQuery);
+    } else if (Cookies.get(key)) {
         Functions.ajaxShowMessage(Messages.strPreviousSaveQuery);
     }
 };

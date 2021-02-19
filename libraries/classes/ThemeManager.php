@@ -1,7 +1,4 @@
 <?php
-/**
- * phpMyAdmin theme manager
- */
 
 declare(strict_types=1);
 
@@ -19,7 +16,6 @@ use function opendir;
 use function readdir;
 use function sprintf;
 use function trigger_error;
-use function trim;
 
 /**
  * phpMyAdmin theme manager
@@ -35,13 +31,7 @@ class ThemeManager
      */
     private static $instance;
 
-    /**
-     * @var string path to theme folder
-     * @access protected
-     */
-    private $themesPath = './themes/';
-
-    /** @var array available themes */
+    /** @var array<string, Theme> available themes */
     public $themes = [];
 
     /** @var string  cookie name */
@@ -69,10 +59,6 @@ class ThemeManager
         $this->themes = [];
         $this->themeDefault = self::FALLBACK_THEME;
         $this->activeTheme = '';
-
-        if (! $this->setThemesPath('./themes/')) {
-            return;
-        }
 
         $this->setThemePerServer($GLOBALS['cfg']['ThemePerServer']);
 
@@ -122,26 +108,6 @@ class ThemeManager
         }
 
         return self::$instance;
-    }
-
-    /**
-     * sets path to folder containing the themes
-     *
-     * @param string $path path to themes folder
-     *
-     * @return bool success
-     *
-     * @access public
-     */
-    public function setThemesPath($path): bool
-    {
-        if (! $this->checkThemeFolder($path)) {
-            return false;
-        }
-
-        $this->themesPath = trim($path);
-
-        return true;
     }
 
     /**
@@ -246,78 +212,34 @@ class ThemeManager
         return true;
     }
 
-    /**
-     * Checks whether folder is valid for storing themes
-     *
-     * @param string $folder Folder name to test
-     *
-     * @access private
-     */
-    private function checkThemeFolder($folder): bool
-    {
-        if (! is_dir($folder)) {
-            trigger_error(
-                sprintf(
-                    __('Theme path not found for theme %s!'),
-                    htmlspecialchars($folder)
-                ),
-                E_USER_ERROR
-            );
-
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * read all themes
-     *
-     * @access public
-     */
-    public function loadThemes(): bool
+    public function loadThemes(): void
     {
         $this->themes = [];
-        $handleThemes = opendir($this->themesPath);
+        $dirHandle = opendir(ROOT_PATH . 'themes/');
 
-        if ($handleThemes === false) {
-            trigger_error(
-                'phpMyAdmin-ERROR: cannot open themes folder: '
-                . $this->themesPath,
-                E_USER_WARNING
-            );
+        if ($dirHandle === false) {
+            trigger_error('Error: cannot open themes folder: ./themes', E_USER_WARNING);
 
-            return false;
+            return;
         }
 
-        // check for themes directory
-        while (($PMA_Theme = readdir($handleThemes)) !== false) {
-            // Skip non dirs, . and ..
-            if ($PMA_Theme === '.'
-                || $PMA_Theme === '..'
-                || ! @is_dir(ROOT_PATH . $this->themesPath . $PMA_Theme)
-            ) {
+        while (($dir = readdir($dirHandle)) !== false) {
+            if ($dir === '.' || $dir === '..' || ! @is_dir(ROOT_PATH . 'themes/' . $dir . '/')) {
                 continue;
             }
-            if (array_key_exists($PMA_Theme, $this->themes)) {
+            if (array_key_exists($dir, $this->themes)) {
                 continue;
             }
-            $new_theme = Theme::load(
-                $this->themesPath . $PMA_Theme,
-                ROOT_PATH . $this->themesPath . $PMA_Theme . '/'
-            );
-            if (! $new_theme) {
+            $newTheme = Theme::load($dir);
+            if (! $newTheme instanceof Theme) {
                 continue;
             }
 
-            $new_theme->setId($PMA_Theme);
-            $this->themes[$PMA_Theme] = $new_theme;
+            $this->themes[$dir] = $newTheme;
         }
-        closedir($handleThemes);
 
+        closedir($dirHandle);
         ksort($this->themes);
-
-        return true;
     }
 
     /**
@@ -332,52 +254,19 @@ class ThemeManager
         return array_key_exists($theme ?? '', $this->themes);
     }
 
-    /**
-     * returns HTML selectbox
-     *
-     * @access public
-     */
-    public function getHtmlSelectBox(): string
+    public function getThemesArray(): array
     {
-        $select_box = '';
-
-        $select_box .= '<form name="setTheme" method="post"';
-        $select_box .= ' action="index.php?route=/set-theme" class="disableAjax">';
-        $select_box .= Url::getHiddenInputs();
-
-        $theme_preview_href = '<a href="'
-            . Url::getFromRoute('/themes') . '" target="themes" class="themeselect">';
-        $select_box .=  $theme_preview_href . __('Theme:') . '</a>' . "\n";
-
-        $select_box .=  '<select name="set_theme" lang="en" dir="ltr"'
-            . ' class="autosubmit">';
-        foreach ($this->themes as $each_theme_id => $each_theme) {
-            $select_box .=  '<option value="' . $each_theme_id . '"';
-            if ($this->activeTheme === $each_theme_id) {
-                $select_box .=  ' selected="selected"';
-            }
-            $select_box .=  '>' . htmlspecialchars($each_theme->getName())
-                . '</option>';
-        }
-        $select_box .= '</select>';
-        $select_box .= '</form>';
-
-        return $select_box;
-    }
-
-    /**
-     * Renders the previews for all themes
-     *
-     * @access public
-     */
-    public function getPrintPreviews(): string
-    {
-        $retval = '';
-        foreach ($this->themes as $each_theme) {
-            $retval .= $each_theme->getPrintPreview();
+        $themes = [];
+        foreach ($this->themes as $theme) {
+            $themes[] = [
+                'id' => $theme->getId(),
+                'name' => $theme->getName(),
+                'version' => $theme->getVersion(),
+                'is_active' => $theme->getId() === $this->activeTheme,
+            ];
         }
 
-        return $retval;
+        return $themes;
     }
 
     public static function initializeTheme(): ?Theme
