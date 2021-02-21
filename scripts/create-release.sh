@@ -281,6 +281,7 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.33/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
+        vendor/tecnickcom/tcpdf/.git \
         vendor/twig/extensions/doc \
         vendor/twig/extensions/test \
         vendor/twig/twig/doc \
