@@ -151,7 +151,9 @@ cleanup_composer_vendors() {
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
         vendor/tecnickcom/tcpdf/.git \
         vendor/tecnickcom/tcpdf/.github/ \
+        vendor/bacon/bacon-qr-code/phpunit.xml.dist \
         vendor/bacon/bacon-qr-code/test/ \
+        vendor/dasprid/enum/phpunit.xml.dist \
         vendor/dasprid/enum/test/ \
         vendor/williamdes/mariadb-mysql-kbs/phpunit.xml \
         vendor/williamdes/mariadb-mysql-kbs/test/ \
@@ -164,9 +166,19 @@ cleanup_composer_vendors() {
         vendor/twig/twig/test/ \
         vendor/twig/twig/.github/ \
         vendor/twig/twig/README.rst \
+        vendor/twig/twig/.travis.yml \
         vendor/twig/twig/.editorconfig \
         vendor/twig/twig/.php_cs.dist \
         vendor/twig/twig/drupal_test.sh \
+        vendor/paragonie/constant_time_encoding/tests/ \
+        vendor/paragonie/constant_time_encoding/psalm.xml \
+        vendor/paragonie/constant_time_encoding/phpunit.xml.dist \
+        vendor/paragonie/constant_time_encoding/.travis.yml \
+        vendor/pragmarx/google2fa/phpstan.neon \
+        vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
+        vendor/pragmarx/google2fa-qrcode/.travis.yml \
+        vendor/pragmarx/google2fa-qrcode/phpunit.xml \
+        vendor/pragmarx/google2fa-qrcode/tests \
         vendor/google/recaptcha/.travis.yml \
         vendor/google/recaptcha/phpunit.xml.dist \
         vendor/google/recaptcha/.github/ \
