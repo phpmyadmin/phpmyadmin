@@ -264,10 +264,12 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/phpmyadmin/sql-parser/tests/ \
         vendor/phpmyadmin/sql-parser/tools/ \
         vendor/phpmyadmin/sql-parser/locale/*/LC_MESSAGES/sqlparser.po \
+        vendor/phpmyadmin/sql-parser/bin/ \
         vendor/phpmyadmin/motranslator/tests/ \
         vendor/phpmyadmin/shapefile/tests/ \
         vendor/phpmyadmin/shapefile/examples/ \
         vendor/phpmyadmin/shapefile/data/ \
+        vendor/phpmyadmin/twig-i18n-extension/test/ \
         vendor/phpseclib/phpseclib/phpseclib/File/ \
         vendor/phpseclib/phpseclib/phpseclib/Math/ \
         vendor/phpseclib/phpseclib/phpseclib/Net/ \
@@ -282,10 +284,18 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
         vendor/tecnickcom/tcpdf/.git \
+        vendor/tecnickcom/tcpdf/.github/ \
         vendor/twig/extensions/doc \
         vendor/twig/extensions/test \
         vendor/twig/twig/doc \
         vendor/twig/twig/test \
+        vendor/twig/twig/.github/ \
+        vendor/bacon/bacon-qr-code/test/ \
+        vendor/dasprid/enum/test/ \
+        vendor/williamdes/mariadb-mysql-kbs/test/ \
+        vendor/williamdes/mariadb-mysql-kbs/schemas/ \
+        vendor/nikic/fast-route/test/ \
+        vendor/google/recaptcha/.github/ \
         vendor/google/recaptcha/examples/ \
         vendor/google/recaptcha/tests/
     find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f -not -name AES.php -not -name Base.php -not -name Random.php -not -name Rijndael.php -print0 | xargs -0 rm
