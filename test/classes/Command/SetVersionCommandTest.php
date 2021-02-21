@@ -6,8 +6,10 @@ namespace PhpMyAdmin\Tests\Command;
 
 use PhpMyAdmin\Command\SetVersionCommand;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use Symfony\Component\Console\Command\Command;
 use RangeException;
 use function sprintf;
+use function class_exists;
 
 class SetVersionCommandTest extends AbstractTestCase
 {
@@ -16,7 +18,9 @@ class SetVersionCommandTest extends AbstractTestCase
 
     public function setUp(): void
     {
-        $this->command = new SetVersionCommand();
+        if (class_exists(Command::class)) {
+            $this->command = new SetVersionCommand();
+        }
     }
 
     /**
@@ -49,6 +53,10 @@ class SetVersionCommandTest extends AbstractTestCase
      */
     public function testGetGeneratedClassInvalidVersion(string $version): void
     {
+        if (! class_exists(Command::class)) {
+            $this->markTestSkipped('The Symfony Console is missing');
+        }
+
         $this->expectException(RangeException::class);
         $this->expectExceptionMessage('The version number is in the wrong format: ' . $version);
         $this->callFunction(
@@ -161,6 +169,10 @@ class SetVersionCommandTest extends AbstractTestCase
      */
     public function testGetGeneratedClassValidVersion(string $version, string $content): void
     {
+        if (! class_exists(Command::class)) {
+            $this->markTestSkipped('The Symfony Console is missing');
+        }
+
         $output = $this->callFunction(
             $this->command,
             SetVersionCommand::class,
