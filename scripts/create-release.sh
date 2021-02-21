@@ -263,17 +263,24 @@ if [ ! -d libraries/tcpdf ] ; then
     rm -rf \
         vendor/phpmyadmin/sql-parser/tests/ \
         vendor/phpmyadmin/sql-parser/tools/ \
+        vendor/phpmyadmin/sql-parser/locale/sqlparser.pot \
         vendor/phpmyadmin/sql-parser/locale/*/LC_MESSAGES/sqlparser.po \
         vendor/phpmyadmin/sql-parser/bin/ \
+        vendor/phpmyadmin/sql-parser/phpunit.xml.dist \
+        vendor/phpmyadmin/motranslator/phpunit.xml.dist \
         vendor/phpmyadmin/motranslator/tests/ \
+        vendor/phpmyadmin/shapefile/phpunit.xml \
         vendor/phpmyadmin/shapefile/tests/ \
         vendor/phpmyadmin/shapefile/examples/ \
         vendor/phpmyadmin/shapefile/data/ \
+        vendor/phpmyadmin/twig-i18n-extension/README.rst \
+        vendor/phpmyadmin/twig-i18n-extension/phpunit.xml.dist \
         vendor/phpmyadmin/twig-i18n-extension/test/ \
         vendor/phpseclib/phpseclib/phpseclib/File/ \
         vendor/phpseclib/phpseclib/phpseclib/Math/ \
         vendor/phpseclib/phpseclib/phpseclib/Net/ \
         vendor/phpseclib/phpseclib/phpseclib/System/ \
+        vendor/phpseclib/phpseclib/appveyor.yml \
         vendor/symfony/cache/Tests/ \
         vendor/symfony/expression-language/Tests/ \
         vendor/symfony/expression-language/Resources/ \
@@ -285,16 +292,24 @@ if [ ! -d libraries/tcpdf ] ; then
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
         vendor/tecnickcom/tcpdf/.git \
         vendor/tecnickcom/tcpdf/.github/ \
-        vendor/twig/extensions/doc \
-        vendor/twig/extensions/test \
-        vendor/twig/twig/doc \
-        vendor/twig/twig/test \
-        vendor/twig/twig/.github/ \
         vendor/bacon/bacon-qr-code/test/ \
         vendor/dasprid/enum/test/ \
+        vendor/williamdes/mariadb-mysql-kbs/phpunit.xml \
         vendor/williamdes/mariadb-mysql-kbs/test/ \
         vendor/williamdes/mariadb-mysql-kbs/schemas/ \
+        vendor/nikic/fast-route/.travis.yml \
+        vendor/nikic/fast-route/phpunit.xml \
+        vendor/nikic/fast-route/psalm.xml \
         vendor/nikic/fast-route/test/ \
+        vendor/twig/twig/doc/ \
+        vendor/twig/twig/test/ \
+        vendor/twig/twig/.github/ \
+        vendor/twig/twig/README.rst \
+        vendor/twig/twig/.editorconfig \
+        vendor/twig/twig/.php_cs.dist \
+        vendor/twig/twig/drupal_test.sh \
+        vendor/google/recaptcha/.travis.yml \
+        vendor/google/recaptcha/phpunit.xml.dist \
         vendor/google/recaptcha/.github/ \
         vendor/google/recaptcha/examples/ \
         vendor/google/recaptcha/tests/
