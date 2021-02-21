@@ -160,6 +160,8 @@ cleanup_composer_vendors() {
         vendor/williamdes/mariadb-mysql-kbs/test/ \
         vendor/williamdes/mariadb-mysql-kbs/schemas/ \
         vendor/nikic/fast-route/.travis.yml \
+        vendor/nikic/fast-route/.hhconfig \
+        vendor/nikic/fast-route/FastRoute.hhi \
         vendor/nikic/fast-route/phpunit.xml \
         vendor/nikic/fast-route/psalm.xml \
         vendor/nikic/fast-route/test/ \
@@ -471,6 +473,9 @@ for kit in $KITS ; do
 
     # Remove developer scripts
     rm -rf scripts
+
+    # Remove possible tmp folder
+    rm -rf tmp
 
     cd ..
 

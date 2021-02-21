@@ -106,6 +106,10 @@ for filePath in ${FILE_LIST}; do
         foundFile "${foundFile}";;
         *vendor/*.w32)
         foundFile "${foundFile}";;
+        *.hhconfig)
+        foundFile "${foundFile}";;
+        *.hhi)
+        foundFile "${foundFile}";;
         *) ;;
     esac
 done
