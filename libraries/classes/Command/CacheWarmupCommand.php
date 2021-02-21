@@ -85,9 +85,17 @@ final class CacheWarmupCommand extends Command
     {
         $output->writeln('Warming up the routing cache', OutputInterface::VERBOSITY_VERBOSE);
         Routing::getDispatcher();
-        $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);
 
-        return 0;
+        if (is_file(CACHE_DIR . 'routes.cache.php')) {
+            $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);
+            return 0;
+        }
+        $output->writeln(
+            sprintf(
+                'Warm up did not work, the folder "%s" is probably not writable.',
+                CACHE_DIR
+            ), OutputInterface::VERBOSITY_NORMAL);
+        return 1;
     }
 
     private function warmUpTwigCache(OutputInterface $output): int
