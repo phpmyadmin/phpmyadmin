@@ -73,6 +73,7 @@ while [ $# -gt 0 ] ; do
             exit 65
             ;;
         *)
+            do_test=1
             if [ -z "$version" ] ; then
                 version=`echo $1 | tr -d -c '0-9a-z.+-'`
                 if [ "x$version" != "x$1" ] ; then
@@ -199,7 +200,7 @@ cleanup_composer_vendors() {
 
 backup_vendor_folder() {
     TEMP_FOLDER="$(mktemp -d /tmp/phpMyAdmin.XXXXXXXXX)"
-    mv ./vendor "${TEMP_FOLDER}"
+    cp -rp ./vendor "${TEMP_FOLDER}"
 }
 
 restore_vendor_folder() {
@@ -210,6 +211,26 @@ restore_vendor_folder() {
     rm -rf ./vendor
     mv "${TEMP_FOLDER}/vendor" ./vendor
     rmdir "${TEMP_FOLDER}"
+}
+
+get_composer_package_version() {
+    awk '/require-dev/ {printline = 1; print; next } printline' composer.json | grep "$1" | awk -F [\"] '{print $4}'
+}
+
+create_phpunit_sandbox() {
+    PHPUNIT_VERSION="$(get_composer_package_version 'phpunit/phpunit')"
+    TEMP_PHPUNIT_FOLDER="$(mktemp -d /tmp/phpMyAdmin-phpunit.XXXXXXXXX)"
+    cd "${TEMP_PHPUNIT_FOLDER}"
+    composer require "phpunit/phpunit:${PHPUNIT_VERSION}"
+    cd -
+}
+
+delete_phpunit_sandbox() {
+    if [ ! -d ${TEMP_PHPUNIT_FOLDER} ]; then
+        echo 'No phpunit sandbox to delete'
+        exit 1;
+    fi
+    rm -rf "${TEMP_PHPUNIT_FOLDER}"
 }
 
 # Ensure we have tracking branch
@@ -355,8 +376,12 @@ esac
 
 for PACKAGES in $PACKAGE_LIST
 do
-    PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:`awk "/require-dev/ {printline = 1; print; next } printline" composer.json | grep "$PACKAGES" | awk -F [\\"] '{print $4}'`"
+    PKG_VERSION="$(get_composer_package_version "$PACKAGES")"
+    PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:$PKG_VERSION"
 done
+
+echo "Installing composer packages '$PACKAGES_VERSIONS'"
+
 composer require --no-interaction --optimize-autoloader --update-no-dev $PACKAGES_VERSIONS
 
 mv composer.json.backup composer.json
@@ -382,9 +407,12 @@ find . -name .gitattributes -print0 | xargs -0 -r rm -f
 
 if [ $do_test -eq 1 ] ; then
     # Move the folder out and install dev vendors
+    create_phpunit_sandbox
+    # Backup the files because the new autoloader will change the composer vendor
     backup_vendor_folder
-    composer update --no-interaction
-    ./vendor/bin/phpunit --no-coverage --exclude-group selenium
+    # Generate an autoload for test class files
+    composer dump-autoload
+    "${TEMP_PHPUNIT_FOLDER}/vendor/bin/phpunit" --no-coverage --exclude-group selenium
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
         cd ../..
@@ -402,7 +430,7 @@ if [ $do_test -eq 1 ] ; then
     rm -f .phpunit.result.cache
     # Remove libs installed for testing
     rm -rf build
-    # Restore back vendors
+    delete_phpunit_sandbox
     restore_vendor_folder
 fi
 
