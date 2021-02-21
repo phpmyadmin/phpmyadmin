@@ -463,8 +463,6 @@ for kit in $KITS ; do
         mkdir doc
         mv htmldoc doc/html
         rm doc/html/.buildinfo doc/html/objects.inv
-        # Javascript sources
-        rm -rf js/vendor/openlayers/src/
         rm -rf node_modules
         # Remove bin files for non source version
         # https://github.com/phpmyadmin/phpmyadmin/issues/16033
