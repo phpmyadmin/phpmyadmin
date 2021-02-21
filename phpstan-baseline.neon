@@ -986,6 +986,16 @@ parameters:
 			path: libraries/classes/InsertEdit.php
 
 		-
+			message: "#^Cannot call method getInputHtml\\(\\) on class\\-string\\|object\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
+			message: "#^Cannot call method getScripts\\(\\) on class\\-string\\|object\\.$#"
+			count: 1
+			path: libraries/classes/InsertEdit.php
+
+		-
 			message: "#^Parameter \\#2 \\$ipToTest of method PhpMyAdmin\\\\IpAllowDeny\\:\\:ipMaskTest\\(\\) expects string, string\\|true given\\.$#"
 			count: 1
 			path: libraries/classes/IpAllowDeny.php
@@ -1767,7 +1777,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\SvgRelationSchema\\:\\:setMinMax\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg, PhpMyAdmin\\\\Plugins\\\\Schema\\\\Dia\\\\TableStatsDia\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Eps\\\\TableStatsEps\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Pdf\\\\TableStatsPdf\\|PhpMyAdmin\\\\Plugins\\\\Schema\\\\Svg\\\\TableStatsSvg given\\.$#"
-			count: 3
+			count: 1
 			path: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php
 
 		-
@@ -2199,6 +2209,11 @@ parameters:
 			message: "#^Parameter \\#1 \\$stack of function array_push expects array, array\\<int, string\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Types.php
+
+		-
+			message: "#^Offset 'header' does not exist on array\\('proxy' \\=\\> string, 'request_fulluri' \\=\\> true\\)\\.$#"
+			count: 1
+			path: libraries/classes/Utils/HttpRequest.php
 
 		-
 			message: "#^Variable \\$http_response_header in isset\\(\\) always exists and is not nullable\\.$#"
