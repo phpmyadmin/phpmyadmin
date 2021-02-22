@@ -189,7 +189,6 @@ cleanup_composer_vendors() {
         vendor/google/recaptcha/tests/
     find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f \
         -not -name AES.php \
-        -not -name Base.php \
         -not -name Random.php \
         -not -name Rijndael.php \
         -print0 | xargs -0 rm

@@ -19,8 +19,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
-use phpseclib\Crypt;
-use phpseclib\Crypt\Random;
+use phpseclib3\Crypt\AES;
+use phpseclib3\Crypt\Random;
 use ReCaptcha;
 use function base64_decode;
 use function base64_encode;
@@ -679,7 +679,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             if ($this->useOpenSsl) {
                 $_SESSION['encryption_key'] = openssl_random_pseudo_bytes(32);
             } else {
-                $_SESSION['encryption_key'] = Crypt\Random::string(32);
+                $_SESSION['encryption_key'] = Random::string(32);
             }
         }
 
@@ -794,7 +794,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $iv
             );
         } else {
-            $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
+            $cipher = new AES('cbc');
             $cipher->setIV($iv);
             $cipher->setKey($aes_secret);
             $result = base64_encode($cipher->encrypt($data));
@@ -850,7 +850,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 base64_decode($data['iv'])
             );
         } else {
-            $cipher = new Crypt\AES(Crypt\Base::MODE_CBC);
+            $cipher = new AES('cbc');
             $cipher->setIV(base64_decode($data['iv']));
             $cipher->setKey($aes_secret);
             $result = $cipher->decrypt(base64_decode($data['payload']));
@@ -871,7 +871,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             return openssl_cipher_iv_length('AES-128-CBC');
         }
 
-        return (new Crypt\AES(Crypt\Base::MODE_CBC))->block_size;
+        return (new AES('cbc'))->getBlockLengthInBytes();
     }
 
     /**
@@ -894,7 +894,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             );
         }
 
-        return Crypt\Random::string(
+        return Random::string(
             $this->getIVSize()
         );
     }

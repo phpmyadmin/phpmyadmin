@@ -11,7 +11,7 @@ use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Utils\SessionCache;
-use phpseclib\Crypt\Random;
+use phpseclib3\Crypt\Random;
 use stdClass;
 use const ENT_COMPAT;
 use const ENT_QUOTES;
