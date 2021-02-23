@@ -6,6 +6,8 @@ phpMyAdmin - ChangeLog
 - issue #16521 Drop support for Internet Explorer and others
 - issue        Upgrade to shapefile 3
 - issue #16555 Bump minimum PHP version to 7.2
+- issue        Upgrade phpseclib to version 3
+- issue        Upgrade Symfony components to version 5.2
 
 5.1.0 (not yet released)
 - issue #15350 Change Media (MIME) type references to Media type
