@@ -100,6 +100,7 @@ phpMyAdmin - ChangeLog
 - issue #16669 Fixed table search modal for BETWEEN
 - issue #16667 Fixed LIKE and TINYINT in search not working properly
 - issue #16424 Fixed numerical search in table and zoom
+- issue        Improve the version handling (new Version class) and add a VERSION_SUFFIX for vendors
 
 5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
