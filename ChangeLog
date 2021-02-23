@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-5.1.0 (not yet released)
+5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
 - issue #15377 Add a request router
 - issue        Automatically focus input in the two-factor authentication window
@@ -101,8 +101,6 @@ phpMyAdmin - ChangeLog
 - issue #16667 Fixed LIKE and TINYINT in search not working properly
 - issue #16424 Fixed numerical search in table and zoom
 - issue        Improve the version handling (new Version class) and add a VERSION_SUFFIX for vendors
-
-5.0.5 (not yet released)
 - issue #14494 Fix uncaught TypeError when editing partitioning
 - issue #16525 Fix PHP 8.0 failing tests when comparing 0 to ''
 - issue #16429 Fixed PHP 8.0 errors on preg_replace and operand types
