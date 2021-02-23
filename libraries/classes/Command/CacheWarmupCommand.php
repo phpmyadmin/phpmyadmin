@@ -55,7 +55,7 @@ final class CacheWarmupCommand extends Command
         if ($input->getOption('twig') === true && $input->getOption('routing') === true) {
             $output->writeln('Please specify --twig or --routing');
 
-            return 1;
+            return Command::FAILURE;
         }
 
         if ($input->getOption('twig') === true) {
@@ -81,7 +81,7 @@ final class CacheWarmupCommand extends Command
         }
         $output->writeln('Warm up of all caches done.', OutputInterface::VERBOSITY_VERBOSE);
 
-        return 0;
+        return Command::SUCCESS;
     }
 
     private function warmUpRoutingCache(OutputInterface $output): int
@@ -92,7 +92,7 @@ final class CacheWarmupCommand extends Command
         if (is_file(Routing::ROUTES_CACHE_FILE)) {
             $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);
 
-            return 0;
+            return Command::SUCCESS;
         }
         $output->writeln(
             sprintf(
@@ -102,7 +102,7 @@ final class CacheWarmupCommand extends Command
             OutputInterface::VERBOSITY_NORMAL
         );
 
-        return 1;
+        return Command::FAILURE;
     }
 
     private function warmUpTwigCache(OutputInterface $output): int
@@ -178,13 +178,13 @@ final class CacheWarmupCommand extends Command
         // Store replacements in JSON
         $handle = fopen($tmpDir . '/replace.json', 'w');
         if ($handle === false) {
-            return 1;
+            return Command::FAILURE;
         }
 
         fwrite($handle, (string) json_encode($replacements));
         fclose($handle);
         $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);
 
-        return 0;
+        return Command::SUCCESS;
     }
 }

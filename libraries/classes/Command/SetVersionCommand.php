@@ -61,14 +61,12 @@ PHP;
         $generatedClass = $this->getGeneratedClass($version);
 
         if (! $this->writeGeneratedClassFile($generatedClass)) {
-            // failure
-            return 1;
+            return Command::FAILURE;
         }
 
         $output->writeln('PhpMyAdmin\Version class successfully generated!');
 
-        // success
-        return 0;
+        return Command::SUCCESS;
     }
 
     private function getGeneratedClass(string $version): string
