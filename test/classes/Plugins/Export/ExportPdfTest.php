@@ -179,9 +179,6 @@ class ExportPdfTest extends AbstractTestCase
             ->method('Open');
 
         $pdf->expects($this->once())
-            ->method('setAttributes');
-
-        $pdf->expects($this->once())
             ->method('setTopMargin');
 
         $attrPdf = new ReflectionProperty(ExportPdf::class, 'pdf');
@@ -239,19 +236,6 @@ class ExportPdfTest extends AbstractTestCase
             ->getMock();
 
         $pdf->expects($this->once())
-            ->method('setAttributes')
-            ->with(
-                [
-                    'currentDb' => 'db',
-                    'currentTable' => 'table',
-                    'dbAlias' => 'db',
-                    'tableAlias' => 'table',
-                    'aliases' => [],
-                    'purpose' => __('Dumping data'),
-                ]
-            );
-
-        $pdf->expects($this->once())
             ->method('mysqlReport')
             ->with('SELECT');
 
@@ -285,25 +269,6 @@ class ExportPdfTest extends AbstractTestCase
         $getter->setAccessible(true);
         $this->assertInstanceOf(
             Pdf::class,
-            $getter->invoke($this->object)
-        );
-    }
-
-    /**
-     * Test for
-     *     - PhpMyAdmin\Plugins\Export\ExportPdf::setPdfReportTitle
-     *     - PhpMyAdmin\Plugins\Export\ExportPdf::getPdfReportTitle
-     */
-    public function testSetGetPdfTitle(): void
-    {
-        $setter = new ReflectionMethod(ExportPdf::class, 'setPdfReportTitle');
-        $setter->setAccessible(true);
-        $setter->invoke($this->object, 'title');
-
-        $getter = new ReflectionMethod(ExportPdf::class, 'getPdfReportTitle');
-        $getter->setAccessible(true);
-        $this->assertEquals(
-            'title',
             $getter->invoke($this->object)
         );
     }

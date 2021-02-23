@@ -35,19 +35,19 @@ class Pdf extends PdfLib
     /** @var int|float */
     private $cellFontSize;
 
-    /** @var mixed */
+    /** @var int */
     private $titleFontSize;
 
-    /** @var mixed */
+    /** @var string */
     private $titleText;
 
-    /** @var mixed */
+    /** @var string */
     private $dbAlias;
 
-    /** @var mixed */
+    /** @var string */
     private $tableAlias;
 
-    /** @var mixed */
+    /** @var string */
     private $purpose;
 
     /** @var array */
@@ -77,10 +77,10 @@ class Pdf extends PdfLib
     /** @var int|float */
     private $sColWidth;
 
-    /** @var mixed */
+    /** @var string */
     private $currentDb;
 
-    /** @var mixed */
+    /** @var string */
     private $currentTable;
 
     /** @var array */
@@ -350,20 +350,6 @@ class Pdf extends PdfLib
         }
         // set it to the last page, if not it'll cause some problems
         $this->page = $maxpage;
-    }
-
-    /**
-     * Sets a set of attributes.
-     *
-     * @param array $attr array containing the attributes
-     *
-     * @return void
-     */
-    public function setAttributes(array $attr = [])
-    {
-        foreach ($attr as $key => $val) {
-            $this->$key = $val;
-        }
     }
 
     /**
@@ -905,5 +891,48 @@ class Pdf extends PdfLib
         $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
         $this->morepagestable($this->FontSizePt);
         $dbi->freeResult($this->results);
+    }
+
+    public function setTitleFontSize(int $titleFontSize): void
+    {
+        $this->titleFontSize = $titleFontSize;
+    }
+
+    public function setTitleText(string $titleText): void
+    {
+        $this->titleText = $titleText;
+    }
+
+    public function setCurrentDb(?string $currentDb): void
+    {
+        $this->currentDb = $currentDb ?? '';
+    }
+
+    public function setCurrentTable(?string $currentTable): void
+    {
+        $this->currentTable = $currentTable ?? '';
+    }
+
+    public function setDbAlias(?string $dbAlias): void
+    {
+        $this->dbAlias = $dbAlias ?? '';
+    }
+
+    public function setTableAlias(?string $tableAlias): void
+    {
+        $this->tableAlias = $tableAlias ?? '';
+    }
+
+    /**
+     * @param array $aliases
+     */
+    public function setAliases(array $aliases): void
+    {
+        $this->aliases = $aliases;
+    }
+
+    public function setPurpose(string $purpose): void
+    {
+        $this->purpose = $purpose;
     }
 }
