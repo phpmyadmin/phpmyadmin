@@ -20,3 +20,5 @@ parameters:
         - tmp/*
         - twig-templates/*
         - vendor/*
+    dynamicConstantNames:
+        - VERSION_SUFFIX

@@ -238,24 +238,24 @@ delete_phpunit_sandbox() {
 # Ensure we have tracking branch
 ensure_local_branch $branch
 
-# Check if we're releasing older
-if git cat-file -e $branch:libraries/classes/Config.php 2> /dev/null ; then
-    CONFIG_LIB=libraries/classes/Config.php
-elif git cat-file -e $branch:libraries/Config.php 2> /dev/null ; then
-    CONFIG_LIB=libraries/Config.php
-else
-    CONFIG_LIB=libraries/Config.class.php
-fi
+VERSION_FILE=libraries/classes/Version.php
+
+fetchReleaseFromFile() {
+    php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;"
+}
+
+echo "The actual configured release is: $(fetchReleaseFromFile)"
 
 if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
     cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
-     - in $CONFIG_LIB Config::__constructor() the line
-          " \$this->set('PMA_VERSION', '$version'); "
+     - run ./scripts/console set-version $version
+     - in $VERSION_FILE Version class:
+        - check that VERSION, MAJOR, MINOR and PATCH are correct.
      - in doc/conf.py the line
           " version = '$version' "
-     - in README
+     - in README the "Version" line
      - in package.json the line
           " "version": "$version", "
      - set release date in ChangeLog
@@ -268,6 +268,8 @@ END
         exit 100
     fi
 fi
+
+echo "The actual configured release is now: $(fetchReleaseFromFile)"
 
 # Create working copy
 mkdir -p release
@@ -290,8 +292,8 @@ fi
 
 # Check release version
 if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
-    if ! grep -q "'PMA_VERSION', '$version'" $CONFIG_LIB ; then
-        echo "There seems to be wrong version in $CONFIG_LIB!"
+    if ! grep -q "VERSION = '$version'" $VERSION_FILE ; then
+        echo "There seems to be wrong version in $VERSION_FILE!"
         exit 2
     fi
     if ! grep -q "version = '$version'" doc/conf.py ; then
@@ -601,11 +603,13 @@ Todo now:
     based on documentation.
 
  7. increment rc count or version in the repository :
-        - in $CONFIG_LIB Config::__constructor() the line
-              " \$this->set( 'PMA_VERSION', '2.7.1-dev' ); "
-        - in Documentation.html (if it exists) the 2 lines
-              " <title>phpMyAdmin 2.2.2-rc1 - Documentation</title> "
-              " <h1>phpMyAdmin 2.2.2-rc1 Documentation</h1> "
+        - run ./scripts/console set-version $version
+        - in $VERSION_FILE Version class:
+            - check that VERSION, MAJOR, MINOR and PATCH are correct.
+        - in README the "Version" line
+              " Version 2.7.1-dev "
+        - in package.json the line
+            " "version": " 2.7.1-dev", "
         - in doc/conf.py (if it exists) the line
               " version = '2.7.1-dev' "
 
@@ -615,6 +619,6 @@ Todo now:
 
 10. in case of a new major release ('y' in x.y.0), update the pmaweb/settings.py in website repository to include the new major releases
 
-11. update the Dockerfile in the docker repository to reflect the new version and create a new annotated tag (such as with git tag -s -a 4.7.9-1 -m "Version 4.7.9-1"). Remember to push the tag with git push origin --tags
+11. update the Dockerfile in the docker repository to reflect the new version and create a new annotated tag (such as with git tag -s -a 4.7.9-1 -m "Version 4.7.9-1"). Remember to push the tag with git push origin {tagName}
 
 END

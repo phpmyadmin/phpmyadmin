@@ -79,3 +79,8 @@ define('LOCALE_PATH', ROOT_PATH . 'locale' . DIRECTORY_SEPARATOR);
  * Define the cache directory for routing cache an other cache files
  */
 define('CACHE_DIR', ROOT_PATH . 'libraries' . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR);
+
+/**
+ * Suffix to add to the phpMyAdmin version
+ */
+define('VERSION_SUFFIX', '');
