@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-28 16:31+0100\n"
-"PO-Revision-Date: 2021-02-23 19:19+0000\n"
+"PO-Revision-Date: 2021-02-24 01:28+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
@@ -4656,7 +4656,7 @@ msgstr "phpMyAdmin 设置存储功能已停用。%s查看原因%s。"
 #: libraries/classes/Controllers/Database/OperationsController.php:363
 #: libraries/classes/Controllers/Table/OperationsController.php:269
 msgid "No collation provided."
-msgstr "未提供排序规则"
+msgstr "未提供排序规则。"
 
 #: libraries/classes/Controllers/Database/SearchController.php:55
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:89
@@ -5816,7 +5816,7 @@ msgstr "请输入有效表名。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "Please enter a valid database name."
-msgstr "请输入有效的数据库名称"
+msgstr "请输入有效的数据库名称。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:315
 msgid "No files available on server for import!"
@@ -10483,7 +10483,7 @@ msgstr "转存数据"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:252
 msgid "Query result data"
-msgstr "查询结果"
+msgstr "查询结果数据"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:310
 msgid "View structure"
@@ -13765,7 +13765,7 @@ msgstr "关"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr "@SERVER@将变成服务器名称，@DATABASE@ 将变成数据库名"
+msgstr "@SERVER@将变成服务器名称，@DATABASE@ 将变成数据库名。"
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5
@@ -15009,7 +15009,7 @@ msgstr "您可在各页面间拖放文件。"
 #: templates/import.twig:74 templates/import.twig:104
 #, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "从网站服务器上传文件夹 [/strong] 中选择："
+msgstr "从网站服务器上传文件夹 [strong]%s[/strong] 中选择："
 
 #: templates/import.twig:80
 msgid "Select file to import"
