@@ -1831,11 +1831,6 @@ parameters:
 			path: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php
 
 		-
-			message: "#^Cannot access property \\$type on stdClass\\|null\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
-
-		-
 			message: "#^Binary operation \"\\-\\=\" between int\\<0, max\\>\\|string\\|false and int results in an error\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
