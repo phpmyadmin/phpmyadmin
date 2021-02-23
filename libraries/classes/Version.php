@@ -12,12 +12,12 @@ namespace PhpMyAdmin;
 final class Version
 {
     // The VERSION_SUFFIX constant is defined at libraries/vendor_config.php
-    public const VERSION = '5.1.0-dev' . VERSION_SUFFIX;
-    public const SERIES = '5.1';
+    public const VERSION = '5.2.0-dev' . VERSION_SUFFIX;
+    public const SERIES = '5.2';
     public const MAJOR = 5;
-    public const MINOR = 1;
+    public const MINOR = 2;
     public const PATCH = 0;
-    public const ID = 50100;
+    public const ID = 50200;
     public const PRE_RELEASE_NAME = 'dev';
     public const IS_DEV = true;
 }
