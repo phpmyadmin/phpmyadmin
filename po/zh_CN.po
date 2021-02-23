@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-28 16:31+0100\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-02-23 19:18+0000\n"
+"Last-Translator: Ganlv <ganlvtech@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5933,7 +5933,7 @@ msgstr "请输入有效表名。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "Please enter a valid database name."
-msgstr "请输入有效数据库名。"
+msgstr "请输入有效的数据库名称"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:315
 msgid "No files available on server for import!"
