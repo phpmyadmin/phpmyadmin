@@ -2,7 +2,7 @@
 {% set active = 'monitor' %}
 {% block content %}
 
-<div class="tabLinks">
+<div class="tabLinks row">
   <a href="#pauseCharts">
     {{ get_image('play') }}
     {% trans 'Start Monitor' %}
@@ -240,7 +240,8 @@
   <div class="placeHolder"></div>
 </div>
 
-<table class="clearfloat tdblock" id="chartGrid"></table>
+<div class="clearfloat"></div>
+<div class="row"><table class="pma-table clearfloat tdblock" id="chartGrid"></table></div>
 <div id="logTable"><br></div>
 
 <script type="text/javascript">

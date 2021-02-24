@@ -1,0 +1,44 @@
+<div id="floating_menubar"></div>
+<nav id="server-breadcrumb" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      {{ show_icons('TabsMode') ? get_image('s_host') }}
+      <a href="{{ url(server.url) }}">
+        {% if show_text('TabsMode') %}{% trans 'Server:' %}{% endif %}
+        {{ server.name }}
+      </a>
+    </li>
+
+    {% if database is not empty %}
+      <li class="breadcrumb-item">
+        {{ show_icons('TabsMode') ? get_image('s_db') }}
+        <a href="{{ url(database.url, {'db': database.name}) }}">
+          {% if show_text('TabsMode') %}{% trans 'Database:' %}{% endif %}
+          {{ database.name }}
+        </a>
+      </li>
+
+      {% if table is not empty %}
+        <li class="breadcrumb-item">
+          {{ show_icons('TabsMode') ? get_image(table.is_view ? 'b_views' : 's_tbl') }}
+          <a href="{{ url(table.url, {'db': database.name, 'table': table.name}) }}">
+            {% if show_text('TabsMode') %}
+              {% if table.is_view %}
+                {% trans 'View:' %}
+              {% else %}
+                {% trans 'Table:' %}
+              {% endif %}
+            {% endif %}
+            {{ table.name }}
+          </a>
+        </li>
+
+        {% if table.comment is not empty %}
+          <span class="breadcrumb-comment">“{{ table.comment }}”</span>
+        {% endif %}
+      {% elseif database.comment is not empty %}
+        <span class="breadcrumb-comment">“{{ database.comment }}”</span>
+      {% endif %}
+    {% endif %}
+  </ol>
+</nav>

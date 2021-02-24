@@ -1,4 +1,4 @@
-<form class="ajax" action="navigation.php" method="post">
+<form class="ajax" action="{{ url('/navigation') }}" method="post">
   <fieldset>
     {{ get_hidden_inputs(database, table) }}
 
@@ -6,13 +6,13 @@
       {% if (item_type is empty or item_type == type) and hidden[type] is iterable %}
         {{ not loop.first ? '<br>' }}
         <strong>{{ label }}</strong>
-        <table class="all100">
+        <table class="pma-table w-100">
           <tbody>
             {% for item in hidden[type] %}
               <tr>
                 <td>{{ item }}</td>
                 <td class="right">
-                  <a class="unhideNavItem ajax" href="navigation.php" data-post="{{ get_common({
+                  <a class="unhideNavItem ajax" href="{{ url('/navigation') }}" data-post="{{ get_common({
                     'unhideNavItem': true,
                     'itemType': type,
                     'itemName': item,

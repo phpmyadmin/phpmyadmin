@@ -1,0 +1,71 @@
+#!/usr/bin/env php
+<?php
+
+use PhpMyAdmin\Command\CacheWarmupCommand;
+use PhpMyAdmin\Command\SetVersionCommand;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Twig\CoreExtension;
+use PhpMyAdmin\Twig\I18nExtension;
+use PhpMyAdmin\Twig\MessageExtension;
+use PhpMyAdmin\Twig\PluginsExtension;
+use PhpMyAdmin\Twig\RelationExtension;
+use PhpMyAdmin\Twig\SanitizeExtension;
+use PhpMyAdmin\Twig\TableExtension;
+use PhpMyAdmin\Twig\TrackerExtension;
+use PhpMyAdmin\Twig\TransformationsExtension;
+use PhpMyAdmin\Twig\UrlExtension;
+use PhpMyAdmin\Twig\UtilExtension;
+use Symfony\Bridge\Twig\Command\LintCommand;
+use Symfony\Component\Console\Application;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
+define('PHPMYADMIN', true);
+require_once ROOT_PATH . 'libraries/vendor_config.php';
+require_once AUTOLOAD_FILE;
+
+if (! class_exists(Application::class)) {
+    echo 'Be sure to have dev-dependencies installed.' . PHP_EOL;
+    echo 'Command aborted.' . PHP_EOL;
+    exit(1);
+}
+
+$cfg['environment'] = 'production';
+$PMA_Config = new Config(CONFIG_FILE);
+$PMA_Config->set('environment', $cfg['environment']);
+$dbi = new DatabaseInterface(new DbiDummy());
+$tplDir = ROOT_PATH . 'templates';
+$tmpDir = ROOT_PATH . 'twig-templates';
+
+$loader = new FilesystemLoader($tplDir);
+$twig = new Environment($loader, [
+    'auto_reload' => true,
+    'cache' => $tmpDir,
+]);
+$twig->setExtensions([
+    new CoreExtension(),
+    new I18nExtension(),
+    new MessageExtension(),
+    new PluginsExtension(),
+    new RelationExtension(),
+    new SanitizeExtension(),
+    new TableExtension(),
+    new TrackerExtension(),
+    new TransformationsExtension(),
+    new UrlExtension(),
+    new UtilExtension(),
+]);
+
+$application = new Application('phpMyAdmin Console Tool');
+
+$application->add(new CacheWarmupCommand());
+$application->add(new LintCommand($twig));
+$application->add(new SetVersionCommand());
+
+$application->run();

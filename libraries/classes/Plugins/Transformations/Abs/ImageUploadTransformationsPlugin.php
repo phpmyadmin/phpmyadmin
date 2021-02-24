@@ -1,22 +1,20 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the image upload input transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage ImageUpload
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
+use PhpMyAdmin\Url;
 use stdClass;
+use function bin2hex;
+use function intval;
 
 /**
  * Provides common methods for all of the image upload transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
 {
@@ -82,7 +80,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
                 . '" value="' . bin2hex($value) . '">';
             $html .= '<input type="hidden" name="fields' . $column_name_appendix
                 . '" value="' . bin2hex($value) . '">';
-            $src = 'transformation_wrapper.php' . $options['wrapper_link'];
+            $src = Url::getFromRoute('/transformation/wrapper', $options['wrapper_params']);
         }
         $html .= '<img src="' . $src . '" width="'
             . (isset($options[0]) ? intval($options[0]) : '100') . '" height="'
@@ -102,9 +100,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
      */
     public function getScripts()
     {
-        return [
-            'transformations/image_upload.js',
-        ];
+        return ['transformations/image_upload.js'];
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
@@ -116,6 +112,6 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
      */
     public static function getName()
     {
-        return "Image upload";
+        return 'Image upload';
     }
 }

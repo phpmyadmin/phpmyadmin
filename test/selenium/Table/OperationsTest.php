@@ -1,11 +1,8 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for table related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Table;
@@ -15,16 +12,12 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * OperationsTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class OperationsTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -33,15 +26,16 @@ class OperationsTest extends TestBase
         // MYISAM ENGINE to allow for column-based order selection
         // while table also has a PRIMARY key
         $this->dbQuery(
-            "CREATE TABLE `test_table` ("
-            . " `id` int(11) NOT NULL AUTO_INCREMENT,"
-            . " `val` int(11) NOT NULL,"
-            . " `val2` int(11) NOT NULL,"
-            . " PRIMARY KEY (`id`)"
-            . ") ENGINE=MYISAM"
+            'USE `' . $this->databaseName . '`;'
+            . 'CREATE TABLE `test_table` ('
+            . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
+            . ' `val` int(11) NOT NULL,'
+            . ' `val2` int(11) NOT NULL,'
+            . ' PRIMARY KEY (`id`)'
+            . ') ENGINE=MYISAM;'
+            . 'INSERT INTO test_table (val, val2) VALUES (22, 33);'
+            . 'INSERT INTO test_table (val, val2) VALUES (33, 44);'
         );
-        $this->dbQuery("INSERT INTO test_table (val, val2) VALUES (22, 33)");
-        $this->dbQuery("INSERT INTO test_table (val, val2) VALUES (33, 44)");
 
         $this->login();
         $this->navigateTable('test_table');
@@ -54,26 +48,28 @@ class OperationsTest extends TestBase
         $this->waitAjax();
         $this->waitForElement(
             'xpath',
-            "//legend[contains(., 'Table maintenance')]"
+            "//div[contains(., 'Table maintenance')]"
         );
-        $this->maximize();
+        $this->reloadPage();
+        $this->waitForElement(
+            'xpath',
+            "//div[contains(., 'Table maintenance')]"
+        );
     }
 
     /**
      * Test for changing a table order
      *
-     * @return void
-     *
      * @group large
      */
-    public function testChangeTableOrder()
+    public function testChangeTableOrder(): void
     {
         $this->selectByLabel(
-            $this->byName("order_field"),
+            $this->byName('order_field'),
             'val'
         );
 
-        $this->byId("order_order_desc")->click();
+        $this->byId('tableOrderDescRadio')->click();
         $this->byCssSelector(
             "form#alterTableOrderby input[type='submit']"
         )->click();
@@ -82,17 +78,17 @@ class OperationsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and "
+            "//div[@class='alert alert-success' and "
             . "contains(., 'Your SQL query has been executed successfully')]"
         );
 
-        $this->byPartialLinkText("Browse")->click();
+        $this->byPartialLinkText('Browse')->click();
 
         $this->waitAjax();
-        $this->waitForElement('cssSelector', "table.table_results");
+        $this->waitForElement('cssSelector', 'table.table_results');
 
         $this->assertEquals(
-            "2",
+            '2',
             $this->getCellByTableClass('table_results', 1, 5)
         );
     }
@@ -100,47 +96,45 @@ class OperationsTest extends TestBase
     /**
      * Test for moving a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testMoveTable()
+    public function testMoveTable(): void
     {
         $this->byCssSelector("form#moveTableForm input[name='new_name']")
-            ->sendKeys("2");
+            ->sendKeys('2');
 
         $this->byCssSelector("form#moveTableForm input[type='submit']")->click();
         $this->waitAjax();
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and "
-            . "contains(., 'Table `" . $this->database_name
-            . "`.`test_table` has been "
-            . "moved to `" . $this->database_name . "`.`test_table2`.')]"
+            "//div[@class='alert alert-success' and "
+            . "contains(., 'Table `" . $this->databaseName
+            . '`.`test_table` has been '
+            . 'moved to `' . $this->databaseName . "`.`test_table2`.')]"
         );
 
-        $result = $this->dbQuery("SHOW TABLES");
-        $row = $result->fetch_assoc();
-        $this->assertEquals(
-            "test_table2",
-            $row["Tables_in_" . $this->database_name]
+        $this->dbQuery(
+            'USE `' . $this->databaseName . '`;'
+            . 'SHOW TABLES LIKE \'test_table2\'',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
     }
 
     /**
      * Test for renaming a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testRenameTable()
+    public function testRenameTable(): void
     {
         $this->byCssSelector("form#tableOptionsForm input[name='new_name']")
-            ->sendKeys("2");
+            ->sendKeys('2');
 
-        $this->byName("comment")->sendKeys("foobar");
+        $this->byName('comment')->sendKeys('foobar');
 
         $this->scrollIntoView('tableOptionsForm');
         $this->waitUntilElementIsVisible('cssSelector', 'form#tableOptionsForm', 30);
@@ -149,110 +143,109 @@ class OperationsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and "
+            "//div[@class='alert alert-success' and "
             . "contains(., 'Table test_table has been renamed to test_table2')]"
         );
 
-        $result = $this->dbQuery("SHOW TABLES");
-        $row = $result->fetch_assoc();
-        $this->assertEquals(
-            "test_table2",
-            $row["Tables_in_" . $this->database_name]
+        $this->dbQuery(
+            'USE `' . $this->databaseName . '`;'
+            . 'SHOW TABLES LIKE \'test_table2\'',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
     }
 
     /**
      * Test for copying a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testCopyTable()
+    public function testCopyTable(): void
     {
         $this->scrollIntoView('copyTable');
         $this->waitUntilElementIsVisible('cssSelector', 'form#copyTable', 30);
-        $this->byCssSelector("form#copyTable input[name='new_name']")->sendKeys("2");
-        $this->byCssSelector("label[for='what_data']")->click();
+        $this->byCssSelector("form#copyTable input[name='new_name']")->sendKeys('2');
+        $this->byCssSelector('label[for="whatRadio2"]')->click();
         $this->byCssSelector("form#copyTable input[type='submit']")->click();
         $this->waitAjax();
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and "
-            . "contains(., 'Table `" . $this->database_name
-            . "`.`test_table` has been "
-            . "copied to `" . $this->database_name . "`.`test_table2`.')]"
+            "//div[@class='alert alert-success' and "
+            . "contains(., 'Table `" . $this->databaseName
+            . '`.`test_table` has been '
+            . 'copied to `' . $this->databaseName . "`.`test_table2`.')]"
         );
 
-        $result = $this->dbQuery("SELECT COUNT(*) as c FROM test_table2");
-        $row = $result->fetch_assoc();
-        $this->assertEquals(
-            2,
-            $row["c"]
+        $this->dbQuery(
+            'SELECT COUNT(*) as c FROM `' . $this->databaseName . '`.test_table2',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('2', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
     }
 
     /**
      * Test for truncating a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testTruncateTable()
+    public function testTruncateTable(): void
     {
         $this->scrollToBottom();
         $this->waitUntilElementIsVisible('id', 'drop_tbl_anchor', 30);
-        $this->byId("truncate_tbl_anchor")->click();
-        $this->byCssSelector("button.submitOK")->click();
+        $this->byId('truncate_tbl_anchor')->click();
+        $this->byCssSelector('button.submitOK')->click();
         $this->waitAjax();
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and "
+            "//div[@class='alert alert-success' and "
             . "contains(., 'MySQL returned an empty result set')]"
         );
 
-        $result = $this->dbQuery("SELECT COUNT(*) as c FROM test_table");
-        $row = $result->fetch_assoc();
-        $this->assertEquals(
-            0,
-            $row["c"]
+        $this->dbQuery(
+            'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->databaseName . '`.test_table',
+            function (): void {
+                $this->assertTrue($this->isElementPresent('className', 'table_results'));
+                $this->assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
+            }
         );
     }
 
     /**
      * Test for dropping a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testDropTable()
+    public function testDropTable(): void
     {
-        $this->reloadPage();
         $dropLink = $this->waitUntilElementIsVisible('partialLinkText', 'Delete the table (DROP)', 30);
         $this->scrollToElement($this->byId('selflink'));
         $dropLink->click();
-        $this->byCssSelector("button.submitOK")->click();
+        $this->byCssSelector('button.submitOK')->click();
         $this->waitAjax();
 
         $this->waitForElement(
             'xpath',
-            "//div[@class='success' and "
+            "//div[@class='alert alert-success' and "
             . "contains(., 'MySQL returned an empty result set')]"
         );
 
         $this->waitForElement(
             'xpath',
-            "//a[@class='tabactive' and contains(., 'Structure')]"
+            "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]"
         );
 
-        $result = $this->dbQuery("SHOW TABLES");
-        $this->assertEquals(
-            0,
-            $result->num_rows
+        $this->dbQuery(
+            'USE `' . $this->databaseName . '`;'
+            . 'SHOW TABLES',
+            function (): void {
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+            }
         );
     }
 }

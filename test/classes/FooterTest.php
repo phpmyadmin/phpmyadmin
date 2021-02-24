@@ -1,36 +1,19 @@
 <?php
-/**
- * Tests for Footer class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
-use ReflectionClass;
+use function json_encode;
 
-/**
- * Tests for Footer class
- *
- * @package PhpMyAdmin-test
- */
-class FooterTest extends PmaTestCase
+class FooterTest extends AbstractTestCase
 {
-
-    /**
-     * @var array store private attributes of PhpMyAdmin\Footer
-     */
+    /** @var array store private attributes of PhpMyAdmin\Footer */
     public $privates = [];
 
-    /**
-     * @access protected
-     */
+    /** @var Footer */
     protected $object;
 
     /**
@@ -38,16 +21,18 @@ class FooterTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::setLanguage();
+        parent::setGlobalConfig();
+        parent::setTheme();
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
@@ -66,37 +51,19 @@ class FooterTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
-    }
-
-    /**
-     * Call private functions by setting visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the private method.
-     */
-    private function _callPrivateFunction($name, $params)
-    {
-        $class = new ReflectionClass(Footer::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-        return $method->invokeArgs($this->object, $params);
     }
 
     /**
      * Test for getDebugMessage
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetDebugMessage()
+    public function testGetDebugMessage(): void
     {
         $GLOBALS['cfg']['DBG']['sql'] = true;
         $_SESSION['debug']['queries'] = [
@@ -120,18 +87,18 @@ class FooterTest extends PmaTestCase
     }
 
     /**
-     * Test for _removeRecursion
-     *
-     * @return void
+     * Test for removeRecursion
      */
-    public function testRemoveRecursion()
+    public function testRemoveRecursion(): void
     {
         $object = (object) [];
         $object->child = (object) [];
         $object->child->parent = $object;
 
-        $this->_callPrivateFunction(
-            '_removeRecursion',
+        $this->callFunction(
+            $this->object,
+            Footer::class,
+            'removeRecursion',
             [
                 &$object,
             ]
@@ -144,23 +111,24 @@ class FooterTest extends PmaTestCase
     }
 
     /**
-     * Test for _getSelfLink
-     *
-     * @return void
+     * Test for getSelfLink
      */
-    public function testGetSelfLink()
+    public function testGetSelfLink(): void
     {
-
         $GLOBALS['cfg']['TabsMode'] = 'text';
         $GLOBALS['cfg']['ServerDefault'] = 1;
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['table'] = 'table';
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
-            . 'table=&amp;server=1&amp;target=&amp;lang=en'
+            '<div id="selflink" class="print_ignore"><a href="index.php?db=db&amp;'
+            . 'table=table&amp;server=1&amp;lang=en'
             . '" title="Open new phpMyAdmin window" '
             . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
-            $this->_callPrivateFunction(
-                '_getSelfLink',
+            $this->callFunction(
+                $this->object,
+                Footer::class,
+                'getSelfLink',
                 [
                     $this->object->getSelfUrl(),
                 ]
@@ -169,25 +137,48 @@ class FooterTest extends PmaTestCase
     }
 
     /**
-     * Test for _getSelfLink
-     *
-     * @return void
+     * Test for getSelfLink
      */
-    public function testGetSelfLinkWithImage()
+    public function testGetSelfLinkWithImage(): void
     {
-
         $GLOBALS['cfg']['TabsMode'] = 'icons';
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
         $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=&amp;'
-            . 'table=&amp;server=1&amp;target=&amp;lang=en'
-            . '" title="Open new phpMyAdmin window" '
+            '<div id="selflink" class="print_ignore"><a href="'
+            . 'index.php?server=1&amp;lang=en" title="Open new phpMyAdmin window" '
             . 'target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new '
             . 'phpMyAdmin window" alt="Open new phpMyAdmin window" '
             . 'class="icon ic_window-new"></a></div>',
-            $this->_callPrivateFunction(
-                '_getSelfLink',
+            $this->callFunction(
+                $this->object,
+                Footer::class,
+                'getSelfLink',
+                [
+                    $this->object->getSelfUrl(),
+                ]
+            )
+        );
+    }
+
+    /**
+     * Test for getSelfLink
+     */
+    public function testGetSelfLinkWithRoute(): void
+    {
+        $GLOBALS['route'] = '/test';
+        $GLOBALS['cfg']['TabsMode'] = 'text';
+        $GLOBALS['cfg']['ServerDefault'] = 1;
+
+        $this->assertEquals(
+            '<div id="selflink" class="print_ignore"><a href="index.php?route=%2Ftest'
+            . '&amp;server=1&amp;lang=en'
+            . '" title="Open new phpMyAdmin window" '
+            . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
+            $this->callFunction(
+                $this->object,
+                Footer::class,
+                'getSelfLink',
                 [
                     $this->object->getSelfUrl(),
                 ]
@@ -197,10 +188,8 @@ class FooterTest extends PmaTestCase
 
     /**
      * Test for disable
-     *
-     * @return void
      */
-    public function testDisable()
+    public function testDisable(): void
     {
         $footer = new Footer();
         $footer->disable();
@@ -212,10 +201,8 @@ class FooterTest extends PmaTestCase
 
     /**
      * Test for footer when ajax enabled
-     *
-     * @return void
      */
-    public function testAjax()
+    public function testAjax(): void
     {
         $footer = new Footer();
         $footer->setAjax(true);
@@ -227,10 +214,8 @@ class FooterTest extends PmaTestCase
 
     /**
      * Test for footer get Scripts
-     *
-     * @return void
      */
-    public function testGetScripts()
+    public function testGetScripts(): void
     {
         $footer = new Footer();
         $this->assertStringContainsString(
@@ -242,10 +227,9 @@ class FooterTest extends PmaTestCase
     /**
      * Test for displaying footer
      *
-     * @return void
      * @group medium
      */
-    public function testDisplay()
+    public function testDisplay(): void
     {
         $footer = new Footer();
         $this->assertStringContainsString(
@@ -256,10 +240,8 @@ class FooterTest extends PmaTestCase
 
     /**
      * Test for minimal footer
-     *
-     * @return void
      */
-    public function testMinimal()
+    public function testMinimal(): void
     {
         $footer = new Footer();
         $footer->setMinimal();

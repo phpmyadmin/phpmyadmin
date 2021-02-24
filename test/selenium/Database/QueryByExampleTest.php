@@ -1,58 +1,49 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for 'query by example' tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use function sleep;
+use function trim;
 
 /**
  * QueryByExampleTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class QueryByExampleTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
-     *
-     * @return void
      */
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->dbQuery(
-            "CREATE TABLE `test_table` ("
-            . " `id` int(11) NOT NULL AUTO_INCREMENT,"
-            . " `val` int(11) NOT NULL,"
-            . " PRIMARY KEY (`id`)"
-            . ")"
-        );
-        $this->dbQuery(
-            "INSERT INTO `test_table` (val) VALUES (2), (6), (5), (3), (4), (4), (5);"
+            'USE `' . $this->databaseName . '`;'
+            . 'CREATE TABLE `test_table` ('
+            . ' `id` int(11) NOT NULL AUTO_INCREMENT,'
+            . ' `val` int(11) NOT NULL,'
+            . ' PRIMARY KEY (`id`)'
+            . ');'
+            . 'INSERT INTO `test_table` (val) VALUES (2), (6), (5), (3), (4), (4), (5);'
         );
 
-        $this->maximize();
         $this->login();
     }
 
     /**
      * Test typing a SQL query on Server SQL page and submitting it
-     *
-     * @return void
      */
-    public function testQueryByExample()
+    public function testQueryByExample(): void
     {
-        $this->navigateDatabase($this->database_name);
+        $this->navigateDatabase($this->databaseName);
 
         $this->waitForElement('partialLinkText', 'Query')->click();
         $this->waitAjax();
@@ -112,19 +103,17 @@ class QueryByExampleTest extends TestBase
         }
         */
 
-        $this->scrollToBottom();
-
         /* Update Query in the editor */
-        $this->byCssSelector('input[name=modify]')->click();
+        $updateQueryButton = $this->byCssSelector('.tblFooters > input[name=modify]');
+        $this->scrollToElement($updateQueryButton);
+        $updateQueryButton->click();
         $this->waitAjax();
 
-        $this->scrollToBottom();
-
-        $expected = "SELECT `test_table`.`id` AS `ID`, `test_table`.`val` AS `VAL`"
+        $expected = 'SELECT `test_table`.`id` AS `ID`, `test_table`.`val` AS `VAL`'
             . "\nFROM `test_table`"
             . "\nWHERE ((`test_table`.`id` > 1) AND (`test_table`.`val` < 6))"
             . "\nORDER BY `test_table`.`val` ASC, `test_table`.`id` DESC";
-        $actual = trim($this->waitForElement('id', 'textSqlquery')->getAttribute('value'));
+        $actual = trim((string) $this->waitForElement('id', 'textSqlquery')->getAttribute('value'));
 
         /* Compare generated query */
         $this->assertEquals(
@@ -132,10 +121,12 @@ class QueryByExampleTest extends TestBase
             $actual
         );
 
-        $this->scrollToBottom();
-
         /* Submit the query */
-        $this->waitForElement('cssSelector', 'input[value="Submit Query"]')->click();
+        $submitButton = $this->waitForElement('cssSelector', '#tblQbeFooters > input[type=submit]');
+        sleep(1);
+        $this->scrollToElement($submitButton);
+        sleep(1);
+        $submitButton->click();
         $this->waitAjax();
 
         $this->waitForElement('cssSelector', 'table.table_results');

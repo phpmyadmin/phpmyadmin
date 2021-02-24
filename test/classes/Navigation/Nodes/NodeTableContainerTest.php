@@ -1,32 +1,21 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeTableContainer class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeTableContainer class
- *
- * @package PhpMyAdmin-test
- */
-class NodeTableContainerTest extends PmaTestCase
+class NodeTableContainerTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['NavigationTreeDbSeparator'] = '_';
@@ -34,13 +23,10 @@ class NodeTableContainerTest extends PmaTestCase
         $GLOBALS['cfg']['NavigationTreeTableLevel'] = 1;
     }
 
-
     /**
      * Test for __construct
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeTableContainer');
         $this->assertArrayHasKey(
@@ -48,7 +34,7 @@ class NodeTableContainerTest extends PmaTestCase
             $parent->links
         );
         $this->assertStringContainsString(
-            'db_structure.php',
+            'index.php?route=/database/structure',
             $parent->links['text']
         );
         $this->assertEquals('tables', $parent->realName);

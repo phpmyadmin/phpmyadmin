@@ -1,5 +1,6 @@
 {% for file in files %}
-  <script data-cfasync="false" type="text/javascript" src="js/{{ file.filename }}
+  <script data-cfasync="false" type="text/javascript" src="{{ base_dir }}js/
+    {{- file.filename starts with 'vendor/' or file.filename starts with 'messages.php' ? file.filename : 'dist/' ~ file.filename -}}
     {{- '.php' in file.filename ? get_common(file.params|merge({'v': version})) : '?v=' ~ version|url_encode }}"></script>
 {% endfor %}
 

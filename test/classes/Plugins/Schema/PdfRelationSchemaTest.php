@@ -1,27 +1,17 @@
 <?php
-/**
- * Tests for PdfRelationSchema class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PdfRelationSchema class
- *
- * @package PhpMyAdmin-test
- */
-class PdfRelationSchemaTest extends PmaTestCase
+class PdfRelationSchemaTest extends AbstractTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @var PdfRelationSchema */
     protected $object;
 
     /**
@@ -29,10 +19,11 @@ class PdfRelationSchemaTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $_REQUEST['page_number'] = 33;
         $_REQUEST['pdf_show_grid'] = true;
         $_REQUEST['pdf_show_color'] = true;
@@ -50,19 +41,19 @@ class PdfRelationSchemaTest extends PmaTestCase
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'information_schema';
-        $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
-        $GLOBALS['cfg']['Server']['user'] = "user";
-        $GLOBALS['cfg']['Server']['table_coords'] = "table_name";
-        $GLOBALS['cfg']['Server']['bookmarktable'] = "bookmarktable";
-        $GLOBALS['cfg']['Server']['relation'] = "relation";
-        $GLOBALS['cfg']['Server']['table_info'] = "table_info";
+        $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
+        $GLOBALS['cfg']['Server']['user'] = 'user';
+        $GLOBALS['cfg']['Server']['table_coords'] = 'table_name';
+        $GLOBALS['cfg']['Server']['bookmarktable'] = 'bookmarktable';
+        $GLOBALS['cfg']['Server']['relation'] = 'relation';
+        $GLOBALS['cfg']['Server']['table_info'] = 'table_info';
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
-            'table_coords' => "table_name",
+            'table_coords' => 'table_name',
             'displaywork' => 'displaywork',
-            'db' => "information_schema",
+            'db' => 'information_schema',
             'table_info' => 'table_info',
             'relwork' => false,
             'relation' => 'relation',
@@ -74,7 +65,7 @@ class PdfRelationSchemaTest extends PmaTestCase
         $relation = new Relation($GLOBALS['dbi']);
         $relation->getRelationsParam();
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -84,21 +75,17 @@ class PdfRelationSchemaTest extends PmaTestCase
 
         $dbi->expects($this->any())
             ->method('query')
-            ->will($this->returnValue("executed_1"));
+            ->will($this->returnValue('executed_1'));
 
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue("executed_1"));
+            ->will($this->returnValue('executed_1'));
 
-        $fetchArrayReturn = [
-            //table name in information_schema_relations
-            'table_name' => 'CHARACTER_SETS',
-        ];
+        //table name in information_schema_relations
+        $fetchArrayReturn = ['table_name' => 'CHARACTER_SETS'];
 
-        $fetchArrayReturn2 = [
-            //table name in information_schema_relations
-            'table_name' => 'COLLATIONS',
-        ];
+        //table name in information_schema_relations
+        $fetchArrayReturn2 = ['table_name' => 'COLLATIONS'];
 
         $dbi->expects($this->at(2))
             ->method('fetchAssoc')
@@ -108,7 +95,7 @@ class PdfRelationSchemaTest extends PmaTestCase
             ->will($this->returnValue($fetchArrayReturn2));
         $dbi->expects($this->at(4))
             ->method('fetchAssoc')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
 
         $fetchRowReturn = [
             'table_name',
@@ -123,11 +110,11 @@ class PdfRelationSchemaTest extends PmaTestCase
         }
 
         $fields_info = [
-            "Host" => [
-                "Field" => "host",
-                "Type" => "char(60)",
-                "Null" => "NO",
-                'Extra' => "Extra",
+            'Host' => [
+                'Field' => 'host',
+                'Type' => 'char(60)',
+                'Null' => 'NO',
+                'Extra' => 'Extra',
             ],
         ];
         $dbi->expects($this->any())->method('getColumns')
@@ -141,8 +128,8 @@ class PdfRelationSchemaTest extends PmaTestCase
                 'Table' => 'pma_tbl',
                 'Field' => 'field1',
                 'Key' => 'PRIMARY',
-                'Key_name' => "Key_name",
-                'Column_name' => "Column_name",
+                'Key_name' => 'Key_name',
+                'Column_name' => 'Column_name',
             ],
         ];
         $dbi->expects($this->any())->method('getTableIndexes')
@@ -186,44 +173,37 @@ class PdfRelationSchemaTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for construct
      *
-     * @return void
-     *
      * @group large
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertEquals(
             33,
             $this->object->getPageNumber()
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isShowGrid()
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isShowColor()
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isShowKeys()
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isTableDimension()
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isAllTableSameWidth()
         );
         $this->assertEquals(

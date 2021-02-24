@@ -1,81 +1,54 @@
 <?php
 /**
  * Server Plugin value object
- * @package PhpMyAdmin\Server
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;
 
 /**
  * Server Plugin value object
- * @package PhpMyAdmin\Server
  */
 final class Plugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $name;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $version;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $status;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $type;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $typeVersion;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $library;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $libraryVersion;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $author;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $description;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $license;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $loadOption;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $maturity;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     private $authVersion;
 
     /**
@@ -125,7 +98,6 @@ final class Plugin
 
     /**
      * @param array $state array with the properties
-     * @return self
      */
     public static function fromState(array $state): self
     {
@@ -168,105 +140,66 @@ final class Plugin
         ];
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string|null
-     */
     public function getVersion(): ?string
     {
         return $this->version;
     }
 
-    /**
-     * @return string
-     */
     public function getStatus(): string
     {
         return $this->status;
     }
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTypeVersion(): ?string
     {
         return $this->typeVersion;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLibrary(): ?string
     {
         return $this->library;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLibraryVersion(): ?string
     {
         return $this->libraryVersion;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAuthor(): ?string
     {
         return $this->author;
     }
 
-    /**
-     * @return string|null
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @return string
-     */
     public function getLicense(): string
     {
         return $this->license;
     }
 
-    /**
-     * @return string|null
-     */
     public function getLoadOption(): ?string
     {
         return $this->loadOption;
     }
 
-    /**
-     * @return string|null
-     */
     public function getMaturity(): ?string
     {
         return $this->maturity;
     }
 
-    /**
-     * @return string|null
-     */
     public function getAuthVersion(): ?string
     {
         return $this->authVersion;

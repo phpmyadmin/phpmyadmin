@@ -1,42 +1,29 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds MonitorControllerTest
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\MonitorController;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Utils\SessionCache;
 
-/**
- * Class MonitorControllerTest
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
-class MonitorControllerTest extends TestCase
+class MonitorControllerTest extends AbstractTestCase
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        $GLOBALS['text_dir'] = 'ltr';
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
+        parent::setTheme();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -44,85 +31,27 @@ class MonitorControllerTest extends TestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['replication_info']['master']['status'] = true;
-        $GLOBALS['replication_info']['slave']['status'] = true;
-        $GLOBALS['replication_types'] = [];
-        $GLOBALS['pmaThemeImage'] = '';
-
-        $serverStatus = [
-            "Aborted_clients" => "0",
-            "Aborted_connects" => "0",
-            "Com_delete_multi" => "0",
-            "Com_create_function" => "0",
-            "Com_empty_query" => "0",
-        ];
-
-        $serverVariables = [
-            "auto_increment_increment" => "1",
-            "auto_increment_offset" => "1",
-            "automatic_sp_privileges" => "ON",
-            "back_log" => "50",
-            "big_tables" => "OFF",
-            "version" => "8.0.2",
-        ];
-
-        $fetchResult = [
-            [
-                "SHOW GLOBAL STATUS",
-                0,
-                1,
-                DatabaseInterface::CONNECT_USER,
-                0,
-                $serverStatus,
-            ],
-            [
-                "SHOW GLOBAL VARIABLES",
-                0,
-                1,
-                DatabaseInterface::CONNECT_USER,
-                0,
-                $serverVariables,
-            ],
-            [
-                "SELECT concat('Com_', variable_name), variable_value "
-                . "FROM data_dictionary.GLOBAL_STATEMENTS",
-                0,
-                1,
-                DatabaseInterface::CONNECT_USER,
-                0,
-                $serverStatus,
-            ],
-        ];
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValueMap($fetchResult));
-
-        $GLOBALS['dbi'] = $dbi;
 
         $this->data = new Data();
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
+        $response = new Response();
+
         $controller = new MonitorController(
-            Response::getInstance(),
-            $GLOBALS['dbi'],
+            $response,
             new Template(),
             $this->data,
-            new Monitor($GLOBALS['dbi'])
+            new Monitor($GLOBALS['dbi']),
+            $GLOBALS['dbi']
         );
 
-        $html = $controller->index();
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
-            '<div class="tabLinks">',
+            '<div class="tabLinks row">',
             $html
         );
         $this->assertStringContainsString(
@@ -204,46 +133,24 @@ class MonitorControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testLogDataTypeSlow(): void
     {
-        $value = [
-            'sql_text' => 'insert sql_text',
-            '#' => 11,
-        ];
-
-        $value2 = [
-            'sql_text' => 'update sql_text',
-            '#' => 10,
-        ];
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(1))->method('fetchAssoc')
-            ->will($this->returnValue($value));
-        $dbi->expects($this->at(2))->method('fetchAssoc')
-            ->will($this->returnValue($value2));
-        $dbi->expects($this->at(3))->method('fetchAssoc')
-            ->will($this->returnValue(false));
-
-        $GLOBALS['dbi'] = $dbi;
+        $response = new Response();
+        $response->setAjax(true);
 
         $controller = new MonitorController(
-            Response::getInstance(),
-            $GLOBALS['dbi'],
+            $response,
             new Template(),
             $this->data,
-            new Monitor($GLOBALS['dbi'])
+            new Monitor($GLOBALS['dbi']),
+            $GLOBALS['dbi']
         );
 
-        $ret = $controller->logDataTypeSlow([
-            'time_start' => '0',
-            'time_end' => '10',
-        ]);
+        $_POST['time_start'] = '0';
+        $_POST['time_end'] = '10';
+
+        $controller->logDataTypeSlow();
+        $ret = $response->getJSONResult();
 
         $resultRows = [
             [
@@ -274,9 +181,6 @@ class MonitorControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testLogDataTypeGeneral(): void
     {
         $value = [
@@ -291,33 +195,23 @@ class MonitorControllerTest extends TestCase
             'argument' => 'argument3 argument4',
         ];
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(1))->method('fetchAssoc')
-            ->will($this->returnValue($value));
-        $dbi->expects($this->at(2))->method('fetchAssoc')
-            ->will($this->returnValue($value2));
-        $dbi->expects($this->at(3))->method('fetchAssoc')
-            ->will($this->returnValue(false));
-
-        $GLOBALS['dbi'] = $dbi;
+        $response = new Response();
+        $response->setAjax(true);
 
         $controller = new MonitorController(
-            Response::getInstance(),
-            $GLOBALS['dbi'],
+            $response,
             new Template(),
             $this->data,
-            new Monitor($GLOBALS['dbi'])
+            new Monitor($GLOBALS['dbi']),
+            $GLOBALS['dbi']
         );
 
-        $ret = $controller->logDataTypeGeneral([
-            'time_start' => '0',
-            'time_end' => '10',
-            'limitTypes' => '1',
-            'removeVariables' => null,
-        ]);
+        $_POST['time_start'] = '0';
+        $_POST['time_end'] = '10';
+        $_POST['limitTypes'] = '1';
+
+        $controller->logDataTypeGeneral();
+        $ret = $response->getJSONResult();
 
         $resultRows = [
             $value,
@@ -343,36 +237,30 @@ class MonitorControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testLoggingVars(): void
     {
         $value = [
-            'sql_text' => 'insert sql_text',
-            '#' => 22,
-            'argument' => 'argument argument2',
+            'general_log' => 'OFF',
+            'log_output' => 'FILE',
+            'long_query_time' => '10.000000',
+            'slow_query_log' => 'OFF',
         ];
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValue($value));
+        $response = new Response();
+        $response->setAjax(true);
 
         $controller = new MonitorController(
-            Response::getInstance(),
-            $dbi,
+            $response,
             new Template(),
             $this->data,
-            new Monitor($dbi)
+            new Monitor($GLOBALS['dbi']),
+            $GLOBALS['dbi']
         );
 
-        $ret = $controller->loggingVars([
-            'varName' => 'varName',
-            'varValue' => null,
-        ]);
+        $_POST['varName'] = 'varName';
+
+        $controller->loggingVars();
+        $ret = $response->getJSONResult();
 
         $this->assertEquals(
             $value,
@@ -380,41 +268,35 @@ class MonitorControllerTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
     public function testQueryAnalyzer(): void
     {
-        $GLOBALS['cached_affected_rows'] = 'cached_affected_rows';
-        Util::cacheSet('profiling_supported', true);
+        global $cached_affected_rows;
+
+        $cached_affected_rows = 'cached_affected_rows';
+        SessionCache::set('profiling_supported', true);
 
         $value = [
             'sql_text' => 'insert sql_text',
-            '#' => 33,
+            '#' => 10,
             'argument' => 'argument argument2',
         ];
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(4))->method('fetchAssoc')
-            ->will($this->returnValue($value));
-        $dbi->expects($this->at(5))->method('fetchAssoc')
-            ->will($this->returnValue(false));
+        $response = new Response();
+        $response->setAjax(true);
 
         $controller = new MonitorController(
-            Response::getInstance(),
-            $dbi,
+            $response,
             new Template(),
             $this->data,
-            new Monitor($dbi)
+            new Monitor($GLOBALS['dbi']),
+            $GLOBALS['dbi']
         );
 
-        $ret = $controller->queryAnalyzer([
-            'database' => 'database',
-            'query' => 'query',
-        ]);
+        $_POST['database'] = 'database';
+        $_POST['query'] = 'query';
+
+        $controller->queryAnalyzer();
+        $ret = $response->getJSONResult();
 
         $this->assertEquals(
             'cached_affected_rows',

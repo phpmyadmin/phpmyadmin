@@ -12,7 +12,7 @@
 {% set sub_partition_options = ['', 'HASH', 'LINEAR HASH', 'KEY', 'LINEAR KEY'] %}
 {% set value_type_options = ['', 'LESS THAN', 'LESS THAN MAXVALUE', 'IN'] %}
 
-<table id="partition_table">
+<table class="pma-table" id="partition_table">
     <tr class="vmiddle">
         <td><label for="partition_by">{% trans 'Partition by:' %}</label></td>
         <td>
@@ -71,7 +71,7 @@
     {% endif %}
 </table>
 {% if partition_details['partition_count'] > 1 %}
-    <table id="partition_definition_table">
+    <table class="pma-table" id="partition_definition_table">
         <thead><tr>
             <th>{% trans 'Partition' %}</th>
             {% if partition_details['value_enabled'] %}
@@ -134,13 +134,15 @@
                         </td>
                     {% endif %}
                     <td>
-                        {{ get_html_select(
-                            subpartition['prefix'] ~ '[engine]',
-                            null,
-                            subpartition['engine'],
-                            false,
-                            true
-                        ) }}
+                      <select name="{{ subpartition['prefix'] }}[engine]" aria-label="{% trans 'Storage engine' %}">
+                        <option value=""></option>
+                        {% for engine in storage_engines %}
+                          <option value="{{ engine.name }}"{% if engine.comment is not empty %} title="{{ engine.comment }}"{% endif %}
+                            {{- engine.name|lower == subpartition['engine']|lower ? ' selected' }}>
+                            {{- engine.name -}}
+                          </option>
+                        {% endfor %}
+                      </select>
                     </td>
                     <td>
                         <textarea name="{{ subpartition['prefix'] }}[comment]">

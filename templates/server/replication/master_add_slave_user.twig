@@ -1,5 +1,5 @@
 <div id="master_addslaveuser_gui">
-  <form action="server_privileges.php" method="post" autocomplete="off" onsubmit="return checkAddUser(this);">
+  <form action="{{ url('/server/privileges') }}" method="post" autocomplete="off" id="addUsersForm">
     {{ get_hidden_inputs('', '') }}
 
     <fieldset id="fieldset_add_user_login">
@@ -70,7 +70,7 @@
           {% trans 'Generate password:' %}
         </label>
         <span class="options">
-          <input type="button" class="btn btn-secondary button" id="button_generate_password" value="{% trans 'Generate' %}" onclick="Functions.suggestPassword(this.form)">
+          <input type="button" class="btn btn-secondary button" id="button_generate_password" value="{% trans 'Generate' %}">
         </span>
         <input type="text" name="generated_pw" id="generated_pw">
       </div>

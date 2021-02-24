@@ -4,7 +4,6 @@
     <div id="pma_navigation_collapser"></div>
     <div id="pma_navigation_content">
       <div id="pma_navigation_header">
-        <a class="hide navigation_url" href="navigation.php{{ get_common({'ajax_request': true}) }}"></a>
 
         {% if logo.is_displayed %}
           <div id="pmalogo">
@@ -23,12 +22,12 @@
         {% endif %}
 
         <div id="navipanellinks">
-          <a href="index.php{{ get_common() }}" title="{% trans 'Home' %}">
+          <a href="{{ url('/') }}" title="{% trans 'Home' %}">
             {{- get_image('b_home', 'Home'|trans) -}}
           </a>
 
           {% if server != 0 %}
-            <a class="logout disableAjax" href="logout.php{{ get_common() }}" title="{{ auth_type == 'config' ? 'Empty session data'|trans : 'Log out'|trans }}">
+            <a class="logout disableAjax" href="{{ url('/logout') }}" title="{{ auth_type == 'config' ? 'Empty session data'|trans : 'Log out'|trans }}">
               {{- get_image('s_loggoff', auth_type == 'config' ? 'Empty session data'|trans : 'Log out'|trans) -}}
             </a>
           {% endif %}
@@ -37,8 +36,8 @@
             {{- get_image('b_docs', 'phpMyAdmin documentation'|trans) -}}
           </a>
 
-          <a href="{{ get_mysql_docu_url('') }}" title="{% trans 'Documentation' %}" target="_blank" rel="noopener noreferrer">
-            {{- get_image('b_sqlhelp', 'Documentation'|trans) -}}
+          <a href="{{ get_docu_url(is_mariadb) }}" title="{{ is_mariadb ? 'MariaDB Documentation'|trans : 'MySQL Documentation'|trans }}" target="_blank" rel="noopener noreferrer">
+            {{- get_image('b_sqlhelp', is_mariadb ? 'MariaDB Documentation'|trans : 'MySQL Documentation'|trans) -}}
           </a>
 
           <a id="pma_navigation_settings_icon"{{ not is_navigation_settings_enabled ? ' class="hide"' }} href="#" title="{% trans 'Navigation panel settings' %}">

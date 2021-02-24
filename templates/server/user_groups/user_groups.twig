@@ -1,0 +1,49 @@
+<div class="row"><h2>{% trans 'User groups' %}</h2></div>
+{% if  has_rows > 0 %}
+    <form name="userGroupsForm" id="userGroupsForm" action="{{ action|raw }}" method="post">
+        {{ hidden_inputs|raw  }}
+        <table class="table table-light table-striped table-hover">
+            <thead class="thead-light">
+                <tr class="text-nowrap">
+                    <th scope="col">
+                        {% trans 'User groups' %}
+                    </th>
+                    <th scope="col">
+                        {% trans 'Server level tabs' %}
+                    </th>
+                    <th scope="col">
+                        {% trans 'Database level tabs' %}
+                    </th>
+                    <th scope="col">
+                        {% trans 'Table level tabs' %}
+                    </th>
+                    <th scope="col">
+                        {% trans 'Action' %}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for groupName in user_groups_values %}
+                    <tr>
+                        <td>{{ groupName.name }}</td>
+                        <td>{{ groupName.serverTab }}</td>
+                        <td>{{ groupName.dbTab }}</td>
+                        <td>{{ groupName.tableTab }}</td>
+                        <td class="text-nowrap">
+                            <a class="" href="{{ groupName.userGroupUrl|raw }}" data-post="{{ groupName.viewUsersUrl|raw }}">{{ groupName.viewUsersIcon|raw }}</a>
+                            &nbsp;&nbsp;
+                            <a class="" href="{{ groupName.userGroupUrl|raw }}" data-post="{{ groupName.editUsersUrl|raw }}">{{ groupName.editUsersIcon|raw }}</a>
+                            &nbsp;&nbsp;
+                            <a class="deleteUserGroup ajax" href="{{ groupName.userGroupUrl|raw }}" data-post="{{ groupName.deleteUsersUrl|raw }}">{{ groupName.deleteUsersIcon|raw }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+{% endif %}
+<div class="row">
+    <fieldset id="fieldset_add_user_group">
+        <a href="{{ add_user_url|raw }}">{{ add_user_icon|raw }}{% trans 'Add user group' %}</a>
+    </fieldset>
+</div>

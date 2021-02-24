@@ -1,37 +1,28 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds PluginsControllerTest class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\PluginsController;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\Response;
 
-/**
- * Tests for PluginsController class
- *
- * @package PhpMyAdmin-test
- */
-class PluginsControllerTest extends TestCase
+class PluginsControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        $GLOBALS['text_dir'] = 'ltr';
+        parent::setGlobalConfig();
+        parent::defineVersionConstants();
+        parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;
@@ -43,10 +34,8 @@ class PluginsControllerTest extends TestCase
 
     /**
      * Test for index method
-     *
-     * @return void
      */
-    public function testIndex()
+    public function testIndex(): void
     {
         /**
          * Prepare plugin list
@@ -72,38 +61,36 @@ class PluginsControllerTest extends TestCase
             ->will($this->returnValue($row));
         $dbi->expects($this->at(2))
             ->method('fetchAssoc')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
         $dbi->expects($this->once())
             ->method('freeResult')
             ->will($this->returnValue(true));
 
-        $controller = new PluginsController(
-            Response::getInstance(),
-            $dbi,
-            new Template(),
-            new Plugins($dbi)
-        );
-        $actual = $controller->index();
+        $response = new Response();
+
+        $controller = new PluginsController($response, new Template(), new Plugins($dbi), $GLOBALS['dbi']);
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         //validate 1:Items
         $this->assertStringContainsString(
-            '<th>Plugin</th>',
+            '<th scope="col">Plugin</th>',
             $actual
         );
         $this->assertStringContainsString(
-            '<th>Description</th>',
+            '<th scope="col">Description</th>',
             $actual
         );
         $this->assertStringContainsString(
-            '<th>Version</th>',
+            '<th scope="col">Version</th>',
             $actual
         );
         $this->assertStringContainsString(
-            '<th>Author</th>',
+            '<th scope="col">Author</th>',
             $actual
         );
         $this->assertStringContainsString(
-            '<th>License</th>',
+            '<th scope="col">License</th>',
             $actual
         );
 

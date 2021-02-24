@@ -1,62 +1,100 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Server replications
- * @package PhpMyAdmin\Controllers\Server
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
-use Throwable;
+use PhpMyAdmin\ReplicationInfo;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
+use function is_array;
 
 /**
  * Server replications
- * @package PhpMyAdmin\Controllers\Server
  */
 class ReplicationController extends AbstractController
 {
+    /** @var ReplicationGui */
+    private $replicationGui;
+
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param array          $params         Request parameters
-     * @param ReplicationGui $replicationGui ReplicationGui instance
-     *
-     * @return string HTML
-     * @throws Throwable
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      */
-    public function index(array $params, ReplicationGui $replicationGui): string
+    public function __construct($response, Template $template, ReplicationGui $replicationGui, $dbi)
     {
-        global $replication_info, $server_slave_replication, $url_params;
+        parent::__construct($response, $template);
+        $this->replicationGui = $replicationGui;
+        $this->dbi = $dbi;
+    }
 
-        $errorMessages = $replicationGui->getHtmlForErrorMessage();
+    public function index(): void
+    {
+        global $url_params, $err_url;
 
-        if ($replication_info['master']['status']) {
-            $masterReplicationHtml = $replicationGui->getHtmlForMasterReplication();
+        $params = [
+            'url_params' => $_POST['url_params'] ?? null,
+            'mr_configure' => $_POST['mr_configure'] ?? null,
+            'sl_configure' => $_POST['sl_configure'] ?? null,
+            'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
+        ];
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
+
+        $replicationInfo = new ReplicationInfo($this->dbi);
+        $replicationInfo->load($_POST['master_connection'] ?? null);
+
+        $primaryInfo = $replicationInfo->getPrimaryInfo();
+        $replicaInfo = $replicationInfo->getReplicaInfo();
+
+        $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn.js']);
+
+        if (isset($params['url_params']) && is_array($params['url_params'])) {
+            $url_params = $params['url_params'];
+        }
+
+        if ($this->dbi->isSuperUser()) {
+            $this->replicationGui->handleControlRequest();
+        }
+
+        $errorMessages = $this->replicationGui->getHtmlForErrorMessage();
+
+        if ($primaryInfo['status']) {
+            $masterReplicationHtml = $this->replicationGui->getHtmlForMasterReplication();
         }
 
         if (isset($params['mr_configure'])) {
-            $masterConfigurationHtml = $replicationGui->getHtmlForMasterConfiguration();
+            $masterConfigurationHtml = $this->replicationGui->getHtmlForMasterConfiguration();
         } else {
             if (! isset($params['repl_clear_scr'])) {
-                $slaveConfigurationHtml = $replicationGui->getHtmlForSlaveConfiguration(
-                    $replication_info['slave']['status'],
-                    $server_slave_replication
+                $slaveConfigurationHtml = $this->replicationGui->getHtmlForSlaveConfiguration(
+                    $replicaInfo['status'],
+                    $replicationInfo->getReplicaStatus()
                 );
             }
             if (isset($params['sl_configure'])) {
-                $changeMasterHtml = $replicationGui->getHtmlForReplicationChangeMaster('slave_changemaster');
+                $changeMasterHtml = $this->replicationGui->getHtmlForReplicationChangeMaster('slave_changemaster');
             }
         }
 
-        return $this->template->render('server/replication/index', [
+        $this->render('server/replication/index', [
             'url_params' => $url_params,
-            'is_super_user' => $this->dbi->isSuperuser(),
+            'is_super_user' => $this->dbi->isSuperUser(),
             'error_messages' => $errorMessages,
-            'is_master' => $replication_info['master']['status'],
+            'is_master' => $primaryInfo['status'],
             'master_configure' => $params['mr_configure'],
             'slave_configure' => $params['sl_configure'],
             'clear_screen' => $params['repl_clear_scr'],

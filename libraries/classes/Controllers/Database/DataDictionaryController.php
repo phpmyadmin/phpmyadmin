@@ -1,10 +1,5 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds the PhpMyAdmin\Controllers\Database\DataDictionaryController
- *
- * @package PhpMyAdmin\Controllers
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
@@ -16,45 +11,42 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+use function is_array;
+use function str_replace;
 
-/**
- * Class DataDictionaryController
- * @package PhpMyAdmin\Controllers\Database
- */
 class DataDictionaryController extends AbstractController
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Transformations
-     */
+    /** @var Transformations */
     private $transformations;
 
-    /**
-     * DataDictionaryController constructor.
-     *
-     * @param Response          $response        Response instance
-     * @param DatabaseInterface $dbi             DatabaseInterface instance
-     * @param Template          $template        Template object
-     * @param string            $db              Database name
-     * @param Relation          $relation        Relation instance
-     * @param Transformations   $transformations Transformations instance
-     */
-    public function __construct($response, $dbi, Template $template, $db, $relation, $transformations)
-    {
-        parent::__construct($response, $dbi, $template, $db);
-        $this->relation = $relation;
-        $this->transformations = $transformations;
-    }
+    /** @var DatabaseInterface */
+    private $dbi;
 
     /**
-     * @return string HTML
+     * @param Response          $response
+     * @param string            $db              Database name
+     * @param Relation          $relation
+     * @param Transformations   $transformations
+     * @param DatabaseInterface $dbi
      */
-    public function index(): string
+    public function __construct($response, Template $template, $db, $relation, $transformations, $dbi)
     {
+        parent::__construct($response, $template, $db);
+        $this->relation = $relation;
+        $this->transformations = $transformations;
+        $this->dbi = $dbi;
+    }
+
+    public function index(): void
+    {
+        Util::checkParameters(['db'], true);
+
+        $header = $this->response->getHeader();
+        $header->enablePrintView();
+
         $cfgRelation = $this->relation->getRelationsParam();
 
         $comment = $this->relation->getDbComment($this->db);
@@ -69,11 +61,11 @@ class DataDictionaryController extends AbstractController
                 $tableName
             )->getStatusInfo('TABLE_COMMENT');
 
-            list(, $primaryKeys, , ) = Util::processIndexData(
+            [, $primaryKeys] = Util::processIndexData(
                 $this->dbi->getTableIndexes($this->db, $tableName)
             );
 
-            list($foreigners, $hasRelation) = $this->relation->getRelationsAndStatus(
+            [$foreigners, $hasRelation] = $this->relation->getRelationsAndStatus(
                 ! empty($cfgRelation['relation']),
                 $this->db,
                 $tableName
@@ -92,7 +84,7 @@ class DataDictionaryController extends AbstractController
                         $foreigners,
                         $row['Field']
                     );
-                    if ($foreigner !== false && $foreigner !== []) {
+                    if (is_array($foreigner) && isset($foreigner['foreign_table'], $foreigner['foreign_field'])) {
                         $relation = $foreigner['foreign_table'];
                         $relation .= ' -> ';
                         $relation .= $foreigner['foreign_field'];
@@ -106,7 +98,7 @@ class DataDictionaryController extends AbstractController
                         $tableName,
                         true
                     );
-                    if (isset($mimeMap[$row['Field']])) {
+                    if (is_array($mimeMap) && isset($mimeMap[$row['Field']]['mimetype'])) {
                         $mime = str_replace(
                             '_',
                             '/',
@@ -128,26 +120,17 @@ class DataDictionaryController extends AbstractController
                 ];
             }
 
-            $indexesTable = '';
-            if (count(Index::getFromTable($tableName, $this->db)) > 0) {
-                $indexesTable = Index::getHtmlForIndexes(
-                    $tableName,
-                    $this->db,
-                    true
-                );
-            }
-
             $tables[$tableName] = [
                 'name' => $tableName,
                 'comment' => $showComment,
                 'has_relation' => $hasRelation,
                 'has_mime' => $cfgRelation['mimework'],
                 'columns' => $rows,
-                'indexes_table' => $indexesTable,
+                'indexes' => Index::getFromTable($tableName, $this->db),
             ];
         }
 
-        return $this->template->render('database/data_dictionary/index', [
+        $this->render('database/data_dictionary/index', [
             'database' => $this->db,
             'comment' => $comment,
             'tables' => $tables,

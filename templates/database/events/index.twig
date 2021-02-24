@@ -1,0 +1,161 @@
+<form id="rteListForm" class="ajax" action="{{ url('/database/events') }}">
+  {{ get_hidden_inputs(db) }}
+
+  <fieldset>
+    <legend>
+      {% trans 'Events' %}
+      {{ show_mysql_docu('EVENTS') }}
+    </legend>
+
+    <div id="nothing2display"{{ items is not empty ? ' class="hide"' }}>
+      {% trans 'There are no events to display.' %}
+    </div>
+
+    <table class="table table-light table-striped table-hover{{ items is empty ? ' hide' }} data">
+      <thead class="thead-light">
+      <tr>
+        <th></th>
+        <th>{% trans 'Name' %}</th>
+        <th>{% trans 'Status' %}</th>
+        <th colspan="3">{% trans 'Action' %}</th>
+        <th>{% trans 'Type' %}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="hide">{% for i in 0..6 %}<td></td>{% endfor %}</tr>
+
+      {% for event in items %}
+        <tr{{ is_ajax ? ' class="ajaxInsert hide"' }}>
+          <td>
+            <input type="checkbox" class="checkall" name="item_name[]" value="{{ event.name }}">
+          </td>
+          <td>
+            <span class="drop_sql hide">{{ 'DROP EVENT IF EXISTS %s'|format(backquote(event.name)) }}</span>
+            <strong>{{ event.name }}</strong>
+          </td>
+          <td>
+            {{ event.status }}
+          </td>
+          <td>
+            {% if has_privilege %}
+              <a class="ajax edit_anchor" href="{{ url('/database/events', {
+                'db': db,
+                'edit_item': true,
+                'item_name': event.name
+              }) }}">
+                {{ get_icon('b_edit', 'Edit'|trans) }}
+              </a>
+            {% else %}
+              {{ get_icon('bd_edit', 'Edit'|trans) }}
+            {% endif %}
+          </td>
+          <td>
+            <a class="ajax export_anchor" href="{{ url('/database/events', {
+              'db': db,
+              'export_item': true,
+              'item_name': event.name
+            }) }}">
+              {{ get_icon('b_export', 'Export'|trans) }}
+            </a>
+          </td>
+          <td>
+            {% if has_privilege %}
+              {{ link_or_button(
+                url('/sql', {
+                  'db': db,
+                  'sql_query': 'DROP EVENT IF EXISTS %s'|format(backquote(event.name)),
+                  'goto': url('/database/events', {'db': db})
+                }),
+                get_icon('b_drop', 'Drop'|trans),
+                {'class': 'ajax drop_anchor'}
+              ) }}
+            {% else %}
+              {{ get_icon('bd_drop', 'Drop'|trans) }}
+            {% endif %}
+          </td>
+          <td>
+            {{ event.type }}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+    {% if items is not empty %}
+      <div class="withSelected">
+        <img class="selectallarrow" src="{{ select_all_arrow_src }}" width="38" height="22" alt="{% trans 'With selected:' %}">
+        <input type="checkbox" id="rteListForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
+        <label for="rteListForm_checkall">{% trans 'Check all' %}</label>
+        <em class="with-selected">{% trans 'With selected:' %}</em>
+
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{% trans 'Export' %}">
+          {{ get_icon('b_export', 'Export'|trans) }}
+        </button>
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="drop" title="{% trans 'Drop' %}">
+          {{ get_icon('b_drop', 'Drop'|trans) }}
+        </button>
+      </div>
+    {% endif %}
+  </fieldset>
+</form>
+
+<div class="doubleFieldset">
+  <fieldset class="left">
+    <legend>{% trans %}New{% context %}Create new event{% endtrans %}</legend>
+    <div class="wrap">
+      {% if has_privilege %}
+        <a class="ajax add_anchor" href="{{ url('/database/events', {'db': db, 'add_item': true}) }}">
+          {{ get_icon('b_event_add') }}
+          {% trans 'Add event' %}
+        </a>
+      {% else %}
+        {{ get_icon('bd_event_add') }}
+        {% trans 'Add event' %}
+      {% endif %}
+      {{ show_mysql_docu('CREATE_EVENT') }}
+    </div>
+  </fieldset>
+
+  <fieldset class="right">
+    <legend>{% trans 'Event scheduler status' %}</legend>
+    <div class="wrap">
+      <div class="wrapper toggleAjax hide">
+        <div class="toggleButton">
+          <div title="{% trans 'Click to toggle' %}" class="toggle-container {{ scheduler_state ? 'on' : 'off' }}">
+            <img src="{{ theme_image_path }}toggle-{{ text_dir }}.png">
+            <table class="pma-table nospacing nopadding">
+              <tbody>
+              <tr>
+                <td class="toggleOn">
+                  <span class="hide">
+                    {{- url('/sql', {
+                      'db': db,
+                      'goto': url('/database/events', {'db': db}),
+                      'sql_query': 'SET GLOBAL event_scheduler="ON"',
+                    }) -}}
+                  </span>
+                  <div>{% trans 'ON' %}</div>
+                </td>
+                <td><div>&nbsp;</div></td>
+                <td class="toggleOff">
+                  <span class="hide">
+                    {{- url('/sql', {
+                      'db': db,
+                      'goto': url('/database/events', {'db': db}),
+                      'sql_query': 'SET GLOBAL event_scheduler="OFF"',
+                    }) -}}
+                  </span>
+                  <div>{% trans 'OFF' %}</div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <span class="hide callback">Functions.slidingMessage(data.sql_query);</span>
+            <span class="hide text_direction">{{ text_dir }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="clearfloat"></div>
+</div>

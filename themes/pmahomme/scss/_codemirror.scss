@@ -2,7 +2,7 @@ $textarea-cols: 40;
 $textarea-rows: 15;
 
 .CodeMirror {
-  height: ceil($textarea-rows * 1.2em);
+  height: 20rem;
   direction: ltr;
 }
 
@@ -11,8 +11,8 @@ $textarea-rows: 15;
 }
 
 .insertRowTable .CodeMirror {
-  height: ceil($textarea-rows * 0.6em);
-  width: ceil($textarea-cols * 0.6em);
+  min-height: ceil($textarea-rows * 0.6em);
+  min-width: ceil($textarea-cols * 0.6em);
   border: 1px solid #a9a9a9;
 }
 

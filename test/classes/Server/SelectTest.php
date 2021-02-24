@@ -1,43 +1,34 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for PhpMyAdmin\Server\Select
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Select;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
-use PHPUnit\Framework\TestCase;
 
 /**
  * PhpMyAdmin\Tests\Server\SelectTest class
  *
  * this class is for testing PhpMyAdmin\Server\Select methods
- *
- * @package PhpMyAdmin-test
  */
-class SelectTest extends TestCase
+class SelectTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
         //$_REQUEST
-        $_REQUEST['log'] = "index1";
+        $_REQUEST['log'] = 'index1';
         $_REQUEST['pos'] = 3;
 
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['ServerDefault'] = "server";
+        $GLOBALS['cfg']['ServerDefault'] = 'server';
         $GLOBALS['cfg']['RememberSorting'] = true;
         $GLOBALS['cfg']['SQP'] = [];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
@@ -45,22 +36,20 @@ class SelectTest extends TestCase
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $GLOBALS['cfg']['LimitChars'] = 100;
 
-        $GLOBALS['table'] = "table";
+        $GLOBALS['table'] = 'table';
 
         //$_SESSION
     }
 
     /**
      * Test for Select::render
-     *
-     * @return void
      */
-    public function testRender()
+    public function testRender(): void
     {
         $not_only_options = false;
         $omit_fieldset = false;
 
-        $GLOBALS['cfg']['DefaultTabServer'] = "welcome";
+        $GLOBALS['cfg']['DefaultTabServer'] = 'welcome';
 
         $GLOBALS['cfg']['Servers'] = [
             '0' => [

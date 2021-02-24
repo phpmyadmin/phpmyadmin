@@ -1,27 +1,17 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportMediawiki class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportMediawiki;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportMediawiki class
- *
- * @package PhpMyAdmin-test
- */
-class ImportMediawikiTest extends PmaTestCase
+class ImportMediawikiTest extends AbstractTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @var ImportMediawiki */
     protected $object;
 
     /**
@@ -29,10 +19,11 @@ class ImportMediawikiTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['plugin_param'] = 'database';
         $this->object = new ImportMediawiki();
@@ -47,8 +38,6 @@ class ImportMediawikiTest extends PmaTestCase
         $GLOBALS['import_text'] = 'ImportMediawiki_Test';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'Mediawiki';
-        $GLOBALS['import_handle'] = new File($GLOBALS['import_file']);
-        $GLOBALS['import_handle']->open();
     }
 
     /**
@@ -56,21 +45,19 @@ class ImportMediawikiTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for getProperties
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetProperties()
+    public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
         $this->assertEquals(
@@ -98,23 +85,24 @@ class ImportMediawikiTest extends PmaTestCase
     /**
      * Test for doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImport()
+    public function testDoImport(): void
     {
         //$import_notice will show the import detail result
         global $import_notice;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
 
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->open();
+
         //Test function called
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
 
         // If import successfully, PMA will show all databases and
         // tables imported as following HTML Page
@@ -150,8 +138,7 @@ class ImportMediawikiTest extends PmaTestCase
             'Edit settings for `pma_bookmarktest`',
             $import_notice
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }

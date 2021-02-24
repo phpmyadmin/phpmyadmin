@@ -1,10 +1,5 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds the PhpMyAdmin\Controllers\Setup\ConfigController
- *
- * @package PhpMyAdmin\Controllers\Setup
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;
@@ -13,14 +8,11 @@ use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\ConfigGenerator;
 
-/**
- * Class ConfigController
- * @package PhpMyAdmin\Controllers\Setup
- */
 class ConfigController extends AbstractController
 {
     /**
      * @param array $params Request parameters
+     *
      * @return string HTML
      */
     public function index(array $params): string

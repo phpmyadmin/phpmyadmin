@@ -1,33 +1,23 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export\Helpers;
 
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * tests for PhpMyAdmin\Plugins\Export\Helpers\TableProperty class
- *
- * @package PhpMyAdmin-test
- */
-class TablePropertyTest extends PmaTestCase
+class TablePropertyTest extends AbstractTestCase
 {
+    /** @var TableProperty */
     protected $object;
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $row = [
             ' name ',
@@ -42,20 +32,14 @@ class TablePropertyTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::__construct
-     *
-     * @return void
-     */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $this->assertEquals(
             'name',
@@ -88,38 +72,30 @@ class TablePropertyTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getPureType
-     *
-     * @return void
-     */
-    public function testGetPureType()
+    public function testGetPureType(): void
     {
-        $this->object->type = "int(10)";
+        $this->object->type = 'int(10)';
 
         $this->assertEquals(
-            "int",
+            'int',
             $this->object->getPureType()
         );
 
-        $this->object->type = "char";
+        $this->object->type = 'char';
 
         $this->assertEquals(
-            "char",
+            'char',
             $this->object->getPureType()
         );
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::isNotNull
-     *
      * @param string $nullable nullable value
      * @param string $expected expected output
      *
-     * @return void
      * @dataProvider isNotNullProvider
      */
-    public function testIsNotNull($nullable, $expected): void
+    public function testIsNotNull(string $nullable, string $expected): void
     {
         $this->object->nullable = $nullable;
 
@@ -134,34 +110,31 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return array Test Data
      */
-    public function isNotNullProvider()
+    public function isNotNullProvider(): array
     {
         return [
             [
-                "NO",
-                "true",
+                'NO',
+                'true',
             ],
             [
-                "",
-                "false",
+                '',
+                'false',
             ],
             [
-                "no",
-                "false",
+                'no',
+                'false',
             ],
         ];
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::isUnique
-     *
      * @param string $key      key value
      * @param string $expected expected output
      *
-     * @return void
      * @dataProvider isUniqueProvider
      */
-    public function testIsUnique($key, $expected): void
+    public function testIsUnique(string $key, string $expected): void
     {
         $this->object->key = $key;
 
@@ -176,42 +149,39 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return array Test Data
      */
-    public function isUniqueProvider()
+    public function isUniqueProvider(): array
     {
         return [
             [
-                "PRI",
-                "true",
+                'PRI',
+                'true',
             ],
             [
-                "UNI",
-                "true",
+                'UNI',
+                'true',
             ],
             [
-                "",
-                "false",
+                '',
+                'false',
             ],
             [
-                "pri",
-                "false",
+                'pri',
+                'false',
             ],
             [
-                "uni",
-                "false",
+                'uni',
+                'false',
             ],
         ];
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getDotNetPrimitiveType
-     *
      * @param string $type     type value
      * @param string $expected expected output
      *
-     * @return void
      * @dataProvider getDotNetPrimitiveTypeProvider
      */
-    public function testGetDotNetPrimitiveType($type, $expected): void
+    public function testGetDotNetPrimitiveType(string $type, string $expected): void
     {
         $this->object->type = $type;
 
@@ -226,66 +196,63 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return array Test Data
      */
-    public function getDotNetPrimitiveTypeProvider()
+    public function getDotNetPrimitiveTypeProvider(): array
     {
         return [
             [
-                "int",
-                "int",
+                'int',
+                'int',
             ],
             [
-                "long",
-                "long",
+                'long',
+                'long',
             ],
             [
-                "char",
-                "string",
+                'char',
+                'string',
             ],
             [
-                "varchar",
-                "string",
+                'varchar',
+                'string',
             ],
             [
-                "text",
-                "string",
+                'text',
+                'string',
             ],
             [
-                "longtext",
-                "string",
+                'longtext',
+                'string',
             ],
             [
-                "tinyint",
-                "bool",
+                'tinyint',
+                'bool',
             ],
             [
-                "datetime",
-                "DateTime",
+                'datetime',
+                'DateTime',
             ],
             [
-                "",
-                "unknown",
+                '',
+                'unknown',
             ],
             [
-                "dummy",
-                "unknown",
+                'dummy',
+                'unknown',
             ],
             [
-                "INT",
-                "unknown",
+                'INT',
+                'unknown',
             ],
         ];
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getDotNetObjectType
-     *
      * @param string $type     type value
      * @param string $expected expected output
      *
-     * @return void
      * @dataProvider getDotNetObjectTypeProvider
      */
-    public function testGetDotNetObjectType($type, $expected): void
+    public function testGetDotNetObjectType(string $type, string $expected): void
     {
         $this->object->type = $type;
 
@@ -300,141 +267,116 @@ class TablePropertyTest extends PmaTestCase
      *
      * @return array Test Data
      */
-    public function getDotNetObjectTypeProvider()
+    public function getDotNetObjectTypeProvider(): array
     {
         return [
             [
-                "int",
-                "Int32",
+                'int',
+                'Int32',
             ],
             [
-                "long",
-                "Long",
+                'long',
+                'Long',
             ],
             [
-                "char",
-                "String",
+                'char',
+                'String',
             ],
             [
-                "varchar",
-                "String",
+                'varchar',
+                'String',
             ],
             [
-                "text",
-                "String",
+                'text',
+                'String',
             ],
             [
-                "longtext",
-                "String",
+                'longtext',
+                'String',
             ],
             [
-                "tinyint",
-                "Boolean",
+                'tinyint',
+                'Boolean',
             ],
             [
-                "datetime",
-                "DateTime",
+                'datetime',
+                'DateTime',
             ],
             [
-                "",
-                "Unknown",
+                '',
+                'Unknown',
             ],
             [
-                "dummy",
-                "Unknown",
+                'dummy',
+                'Unknown',
             ],
             [
-                "INT",
-                "Unknown",
+                'INT',
+                'Unknown',
             ],
         ];
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getIndexName
-     *
-     * @return void
-     */
-    public function testGetIndexName()
+    public function testGetIndexName(): void
     {
         $this->object->name = "ä'7<ab>";
-        $this->object->key = "PRI";
+        $this->object->key = 'PRI';
 
         $this->assertEquals(
             "index=\"ä'7&lt;ab&gt;\"",
             $this->object->getIndexName()
         );
 
-        $this->object->key = "";
+        $this->object->key = '';
 
         $this->assertEquals(
-            "",
+            '',
             $this->object->getIndexName()
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::isPK
-     *
-     * @return void
-     */
-    public function testIsPK()
+    public function testIsPK(): void
     {
-        $this->object->key = "PRI";
+        $this->object->key = 'PRI';
 
         $this->assertTrue(
             $this->object->isPK()
         );
 
-        $this->object->key = "";
+        $this->object->key = '';
 
         $this->assertFalse(
             $this->object->isPK()
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::formatCs
-     *
-     * @return void
-     */
-    public function testFormatCs()
+    public function testFormatCs(): void
     {
         $this->object->name = 'Name#name#123';
 
         $this->assertEquals(
             'text123Namename',
-            $this->object->formatCs("text123#name#")
+            $this->object->formatCs('text123#name#')
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::formatXml
-     *
-     * @return void
-     */
-    public function testFormatXml()
+    public function testFormatXml(): void
     {
         $this->object->name = '"a\'';
 
         $this->assertEquals(
             '&quot;a\'index="&quot;a\'"',
-            $this->object->formatXml("#name##indexName#")
+            $this->object->formatXml('#name##indexName#')
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::format
-     *
-     * @return void
-     */
-    public function testFormat()
+    public function testFormat(): void
     {
         $this->assertEquals(
             'NameintInt32intfalsetrue',
             $this->object->format(
-                "#ucfirstName##dotNetPrimitiveType##dotNetObjectType##type#" .
-                "#notNull##unique#"
+                '#ucfirstName##dotNetPrimitiveType##dotNetObjectType##type#' .
+                '#notNull##unique#'
             )
         );
     }

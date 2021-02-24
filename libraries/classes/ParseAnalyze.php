@@ -1,21 +1,18 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Parse and analyse a SQL query
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use function count;
+use function strcasecmp;
 
 /**
  * PhpMyAdmin\ParseAnalyze class
- *
- * @package PhpMyAdmin
  */
 class ParseAnalyze
 {
@@ -27,18 +24,16 @@ class ParseAnalyze
      *
      * @return array
      *
-     * @access  public
+     * @access public
      */
     public static function sqlQuery($sql_query, $db)
     {
-        global $reload;
         // @todo: move to returned results (also in all the calling chain)
         $GLOBALS['unparsed_sql'] = $sql_query;
 
         // Get details about the SQL query.
         $analyzed_sql_results = Query::getAll($sql_query);
 
-        extract($analyzed_sql_results);
         $table = '';
 
         // If the targeted table (and database) are different than the ones that is
@@ -66,13 +61,10 @@ class ParseAnalyze
             // There is no point checking if a reload is required if we already decided
             // to reload. Also, no reload is required for AJAX requests.
             $response = Response::getInstance();
-            if (empty($reload) && ! $response->isAjax()) {
+            if (empty($analyzed_sql_results['reload']) && ! $response->isAjax()) {
                 // NOTE: Database names are case-insensitive.
-                $reload  = strcasecmp($db, $prev_db) != 0;
+                $analyzed_sql_results['reload'] = strcasecmp($db, $prev_db) != 0;
             }
-
-            // Updating the array.
-            $analyzed_sql_results['reload'] = $reload;
         }
 
         return [

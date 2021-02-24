@@ -1,91 +1,19 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for Advisor class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Advisor;
-use PhpMyAdmin\Config;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
-/**
- * Tests behaviour of PMA_Advisor class
- *
- * @package PhpMyAdmin-test
- */
-class AdvisorTest extends PmaTestCase
+class AdvisorTest extends AbstractTestCase
 {
-    /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     *
-     * @return void
-     */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setGlobalConfig();
         $GLOBALS['server'] = 1;
-    }
-
-    /**
-     * Tests string escaping
-     *
-     * @param string $text     Text to escape
-     * @param string $expected Expected output
-     *
-     * @return void
-     *
-     * @dataProvider escapeStrings
-     */
-    public function testEscape($text, $expected): void
-    {
-        $this->assertEquals(Advisor::escapePercent($text), $expected);
-    }
-
-    /**
-     * return of escape Strings
-     *
-     * @return array
-     */
-    public function escapeStrings()
-    {
-        return [
-            [
-                '80%',
-                '80%%',
-            ],
-            [
-                '%s%',
-                '%s%%',
-            ],
-            [
-                '80% foo',
-                '80%% foo',
-            ],
-            [
-                '%s% foo',
-                '%s%% foo',
-            ],
-        ];
-    }
-
-    /**
-     * test for parseRulesFile
-     *
-     * @return void
-     */
-    public function testParse()
-    {
-        $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
-        $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
-        $this->assertEquals($parseResult['errors'], []);
     }
 
     /**
@@ -94,97 +22,77 @@ class AdvisorTest extends PmaTestCase
      * @param float  $time     time
      * @param string $expected expected result
      *
-     * @return void
-     *
      * @dataProvider advisorTimes
      */
-    public function testAdvisorBytime($time, $expected): void
+    public function testAdvisorBytime(float $time, string $expected): void
     {
         $result = Advisor::byTime($time, 2);
         $this->assertEquals($expected, $result);
     }
 
-    /**
-     * @return array
-     */
-    public function advisorTimes()
+    public function advisorTimes(): array
     {
         return [
             [
                 10,
-                "10 per second",
+                '10 per second',
             ],
             [
                 0.02,
-                "1.2 per minute",
+                '1.2 per minute',
             ],
             [
                 0.003,
-                "10.8 per hour",
+                '10.8 per hour',
             ],
             [
                 0.00003,
-                "2.59 per day",
+                '2.59 per day',
             ],
             [
                 0.0000000003,
-                "<0.01 per day",
+                '<0.01 per day',
             ],
         ];
     }
 
     /**
-     * test for Advisor::timespanFormat
-     *
-     * @return void
-     */
-    public function testAdvisorTimespanFormat()
-    {
-        $result = Advisor::timespanFormat(1200);
-        $this->assertEquals("0 days, 0 hours, 20 minutes and 0 seconds", $result);
-
-        $result = Advisor::timespanFormat(100);
-        $this->assertEquals("0 days, 0 hours, 1 minutes and 40 seconds", $result);
-    }
-
-    /**
      * Test for adding rule
      *
-     * @param array  $rule     Rule to test
-     * @param array  $expected Expected rendered rule in fired/errors list
-     * @param string $error    Expected error string (null if none error expected)
+     * @param array       $rule     Rule to test
+     * @param array       $expected Expected rendered rule in fired/errors list
+     * @param string|null $error    Expected error string (null if none error expected)
      *
-     * @return void
-     *
-     * @depends testParse
      * @dataProvider rulesProvider
      */
-    public function testAddRule($rule, $expected, $error): void
+    public function testAddRule(array $rule, array $expected, ?string $error): void
     {
+        parent::loadDefaultConfig();
+        parent::setLanguage();
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
-        $parseResult = $advisor->parseRulesFile(Advisor::GENERIC_RULES_FILE);
-        $this->assertEquals($parseResult['errors'], []);
+        $parseResult = include ROOT_PATH . 'libraries/advisory_rules_generic.php';
+        $this->assertIsArray($parseResult);
+        $this->assertArrayHasKey(0, $parseResult);
+        $this->assertIsArray($parseResult[0]);
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();
         if (isset($runResult['errors']) || $error !== null) {
             $this->assertEquals([$error], $runResult['errors']);
         }
-        if (isset($runResult['fired']) || $expected != []) {
-            $this->assertEquals([$expected], $runResult['fired']);
+        if (! isset($runResult['fired']) && $expected == []) {
+            return;
         }
+
+        $this->assertEquals([$expected], $runResult['fired']);
     }
 
-    /**
-     * rules Provider
-     *
-     * @return array
-     */
-    public function rulesProvider()
+    public function rulesProvider(): array
     {
         return [
             [
                 [
+                    'id' => 'Basic',
                     'justification' => 'foo',
                     'name' => 'Basic',
                     'issue' => 'issue',
@@ -201,6 +109,7 @@ class AdvisorTest extends PmaTestCase
             ],
             [
                 [
+                    'id' => 'Variable',
                     'justification' => 'foo',
                     'name' => 'Variable',
                     'issue' => 'issue',
@@ -211,20 +120,23 @@ class AdvisorTest extends PmaTestCase
                     'id' => 'Variable',
                     'name' => 'Variable',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend <a href="server_variables.php?' .
+                    'recommendation' => 'Recommend <a href="index.php?route=/server/variables&amp;' .
                     'filter=status_var&amp;lang=en">status_var</a>',
                 ],
                 null,
             ],
             [
                 [
-                    'justification' => '%s foo | value',
+                    'id' => 'Format',
+                    'justification' => '%s foo',
+                    'justification_formula' => 'value',
                     'name' => 'Format',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
                 ],
                 [
                     'justification' => '0 foo',
+                    'justification_formula' => 'value',
                     'id' => 'Format',
                     'name' => 'Format',
                     'issue' => 'issue',
@@ -234,13 +146,16 @@ class AdvisorTest extends PmaTestCase
             ],
             [
                 [
-                    'justification' => '%s% foo | value',
+                    'id' => 'Percent',
+                    'justification' => '%s%% foo',
+                    'justification_formula' => 'value',
                     'name' => 'Percent',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
                 ],
                 [
                     'justification' => '0% foo',
+                    'justification_formula' => 'value',
                     'id' => 'Percent',
                     'name' => 'Percent',
                     'issue' => 'issue',
@@ -250,13 +165,16 @@ class AdvisorTest extends PmaTestCase
             ],
             [
                 [
-                    'justification' => '%s% %d foo | value, value',
+                    'id' => 'Double',
+                    'justification' => '%s%% %d foo',
+                    'justification_formula' => 'value, value',
                     'name' => 'Double',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
                 ],
                 [
                     'justification' => '0% 0 foo',
+                    'justification_formula' => 'value, value',
                     'id' => 'Double',
                     'name' => 'Double',
                     'issue' => 'issue',
@@ -266,6 +184,7 @@ class AdvisorTest extends PmaTestCase
             ],
             [
                 [
+                    'id' => 'Quotes',
                     'justification' => '"\'foo',
                     'name' => 'Quotes',
                     'issue' => 'issue',
@@ -282,7 +201,8 @@ class AdvisorTest extends PmaTestCase
             ],
             [
                 [
-                    'justification' => 'foo | fsafdsa',
+                    'justification' => 'foo',
+                    'justification_formula' => 'fsafdsa',
                     'name' => 'Failure',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend',
@@ -294,13 +214,16 @@ class AdvisorTest extends PmaTestCase
             ],
             [
                 [
-                    'justification' => 'Version string (%s) | value',
+                    'id' => 'Distribution',
+                    'justification' => 'Version string (%s)',
+                    'justification_formula' => 'value',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="https://example.com/">web</a>',
                 ],
                 [
                     'justification' => 'Version string (0)',
+                    'justification_formula' => 'value',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
@@ -311,13 +234,16 @@ class AdvisorTest extends PmaTestCase
             ],
             [
                 [
-                    'justification' => 'Timestamp (%s) | ADVISOR_timespanFormat(1377027)',
+                    'id' => 'Distribution',
+                    'justification' => 'Timestamp (%s)',
+                    'justification_formula' => 'ADVISOR_timespanFormat(1377027)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="https://example.com/">web</a>',
                 ],
                 [
                     'justification' => 'Timestamp (15 days, 22 hours, 30 minutes and 27 seconds)',
+                    'justification_formula' => 'ADVISOR_timespanFormat(1377027)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
@@ -328,41 +254,56 @@ class AdvisorTest extends PmaTestCase
             ],
             [
                 [
-                    'justification' => 'Memory: %s | ADVISOR_formatByteDown(1000000, 2, 2)',
+                    'id' => 'Distribution',
+                    'justification' => 'Memory: %s',
+                    'justification_formula' => 'ADVISOR_formatByteDown(1000000, 2, 2)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                    'recommendation' => 'See <a href="https://example.com/">web</a> and'
+                        . ' <a href="https://example.com/">web2</a>',
                 ],
                 [
                     'justification' => 'Memory: 0.95 MiB',
+                    'justification_formula' => 'ADVISOR_formatByteDown(1000000, 2, 2)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
-                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F'
+                        . 'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>'
+                        . ' and <a href="./url.php?url=https%3A%2F%2Fexample.com%2F" target="_blank"'
+                        . ' rel="noopener noreferrer">web2</a>',
                     'id' => 'Distribution',
                 ],
                 null,
             ],
             [
                 [
-                    'justification' => 'Time: %s | ADVISOR_bytime(0.02, 2)',
+                    'id' => 'Distribution',
+                    'justification' => 'Time: %s',
+                    'justification_formula' => 'ADVISOR_bytime(0.02, 2)',
                     'name' => 'Distribution',
-                    'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                    'issue' => '{long_query_time} is set to 10 seconds or more',
+                    'recommendation' => 'See <a href=\'https://example.com/\'>web</a> and'
+                        . ' <a href=\'https://example.com/\'>web2</a>',
                 ],
                 [
                     'justification' => 'Time: 1.2 per minute',
+                    'justification_formula' => 'ADVISOR_bytime(0.02, 2)',
                     'name' => 'Distribution',
-                    'issue' => 'official MySQL binaries.',
-                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
-                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'issue' => '<a href="index.php?route=/server/variables&amp;filter=long_query_time&amp;lang=en">'
+                        . 'long_query_time</a> is set to 10 seconds or more',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F'
+                        . 'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>'
+                        . ' and <a href="./url.php?url=https%3A%2F%2Fexample.com%2F" target="_blank"'
+                        . ' rel="noopener noreferrer">web2</a>',
                     'id' => 'Distribution',
                 ],
                 null,
             ],
             [
                 [
-                    'justification' => 'Current version: %s | value',
+                    'id' => 'Minor Version',
+                    'justification' => 'Current version: %s',
+                    'justification_formula' => 'value',
                     'name' => 'Minor Version',
                     'precondition' => '! fired(\'Release Series\')',
                     'issue' => 'Version less than 5.1.30',
@@ -372,6 +313,7 @@ class AdvisorTest extends PmaTestCase
                 ],
                 [
                     'justification' => 'Current version: 0',
+                    'justification_formula' => 'value',
                     'name' => 'Minor Version',
                     'issue' => 'Version less than 5.1.30',
                     'recommendation' => 'You should upgrade',

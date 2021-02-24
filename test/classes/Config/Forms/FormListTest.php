@@ -1,34 +1,19 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for FormList classes in config folder
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config\Forms;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\Forms\Page\PageFormList;
-use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
-use PhpMyAdmin\Config\Forms\User\UserFormList;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PMA_FormDisplay class
- *
- * @package PhpMyAdmin-test
- */
-class FormListTest extends PmaTestCase
+class FormListTest extends AbstractTestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::loadDefaultConfig();
+        parent::setGlobalConfig();
         $GLOBALS['server'] = 1;
     }
 
@@ -38,13 +23,11 @@ class FormListTest extends PmaTestCase
      * @param string $class  Class to test
      * @param string $prefix Reuturned class prefix
      *
-     * @return void
-     *
      * @dataProvider formObjects
      */
-    public function testForms($class, $prefix): void
+    public function testForms(string $class, string $prefix): void
     {
-        $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
+        $cf = new ConfigFile($GLOBALS['PMA_Config']->baseSettings);
 
         /* Static API */
         $this->assertTrue($class::isValid('Export'));
@@ -73,7 +56,7 @@ class FormListTest extends PmaTestCase
     /**
      * @return array
      */
-    public function formObjects()
+    public function formObjects(): array
     {
         return [
             [

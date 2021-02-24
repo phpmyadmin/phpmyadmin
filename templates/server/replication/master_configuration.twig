@@ -25,7 +25,7 @@
 </fieldset>
 
 <fieldset class="tblFooters">
-  <form method="post" action="server_replication.php">
+  <form method="post" action="{{ url('/server/replication') }}">
     {{ get_hidden_inputs('', '') }}
     <input id="goButton" class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
   </form>

@@ -324,10 +324,6 @@ negligible.
 This will significantly decrease filesize for large SQL dumps, increases the
 INSERT speed when imported, and is generally recommended.
 
-.. seealso::
-
-    http://www.scriptalicious.com/blog/2009/04/complete-inserts-or-extended-inserts-in-phpmyadmin/
-
 Texy!
 -----
 

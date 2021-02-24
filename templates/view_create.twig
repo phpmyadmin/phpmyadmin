@@ -1,6 +1,6 @@
 <!-- CREATE VIEW options -->
 <div id="div_view_options">
-    <form method="post" action="view_create.php">
+    <form method="post" action="{{ url('/view/create') }}">
     {{ get_hidden_inputs(url_params) }}
     <fieldset>
         <legend>
@@ -14,7 +14,7 @@
                 {% endif %}
             {% endif %}
         </legend>
-        <table class="rte_table">
+        <table class="pma-table rte_table">
             {% if view['operation'] == 'create' %}
                 <tr>
                     <td class="nowrap"><label for="or_replace">OR REPLACE</label></td>

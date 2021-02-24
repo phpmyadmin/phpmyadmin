@@ -16,6 +16,14 @@
             ],
             "ignore": ["after-comment"],
             "ignoreAtRules": ["else"]
-        }]
+        }],
+        "value-keyword-case": [
+            "lower",
+            {
+                "ignoreProperties": [
+                    "$font-family-monospace"
+                ]
+            }
+        ]
     }
 }

@@ -20,11 +20,11 @@
             {% if criteria_values[column_index] is defined %}
                 value="{{ criteria_values[column_index] }}"
             {% endif %}>
-        <a class="ajax browse_foreign" href="browse_foreigners.php" data-post="
+        <a class="ajax browse_foreign" href="{{ url('/browse-foreigners') }}" data-post="
             {{- get_common({'db': db, 'table': table}, '') -}}
             &amp;field={{ column_name|url_encode }}&amp;fieldkey=
             {{- column_index }}&amp;fromsearch=1">
-            {{ titles['Browse']|replace({"'": "\\'"})|raw }}
+            {{ get_icon('b_browse', 'Browse foreign values'|trans) }}
         </a>
     {% endif %}
 {% elseif column_type in get_gis_datatypes() %}
@@ -34,10 +34,9 @@
         class="textfield"
         id="field_{{ column_index }}">
     {% if in_fbs %}
-        {% set edit_url = 'gis_data_editor.php' ~ get_common() %}
         {% set edit_str = get_icon('b_edit', 'Edit/Insert'|trans) %}
         <span class="open_search_gis_editor">
-            {{ link_or_button(edit_url, edit_str, [], '_blank') }}
+            {{ link_or_button(url('/gis-data-editor'), edit_str, [], '_blank') }}
         </span>
     {% endif %}
 {% elseif column_type starts with 'enum'

@@ -1,32 +1,39 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Interface for the zip extension
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use ZipArchive;
+use function array_combine;
+use function count;
+use function crc32;
+use function getdate;
+use function gzcompress;
+use function implode;
+use function is_array;
+use function is_string;
+use function pack;
+use function preg_match;
+use function sprintf;
+use function str_replace;
+use function strcmp;
+use function strlen;
+use function strpos;
+use function substr;
 
 /**
  * Transformations class
- *
- * @package PhpMyAdmin
  */
 class ZipExtension
 {
-    /**
-     * @var ZipArchive|null
-     */
+    /** @var ZipArchive|null */
     private $zip;
 
-    /**
-     * @param ZipArchive|null $zip A ZipArchive instance.
-     */
-    public function __construct($zip = null)
+    public function __construct(?ZipArchive $zip = null)
     {
         $this->zip = $zip;
     }
@@ -48,64 +55,75 @@ class ZipExtension
         * It might also be an ODS file, look below
         */
 
+        if ($this->zip === null) {
+            return [
+                'error' => sprintf(__('The %s extension is missing. Please check your PHP configuration.'), 'zip'),
+                'data' => '',
+            ];
+        }
+
         $error_message = '';
         $file_data = '';
 
         $res = $this->zip->open($file);
 
-        if ($res === true) {
-            if ($this->zip->numFiles === 0) {
-                $error_message = __('No files found inside ZIP archive!');
-                $this->zip->close();
-                return [
-                    'error' => $error_message,
-                    'data' => $file_data,
-                ];
-            }
-
-            /* Is the the zip really an ODS file? */
-            $ods_mime = 'application/vnd.oasis.opendocument.spreadsheet';
-            $first_zip_entry = $this->zip->getFromIndex(0);
-            if (! strcmp($ods_mime, $first_zip_entry)) {
-                $specific_entry = '/^content\.xml$/';
-            }
-
-            if (! isset($specific_entry)) {
-                $file_data = $first_zip_entry;
-                $this->zip->close();
-                return [
-                    'error' => $error_message,
-                    'data' => $file_data,
-                ];
-            }
-
-            /* Return the correct contents, not just the first entry */
-            for ($i = 0; $i < $this->zip->numFiles; $i++) {
-                if (@preg_match($specific_entry, $this->zip->getNameIndex($i))) {
-                    $file_data = $this->zip->getFromIndex($i);
-                    break;
-                }
-            }
-
-            /* Couldn't find any files that matched $specific_entry */
-            if (empty($file_data)) {
-                $error_message = __('Error in ZIP archive:')
-                    . ' Could not find "' . $specific_entry . '"';
-            }
-
-            $this->zip->close();
-            return [
-                'error' => $error_message,
-                'data' => $file_data,
-            ];
-        } else {
+        if ($res !== true) {
             $error_message = __('Error in ZIP archive:') . ' ' . $this->zip->getStatusString();
             $this->zip->close();
+
             return [
                 'error' => $error_message,
                 'data' => $file_data,
             ];
         }
+
+        if ($this->zip->numFiles === 0) {
+            $error_message = __('No files found inside ZIP archive!');
+            $this->zip->close();
+
+            return [
+                'error' => $error_message,
+                'data' => $file_data,
+            ];
+        }
+
+        /* Is the the zip really an ODS file? */
+        $ods_mime = 'application/vnd.oasis.opendocument.spreadsheet';
+        $first_zip_entry = $this->zip->getFromIndex(0);
+        if (! strcmp($ods_mime, (string) $first_zip_entry)) {
+            $specific_entry = '/^content\.xml$/';
+        }
+
+        if (! isset($specific_entry)) {
+            $file_data = $first_zip_entry;
+            $this->zip->close();
+
+            return [
+                'error' => $error_message,
+                'data' => $file_data,
+            ];
+        }
+
+        /* Return the correct contents, not just the first entry */
+        for ($i = 0; $i < $this->zip->numFiles; $i++) {
+            if (preg_match($specific_entry, (string) $this->zip->getNameIndex($i))) {
+                $file_data = $this->zip->getFromIndex($i);
+                break;
+            }
+        }
+
+        /* Couldn't find any files that matched $specific_entry */
+        if (empty($file_data)) {
+            $error_message = __('Error in ZIP archive:')
+                . ' Could not find "' . $specific_entry . '"';
+        }
+
+        $this->zip->close();
+
+        return [
+            'error' => $error_message,
+            'data' => $file_data,
+        ];
     }
 
     /**
@@ -118,17 +136,23 @@ class ZipExtension
      */
     public function findFile($file, $regex)
     {
+        if ($this->zip === null) {
+            return false;
+        }
+
         $res = $this->zip->open($file);
 
         if ($res === true) {
             for ($i = 0; $i < $this->zip->numFiles; $i++) {
-                if (preg_match($regex, $this->zip->getNameIndex($i))) {
+                if (preg_match($regex, (string) $this->zip->getNameIndex($i))) {
                     $filename = $this->zip->getNameIndex($i);
                     $this->zip->close();
+
                     return $filename;
                 }
             }
         }
+
         return false;
     }
 
@@ -137,16 +161,21 @@ class ZipExtension
      *
      * @param string $file path to zip file
      *
-     * @return int the number of files in the zip archive or 0, either if there wern't any files or an error occured.
+     * @return int the number of files in the zip archive or 0, either if there weren't any files or an error occurred.
      */
     public function getNumberOfFiles($file)
     {
+        if ($this->zip === null) {
+            return 0;
+        }
+
         $num = 0;
         $res = $this->zip->open($file);
 
         if ($res === true) {
             $num = $this->zip->numFiles;
         }
+
         return $num;
     }
 
@@ -156,15 +185,21 @@ class ZipExtension
      * @param string $file  path to zip file
      * @param string $entry file in the archive that should be extracted
      *
-     * @return string|bool data on sucess, false otherwise
+     * @return string|bool data on success, false otherwise
      */
     public function extract($file, $entry)
     {
+        if ($this->zip === null) {
+            return false;
+        }
+
         if ($this->zip->open($file) === true) {
             $result = $this->zip->getFromName($entry);
             $this->zip->close();
+
             return $result;
         }
+
         return false;
     }
 
@@ -177,7 +212,7 @@ class ZipExtension
      *
      * @param array|string $data contents of the file/files
      * @param array|string $name name of the file/files in the archive
-     * @param integer      $time the current timestamp
+     * @param int          $time the current timestamp
      *
      * @return string|bool the ZIP file contents, or false if there was an error.
      */
@@ -191,7 +226,7 @@ class ZipExtension
         if (is_string($data) && is_string($name)) {
             $data = [$name => $data];
         } elseif (is_array($data) && is_string($name)) {
-            $ext_pos = strpos($name, '.');
+            $ext_pos = (int) strpos($name, '.');
             $extension = substr($name, $ext_pos);
             $newData = [];
             foreach ($data as $key => $value) {
@@ -224,7 +259,7 @@ class ZipExtension
                 $timearray['seconds'] = 0;
             }
 
-            $time = (($timearray['year'] - 1980) << 25)
+            $time = $timearray['year'] - 1980 << 25
             | ($timearray['mon'] << 21)
             | ($timearray['mday'] << 16)
             | ($timearray['hours'] << 11)
@@ -235,8 +270,8 @@ class ZipExtension
 
             $unc_len = strlen($dump);
             $crc = crc32($dump);
-            $zdata = gzcompress($dump);
-            $zdata = substr(substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
+            $zdata = (string) gzcompress($dump);
+            $zdata = substr((string) substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
             $c_len = strlen($zdata);
             $fr = "\x50\x4b\x03\x04"
                 . "\x14\x00"        // ver needed to extract

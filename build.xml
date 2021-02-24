@@ -5,8 +5,6 @@
  <property name="source_comma_sep" value="."/>
  <property environment="env"/>
  <property name="env.PHPUNIT_XML" value="phpunit.xml.dist"/>
- <property name="env.PHPUNIT_XML_NOCOVERAGE" value="phpunit.xml.nocoverage"/>
- <property name="env.PHPUNIT_XML_HHVM" value="phpunit.xml.hhvm"/>
  <property name="env.PHPUNIT_ARGS" value="--exclude-group selenium"/>
 
  <target name="clean" description="Clean up and create artifact directories">
@@ -31,13 +29,7 @@
 
  <target name="phpunit-nocoverage" description="Run unit tests using PHPUnit and generates junit.xml">
   <exec executable="${basedir}/vendor/bin/phpunit" failonerror="true">
-      <arg line="--configuration ${env.PHPUNIT_XML_NOCOVERAGE} ${env.PHPUNIT_ARGS}"/>
-  </exec>
- </target>
-
- <target name="phpunit-hhvm" description="Run unit tests using PHPUnit with HHVM specific config">
-  <exec executable="${basedir}/vendor/bin/phpunit" failonerror="true">
-      <arg line="--configuration ${env.PHPUNIT_XML_HHVM} ${env.PHPUNIT_ARGS}"/>
+      <arg line="--configuration --no-coverage ${env.PHPUNIT_ARGS}"/>
   </exec>
  </target>
 
@@ -84,25 +76,35 @@
 
  <target name="phpcs-config" description="PHPCS configuration tweaking">
   <exec executable="${basedir}/vendor/bin/phpcs">
-   <arg line="--config-set installed_paths ${basedir}/vendor/phpmyadmin/coding-standard" />
+   <arg line="--config-set installed_paths ${basedir}/vendor/doctrine/coding-standard/lib,${basedir}/vendor/phpmyadmin/coding-standard,${basedir}/vendor/slevomat/coding-standard" />
   </exec>
  </target>
 
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries" depends="phpcs-config">
   <exec executable="${basedir}/vendor/bin/phpcs">
    <arg line="
-              --ignore=*/vendor/*,*/build/*,*/tmp/*
               --report=checkstyle
-              --extensions=php
               --report-file='${basedir}/build/logs/checkstyle.xml'
-              --standard=PhpMyAdmin
               ${source}" />
   </exec>
  </target>
 
- <target name="phpdoc" description="Generate API documentation using PHPDocumentor">
-  <exec executable="phpdoc">
-   <arg line="-d ${source} -t '${basedir}/build/api'" />
+ <target name="phpstan" description="Run phpstan static code analysis">
+  <exec executable="${basedir}/vendor/bin/phpstan" failonerror="true">
+      <redirector error="/dev/stdout" output="${basedir}/build/logs/phpstan.xml"/>
+      <arg line="analyse --error-format=checkstyle"/>
+  </exec>
+ </target>
+
+ <target name="phpdoc" description="Generate API documentation using Doctum">
+ <!-- ant phpdoc -Denv.DOCTUM_BIN_PATH="/usr/bin/doctum" -->
+ <!-- please use 5.3.0 as a minimum version -->
+ <!-- Download the latest 5.x.x version -->
+ <!-- curl -o /bin/doctum https://doctum.long-term.support/releases/5/doctum.phar && chmod +x /bin/doctum -->
+ <property name="env.DOCTUM_BIN_PATH" value="/bin/doctum"/>
+  <exec executable="${env.DOCTUM_BIN_PATH}" failonerror="true">
+    <redirector error="${basedir}/build/logs/doctum.xml"/>
+    <arg line="--no-interaction update ./test/doctum-config.php -v --force --no-progress --no-ansi --output-format=checkstyle" />
   </exec>
  </target>
 
@@ -114,24 +116,11 @@
   </exec>
  </target>
 
-<target name="jshint" description="Javascript checks">
-  <apply executable="jshint" output="${basedir}/build/logs/jshint-jslint.xml"  parallel="true">
-   <arg line="--config ./.jshintrc --reporter=jslint" />
+<target name="eslint" description="Javascript checks">
+  <apply executable="${basedir}/node_modules/.bin/eslint" output="${basedir}/build/logs/eslint.xml" parallel="true">
+   <arg line="--format=checkstyle js/src" />
    <fileset dir="${basedir}">
-    <include name="js/designer/*.js" />
-    <include name="js/*.js" />
-    <include name="setup/*.js" />
-   </fileset>
-  </apply>
- </target>
-
- <target name="jshint-checkstyle" description="Javascript checks">
-  <apply executable="jshint" output="${basedir}/build/logs/jshint-checkstyle.xml"  parallel="true">
-   <arg line="--config ./.jshintrc --reporter=checkstyle" />
-   <fileset dir="${basedir}">
-    <include name="js/designer/*.js" />
-    <include name="js/*.js" />
-    <include name="setup/*.js" />
+    <include name="js/src/**/*.js" />
    </fileset>
   </apply>
  </target>
@@ -148,7 +137,6 @@
 
    <fileset dir="${basedir}">
     <include name="libraries/**/*.php" />
-    <include name="templates/**/*.phtml" />
     <include name="setup/**/*.php" />
     <include name="test/**/*.php" />
     <include name="*.php" />
@@ -157,5 +145,5 @@
   </apply>
  </target>
 
- <target name="build" depends="clean,phpunit,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpcb,lint,jshint,locales"/>
+ <target name="build" depends="clean,phpunit,pdepend,phpmd,phpcpd,phpcs,phpdoc,phploc,phpcb,lint,eslint,locales"/>
 </project>

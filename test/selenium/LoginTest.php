@@ -1,43 +1,43 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for login related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use function sleep;
+
 /**
  * LoginTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class LoginTest extends TestBase
 {
     /**
-     * @return void
+     * Create a test database for this test class
+     *
+     * @var bool
      */
+    protected static $createDatabase = false;
+
     protected function setUp(): void
     {
         parent::setUp();
         $this->logOutIfLoggedIn();
     }
+
     /**
      * Test for successful login
      *
-     * @return void
-     *
      * @group large
      */
-    public function testSuccessfulLogin()
+    public function testSuccessfulLogin(): void
     {
         $this->login();
-        $this->waitForElement('xpath', "//*[@id=\"serverinfo\"]");
+        $this->waitForElement('xpath', '//*[@id="server-breadcrumb"]');
         $this->assertTrue($this->isSuccessLogin());
         $this->logOutIfLoggedIn();
     }
@@ -45,14 +45,13 @@ class LoginTest extends TestBase
     /**
      * Test for unsuccessful login
      *
-     * @return void
-     *
      * @group large
      */
-    public function testLoginWithWrongPassword()
+    public function testLoginWithWrongPassword(): void
     {
-        $this->login("Admin", "Admin");
-        $this->waitForElement('cssSelector', "div.error");
+        $this->login('Admin', 'Admin');
+        sleep(1);
+        $this->waitForElement('xpath', '//*[@class="alert alert-danger" and contains(.,\'Access denied for\')]');
         $this->assertTrue($this->isUnsuccessLogin());
     }
 }

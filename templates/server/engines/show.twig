@@ -17,8 +17,7 @@
       {% if page is empty %}
         <strong>{% trans 'Variables' %}</strong>
       {% else %}
-        <a href="server_engines.php
-          {{- get_common({'engine': engine.engine}) }}">
+        <a href="{{ url('/server/engines/' ~ engine.engine) }}">
           {% trans 'Variables' %}
         </a>
       {% endif %}
@@ -27,8 +26,7 @@
         {% if page is defined and page == current %}
           <strong>{{ label }}</strong>
         {% else %}
-          <a href="server_engines.php
-            {{- get_common({'engine': engine.engine, 'page': current}) }}">
+          <a href="{{ url('/server/engines/' ~ engine.engine ~ '/' ~ current) }}">
             {{ label }}
           </a>
         {% endif %}

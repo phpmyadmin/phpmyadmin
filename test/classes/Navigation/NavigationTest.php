@@ -1,39 +1,31 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Test for PhpMyAdmin\Navigation\Navigation class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Url;
 
-/**
- * Tests for PhpMyAdmin\Navigation\Navigation class
- *
- * @package PhpMyAdmin-test
- */
-class NavigationTest extends PmaTestCase
+class NavigationTest extends AbstractTestCase
 {
-    /**
-     * @var Navigation
-     */
+    /** @var Navigation */
     protected $object;
 
     /**
      * Sets up the fixture.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
+        parent::setLanguage();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
@@ -42,38 +34,36 @@ class NavigationTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['user'] = 'user';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
-        $GLOBALS['pmaThemeImage'] = '';
 
         $this->object = new Navigation(
             new Template(),
             new Relation($GLOBALS['dbi']),
             $GLOBALS['dbi']
         );
+        $GLOBALS['cfgRelation']['db'] = 'pmadb';
+        $GLOBALS['cfgRelation']['navigationhiding'] = 'navigationhiding';
     }
 
     /**
      * Tears down the fixture.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Tests hideNavigationItem() method.
-     *
-     * @return void
-     * @test
      */
-    public function testHideNavigationItem()
+    public function testHideNavigationItem(): void
     {
-        $expectedQuery = "INSERT INTO `pmadb`.`navigationhiding`"
-            . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
+        $expectedQuery = 'INSERT INTO `pmadb`.`navigationhiding`'
+            . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . " VALUES ('user','itemName','itemType','db','')";
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -89,16 +79,13 @@ class NavigationTest extends PmaTestCase
 
     /**
      * Tests unhideNavigationItem() method.
-     *
-     * @return void
-     * @test
      */
-    public function testUnhideNavigationItem()
+    public function testUnhideNavigationItem(): void
     {
-        $expectedQuery = "DELETE FROM `pmadb`.`navigationhiding`"
+        $expectedQuery = 'DELETE FROM `pmadb`.`navigationhiding`'
             . " WHERE `username`='user' AND `item_name`='itemName'"
             . " AND `item_type`='itemType' AND `db_name`='db'";
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -114,11 +101,8 @@ class NavigationTest extends PmaTestCase
 
     /**
      * Tests getItemUnhideDialog() method.
-     *
-     * @return void
-     * @test
      */
-    public function testGetItemUnhideDialog()
+    public function testGetItemUnhideDialog(): void
     {
         $html = $this->object->getItemUnhideDialog('db');
         $this->assertStringContainsString(
@@ -126,7 +110,7 @@ class NavigationTest extends PmaTestCase
             $html
         );
         $this->assertStringContainsString(
-            '<a class="unhideNavItem ajax" href="navigation.php" data-post="'
+            '<a class="unhideNavItem ajax" href="' . Url::getFromRoute('/navigation') . '" data-post="'
             . 'unhideNavItem=1&amp;itemType=table&amp;'
             . 'itemName=tableName&amp;dbName=db&amp;lang=en">',
             $html

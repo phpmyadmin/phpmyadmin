@@ -1,20 +1,17 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Url;
 
 /**
  * Represents a trigger node in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeTrigger extends Node
 {
@@ -29,12 +26,16 @@ class NodeTrigger extends Node
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = Util::getImage('b_triggers');
+        $this->icon = Generator::getImage('b_triggers');
         $this->links = [
-            'text' => 'db_triggers.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;item_name=%1$s&amp;edit_item=1',
-            'icon' => 'db_triggers.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;item_name=%1$s&amp;export_item=1',
+            'text' => Url::getFromRoute('/database/triggers', [
+                'server' => $GLOBALS['server'],
+                'edit_item' => 1,
+            ]) . '&amp;db=%3$s&amp;item_name=%1$s',
+            'icon' => Url::getFromRoute('/database/triggers', [
+                'server' => $GLOBALS['server'],
+                'export_item' => 1,
+            ]) . '&amp;db=%3$s&amp;item_name=%1$s',
         ];
         $this->classes = 'trigger';
     }

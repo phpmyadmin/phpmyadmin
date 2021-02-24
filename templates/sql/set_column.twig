@@ -1,5 +1,7 @@
-<select size="{{ size }}" multiple>
+{% set values_amount = values|length %}
+{% set selected_values = current_values|split(',') %}
+<select size="{{ values_amount < 10 ? values_amount : 10 }}" multiple>
   {% for value in values %}
-    <option value="{{ value }}"{{ value in selected_values ? " selected" }}>{{ value }}</option>
+    <option value="{{ value }}"{{ value in selected_values ? ' selected' }}>{{ value }}</option>
   {% endfor %}
 </select>

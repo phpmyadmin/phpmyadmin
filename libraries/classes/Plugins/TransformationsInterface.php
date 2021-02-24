@@ -1,10 +1,8 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Interface for the transformations plugins
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
@@ -12,8 +10,6 @@ namespace PhpMyAdmin\Plugins;
 /**
  * Provides a common interface that will have to be implemented by all of the
  * transformations plugins.
- *
- * @package PhpMyAdmin
  */
 interface TransformationsInterface
 {

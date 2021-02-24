@@ -1,52 +1,42 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for FormDisplayTemplate
- *
- * @package PhpMyAdmin-test
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\FormDisplayTemplate;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * Tests for FormDisplayTemplate
- *
- * @package PhpMyAdmin-test
  */
-class FormDisplayTemplateTest extends TestCase
+class FormDisplayTemplateTest extends AbstractTestCase
 {
-    /**
-     * @var FormDisplayTemplate
-     */
+    /** @var FormDisplayTemplate */
     protected $formDisplayTemplate;
 
-    /**
-     * @var Config
-     */
+    /** @var Config */
     protected $config;
 
     /**
      * Setup tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::setLanguage();
         $this->config = new Config();
         $this->formDisplayTemplate = new FormDisplayTemplate($this->config);
     }
 
     /**
      * Test for displayFormTop()
-     *
-     * @return void
      */
-    public function testDisplayFormTop()
+    public function testDisplayFormTop(): void
     {
         $_SERVER['REQUEST_URI'] = 'https://www.phpmyadmin.net';
         $GLOBALS['cfg']['ServerDefault'] = '';
@@ -81,15 +71,13 @@ class FormDisplayTemplateTest extends TestCase
 
     /**
      * Test for displayTabsTop()
-     *
-     * @return void
      */
-    public function testDisplayTabsTop()
+    public function testDisplayTabsTop(): void
     {
         $result = $this->formDisplayTemplate->displayTabsTop(['one', 'two']);
 
         $this->assertStringContainsString(
-            '<ul class="tabs responsivetable"',
+            '<ul class="tabs responsivetable row"',
             $result
         );
 
@@ -104,17 +92,15 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<div class="tabs_contents"',
+            '<div class="tabs_contents col"',
             $result
         );
     }
 
     /**
      * Test for displayFieldsetTop()
-     *
-     * @return void
      */
-    public function testDisplayFieldsetTop()
+    public function testDisplayFieldsetTop(): void
     {
         $attributes = ['name' => 'attrname'];
         $errors = [
@@ -122,7 +108,7 @@ class FormDisplayTemplateTest extends TestCase
             'e2',
         ];
 
-        $result = $this->formDisplayTemplate->displayFieldsetTop("TitleTest", "DescTest", $errors, $attributes);
+        $result = $this->formDisplayTemplate->displayFieldsetTop('TitleTest', 'DescTest', $errors, $attributes);
 
         $this->assertStringContainsString(
             '<fieldset class="optbox" name="attrname">',
@@ -150,24 +136,22 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<table width="100%" cellspacing="0">',
+            '<table class="pma-table" width="100%" cellspacing="0">',
             $result
         );
     }
 
     /**
      * Test for displayInput()
-     *
-     * @return void
      */
-    public function testDisplayInput()
+    public function testDisplayInput(): void
     {
         $opts = [];
         $opts['errors'] = ['e1'];
         $opts['userprefs_allow'] = false;
         $opts['setvalue'] = ':group';
-        $opts['doc'] = "https://example.com/";
-        $opts['comment'] = "testComment";
+        $opts['doc'] = 'https://example.com/';
+        $opts['comment'] = 'testComment';
         $opts['comment_warning'] = true;
         $opts['show_restore_default'] = true;
         $result = $this->formDisplayTemplate->displayInput(
@@ -212,7 +196,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<input type="text" class="all85" name="test/path" id="test/path" ' .
+            '<input type="text" class="w-75" name="test/path" id="test/path" ' .
             'class="custom field-error" value="val">',
             $result
         );
@@ -233,7 +217,7 @@ class FormDisplayTemplateTest extends TestCase
         $opts = [];
         $opts['errors'] = [];
         $opts['setvalue'] = 'setVal';
-        $opts['comment'] = "testComment";
+        $opts['comment'] = 'testComment';
         $opts['show_restore_default'] = true;
         $opts['userprefs_comment'] = 'userprefsComment';
         $opts['userprefs_allow'] = true;
@@ -334,7 +318,7 @@ class FormDisplayTemplateTest extends TestCase
             $opts
         );
         $this->assertStringContainsString(
-            '<select class="all85" name="test/path" id="test/path">',
+            '<select class="w-75" name="test/path" id="test/path">',
             $result
         );
 
@@ -375,7 +359,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<select class="all85" name="test/path" id="test/path">',
+            '<select class="w-75" name="test/path" id="test/path">',
             $result
         );
 
@@ -407,10 +391,8 @@ class FormDisplayTemplateTest extends TestCase
 
     /**
      * Test for displayGroupHeader()
-     *
-     * @return void
      */
-    public function testDisplayGroupHeader()
+    public function testDisplayGroupHeader(): void
     {
         $this->assertEquals(
             '',
@@ -443,10 +425,8 @@ class FormDisplayTemplateTest extends TestCase
 
     /**
      * Test for displayGroupFooter()
-     *
-     * @return void
      */
-    public function testDisplayGroupFooter()
+    public function testDisplayGroupFooter(): void
     {
         $this->formDisplayTemplate->group = 3;
         $this->formDisplayTemplate->displayGroupFooter();
@@ -458,10 +438,8 @@ class FormDisplayTemplateTest extends TestCase
 
     /**
      * Test for displayFieldsetBottom()
-     *
-     * @return void
      */
-    public function testDisplayFieldsetBottom()
+    public function testDisplayFieldsetBottom(): void
     {
         // with PMA_SETUP
         $this->config->set('is_setup', true);
@@ -501,10 +479,8 @@ class FormDisplayTemplateTest extends TestCase
 
     /**
      * Test for displayTabsBottom()
-     *
-     * @return void
      */
-    public function testDisplayTabsBottom()
+    public function testDisplayTabsBottom(): void
     {
         $result = $this->formDisplayTemplate->displayTabsBottom();
         $this->assertEquals(
@@ -515,10 +491,8 @@ class FormDisplayTemplateTest extends TestCase
 
     /**
      * Test for displayFormBottom()
-     *
-     * @return void
      */
-    public function testDisplayFormBottom()
+    public function testDisplayFormBottom(): void
     {
         $result = $this->formDisplayTemplate->displayFormBottom();
         $this->assertEquals(
@@ -529,10 +503,8 @@ class FormDisplayTemplateTest extends TestCase
 
     /**
      * Test for addJsValidate()
-     *
-     * @return void
      */
-    public function testAddJsValidate()
+    public function testAddJsValidate(): void
     {
         $validators = [
             'one' => [
@@ -549,8 +521,8 @@ class FormDisplayTemplateTest extends TestCase
         $this->assertEquals(
             [
                 'registerFieldValidator(\'testID\', \'\\\';\', true, '
-                    . '[\'\\\\r\\\\n\\\\\\\''
-                    . '<scrIpt></\\\' + \\\'script>\'])',
+                . '[\'\\\\r\\\\n\\\\\\\''
+                . '<scrIpt></\\\' + \\\'script>\'])',
                 'registerFieldValidator(\'testID\', \'\', true)',
             ],
             $js
@@ -559,10 +531,8 @@ class FormDisplayTemplateTest extends TestCase
 
     /**
      * Test for displayJavascript()
-     *
-     * @return void
      */
-    public function testDisplayJavascript()
+    public function testDisplayJavascript(): void
     {
         $this->assertEquals(
             '',
@@ -571,19 +541,20 @@ class FormDisplayTemplateTest extends TestCase
 
         $result = $this->formDisplayTemplate->displayJavascript(['var i = 1', 'i++']);
 
-        $this->assertEquals(
-            '<script type="text/javascript">' . "\n"
-            . 'if (typeof configInlineParams === "undefined"'
-            . ' || !Array.isArray(configInlineParams)) '
-            . 'configInlineParams = [];' . "\n"
-            . 'configInlineParams.push(function() {' . "\n"
-            . 'var i = 1;' . "\n"
-            . 'i++;' . "\n"
-            . '});' . "\n"
-            . 'if (typeof configScriptLoaded !== "undefined"'
-            . ' && configInlineParams) loadInlineConfig();'
-            . "\n" . '</script>' . "\n",
-            $result
-        );
+        $jsTemplate =
+        '<script type="text/javascript">' . "\n"
+        . '    if (typeof configInlineParams === \'undefined\' || !Array.isArray(configInlineParams)) {' . "\n"
+        . '        configInlineParams = [];' . "\n"
+        . '    }' . "\n"
+        . '    configInlineParams.push(function () {' . "\n"
+        . '        var i = 1;' . "\n"
+        . 'i++;' . "\n"
+        . '    });' . "\n"
+        . '    if (typeof configScriptLoaded !== \'undefined\' && configInlineParams) {' . "\n"
+        . '        loadInlineConfig();' . "\n"
+        . '    }' . "\n"
+        . '</script>' . "\n";
+
+        $this->assertEquals($jsTemplate, $result);
     }
 }

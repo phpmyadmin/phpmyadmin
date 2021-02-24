@@ -8,14 +8,6 @@ database server. It is still the system administrator's job to grant
 permissions on the MySQL databases properly. phpMyAdmin's :guilabel:`Users`
 page can be used for this.
 
-.. warning::
-
-    :term:`Mac` users should note that if you are on a version before
-    :term:`Mac OS X`, StuffIt unstuffs with :term:`Mac` formats. So you'll have
-    to resave as in BBEdit to Unix style ALL phpMyAdmin scripts before
-    uploading them to your server, as PHP seems not to like :term:`Mac`-style
-    end of lines character ("``\r``").
-
 Linux distributions
 +++++++++++++++++++
 
@@ -28,7 +20,7 @@ distribution and you will automatically get security updates from your distribut
 Debian and Ubuntu
 -----------------
 
-Debian's package repositories include a phpMyAdmin package, but be aware that
+Most Debian and Ubuntu versions include a phpMyAdmin package, but be aware that
 the configuration file is maintained in ``/etc/phpmyadmin`` and may differ in
 some ways from the official phpMyAdmin documentation. Specifically, it does:
 
@@ -36,10 +28,13 @@ some ways from the official phpMyAdmin documentation. Specifically, it does:
 * Creating of :ref:`linked-tables` using dbconfig-common.
 * Securing setup script, see :ref:`debian-setup`.
 
+More specific details about installing Debian or Ubuntu packages are available
+`in our wiki <https://github.com/phpmyadmin/phpmyadmin/wiki/DebianUbuntu>`_.
+
 .. seealso::
 
-    More information can be found in `README.Debian <https://salsa.debian.org/phpmyadmin-team/phpmyadmin/blob/master/debian/README.Debian>`_
-    (it is installed as :file:`/usr/share/doc/phmyadmin/README.Debian` with the package).
+    More information can be found in `README.Debian <https://salsa.debian.org/phpmyadmin-team/phpmyadmin/blob/debian/latest/debian/README.Debian>`_
+    (it is installed as :file:`/usr/share/doc/phpmyadmin/README.Debian` with the package).
 
 OpenSUSE
 --------
@@ -95,7 +90,7 @@ In order to install from Git, you'll need a few supporting applications:
 
 * `Git <https://git-scm.com/downloads>`_ to download the source, or you can download the most recent source directly from `Github <https://codeload.github.com/phpmyadmin/phpmyadmin/zip/master>`_
 * `Composer <https://getcomposer.org/download/>`__
-* `Node.js <https://nodejs.org/en/download/>`_ (version 8 or higher)
+* `Node.js <https://nodejs.org/en/download/>`_ (version 10 or higher)
 * `Yarn <https://classic.yarnpkg.com/en/docs/install>`_
 
 You can clone current phpMyAdmin source from
@@ -483,6 +478,12 @@ configuration:
           - PMA_USER=root
           - PMA_PASSWORD=
           - PMA_ABSOLUTE_URI=http://example.com/phpmyadmin/
+
+IBM Cloud
++++++++++
+
+One of our users has created a helpful guide for installing phpMyAdmin on the
+`IBM Cloud platform <https://github.com/KissConsult/phpmyadmin_tutorial#readme>`_.
 
 .. _quick_install:
 
@@ -1101,7 +1102,7 @@ are always ways to make your installation more secure:
 * If you are afraid of automated attacks, enabling Captcha by
   :config:option:`$cfg['CaptchaLoginPublicKey']` and
   :config:option:`$cfg['CaptchaLoginPrivateKey']` might be an option.
-* Failed login attemps are logged to syslog (if available, see
+* Failed login attempts are logged to syslog (if available, see
   :config:option:`$cfg['AuthLog']`). This can allow using a tool such as
   fail2ban to block brute-force attempts. Note that the log file used by syslog
   is not the same as the Apache error or access log files.

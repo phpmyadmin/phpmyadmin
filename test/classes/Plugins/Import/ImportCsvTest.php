@@ -1,29 +1,18 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use function basename;
 
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportCsv class
- *
- * @package PhpMyAdmin-test
- */
-class ImportCsvTest extends PmaTestCase
+class ImportCsvTest extends AbstractTestCase
 {
-    /**
-     * @var ImportCsv
-     * @access protected
-     */
+    /** @var ImportCsv */
     protected $object;
 
     /**
@@ -31,12 +20,13 @@ class ImportCsvTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
-        $GLOBALS['plugin_param'] = "csv";
+        $GLOBALS['plugin_param'] = 'csv';
         $this->object = new ImportCsv();
 
         unset($GLOBALS['db']);
@@ -52,20 +42,18 @@ class ImportCsvTest extends PmaTestCase
         $GLOBALS['compression'] = 'none';
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'Xml';
-        $GLOBALS['import_handle'] = new File($GLOBALS['import_file']);
-        $GLOBALS['import_handle']->open();
 
         //separator for csv
         $GLOBALS['csv_terminated'] = "\015";
         $GLOBALS['csv_enclosed'] = '"';
         $GLOBALS['csv_escaped'] = '"';
         $GLOBALS['csv_new_line'] = 'auto';
-        $GLOBALS['import_file_name'] = basename($GLOBALS['import_file'], ".csv");
+        $GLOBALS['import_file_name'] = basename($GLOBALS['import_file'], '.csv');
 
         //$_SESSION
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
@@ -76,21 +64,19 @@ class ImportCsvTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for getProperties
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetProperties()
+    public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
         $this->assertEquals(
@@ -106,18 +92,19 @@ class ImportCsvTest extends PmaTestCase
     /**
      * Test for doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImport()
+    public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
 
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->open();
+
         //Test function called
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
 
         //asset that all sql are executed
         $this->assertStringContainsString(
@@ -129,8 +116,7 @@ class ImportCsvTest extends PmaTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }
@@ -138,15 +124,16 @@ class ImportCsvTest extends PmaTestCase
     /**
      * Test for partial import/setting table and database names in doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoPartialImport()
+    public function testDoPartialImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
+
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->open();
 
         $GLOBALS['import_file'] = 'test/test_data/db_test_partial_import.csv';
         $_REQUEST['csv_new_tbl_name'] = 'ImportTestTable';
@@ -154,7 +141,7 @@ class ImportCsvTest extends PmaTestCase
         $_REQUEST['csv_partial_import'] = 5;
 
         //Test function called
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
 
         //asset that all sql are executed
         $this->assertStringContainsString(
@@ -166,20 +153,21 @@ class ImportCsvTest extends PmaTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
+
+        unset($_REQUEST['csv_new_tbl_name']);
+        unset($_REQUEST['csv_new_db_name']);
+        unset($_REQUEST['csv_partial_import']);
     }
 
     /**
      * Test for getProperties for Table param
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetPropertiesForTable()
+    public function testGetPropertiesForTable(): void
     {
         $GLOBALS['plugin_param'] = 'table';
         $this->object = new ImportCsv();
@@ -197,18 +185,19 @@ class ImportCsvTest extends PmaTestCase
     /**
      * Test for doImport for _getAnalyze = false, should be OK as well
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImportNotAnalysis()
+    public function testDoImportNotAnalysis(): void
     {
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
 
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->open();
+
         //Test function called
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
 
         //asset that all sql are executed
         $this->assertStringContainsString(
@@ -221,8 +210,7 @@ class ImportCsvTest extends PmaTestCase
             $sql_query
         );
 
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }

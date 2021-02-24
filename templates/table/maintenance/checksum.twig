@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <h2>
+    {% trans 'Checksum table' %}
+    {{ show_mysql_docu('CHECKSUM_TABLE') }}
+  </h2>
+
+  {{ message|raw }}
+
+  <table class="pma-table my-3">
+    <thead>
+      <tr>
+        <th>{% trans 'Table' %}</th>
+        <th>{% trans 'Checksum' %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+        <tr>
+          <td>{{ row.Table }}</td>
+          <td class="text-right">
+            {% if row.Checksum is not null %}
+              {{ row.Checksum }}
+            {% else %}
+              <em class="text-muted">NULL</em>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% for warning in warnings %}
+    {% apply notice %}
+      {{ warning.Level }}: #{{ warning.Code }} {{ warning.Message }}
+    {% endapply %}
+  {% endfor %}
+</div>

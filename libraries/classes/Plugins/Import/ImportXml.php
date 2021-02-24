@@ -1,34 +1,36 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * XML import plugin for phpMyAdmin
  *
  * @todo       Improve efficiency
- * @package    PhpMyAdmin-Import
- * @subpackage XML
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\File;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
 use SimpleXMLElement;
+use const LIBXML_COMPACT;
+use function count;
+use function in_array;
+use function libxml_disable_entity_loader;
+use function simplexml_load_string;
+use function str_replace;
+use function strcmp;
+use function strlen;
+use const PHP_VERSION_ID;
 
 /**
  * Handles the import for the XML format
- *
- * @package    PhpMyAdmin-Import
- * @subpackage XML
  */
 class ImportXml extends ImportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -60,37 +62,41 @@ class ImportXml extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = [])
     {
         global $error, $timeout_passed, $finished, $db;
 
         $i = 0;
         $len = 0;
-        $buffer = "";
+        $buffer = '';
 
         /**
          * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
         while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
-            $data = $this->import->getNextChunk();
+            $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
                 $GLOBALS['offset'] -= strlen($buffer);
                 break;
-            } elseif ($data !== true) {
-                /* Append new data to buffer */
-                $buffer .= $data;
-                unset($data);
             }
+
+            if ($data === true) {
+                continue;
+            }
+
+            /* Append new data to buffer */
+            $buffer .= $data;
         }
 
-        unset($data);
-
         /**
-         * Disable loading of external XML entities.
+         * Disable loading of external XML entities for PHP versions below 8.0.
          */
-        libxml_disable_entity_loader();
+        if (PHP_VERSION_ID < 80000) {
+            // phpcs:ignore Generic.PHP.DeprecatedFunctions.Deprecated
+            libxml_disable_entity_loader();
+        }
 
         /**
          * Load the XML string
@@ -99,7 +105,7 @@ class ImportXml extends ImportPlugin
          * result in increased performance without the need to
          * alter the code in any way. It's basically a freebee.
          */
-        $xml = @simplexml_load_string($buffer, "SimpleXMLElement", LIBXML_COMPACT);
+        $xml = @simplexml_load_string($buffer, 'SimpleXMLElement', LIBXML_COMPACT);
 
         unset($buffer);
 
@@ -107,13 +113,12 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($xml === false) {
-            Message::error(
+            echo Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
                 )
-            )
-                ->display();
+            )->getDisplay();
             unset($xml);
             $GLOBALS['finished'] = false;
 
@@ -148,7 +153,7 @@ class ImportXml extends ImportPlugin
         /**
          * Get the database name, collation and charset
          */
-        $db_attr = $xml->children(isset($namespaces['pma']) ? $namespaces['pma'] : null)
+        $db_attr = $xml->children($namespaces['pma'] ?? null)
             ->{'structure_schemas'}->{'database'};
 
         if ($db_attr instanceof SimpleXMLElement) {
@@ -172,13 +177,12 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($db_name === null) {
-            Message::error(
+            echo Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
                     . ' Please correct the issue and try again.'
                 )
-            )
-                ->display();
+            )->getDisplay();
             unset($xml);
             $GLOBALS['finished'] = false;
 
@@ -209,16 +213,16 @@ class ImportXml extends ImportPlugin
                      *          into another database.
                      */
                     $attrs = $val2->attributes();
-                    $create[] = "USE "
+                    $create[] = 'USE '
                         . Util::backquote(
-                            $attrs["name"]
+                            $attrs['name']
                         );
 
                     foreach ($val2 as $val3) {
                         /**
                          * Remove the extra cosmetic spacing
                          */
-                        $val3 = str_replace("                ", "", (string) $val3);
+                        $val3 = str_replace('                ', '', (string) $val3);
                         $create[] = $val3;
                     }
                 }
@@ -238,7 +242,7 @@ class ImportXml extends ImportPlugin
         /**
          * Only attempt to analyze/collect data if there is data present
          */
-        if ($xml && @count($xml->children())) {
+        if ($xml && $xml->children()->count()) {
             $data_present = true;
 
             /**
@@ -262,7 +266,7 @@ class ImportXml extends ImportPlugin
 
                 foreach ($v1 as $v2) {
                     $row_attr = $v2->attributes();
-                    if (! array_search((string) $row_attr['name'], $tempRow)) {
+                    if (! in_array((string) $row_attr['name'], $tempRow)) {
                         $tempRow[] = (string) $row_attr['name'];
                     }
                     $tempCells[] = (string) $v2;
@@ -278,9 +282,7 @@ class ImportXml extends ImportPlugin
                 $tempCells = [];
             }
 
-            unset($tempRow);
-            unset($tempCells);
-            unset($xml);
+            unset($tempRow, $tempCells, $xml);
 
             /**
              * Bring accumulated rows into the corresponding table
@@ -289,13 +291,15 @@ class ImportXml extends ImportPlugin
             for ($i = 0; $i < $num_tables; ++$i) {
                 $num_rows = count($rows);
                 for ($j = 0; $j < $num_rows; ++$j) {
-                    if (! strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
-                        if (! isset($tables[$i][Import::COL_NAMES])) {
-                            $tables[$i][] = $rows[$j][Import::COL_NAMES];
-                        }
-
-                        $tables[$i][Import::ROWS][] = $rows[$j][Import::ROWS];
+                    if (strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
+                        continue;
                     }
+
+                    if (! isset($tables[$i][Import::COL_NAMES])) {
+                        $tables[$i][] = $rows[$j][Import::COL_NAMES];
+                    }
+
+                    $tables[$i][Import::ROWS][] = $rows[$j][Import::ROWS];
                 }
             }
 
@@ -311,9 +315,7 @@ class ImportXml extends ImportPlugin
             }
         }
 
-        unset($xml);
-        unset($tempCells);
-        unset($rows);
+        unset($xml, $tempCells, $rows);
 
         /**
          * Only build SQL from data if there is data present
@@ -365,9 +367,7 @@ class ImportXml extends ImportPlugin
         /* Created and execute necessary SQL statements from data */
         $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
 
-        unset($analyses);
-        unset($tables);
-        unset($create);
+        unset($analyses, $tables, $create);
 
         /* Commit any possible data in buffers */
         $this->import->runQuery('', '', $sql_data);

@@ -1,38 +1,35 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract parent class for all Gis<Geom_type> test classes
- *
- * @package PhpMyAdmin-test
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use function imagesx;
 
 /**
  * Abstract parent class for all Gis<Geom_type> test classes
- *
- * @package PhpMyAdmin-test
  */
-abstract class GisGeomTestCase extends TestCase
+abstract class GisGeomTestCase extends AbstractTestCase
 {
+    /** @var object */
     protected $object;
 
     /**
      * test generateParams method
      *
-     * @param string $wkt    point in WKT form
-     * @param int    $index  index
-     * @param array  $params expected output array
+     * @param string   $wkt    point in WKT form
+     * @param int|null $index  index
+     * @param array    $params expected output array
      *
      * @dataProvider providerForTestGenerateParams
-     * @return void
      */
-    public function testGenerateParams($wkt, $index, $params): void
+    public function testGenerateParams(string $wkt, ?int $index, array $params): void
     {
-        if ($index == null) {
+        if ($index === null) {
             $this->assertEquals(
                 $params,
                 $this->object->generateParams($wkt)
@@ -52,9 +49,8 @@ abstract class GisGeomTestCase extends TestCase
      * @param array  $min_max expected results
      *
      * @dataProvider providerForTestScaleRow
-     * @return void
      */
-    public function testScaleRow($spatial, $min_max): void
+    public function testScaleRow(string $spatial, array $min_max): void
     {
         $this->assertEquals(
             $min_max,
@@ -66,10 +62,8 @@ abstract class GisGeomTestCase extends TestCase
      * Tests whether content is a valid image.
      *
      * @param resource $object Image
-     *
-     * @return void
      */
-    public function assertImage($object)
+    public function assertImage($object): void
     {
         $this->assertGreaterThan(0, imagesx($object));
     }

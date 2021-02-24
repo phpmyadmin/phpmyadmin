@@ -1,39 +1,29 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds EnginesControllerTest class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\EnginesController;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\Response;
+use function htmlspecialchars;
 
-/**
- * Tests for EnginesController class
- *
- * @package PhpMyAdmin-test
- */
-class EnginesControllerTest extends TestCase
+class EnginesControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        $GLOBALS['text_dir'] = 'ltr';
+        parent::setGlobalConfig();
+        parent::defineVersionConstants();
+        parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;
@@ -43,25 +33,23 @@ class EnginesControllerTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
-        $controller = new EnginesController(
-            Response::getInstance(),
-            $GLOBALS['dbi'],
-            new Template()
-        );
+        global $dbi;
 
-        $actual = $controller->index();
+        $response = new Response();
+
+        $controller = new EnginesController($response, new Template(), $dbi);
+
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
-            '<th>Storage Engine</th>',
+            '<th scope="col">Storage Engine</th>',
             $actual
         );
         $this->assertStringContainsString(
-            '<th>Description</th>',
+            '<th scope="col">Description</th>',
             $actual
         );
 
@@ -74,7 +62,7 @@ class EnginesControllerTest extends TestCase
             $actual
         );
         $this->assertStringContainsString(
-            'server_engines.php?engine=FEDERATED',
+            'index.php?route=/server/engines/FEDERATED',
             $actual
         );
 
@@ -87,31 +75,24 @@ class EnginesControllerTest extends TestCase
             $actual
         );
         $this->assertStringContainsString(
-            'server_engines.php?engine=dummy',
+            'index.php?route=/server/engines/dummy',
             $actual
         );
     }
 
-    /**
-     * @return void
-     */
     public function testShow(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
+        global $dbi;
 
-        $controller = new EnginesController(
-            Response::getInstance(),
-            $GLOBALS['dbi'],
-            new Template()
-        );
+        $response = new Response();
 
-        $actual = $controller->show([
+        $controller = new EnginesController($response, new Template(), $dbi);
+
+        $controller->show([
             'engine' => 'Pbxt',
             'page' => 'page',
         ]);
+        $actual = $response->getHTMLResult();
 
         $enginePlugin = StorageEngine::getEngine('Pbxt');
 
@@ -121,7 +102,7 @@ class EnginesControllerTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            Util::showMySQLDocu($enginePlugin->getMysqlHelpPage()),
+            MySQLDocumentation::show($enginePlugin->getMysqlHelpPage()),
             $actual
         );
 
@@ -135,15 +116,7 @@ class EnginesControllerTest extends TestCase
             $actual
         );
         $this->assertStringContainsString(
-            Url::getCommon([
-                'engine' => 'Pbxt',
-                'page' => 'Documentation',
-            ]),
-            $actual
-        );
-
-        $this->assertStringContainsString(
-            Url::getCommon(['engine' => 'Pbxt']),
+            'index.php?route=/server/engines/Pbxt/Documentation',
             $actual
         );
         $this->assertStringContainsString(

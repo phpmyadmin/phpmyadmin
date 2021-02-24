@@ -1,6 +1,7 @@
 {% extends 'table/page_with_secondary_tabs.twig' %}
 {% block content %}
-<form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm"
+<h1 class="d-none d-print-block">{{table}}</h1>
+<form method="post" action="{{ url('/table/structure') }}" name="fieldsForm" id="fieldsForm"
     class="ajax{{ hide_structure_actions ? ' HideStructureActions' }}">
     {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="table_type" value=
@@ -11,10 +12,10 @@
         {%- else -%}
             "table"
         {%- endif %}>
-    <div class="responsivetable">
-    <table id="tablestructure" class="data topmargin">
+    <div class="table-responsive-md">
+    <table id="tablestructure" class="table table-light table-striped table-hover">
         {# Table header #}
-        <thead>
+        <thead class="thead-light">
             <tr>
                 <th class="print_ignore"></th>
                 <th>#</th>
@@ -48,7 +49,7 @@
             {# Underline commented fields and display a hover-title (CSS only) #}
 
         <tr>
-            <td class="center print_ignore">
+            <td class="text-center print_ignore">
                 <input type="checkbox" class="checkall" name="selected_fld[]" value="{{ row['Field'] }}" id="checkbox_row_{{ rownum }}">
             </td>
             <td class="right">{{ rownum }}</td>
@@ -67,7 +68,7 @@
                     {{ extracted_columnspec['displayed_type']|raw }}
                     {% if relation_commwork and relation_mimework and browse_mime
                         and mime_map[row['Field']]['mimetype'] is defined %}
-                        <br>{% trans 'Media (MIME) type:' %} {{ mime_map[row['Field']]['mimetype']|replace({'_': '/'})|lower }}
+                        <br>{% trans 'Media type:' %} {{ mime_map[row['Field']]['mimetype']|replace({'_': '/'})|lower }}
                     {% endif %}
                 </bdo>
             </td>
@@ -98,19 +99,26 @@
             {% endif %}
             <td class="nowrap">{{ row['Extra']|upper }}</td>
             {% if not tbl_is_view and not db_is_system_schema %}
-                <td class="edit center print_ignore">
-                    <a class="change_column_anchor ajax" href="tbl_structure.php
-                        {{- url_query }}&amp;field={{ row['Field']|url_encode }}&amp;change_column=1">
-                        {{ titles['Change']|raw }}
+                <td class="edit text-center print_ignore">
+                    <a class="change_column_anchor ajax" href="{{ url('/table/structure/change', {
+                      'db': db,
+                      'table': table,
+                      'field': row['Field'],
+                      'change_column': 1
+                    }) }}">
+                      {{ get_icon('b_edit', 'Change'|trans) }}
                     </a>
                 </td>
-                <td class="drop center print_ignore">
-                    <a class="drop_column_anchor ajax" href="sql.php" data-post="{{ url_query }}&amp;sql_query=
-                        {{- ('ALTER TABLE ' ~ backquote(table)
-                            ~ ' DROP ' ~ backquote(row['Field']) ~ ';')|url_encode -}}
-                        &amp;dropped_column={{ row['Field']|url_encode }}&amp;purge=1&amp;message_to_show=
-                        {{- ('Column %s has been dropped.'|trans|format(row['Field']|e))|url_encode }}">
-                        {{ titles['Drop']|raw }}
+                <td class="drop text-center print_ignore">
+                    <a class="drop_column_anchor ajax" href="{{ url('/sql') }}" data-post="{{ get_common({
+                      'db': db,
+                      'table': table,
+                      'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP ' ~ backquote(row['Field']) ~ ';',
+                      'dropped_column': row['Field'],
+                      'purge': true,
+                      'message_to_show': 'Column %s has been dropped.'|trans|format(row['Field']|e)
+                    }) }}">
+                      {{ get_icon('b_drop', 'Drop'|trans) }}
                     </a>
                 </td>
             {% endif %}
@@ -124,61 +132,52 @@
                                 <a href="#" class="tab nowrap">{{ get_icon('b_more', 'More'|trans) }}</a>
                                 <ul>
                         {% endif %}
-                        {# Add primary #}
-                        {% include 'table/structure/action_row_in_structure_table.twig' with {
-                            'type': type,
-                            'tbl_storage_engine': tbl_storage_engine,
-                            'class': 'primary nowrap',
-                            'has_field': primary and primary.hasColumn(field_name),
-                            'has_link_class': true,
-                            'url_query': url_query,
-                            'primary': primary,
-                            'syntax': 'ADD PRIMARY KEY',
-                            'message': 'A primary key has been added on %s.'|trans,
-                            'action': 'Primary',
-                            'titles': titles,
-                            'row': row,
-                            'is_primary': true,
-                            'table': table
-                        } only %}
 
-                        {# Add unique #}
-                        {% include 'table/structure/action_row_in_structure_table.twig' with {
-                            'type': type,
-                            'tbl_storage_engine': tbl_storage_engine,
-                            'class': 'add_unique unique nowrap',
-                            'has_field': field_name in columns_with_unique_index,
-                            'has_link_class': false,
-                            'url_query': url_query,
-                            'primary': primary,
-                            'syntax': 'ADD UNIQUE',
-                            'message': 'An index has been added on %s.'|trans,
-                            'action': 'Unique',
-                            'titles': titles,
-                            'row': row,
-                            'is_primary': false,
-                            'table': table
-                        } only %}
+                        <li class="primary nowrap">
+                          {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (primary and primary.hasColumn(field_name)) %}
+                            {{ get_icon('bd_primary', 'Primary'|trans) }}
+                          {% else %}
+                            <a rel="samepage" class="ajax add_key print_ignore add_primary_key_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ (primary ? ' DROP PRIMARY KEY,') ~ ' ADD PRIMARY KEY(' ~ backquote(row['Field']) ~ ');',
+                              'message_to_show': 'A primary key has been added on %s.'|trans|format(row['Field']|e)
+                            }) }}">
+                              {{ get_icon('b_primary', 'Primary'|trans) }}
+                            </a>
+                          {% endif %}
+                        </li>
 
-                        {# Add index #}
-                        {% include 'table/structure/action_row_in_structure_table.twig' with {
-                            'type': type,
-                            'tbl_storage_engine': tbl_storage_engine,
-                            'class': 'add_index nowrap',
-                            'has_field': false,
-                            'has_link_class': false,
-                            'url_query': url_query,
-                            'primary': primary,
-                            'syntax': 'ADD INDEX',
-                            'message': 'An index has been added on %s.'|trans,
-                            'action': 'Index',
-                            'titles': titles,
-                            'row': row,
-                            'is_primary': false,
-                            'table': table
-                        } only %}
+                        <li class="add_unique unique nowrap">
+                          {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or field_name in columns_with_unique_index %}
+                            {{ get_icon('bd_unique', 'Unique'|trans) }}
+                          {% else %}
+                            <a rel="samepage" class="ajax add_key print_ignore add_unique_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD UNIQUE(' ~ backquote(row['Field']) ~ ');',
+                              'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
+                            }) }}">
+                              {{ get_icon('b_unique', 'Unique'|trans) }}
+                            </a>
+                          {% endif %}
+                        </li>
 
-                        {# Add spatial #}
+                        <li class="add_index nowrap">
+                          {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' %}
+                            {{ get_icon('bd_index', 'Index'|trans) }}
+                          {% else %}
+                            <a rel="samepage" class="ajax add_key print_ignore add_index_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD INDEX(' ~ backquote(row['Field']) ~ ');',
+                              'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
+                            }) }}">
+                              {{ get_icon('b_index', 'Index'|trans) }}
+                            </a>
+                          {% endif %}
+                        </li>
+
                         {% set spatial_types = [
                             'geometry',
                             'point',
@@ -189,23 +188,20 @@
                             'multipolygon',
                             'geomtrycollection'
                         ] %}
-                        {% include 'table/structure/action_row_in_structure_table.twig' with {
-                            'type': type,
-                            'tbl_storage_engine': tbl_storage_engine,
-                            'class': 'spatial nowrap',
-                            'has_field': type not in spatial_types and
-                                (tbl_storage_engine == 'MYISAM' or mysql_int_version >= 50705),
-                            'has_link_class': false,
-                            'url_query': url_query,
-                            'primary': primary,
-                            'syntax': 'ADD SPATIAL',
-                            'message': 'An index has been added on %s.'|trans,
-                            'action': 'Spatial',
-                            'titles': titles,
-                            'row': row,
-                            'is_primary': false,
-                            'table': table
-                        } only %}
+                        <li class="spatial nowrap">
+                          {% if type == 'text' or type == 'blob' or tbl_storage_engine == 'ARCHIVE' or (type not in spatial_types and (tbl_storage_engine == 'MYISAM' or mysql_int_version >= 50705)) %}
+                            {{ get_icon('bd_spatial', 'Spatial'|trans) }}
+                          {% else %}
+                            <a rel="samepage" class="ajax add_key print_ignore add_spatial_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD SPATIAL(' ~ backquote(row['Field']) ~ ');',
+                              'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
+                            }) }}">
+                              {{ get_icon('b_spatial', 'Spatial'|trans) }}
+                            </a>
+                          {% endif %}
+                        </li>
 
                         {# FULLTEXT is possible on TEXT, CHAR and VARCHAR #}
                         <li class="fulltext nowrap">
@@ -215,29 +211,32 @@
                                 or tbl_storage_engine == 'MARIA'
                                 or (tbl_storage_engine == 'INNODB' and mysql_int_version >= 50604)
                             ) and ('text' in type or 'char' in type) %}
-                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="tbl_structure.php"
-                                data-post="{{- url_query|raw }}&amp;add_key=1&amp;sql_query=
-                                {{- ('ALTER TABLE ' ~ backquote(table)
-                                    ~ ' ADD FULLTEXT(' ~ backquote(row['Field'])
-                                    ~ ');')|url_encode }}&amp;message_to_show=
-                                {{- ('An index has been added on %s.'|trans|format(row['Field']|e))|url_encode }}">
-                                {{ titles['IdxFulltext']|raw }}
+                            <a rel="samepage" class="ajax add_key add_fulltext_anchor" href="{{ url('/table/structure/add-key') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' ADD FULLTEXT(' ~ backquote(row['Field']) ~ ');',
+                              'message_to_show': 'An index has been added on %s.'|trans|format(row['Field']|e)
+                            }) }}">
+                              {{ get_icon('b_ftext', 'Fulltext'|trans) }}
                             </a>
                         {% else %}
-                            {{ titles['NoIdxFulltext']|raw }}
+                          {{ get_icon('bd_ftext', 'Fulltext'|trans) }}
                         {% endif %}
                         </li>
 
                         {# Distinct value action #}
                         <li class="browse nowrap">
-                            <a href="sql.php" data-post="{{ url_query|raw }}&amp;sql_query=
-                                {{- ('SELECT COUNT(*) AS ' ~ backquote('Rows'|trans)
-                                    ~ ', ' ~ backquote(row['Field'])
-                                    ~ ' FROM ' ~ backquote(table)
-                                    ~ ' GROUP BY ' ~ backquote(row['Field'])
-                                    ~ ' ORDER BY ' ~ backquote(row['Field']))|url_encode -}}
-                                &amp;is_browse_distinct=1">
-                                {{ titles['DistinctValues']|raw }}
+                            <a href="{{ url('/sql') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'SELECT COUNT(*) AS ' ~ backquote('Rows'|trans)
+                                ~ ', ' ~ backquote(row['Field'])
+                                ~ ' FROM ' ~ backquote(table)
+                                ~ ' GROUP BY ' ~ backquote(row['Field'])
+                                ~ ' ORDER BY ' ~ backquote(row['Field']),
+                              'is_browse_distinct': true
+                            }) }}">
+                              {{ get_icon('b_browse', 'Distinct values'|trans) }}
                             </a>
                         </li>
                         {% if central_columns_work %}
@@ -267,102 +266,56 @@
     </div>
     <div class="print_ignore">
         {% include 'select_all.twig' with {
-            'pma_theme_image': pma_theme_image,
+            'theme_image_path': theme_image_path,
             'text_dir': text_dir,
             'form_name': 'fieldsForm'
         } only %}
 
-        {{ get_button_or_image(
-            'submit_mult',
-            'mult_submit',
-            'Browse'|trans,
-            'b_browse',
-            'browse'
-        ) }}
+        <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/browse') }}">
+          {{ get_icon('b_browse', 'Browse'|trans) }}
+        </button>
 
         {% if not tbl_is_view and not db_is_system_schema %}
-            {{ get_button_or_image(
-                'submit_mult',
-                'mult_submit change_columns_anchor ajax',
-                'Change'|trans,
-                'b_edit',
-                'change'
-            ) }}
-            {{ get_button_or_image(
-                'submit_mult',
-                'mult_submit',
-                'Drop'|trans,
-                'b_drop',
-                'drop'
-            ) }}
+          <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/change') }}">
+            {{ get_icon('b_edit', 'Change'|trans) }}
+          </button>
+          <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/drop-confirm') }}">
+            {{ get_icon('b_drop', 'Drop'|trans) }}
+          </button>
 
-            {% if tbl_storage_engine != 'ARCHIVE' %}
-                {{ get_button_or_image(
-                    'submit_mult',
-                    'mult_submit',
-                    'Primary'|trans,
-                    'b_primary',
-                    'primary'
-                ) }}
-                {{ get_button_or_image(
-                    'submit_mult',
-                    'mult_submit',
-                    'Unique'|trans,
-                    'b_unique',
-                    'unique'
-                ) }}
-                {{ get_button_or_image(
-                    'submit_mult',
-                    'mult_submit',
-                    'Index'|trans,
-                    'b_index',
-                    'index'
-                ) }}
-                {{ get_button_or_image(
-                    'submit_mult',
-                    'mult_submit',
-                    'Fulltext'|trans,
-                    'b_ftext',
-                    'ftext'
-                ) }}
+          {% if tbl_storage_engine != 'ARCHIVE' %}
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/primary') }}">
+              {{ get_icon('b_primary', 'Primary'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/unique') }}">
+              {{ get_icon('b_unique', 'Unique'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/index') }}">
+              {{ get_icon('b_index', 'Index'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/spatial') }}">
+              {{ get_icon('b_spatial', 'Spatial'|trans) }}
+            </button>
+            <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/fulltext') }}">
+              {{ get_icon('b_ftext', 'Fulltext'|trans) }}
+            </button>
 
-                {% if tbl_storage_engine is not empty and (
-                    tbl_storage_engine == 'MYISAM'
-                    or tbl_storage_engine == 'ARIA'
-                    or tbl_storage_engine == 'MARIA') %}
-                    {{ get_button_or_image(
-                        'submit_mult',
-                        'mult_submit',
-                        'Fulltext'|trans,
-                        'b_ftext',
-                        'ftext'
-                    ) }}
-                {% endif %}
-
-                {% if central_columns_work %}
-                    {{ get_button_or_image(
-                        'submit_mult',
-                        'mult_submit',
-                        'Add to central columns'|trans,
-                        'centralColumns_add',
-                        'add_to_central_columns'
-                    ) }}
-                    {{ get_button_or_image(
-                        'submit_mult',
-                        'mult_submit',
-                        'Remove from central columns'|trans,
-                        'centralColumns_delete',
-                        'remove_from_central_columns'
-                    ) }}
-                {% endif %}
+            {% if central_columns_work %}
+              <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/central-columns-add') }}">
+                {{ get_icon('centralColumns_add', 'Add to central columns'|trans) }}
+              </button>
+              <button class="btn btn-link mult_submit" type="submit" formaction="{{ url('/table/structure/central-columns-remove') }}">
+                {{ get_icon('centralColumns_delete', 'Remove from central columns'|trans) }}
+              </button>
             {% endif %}
+          {% endif %}
         {% endif %}
     </div>
 </form>
 <hr class="print_ignore">
 <div id="move_columns_dialog" class="hide" title="{% trans 'Move columns' %}">
     <p>{% trans 'Move the columns by dragging them up and down.' %}</p>
-    <form action="tbl_structure.php" name="move_column_form" id="move_column_form">
+    <form action="{{ url('/table/structure/move-columns') }}" name="move_column_form" id="move_column_form">
         <div>
             {{ get_hidden_inputs(db, table) }}
             <ul></ul>
@@ -372,9 +325,8 @@
 {# Work on the table #}
 <div id="structure-action-links">
     {% if tbl_is_view and not db_is_system_schema %}
-        {% set edit_view_url = 'view_create.php' ~ edit_view_url %}
         {{ link_or_button(
-            edit_view_url,
+            url('/view/create', {'db': db, 'table': table}),
             get_icon('b_edit', 'Edit view'|trans, true)
         ) }}
     {% endif %}
@@ -382,39 +334,42 @@
     {% if not tbl_is_view and not db_is_system_schema %}
         {# Only display propose table structure for MySQL < 8.0 #}
         {% if mysql_int_version < 80000 or is_mariadb %}
-          <a href="sql.php" data-post="{{ url_query|raw }}&amp;session_max_rows=all&amp;sql_query=
-              {{- ('SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()')|url_encode -}}
-              " style="margin-right: 0;">
-              {{ get_icon(
-                  'b_tblanalyse',
-                  'Propose table structure'|trans,
-                  true
-              ) }}
+          <a class="mr-0" href="{{ url('/sql') }}" data-post="{{ get_common({
+            'db': db,
+            'table': table,
+            'sql_query': 'SELECT * FROM ' ~ backquote(table) ~ ' PROCEDURE ANALYSE()',
+            'session_max_rows': 'all'
+          }) }}">
+            {{ get_icon(
+              'b_tblanalyse',
+              'Propose table structure'|trans,
+              true
+            ) }}
           </a>
           {{ show_mysql_docu('procedure_analyse') }}
         {% endif %}
         {% if is_active %}
-            <a href="tbl_tracking.php{{ url_query|raw }}">
+            <a href="{{ url('/table/tracking', {'db': db, 'table': table}) }}">
                 {{ get_icon('eye', 'Track table'|trans, true) }}
             </a>
         {% endif %}
         <a href="#" id="move_columns_anchor">
             {{ get_icon('b_move', 'Move columns'|trans, true) }}
         </a>
-        <a href="normalization.php{{ url_query|raw }}">
+        <a href="{{ url('/normalization', {'db': db, 'table': table}) }}">
             {{ get_icon('normalize', 'Normalize'|trans, true) }}
         </a>
     {% endif %}
     {% if tbl_is_view and not db_is_system_schema %}
         {% if is_active %}
-            <a href="tbl_tracking.php{{ url_query|raw }}">
+            <a href="{{ url('/table/tracking', {'db': db, 'table': table}) }}">
                 {{ get_icon('eye', 'Track view'|trans, true) }}
             </a>
         {% endif %}
     {% endif %}
 </div>
 {% if not tbl_is_view and not db_is_system_schema %}
-    <form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns">
+    <form method="post" action="{{ url('/table/add-field') }}" id="addColumns" name="addColumns">
         {{ get_hidden_inputs(db, table) }}
         {% if show_icons('ActionLinksMode') %}
             {{ get_image('b_insrow', 'Add column'|trans) }}&nbsp;
@@ -440,10 +395,122 @@
     </form>
 {% endif %}
 
-{# Displays indexes #}
-{% if not tbl_is_view and not db_is_system_schema
-    and 'ARCHIVE' !=  tbl_storage_engine %}
-    {{ displayIndexesHtml|raw }}
+{% if not tbl_is_view and not db_is_system_schema and tbl_storage_engine != 'ARCHIVE' %}
+  <div id="index_div" class="w-100 ajax">
+    <fieldset class="index_info">
+      <legend id="index_header">
+        {% trans 'Indexes' %}
+        {{ show_mysql_docu('optimizing-database-structure') }}
+      </legend>
+
+      {% if indexes is not empty %}
+        {{ indexes_duplicates|raw }}
+
+        <div class="table-responsive jsresponsive">
+          <table class="table table-light table-striped table-hover table-sm" id="table_index">
+            <thead class="thead-light">
+              <tr>
+                <th colspan="3" class="print_ignore">{% trans 'Action' %}</th>
+                <th>{% trans 'Keyname' %}</th>
+                <th>{% trans 'Type' %}</th>
+                <th>{% trans 'Unique' %}</th>
+                <th>{% trans 'Packed' %}</th>
+                <th>{% trans 'Column' %}</th>
+                <th>{% trans 'Cardinality' %}</th>
+                <th>{% trans 'Collation' %}</th>
+                <th>{% trans 'Null' %}</th>
+                <th>{% trans 'Comment' %}</th>
+              </tr>
+            </thead>
+
+            {% for index in indexes %}
+              <tbody class="row_span">
+                {% set columns_count = index.getColumnCount() %}
+                <tr class="noclick">
+                <td rowspan="{{ columns_count }}" class="edit_index print_ignore ajax">
+                  <a class="ajax" href="{{ url('/table/indexes') }}" data-post="{{ get_common({
+                    'db': db,
+                    'table': table,
+                    'index': index.getName()
+                  }, '') }}">
+                    {{ get_icon('b_edit', 'Edit'|trans) }}
+                  </a>
+                </td>
+                <td rowspan="{{ columns_count }}" class="rename_index print_ignore ajax" >
+                  <a class="ajax" href="{{ url('/table/indexes/rename') }}" data-post="{{ get_common({
+                    'db': db,
+                    'table': table,
+                    'index': index.getName()
+                  }, '') }}">
+                    {{ get_icon('b_rename', 'Rename'|trans) }}
+                  </a>
+                </td>
+                <td rowspan="{{ columns_count }}" class="print_ignore">
+                  {% if index.getName() == 'PRIMARY' %}
+                    {% set index_params = {
+                      'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP PRIMARY KEY;',
+                      'message_to_show': 'The primary key has been dropped.'|trans
+                    } %}
+                  {% else %}
+                    {% set index_params = {
+                      'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP INDEX ' ~ backquote(index.getName()) ~ ';',
+                      'message_to_show': 'Index %s has been dropped.'|trans|format(index.getName())
+                    } %}
+                  {% endif %}
+
+                  <input type="hidden" class="drop_primary_key_index_msg" value="{{ index_params.sql_query|js_format(false) }}">
+                  {{ link_or_button(
+                    url('/sql', index_params|merge({'db': db, 'table': table})),
+                    get_icon('b_drop', 'Drop'|trans),
+                    {'class': 'drop_primary_key_index_anchor ajax'}
+                  ) }}
+                </td>
+                <th rowspan="{{ columns_count }}">{{ index.getName() }}</th>
+                <td rowspan="{{ columns_count }}">{{ index.getType()|default(index.getChoice()) }}</td>
+                <td rowspan="{{ columns_count }}">{{ index.isUnique() ? 'Yes'|trans : 'No'|trans }}</td>
+                <td rowspan="{{ columns_count }}">{{ index.isPacked()|raw }}</td>
+
+                {% for column in index.getColumns() %}
+                  {% if column.getSeqInIndex() > 1 %}
+                    <tr class="noclick">
+                  {% endif %}
+                  <td>
+                    {{ column.getName() }}
+                    {% if column.getSubPart() is not empty %}
+                      ({{ column.getSubPart() }})
+                    {% endif %}
+                  </td>
+                  <td>{{ column.getCardinality() }}</td>
+                  <td>{{ column.getCollation() }}</td>
+                  <td>{{ column.getNull(true) }}</td>
+
+                  {% if column.getSeqInIndex() == 1 %}
+                    <td rowspan="{{ columns_count }}">{{ index.getComments() }}</td>
+                  {% endif %}
+                  </tr>
+                {% endfor %}
+              </tbody>
+            {% endfor %}
+          </table>
+        </div>
+      {% else %}
+        <div class="no_indexes_defined">{{ 'No index defined!'|trans|notice }}</div>
+      {% endif %}
+    </fieldset>
+
+    <fieldset class="tblFooters print_ignore text-left">
+      <form action="{{ url('/table/indexes') }}" method="post">
+        {{ get_hidden_inputs(db, table) }}
+        <input type="hidden" name="create_index" value="1">
+
+        {% apply format('<input class="mx-2" type="number" name="added_fields" value="1" min="1" required>')|raw %}
+          {% trans %}Create an index on %s columns{% endtrans %}
+        {% endapply %}
+
+        <input class="btn btn-primary add_index ajax" type="submit" value="{% trans 'Go' %}">
+      </form>
+    </fieldset>
+  </div>
 {% endif %}
 
 {# Display partition details #}
@@ -461,32 +528,13 @@
             {% set first_sub_partition = sub_partitions[0] %}
         {% endif %}
 
-        {% set action_icons = {
-            'ANALYZE': get_icon('b_search', 'Analyze'|trans),
-            'CHECK': get_icon('eye', 'Check'|trans),
-            'OPTIMIZE': get_icon('normalize', 'Optimize'|trans),
-            'REBUILD': get_icon('s_tbl', 'Rebuild'|trans),
-            'REPAIR': get_icon('b_tblops', 'Repair'|trans),
-            'TRUNCATE': get_icon('b_empty', 'Truncate'|trans),
-        } %}
-        {% if range_or_list %}
-            {% set action_icons = action_icons|merge({'DROP': get_icon('b_drop', 'Drop'|trans)}) %}
-        {% endif %}
-
-        {# open Slider Effect div #}
-        {% include 'div_for_slider_effect.twig' with {
-            'id': 'partitions-2',
-            'message': 'Partitions'|trans,
-            'initial_sliders_state': default_sliders_state
-        } only %}
-
-        {% set remove_sql = 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING' %}
-        {% set remove_url = 'sql.php' ~ url_query ~ '&sql_query=' ~ remove_sql|url_encode %}
+        <div id="partitions-2"{% if default_sliders_state != 'disabled' -%}
+            {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Partitions' %}"
+        {%- endif %}>
 
         {% include 'table/structure/display_partitions.twig' with {
             'db': db,
             'table': table,
-            'url_query': url_query,
             'partitions': partitions,
             'partition_method': first_partition.getMethod(),
             'partition_expression': first_partition.getExpression(),
@@ -494,9 +542,7 @@
             'has_sub_partitions': has_sub_partitions,
             'sub_partition_method': has_sub_partitions ? first_sub_partition.getMethod(),
             'sub_partition_expression': has_sub_partitions ? first_sub_partition.getExpression(),
-            'action_icons': action_icons,
-            'range_or_list': range_or_list,
-            'remove_url': remove_url
+            'range_or_list': range_or_list
         } only %}
     {% else %}
         {% include 'table/structure/display_partitions.twig' with {
@@ -504,7 +550,6 @@
             'table': table
         } only %}
     {% endif %}
-    {# For closing Slider effect div #}
     </div>
 {% endif %}
 

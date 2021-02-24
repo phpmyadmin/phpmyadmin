@@ -1,48 +1,37 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Tests for methods in URL class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
+use function htmlentities;
 
-/**
- * Tests for methods in URL class
- *
- * @package PhpMyAdmin-test
- */
-class UrlTest extends TestCase
+class UrlTest extends AbstractTestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::setLanguage();
         unset($_COOKIE['pma_lang']);
     }
 
     /**
      * Test for Url::getCommon for DB only
-     *
-     * @return void
      */
-    public function testDbOnly()
+    public function testDbOnly(): void
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . htmlentities($separator) . 'lang=en' ;
+        $expected = 'server=x' . htmlentities($separator) . 'lang=en';
 
         $expected = '?db=db'
             . htmlentities($separator) . $expected;
@@ -52,16 +41,14 @@ class UrlTest extends TestCase
 
     /**
      * Test for Url::getCommon with new style
-     *
-     * @return void
      */
-    public function testNewStyle()
+    public function testNewStyle(): void
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . htmlentities($separator) . 'lang=en' ;
+        $expected = 'server=x' . htmlentities($separator) . 'lang=en';
 
         $expected = '?db=db'
             . htmlentities($separator) . 'table=table'
@@ -75,16 +62,14 @@ class UrlTest extends TestCase
 
     /**
      * Test for Url::getCommon with alternate divider
-     *
-     * @return void
      */
-    public function testWithAlternateDivider()
+    public function testWithAlternateDivider(): void
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = 'server=x' . $separator . 'lang=en' ;
+        $expected = 'server=x' . $separator . 'lang=en';
 
         $expected = '#ABC#db=db' . $separator . 'table=table' . $separator
             . $expected;
@@ -102,16 +87,33 @@ class UrlTest extends TestCase
 
     /**
      * Test for Url::getCommon
-     *
-     * @return void
      */
-    public function testDefault()
+    public function testDefault(): void
     {
         $GLOBALS['server'] = 'x';
         $GLOBALS['cfg']['ServerDefault'] = 'y';
 
         $separator = Url::getArgSeparator();
-        $expected = '?server=x' . htmlentities($separator) . 'lang=en' ;
+        $expected = '?server=x' . htmlentities($separator) . 'lang=en';
         $this->assertEquals($expected, Url::getCommon());
+    }
+
+    /**
+     * Test for Url::getFromRoute
+     */
+    public function testGetFromRoute(): void
+    {
+        unset($GLOBALS['server']);
+        $generatedUrl = Url::getFromRoute('/test', [
+            'db' => '%3\$s',
+            'table' => '%2\$s',
+            'field' => '%1\$s',
+            'change_column' => 1,
+        ]);
+        $this->assertEquals(
+            'index.php?route=/test&amp;db=%253%5C%24s&amp;table=%252%'
+            . '5C%24s&amp;field=%251%5C%24s&amp;change_column=1&amp;lang=en',
+            $generatedUrl
+        );
     }
 }

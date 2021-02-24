@@ -1,4 +1,4 @@
-<form action="tbl_indexes.php"
+<form action="{{ url('/table/indexes') }}"
     method="post"
     name="index_frm"
     id="index_frm"
@@ -36,14 +36,21 @@
                         </label>
                     </strong>
                 </div>
-                {{ index.generateIndexChoiceSelector(create_edit_table)|raw }}
+
+              <select name="index[Index_choice]" id="select_index_choice"{{ create_edit_table ? ' disabled' }}>
+                {% if index.getChoice() == 'PRIMARY' or not index.hasPrimary() %}
+                  <option value="PRIMARY"{{ index.getChoice() == 'PRIMARY' ? ' selected' }}>PRIMARY</option>
+                {% endif %}
+                <option value="INDEX"{{ index.getChoice() == 'INDEX' ? ' selected' }}>INDEX</option>
+                <option value="UNIQUE"{{ index.getChoice() == 'UNIQUE' ? ' selected' }}>UNIQUE</option>
+                <option value="SPATIAL"{{ index.getChoice() == 'SPATIAL' ? ' selected' }}>SPATIAL</option>
+                <option value="FULLTEXT"{{ index.getChoice() == 'FULLTEXT' ? ' selected' }}>FULLTEXT</option>
+              </select>
             </div>
 
-            {% include 'div_for_slider_effect.twig' with {
-                'id': 'indexoptions',
-                'message': 'Advanced Options'|trans,
-                'initial_sliders_state': default_sliders_state
-            } only %}
+            <div id="indexoptions"{% if default_sliders_state != 'disabled' -%}
+                {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Advanced options' %}"
+            {%- endif %}>
 
             <div>
                 <div class="label">
@@ -71,7 +78,12 @@
                         </label>
                     </strong>
                 </div>
-                {{ index.generateIndexTypeSelector()|raw }}
+
+              <select name="index[Index_type]" id="select_index_type">
+                {% for index_type in ['', 'BTREE', 'HASH'] %}
+                  <option value="{{ index_type }}"{{ index.getType() == index_type ? ' selected' }}>{{ index_type }}</option>
+                {% endfor %}
+              </select>
             </div>
 
             <div>
@@ -111,7 +123,7 @@
 
         <div class="clearfloat"></div>
 
-        <table id="index_columns">
+        <table class="pma-table" id="index_columns">
             <thead>
                 <tr>
                     <th></th>
@@ -215,9 +227,9 @@
                     value="{{ 'Add %s column(s) to index'|trans|format(1) }}">
             </div>
         </div>
+        </div>
     </fieldset>
     <fieldset class="tblFooters">
         <button class="btn btn-secondary" type="submit" id="preview_index_frm">{% trans 'Preview SQL' %}</button>
-        <input class="btn btn-primary" type="submit" id="save_index_frm" value="{% trans 'Go' %}">
     </fieldset>
 </form>

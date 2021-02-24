@@ -1,10 +1,5 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for PhpMyAdmin\ErrorReport
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
@@ -14,28 +9,27 @@ use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
-use PHPUnit\Framework\TestCase;
-use ReflectionClass;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
+use function define;
+use function defined;
+use function json_encode;
+use function phpversion;
 
 /**
  * PhpMyAdmin\Tests\ErrorReportTest class
  *
  * this class is for testing PhpMyAdmin\ErrorReport methods
- *
- * @package PhpMyAdmin-test
  */
-class ErrorReportTest extends TestCase
+class ErrorReportTest extends AbstractTestCase
 {
-    /**
-     * @var ErrorReport $errorReport
-     */
+    /** @var ErrorReport $errorReport */
     private $errorReport;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ProxyUrl'] = '';
@@ -61,9 +55,6 @@ class ErrorReportTest extends TestCase
         $this->errorReport->setSubmissionUrl('http://localhost');
     }
 
-    /**
-     * @return void
-     */
     public function testGetData(): void
     {
         $actual = $this->errorReport->getData('unknown');
@@ -117,9 +108,6 @@ class ErrorReportTest extends TestCase
         $this->assertEquals($report, $actual);
     }
 
-    /**
-     * @return void
-     */
     public function testSend(): void
     {
         $submissionUrl = 'http://localhost';
@@ -133,10 +121,10 @@ class ErrorReportTest extends TestCase
             ->method('create')
             ->with(
                 $submissionUrl,
-                "POST",
+                'POST',
                 false,
                 json_encode($report),
-                "Content-Type: application/json"
+                'Content-Type: application/json'
             )
             ->willReturn($return);
 
@@ -147,9 +135,6 @@ class ErrorReportTest extends TestCase
         $this->assertEquals($return, $this->errorReport->send($report));
     }
 
-    /**
-     * @return void
-     */
     public function testGetForm(): void
     {
         $_POST['exception'] = [];
@@ -183,7 +168,7 @@ class ErrorReportTest extends TestCase
                     'context' => $context,
                 ],
             ],
-            'url' => 'http://pma.7.3.local/tbl_sql.php?db=aaaaa&table=a&server=14',
+            'url' => 'http://pma.7.3.local/index.php?route=/table/sql&db=aaaaa&table=a&server=14',
         ];
         $_POST['microhistory'] = '';
         $_POST['description'] = 'description';
@@ -198,7 +183,7 @@ class ErrorReportTest extends TestCase
             'locale' => $_COOKIE['pma_lang'],
             'configuration_storage' => 'disabled',
             'php_version' => phpversion(),
-            'script_name' => 'tbl_sql.php',
+            'script_name' => 'index.php',
             'exception_type' => 'js',
             'exception' => [
                 'mode' => 'stack',
@@ -214,7 +199,7 @@ class ErrorReportTest extends TestCase
                         'scriptname' => 'js/vendor/codemirror/addon/hint/show-hint.js',
                     ],
                 ],
-                'uri' => 'tbl_sql.php?',
+                'uri' => 'index.php?route=%2Ftable%2Fsql',
             ],
             'microhistory' => $_POST['microhistory'],
             'steps' => $_POST['description'],
@@ -223,22 +208,6 @@ class ErrorReportTest extends TestCase
 
         $form = $this->errorReport->getForm();
         $this->assertStringContainsString('<pre class="report-data">' . $expectedData . '</pre>', $form);
-    }
-
-    /**
-     * Call private functions by setting visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the private method.
-     */
-    private function _callPrivateFunction($name, $params)
-    {
-        $class = new ReflectionClass(ErrorReport::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-        return $method->invokeArgs($this->errorReport, $params);
     }
 
     /**
@@ -311,14 +280,22 @@ class ErrorReportTest extends TestCase
     /**
      * Test the url sanitization
      *
-     * @dataProvider urlsToSanitize
      * @param string $url    The url to test
      * @param array  $result The result
-     * @return void
+     *
+     * @dataProvider urlsToSanitize
      */
     public function testSanitizeUrl(string $url, array $result): void
     {
         // $this->errorReport->sanitizeUrl
-        $this->assertSame($result, $this->_callPrivateFunction('sanitizeUrl', [$url]));
+        $this->assertSame(
+            $result,
+            $this->callFunction(
+                $this->errorReport,
+                ErrorReport::class,
+                'sanitizeUrl',
+                [$url]
+            )
+        );
     }
 }

@@ -1,30 +1,30 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * File for vendor customisation, you can change here paths or some behaviour,
+ * File for vendor customization, you can change here paths or some behaviour,
  * which vendors such as Linux distributions might want to change.
  *
  * For changing this file you should know what you are doing. For this reason
  * options here are not part of normal configuration.
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
+// phpcs:disable PSR1.Files.SideEffects
 if (! defined('PHPMYADMIN')) {
     exit;
 }
+// phpcs:enable
 
 /**
  * Path to vendor autoload file. Useful when you want to
  * have have vendor dependencies somewhere else.
  */
-define('AUTOLOAD_FILE', ROOT_PATH . 'vendor/autoload.php');
+define('AUTOLOAD_FILE', ROOT_PATH . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php');
 
 /**
  * Directory where cache files are stored.
  */
-define('TEMP_DIR', ROOT_PATH . 'tmp/');
+define('TEMP_DIR', ROOT_PATH . 'tmp' . DIRECTORY_SEPARATOR);
 
 /**
  * Path to changelog file, can be gzip compressed. Useful when you want to
@@ -41,7 +41,7 @@ define('LICENSE_FILE', ROOT_PATH . 'LICENSE');
 /**
  * Directory where SQL scripts to create/upgrade configuration storage reside.
  */
-define('SQL_DIR', ROOT_PATH . 'sql/');
+define('SQL_DIR', ROOT_PATH . 'sql' . DIRECTORY_SEPARATOR);
 
 /**
  * Directory where configuration files are stored.
@@ -73,10 +73,14 @@ define('VERSION_CHECK_DEFAULT', true);
 /**
  * Path to files with compiled locales (*.mo)
  */
-define('LOCALE_PATH', ROOT_PATH . 'locale/');
+define('LOCALE_PATH', ROOT_PATH . 'locale' . DIRECTORY_SEPARATOR);
 
 /**
- * Avoid referring to nonexistent files (causes warnings when open_basedir
- * is used)
+ * Define the cache directory for routing cache an other cache files
  */
-define('K_PATH_IMAGES', ROOT_PATH);
+define('CACHE_DIR', ROOT_PATH . 'libraries' . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR);
+
+/**
+ * Suffix to add to the phpMyAdmin version
+ */
+define('VERSION_SUFFIX', '');

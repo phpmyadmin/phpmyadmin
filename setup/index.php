@@ -1,11 +1,8 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Front controller for setup script
- *
- * @package PhpMyAdmin-Setup
- * @license https://www.gnu.org/licenses/gpl.html GNU GPL 2.0
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Setup\ConfigController;
@@ -17,7 +14,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
 if (! defined('ROOT_PATH')) {
+    // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+    // phpcs:enable
 }
 
 global $cfg;
@@ -28,7 +27,7 @@ if (@file_exists(CONFIG_FILE) && ! $cfg['DBG']['demo']) {
     Core::fatalError(__('Configuration already exists, setup is disabled!'));
 }
 
-$page = Core::isValid($_GET['page'], 'scalar') ? (string) $_GET['page'] : null;
+$page = Core::isValid($_GET['page'], 'scalar') ? (string) $_GET['page'] : '';
 $page = preg_replace('/[^a-z]/', '', $page);
 if ($page === '') {
     $page = 'index';
@@ -41,31 +40,43 @@ if ($page === 'form') {
     echo $controller->index([
         'formset' => $_GET['formset'] ?? null,
     ]);
-} elseif ($page === 'config') {
+
+    return;
+}
+
+if ($page === 'config') {
     $controller = new ConfigController($GLOBALS['ConfigFile'], new Template());
     echo $controller->index([
         'formset' => $_GET['formset'] ?? null,
         'eol' => $_GET['eol'] ?? null,
     ]);
-} elseif ($page === 'servers') {
+
+    return;
+}
+
+if ($page === 'servers') {
     $controller = new ServersController($GLOBALS['ConfigFile'], new Template());
-    if (isset($_GET['mode']) && $_GET['mode'] === 'remove' && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_GET['mode']) && $_GET['mode'] === 'remove' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $controller->destroy([
             'id' => $_GET['id'] ?? null,
         ]);
         header('Location: index.php' . Url::getCommonRaw());
-    } else {
-        echo $controller->index([
-            'formset' => $_GET['formset'] ?? null,
-            'mode' => $_GET['mode'] ?? null,
-            'id' => $_GET['id'] ?? null,
-        ]);
+
+        return;
     }
-} else {
-    $controller = new HomeController($GLOBALS['ConfigFile'], new Template());
+
     echo $controller->index([
         'formset' => $_GET['formset'] ?? null,
-        'action_done' => $_GET['action_done'] ?? null,
-        'version_check' => $_GET['version_check'] ?? null,
+        'mode' => $_GET['mode'] ?? null,
+        'id' => $_GET['id'] ?? null,
     ]);
+
+    return;
 }
+
+$controller = new HomeController($GLOBALS['ConfigFile'], new Template());
+echo $controller->index([
+    'formset' => $_GET['formset'] ?? null,
+    'action_done' => $_GET['action_done'] ?? null,
+    'version_check' => $_GET['version_check'] ?? null,
+]);

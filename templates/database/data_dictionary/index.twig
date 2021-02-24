@@ -11,7 +11,7 @@
         <p>{% trans 'Table comments:' %} <em>{{ table.comment }}</em></p>
       {% endif %}
 
-      <table class="print">
+      <table class="pma-table print">
         <tr>
           <th>{% trans 'Column' %}</th>
           <th>{% trans 'Type' %}</th>
@@ -22,7 +22,7 @@
           {% endif %}
           <th>{% trans 'Comments' %}</th>
           {% if table.has_mime %}
-            <th>{% trans 'Media (MIME) type' %}</th>
+            <th>{% trans 'Media type' %}</th>
           {% endif %}
         </tr>
         {% for column in table.columns %}
@@ -55,7 +55,60 @@
         {% endfor %}
       </table>
 
-      {{ table.indexes_table|raw }}
+      {% if table.indexes is not empty %}
+        <h3>{% trans 'Indexes' %}</h3>
+
+        <div class="responsivetable jsresponsive">
+          <table class="pma-table" id="table_index">
+            <thead>
+              <tr>
+                <th>{% trans 'Keyname' %}</th>
+                <th>{% trans 'Type' %}</th>
+                <th>{% trans 'Unique' %}</th>
+                <th>{% trans 'Packed' %}</th>
+                <th>{% trans 'Column' %}</th>
+                <th>{% trans 'Cardinality' %}</th>
+                <th>{% trans 'Collation' %}</th>
+                <th>{% trans 'Null' %}</th>
+                <th>{% trans 'Comment' %}</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for index in table.indexes %}
+                {% set columns_count = index.getColumnCount() %}
+                <tr>
+                  <td rowspan="{{ columns_count }}">{{ index.getName() }}</td>
+                  <td rowspan="{{ columns_count }}">{{ index.getType()|default(index.getChoice()) }}</td>
+                  <td rowspan="{{ columns_count }}">{{ index.isUnique() ? 'Yes'|trans : 'No'|trans }}</td>
+                  <td rowspan="{{ columns_count }}">{{ index.isPacked()|raw }}</td>
+
+                  {% for column in index.getColumns() %}
+                    {% if column.getSeqInIndex() > 1 %}
+                      <tr>
+                    {% endif %}
+                    <td>
+                      {{ column.getName() }}
+                      {% if column.getSubPart() is not empty %}
+                        ({{ column.getSubPart() }})
+                      {% endif %}
+                    </td>
+                    <td>{{ column.getCardinality() }}</td>
+                    <td>{{ column.getCollation() }}</td>
+                    <td>{{ column.getNull(true) }}</td>
+
+                    {% if column.getSeqInIndex() == 1 %}
+                      <td rowspan="{{ columns_count }}">{{ index.getComments() }}</td>
+                    {% endif %}
+                </tr>
+                  {% endfor %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p>{% trans 'No index defined!' %}</p>
+      {% endif %}
     </div>
   {% endfor %}
 </div>

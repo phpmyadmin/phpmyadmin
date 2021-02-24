@@ -1,6 +1,113 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.1.0 (2021-02-24)
+- issue #15350 Change Media (MIME) type references to Media type
+- issue #15377 Add a request router
+- issue        Automatically focus input in the two-factor authentication window
+- issue #15509 Replace gender-specific pronouns with gender-neutral pronouns
+- issue #15491 Improve complexity of generated passwords
+- issue #14909 Add a configuration option to define the 1st day of week
+- issue #12726 Made user names clickable in user accounts overview
+- issue #15729 Improve virtuality dropdown for MariaDB > 10.1
+- issue #15312 Added an option to perform ALTER ONLINE (ALGORITHM=INPLACE) when editing a table structure
+- issue        Added missing 'IF EXISTS' to 'DROP EVENT' when exporting databases
+- issue #15232 Improve the padding in query result tool links
+- issue #15064 Support exporting raw SQL queries
+- issue #15555 Added ip2long transformation
+- issue #15194 Fixed horizontal scroll on structure edit page
+- issue #14820 Move table hide buttons in navigation to avoid hiding a table by mistake
+- issue #14947 Use correct MySQL version if the version is 8.0 or above for documentation links
+- issue #15790 Use "MariaDB Documentation" instead of "MySQL Documentation" on a MariaDB server
+- issue #15880 Change "Show Query" link to a button
+- issue #13371 Automatically toggle the radio button to "Create a page and save it" on Designer
+- issue #12969 Tap and hold will not dismiss the error box anymore, you can now copy the error
+- issue #15582 Don't disable "Empty" table button after clicking it
+- issue #15662 Stay on the structure page after editing/adding/dropping indexes
+- issue #15663 show structure after adding a column
+- issue #16005 Remove symfony/yaml dependency
+- issue #16005 Improve performance of dependency injection system by removing yaml parsing
+- issue #15447 Disable phpMyAdmin storage database checkbox on databases list
+- issue #16001 Add autocomplete attributes on login form
+- issue #13519 Add "Preview SQL" option on Index dialog box when creating a new table
+- issue #15954 Fixed export maximal length of created query input is too small
+- issue        Redesign the server status advisor page
+- issue #13124 Use same height for SQL query textarea and Columns select in SQL page
+- issue #16005 Add a new vendor constant "CACHE_DIR" that defaults to "libraries/cache/" and store routing cache into this folder
+- issue #16005 Warm-up the routing cache before building the release
+- issue #16005 Use --optimize-autoloader when installing composer vendors before building the release
+- issue #15992 Add back the table name to the printable version on "Structure" page
+- issue #14815 Allow simplifying exported view syntax to only "CREATE VIEW"
+- issue #15496 Add $cfg['CaptchaSiteVerifyURL'] for Google ReCaptcha siteVerifyUrl
+- issue #14772 Add the password_hash PHP function as an option when inserting data
+- issue #15136 Add a notice for Hex converter giving invalid results
+- issue #16139 Use a textarea for JSON columns
+- issue #16223 Make JSON input transformation editor less narrow
+- issue #14340 Add a button on Export Page to show the SQL Query
+- issue #16304 Add support for INET6 column type
+- issue #16337 Fix example insert/update query default values
+- issue #12961 Remove indexes from table relation
+- issue #13557 Use a full list of functions instead of a separated one on insert/edit page "Function" selector
+- issue #14795 Include routines in the export in a predictable order
+- issue #16227 Fixed autocomplete is not working in case the table name is quoted by "`" symbols
+- issue #15463 Force BINARY comparison when looking at privileges to avoid an SQL error on privileges tab
+- issue #16430 Fixed Windows error message uses trailing / instead of \
+- issue #16316 Added support for "SameSite=Strict" on cookies using configuration "$cfg['CookieSameSite']"
+- issue #16451 Fixed AWS RDS IAM authentication doesn't work because pma_password is truncated
+- issue #16451 Show an error message when the security limit is reached instead of silently trimming the password to avoid confusion
+- issue #15001 Add back Login Cookie Validity setting to the features form
+- issue #16457 Add config parameters to support third-party ReCaptcha v2 compatible APIs like hCaptcha
+- issue #13077 Moved tools section to left on large devices (Bootstrap xl)
+- issue #15711 Moved some buttons to left on large devices (Bootstrap xl)
+- issue #15584 Add $cfg['MysqlSslWarningSafeHosts'] to set the red text black when ssl is not used on a private network
+- issue #15652 Replace deprecated FOUND_ROWS() function call on "distinct values" feature
+- issue        Export blobs as hex on JSON export
+- issue #16095 Fix leading space not shown in a CHAR column when browsing a table
+- issue        Make procedures/functions SQL editor both side scrollable
+- issue #16407 Bump pragmarx/google2fa conflict to >8.0
+- issue #14953 Added a rename Button to use RENAME INDEX syntax of MySQL 5.7 (and MariaDB >= 10.5.2)
+- issue #16477 Fixed no Option to enter TABLE specific permissions when the database name contains an "_" (underscore)
+- issue #16498 Fixed empty text not appearing after deleting all Routines
+- issue #16467 Fixed a PHP notice "Trying to access array offset on value of type null" on Designer PDF export
+- issue #15658 Fixed saving UI displayed columns on a non database request fails
+- issue #16495 Fix drop tables checkbox is above the checkbox for foreign keys
+- issue #16485 Fix visual query builder missing "Build Query" button
+- issue #16565 Added 'IF EXISTS' to 'DROP EVENT' when updating events to avoid replication issues
+- issue        Removed metro fonts that where Apache-2.0 files that are incompatible with GPL-2.0
+- issue #16464 Made the relation view default to the current database when creating relations
+- issue #16463 Fixed 'REFERENCES' privilege checkbox's title on new MySQL versions and on MariaDB
+- issue #16405 Added jest as a Unit Testing tool for our javascript code
+- issue #16252 Fixed the too small font size when editing rows (textareas)
+- issue #16585 Fixed BLOB to JPG transformation PHP errors
+- issue        Made the console setup async to avoid blocking the page render
+- issue #16429 Use PHP 8.0 fixed version (commit) for TCPDF
+- issue #16005 Major performance improvements on browsing a lot of rows
+- issue #16595 Fixed editing columns having a `_` in their name in specific conditions
+- issue #16608 Fix "Sort by key" restore auto saved value
+- issue #16611 Fixed unable to add tables to rename aliases twice on Export
+- issue #16621 Fixed link HTML messed up in Advisor
+- issue #16622 Fixed Advisor formatting incorrect for long_query_time notice
+- issue #15389 Fixed reset current page indicator after deleting all rows to current page and not page 1
+- issue #15997 Fixed auto save query
+- issue #15997 Made auto saved query database or database+table independent
+- issue #16641 Fixed query generation that was allowing JSON to have a length
+- issue #15994 Fixed the selected value detection for "on update current_timestamp"
+- issue #16614 Fixed PHP 8.0 dataseek offset call to the MySQLI extension
+- issue #16662 Fixed Uncaught TypeError on "delete" button click of a database search results page
+- issue        Fixed Undefined index: selected_usr when the user tried to delete no selected user
+- issue #16657 Fixed the QBE interface when the configuration storage is not enabled
+- issue #16479 Fix our Selenium test-suite
+- issue #16669 Fixed table search modal for BETWEEN
+- issue #16667 Fixed LIKE and TINYINT in search not working properly
+- issue #16424 Fixed numerical search in table and zoom
+- issue        Improve the version handling (new Version class) and add a VERSION_SUFFIX for vendors
+- issue #14494 Fix uncaught TypeError when editing partitioning
+- issue #16525 Fix PHP 8.0 failing tests when comparing 0 to ''
+- issue #16429 Fixed PHP 8.0 errors on preg_replace and operand types
+- issue #16490 Fixed PHP 8.0 function libxml_disable_entity_loader() is deprecated
+- issue #16429 Fixed failing unit tests on PHP 8.0
+- issue #16609 Fixed Sql.rearrangeStickyColumns is not a function
+
 5.0.4 (2020-10-15)
 - issue #16245 Fix failed Zoom search clears existing values
 - issue        Fixed a PHP error when reporting a particular JS error

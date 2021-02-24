@@ -1,4 +1,4 @@
-<h2>{% trans 'Available media (MIME) types' %}</h2>
+<h2>{% trans 'Available media types' %}</h2>
 
 <ul>
   {% for mime_type in mime_types %}
@@ -12,11 +12,11 @@
 
 <h2 id="transformation">{% trans 'Available browser display transformations' %}</h2>
 
-<table>
+<table class="pma-table">
   <thead>
     <tr>
       <th>{% trans 'Browser display transformation' %}</th>
-      <th>{% trans %}Description{% context %}for media (MIME) type transformation{% endtrans %}</th>
+      <th>{% trans %}Description{% context %}for media type transformation{% endtrans %}</th>
     </tr>
   </thead>
   <tbody>
@@ -31,11 +31,11 @@
 
 <h2 id="input_transformation">{% trans 'Available input transformations' %}</h2>
 
-<table>
+<table class="pma-table">
   <thead>
     <tr>
       <th>{% trans 'Input transformation' %}</th>
-      <th>{% trans %}Description{% context %}for media (MIME) type transformation{% endtrans %}</th>
+      <th>{% trans %}Description{% context %}for media type transformation{% endtrans %}</th>
     </tr>
   </thead>
   <tbody>

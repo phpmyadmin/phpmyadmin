@@ -1,11 +1,8 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Text Plain JSON Transformations plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Output;
@@ -13,30 +10,27 @@ namespace PhpMyAdmin\Plugins\Transformations\Output;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Response;
 use stdClass;
+use function htmlspecialchars;
 
 /**
  * Handles the json transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage JSON
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Json extends TransformationsPlugin
 {
-    /**
-     * No-arg constructor
-     */
     public function __construct()
     {
-        if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {
-            $response = Response::getInstance();
-            $scripts = $response->getHeader()
-                ->getScripts();
-            $scripts->addFile('vendor/codemirror/lib/codemirror.js');
-            $scripts->addFile('vendor/codemirror/mode/javascript/javascript.js');
-            $scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
-            $scripts->addFile('transformations/json.js');
+        if (empty($GLOBALS['cfg']['CodemirrorEnable'])) {
+            return;
         }
+
+        $response = Response::getInstance();
+        $scripts = $response->getHeader()
+            ->getScripts();
+        $scripts->addFile('vendor/codemirror/lib/codemirror.js');
+        $scripts->addFile('vendor/codemirror/mode/javascript/javascript.js');
+        $scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
+        $scripts->addFile('transformations/json.js');
     }
 
     /**
@@ -76,7 +70,7 @@ class Text_Plain_Json extends TransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -86,7 +80,7 @@ class Text_Plain_Json extends TransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 
     /**
@@ -96,6 +90,6 @@ class Text_Plain_Json extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "JSON";
+        return 'JSON';
     }
 }

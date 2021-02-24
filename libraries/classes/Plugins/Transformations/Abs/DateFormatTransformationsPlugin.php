@@ -1,11 +1,8 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the date format transformations plugins
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage DateFormat
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
@@ -14,11 +11,18 @@ use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 use stdClass;
+use function checkdate;
+use function gmdate;
+use function htmlspecialchars;
+use function mb_strlen;
+use function mb_strtolower;
+use function mb_substr;
+use function mktime;
+use function preg_match;
+use function strtotime;
 
 /**
  * Provides common methods for all of the date format transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
 {
@@ -62,7 +66,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         $options[2] = mb_strtolower($options[2]);
 
         if (empty($options[1])) {
-            if ($options[2] == 'local') {
+            if ($options[2] === 'local') {
                 $options[1] = __('%B %d, %Y at %I:%M %p');
             } else {
                 $options[1] = 'Y-m-d  H:i:s';
@@ -74,7 +78,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         // INT columns will be treated as UNIX timestamps
         // and need to be detected before the verification for
         // MySQL TIMESTAMP
-        if ($meta->type == 'int') {
+        if ($meta->type === 'int') {
             $timestamp = $buffer;
 
             // Detect TIMESTAMP(6 | 8 | 10 | 12 | 14)
@@ -127,16 +131,17 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         if ($timestamp >= 0) {
             $timestamp -= (int) $options[0] * 60 * 60;
             $source = $buffer;
-            if ($options[2] == 'local') {
+            if ($options[2] === 'local') {
                 $text = Util::localisedDate(
                     $timestamp,
                     $options[1]
                 );
-            } elseif ($options[2] == 'utc') {
+            } elseif ($options[2] === 'utc') {
                 $text = gmdate($options[1], $timestamp);
             } else {
                 $text = 'INVALID DATE TYPE';
             }
+
             return '<dfn onclick="alert(\'' . Sanitize::jsFormat($source, false) . '\');" title="'
                 . htmlspecialchars((string) $source) . '">' . htmlspecialchars((string) $text) . '</dfn>';
         }
@@ -153,6 +158,6 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Date Format";
+        return 'Date Format';
     }
 }

@@ -1,76 +1,66 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Selenium TestCase for table related tests
- *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium\Table;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use function sleep;
 
 /**
  * CreateTest class
  *
- * @package    PhpMyAdmin-test
- * @subpackage Selenium
  * @group      selenium
  */
 class CreateTest extends TestBase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
-        $this->maximize();
 
         $this->login();
         $this->waitForElement('partialLinkText', 'Databases')->click();
         $this->waitAjax();
 
         // go to specific database page
-        $this->waitForElement('partialLinkText', $this->database_name)->click();
+        $this->waitForElement('partialLinkText', $this->databaseName)->click();
     }
 
     /**
      * Creates a table
      *
-     * @return void
-     *
      * @group large
      */
-    public function testCreateTable()
+    public function testCreateTable(): void
     {
         $this->waitAjax();
         $this->waitAjax();
 
         $this->waitForElement('id', 'create_table_form_minimal');
         $this->byCssSelector(
-            "form#create_table_form_minimal input[name=table]"
-        )->sendKeys("test_table");
-        $this->byName("num_fields")->clear();
-        $this->byName("num_fields")->sendKeys("4");
+            'form#create_table_form_minimal input[name=table]'
+        )->sendKeys('test_table');
+        $this->byName('num_fields')->clear();
+        $this->byName('num_fields')->sendKeys('4');
         $this->byCssSelector('input[value=Go]')->click();
 
         $this->waitAjax();
         $this->waitForElement('name', 'do_save_data');
 
-        $this->waitForElement('id', "field_1_7")->click(); // null
-        $this->waitForElement('id', "field_0_9")->click(); // auto increment
+        $this->waitForElement('id', 'field_1_7')->click(); // null
+        $this->waitForElement('id', 'field_0_9')->click(); // auto increment
 
         // column details
         $column_text_details = [
-            "field_0_1" => "test_id",
-            "field_0_3" => "14",
-            "field_0_10" => "comm1",
-            "field_1_1" => "test_column",
-            "field_1_3" => "10",
-            "field_1_10" => "comm2",
+            'field_0_1' => 'test_id',
+            'field_0_3' => '14',
+            'field_0_10' => 'comm1',
+            'field_1_1' => 'test_column',
+            'field_1_3' => '10',
+            'field_1_10' => 'comm2',
         ];
 
         foreach ($column_text_details as $field => $val) {
@@ -78,10 +68,10 @@ class CreateTest extends TestBase
         }
 
         $column_dropdown_details = [
-            "field_0_6" => "UNSIGNED",
-            "field_1_2" => "VARCHAR",
-            "field_1_5" => "utf8_general_ci",
-            "field_1_4" => "As defined:",
+            'field_0_6' => 'UNSIGNED',
+            'field_1_2' => 'VARCHAR',
+            'field_1_5' => 'utf8_general_ci',
+            'field_1_4' => 'As defined:',
         ];
 
         foreach ($column_dropdown_details as $selector => $value) {
@@ -91,10 +81,10 @@ class CreateTest extends TestBase
             )->click();
         }
 
-        $this->byName("field_default_value[1]")->sendKeys("def");
+        $this->byName('field_default_value[1]')->sendKeys('def');
 
         $this->scrollToBottom();
-        $ele = $this->waitForElement('name', "do_save_data");
+        $ele = $this->waitForElement('name', 'do_save_data');
         $this->moveto($ele);
         // post
         $ele->click();
@@ -105,63 +95,58 @@ class CreateTest extends TestBase
 
         $this->waitAjax();
 
-        $this->waitForElement('partialLinkText', "test_table");
-
-        $this->_tableStructureAssertions();
+        $this->waitForElement('partialLinkText', 'test_table');
+        sleep(1);
+        $this->tableStructureAssertions();
     }
 
     /**
      * Make assertions for table structure
-     *
-     * @return void
      */
-    private function _tableStructureAssertions()
+    private function tableStructureAssertions(): void
     {
-        $this->gotoHomepage();
-        $this->waitAjax();
-
-        $this->navigateTable('test_table');
+        $this->navigateTable('test_table', true);
 
         $this->waitAjax();
 
         // go to structure page
-        $this->waitForElement('partialLinkText', "Structure")->click();
+        $this->waitForElement('partialLinkText', 'Structure')->click();
 
-        $this->waitForElement('id', "tablestructure");
-        $this->waitForElement('id', 'table_strucuture_id');
+        $this->waitForElement('id', 'tablestructure');
+        $this->waitForElement('id', 'table_structure_id');
 
         // make assertions for first row
         $this->assertStringContainsString(
-            "test_id",
+            'test_id',
             $this->byCssSelector('label[for=checkbox_row_1]')->getText()
         );
 
         $this->assertEquals(
-            "int(14)",
+            'int(14)',
             $this->getCellByTableId('tablestructure', 1, 4)
         );
 
         $this->assertEquals(
-            "UNSIGNED",
+            'UNSIGNED',
             $this->getCellByTableId('tablestructure', 1, 6)
         );
 
         $this->assertEquals(
-            "No",
+            'No',
             $this->getCellByTableId('tablestructure', 1, 7)
         );
 
         $this->assertEquals(
-            "None",
+            'None',
             $this->getCellByTableId('tablestructure', 1, 8)
         );
         $this->assertEquals(
-            "comm1",
+            'comm1',
             $this->getCellByTableId('tablestructure', 1, 9)
         );
 
         $this->assertEquals(
-            "AUTO_INCREMENT",
+            'AUTO_INCREMENT',
             $this->getCellByTableId('tablestructure', 1, 10)
         );
 
@@ -175,27 +160,27 @@ class CreateTest extends TestBase
 
         // make assertions for second row
         $this->assertStringContainsString(
-            "test_column",
+            'test_column',
             $this->byCssSelector('label[for=checkbox_row_2]')->getText()
         );
 
         $this->assertEquals(
-            "varchar(10)",
+            'varchar(10)',
             $this->getCellByTableId('tablestructure', 2, 4)
         );
 
         $this->assertEquals(
-            "utf8_general_ci",
+            'utf8_general_ci',
             $this->getCellByTableId('tablestructure', 2, 5)
         );
 
         $this->assertEquals(
-            "Yes",
+            'Yes',
             $this->getCellByTableId('tablestructure', 2, 7)
         );
 
         $this->assertEquals(
-            "def",
+            'def',
             $this->getCellByTableId('tablestructure', 2, 8)
         );
 

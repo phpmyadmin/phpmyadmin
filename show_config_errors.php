@@ -1,14 +1,14 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Simple wrapper just to enable error reporting and include config
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 if (! defined('ROOT_PATH')) {
+    // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+    // phpcs:enable
 }
 
 // rfc2616 - Section 14.21
@@ -19,7 +19,7 @@ header(
     . '  pre-check=0, post-check=0, max-age=0'
 );
 if (isset($_SERVER['HTTP_USER_AGENT'])
-    && stristr($_SERVER['HTTP_USER_AGENT'], 'MSIE')
+    && stripos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false
 ) {
     /* FIXME: Why is this special case for IE needed? */
     header('Pragma: public');
@@ -31,6 +31,10 @@ if (isset($_SERVER['HTTP_USER_AGENT'])
     header('Last-Modified: ' . gmdate(DATE_RFC1123));
 }
 header('Content-Type: text/html; charset=utf-8');
+
+// phpcs:disable PSR1.Files.SideEffects
+define('PHPMYADMIN', true);
+// phpcs:enable
 
 require ROOT_PATH . 'libraries/vendor_config.php';
 

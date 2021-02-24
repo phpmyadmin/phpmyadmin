@@ -1,27 +1,20 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportOds class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportOds;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * Tests for PhpMyAdmin\Plugins\Import\ImportOds class
- *
- * @package PhpMyAdmin-test
+ * @requires extension zip
  */
-class ImportOdsTest extends PmaTestCase
+class ImportOdsTest extends AbstractTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @var ImportOds */
     protected $object;
 
     /**
@@ -29,12 +22,13 @@ class ImportOdsTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
-        $GLOBALS['plugin_param'] = "csv";
+        $GLOBALS['plugin_param'] = 'csv';
         $this->object = new ImportOds();
 
         //setting
@@ -50,9 +44,6 @@ class ImportOdsTest extends PmaTestCase
         */
         $GLOBALS['read_multiply'] = 10;
         $GLOBALS['import_type'] = 'ods';
-        $GLOBALS['import_handle'] = new File($GLOBALS['import_file']);
-        $GLOBALS['import_handle']->setDecompressContent(true);
-        $GLOBALS['import_handle']->open();
 
         //variable for Ods
         $_REQUEST['ods_recognize_percentages'] = true;
@@ -65,21 +56,19 @@ class ImportOdsTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for getProperties
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetProperties()
+    public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
         $this->assertEquals(
@@ -99,11 +88,9 @@ class ImportOdsTest extends PmaTestCase
     /**
      * Test for doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImport()
+    public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
@@ -111,15 +98,19 @@ class ImportOdsTest extends PmaTestCase
         $sql_query_disabled = false;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
 
+        $importHandle = new File($GLOBALS['import_file']);
+        $importHandle->setDecompressContent(true);
+        $importHandle->open();
+
         //Test function called
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
 
         $this->assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET '
@@ -131,7 +122,7 @@ class ImportOdsTest extends PmaTestCase
             $sql_query
         );
         $this->assertStringContainsString(
-            "INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES "
+            'INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES '
             . "(1, 'dbbase', NULL, 'ddd');",
             $sql_query
         );
@@ -159,8 +150,7 @@ class ImportOdsTest extends PmaTestCase
         );
 
         //asset that the import process is finished
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }

@@ -1,62 +1,45 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Options;
 
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
 
-/**
- * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyGroup class
- *
- * @package PhpMyAdmin-test
- */
-class OptionsPropertyGroupTest extends TestCase
+class OptionsPropertyGroupTest extends AbstractTestCase
 {
+    /** @var OptionsPropertyGroup|MockObject */
     protected $stub;
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Options\OptionsPropertyGroup');
+        parent::setUp();
+        $this->stub = $this->getMockForAbstractClass(OptionsPropertyGroup::class);
     }
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->stub);
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::addProperty
-     *
-     * @return void
-     */
-    public function testAddProperty()
+    public function testAddProperty(): void
     {
-        $properties = new ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
+        $properties = new ReflectionProperty(OptionsPropertyGroup::class, 'properties');
         $properties->setAccessible(true);
 
         $properties->setValue($this->stub, [1, 2, 3]);
 
-        $this->assertNull(
-            $this->stub->addProperty(2)
-        );
-
+        $this->stub->addProperty(2);
         $this->stub->addProperty('2');
 
         $this->assertEquals(
@@ -70,14 +53,9 @@ class OptionsPropertyGroupTest extends TestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::removeProperty
-     *
-     * @return void
-     */
-    public function testRemoveProperty()
+    public function testRemoveProperty(): void
     {
-        $properties = new ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
+        $properties = new ReflectionProperty(OptionsPropertyGroup::class, 'properties');
         $properties->setAccessible(true);
 
         $properties->setValue($this->stub, [1, 2, 'test', 3]);
@@ -93,27 +71,17 @@ class OptionsPropertyGroupTest extends TestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::getGroup
-     *
-     * @return void
-     */
-    public function testGetGroup()
+    public function testGetGroup(): void
     {
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\OptionsPropertyGroup',
+            OptionsPropertyGroup::class,
             $this->stub->getGroup()
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::getProperties
-     *
-     * @return void
-     */
-    public function testGetProperties()
+    public function testGetProperties(): void
     {
-        $properties = new ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
+        $properties = new ReflectionProperty(OptionsPropertyGroup::class, 'properties');
         $properties->setAccessible(true);
         $properties->setValue($this->stub, [1, 2, 3]);
 
@@ -127,14 +95,9 @@ class OptionsPropertyGroupTest extends TestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Options\OptionsPropertyGroup::getProperties
-     *
-     * @return void
-     */
-    public function testGetNrOfProperties()
+    public function testGetNrOfProperties(): void
     {
-        $properties = new ReflectionProperty('PhpMyAdmin\Properties\Options\OptionsPropertyGroup', '_properties');
+        $properties = new ReflectionProperty(OptionsPropertyGroup::class, 'properties');
         $properties->setAccessible(true);
         $properties->setValue($this->stub, [1, 2, 3]);
 

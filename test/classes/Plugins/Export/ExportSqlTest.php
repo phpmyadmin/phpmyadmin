@@ -1,40 +1,46 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for PhpMyAdmin\Plugins\Export\ExportSql class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
+use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
+use function array_shift;
+use function ob_get_clean;
+use function ob_start;
 
 /**
- * tests for PhpMyAdmin\Plugins\Export\ExportSql class
- *
- * @package PhpMyAdmin-test
  * @group medium
  */
-class ExportSqlTest extends PmaTestCase
+class ExportSqlTest extends AbstractTestCase
 {
+    /** @var ExportSql */
     protected $object;
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['output_kanji_conversion'] = false;
@@ -50,32 +56,28 @@ class ExportSqlTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::setProperties
-     *
-     * @return void
      * @group medium
      */
-    public function testSetProperties()
+    public function testSetProperties(): void
     {
         // test with hide structure and hide sql as true
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['mimework'] = true;
 
-        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', 'setProperties');
+        $method = new ReflectionMethod(ExportSql::class, 'setProperties');
         $method->setAccessible(true);
         $method->invoke($this->object, null);
 
-        $attrProperties = new ReflectionProperty('PhpMyAdmin\Plugins\Export\ExportSql', 'properties');
+        $attrProperties = new ReflectionProperty(ExportSql::class, 'properties');
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
@@ -84,7 +86,7 @@ class ExportSqlTest extends PmaTestCase
         );
 
         // test with hide structure and hide sql as false
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -105,7 +107,7 @@ class ExportSqlTest extends PmaTestCase
         $properties = $attrProperties->getValue($this->object);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Plugins\ExportPluginProperties',
+            ExportPluginProperties::class,
             $properties
         );
 
@@ -117,7 +119,7 @@ class ExportSqlTest extends PmaTestCase
         $options = $properties->getOptions();
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup',
+            OptionsPropertyRootGroup::class,
             $options
         );
 
@@ -126,7 +128,7 @@ class ExportSqlTest extends PmaTestCase
         $generalOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
+            OptionsPropertyMainGroup::class,
             $generalOptions
         );
 
@@ -135,12 +137,12 @@ class ExportSqlTest extends PmaTestCase
         $property = array_shift($properties);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
+            OptionsPropertySubgroup::class,
             $property
         );
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $property->getSubgroupHeader()
         );
 
@@ -148,55 +150,55 @@ class ExportSqlTest extends PmaTestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\TextPropertyItem',
+            TextPropertyItem::class,
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $leaf
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $property
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\SelectPropertyItem',
+            SelectPropertyItem::class,
             $property
         );
 
@@ -210,19 +212,19 @@ class ExportSqlTest extends PmaTestCase
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
+            OptionsPropertySubgroup::class,
             $property
         );
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\RadioPropertyItem',
+            RadioPropertyItem::class,
             $property->getSubgroupHeader()
         );
 
         $structureOptions = array_shift($generalOptionsArray);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
+            OptionsPropertyMainGroup::class,
             $structureOptions
         );
 
@@ -231,12 +233,12 @@ class ExportSqlTest extends PmaTestCase
         $property = array_shift($properties);
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
+            OptionsPropertySubgroup::class,
             $property
         );
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem',
+            MessageOnlyPropertyItem::class,
             $property->getSubgroupHeader()
         );
 
@@ -244,13 +246,13 @@ class ExportSqlTest extends PmaTestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $leaf
         );
 
@@ -262,7 +264,7 @@ class ExportSqlTest extends PmaTestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
+            OptionsPropertySubgroup::class,
             $leaf
         );
 
@@ -272,47 +274,47 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $leaf->getSubgroupHeader()
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
+            OptionsPropertySubgroup::class,
             $leaf
         );
 
         $this->assertCount(
-            2,
+            3,
             $leaf->getProperties()
         );
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $leaf->getSubgroupHeader()
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $leaf
         );
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $leaf
         );
 
         $property = array_shift($properties);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            BoolPropertyItem::class,
             $property
         );
 
         $dataOptions = array_shift($generalOptionsArray);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup',
+            OptionsPropertyMainGroup::class,
             $dataOptions
         );
 
@@ -329,17 +331,12 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportRoutines
-     *
-     * @return void
-     */
-    public function testExportRoutines()
+    public function testExportRoutines(): void
     {
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_drop_table'] = true;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -379,14 +376,9 @@ class ExportSqlTest extends PmaTestCase
         $this->object->exportRoutines('db');
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_exportComment
-     *
-     * @return void
-     */
-    public function testExportComment()
+    public function testExportComment(): void
     {
-        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', '_exportComment');
+        $method = new ReflectionMethod(ExportSql::class, 'exportComment');
         $method->setAccessible(true);
 
         $GLOBALS['crlf'] = '##';
@@ -417,14 +409,9 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_possibleCRLF
-     *
-     * @return void
-     */
-    public function testPossibleCRLF()
+    public function testPossibleCRLF(): void
     {
-        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', '_possibleCRLF');
+        $method = new ReflectionMethod(ExportSql::class, 'possibleCRLF');
         $method->setAccessible(true);
 
         $GLOBALS['crlf'] = '##';
@@ -455,13 +442,9 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportFooter
-     *
-     * @return void
-     */
-    public function testExportFooter()
+    public function testExportFooter(): void
     {
+        $GLOBALS['crlf'] = '';
         $GLOBALS['sql_disable_fk'] = true;
         $GLOBALS['sql_use_transaction'] = true;
         $GLOBALS['charset'] = 'utf-8';
@@ -470,7 +453,7 @@ class ExportSqlTest extends PmaTestCase
         $GLOBALS['asfile'] = 'yes';
         $GLOBALS['output_charset_conversion'] = 'utf-8';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -489,12 +472,7 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportHeader
-     *
-     * @return void
-     */
-    public function testExportHeader()
+    public function testExportHeader(): void
     {
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_compatibility'] = 'NONE';
@@ -511,7 +489,7 @@ class ExportSqlTest extends PmaTestCase
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['charset'] = 'utf-8';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -536,6 +514,8 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             'h1C',
             $result
@@ -552,7 +532,7 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "40101 SET",
+            '40101 SET',
             $result
         );
 
@@ -565,12 +545,7 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportDBCreate
-     *
-     * @return void
-     */
-    public function testExportDBCreate()
+    public function testExportDBCreate(): void
     {
         $GLOBALS['sql_compatibility'] = 'NONE';
         $GLOBALS['sql_drop_database'] = true;
@@ -580,7 +555,7 @@ class ExportSqlTest extends PmaTestCase
         $GLOBALS['sql_create_view'] = true;
         $GLOBALS['crlf'] = "\n";
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -598,6 +573,8 @@ class ExportSqlTest extends PmaTestCase
             $this->object->exportDBCreate('db', 'database')
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             "DROP DATABASE IF EXISTS `db`;\n",
@@ -620,7 +597,7 @@ class ExportSqlTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         unset($GLOBALS['sql_backquotes']);
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -639,6 +616,8 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             "DROP DATABASE IF EXISTS db;\n",
             $result
@@ -655,12 +634,7 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportDBHeader
-     *
-     * @return void
-     */
-    public function testExportDBHeader()
+    public function testExportDBHeader(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_backquotes'] = true;
@@ -673,8 +647,10 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
-            "&quot;testDB&quot;",
+            '&quot;testDB&quot;',
             $result
         );
 
@@ -688,25 +664,21 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
-            "testDB",
+            'testDB',
             $result
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportEvents
-     *
-     * @return void
-     */
-    public function testExportEvents()
+    public function testExportEvents(): void
     {
-
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -751,6 +723,8 @@ class ExportSqlTest extends PmaTestCase
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             "DELIMITER $$\n",
             $result
@@ -772,19 +746,14 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportDBFooter
-     *
-     * @return void
-     */
-    public function testExportDBFooter()
+    public function testExportDBFooter(): void
     {
         $GLOBALS['crlf'] = "\n";
-        $GLOBALS['sql_constraints'] = "SqlConstraints";
+        $GLOBALS['sql_constraints'] = 'SqlConstraints';
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -804,17 +773,12 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDefStandIn
-     *
-     * @return void
-     */
-    public function testGetTableDefStandIn()
+    public function testGetTableDefStandIn(): void
     {
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -831,30 +795,25 @@ class ExportSqlTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $result = $this->object->getTableDefStandIn('db', 'view', "");
+        $result = $this->object->getTableDefStandIn('db', 'view', '');
 
         $this->assertStringContainsString(
-            "DROP VIEW IF EXISTS `view`;",
+            'DROP VIEW IF EXISTS `view`;',
             $result
         );
 
         $this->assertStringContainsString(
-            "CREATE TABLE IF NOT EXISTS `view` (`cname` int);",
+            'CREATE TABLE IF NOT EXISTS `view` (`cname` int);',
             $result
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_getTableDefForView
-     *
-     * @return void
-     */
-    public function testGetTableDefForView()
+    public function testGetTableDefForView(): void
     {
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -881,7 +840,7 @@ class ExportSqlTest extends PmaTestCase
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
 
-        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', '_getTableDefForView');
+        $method = new ReflectionMethod(ExportSql::class, 'getTableDefForView');
         $method->setAccessible(true);
         $result = $method->invoke(
             $this->object,
@@ -900,7 +859,7 @@ class ExportSqlTest extends PmaTestCase
         // case 2
         unset($GLOBALS['sql_compatibility']);
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -940,14 +899,10 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDef
-     *
-     * @return void
      * @group medium
      */
-    public function testGetTableDef()
+    public function testGetTableDef(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_auto_increment'] = true;
@@ -964,7 +919,7 @@ class ExportSqlTest extends PmaTestCase
             unset($GLOBALS['no_constraints_comments']);
         }
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1023,9 +978,12 @@ class ExportSqlTest extends PmaTestCase
             "KEY `idx_fk_staff_id` (`staff_id`),\n" .
             "KEY `idx_fk_customer_id` (`customer_id`),\n" .
             "KEY `fk_payment_rental` (`rental_id`),\n" .
-            "CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE,\n" .
-            "CONSTRAINT `fk_payment_rental` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`rental_id`) ON DELETE SET NULL ON UPDATE CASCADE,\n" .
-            "CONSTRAINT `fk_payment_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON UPDATE CASCADE\n" .
+            'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES' .
+            " `customer` (`customer_id`) ON UPDATE CASCADE,\n" .
+            'CONSTRAINT `fk_payment_rental` FOREIGN KEY (`rental_id`) REFERENCES' .
+            " `rental` (`rental_id`) ON DELETE SET NULL ON UPDATE CASCADE,\n" .
+            'CONSTRAINT `fk_payment_staff` FOREIGN KEY (`staff_id`) REFERENCES' .
+            " `staff` (`staff_id`) ON UPDATE CASCADE\n" .
             ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n",
         ];
 
@@ -1054,7 +1012,7 @@ class ExportSqlTest extends PmaTestCase
             'db',
             'table',
             "\n",
-            "example.com/err",
+            'example.com/err',
             true,
             true,
             false
@@ -1081,7 +1039,7 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "CREATE TABLE `table`",
+            'CREATE TABLE `table`',
             $result
         );
 
@@ -1126,12 +1084,7 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getTableDef
-     *
-     * @return void
-     */
-    public function testGetTableDefWithError()
+    public function testGetTableDefWithError(): void
     {
         $GLOBALS['sql_compatibility'] = '';
         $GLOBALS['sql_auto_increment'] = true;
@@ -1149,7 +1102,7 @@ class ExportSqlTest extends PmaTestCase
             unset($GLOBALS['no_constraints_comments']);
         }
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1212,7 +1165,7 @@ class ExportSqlTest extends PmaTestCase
             'db',
             'table',
             "\n",
-            "example.com/err",
+            'example.com/err',
             true,
             true,
             false
@@ -1224,12 +1177,7 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_getTableComments
-     *
-     * @return void
-     */
-    public function testGetTableComments()
+    public function testGetTableComments(): void
     {
         $_SESSION['relation'][0] = [
             'PMA_VERSION' => PMA_VERSION,
@@ -1243,7 +1191,7 @@ class ExportSqlTest extends PmaTestCase
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1271,7 +1219,7 @@ class ExportSqlTest extends PmaTestCase
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
 
-        $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', '_getTableComments');
+        $method = new ReflectionMethod(ExportSql::class, 'getTableComments');
         $method->setAccessible(true);
         $result = $method->invoke(
             $this->object,
@@ -1283,30 +1231,26 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "-- MEDIA (MIME) TYPES FOR TABLE :\n" .
+            "-- MEDIA TYPES FOR TABLE :\n" .
             "--   fieldname\n" .
-            "--       Test<",
+            '--       Test<',
             $result
         );
 
         $this->assertStringContainsString(
             "-- RELATIONSHIPS FOR TABLE :\n" .
             "--   foo\n" .
-            "--       ftable -> ffield",
+            '--       ftable -> ffield',
             $result
         );
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportStructure
-     *
-     * @return void
      * @group medium
      */
-    public function testExportStructure()
+    public function testExportStructure(): void
     {
-
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -1326,13 +1270,13 @@ class ExportSqlTest extends PmaTestCase
                 )
             );
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportSql')
+        $this->object = $this->getMockBuilder(ExportSql::class)
             ->setMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
             ->getMock();
 
         $this->object->expects($this->at(0))
             ->method('getTableDef')
-            ->with('db', 't&bl', "\n", "example.com", false)
+            ->with('db', 't&bl', "\n", 'example.com', false)
             ->will($this->returnValue('dumpText1'));
 
         $this->object->expects($this->at(1))
@@ -1341,7 +1285,7 @@ class ExportSqlTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
+                'example.com',
                 false
             )
             ->will($this->returnValue('dumpText3'));
@@ -1364,12 +1308,14 @@ class ExportSqlTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "create_table",
-                "test"
+                'example.com',
+                'create_table',
+                'test'
             )
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             '-- Table structure for table &quot;t&amp;bl&quot;',
@@ -1394,12 +1340,14 @@ class ExportSqlTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "triggers",
-                "test"
+                'example.com',
+                'triggers',
+                'test'
             )
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             "-- Triggers t&amp;bl\n",
@@ -1423,12 +1371,14 @@ class ExportSqlTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "create_view",
-                "test"
+                'example.com',
+                'create_view',
+                'test'
             )
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             "-- Structure for view t&amp;bl\n",
@@ -1437,12 +1387,12 @@ class ExportSqlTest extends PmaTestCase
 
         $this->assertStringContainsString(
             "DROP TABLE IF EXISTS `t&amp;bl`;\n" .
-            "dumpText3",
+            'dumpText3',
             $result
         );
 
         // case 4
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -1457,6 +1407,7 @@ class ExportSqlTest extends PmaTestCase
             );
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_views_as_tables'] = true;
+        unset($GLOBALS['sql_if_not_exists']);
 
         ob_start();
         $this->assertTrue(
@@ -1464,12 +1415,14 @@ class ExportSqlTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "create_view",
-                "test"
+                'example.com',
+                'create_view',
+                'test'
             )
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             "CREATE TABLE`t&amp;bl`(\n\n);",
@@ -1489,28 +1442,27 @@ class ExportSqlTest extends PmaTestCase
                 'db',
                 't&bl',
                 "\n",
-                "example.com",
-                "stand_in",
-                "test"
+                'example.com',
+                'stand_in',
+                'test'
             )
         );
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
-            "dumpText4",
+            'dumpText4',
             $result
         );
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
-     *
-     * @return void
      * @group medium
      */
-    public function testExportData()
+    public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1540,7 +1492,7 @@ class ExportSqlTest extends PmaTestCase
         $flags[] = $a;
 
         $a = new stdClass();
-        $a->type = "bit";
+        $a->type = 'bit';
         $a->blob = false;
         $a->numeric = false;
         $a->name = 'name';
@@ -1567,7 +1519,7 @@ class ExportSqlTest extends PmaTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with(
-                "SELECT a FROM b WHERE 1",
+                'SELECT a FROM b WHERE 1',
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_UNBUFFERED
             )
@@ -1593,7 +1545,7 @@ class ExportSqlTest extends PmaTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
-        $_table = $this->getMockBuilder('PhpMyAdmin\Table')
+        $_table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())
@@ -1625,10 +1577,12 @@ class ExportSqlTest extends PmaTestCase
             'db',
             'table',
             "\n",
-            "example.com/err",
-            "SELECT a FROM b WHERE 1"
+            'example.com/err',
+            'SELECT a FROM b WHERE 1'
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             'TRUNCATE TABLE &quot;table&quot;;',
@@ -1653,20 +1607,17 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertStringContainsString(
-            "SET IDENTITY_INSERT &quot;table&quot; OFF;",
+            'SET IDENTITY_INSERT &quot;table&quot; OFF;',
             $result
         );
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
-     *
-     * @return void
      * @group medium
      */
-    public function testExportDataWithUpdate()
+    public function testExportDataWithUpdate(): void
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1706,7 +1657,7 @@ class ExportSqlTest extends PmaTestCase
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with(
-                "SELECT a FROM b WHERE 1",
+                'SELECT a FROM b WHERE 1',
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_UNBUFFERED
             )
@@ -1727,7 +1678,7 @@ class ExportSqlTest extends PmaTestCase
                 null
             );
 
-        $_table = $this->getMockBuilder('PhpMyAdmin\Table')
+        $_table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())
@@ -1760,10 +1711,12 @@ class ExportSqlTest extends PmaTestCase
             'db',
             'table',
             "\n",
-            "example.com/err",
-            "SELECT a FROM b WHERE 1"
+            'example.com/err',
+            'SELECT a FROM b WHERE 1'
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             'UPDATE IGNORE &quot;table&quot; SET &quot;name&quot; = NULL,' .
@@ -1772,18 +1725,13 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
-     *
-     * @return void
-     */
-    public function testExportDataWithIsView()
+    public function testExportDataWithIsView(): void
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $_table = $this->getMockBuilder('PhpMyAdmin\Table')
+        $_table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())
@@ -1810,9 +1758,11 @@ class ExportSqlTest extends PmaTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", "err.com", "SELECT")
+            $this->object->exportData('db', 'tbl', "\n", 'err.com', 'SELECT')
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             "-- VIEW `tbl`\n",
@@ -1828,14 +1778,9 @@ class ExportSqlTest extends PmaTestCase
         $GLOBALS['sql_compatibility'] = $oldVal;
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
-     *
-     * @return void
-     */
-    public function testExportDataWithError()
+    public function testExportDataWithError(): void
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -1843,7 +1788,7 @@ class ExportSqlTest extends PmaTestCase
             ->method('getError')
             ->will($this->returnValue('err'));
 
-        $_table = $this->getMockBuilder('PhpMyAdmin\Table')
+        $_table = $this->getMockBuilder(Table::class)
             ->disableOriginalConstructor()
             ->getMock();
         $_table->expects($this->once())
@@ -1867,9 +1812,11 @@ class ExportSqlTest extends PmaTestCase
 
         ob_start();
         $this->assertTrue(
-            $this->object->exportData('db', 'table', "\n", "err.com", "SELECT")
+            $this->object->exportData('db', 'table', "\n", 'err.com', 'SELECT')
         );
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             '-- Error reading data for table db.table: err',
@@ -1877,14 +1824,8 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::_makeCreateTableMSSQLCompatible
-     *
-     * @return void
-     */
-    public function testMakeCreateTableMSSQLCompatible()
+    public function testMakeCreateTableMSSQLCompatible(): void
     {
-
         $query = "CREATE TABLE IF NOT EXISTS (\" date DEFAULT NULL,\n" .
             "\" date DEFAULT NULL\n\" date NOT NULL,\n\" date NOT NULL\n," .
             " \" date NOT NULL DEFAULT 'asd'," .
@@ -1903,8 +1844,8 @@ class ExportSqlTest extends PmaTestCase
             " \" double NOT NULL DEFAULT '213'\n";
 
         $method = new ReflectionMethod(
-            'PhpMyAdmin\Plugins\Export\ExportSql',
-            '_makeCreateTableMSSQLCompatible'
+            ExportSql::class,
+            'makeCreateTableMSSQLCompatible'
         );
         $method->setAccessible(true);
         $result = $method->invoke(
@@ -1936,23 +1877,14 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::initAlias
-     *
-     * @return void
-     */
-    public function testInitAlias()
+    public function testInitAlias(): void
     {
         $aliases = [
             'a' => [
                 'alias' => 'aliastest',
                 'tables' => [
-                    'foo' => [
-                        'alias' => 'qwerty',
-                    ],
-                    'bar' => [
-                        'alias' => 'f',
-                    ],
+                    'foo' => ['alias' => 'qwerty'],
+                    'bar' => ['alias' => 'f'],
                 ],
             ],
         ];
@@ -1978,12 +1910,7 @@ class ExportSqlTest extends PmaTestCase
         $this->assertEquals('qwerty', $table);
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::getAlias
-     *
-     * @return void
-     */
-    public function testGetAlias()
+    public function testGetAlias(): void
     {
         $aliases = [
             'a' => [
@@ -1998,9 +1925,7 @@ class ExportSqlTest extends PmaTestCase
                     ],
                     'bar' => [
                         'alias' => 'f',
-                        'columns' => [
-                            'xy' => 'n',
-                        ],
+                        'columns' => ['xy' => 'n'],
                     ],
                 ],
             ],
@@ -2027,12 +1952,7 @@ class ExportSqlTest extends PmaTestCase
         );
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportSql::replaceWithAlias
-     *
-     * @return void
-     */
-    public function testReplaceWithAlias()
+    public function testReplaceWithAlias(): void
     {
         $aliases = [
             'a' => [
@@ -2047,9 +1967,7 @@ class ExportSqlTest extends PmaTestCase
                     ],
                     'bar' => [
                         'alias' => 'f',
-                        'columns' => [
-                            'xy' => 'n',
-                        ],
+                        'columns' => ['xy' => 'n'],
                     ],
                 ],
             ],
@@ -2059,13 +1977,13 @@ class ExportSqlTest extends PmaTestCase
         $table = 'foo';
         $sql_query = "CREATE TABLE IF NOT EXISTS foo (\n"
             . "baz tinyint(3) unsigned NOT NULL COMMENT 'Primary Key',\n"
-            . "xyz varchar(255) COLLATE latin1_general_ci NOT NULL "
+            . 'xyz varchar(255) COLLATE latin1_general_ci NOT NULL '
             . "COMMENT 'xyz',\n"
-            . "pqr varchar(10) COLLATE latin1_general_ci NOT NULL "
+            . 'pqr varchar(10) COLLATE latin1_general_ci NOT NULL '
             . "COMMENT 'pqr',\n"
-            . "CONSTRAINT fk_om_dept FOREIGN KEY (baz) "
+            . 'CONSTRAINT fk_om_dept FOREIGN KEY (baz) '
             . "REFERENCES dept_master (baz)\n"
-            . ") ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE="
+            . ') ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE='
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
         $result = $this->object->replaceWithAliases(
             $sql_query,
@@ -2097,15 +2015,15 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $table = 'bar';
-        $sql_query = "CREATE TRIGGER `BEFORE_bar_INSERT` "
-            . "BEFORE INSERT ON `bar` "
-            . "FOR EACH ROW BEGIN "
-            . "SET @cnt=(SELECT count(*) FROM bar WHERE "
-            . "xy=NEW.xy AND id=NEW.id AND "
-            . "abc=NEW.xy LIMIT 1); "
-            . "IF @cnt<>0 THEN "
-            . "SET NEW.xy=1; "
-            . "END IF; END";
+        $sql_query = 'CREATE TRIGGER `BEFORE_bar_INSERT` '
+            . 'BEFORE INSERT ON `bar` '
+            . 'FOR EACH ROW BEGIN '
+            . 'SET @cnt=(SELECT count(*) FROM bar WHERE '
+            . 'xy=NEW.xy AND id=NEW.id AND '
+            . 'abc=NEW.xy LIMIT 1); '
+            . 'IF @cnt<>0 THEN '
+            . 'SET NEW.xy=1; '
+            . 'END IF; END';
         $result = $this->object->replaceWithAliases(
             $sql_query,
             $aliases,
@@ -2114,12 +2032,12 @@ class ExportSqlTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            "CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN " .
-            "SET @cnt=(SELECT count(*) FROM `f` WHERE `n`=NEW.`n` AND id=NEW.id AND abc=NEW.`n` LIMIT 1); " .
-            "IF @cnt<>0 THEN " .
-            "SET NEW.`n`=1; " .
-            "END IF; " .
-            "END",
+            'CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN ' .
+            'SET @cnt=(SELECT count(*) FROM `f` WHERE `n`=NEW.`n` AND id=NEW.id AND abc=NEW.`n` LIMIT 1); ' .
+            'IF @cnt<>0 THEN ' .
+            'SET NEW.`n`=1; ' .
+            'END IF; ' .
+            'END',
             $result
         );
     }

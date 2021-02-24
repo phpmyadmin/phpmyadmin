@@ -1,0 +1,35 @@
+.breadcrumb {
+  color: $button-color;
+  padding-left: 2rem;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.breadcrumb-item {
+  + .breadcrumb-item::before,
+  &::before {
+    width: 10px;
+    color: #eee;
+
+    /* The arrow "U+0203A" (SINGLE RIGHT-POINTING ANGLE QUOTATION MARK) */
+    content: "\203A";
+  }
+
+  + .breadcrumb-comment {
+    padding-left: $breadcrumb-item-padding;
+  }
+
+  .icon {
+    display: none;
+  }
+}
+
+.breadcrumb-comment {
+  font-style: italic;
+}

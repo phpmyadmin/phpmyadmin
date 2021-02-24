@@ -1,49 +1,48 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for Charset Conversions
- *
- * @package PhpMyAdmin-test
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Encoding;
-use PHPUnit\Framework\TestCase;
+use const PHP_INT_SIZE;
+use function fclose;
+use function file_get_contents;
+use function fopen;
+use function function_exists;
+use function fwrite;
+use function mb_convert_encoding;
+use function mb_convert_kana;
+use function unlink;
+use function setlocale;
+use const LC_ALL;
 
 /**
  * Tests for Charset Conversions
- *
- * @package PhpMyAdmin-test
  */
-class EncodingTest extends TestCase
+class EncodingTest extends AbstractTestCase
 {
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
+        parent::setUp();
         Encoding::initEngine();
     }
 
-    /**
-     * @return void
-     */
     protected function tearDown(): void
     {
+        parent::tearDown();
         Encoding::initEngine();
     }
 
     /**
      * Test for Encoding::convertString
      *
-     * @return void
-     * @test
-     *
      * @group medium
      */
-    public function testNoConversion()
+    public function testNoConversion(): void
     {
         $this->assertEquals(
             'test',
@@ -51,10 +50,7 @@ class EncodingTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testInvalidConversion()
+    public function testInvalidConversion(): void
     {
         // Invalid value to use default case
         Encoding::setEngine(-1);
@@ -64,10 +60,7 @@ class EncodingTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testRecode()
+    public function testRecode(): void
     {
         if (! function_exists('recode_string')) {
             $this->markTestSkipped('recode extension missing');
@@ -86,15 +79,25 @@ class EncodingTest extends TestCase
 
     /**
      * This group is used on debian packaging to exclude the test
+     *
      * @see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854821#27
+     *
      * @group extension-iconv
-     * @return void
      */
-    public function testIconv()
+    public function testIconv(): void
     {
         if (! function_exists('iconv')) {
             $this->markTestSkipped('iconv extension missing');
         }
+
+        // Set PHP native locale
+        if (function_exists('setlocale')) {
+            if (setlocale(0, 'POSIX') === false) {
+                $this->markTestSkipped('native setlocale failed');
+            }
+        }
+
+        _setlocale(LC_ALL, 'POSIX');
 
         if (PHP_INT_SIZE === 8) {
             $GLOBALS['cfg']['IconvExtraParams'] = '//TRANSLIT';
@@ -123,10 +126,7 @@ class EncodingTest extends TestCase
         }
     }
 
-    /**
-     * @return void
-     */
-    public function testMbstring()
+    public function testMbstring(): void
     {
         Encoding::setEngine(Encoding::ENGINE_MB);
         $this->assertEquals(
@@ -141,11 +141,8 @@ class EncodingTest extends TestCase
 
     /**
      * Test for kanjiChangeOrder
-     *
-     * @return void
-     * @test
      */
-    public function testChangeOrder()
+    public function testChangeOrder(): void
     {
         $this->assertEquals('ASCII,SJIS,EUC-JP,JIS', Encoding::getKanjiEncodings());
         Encoding::kanjiChangeOrder();
@@ -156,11 +153,8 @@ class EncodingTest extends TestCase
 
     /**
      * Test for Encoding::kanjiStrConv
-     *
-     * @return void
-     * @test
      */
-    public function testKanjiStrConv()
+    public function testKanjiStrConv(): void
     {
         $this->assertEquals(
             'test',
@@ -185,18 +179,15 @@ class EncodingTest extends TestCase
         );
     }
 
-
     /**
      * Test for Encoding::kanjiFileConv
-     *
-     * @return void
-     * @test
      */
-    public function testFileConv()
+    public function testFileConv(): void
     {
-        $file_str = "教育漢字常用漢字";
+        $file_str = '教育漢字常用漢字';
         $filename = 'test.kanji';
         $file = fopen($filename, 'w');
+        $this->assertNotFalse($file);
         fwrite($file, $file_str);
         fclose($file);
         $GLOBALS['kanji_encoding_list'] = 'ASCII,EUC-JP,SJIS,JIS';
@@ -211,14 +202,10 @@ class EncodingTest extends TestCase
         unlink($result);
     }
 
-
     /**
      * Test for Encoding::kanjiEncodingForm
-     *
-     * @return void
-     * @test
      */
-    public function testEncodingForm()
+    public function testEncodingForm(): void
     {
         $actual = Encoding::kanjiEncodingForm();
         $this->assertStringContainsString(
@@ -243,10 +230,7 @@ class EncodingTest extends TestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testListEncodings()
+    public function testListEncodings(): void
     {
         $GLOBALS['cfg']['AvailableCharsets'] = ['utf-8'];
         $result = Encoding::listEncodings();

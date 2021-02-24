@@ -1,0 +1,107 @@
+{{ login_header|raw }}
+
+{% if is_demo %}
+  <fieldset>
+    <legend>{% trans 'phpMyAdmin Demo Server' %}</legend>
+    {% apply format('<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>')|raw %}
+      {% trans %}
+        You are using the demo server. You can do anything here, but please do not change root, debian-sys-maint and pma users. More information is available at %s.
+      {% endtrans %}
+    {% endapply %}
+  </fieldset>
+{% endif %}
+
+{{ error_messages|raw }}
+
+{% if has_languages %}
+  <div class='hide js-show'>
+    {{ language_selector|raw }}
+  </div>
+{% endif %}
+
+<form method="post" id="login_form" action="index.php?route=/" name="login_form" class="
+  {{- not is_session_expired ? 'disableAjax hide ' }}login js-show form-horizontal"{{ not has_autocomplete ? ' autocomplete="off"' }}>
+  <fieldset>
+    <legend class="col-form-label">
+      <input type="hidden" name="set_session" value="{{ session_id }}">
+      {% if is_session_expired %}
+        <input type="hidden" name="session_timedout" value="1">
+      {% endif %}
+      {% trans 'Log in' %}
+      {{ show_docu('index') }}
+    </legend>
+
+    {% if is_arbitrary_server_allowed %}
+      <div class="item form-row">
+        <label for="input_servername" class="col-4 d-flex align-items-center" title="{% trans 'You can enter hostname/IP address and port separated by space.' %}">
+          {% trans 'Server:' %}
+        </label>
+        <div class="col-8">
+        <input type="text" name="pma_servername" id="input_servername" value="{{ default_server }}" size="24" class="textfield" title="
+          {%- trans 'You can enter hostname/IP address and port separated by space.' %}">
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="item form-row">
+      <label for="input_username" class="col-4 d-flex align-items-center">
+        {% trans 'Username:' %}
+      </label>
+      <div class="col-8">
+        <input type="text" name="pma_username" id="input_username" value="{{ default_user }}" size="24" class="textfield" autocomplete="username">
+      </div>
+    </div>
+
+    <div class="item form-row">
+      <label for="input_password" class="col-4 d-flex align-items-center">
+        {% trans 'Password:' %}
+      </label>
+      <div class="col-8">
+        <input type="password" name="pma_password" id="input_password" value="" size="24" class="textfield" autocomplete="current-password">
+      </div>
+    </div>
+
+    {% if has_servers %}
+      <div class="item form-row">
+        <label for="select_server" class="col-4 d-flex align-items-center">
+          {% trans 'Server choice:' %}
+        </label>
+        <div class="col-8">
+          <select name="server" id="select_server"{{ is_arbitrary_server_allowed ? ' onchange="document.forms[\'login_form\'].elements[\'pma_servername\'].value = \'\'"' }}>
+            {{ server_options|raw }}
+          </select>
+        </div>
+      </div>
+    {% else %}
+      <input type="hidden" name="server" value="{{ server }}">
+    {% endif %}
+  </fieldset>
+
+  <fieldset class="tblFooters">
+    {% if has_captcha %}
+      <script src="{{ captcha_api }}?hl={{ lang }}" async defer></script>
+      {% if use_captcha_checkbox %}
+      <div class="{{ captcha_req }}" data-sitekey="{{ captcha_key }}"></div>
+      <input class="btn btn-primary" value="{% trans 'Go' %}" type="submit" id="input_go">
+      {% else %}
+      <input class="btn btn-primary {{ captcha_req }}" data-sitekey="{{ captcha_key }}" data-callback="Functions_recaptchaCallback" value="{% trans 'Go' %}" type="submit" id="input_go">
+      {% endif %}
+    {% else %}
+      <input class="btn btn-primary" value="{% trans 'Go' %}" type="submit" id="input_go">
+    {% endif %}
+    {# Do not generate a "server" hidden field as we want the "server" drop-down to have priority. #}
+    {{ get_hidden_inputs(form_params, '', 0, 'server') }}
+  </fieldset>
+</form>
+
+{% if errors is not empty %}
+  <div id="pma_errors">
+    {{ errors|raw }}
+  </div>
+  </div>
+  </div>
+{% endif %}
+
+{{ login_footer|raw }}
+
+{{ config_footer|raw }}

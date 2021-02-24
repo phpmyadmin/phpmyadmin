@@ -1,11 +1,14 @@
-<h2>
-  {{ get_image('s_vars') }}
-  {% trans 'Server variables and settings' %}
-  {{ show_mysql_docu('server_system_variables') }}
-</h2>
+<div class="container-fluid">
+<div class="row">
+  <h2>
+    {{ get_image('s_vars') }}
+    {% trans 'Server variables and settings' %}
+    {{ show_mysql_docu('server_system_variables') }}
+  </h2>
+</div>
 
 {% if variables is not empty %}
-  <a href="server_variables.php{{ get_common() }}" class="ajax saveLink hide">
+  <a href="#" class="ajax saveLink hide">
     {{ get_icon('b_save', 'Save'|trans) }}
   </a>
   <a href="#" class="cancelLink hide">
@@ -20,20 +23,20 @@
     'filter_value': filter_value
   } only %}
 
-  <div class="responsivetable">
-    <table id="serverVariables" class="width100 data filteredData noclick">
-      <thead>
-        <tr class="var-header var-row">
-          <td class="var-action">{% trans 'Action' %}</td>
-          <td class="var-name">{% trans 'Variable' %}</td>
-          <td class="var-value">{% trans 'Value' %}</td>
+  <div class="table-responsive">
+    <table id="serverVariables" class="table table-light table-striped table-hover table-sm">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">{% trans 'Action' %}</th>
+          <th scope="col">{% trans 'Variable' %}</th>
+          <th scope="col" class="text-right">{% trans 'Value' %}</th>
         </tr>
       </thead>
 
       <tbody>
         {% for variable in variables %}
-          <tr class="var-row{{ variable.has_session_value ? ' diffSession' }}" data-filter-row="{{ variable.name|upper }}">
-            <td class="var-action">
+          <tr class="var-row" data-filter-row="{{ variable.name|upper }}">
+            <td>
               {% if variable.is_editable %}
                 <a href="#" data-variable="{{ variable.name }}" class="editLink">{{ get_icon('b_edit', 'Edit'|trans) }}</a>
               {% else %}
@@ -42,7 +45,7 @@
                 </span>
               {% endif %}
             </td>
-            <td class="var-name">
+            <td class="var-name font-weight-bold">
               {% if variable.doc_link != null %}
                 <span title="{{ variable.name|replace({'_': ' '}) }}">
                   {{ variable.doc_link|raw }}
@@ -51,7 +54,7 @@
                 {{ variable.name|replace({'_': ' '}) }}
               {% endif %}
             </td>
-            <td class="var-value value{{ is_superuser ? ' editable' }}">
+            <td class="var-value text-right text-monospace{{ is_superuser ? ' editable' }}">
               {% if variable.is_escaped %}
                 {{ variable.value|raw }}
               {% else %}
@@ -61,16 +64,18 @@
           </tr>
 
           {% if variable.has_session_value %}
-            <tr class="var-row diffSession" data-filter-row="{{ variable.name|upper }}">
-              <td class="var-action"></td>
-              <td class="var-name session">({% trans 'Session value' %})</td>
-              <td class="var-value value">{{ variable.session_value }}</td>
+            <tr class="var-row" data-filter-row="{{ variable.name|upper }}">
+              <td></td>
+              <td class="var-name font-italic">{{ variable.name|replace({'_': ' '}) }} ({% trans 'Session value' %})</td>
+              <td class="var-value text-right text-monospace">{{ variable.session_value }}</td>
             </tr>
           {% endif %}
         {% endfor %}
       </tbody>
     </table>
   </div>
+</div>
+
 {% else %}
   {{ 'Not enough privilege to view server variables and settings. %s'|trans|format(
     link_to_var_documentation('show_compatibility_56', is_mariadb)

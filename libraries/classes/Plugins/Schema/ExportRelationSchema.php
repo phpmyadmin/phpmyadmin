@@ -1,11 +1,9 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Contains PhpMyAdmin\Plugins\Schema\ExportRelationSchema class which is
  * inherited by all schema classes.
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
@@ -13,64 +11,78 @@ namespace PhpMyAdmin\Plugins\Schema;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use function htmlspecialchars;
 use function rawurldecode;
 
 /**
  * This class is inherited by all schema classes
  * It contains those methods which are common in them
  * it works like factory pattern
- *
- * @package PhpMyAdmin
  */
 class ExportRelationSchema
 {
+    /** @var string */
     protected $db;
+
+    /** @var Dia\Dia|Eps\Eps|Pdf\Pdf|Svg\Svg|null */
     protected $diagram;
+
+    /** @var bool */
     protected $showColor;
+
+    /** @var bool */
     protected $tableDimension;
+
+    /** @var bool */
     protected $sameWide;
+
+    /** @var bool */
     protected $showKeys;
+
+    /** @var string */
     protected $orientation;
+
+    /** @var string */
     protected $paper;
+
+    /** @var int */
     protected $pageNumber;
+
+    /** @var bool */
     protected $offline;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     protected $relation;
 
     /**
-     * Constructor.
-     *
      * @param string                                       $db      database name
      * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf|null $diagram schema diagram
      */
     public function __construct($db, $diagram)
     {
+        global $dbi;
+
         $this->db = $db;
         $this->diagram = $diagram;
-        $this->setPageNumber($_REQUEST['page_number']);
+        $this->setPageNumber((int) $_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
-        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relation = new Relation($dbi);
     }
 
     /**
      * Set Page Number
      *
-     * @param integer $value Page Number of the document to be created
-     *
-     * @return void
+     * @param int $value Page Number of the document to be created
      */
-    public function setPageNumber($value)
+    public function setPageNumber(int $value): void
     {
-        $this->pageNumber = intval($value);
+        $this->pageNumber = $value;
     }
 
     /**
      * Returns the schema page number
      *
-     * @return integer schema page number
+     * @return int schema page number
      */
     public function getPageNumber()
     {
@@ -80,11 +92,9 @@ class ExportRelationSchema
     /**
      * Sets showColor
      *
-     * @param boolean $value whether to show colors
-     *
-     * @return void
+     * @param bool $value whether to show colors
      */
-    public function setShowColor($value)
+    public function setShowColor(bool $value): void
     {
         $this->showColor = $value;
     }
@@ -92,7 +102,7 @@ class ExportRelationSchema
     /**
      * Returns whether to show colors
      *
-     * @return boolean whether to show colors
+     * @return bool whether to show colors
      */
     public function isShowColor()
     {
@@ -102,11 +112,9 @@ class ExportRelationSchema
     /**
      * Set Table Dimension
      *
-     * @param boolean $value show table co-ordinates or not
-     *
-     * @return void
+     * @param bool $value show table co-ordinates or not
      */
-    public function setTableDimension($value)
+    public function setTableDimension(bool $value): void
     {
         $this->tableDimension = $value;
     }
@@ -114,7 +122,7 @@ class ExportRelationSchema
     /**
      * Returns whether to show table dimensions
      *
-     * @return boolean whether to show table dimensions
+     * @return bool whether to show table dimensions
      */
     public function isTableDimension()
     {
@@ -124,11 +132,9 @@ class ExportRelationSchema
     /**
      * Set same width of All Tables
      *
-     * @param boolean $value set same width of all tables or not
-     *
-     * @return void
+     * @param bool $value set same width of all tables or not
      */
-    public function setAllTablesSameWidth($value)
+    public function setAllTablesSameWidth(bool $value): void
     {
         $this->sameWide = $value;
     }
@@ -136,7 +142,7 @@ class ExportRelationSchema
     /**
      * Returns whether to use same width for all tables or not
      *
-     * @return boolean whether to use same width for all tables or not
+     * @return bool whether to use same width for all tables or not
      */
     public function isAllTableSameWidth()
     {
@@ -146,13 +152,11 @@ class ExportRelationSchema
     /**
      * Set Show only keys
      *
-     * @param boolean $value show only keys or not
-     *
-     * @return void
+     * @param bool $value show only keys or not
      *
      * @access public
      */
-    public function setShowKeys($value)
+    public function setShowKeys(bool $value): void
     {
         $this->showKeys = $value;
     }
@@ -160,7 +164,7 @@ class ExportRelationSchema
     /**
      * Returns whether to show keys
      *
-     * @return boolean whether to show keys
+     * @return bool whether to show keys
      */
     public function isShowKeys()
     {
@@ -172,13 +176,11 @@ class ExportRelationSchema
      *
      * @param string $value Orientation will be portrait or landscape
      *
-     * @return void
-     *
      * @access public
      */
-    public function setOrientation($value)
+    public function setOrientation(string $value): void
     {
-        $this->orientation = $value == 'P' ? 'P' : 'L';
+        $this->orientation = $value === 'P' ? 'P' : 'L';
     }
 
     /**
@@ -196,11 +198,9 @@ class ExportRelationSchema
      *
      * @param string $value paper type can be A4 etc
      *
-     * @return void
-     *
      * @access public
      */
-    public function setPaper($value)
+    public function setPaper(string $value): void
     {
         $this->paper = $value;
     }
@@ -218,13 +218,11 @@ class ExportRelationSchema
     /**
      * Set whether the document is generated from client side DB
      *
-     * @param boolean $value offline or not
-     *
-     * @return void
+     * @param bool $value offline or not
      *
      * @access public
      */
-    public function setOffline($value)
+    public function setOffline(bool $value): void
     {
         $this->offline = $value;
     }
@@ -232,7 +230,7 @@ class ExportRelationSchema
     /**
      * Returns whether the client side database is used
      *
-     * @return boolean
+     * @return bool
      *
      * @access public
      */
@@ -244,9 +242,9 @@ class ExportRelationSchema
     /**
      * Get the table names from the request
      *
-     * @return array an array of table names
+     * @return string[] an array of table names
      */
-    protected function getTablesFromRequest()
+    protected function getTablesFromRequest(): array
     {
         $tables = [];
         if (isset($_POST['t_tbl'])) {
@@ -254,18 +252,21 @@ class ExportRelationSchema
                 $tables[] = rawurldecode($table);
             }
         }
+
         return $tables;
     }
 
     /**
      * Returns the file name
      *
-     * @param String $extension file extension
+     * @param string $extension file extension
      *
      * @return string file name
      */
-    protected function getFileName($extension)
+    protected function getFileName($extension): string
     {
+        global $dbi;
+
         $filename = $this->db . $extension;
         // Get the name of this page to use as filename
         if ($this->pageNumber != -1 && ! $this->offline) {
@@ -274,7 +275,7 @@ class ExportRelationSchema
                 . Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
                 . ' WHERE page_nr = ' . $this->pageNumber;
             $_name_rs = $this->relation->queryAsControlUser($_name_sql);
-            $_name_row = $GLOBALS['dbi']->fetchRow($_name_rs);
+            $_name_row = $dbi->fetchRow($_name_rs);
             $filename = $_name_row[0] . $extension;
         }
 
@@ -284,26 +285,30 @@ class ExportRelationSchema
     /**
      * Displays an error message
      *
-     * @param integer $pageNumber    ID of the chosen page
-     * @param string  $type          Schema Type
-     * @param string  $error_message The error message
-     *
-     * @access public
+     * @param int    $pageNumber    ID of the chosen page
+     * @param string $type          Schema Type
+     * @param string $error_message The error message
      *
      * @return void
+     *
+     * @access public
      */
     public static function dieSchema($pageNumber, $type = '', $error_message = '')
     {
-        echo "<p><strong>" , __("SCHEMA ERROR: ") , $type , "</strong></p>" , "\n";
+        echo '<p><strong>' , __('SCHEMA ERROR: ') , $type , '</strong></p>' , "\n";
         if (! empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
         }
         echo '<p>' , "\n";
         echo '    ' , $error_message , "\n";
         echo '</p>' , "\n";
-        echo '<a href="db_designer.php'
-            , Url::getCommon(['db' => $GLOBALS['db'], 'server' => $GLOBALS['server']])
-            , '&page=' . htmlspecialchars($pageNumber) , '">' , __('Back') , '</a>';
+        echo '<a href="';
+        echo Url::getFromRoute('/database/designer', [
+            'db' => $GLOBALS['db'],
+            'server' => $GLOBALS['server'],
+            'page' => $pageNumber,
+        ]);
+        echo '">' . __('Back') . '</a>';
         echo "\n";
         exit;
     }

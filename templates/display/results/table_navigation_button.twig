@@ -1,5 +1,5 @@
 <td>
-    <form action="sql.php" method="post"{{ onsubmit|raw }}>
+    <form action="{{ url('/sql') }}" method="post" {{ onsubmit|raw }}>
         {{ get_hidden_inputs(db, table) }}
         <input type="hidden" name="sql_query" value="{{ sql_query|raw }}">
         <input type="hidden" name="pos" value="{{ pos }}">

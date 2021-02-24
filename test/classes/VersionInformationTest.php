@@ -1,68 +1,56 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Tests for methods in PhpMyAdmin\VersionInformation class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\VersionInformation;
 use stdClass;
 
-/**
- * Tests for methods in PhpMyAdmin\VersionInformation class
- *
- * @package PhpMyAdmin-test
- */
-class VersionInformationTest extends PmaTestCase
+class VersionInformationTest extends AbstractTestCase
 {
-    private $_releases;
+    /** @var stdClass[] */
+    private $releases;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $this->_releases = [];
+        parent::setUp();
+        parent::setProxySettings();
+        $this->releases = [];
 
         $release = new stdClass();
-        $release->date = "2015-09-08";
-        $release->php_versions = ">=5.3,<7.1";
-        $release->version = "4.4.14.1";
-        $release->mysql_versions = ">=5.5";
-        $this->_releases[] = $release;
+        $release->date = '2015-09-08';
+        $release->php_versions = '>=5.3,<7.1';
+        $release->version = '4.4.14.1';
+        $release->mysql_versions = '>=5.5';
+        $this->releases[] = $release;
 
         $release = new stdClass();
-        $release->date = "2015-09-09";
-        $release->php_versions = ">=5.3,<7.0";
-        $release->version = "4.4.13.3";
-        $release->mysql_versions = ">=5.5";
-        $this->_releases[] = $release;
+        $release->date = '2015-09-09';
+        $release->php_versions = '>=5.3,<7.0';
+        $release->version = '4.4.13.3';
+        $release->mysql_versions = '>=5.5';
+        $this->releases[] = $release;
 
         $release = new stdClass();
-        $release->date = "2015-05-13";
-        $release->php_versions = ">=5.2,<5.3";
-        $release->version = "4.0.10.10";
-        $release->mysql_versions = ">=5.0";
-        $this->_releases[] = $release;
+        $release->date = '2015-05-13';
+        $release->php_versions = '>=5.2,<5.3';
+        $release->version = '4.0.10.10';
+        $release->mysql_versions = '>=5.0';
+        $this->releases[] = $release;
     }
 
     /**
      * Test version checking
      *
-     * @return void
-     *
      * @group large
      * @group network
      */
-    public function testGetLatestVersion()
+    public function testGetLatestVersion(): void
     {
         $GLOBALS['cfg']['ProxyUrl'] = PROXY_URL;
         $GLOBALS['cfg']['ProxyUser'] = PROXY_USER;
@@ -70,6 +58,7 @@ class VersionInformationTest extends PmaTestCase
         $GLOBALS['cfg']['VersionCheck'] = true;
         $versionInformation = new VersionInformation();
         $version = $versionInformation->getLatestVersion();
+        $this->assertIsObject($version);
         $this->assertNotEmpty($version->version);
         $this->assertNotEmpty($version->date);
     }
@@ -80,11 +69,9 @@ class VersionInformationTest extends PmaTestCase
      * @param string $version Version string
      * @param int    $numeric Integer matching version
      *
-     * @return void
-     *
      * @dataProvider dataVersions
      */
-    public function testVersionToInt($version, $numeric): void
+    public function testVersionToInt(string $version, int $numeric): void
     {
         $versionInformation = new VersionInformation();
         $this->assertEquals(
@@ -93,13 +80,10 @@ class VersionInformationTest extends PmaTestCase
         );
     }
 
-
     /**
      * Data provider for version parsing
-     *
-     * @return array with test data
      */
-    public function dataVersions()
+    public function dataVersions(): array
     {
         return [
             [
@@ -183,16 +167,14 @@ class VersionInformationTest extends PmaTestCase
 
     /**
      * Tests getLatestCompatibleVersion() when there is only one server confgiured
-     *
-     * @return void
      */
-    public function testGetLatestCompatibleVersionWithSingleServer()
+    public function testGetLatestCompatibleVersionWithSingleServer(): void
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
         ];
 
-        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
             ->setMethods(['evaluateVersionCondition'])
             ->getMock();
 
@@ -211,24 +193,22 @@ class VersionInformationTest extends PmaTestCase
             ->with('MySQL', '>=5.5')
             ->will($this->returnValue(true));
 
-        $compatible = $mockVersionInfo
-            ->getLatestCompatibleVersion($this->_releases);
+        $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
+        $this->assertIsArray($compatible);
         $this->assertEquals('4.4.14.1', $compatible['version']);
     }
 
     /**
      * Tests getLatestCompatibleVersion() when there are multiple servers configured
-     *
-     * @return void
      */
-    public function testGetLatestCompatibleVersionWithMultipleServers()
+    public function testGetLatestCompatibleVersionWithMultipleServers(): void
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
             [],
         ];
 
-        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
             ->setMethods(['evaluateVersionCondition'])
             ->getMock();
 
@@ -242,24 +222,22 @@ class VersionInformationTest extends PmaTestCase
             ->with('PHP', '<7.1')
             ->will($this->returnValue(true));
 
-        $compatible = $mockVersionInfo
-            ->getLatestCompatibleVersion($this->_releases);
+        $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
+        $this->assertIsArray($compatible);
         $this->assertEquals('4.4.14.1', $compatible['version']);
     }
 
     /**
      * Tests getLatestCompatibleVersion() with an old PHP version
-     *
-     * @return void
      */
-    public function testGetLatestCompatibleVersionWithOldPHPVersion()
+    public function testGetLatestCompatibleVersionWithOldPHPVersion(): void
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
             [],
         ];
 
-        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
             ->setMethods(['evaluateVersionCondition'])
             ->getMock();
 
@@ -283,23 +261,25 @@ class VersionInformationTest extends PmaTestCase
             ->with('PHP', '<5.3')
             ->will($this->returnValue(true));
 
-        $compatible = $mockVersionInfo
-            ->getLatestCompatibleVersion($this->_releases);
+        $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
+        $this->assertIsArray($compatible);
         $this->assertEquals('4.0.10.10', $compatible['version']);
     }
-
 
     /**
      * Tests getLatestCompatibleVersion() with an new PHP version
      *
-     * @dataProvider dataProviderVersionConditions
      * @param array[]     $versions           The versions to use
      * @param array[]     $conditions         The conditions that will be executed
      * @param string|null $matchedLastVersion The version that will be matched
-     * @return void
+     *
+     * @dataProvider dataProviderVersionConditions
      */
-    public function testGetLatestCompatibleVersionWithNewPHPVersion(array $versions, array $conditions, ?string $matchedLastVersion): void
-    {
+    public function testGetLatestCompatibleVersionWithNewPHPVersion(
+        array $versions,
+        array $conditions,
+        ?string $matchedLastVersion
+    ): void {
         $GLOBALS['cfg']['Servers'] = [];
 
         $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
@@ -326,6 +306,7 @@ class VersionInformationTest extends PmaTestCase
     /**
      * Provider for testGetLatestCompatibleVersionWithNewPHPVersion
      * Returns the conditions to be used for mocks
+     *
      * @return array[]
      */
     public function dataProviderVersionConditions(): array
@@ -565,12 +546,10 @@ class VersionInformationTest extends PmaTestCase
 
     /**
      * Tests evaluateVersionCondition() method
-     *
-     * @return void
      */
-    public function testEvaluateVersionCondition()
+    public function testEvaluateVersionCondition(): void
     {
-        $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
+        $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
             ->setMethods(['getPHPVersion'])
             ->getMock();
 

@@ -1,5 +1,4 @@
 <?php
-// vim: expandtab sw=4 ts=4 sts=4:
 /**
  * This file contains the basic structure for an abstract class defining a
  * transformation.
@@ -8,6 +7,7 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage [TransformationName]
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
@@ -67,7 +67,7 @@ abstract class [TransformationName]TransformationsPlugin
      */
     public static function getName()
     {
-        return "[TransformationName]";
+        return '[TransformationName]';
     }
 }
 ?>

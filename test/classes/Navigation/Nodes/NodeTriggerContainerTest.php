@@ -1,42 +1,28 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeTrigger class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Navigation\Nodes\NodeTrigger class
- *
- * @package PhpMyAdmin-test
- */
-class NodeTriggerContainerTest extends PmaTestCase
+class NodeTriggerContainerTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
     }
 
-
     /**
      * Test for __construct
-     *
-     * @return void
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeTriggerContainer');
         $this->assertArrayHasKey(
@@ -44,7 +30,7 @@ class NodeTriggerContainerTest extends PmaTestCase
             $parent->links
         );
         $this->assertStringContainsString(
-            'db_triggers.php',
+            'index.php?route=/database/triggers',
             $parent->links['text']
         );
         $this->assertEquals('triggers', $parent->realName);

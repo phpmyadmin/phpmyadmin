@@ -1,28 +1,24 @@
-{% include 'secondary_tabs.twig' with {
-    'url_params': {
-        'db': db
-    },
-    'sub_tabs': [
-        {
-            'link': 'db_multi_table_query.php',
-            'text': 'Multi-table query'|trans
-        },
-        {
-            'link': 'db_qbe.php',
-            'text': 'Query by example'|trans
-        }
-    ]
-} only %}
-{% include 'div_for_slider_effect.twig' with {
-    'id': 'query_div',
-    'message': 'Query window'|trans,
-    'initial_sliders_state': 'open',
-} only %}
-<form action="" id="query_form">
+<ul class="nav nav-pills m-2">
+  <li class="nav-item">
+    <a class="nav-link active" href="{{ url('/database/multi-table-query', {'db': db}) }}">
+      {% trans 'Multi-table query' %}
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('/database/qbe', {'db': db}) }}">
+      {% trans 'Query by example' %}
+    </a>
+  </li>
+</ul>
+
+<div id="query_div" class="pma_auto_slider" title="{% trans 'Query window' %}">
+
+<form action="" id="multi_table_query_form" class="multi_table_query_form query_form">
     <input type="hidden" id="db_name" value="{{ db }}">
     <fieldset>
         {% for table in tables %}
-            <div style="display:none" id="{{ table.hash }}">
+            <div class="query-form__div--hide" id="{{ table.hash }}">
                 <option value="*">*</option>
                 {% for column in table.columns %}
                     <option value="{{ column }}">{{ column }}</option>
@@ -31,16 +27,16 @@
         {% endfor %}
 
         {% for id in 0..default_no_of_columns %}
-            {% if id == 0 %}<div style="display:none" id="new_column_layout">{% endif %}
-            <fieldset style="display:inline" class="column_details">
-                <select style="display:inline" class="tableNameSelect">
+            {% if id == 0 %}<div class="query-form__div--hide" id="new_column_layout">{% endif %}
+            <fieldset class="column_details query-form__fieldset--inline">
+                <select class="tableNameSelect query-form__select--inline">
                     <option value="">{% trans 'select table' %}</option>
                     {% for table in tables|keys %}
                         <option value="{{ table }}">{{ table }}</option>
                     {% endfor %}
                 </select>
                 <span>.</span>
-                <select style="display:inline" class="columnNameSelect">
+                <select class="columnNameSelect query-form__select--inline">
                     <option value="">{% trans 'select column' %}</option>
                 </select>
                 <br>
@@ -53,21 +49,19 @@
                 <input type="checkbox"
                     title="{% trans 'Use this column in criteria' %}"
                     class="criteria_col">
-                {% include 'div_for_slider_effect.twig' with {
-                    'id': 'criteria_div' ~ id,
-                    'initial_sliders_state': 'closed',
-                    'message': 'criteria'|trans
-                } %}
-                <div>
-                    <table>
 
-                        <tr class="sort_order" style="background:none">
+                <div id="criteria_div{{ id }}" class="pma_auto_slider" title="{% trans 'criteria' %}" style="display: none; overflow:auto;">
+
+                <div>
+                    <table class="pma-table">
+
+                        <tr class="sort_order query-form__tr--bg-none">
                             <td>{% trans 'Sort' %}</td>
                             <td><input type="radio" name="sort[{{ id }}]">{% trans 'Ascending' %}</td>
                             <td><input type="radio" name="sort[{{ id }}]">{% trans 'Descending' %}</td>
                         </tr>
 
-                        <tr class="logical_operator" style="background:none;display:none">
+                        <tr class="logical_operator query-form__tr--bg-none query-form__tr--hide">
                             <td>{% trans 'Add as' %}</td>
                             <td>
                                 <input type="radio"
@@ -86,7 +80,7 @@
                             </td>
                         </tr>
 
-                        <tr style="background:none">
+                        <tr class="query-form__tr--bg-none">
                             <td>Op </td>
                             <td>
                                 <select class="criteria_op">
@@ -118,7 +112,7 @@
                             </td>
                         </tr>
 
-                        <tr class="rhs_table" style="display:none;background:none">
+                        <tr class="rhs_table query-form__tr--hide query-form__tr--bg-none">
                             <td></td>
                             <td>
                                 <select  class="tableNameSelect">
@@ -129,18 +123,17 @@
                                 </select><span>.</span>
                             </td>
                             <td>
-                                <select style="display:inline" class="columnNameSelect">
+                                <select class="columnNameSelect query-form__select--inline">
                                     <option value="">{% trans 'select column' %}</option>
                                 </select>
                             </td>
                         </tr>
 
-                        <tr style="background:none" class="rhs_text">
+                        <tr class="rhs_text query-form__tr--bg-none">
                             <td></td>
                             <td colspan="2">
                                 <input type="text"
-                                    style="width:91%"
-                                    class="rhs_text_val"
+                                    class="rhs_text_val query-form__input--wide"
                                     placeholder="{% trans 'Enter criteria as free text' %}">
                             </td>
                         </tr>
@@ -150,26 +143,25 @@
                 </div>
                 <a href="#"
                     title="{% trans 'Remove this column' %}"
-                    style="float:right;color:red"
-                    class="removeColumn">
+                    class="removeColumn query-form__remove-column">
                     X
                 </a>
             </fieldset>
             {% if id == 0 %}</div>{% endif %}
         {% endfor %}
 
-        <fieldset style="display:inline">
+        <fieldset class="query-form__fieldset--inline">
             <input class="btn btn-secondary" type="button" value="{% trans '+ Add column' %}" id="add_column_button">
         </fieldset>
 
         <fieldset>
               {# Keep the block without a space between the open and close tag #}
-              <textarea id="MultiSqlquery"
-                  cols="80"
-                  rows="4"
-                  style="float: left;"
-                  name="sql_query"
-                  dir="ltr"></textarea>
+                <textarea id="MultiSqlquery"
+                    class="query-form__multi-sql-query"
+                    cols="80"
+                    rows="4"
+                    name="sql_query"
+                    dir="ltr"></textarea>
         </fieldset>
     </fieldset>
 
@@ -178,5 +170,5 @@
         <input class="btn btn-primary" type="button" id="submit_query" value="{% trans 'Submit query' %}">
     </fieldset>
 </form>
-</div>{# Slider div #}
+</div>
 <div id="sql_results"></div>

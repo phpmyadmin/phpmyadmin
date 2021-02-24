@@ -1,11 +1,9 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * This class is responsible for instantiating
  * the various components of the navigation panel
- *
- * @package PhpMyAdmin-navigation
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation;
@@ -20,36 +18,33 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use const PHP_URL_HOST;
+use function count;
+use function defined;
+use function file_exists;
+use function is_bool;
+use function parse_url;
+use function strpos;
+use function trim;
 
 /**
  * The navigation panel - displays server, db and table selection tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class Navigation
 {
-    /**
-     * @var Template
-     */
+    /** @var Template */
     private $template;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
-    /**
-     * @var NavigationTree
-     */
+    /** @var NavigationTree */
     private $tree;
 
     /**
-     * Navigation constructor.
      * @param Template          $template Template instance
      * @param Relation          $relation Relation instance
      * @param DatabaseInterface $dbi      DatabaseInterface instance
@@ -103,7 +98,9 @@ class Navigation
             }
 
             if (! defined('PMA_DISABLE_NAVI_SETTINGS')) {
-                $navigationSettings = PageSettings::getNaviSettings();
+                $pageSettings = new PageSettings('Navi', 'pma_navigation_settings');
+                $response->addHTML($pageSettings->getErrorHTML());
+                $navigationSettings = $pageSettings->getHTML();
             }
         }
         if (! $response->isAjax()
@@ -136,6 +133,7 @@ class Navigation
             'is_navigation_settings_enabled' => ! defined('PMA_DISABLE_NAVI_SETTINGS'),
             'navigation_settings' => $navigationSettings ?? '',
             'is_drag_drop_import_enabled' => $cfg['enable_drag_drop_import'] === true,
+            'is_mariadb' => $this->dbi->isMariaDB(),
         ]);
     }
 
@@ -156,15 +154,15 @@ class Navigation
         $tableName = null
     ) {
         $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
-            . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
-        $sqlQuery = "INSERT INTO " . $navTable
-            . "(`username`, `item_name`, `item_type`, `db_name`, `table_name`)"
-            . " VALUES ("
+            . '.' . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+        $sqlQuery = 'INSERT INTO ' . $navTable
+            . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
+            . ' VALUES ('
             . "'" . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "',"
             . "'" . $this->dbi->escapeString($itemName) . "',"
             . "'" . $this->dbi->escapeString($itemType) . "',"
             . "'" . $this->dbi->escapeString($dbName) . "',"
-            . "'" . (! empty($tableName) ? $this->dbi->escapeString($tableName) : "" )
+            . "'" . (! empty($tableName) ? $this->dbi->escapeString($tableName) : '' )
             . "')";
         $this->relation->queryAsControlUser($sqlQuery, false);
     }
@@ -187,9 +185,9 @@ class Navigation
         $tableName = null
     ) {
         $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
-            . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
-        $sqlQuery = "DELETE FROM " . $navTable
-            . " WHERE"
+            . '.' . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+        $sqlQuery = 'DELETE FROM ' . $navTable
+            . ' WHERE'
             . " `username`='"
             . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
             . " AND `item_name`='" . $this->dbi->escapeString($itemName) . "'"
@@ -197,7 +195,7 @@ class Navigation
             . " AND `db_name`='" . $this->dbi->escapeString($dbName) . "'"
             . (! empty($tableName)
                 ? " AND `table_name`='" . $this->dbi->escapeString($tableName) . "'"
-                : ""
+                : ''
             );
         $this->relation->queryAsControlUser($sqlQuery, false);
     }
@@ -236,13 +234,14 @@ class Navigation
     /**
      * @param string      $database Database name
      * @param string|null $table    Table name
+     *
      * @return array
      */
     private function getHiddenItems(string $database, ?string $table): array
     {
         $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
-            . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
-        $sqlQuery = "SELECT `item_name`, `item_type` FROM " . $navTable
+            . '.' . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
+        $sqlQuery = 'SELECT `item_name`, `item_type` FROM ' . $navTable
             . " WHERE `username`='"
             . $this->dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
             . " AND `db_name`='" . $this->dbi->escapeString($database) . "'"
@@ -261,6 +260,7 @@ class Navigation
             }
         }
         $this->dbi->freeResult($result);
+
         return $hidden;
     }
 
@@ -280,6 +280,7 @@ class Navigation
                 return $PMA_Theme->getPath() . '/img/pma_logo2.png';
             }
         }
+
         return '';
     }
 }

@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Single signon for phpMyAdmin using OpenID
  *
@@ -11,10 +10,8 @@
  *
  * User first authenticates using OpenID and based on content of $AUTH_MAP
  * the login information is passed to phpMyAdmin in session data.
- *
- * @package    PhpMyAdmin
- * @subpackage Example
  */
+
 declare(strict_types=1);
 
 if (false === @include_once 'OpenID/RelyingParty.php') {
@@ -34,6 +31,8 @@ $AUTH_MAP = [
     ],
 ];
 
+// phpcs:disable PSR1.Files.SideEffects,Squiz.Functions.GlobalFunction
+
 /**
  * Simple function to show HTML page with given content.
  *
@@ -44,27 +43,25 @@ $AUTH_MAP = [
 function Show_page($contents)
 {
     header('Content-Type: text/html; charset=utf-8');
-    echo '<?xml version="1.0" encoding="utf-8"?>' , "\n";
-    ?>
-    <!DOCTYPE HTML>
-    <html lang="en" dir="ltr">
-    <head>
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <meta charset="utf-8">
-    <title>phpMyAdmin OpenID signon example</title>
-    </head>
-    <body>
-    <?php
-    if (isset($_SESSION) && isset($_SESSION['PMA_single_signon_error_message'])) {
-        echo '<p class="error">' , $_SESSION['PMA_single_signon_message'] , '</p>';
+
+    echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
+    echo '<!DOCTYPE HTML>
+<html lang="en" dir="ltr">
+<head>
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+<meta charset="utf-8">
+<title>phpMyAdmin OpenID signon example</title>
+</head>
+<body>';
+
+    if (isset($_SESSION['PMA_single_signon_error_message'])) {
+        echo '<p class="error">' . $_SESSION['PMA_single_signon_message'] . '</p>';
         unset($_SESSION['PMA_single_signon_message']);
     }
+
     echo $contents;
-    ?>
-    </body>
-    </html>
-    <?php
+    echo '</body></html>';
 }
 
 /**
@@ -77,12 +74,13 @@ function Show_page($contents)
 function Die_error($e)
 {
     $contents = "<div class='relyingparty_results'>\n";
-    $contents .= "<pre>" . htmlspecialchars($e->getMessage()) . "</pre>\n";
+    $contents .= '<pre>' . htmlspecialchars($e->getMessage()) . "</pre>\n";
     $contents .= "</div class='relyingparty_results'>";
     Show_page($contents);
     exit;
 }
 
+// phpcs:enable
 
 /* Need to have cookie visible from parent directory */
 session_set_cookie_params(0, '/', '', $secure_cookie, true);
@@ -93,27 +91,25 @@ session_name($session_name);
 
 // Determine realm and return_to
 $base = 'http';
-if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
     $base .= 's';
 }
 $base .= '://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'];
 
 $realm = $base . '/';
 $returnTo = $base . dirname($_SERVER['PHP_SELF']);
-if ($returnTo[strlen($returnTo) - 1] != '/') {
+if ($returnTo[strlen($returnTo) - 1] !== '/') {
     $returnTo .= '/';
 }
 $returnTo .= 'openid.php';
 
 /* Display form */
-if (! count($_GET) && ! count($_POST) || isset($_GET['phpMyAdmin'])) {
+if ((! count($_GET) && ! count($_POST)) || isset($_GET['phpMyAdmin'])) {
     /* Show simple form */
     $content = '<form action="openid.php" method="post">
 OpenID: <input type="text" name="identifier"><br>
 <input type="submit" name="start">
-</form>
-</body>
-</html>';
+</form>';
     Show_page($content);
     exit;
 }
@@ -130,7 +126,7 @@ if (isset($_POST['identifier']) && is_string($_POST['identifier'])) {
 /* Create OpenID object */
 try {
     $o = new OpenID_RelyingParty($returnTo, $realm, $identifier);
-} catch (Exception $e) {
+} catch (Throwable $e) {
     Die_error($e);
 }
 
@@ -138,41 +134,41 @@ try {
 if (isset($_POST['start'])) {
     try {
         $authRequest = $o->prepare();
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         Die_error($e);
     }
 
     $url = $authRequest->getAuthorizeURL();
 
-    header("Location: $url");
+    header('Location: ' . $url);
     exit;
-} else {
-    /* Grab query string */
-    if (! count($_POST)) {
-        list(, $queryString) = explode('?', $_SERVER['REQUEST_URI']);
-    } else {
-        // I hate php sometimes
-        $queryString = file_get_contents('php://input');
-    }
-
-    /* Check reply */
-    try {
-        $message = new OpenID_Message($queryString, OpenID_Message::FORMAT_HTTP);
-    } catch (Exception $e) {
-        Die_error($e);
-    }
-
-    $id = $message->get('openid.claimed_id');
-
-    if (! empty($id) && isset($AUTH_MAP[$id])) {
-        $_SESSION['PMA_single_signon_user'] = $AUTH_MAP[$id]['user'];
-        $_SESSION['PMA_single_signon_password'] = $AUTH_MAP[$id]['password'];
-        $_SESSION['PMA_single_signon_HMAC_secret'] = hash('sha1', uniqid(strval(rand()), true));
-        session_write_close();
-        /* Redirect to phpMyAdmin (should use absolute URL here!) */
-        header('Location: ../index.php');
-    } else {
-        Show_page('<p>User not allowed!</p>');
-        exit;
-    }
 }
+
+/* Grab query string */
+if (! count($_POST)) {
+    [, $queryString] = explode('?', $_SERVER['REQUEST_URI']);
+} else {
+    // I hate php sometimes
+    $queryString = file_get_contents('php://input');
+}
+
+/* Check reply */
+try {
+    $message = new OpenID_Message($queryString, OpenID_Message::FORMAT_HTTP);
+} catch (Throwable $e) {
+    Die_error($e);
+}
+
+$id = $message->get('openid.claimed_id');
+
+if (empty($id) || ! isset($AUTH_MAP[$id])) {
+    Show_page('<p>User not allowed!</p>');
+    exit;
+}
+
+$_SESSION['PMA_single_signon_user'] = $AUTH_MAP[$id]['user'];
+$_SESSION['PMA_single_signon_password'] = $AUTH_MAP[$id]['password'];
+$_SESSION['PMA_single_signon_HMAC_secret'] = hash('sha1', uniqid(strval(rand()), true));
+session_write_close();
+/* Redirect to phpMyAdmin (should use absolute URL here!) */
+header('Location: ../index.php');

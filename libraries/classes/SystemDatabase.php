@@ -1,41 +1,25 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * hold PhpMyAdmin\SystemDatabase class
- *
- * @package PhpMyAdmin
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use mysqli_result;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Util;
+use function count;
+use function sprintf;
 
-/**
- * Class SystemDatabase
- *
- * @package PhpMyAdmin
- */
 class SystemDatabase
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     protected $dbi;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**
      * Get instance of SystemDatabase
      *
      * @param DatabaseInterface $dbi Database interface for the system database
-     *
      */
     public function __construct(DatabaseInterface $dbi)
     {
@@ -65,7 +49,7 @@ class SystemDatabase
             "SELECT * FROM %s.%s WHERE `db_name` = '%s'",
             Util::backquote($cfgRelation['db']),
             Util::backquote($cfgRelation['column_info']),
-            $GLOBALS['dbi']->escapeString($db)
+            $this->dbi->escapeString($db)
         );
 
         return $this->dbi->tryQuery($pma_transformation_sql);
@@ -91,10 +75,10 @@ class SystemDatabase
 
         // Need to store new transformation details for VIEW
         $new_transformations_sql = sprintf(
-            "INSERT INTO %s.%s ("
-            . "`db_name`, `table_name`, `column_name`, "
-            . "`comment`, `mimetype`, `transformation`, "
-            . "`transformation_options`) VALUES",
+            'INSERT INTO %s.%s ('
+            . '`db_name`, `table_name`, `column_name`, '
+            . '`comment`, `mimetype`, `transformation`, '
+            . '`transformation_options`) VALUES',
             Util::backquote($cfgRelation['db']),
             Util::backquote($cfgRelation['column_info'])
         );
@@ -115,9 +99,7 @@ class SystemDatabase
                     $add_comma ? ', ' : '',
                     $db,
                     $view_name,
-                    isset($column['real_column'])
-                    ? $column['real_column']
-                    : $column['refering_column'],
+                    $column['real_column'] ?? $column['refering_column'],
                     $data_row['comment'],
                     $data_row['mimetype'],
                     $data_row['transformation'],
@@ -136,6 +118,6 @@ class SystemDatabase
             }
         }
 
-        return ($column_count > 0) ? $new_transformations_sql : '';
+        return $column_count > 0 ? $new_transformations_sql : '';
     }
 }

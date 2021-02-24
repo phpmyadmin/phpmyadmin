@@ -2,7 +2,7 @@
   <legend>{% trans 'Profiling' %}</legend>
   <div class="floatleft">
     <h3>{% trans 'Detailed profile' %}</h3>
-    <table id="profiletable">
+    <table class="pma-table" id="profiletable">
       <thead>
       <tr>
         <th>
@@ -20,14 +20,23 @@
       </tr>
       </thead>
       <tbody>
-        {{ detailed_table|raw }}
+        {% for state in profiling.profile %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ state.status }}</td>
+            <td class="text-right">
+              {{ state.duration }}s
+              <span class="rawvalue hide">{{ state.duration_raw }}</span>
+            </td>
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
 
   <div class="floatleft">
     <h3>{% trans 'Summary by state' %}{{ show_mysql_docu('general-thread-states') }}</h3>
-    <table id="profilesummarytable">
+    <table class="pma-table" id="profilesummarytable">
       <thead>
       <tr>
         <th>
@@ -53,36 +62,32 @@
       </tr>
       </thead>
       <tbody>
-        {% for name, stats in states %}
+        {% for name, stats in profiling.states %}
           <tr>
             <td>{{ name }}</td>
-            <td align="right">
-              {{ format_number(stats['total_time'], 3, 1) }}s
-              <span class="rawvalue hide">{{ stats['total_time'] }}</span>
+            <td class="text-right">
+              {{ format_number(stats.total_time, 3, 1) }}s
+              <span class="rawvalue hide">{{ stats.total_time }}</span>
             </td>
-            <td align="right">
-              {{ format_number(100 * (stats['total_time'] / total_time), 0, 2) }}%
+            <td class="text-right">
+              {{ format_number(100 * (stats.total_time / profiling.total_time), 0, 2) }}%
             </td>
-            <td align="right">{{ stats['calls'] }}</td>
-            <td align="right">
-              {{ format_number(stats['total_time'] / stats['calls'], 3, 1) }}s
+            <td class="text-right">{{ stats.calls }}</td>
+            <td class="text-right">
+              {{ format_number(stats.total_time / stats.calls, 3, 1) }}s
               <span class="rawvalue hide">
-                {{ (stats['total_time'] / stats['calls'])|number_format(8, '.', '') }}
+                {{ (stats.total_time / stats.calls)|number_format(8, '.', '') }}
               </span>
             </td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
-
-    <script type="text/javascript">
-      url_query = '{{ url_query }}';
-    </script>
   </div>
   <div class='clearfloat'></div>
 
   <div id="profilingChartData" class="hide">
-    {{ chart_json|json_encode() }}
+    {{- profiling.chart|json_encode() -}}
   </div>
   <div id="profilingchart" class="hide"></div>
 

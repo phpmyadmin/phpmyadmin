@@ -1,37 +1,35 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Set of methods used to build dumps of tables as JSON
- *
- * @package    PhpMyAdmin-Export
- * @subpackage JSON
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_UNICODE;
+use function bin2hex;
+use function explode;
+use function json_encode;
+use function stripslashes;
+use function strpos;
 
 /**
  * Handles the export for the JSON format
- *
- * @package    PhpMyAdmin-Export
- * @subpackage JSON
  */
 class ExportJson extends ExportPlugin
 {
+    /** @var bool */
     private $first = true;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -58,6 +56,7 @@ class ExportJson extends ExportPlugin
         ) {
             $options |= JSON_UNESCAPED_UNICODE;
         }
+
         return json_encode($data, $options);
     }
 
@@ -78,13 +77,13 @@ class ExportJson extends ExportPlugin
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup('general_opts');
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem("structure_or_data");
+        $leaf = new HiddenPropertyItem('structure_or_data');
         $generalOptions->addProperty($leaf);
 
         $leaf = new BoolPropertyItem(
@@ -211,6 +210,8 @@ class ExportJson extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
@@ -228,26 +229,26 @@ class ExportJson extends ExportPlugin
                 'type' => 'table',
                 'name' => $table_alias,
                 'database' => $db_alias,
-                'data' => "@@DATA@@",
+                'data' => '@@DATA@@',
             ]
         );
-        list($header, $footer) = explode('"@@DATA@@"', $buffer);
+        [$header, $footer] = explode('"@@DATA@@"', $buffer);
 
         if (! $this->export->outputHandler($header . $crlf . '[' . $crlf)) {
             return false;
         }
 
-        $result = $GLOBALS['dbi']->query(
+        $result = $dbi->query(
             $sql_query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
-        $columns_cnt = $GLOBALS['dbi']->numFields($result);
-        $fieldsMeta = $GLOBALS['dbi']->getFieldsMeta($result);
+        $columns_cnt = $dbi->numFields($result);
+        $fieldsMeta = $dbi->getFieldsMeta($result);
 
         $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $col_as = $GLOBALS['dbi']->fieldName($result, $i);
+            $col_as = $dbi->fieldName($result, $i);
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
@@ -255,7 +256,7 @@ class ExportJson extends ExportPlugin
         }
 
         $record_cnt = 0;
-        while ($record = $GLOBALS['dbi']->fetchRow($result)) {
+        while ($record = $dbi->fetchRow($result)) {
             $record_cnt++;
 
             // Output table name as comment if this is the first record of the table
@@ -268,8 +269,8 @@ class ExportJson extends ExportPlugin
             $data = [];
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if ($fieldsMeta[$i]->type === 'geometry') {
-                    // export GIS types as hex
+                if ($fieldsMeta[$i]->type === 'geometry' || strpos($fieldsMeta[$i]->type, 'blob') !== false) {
+                    // export GIS and blob types as hex
                     $record[$i] = '0x' . bin2hex($record[$i]);
                 }
                 $data[$columns[$i]] = $record[$i];
@@ -288,7 +289,79 @@ class ExportJson extends ExportPlugin
             return false;
         }
 
-        $GLOBALS['dbi']->freeResult($result);
+        $dbi->freeResult($result);
+
+        return true;
+    }
+
+    /**
+     * Outputs result raw query in JSON format
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the end of line sequence
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        global $dbi;
+
+        $buffer = $this->encode(
+            [
+                'type' => 'raw',
+                'data' => '@@DATA@@',
+            ]
+        );
+        [$header, $footer] = explode('"@@DATA@@"', $buffer);
+
+        if (! $this->export->outputHandler($header . $crlf . '[' . $crlf)) {
+            return false;
+        }
+
+        $result = $dbi->query(
+            $sql_query,
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_UNBUFFERED
+        );
+        $columns_cnt = $dbi->numFields($result);
+
+        $columns = [];
+        for ($i = 0; $i < $columns_cnt; $i++) {
+            $col_as = $dbi->fieldName($result, $i);
+            $columns[$i] = stripslashes($col_as);
+        }
+
+        $record_cnt = 0;
+        while ($record = $dbi->fetchRow($result)) {
+            $record_cnt++;
+
+            if ($record_cnt > 1) {
+                if (! $this->export->outputHandler(',' . $crlf)) {
+                    return false;
+                }
+            }
+
+            $data = [];
+
+            for ($i = 0; $i < $columns_cnt; $i++) {
+                $data[$columns[$i]] = $record[$i];
+            }
+
+            $encodedData = $this->encode($data);
+            if (! $encodedData) {
+                return false;
+            }
+            if (! $this->export->outputHandler($encodedData)) {
+                return false;
+            }
+        }
+
+        if (! $this->export->outputHandler($crlf . ']' . $crlf . $footer . $crlf)) {
+            return false;
+        }
+
+        $dbi->freeResult($result);
 
         return true;
     }

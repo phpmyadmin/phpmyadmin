@@ -44,14 +44,14 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'phpMyAdmin'
-copyright = u'2012 - 2020, The phpMyAdmin devel team'
+copyright = u'2012 - 2021, The phpMyAdmin devel team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '5.0.4'
+version = '5.1.0'
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -315,8 +315,6 @@ linkcheck_ignore = [
     r'https://authy.com/.*',
     # Site often changes links and reverts changes (9362bde02d0535a2f8cb74a18797249cb734c4b0)
     r'https://www.yubico.com/.*',
-    # 500 Server Error: Internal Server Error
-    r'http://www.scriptalicious.com/.*',
     # Some timeouts and SSL issues: https://github.com/sektioneins/suhosin/issues/119
     r'https://suhosin.org/.*',
 ]

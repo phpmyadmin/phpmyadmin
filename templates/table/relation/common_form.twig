@@ -1,15 +1,16 @@
 {% extends 'table/page_with_secondary_tabs.twig' %}
 
 {% block content %}
-<form method="post" action="tbl_relation.php">
+<form method="post" action="{{ url('/table/relation') }}">
     {{ get_hidden_inputs(db, table) }}
     {# InnoDB #}
     {% if is_foreign_key_supported(tbl_storage_engine) %}
         <fieldset>
             <legend>{% trans 'Foreign key constraints' %}</legend>
-            <div class="responsivetable jsresponsive">
-            <table id="foreign_keys" class="relationalTable">
-                <thead><tr>
+            <div class="table-responsive-md jsresponsive">
+            <table class="relationalTable table table-light table-striped">
+                <thead class="thead-light">
+                <tr>
                     <th>{% trans 'Actions' %}</th>
                     <th>{% trans 'Constraint properties' %}</th>
                     {% if tbl_storage_engine|upper == 'INNODB' %}
@@ -100,11 +101,9 @@
 
     {% if cfg_relation['relwork'] %}
         {% if is_foreign_key_supported(tbl_storage_engine) %}
-            {% include 'div_for_slider_effect.twig' with {
-                'id': 'ir_div',
-                'message': 'Internal relationships'|trans,
-                'initial_sliders_state': default_sliders_state
-            } only %}
+            <div id="ir_div"{% if default_sliders_state != 'disabled' -%}
+                {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Internal relationships' %}"
+            {%- endif %}>
         {% endif %}
 
         <fieldset>
@@ -112,14 +111,19 @@
                 {% trans 'Internal relationships' %}
                 {{ show_docu('config', 'cfg_Servers_relation') }}
             </legend>
-            <table id="internal_relations" class="relationalTable">
-                <tr>
+            <table class="relationalTable table table-light table-striped table-hover table-sm">
+                <thead class="thead-light">
+                  <tr>
                     <th>{% trans 'Column' %}</th>
-                    <th>{% trans 'Internal relation' %}
-                        {% if is_foreign_key_supported(tbl_storage_engine) %}
-                            {{ show_hint('An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.'|trans) }}
-                        {% endif %}
+                    <th>
+                      {% trans 'Internal relation' %}
+                      {% if is_foreign_key_supported(tbl_storage_engine) %}
+                        {{ show_hint('An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.'|trans) }}
+                      {% endif %}
                     </th>
+                  </tr>
+                </thead>
+                <tbody>
                     {% set saved_row_cnt = save_row|length - 1 %}
                     {% for i in 0..saved_row_cnt %}
                         {% set myfield = save_row[i]['Field'] %}
@@ -187,6 +191,7 @@
                             </td>
                         </tr>
                     {% endfor %}
+                </tbody>
             </table>
         </fieldset>
         {% if is_foreign_key_supported(tbl_storage_engine) %}
@@ -217,7 +222,5 @@
         <input class="btn btn-primary" type="submit" value="{% trans 'Save' %}">
     </fieldset>
 </form>
-{% if foreignKeySupported %}
-    {{ displayIndexesHtml|raw }}
-{% endif %}
+
 {% endblock %}

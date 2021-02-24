@@ -1,0 +1,87 @@
+<fieldset class="index_info">
+  <legend id="index_header">
+    {% trans 'Indexes' %}
+    {{ show_mysql_docu('optimizing-database-structure') }}
+  </legend>
+
+  {% if indexes is not empty %}
+    {{ indexes_duplicates|raw }}
+
+    <div class="responsivetable jsresponsive">
+      <table class="pma-table" id="table_index">
+        <thead>
+          <tr>
+            <th colspan="2" class="print_ignore">{% trans 'Action' %}</th>
+            <th>{% trans 'Keyname' %}</th>
+            <th>{% trans 'Type' %}</th>
+            <th>{% trans 'Unique' %}</th>
+            <th>{% trans 'Packed' %}</th>
+            <th>{% trans 'Column' %}</th>
+            <th>{% trans 'Cardinality' %}</th>
+            <th>{% trans 'Collation' %}</th>
+            <th>{% trans 'Null' %}</th>
+            <th>{% trans 'Comment' %}</th>
+          </tr>
+        </thead>
+
+        {% for index in indexes %}
+          <tbody class="row_span">
+            {% set columns_count = index.getColumnCount() %}
+            <tr class="noclick">
+              <td rowspan="{{ columns_count }}" class="edit_index print_ignore ajax">
+                <a class="ajax" href="{{ url('/table/indexes') }}" data-post="{{ get_common(url_params|merge({'index': index.getName()}), '') }}">
+                  {{ get_icon('b_edit', 'Edit'|trans) }}
+                </a>
+              </td>
+              <td rowspan="{{ columns_count }}" class="print_ignore">
+                {% if index.getName() == 'PRIMARY' %}
+                  {% set index_params = {
+                    'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP PRIMARY KEY;',
+                    'message_to_show': 'The primary key has been dropped.'|trans
+                  } %}
+                {% else %}
+                  {% set index_params = {
+                    'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' DROP INDEX ' ~ backquote(index.getName()) ~ ';',
+                    'message_to_show': 'Index %s has been dropped.'|trans|format(index.getName())
+                  } %}
+                {% endif %}
+
+                <input type="hidden" class="drop_primary_key_index_msg" value="{{ index_params.sql_query|js_format(false) }}">
+                {{ link_or_button(
+                  url('/sql', url_params|merge(index_params)),
+                  get_icon('b_drop', 'Drop'|trans),
+                  {'class': 'drop_primary_key_index_anchor ajax'}
+                ) }}
+              </td>
+              <th rowspan="{{ columns_count }}">{{ index.getName() }}</th>
+              <td rowspan="{{ columns_count }}">{{ index.getType()|default(index.getChoice()) }}</td>
+              <td rowspan="{{ columns_count }}">{{ index.isUnique() ? 'Yes'|trans : 'No'|trans }}</td>
+              <td rowspan="{{ columns_count }}">{{ index.isPacked()|raw }}</td>
+
+              {% for column in index.getColumns() %}
+                {% if column.getSeqInIndex() > 1 %}
+                  <tr class="noclick">
+                {% endif %}
+                <td>
+                  {{ column.getName() }}
+                  {% if column.getSubPart() is not empty %}
+                    ({{ column.getSubPart() }})
+                  {% endif %}
+                </td>
+                <td>{{ column.getCardinality() }}</td>
+                <td>{{ column.getCollation() }}</td>
+                <td>{{ column.getNull(true) }}</td>
+
+                {% if column.getSeqInIndex() == 1 %}
+                  <td rowspan="{{ columns_count }}">{{ index.getComments() }}</td>
+                {% endif %}
+            </tr>
+              {% endfor %}
+          </tbody>
+        {% endfor %}
+      </table>
+    </div>
+  {% else %}
+    <div class="no_indexes_defined">{{ 'No index defined!'|trans|notice }}</div>
+  {% endif %}
+</fieldset>

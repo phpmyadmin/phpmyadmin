@@ -1,10 +1,5 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds the PhpMyAdmin\Controllers\Server\Status\MonitorController
- *
- * @package PhpMyAdmin\Controllers
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server\Status;
@@ -13,134 +8,209 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
-use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
+use function is_numeric;
+use function microtime;
 
-/**
- * Class MonitorController
- * @package PhpMyAdmin\Controllers\Server\Status
- */
 class MonitorController extends AbstractController
 {
-    /**
-     * @var Monitor
-     */
+    /** @var Monitor */
     private $monitor;
 
-    /**
-     * MonitorController constructor.
-     *
-     * @param Response          $response Response object
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template          $template Template object
-     * @param Data              $data     Data object
-     * @param Monitor           $monitor  Monitor object
-     */
-    public function __construct($response, $dbi, Template $template, $data, $monitor)
-    {
-        parent::__construct($response, $dbi, $template, $data);
-        $this->monitor = $monitor;
-    }
+    /** @var DatabaseInterface */
+    private $dbi;
 
     /**
-     * @return string HTML
+     * @param Response          $response
+     * @param Data              $data
+     * @param Monitor           $monitor
+     * @param DatabaseInterface $dbi
      */
-    public function index(): string
+    public function __construct($response, Template $template, $data, $monitor, $dbi)
     {
+        parent::__construct($response, $template, $data);
+        $this->monitor = $monitor;
+        $this->dbi = $dbi;
+    }
+
+    public function index(): void
+    {
+        global $PMA_Theme, $err_url;
+
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
+
+        $this->addScriptFiles([
+            'vendor/jquery/jquery.tablesorter.js',
+            'jquery.sortable-table.js',
+            'vendor/jqplot/jquery.jqplot.js',
+            'vendor/jqplot/plugins/jqplot.pieRenderer.js',
+            'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
+            'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
+            'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
+            'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
+            'vendor/jqplot/plugins/jqplot.highlighter.js',
+            'vendor/jqplot/plugins/jqplot.cursor.js',
+            'jqplot/plugins/jqplot.byteFormatter.js',
+            'server/status/monitor.js',
+            'server/status/sorter.js',
+        ]);
+
         $form = [
             'server_time' => (int) (microtime(true) * 1000),
             'server_os' => SysInfo::getOs(),
-            'is_superuser' => $this->dbi->isSuperuser(),
-            'server_db_isLocal' => $this->data->db_isLocal,
+            'is_superuser' => $this->dbi->isSuperUser(),
+            'server_db_isLocal' => $this->data->dbIsLocal,
         ];
 
         $javascriptVariableNames = [];
         foreach ($this->data->status as $name => $value) {
-            if (is_numeric($value)) {
-                $javascriptVariableNames[] = $name;
+            if (! is_numeric($value)) {
+                continue;
             }
+
+            $javascriptVariableNames[] = $name;
         }
 
-        return $this->template->render('server/status/monitor/index', [
-            'image_path' => $GLOBALS['pmaThemeImage'],
+        $this->render('server/status/monitor/index', [
+            'image_path' => $PMA_Theme->getImgPath(),
             'javascript_variable_names' => $javascriptVariableNames,
             'form' => $form,
         ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function chartingData(array $params): array
+    public function chartingData(): void
     {
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForChartingData(
-            $params['requiredData'] ?? ''
-        );
+        global $err_url;
 
-        return $json;
+        $params = ['requiredData' => $_POST['requiredData'] ?? null];
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForChartingData(
+                $params['requiredData'] ?? ''
+            ),
+        ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function logDataTypeSlow(array $params): array
+    public function logDataTypeSlow(): void
     {
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForLogDataTypeSlow(
-            (int) $params['time_start'],
-            (int) $params['time_end']
-        );
+        global $err_url;
 
-        return $json;
+        $params = [
+            'time_start' => $_POST['time_start'] ?? null,
+            'time_end' => $_POST['time_end'] ?? null,
+        ];
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForLogDataTypeSlow(
+                (int) $params['time_start'],
+                (int) $params['time_end']
+            ),
+        ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function logDataTypeGeneral(array $params): array
+    public function logDataTypeGeneral(): void
     {
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForLogDataTypeGeneral(
-            (int) $params['time_start'],
-            (int) $params['time_end'],
-            (bool) $params['limitTypes'],
-            (bool) $params['removeVariables']
-        );
+        global $err_url;
 
-        return $json;
+        $params = [
+            'time_start' => $_POST['time_start'] ?? null,
+            'time_end' => $_POST['time_end'] ?? null,
+            'limitTypes' => $_POST['limitTypes'] ?? null,
+            'removeVariables' => $_POST['removeVariables'] ?? null,
+        ];
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForLogDataTypeGeneral(
+                (int) $params['time_start'],
+                (int) $params['time_end'],
+                (bool) $params['limitTypes'],
+                (bool) $params['removeVariables']
+            ),
+        ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function loggingVars(array $params): array
+    public function loggingVars(): void
     {
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForLoggingVars(
-            $params['varName'],
-            $params['varValue']
-        );
+        global $err_url;
 
-        return $json;
+        $params = [
+            'varName' => $_POST['varName'] ?? null,
+            'varValue' => $_POST['varValue'] ?? null,
+        ];
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForLoggingVars(
+                $params['varName'],
+                $params['varValue']
+            ),
+        ]);
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function queryAnalyzer(array $params): array
+    public function queryAnalyzer(): void
     {
-        $json = [];
-        $json['message'] = $this->monitor->getJsonForQueryAnalyzer(
-            $params['database'] ?? '',
-            $params['query'] ?? ''
-        );
+        global $err_url;
 
-        return $json;
+        $params = [
+            'database' => $_POST['database'] ?? null,
+            'query' => $_POST['query'] ?? null,
+        ];
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
+
+        if (! $this->response->isAjax()) {
+            return;
+        }
+
+        $this->response->addJSON([
+            'message' => $this->monitor->getJsonForQueryAnalyzer(
+                $params['database'] ?? '',
+                $params['query'] ?? ''
+            ),
+        ]);
     }
 }

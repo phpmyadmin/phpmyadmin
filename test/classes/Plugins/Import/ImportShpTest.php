@@ -1,40 +1,35 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Plugins\Import\ImportShp class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportShp;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use function define;
+use function defined;
+use function extension_loaded;
 
 /**
- * Tests for PhpMyAdmin\Plugins\Import\ImportShp class
- *
- * @package PhpMyAdmin-test
+ * @requires extension zip
  */
-class ImportShpTest extends PmaTestCase
+class ImportShpTest extends AbstractTestCase
 {
-    /**
-     * @var ImportShp
-     * @access protected
-     */
+    /** @var ImportShp */
     protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @return void
-     *
      * @access protected
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
         if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }
@@ -47,7 +42,7 @@ class ImportShpTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
@@ -64,19 +59,18 @@ class ImportShpTest extends PmaTestCase
      * Executes import of given file
      *
      * @param string $filename Name of test file
-     *
-     * @return void
      */
-    protected function runImport($filename)
+    protected function runImport(string $filename): void
     {
         $GLOBALS['import_file'] = $filename;
-        $GLOBALS['import_handle'] = new File($filename);
-        $GLOBALS['import_handle']->setDecompressContent(true);
-        $GLOBALS['import_handle']->open();
+
+        $importHandle = new File($filename);
+        $importHandle->setDecompressContent(true);
+        $importHandle->open();
 
         $GLOBALS['message'] = '';
         $GLOBALS['error'] = false;
-        $this->object->doImport();
+        $this->object->doImport($importHandle);
         $this->assertEquals('', $GLOBALS['message']);
         $this->assertFalse($GLOBALS['error']);
     }
@@ -85,23 +79,20 @@ class ImportShpTest extends PmaTestCase
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
      *
-     * @return void
-     *
      * @access protected
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for getProperties
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testGetProperties()
+    public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
         $this->assertEquals(
@@ -125,11 +116,9 @@ class ImportShpTest extends PmaTestCase
     /**
      * Test for doImport with complex data
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testImportOsm()
+    public function testImportOsm(): void
     {
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
@@ -161,11 +150,9 @@ class ImportShpTest extends PmaTestCase
     /**
      * Test for doImport
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testDoImport()
+    public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
         //$import_notice will show the import detail result
@@ -207,7 +194,6 @@ class ImportShpTest extends PmaTestCase
             );
         }
 
-
         $this->assertStringContainsString(
             "GeomFromText('POINT(1294523.1759236",
             $sql_query
@@ -221,10 +207,8 @@ class ImportShpTest extends PmaTestCase
      * Validates import messages
      *
      * @param string $import_notice Messages to check
-     *
-     * @return void
      */
-    protected function assertMessages($import_notice)
+    protected function assertMessages(string $import_notice): void
     {
         $this->assertStringContainsString(
             'The following structures have either been created or altered.',
@@ -248,8 +232,7 @@ class ImportShpTest extends PmaTestCase
         );
 
         //asset that the import process is finished
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $GLOBALS['finished']
         );
     }

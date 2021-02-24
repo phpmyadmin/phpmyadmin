@@ -22,9 +22,6 @@ $navi-pointer-background: #99c;
 // foreground (text) color for the main frame
 $main-color: #000;
 
-// background for the main frame
-$main-background: #f5f5f5;
-
 // foreground (text) color of the pointer in browse mode
 $browse-pointer-color: #000;
 
@@ -38,14 +35,6 @@ $browse-marker-color: #000;
 // background of the marker (visually marks row by clicking on it) in browse mode
 $browse-marker-background: #fc9;
 
-// fonts
-
-// the font family as a valid css font family value, if not set the browser default will be
-// used (depending on browser, DTD and system settings)
-$font-family: sans-serif;
-// fixed width font family, used in textarea
-$font-family-fixed: monospace;
-
 // tables
 
 // border
@@ -58,3 +47,87 @@ $th-color: #000;
 $bg-one: #e5e5e5;
 // table data row background, alternate
 $bg-two: #d5d5d5;
+
+// Bootstrap
+// ---------
+
+// Body
+
+$body-bg: #f5f5f5;
+$body-color: $main-color;
+
+// Typography
+
+$font-family-base: sans-serif;
+$font-family-monospace: monospace;
+
+$font-size-base: 0.82rem;
+
+// Tables
+
+$table-cell-padding: 0.1em 0.5em;
+$table-cell-padding-sm: $table-cell-padding;
+$table-striped-order: even;
+$table-bg: #f5f5f5;
+$table-accent-bg: $bg-two;
+$table-hover-bg: $browse-pointer-background;
+$table-hover-color: $browse-pointer-color;
+$table-head-color: $th-color;
+$table-head-bg: $th-background;
+
+// Dropdowns
+
+$dropdown-padding-y: 0;
+$dropdown-item-padding-y: 0;
+$dropdown-item-padding-x: 0;
+
+// Navbar
+
+$enable-transitions: false;
+$enable-caret: false;
+$navbar-padding-y: 0;
+$navbar-padding-x: 0;
+$navbar-nav-link-padding-x: 2px;
+$navbar-nav-link-padding-y: 2px;
+$navbar-light-color: #00f;
+$navbar-light-hover-color: #f00;
+$navbar-light-active-color: #00f;
+$navbar-light-disabled-color: #00f;
+
+// Card
+
+$card-border-radius: 0;
+$card-border-color: $main-color;
+$card-cap-bg: $th-background;
+$card-bg: $bg-one;
+$card-spacer-y: 0.5em;
+$card-spacer-x: 0.5em;
+
+// Breadcrumbs
+
+$breadcrumb-padding-y: 0.1rem;
+$breadcrumb-margin-bottom: 0;
+$breadcrumb-bg: white;
+$breadcrumb-divider-color: inherit;
+$breadcrumb-divider: quote("»");
+$breadcrumb-border-radius: 0;
+
+// Alert
+
+$alert-margin-bottom: 0.2em;
+$alert-border-radius: 0;
+$alert-border-width: 2px;
+
+// List group
+
+$list-group-bg: inherit;
+$list-group-item-padding-x: 0;
+$list-group-item-padding-y: 0;
+
+// Modals
+
+$modal-content-border-radius: 0;
+$modal-header-border-color: #000;
+$modal-inner-padding: 0.75rem;
+$modal-footer-margin-between: 0.1rem;
+$modal-header-padding-y: 0.4rem;

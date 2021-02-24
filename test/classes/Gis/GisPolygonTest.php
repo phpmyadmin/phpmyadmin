@@ -1,23 +1,15 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Test for PhpMyAdmin\Gis\GisPolygon
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPolygon;
-use PhpMyAdmin\Tests\Gis\GisGeomTestCase;
 use TCPDF;
+use function function_exists;
+use function imagecreatetruecolor;
+use function preg_match;
 
-/**
- * Tests for PhpMyAdmin\Gis\GisPolygon class
- *
- * @package PhpMyAdmin-test
- */
 class GisPolygonTest extends GisGeomTestCase
 {
     /**
@@ -31,10 +23,10 @@ class GisPolygonTest extends GisGeomTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = GisPolygon::singleton();
     }
 
@@ -43,10 +35,10 @@ class GisPolygonTest extends GisGeomTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
@@ -55,7 +47,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array common data for data providers
      */
-    private function _getData()
+    private function getData(): array
     {
         return [
             'POLYGON' => [
@@ -111,10 +103,10 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt()
+    public function providerForTestGenerateWkt(): array
     {
         $temp = [
-            0 => $this->_getData(),
+            0 => $this->getData(),
         ];
 
         $temp1 = $temp;
@@ -176,9 +168,9 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams()
+    public function providerForTestGenerateParams(): array
     {
-        $temp = $this->_getData();
+        $temp = $this->getData();
 
         $temp1 = $temp;
         $temp1['gis_type'] = 'POLYGON';
@@ -196,9 +188,7 @@ class GisPolygonTest extends GisGeomTestCase
             [
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))',
                 2,
-                [
-                    2 => $temp1,
-                ],
+                [2 => $temp1],
             ],
         ];
     }
@@ -210,9 +200,8 @@ class GisPolygonTest extends GisGeomTestCase
      * @param float $area area of the ring
      *
      * @dataProvider providerForTestArea
-     * @return void
      */
-    public function testArea($ring, $area): void
+    public function testArea(array $ring, float $area): void
     {
         $this->assertEquals($this->object->area($ring), $area);
     }
@@ -222,7 +211,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testArea
      */
-    public function providerForTestArea()
+    public function providerForTestArea(): array
     {
         return [
             [
@@ -293,9 +282,8 @@ class GisPolygonTest extends GisGeomTestCase
      * @param bool  $isInside output
      *
      * @dataProvider providerForTestIsPointInsidePolygon
-     * @return void
      */
-    public function testIsPointInsidePolygon($point, $polygon, $isInside): void
+    public function testIsPointInsidePolygon(array $point, array $polygon, bool $isInside): void
     {
         $this->assertEquals(
             $this->object->isPointInsidePolygon($point, $polygon),
@@ -308,7 +296,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testIsPointInsidePolygon
      */
-    public function providerForTestIsPointInsidePolygon()
+    public function providerForTestIsPointInsidePolygon(): array
     {
         $ring = [
             0 => [
@@ -375,9 +363,8 @@ class GisPolygonTest extends GisGeomTestCase
      * @param array $ring array of points forming the ring
      *
      * @dataProvider providerForTestGetPointOnSurface
-     * @return void
      */
-    public function testGetPointOnSurface($ring): void
+    public function testGetPointOnSurface(array $ring): void
     {
         $this->assertEquals(
             $this->object->isPointInsidePolygon(
@@ -393,9 +380,9 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testGetPointOnSurface
      */
-    public function providerForTestGetPointOnSurface()
+    public function providerForTestGetPointOnSurface(): array
     {
-        $temp = $this->_getData();
+        $temp = $this->getData();
         unset($temp['POLYGON'][0]['no_of_points']);
         unset($temp['POLYGON'][1]['no_of_points']);
 
@@ -414,7 +401,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow()
+    public function providerForTestScaleRow(): array
     {
         return [
             [
@@ -448,16 +435,15 @@ class GisPolygonTest extends GisGeomTestCase
      * @param array    $scale_data array containing data related to scaling
      * @param resource $image      image object
      *
-     * @return void
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial,
-        $label,
-        $fill_color,
-        $scale_data,
+        string $spatial,
+        string $label,
+        string $fill_color,
+        array $scale_data,
         $image
-    ) {
+    ): void {
         $return = $this->object->prepareRowAsPng(
             $spatial,
             $label,
@@ -473,11 +459,12 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPng() test case
      */
-    public function providerForPrepareRowAsPng()
+    public function providerForPrepareRowAsPng(): array
     {
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
+
         return [
             [
                 'POLYGON((123 0,23 30,17 63,123 0))',
@@ -503,16 +490,15 @@ class GisPolygonTest extends GisGeomTestCase
      * @param array  $scale_data array containing data related to scaling
      * @param TCPDF  $pdf        TCPDF instance
      *
-     * @return void
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial,
-        $label,
-        $fill_color,
-        $scale_data,
-        $pdf
-    ) {
+        string $spatial,
+        string $label,
+        string $fill_color,
+        array $scale_data,
+        TCPDF $pdf
+    ): void {
         $return = $this->object->prepareRowAsPdf(
             $spatial,
             $label,
@@ -528,7 +514,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf()
+    public function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -549,27 +535,26 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string $spatial    GIS POLYGON object
-     * @param string $label      label for the GIS POLYGON object
-     * @param string $fill_color color for the GIS POLYGON object
-     * @param array  $scale_data array containing data related to scaling
-     * @param string $output     expected output
+     * @param string $spatial   GIS POLYGON object
+     * @param string $label     label for the GIS POLYGON object
+     * @param string $fillColor color for the GIS POLYGON object
+     * @param array  $scaleData array containing data related to scaling
+     * @param string $output    expected output
      *
-     * @return void
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial,
-        $label,
-        $fill_color,
-        $scale_data,
-        $output
-    ) {
+        string $spatial,
+        string $label,
+        string $fillColor,
+        array $scaleData,
+        string $output
+    ): void {
         $string = $this->object->prepareRowAsSvg(
             $spatial,
             $label,
-            $fill_color,
-            $scale_data
+            $fillColor,
+            $scaleData
         );
         $this->assertEquals(1, preg_match($output, $string));
     }
@@ -579,7 +564,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg()
+    public function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -606,21 +591,20 @@ class GisPolygonTest extends GisGeomTestCase
      * @param string $spatial    GIS POLYGON object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS POLYGON object
-     * @param string $fill_color color for the GIS POLYGON object
+     * @param array  $fill_color color for the GIS POLYGON object
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
-     * @return void
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial,
-        $srid,
-        $label,
-        $fill_color,
-        $scale_data,
-        $output
-    ) {
+        string $spatial,
+        int $srid,
+        string $label,
+        array $fill_color,
+        array $scale_data,
+        string $output
+    ): void {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
@@ -638,37 +622,35 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl()
+    public function providerForPrepareRowAsOl(): array
     {
         return [
             [
                 'POLYGON((123 0,23 30,17 63,123 0))',
                 4326,
                 'Ol',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.Lon'
-                . 'Lat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject())); bound.extend(new OpenLayers.'
-                . 'LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject()));vectorLayer.addFeatures(new Open'
-                . 'Layers.Feature.Vector(new OpenLayers.Geometry.Polygon(new Array'
-                . '(new OpenLayers.Geometry.LinearRing(new Array((new OpenLayers.'
-                . 'Geometry.Point(123,0)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.'
-                . 'Geometry.Point(23,30)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.'
-                . 'Geometry.Point(17,63)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.'
-                . 'Geometry.Point(123,0)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()))))), null, {"stroke'
-                . 'Color":"#000000","strokeWidth":0.5,"fillColor":"#B02EE0",'
-                . '"fillOpacity":0.8,"label":"Ol","fontSize":10}));',
+                'var style = new ol.style.Style({fill: new ol.style.Fill({"color":[176,46,224,0.8]'
+                . '}),stroke: new ol.style.Stroke({"color":[0,0,0],"width":0.5}),text: new ol.styl'
+                . 'e.Text({"text":"Ol"})});var minLoc = [0, 0];var maxLoc = [1, 1];var ext = ol.ex'
+                . 'tent.boundingExtent([minLoc, maxLoc]);ext = ol.proj.transformExtent(ext, ol.pro'
+                . 'j.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.getView().fit(ext, map.getS'
+                . 'ize());var arr = [];var lineArr = [];var line = new ol.geom.LinearRing(new Arra'
+                . 'y((new ol.geom.Point([123,0]).transform(ol.proj.get("EPSG:4326"), ol.proj.get('
+                . '\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([23,30]).transform(ol.pro'
+                . 'j.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom'
+                . '.Point([17,63]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))'
+                . ').getCoordinates(), (new ol.geom.Point([123,0]).transform(ol.proj.get("EPSG:432'
+                . '6"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordi'
+                . 'nates();for (var i = 0; i < coord.length; i++) lineArr.push(coord[i]);arr.push(lineArr);'
+                . 'var polygon = new ol.geom.Polygon(arr);var feature = new ol.Feature({geometry: polygon});f'
+                . 'eature.setStyle(style);vectorLayer.addFeature(feature);',
             ],
         ];
     }
@@ -678,10 +660,9 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @param array $ring coordinates of the points in a ring
      *
-     * @return void
      * @dataProvider providerForIsOuterRing
      */
-    public function testIsOuterRing($ring): void
+    public function testIsOuterRing(array $ring): void
     {
         $this->assertTrue($this->object->isOuterRing($ring));
     }
@@ -691,7 +672,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @return array test data for testIsOuterRing() test case
      */
-    public function providerForIsOuterRing()
+    public function providerForIsOuterRing(): array
     {
         return [
             [

@@ -1,28 +1,21 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Fake response stub for testing purposes
  *
  * It will concatenate HTML and JSON for given calls to addHTML and addJSON
  * respectively, what make it easy to determine whether the output is correct in test
  * suite. Feel free to modify for any future test needs.
- *
- * @package    PhpMyAdmin
- * @subpackage Stubs
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
+use function is_array;
 
-/**
- * Class Response
- *
- * @package PhpMyAdmin\Tests\Stubs
- */
-class Response
+class Response extends \PhpMyAdmin\Response
 {
     /**
      * PhpMyAdmin\Header instance
@@ -56,7 +49,7 @@ class Response
      * @access private
      * @var bool
      */
-    protected $_isSuccess;
+    protected $isSuccess;
 
     /**
      * Whether we are servicing an ajax request.
@@ -64,17 +57,17 @@ class Response
      * @access private
      * @var bool
      */
-    private $_isAjax;
+    private $isAjax;
 
     /**
      * Creates a new class instance
      */
     public function __construct()
     {
-        $this->_isSuccess = true;
+        $this->isSuccess = true;
         $this->htmlString = '';
         $this->json = [];
-        $this->_isAjax = false;
+        $this->isAjax = false;
 
         $GLOBALS['lang'] = 'en';
         $this->header = new Header();
@@ -162,22 +155,18 @@ class Response
      * whether it is a success or an error
      *
      * @param bool $state Whether the request was successfully processed
-     *
-     * @return void
      */
-    public function setRequestStatus($state)
+    public function setRequestStatus(bool $state): void
     {
-        $this->_isSuccess = $state;
+        $this->isSuccess = $state;
     }
 
     /**
      * Get the status of an ajax response.
-     *
-     * @return bool
      */
-    public function getSuccessSate()
+    public function hasSuccessState(): bool
     {
-        return $this->_isSuccess;
+        return $this->isSuccess;
     }
 
     /**
@@ -188,7 +177,7 @@ class Response
      */
     public function clear()
     {
-        $this->_isSuccess = true;
+        $this->isSuccess = true;
         $this->json = [];
         $this->htmlString = '';
     }
@@ -198,22 +187,18 @@ class Response
      * we are servicing an ajax request
      *
      * @param bool $isAjax Whether we are servicing an ajax request
-     *
-     * @return void
      */
-    public function setAjax($isAjax)
+    public function setAjax(bool $isAjax): void
     {
-        $this->_isAjax = (bool) $isAjax;
+        $this->isAjax = (bool) $isAjax;
     }
 
     /**
      * Returns true or false depending on whether
      * we are servicing an ajax request
-     *
-     * @return bool
      */
-    public function isAjax()
+    public function isAjax(): bool
     {
-        return $this->_isAjax;
+        return $this->isAjax;
     }
 }

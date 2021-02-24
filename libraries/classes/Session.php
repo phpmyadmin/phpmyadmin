@@ -1,25 +1,38 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Session handling
  *
- * @package PhpMyAdmin
- *
  * @see     https://www.php.net/manual/en/features.sessions.php
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Config;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\ErrorHandler;
-use PhpMyAdmin\Util;
+use const PHP_SESSION_ACTIVE;
+use function defined;
+use function function_exists;
+use function htmlspecialchars;
+use function implode;
+use function ini_get;
+use function ini_set;
+use function preg_replace;
+use function session_abort;
+use function session_cache_limiter;
+use function session_destroy;
+use function session_id;
+use function session_name;
+use function session_regenerate_id;
+use function session_save_path;
+use function session_set_cookie_params;
+use function session_start;
+use function session_status;
+use function session_unset;
+use function session_write_close;
+use function setcookie;
 
 /**
  * Session class
- *
- * @package PhpMyAdmin
  */
 class Session
 {
@@ -37,11 +50,13 @@ class Session
          * Check if token is properly generated (the generation can fail, for example
          * due to missing /dev/random for openssl).
          */
-        if (empty($_SESSION[' PMA_token '])) {
-            Core::fatalError(
-                'Failed to generate random CSRF token!'
-            );
+        if (! empty($_SESSION[' PMA_token '])) {
+            return;
         }
+
+        Core::fatalError(
+            'Failed to generate random CSRF token!'
+        );
     }
 
     /**
@@ -111,6 +126,7 @@ class Session
      *
      * @param Config       $config       Configuration handler
      * @param ErrorHandler $errorHandler Error handler
+     *
      * @return void
      */
     public static function setUp(Config $config, ErrorHandler $errorHandler)
@@ -119,8 +135,9 @@ class Session
         if (! function_exists('session_name')) {
             Core::warnMissingExtension('session', true);
         } elseif (! empty(ini_get('session.auto_start'))
-            && session_name() != 'phpMyAdmin'
-            && ! empty(session_id())) {
+            && session_name() !== 'phpMyAdmin'
+            && ! empty(session_id())
+        ) {
             // Do not delete the existing non empty session, it might be used by
             // other applications; instead just close it.
             if (empty($_SESSION)) {
@@ -176,7 +193,7 @@ class Session
         $httpCookieName = $config->getCookieName('phpMyAdmin');
         @session_name($httpCookieName);
 
-        // Restore correct sesion ID (it might have been reset by auto started session
+        // Restore correct session ID (it might have been reset by auto started session
         if ($config->issetCookie('phpMyAdmin')) {
             session_id($config->getCookie('phpMyAdmin'));
         }
@@ -207,28 +224,32 @@ class Session
          * Token which is used for authenticating access queries.
          * (we use "space PMA_token space" to prevent overwriting)
          */
-        if (empty($_SESSION[' PMA_token '])) {
-            self::generateToken();
-
-            /**
-             * Check for disk space on session storage by trying to write it.
-             *
-             * This seems to be most reliable approach to test if sessions are working,
-             * otherwise the check would fail with custom session backends.
-             */
-            $orig_error_count = $errorHandler->countErrors();
-            session_write_close();
-            if ($errorHandler->countErrors() > $orig_error_count) {
-                $errors = $errorHandler->sliceErrors($orig_error_count);
-                self::sessionFailed($errors);
-            }
-            session_start();
-            if (empty($_SESSION[' PMA_token '])) {
-                Core::fatalError(
-                    'Failed to store CSRF token in session! ' .
-                    'Probably sessions are not working properly.'
-                );
-            }
+        if (! empty($_SESSION[' PMA_token '])) {
+            return;
         }
+
+        self::generateToken();
+
+        /**
+         * Check for disk space on session storage by trying to write it.
+         *
+         * This seems to be most reliable approach to test if sessions are working,
+         * otherwise the check would fail with custom session backends.
+         */
+        $orig_error_count = $errorHandler->countErrors();
+        session_write_close();
+        if ($errorHandler->countErrors() > $orig_error_count) {
+            $errors = $errorHandler->sliceErrors($orig_error_count);
+            self::sessionFailed($errors);
+        }
+        session_start();
+        if (! empty($_SESSION[' PMA_token '])) {
+            return;
+        }
+
+        Core::fatalError(
+            'Failed to store CSRF token in session! ' .
+            'Probably sessions are not working properly.'
+        );
     }
 }

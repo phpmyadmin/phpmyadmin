@@ -1,5 +1,5 @@
 <div class="responsivetable">
-<table id="table_columns" class="noclick">
+<table id="table_columns" class="pma-table noclick">
     <caption class="tblHeaders">
         {% trans 'Structure' %}
         {{ show_mysql_docu('CREATE_TABLE') }}
@@ -14,7 +14,7 @@
         </th>
         <th>
             {% trans 'Length/Values' %}
-            {{ show_hint('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'…<br>If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
+            {{ show_hint('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
         </th>
         <th>
             {% trans 'Default' %}
@@ -68,11 +68,10 @@
 
         {% if mimework and browse_mime %}
             <th>
-                {% trans 'Media (MIME) type' %}
+                {% trans 'Media type' %}
             </th>
             <th>
-                <a href="transformation_overview.php
-                    {{- get_common() }}#transformation" title="
+                <a href="{{ url('/transformation/overview') }}#transformation" title="
                     {%- trans 'List of available transformations and their options' -%}
                     " target="_blank">
                     {% trans 'Browser display transformation' %}
@@ -83,7 +82,7 @@
                 {{ show_hint('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br>If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
             </th>
             <th>
-                <a href="transformation_overview.php{{ get_common() }}#input_transformation"
+                <a href="{{ url('/transformation/overview') }}#input_transformation"
                    title="{% trans 'List of available transformations and their options' %}"
                    target="_blank">
                     {% trans 'Input transformation' %}
@@ -96,9 +95,8 @@
         {% endif %}
     </tr>
     {% set options = {'': '', 'VIRTUAL': 'VIRTUAL'} %}
-    {% if server_type == 'MariaDB' %}
+    {% if server_type == 'MariaDB' and server_version <= 100200 %}
         {% set options = options|merge({'PERSISTENT': 'PERSISTENT'}) %}
-        {% set options = options|merge({'STORED': 'STORED'}) %}
     {% else %}
         {% set options = options|merge({'STORED': 'STORED'}) %}
     {% endif %}

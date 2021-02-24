@@ -1,71 +1,27 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds the PhpMyAdmin\UserPassword class
- *
- * @package PhpMyAdmin
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Server\Privileges;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use function strlen;
 
 /**
- * Functions for user_password.php
- *
- * @package PhpMyAdmin
+ * Functions for user password
  */
 class UserPassword
 {
-    /**
-     * @var Privileges
-     */
+    /** @var Privileges */
     private $serverPrivileges;
 
     /**
-     * UserPassword constructor.
-     *
      * @param Privileges $serverPrivileges Privileges object
      */
     public function __construct(Privileges $serverPrivileges)
     {
         $this->serverPrivileges = $serverPrivileges;
-    }
-
-    /**
-     * Send the message as an ajax request
-     *
-     * @param array  $change_password_message Message to display
-     * @param string $sql_query               SQL query executed
-     *
-     * @return void
-     */
-    public function getChangePassMessage(array $change_password_message, $sql_query = '')
-    {
-        $response = Response::getInstance();
-        if ($response->isAjax()) {
-            /**
-             * If in an Ajax request, we don't need to show the rest of the page
-             */
-            if ($change_password_message['error']) {
-                $response->addJSON('message', $change_password_message['msg']);
-                $response->setRequestStatus(false);
-            } else {
-                $sql_query = Util::getMessage(
-                    $change_password_message['msg'],
-                    $sql_query,
-                    'success'
-                );
-                $response->addJSON('message', $sql_query);
-            }
-            exit;
-        }
     }
 
     /**
@@ -92,6 +48,7 @@ class UserPassword
                 $error = true;
             }
         }
+
         return [
             'error' => $error,
             'msg' => $message,
@@ -101,22 +58,18 @@ class UserPassword
     /**
      * Change the password
      *
-     * @param string $password                New password
-     * @param string $message                 Message
-     * @param array  $change_password_message Message to show
-     *
-     * @return void
+     * @param string $password New password
      */
-    public function changePassword($password, $message, array $change_password_message)
+    public function changePassword($password): string
     {
-        global $auth_plugin;
+        global $auth_plugin, $dbi;
 
         $hashing_function = $this->changePassHashingFunction();
 
-        list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
+        [$username, $hostname] = $dbi->getCurrentUserAndHost();
 
         $serverType = Util::getServerType();
-        $serverVersion = $GLOBALS['dbi']->getVersion();
+        $serverVersion = $dbi->getVersion();
 
         if (isset($_POST['authentication_plugin'])
             && ! empty($_POST['authentication_plugin'])
@@ -131,30 +84,30 @@ class UserPassword
         }
 
         $sql_query = 'SET password = '
-            . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+            . ($password == '' ? '\'\'' : $hashing_function . '(\'***\')');
 
-        if ($serverType == 'MySQL'
+        if ($serverType === 'MySQL'
             && $serverVersion >= 50706
         ) {
-            $sql_query = 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
-                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname)
+            $sql_query = 'ALTER USER \'' . $dbi->escapeString($username)
+                . '\'@\'' . $dbi->escapeString($hostname)
                 . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
-                . (($password == '') ? '\'\'' : '\'***\'');
-        } elseif (($serverType == 'MySQL'
+                . ($password == '' ? '\'\'' : '\'***\'');
+        } elseif (($serverType === 'MySQL'
             && $serverVersion >= 50507)
-            || ($serverType == 'MariaDB'
+            || ($serverType === 'MariaDB'
             && $serverVersion >= 50200)
         ) {
             // For MySQL versions 5.5.7+ and MariaDB versions 5.2+,
             // explicitly set value of `old_passwords` so that
             // it does not give an error while using
             // the PASSWORD() function
-            if ($orig_auth_plugin == 'sha256_password') {
+            if ($orig_auth_plugin === 'sha256_password') {
                 $value = 2;
             } else {
                 $value = 0;
             }
-            $GLOBALS['dbi']->tryQuery('SET `old_passwords` = ' . $value . ';');
+            $dbi->tryQuery('SET `old_passwords` = ' . $value . ';');
         }
 
         $this->changePassUrlParamsAndSubmitQuery(
@@ -167,8 +120,8 @@ class UserPassword
         );
 
         $auth_plugin->handlePasswordChange($password);
-        $this->getChangePassMessage($change_password_message, $sql_query);
-        $this->changePassDisplayPage($message, $sql_query);
+
+        return $sql_query;
     }
 
     /**
@@ -187,6 +140,7 @@ class UserPassword
         } else {
             $hashing_function = 'PASSWORD';
         }
+
         return $hashing_function;
     }
 
@@ -210,50 +164,52 @@ class UserPassword
         $hashing_function,
         $orig_auth_plugin
     ) {
-        $err_url = 'user_password.php' . Url::getCommon();
+        global $dbi;
+
+        $err_url = Url::getFromRoute('/user-password');
 
         $serverType = Util::getServerType();
-        $serverVersion = $GLOBALS['dbi']->getVersion();
+        $serverVersion = $dbi->getVersion();
 
-        if ($serverType == 'MySQL' && $serverVersion >= 50706) {
-            $local_query = 'ALTER USER \'' . $GLOBALS['dbi']->escapeString($username)
-                . '\'@\'' . $GLOBALS['dbi']->escapeString($hostname) . '\''
+        if ($serverType === 'MySQL' && $serverVersion >= 50706) {
+            $local_query = 'ALTER USER \'' . $dbi->escapeString($username)
+                . '\'@\'' . $dbi->escapeString($hostname) . '\''
                 . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '
-                . (($password == '')
+                . ($password == ''
                 ? '\'\''
-                : '\'' . $GLOBALS['dbi']->escapeString($password) . '\'');
-        } elseif ($serverType == 'MariaDB'
+                : '\'' . $dbi->escapeString($password) . '\'');
+        } elseif ($serverType === 'MariaDB'
             && $serverVersion >= 50200
             && $serverVersion < 100100
             && $orig_auth_plugin !== ''
         ) {
-            if ($orig_auth_plugin == 'mysql_native_password') {
+            if ($orig_auth_plugin === 'mysql_native_password') {
                 // Set the hashing method used by PASSWORD()
                 // to be 'mysql_native_password' type
-                $GLOBALS['dbi']->tryQuery('SET old_passwords = 0;');
-            } elseif ($orig_auth_plugin == 'sha256_password') {
+                $dbi->tryQuery('SET old_passwords = 0;');
+            } elseif ($orig_auth_plugin === 'sha256_password') {
                 // Set the hashing method used by PASSWORD()
                 // to be 'sha256_password' type
-                $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
+                $dbi->tryQuery('SET `old_passwords` = 2;');
             }
 
             $hashedPassword = $this->serverPrivileges->getHashedPassword($_POST['pma_pw']);
 
-            $local_query = "UPDATE `mysql`.`user` SET"
+            $local_query = 'UPDATE `mysql`.`user` SET'
                 . " `authentication_string` = '" . $hashedPassword
                 . "', `Password` = '', "
                 . " `plugin` = '" . $orig_auth_plugin . "'"
-                . " WHERE `User` = '" . $GLOBALS['dbi']->escapeString($username)
-                . "' AND Host = '" . $GLOBALS['dbi']->escapeString($hostname) . "';";
+                . " WHERE `User` = '" . $dbi->escapeString($username)
+                . "' AND Host = '" . $dbi->escapeString($hostname) . "';";
         } else {
-            $local_query = 'SET password = ' . (($password == '')
+            $local_query = 'SET password = ' . ($password == ''
                 ? '\'\''
                 : $hashing_function . '(\''
-                    . $GLOBALS['dbi']->escapeString($password) . '\')');
+                    . $dbi->escapeString($password) . '\')');
         }
-        if (! @$GLOBALS['dbi']->tryQuery($local_query)) {
-            Util::mysqlDie(
-                $GLOBALS['dbi']->getError(),
+        if (! @$dbi->tryQuery($local_query)) {
+            Generator::mysqlDie(
+                $dbi->getError(),
                 $sql_query,
                 false,
                 $err_url
@@ -261,28 +217,11 @@ class UserPassword
         }
 
         // Flush privileges after successful password change
-        $GLOBALS['dbi']->tryQuery("FLUSH PRIVILEGES;");
+        $dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
-    /**
-     * Display the page
-     *
-     * @param string $message   Message
-     * @param string $sql_query SQL query
-     *
-     * @return void
-     */
-    private function changePassDisplayPage($message, $sql_query)
+    public function getFormForChangePassword(?string $username, ?string $hostname): string
     {
-        echo '<h1>' , __('Change password') , '</h1>' , "\n\n";
-        echo Util::getMessage(
-            $message,
-            $sql_query,
-            'success'
-        );
-        echo '<a href="index.php' , Url::getCommon()
-            , ' target="_parent">' , "\n"
-            , '<strong>' , __('Back') , '</strong></a>';
-        exit;
+        return $this->serverPrivileges->getFormForChangePassword($username ?? '', $hostname ?? '', false);
     }
 }

@@ -1,4 +1,4 @@
-<table class="data">
+<table class="pma-table data">
     <caption class="tblHeaders">
         {{ 'Search results for "<em>%s</em>" %s:'|format(
             criteria_search_string,
@@ -21,14 +21,14 @@
                 {% set url_params = {
                     'db': db,
                     'table': row.table,
-                    'goto': 'db_sql.php',
+                    'goto': url('/database/sql'),
                     'pos': 0,
                     'is_js_confirmed': 0
                 } %}
                 <td>
                     <a name="browse_search"
                         class="ajax browse_results"
-                        href="sql.php{{ get_common(url_params) }}"
+                        href="{{ url('/sql', url_params) }}"
                         data-browse-sql="{{ row.new_search_sqls.select_columns }}"
                         data-table-name="{{ row.table }}">
                         {% trans 'Browse' %}
@@ -37,7 +37,7 @@
                 <td>
                     <a name="delete_search"
                         class="ajax delete_results"
-                        href="sql.php{{ get_common(url_params) }}"
+                        href="{{ url('/sql', url_params) }}"
                         data-delete-sql="{{ row.new_search_sqls.delete }}"
                         data-table-name="{{ row.table }}">
                         {% trans 'Delete' %}

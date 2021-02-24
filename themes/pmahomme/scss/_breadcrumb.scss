@@ -1,0 +1,25 @@
+.breadcrumb {
+  padding-#{$left}: 2.2em;
+  text-shadow: 0 1px 0 #000;
+}
+
+.breadcrumb-item {
+  + .breadcrumb-comment {
+    padding-left: 0.5rem;
+  }
+
+  .icon {
+    margin: 0;
+  }
+
+  a {
+    color: #fff;
+  }
+}
+
+.breadcrumb-comment {
+  color: #d6d6d6;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: none;
+}

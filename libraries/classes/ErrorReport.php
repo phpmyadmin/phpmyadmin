@@ -1,21 +1,27 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds the PhpMyAdmin\ErrorReport class
- *
- * @package PhpMyAdmin
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Error;
 use PhpMyAdmin\Utils\HttpRequest;
+use const E_USER_WARNING;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
+use const PHP_VERSION;
+use function count;
+use function http_build_query;
+use function is_array;
+use function json_encode;
+use function mb_strlen;
+use function mb_substr;
+use function parse_str;
+use function parse_url;
+use function preg_match;
+use function str_replace;
 
 /**
  * Error reporting functions used to generate and submit error reports
- *
- * @package PhpMyAdmin
  */
 class ErrorReport
 {
@@ -26,24 +32,16 @@ class ErrorReport
      */
     private $submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
 
-    /**
-     * @var HttpRequest
-     */
+    /** @var HttpRequest */
     private $httpRequest;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var Template
-     */
+    /** @var Template */
     public $template;
 
     /**
-     * Constructor
-     *
      * @param HttpRequest $httpRequest HttpRequest instance
      * @param Relation    $relation    Relation instance
      * @param Template    $template    Template instance
@@ -59,7 +57,6 @@ class ErrorReport
      * Set the URL where to submit reports to
      *
      * @param string $submissionUrl Submission URL
-     * @return void
      */
     public function setSubmissionUrl(string $submissionUrl): void
     {
@@ -90,58 +87,57 @@ class ErrorReport
      */
     public function getData(string $exceptionType = 'js'): array
     {
-        /** @var Config $PMA_Config */
         global $PMA_Config;
 
         $relParams = $this->relation->getRelationsParam();
         // common params for both, php & js exceptions
         $report = [
-            "pma_version" => PMA_VERSION,
-            "browser_name" => PMA_USR_BROWSER_AGENT,
-            "browser_version" => PMA_USR_BROWSER_VER,
-            "user_os" => PMA_USR_OS,
-            "server_software" => $_SERVER['SERVER_SOFTWARE'],
-            "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
-            "locale" => $PMA_Config->getCookie('pma_lang'),
-            "configuration_storage" =>
-                $relParams['db'] === null ? "disabled" : "enabled",
-            "php_version" => PHP_VERSION,
+            'pma_version' => PMA_VERSION,
+            'browser_name' => PMA_USR_BROWSER_AGENT,
+            'browser_version' => PMA_USR_BROWSER_VER,
+            'user_os' => PMA_USR_OS,
+            'server_software' => $_SERVER['SERVER_SOFTWARE'],
+            'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
+            'locale' => $PMA_Config->getCookie('pma_lang'),
+            'configuration_storage' =>
+                $relParams['db'] === null ? 'disabled' : 'enabled',
+            'php_version' => PHP_VERSION,
         ];
 
-        if ($exceptionType == 'js') {
+        if ($exceptionType === 'js') {
             if (empty($_POST['exception'])) {
                 return [];
             }
             $exception = $_POST['exception'];
 
-            if (isset($exception["stack"])) {
-                $exception["stack"] = $this->translateStacktrace($exception["stack"]);
+            if (isset($exception['stack'])) {
+                $exception['stack'] = $this->translateStacktrace($exception['stack']);
             }
 
-            if (isset($exception["url"])) {
-                list($uri, $scriptName) = $this->sanitizeUrl($exception["url"]);
-                $exception["uri"] = $uri;
-                $report["script_name"] = $scriptName;
-                unset($exception["url"]);
-            } elseif (isset($_POST["url"])) {
-                list($uri, $scriptName) = $this->sanitizeUrl($_POST["url"]);
-                $exception["uri"] = $uri;
-                $report["script_name"] = $scriptName;
-                unset($_POST["url"]);
+            if (isset($exception['url'])) {
+                [$uri, $scriptName] = $this->sanitizeUrl($exception['url']);
+                $exception['uri'] = $uri;
+                $report['script_name'] = $scriptName;
+                unset($exception['url']);
+            } elseif (isset($_POST['url'])) {
+                [$uri, $scriptName] = $this->sanitizeUrl($_POST['url']);
+                $exception['uri'] = $uri;
+                $report['script_name'] = $scriptName;
+                unset($_POST['url']);
             } else {
-                $report["script_name"] = null;
+                $report['script_name'] = null;
             }
 
-            $report["exception_type"] = 'js';
-            $report["exception"] = $exception;
+            $report['exception_type'] = 'js';
+            $report['exception'] = $exception;
             if (isset($_POST['microhistory'])) {
-                $report["microhistory"] = $_POST['microhistory'];
+                $report['microhistory'] = $_POST['microhistory'];
             }
 
             if (! empty($_POST['description'])) {
                 $report['steps'] = $_POST['description'];
             }
-        } elseif ($exceptionType == 'php') {
+        } elseif ($exceptionType === 'php') {
             $errors = [];
             // create php error report
             $i = 0;
@@ -152,27 +148,29 @@ class ErrorReport
             }
             foreach ($_SESSION['prev_errors'] as $errorObj) {
                 /** @var Error $errorObj */
-                if ($errorObj->getLine()
-                    && $errorObj->getType()
-                    && $errorObj->getNumber() != E_USER_WARNING
+                if (! $errorObj->getLine()
+                    || ! $errorObj->getType()
+                    || $errorObj->getNumber() == E_USER_WARNING
                 ) {
-                    $errors[$i++] = [
-                        "lineNum" => $errorObj->getLine(),
-                        "file" => $errorObj->getFile(),
-                        "type" => $errorObj->getType(),
-                        "msg" => $errorObj->getOnlyMessage(),
-                        "stackTrace" => $errorObj->getBacktrace(5),
-                        "stackhash" => $errorObj->getHash(),
-                    ];
+                    continue;
                 }
+
+                $errors[$i++] = [
+                    'lineNum' => $errorObj->getLine(),
+                    'file' => $errorObj->getFile(),
+                    'type' => $errorObj->getType(),
+                    'msg' => $errorObj->getOnlyMessage(),
+                    'stackTrace' => $errorObj->getBacktrace(5),
+                    'stackhash' => $errorObj->getHash(),
+                ];
             }
 
             // if there were no 'actual' errors to be submitted.
             if ($i == 0) {
                 return []; // then return empty array
             }
-            $report["exception_type"] = 'php';
-            $report["errors"] = $errors;
+            $report['exception_type'] = 'php';
+            $report['errors'] = $errors;
         } else {
             return [];
         }
@@ -195,16 +193,25 @@ class ErrorReport
     private function sanitizeUrl(string $url): array
     {
         $components = parse_url($url);
-        if (isset($components["fragment"])
-            && preg_match("<PMAURL-\d+:>", $components["fragment"], $matches)
+
+        if (! is_array($components)) {
+            $components = [];
+        }
+
+        if (isset($components['fragment'])
+            && preg_match('<PMAURL-\d+:>', $components['fragment'], $matches)
         ) {
-            $uri = str_replace($matches[0], "", $components["fragment"]);
-            $url = "https://example.com/" . $uri;
+            $uri = str_replace($matches[0], '', $components['fragment']);
+            $url = 'https://example.com/' . $uri;
             $components = parse_url($url);
+
+            if (! is_array($components)) {
+                $components = [];
+            }
         }
 
         // get script name
-        preg_match("<([a-zA-Z\-_\d\.]*\.php|js\/[a-zA-Z\-_\d\/\.]*\.js)$>", $components["path"], $matches);
+        preg_match('<([a-zA-Z\-_\d\.]*\.php|js\/[a-zA-Z\-_\d\/\.]*\.js)$>', $components['path'] ?? '', $matches);
         if (count($matches) < 2) {
             $scriptName = 'index.php';
         } else {
@@ -212,18 +219,16 @@ class ErrorReport
         }
 
         // remove deployment specific details to make uri more generic
-        if (isset($components["query"])) {
-            parse_str($components["query"], $queryArray);
-            unset($queryArray["db"]);
-            unset($queryArray["table"]);
-            unset($queryArray["token"]);
-            unset($queryArray["server"]);
+        if (isset($components['query'])) {
+            parse_str($components['query'], $queryArray);
+            unset($queryArray['db'], $queryArray['table'], $queryArray['token'], $queryArray['server']);
             $query = http_build_query($queryArray);
         } else {
             $query = '';
         }
 
-        $uri = $scriptName . "?" . $query;
+        $uri = $scriptName . '?' . $query;
+
         return [
             $uri,
             $scriptName,
@@ -235,16 +240,16 @@ class ErrorReport
      *
      * @param array $report the report info to be sent
      *
-     * @return string|null|bool the reply of the server
+     * @return string|bool|null the reply of the server
      */
     public function send(array $report)
     {
         return $this->httpRequest->create(
             $this->submissionUrl,
-            "POST",
+            'POST',
             false,
             json_encode($report),
-            "Content-Type: application/json"
+            'Content-Type: application/json'
         );
     }
 
@@ -259,17 +264,20 @@ class ErrorReport
     private function translateStacktrace(array $stack): array
     {
         foreach ($stack as &$level) {
-            foreach ($level["context"] as &$line) {
-                if (mb_strlen($line) > 80) {
-                    $line = mb_substr($line, 0, 75) . "//...";
+            foreach ($level['context'] as &$line) {
+                if (mb_strlen($line) <= 80) {
+                    continue;
                 }
+
+                $line = mb_substr($line, 0, 75) . '//...';
             }
-            list($uri, $scriptName) = $this->sanitizeUrl($level["url"]);
-            $level["uri"] = $uri;
-            $level["scriptname"] = $scriptName;
-            unset($level["url"]);
+            [$uri, $scriptName] = $this->sanitizeUrl($level['url']);
+            $level['uri'] = $uri;
+            $level['scriptname'] = $scriptName;
+            unset($level['url']);
         }
         unset($level);
+
         return $stack;
     }
 

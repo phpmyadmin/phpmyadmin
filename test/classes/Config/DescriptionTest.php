@@ -1,33 +1,22 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for FormDisplay class in config folder
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Descriptions;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use function in_array;
 
-/**
- * Tests for PMA_FormDisplay class
- *
- * @package PhpMyAdmin-test
- */
-class DescriptionTest extends PmaTestCase
+class DescriptionTest extends AbstractTestCase
 {
     /**
      * Setup tests
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setGlobalConfig();
     }
 
     /**
@@ -35,11 +24,9 @@ class DescriptionTest extends PmaTestCase
      * @param string $type     type
      * @param string $expected expected result
      *
-     * @return void
-     *
      * @dataProvider getValues
      */
-    public function testGet($item, $type, $expected): void
+    public function testGet(string $item, string $type, string $expected): void
     {
         $this->assertEquals($expected, Descriptions::get($item, $type));
     }
@@ -47,7 +34,7 @@ class DescriptionTest extends PmaTestCase
     /**
      * @return array
      */
-    public function getValues()
+    public function getValues(): array
     {
         return [
             [
@@ -72,10 +59,8 @@ class DescriptionTest extends PmaTestCase
      * Assertion for getting description key
      *
      * @param string $key key
-     *
-     * @return void
      */
-    public function assertGet($key)
+    public function assertGet(string $key): void
     {
         $this->assertNotNull(Descriptions::get($key, 'name'));
         $this->assertNotNull(Descriptions::get($key, 'desc'));
@@ -84,10 +69,8 @@ class DescriptionTest extends PmaTestCase
 
     /**
      * Test getting all names for configurations
-     *
-     * @return void
      */
-    public function testAll()
+    public function testAll(): void
     {
         $nested = [
             'Export',
@@ -105,10 +88,13 @@ class DescriptionTest extends PmaTestCase
             if ($key == 'Servers') {
                 foreach ($value[1] as $item => $val) {
                     $this->assertGet($key . '/1/' . $item);
-                    if ($item == 'AllowDeny') {
-                        foreach ($val as $second => $val2) {
-                            $this->assertGet($key . '/1/' . $item . '/' . $second);
-                        }
+                    if ($item != 'AllowDeny') {
+                        continue;
+                    }
+
+                    foreach ($val as $second => $val2) {
+                        $this->assertNotNull($val2);
+                        $this->assertGet($key . '/1/' . $item . '/' . $second);
                     }
                 }
             } elseif (in_array($key, $nested)) {

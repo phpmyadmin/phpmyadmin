@@ -1,18 +1,14 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * The top-level class of the object-oriented properties system.
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties;
 
 /**
  * Provides an interface for Property classes
- *
- * @package PhpMyAdmin
  */
 abstract class PropertyItem
 {
@@ -39,7 +35,7 @@ abstract class PropertyItem
      * the addProperty() or removeProperty() methods, which are not available
      * for simple PhpMyAdmin\Properties\Options\OptionsPropertyOneItem subclasses.
      *
-     * @return null
+     * @return object|null
      */
     public function getGroup()
     {

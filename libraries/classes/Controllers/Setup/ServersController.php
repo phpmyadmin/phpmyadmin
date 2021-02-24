@@ -1,10 +1,5 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds the PhpMyAdmin\Controllers\Setup\ServersController
- *
- * @package PhpMyAdmin\Controllers\Setup
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;
@@ -12,15 +7,14 @@ namespace PhpMyAdmin\Controllers\Setup;
 use PhpMyAdmin\Config\Forms\Setup\ServersForm;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\FormProcessing;
+use function ob_get_clean;
+use function ob_start;
 
-/**
- * Class ServersController
- * @package PhpMyAdmin\Controllers\Setup
- */
 class ServersController extends AbstractController
 {
     /**
      * @param array $params Request parameters
+     *
      * @return string HTML
      */
     public function index(array $params): string
@@ -28,7 +22,7 @@ class ServersController extends AbstractController
         $pages = $this->getPages();
 
         $id = Core::isValid($params['id'], 'numeric') ? (int) $params['id'] : null;
-        $hasServer = ! empty($id) && $this->config->get("Servers/$id") !== null;
+        $hasServer = ! empty($id) && $this->config->get('Servers/' . $id) !== null;
 
         if (! $hasServer && ($params['mode'] !== 'revert' && $params['mode'] !== 'edit')) {
             $id = 0;
@@ -51,16 +45,17 @@ class ServersController extends AbstractController
 
     /**
      * @param array $params Request parameters
-     * @return void
      */
     public function destroy(array $params): void
     {
         $id = Core::isValid($params['id'], 'numeric') ? (int) $params['id'] : null;
 
-        $hasServer = ! empty($id) && $this->config->get("Servers/$id") !== null;
+        $hasServer = ! empty($id) && $this->config->get('Servers/' . $id) !== null;
 
-        if ($hasServer) {
-            $this->config->removeServer($id);
+        if (! $hasServer) {
+            return;
         }
+
+        $this->config->removeServer($id);
     }
 }

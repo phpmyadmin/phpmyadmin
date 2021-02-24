@@ -1,0 +1,28 @@
+.table {
+  th,
+  td {
+    text-shadow: 0 1px 0 #fff;
+  }
+
+  th {
+    text-align: $left;
+  }
+
+  td {
+    touch-action: manipulation;
+    vertical-align: middle;
+  }
+
+  thead th {
+    border-#{$right}: 1px solid #fff;
+    background-image: linear-gradient(#fff, #ccc);
+  }
+}
+
+.table-hover {
+  tbody tr {
+    @include hover() {
+      background: linear-gradient(#ced6df, #b6c6d7);
+    }
+  }
+}

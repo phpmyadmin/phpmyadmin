@@ -1,4 +1,4 @@
-<a href="tbl_tracking.php{{ get_common({'table': table, 'db': db}) }}">
+<a href="{{ url('/table/tracking', {'table': table, 'db': db}) }}">
     {% if is_tracked -%}
         {{ get_image('eye', 'Tracking is active.'|trans) }}
     {%- else -%}

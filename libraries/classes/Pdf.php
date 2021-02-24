@@ -1,31 +1,29 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * TCPDF wrapper class.
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use Exception;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Util;
 use TCPDF;
 use TCPDF_FONTS;
+use function count;
+use function strlen;
+use function strtr;
 
 /**
  * PDF export base class providing basic configuration.
- *
- * @package PhpMyAdmin
  */
 class Pdf extends TCPDF
 {
+    /** @var array */
     public $footerset;
-    public $Alias = [];
+
+    /** @var array */
+    public $alias = [];
 
     /**
      * PDF font to use.
@@ -35,16 +33,17 @@ class Pdf extends TCPDF
     /**
      * Constructs PDF and configures standard parameters.
      *
-     * @param string  $orientation page orientation
-     * @param string  $unit        unit
-     * @param string  $format      the format used for pages
-     * @param boolean $unicode     true means that the input text is unicode
-     * @param string  $encoding    charset encoding; default is UTF-8.
-     * @param boolean $diskcache   if true reduce the RAM memory usage by caching
-     *                             temporary data on filesystem (slower).
-     * @param boolean $pdfa        If TRUE set the document to PDF/A mode.
+     * @param string $orientation page orientation
+     * @param string $unit        unit
+     * @param string $format      the format used for pages
+     * @param bool   $unicode     true means that the input text is unicode
+     * @param string $encoding    charset encoding; default is UTF-8.
+     * @param bool   $diskcache   if true reduce the RAM memory usage by caching
+     *                            temporary data on filesystem (slower).
+     * @param bool   $pdfa        If TRUE set the document to PDF/A mode.
      *
      * @throws Exception
+     *
      * @access public
      */
     public function __construct(
@@ -68,8 +67,8 @@ class Pdf extends TCPDF
         $this->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
-        $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
-        $this->setFooterFont([Pdf::PMA_PDF_FONT, '', 14]);
+        $this->SetFont(self::PMA_PDF_FONT, '', 14);
+        $this->setFooterFont([self::PMA_PDF_FONT, '', 14]);
     }
 
     /**
@@ -81,24 +80,26 @@ class Pdf extends TCPDF
     public function Footer()
     {
         // Check if footer for this page already exists
-        if (! isset($this->footerset[$this->page])) {
-            $this->SetY(-15);
-            $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
-            $this->Cell(
-                0,
-                6,
-                __('Page number:') . ' '
-                . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(),
-                'T',
-                0,
-                'C'
-            );
-            $this->Cell(0, 6, Util::localisedDate(), 0, 1, 'R');
-            $this->SetY(20);
-
-            // set footerset
-            $this->footerset[$this->page] = 1;
+        if (isset($this->footerset[$this->page])) {
+            return;
         }
+
+        $this->SetY(-15);
+        $this->SetFont(self::PMA_PDF_FONT, '', 14);
+        $this->Cell(
+            0,
+            6,
+            __('Page number:') . ' '
+            . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(),
+            'T',
+            0,
+            'C'
+        );
+        $this->Cell(0, 6, Util::localisedDate(), 0, 1, 'R');
+        $this->SetY(20);
+
+        // set footerset
+        $this->footerset[$this->page] = 1;
     }
 
     /**
@@ -117,13 +118,15 @@ class Pdf extends TCPDF
             true,
             $this->CurrentFont
         );
-        $this->Alias[$name] = TCPDF_FONTS::UTF8ToUTF16BE(
+        $this->alias[$name] = TCPDF_FONTS::UTF8ToUTF16BE(
             $value,
             false,
             true,
             $this->CurrentFont
         );
     }
+
+    // phpcs:disable PSR2.Methods.MethodDeclaration.Underscore
 
     /**
      * Improved with alias expanding.
@@ -132,13 +135,14 @@ class Pdf extends TCPDF
      */
     public function _putpages()
     {
-        if (count($this->Alias) > 0) {
+        if (count($this->alias) > 0) {
             $nbPages = count($this->pages);
             for ($n = 1; $n <= $nbPages; $n++) {
-                $this->pages[$n] = strtr($this->pages[$n], $this->Alias);
+                $this->pages[$n] = strtr($this->pages[$n], $this->alias);
             }
         }
         parent::_putpages();
+        // phpcs:enable
     }
 
     /**
@@ -151,9 +155,9 @@ class Pdf extends TCPDF
     // @codingStandardsIgnoreLine
     public function Error($error_message = '')
     {
-        Message::error(
+        echo Message::error(
             __('Error while creating PDF:') . ' ' . $error_message
-        )->display();
+        )->getDisplay();
         exit;
     }
 

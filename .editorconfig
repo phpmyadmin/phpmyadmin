@@ -10,5 +10,8 @@ charset = utf-8
 indent_style = space
 indent_size = 4
 
-[{*.{sql,scss,css,twig},package.json,.travis.yml}]
+[{*.{sql,scss,css,twig,yml},package.json}]
 indent_size = 2
+
+[*.twig]
+insert_final_newline = false

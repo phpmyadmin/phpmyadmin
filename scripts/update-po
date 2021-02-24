@@ -13,7 +13,7 @@ set -e
 
 # Generate Twig template cache in clean dir
 rm -rf twig-templates/
-php ./scripts/generate-twig-cache
+php scripts/console cache:warmup --twig
 
 # Update pot (template), ensure that advisor is at the end
 LOCS=`ls po/*.po | sed 's@.*/\(.*\)\.po@\1@'`
@@ -43,9 +43,6 @@ php scripts/fix-po-twig
 # Remote twig templates
 rm -rf twig-templates/
 
-# Generate PHP code for advisor rules
-php ./scripts/advisor2po >> po/phpmyadmin.pot
-
 ver=`sed -n "/PMA_VERSION', '/ s/.*PMA_VERSION', '\(.*\)'.*/\1/p" libraries/classes/Config.php`
 
 sed -i.~ '
@@ -71,4 +68,4 @@ done
 git add po/*.po po/phpmyadmin.pot
 git commit -s -m 'Update po files
 
-[CI skip]'
+[ci skip]'

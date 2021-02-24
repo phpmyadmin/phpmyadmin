@@ -1,12 +1,9 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * HTTP Authentication plugin for phpMyAdmin.
  * NOTE: Requires PHP loaded as a Apache module.
- *
- * @package    PhpMyAdmin-Authentication
- * @subpackage HTTP
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
@@ -16,18 +13,24 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
+use function base64_decode;
+use function defined;
+use function hash_equals;
+use function preg_replace;
+use function sprintf;
+use function strcmp;
+use function strpos;
+use function substr;
 
 /**
  * Handles the HTTP authentication methods
- *
- * @package PhpMyAdmin-Authentication
  */
 class AuthenticationHttp extends AuthenticationPlugin
 {
     /**
      * Displays authentication form and redirect as necessary
      *
-     * @return boolean   always true (no return indeed)
+     * @return bool always true (no return indeed)
      */
     public function showLoginForm()
     {
@@ -38,9 +41,9 @@ class AuthenticationHttp extends AuthenticationPlugin
             $response->addJSON('reload_flag', '1');
             if (defined('TESTSUITE')) {
                 return true;
-            } else {
-                exit;
             }
+
+            exit;
         }
 
         return $this->authForm();
@@ -49,7 +52,7 @@ class AuthenticationHttp extends AuthenticationPlugin
     /**
      * Displays authentication form
      *
-     * @return boolean
+     * @return bool
      */
     public function authForm()
     {
@@ -94,15 +97,15 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         if (! defined('TESTSUITE')) {
             exit;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
      * Gets authentication credentials
      *
-     * @return boolean   whether we get authentication settings or not
+     * @return bool whether we get authentication settings or not
      */
     public function readCredentials()
     {
@@ -151,11 +154,10 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         // Avoid showing the password in phpinfo()'s output
-        unset($GLOBALS['PHP_AUTH_PW']);
-        unset($_SERVER['PHP_AUTH_PW']);
+        unset($GLOBALS['PHP_AUTH_PW'], $_SERVER['PHP_AUTH_PW']);
 
         // Decode possibly encoded information (used by IIS/CGI/FastCGI)
-        // (do not use explode() because a user might have a colon in his password
+        // (do not use explode() because a user might have a colon in their password
         if (strcmp(substr($this->user, 0, 6), 'Basic ') == 0) {
             $usr_pass = base64_decode(substr($this->user, 6));
             if (! empty($usr_pass)) {
@@ -173,7 +175,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $this->user = Core::sanitizeMySQLUser($this->user);
 
         // User logged out -> ensure the new username is not the same
-        $old_usr = isset($_REQUEST['old_usr']) ? $_REQUEST['old_usr'] : '';
+        $old_usr = $_REQUEST['old_usr'] ?? '';
         if (! empty($old_usr)
             && (isset($this->user) && hash_equals($old_usr, $this->user))
         ) {
@@ -193,8 +195,10 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function showFailure($failure)
     {
+        global $dbi;
+
         parent::showFailure($failure);
-        $error = $GLOBALS['dbi']->getError();
+        $error = $dbi->getError();
         if ($error && $GLOBALS['errno'] != 1045) {
             Core::fatalError($error);
         } else {
@@ -209,6 +213,6 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function getLoginFormURL()
     {
-        return './index.php?old_usr=' . $this->user;
+        return './index.php?route=/&old_usr=' . $this->user;
     }
 }

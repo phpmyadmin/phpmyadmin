@@ -355,7 +355,7 @@ PHP scripts. Of course you have to restart Apache.
 
 This is a permission problem. Right-click on the phpmyadmin folder and
 choose properties. Under the tab Security, click on "Add" and select
-the user "IUSR\_machine" from the list. Now set his permissions and it
+the user "IUSR\_machine" from the list. Now set their permissions and it
 should work.
 
 .. _faq1_27:
@@ -492,6 +492,11 @@ forget to change directory name inside of it):
     RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
 
 .. seealso:: :ref:`faq4_8`
+
+.. versionchanged:: 5.1.0
+
+    Support for using the ``target`` parameter was removed in phpMyAdmin 5.1.0.
+    Use the ``route`` parameter instead.
 
 .. _faq1_35:
 
@@ -1147,7 +1152,7 @@ Starting with 2.2.5, in the user management page, you can enter a
 wildcard database name for a user (for example "joe%"), and put the
 privileges you want. For example, adding ``SELECT, INSERT, UPDATE,
 DELETE, CREATE, DROP, INDEX, ALTER`` would let a user create/manage
-his/her database(s).
+their database(s).
 
 .. _faq4_6:
 
@@ -1306,7 +1311,7 @@ by the recent versions of the most browsers.
 5.12 Mac OS X Safari browser changes special characters to "?".
 ---------------------------------------------------------------
 
-This issue has been reported by a :term:`Mac OS X` user, who adds that Chimera,
+This issue has been reported by a :term:`macOS` user, who adds that Chimera,
 Netscape and Mozilla do not have this problem.
 
 .. _faq5_13:
@@ -1404,7 +1409,7 @@ This is usually caused by web application firewall doing requests filtering. It
 tries to prevent SQL injection, however phpMyAdmin is tool designed to execute
 SQL queries, thus it makes it unusable.
 
-Please whitelist phpMyAdmin scripts from the web application firewall settings
+Please allow phpMyAdmin scripts from the web application firewall settings
 or disable it completely for phpMyAdmin path.
 
 Programs known to cause these kind of errors:
@@ -1642,7 +1647,7 @@ It means "average".
   any) will be included in backup.
 * "Enclose table and column names with backquotes" ensures that column
   and table names formed with special characters are protected.
-* "Add into comments" includes column comments, relations, and media (MIME)
+* "Add into comments" includes column comments, relations, and media
   types set in the pmadb in the dump as :term:`SQL` comments
   (*/\* xxx \*/*).
 
@@ -1708,7 +1713,7 @@ user-input situation. Instead you have to initialize mimetypes using
 functions or empty mimetype definitions.
 
 Plus, you have a whole overview of available mimetypes. Who knows all those
-mimetypes by heart so he/she can enter it at will?
+mimetypes by heart so they can enter it at will?
 
 .. _faqbookmark:
 
@@ -2230,7 +2235,7 @@ authentication to the Apache environment and it can be used in Apache
 logs. Currently there are two variables available:
 
 ``userID``
-    User name of currently active user (he does not have to be logged in).
+    User name of currently active user (they do not have to be logged in).
 ``userStatus``
     Status of currently active user, one of ``ok`` (user is logged in),
     ``mysql-denied`` (MySQL denied user login), ``allow-denied`` (user denied

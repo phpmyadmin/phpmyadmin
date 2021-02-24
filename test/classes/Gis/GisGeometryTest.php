@@ -1,27 +1,16 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Test for PhpMyAdmin\Gis\GisGeometry
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
-use PHPUnit\Framework\TestCase;
-use ReflectionClass;
+use PhpMyAdmin\Gis\GisGeometry;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * Tests for PhpMyAdmin\Gis\GisGeometry class
- *
- * @package PhpMyAdmin-test
- */
-class GisGeometryTest extends TestCase
+class GisGeometryTest extends AbstractTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @var GisGeometry|MockObject */
     protected $object;
 
     /**
@@ -29,11 +18,11 @@ class GisGeometryTest extends TestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
-        $this->object = $this->getMockForAbstractClass('PhpMyAdmin\Gis\GisGeometry');
+        parent::setUp();
+        $this->object = $this->getMockForAbstractClass(GisGeometry::class);
     }
 
     /**
@@ -41,27 +30,11 @@ class GisGeometryTest extends TestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
-    }
-
-    /**
-     * Call protected functions by making the visibility to public.
-     *
-     * @param string $name   method name
-     * @param array  $params parameters for the invocation
-     *
-     * @return mixed the output from the protected method.
-     */
-    private function _callProtectedFunction($name, $params)
-    {
-        $class = new ReflectionClass('PhpMyAdmin\Gis\GisGeometry');
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-        return $method->invokeArgs($this->object, $params);
     }
 
     /**
@@ -72,13 +45,14 @@ class GisGeometryTest extends TestCase
      * @param array  $output    Expected output array
      *
      * @dataProvider providerForTestSetMinMax
-     * @return void
      */
-    public function testSetMinMax($point_set, $min_max, $output): void
+    public function testSetMinMax(string $point_set, array $min_max, array $output): void
     {
         $this->assertEquals(
             $output,
-            $this->_callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                GisGeometry::class,
                 'setMinMax',
                 [
                     $point_set,
@@ -93,7 +67,7 @@ class GisGeometryTest extends TestCase
      *
      * @return array data for testSetMinMax
      */
-    public function providerForTestSetMinMax()
+    public function providerForTestSetMinMax(): array
     {
         return [
             [
@@ -128,16 +102,17 @@ class GisGeometryTest extends TestCase
      * tests generateParams method
      *
      * @param string $value  Geometry data
-     * @param string $output Expected output
+     * @param array  $output Expected output
      *
      * @dataProvider providerForTestGenerateParams
-     * @return void
      */
-    public function testGenerateParams($value, $output): void
+    public function testGenerateParams(string $value, array $output): void
     {
         $this->assertEquals(
             $output,
-            $this->_callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                GisGeometry::class,
                 'generateParams',
                 [$value]
             )
@@ -149,7 +124,7 @@ class GisGeometryTest extends TestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams()
+    public function providerForTestGenerateParams(): array
     {
         return [
             [
@@ -167,7 +142,7 @@ class GisGeometryTest extends TestCase
                 ],
             ],
             [
-                "foo",
+                'foo',
                 [
                     'srid' => '0',
                     'wkt'  => '',
@@ -179,19 +154,20 @@ class GisGeometryTest extends TestCase
     /**
      * tests extractPoints method
      *
-     * @param string  $point_set  String of comma separated points
-     * @param array   $scale_data Data related to scaling
-     * @param boolean $linear     If true, as a 1D array, else as a 2D array
-     * @param array   $output     Expected output
+     * @param string     $point_set  String of comma separated points
+     * @param array|null $scale_data Data related to scaling
+     * @param bool       $linear     If true, as a 1D array, else as a 2D array
+     * @param array      $output     Expected output
      *
      * @dataProvider providerForTestExtractPoints
-     * @return void
      */
-    public function testExtractPoints($point_set, $scale_data, $linear, $output): void
+    public function testExtractPoints(string $point_set, ?array $scale_data, bool $linear, array $output): void
     {
         $this->assertEquals(
             $output,
-            $this->_callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                GisGeometry::class,
                 'extractPoints',
                 [
                     $point_set,
@@ -207,7 +183,7 @@ class GisGeometryTest extends TestCase
      *
      * @return array data for testExtractPoints
      */
-    public function providerForTestExtractPoints()
+    public function providerForTestExtractPoints(): array
     {
         return [
             // with no scale data
@@ -295,18 +271,19 @@ class GisGeometryTest extends TestCase
     /**
      * test case for getBoundsForOl() method
      *
-     * @param string $srid       spatial reference ID
+     * @param int    $srid       spatial reference ID
      * @param array  $scale_data data related to scaling
      * @param string $output     expected output
      *
-     * @return void
      * @dataProvider providerForTestGetBoundsForOl
      */
-    public function testGetBoundsForOl($srid, $scale_data, $output): void
+    public function testGetBoundsForOl(int $srid, array $scale_data, string $output): void
     {
         $this->assertEquals(
             $output,
-            $this->_callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                GisGeometry::class,
                 'getBoundsForOl',
                 [
                     $srid,
@@ -321,7 +298,7 @@ class GisGeometryTest extends TestCase
      *
      * @return array test data for the testGetBoundsForOl() test case
      */
-    public function providerForTestGetBoundsForOl()
+    public function providerForTestGetBoundsForOl(): array
     {
         return [
             [
@@ -332,13 +309,12 @@ class GisGeometryTest extends TestCase
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); '
-                    . 'bound.extend(new OpenLayers.LonLat(0, 0).transform('
-                    . 'new OpenLayers.Projection("EPSG:4326"), '
-                    . 'map.getProjectionObject())); '
-                    . 'bound.extend(new OpenLayers.LonLat(1, 1).transform('
-                    . 'new OpenLayers.Projection("EPSG:4326"), '
-                    . 'map.getProjectionObject()));',
+                'var minLoc = [0, 0];var maxLoc = [1, 1];'
+                . 'var ext = ol.extent.boundingExtent([min'
+                . 'Loc, maxLoc]);ext = ol.proj.transformEx'
+                . 'tent(ext, ol.proj.get("EPSG:4326"), ol.'
+                . 'proj.get(\'EPSG:3857\'));map.getView().'
+                . 'fit(ext, map.getSize());',
             ],
 
         ];
@@ -348,17 +324,18 @@ class GisGeometryTest extends TestCase
      * test case for getPolygonArrayForOpenLayers() method
      *
      * @param array  $polygons x and y coordinate pairs for each polygon
-     * @param string $srid     spatial reference id
+     * @param int    $srid     spatial reference id
      * @param string $output   expected output
      *
-     * @return void
      * @dataProvider providerForTestGetPolygonArrayForOpenLayers
      */
-    public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output): void
+    public function testGetPolygonArrayForOpenLayers(array $polygons, int $srid, string $output): void
     {
         $this->assertEquals(
             $output,
-            $this->_callProtectedFunction(
+            $this->callFunction(
+                $this->object,
+                GisGeometry::class,
                 'getPolygonArrayForOpenLayers',
                 [
                     $polygons,
@@ -373,20 +350,20 @@ class GisGeometryTest extends TestCase
      *
      * @return array test data for testGetPolygonArrayForOpenLayers() test case
      */
-    public function providerForTestGetPolygonArrayForOpenLayers()
+    public function providerForTestGetPolygonArrayForOpenLayers(): array
     {
         return [
             [
                 ['Triangle'],
                 4326,
-                'new Array('
-                    . 'new OpenLayers.Geometry.Polygon('
-                    . 'new Array('
-                    . 'new OpenLayers.Geometry.LinearRing('
-                    . 'new Array('
-                    . '(new OpenLayers.Geometry.Point(0,0)).transform('
-                    . 'new OpenLayers.Projection("EPSG:4326"), '
-                    . 'map.getProjectionObject()))))))',
+                'var polygonArray = [];var arr = [];var lineArr = [];'
+                . 'var line = new ol.geom.LinearRing(new Array((new ol'
+                . '.geom.Point([0,0]).transform(ol.proj.get("EPSG:4326'
+                . '"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()))'
+                . ';var coord = line.getCoordinates();for (var i = 0; i < coord.length; i++)'
+                . ' lineArr.push(coord[i]);arr.push(lineArr);var pol'
+                . 'ygon = new ol.geom.Polygon(arr);polygonArray.push(p'
+                . 'olygon);',
             ],
         ];
     }

@@ -3,6 +3,7 @@
 {% block content %}
 
 {% if is_data_loaded %}
+<div class="row">
   <h3 id="serverstatusqueries">
     {% trans %}
       Questions since startup:
@@ -12,7 +13,9 @@
     {{ format_number(stats.total, 0) }}
     {{ show_mysql_docu('server-status-variables', false, null, null, 'statvar_Questions') }}
   </h3>
+</div>
 
+<div class="row">
   <ul>
     <li>ø {% trans 'per hour:' %} {{ format_number(stats.per_hour, 0) }}</li>
     <li>ø {% trans 'per minute:' %} {{ format_number(stats.per_minute, 0) }}</li>
@@ -20,35 +23,38 @@
       <li>ø {% trans 'per second:' %} {{ format_number(stats.per_second, 0) }}</li>
     {% endif %}
   </ul>
+</div>
 
-  <table id="serverstatusqueriesdetails" class="width100 data sortable noclick">
+<div class="row">
+  <table id="serverStatusQueriesDetails" class="table table-light table-striped table-hover sortable col-md-4 col-12">
     <colgroup>
       <col class="namecol">
       <col class="valuecol" span="3">
     </colgroup>
 
-    <thead>
+    <thead class="thead-light">
       <tr>
-        <th>{% trans 'Statements' %}</th>
-        <th>{% trans %}#{% notes %}# = Amount of queries{% endtrans %}</th>
-        <th>ø {% trans 'per hour' %}</th>
-        <th>%</th>
+        <th scope="col">{% trans 'Statements' %}</th>
+        <th scope="col">{% trans %}#{% notes %}# = Amount of queries{% endtrans %}</th>
+        <th scope="col">{% trans 'ø per hour' %}</th>
+        <th scope="col">%</th>
       </tr>
     </thead>
 
     <tbody>
       {% for query in queries %}
         <tr>
-          <th class="name">{{ query.name }}</th>
-          <td class="value">{{ format_number(query.value, 5, 0, true) }}</td>
-          <td class="value">{{ format_number(query.per_hour, 4, 1, true) }}</td>
-          <td class="value">{{ format_number(query.percentage, 0, 2) }}</td>
+          <th scope="row">{{ query.name }}</th>
+          <td class="text-monospace text-right">{{ format_number(query.value, 5, 0, true) }}</td>
+          <td class="text-monospace text-right">{{ format_number(query.per_hour, 4, 1, true) }}</td>
+          <td class="text-monospace text-right">{{ format_number(query.percentage, 0, 2) }}</td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
 
-  <div id="serverstatusquerieschart" class="width100" data-chart="{{ chart|json_encode }}"></div>
+  <div id="serverstatusquerieschart" class="w-100 col-12 col-md-6" data-chart="{{ chart|json_encode }}"></div>
+</div>
 {% else %}
   {{ 'Not enough privilege to view query statistics.'|trans|error }}
 {% endif %}

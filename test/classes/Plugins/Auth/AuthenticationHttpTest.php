@@ -1,46 +1,39 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
-use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Footer;
+use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use function base64_encode;
+use function ob_get_clean;
+use function ob_start;
 
-/**
- * tests for PhpMyAdmin\Plugins\Auth\AuthenticationHttp class
- *
- * @package PhpMyAdmin-test
- */
-class AuthenticationHttpTest extends PmaTestCase
+class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
-    /**
-     * @var AuthenticationHttp
-     */
+    /** @var AuthenticationHttp */
     protected $object;
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setGlobalConfig();
+        parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['lang'] = "en";
-        $GLOBALS['text_dir'] = "ltr";
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['token_provided'] = true;
         $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationHttp();
@@ -48,8 +41,6 @@ class AuthenticationHttpTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -62,13 +53,11 @@ class AuthenticationHttpTest extends PmaTestCase
      * @param mixed   $body_id     body id
      * @param mixed   $set_title   set title
      * @param mixed[] ...$headers  headers
-     *
-     * @return void
      */
-    public function doMockResponse($set_minimal, $body_id, $set_title, ...$headers)
+    public function doMockResponse($set_minimal, $body_id, $set_title, ...$headers): void
     {
         // mock footer
-        $mockFooter = $this->getMockBuilder('PhpMyAdmin\Footer')
+        $mockFooter = $this->getMockBuilder(Footer::class)
             ->disableOriginalConstructor()
             ->setMethods(['setMinimal'])
             ->getMock();
@@ -79,7 +68,7 @@ class AuthenticationHttpTest extends PmaTestCase
 
         // mock header
 
-        $mockHeader = $this->getMockBuilder('PhpMyAdmin\Header')
+        $mockHeader = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
             ->setMethods(
                 [
@@ -129,14 +118,8 @@ class AuthenticationHttpTest extends PmaTestCase
         }
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::showLoginForm
-     *
-     * @return void
-     */
-    public function testAuthLogoutUrl()
+    public function testAuthLogoutUrl(): void
     {
-
         $_REQUEST['old_usr'] = '1';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
 
@@ -148,10 +131,7 @@ class AuthenticationHttpTest extends PmaTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testAuthVerbose()
+    public function testAuthVerbose(): void
     {
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['Server']['verbose'] = 'verboseMessagê';
@@ -166,10 +146,7 @@ class AuthenticationHttpTest extends PmaTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testAuthHost()
+    public function testAuthHost(): void
     {
         $GLOBALS['cfg']['Server']['verbose'] = '';
         $GLOBALS['cfg']['Server']['host'] = 'hòst';
@@ -184,10 +161,7 @@ class AuthenticationHttpTest extends PmaTestCase
         );
     }
 
-    /**
-     * @return void
-     */
-    public function testAuthRealm()
+    public function testAuthRealm(): void
     {
         $GLOBALS['cfg']['Server']['host'] = '';
         $GLOBALS['cfg']['Server']['auth_http_realm'] = 'rêäealmmessage';
@@ -203,30 +177,27 @@ class AuthenticationHttpTest extends PmaTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::readCredentials
+     * @param string      $user           test username
+     * @param string      $pass           test password
+     * @param string      $userIndex      index to test username against
+     * @param string      $passIndex      index to test username against
+     * @param string|bool $expectedReturn expected return value from test
+     * @param string      $expectedUser   expected username to be set
+     * @param string|bool $expectedPass   expected password to be set
+     * @param string|bool $old_usr        value for $_REQUEST['old_usr']
      *
-     * @param string $user           test username
-     * @param string $pass           test password
-     * @param string $userIndex      index to test username against
-     * @param string $passIndex      index to test username against
-     * @param string $expectedReturn expected return value from test
-     * @param string $expectedUser   expected username to be set
-     * @param string $expectedPass   expected password to be set
-     * @param string $old_usr        value for $_REQUEST['old_usr']
-     *
-     * @return void
      * @dataProvider readCredentialsProvider
      */
     public function testAuthCheck(
-        $user,
-        $pass,
-        $userIndex,
-        $passIndex,
+        string $user,
+        string $pass,
+        string $userIndex,
+        string $passIndex,
         $expectedReturn,
-        $expectedUser,
+        string $expectedUser,
         $expectedPass,
         $old_usr = ''
-    ) {
+    ): void {
         $_SERVER[$userIndex] = $user;
         $_SERVER[$passIndex] = $pass;
 
@@ -256,7 +227,7 @@ class AuthenticationHttpTest extends PmaTestCase
      *
      * @return array Test data
      */
-    public function readCredentialsProvider()
+    public function readCredentialsProvider(): array
     {
         return [
             [
@@ -308,12 +279,7 @@ class AuthenticationHttpTest extends PmaTestCase
         ];
     }
 
-    /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::storeCredentials
-     *
-     * @return void
-     */
-    public function testAuthSetUser()
+    public function testAuthSetUser(): void
     {
         // case 1
 
@@ -413,16 +379,11 @@ class AuthenticationHttpTest extends PmaTestCase
     }
 
     /**
-     * Test for PhpMyAdmin\Plugins\Auth\AuthenticationHttp::authSetFails
-     *
-     * @return void
-     *
      * @group medium
      */
-    public function testAuthFails()
+    public function testAuthFails(): void
     {
-
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -445,12 +406,14 @@ class AuthenticationHttpTest extends PmaTestCase
         $this->object->showFailure('');
         $result = ob_get_clean();
 
+        $this->assertIsString($result);
+
         $this->assertStringContainsString(
             '<p>error 123</p>',
             $result
         );
 
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationHttp')
+        $this->object = $this->getMockBuilder(AuthenticationHttp::class)
             ->disableOriginalConstructor()
             ->setMethods(['authForm'])
             ->getMock();

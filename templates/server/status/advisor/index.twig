@@ -3,37 +3,99 @@
 
 {% block content %}
 
-  {% if data is not empty %}
-    <a href="#openAdvisorInstructions">{{ get_icon('b_help', 'Instructions'|trans) }}</a>
+  <h2>{% trans 'Advisor system' %}</h2>
 
-    <div id="statustabs_advisor"></div>
+  {% if data is empty %}
+    {{ 'Not enough privilege to view the advisor.'|trans|error }}
+  {% else %}
+    <button type="button" class="btn btn-secondary mb-4" data-toggle="modal" data-target="#advisorInstructionsModal">
+      {{ get_icon('b_help', 'Instructions'|trans) }}
+    </button>
 
-    <div id="advisorInstructionsDialog" class="hide">
-      <p>
-        {% trans %}
-          The Advisor system can provide recommendations on server variables by analyzing the server status variables.
-        {% endtrans %}
-      </p>
-      <p>
-        {% trans %}
-          Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.
-        {% endtrans %}
-      </p>
-      <p>
-        {% trans %}
-          Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.
-        {% endtrans %}
-      </p>
-      <p>
-        {% trans %}
-          The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.
-        {% endtrans %}
-      </p>
+    <div class="modal fade" id="advisorInstructionsModal" tabindex="-1" role="dialog" aria-labelledby="advisorInstructionsModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="advisorInstructionsModalLabel">{% trans 'Advisor system' %}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="{% trans 'Close' %}">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              {%- trans -%}
+                The Advisor system can provide recommendations on server variables by analyzing the server status variables.
+              {%- endtrans -%}
+            </p>
+            <p>
+              {%- trans -%}
+                Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.
+              {%- endtrans -%}
+            </p>
+            <p>
+              {%- trans -%}
+                Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.
+              {%- endtrans -%}
+            </p>
+            <p>
+              {%- trans -%}
+                The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.
+              {%- endtrans -%}
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">{% trans 'Close' %}</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div id="advisorData" class="hide">{{ data }}</div>
-  {% else %}
-    {{ 'Not enough privilege to view the advisor.'|trans|error }}
+    {% if data.errors|length > 0 %}
+      <div class="alert alert-danger mt-2 mb-2" role="alert">
+        <h4 class="alert-heading">{% trans 'Errors occurred while executing rule expressions:' %}</h4>
+        <ul>
+          {% for error in data.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if data.fired|length > 0 %}
+      <h4>{% trans 'Possible performance issues' %}</h4>
+
+      <div class="accordion mb-4" id="rulesAccordion">
+        {% for rule in data.fired %}
+          <div class="card">
+            <div class="card-header" id="heading{{ loop.index }}">
+              <button class="btn btn-link{{ not loop.first ? ' collapsed' }}" type="button" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="{{ loop.first ? 'true' : 'false' }}" aria-controls="collapse{{ loop.index }}">
+                {{ rule.issue|striptags }}
+              </button>
+            </div>
+            <div id="collapse{{ loop.index }}" class="collapse{{ loop.first ? ' show' }}" aria-labelledby="heading{{ loop.index }}" data-parent="#rulesAccordion">
+              <div class="card-body">
+                <dl>
+                  <dt>{% trans 'Issue:' %}</dt>
+                  <dd>{{ rule.issue|raw }}</dd>
+
+                  <dt>{% trans 'Recommendation:' %}</dt>
+                  <dd>{{ rule.recommendation|raw }}</dd>
+
+                  <dt>{% trans 'Justification:' %}</dt>
+                  <dd>{{ rule.justification }}</dd>
+
+                  <dt>{% trans 'Used variable / formula:' %}</dt>
+                  <dd>{{ rule.formula }}</dd>
+
+                  <dt>{% trans 'Test:' %}</dt>
+                  <dd>{{ rule.test }}</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
   {% endif %}
 
 {% endblock %}

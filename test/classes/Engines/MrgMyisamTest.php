@@ -1,26 +1,15 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Engines\MrgMyisam
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\MrgMyisam;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Engines\MrgMyisam
- *
- * @package PhpMyAdmin-test
- */
-class MrgMyisamTest extends PmaTestCase
+class MrgMyisamTest extends AbstractTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @var MrgMyisam */
     protected $object;
 
     /**
@@ -28,10 +17,10 @@ class MrgMyisamTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $this->object = new MrgMyisam('mrg_myisam');
     }
@@ -41,19 +30,17 @@ class MrgMyisamTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for getMysqlHelpPage
-     *
-     * @return void
      */
-    public function testGetMysqlHelpPage()
+    public function testGetMysqlHelpPage(): void
     {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),

@@ -3,9 +3,10 @@
 {% block content %}
 
 {% if is_data_loaded %}
+<div class="row">
   <fieldset id="tableFilter">
     <legend>{% trans 'Filters' %}</legend>
-    <form action="server_status_variables.php" method="post">
+    <form action="{{ url('/server/status/variables') }}" method="post">
       {{ get_hidden_inputs() }}
 
       <input class="btn btn-secondary" type="submit" value="{% trans 'Refresh' %}">
@@ -39,9 +40,10 @@
       </div>
     </form>
   </fieldset>
+</div>
 
   <div id="linkSuggestions" class="defaultLinks hide">
-    <p class="notice">
+    <p class="alert alert-primary" role="alert">
       {% trans 'Related links:' %}
       {% for link in links %}
         <span class="{{ link.name }}">
@@ -49,7 +51,7 @@
             {% if link_name == 'doc' %}
               {{ show_mysql_docu(link_url) }}
             {% else %}
-              <a href="{{ link_url.url }}" data-post="{{ link_url.params }}">{{ link_name }}</a>
+              <a href="{{ link_url.url }}"{% if link_url.params is not empty %} data-post="{{ link_url.params }}"{% endif %}>{{ link_name }}</a>
             {% endif %}
             |
           {% endfor %}
@@ -58,18 +60,18 @@
     </p>
   </div>
 
-  <div class="responsivetable">
-    <table class="data noclick" id="serverstatusvariables">
+  <div class="responsivetable row">
+    <table class="table table-light table-striped table-hover table-sm" id="serverStatusVariables">
       <colgroup>
         <col class="namecol">
         <col class="valuecol">
         <col class="descrcol">
       </colgroup>
-      <thead>
+      <thead class="thead-light">
         <tr>
-          <th>{% trans 'Variable' %}</th>
-          <th>{% trans 'Value' %}</th>
-          <th>{% trans 'Description' %}</th>
+          <th scope="col">{% trans 'Variable' %}</th>
+          <th scope="col">{% trans 'Value' %}</th>
+          <th scope="col">{% trans 'Description' %}</th>
         </tr>
       </thead>
       <tbody>
@@ -80,7 +82,7 @@
               {{ variable.doc|raw }}
             </th>
 
-            <td class="value">
+            <td class="value text-monospace text-right">
               <span class="formatted">
                 {% if variable.has_alert %}
                   <span class="{{ variable.is_alert ? 'attention' : 'allfine' }}">
@@ -115,7 +117,7 @@
               </span>
             </td>
 
-            <td class="descr">
+            <td class="w-50">
               {{ variable.description }}
               {% for doc in variable.description_doc %}
                 {% if doc.name == 'doc' %}

@@ -7,7 +7,7 @@ For more information on allowing http access to this directory see:
 https://httpd.apache.org/docs/current/mod/mod_authz_host.html#allow
 
 Please visit the wiki for more information on unit testing:
-https://wiki.phpmyadmin.net/pma/UnitTesting
+https://wiki.phpmyadmin.net/pma/Unit_Testing
 
 Selenium tests
 --------------
@@ -16,14 +16,12 @@ To be able to run Selenium tests, you need to have webserver, database
 and Selenium running. Following environment variables configure where
 testsuite connects:
 
-TESTSUITE_SERVER
-    Database server to use.
 TESTSUITE_USER
-    Username for connecting to database.
+    Username to connect on the interface located at TESTSUITE_URL
 TESTSUITE_PASSWORD
-    Password for connecting to database.
-TESTSUITE_DATABASE
-    Database to use for testing.
+    Password to connect on the interface located at TESTSUITE_URL
+TESTSUITE_DATABASE_PREFIX
+    Database prefix to use for testing (Avoid database grouping characters like _).
 TESTSUITE_URL
     URL where tested phpMyAdmin is available.
 
@@ -49,10 +47,9 @@ TESTSUITE_BROWSERSTACK_KEY
 For example you can use following setup in ``phpunit.xml``::
 
     <php>
-        <env name="TESTSUITE_SERVER" value="localhost"/>
         <env name="TESTSUITE_USER" value="root"/>
         <env name="TESTSUITE_PASSWORD" value="root"/>
-        <env name="TESTSUITE_DATABASE" value="test"/>
+        <env name="TESTSUITE_DATABASE_PREFIX" value="test"/>
         <env name="TESTSUITE_URL" value="http://localhost/phpmyadmin/" />
         <env name="TESTSUITE_SELENIUM_HOST" value="127.0.0.1" />
         <env name="TESTSUITE_SELENIUM_PORT" value="4444" />
@@ -61,9 +58,7 @@ For example you can use following setup in ``phpunit.xml``::
 Using BrowserStack
 ------------------
 
-We're using BrowserStack to run our tests on the Travis CI. If you are a team
-member, you can be granted access to the team account, but you can register own
-account there as well.
+We're using our selenium tests on the GitHub CI.
 
 To run tests locally, you need to install BrowserStack tool to enable local
 testing, see their website for instructions:
@@ -84,4 +79,7 @@ Following instructions use PHP's built in server for the testing::
     php --server 127.0.0.1:$TESTSUITE_PORT > php.log &
 
     # Start BrowserStack Local client to forward the traffic
-    ~/browserstack/BrowserStackLocal -localIdentifier Manual "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,$TESTSUITE_PORT,0 & 
+    ~/browserstack/BrowserStackLocal -localIdentifier Manual "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,$TESTSUITE_PORT,0 &
+
+    # Stop BrowserStack Local
+    ~/browserstack/BrowserStackLocal --daemon stop

@@ -3,56 +3,58 @@
 {% block content %}
 
 {% if is_data_loaded %}
-  <h3>{{ 'Network traffic since startup: %s'|trans|format(network_traffic) }}</h3>
-  <p>{{ 'This MySQL server has been running for %1$s. It started up on %2$s.'|trans|format(uptime, start_time) }}</p>
+  <div class="row"><h3>{{ 'Network traffic since startup: %s'|trans|format(network_traffic) }}</h3></div>
+  <div class="row"><p>{{ 'This MySQL server has been running for %1$s. It started up on %2$s.'|trans|format(uptime, start_time) }}</p></div>
 
-  <table id="serverstatustraffic" class="width100 data noclick">
-    <thead>
+<div class="row justify-content-between">
+  <table class="table table-light table-striped table-hover col-12 col-md-5">
+    <thead class="thead-light">
       <tr>
-        <th>
+        <th scope="col">
           {% trans 'Traffic' %}
           {{ show_hint('On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.'|trans) }}
         </th>
-        <th>#</th>
-        <th>&oslash; {% trans 'per hour' %}</th>
+        <th scope="col">#</th>
+        <th scope="col">{% trans 'ø per hour' %}</th>
       </tr>
     </thead>
 
     <tbody>
       {% for each_traffic in traffic %}
         <tr>
-          <th class="name">{{ each_traffic.name }}</th>
-          <td class="value">{{ each_traffic.number }}</td>
-          <td class="value">{{ each_traffic.per_hour }}</td>
+          <th scope="row">{{ each_traffic.name }}</th>
+          <td class="text-monospace text-right">{{ each_traffic.number }}</td>
+          <td class="text-monospace text-right">{{ each_traffic.per_hour }}</td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
 
-  <table id="serverstatusconnections" class="width100 data noclick">
-    <thead>
+  <table class="table table-light table-striped table-hover col-12 col-md-6">
+    <thead class="thead-light">
       <tr>
-        <th>{% trans 'Connections' %}</th>
-        <th>#</th>
-        <th>&oslash; {% trans 'per hour' %}</th>
-        <th>%</th>
+        <th scope="col">{% trans 'Connections' %}</th>
+        <th scope="col">#</th>
+        <th scope="col">{% trans 'ø per hour' %}</th>
+        <th scope="col">%</th>
       </tr>
     </thead>
 
     <tbody>
       {% for connection in connections %}
         <tr>
-          <th class="name">{{ connection.name }}</th>
-          <td class="value">{{ connection.number }}</td>
-          <td class="value">{{ connection.per_hour }}</td>
-          <td class="value">{{ connection.percentage }}</td>
+          <th>{{ connection.name }}</th>
+          <td class="text-monospace text-right">{{ connection.number }}</td>
+          <td class="text-monospace text-right">{{ connection.per_hour }}</td>
+          <td class="text-monospace text-right">{{ connection.percentage }}</td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
+</div>
 
   {% if is_master or is_slave %}
-    <p class="notice clearfloat">
+    <p class="alert alert-primary clearfloat" role="alert">
       {% if is_master and is_slave %}
         {% trans 'This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</b> process.' %}
       {% elseif is_master %}

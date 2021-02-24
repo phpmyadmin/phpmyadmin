@@ -1,8 +1,0 @@
-<select class="column_type"
-    name="field_type[{{ column_number }}]"
-    id="field_{{ column_number }}_{{ ci - ci_offset }}"
-    {%- if column_meta['column_status'] is defined and not column_meta['column_status']['isEditable'] -%}
-    disabled="disabled"
-    {%- endif %}>
-    {{ get_supported_datatypes(true, type_upper) }}
-</select>

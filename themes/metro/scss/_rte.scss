@@ -14,9 +14,10 @@
 
   input,
   select,
-  textarea {
+  textarea,
+  .CodeMirror {
     width: 100%;
-    margin: 0;
+    margin: 6px;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -33,10 +34,6 @@
 
   .routine_params_table {
     width: 100%;
-  }
-
-  .half_width {
-    width: 49%;
   }
 }
 

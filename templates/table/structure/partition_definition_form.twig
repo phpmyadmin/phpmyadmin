@@ -1,11 +1,11 @@
-<form action="tbl_structure.php" method="post">
+<form action="{{ url('/table/structure/partitioning') }}" method="post">
     {{ get_hidden_inputs(db, table) }}
-    <input type="hidden" name="edit_partitioning" value="true">
 
     <fieldset>
         <legend>{% trans 'Edit partitioning' %}</legend>
         {% include 'columns_definitions/partitions.twig' with {
-            'partition_details': partition_details
+          'partition_details': partition_details,
+          'storage_engines': storage_engines
         } only %}
     </fieldset>
     <fieldset class="tblFooters">

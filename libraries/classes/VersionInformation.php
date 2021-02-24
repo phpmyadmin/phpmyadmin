@@ -1,22 +1,30 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Responsible for retrieving version information and notifiying about latest version
- *
- * @package PhpMyAdmin
+ * Responsible for retrieving version information and notifying about latest version
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
-use \stdClass;
+use stdClass;
+use const PHP_VERSION;
+use function count;
+use function explode;
+use function intval;
+use function is_numeric;
+use function is_object;
+use function json_decode;
+use function preg_match;
+use function strlen;
+use function strpos;
+use function substr;
+use function time;
+use function version_compare;
 
 /**
- * Responsible for retrieving version information and notifiying about latest version
- *
- * @package PhpMyAdmin
- *
+ * Responsible for retrieving version information and notifying about latest version
  */
 class VersionInformation
 {
@@ -63,6 +71,7 @@ class VersionInformation
                 'timestamp' => time(),
             ];
         }
+
         return $data;
     }
 
@@ -145,7 +154,7 @@ class VersionInformation
         $latestRelease = null;
         foreach ($releases as $release) {
             $phpVersions = $release->php_versions;
-            $phpConditions = explode(",", $phpVersions);
+            $phpConditions = explode(',', $phpVersions);
             foreach ($phpConditions as $phpCondition) {
                 if (! $this->evaluateVersionCondition('PHP', $phpCondition)) {
                     continue 2;
@@ -156,7 +165,7 @@ class VersionInformation
             // one server configured.
             if (count($GLOBALS['cfg']['Servers']) === 1) {
                 $mysqlVersions = $release->mysql_versions;
-                $mysqlConditions = explode(",", $mysqlVersions);
+                $mysqlConditions = explode(',', $mysqlVersions);
                 foreach ($mysqlConditions as $mysqlCondition) {
                     if (! $this->evaluateVersionCondition('MySQL', $mysqlCondition)) {
                         continue 2;
@@ -164,12 +173,14 @@ class VersionInformation
                 }
             }
             // To compare the current release with the previous latest release or no release is set
-            if ($latestRelease === null || version_compare($latestRelease['version'], $release->version, '<')) {
-                $latestRelease = [
-                    'version' => $release->version,
-                    'date' => $release->date
-                ];
+            if ($latestRelease !== null && ! version_compare($latestRelease['version'], $release->version, '<')) {
+                continue;
             }
+
+            $latestRelease = [
+                'version' => $release->version,
+                'date' => $release->date,
+            ];
         }
 
         // no compatible version
@@ -182,20 +193,20 @@ class VersionInformation
      * @param string $type      PHP or MySQL
      * @param string $condition version condition
      *
-     * @return boolean whether the condition is met
+     * @return bool whether the condition is met
      */
     public function evaluateVersionCondition(string $type, string $condition)
     {
         $operator = null;
         $version = null;
         $operators = [
-            "<=",
-            ">=",
-            "!=",
-            "<>",
-            "<",
-            ">",
-            "=",
+            '<=',
+            '>=',
+            '!=',
+            '<>',
+            '<',
+            '>',
+            '=',
         ]; // preserve order
         foreach ($operators as $oneOperator) {
             if (strpos($condition, $oneOperator) === 0) {
@@ -206,15 +217,16 @@ class VersionInformation
         }
 
         $myVersion = null;
-        if ($type == 'PHP') {
+        if ($type === 'PHP') {
             $myVersion = $this->getPHPVersion();
-        } elseif ($type == 'MySQL') {
+        } elseif ($type === 'MySQL') {
             $myVersion = $this->getMySQLVersion();
         }
 
-        if ($myVersion !== null && $operator !== null) {
+        if ($myVersion !== null && $version !== null && $operator !== null) {
             return version_compare($myVersion, $version, $operator);
         }
+
         return false;
     }
 
@@ -235,9 +247,12 @@ class VersionInformation
      */
     protected function getMySQLVersion()
     {
-        if (isset($GLOBALS['dbi'])) {
-            return $GLOBALS['dbi']->getVersionString();
+        global $dbi;
+
+        if (isset($dbi)) {
+            return $dbi->getVersionString();
         }
+
         return null;
     }
 }

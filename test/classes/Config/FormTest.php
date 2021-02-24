@@ -1,42 +1,32 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for Form class in config folder
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Config;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Form;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use ReflectionProperty;
+use function array_keys;
+use function preg_match;
 
-/**
- * Tests for PMA_Form class
- *
- * @package PhpMyAdmin-test
- */
-class FormTest extends PmaTestCase
+class FormTest extends AbstractTestCase
 {
-    /**
-     * @var Form
-     */
+    /** @var Form */
     protected $object;
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setTheme();
+        parent::loadDefaultConfig();
+        parent::setGlobalConfig();
         $GLOBALS['server'] = 0;
         $this->object = new Form(
             'pma_form_name',
@@ -51,21 +41,19 @@ class FormTest extends PmaTestCase
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for Form::__constructor
      *
-     * @return void
      * @group medium
      */
-    public function testContructor()
+    public function testContructor(): void
     {
         $this->assertEquals(
             1,
@@ -83,41 +71,37 @@ class FormTest extends PmaTestCase
 
     /**
      * Test for Form::getOptionType
-     *
-     * @return void
      */
-    public function testGetOptionType()
+    public function testGetOptionType(): void
     {
-        $attrFieldsTypes = new ReflectionProperty('PhpMyAdmin\Config\Form', '_fieldsTypes');
+        $attrFieldsTypes = new ReflectionProperty(Form::class, 'fieldsTypes');
         $attrFieldsTypes->setAccessible(true);
         $attrFieldsTypes->setValue(
             $this->object,
-            ["7" => "Seven"]
+            ['7' => 'Seven']
         );
 
         $this->assertNull(
-            $this->object->getOptionType("123/4/5/6")
+            $this->object->getOptionType('123/4/5/6')
         );
 
         $this->assertEquals(
-            "Seven",
-            $this->object->getOptionType("123/4/5/7")
+            'Seven',
+            $this->object->getOptionType('123/4/5/7')
         );
     }
 
     /**
      * Test for Form::getOptionValueList
-     *
-     * @return void
      */
-    public function testGetOptionValueList()
+    public function testGetOptionValueList(): void
     {
         $this->assertEquals(
             [
                 'NHibernate C# DO',
                 'NHibernate XML',
             ],
-            $this->object->getOptionValueList("Export/codegen_format")
+            $this->object->getOptionValueList('Export/codegen_format')
         );
 
         $this->assertEquals(
@@ -126,7 +110,7 @@ class FormTest extends PmaTestCase
                 '1' => 1,
                 '0' => 0,
             ],
-            $this->object->getOptionValueList("OBGzip")
+            $this->object->getOptionValueList('OBGzip')
         );
 
         $this->assertEquals(
@@ -134,26 +118,24 @@ class FormTest extends PmaTestCase
                 'none' => 'Nowhere',
                 'left' => 'Left',
                 'right' => 'Right',
-                'both' =>   "Both",
+                'both' =>   'Both',
             ],
-            $this->object->getOptionValueList("RowActionLinks")
+            $this->object->getOptionValueList('RowActionLinks')
         );
     }
 
     /**
-     * Test for Form::_readFormPathsCallback
-     *
-     * @return void
+     * Test for Form::readFormPathsCallback
      */
-    public function testReadFormPathsCallBack()
+    public function testReadFormPathsCallBack(): void
     {
-        $reflection = new ReflectionClass('PhpMyAdmin\Config\Form');
-        $method = $reflection->getMethod('_readFormPathsCallback');
+        $reflection = new ReflectionClass(Form::class);
+        $method = $reflection->getMethod('readFormPathsCallback');
         $method->setAccessible(true);
 
         $array = [
-            "foo" => [
-                "bar" => [
+            'foo' => [
+                'bar' => [
                     'test' => 1,
                     1 => ':group:end',
                 ],
@@ -170,22 +152,23 @@ class FormTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            "pma_form1",
+            'pma_form1',
             $result['pma_form1']
         );
 
         $this->assertEquals(
-            "pma_form2",
+            'pma_form2',
             $result['pma_form2']
         );
 
         $this->assertEquals(
-            "preffoo/foo/bar/test",
+            'preffoo/foo/bar/test',
             $result[0]
         );
 
         // needs regexp because the counter is static
 
+        // assertMatchesRegularExpression added in 9.1
         $this->assertRegExp(
             '/^preffoo\/foo\/bar\/\:group\:end\:\d+$/',
             $result[1]
@@ -194,18 +177,16 @@ class FormTest extends PmaTestCase
 
     /**
      * Test for Form::readFormPaths
-     *
-     * @return void
      */
-    public function testReadFormPaths()
+    public function testReadFormPaths(): void
     {
-        $reflection = new ReflectionClass('PhpMyAdmin\Config\Form');
+        $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readFormPaths');
         $method->setAccessible(true);
 
         $array = [
-            "foo" => [
-                "bar" => [
+            'foo' => [
+                'bar' => [
                     'test' => 1,
                     1 => ':group:end',
                 ],
@@ -222,7 +203,7 @@ class FormTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            "foo/bar/test",
+            'foo/bar/test',
             $result['test']
         );
 
@@ -233,49 +214,48 @@ class FormTest extends PmaTestCase
         $keys = array_keys($result);
         $key = $keys[0];
 
+        // assertMatchesRegularExpression added in 9.1
         $this->assertRegExp(
-            "/^\:group\:end\:(\d+)$/",
+            '/^\:group\:end\:(\d+)$/',
             $key
         );
 
-        preg_match("/^\:group\:end\:(\d+)$/", $key, $matches);
+        preg_match('/^\:group\:end\:(\d+)$/', $key, $matches);
         $digit = $matches[1];
 
         $this->assertEquals(
-            "foo/bar/:group:end:" . $digit,
+            'foo/bar/:group:end:' . $digit,
             $result[':group:end:' . $digit]
         );
     }
 
     /**
      * Test for Form::readTypes
-     *
-     * @return void
      */
-    public function testReadTypes()
+    public function testReadTypes(): void
     {
-        $reflection = new ReflectionClass('PhpMyAdmin\Config\Form');
+        $reflection = new ReflectionClass(Form::class);
         $method = $reflection->getMethod('readTypes');
         $method->setAccessible(true);
 
         $this->object->fields = [
-            "pma_form1" => "Servers/1/port",
-            "pma_form2" => "Servers/1/auth_type",
-            ":group:end:0" => "preffoo/foo/bar/test",
-            "1" => "preffoo/foo/bar/:group:end:0",
+            'pma_form1' => 'Servers/1/port',
+            'pma_form2' => 'Servers/1/auth_type',
+            ':group:end:0' => 'preffoo/foo/bar/test',
+            '1' => 'preffoo/foo/bar/:group:end:0',
         ];
 
-        $attrFieldsTypes = $reflection->getProperty('_fieldsTypes');
+        $attrFieldsTypes = $reflection->getProperty('fieldsTypes');
         $attrFieldsTypes->setAccessible(true);
 
         $method->invoke($this->object, null);
 
         $this->assertEquals(
             [
-                "pma_form1" => "integer",
-                "pma_form2" => "select",
-                ":group:end:0" => "group",
-                "1" => "NULL",
+                'pma_form1' => 'integer',
+                'pma_form2' => 'select',
+                ':group:end:0' => 'group',
+                '1' => 'NULL',
             ],
             $attrFieldsTypes->getValue($this->object)
         );
@@ -283,12 +263,10 @@ class FormTest extends PmaTestCase
 
     /**
      * Test for Form::loadForm
-     *
-     * @return void
      */
-    public function testLoadForm()
+    public function testLoadForm(): void
     {
-        $this->object = $this->getMockBuilder('PhpMyAdmin\Config\Form')
+        $this->object = $this->getMockBuilder(Form::class)
             ->disableOriginalConstructor()
             ->setMethods(['readFormPaths', 'readTypes'])
             ->getMock();
@@ -310,8 +288,6 @@ class FormTest extends PmaTestCase
 
     /**
      * Test for Form::cleanGroupPaths
-     *
-     * @return void
      */
     public function testCleanGroupPaths(): void
     {

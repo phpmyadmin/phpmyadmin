@@ -1,39 +1,30 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Test for PhpMyAdmin\Import
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-use PHPUnit\Framework\TestCase;
+use const PHP_INT_MAX;
+use function time;
 
 /**
  * Tests for import functions
- *
- * @package PhpMyAdmin-test
  */
-class ImportTest extends TestCase
+class ImportTest extends AbstractTestCase
 {
-    /**
-     * @var Import $import
-     */
+    /** @var Import $import */
     private $import;
 
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['ServerDefault'] = '';
         $this->import = new Import();
@@ -41,10 +32,8 @@ class ImportTest extends TestCase
 
     /**
      * Test for checkTimeout
-     *
-     * @return void
      */
-    public function testCheckTimeout()
+    public function testCheckTimeout(): void
     {
         global $timestamp, $maximum_time, $timeout_passed;
 
@@ -86,10 +75,8 @@ class ImportTest extends TestCase
 
     /**
      * Test for lookForUse
-     *
-     * @return void
      */
-    public function testLookForUse()
+    public function testLookForUse(): void
     {
         $this->assertEquals(
             [
@@ -154,11 +141,9 @@ class ImportTest extends TestCase
      * @param string $expected Expected result of the function
      * @param int    $num      The column number
      *
-     * @return void
-     *
      * @dataProvider provGetColumnAlphaName
      */
-    public function testGetColumnAlphaName($expected, $num): void
+    public function testGetColumnAlphaName(string $expected, int $num): void
     {
         $this->assertEquals($expected, $this->import->getColumnAlphaName($num));
     }
@@ -168,7 +153,7 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    public function provGetColumnAlphaName()
+    public function provGetColumnAlphaName(): array
     {
         return [
             [
@@ -204,11 +189,9 @@ class ImportTest extends TestCase
      * @param int         $expected Expected result of the function
      * @param string|null $name     column name(i.e. "A", or "BC", etc.)
      *
-     * @return void
-     *
      * @dataProvider provGetColumnNumberFromName
      */
-    public function testGetColumnNumberFromName($expected, $name): void
+    public function testGetColumnNumberFromName(int $expected, ?string $name): void
     {
         $this->assertEquals($expected, $this->import->getColumnNumberFromName($name));
     }
@@ -218,7 +201,7 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    public function provGetColumnNumberFromName()
+    public function provGetColumnNumberFromName(): array
     {
         return [
             [
@@ -254,11 +237,9 @@ class ImportTest extends TestCase
      * @param int         $expected Expected result of the function
      * @param string|null $size     Size of field
      *
-     * @return void
-     *
      * @dataProvider provGetDecimalPrecision
      */
-    public function testGetDecimalPrecision($expected, $size): void
+    public function testGetDecimalPrecision(int $expected, ?string $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalPrecision($size));
     }
@@ -268,7 +249,7 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    public function provGetDecimalPrecision()
+    public function provGetDecimalPrecision(): array
     {
         return [
             [
@@ -296,11 +277,9 @@ class ImportTest extends TestCase
      * @param int         $expected Expected result of the function
      * @param string|null $size     Size of field
      *
-     * @return void
-     *
      * @dataProvider provGetDecimalScale
      */
-    public function testGetDecimalScale($expected, $size): void
+    public function testGetDecimalScale(int $expected, ?string $size): void
     {
         $this->assertEquals($expected, $this->import->getDecimalScale($size));
     }
@@ -310,7 +289,7 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    public function provGetDecimalScale()
+    public function provGetDecimalScale(): array
     {
         return [
             [
@@ -338,11 +317,9 @@ class ImportTest extends TestCase
      * @param array       $expected Expected result of the function
      * @param string|null $cell     Cell content
      *
-     * @return void
-     *
      * @dataProvider provGetDecimalSize
      */
-    public function testGetDecimalSize($expected, $cell): void
+    public function testGetDecimalSize(array $expected, ?string $cell): void
     {
         $this->assertEquals($expected, $this->import->getDecimalSize($cell));
     }
@@ -352,7 +329,7 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    public function provGetDecimalSize()
+    public function provGetDecimalSize(): array
     {
         return [
             [
@@ -399,11 +376,9 @@ class ImportTest extends TestCase
      * @param string|null $cell     String representation of the cell for which a
      *                              best-fit type is to be determined
      *
-     * @return void
-     *
      * @dataProvider provDetectType
      */
-    public function testDetectType($expected, $type, $cell): void
+    public function testDetectType(int $expected, ?int $type, ?string $cell): void
     {
         $this->assertEquals($expected, $this->import->detectType($type, $cell));
     }
@@ -413,7 +388,7 @@ class ImportTest extends TestCase
      *
      * @return array
      */
-    public function provDetectType()
+    public function provDetectType(): array
     {
         $data = [
             [
@@ -504,65 +479,35 @@ class ImportTest extends TestCase
 
     /**
      * Test for getMatchedRows.
-     *
-     * @return void
      */
-    public function testPMAGetMatchedRows()
+    public function testPMAGetMatchedRows(): void
     {
         $GLOBALS['db'] = 'PMA';
-        //mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
 
-        $update_query = 'UPDATE `table_1` '
+        $updateQuery = 'UPDATE `table_1` '
             . 'SET `id` = 20 '
             . 'WHERE `id` > 10';
-        $simulated_update_query = 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)';
+        $simulatedUpdateQuery = 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)';
 
-        $delete_query = 'DELETE FROM `table_1` '
+        $deleteQuery = 'DELETE FROM `table_1` '
             . 'WHERE `id` > 10';
-        $simulated_delete_query = 'SELECT * FROM `table_1` WHERE `id` > 10';
+        $simulatedDeleteQuery = 'SELECT * FROM `table_1` WHERE `id` > 10';
 
-        $dbi->expects($this->any())
-            ->method('numRows')
-            ->with([])
-            ->will($this->returnValue(2));
-
-        $dbi->expects($this->any())
-            ->method('selectDb')
-            ->with('PMA')
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->at(1))
-            ->method('tryQuery')
-            ->with($simulated_update_query)
-            ->will($this->returnValue([]));
-
-        $dbi->expects($this->at(4))
-            ->method('tryQuery')
-            ->with($simulated_delete_query)
-            ->will($this->returnValue([]));
-
-        $GLOBALS['dbi'] = $dbi;
-
-        $this->simulatedQueryTest($update_query, $simulated_update_query);
-        $this->simulatedQueryTest($delete_query, $simulated_delete_query);
+        $this->simulatedQueryTest($updateQuery, $simulatedUpdateQuery);
+        $this->simulatedQueryTest($deleteQuery, $simulatedDeleteQuery);
     }
 
     /**
      * Tests simulated UPDATE/DELETE query.
      *
-     * @param string $sql_query       SQL query
-     * @param string $simulated_query Simulated query
-     *
-     * @return void
+     * @param string $sqlQuery       SQL query
+     * @param string $simulatedQuery Simulated query
      */
-    public function simulatedQueryTest($sql_query, $simulated_query)
+    public function simulatedQueryTest(string $sqlQuery, string $simulatedQuery): void
     {
-        $parser = new Parser($sql_query);
+        $parser = new Parser($sqlQuery);
         $analyzed_sql_results = [
-            'query' => $sql_query,
+            'query' => $sqlQuery,
             'parser' => $parser,
             'statement' => $parser->statements[0],
         ];
@@ -572,13 +517,13 @@ class ImportTest extends TestCase
         // URL to matched rows.
         $_url_params = [
             'db'        => 'PMA',
-            'sql_query' => $simulated_query,
+            'sql_query' => $simulatedQuery,
         ];
-        $matched_rows_url  = 'sql.php' . Url::getCommon($_url_params);
+        $matched_rows_url = Url::getFromRoute('/sql', $_url_params);
 
         $this->assertEquals(
             [
-                'sql_query' => Util::formatSql(
+                'sql_query' => Generator::formatSql(
                     $analyzed_sql_results['query']
                 ),
                 'matched_rows' => 2,
@@ -590,74 +535,16 @@ class ImportTest extends TestCase
 
     /**
      * Test for checkIfRollbackPossible
-     *
-     * @return void
      */
-    public function testPMACheckIfRollbackPossible()
+    public function testPMACheckIfRollbackPossible(): void
     {
         $GLOBALS['db'] = 'PMA';
-        //mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
 
-        // List of Transactional Engines.
-        $transactional_engines = [
-            'INNODB',
-            'FALCON',
-            'NDB',
-            'INFINIDB',
-            'TOKUDB',
-            'XTRADB',
-            'SEQUENCE',
-            'BDB',
-        ];
-
-        $check_query = 'SELECT `ENGINE` FROM `information_schema`.`tables` '
-            . 'WHERE `table_name` = "%s" '
-            . 'AND `table_schema` = "%s" '
-            . 'AND UPPER(`engine`) IN ("'
-            . implode('", "', $transactional_engines)
-            . '")';
-
-        $check_table_query = 'SELECT * FROM `%s`.`%s` '
-            . 'LIMIT 1';
-
-        $dbi->expects($this->at(0))
-            ->method('tryQuery')
-            ->with(sprintf($check_table_query, 'PMA', 'table_1'))
-            ->will($this->returnValue(['table']));
-
-        $dbi->expects($this->at(1))
-            ->method('tryQuery')
-            ->with(sprintf($check_query, 'table_1', 'PMA'))
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->at(2))
-            ->method('numRows')
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->at(3))
-            ->method('tryQuery')
-            ->with(sprintf($check_table_query, 'PMA', 'table_2'))
-            ->will($this->returnValue(['table']));
-
-        $dbi->expects($this->at(4))
-            ->method('tryQuery')
-            ->with(sprintf($check_query, 'table_2', 'PMA'))
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->at(5))
-            ->method('numRows')
-            ->will($this->returnValue(1));
-
-        $GLOBALS['dbi'] = $dbi;
-
-        $sql_query = 'UPDATE `table_1` AS t1, `table_2` t2 '
+        $sqlQuery = 'UPDATE `table_1` AS t1, `table_2` t2 '
             . 'SET `table_1`.`id` = `table_2`.`id` '
             . 'WHERE 1';
 
-        $this->assertEquals(true, $this->import->checkIfRollbackPossible($sql_query));
+        $this->assertTrue($this->import->checkIfRollbackPossible($sqlQuery));
     }
 
     /**
@@ -674,7 +561,7 @@ class ImportTest extends TestCase
             ],
             [
                 "\xEF\xBB\xBF blabla",
-                " blabla",
+                ' blabla',
             ],
             [
                 "\xEF\xBB\xBF blabla\xEF\xBB\xBF",
@@ -682,7 +569,7 @@ class ImportTest extends TestCase
             ],
             [
                 "\xFE\xFF blabla",
-                " blabla",
+                ' blabla',
             ],
             [
                 "\xFE\xFF blabla\xFE\xFF",
@@ -690,7 +577,7 @@ class ImportTest extends TestCase
             ],
             [
                 "\xFF\xFE blabla",
-                " blabla",
+                ' blabla',
             ],
             [
                 "\xFF\xFE blabla\xFF\xFE",
@@ -698,7 +585,7 @@ class ImportTest extends TestCase
             ],
             [
                 "\xEF\xBB\xBF\x44\x52\x4F\x50\x20\x54\x41\x42\x4C\x45\x20\x49\x46\x20\x45\x58\x49\x53\x54\x53",
-                "DROP TABLE IF EXISTS",
+                'DROP TABLE IF EXISTS',
             ],
         ];
     }
@@ -708,8 +595,6 @@ class ImportTest extends TestCase
      *
      * @param string $input         The contents to strip BOM
      * @param string $cleanContents The contents cleaned
-     *
-     * @return void
      *
      * @dataProvider providerContentWithByteOrderMarks
      */

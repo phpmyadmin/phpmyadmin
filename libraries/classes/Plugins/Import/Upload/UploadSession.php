@@ -1,21 +1,20 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Provides upload functionalities for the import plugins
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
-use PhpMyAdmin\Display\ImportAjax;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Plugins\UploadInterface;
+use function array_key_exists;
+use function ini_get;
+use function trim;
 
 /**
  * Implementation for session
- *
- * @package PhpMyAdmin
  */
 class UploadSession implements UploadInterface
 {
@@ -53,12 +52,12 @@ class UploadSession implements UploadInterface
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
-                'plugin'   => UploadSession::getIdKey(),
+                'plugin'   => self::getIdKey(),
             ];
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (! ImportAjax::sessionCheck() || $ret['finished']) {
+        if (! Ajax::sessionCheck() || $ret['finished']) {
             return $ret;
         }
 
@@ -84,7 +83,7 @@ class UploadSession implements UploadInterface
                 'percent'  => 100,
                 'total'    => $ret['total'],
                 'complete' => $ret['total'],
-                'plugin'   => UploadSession::getIdKey(),
+                'plugin'   => self::getIdKey(),
             ];
         }
 

@@ -1,24 +1,20 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for Error.php
- *
- * @package PhpMyAdmin-test
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
+use const DIRECTORY_SEPARATOR;
+use function preg_match;
 
 /**
  * Error class testing.
- *
- * @package PhpMyAdmin-test
  */
-class ErrorTest extends PmaTestCase
+class ErrorTest extends AbstractTestCase
 {
     /**
      * @var Error
@@ -31,10 +27,10 @@ class ErrorTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new Error(2, 'Compile Error', 'error.txt', 15);
     }
 
@@ -43,19 +39,17 @@ class ErrorTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for setBacktrace
-     *
-     * @return void
      */
-    public function testSetBacktrace()
+    public function testSetBacktrace(): void
     {
         $bt = [
             [
@@ -72,10 +66,8 @@ class ErrorTest extends PmaTestCase
 
     /**
      * Test for setLine
-     *
-     * @return void
      */
-    public function testSetLine()
+    public function testSetLine(): void
     {
         $this->object->setLine(15);
         $this->assertEquals(15, $this->object->getLine());
@@ -87,11 +79,9 @@ class ErrorTest extends PmaTestCase
      * @param string $file     actual
      * @param string $expected expected
      *
-     * @return void
-     *
      * @dataProvider filePathProvider
      */
-    public function testSetFile($file, $expected): void
+    public function testSetFile(string $file, string $expected): void
     {
         $this->object->setFile($file);
         $this->assertEquals($expected, $this->object->getFile());
@@ -102,7 +92,7 @@ class ErrorTest extends PmaTestCase
      *
      * @return array
      */
-    public function filePathProvider()
+    public function filePathProvider(): array
     {
         return [
             [
@@ -111,7 +101,8 @@ class ErrorTest extends PmaTestCase
             ],
             [
                 __FILE__,
-                '.' . DIRECTORY_SEPARATOR . 'test' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
+                '.' . DIRECTORY_SEPARATOR . 'test' . DIRECTORY_SEPARATOR
+                    . 'classes' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
             ],
             [
                 './NONEXISTING',
@@ -122,10 +113,8 @@ class ErrorTest extends PmaTestCase
 
     /**
      * Test for getHash
-     *
-     * @return void
      */
-    public function testGetHash()
+    public function testGetHash(): void
     {
         $this->assertEquals(
             1,
@@ -135,10 +124,8 @@ class ErrorTest extends PmaTestCase
 
     /**
      * Test for getBacktraceDisplay
-     *
-     * @return void
      */
-    public function testGetBacktraceDisplay()
+    public function testGetBacktraceDisplay(): void
     {
         $this->assertStringContainsString(
             'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br>',
@@ -148,43 +135,35 @@ class ErrorTest extends PmaTestCase
 
     /**
      * Test for getDisplay
-     *
-     * @return void
      */
-    public function testGetDisplay()
+    public function testGetDisplay(): void
     {
         $this->assertStringContainsString(
-            '<div class="error"><strong>Warning</strong>',
+            '<div class="alert alert-danger" role="alert"><strong>Warning</strong>',
             $this->object->getDisplay()
         );
     }
 
     /**
      * Test for getHtmlTitle
-     *
-     * @return void
      */
-    public function testGetHtmlTitle()
+    public function testGetHtmlTitle(): void
     {
         $this->assertEquals('Warning: Compile Error', $this->object->getHtmlTitle());
     }
 
     /**
      * Test for getTitle
-     *
-     * @return void
      */
-    public function testGetTitle()
+    public function testGetTitle(): void
     {
         $this->assertEquals('Warning: Compile Error', $this->object->getTitle());
     }
 
     /**
      * Test for getBacktrace
-     *
-     * @return void
      */
-    public function testGetBacktrace()
+    public function testGetBacktrace(): void
     {
         $bt = [
             [

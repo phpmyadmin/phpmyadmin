@@ -1,34 +1,39 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * functions for displaying server status sub item: monitor
- *
- * @usedby  server_status_monitor.php
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\SysInfo;
+use PhpMyAdmin\Profiling;
+use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Util;
+use function array_sum;
+use function count;
+use function implode;
+use function is_numeric;
+use function json_decode;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_strtolower;
+use function mb_substr;
+use function microtime;
+use function preg_match;
+use function preg_replace;
+use function strlen;
 
 /**
  * functions for displaying server status sub item: monitor
- *
- * @package PhpMyAdmin
  */
 class Monitor
 {
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Monitor constructor.
      * @param DatabaseInterface $dbi DatabaseInterface instance
      */
     public function __construct($dbi)
@@ -51,7 +56,7 @@ class Monitor
         $sysinfo = $cpuload = $memory = 0;
 
         /* Accumulate all required variables and data */
-        list($serverVars, $statusVars, $ret) = $this->getJsonForChartingDataGet(
+        [$serverVars, $statusVars, $ret] = $this->getJsonForChartingDataGet(
             $ret,
             $serverVars,
             $statusVars,
@@ -86,6 +91,7 @@ class Monitor
         $ret = $this->getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues);
 
         $ret['x'] = (int) (microtime(true) * 1000);
+
         return $ret;
     }
 
@@ -119,6 +125,7 @@ class Monitor
                 }
             }
         }
+
         return $ret;
     }
 
@@ -148,7 +155,7 @@ class Monitor
             foreach ($chartNodes as $nodeId => $nodeDataPoints) {
                 // For each data point in the series (usually just 1)
                 foreach ($nodeDataPoints as $pointId => $dataPoint) {
-                    list($serverVars, $statusVars, $ret[$chartId][$nodeId][$pointId])
+                    [$serverVars, $statusVars, $ret[$chartId][$nodeId][$pointId]]
                         = $this->getJsonForChartingDataSwitch(
                             $dataPoint['type'],
                             $dataPoint['name'],
@@ -162,6 +169,7 @@ class Monitor
                 } /* foreach */
             } /* foreach */
         }
+
         return [
             $serverVars,
             $statusVars,
@@ -197,7 +205,7 @@ class Monitor
         /* We only collect the status and server variables here to
          * read them all in one query,
          * and only afterwards assign them.
-         * Also do some white list filtering on the names
+         * Also do some allow list filtering on the names
         */
             case 'servervar':
                 if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
@@ -224,7 +232,7 @@ class Monitor
                     $cpuload = $sysinfo->loadavg();
                 }
 
-                if (SysInfo::getOs() == 'Linux') {
+                if (SysInfo::getOs() === 'Linux') {
                     $ret['idle'] = $cpuload['idle'];
                     $ret['busy'] = $cpuload['busy'];
                 } else {
@@ -241,7 +249,7 @@ class Monitor
                     $memory = $sysinfo->memory();
                 }
 
-                $ret['value'] = isset($memory[$pName]) ? $memory[$pName] : 0;
+                $ret['value'] = $memory[$pName] ?? 0;
                 break;
         }
 
@@ -284,7 +292,7 @@ class Monitor
                 mb_substr(
                     $row['sql_text'],
                     0,
-                    mb_strpos($row['sql_text'], ' ')
+                    (int) mb_strpos($row['sql_text'], ' ')
                 )
             );
 
@@ -295,7 +303,7 @@ class Monitor
                     if (mb_strlen($row['sql_text']) > 220) {
                         $implodeSqlText = implode(
                             ' ',
-                            Util::formatByteDown(
+                            (array) Util::formatByteDown(
                                 mb_strlen($row['sql_text']),
                                 2,
                                 2
@@ -320,6 +328,7 @@ class Monitor
         $return['numRows'] = count($return['rows']);
 
         $this->dbi->freeResult($result);
+
         return $return;
     }
 
@@ -397,10 +406,10 @@ class Monitor
 
                             // Group this value, thus do not add to the result list
                             continue 2;
-                        } else {
-                            $insertTablesFirst = $i;
-                            $insertTables[$matches[2]] += $row['#'] - 1;
                         }
+
+                        $insertTablesFirst = $i;
+                        $insertTables[$matches[2]] += $row['#'] - 1;
                     }
                     // No break here
 
@@ -412,7 +421,7 @@ class Monitor
                         . '... ['
                         . implode(
                             ' ',
-                            Util::formatByteDown(
+                            (array) Util::formatByteDown(
                                 mb_strlen($row['argument']),
                                 2,
                                 2
@@ -447,7 +456,7 @@ class Monitor
      */
     private function getSuspensionPoints(string $lastChar): string
     {
-        if ($lastChar != '.') {
+        if ($lastChar !== '.') {
             return '<br>...';
         }
 
@@ -464,26 +473,25 @@ class Monitor
      */
     public function getJsonForLoggingVars(?string $name, ?string $value): array
     {
-        if (isset($name) && isset($value)) {
+        if (isset($name, $value)) {
             $escapedValue = $this->dbi->escapeString($value);
             if (! is_numeric($escapedValue)) {
                 $escapedValue = "'" . $escapedValue . "'";
             }
 
-            if (! preg_match("/[^a-zA-Z0-9_]+/", $name)) {
+            if (! preg_match('/[^a-zA-Z0-9_]+/', $name)) {
                 $this->dbi->query(
                     'SET GLOBAL ' . $name . ' = ' . $escapedValue
                 );
             }
         }
 
-        $loggingVars = $this->dbi->fetchResult(
+        return $this->dbi->fetchResult(
             'SHOW GLOBAL VARIABLES WHERE Variable_name IN'
             . ' ("general_log","slow_query_log","long_query_time","log_output")',
             0,
             1
         );
-        return $loggingVars;
     }
 
     /**
@@ -506,7 +514,9 @@ class Monitor
             $this->dbi->selectDb($database);
         }
 
-        if ($profiling = Util::profilingSupported()) {
+        $profiling = Profiling::isSupported($this->dbi);
+
+        if ($profiling) {
             $this->dbi->query('SET PROFILING=1;');
         }
 
@@ -541,6 +551,7 @@ class Monitor
             }
             $this->dbi->freeResult($result);
         }
+
         return $return;
     }
 }

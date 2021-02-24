@@ -1,11 +1,5 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 
-/**
- * Holds the PhpMyAdmin\Controllers\Server\PluginsController
- *
- * @package PhpMyAdmin\Controllers
- */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
@@ -15,44 +9,45 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
+use function array_keys;
+use function ksort;
+use function mb_strtolower;
+use function preg_replace;
 
 /**
  * Handles viewing server plugin details
- *
- * @package PhpMyAdmin\Controllers
  */
 class PluginsController extends AbstractController
 {
-    /**
-     * @var Plugins
-     */
+    /** @var Plugins */
     private $plugins;
 
+    /** @var DatabaseInterface */
+    private $dbi;
+
     /**
-     * @param Response          $response Response object
-     * @param DatabaseInterface $dbi      DatabaseInterface object
-     * @param Template          $template Template object
-     * @param Plugins           $plugins  Plugins object
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
      */
-    public function __construct($response, $dbi, Template $template, Plugins $plugins)
+    public function __construct($response, Template $template, Plugins $plugins, $dbi)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->plugins = $plugins;
+        $this->dbi = $dbi;
     }
 
-    /**
-     * Index action
-     *
-     * @return string
-     */
-    public function index(): string
+    public function index(): void
     {
-        include ROOT_PATH . 'libraries/server_common.inc.php';
+        global $err_url;
 
-        $header = $this->response->getHeader();
-        $scripts = $header->getScripts();
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('server/plugins.js');
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
+
+        $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'server/plugins.js']);
 
         $plugins = [];
         $serverPlugins = $this->plugins->getAll();
@@ -69,7 +64,8 @@ class PluginsController extends AbstractController
                 mb_strtolower($type)
             );
         }
-        return $this->template->render('server/plugins/index', [
+
+        $this->render('server/plugins/index', [
             'plugins' => $plugins,
             'clean_types' => $cleanTypes,
         ]);

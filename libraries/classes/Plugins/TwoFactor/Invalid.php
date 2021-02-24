@@ -1,35 +1,29 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Second authentication factor handling
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
-use PhpMyAdmin\Template;
 
 /**
  * Invalid two-factor authentication showing that configured choice is not available.
- *
- * @package PhpMyAdmin
  */
 class Invalid extends TwoFactorPlugin
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public static $id = 'invalid';
 
+    /** @var bool */
     public static $showSubmit = false;
 
     /**
      * Checks authentication, returns true on success
      *
-     * @return boolean
+     * @return bool
      */
     public function check()
     {

@@ -1,49 +1,9 @@
-// Common styles for the original theme
-
-html {
-  font-size: 82%;
-}
-
-input,
-select,
-textarea {
-  font-size: 1em;
-}
-
-body {
-  font-family: $font-family;
-  padding: 0;
-  margin: 0;
-  margin-#{$left}: 240px;
-  color: $main-color;
-  background: $main-background;
-}
-
 #page_content {
   margin: 0 0.5em;
 }
 
-.desktop50 {
-  width: 50%;
-}
-
-.all100 {
-  width: 100%;
-}
-
-.all85 {
-  width: 85%;
-}
-
 .auth_config_tbl {
   margin: 0 auto;
-}
-
-textarea,
-tt,
-pre,
-code {
-  font-family: $font-family-fixed;
 }
 
 h1 {
@@ -109,7 +69,7 @@ dfn {
   }
 }
 
-th {
+.pma-table th {
   font-weight: bold;
   color: $th-color;
   background: $th-background;
@@ -136,7 +96,7 @@ textarea {
   overflow: visible;
 }
 
-th.fillPage {
+.pma-table th.fillPage {
   width: 80%;
 }
 
@@ -159,7 +119,7 @@ fieldset {
     color: #444;
     background-color: transparent;
     width: initial;
-    font-size: 1rem;
+    font-size: 1em;
   }
 }
 
@@ -173,7 +133,7 @@ button {
   display: inline;
 }
 
-table {
+.pma-table {
   caption,
   th,
   td {
@@ -184,7 +144,7 @@ table {
   }
 }
 
-table {
+.pma-table {
   border-collapse: separate;
 }
 
@@ -209,7 +169,7 @@ button {
   float: $right;
 }
 
-table {
+.pma-table {
   &.nospacing {
     border-spacing: 0;
   }
@@ -222,37 +182,32 @@ table {
   }
 }
 
-th.left,
-td.left {
+.pma-table th.left,
+.pma-table td.left {
   text-align: $left;
 }
 
-th.center,
-td.center {
-  text-align: center;
-}
-
-th.right,
-td.right {
+.pma-table th.right,
+.pma-table td.right {
   text-align: $right;
   padding-#{$right}: 1em;
 }
 
-tr.vtop,
-th.vtop,
-td.vtop {
+.pma-table tr.vtop,
+.pma-table th.vtop,
+.pma-table td.vtop {
   vertical-align: top;
 }
 
-tr.vmiddle,
-th.vmiddle,
-td.vmiddle {
+.pma-table tr.vmiddle,
+.pma-table th.vmiddle,
+.pma-table td.vmiddle {
   vertical-align: middle;
 }
 
-tr.vbottom,
-th.vbottom,
-td.vbottom {
+.pma-table tr.vbottom,
+.pma-table th.vbottom,
+.pma-table td.vbottom {
   vertical-align: bottom;
 }
 
@@ -310,7 +265,7 @@ button.mult_submit {
 }
 
 // odd items 1,3,5,7...
-table tr:nth-child(odd) {
+.pma-table tr:nth-child(odd) {
   background: $bg-one;
 }
 
@@ -322,7 +277,7 @@ table tr:nth-child(odd) {
 }
 
 // even items 2,4,6,8...
-table tr:nth-child(even) {
+.pma-table tr:nth-child(even) {
   background: $bg-two;
 }
 
@@ -333,7 +288,7 @@ table tr:nth-child(even) {
   }
 }
 
-table tr {
+.pma-table tr {
   text-align: $left;
 
   th {
@@ -341,12 +296,12 @@ table tr {
   }
 }
 
-td.marked:not(.nomarker) {
+.pma-table td.marked:not(.nomarker) {
   background: $browse-marker-background;
   color: $browse-marker-color;
 }
 
-table tr {
+.pma-table tr {
   &.marked:not(.nomarker) {
     background: $browse-marker-background;
     color: $browse-marker-color;
@@ -377,7 +332,7 @@ table tr {
   }
 }
 
-table tr.hover:not(.nopointer) th {
+.pma-table tr.hover:not(.nopointer) th {
   background: $browse-pointer-background;
   color: $browse-pointer-color;
 }
@@ -385,20 +340,20 @@ table tr.hover:not(.nopointer) th {
 /**
  * marks table rows/cells if the db field is in a where condition
  */
-td.condition,
-th.condition {
+.pma-table td.condition,
+.pma-table th.condition {
   border: 1px solid $browse-marker-background;
 }
 
 /**
  * cells with the value NULL
  */
-td.null {
+.pma-table td.null {
   font-style: italic;
   color: #7d7d7d;
 }
 
-table {
+.pma-table {
   .valueHeader,
   .value {
     text-align: $right;
@@ -412,7 +367,7 @@ table {
 }
 
 .value {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 .attention {
@@ -472,7 +427,7 @@ img.lightbulb {
 }
 
 /* no extra space in table cells */
-td .icon {
+.pma-table td .icon {
   margin: 0;
 }
 
@@ -491,87 +446,6 @@ td .icon {
 #pma_footer {
   position: relative;
   padding: 0 0.5em;
-}
-
-.success h1,
-.notice h1 {
-  border-bottom: 2px solid;
-  font-weight: bold;
-  text-align: $left;
-  margin: 0 0 0.2em 0;
-}
-
-div {
-  &.error h1 {
-    border-bottom: 2px solid;
-    font-weight: bold;
-    text-align: $left;
-    margin: 0 0 0.2em 0;
-  }
-
-  &.success,
-  &.notice,
-  &.error {
-    margin: 0.3em 0 0 0;
-    border: 2px solid;
-    background-repeat: no-repeat;
-    clear: both;
-
-    @if $direction == rtl {
-      background-position: 99% 50%;
-      padding: 0.1em 40px 0.1em 0.1em;
-    } @else {
-      background-position: 10px 50%;
-      padding: 0.1em 0.1em 0.1em 42px;
-    }
-  }
-
-  &.success img.icon,
-  &.notice img.icon,
-  &.error img.icon {
-    display: block;
-    float: $left;
-    margin-#{$left}: -22px;
-  }
-}
-
-.success {
-  color: #000;
-  background-color: #f0fff0;
-}
-
-h1.success,
-div.success,
-.success h1 {
-  border-color: #0f0;
-}
-
-.notice {
-  color: #000;
-  background-color: #ffd;
-}
-
-h1.notice,
-div.notice,
-.notice h1 {
-  border-color: #ffd700;
-}
-
-.error {
-  background-color: #ffc;
-  color: #f00;
-}
-
-h1.error {
-  border-color: #f00;
-}
-
-div.error {
-  border-color: #f00;
-
-  h1 {
-    border-color: #f00;
-  }
 }
 
 .confirmation {
@@ -596,6 +470,16 @@ fieldset.confirmation {
       padding: 0.2em 0.2em 0.2em 25px;
     }
   }
+}
+
+.error {
+  background-color: #ffc;
+  color: #f00;
+}
+
+label.error {
+  padding: 3px;
+  margin-left: 4px;
 }
 
 /* end messageboxes */
@@ -693,6 +577,14 @@ td.disabled {
   white-space: nowrap;
 }
 
+.pre_wrap {
+  white-space: pre-wrap;
+}
+
+.pre_wrap br {
+  display: none;
+}
+
 /**
  * zoom search
  */
@@ -742,6 +634,14 @@ div.container.modal_form {
   text-align: $left;
 }
 
+#login_form fieldset.tblFooters {
+  text-align: #{$right};
+}
+
+#login_form select#select_server {
+  width: 100%;
+}
+
 div#modalOverlay {
   position: fixed;
   top: 0;
@@ -750,6 +650,15 @@ div#modalOverlay {
   width: 100%;
   background: #fff;
   z-index: 900;
+}
+
+div#userPermissionModal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  z-index: 1000;
 }
 
 form.login label {
@@ -770,18 +679,8 @@ form.login label {
   margin: 5px 2px;
 }
 
-.cfg_dbg_demo {
-  margin: 0.5em 1em 0.5em 1em;
-}
-
 .central_columns_navigation {
   padding: 1.5% 0 !important;
-}
-
-.central_columns_add_column {
-  display: inline-block;
-  margin-#{$left}: 1%;
-  max-width: 50%;
 }
 
 .message_errors_found {
@@ -818,58 +717,11 @@ li.last.database {
 
 /* specific elements */
 
-/* topmenu */
-
-ul {
-  &#topmenu,
-  &#topmenu2,
-  &.tabs {
-    font-weight: bold;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  &#topmenu2 {
-    margin: 0.25em 0.5em 0;
-    height: 2em;
-    clear: both;
-  }
-
-  &#topmenu li,
-  &#topmenu2 li {
-    float: $left;
-    margin: 0;
-    padding: 0;
-    vertical-align: middle;
-  }
-}
-
-#topmenu img,
-#topmenu2 img {
-  vertical-align: middle;
-  margin-#{$right}: 0.1em;
-}
-
-/* default tab styles */
-
-ul {
-  &#topmenu {
-    a,
-    span {
-      display: block;
-      margin: 2px 2px 0;
-      padding: 2px 2px 0;
-      white-space: nowrap;
-    }
-  }
-
-  &#topmenu2 a {
-    display: block;
-    margin: 0.1em;
-    padding: 0.2em;
-    white-space: nowrap;
-  }
+ul.tabs {
+  font-weight: bold;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 span {
@@ -879,88 +731,6 @@ span {
 
   &.success {
     color: green;
-  }
-}
-
-fieldset.caution a {
-  color: #f00;
-
-  &:hover {
-    color: #fff;
-    background-color: #f00;
-  }
-}
-
-#topmenu {
-  margin-top: 0.5em;
-  padding: 0.1em 0.3em 0.1em 0.3em;
-}
-
-ul {
-  &#topmenu {
-    ul {
-      -moz-box-shadow: 2px 2px 3px #666;
-      -webkit-box-shadow: 2px 2px 3px #666;
-      box-shadow: 2px 2px 3px #666;
-    }
-
-    > li {
-      border-bottom: 1pt solid black;
-    }
-
-    a,
-    span {
-      background-color: $bg-one;
-      border: 0 solid $bg-two;
-      border-width: 1pt 1pt 0 1pt;
-      -moz-border-radius: 0.4em 0.4em 0 0;
-      border-radius: 0.4em 0.4em 0 0;
-    }
-
-    ul {
-      a {
-        border-width: 1pt 0 0 0;
-        -moz-border-radius: 0;
-        border-radius: 0;
-      }
-
-      li:first-child a {
-        border-width: 0;
-      }
-
-      a:hover,
-      .tabactive {
-        text-decoration: none;
-      }
-    }
-
-    > li > {
-      a:hover,
-      .tabactive {
-        margin: 0;
-        padding: 2px 4px;
-        text-decoration: none;
-      }
-    }
-
-    a.tab:hover,
-    .tabactive {
-      background-color: $main-background;
-    }
-  }
-
-  &#topmenu2 a {
-    &.tab:hover,
-    &.tabactive {
-      background-color: $bg-one;
-      -moz-border-radius: 0.3em;
-      border-radius: 0.3em;
-      text-decoration: none;
-    }
-  }
-
-  &#topmenu > li.active {
-    border-bottom: 1pt solid $main-background;
   }
 }
 
@@ -977,11 +747,7 @@ div#dataDisplay {
   }
 }
 
-table {
-  &#tableFieldsId {
-    width: 100%;
-  }
-
+.pma-table {
   &.calendar {
     width: 100%;
 
@@ -1023,34 +789,10 @@ div#tablestatistics table {
   min-width: 16em;
 }
 
-#tableuserrights td,
-#tablespecificuserrights td,
-#tabledatabases td {
-  vertical-align: middle;
-}
-
 #topmenucontainer {
   background: white;
   padding-#{$right}: 1em;
   width: 100%;
-}
-
-#serverinfo {
-  background: white;
-  font-weight: bold;
-  padding-bottom: 0.5em;
-  padding-#{$left}: 2.2em;
-  width: 10000px;
-  overflow: hidden;
-  box-sizing: content-box;
-
-  .item {
-    white-space: nowrap;
-  }
-
-  img {
-    margin: 0 0.1em 0 0.2em;
-  }
 }
 
 #page_nav_icons {
@@ -1058,18 +800,10 @@ div#tablestatistics table {
   top: 0;
   #{$right}: 0;
   z-index: 99;
-  padding: 0.1em 0;
-}
-
-#goto_pagetop,
-#lock_page_icon {
-  padding: 0.3em;
-  background: white;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
 }
 
 #page_settings_icon {
-  padding: 0.3em;
-  background: white;
   cursor: pointer;
   display: none;
 }
@@ -1079,19 +813,10 @@ div#tablestatistics table {
   display: none;
 }
 
-#span_table_comment {
-  font-weight: bold;
-  font-style: italic;
-  white-space: nowrap;
-  margin-#{$left}: 10px;
-  color: #d6d6d6;
-  text-shadow: none;
-}
-
 #textSQLDUMP {
   width: 95%;
   height: 95%;
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
   font-size: 110%;
 }
 
@@ -1212,40 +937,6 @@ div {
     height: 350px;
     margin-#{$right}: 50px;
   }
-
-  &#serverstatus table#serverstatusqueriesdetails {
-    float: $left;
-  }
-}
-
-table {
-  &#serverstatustraffic {
-    float: $left;
-  }
-
-  &#serverstatusconnections {
-    float: $left;
-    margin-#{$left}: 30px;
-  }
-
-  &#serverstatusvariables {
-    width: 100%;
-    margin-bottom: 1em;
-
-    .name {
-      width: 18em;
-      white-space: nowrap;
-    }
-
-    .value {
-      width: 6em;
-    }
-  }
-
-  &#serverstatusconnections {
-    float: $left;
-    margin-#{$left}: 30px;
-  }
 }
 
 div {
@@ -1338,72 +1029,6 @@ div#logTable {
   }
 }
 
-/* server variables */
-#serverVariables {
-  width: 100%;
-
-  .var-row > tr {
-    line-height: 2em;
-  }
-
-  .var-header {
-    font-weight: bold;
-    color: $th-color;
-    background: $th-background;
-    text-align: $left;
-  }
-
-  .var-row {
-    padding: 0.5em;
-    min-height: 18px;
-  }
-
-  .var-name {
-    font-weight: bold;
-
-    &.session {
-      font-weight: normal;
-      font-style: italic;
-    }
-  }
-
-  .var-value {
-    text-align: $right;
-    float: $right;
-  }
-
-  .editLink {
-    padding-#{$right}: 1em;
-    font-family: sans-serif;
-  }
-
-  .serverVariableEditor {
-    width: 100%;
-    overflow: hidden;
-
-    input {
-      width: 100%;
-      margin: 0 0.5em;
-      box-sizing: border-box;
-      -ms-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      height: 2.2em;
-    }
-
-    div {
-      display: block;
-      overflow: hidden;
-      padding-#{$right}: 1em;
-    }
-
-    a {
-      margin: 0 0.5em;
-      line-height: 2em;
-    }
-  }
-}
-
 /* profiling */
 div#profilingchart {
   width: 850px;
@@ -1423,24 +1048,6 @@ div#profilingchart {
   margin-#{$right}: 40px;
 }
 
-/* querybox */
-
-div {
-  &#sqlquerycontainer {
-    float: $left;
-    width: 69%;
-  }
-
-  &#tablefieldscontainer {
-    float: $right;
-    width: 29%;
-
-    select {
-      width: 100%;
-    }
-  }
-}
-
 textarea {
   &#sqlquery {
     width: 100%;
@@ -1451,10 +1058,6 @@ textarea {
     width: 95%;
     display: block;
   }
-}
-
-div#queryboxcontainer div#bookmarkoptions {
-  margin-top: 0.5em;
 }
 
 /* end querybox */
@@ -1538,24 +1141,6 @@ li.no_bullets {
   text-align: $right;
 }
 
-#table_innodb_bufferpool_usage,
-#table_innodb_bufferpool_activity {
-  float: $left;
-}
-
-#div_mysql_charset_collations table {
-  float: $left;
-
-  th,
-  td {
-    padding: 0.4em;
-  }
-
-  th#collationHeader {
-    width: 35%;
-  }
-}
-
 #qbe_div_table_list,
 #qbe_div_sql_query {
   float: $left;
@@ -1570,7 +1155,15 @@ label.desc {
   }
 }
 
+kbd {
+  color: $main-color;
+  background-color: transparent;
+  box-shadow: none;
+}
+
 code {
+  color: $main-color;
+
   &.php {
     display: block;
     padding-#{$left}: 0.3em;
@@ -1618,37 +1211,6 @@ div.sqlvalidate {
   border: $main-color solid 1px;
   border-top: 0;
   background: $bg-one;
-}
-
-#main_pane_left {
-  width: 60%;
-  min-width: 260px;
-  float: $left;
-  padding-top: 1em;
-}
-
-#main_pane_right {
-  overflow: hidden;
-  min-width: 160px;
-  padding-top: 1em;
-  padding-#{$left}: 1em;
-}
-
-.group {
-  border-#{$left}: 0.3em solid $th-background;
-  margin-bottom: 1em;
-
-  h2 {
-    background: $th-background;
-    padding: 0.1em 0.3em;
-    margin-top: 0;
-  }
-}
-
-.group-cnt {
-  padding: 0 0 0 0.5em;
-  display: inline-block;
-  width: 98%;
 }
 
 textarea#partitiondefinition {
@@ -1956,6 +1518,10 @@ input#input_import_file {
   }
 }
 
+#tablestructure tbody label {
+  margin: 0.3rem 0;
+}
+
 #structure-action-links a {
   margin-#{$right}: 1em;
 }
@@ -2051,6 +1617,7 @@ table#index_columns {
     padding: 0 0 0.3em 0;
     list-style: none;
     font-weight: bold;
+    padding-left: 10px;
 
     li {
       float: $left;
@@ -2120,7 +1687,6 @@ table#index_columns {
       padding: 0.3em 0.3em 0.3em 0.5em;
       text-align: $left;
       vertical-align: top;
-      width: 40%;
       background: transparent;
     }
 
@@ -2338,7 +1904,7 @@ input#auto_increment_opt {
     position: relative;
   }
 
-  .container {
+  .toggle-container {
     position: absolute;
 
     td,
@@ -2389,10 +1955,13 @@ input#auto_increment_opt {
   position: fixed;
   top: 44px;
   width: 100%;
-  background: $main-background;
+  background: $body-bg;
 }
 
 #table_columns {
+  display: block;
+  overflow: auto;
+
   input {
     &[type="text"],
     &[type="password"],
@@ -2551,6 +2120,7 @@ input#auto_increment_opt {
 .tooltip {
   background: #333 !important;
   opacity: 0.8 !important;
+  z-index: 9999;
   border: 1px solid #000 !important;
   -moz-border-radius: 0.3em !important;
   -webkit-border-radius: 0.3em !important;
@@ -2564,10 +2134,6 @@ input#auto_increment_opt {
     background: none !important;
     color: #fff !important;
   }
-}
-
-.data_full_width {
-  width: 100%;
 }
 
 .cDrop {
@@ -2838,7 +2404,6 @@ div#page_content div {
     }
   }
 
-  &.notice,
   &.result_query {
     margin-top: 1em;
   }
@@ -3532,7 +3097,7 @@ span.drag_icon {
 }
 
 /* styles for sortable tables created with tablesorter jquery plugin */
-th {
+.pma-table th {
   &.header {
     cursor: pointer;
     color: #00f;
@@ -3654,8 +3219,35 @@ body {
   }
 }
 
-.scrollindicator {
-  display: none;
+/* templates/database/multi_table_query */
+
+.multi_table_query_form {
+  .query-form__div--hide,
+  .query-form__tr--hide {
+    display: none;
+  }
+
+  .query-form__fieldset--inline,
+  .query-form__select--inline {
+    display: inline;
+  }
+
+  .query-form__tr--bg-none {
+    background: none;
+  }
+
+  .query-form__input--wide {
+    width: 91%;
+  }
+
+  .query-form__remove-column {
+    float: right;
+    color: red;
+  }
+
+  .query-form__multi-sql-query {
+    float: left;
+  }
 }
 
 /* templates/database/designer */
@@ -3666,34 +3258,10 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  #main_pane_left {
-    width: 100%;
-  }
-
-  #main_pane_right {
-    padding-top: 0;
-    padding-#{$left}: 1px;
-    padding-#{$right}: 1px;
-  }
-
   ul {
-    &#topmenu,
     &.tabs {
       display: flex;
     }
-  }
-
-  .navigationbar {
-    display: inline-flex;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    overflow: auto;
-  }
-
-  .scrollindicator {
-    padding: 5px;
-    cursor: pointer;
-    display: inline;
   }
 
   .responsivetable {
@@ -3708,21 +3276,12 @@ body {
     display: none;
   }
 
-  .width100,
-  .desktop50 {
-    width: 100%;
-  }
-
   .width96 {
     width: 96% !important;
   }
 
   #page_nav_icons {
     display: none;
-  }
-
-  table#serverstatusconnections {
-    margin-#{$left}: 0;
   }
 
   #table_name_col_no {
@@ -3755,7 +3314,7 @@ body {
     width: 95% !important;
   }
 
-  #serverinfo .item {
+  #server-breadcrumb .item {
     margin: 4px;
   }
 }
@@ -3784,4 +3343,26 @@ body {
 
 #filter_query_text {
   vertical-align: baseline;
+}
+
+.ui_tpicker_hour_slider,
+.ui_tpicker_minute_slider,
+.ui_tpicker_second_slider,
+.ui_tpicker_millisec_slider,
+.ui_tpicker_microsec_slider {
+  margin-left: 20px;
+  margin-top: 4px;
+  height: 0.75rem;
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@include media-breakpoint-up(xl) {
+  div.tools {
+    text-align: #{$left};
+  }
+
+  fieldset.tblFooters,
+  .tblFooters {
+    text-align: #{$left};
+  }
 }

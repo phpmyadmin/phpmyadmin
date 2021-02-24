@@ -1,50 +1,59 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Test for PhpMyAdmin\Config class
- *
- * @package PhpMyAdmin-test
- * @group current
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PHPUnit\Framework\Assert;
+use PhpMyAdmin\DatabaseInterface;
 use PHPUnit\Framework\Exception;
+use const DIRECTORY_SEPARATOR;
+use const INFO_MODULES;
+use const PHP_OS;
+use function array_merge;
+use function array_replace_recursive;
+use function constant;
+use function define;
+use function defined;
+use function filemtime;
+use function fileperms;
+use function function_exists;
+use function gd_info;
+use function mb_strstr;
+use function ob_end_clean;
+use function ob_get_contents;
+use function ob_start;
+use function phpinfo;
+use function preg_match;
+use function realpath;
+use function strip_tags;
+use function stristr;
+use function sys_get_temp_dir;
 
-/**
- * Tests behaviour of PhpMyAdmin\Config class
- *
- * @package PhpMyAdmin-test
- */
-class ConfigTest extends PmaTestCase
+class ConfigTest extends AbstractTestCase
 {
     /**
      * Turn off backup globals
+     *
+     * @var bool
      */
     protected $backupGlobals = false;
 
-    /**
-     * @var Config
-     */
+    /** @var Config */
     protected $object;
 
-    /**
-     * @var Config to test file permission
-     */
+    /** @var Config to test file permission */
     protected $permTestObj;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setTheme();
         $_SERVER['HTTP_USER_AGENT'] = '';
         $this->object = new Config();
         $GLOBALS['server'] = 0;
@@ -54,14 +63,12 @@ class ConfigTest extends PmaTestCase
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
-        $this->permTestObj = new Config(ROOT_PATH . "config.sample.inc.php");
+        $this->permTestObj = new Config(ROOT_PATH . 'config.sample.inc.php');
     }
 
     /**
      * Tears down the fixture, for example, closes a network connection.
      * This method is called after a test is executed.
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -73,10 +80,9 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for CheckSystem
      *
-     * @return void
      * @group medium
      */
-    public function testCheckSystem()
+    public function testCheckSystem(): void
     {
         $this->object->checkSystem();
 
@@ -86,24 +92,21 @@ class ConfigTest extends PmaTestCase
 
     /**
      * Test for checkOutputCompression
-     *
-     * @return void
      */
-    public function testCheckOutputCompression()
+    public function testCheckOutputCompression(): void
     {
-
         $this->object->set('OBGzip', 'auto');
 
         $this->object->set('PMA_USR_BROWSER_AGENT', 'IE');
         $this->object->set('PMA_USR_BROWSER_VER', 6);
         $this->object->checkOutputCompression();
-        $this->assertTrue($this->object->get("OBGzip"));
+        $this->assertTrue($this->object->get('OBGzip'));
 
         $this->object->set('OBGzip', 'auto');
         $this->object->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         $this->object->set('PMA_USR_BROWSER_VER', 5);
         $this->object->checkOutputCompression();
-        $this->assertTrue($this->object->get("OBGzip"));
+        $this->assertTrue($this->object->get('OBGzip'));
     }
 
     /**
@@ -114,11 +117,9 @@ class ConfigTest extends PmaTestCase
      * @param string $browser Expected parsed browser (or null if none)
      * @param string $version Expected browser version (or null if none)
      *
-     * @return void
-     *
      * @dataProvider userAgentProvider
      */
-    public function testCheckClient($agent, $os, $browser = null, $version = null): void
+    public function testCheckClient(string $agent, string $os, ?string $browser = null, ?string $version = null): void
     {
         $_SERVER['HTTP_USER_AGENT'] = $agent;
         $this->object->checkClient();
@@ -129,12 +130,14 @@ class ConfigTest extends PmaTestCase
                 $this->object->get('PMA_USR_BROWSER_AGENT')
             );
         }
-        if ($version != null) {
-            $this->assertEquals(
-                $version,
-                $this->object->get('PMA_USR_BROWSER_VER')
-            );
+        if ($version == null) {
+            return;
         }
+
+        $this->assertEquals(
+            $version,
+            $this->object->get('PMA_USR_BROWSER_VER')
+        );
     }
 
     /**
@@ -142,7 +145,7 @@ class ConfigTest extends PmaTestCase
      *
      * @return array
      */
-    public function userAgentProvider()
+    public function userAgentProvider(): array
     {
         return [
             [
@@ -246,10 +249,8 @@ class ConfigTest extends PmaTestCase
 
     /**
      * test for CheckGd2
-     *
-     * @return void
      */
-    public function testCheckGd2()
+    public function testCheckGd2(): void
     {
         $prevIsGb2Val = $this->object->get('PMA_IS_GD2');
 
@@ -275,7 +276,7 @@ class ConfigTest extends PmaTestCase
         if (function_exists('gd_info')) {
             $this->object->checkGd2();
             $gd_nfo = gd_info();
-            if (mb_strstr($gd_nfo["GD Version"], '2.')) {
+            if (mb_strstr($gd_nfo['GD Version'], '2.')) {
                 $this->assertEquals(
                     1,
                     $this->object->get('PMA_IS_GD2'),
@@ -293,37 +294,37 @@ class ConfigTest extends PmaTestCase
         /* Get GD version string from phpinfo output */
         ob_start();
         phpinfo(INFO_MODULES); /* Only modules */
-        $a = strip_tags(ob_get_contents());
+        $a = strip_tags((string) ob_get_contents());
         ob_end_clean();
 
-        if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
-            if (mb_strstr($v, '2.')) {
-                $this->assertEquals(
-                    1,
-                    $this->object->get('PMA_IS_GD2'),
-                    'PMA_IS_GD2 should be 1'
-                );
-            } else {
-                $this->assertEquals(
-                    0,
-                    $this->object->get('PMA_IS_GD2'),
-                    'PMA_IS_GD2 should be 0'
-                );
-            }
+        if (! preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
+            return;
+        }
+
+        if (mb_strstr($v, '2.')) {
+            $this->assertEquals(
+                1,
+                $this->object->get('PMA_IS_GD2'),
+                'PMA_IS_GD2 should be 1'
+            );
+        } else {
+            $this->assertEquals(
+                0,
+                $this->object->get('PMA_IS_GD2'),
+                'PMA_IS_GD2 should be 0'
+            );
         }
     }
 
     /**
      * Web server detection test
      *
-     * @param string  $server Server identification
-     * @param boolean $iis    Whether server should be detected as IIS
-     *
-     * @return void
+     * @param string $server Server identification
+     * @param int    $iis    Whether server should be detected as IIS
      *
      * @dataProvider serverNames
      */
-    public function testCheckWebServer($server, $iis): void
+    public function testCheckWebServer(string $server, int $iis): void
     {
         $_SERVER['SERVER_SOFTWARE'] = $server;
         $this->object->checkWebServer();
@@ -336,15 +337,15 @@ class ConfigTest extends PmaTestCase
      *
      * @return array
      */
-    public function serverNames()
+    public function serverNames(): array
     {
         return [
             [
-                "Microsoft-IIS 7.0",
+                'Microsoft-IIS 7.0',
                 1,
             ],
             [
-                "Apache/2.2.17",
+                'Apache/2.2.17',
                 0,
             ],
         ];
@@ -352,22 +353,20 @@ class ConfigTest extends PmaTestCase
 
     /**
      * test for CheckWebServerOs
-     *
-     * @return void
      */
-    public function testCheckWebServerOs()
+    public function testCheckWebServerOs(): void
     {
         $this->object->checkWebServerOs();
 
         if (defined('PHP_OS')) {
             if (stristr(PHP_OS, 'darwin')) {
-                $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
+                $this->assertFalse($this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'win')) {
-                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
+                $this->assertTrue($this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'OS/2')) {
-                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
+                $this->assertTrue($this->object->get('PMA_IS_WINDOWS'));
             } elseif (stristr(PHP_OS, 'Linux')) {
-                $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
+                $this->assertFalse($this->object->get('PMA_IS_WINDOWS'));
             } else {
                 $this->markTestIncomplete('Not known PHP_OS: ' . PHP_OS);
             }
@@ -375,40 +374,39 @@ class ConfigTest extends PmaTestCase
             $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
 
             define('PHP_OS', 'Windows');
-            $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
+            $this->assertTrue($this->object->get('PMA_IS_WINDOWS'));
         }
     }
 
     /**
      * Tests loading of default values
      *
-     * @return void
-     *
      * @group large
      */
-    public function testLoadDefaults()
+    public function testLoadDefaults(): void
     {
-        $prevDefaultSource = $this->object->default_source;
+        $prevDefaultSource = $this->object->defaultSource;
 
-        $this->object->default_source = 'unexisted.file.php';
+        $this->object->defaultSource = 'unexisted.file.php';
         $this->assertFalse($this->object->loadDefaults());
 
-        $this->object->default_source = $prevDefaultSource;
+        $this->object->defaultSource = $prevDefaultSource;
 
-        include $this->object->default_source;
-
+        /** @var array<string,mixed> $cfg */
+        $cfg = [];
+        include $this->object->defaultSource;
         $loadedConf = $cfg;
         unset($cfg);
 
         $this->assertTrue($this->object->loadDefaults());
 
         $this->assertEquals(
-            $this->object->default_source_mtime,
+            $this->object->defaultSourceMtime,
             filemtime($prevDefaultSource)
         );
         $this->assertEquals(
             $loadedConf['Servers'][1],
-            $this->object->default_server
+            $this->object->defaultServer
         );
 
         unset($loadedConf['Servers']);
@@ -426,19 +424,17 @@ class ConfigTest extends PmaTestCase
             'Settings loaded wrong'
         );
 
-        $this->assertFalse($this->object->error_config_default_file);
+        $this->assertFalse($this->object->errorConfigDefaultFile);
     }
 
     /**
      * test for CheckConfigSource
-     *
-     * @return void
      */
-    public function testCheckConfigSource()
+    public function testCheckConfigSource(): void
     {
         $this->object->setSource('unexisted.config.php');
         $this->assertFalse($this->object->checkConfigSource());
-        $this->assertEquals(0, $this->object->source_mtime);
+        $this->assertEquals(0, $this->object->sourceMtime);
 
         $this->object->setSource(ROOT_PATH . 'libraries/config.default.php');
 
@@ -448,12 +444,10 @@ class ConfigTest extends PmaTestCase
 
     /**
      * Test getting and setting config values
-     *
-     * @return void
      */
-    public function testGetAndSet()
+    public function testGetAndSet(): void
     {
-        $this->assertNull($this->object->get("unresisting_setting"));
+        $this->assertNull($this->object->get('unresisting_setting'));
 
         $this->object->set('test_setting', 'test_value');
 
@@ -462,21 +456,19 @@ class ConfigTest extends PmaTestCase
 
     /**
      * Tests setting configuration source
-     *
-     * @return void
      */
-    public function testGetSetSource()
+    public function testGetSetSource(): void
     {
         echo $this->object->getSource();
 
-        $this->assertEmpty($this->object->getSource(), "Source is null by default");
+        $this->assertEmpty($this->object->getSource(), 'Source is null by default');
 
-        $this->object->setSource(ROOT_PATH . "config.sample.inc.php");
+        $this->object->setSource(ROOT_PATH . 'config.sample.inc.php');
 
         $this->assertEquals(
-            ROOT_PATH . "config.sample.inc.php",
+            ROOT_PATH . 'config.sample.inc.php',
             $this->object->getSource(),
-            "Cant set new source"
+            'Cant set new source'
         );
     }
 
@@ -495,12 +487,21 @@ class ConfigTest extends PmaTestCase
      * @param int    $port            server port
      * @param bool   $expected        expected result
      *
-     * @return void
-     *
      * @dataProvider httpsParams
      */
-    public function testIsHttps($scheme, $https, string $forwarded, $uri, $lb, $front, $proto, $protoCloudFront, $pmaAbsoluteUri, $port, $expected): void
-    {
+    public function testIsHttps(
+        string $scheme,
+        string $https,
+        string $forwarded,
+        string $uri,
+        string $lb,
+        string $front,
+        string $proto,
+        string $protoCloudFront,
+        string $pmaAbsoluteUri,
+        int $port,
+        bool $expected
+    ): void {
         $_SERVER['HTTP_SCHEME'] = $scheme;
         $_SERVER['HTTPS'] = $https;
         $_SERVER['HTTP_FORWARDED'] = $forwarded;
@@ -521,7 +522,7 @@ class ConfigTest extends PmaTestCase
      *
      * @return array
      */
-    public function httpsParams()
+    public function httpsParams(): array
     {
         return [
             [
@@ -738,15 +739,12 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for backward compatibility globals
      *
-     * @return void
-     *
      * @depends testCheckSystem
      * @depends testCheckWebServer
      * @depends testLoadDefaults
-     *
      * @group large
      */
-    public function testEnableBc()
+    public function testEnableBc(): void
     {
         $this->object->enableBc();
 
@@ -773,11 +771,9 @@ class ConfigTest extends PmaTestCase
      * @param string $absolute The absolute URL used for phpMyAdmin
      * @param string $expected Expected root path
      *
-     * @return void
-     *
      * @dataProvider rootUris
      */
-    public function testGetRootPath($request, $absolute, $expected): void
+    public function testGetRootPath(string $request, string $absolute, string $expected): void
     {
         $GLOBALS['PMA_PHP_SELF'] = $request;
         $this->object->set('PmaAbsoluteUri', $absolute);
@@ -789,7 +785,7 @@ class ConfigTest extends PmaTestCase
      *
      * @return array data for testGetRootPath
      */
-    public function rootUris()
+    public function rootUris(): array
     {
         return [
             [
@@ -878,14 +874,12 @@ class ConfigTest extends PmaTestCase
     /**
      * Tests loading of config file
      *
-     * @param string  $source File name of config to load
-     * @param boolean $result Expected result of loading
-     *
-     * @return void
+     * @param string $source File name of config to load
+     * @param bool   $result Expected result of loading
      *
      * @dataProvider configPaths
      */
-    public function testLoad($source, $result): void
+    public function testLoad(string $source, bool $result): void
     {
         if ($result) {
             $this->assertTrue($this->object->load($source));
@@ -899,7 +893,7 @@ class ConfigTest extends PmaTestCase
      *
      * @return array
      */
-    public function configPaths()
+    public function configPaths(): array
     {
         return [
             [
@@ -920,36 +914,31 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for loading user preferences
      *
-     * @return void
      * @todo Test actually preferences loading
      * @doesNotPerformAssertions
      */
-    public function testLoadUserPreferences()
+    public function testLoadUserPreferences(): void
     {
         $this->object->loadUserPreferences();
     }
 
     /**
      * Test for setting user config value
-     *
-     * @return void
      */
-    public function testSetUserValue()
+    public function testSetUserValue(): void
     {
         $this->object->setUserValue(null, 'lang', 'cs', 'en');
-        $this->object->setUserValue("TEST_COOKIE_USER_VAL", '', 'cfg_val_1');
+        $this->object->setUserValue('TEST_COOKIE_USER_VAL', '', 'cfg_val_1');
         $this->assertEquals(
-            $this->object->getUserValue("TEST_COOKIE_USER_VAL", 'fail'),
+            $this->object->getUserValue('TEST_COOKIE_USER_VAL', 'fail'),
             'cfg_val_1'
         );
     }
 
     /**
      * Test for getting user config value
-     *
-     * @return void
      */
-    public function testGetUserValue()
+    public function testGetUserValue(): void
     {
         $this->assertEquals($this->object->getUserValue('test_val', 'val'), 'val');
     }
@@ -958,28 +947,22 @@ class ConfigTest extends PmaTestCase
      * Should test getting unique value for theme
      *
      * @group 32bit-incompatible
-     *
-     * @return void
      */
-    public function testGetThemeUniqueValue()
+    public function testGetThemeUniqueValue(): void
     {
-        $partial_sum = (
-            $this->object->source_mtime +
-            $this->object->default_source_mtime +
+        $partial_sum = $this->object->sourceMtime +
+            $this->object->defaultSourceMtime +
             $this->object->get('user_preferences_mtime') +
-            $GLOBALS['PMA_Theme']->mtime_info +
-            $GLOBALS['PMA_Theme']->filesize_info
-        );
+            $GLOBALS['PMA_Theme']->mtimeInfo +
+            $GLOBALS['PMA_Theme']->filesizeInfo;
 
         $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
     }
 
     /**
      * Should test checking of config permissions
-     *
-     * @return void
      */
-    public function testCheckPermissions()
+    public function testCheckPermissions(): void
     {
         //load file permissions for the current permissions file
         $perms = @fileperms($this->object->getSource());
@@ -998,10 +981,8 @@ class ConfigTest extends PmaTestCase
 
     /**
      * Test for setting cookies
-     *
-     * @return void
      */
-    public function testSetCookie()
+    public function testSetCookie(): void
     {
         $this->object->set('is_https', false);
         $this->assertFalse(
@@ -1042,8 +1023,6 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for getTempDir
      *
-     * @return void
-     *
      * @group file-system
      */
     public function testGetTempDir(): void
@@ -1058,8 +1037,6 @@ class ConfigTest extends PmaTestCase
 
     /**
      * Test for getUploadTempDir
-     *
-     * @return void
      *
      * @group file-system
      */
@@ -1080,11 +1057,9 @@ class ConfigTest extends PmaTestCase
      * @param array $expected expected result
      * @param bool  $error    error
      *
-     * @return void
-     *
      * @dataProvider serverSettingsProvider
      */
-    public function testCheckServers($settings, $expected, $error = false): void
+    public function testCheckServers(array $settings, array $expected, bool $error = false): void
     {
         if ($error) {
             $this->expectException(Exception::class);
@@ -1093,9 +1068,9 @@ class ConfigTest extends PmaTestCase
         $this->object->settings['Servers'] = $settings;
         $this->object->checkServers();
         if ($expected === null) {
-            $expected = $this->object->default_server;
+            $expected = $this->object->defaultServer;
         } else {
-            $expected = array_merge($this->object->default_server, $expected);
+            $expected = array_merge($this->object->defaultServer, $expected);
         }
         $this->assertEquals($expected, $this->object->settings['Servers'][1]);
     }
@@ -1105,7 +1080,7 @@ class ConfigTest extends PmaTestCase
      *
      * @return array
      */
-    public function serverSettingsProvider()
+    public function serverSettingsProvider(): array
     {
         return [
             'empty' => [
@@ -1138,12 +1113,10 @@ class ConfigTest extends PmaTestCase
      * @param string $request  request
      * @param int    $expected expected result
      *
-     * @return void
-     *
      * @dataProvider selectServerProvider
      * @depends testCheckServers
      */
-    public function testSelectServer($settings, $request, $expected): void
+    public function testSelectServer(array $settings, string $request, int $expected): void
     {
         $this->object->settings['Servers'] = $settings;
         $this->object->checkServers();
@@ -1156,7 +1129,7 @@ class ConfigTest extends PmaTestCase
      *
      * @return array
      */
-    public function selectServerProvider()
+    public function selectServerProvider(): array
     {
         return [
             'zero' => [
@@ -1203,6 +1176,167 @@ class ConfigTest extends PmaTestCase
                 [1 => []],
                 '100',
                 1,
+            ],
+        ];
+    }
+
+    /**
+     * Test for getConnectionParams
+     *
+     * @param array      $server_cfg Server configuration
+     * @param int        $mode       Mode to test
+     * @param array|null $server     Server array to test
+     * @param array      $expected   Expected result
+     *
+     * @dataProvider connectionParams
+     */
+    public function testGetConnectionParams(array $server_cfg, int $mode, ?array $server, array $expected): void
+    {
+        $GLOBALS['cfg']['Server'] = $server_cfg;
+        $result = Config::getConnectionParams($mode, $server);
+        $this->assertEquals($expected, $result);
+    }
+
+    /**
+     * Data provider for getConnectionParams test
+     *
+     * @return array
+     */
+    public function connectionParams(): array
+    {
+        $cfg_basic = [
+            'user' => 'u',
+            'password' => 'pass',
+            'host' => '',
+            'controluser' => 'u2',
+            'controlpass' => 'p2',
+        ];
+        $cfg_ssl = [
+            'user' => 'u',
+            'password' => 'pass',
+            'host' => '',
+            'ssl' => true,
+            'controluser' => 'u2',
+            'controlpass' => 'p2',
+        ];
+        $cfg_control_ssl = [
+            'user' => 'u',
+            'password' => 'pass',
+            'host' => '',
+            'control_ssl' => true,
+            'controluser' => 'u2',
+            'controlpass' => 'p2',
+        ];
+
+        return [
+            [
+                $cfg_basic,
+                DatabaseInterface::CONNECT_USER,
+                null,
+                [
+                    'u',
+                    'pass',
+                    [
+                        'user' => 'u',
+                        'password' => 'pass',
+                        'host' => 'localhost',
+                        'socket' => null,
+                        'port' => 0,
+                        'ssl' => false,
+                        'compress' => false,
+                        'controluser' => 'u2',
+                        'controlpass' => 'p2',
+                    ],
+                ],
+            ],
+            [
+                $cfg_basic,
+                DatabaseInterface::CONNECT_CONTROL,
+                null,
+                [
+                    'u2',
+                    'p2',
+                    [
+                        'host' => 'localhost',
+                        'socket' => null,
+                        'port' => 0,
+                        'ssl' => false,
+                        'compress' => false,
+                    ],
+                ],
+            ],
+            [
+                $cfg_ssl,
+                DatabaseInterface::CONNECT_USER,
+                null,
+                [
+                    'u',
+                    'pass',
+                    [
+                        'user' => 'u',
+                        'password' => 'pass',
+                        'host' => 'localhost',
+                        'socket' => null,
+                        'port' => 0,
+                        'ssl' => true,
+                        'compress' => false,
+                        'controluser' => 'u2',
+                        'controlpass' => 'p2',
+                    ],
+                ],
+            ],
+            [
+                $cfg_ssl,
+                DatabaseInterface::CONNECT_CONTROL,
+                null,
+                [
+                    'u2',
+                    'p2',
+                    [
+                        'host' => 'localhost',
+                        'socket' => null,
+                        'port' => 0,
+                        'ssl' => true,
+                        'compress' => false,
+                    ],
+                ],
+            ],
+            [
+                $cfg_control_ssl,
+                DatabaseInterface::CONNECT_USER,
+                null,
+                [
+                    'u',
+                    'pass',
+                    [
+                        'user' => 'u',
+                        'password' => 'pass',
+                        'host' => 'localhost',
+                        'socket' => null,
+                        'port' => 0,
+                        'ssl' => false,
+                        'compress' => false,
+                        'controluser' => 'u2',
+                        'controlpass' => 'p2',
+                        'control_ssl' => true,
+                    ],
+                ],
+            ],
+            [
+                $cfg_control_ssl,
+                DatabaseInterface::CONNECT_CONTROL,
+                null,
+                [
+                    'u2',
+                    'p2',
+                    [
+                        'host' => 'localhost',
+                        'socket' => null,
+                        'port' => 0,
+                        'ssl' => true,
+                        'compress' => false,
+                    ],
+                ],
             ],
         ];
     }

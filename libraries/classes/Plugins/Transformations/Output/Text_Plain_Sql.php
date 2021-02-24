@@ -1,11 +1,8 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Text Plain SQL Transformations plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Output;
@@ -15,27 +12,23 @@ use PhpMyAdmin\Response;
 
 /**
  * Handles the sql transformation for text plain
- *
- * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
  */
 // @codingStandardsIgnoreLine
 class Text_Plain_Sql extends SQLTransformationsPlugin
 {
-    /**
-     * No-arg constructor
-     */
     public function __construct()
     {
-        if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {
-            $response = Response::getInstance();
-            $scripts = $response->getHeader()
-                ->getScripts();
-            $scripts->addFile('vendor/codemirror/lib/codemirror.js');
-            $scripts->addFile('vendor/codemirror/mode/sql/sql.js');
-            $scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
-            $scripts->addFile('functions.js');
+        if (empty($GLOBALS['cfg']['CodemirrorEnable'])) {
+            return;
         }
+
+        $response = Response::getInstance();
+        $scripts = $response->getHeader()
+            ->getScripts();
+        $scripts->addFile('vendor/codemirror/lib/codemirror.js');
+        $scripts->addFile('vendor/codemirror/mode/sql/sql.js');
+        $scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
+        $scripts->addFile('functions.js');
     }
 
     /**
@@ -45,7 +38,7 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
      */
     public static function getMIMEType()
     {
-        return "Text";
+        return 'Text';
     }
 
     /**
@@ -55,6 +48,6 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
      */
     public static function getMIMESubtype()
     {
-        return "Plain";
+        return 'Plain';
     }
 }

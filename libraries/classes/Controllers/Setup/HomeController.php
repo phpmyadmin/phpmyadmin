@@ -1,10 +1,5 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds the PhpMyAdmin\Controllers\Setup\HomeController
- *
- * @package PhpMyAdmin\Controllers\Setup
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;
@@ -16,15 +11,14 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index;
+use function preg_replace;
+use function uniqid;
 
-/**
- * Class HomeController
- * @package PhpMyAdmin\Controllers\Setup
- */
 class HomeController extends AbstractController
 {
     /**
      * @param array $params Request parameters
+     *
      * @return string HTML
      */
     public function index(array $params): string
@@ -32,7 +26,7 @@ class HomeController extends AbstractController
         $pages = $this->getPages();
 
         // Handle done action info
-        $actionDone = Core::isValid($params['action_done'], 'scalar') ? $params['action_done'] : null;
+        $actionDone = Core::isValid($params['action_done'], 'scalar') ? $params['action_done'] : '';
         $actionDone = preg_replace('/[^a-z_]/', '', $actionDone);
 
         // message handling
@@ -138,7 +132,7 @@ class HomeController extends AbstractController
                 $servers[$id] = [
                     'id' => $id,
                     'name' => $this->config->getServerName($id),
-                    'auth_type' => $this->config->getValue("Servers/$id/auth_type"),
+                    'auth_type' => $this->config->getValue('Servers/' . $id . '/auth_type'),
                     'dsn' => $this->config->getServerDSN($id),
                     'params' => [
                         'token' => $_SESSION[' PMA_token '],
@@ -154,7 +148,7 @@ class HomeController extends AbstractController
                         ],
                     ],
                 ];
-                $serverDefaultOptions['values'][(string) $id] = $this->config->getServerName($id) . " [$id]";
+                $serverDefaultOptions['values'][(string) $id] = $this->config->getServerName($id) . ' [' . $id . ']';
             }
         } else {
             $serverDefaultOptions['values']['1'] = __('- none -');

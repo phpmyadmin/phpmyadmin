@@ -1,61 +1,72 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds the PhpMyAdmin\Controllers\Database\MultiTableQueryController
- *
- * @package PhpMyAdmin\Controllers\Database
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Database\MultiTableQuery;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
 /**
  * Handles database multi-table querying
- * @package PhpMyAdmin\Controllers\Database
  */
 class MultiTableQueryController extends AbstractController
 {
-    /**
-     * @param Template $template Templace instance
-     *
-     * @return string HTML
-     */
-    public function index(Template $template): string
-    {
-        $queryInstance = new MultiTableQuery($this->dbi, $template, $this->db);
+    /** @var DatabaseInterface */
+    private $dbi;
 
-        return $queryInstance->getFormHtml();
+    /**
+     * @param Response          $response
+     * @param string            $db       Database name.
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $db, $dbi)
+    {
+        parent::__construct($response, $template, $db);
+        $this->dbi = $dbi;
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return void
-     */
-    public function displayResults(array $params): void
+    public function index(): void
     {
-        global $pmaThemeImage;
+        $this->addScriptFiles([
+            'vendor/jquery/jquery.md5.js',
+            'database/multi_table_query.js',
+            'database/query_generator.js',
+        ]);
 
-        MultiTableQuery::displayResults(
+        $queryInstance = new MultiTableQuery($this->dbi, $this->template, $this->db);
+
+        $this->response->addHTML($queryInstance->getFormHtml());
+    }
+
+    public function displayResults(): void
+    {
+        global $PMA_Theme;
+
+        $params = [
+            'sql_query' => $_POST['sql_query'],
+            'db' => $_POST['db'] ?? $_GET['db'] ?? null,
+        ];
+
+        $this->response->addHTML(MultiTableQuery::displayResults(
             $params['sql_query'],
             $params['db'],
-            $pmaThemeImage
-        );
+            $PMA_Theme->getImgPath()
+        ));
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return array JSON
-     */
-    public function table(array $params): array
+    public function table(): void
     {
+        $params = [
+            'tables' => $_GET['tables'],
+            'db' => $_GET['db'] ?? null,
+        ];
         $constrains = $this->dbi->getForeignKeyConstrains(
             $params['db'],
             $params['tables']
         );
-
-        return ['foreignKeyConstrains' => $constrains];
+        $this->response->addJSON(['foreignKeyConstrains' => $constrains]);
     }
 }

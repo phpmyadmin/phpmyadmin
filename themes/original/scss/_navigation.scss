@@ -166,20 +166,21 @@
     }
 
     .dbItemControls {
-      padding-#{$left}: 4px;
+      padding-#{$right}: 4px;
+      float: right;
     }
 
     .navItemControls {
       display: none;
-      padding-#{$left}: 4px;
+      padding-#{$right}: 4px;
+      float: right;
     }
 
     &.activePointer .navItemControls {
-      display: inline;
+      display: block;
       opacity: 0.5;
 
       &:hover {
-        display: inline;
         opacity: 1;
       }
     }

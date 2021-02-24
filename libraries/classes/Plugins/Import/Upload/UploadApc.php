@@ -1,21 +1,19 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Provides upload functionalities for the import plugins
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
-use PhpMyAdmin\Display\ImportAjax;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Plugins\UploadInterface;
+use function array_key_exists;
+use function trim;
 
 /**
  * Implementation for the APC extension
- *
- * @package PhpMyAdmin
  */
 class UploadApc implements UploadInterface
 {
@@ -42,7 +40,7 @@ class UploadApc implements UploadInterface
     {
         global $SESSION_KEY;
 
-        if (trim($id) == "") {
+        if (trim($id) == '') {
             return null;
         }
         if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
@@ -52,12 +50,12 @@ class UploadApc implements UploadInterface
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
-                'plugin'   => UploadApc::getIdKey(),
+                'plugin'   => self::getIdKey(),
             ];
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (! ImportAjax::apcCheck() || $ret['finished']) {
+        if (! Ajax::apcCheck() || $ret['finished']) {
             return $ret;
         }
         $status = apc_fetch('upload_' . $id);

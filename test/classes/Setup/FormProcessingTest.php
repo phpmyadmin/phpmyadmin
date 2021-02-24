@@ -1,31 +1,32 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * tests for methods under Formset processing library
- *
- * @package PhpMyAdmin-test
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Setup;
 
+use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Setup\FormProcessing;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * tests for methods under Formset processing library
- *
- * @package PhpMyAdmin-test
  */
-class FormProcessingTest extends PmaTestCase
+class FormProcessingTest extends AbstractNetworkTestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::loadDefaultConfig();
+        parent::setLanguage();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -35,10 +36,8 @@ class FormProcessingTest extends PmaTestCase
 
     /**
      * Test for process_formset()
-     *
-     * @return void
      */
-    public function testProcessFormSet()
+    public function testProcessFormSet(): void
     {
         $this->mockResponse(
             [
@@ -49,7 +48,7 @@ class FormProcessingTest extends PmaTestCase
         );
 
         // case 1
-        $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
+        $formDisplay = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
             ->setMethods(['process', 'getDisplay'])
             ->getMock();
@@ -66,7 +65,7 @@ class FormProcessingTest extends PmaTestCase
         FormProcessing::process($formDisplay);
 
         // case 2
-        $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
+        $formDisplay = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
             ->setMethods(['process', 'hasErrors', 'displayErrors'])
             ->getMock();
@@ -84,6 +83,8 @@ class FormProcessingTest extends PmaTestCase
         ob_start();
         FormProcessing::process($formDisplay);
         $result = ob_get_clean();
+
+        $this->assertIsString($result);
 
         $this->assertStringContainsString(
             '<div class="error">',
@@ -106,7 +107,7 @@ class FormProcessingTest extends PmaTestCase
         );
 
         // case 3
-        $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
+        $formDisplay = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
             ->setMethods(['process', 'hasErrors'])
             ->getMock();

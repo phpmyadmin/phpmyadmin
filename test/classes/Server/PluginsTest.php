@@ -1,32 +1,23 @@
 <?php
-/**
- * @package PhpMyAdmin\Tests\Server
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Plugin;
 use PhpMyAdmin\Server\Plugins;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * @package PhpMyAdmin\Tests\Server
- */
-class PluginsTest extends TestCase
+class PluginsTest extends AbstractTestCase
 {
-    /**
-     * @var Plugins
-     */
+    /** @var Plugins */
     private $plugins;
 
-    /**
-     * @return void
-     */
     public function testGetAll(): void
     {
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['server'] = 0;
 
         $this->plugins = new Plugins($GLOBALS['dbi']);
 
@@ -55,13 +46,11 @@ class PluginsTest extends TestCase
         ], $plugin->toArray());
     }
 
-    /**
-     * @return void
-     */
     public function testGetAllWithoutInformationSchema(): void
     {
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        $GLOBALS['server'] = 0;
 
         $this->plugins = new Plugins($GLOBALS['dbi']);
 

@@ -1,17 +1,17 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Contains PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps class
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Eps;
 
-use PhpMyAdmin\Font;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\TableStats;
+use function count;
+use function max;
+use function sprintf;
 
 /**
  * Table preferences/statistics
@@ -19,35 +19,34 @@ use PhpMyAdmin\Plugins\Schema\TableStats;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in EPS.
  *
- * @package PhpMyAdmin
- * @name    Table_Stats_Eps
- * @see     PMA_EPS
+ * @see     Eps
+ *
+ * @name    TableStatsEps
  */
 class TableStatsEps extends TableStats
 {
-    /**
-     * Defines properties
-     */
+    /** @var int */
     public $height;
+
+    /** @var int */
     public $currentCell = 0;
 
     /**
-     * The "PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps" constructor
+     * @see Eps
+     * @see TableStatsEps::setWidthTable
+     * @see TableStatsEps::setHeightTable
      *
-     * @param object  $diagram         The EPS diagram
-     * @param string  $db              The database name
-     * @param string  $tableName       The table name
-     * @param string  $font            The font  name
-     * @param integer $fontSize        The font size
-     * @param integer $pageNumber      Page number
-     * @param integer $same_wide_width The max width among tables
-     * @param boolean $showKeys        Whether to display keys or not
-     * @param boolean $tableDimension  Whether to display table position or not
-     * @param boolean $offline         Whether the coordinates are sent
-     *                                 from the browser
-     *
-     * @see PMA_EPS, Table_Stats_Eps::Table_Stats_setWidth,
-     *      PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps::Table_Stats_setHeight
+     * @param object $diagram         The EPS diagram
+     * @param string $db              The database name
+     * @param string $tableName       The table name
+     * @param string $font            The font  name
+     * @param int    $fontSize        The font size
+     * @param int    $pageNumber      Page number
+     * @param int    $same_wide_width The max width among tables
+     * @param bool   $showKeys        Whether to display keys or not
+     * @param bool   $tableDimension  Whether to display table position or not
+     * @param bool   $offline         Whether the coordinates are sent
+     *                                from the browser
      */
     public function __construct(
         $diagram,
@@ -72,13 +71,15 @@ class TableStatsEps extends TableStats
         );
 
         // height and width
-        $this->_setHeightTable($fontSize);
+        $this->setHeightTable($fontSize);
         // setWidth must me after setHeight, because title
         // can include table height which changes table width
-        $this->_setWidthTable($font, $fontSize);
-        if ($same_wide_width < $this->width) {
-            $same_wide_width = $this->width;
+        $this->setWidthTable($font, $fontSize);
+        if ($same_wide_width >= $this->width) {
+            return;
         }
+
+        $same_wide_width = $this->width;
     }
 
     /**
@@ -90,7 +91,7 @@ class TableStatsEps extends TableStats
     {
         ExportRelationSchema::dieSchema(
             $this->pageNumber,
-            "EPS",
+            'EPS',
             sprintf(__('The %s table doesn\'t exist!'), $this->tableName)
         );
     }
@@ -98,14 +99,14 @@ class TableStatsEps extends TableStats
     /**
      * Sets the width of the table
      *
-     * @param string  $font     The font name
-     * @param integer $fontSize The font size
+     * @see Eps
+     *
+     * @param string $font     The font name
+     * @param int    $fontSize The font size
      *
      * @return void
-     *
-     * @see PMA_EPS
      */
-    private function _setWidthTable($font, $fontSize)
+    private function setWidthTable($font, $fontSize)
     {
         foreach ($this->fields as $field) {
             $this->width = max(
@@ -127,7 +128,8 @@ class TableStatsEps extends TableStats
                 $this->getTitle(),
                 $font,
                 (int) $fontSize
-            )) {
+            )
+        ) {
             $this->width += 7;
         }
     }
@@ -135,11 +137,11 @@ class TableStatsEps extends TableStats
     /**
      * Sets the height of the table
      *
-     * @param integer $fontSize The font size
+     * @param int $fontSize The font size
      *
      * @return void
      */
-    private function _setHeightTable($fontSize)
+    private function setHeightTable($fontSize)
     {
         $this->heightCell = $fontSize + 4;
         $this->height = (count($this->fields) + 1) * $this->heightCell;
@@ -148,11 +150,13 @@ class TableStatsEps extends TableStats
     /**
      * Draw the table
      *
-     * @param boolean $showColor Whether to display color
+     * @see Eps
+     * @see Eps::line
+     * @see Eps::rect
+     *
+     * @param bool $showColor Whether to display color
      *
      * @return void
-     *
-     * @see PMA_EPS,PMA_EPS::line,PMA_EPS::rect
      */
     public function tableDraw($showColor)
     {

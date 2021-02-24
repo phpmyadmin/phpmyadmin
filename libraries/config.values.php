@@ -1,11 +1,9 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Database with allowed values for configuration stored in the $cfg array,
  * used by setup script and user preferences to generate forms.
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 if (! defined('PHPMYADMIN')) {
@@ -188,6 +186,15 @@ return [
         'open' => __('Open'),
         'closed' => __('Closed'),
         'disabled' => __('Disabled'),
+    ],
+    'FirstDayOfCalendar' => [
+        '1' => __('Monday'),
+        '2' => __('Tuesday'),
+        '3' => __('Wednesday'),
+        '4' => __('Thursday'),
+        '5' => __('Friday'),
+        '6' => __('Saturday'),
+        '7' => __('Sunday'),
     ],
     'SendErrorReports' => [
         'ask' => __('Ask before sending error reports'),

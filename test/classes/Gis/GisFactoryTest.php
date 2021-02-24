@@ -1,33 +1,30 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Test for PhpMyAdmin\Gis\GisFactory
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisFactory;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Gis\GisGeometryCollection;
+use PhpMyAdmin\Gis\GisLineString;
+use PhpMyAdmin\Gis\GisMultiLineString;
+use PhpMyAdmin\Gis\GisMultiPoint;
+use PhpMyAdmin\Gis\GisMultiPolygon;
+use PhpMyAdmin\Gis\GisPoint;
+use PhpMyAdmin\Gis\GisPolygon;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Test class for PhpMyAdmin\Gis\GisFactory
- *
- * @package PhpMyAdmin-test
- */
-class GisFactoryTest extends TestCase
+class GisFactoryTest extends AbstractTestCase
 {
-
     /**
      * Test factory method
      *
      * @param string $type geometry type
      * @param string $geom geometry object
      *
+     * @psalm-param class-string $geom
+     *
      * @dataProvider providerForTestFactory
-     * @return void
      */
     public function testFactory(string $type, string $geom): void
     {
@@ -44,31 +41,31 @@ class GisFactoryTest extends TestCase
         return [
             [
                 'MULTIPOLYGON',
-                'PhpMyAdmin\Gis\GisMultiPolygon',
+                GisMultiPolygon::class,
             ],
             [
                 'POLYGON',
-                'PhpMyAdmin\Gis\GisPolygon',
+                GisPolygon::class,
             ],
             [
                 'MULTILINESTRING',
-                'PhpMyAdmin\Gis\GisMultiLineString',
+                GisMultiLineString::class,
             ],
             [
                 'LINESTRING',
-                'PhpMyAdmin\Gis\GisLineString',
+                GisLineString::class,
             ],
             [
                 'MULTIPOINT',
-                'PhpMyAdmin\Gis\GisMultiPoint',
+                GisMultiPoint::class,
             ],
             [
                 'POINT',
-                'PhpMyAdmin\Gis\GisPoint',
+                GisPoint::class,
             ],
             [
                 'GEOMETRYCOLLECTION',
-                'PhpMyAdmin\Gis\GisGeometryCollection',
+                GisGeometryCollection::class,
             ],
         ];
     }

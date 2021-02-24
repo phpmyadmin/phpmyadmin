@@ -1,59 +1,58 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds the PhpMyAdmin\Controllers\BrowseForeignersController
- *
- * @package PhpMyAdmin\Controllers
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\BrowseForeigners;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 
 /**
  * Display selection for relational field values
- *
- * @package PhpMyAdmin\Controllers
  */
 class BrowseForeignersController extends AbstractController
 {
-    /**
-     * @var BrowseForeigners
-     */
+    /** @var BrowseForeigners */
     private $browseForeigners;
 
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**
-     * BrowseForeignersController constructor.
-     *
-     * @param Response          $response         Response instance
-     * @param DatabaseInterface $dbi              DatabaseInterface instance
-     * @param Template          $template         Template object
-     * @param BrowseForeigners  $browseForeigners BrowseForeigners instance
-     * @param Relation          $relation         Relation instance
+     * @param Response         $response
+     * @param BrowseForeigners $browseForeigners
+     * @param Relation         $relation
      */
-    public function __construct($response, $dbi, Template $template, $browseForeigners, $relation)
+    public function __construct($response, Template $template, $browseForeigners, $relation)
     {
-        parent::__construct($response, $dbi, $template);
+        parent::__construct($response, $template);
         $this->browseForeigners = $browseForeigners;
         $this->relation = $relation;
     }
 
-    /**
-     * @param array $params Request parameters
-     * @return string HTML
-     */
-    public function index(array $params): string
+    public function index(): void
     {
+        $params = [
+            'db' => $_POST['db'] ?? null,
+            'table' => $_POST['table'] ?? null,
+            'field' => $_POST['field'] ?? null,
+            'fieldkey' => $_POST['fieldkey'] ?? null,
+            'data' => $_POST['data'] ?? null,
+            'foreign_showAll' => $_POST['foreign_showAll'] ?? null,
+            'foreign_filter' => $_POST['foreign_filter'] ?? null,
+        ];
+
+        if (! isset($params['db'], $params['table'], $params['field'])) {
+            return;
+        }
+
+        $this->response->getFooter()->setMinimal();
+        $header = $this->response->getHeader();
+        $header->disableMenuAndConsole();
+        $header->setBodyId('body_browse_foreigners');
+
         $foreigners = $this->relation->getForeigners(
             $params['db'],
             $params['table']
@@ -70,13 +69,13 @@ class BrowseForeignersController extends AbstractController
             true
         );
 
-        return $this->browseForeigners->getHtmlForRelationalFieldSelection(
+        $this->response->addHTML($this->browseForeigners->getHtmlForRelationalFieldSelection(
             $params['db'],
             $params['table'],
             $params['field'],
             $foreignData,
             $params['fieldkey'] ?? '',
             $params['data'] ?? ''
-        );
+        ));
     }
 }

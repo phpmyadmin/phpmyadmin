@@ -1,29 +1,18 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Tests for PhpMyAdmin\Relation
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Theme;
-use PHPUnit\Framework\TestCase;
 
 /**
- * Tests for PhpMyAdmin\Relation
- *
- * @package PhpMyAdmin-test
  * @group medium
  */
-class RelationTest extends TestCase
+class RelationTest extends AbstractTestCase
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
     /**
@@ -31,20 +20,21 @@ class RelationTest extends TestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setTheme();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ZeroConf'] = true;
-        $_SESSION['relation'][$GLOBALS['server']] = "PMA_relation";
+        $_SESSION['relation'][$GLOBALS['server']] = 'PMA_relation';
         $_SESSION['relation'] = [];
 
-        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['cfg']['ServerDefault'] = 0;
 
         $this->relation = new Relation($GLOBALS['dbi']);
@@ -52,12 +42,10 @@ class RelationTest extends TestCase
 
     /**
      * Test for queryAsControlUser
-     *
-     * @return void
      */
-    public function testPMAQueryAsControlUser()
+    public function testPMAQueryAsControlUser(): void
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -72,7 +60,7 @@ class RelationTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
         $this->relation->dbi = $GLOBALS['dbi'];
 
-        $sql = "insert into PMA_bookmark A,B values(1, 2)";
+        $sql = 'insert into PMA_bookmark A,B values(1, 2)';
         $this->assertEquals(
             'executeResult1',
             $this->relation->queryAsControlUser($sql)
@@ -85,18 +73,14 @@ class RelationTest extends TestCase
 
     /**
      * Test for getRelationsParam & getRelationsParamDiagnostic
-     *
-     * @return void
      */
-    public function testPMAGetRelationsParam()
+    public function testPMAGetRelationsParam(): void
     {
         $relationsPara = $this->relation->getRelationsParam();
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $relationsPara['relwork']
         );
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $relationsPara['bookmarkwork']
         );
         $this->assertEquals(
@@ -121,14 +105,14 @@ class RelationTest extends TestCase
 
         //$cfg['Servers'][$i]['relation']
         $result = "\$cfg['Servers'][\$i]['pmadb']  ... </th><td class=\"right\">"
-            . "<span class=\"success\"><strong>OK</strong></span>";
+            . '<span class="success"><strong>OK</strong></span>';
         $this->assertStringContainsString(
             $result,
             $retval
         );
         // $cfg['Servers'][$i]['relation']
         $result = "\$cfg['Servers'][\$i]['relation']  ... </th><td class=\"right\">"
-            . "<span class=\"caution\"><strong>not OK</strong></span>";
+            . '<span class="caution"><strong>not OK</strong></span>';
         $this->assertStringContainsString(
             $result,
             $retval
@@ -141,8 +125,8 @@ class RelationTest extends TestCase
         );
         // $cfg['Servers'][$i]['table_info']
         $result = "\$cfg['Servers'][\$i]['table_info']  ... </th>"
-            . "<td class=\"right\">"
-            . "<span class=\"caution\"><strong>not OK</strong></span>";
+            . '<td class="right">'
+            . '<span class="caution"><strong>not OK</strong></span>';
         $this->assertStringContainsString(
             $result,
             $retval
@@ -167,7 +151,7 @@ class RelationTest extends TestCase
             $result,
             $retval
         );
-        $result = "<strong>not OK</strong>";
+        $result = '<strong>not OK</strong>';
         $this->assertStringContainsString(
             $result,
             $retval
@@ -176,10 +160,8 @@ class RelationTest extends TestCase
 
     /**
      * Test for getDisplayField
-     *
-     * @return void
      */
-    public function testPMAGetDisplayField()
+    public function testPMAGetDisplayField(): void
     {
         $db = 'information_schema';
         $table = 'CHARACTER_SETS';
@@ -197,23 +179,20 @@ class RelationTest extends TestCase
 
         $db = 'information_schema';
         $table = 'PMA';
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $this->relation->getDisplayField($db, $table)
         );
     }
 
     /**
      * Test for getComments
-     *
-     * @return void
      */
-    public function testPMAGetComments()
+    public function testPMAGetComments(): void
     {
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $_SESSION['relation'] = [];
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -254,12 +233,10 @@ class RelationTest extends TestCase
 
     /**
      * Test for tryUpgradeTransformations
-     *
-     * @return void
      */
-    public function testPMATryUpgradeTransformations()
+    public function testPMATryUpgradeTransformations(): void
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())
@@ -279,25 +256,21 @@ class RelationTest extends TestCase
 
         // Case 1
         $actual = $this->relation->tryUpgradeTransformations();
-        $this->assertEquals(
-            false,
+        $this->assertFalse(
             $actual
         );
 
         // Case 2
         $actual = $this->relation->tryUpgradeTransformations();
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $actual
         );
     }
 
     /**
      * Test for searchColumnInForeigners
-     *
-     * @return void
      */
-    public function testPMASearchColumnInForeigners()
+    public function testPMASearchColumnInForeigners(): void
     {
         $foreigners = [
             'value' => [

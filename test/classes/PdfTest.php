@@ -1,33 +1,20 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for Pdf class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Pdf;
-use PhpMyAdmin\Tests\PmaTestCase;
 
-/**
- * tests for Pdf class
- *
- * @package PhpMyAdmin-test
- */
-class PdfTest extends PmaTestCase
+class PdfTest extends AbstractTestCase
 {
     /**
      * SetUp for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
     }
 
@@ -35,9 +22,8 @@ class PdfTest extends PmaTestCase
      * Test for Pdf::getPDFData
      *
      * @group large
-     * @return void
      */
-    public function testBasic()
+    public function testBasic(): void
     {
         $arr = new Pdf();
         $this->assertStringContainsString('PDF', $arr->getPDFData());
@@ -47,9 +33,8 @@ class PdfTest extends PmaTestCase
      * Test for Pdf::getPDFData
      *
      * @group large
-     * @return void
      */
-    public function testAlias()
+    public function testAlias(): void
     {
         $arr = new Pdf();
         $arr->setAlias('{00}', '32');
@@ -60,9 +45,8 @@ class PdfTest extends PmaTestCase
      * Test for Pdf::getPDFData
      *
      * @group large
-     * @return void
      */
-    public function testDocument()
+    public function testDocument(): void
     {
         $pdf = new Pdf();
         $pdf->SetTitle('Title');

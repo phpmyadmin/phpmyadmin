@@ -1,159 +1,54 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds VariablesControllerTest
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server\Status;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\VariablesController;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\Response;
 
-/**
- * Class VariablesControllerTest
- * @package PhpMyAdmin\Tests\Controllers\Server\Status
- */
-class VariablesControllerTest extends TestCase
+class VariablesControllerTest extends AbstractTestCase
 {
-    /**
-     * @var Data
-     */
+    /** @var Data */
     private $data;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
+        parent::setTheme();
 
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
-        $GLOBALS['replication_info']['master']['status'] = true;
-        $GLOBALS['replication_info']['slave']['status'] = true;
-        $GLOBALS['replication_types'] = [];
-
-        $serverStatus = [
-            'Aborted_clients' => '0',
-            'Aborted_connects' => '0',
-            'Com_delete_multi' => '0',
-            'Com_create_function' => '0',
-            'Com_empty_query' => '0',
-        ];
-
-        $serverVariables = [
-            'auto_increment_increment' => '1',
-            'auto_increment_offset' => '1',
-            'automatic_sp_privileges' => 'ON',
-            'back_log' => '50',
-            'big_tables' => 'OFF',
-        ];
-
-        $fetchResult = [
-            [
-                'SHOW GLOBAL STATUS',
-                0,
-                1,
-                DatabaseInterface::CONNECT_USER,
-                0,
-                $serverStatus,
-            ],
-            [
-                'SHOW GLOBAL VARIABLES',
-                0,
-                1,
-                DatabaseInterface::CONNECT_USER,
-                0,
-                $serverVariables,
-            ],
-            [
-                "SELECT concat('Com_', variable_name), variable_value "
-                . "FROM data_dictionary.GLOBAL_STATEMENTS",
-                0,
-                1,
-                DatabaseInterface::CONNECT_USER,
-                0,
-                $serverStatus,
-            ],
-        ];
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(0))
-            ->method('tryQuery')
-            ->with('SHOW GLOBAL STATUS')
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->at(1))
-            ->method('fetchRow')
-            ->will($this->returnValue(['Aborted_clients', '0']));
-        $dbi->expects($this->at(2))
-            ->method('fetchRow')
-            ->will($this->returnValue(['Aborted_connects', '0']));
-        $dbi->expects($this->at(3))
-            ->method('fetchRow')
-            ->will($this->returnValue(['Com_delete_multi', '0']));
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->will($this->returnValue(['Com_create_function', '0']));
-        $dbi->expects($this->at(5))
-            ->method('fetchRow')
-            ->will($this->returnValue(['Com_empty_query', '0']));
-        $dbi->expects($this->at(6))
-            ->method('fetchRow')
-            ->will($this->returnValue(false));
-
-        $dbi->expects($this->at(7))->method('freeResult');
-
-        $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValueMap($fetchResult));
-
-        $GLOBALS['dbi'] = $dbi;
 
         $this->data = new Data();
     }
 
-    /**
-     * @return void
-     */
     public function testIndex(): void
     {
-        $controller = new VariablesController(
-            Response::getInstance(),
-            $GLOBALS['dbi'],
-            new Template(),
-            $this->data
-        );
+        $response = new Response();
 
-        $html = $controller->index([
-            'flush' => null,
-            'filterAlert' => null,
-            'filterText' => null,
-            'filterCategory' => null,
-            'dontFormat' => null,
-        ]);
+        $controller = new VariablesController($response, new Template(), $this->data, $GLOBALS['dbi']);
+
+        $controller->index();
+        $html = $response->getHTMLResult();
 
         $this->assertStringContainsString(
             '<fieldset id="tableFilter">',
             $html
         );
         $this->assertStringContainsString(
-            'server_status_variables.php',
+            'index.php?route=/server/status/variables',
             $html
         );
 
@@ -198,19 +93,19 @@ class VariablesControllerTest extends TestCase
         );
 
         $this->assertStringContainsString(
-            '<table class="data noclick" id="serverstatusvariables">',
+            '<table class="table table-light table-striped table-hover table-sm" id="serverStatusVariables">',
             $html
         );
         $this->assertStringContainsString(
-            '<th>Variable</th>',
+            '<th scope="col">Variable</th>',
             $html
         );
         $this->assertStringContainsString(
-            '<th>Value</th>',
+            '<th scope="col">Value</th>',
             $html
         );
         $this->assertStringContainsString(
-            '<th>Description</th>',
+            '<th scope="col">Description</th>',
             $html
         );
 

@@ -1,21 +1,18 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 /**
  * Represents a container for procedure nodes in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeProcedureContainer extends NodeDatabaseChildContainer
 {
@@ -25,30 +22,35 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Procedures'), Node::CONTAINER);
-        $this->icon = Util::getImage('b_routines', __('Procedures'));
+        $this->icon = Generator::getImage('b_routines', __('Procedures'));
         $this->links = [
-            'text' => 'db_routines.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;type=PROCEDURE',
-            'icon' => 'db_routines.php?server=' . $GLOBALS['server']
-                . '&amp;db=%1$s&amp;type=PROCEDURE',
+            'text' => Url::getFromRoute('/database/routines', [
+                'server' => $GLOBALS['server'],
+                'type' => 'PROCEDURE',
+            ]) . '&amp;db=%1$s',
+            'icon' => Url::getFromRoute('/database/routines', [
+                'server' => $GLOBALS['server'],
+                'type' => 'PROCEDURE',
+            ]) . '&amp;db=%1$s',
         ];
         $this->realName = 'procedures';
 
         $newLabel = _pgettext('Create new procedure', 'New');
-        $new = NodeFactory::getInstance(
-            'Node',
-            $newLabel
+        $new = NodeFactory::getInstanceForNewNode(
+            $newLabel,
+            'new_procedure italics'
         );
-        $new->isNew = true;
-        $new->icon = Util::getImage('b_routine_add', $newLabel);
-        $new->title = $newLabel;
+        $new->icon = Generator::getImage('b_routine_add', $newLabel);
         $new->links = [
-            'text' => 'db_routines.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&add_item=1',
-            'icon' => 'db_routines.php?server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&add_item=1',
+            'text' => Url::getFromRoute('/database/routines', [
+                'server' => $GLOBALS['server'],
+                'add_item' => 1,
+            ]) . '&amp;db=%2$s',
+            'icon' => Url::getFromRoute('/database/routines', [
+                'server' => $GLOBALS['server'],
+                'add_item' => 1,
+            ]) . '&amp;db=%2$s',
         ];
-        $new->classes = 'new_procedure italics';
         $this->addChild($new);
     }
 }

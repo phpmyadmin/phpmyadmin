@@ -4,8 +4,8 @@ $textarea-cols: 40 !default;
 $textarea-rows: 15 !default;
 
 .CodeMirror {
-  font-family: $font-family-fixed !important;
-  height: ceil($textarea-rows * 1.2em);
+  font-family: $font-family-monospace !important;
+  height: 20rem;
   border: 1px solid #ccc;
   direction: ltr;
 }
@@ -15,7 +15,7 @@ $textarea-rows: 15 !default;
 }
 
 .CodeMirror * {
-  font-family: $font-family-fixed;
+  font-family: $font-family-monospace;
 }
 
 #inline_editor_outer .CodeMirror {
@@ -24,8 +24,8 @@ $textarea-rows: 15 !default;
 }
 
 .insertRowTable .CodeMirror {
-  height: ceil($textarea-rows * 0.6em);
-  width: ceil($textarea-cols * 0.6em);
+  min-height: ceil($textarea-rows * 0.6em);
+  min-width: ceil($textarea-cols * 0.6em);
 }
 
 #pma_console .CodeMirror-gutters {

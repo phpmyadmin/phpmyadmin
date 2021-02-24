@@ -2,7 +2,7 @@
 <div class="config-form">
     {{ form_errors|raw }}
 </div>
-<form action="prefs_manage.php" method="post" class="disableAjax">
+<form action="{{ url('/preferences/manage') }}" method="post" class="disableAjax">
     {{ get_hidden_inputs() }}
     <input type="hidden" name="json" value="{{ json }}">
     <input type="hidden" name="fix_errors" value="1">

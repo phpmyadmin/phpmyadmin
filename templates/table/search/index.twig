@@ -1,0 +1,164 @@
+<ul class="nav nav-pills m-2">
+  <li class="nav-item">
+    <a class="nav-link active" href="{{ url('/table/search', {'db': db, 'table': table, 'pos': 0}) }}">
+      {{ get_icon('b_search', 'Table search'|trans) }}
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('/table/zoom-search', {'db': db, 'table': table}) }}">
+      {{ get_icon('b_select', 'Zoom search'|trans) }}
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('/table/find-replace', {'db': db, 'table': table}) }}">
+      {{ get_icon('b_find_replace', 'Find and replace'|trans) }}
+    </a>
+  </li>
+</ul>
+
+<form method="post" action="{{ url('/table/search') }}" name="insertForm" id="tbl_search_form" class="ajax lock-page">
+  {{ get_hidden_inputs(db, table) }}
+  <input type="hidden" name="goto" value="{{ goto }}">
+  <input type="hidden" name="back" value="{{ url('/table/search') }}">
+
+  <fieldset id="fieldset_table_search">
+    <fieldset id="fieldset_table_qbe">
+      <legend>
+        {% trans 'Do a "query by example" (wildcard: "%")' %}
+      </legend>
+      <div class="table-responsive-md jsresponsive">
+        <table class="table table-light table-striped table-hover table-sm">
+          <thead class="thead-light">
+            <tr>
+              {% if geom_column_flag %}
+                <th>{% trans 'Function' %}</th>
+              {% endif %}
+              <th>{% trans 'Column' %}</th>
+              <th>{% trans 'Type' %}</th>
+              <th>{% trans 'Collation' %}</th>
+              <th>{% trans 'Operator' %}</th>
+              <th>{% trans 'Value' %}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for column_index in 0..column_names|length - 1 %}
+              <tr class="noclick">
+                {# If 'Function' column is present trying to change comment #}
+                {% if geom_column_flag %}
+                  {# Displays 'Function' column if it is present #}
+                  <td>
+                    {% set geom_types = get_gis_datatypes() %}
+                    {% if column_types[column_index] in geom_types %}
+                      <select class="geom_func" name="geom_func[{{ column_index }}]">
+                        {# get the relevant list of GIS functions #}
+                        {% set funcs = get_gis_functions(column_types[column_index], true, true) %}
+                        {% for func_name, func in funcs %}
+                          {% set name = func['display'] is defined ? func['display'] : func_name %}
+                          <option value="{{ name }}">
+                            {{ name }}
+                          </option>
+                        {% endfor %}
+                      </select>
+                    {% endif %}
+                  </td>
+                {% endif %}
+                {# Displays column's name, type, collation and value #}
+                <th>
+                  {#- Keep this without extra spaces because it is used for a request to build the BETWEEN modal -#}
+                  {{- column_names[column_index] -}}
+                </th>
+                {% set properties = self.getColumnProperties(column_index, column_index) %}
+                <td dir="ltr">
+                  {{ properties['type'] }}
+                </td>
+                <td>
+                  {{ properties['collation'] }}
+                </td>
+                <td>
+                  {{ properties['func']|raw }}
+                </td>
+                {# here, the data-type attribute is needed for a date/time picker #}
+                <td data-type="{{ properties['type'] }}">
+                  {{ properties['value']|raw }}
+                  {# Displays hidden fields #}
+                  <input type="hidden" name="criteriaColumnNames[{{ column_index }}]" value="{{ column_names[column_index] }}">
+                  <input type="hidden" name="criteriaColumnTypes[{{ column_index }}]" value="{{ column_types[column_index] }}">
+                  <input type="hidden" name="criteriaColumnCollations[{{ column_index }}]" value="{{ column_collations[column_index] }}">
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div id="gis_editor"></div>
+      <div id="popup_background"></div>
+    </fieldset>
+
+    <div id="searchoptions"{% if default_sliders_state != 'disabled' -%}
+      {{- default_sliders_state == 'closed' ? ' style="display: none; overflow:auto;"' }} class="pma_auto_slider" title="{% trans 'Options' %}"
+    {%- endif %}>
+
+    {# Displays columns select list for selecting distinct columns in the search #}
+    <fieldset id="fieldset_select_fields">
+      <legend>
+        {% trans 'Select columns (at least one):' %}
+      </legend>
+      <select name="columnsToDisplay[]" size="{{ min(column_names|length, 10) }}" multiple>
+        {% for each_field in column_names %}
+          <option value="{{ each_field }}" selected>
+            {{ each_field }}
+          </option>
+        {% endfor %}
+      </select>
+      <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct">
+      <label for="oDistinct">DISTINCT</label>
+    </fieldset>
+
+    {# Displays input box for custom 'Where' clause to be used in the search #}
+    <fieldset id="fieldset_search_conditions">
+      <legend>
+        <em>{% trans 'Or' %}</em>
+        {% trans 'Add search conditions (body of the "where" clause):' %}
+      </legend>
+      {{ show_mysql_docu('Functions') }}
+      <input type="text" name="customWhereClause" class="textfield" size="64">
+    </fieldset>
+
+    {# Displays option of changing default number of rows displayed per page #}
+    <fieldset id="fieldset_limit_rows">
+      <legend>{% trans 'Number of rows per page' %}</legend>
+      <input type="number" name="session_max_rows" min="1" value="{{ max_rows }}" class="textfield" required>
+    </fieldset>
+
+    {# Displays option for ordering search results by a column value (Asc or Desc) #}
+    <fieldset id="fieldset_display_order">
+      <legend>{% trans 'Display order:' %}</legend>
+      <select name="orderByColumn"><option value="--nil--"></option>
+        {% for each_field in column_names %}
+          <option value="{{ each_field }}">
+            {{ each_field }}
+          </option>
+        {% endfor %}
+      </select>
+
+      <div class="formelement">
+        <input type="radio" name="order" id="orderByAscRadio" value="ASC" checked>
+        <label for="orderByAscRadio">{% trans 'Ascending' %}</label>
+      </div>
+      <div class="formelement">
+        <input type="radio" name="order" id="orderByDescRadio" value="DESC">
+        <label for="orderByDescRadio">{% trans 'Descending' %}</label>
+      </div>
+
+    </fieldset>
+    <div class="clearfloat"></div>
+    </div>
+  </fieldset>
+
+  <fieldset class="tblFooters">
+    <input class="btn btn-primary" type="submit" name="submit" value="{% trans 'Go' %}">
+  </fieldset>
+</form>
+<div id="sqlqueryresultsouter"></div>

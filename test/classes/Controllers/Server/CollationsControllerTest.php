@@ -1,36 +1,26 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds CollationsControllerTest class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
-use PhpMyAdmin\Charsets;
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\CollationsController;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\Response;
 
-/**
- * Tests for CollationsController class
- *
- * @package PhpMyAdmin-test
- */
-class CollationsControllerTest extends TestCase
+class CollationsControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        $GLOBALS['text_dir'] = 'ltr';
+        parent::setGlobalConfig();
+        parent::defineVersionConstants();
+        parent::setTheme();
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;
@@ -40,21 +30,17 @@ class CollationsControllerTest extends TestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
-    /**
-     * @return void
-     */
     public function testIndexAction(): void
     {
-        $controller = new CollationsController(
-            Response::getInstance(),
-            $GLOBALS['dbi'],
-            new Template()
-        );
+        $response = new Response();
 
-        $actual = $controller->indexAction();
+        $controller = new CollationsController($response, new Template(), $GLOBALS['dbi']);
+
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
-            '<div id="div_mysql_charset_collations">',
+            '<table class="table table-light table-striped table-hover table-sm">',
             $actual
         );
         $this->assertStringContainsString(
@@ -70,9 +56,10 @@ class CollationsControllerTest extends TestCase
             $actual
         );
         $this->assertStringContainsString(
-            '<td>utf8_general_ci</td>',
+            'utf8_general_ci',
             $actual
         );
+        $this->assertStringContainsString('<span class="sr-only">(default)</span>', $actual);
         $this->assertStringContainsString(
             '<td>Unicode, case-insensitive</td>',
             $actual
@@ -82,7 +69,7 @@ class CollationsControllerTest extends TestCase
             $actual
         );
         $this->assertStringContainsString(
-            '<td>latin1_swedish_ci</td>',
+            'latin1_swedish_ci',
             $actual
         );
         $this->assertStringContainsString(

@@ -1,11 +1,13 @@
 {
     "extends": [
         "eslint:recommended",
-        "plugin:no-jquery/deprecated"
+        "plugin:no-jquery/deprecated",
+        "plugin:compat/recommended"
     ],
     "plugins": ["no-jquery"],
     "env": {
         "browser": true,
+        "es6": true,
         "jquery": true
     },
     "globals": {
@@ -34,9 +36,6 @@
         "new-cap": "error",
         "no-array-constructor": "error",
         "no-eval": "error",
-        "no-jquery/no-event-shorthand": "off",
-        "no-jquery/no-is-array": "off",
-        "no-jquery/no-sizzle": "off",
         "no-loop-func": "error",
         "no-multiple-empty-lines": "error",
         "no-new-func": "error",

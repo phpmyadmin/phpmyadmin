@@ -1,28 +1,20 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PMA_StorageEngine_pbxt
- *
- * @package PhpMyAdmin-test
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Engines\Pbxt;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use function sprintf;
 
-/**
- * Tests for PhpMyAdmin\Engines\Pbxt;
- *
- * @package PhpMyAdmin-test
- */
-class PbxtTest extends PmaTestCase
+class PbxtTest extends AbstractTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @var Pbxt */
     protected $object;
 
     /**
@@ -30,10 +22,12 @@ class PbxtTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::loadDefaultConfig();
+
         $GLOBALS['server'] = 0;
         $this->object = new Pbxt('pbxt');
     }
@@ -43,19 +37,17 @@ class PbxtTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for getVariables
-     *
-     * @return void
      */
-    public function testGetVariables()
+    public function testGetVariables(): void
     {
         $this->assertEquals(
             $this->object->getVariables(),
@@ -173,13 +165,11 @@ class PbxtTest extends PmaTestCase
      * Test for resolveTypeSize
      *
      * @param string $formatted_size the size expression (for example 8MB)
-     * @param string $output         Expected output
+     * @param array  $output         Expected output
      *
      * @dataProvider providerFortTestResolveTypeSize
-     *
-     * @return void
      */
-    public function testResolveTypeSize($formatted_size, $output): void
+    public function testResolveTypeSize(string $formatted_size, array $output): void
     {
         $this->assertEquals(
             $this->object->resolveTypeSize($formatted_size),
@@ -192,7 +182,7 @@ class PbxtTest extends PmaTestCase
      *
      * @return array
      */
-    public function providerFortTestResolveTypeSize()
+    public function providerFortTestResolveTypeSize(): array
     {
         return [
             [
@@ -221,25 +211,19 @@ class PbxtTest extends PmaTestCase
 
     /**
      * Test for getInfoPages
-     *
-     * @return void
      */
-    public function testGetInfoPages()
+    public function testGetInfoPages(): void
     {
         $this->assertEquals(
             $this->object->getInfoPages(),
-            [
-                'Documentation' => 'Documentation',
-            ]
+            ['Documentation' => 'Documentation']
         );
     }
 
     /**
      * Test for getPage
-     *
-     * @return void
      */
-    public function testGetPage()
+    public function testGetPage(): void
     {
         $this->assertEquals(
             $this->object->getPage('Documentation'),

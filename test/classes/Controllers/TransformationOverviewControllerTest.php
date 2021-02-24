@@ -1,36 +1,26 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds TransformationOverviewControllerTest class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\TransformationOverviewController;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
-use PHPUnit\Framework\TestCase;
 
-/**
- * Tests for TransformationOverviewController class
- *
- * @package PhpMyAdmin-test
- */
-class TransformationOverviewControllerTest extends TestCase
+class TransformationOverviewControllerTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setUp();
+        parent::setGlobalConfig();
+        parent::setTheme();
+        $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_Config']->enableBc();
 
         $GLOBALS['server'] = 1;
@@ -39,22 +29,17 @@ class TransformationOverviewControllerTest extends TestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
     }
 
-    /**
-     * @return void
-     */
     public function testIndexAction(): void
     {
-        $controller = new TransformationOverviewController(
-            Response::getInstance(),
-            $GLOBALS['dbi'],
-            new Template(),
-            new Transformations()
-        );
+        $response = new Response();
 
-        $actual = $controller->indexAction();
+        $controller = new TransformationOverviewController($response, new Template(), new Transformations());
+
+        $controller->index();
+        $actual = $response->getHTMLResult();
 
         $this->assertStringContainsString(
-            __('Available media (MIME) types'),
+            __('Available media types'),
             $actual
         );
         $this->assertStringContainsString(

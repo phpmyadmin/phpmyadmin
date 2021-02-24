@@ -1,26 +1,18 @@
 <?php
 /**
  * Tests for PMA_StorageEngine_binlog
- *
- * @package PhpMyAdmin-test
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Binlog;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Engines\Binlog
- *
- * @package PhpMyAdmin-test
- */
-class BinlogTest extends PmaTestCase
+class BinlogTest extends AbstractTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @var Binlog */
     protected $object;
 
     /**
@@ -28,10 +20,10 @@ class BinlogTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $GLOBALS['server'] = 0;
         $this->object = new Binlog('binlog');
     }
@@ -41,20 +33,17 @@ class BinlogTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
-
     /**
      * Test for getMysqlHelpPage
-     *
-     * @return void
      */
-    public function testGetMysqlHelpPage()
+    public function testGetMysqlHelpPage(): void
     {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),

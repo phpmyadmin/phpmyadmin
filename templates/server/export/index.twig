@@ -1,0 +1,33 @@
+{% extends 'export.twig' %}
+
+{% block title %}{% trans 'Exporting databases from the current server' %}{% endblock %}
+
+{% block selection_options %}
+  <div class="exportoptions" id="databases_and_tables">
+    <h3>{% trans 'Databases:' %}</h3>
+
+    <div>
+      <p>
+        <a href="#" id="db_select_all">
+          {% trans 'Select all' %}
+        </a>
+        /
+        <a href="#" id="db_unselect_all">
+          {% trans 'Unselect all' %}
+        </a>
+      </p>
+
+      <select name="db_select[]" id="db_select" size="10" multiple>
+        {% for database in databases %}
+          <option value="{{ database.name }}"{{ database.is_selected ? ' selected' }}>
+            {{ database.name }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+{% endblock %}
+
+{% set filename_hint %}
+  {% trans '@SERVER@ will become the server name.' %}
+{% endset %}

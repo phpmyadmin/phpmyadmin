@@ -1,0 +1,18 @@
+.table {
+  td {
+    touch-action: manipulation;
+    vertical-align: middle;
+  }
+
+  .thead-light {
+    th {
+      font-family: $font-family-bold;
+      font-weight: normal;
+      border-bottom: 1px solid $border-color;
+
+      a {
+        color: $th-color;
+      }
+    }
+  }
+}

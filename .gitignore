@@ -59,5 +59,4 @@ composer.lock
 # NPM
 /node_modules/
 phpstan.neon
-libraries/cache/
-js/dist/
+/setup/styles.css.map

@@ -1,7 +1,7 @@
-<form action="db_designer.php" method="post" name="save_as_pages" id="save_as_pages" class="ajax">
+<form action="{{ url('/database/designer') }}" method="post" name="save_as_pages" id="save_as_pages" class="ajax">
     {{ get_hidden_inputs(db) }}
     <fieldset id="page_save_as_options">
-        <table>
+        <table class="pma-table">
             <tbody>
                 <tr>
                     <td>
@@ -14,15 +14,14 @@
                 </tr>
                 <tr>
                     <td>
-                        {{ get_radio_fields(
-                            'save_page',
-                            {
-                                'same': 'Save to selected page'|trans,
-                                'new': 'Create a page and save to it'|trans
-                            },
-                            'same',
-                            true
-                        ) }}
+                      <div>
+                        <input type="radio" name="save_page" id="savePageSameRadio" value="same" checked>
+                        <label for="savePageSameRadio">{% trans 'Save to selected page' %}</label>
+                      </div>
+                      <div>
+                        <input type="radio" name="save_page" id="savePageNewRadio" value="new">
+                        <label for="savePageNewRadio">{% trans 'Create a page and save to it' %}</label>
+                      </div>
                     </td>
                 </tr>
                 <tr>

@@ -1,31 +1,44 @@
-<!-- VIEW operations -->
-<div>
-    <form method="post" action="view_operations.php">
-        {{ get_hidden_inputs(db, table) }}
-        <input type="hidden" name="reload" value="1">
-        <fieldset>
-            <legend>{% trans 'Operations' %}</legend>
-            <table>
-                <!-- Change view name -->
-                <tr>
-                    <td>{% trans 'Rename view to' %}</td>
-                    <td><input type="text" name="new_name" onfocus="this.select()"
-                               value="{{ table }}"
-                               required>
-                    </td>
-                </tr>
-            </table>
-        </fieldset>
-        <fieldset class="tblFooters">
-            <input type="hidden" name="submitoptions" value="1">
-            <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
-        </fieldset>
-    </form>
-</div>
+<div class="container-fluid">
+  <form method="post" action="{{ url('/view/operations') }}">
+    {{ get_hidden_inputs(db, table) }}
+    <input type="hidden" name="reload" value="1">
+    <input type="hidden" name="submitoptions" value="1">
 
-<div>
-    <fieldset class="caution">
-        <legend>{% trans 'Delete data or table' %}</legend>
-        <ul>{{ delete_data_or_table_link | raw }}</ul>
-    </fieldset>
+    <div class="card mb-2">
+      <div class="card-header">{% trans 'Operations' %}</div>
+      <div class="card-body">
+        <div class="form-inline">
+          <label for="newNameInput">{% trans 'Rename view to' %}</label>
+          <input id="newNameInput" class="form-control ml-2" type="text" name="new_name" onfocus="this.select()" value="{{ table }}" required>
+        </div>
+      </div>
+      <div class="card-footer text-right">
+        <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
+      </div>
+    </div>
+  </form>
+
+  <div class="card mb-2">
+    <div class="card-header">{% trans 'Delete data or table' %}</div>
+    <div class="card-body">
+      <div class="card-text">
+        {{ link_or_button(
+          url('/sql', url_params|merge({
+            'sql_query': 'DROP VIEW ' ~ backquote(table),
+            'goto': url('/table/structure'),
+            'reload': true,
+            'purge': true,
+            'message_to_show': 'View %s has been dropped.'|trans|format(table)|e,
+            'table': table
+          })),
+          'Delete the view (DROP)'|trans,
+          {
+            'id': 'drop_view_anchor',
+            'class': 'text-danger ajax'
+          }
+        ) }}
+        {{ show_mysql_docu('DROP VIEW') }}
+      </div>
+    </div>
+  </div>
 </div>

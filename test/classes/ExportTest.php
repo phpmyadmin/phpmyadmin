@@ -1,48 +1,37 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for PhpMyAdmin\Export
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Export;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Plugins\Export\ExportPhparray;
 
 /**
  * PhpMyAdmin\ExportTest class
  *
  * this class is for testing PhpMyAdmin\Export methods
  *
- * @package PhpMyAdmin-test
  * @group large
  */
-class ExportTest extends TestCase
+class ExportTest extends AbstractTestCase
 {
-    /**
-     * @var Export
-     */
+    /** @var Export */
     private $export;
 
     /**
      * Sets up the fixture
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->export = new Export($GLOBALS['dbi']);
     }
 
     /**
      * Test for mergeAliases
-     *
-     * @return void
      */
-    public function testMergeAliases()
+    public function testMergeAliases(): void
     {
         $aliases1 = [
             'test_db' => [
@@ -70,14 +59,10 @@ class ExportTest extends TestCase
                 'alias' => 'test',
                 'tables' => [
                     'foo' => [
-                        'columns' => [
-                            'bar' => 'foobar',
-                        ],
+                        'columns' => ['bar' => 'foobar'],
                     ],
                     'baz' => [
-                        'columns' => [
-                            'a' => 'x',
-                        ],
+                        'columns' => ['a' => 'x'],
                     ],
                 ],
             ],
@@ -101,14 +86,47 @@ class ExportTest extends TestCase
                         ],
                     ],
                     'baz' => [
-                        'columns' => [
-                            'a' => 'x',
-                        ],
+                        'columns' => ['a' => 'x'],
                     ],
                 ],
             ],
         ];
         $actual = $this->export->mergeAliases($aliases1, $aliases2);
         $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * Test for getFinalFilenameAndMimetypeForFilename
+     */
+    public function testGetFinalFilenameAndMimetypeForFilename(): void
+    {
+        $exportPlugin = new ExportPhparray();
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename(
+            $exportPlugin,
+            'zip',
+            'myfilename'
+        );
+        $this->assertSame([
+            'myfilename.php.zip',
+            'application/zip',
+        ], $finalFileName);
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename(
+            $exportPlugin,
+            'gzip',
+            'myfilename'
+        );
+        $this->assertSame([
+            'myfilename.php.gz',
+            'application/x-gzip',
+        ], $finalFileName);
+        $finalFileName = $this->export->getFinalFilenameAndMimetypeForFilename(
+            $exportPlugin,
+            'gzip',
+            'export.db1.table1.file'
+        );
+        $this->assertSame([
+            'export.db1.table1.file.php.gz',
+            'application/x-gzip',
+        ], $finalFileName);
     }
 }

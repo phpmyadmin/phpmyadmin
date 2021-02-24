@@ -1,39 +1,33 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds the PhpMyAdmin\Operations class
- *
- * @package PhpMyAdmin
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Charsets\Charset;
-use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use function array_merge;
+use function count;
+use function explode;
+use function implode;
+use function mb_strtolower;
+use function str_replace;
+use function strlen;
+use function strtolower;
+use function urldecode;
 
 /**
  * Set of functions with the operations section in phpMyAdmin
- *
- * @package PhpMyAdmin
  */
 class Operations
 {
-    /**
-     * @var Relation
-     */
+    /** @var Relation */
     private $relation;
 
-    /**
-     * @var DatabaseInterface
-     */
+    /** @var DatabaseInterface */
     private $dbi;
 
     /**
-     * Operations constructor.
-     *
      * @param DatabaseInterface $dbi      DatabaseInterface object
      * @param Relation          $relation Relation object
      */
@@ -41,315 +35,6 @@ class Operations
     {
         $this->dbi = $dbi;
         $this->relation = $relation;
-    }
-
-    /**
-     * Get HTML output for database comment
-     *
-     * @param string $db database name
-     *
-     * @return string
-     */
-    public function getHtmlForDatabaseComment($db)
-    {
-        $html_output = '<div>'
-            . '<form method="post" action="db_operations.php" id="formDatabaseComment">'
-            . Url::getHiddenInputs($db)
-            . '<fieldset>'
-            . '<legend>';
-        if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_comment') . '&nbsp;';
-        }
-        $html_output .=  __('Database comment');
-        $html_output .= '</legend>';
-        $html_output .= '<input type="text" name="comment" '
-            . 'class="textfield"'
-            . 'value="' . htmlspecialchars($this->relation->getDbComment($db)) . '">'
-            . '</fieldset>';
-        $html_output .= '<fieldset class="tblFooters">'
-            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get HTML output for rename database
-     *
-     * @param string $db           database name
-     * @param string $db_collation dataset collation
-     *
-     * @return string
-     */
-    public function getHtmlForRenameDatabase($db, $db_collation)
-    {
-        $html_output = '<div>'
-            . '<form id="rename_db_form" '
-            . 'class="ajax" '
-            . 'method="post" action="db_operations.php" '
-            . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
-        if ($db_collation !== null) {
-            $html_output .= '<input type="hidden" name="db_collation" '
-                . 'value="' . $db_collation
-                . '">' . "\n";
-        }
-        $html_output .= '<input type="hidden" name="what" value="data">'
-            . '<input type="hidden" name="db_rename" value="true">'
-            . Url::getHiddenInputs($db)
-            . '<fieldset>'
-            . '<legend>';
-
-        if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_edit') . '&nbsp;';
-        }
-        $html_output .= __('Rename database to')
-            . '</legend>';
-
-        $html_output .= '<input id="new_db_name" type="text" name="newname" '
-            . 'maxlength="64" class="textfield" required="required">';
-        $html_output .= '<br>';
-
-        if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
-            && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_adjust_privileges" checked="checked">';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_adjust_privileges" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled>';
-        }
-
-        $html_output .= '<label for="checkbox_adjust_privileges">'
-                . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
-                . '</label><br>';
-
-        $html_output .= ''
-            . '</fieldset>'
-            . '<fieldset class="tblFooters">'
-            . '<input id="rename_db_input" class="btn btn-primary" type="submit" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get HTML for database drop link
-     *
-     * @param string $db database name
-     *
-     * @return string
-     */
-    public function getHtmlForDropDatabaseLink($db)
-    {
-        $this_sql_query = 'DROP DATABASE ' . Util::backquote($db);
-        $this_url_params = [
-            'sql_query' => $this_sql_query,
-            'back' => 'db_operations.php',
-            'goto' => 'index.php',
-            'reload' => '1',
-            'purge' => '1',
-            'message_to_show' => sprintf(
-                __('Database %s has been dropped.'),
-                htmlspecialchars(Util::backquote($db))
-            ),
-            'db' => null,
-        ];
-
-        $html_output = '<div>'
-            . '<fieldset class="caution">';
-        $html_output .= '<legend>';
-        if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_deltbl') . '&nbsp';
-        }
-        $html_output .= __('Remove database')
-            . '</legend>';
-        $html_output .= '<ul>';
-        $html_output .= $this->getDeleteDataOrTablelink(
-            $this_url_params,
-            'DROP_DATABASE',
-            __('Drop the database (DROP)'),
-            'drop_db_anchor'
-        );
-        $html_output .= '</ul></fieldset>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get HTML snippet for copy database
-     *
-     * @param string $db           database name
-     * @param string $db_collation dataset collation
-     *
-     * @return string
-     */
-    public function getHtmlForCopyDatabase($db, $db_collation)
-    {
-        $drop_clause = 'DROP TABLE / DROP VIEW';
-        $choices = [
-            'structure' => __('Structure only'),
-            'data'      => __('Structure and data'),
-            'dataonly'  => __('Data only'),
-        ];
-
-        $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
-
-        $html_output = '<div>';
-        $html_output .= '<form id="copy_db_form" '
-            . 'class="ajax" '
-            . 'method="post" action="db_operations.php" '
-            . 'onsubmit="return Functions.emptyCheckTheField(this, \'newname\')">';
-
-        if ($db_collation !== null) {
-            $html_output .= '<input type="hidden" name="db_collation" '
-            . 'value="' . $db_collation . '">' . "\n";
-        }
-        $html_output .= '<input type="hidden" name="db_copy" value="true">' . "\n"
-            . Url::getHiddenInputs($db);
-        $html_output .= '<fieldset>'
-            . '<legend>';
-
-        if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('b_edit') . '&nbsp';
-        }
-        $html_output .= __('Copy database to')
-            . '</legend>'
-            . '<input type="text" maxlength="64" name="newname" '
-            . 'class="textfield" required="required"><br>'
-            . Util::getRadioFields(
-                'what',
-                $choices,
-                'data',
-                true
-            );
-        $html_output .= '<br>';
-        $html_output .= '<input type="checkbox" name="create_database_before_copying" '
-            . 'value="1" id="checkbox_create_database_before_copying"'
-            . 'checked="checked">';
-        $html_output .= '<label for="checkbox_create_database_before_copying">'
-            . __('CREATE DATABASE before copying') . '</label><br>';
-        $html_output .= '<input type="checkbox" name="drop_if_exists" value="true"'
-            . 'id="checkbox_drop">';
-        $html_output .= '<label for="checkbox_drop">'
-            . sprintf(__('Add %s'), $drop_clause)
-            . '</label><br>';
-        $html_output .= '<input type="checkbox" name="sql_auto_increment" value="1" '
-            . 'checked="checked" id="checkbox_auto_increment">';
-        $html_output .= '<label for="checkbox_auto_increment">'
-            . __('Add AUTO_INCREMENT value') . '</label><br>';
-        $html_output .= '<input type="checkbox" name="add_constraints" value="1"'
-            . 'id="checkbox_constraints" checked="checked">';
-        $html_output .= '<label for="checkbox_constraints">'
-            . __('Add constraints') . '</label><br>';
-        $html_output .= '<br>';
-
-        if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
-            && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges" checked="checked">';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled>';
-        }
-        $html_output .= '<label for="checkbox_privileges">'
-            . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
-            . '</label><br>';
-
-        $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
-            . 'id="checkbox_switch"'
-            . ($pma_switch_to_new ? ' checked="checked"' : '') . '>';
-        $html_output .= '<label for="checkbox_switch">'
-            . __('Switch to copied database') . '</label>'
-            . '</fieldset>';
-        $html_output .= '<fieldset class="tblFooters">'
-            . '<input class="btn btn-primary" type="submit" name="submit_copy" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get HTML snippet for change database charset
-     *
-     * @param string $db           database name
-     * @param string $db_collation dataset collation
-     *
-     * @return string
-     */
-    public function getHtmlForChangeDatabaseCharset($db, $db_collation)
-    {
-        $html_output = '<div>'
-            . '<form id="change_db_charset_form" ';
-        $html_output .= 'class="ajax" ';
-        $html_output .= 'method="post" action="db_operations.php">';
-
-        $html_output .= Url::getHiddenInputs($db);
-
-        $html_output .= '<fieldset>' . "\n"
-           . '    <legend>';
-        if (Util::showIcons('ActionLinksMode')) {
-            $html_output .= Util::getImage('s_asci') . '&nbsp';
-        }
-        $html_output .= '<label for="select_db_collation">' . __('Collation')
-            . '</label>' . "\n"
-            . '</legend>' . "\n";
-        $html_output .= '<select lang="en" dir="ltr" name="db_collation" id="select_db_collation">' . "\n";
-        $html_output .= '<option value=""></option>' . "\n";
-
-        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-        /** @var Charset $charset */
-        foreach ($charsets as $charset) {
-            $html_output .= '<optgroup label="' . $charset->getName()
-                . '" title="' . $charset->getDescription() . '">' . "\n";
-            /** @var Collation $collation */
-            foreach ($collations[$charset->getName()] as $collation) {
-                $html_output .= '<option value="' . $collation->getName()
-                    . '" title="' . $collation->getDescription() . '"'
-                    . ($db_collation == $collation->getName() ? ' selected' : '') . '>'
-                    . $collation->getName() . '</option>' . "\n";
-            }
-            $html_output .= '</optgroup>' . "\n";
-        }
-        $html_output .= '</select>' . "\n";
-        $html_output .= '<br>'
-            . '<input type="checkbox" name="change_all_tables_collations"'
-            . 'id="checkbox_change_all_tables_collations">'
-            . '<label for="checkbox_change_all_tables_collations">'
-            . __('Change all tables collations')
-            . '</label>'
-            . '<br>'
-            . '<span id="span_change_all_tables_columns_collations"><input type="checkbox" name="change_all_tables_columns_collations"'
-            . 'id="checkbox_change_all_tables_columns_collations">'
-            . '<label for="checkbox_change_all_tables_columns_collations">'
-            . __('Change all tables columns collations')
-            . '</label></span>'
-            . '</fieldset>'
-            . '<fieldset class="tblFooters">'
-            . '<input class="btn btn-primary" type="submit" name="submitcollation"'
-            . ' value="' . __('Go') . '">' . "\n"
-            . '</fieldset>' . "\n"
-            . '</form></div>' . "\n";
-
-        return $html_output;
     }
 
     /**
@@ -374,31 +59,37 @@ class Operations
                     'PROCEDURE',
                     $procedure_name
                 );
-                if ($tmp_query !== null) {
-                    // collect for later display
-                    $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-                    $this->dbi->selectDb($_POST['newname']);
-                    $this->dbi->query($tmp_query);
+                if ($tmp_query === null) {
+                    continue;
                 }
+
+                // collect for later display
+                $GLOBALS['sql_query'] .= "\n" . $tmp_query;
+                $this->dbi->selectDb($_POST['newname']);
+                $this->dbi->query($tmp_query);
             }
         }
 
         $function_names = $this->dbi->getProceduresOrFunctions($db, 'FUNCTION');
-        if ($function_names) {
-            foreach ($function_names as $function_name) {
-                $this->dbi->selectDb($db);
-                $tmp_query = $this->dbi->getDefinition(
-                    $db,
-                    'FUNCTION',
-                    $function_name
-                );
-                if ($tmp_query !== null) {
-                    // collect for later display
-                    $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-                    $this->dbi->selectDb($_POST['newname']);
-                    $this->dbi->query($tmp_query);
-                }
+        if (! $function_names) {
+            return;
+        }
+
+        foreach ($function_names as $function_name) {
+            $this->dbi->selectDb($db);
+            $tmp_query = $this->dbi->getDefinition(
+                $db,
+                'FUNCTION',
+                $function_name
+            );
+            if ($tmp_query === null) {
+                continue;
             }
+
+            // collect for later display
+            $GLOBALS['sql_query'] .= "\n" . $tmp_query;
+            $this->dbi->selectDb($_POST['newname']);
+            $this->dbi->query($tmp_query);
         }
     }
 
@@ -413,7 +104,7 @@ class Operations
             . Util::backquote($_POST['newname']);
         if (isset($_POST['db_collation'])) {
             $local_query .= ' DEFAULT'
-                . Util::getCharsetQueryPart($_POST['db_collation']);
+                . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
         }
         $local_query .= ';';
         $GLOBALS['sql_query'] .= $local_query;
@@ -454,41 +145,44 @@ class Operations
             // to be able to rename a db containing views,
             // first all the views are collected and a stand-in is created
             // the real views are created after the tables
-            if ($this->dbi->getTable($db, (string) $each_table)->isView()) {
-                // If view exists, and 'add drop view' is selected: Drop it!
-                if ($_POST['what'] != 'nocopy'
-                    && isset($_POST['drop_if_exists'])
-                    && $_POST['drop_if_exists'] == 'true'
-                ) {
-                    $drop_query = 'DROP VIEW IF EXISTS '
-                        . Util::backquote($_POST['newname']) . '.'
-                        . Util::backquote($each_table);
-                    $this->dbi->query($drop_query);
-
-                    $GLOBALS['sql_query'] .= "\n" . $drop_query . ';';
-                }
-
-                $views[] = $each_table;
-                // Create stand-in definition to resolve view dependencies
-                $sql_view_standin = $export_sql_plugin->getTableDefStandIn(
-                    $db,
-                    $each_table,
-                    "\n"
-                );
-                $this->dbi->selectDb($_POST['newname']);
-                $this->dbi->query($sql_view_standin);
-                $GLOBALS['sql_query'] .= "\n" . $sql_view_standin;
+            if (! $this->dbi->getTable($db, (string) $each_table)->isView()) {
+                continue;
             }
+
+            // If view exists, and 'add drop view' is selected: Drop it!
+            if ($_POST['what'] !== 'nocopy'
+                && isset($_POST['drop_if_exists'])
+                && $_POST['drop_if_exists'] === 'true'
+            ) {
+                $drop_query = 'DROP VIEW IF EXISTS '
+                    . Util::backquote($_POST['newname']) . '.'
+                    . Util::backquote($each_table);
+                $this->dbi->query($drop_query);
+
+                $GLOBALS['sql_query'] .= "\n" . $drop_query . ';';
+            }
+
+            $views[] = $each_table;
+            // Create stand-in definition to resolve view dependencies
+            $sql_view_standin = $export_sql_plugin->getTableDefStandIn(
+                $db,
+                $each_table,
+                "\n"
+            );
+            $this->dbi->selectDb($_POST['newname']);
+            $this->dbi->query($sql_view_standin);
+            $GLOBALS['sql_query'] .= "\n" . $sql_view_standin;
         }
+
         return $views;
     }
 
     /**
      * Get sql query for copy/rename table and boolean for whether copy/rename or not
      *
-     * @param array   $tables_full array of all tables in given db or dbs
-     * @param boolean $move        whether database name is empty or not
-     * @param string  $db          database name
+     * @param array  $tables_full array of all tables in given db or dbs
+     * @param bool   $move        whether database name is empty or not
+     * @param string $db          database name
      *
      * @return array SQL queries for the constraints
      */
@@ -507,50 +201,55 @@ class Operations
             // do not copy the data from a Merge table
             // note: on the calling FORM, 'data' means 'structure and data'
             if ($this->dbi->getTable($db, (string) $each_table)->isMerge()) {
-                if ($this_what == 'data') {
+                if ($this_what === 'data') {
                     $this_what = 'structure';
                 }
-                if ($this_what == 'dataonly') {
+                if ($this_what === 'dataonly') {
                     $this_what = 'nocopy';
                 }
             }
 
-            if ($this_what != 'nocopy') {
-                // keep the triggers from the original db+table
-                // (third param is empty because delimiters are only intended
-                //  for importing via the mysql client or our Import feature)
-                $triggers = $this->dbi->getTriggers($db, (string) $each_table, '');
+            if ($this_what === 'nocopy') {
+                continue;
+            }
 
-                if (! Table::moveCopy(
-                    $db,
-                    $each_table,
-                    $_POST['newname'],
-                    $each_table,
-                    (isset($this_what) ? $this_what : 'data'),
-                    $move,
-                    'db_copy'
-                )) {
-                    $GLOBALS['_error'] = true;
-                    break;
-                }
-                // apply the triggers to the destination db+table
-                if ($triggers) {
-                    $this->dbi->selectDb($_POST['newname']);
-                    foreach ($triggers as $trigger) {
-                        $this->dbi->query($trigger['create']);
-                        $GLOBALS['sql_query'] .= "\n" . $trigger['create'] . ';';
-                    }
-                }
+            // keep the triggers from the original db+table
+            // (third param is empty because delimiters are only intended
+            //  for importing via the mysql client or our Import feature)
+            $triggers = $this->dbi->getTriggers($db, (string) $each_table, '');
 
-                // this does not apply to a rename operation
-                if (isset($_POST['add_constraints'])
-                    && ! empty($GLOBALS['sql_constraints_query'])
-                ) {
-                    $sqlContraints[] = $GLOBALS['sql_constraints_query'];
-                    unset($GLOBALS['sql_constraints_query']);
+            if (! Table::moveCopy(
+                $db,
+                $each_table,
+                $_POST['newname'],
+                $each_table,
+                ($this_what ?? 'data'),
+                $move,
+                'db_copy'
+            )) {
+                $GLOBALS['_error'] = true;
+                break;
+            }
+            // apply the triggers to the destination db+table
+            if ($triggers) {
+                $this->dbi->selectDb($_POST['newname']);
+                foreach ($triggers as $trigger) {
+                    $this->dbi->query($trigger['create']);
+                    $GLOBALS['sql_query'] .= "\n" . $trigger['create'] . ';';
                 }
             }
+
+            // this does not apply to a rename operation
+            if (! isset($_POST['add_constraints'])
+                || empty($GLOBALS['sql_constraints_query'])
+            ) {
+                continue;
+            }
+
+            $sqlContraints[] = $GLOBALS['sql_constraints_query'];
+            unset($GLOBALS['sql_constraints_query']);
         }
+
         return $sqlContraints;
     }
 
@@ -571,24 +270,26 @@ class Operations
             'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
             . $this->dbi->escapeString($db) . '\';'
         );
-        if ($event_names) {
-            foreach ($event_names as $event_name) {
-                $this->dbi->selectDb($db);
-                $tmp_query = $this->dbi->getDefinition($db, 'EVENT', $event_name);
-                // collect for later display
-                $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-                $this->dbi->selectDb($_POST['newname']);
-                $this->dbi->query($tmp_query);
-            }
+        if (! $event_names) {
+            return;
+        }
+
+        foreach ($event_names as $event_name) {
+            $this->dbi->selectDb($db);
+            $tmp_query = $this->dbi->getDefinition($db, 'EVENT', $event_name);
+            // collect for later display
+            $GLOBALS['sql_query'] .= "\n" . $tmp_query;
+            $this->dbi->selectDb($_POST['newname']);
+            $this->dbi->query($tmp_query);
         }
     }
 
     /**
      * Handle the views, return the boolean value whether table rename/copy or not
      *
-     * @param array   $views views as an array
-     * @param boolean $move  whether database name is empty or not
-     * @param string  $db    database name
+     * @param array  $views views as an array
+     * @param bool   $move  whether database name is empty or not
+     * @param string $db    database name
      *
      * @return void
      */
@@ -619,10 +320,12 @@ class Operations
         }
         unset($_POST['drop_if_exists']);
 
-        if (isset($temp_drop_if_exists)) {
-            // restore previous value
-            $_POST['drop_if_exists'] = $temp_drop_if_exists;
+        if (! isset($temp_drop_if_exists)) {
+            return;
         }
+
+        // restore previous value
+        $_POST['drop_if_exists'] = $temp_drop_if_exists;
     }
 
     /**
@@ -635,42 +338,44 @@ class Operations
      */
     public function adjustPrivilegesMoveDb($oldDb, $newname)
     {
-        if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
-            && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
-            && $GLOBALS['is_reload_priv']
+        if (! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
+            || ! $GLOBALS['col_priv'] || ! $GLOBALS['proc_priv']
+            || ! $GLOBALS['is_reload_priv']
         ) {
-            $this->dbi->selectDb('mysql');
-            $newname = str_replace("_", "\_", $newname);
-            $oldDb = str_replace("_", "\_", $oldDb);
-
-            // For Db specific privileges
-            $query_db_specific = 'UPDATE ' . Util::backquote('db')
-                . 'SET Db = \'' . $this->dbi->escapeString($newname)
-                . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
-            $this->dbi->query($query_db_specific);
-
-            // For table specific privileges
-            $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
-                . 'SET Db = \'' . $this->dbi->escapeString($newname)
-                . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
-            $this->dbi->query($query_table_specific);
-
-            // For column specific privileges
-            $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
-                . 'SET Db = \'' . $this->dbi->escapeString($newname)
-                . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
-            $this->dbi->query($query_col_specific);
-
-            // For procedures specific privileges
-            $query_proc_specific = 'UPDATE ' . Util::backquote('procs_priv')
-                . 'SET Db = \'' . $this->dbi->escapeString($newname)
-                . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
-            $this->dbi->query($query_proc_specific);
-
-            // Finally FLUSH the new privileges
-            $flush_query = "FLUSH PRIVILEGES;";
-            $this->dbi->query($flush_query);
+            return;
         }
+
+        $this->dbi->selectDb('mysql');
+        $newname = str_replace('_', '\_', $newname);
+        $oldDb = str_replace('_', '\_', $oldDb);
+
+        // For Db specific privileges
+        $query_db_specific = 'UPDATE ' . Util::backquote('db')
+            . 'SET Db = \'' . $this->dbi->escapeString($newname)
+            . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
+        $this->dbi->query($query_db_specific);
+
+        // For table specific privileges
+        $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
+            . 'SET Db = \'' . $this->dbi->escapeString($newname)
+            . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
+        $this->dbi->query($query_table_specific);
+
+        // For column specific privileges
+        $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
+            . 'SET Db = \'' . $this->dbi->escapeString($newname)
+            . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
+        $this->dbi->query($query_col_specific);
+
+        // For procedures specific privileges
+        $query_proc_specific = 'UPDATE ' . Util::backquote('procs_priv')
+            . 'SET Db = \'' . $this->dbi->escapeString($newname)
+            . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\';';
+        $this->dbi->query($query_proc_specific);
+
+        // Finally FLUSH the new privileges
+        $flush_query = 'FLUSH PRIVILEGES;';
+        $this->dbi->query($flush_query);
     }
 
     /**
@@ -683,97 +388,100 @@ class Operations
      */
     public function adjustPrivilegesCopyDb($oldDb, $newname)
     {
-        if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
-            && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
-            && $GLOBALS['is_reload_priv']
+        if (! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
+            || ! $GLOBALS['col_priv'] || ! $GLOBALS['proc_priv']
+            || ! $GLOBALS['is_reload_priv']
         ) {
-            $this->dbi->selectDb('mysql');
-            $newname = str_replace("_", "\_", $newname);
-            $oldDb = str_replace("_", "\_", $oldDb);
-
-            $query_db_specific_old = 'SELECT * FROM '
-                . Util::backquote('db') . ' WHERE '
-                . 'Db = "' . $oldDb . '";';
-
-            $old_privs_db = $this->dbi->fetchResult($query_db_specific_old, 0);
-
-            foreach ($old_privs_db as $old_priv) {
-                $newDb_db_privs_query = 'INSERT INTO ' . Util::backquote('db')
-                    . ' VALUES("' . $old_priv[0] . '", "' . $newname . '"';
-                for ($i = 2; $i < count($old_priv); $i++) {
-                    $newDb_db_privs_query .= ', "' . $old_priv[$i] . '"';
-                }
-                    $newDb_db_privs_query .= ')';
-
-                $this->dbi->query($newDb_db_privs_query);
-            }
-
-            // For Table Specific privileges
-            $query_table_specific_old = 'SELECT * FROM '
-                . Util::backquote('tables_priv') . ' WHERE '
-                . 'Db = "' . $oldDb . '";';
-
-            $old_privs_table = $this->dbi->fetchResult(
-                $query_table_specific_old,
-                0
-            );
-
-            foreach ($old_privs_table as $old_priv) {
-                $newDb_table_privs_query = 'INSERT INTO ' . Util::backquote(
-                    'tables_priv'
-                ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
-                . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
-                . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
-                . $old_priv[7] . '");';
-
-                $this->dbi->query($newDb_table_privs_query);
-            }
-
-            // For Column Specific privileges
-            $query_col_specific_old = 'SELECT * FROM '
-                . Util::backquote('columns_priv') . ' WHERE '
-                . 'Db = "' . $oldDb . '";';
-
-            $old_privs_col = $this->dbi->fetchResult(
-                $query_col_specific_old,
-                0
-            );
-
-            foreach ($old_privs_col as $old_priv) {
-                $newDb_col_privs_query = 'INSERT INTO ' . Util::backquote(
-                    'columns_priv'
-                ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
-                . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
-                . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '");';
-
-                $this->dbi->query($newDb_col_privs_query);
-            }
-
-            // For Procedure Specific privileges
-            $query_proc_specific_old = 'SELECT * FROM '
-                . Util::backquote('procs_priv') . ' WHERE '
-                . 'Db = "' . $oldDb . '";';
-
-            $old_privs_proc = $this->dbi->fetchResult(
-                $query_proc_specific_old,
-                0
-            );
-
-            foreach ($old_privs_proc as $old_priv) {
-                $newDb_proc_privs_query = 'INSERT INTO ' . Util::backquote(
-                    'procs_priv'
-                ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
-                . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
-                . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
-                . $old_priv[7] . '");';
-
-                $this->dbi->query($newDb_proc_privs_query);
-            }
-
-            // Finally FLUSH the new privileges
-            $flush_query = "FLUSH PRIVILEGES;";
-            $this->dbi->query($flush_query);
+            return;
         }
+
+        $this->dbi->selectDb('mysql');
+        $newname = str_replace('_', '\_', $newname);
+        $oldDb = str_replace('_', '\_', $oldDb);
+
+        $query_db_specific_old = 'SELECT * FROM '
+            . Util::backquote('db') . ' WHERE '
+            . 'Db = "' . $oldDb . '";';
+
+        $old_privs_db = $this->dbi->fetchResult($query_db_specific_old, 0);
+
+        foreach ($old_privs_db as $old_priv) {
+            $newDb_db_privs_query = 'INSERT INTO ' . Util::backquote('db')
+                . ' VALUES("' . $old_priv[0] . '", "' . $newname . '"';
+            $privCount = count($old_priv);
+            for ($i = 2; $i < $privCount; $i++) {
+                $newDb_db_privs_query .= ', "' . $old_priv[$i] . '"';
+            }
+                $newDb_db_privs_query .= ')';
+
+            $this->dbi->query($newDb_db_privs_query);
+        }
+
+        // For Table Specific privileges
+        $query_table_specific_old = 'SELECT * FROM '
+            . Util::backquote('tables_priv') . ' WHERE '
+            . 'Db = "' . $oldDb . '";';
+
+        $old_privs_table = $this->dbi->fetchResult(
+            $query_table_specific_old,
+            0
+        );
+
+        foreach ($old_privs_table as $old_priv) {
+            $newDb_table_privs_query = 'INSERT INTO ' . Util::backquote(
+                'tables_priv'
+            ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
+            . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
+            . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
+            . $old_priv[7] . '");';
+
+            $this->dbi->query($newDb_table_privs_query);
+        }
+
+        // For Column Specific privileges
+        $query_col_specific_old = 'SELECT * FROM '
+            . Util::backquote('columns_priv') . ' WHERE '
+            . 'Db = "' . $oldDb . '";';
+
+        $old_privs_col = $this->dbi->fetchResult(
+            $query_col_specific_old,
+            0
+        );
+
+        foreach ($old_privs_col as $old_priv) {
+            $newDb_col_privs_query = 'INSERT INTO ' . Util::backquote(
+                'columns_priv'
+            ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
+            . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
+            . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '");';
+
+            $this->dbi->query($newDb_col_privs_query);
+        }
+
+        // For Procedure Specific privileges
+        $query_proc_specific_old = 'SELECT * FROM '
+            . Util::backquote('procs_priv') . ' WHERE '
+            . 'Db = "' . $oldDb . '";';
+
+        $old_privs_proc = $this->dbi->fetchResult(
+            $query_proc_specific_old,
+            0
+        );
+
+        foreach ($old_privs_proc as $old_priv) {
+            $newDb_proc_privs_query = 'INSERT INTO ' . Util::backquote(
+                'procs_priv'
+            ) . ' VALUES("' . $old_priv[0] . '", "' . $newname . '", "'
+            . $old_priv[2] . '", "' . $old_priv[3] . '", "' . $old_priv[4]
+            . '", "' . $old_priv[5] . '", "' . $old_priv[6] . '", "'
+            . $old_priv[7] . '");';
+
+            $this->dbi->query($newDb_proc_privs_query);
+        }
+
+        // Finally FLUSH the new privileges
+        $flush_query = 'FLUSH PRIVILEGES;';
+        $this->dbi->query($flush_query);
     }
 
     /**
@@ -796,474 +504,31 @@ class Operations
     /**
      * Duplicate the bookmarks for the db (done once for each db)
      *
-     * @param boolean $_error whether table rename/copy or not
-     * @param string  $db     database name
+     * @param bool   $_error whether table rename/copy or not
+     * @param string $db     database name
      *
      * @return void
      */
     public function duplicateBookmarks($_error, $db)
     {
-        if (! $_error && $db != $_POST['newname']) {
-            $get_fields = [
-                'user',
-                'label',
-                'query',
-            ];
-            $where_fields = ['dbase' => $db];
-            $new_fields = ['dbase' => $_POST['newname']];
-            Table::duplicateInfo(
-                'bookmarkwork',
-                'bookmark',
-                $get_fields,
-                $where_fields,
-                $new_fields
-            );
+        if ($_error || $db == $_POST['newname']) {
+            return;
         }
-    }
 
-    /**
-     * Get the HTML snippet for order the table
-     *
-     * @param array $columns columns array
-     *
-     * @return string
-     */
-    public function getHtmlForOrderTheTable(array $columns)
-    {
-        $html_output = '<div>';
-        $html_output .= '<form method="post" id="alterTableOrderby" '
-            . 'action="tbl_operations.php">';
-        $html_output .= Url::getHiddenInputs(
-            $GLOBALS['db'],
-            $GLOBALS['table']
+        $get_fields = [
+            'user',
+            'label',
+            'query',
+        ];
+        $where_fields = ['dbase' => $db];
+        $new_fields = ['dbase' => $_POST['newname']];
+        Table::duplicateInfo(
+            'bookmarkwork',
+            'bookmark',
+            $get_fields,
+            $where_fields,
+            $new_fields
         );
-        $html_output .= '<fieldset id="fieldset_table_order">'
-            . '<legend>' . __('Alter table order by') . '</legend>'
-            . '<select name="order_field">';
-
-        foreach ($columns as $fieldname) {
-            $html_output .= '<option '
-                . 'value="' . htmlspecialchars($fieldname['Field']) . '">'
-                . htmlspecialchars($fieldname['Field']) . '</option>' . "\n";
-        }
-        $html_output .= '</select> ' . __('(singly)') . ' '
-            . '<br>'
-            . '<input id="order_order_asc" name="order_order"'
-            . ' type="radio" value="asc" checked="checked">'
-            . '<label for="order_order_asc">' . __('Ascending') . '</label>'
-            . '<input id="order_order_desc" name="order_order"'
-            . ' type="radio" value="desc">'
-            . '<label for="order_order_desc">' . __('Descending') . '</label>'
-            . '</fieldset>'
-            . '<fieldset class="tblFooters">'
-            . '<input type="hidden" name="submitorderby" value="1">'
-            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-         return $html_output;
-    }
-
-    /**
-     * Get the HTML snippet for move table
-     *
-     * @return string
-     */
-    public function getHtmlForMoveTable()
-    {
-        $html_output = '<div>';
-        $html_output .= '<form method="post" action="tbl_operations.php"'
-            . ' id="moveTableForm" class="ajax"'
-            . ' onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
-            . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
-
-        $html_output .= '<input type="hidden" name="reload" value="1">'
-            . '<input type="hidden" name="what" value="data">'
-            . '<fieldset id="fieldset_table_rename">';
-
-        $html_output .= '<legend>' . __('Move table to (database<b>.</b>table)')
-            . '</legend>';
-
-        if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
-            $html_output .= '<input type="text" maxlength="100" '
-                . 'name="target_db" value="' . htmlspecialchars($GLOBALS['db'])
-                . '">';
-        } else {
-            $html_output .= '<select class="halfWidth" name="target_db">'
-                . $GLOBALS['dblist']->databases->getHtmlOptions(true, false)
-                . '</select>';
-        }
-        $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
-        $html_output .= '<input class="halfWidth" type="text" name="new_name"'
-            . ' maxlength="64" required="required" '
-            . 'value="' . htmlspecialchars($GLOBALS['table']) . '"><br>';
-
-        // starting with MySQL 5.0.24, SHOW CREATE TABLE includes the AUTO_INCREMENT
-        // next value but users can decide if they want it or not for the operation
-
-        $html_output .= '<input type="checkbox" name="sql_auto_increment" '
-            . 'value="1" id="checkbox_auto_increment_mv" checked="checked">'
-            . '<label for="checkbox_auto_increment_mv">'
-            . __('Add AUTO_INCREMENT value')
-            . '</label><br>';
-
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges_tables_move" '
-                . 'checked="checked">';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges_tables_move" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled>';
-        }
-        $html_output .= '<label for="checkbox_privileges_tables_move">'
-            . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
-            . '</label><br>';
-
-        $html_output .= '</fieldset><fieldset class="tblFooters">'
-            . '<input class="btn btn-primary" type="submit" name="submit_move" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get the HTML div for Table option
-     *
-     * @param Table  $pma_table          Table object
-     * @param string $comment            Comment
-     * @param string $tbl_collation      table collation
-     * @param string $tbl_storage_engine table storage engine
-     * @param string $pack_keys          pack keys
-     * @param string $auto_increment     value of auto increment
-     * @param string $delay_key_write    delay key write
-     * @param string $transactional      value of transactional
-     * @param string $page_checksum      value of page checksum
-     * @param string $checksum           the checksum
-     *
-     * @return string
-     */
-    public function getTableOptionDiv(
-        $pma_table,
-        $comment,
-        $tbl_collation,
-        $tbl_storage_engine,
-        $pack_keys,
-        $auto_increment,
-        $delay_key_write,
-        $transactional,
-        $page_checksum,
-        $checksum
-    ) {
-        $html_output = '<div>';
-        $html_output .= '<form method="post" action="tbl_operations.php"';
-        $html_output .= ' id="tableOptionsForm" class="ajax">';
-        $html_output .= Url::getHiddenInputs(
-            $GLOBALS['db'],
-            $GLOBALS['table']
-        );
-        $html_output .= '<input type="hidden" name="reload" value="1">';
-
-        $html_output .= $this->getTableOptionFieldset(
-            $pma_table,
-            $comment,
-            $tbl_collation,
-            $tbl_storage_engine,
-            $pack_keys,
-            $delay_key_write,
-            $auto_increment,
-            $transactional,
-            $page_checksum,
-            $checksum
-        );
-
-        $html_output .= '<fieldset class="tblFooters">'
-            . '<input type="hidden" name="submitoptions" value="1">'
-            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get HTML for the rename table part of table options
-     *
-     * @return string
-     */
-    private function getHtmlForRenameTable()
-    {
-        $html_output = '<tr><td class="vmiddle">' . __('Rename table to') . '</td>'
-            . '<td>'
-            . '<input type="text" name="new_name" maxlength="64" '
-            . 'value="' . htmlspecialchars($GLOBALS['table'])
-            . '" required="required">'
-            . '</td></tr>'
-            . '<tr><td></td><td>';
-
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges_table_options" '
-                . 'checked="checked">';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges_table_options" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled>';
-        }
-        $html_output .= '<label for="checkbox_privileges_table_options">'
-            . __('Adjust privileges') . '&nbsp;'
-            . Util::showDocu('faq', 'faq6-39') . '</label>';
-
-        $html_output .= '</td></tr>';
-        return $html_output;
-    }
-
-    /**
-     * Get HTML for the table comments part of table options
-     *
-     * @param string $current_value of the table comments
-     *
-     * @return string
-     */
-    private function getHtmlForTableComments($current_value)
-    {
-        $commentLength = $this->dbi->getVersion() >= 50503 ? 2048 : 60;
-        return '<tr><td class="vmiddle">' . __('Table comments') . '</td>'
-            . '<td><input type="text" name="comment" '
-            . 'maxlength="' . $commentLength . '"'
-            . 'value="' . htmlspecialchars($current_value) . '">'
-            . '<input type="hidden" name="prev_comment" value="'
-            . htmlspecialchars($current_value) . '">'
-            . '</td>'
-            . '</tr>';
-    }
-
-    /**
-     * Get HTML for the PACK KEYS part of table options
-     *
-     * @param string $current_value of the pack keys option
-     *
-     * @return string
-     */
-    private function getHtmlForPackKeys($current_value)
-    {
-        $html_output = '<tr>'
-            . '<td class="vmiddle"><label for="new_pack_keys">PACK_KEYS</label></td>'
-            . '<td><select name="new_pack_keys" id="new_pack_keys">';
-
-        $html_output .= '<option value="DEFAULT"';
-        if ($current_value == 'DEFAULT') {
-            $html_output .= 'selected="selected"';
-        }
-        $html_output .= '>DEFAULT</option>
-                <option value="0"';
-        if ($current_value == '0') {
-            $html_output .= 'selected="selected"';
-        }
-        $html_output .= '>0</option>
-                <option value="1" ';
-        if ($current_value == '1') {
-            $html_output .= 'selected="selected"';
-        }
-        $html_output .= '>1</option>'
-            . '</select>'
-            . '</td>'
-            . '</tr>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get HTML fieldset for Table option, it contains HTML table for options
-     *
-     * @param Table  $pma_table          Table object
-     * @param string $comment            Comment
-     * @param string $tbl_collation      table collation
-     * @param string $tbl_storage_engine table storage engine
-     * @param string $pack_keys          pack keys
-     * @param string $delay_key_write    delay key write
-     * @param string $auto_increment     value of auto increment
-     * @param string $transactional      value of transactional
-     * @param string $page_checksum      value of page checksum
-     * @param string $checksum           the checksum
-     *
-     * @return string
-     */
-    private function getTableOptionFieldset(
-        $pma_table,
-        $comment,
-        $tbl_collation,
-        $tbl_storage_engine,
-        $pack_keys,
-        $delay_key_write,
-        $auto_increment,
-        $transactional,
-        $page_checksum,
-        $checksum
-    ) {
-        $html_output = '<fieldset>'
-            . '<legend>' . __('Table options') . '</legend>';
-
-        $html_output .= '<table>';
-        $html_output .= $this->getHtmlForRenameTable();
-        $html_output .= $this->getHtmlForTableComments($comment);
-
-        //Storage engine
-        $html_output .= '<tr><td class="vmiddle">' . __('Storage Engine')
-            . '&nbsp;' . Util::showMySQLDocu('Storage_engines')
-            . '</td>'
-            . '<td>'
-            . StorageEngine::getHtmlSelect(
-                'new_tbl_storage_engine',
-                null,
-                $tbl_storage_engine
-            )
-            . '</td>'
-            . '</tr>';
-
-        //Table character set
-        $html_output .= '<tr><td class="vmiddle">' . __('Collation') . '</td>'
-            . '<td>';
-        $html_output .= '<select lang="en" dir="ltr" name="tbl_collation">' . "\n";
-        $html_output .= '<option value=""></option>' . "\n";
-
-        $charsets = Charsets::getCharsets($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-        $collations = Charsets::getCollations($this->dbi, $GLOBALS['cfg']['Server']['DisableIS']);
-        /** @var Charset $charset */
-        foreach ($charsets as $charset) {
-            $html_output .= '<optgroup label="' . $charset->getName()
-                . '" title="' . $charset->getDescription() . '">' . "\n";
-            /** @var Collation $collation */
-            foreach ($collations[$charset->getName()] as $collation) {
-                $html_output .= '<option value="' . $collation->getName()
-                    . '" title="' . $collation->getDescription() . '"'
-                    . ($tbl_collation == $collation->getName() ? ' selected' : '') . '>'
-                    . $collation->getName() . '</option>' . "\n";
-            }
-            $html_output .= '</optgroup>' . "\n";
-        }
-        $html_output .= '</select>' . "\n";
-        $html_output .= '</td>'
-            . '</tr>';
-
-        // Change all Column collations
-        $html_output .= '<tr><td></td><td>'
-            . '<input type="checkbox" name="change_all_collations" value="1" '
-            . 'id="checkbox_change_all_collations">'
-            . '<label for="checkbox_change_all_collations">'
-            . __('Change all column collations')
-            . '</label>'
-            . '</td></tr>';
-
-        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'ISAM'])) {
-            $html_output .= $this->getHtmlForPackKeys($pack_keys);
-        } // end if (MYISAM|ISAM)
-
-        if ($pma_table->isEngine(['MYISAM', 'ARIA'])) {
-            $html_output .= $this->getHtmlForTableRow(
-                'new_checksum',
-                'CHECKSUM',
-                $checksum
-            );
-
-            $html_output .= $this->getHtmlForTableRow(
-                'new_delay_key_write',
-                'DELAY_KEY_WRITE',
-                $delay_key_write
-            );
-        } // end if (MYISAM)
-
-        if ($pma_table->isEngine('ARIA')) {
-            $html_output .= $this->getHtmlForTableRow(
-                'new_transactional',
-                'TRANSACTIONAL',
-                $transactional
-            );
-
-            $html_output .= $this->getHtmlForTableRow(
-                'new_page_checksum',
-                'PAGE_CHECKSUM',
-                $page_checksum
-            );
-        } // end if (ARIA)
-
-        if (strlen($auto_increment) > 0
-            && $pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'])
-        ) {
-            $html_output .= '<tr><td class="vmiddle">'
-                . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
-                . '<td><input type="number" name="new_auto_increment" '
-                . 'id="auto_increment_opt"'
-                . 'value="' . $auto_increment . '">'
-                . '<input type="hidden" name="hidden_auto_increment" '
-                . 'value="' . $auto_increment . '"></td>'
-                . '</tr> ';
-        } // end if (MYISAM|INNODB)
-
-        $possible_row_formats = $this->getPossibleRowFormat();
-
-        // for MYISAM there is also COMPRESSED but it can be set only by the
-        // myisampack utility, so don't offer here the choice because if we
-        // try it inside an ALTER TABLE, MySQL (at least in 5.1.23-maria)
-        // does not return a warning
-        // (if the table was compressed, it can be seen on the Structure page)
-
-        if (isset($possible_row_formats[$tbl_storage_engine])) {
-            $current_row_format
-                = mb_strtoupper($GLOBALS['showtable']['Row_format']);
-            $html_output .= '<tr><td class="vmiddle">'
-                . '<label for="new_row_format">ROW_FORMAT</label></td>'
-                . '<td>';
-            $html_output .= Util::getDropdown(
-                'new_row_format',
-                $possible_row_formats[$tbl_storage_engine],
-                $current_row_format,
-                'new_row_format'
-            );
-            $html_output .= '</td></tr>';
-        }
-        $html_output .= '</table>'
-            . '</fieldset>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get the common HTML table row (tr) for new_checksum, new_delay_key_write,
-     * new_transactional and new_page_checksum
-     *
-     * @param string $attribute class, name and id attribute
-     * @param string $label     label value
-     * @param string $val       checksum, delay_key_write, transactional, page_checksum
-     *
-     * @return string
-     */
-    private function getHtmlForTableRow($attribute, $label, $val)
-    {
-        return '<tr>'
-            . '<td class="vmiddle">'
-            . '<label for="' . $attribute . '">' . $label . '</label>'
-            . '</td>'
-            . '<td>'
-            . '<input type="checkbox" name="' . $attribute . '" id="' . $attribute . '"'
-            . ' value="1"' . (! empty($val) && $val == 1 ? ' checked="checked"' : '')
-            . '>'
-            . '</td>'
-            . '</tr>';
     }
 
     /**
@@ -1271,15 +536,13 @@ class Operations
      *
      * @return array
      */
-    private function getPossibleRowFormat()
+    public function getPossibleRowFormat()
     {
         // the outer array is for engines, the inner array contains the dropdown
         // option values as keys then the dropdown option labels
 
         $possible_row_formats = [
-            'ARCHIVE' => [
-                'COMPRESSED' => 'COMPRESSED',
-            ],
+            'ARCHIVE' => ['COMPRESSED' => 'COMPRESSED'],
             'ARIA'  => [
                 'FIXED'     => 'FIXED',
                 'DYNAMIC'   => 'DYNAMIC',
@@ -1317,7 +580,7 @@ class Operations
          * old versions of MySQL/MariaDB must be returning something or not empty.
          * This patch is to support newer MySQL/MariaDB while also for backward compatibilities.
          */
-        if (( ('Barracuda' == $innodb_file_format) || ($innodb_file_format == '') )
+        if (($innodb_file_format === 'Barracuda') || ($innodb_file_format == '')
             && $innodbEnginePlugin->supportsFilePerTable()
         ) {
             $possible_row_formats['INNODB']['DYNAMIC'] = 'DYNAMIC';
@@ -1328,348 +591,12 @@ class Operations
     }
 
     /**
-     * Get HTML div for copy table
-     *
-     * @return string
+     * @return array<string, string>
      */
-    public function getHtmlForCopytable()
+    public function getPartitionMaintenanceChoices(): array
     {
-        $html_output = '<div>';
-        $html_output .= '<form method="post" action="tbl_operations.php" '
-            . 'name="copyTable" '
-            . 'id="copyTable" '
-            . ' class="ajax" '
-            . 'onsubmit="return Functions.emptyCheckTheField(this, \'new_name\')">'
-            . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
-            . '<input type="hidden" name="reload" value="1">';
+        global $db, $table;
 
-        $html_output .= '<fieldset>';
-        $html_output .= '<legend>'
-            . __('Copy table to (database<b>.</b>table)') . '</legend>';
-
-        if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
-            $html_output .= '<input class="halfWidth" type="text" maxlength="100" '
-                . 'name="target_db" '
-                . 'value="' . htmlspecialchars($GLOBALS['db']) . '">';
-        } else {
-            $html_output .= '<select class="halfWidth" name="target_db">'
-                . $GLOBALS['dblist']->databases->getHtmlOptions(true, false)
-                . '</select>';
-        }
-        $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
-        $html_output .= '<input class="halfWidth" type="text" required="required" '
-            . 'name="new_name" maxlength="64" '
-            . 'value="' . htmlspecialchars($GLOBALS['table']) . '"><br>';
-
-        $choices = [
-            'structure' => __('Structure only'),
-            'data'      => __('Structure and data'),
-            'dataonly'  => __('Data only'),
-        ];
-
-        $html_output .= Util::getRadioFields(
-            'what',
-            $choices,
-            'data',
-            true
-        );
-        $html_output .= '<br>';
-
-        $html_output .= '<input type="checkbox" name="drop_if_exists" '
-            . 'value="true" id="checkbox_drop">'
-            . '<label for="checkbox_drop">'
-            . sprintf(__('Add %s'), 'DROP TABLE') . '</label><br>'
-            . '<input type="checkbox" name="sql_auto_increment" '
-            . 'value="1" id="checkbox_auto_increment_cp">'
-            . '<label for="checkbox_auto_increment_cp">'
-            . __('Add AUTO_INCREMENT value') . '</label><br>';
-
-        // display "Add constraints" choice only if there are
-        // foreign keys
-        if ($this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign')) {
-            $html_output .= '<input type="checkbox" name="add_constraints" '
-                . 'value="1" id="checkbox_constraints" checked="checked">';
-            $html_output .= '<label for="checkbox_constraints">'
-                . __('Add constraints') . '</label><br>';
-        } // endif
-
-        $html_output .= '<br>';
-
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
-        ) {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_adjust_privileges" checked="checked">';
-        } else {
-            $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_adjust_privileges" title="' . __(
-                    'You don\'t have sufficient privileges to perform this '
-                    . 'operation; Please refer to the documentation for more details'
-                )
-                . '" disabled>';
-        }
-        $html_output .= '<label for="checkbox_adjust_privileges">'
-            . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
-            . '</label><br>';
-
-        $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
-
-        $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
-            . 'id="checkbox_switch"'
-            . ($pma_switch_to_new ? ' checked="checked"' : '') . '>';
-        $html_output .= '<label for="checkbox_switch">'
-            . __('Switch to copied table') . '</label>'
-            . '</fieldset>';
-
-        $html_output .= '<fieldset class="tblFooters">'
-            . '<input class="btn btn-primary" type="submit" name="submit_copy" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get HTML snippet for table maintenance
-     *
-     * @param Table $pma_table  Table object
-     * @param array $url_params array of URL parameters
-     *
-     * @return string
-     */
-    public function getHtmlForTableMaintenance($pma_table, array $url_params)
-    {
-        $html_output = '<div>';
-        $html_output .= '<fieldset>'
-            . '<legend>' . __('Table maintenance') . '</legend>';
-        $html_output .= '<ul id="tbl_maintenance">';
-
-        // Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
-        $html_output .= $this->getListofMaintainActionLink($pma_table, $url_params);
-
-        $html_output .= '</ul>'
-            . '</fieldset>'
-            . '</div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get HTML 'li' having a link of maintain action
-     *
-     * @param Table $pma_table  Table object
-     * @param array $url_params Array of URL parameters
-     *
-     * @return string
-     */
-    private function getListofMaintainActionLink($pma_table, array $url_params)
-    {
-        $html_output = '';
-
-        // analyze table
-        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'])) {
-            $params = [
-                'sql_query' => 'ANALYZE TABLE '
-                    . Util::backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-            ];
-            $html_output .= $this->getMaintainActionlink(
-                __('Analyze table'),
-                $params,
-                $url_params,
-                'ANALYZE_TABLE'
-            );
-        }
-
-        // check table
-        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'TOKUDB'])) {
-            $params = [
-                'sql_query' => 'CHECK TABLE '
-                    . Util::backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-            ];
-            $html_output .= $this->getMaintainActionlink(
-                __('Check table'),
-                $params,
-                $url_params,
-                'CHECK_TABLE'
-            );
-        }
-
-        // checksum table
-        $params = [
-            'sql_query' => 'CHECKSUM TABLE '
-                . Util::backquote($GLOBALS['table']),
-            'table_maintenance' => 'Go',
-        ];
-        $html_output .= $this->getMaintainActionlink(
-            __('Checksum table'),
-            $params,
-            $url_params,
-            'CHECKSUM_TABLE'
-        );
-
-        // defragment table
-        if ($pma_table->isEngine(['INNODB'])) {
-            $params = [
-                'sql_query' => 'ALTER TABLE '
-                . Util::backquote($GLOBALS['table'])
-                . ' ENGINE = InnoDB;',
-            ];
-            $html_output .= $this->getMaintainActionlink(
-                __('Defragment table'),
-                $params,
-                $url_params,
-                'InnoDB_File_Defragmenting'
-            );
-        }
-
-        // flush table
-        $params = [
-            'sql_query' => 'FLUSH TABLE '
-                . Util::backquote($GLOBALS['table']),
-            'message_to_show' => sprintf(
-                __('Table %s has been flushed.'),
-                htmlspecialchars($GLOBALS['table'])
-            ),
-            'reload' => 1,
-        ];
-        $html_output .= $this->getMaintainActionlink(
-            __('Flush the table (FLUSH)'),
-            $params,
-            $url_params,
-            'FLUSH'
-        );
-
-        // optimize table
-        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'])) {
-            $params = [
-                'sql_query' => 'OPTIMIZE TABLE '
-                    . Util::backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-            ];
-            $html_output .= $this->getMaintainActionlink(
-                __('Optimize table'),
-                $params,
-                $url_params,
-                'OPTIMIZE_TABLE'
-            );
-        }
-
-        // repair table
-        if ($pma_table->isEngine(['MYISAM', 'ARIA'])) {
-            $params = [
-                'sql_query' => 'REPAIR TABLE '
-                    . Util::backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-            ];
-            $html_output .= $this->getMaintainActionlink(
-                __('Repair table'),
-                $params,
-                $url_params,
-                'REPAIR_TABLE'
-            );
-        }
-
-        return $html_output;
-    }
-
-    /**
-     * Get maintain action HTML link
-     *
-     * @param string $action_message action message
-     * @param array  $params         url parameters array
-     * @param array  $url_params     additional url parameters
-     * @param string $link           contains name of page/anchor that is being linked
-     *
-     * @return string
-     */
-    private function getMaintainActionlink($action_message, array $params, array $url_params, $link)
-    {
-        return '<li>'
-            . Util::linkOrButton(
-                'sql.php' . Url::getCommon(array_merge($url_params, $params)),
-                $action_message,
-                ['class' => 'maintain_action ajax']
-            )
-            . Util::showMySQLDocu($link)
-            . '</li>';
-    }
-
-    /**
-     * Get HTML for Delete data or table (truncate table, drop table)
-     *
-     * @param array $truncate_table_url_params url parameter array for truncate table
-     * @param array $dropTableUrlParams        url parameter array for drop table
-     *
-     * @return string
-     */
-    public function getHtmlForDeleteDataOrTable(
-        array $truncate_table_url_params,
-        array $dropTableUrlParams
-    ) {
-        $html_output = '<div>'
-            . '<fieldset class="caution">'
-            . '<legend>' . __('Delete data or table') . '</legend>';
-
-        $html_output .= '<ul>';
-
-        if (! empty($truncate_table_url_params)) {
-            $html_output .= $this->getDeleteDataOrTablelink(
-                $truncate_table_url_params,
-                'TRUNCATE_TABLE',
-                __('Empty the table (TRUNCATE)'),
-                'truncate_tbl_anchor'
-            );
-        }
-        if (! empty($dropTableUrlParams)) {
-            $html_output .= $this->getDeleteDataOrTablelink(
-                $dropTableUrlParams,
-                'DROP_TABLE',
-                __('Delete the table (DROP)'),
-                'drop_tbl_anchor'
-            );
-        }
-        $html_output .= '</ul></fieldset></div>';
-
-        return $html_output;
-    }
-
-    /**
-     * Get the HTML link for Truncate table, Drop table and Drop db
-     *
-     * @param array  $url_params url parameter array for delete data or table
-     * @param string $syntax     TRUNCATE_TABLE or DROP_TABLE or DROP_DATABASE
-     * @param string $link       link to be shown
-     * @param string $htmlId     id of the link
-     *
-     * @return string html output
-     */
-    public function getDeleteDataOrTablelink(array $url_params, $syntax, $link, $htmlId)
-    {
-        return '<li>' . Util::linkOrButton(
-            'sql.php' . Url::getCommon($url_params),
-            $link,
-            [
-                'id' => $htmlId,
-                'class' => 'ajax',
-            ]
-        )
-            . Util::showMySQLDocu($syntax)
-            . '</li>';
-    }
-
-    /**
-     * Get HTML snippet for partition maintenance
-     *
-     * @param array $partition_names array of partition names for a specific db/table
-     * @param array $url_params      url parameters
-     *
-     * @return string
-     */
-    public function getHtmlForPartitionMaintenance(array $partition_names, array $url_params)
-    {
         $choices = [
             'ANALYZE' => __('Analyze'),
             'CHECK' => __('Check'),
@@ -1679,147 +606,93 @@ class Operations
             'TRUNCATE' => __('Truncate'),
         ];
 
-        $partition_method = Partition::getPartitionMethod(
-            $GLOBALS['db'],
-            $GLOBALS['table']
-        );
-        // add COALESCE or DROP option to choices array depeding on Partition method
-        if ($partition_method == 'RANGE'
-            || $partition_method == 'RANGE COLUMNS'
-            || $partition_method == 'LIST'
-            || $partition_method == 'LIST COLUMNS'
+        $partitionMethod = Partition::getPartitionMethod($db, $table);
+
+        // add COALESCE or DROP option to choices array depending on Partition method
+        if ($partitionMethod === 'RANGE'
+            || $partitionMethod === 'RANGE COLUMNS'
+            || $partitionMethod === 'LIST'
+            || $partitionMethod === 'LIST COLUMNS'
         ) {
             $choices['DROP'] = __('Drop');
         } else {
             $choices['COALESCE'] = __('Coalesce');
         }
 
-        $html_output = '<div>'
-            . '<form id="partitionsForm" class="ajax" '
-            . 'method="post" action="tbl_operations.php" >'
-            . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
-            . '<fieldset>'
-            . '<legend>'
-            . __('Partition maintenance')
-            . Util::showMySQLDocu('partitioning_maintenance')
-            . '</legend>';
-
-        $html_select = '<select id="partition_name" name="partition_name[]"'
-            . ' multiple="multiple" required="required">' . "\n";
-        $first = true;
-        foreach ($partition_names as $one_partition) {
-            $one_partition = htmlspecialchars($one_partition);
-            $html_select .= '<option value="' . $one_partition . '"';
-            if ($first) {
-                $html_select .= ' selected="selected"';
-                $first = false;
-            }
-            $html_select .=  '>' . $one_partition . '</option>' . "\n";
-        }
-        $html_select .= '</select>' . "\n";
-        $html_output .= sprintf(__('Partition %s'), $html_select);
-
-        $html_output .= '<div class="clearfloat">';
-        $html_output .= Util::getRadioFields(
-            'partition_operation',
-            $choices,
-            'ANALYZE',
-            false,
-            true,
-            'floatleft'
-        );
-        $this_url_params = array_merge(
-            $url_params,
-            [
-                'sql_query' => 'ALTER TABLE '
-                . Util::backquote($GLOBALS['table'])
-                . ' REMOVE PARTITIONING;',
-            ]
-        );
-        $html_output .= '<div class="clearfloat"><br>';
-
-        $html_output .= '<a href="sql.php'
-            . Url::getCommon($this_url_params) . '">'
-            . __('Remove partitioning') . '</a>';
-
-        $html_output .= '</fieldset>'
-            . '<fieldset class="tblFooters">'
-            . '<input type="hidden" name="submit_partition" value="1">'
-            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
-            . '</fieldset>'
-            . '</form>'
-            . '</div>';
-
-        return $html_output;
+        return $choices;
     }
 
     /**
-     * Get the HTML for Referential Integrity check
+     * @param array $urlParams          Array of url parameters.
+     * @param bool  $hasRelationFeature If relation feature is enabled.
      *
-     * @param array $foreign    all Relations to foreign tables for a given table
-     *                          or optionally a given column in a table
-     * @param array $url_params array of url parameters
-     *
-     * @return string
+     * @return array
      */
-    public function getHtmlForReferentialIntegrityCheck(array $foreign, array $url_params)
-    {
-        $html_output = '<div>'
-            . '<fieldset>'
-            . '<legend>' . __('Check referential integrity:') . '</legend>';
+    public function getForeignersForReferentialIntegrityCheck(
+        array $urlParams,
+        $hasRelationFeature
+    ): array {
+        global $db, $table;
 
-        $html_output .= '<ul>';
+        if (! $hasRelationFeature) {
+            return [];
+        }
+
+        $foreigners = [];
+        $this->dbi->selectDb($db);
+        $foreign = $this->relation->getForeigners($db, $table, '', 'internal');
 
         foreach ($foreign as $master => $arr) {
-            $join_query  = 'SELECT '
-                . Util::backquote($GLOBALS['table']) . '.*'
-                . ' FROM ' . Util::backquote($GLOBALS['table'])
+            $joinQuery  = 'SELECT '
+                . Util::backquote($table) . '.*'
+                . ' FROM ' . Util::backquote($table)
                 . ' LEFT JOIN '
                 . Util::backquote($arr['foreign_db'])
                 . '.'
                 . Util::backquote($arr['foreign_table']);
-            if ($arr['foreign_table'] == $GLOBALS['table']) {
-                $foreign_table = $GLOBALS['table'] . '1';
-                $join_query .= ' AS ' . Util::backquote($foreign_table);
+
+            if ($arr['foreign_table'] == $table) {
+                $foreignTable = $table . '1';
+                $joinQuery .= ' AS ' . Util::backquote($foreignTable);
             } else {
-                $foreign_table = $arr['foreign_table'];
+                $foreignTable = $arr['foreign_table'];
             }
-            $join_query .= ' ON '
-                . Util::backquote($GLOBALS['table']) . '.'
+
+            $joinQuery .= ' ON '
+                . Util::backquote($table) . '.'
                 . Util::backquote($master)
                 . ' = '
                 . Util::backquote($arr['foreign_db'])
                 . '.'
-                . Util::backquote($foreign_table) . '.'
+                . Util::backquote($foreignTable) . '.'
                 . Util::backquote($arr['foreign_field'])
                 . ' WHERE '
                 . Util::backquote($arr['foreign_db'])
                 . '.'
-                . Util::backquote($foreign_table) . '.'
+                . Util::backquote($foreignTable) . '.'
                 . Util::backquote($arr['foreign_field'])
                 . ' IS NULL AND '
-                . Util::backquote($GLOBALS['table']) . '.'
+                . Util::backquote($table) . '.'
                 . Util::backquote($master)
                 . ' IS NOT NULL';
-            $this_url_params = array_merge(
-                $url_params,
+            $thisUrlParams = array_merge(
+                $urlParams,
                 [
-                    'sql_query' => $join_query,
-                    'sql_signature' => Core::signSqlQuery($join_query),
+                    'sql_query' => $joinQuery,
+                    'sql_signature' => Core::signSqlQuery($joinQuery),
                 ]
             );
 
-            $html_output .= '<li>'
-                . '<a href="sql.php'
-                . Url::getCommon($this_url_params)
-                . '">'
-                . $master . '&nbsp;->&nbsp;' . $arr['foreign_db'] . '.'
-                . $arr['foreign_table'] . '.' . $arr['foreign_field']
-                . '</a></li>' . "\n";
-        } //  foreach $foreign
-        $html_output .= '</ul></fieldset></div>';
+            $foreigners[] = [
+                'params' => $thisUrlParams,
+                'master' => $master,
+                'db' => $arr['foreign_db'],
+                'table' => $arr['foreign_table'],
+                'field' => $arr['foreign_field'],
+            ];
+        }
 
-        return $html_output;
+        return $foreigners;
     }
 
     /**
@@ -1895,7 +768,7 @@ class Operations
             && $_POST['tbl_collation'] !== $tbl_collation
         ) {
             $table_alters[] = 'DEFAULT '
-                . Util::getCharsetQueryPart($_POST['tbl_collation']);
+                . Util::getCharsetQueryPart($_POST['tbl_collation'] ?? '');
         }
 
         if ($pma_table->isEngine(['MYISAM', 'ARIA', 'ISAM'])
@@ -1976,15 +849,18 @@ class Operations
             // should not be reported with a Level of Error, so here
             // I just ignore it. But there are other 1478 messages
             // that it's better to show.
-            if (! (isset($_POST['new_tbl_storage_engine'])
-                && $_POST['new_tbl_storage_engine'] == 'MyISAM'
+            if (isset($_POST['new_tbl_storage_engine'])
+                && $_POST['new_tbl_storage_engine'] === 'MyISAM'
                 && $warning['Code'] == '1478'
-                && $warning['Level'] == 'Error')
+                && $warning['Level'] === 'Error'
             ) {
-                $warning_messages[] = $warning['Level'] . ': #' . $warning['Code']
-                    . ' ' . $warning['Message'];
+                continue;
             }
+
+            $warning_messages[] = $warning['Level'] . ': #' . $warning['Code']
+                . ' ' . $warning['Message'];
         }
+
         return $warning_messages;
     }
 
@@ -2001,7 +877,7 @@ class Operations
             . $_POST['partition_operation']
             . ' PARTITION ';
 
-        if ($_POST['partition_operation'] == 'COALESCE') {
+        if ($_POST['partition_operation'] === 'COALESCE') {
             $sql_query .= count($_POST['partition_name']);
         } else {
             $sql_query .= implode(', ', $_POST['partition_name']) . ';';
@@ -2027,29 +903,35 @@ class Operations
      */
     public function adjustPrivilegesRenameOrMoveTable($oldDb, $oldTable, $newDb, $newTable)
     {
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
+        if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
+            || ! $GLOBALS['is_reload_priv']
         ) {
-            $this->dbi->selectDb('mysql');
-
-            // For table specific privileges
-            $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
-                . 'SET Db = \'' . $this->dbi->escapeString($newDb) . '\', Table_name = \'' . $this->dbi->escapeString($newTable)
-                . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\' AND Table_name = \'' . $this->dbi->escapeString($oldTable)
-                . '\';';
-            $this->dbi->query($query_table_specific);
-
-            // For column specific privileges
-            $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
-                . 'SET Db = \'' . $this->dbi->escapeString($newDb) . '\', Table_name = \'' . $this->dbi->escapeString($newTable)
-                . '\' where Db = \'' . $this->dbi->escapeString($oldDb) . '\' AND Table_name = \'' . $this->dbi->escapeString($oldTable)
-                . '\';';
-            $this->dbi->query($query_col_specific);
-
-            // Finally FLUSH the new privileges
-            $flush_query = "FLUSH PRIVILEGES;";
-            $this->dbi->query($flush_query);
+            return;
         }
+
+        $this->dbi->selectDb('mysql');
+
+        // For table specific privileges
+        $query_table_specific = 'UPDATE ' . Util::backquote('tables_priv')
+            . 'SET Db = \'' . $this->dbi->escapeString($newDb)
+            . '\', Table_name = \'' . $this->dbi->escapeString($newTable)
+            . '\' where Db = \'' . $this->dbi->escapeString($oldDb)
+            . '\' AND Table_name = \'' . $this->dbi->escapeString($oldTable)
+            . '\';';
+        $this->dbi->query($query_table_specific);
+
+        // For column specific privileges
+        $query_col_specific = 'UPDATE ' . Util::backquote('columns_priv')
+            . 'SET Db = \'' . $this->dbi->escapeString($newDb)
+            . '\', Table_name = \'' . $this->dbi->escapeString($newTable)
+            . '\' where Db = \'' . $this->dbi->escapeString($oldDb)
+            . '\' AND Table_name = \'' . $this->dbi->escapeString($oldTable)
+            . '\';';
+        $this->dbi->query($query_col_specific);
+
+        // Finally FLUSH the new privileges
+        $flush_query = 'FLUSH PRIVILEGES;';
+        $this->dbi->query($flush_query);
     }
 
     /**
@@ -2064,55 +946,57 @@ class Operations
      */
     public function adjustPrivilegesCopyTable($oldDb, $oldTable, $newDb, $newTable)
     {
-        if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
-            && $GLOBALS['is_reload_priv']
+        if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
+            || ! $GLOBALS['is_reload_priv']
         ) {
-            $this->dbi->selectDb('mysql');
-
-            // For Table Specific privileges
-            $query_table_specific_old = 'SELECT * FROM '
-                . Util::backquote('tables_priv') . ' where '
-                . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
-
-            $old_privs_table = $this->dbi->fetchResult(
-                $query_table_specific_old,
-                0
-            );
-
-            foreach ($old_privs_table as $old_priv) {
-                $newDb_table_privs_query = 'INSERT INTO '
-                    . Util::backquote('tables_priv') . ' VALUES("'
-                    . $old_priv[0] . '", "' . $newDb . '", "' . $old_priv[2] . '", "'
-                    . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5]
-                    . '", "' . $old_priv[6] . '", "' . $old_priv[7] . '");';
-
-                $this->dbi->query($newDb_table_privs_query);
-            }
-
-            // For Column Specific privileges
-            $query_col_specific_old = 'SELECT * FROM '
-                . Util::backquote('columns_priv') . ' WHERE '
-                . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
-
-            $old_privs_col = $this->dbi->fetchResult(
-                $query_col_specific_old,
-                0
-            );
-
-            foreach ($old_privs_col as $old_priv) {
-                $newDb_col_privs_query = 'INSERT INTO '
-                    . Util::backquote('columns_priv') . ' VALUES("'
-                    . $old_priv[0] . '", "' . $newDb . '", "' . $old_priv[2] . '", "'
-                    . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5]
-                    . '", "' . $old_priv[6] . '");';
-
-                $this->dbi->query($newDb_col_privs_query);
-            }
-
-            // Finally FLUSH the new privileges
-            $flush_query = "FLUSH PRIVILEGES;";
-            $this->dbi->query($flush_query);
+            return;
         }
+
+        $this->dbi->selectDb('mysql');
+
+        // For Table Specific privileges
+        $query_table_specific_old = 'SELECT * FROM '
+            . Util::backquote('tables_priv') . ' where '
+            . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
+
+        $old_privs_table = $this->dbi->fetchResult(
+            $query_table_specific_old,
+            0
+        );
+
+        foreach ($old_privs_table as $old_priv) {
+            $newDb_table_privs_query = 'INSERT INTO '
+                . Util::backquote('tables_priv') . ' VALUES("'
+                . $old_priv[0] . '", "' . $newDb . '", "' . $old_priv[2] . '", "'
+                . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5]
+                . '", "' . $old_priv[6] . '", "' . $old_priv[7] . '");';
+
+            $this->dbi->query($newDb_table_privs_query);
+        }
+
+        // For Column Specific privileges
+        $query_col_specific_old = 'SELECT * FROM '
+            . Util::backquote('columns_priv') . ' WHERE '
+            . 'Db = "' . $oldDb . '" AND Table_name = "' . $oldTable . '";';
+
+        $old_privs_col = $this->dbi->fetchResult(
+            $query_col_specific_old,
+            0
+        );
+
+        foreach ($old_privs_col as $old_priv) {
+            $newDb_col_privs_query = 'INSERT INTO '
+                . Util::backquote('columns_priv') . ' VALUES("'
+                . $old_priv[0] . '", "' . $newDb . '", "' . $old_priv[2] . '", "'
+                . $newTable . '", "' . $old_priv[4] . '", "' . $old_priv[5]
+                . '", "' . $old_priv[6] . '");';
+
+            $this->dbi->query($newDb_col_privs_query);
+        }
+
+        // Finally FLUSH the new privileges
+        $flush_query = 'FLUSH PRIVILEGES;';
+        $this->dbi->query($flush_query);
     }
 
     /**
@@ -2132,7 +1016,7 @@ class Operations
             . Util::backquote($table)
             . ' CONVERT TO';
 
-        list($charset) = explode('_', $tbl_collation);
+        [$charset] = explode('_', $tbl_collation);
 
         $change_all_collations_query .= ' CHARACTER SET ' . $charset
             . ($charset == $tbl_collation ? '' : ' COLLATE ' . $tbl_collation);
@@ -2145,10 +1029,8 @@ class Operations
      *
      * @param string $db    current database name
      * @param string $table current table name
-     *
-     * @return void
      */
-    public function moveOrCopyTable($db, $table)
+    public function moveOrCopyTable($db, $table): Message
     {
         /**
          * Selects the database to work with
@@ -2252,15 +1134,6 @@ class Operations
             $message = Message::error(__('The table name is empty!'));
         }
 
-        $response = Response::getInstance();
-        if ($response->isAjax()) {
-            $response->addJSON('message', $message);
-            if ($message->isSuccess()) {
-                $response->addJSON('db', $GLOBALS['db']);
-            } else {
-                $response->setRequestStatus(false);
-            }
-            exit;
-        }
+        return $message;
     }
 }

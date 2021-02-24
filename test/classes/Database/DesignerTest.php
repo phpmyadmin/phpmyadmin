@@ -1,9 +1,5 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Database\Designer
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Database;
@@ -12,28 +8,22 @@ use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 
-/**
- * Tests for PhpMyAdmin\Database\Designer
- *
- * @package PhpMyAdmin-test
- */
-class DesignerTest extends TestCase
+class DesignerTest extends AbstractTestCase
 {
-    /**
-     * @var Designer
-     */
+    /** @var Designer */
     private $designer;
 
     /**
      * Setup for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['PDFPageSizes'] = [
@@ -61,19 +51,17 @@ class DesignerTest extends TestCase
      * Mocks database interaction for tests.
      *
      * @param string $db database name
-     *
-     * @return void
      */
-    private function _mockDatabaseInteraction($db)
+    private function mockDatabaseInteraction(string $db): void
     {
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with(
-                "SELECT `page_nr`, `page_descr` FROM `pmadb`.`pdf_pages`"
+                'SELECT `page_nr`, `page_descr` FROM `pmadb`.`pdf_pages`'
                 . " WHERE db_name = '" . $db . "' ORDER BY `page_descr`",
                 DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE,
@@ -92,7 +80,7 @@ class DesignerTest extends TestCase
                     'page_nr' => '2',
                     'page_descr' => 'page2',
                 ],
-                false
+                null
             );
 
         $dbi->expects($this->any())
@@ -104,13 +92,11 @@ class DesignerTest extends TestCase
 
     /**
      * Test for getPageIdsAndNames()
-     *
-     * @return void
      */
-    public function testGetPageIdsAndNames()
+    public function testGetPageIdsAndNames(): void
     {
         $db = 'db';
-        $this->_mockDatabaseInteraction($db);
+        $this->mockDatabaseInteraction($db);
 
         $template = new Template();
         $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
@@ -130,14 +116,12 @@ class DesignerTest extends TestCase
 
     /**
      * Test for getHtmlForEditOrDeletePages()
-     *
-     * @return void
      */
-    public function testGetHtmlForEditOrDeletePages()
+    public function testGetHtmlForEditOrDeletePages(): void
     {
         $db = 'db';
         $operation = 'edit';
-        $this->_mockDatabaseInteraction($db);
+        $this->mockDatabaseInteraction($db);
 
         $template = new Template();
         $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
@@ -160,13 +144,11 @@ class DesignerTest extends TestCase
 
     /**
      * Test for getHtmlForPageSaveAs()
-     *
-     * @return void
      */
-    public function testGetHtmlForPageSaveAs()
+    public function testGetHtmlForPageSaveAs(): void
     {
         $db = 'db';
-        $this->_mockDatabaseInteraction($db);
+        $this->mockDatabaseInteraction($db);
 
         $template = new Template();
         $this->designer = new Designer($GLOBALS['dbi'], new Relation($GLOBALS['dbi'], $template), $template);
@@ -187,12 +169,11 @@ class DesignerTest extends TestCase
         $this->assertStringContainsString('page2', $result);
 
         $this->assertStringContainsString(
-            '<input type="radio" name="save_page" id="save_page_same" value="same"'
-            . ' checked="checked">',
+            '<input type="radio" name="save_page" id="savePageSameRadio" value="same" checked>',
             $result
         );
         $this->assertStringContainsString(
-            '<input type="radio" name="save_page" id="save_page_new" value="new">',
+            '<input type="radio" name="save_page" id="savePageNewRadio" value="new">',
             $result
         );
         $this->assertStringContainsString(
@@ -203,10 +184,8 @@ class DesignerTest extends TestCase
 
     /**
      * Test for getHtmlForSchemaExport()
-     *
-     * @return void
      */
-    public function testGetHtmlForSchemaExport()
+    public function testGetHtmlForSchemaExport(): void
     {
         $db = 'db';
         $page = 2;

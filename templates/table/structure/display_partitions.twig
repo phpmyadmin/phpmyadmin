@@ -17,8 +17,8 @@
                     <code>{{ sub_partition_method }}({{ sub_partition_expression }})</code>
                 <p>
             {% endif %}
-            <table>
-                <thead>
+            <table class="table table-light table-striped table-hover table-sm">
+                <thead class="thead-light">
                     <tr>
                         <th colspan="2">#</th>
                         <th>{% trans 'Partition' %}</th>
@@ -36,7 +36,7 @@
                 </thead>
                 <tbody>
                 {% for partition in partitions %}
-                    <tr class="noclick{{ has_sub_partitions ? ' marked' }}">
+                    <tr class="noclick{{ has_sub_partitions ? ' table-active' }}">
                         {% if has_sub_partitions %}
                             <td>{{ partition.getOrdinal() }}</td>
                             <td></td>
@@ -74,19 +74,78 @@
                             <span class="unit">{{ index_length[1] }}</span>
                         </td>
                         <td>{{ partition.getComment() }}</td>
-                        {% for action, icon in action_icons %}
-                            <td>
-                                <a href="tbl_structure.php" data-post="{{ url_query -}}
-                                    &amp;partition_maintenance=1&amp;sql_query=
-                                    {{- ("ALTER TABLE " ~ backquote(table) ~ " " ~ action
-                                        ~ " PARTITION " ~ partition.getName())|url_encode }}"
-                                    id="partition_action_{{ action }}"
-                                    name="partition_action_{{ action }}"
-                                    class="ajax">
-                                    {{ icon|raw }}
-                                </a>
-                            </td>
-                        {% endfor %}
+
+                        <td>
+                          <a id="partition_action_ANALYZE" class="ajax" href="{{ url('/table/partition/analyze') }}" data-post="{{ get_common({
+                            'db': db,
+                            'table': table,
+                            'partition_name': partition.getName(),
+                          }) }}">
+                            {{ get_icon('b_search', 'Analyze'|trans) }}
+                          </a>
+                        </td>
+
+                        <td>
+                          <a id="partition_action_CHECK" class="ajax" href="{{ url('/table/partition/check') }}" data-post="{{ get_common({
+                            'db': db,
+                            'table': table,
+                            'partition_name': partition.getName(),
+                          }) }}">
+                            {{ get_icon('eye', 'Check'|trans) }}
+                          </a>
+                        </td>
+
+                        <td>
+                          <a id="partition_action_OPTIMIZE" class="ajax" href="{{ url('/table/partition/optimize') }}" data-post="{{ get_common({
+                            'db': db,
+                            'table': table,
+                            'partition_name': partition.getName(),
+                          }) }}">
+                            {{ get_icon('normalize', 'Optimize'|trans) }}
+                          </a>
+                        </td>
+
+                        <td>
+                          <a id="partition_action_REBUILD" class="ajax" href="{{ url('/table/partition/rebuild') }}" data-post="{{ get_common({
+                            'db': db,
+                            'table': table,
+                            'partition_name': partition.getName(),
+                          }) }}">
+                            {{ get_icon('s_tbl', 'Rebuild'|trans) }}
+                          </a>
+                        </td>
+
+                        <td>
+                          <a id="partition_action_REPAIR" class="ajax" href="{{ url('/table/partition/repair') }}" data-post="{{ get_common({
+                            'db': db,
+                            'table': table,
+                            'partition_name': partition.getName(),
+                          }) }}">
+                            {{ get_icon('b_tblops', 'Repair'|trans) }}
+                          </a>
+                        </td>
+
+                        <td>
+                          <a id="partition_action_TRUNCATE" class="ajax" href="{{ url('/table/partition/truncate') }}" data-post="{{ get_common({
+                            'db': db,
+                            'table': table,
+                            'partition_name': partition.getName(),
+                          }) }}">
+                            {{ get_icon('b_empty', 'Truncate'|trans) }}
+                          </a>
+                        </td>
+
+                        {% if range_or_list %}
+                          <td>
+                            <a id="partition_action_DROP" class="ajax" href="{{ url('/table/partition/drop') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'partition_name': partition.getName(),
+                            }) }}">
+                              {{ get_icon('b_drop', 'Drop'|trans) }}
+                            </a>
+                          </td>
+                        {% endif %}
 
                         {% if has_sub_partitions %}
                             {% for sub_partition in partition.getSubPartitions() %}
@@ -128,17 +187,23 @@
         {% endif %}
     </fieldset>
     <fieldset class="tblFooters print_ignore">
-        <form action="tbl_structure.php" method="post">
+        <form action="{{ url('/table/structure/partitioning') }}" method="post">
             {{ get_hidden_inputs(db, table) }}
-            <input type="hidden" name="edit_partitioning" value="true">
+
             {% if partitions is empty %}
-                <input class="btn btn-secondary" type="submit" name="edit_partitioning" value="{% trans 'Partition table' %}">
+                <input class="btn btn-secondary" type="submit" value="{% trans 'Partition table' %}">
             {% else %}
-                {{ link_or_button(remove_url, 'Remove partitioning'|trans, {
-                    'class': 'button ajax',
+                {{ link_or_button(
+                  url('/sql', {
+                    'db': db,
+                    'table': table,
+                    'sql_query': 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING'
+                  }),
+                  'Remove partitioning'|trans, {
+                    'class': 'btn btn-secondary ajax',
                     'id': 'remove_partitioning'
                 }) }}
-                <input class="btn btn-secondary" type="submit" name="edit_partitioning" value="{% trans 'Edit partitioning' %}">
+                <input class="btn btn-secondary" type="submit" value="{% trans 'Edit partitioning' %}">
             {% endif %}
         </form>
     </fieldset>

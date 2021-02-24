@@ -1,4 +1,4 @@
-<form class="submenu-item" action="server_privileges.php" id="{{ form_id }}" method="post">
+<form class="submenu-item" action="{{ url('/server/privileges') }}" id="{{ form_id }}" method="post">
     {{ get_hidden_inputs() }}
     <input type="hidden" name="username" value="{{ username }}">
     <input type="hidden" name="hostname" value="{{ hostname }}">
@@ -8,18 +8,18 @@
             {{ legend }}
         </legend>
 
-        <table class="data">
-            <thead>
+        <table class="table table-light table-striped table-hover">
+            <thead class="thead-light">
                 <tr>
-                    <th>{{ type_label }}</th>
-                    <th>{% trans 'Privileges' %}</th>
-                    <th>{% trans 'Grant' %}</th>
+                    <th scope="col">{{ type_label }}</th>
+                    <th scope="col">{% trans 'Privileges' %}</th>
+                    <th scope="col">{% trans 'Grant' %}</th>
                     {% if type == 'database' %}
-                        <th>{% trans 'Table-specific privileges' %}</th>
+                        <th scope="col">{% trans 'Table-specific privileges' %}</th>
                     {% elseif type == 'table' %}
-                        <th>{% trans 'Column-specific privileges' %}</th>
+                        <th scope="col">{% trans 'Column-specific privileges' %}</th>
                     {% endif %}
-                    <th colspan="2">{% trans 'Action' %}</th>
+                    <th scope="col" colspan="2">{% trans 'Action' %}</th>
                 </tr>
             </thead>
 
@@ -27,7 +27,7 @@
                 {% if privileges|length == 0 %}
                     {% set colspan = type == 'database' ? 7 : (type == 'table' ? 6 : 5) %}
                     <tr>
-                        <td colspan="{{ colspan }}"><center><em>{% trans 'None' %}</em></center></td>
+                        <td class="text-center" colspan="{{ colspan }}"><em>{% trans 'None' %}</em></td>
                     </tr>
                 {% else %}
                     {% for privilege in privileges %}
@@ -56,7 +56,7 @@
             {%- if databases is not empty %}
                 <select name="pred_dbname[]" multiple="multiple">
                     {% for database in databases %}
-                        <option value="{{ database|escape_mysql_wildcards }}">
+                        <option value="{{ escaped_databases[loop.index0]|escape_mysql_wildcards }}">
                             {{ database }}
                         </option>
                     {% endfor %}

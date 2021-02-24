@@ -1,10 +1,5 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds the PhpMyAdmin\Properties\Options\Items\RadioPropertyItem class
- *
- * @package PhpMyAdmin
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options\Items;
@@ -13,8 +8,6 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
 
 /**
  * Single property item class of type radio
- *
- * @package PhpMyAdmin
  */
 class RadioPropertyItem extends OptionsPropertyOneItem
 {
@@ -30,6 +23,6 @@ class RadioPropertyItem extends OptionsPropertyOneItem
      */
     public function getItemType()
     {
-        return "radio";
+        return 'radio';
     }
 }

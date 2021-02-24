@@ -1,45 +1,36 @@
 <?php
 /**
  * Tests for Types.php
- *
- * @package PhpMyAdmin-test
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Types;
 
 /**
  * Testcase for MySQL types handling.
- *
- * @package PhpMyAdmin-test
  */
-class TypesTest extends PmaTestCase
+class TypesTest extends AbstractTestCase
 {
-    /**
-     * @var Types
-     */
+    /** @var Types */
     protected $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = new Types($GLOBALS['dbi']);
     }
 
     /**
      * Test for isUnaryOperator
-     *
-     * @return void
      */
-    public function testUnary()
+    public function testUnary(): void
     {
         $this->assertTrue($this->object->isUnaryOperator('IS NULL'));
         $this->assertFalse($this->object->isUnaryOperator('='));
@@ -47,10 +38,8 @@ class TypesTest extends PmaTestCase
 
     /**
      * Test for getUnaryOperators
-     *
-     * @return void
      */
-    public function testGetUnaryOperators()
+    public function testGetUnaryOperators(): void
     {
         $this->assertEquals(
             [
@@ -65,10 +54,8 @@ class TypesTest extends PmaTestCase
 
     /**
      * Test for getNullOperators
-     *
-     * @return void
      */
-    public function testGetNullOperators()
+    public function testGetNullOperators(): void
     {
         $this->assertEquals(
             [
@@ -81,10 +68,8 @@ class TypesTest extends PmaTestCase
 
     /**
      * Test for getEnumOperators
-     *
-     * @return void
      */
-    public function testGetEnumOperators()
+    public function testGetEnumOperators(): void
     {
         $this->assertEquals(
             [
@@ -97,10 +82,8 @@ class TypesTest extends PmaTestCase
 
     /**
      * Test for getTextOperators
-     *
-     * @return void
      */
-    public function testgetTextOperators()
+    public function testgetTextOperators(): void
     {
         $this->assertEquals(
             [
@@ -125,10 +108,8 @@ class TypesTest extends PmaTestCase
 
     /**
      * Test for getNumberOperators
-     *
-     * @return void
      */
-    public function testGetNumberOperators()
+    public function testGetNumberOperators(): void
     {
         $this->assertEquals(
             [
@@ -153,15 +134,13 @@ class TypesTest extends PmaTestCase
     /**
      * Test for getting type operators
      *
-     * @param string  $type   Type of field
-     * @param boolean $null   Whether field can be NULL
-     * @param string  $output Expected output
-     *
-     * @return void
+     * @param string       $type   Type of field
+     * @param bool         $null   Whether field can be NULL
+     * @param string|array $output Expected output
      *
      * @dataProvider providerForGetTypeOperators
      */
-    public function testGetTypeOperators($type, $null, $output): void
+    public function testGetTypeOperators(string $type, bool $null, $output): void
     {
         $this->assertEquals(
             $output,
@@ -174,7 +153,7 @@ class TypesTest extends PmaTestCase
      *
      * @return array data for testGetTypeOperators
      */
-    public function providerForGetTypeOperators()
+    public function providerForGetTypeOperators(): array
     {
         return [
             [
@@ -221,21 +200,19 @@ class TypesTest extends PmaTestCase
     /**
      * Test for getTypeOperatorsHtml
      *
-     * @param string  $type             Type of field
-     * @param boolean $null             Whether field can be NULL
-     * @param string  $selectedOperator Option to be selected
-     * @param string  $output           Expected output
-     *
-     * @return void
+     * @param string $type             Type of field
+     * @param bool   $null             Whether field can be NULL
+     * @param string $selectedOperator Option to be selected
+     * @param string $output           Expected output
      *
      * @dataProvider providerForTestGetTypeOperatorsHtml
      */
     public function testGetTypeOperatorsHtml(
-        $type,
-        $null,
-        $selectedOperator,
-        $output
-    ) {
+        string $type,
+        bool $null,
+        string $selectedOperator,
+        string $output
+    ): void {
         $this->assertEquals(
             $output,
             $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator)
@@ -247,7 +224,7 @@ class TypesTest extends PmaTestCase
      *
      * @return array test data for getTypeOperatorsHtml
      */
-    public function providerForTestGetTypeOperatorsHtml()
+    public function providerForTestGetTypeOperatorsHtml(): array
     {
         return [
             [
@@ -265,11 +242,9 @@ class TypesTest extends PmaTestCase
      *
      * @param string $type The data type to get a description.
      *
-     * @return void
-     *
      * @dataProvider providerForTestGetTypeDescription
      */
-    public function testGetTypeDescription($type): void
+    public function testGetTypeDescription(string $type): void
     {
         $this->assertNotEquals(
             '',
@@ -279,10 +254,8 @@ class TypesTest extends PmaTestCase
 
     /**
      * Test for getTypeDescription with unknown value
-     *
-     * @return void
      */
-    public function testGetUnknownTypeDescription()
+    public function testGetUnknownTypeDescription(): void
     {
         $this->assertEquals(
             '',
@@ -295,7 +268,7 @@ class TypesTest extends PmaTestCase
      *
      * @return array
      */
-    public function providerForTestGetTypeDescription()
+    public function providerForTestGetTypeDescription(): array
     {
         return [
             ['TINYINT'],
@@ -341,16 +314,12 @@ class TypesTest extends PmaTestCase
     }
 
     /**
-     * Test for getFunctionsClass
-     *
      * @param string $class  The class to get function list.
      * @param array  $output Expected function list
      *
-     * @return void
-     *
      * @dataProvider providerFortTestGetFunctionsClass
      */
-    public function testGetFunctionsClass($class, $output): void
+    public function testGetFunctionsClass(string $class, array $output): void
     {
         $this->assertEquals(
             $output,
@@ -360,10 +329,8 @@ class TypesTest extends PmaTestCase
 
     /**
      * Data provider for testing function lists
-     *
-     * @return array with test data
      */
-    public function providerFortTestGetFunctionsClass()
+    public function providerFortTestGetFunctionsClass(): array
     {
         return [
             [
@@ -514,10 +481,8 @@ class TypesTest extends PmaTestCase
 
     /**
      * Test for getFunctions
-     *
-     * @return void
      */
-    public function testGetFunctions()
+    public function testGetFunctions(): void
     {
         $this->assertEquals(
             [
@@ -562,10 +527,8 @@ class TypesTest extends PmaTestCase
 
     /**
      * Test for getAllFunctions
-     *
-     * @return void
      */
-    public function testGetAllFunctions()
+    public function testGetAllFunctions(): void
     {
         $this->assertEquals(
             [
@@ -677,10 +640,8 @@ class TypesTest extends PmaTestCase
 
     /**
      * Test for getAttributes
-     *
-     * @return void
      */
-    public function testGetAttributes()
+    public function testGetAttributes(): void
     {
         $this->assertEquals(
             [
@@ -696,10 +657,8 @@ class TypesTest extends PmaTestCase
 
     /**
      * Test for getColumns
-     *
-     * @return void
      */
-    public function testGetColumns()
+    public function testGetColumns(): void
     {
         $this->assertEquals(
             [
@@ -760,25 +719,19 @@ class TypesTest extends PmaTestCase
                     'MULTIPOLYGON',
                     'GEOMETRYCOLLECTION',
                 ],
-                'JSON' => [
-                    'JSON',
-                ],
+                'JSON' => ['JSON'],
             ],
             $this->object->getColumns()
         );
     }
 
     /**
-     * Test for getTypeClass
-     *
      * @param string $type   Type to check
      * @param string $output Expected result
      *
-     * @return void
-     *
      * @dataProvider providerFortTestGetTypeClass
      */
-    public function testGetTypeClass($type, $output): void
+    public function testGetTypeClass(string $type, string $output): void
     {
         $this->assertEquals(
             $output,
@@ -791,7 +744,7 @@ class TypesTest extends PmaTestCase
      *
      * @return array for testing type detection
      */
-    public function providerFortTestGetTypeClass()
+    public function providerFortTestGetTypeClass(): array
     {
         return [
             [

@@ -2,7 +2,7 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/7.5/phpunit.xsd"
     bootstrap="test/bootstrap-dist.php"
-    backupGlobals="true"
+    backupGlobals="false"
     backupStaticAttributes="false"
     colors="true"
     verbose="true">
@@ -10,11 +10,6 @@
     <testsuites>
         <testsuite name="Classes">
             <directory suffix="Test.php">test/classes</directory>
-        </testsuite>
-        <testsuite name="Unit">
-            <file>test/EnvironmentTest.php</file>
-            <directory suffix="Test.php">test/libraries/common</directory>
-            <directory suffix="Test.php">test/libraries</directory>
         </testsuite>
         <testsuite name="Selenium">
             <directory suffix="Test.php">test/selenium</directory>
@@ -30,14 +25,12 @@
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">.</directory>
             <exclude>
-                <!-- composer packages -->
-                <directory>vendor/</directory>
-                <!-- excluding the tests from the coverage -->
-                <directory>test/</directory>
-                <!-- excluding the twig cache from the coverage -->
-                <directory>tmp/</directory>
-                <!-- examples for users -->
-                <directory suffix=".php">examples</directory>
+                <directory>examples</directory>
+                <directory>node_modules</directory>
+                <directory>libraries/cache</directory>
+                <directory>test</directory>
+                <directory>tmp</directory>
+                <directory>vendor</directory>
             </exclude>
         </whitelist>
     </filter>

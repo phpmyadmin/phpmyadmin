@@ -1,22 +1,22 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Superclass for the Property Group classes.
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Properties\Options;
 
 use Countable;
+use function array_diff;
+use function count;
+use function in_array;
 
 /**
  * Parents group property items and provides methods to manage groups of
  * properties.
  *
  * @todo    modify descriptions if needed, when the options are integrated
- * @package PhpMyAdmin
  */
 abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Countable
 {
@@ -25,7 +25,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      *
      * @var array
      */
-    private $_properties;
+    private $properties;
 
     /**
      * Adds a property to the group of properties
@@ -42,7 +42,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
         ) {
             return;
         }
-        $this->_properties[] = $property;
+        $this->properties[] = $property;
     }
 
     /**
@@ -55,12 +55,11 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      */
     public function removeProperty($property)
     {
-        $this->_properties = array_diff(
+        $this->properties = array_diff(
             $this->getProperties(),
             [$property]
         );
     }
-
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
@@ -81,7 +80,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      */
     public function getProperties()
     {
-        return $this->_properties;
+        return $this->properties;
     }
 
     /**
@@ -91,10 +90,11 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements Count
      */
     public function getNrOfProperties()
     {
-        if ($this->_properties === null) {
+        if ($this->properties === null) {
             return 0;
         }
-        return count($this->_properties);
+
+        return count($this->properties);
     }
 
     /**

@@ -1,61 +1,24 @@
+includes:
+    - phpstan-baseline.neon
 parameters:
-    level: 2
+    level: max
     paths:
-        - %rootDir%/../../../
-    bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
-    reportUnmatchedIgnoredErrors: true
-    ignoreErrors:
-        - '#Function (get_login_credentials|uploadprogress_get_info) not found#'
-        - '#Instantiated class COM not found#'
-        - '#Call to method ([a-zA-Z\(\)]+) on an unknown class COM#'
-        - '#NodeTrans::__construct\(\) does not call parent constructor#'
-        - '#PHPUnit\\Framework\\MockObject#'
-        - '#Access to an undefined property PhpMyAdmin\\TwoFactor\:\:\$(backend|showSubmit|available|writable)#'
-        - '#Call to an undefined method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:getHiddenCount#'
-        - '#Undefined variable: \$array#'
-        - '#Undefined variable: \$(export_type|err_url|collation_connection|filename_template|transform_key|cn|goto|token_mismatch|auth_plugin|username|hostname|display_query)#'#Others
-        - '#Undefined variable: \$is_upload#'#tbl_change.php
-        - '#Undefined variable: \$max_upload_size#'#tbl_import.php
-        - '#Undefined variable: \$(repobase|fullrevision|revision|repobranchbase|branch)#'#Footer.php
-        - '#Undefined variable: \$(containerBuilder)#'
-        - '#Variable \$_(REQUEST|GET|POST|COOKIE|SESSION) in isset\(\) always exists and is not nullable#'#Sanitize.php
-        - '#Variable \$msg1 might not be defined#'#Twig/I18n/NodeTrans.php
-        - '#Variable \$(foreign_db|foreign_table) might not be defined#'#Relation.php, do while(false) + break
-        - '#Variable \$(sql_query|table|db|cfg|import_type|goto) might not be defined#'# Others
-        - '#Variable \$(sql_query|table|db|cfg|url_query) in isset\(\) always exists and is not nullable#'#Others
-        - '#Variable \$(last_cumulative_type) in isset\(\) always exists and is not nullable#'#Import.php
-        - '#Variable \$(routine|mode|title|message|output|nbResultsetToDisplay|item) might not be defined#'# Rte
-        - '#Variable \$time might not be defined#'#DatabaseInterface.php
-        - '#Variable \$contentPath in isset\(\) always exists and is not nullable#'#DatabaseInterface.php
-        - '#Variable \$default_fk_check_value might not be defined#'#libraries/mult_submits.inc.php
-        - '#Variable \$http_response_header in isset\(\) always exists and is not nullable#'
-        - '#Variable \$(escape_class|escape_method|iconLinks|icons|where_clause|where_clause_html|condition_array|pos_next|pos_prev) might not be defined#'
-        - '#Variable \$(in_table_header|cur_temp_table_headers|cur_temp_table) might not be defined#'#Plugins/Import/ImportMediawiki.php
-        -
-            message: '#Undefined variable: \$action#'
-            path: %currentWorkingDirectory%/libraries/mult_submits.inc.php
-        -
-            message: '#Undefined variable: \$action#'
-            path: %currentWorkingDirectory%/libraries/tbl_columns_definition_form.inc.php
-        -
-            message: '#Undefined variable: \$cfg#'
-            path: %currentWorkingDirectory%/test/classes/ConfigTest.php
-        -
-            message: '#Undefined variable: \$cfg#'
-            path: %currentWorkingDirectory%/test/classes/PmaTestCase.php
-        -
-            message: '#Undefined variable: \$db_is_system_schema#'
-            path: %currentWorkingDirectory%/libraries/classes/Controllers/Table/StructureController.php
+        - .
+    scanFiles:
+        - libraries/vendor_config.php
+        - vendor/phpmyadmin/motranslator/src/functions.php
+    bootstrapFiles:
+        - test/phpstan-constants.php
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    treatPhpDocTypesAsCertain: false
     excludes_analyse:
-        - %rootDir%/../../../test/EnvironmentTest.php
-        - %rootDir%/../../../test/libraries/FilesTest.php
-        - %rootDir%/../../../test/libraries/common/GetCheckboxTest.php
-        - %rootDir%/../../../tmp/*
-        - %rootDir%/../../../twig-templates/*
-        - %rootDir%/../../../vendor/*
-        - %rootDir%/../../../node_modules/*
-        - %rootDir%/../../../test/bootstrap-phpstan.php
-        - %rootDir%/../../../test/doctum-config.php
-        - %rootDir%/../../../themes/*/css/*.css.php
-        - %rootDir%/../../../examples/signon-script.php
-        - %rootDir%/../../../examples/openid.php
+        - examples/openid.php
+        - node_modules/*
+        - libraries/cache/*
+        - test/doctum-config.php
+        - tmp/*
+        - twig-templates/*
+        - vendor/*
+    dynamicConstantNames:
+        - VERSION_SUFFIX

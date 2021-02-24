@@ -3,7 +3,7 @@
  * Pure JavaScript plotting plugin using jQuery
  *
  * Version: 1.0.9
- * Revision: d96a669
+ * Revision: dff2f04
  *
  * Copyright (c) 2009-2016 Chris Leonello
  * jqPlot is currently available for use in all personal or commercial projects 
@@ -204,8 +204,8 @@
             for (var j=0; j<d.length; j++) { 
                 if (this.name == 'xaxis' || this.name == 'x2axis') {
                     d[j][0] = new $.jsDate(d[j][0]).getTime();
-                    pd[j][0] = new $.jsDate(d[j][0]).getTime();
-                    sd[j][0] = new $.jsDate(d[j][0]).getTime();
+                    pd[j][0] = new $.jsDate(pd[j][0]).getTime();
+                    sd[j][0] = new $.jsDate(sd[j][0]).getTime();
                     if ((d[j][0] != null && d[j][0] < db.min) || db.min == null) {
                         db.min = d[j][0];
                     }
@@ -227,8 +227,8 @@
                 }              
                 else {
                     d[j][1] = new $.jsDate(d[j][1]).getTime();
-                    pd[j][1] = new $.jsDate(d[j][1]).getTime();
-                    sd[j][1] = new $.jsDate(d[j][1]).getTime();
+                    pd[j][1] = new $.jsDate(pd[j][1]).getTime();
+                    sd[j][1] = new $.jsDate(sd[j][1]).getTime();
                     if ((d[j][1] != null && d[j][1] < db.min) || db.min == null) {
                         db.min = d[j][1];
                     }

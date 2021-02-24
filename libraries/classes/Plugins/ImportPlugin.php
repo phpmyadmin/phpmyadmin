@@ -1,22 +1,20 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the import plugins
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\File;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+use function strlen;
 
 /**
  * Provides a common interface that will have to be implemented by all of the
  * import plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class ImportPlugin
 {
@@ -27,14 +25,9 @@ abstract class ImportPlugin
      */
     protected $properties;
 
-    /**
-     * @var Import
-     */
+    /** @var Import */
     protected $import;
 
-    /**
-     * ImportPlugin constructor.
-     */
     public function __construct()
     {
         $this->import = new Import();
@@ -47,8 +40,7 @@ abstract class ImportPlugin
      *
      * @return void
      */
-    abstract public function doImport(array &$sql_data = []);
-
+    abstract public function doImport(?File $importHandle = null, array &$sql_data = []);
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 

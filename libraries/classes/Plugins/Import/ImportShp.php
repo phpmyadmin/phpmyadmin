@@ -1,15 +1,13 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * ESRI Shape file import plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Import
- * @subpackage ESRI_Shape
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
+use PhpMyAdmin\File;
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisMultiLineString;
 use PhpMyAdmin\Gis\GisMultiPoint;
@@ -22,30 +20,37 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ZipExtension;
 use ZipArchive;
+use const LOCK_EX;
+use function count;
+use function extension_loaded;
+use function file_exists;
+use function file_put_contents;
+use function mb_strlen;
+use function mb_substr;
+use function pathinfo;
+use function strcmp;
+use function strlen;
+use function substr;
+use function trim;
+use function unlink;
 
 /**
  * Handles the import for ESRI Shape files
- *
- * @package    PhpMyAdmin-Import
- * @subpackage ESRI_Shape
  */
 class ImportShp extends ImportPlugin
 {
-    /**
-     * @var ZipExtension
-     */
+    /** @var ZipExtension */
     private $zipExtension;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
         $this->setProperties();
-        if (extension_loaded('zip')) {
-            $this->zipExtension = new ZipExtension(new ZipArchive());
+        if (! extension_loaded('zip')) {
+            return;
         }
+
+        $this->zipExtension = new ZipExtension(new ZipArchive());
     }
 
     /**
@@ -72,26 +77,32 @@ class ImportShp extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(array &$sql_data = [])
+    public function doImport(?File $importHandle = null, array &$sql_data = [])
     {
-        global $db, $error, $finished,
-               $import_file, $local_import_file, $message;
+        global $db, $error, $finished, $import_file, $local_import_file, $message, $dbi;
 
         $GLOBALS['finished'] = false;
 
-        $compression = $GLOBALS['import_handle']->getCompression();
+        if ($importHandle === null) {
+            return;
+        }
+
+        /** @see ImportShp::readFromBuffer() */
+        $GLOBALS['importHandle'] = $importHandle;
+
+        $compression = $importHandle->getCompression();
 
         $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
-        if ($compression == 'application/zip'
+        if ($compression === 'application/zip'
             && $this->zipExtension->getNumberOfFiles($import_file) > 1
         ) {
-            if ($GLOBALS['import_handle']->openZip('/^.*\.shp$/i') === false) {
+            if ($importHandle->openZip('/^.*\.shp$/i') === false) {
                 $message = Message::error(
                     __('There was an error importing the ESRI shape file: "%s".')
                 );
-                $message->addParam($GLOBALS['import_handle']->getError());
+                $message->addParam($importHandle->getError());
 
                 return;
             }
@@ -103,7 +114,7 @@ class ImportShp extends ImportPlugin
             $temp = $GLOBALS['PMA_Config']->getTempDir('shp');
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
-            if ($compression == 'application/zip' && $temp !== null) {
+            if ($compression === 'application/zip' && $temp !== null) {
                 $dbf_file_name = $this->zipExtension->findFile(
                     $import_file,
                     '/^.*\.dbf$/i'
@@ -139,7 +150,7 @@ class ImportShp extends ImportPlugin
                 }
             } elseif (! empty($local_import_file)
                 && ! empty($GLOBALS['cfg']['UploadDir'])
-                && $compression == 'none'
+                && $compression === 'none'
             ) {
                 // If file is in UploadDir, use .dbf file in the same UploadDir
                 // to load extra data.
@@ -201,6 +212,7 @@ class ImportShp extends ImportPlugin
                     __('MySQL Spatial Extension does not support ESRI type "%s".')
                 );
                 $message->addParam($shp->getShapeName());
+
                 return;
         }
 
@@ -260,7 +272,7 @@ class ImportShp extends ImportPlugin
 
         // Set table name based on the number of tables
         if (strlen((string) $db) > 0) {
-            $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
+            $result = $dbi->fetchResult('SHOW TABLES');
             $table_name = 'TABLE ' . (count($result) + 1);
         } else {
             $table_name = 'TBL_NAME';
@@ -295,8 +307,7 @@ class ImportShp extends ImportPlugin
         $null_param = null;
         $this->import->buildSql($db_name, $tables, $analyses, $null_param, $options, $sql_data);
 
-        unset($tables);
-        unset($analyses);
+        unset($tables, $analyses);
 
         $finished = true;
         $error = false;
@@ -317,7 +328,7 @@ class ImportShp extends ImportPlugin
      */
     public static function readFromBuffer($length)
     {
-        global $buffer, $eof;
+        global $buffer, $eof, $importHandle;
 
         $import = new Import();
 
@@ -325,7 +336,7 @@ class ImportShp extends ImportPlugin
             if ($GLOBALS['finished']) {
                 $eof = true;
             } else {
-                $buffer .= $import->getNextChunk();
+                $buffer .= $import->getNextChunk($importHandle);
             }
         }
         $result = substr($buffer, 0, $length);

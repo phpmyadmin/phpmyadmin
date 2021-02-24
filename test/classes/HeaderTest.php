@@ -1,60 +1,52 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Test for PhpMyAdmin\Header class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
-use PhpMyAdmin\Tests\PmaTestCase;
-use ReflectionMethod;
 use ReflectionProperty;
+use function define;
+use function defined;
 
 /**
- * Test for PhpMyAdmin\Header class
- *
- * @package PhpMyAdmin-test
  * @group medium
  */
-class HeaderTest extends PmaTestCase
+class HeaderTest extends AbstractTestCase
 {
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
+        parent::setTheme();
+        parent::setLanguage();
         if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }
         $GLOBALS['server'] = 0;
         $GLOBALS['message'] = 'phpmyadminmessage';
-        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
-        $GLOBALS['PMA_Config'] = new Config();
+        parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['cfg']['Server']['user'] = '';
+        $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
     }
 
     /**
      * Test for disable
-     *
-     * @return void
      */
-    public function testDisable()
+    public function testDisable(): void
     {
         $header = new Header();
         $header->disable();
@@ -66,11 +58,10 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for enable
-     *
-     * @return void
      */
-    public function testEnable()
+    public function testEnable(): void
     {
+        $GLOBALS['server'] = 0;
         $header = new Header();
         $this->assertStringContainsString(
             '<title>phpMyAdmin</title>',
@@ -80,10 +71,8 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for Set BodyId
-     *
-     * @return void
      */
-    public function testSetBodyId()
+    public function testSetBodyId(): void
     {
         $header = new Header();
         $header->setBodyId('PMA_header_id');
@@ -95,10 +84,8 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for print view
-     *
-     * @return void
      */
-    public function testPrintView()
+    public function testPrintView(): void
     {
         $header = new Header();
         $header->enablePrintView();
@@ -110,10 +97,8 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for Get JsParams
-     *
-     * @return void
      */
-    public function testGetJsParams()
+    public function testGetJsParams(): void
     {
         $header = new Header();
         $this->assertArrayHasKey(
@@ -124,10 +109,8 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for Get JsParamsCode
-     *
-     * @return void
      */
-    public function testGetJsParamsCode()
+    public function testGetJsParamsCode(): void
     {
         $header = new Header();
         $this->assertStringContainsString(
@@ -138,10 +121,8 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for Get Message
-     *
-     * @return void
      */
-    public function testGetMessage()
+    public function testGetMessage(): void
     {
         $header = new Header();
         $this->assertStringContainsString(
@@ -152,18 +133,58 @@ class HeaderTest extends PmaTestCase
 
     /**
      * Test for Disable Warnings
-     *
-     * @return void
-     * @test
      */
-    public function testDisableWarnings()
+    public function testDisableWarnings(): void
     {
-        $reflection = new ReflectionProperty(Header::class, '_warningsEnabled');
+        $reflection = new ReflectionProperty(Header::class, 'warningsEnabled');
         $reflection->setAccessible(true);
 
         $header = new Header();
         $header->disableWarnings();
 
         $this->assertFalse($reflection->getValue($header));
+    }
+
+    /**
+     * Test for getCspHeaders
+     */
+    public function testGetCspHeaders(): void
+    {
+        global $cfg;
+        $cfg['CSPAllow'] = '';
+
+        $header = new Header();
+        $headers = $this->callFunction($header, Header::class, 'getCspHeaders', []);
+
+        $this->assertSame([
+            'Content-Security-Policy: default-src \'self\' ;script-src \'self\' \'unsafe-inline\''
+            . ' \'unsafe-eval\' ;style-src \'self\' \'unsafe-inline\' ;img-src \'self\''
+            . ' data:  *.tile.openstreetmap.org;object-src \'none\';',
+            'X-Content-Security-Policy: default-src \'self\' ;options inline-script eval-script;'
+            . 'referrer no-referrer;img-src \'self\' data:  *.tile.openstreetmap.org;object-src \'none\';',
+            'X-WebKit-CSP: default-src \'self\' ;script-src \'self\'  \'unsafe-inline\' \'unsafe-eval\';'
+            . 'referrer no-referrer;style-src \'self\' \'unsafe-inline\' ;img-src \'self\''
+            . ' data:  *.tile.openstreetmap.org;object-src \'none\';',
+        ], $headers);
+
+        $cfg['CSPAllow'] = 'example.com example.net';
+
+        $header = new Header();
+        $headers = $this->callFunction($header, Header::class, 'getCspHeaders', []);
+
+        $this->assertSame([
+            'Content-Security-Policy: default-src \'self\' example.com example.net;'
+            . 'script-src \'self\' \'unsafe-inline\''
+            . ' \'unsafe-eval\' example.com example.net;style-src \'self\' \'unsafe-inline\' example.com example.net;'
+            . 'img-src \'self\''
+            . ' data: example.com example.net *.tile.openstreetmap.org;object-src \'none\';',
+            'X-Content-Security-Policy: default-src \'self\' example.com example.net;options inline-script eval-script;'
+            . 'referrer no-referrer;img-src \'self\' data: example.com example.net *.tile.openstreetmap.org;'
+            . 'object-src \'none\';',
+            'X-WebKit-CSP: default-src \'self\' example.com example.net;'
+            . 'script-src \'self\' example.com example.net \'unsafe-inline\' \'unsafe-eval\';'
+            . 'referrer no-referrer;style-src \'self\' \'unsafe-inline\' ;img-src \'self\''
+            . ' data: example.com example.net *.tile.openstreetmap.org;object-src \'none\';',
+        ], $headers);
     }
 }

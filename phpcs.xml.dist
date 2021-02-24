@@ -1,43 +1,27 @@
 <?xml version="1.0"?>
-<ruleset
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    name="phpMyAdmin"
-    xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
->
-    <rule ref="vendor/phpmyadmin/coding-standard/PhpMyAdmin/ruleset.xml"/>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+    <!-- Show progress and sniff codes -->
+    <arg value="ps"/>
 
-    <rule ref="Generic.Files.LineLength.TooLong">
-        <severity>4</severity>
-    </rule>
-    <rule ref="Generic.Metrics.NestingLevel.TooHigh">
-        <severity>4</severity>
-    </rule>
-    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
-        <severity>4</severity>
-    </rule>
-    <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
-        <severity>4</severity>
-    </rule>
-    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
-        <severity>4</severity>
-    </rule>
-    <rule ref="Squiz.NamingConventions.ValidVariableName">
-        <severity>4</severity>
-    </rule>
-    <rule ref="PSR2.Methods.FunctionCallSignature.Indent">
-        <severity>0</severity>
-    </rule>
-
-    <arg value="sp"/>
     <arg name="cache" value=".phpcs-cache"/>
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
 
-    <exclude-pattern>*/node_modules/*</exclude-pattern>
-    <exclude-pattern>*/test/doctum-config.php</exclude-pattern>
-    <exclude-pattern>*/tmp/*</exclude-pattern>
-    <exclude-pattern>*/vendor/*</exclude-pattern>
-    <exclude-pattern>*/libraries/cache/*</exclude-pattern>
-
     <file>.</file>
+
+    <exclude-pattern>libraries/cache/*</exclude-pattern>
+    <exclude-pattern>libraries/language_stats.inc.php</exclude-pattern>
+    <exclude-pattern>test/doctum-config.php</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/tmp/*</exclude-pattern>
+    <exclude-pattern>*/build/*</exclude-pattern>
+    <exclude-pattern>*/twig-templates/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+
+    <rule ref="PhpMyAdmin"/>
+
+    <!-- Rules that should be followed, but are not required -->
+    <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
+        <severity>4</severity>
+    </rule>
 </ruleset>

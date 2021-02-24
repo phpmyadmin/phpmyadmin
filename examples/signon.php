@@ -1,15 +1,12 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Single signon for phpMyAdmin
  *
  * This is just example how to use session based single signon with
  * phpMyAdmin, it is not intended to be perfect code and look, only
  * shows how you can integrate this functionality in your application.
- *
- * @package    PhpMyAdmin
- * @subpackage Example
  */
+
 declare(strict_types=1);
 
 /* Use cookies for session */
@@ -43,35 +40,33 @@ if (isset($_POST['user'])) {
 } else {
     /* Show simple form */
     header('Content-Type: text/html; charset=utf-8');
-    echo '<?xml version="1.0" encoding="utf-8"?>' , "\n";
-    ?>
-    <!DOCTYPE HTML>
-    <html lang="en" dir="ltr">
-    <head>
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <meta charset="utf-8">
-    <title>phpMyAdmin single signon example</title>
-    </head>
-    <body>
-    <?php
+
+    echo '<?xml version="1.0" encoding="utf-8"?>' . "\n";
+    echo '<!DOCTYPE HTML>
+<html lang="en" dir="ltr">
+<head>
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+<meta charset="utf-8">
+<title>phpMyAdmin single signon example</title>
+</head>
+<body>';
+
     if (isset($_SESSION['PMA_single_signon_error_message'])) {
         echo '<p class="error">';
         echo $_SESSION['PMA_single_signon_error_message'];
         echo '</p>';
     }
-    ?>
-    <form action="signon.php" method="post">
-    Username: <input type="text" name="user"><br>
-    Password: <input type="password" name="password"><br>
-    Host: (will use the one from config.inc.php by default)
-    <input type="text" name="host"><br>
-    Port: (will use the one from config.inc.php by default)
-    <input type="text" name="port"><br>
-    <input type="submit">
-    </form>
-    </body>
-    </html>
-    <?php
+
+    echo '<form action="signon.php" method="post">
+Username: <input type="text" name="user" autocomplete="username"><br>
+Password: <input type="password" name="password" autocomplete="current-password"><br>
+Host: (will use the one from config.inc.php by default)
+<input type="text" name="host"><br>
+Port: (will use the one from config.inc.php by default)
+<input type="text" name="port"><br>
+<input type="submit">
+</form>
+</body>
+</html>';
 }
-?>

@@ -1,20 +1,19 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Functionality for the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Url;
+use function strlen;
+use function substr;
 
 /**
  * Represents a columns node in the navigation tree
- *
- * @package PhpMyAdmin-Navigation
  */
 class NodeColumn extends Node
 {
@@ -31,14 +30,16 @@ class NodeColumn extends Node
         $this->displayName = $this->getDisplayName($item);
 
         parent::__construct($item['name'], $type, $isGroup);
-        $this->icon = Util::getImage($this->getColumnIcon($item['key']), __('Column'));
+        $this->icon = Generator::getImage($this->getColumnIcon($item['key']), __('Column'));
         $this->links = [
-            'text'  => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s'
-                . '&amp;change_column=1',
-            'icon'  => 'tbl_structure.php?server=' . $GLOBALS['server']
-                . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s'
-                . '&amp;change_column=1',
+            'text' => Url::getFromRoute('/table/structure/change', [
+                'server' => $GLOBALS['server'],
+                'change_column' => 1,
+            ]) . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s',
+            'icon' => Url::getFromRoute('/table/structure/change', [
+                'server' => $GLOBALS['server'],
+                'change_column' => 1,
+            ]) . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s',
             'title' => __('Structure'),
         ];
     }
@@ -63,13 +64,14 @@ class NodeColumn extends Node
                 $retval = 'pause';
                 break;
         }
+
         return $retval;
     }
 
     /**
      * Get displayable name for navigation tree (key_type, data_type, default)
      *
-     * @param array $item Item is array containing required info
+     * @param array<string, mixed> $item Item is array containing required info
      *
      * @return string Display name for navigation tree
      */
@@ -78,14 +80,16 @@ class NodeColumn extends Node
         $retval = $item['name'];
         $flag = 0;
         foreach ($item as $key => $value) {
-            if (! empty($value) && $key != 'name') {
-                $flag == 0 ? $retval .= ' (' : $retval .= ', ';
-                $flag = 1;
-                $retval .= $this->getTruncateValue($key, $value);
+            if (empty($value) || $key === 'name') {
+                continue;
             }
+
+            $flag == 0 ? $retval .= ' (' : $retval .= ', ';
+            $flag = 1;
+            $retval .= $this->getTruncateValue($key, $value);
         }
-        $retval .= ')';
-        return $retval;
+
+        return $retval . ')';
     }
 
     /**

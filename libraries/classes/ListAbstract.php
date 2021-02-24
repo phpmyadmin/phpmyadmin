@@ -1,30 +1,23 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * hold the ListAbstract base class
- *
- * @package PhpMyAdmin
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
 use ArrayObject;
+use PhpMyAdmin\Query\Utilities;
+use function in_array;
 
 /**
  * Generic list class
  *
  * @todo add caching
  * @abstract
- * @package PhpMyAdmin
- * @since   phpMyAdmin 2.9.10
  */
 abstract class ListAbstract extends ArrayObject
 {
-    /**
-     * @var mixed   empty item
-     */
-    protected $item_empty = '';
+    /** @var mixed   empty item */
+    protected $itemEmpty = '';
 
     /**
      * defines what is an empty item (0, '', false or null)
@@ -33,7 +26,7 @@ abstract class ListAbstract extends ArrayObject
      */
     public function getEmpty()
     {
-        return $this->item_empty;
+        return $this->itemEmpty;
     }
 
     /**
@@ -41,6 +34,7 @@ abstract class ListAbstract extends ArrayObject
      * missing at least one item it returns false otherwise true
      *
      * @param mixed[] ...$params params
+     *
      * @return bool true if all items exists, otherwise false
      */
     public function exists(...$params)
@@ -51,41 +45,30 @@ abstract class ListAbstract extends ArrayObject
                 return false;
             }
         }
+
         return true;
     }
 
     /**
-     * returns HTML <option>-tags to be used inside <select></select>
-     *
-     * @param mixed   $selected                   the selected db or true for
-     *                                            selecting current db
-     * @param boolean $include_information_schema whether include information schema
-     *
-     * @return string  HTML option tags
+     * @return array<int, array<string, bool|string>>
      */
-    public function getHtmlOptions(
-        $selected = '',
-        $include_information_schema = true
-    ) {
-        if (true === $selected) {
-            $selected = $this->getDefault();
-        }
+    public function getList(): array
+    {
+        $selected = $this->getDefault();
 
-        $options = '';
-        foreach ($this as $each_item) {
-            if (false === $include_information_schema
-                && $GLOBALS['dbi']->isSystemSchema($each_item)
-            ) {
+        $list = [];
+        foreach ($this as $eachItem) {
+            if (Utilities::isSystemSchema($eachItem)) {
                 continue;
             }
-            $options .= '<option value="' . htmlspecialchars($each_item) . '"';
-            if ($selected === $each_item) {
-                $options .= ' selected="selected"';
-            }
-            $options .= '>' . htmlspecialchars($each_item) . '</option>' . "\n";
+
+            $list[] = [
+                'name' => $eachItem,
+                'is_selected' => $selected === $eachItem,
+            ];
         }
 
-        return $options;
+        return $list;
     }
 
     /**

@@ -11,8 +11,8 @@
   z-index: 800;
 
   input[type="text"] {
-    background-color: $main-background;
-    font-family: $font-family;
+    background-color: $body-bg;
+    font-family: $font-family-base;
   }
 
   a {
@@ -120,20 +120,6 @@
   }
 }
 
-div#left_tableList li {
-  a:first-child::before {
-    color: $navi-pointer-color;
-    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-    font-family: "IcoMoon";
-    content: "";
-    margin: 10px;
-  }
-
-  &:hover a:first-child::before {
-    color: $button-color;
-  }
-}
-
 img {
   &.ic_b_home,
   &.ic_s_loggoff,
@@ -146,11 +132,10 @@ img {
 }
 
 #navipanellinks a {
-  display: inline-block;
   height: 16px;
   width: 16px;
   color: $main-color;
-  margin-#{$right}: 10px;
+  margin-#{$right}: 5px;
   padding: 5px;
   font-size: 15px;
 
@@ -214,20 +199,21 @@ img {
 
 #pma_navigation_tree li {
   .dbItemControls {
-    padding-#{$left}: 4px;
+    padding-#{$right}: 4px;
+    float: right;
   }
 
   .navItemControls {
     display: none;
-    padding-#{$left}: 4px;
+    padding-#{$right}: 4px;
+    float: right;
   }
 
   &.activePointer .navItemControls {
-    display: inline;
+    display: block;
     opacity: 0.5;
 
     &:hover {
-      display: inline;
       opacity: 1;
     }
   }
@@ -407,7 +393,7 @@ li.fast_filter {
     background-color: #fff;
     border: 1px solid #ccc;
     color: #666;
-    font-family: $font-family;
+    font-family: $font-family-base;
     padding: 2px;
   }
 

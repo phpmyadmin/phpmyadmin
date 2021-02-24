@@ -1,6 +1,7 @@
 {% if not clear_screen %}
-  <fieldset>
-    <legend>{% trans 'Master replication' %}</legend>
+  <div class="card mb-2">
+    <div class="card-header">{% trans 'Master replication' %}</div>
+    <div class="card-body">
     {% trans 'This server is configured as master in a replication process.' %}
     <ul>
       <li>
@@ -17,7 +18,7 @@
         </p>
 
         <div id="replication_slaves_section" style="display: none;">
-          <table class="data">
+          <table class="pma-table data">
             <thead>
               <tr>
                 <th>{% trans 'Server ID' %}</th>
@@ -39,7 +40,7 @@
         </div>
       </li>
       <li>
-        <a href="server_replication.php" data-post="{{ get_common(url_params, '') }}" id="master_addslaveuser_href">
+        <a href="{{ url('/server/replication') }}" data-post="{{ get_common(url_params, '') }}" id="master_addslaveuser_href">
           {% trans 'Add slave replication user' %}
         </a>
       </li>
@@ -48,5 +49,6 @@
     {{ master_add_slave_user|raw }}
 {% elseif not clear_screen %}
     </ul>
-  </fieldset>
+    </div>
+  </div>
 {% endif %}

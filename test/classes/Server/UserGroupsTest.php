@@ -1,33 +1,24 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Tests for PhpMyAdmin\Server\UserGroups
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Server;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\UserGroups;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
-use PHPUnit\Framework\TestCase;
+use function htmlspecialchars;
 
-/**
- * Tests for PhpMyAdmin\Server\UserGroups
- *
- * @package PhpMyAdmin-test
- */
-class UserGroupsTest extends TestCase
+class UserGroupsTest extends AbstractTestCase
 {
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
 
@@ -43,15 +34,14 @@ class UserGroupsTest extends TestCase
     /**
      * Tests UserGroups::getHtmlForUserGroupsTable() function when there are no user groups
      *
-     * @return void
      * @group medium
      */
-    public function testGetHtmlForUserGroupsTableWithNoUserGroups()
+    public function testGetHtmlForUserGroupsTableWithNoUserGroups(): void
     {
-        $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
-            . " ORDER BY `usergroup` ASC";
+        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
+            . ' ORDER BY `usergroup` ASC';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -71,8 +61,7 @@ class UserGroupsTest extends TestCase
             '<table id="userGroupsTable">',
             $html
         );
-        $url_tag = '<a href="server_user_groups.php'
-            . Url::getCommon(['addUserGroup' => 1]);
+        $url_tag = '<a href="' . Url::getFromRoute('/server/user-groups', ['addUserGroup' => 1]);
         $this->assertStringContainsString(
             $url_tag,
             $html
@@ -81,15 +70,13 @@ class UserGroupsTest extends TestCase
 
     /**
      * Tests UserGroups::getHtmlForUserGroupsTable() function when there are user groups
-     *
-     * @return void
      */
-    public function testGetHtmlForUserGroupsTableWithUserGroups()
+    public function testGetHtmlForUserGroupsTableWithUserGroups(): void
     {
-        $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
-            . " ORDER BY `usergroup` ASC";
+        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
+            . ' ORDER BY `usergroup` ASC';
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -115,7 +102,7 @@ class UserGroupsTest extends TestCase
         $dbi->expects($this->at(3))
             ->method('fetchAssoc')
             ->withAnyParameters()
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
         $dbi->expects($this->once())
             ->method('freeResult');
         $GLOBALS['dbi'] = $dbi;
@@ -125,7 +112,7 @@ class UserGroupsTest extends TestCase
             '<td>usergroup</td>',
             $html
         );
-        $url_tag = '<a class="" href="server_user_groups.php" data-post="'
+        $url_tag = '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
             . Url::getCommon(
                 [
                     'viewUsers' => 1,
@@ -137,7 +124,7 @@ class UserGroupsTest extends TestCase
             $url_tag,
             $html
         );
-        $url_tag = '<a class="" href="server_user_groups.php" data-post="'
+        $url_tag = '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
             . Url::getCommon(
                 [
                     'editUserGroup' => 1,
@@ -149,7 +136,7 @@ class UserGroupsTest extends TestCase
             $url_tag,
             $html
         );
-        $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php" data-post="'
+        $url_tag = '<a class="deleteUserGroup ajax" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
             . Url::getCommon(
                 [
                     'deleteUserGroup' => 1,
@@ -165,17 +152,15 @@ class UserGroupsTest extends TestCase
 
     /**
      * Tests UserGroups::delete() function
-     *
-     * @return void
      */
-    public function testDeleteUserGroup()
+    public function testDeleteUserGroup(): void
     {
-        $userDelQuery = "DELETE FROM `pmadb`.`users`"
+        $userDelQuery = 'DELETE FROM `pmadb`.`users`'
             . " WHERE `usergroup`='ug'";
-        $userGrpDelQuery = "DELETE FROM `pmadb`.`usergroups`"
+        $userGrpDelQuery = 'DELETE FROM `pmadb`.`usergroups`'
             . " WHERE `usergroup`='ug'";
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->at(1))
@@ -195,10 +180,8 @@ class UserGroupsTest extends TestCase
 
     /**
      * Tests UserGroups::getHtmlToEditUserGroup() function
-     *
-     * @return void
      */
-    public function testGetHtmlToEditUserGroup()
+    public function testGetHtmlToEditUserGroup(): void
     {
         // adding a user group
         $html = UserGroups::getHtmlToEditUserGroup();
@@ -211,9 +194,9 @@ class UserGroupsTest extends TestCase
             $html
         );
 
-        $expectedQuery = "SELECT * FROM `pmadb`.`usergroups`"
+        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
             . " WHERE `usergroup`='ug'";
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->once())
@@ -228,7 +211,7 @@ class UserGroupsTest extends TestCase
                     'tab' => 'server_sql',
                     'allowed' => 'Y',
                 ],
-                false
+                null
             );
         $dbi->expects($this->once())
             ->method('freeResult');

@@ -10,8 +10,8 @@
         <a id="showusage"></a>
 
         {% if not tbl_is_view and not db_is_system_schema %}
-            <table id="tablespaceusage" class="width100 data">
-                <caption class="tblHeaders">{% trans 'Space usage' %}</caption>
+            <table class="table table-light table-striped table-hover table-sm w-auto">
+                <caption>{% trans 'Space usage' %}</caption>
                 <tbody>
                     <tr>
                         <th class="name">{% trans 'Data' %}</th>
@@ -47,6 +47,7 @@
                         <td class="unit">{{ tot_unit }}</td>
                     </tr>
                 {% endif %}
+                </tbody>
 
                 {# Optimize link if overhead #}
                 {% if free_size is defined
@@ -55,23 +56,28 @@
                     or tbl_storage_engine == 'MARIA'
                     or tbl_storage_engine == 'BDB')
                     or (tbl_storage_engine == 'INNODB' and innodb_file_per_table == true) %}
-                    <tr class="tblFooters print_ignore">
-                        <td colspan="3" class="center">
-                            <a href="sql.php" data-post="{{ url_query }}&amp;pos=0&amp;sql_query=
-                                {{- ('OPTIMIZE TABLE ' ~ backquote(table))|url_encode }}">
+                <tfoot class="thead-light">
+                    <tr class="print_ignore">
+                        <th colspan="3" class="center">
+                            <a href="{{ url('/sql') }}" data-post="{{ get_common({
+                              'db': db,
+                              'table': table,
+                              'sql_query': 'OPTIMIZE TABLE ' ~ backquote(table),
+                              'pos': 0
+                            }) }}">
                                 {{ get_icon('b_tbloptimize', 'Optimize table'|trans) }}
                             </a>
-                        </td>
+                        </th>
                     </tr>
+                </tfoot>
                 {% endif %}
-                </tbody>
             </table>
         {% endif %}
 
         {% set avg_size = avg_size is defined ? avg_size : null %}
         {% set avg_unit = avg_unit is defined ? avg_unit : null %}
-        <table id="tablerowstats" class="width100 data">
-            <caption class="tblHeaders">{% trans 'Row statistics' %}</caption>
+        <table class="table table-light table-striped table-hover table-sm w-auto">
+            <caption>{% trans 'Row statistics' %}</caption>
             <tbody>
                 {% if showtable['Row_format'] is defined %}
                     <tr>

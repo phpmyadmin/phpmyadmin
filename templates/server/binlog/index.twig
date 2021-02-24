@@ -3,7 +3,7 @@
   {% trans 'Binary log' %}
 </h2>
 
-<form action="server_binlog.php" method="post">
+<form action="{{ url('/server/binlog') }}" method="post">
   {{ get_hidden_inputs(url_params) }}
   <fieldset>
     <legend>
@@ -37,18 +37,18 @@
 
 {{ sql_message|raw }}
 
-<table id="binlogTable">
+<table class="pma-table" id="binlogTable">
   <thead>
     <tr>
-      <td colspan="6" class="center">
+      <td colspan="6" class="text-center">
         {% if has_previous %}
           {% if has_icons %}
-            <a href="server_binlog.php" data-post="{{ get_common(previous_params, '') }}" title="
+            <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(previous_params, '') }}" title="
                 {%- trans %}Previous{% context %}Previous page{% endtrans %}">
               &laquo;
             </a>
           {% else %}
-            <a href="server_binlog.php" data-post="{{ get_common(previous_params, '') }}">
+            <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(previous_params, '') }}">
               {% trans %}Previous{% context %}Previous page{% endtrans %} &laquo;
             </a>
           {% endif %}
@@ -56,11 +56,11 @@
         {% endif %}
 
         {% if is_full_query %}
-          <a href="server_binlog.php" data-post="{{ get_common(full_queries_params, '') }}" title="{% trans 'Truncate shown queries' %}">
+          <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(full_queries_params, '') }}" title="{% trans 'Truncate shown queries' %}">
             <img src="{{ image_path }}s_partialtext.png" alt="{% trans 'Truncate shown queries' %}">
           </a>
         {% else %}
-          <a href="server_binlog.php" data-post="{{ get_common(full_queries_params, '') }}" title="{% trans 'Show full queries' %}">
+          <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(full_queries_params, '') }}" title="{% trans 'Show full queries' %}">
             <img src="{{ image_path }}s_fulltext.png" alt="{% trans 'Show full queries' %}">
           </a>
         {% endif %}
@@ -68,12 +68,12 @@
         {% if has_next %}
           -
           {% if has_icons %}
-            <a href="server_binlog.php" data-post="{{ get_common(next_params, '') }}" title="
+            <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(next_params, '') }}" title="
                 {%- trans %}Next{% context %}Next page{% endtrans %}">
               &raquo;
             </a>
           {% else %}
-            <a href="server_binlog.php" data-post="{{ get_common(next_params, '') }}">
+            <a href="{{ url('/server/binlog') }}" data-post="{{ get_common(next_params, '') }}">
               {% trans %}Next{% context %}Next page{% endtrans %} &raquo;
             </a>
           {% endif %}

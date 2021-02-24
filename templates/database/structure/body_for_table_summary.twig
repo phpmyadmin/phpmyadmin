@@ -1,7 +1,7 @@
-<tbody id="tbl_summary_row">
+<tfoot id="tbl_summary_row" class="thead-light">
 <tr>
-    <th class="print_ignore"></th>
-    <th class="tbl_num nowrap">
+    <th class="d-print-none"></th>
+    <th class="tbl_num text-nowrap">
         {% set num_tables_trans -%}
             {% trans %}%s table{% plural num_tables %}%s tables{% endtrans %}
         {%- endset %}
@@ -14,7 +14,7 @@
     {% if num_favorite_tables == 0 %}
         {% set sum_colspan = sum_colspan - 1 %}
     {% endif %}
-    <th colspan="{{ sum_colspan }}" class="print_ignore">{% trans 'Sum' %}</th>
+    <th colspan="{{ sum_colspan }}" class="d-print-none">{% trans 'Sum' %}</th>
     {% set row_count_sum = format_number(sum_entries, 0) %}
     {# If a table shows approximate rows count, display update-all-real-count anchor. #}
     {% set row_sum_url = [] %}
@@ -22,21 +22,19 @@
         {% set row_sum_url = {
             'ajax_request': true,
             'db': db,
-            'real_row_count': 'true',
             'real_row_count_all': 'true'
         } %}
     {% endif %}
     {% if approx_rows %}
         {% set cell_text -%}
-            <a href="db_structure.php
-                {{- get_common(row_sum_url) }}" class="ajax row_count_sum">~
+            <a href="{{ url('/database/structure/real-row-count', row_sum_url) }}" class="ajax row_count_sum">~
                 {{- row_count_sum -}}
             </a>
         {%- endset %}
     {% else %}
         {% set cell_text = row_count_sum %}
     {% endif %}
-    <th class="value tbl_rows">{{ cell_text }}</th>
+    <th class="value tbl_rows text-monospace text-right">{{ cell_text }}</th>
     {% if not (properties_num_columns > 1) %}
         {# MySQL <= 5.5.2 #}
         {% set default_engine = dbi.fetchValue('SELECT @@storage_engine;') %}
@@ -44,7 +42,7 @@
             {# MySQL >= 5.5.3 #}
             {% set default_engine = dbi.fetchValue('SELECT @@default_storage_engine;') %}
         {% endif %}
-        <th class="center">
+        <th class="text-center">
             <dfn title="{{ '%s is the default storage engine on this MySQL server.'|trans|format(default_engine) }}">
                 {{ default_engine }}
             </dfn>
@@ -62,12 +60,12 @@
         {% set sum = format_byte_down(sum_size, 3, 1) %}
         {% set sum_formatted = sum[0] %}
         {% set sum_unit = sum[1] %}
-        <th class="value tbl_size">{{ sum_formatted }} {{ sum_unit }}</th>
+        <th class="value tbl_size text-monospace text-right">{{ sum_formatted }} {{ sum_unit }}</th>
 
         {% set overhead = format_byte_down(overhead_size, 3, 1) %}
         {% set overhead_formatted = overhead[0] %}
         {% set overhead_unit = overhead[1] %}
-        <th class="value tbl_overhead">{{ overhead_formatted }} {{ overhead_unit }}</th>
+        <th class="value tbl_overhead text-monospace text-right">{{ overhead_formatted }} {{ overhead_unit }}</th>
     {% endif %}
 
     {% if show_charset %}
@@ -77,19 +75,19 @@
         <th></th>
     {% endif %}
     {% if show_creation %}
-        <th class="value tbl_creation">
+        <th class="value tbl_creation text-monospace text-right">
             {{ create_time_all }}
         </th>
     {% endif %}
     {% if show_last_update %}
-        <th class="value tbl_last_update">
+        <th class="value tbl_last_update text-monospace text-right">
             {{ update_time_all }}
         </th>
     {% endif %}
     {% if show_last_check %}
-        <th class="value tbl_last_check">
+        <th class="value tbl_last_check text-monospace text-right">
             {{ check_time_all }}
         </th>
     {% endif %}
 </tr>
-</tbody>
+</tfoot>

@@ -1,6 +1,6 @@
 @import "direction";
 @import "variables";
-@import "bootstrap";
+@import "../../bootstrap/scss/bootstrap";
 @import "common";
 @import "enum-editor";
 @import "gis";
@@ -11,3 +11,14 @@
 @import "jqplot";
 @import "resizable-menu";
 @import "icons";
+@import "reboot";
+@import "tables";
+@import "forms";
+@import "buttons";
+@import "nav";
+@import "navbar";
+@import "card";
+@import "breadcrumb";
+@import "alert";
+@import "list-group";
+@import "modal";

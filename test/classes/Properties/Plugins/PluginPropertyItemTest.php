@@ -1,54 +1,39 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for PhpMyAdmin\Properties\Plugins\PluginPropertyItem class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Plugins;
 
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Properties\Plugins\PluginPropertyItem class
- *
- * @package PhpMyAdmin-test
- */
-class PluginPropertyItemTest extends TestCase
+class PluginPropertyItemTest extends AbstractTestCase
 {
+    /** @var PluginPropertyItem */
     protected $stub;
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Plugins\PluginPropertyItem');
+        parent::setUp();
+        $this->stub = $this->getMockForAbstractClass(PluginPropertyItem::class);
     }
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->stub);
     }
 
-    /**
-     * Test for PhpMyAdmin\Properties\Plugins\PluginPropertyItem::getPropertyType
-     *
-     * @return void
-     */
-    public function testGetPropertyType()
+    public function testGetPropertyType(): void
     {
         $this->assertEquals(
-            "plugin",
+            'plugin',
             $this->stub->getPropertyType()
         );
     }

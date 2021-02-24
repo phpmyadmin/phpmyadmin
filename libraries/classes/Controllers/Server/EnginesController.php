@@ -1,34 +1,45 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Holds the PhpMyAdmin\Controllers\Server\EnginesController
- *
- * @package PhpMyAdmin\Controllers
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\AbstractController;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 
 /**
  * Handles viewing storage engine details
- *
- * @package PhpMyAdmin\Controllers
  */
 class EnginesController extends AbstractController
 {
-    /**
-     * Index action
-     *
-     * @return string
-     */
-    public function index(): string
-    {
-        require ROOT_PATH . 'libraries/server_common.inc.php';
+    /** @var DatabaseInterface */
+    private $dbi;
 
-        return $this->template->render('server/engines/index', [
+    /**
+     * @param Response          $response
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct($response, Template $template, $dbi)
+    {
+        parent::__construct($response, $template);
+        $this->dbi = $dbi;
+    }
+
+    public function index(): void
+    {
+        global $err_url;
+
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
+
+        $this->render('server/engines/index', [
             'engines' => StorageEngine::getStorageEngines(),
         ]);
     }
@@ -37,12 +48,16 @@ class EnginesController extends AbstractController
      * Displays details about a given Storage Engine
      *
      * @param array $params Request params
-     *
-     * @return string
      */
-    public function show(array $params): string
+    public function show(array $params): void
     {
-        require ROOT_PATH . 'libraries/server_common.inc.php';
+        global $err_url;
+
+        $err_url = Url::getFromRoute('/');
+
+        if ($this->dbi->isSuperUser()) {
+            $this->dbi->selectDb('mysql');
+        }
 
         $page = $params['page'] ?? '';
 
@@ -61,7 +76,7 @@ class EnginesController extends AbstractController
             ];
         }
 
-        return $this->template->render('server/engines/show', [
+        $this->render('server/engines/show', [
             'engine' => $engine,
             'page' => $page,
         ]);

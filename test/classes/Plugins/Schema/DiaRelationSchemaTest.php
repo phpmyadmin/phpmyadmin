@@ -1,27 +1,20 @@
 <?php
-/**
- * Tests for PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Schema;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
- * Tests for PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema class
- *
- * @package PhpMyAdmin-test
+ * @requires extension xmlwriter
  */
-class DiaRelationSchemaTest extends PmaTestCase
+class DiaRelationSchemaTest extends AbstractTestCase
 {
-    /**
-     * @access protected
-     */
+    /** @var DiaRelationSchema */
     protected $object;
 
     /**
@@ -29,10 +22,11 @@ class DiaRelationSchemaTest extends PmaTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $_REQUEST['page_number'] = 33;
         $_REQUEST['dia_show_color'] = true;
         $_REQUEST['dia_show_keys'] = true;
@@ -46,14 +40,14 @@ class DiaRelationSchemaTest extends PmaTestCase
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'information_schema';
-        $GLOBALS['cfg']['Server']['table_coords'] = "table_name";
+        $GLOBALS['cfg']['Server']['table_coords'] = 'table_name';
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
-            'table_coords' => "table_name",
+            'table_coords' => 'table_name',
             'displaywork' => 'displaywork',
-            'db' => "information_schema",
+            'db' => 'information_schema',
             'table_info' => 'table_info',
             'relwork' => 'relwork',
             'relation' => 'relation',
@@ -61,7 +55,7 @@ class DiaRelationSchemaTest extends PmaTestCase
         $relation = new Relation($GLOBALS['dbi']);
         $relation->getRelationsParam();
 
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -71,21 +65,17 @@ class DiaRelationSchemaTest extends PmaTestCase
 
         $dbi->expects($this->any())
             ->method('query')
-            ->will($this->returnValue("executed_1"));
+            ->will($this->returnValue('executed_1'));
 
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue("executed_1"));
+            ->will($this->returnValue('executed_1'));
 
-        $fetchArrayReturn = [
-            //table name in information_schema_relations
-            'table_name' => 'CHARACTER_SETS',
-        ];
+        //table name in information_schema_relations
+        $fetchArrayReturn = ['table_name' => 'CHARACTER_SETS'];
 
-        $fetchArrayReturn2 = [
-            //table name in information_schema_relations
-            'table_name' => 'COLLATIONS',
-        ];
+        //table name in information_schema_relations
+        $fetchArrayReturn2 = ['table_name' => 'COLLATIONS'];
 
         $dbi->expects($this->at(2))
             ->method('fetchAssoc')
@@ -95,15 +85,15 @@ class DiaRelationSchemaTest extends PmaTestCase
             ->will($this->returnValue($fetchArrayReturn2));
         $dbi->expects($this->at(4))
             ->method('fetchAssoc')
-            ->will($this->returnValue(false));
+            ->will($this->returnValue(null));
 
         $getIndexesResult = [
             [
                 'Table' => 'pma_tbl',
                 'Field' => 'field1',
                 'Key' => 'PRIMARY',
-                'Key_name' => "Key_name",
-                'Column_name' => "Column_name",
+                'Key_name' => 'Key_name',
+                'Column_name' => 'Column_name',
             ],
         ];
         $dbi->expects($this->any())->method('getTableIndexes')
@@ -133,32 +123,28 @@ class DiaRelationSchemaTest extends PmaTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
     /**
      * Test for construct, the Property is set correctly
      *
-     * @return void
-     *
      * @group medium
      */
-    public function testSetProperty()
+    public function testSetProperty(): void
     {
         $this->assertEquals(
             33,
             $this->object->getPageNumber()
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isShowColor()
         );
-        $this->assertEquals(
-            true,
+        $this->assertTrue(
             $this->object->isShowKeys()
         );
         $this->assertEquals(

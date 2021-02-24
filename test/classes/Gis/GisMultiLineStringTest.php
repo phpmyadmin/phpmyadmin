@@ -1,23 +1,15 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Test for PhpMyAdmin\Gis\GisMultiLineString
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiLineString;
-use PhpMyAdmin\Tests\Gis\GisGeomTestCase;
 use TCPDF;
+use function function_exists;
+use function imagecreatetruecolor;
+use function preg_match;
 
-/**
- * Tests for PhpMyAdmin\Gis\GisMultiLineString class
- *
- * @package PhpMyAdmin-test
- */
 class GisMultiLineStringTest extends GisGeomTestCase
 {
     /**
@@ -31,10 +23,10 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = GisMultiLineString::singleton();
     }
 
@@ -43,10 +35,10 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
@@ -55,7 +47,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt()
+    public function providerForTestGenerateWkt(): array
     {
         $temp = [
             0 => [
@@ -143,10 +135,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
 
     /**
      * test getShape method
-     *
-     * @return void
      */
-    public function testGetShape()
+    public function testGetShape(): void
     {
         $row_data = [
             'numparts' => 2,
@@ -189,7 +179,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams()
+    public function providerForTestGenerateParams(): array
     {
         $temp = [
             'MULTILINESTRING' => [
@@ -234,9 +224,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
             [
                 'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))',
                 2,
-                [
-                    2 => $temp1,
-                ],
+                [2 => $temp1],
             ],
         ];
     }
@@ -246,7 +234,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow()
+    public function providerForTestScaleRow(): array
     {
         return [
             [
@@ -261,7 +249,6 @@ class GisMultiLineStringTest extends GisGeomTestCase
         ];
     }
 
-
     /**
      * test case for prepareRowAsPng() method
      *
@@ -271,16 +258,15 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param array    $scale_data array containing data related to scaling
      * @param resource $image      image object
      *
-     * @return void
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial,
-        $label,
-        $line_color,
-        $scale_data,
+        string $spatial,
+        string $label,
+        string $line_color,
+        array $scale_data,
         $image
-    ) {
+    ): void {
         $this->object->prepareRowAsPng(
             $spatial,
             $label,
@@ -297,11 +283,12 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPng() test case
      */
-    public function providerForPrepareRowAsPng()
+    public function providerForPrepareRowAsPng(): array
     {
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
+
         return [
             [
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
@@ -327,16 +314,15 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param array  $scale_data array containing data related to scaling
      * @param TCPDF  $pdf        TCPDF instance
      *
-     * @return void
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial,
-        $label,
-        $line_color,
-        $scale_data,
-        $pdf
-    ) {
+        string $spatial,
+        string $label,
+        string $line_color,
+        array $scale_data,
+        TCPDF $pdf
+    ): void {
         $return = $this->object->prepareRowAsPdf(
             $spatial,
             $label,
@@ -352,7 +338,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf()
+    public function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -373,27 +359,26 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string $spatial    GIS MULTILINESTRING object
-     * @param string $label      label for the GIS MULTILINESTRING object
-     * @param string $line_color color for the GIS MULTILINESTRING object
-     * @param array  $scale_data array containing data related to scaling
-     * @param string $output     expected output
+     * @param string $spatial   GIS MULTILINESTRING object
+     * @param string $label     label for the GIS MULTILINESTRING object
+     * @param string $lineColor color for the GIS MULTILINESTRING object
+     * @param array  $scaleData array containing data related to scaling
+     * @param string $output    expected output
      *
-     * @return void
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial,
-        $label,
-        $line_color,
-        $scale_data,
-        $output
-    ) {
+        string $spatial,
+        string $label,
+        string $lineColor,
+        array $scaleData,
+        string $output
+    ): void {
         $string = $this->object->prepareRowAsSvg(
             $spatial,
             $label,
-            $line_color,
-            $scale_data
+            $lineColor,
+            $scaleData
         );
         $this->assertEquals(1, preg_match($output, $string));
     }
@@ -403,7 +388,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg()
+    public function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -431,21 +416,20 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param string $spatial    GIS MULTILINESTRING object
      * @param int    $srid       spatial reference ID
      * @param string $label      label for the GIS MULTILINESTRING object
-     * @param string $line_color color for the GIS MULTILINESTRING object
+     * @param array  $line_color color for the GIS MULTILINESTRING object
      * @param array  $scale_data array containing data related to scaling
      * @param string $output     expected output
      *
-     * @return void
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial,
-        $srid,
-        $label,
-        $line_color,
-        $scale_data,
-        $output
-    ) {
+        string $spatial,
+        int $srid,
+        string $label,
+        array $line_color,
+        array $scale_data,
+        string $output
+    ): void {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
@@ -463,40 +447,39 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl()
+    public function providerForPrepareRowAsOl(): array
     {
         return [
             [
                 'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
                 4326,
                 'Ol',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.'
-                . 'LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject())); bound.extend(new OpenLayers.LonLat'
-                . '(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.'
-                . 'getProjectionObject()));vectorLayer.addFeatures(new OpenLayers.'
-                . 'Feature.Vector(new OpenLayers.Geometry.MultiLineString(new Arr'
-                . 'ay(new OpenLayers.Geometry.LineString(new Array((new OpenLayers.'
-                . 'Geometry.Point(36,14)).transform(new OpenLayers.Projection("EPSG:'
-                . '4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Po'
-                . 'int(47,23)).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject()), (new OpenLayers.Geometry.Point(62,75)'
-                . ').transform(new OpenLayers.Projection("EPSG:4326"), map.getProjec'
-                . 'tionObject()))), new OpenLayers.Geometry.LineString(new Array(('
-                . 'new OpenLayers.Geometry.Point(36,10)).transform(new OpenLayers.'
-                . 'Projection("EPSG:4326"), map.getProjectionObject()), (new Open'
-                . 'Layers.Geometry.Point(17,23)).transform(new OpenLayers.Projection'
-                . '("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geo'
-                . 'metry.Point(178,53)).transform(new OpenLayers.Projection("EPSG:'
-                . '4326"), map.getProjectionObject()))))), null, {"strokeColor":"'
-                . '#B02EE0","strokeWidth":2,"label":"Ol","fontSize":10}));',
+                'var style = new ol.style.Style({stroke: new ol.style.Stroke({"color":[176,46,224],'
+                . '"width":2}), text: new ol.style.Text({"text":"Ol"})});var minLoc = [0, 0];var ma'
+                . 'xLoc = [1, 1];var ext = ol.extent.boundingExtent([minLoc, maxLoc]);ext = ol.proj'
+                . '.transformExtent(ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'));map.'
+                . 'getView().fit(ext, map.getSize());var arr = [];var lineArr = [];var line = new o'
+                . 'l.geom.LineString(new Array((new ol.geom.Point([36,14]).transform(ol.proj.get("E'
+                . 'PSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom.Point([4'
+                . '7,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoord'
+                . 'inates(), (new ol.geom.Point([62,75]).transform(ol.proj.get("EPSG:4326"), ol.pro'
+                . 'j.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordinates();for (var i = 0;'
+                . ' i < coord.length; i++) lineArr.push(coord[i]);arr.push(lineArr);var lineArr = [];var lin'
+                . 'e = new ol.geom.LineString(new Array((new ol.geom.Point([36,10]).transform(ol.pr'
+                . 'oj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\'))).getCoordinates(), (new ol.geom'
+                . '.Point([17,23]).transform(ol.proj.get("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))'
+                . '.getCoordinates(), (new ol.geom.Point([178,53]).transform(ol.proj.get("EPSG:4326'
+                . '"), ol.proj.get(\'EPSG:3857\'))).getCoordinates()));var coord = line.getCoordina'
+                . 'tes();for (var i = 0; i < coord.length; i++) lineArr.push(coord[i]);arr.push(lineArr);va'
+                . 'r multiLineString = new ol.geom.MultiLineString(arr);var feature = new ol.Feature({geometry:'
+                . ' multiLineString});feature.setStyle(style);vectorLayer.addFeature(feature);',
             ],
         ];
     }

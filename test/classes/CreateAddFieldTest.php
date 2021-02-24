@@ -1,36 +1,25 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Tests for PhpMyAdmin\CreateAddField
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CreateAddField;
-use PHPUnit\Framework\TestCase;
 
 /**
  * This class is for testing PhpMyAdmin\CreateAddField methods
- *
- * @package PhpMyAdmin-test
  */
-class CreateAddFieldTest extends TestCase
+class CreateAddFieldTest extends AbstractTestCase
 {
-    /**
-     * @var CreateAddField
-     */
+    /** @var CreateAddField */
     private $createAddField;
 
     /**
      * Set up for test cases
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->createAddField = new CreateAddField($GLOBALS['dbi']);
     }
 
@@ -41,10 +30,8 @@ class CreateAddFieldTest extends TestCase
      * @param array  $request  $_REQUEST array
      *
      * @dataProvider providerGetPartitionsDefinition
-     *
-     * @return void
      */
-    public function testGetPartitionsDefinition($expected, $request): void
+    public function testGetPartitionsDefinition(string $expected, array $request): void
     {
         $_POST = $request;
         $actual = $this->createAddField->getPartitionsDefinition();
@@ -56,7 +43,7 @@ class CreateAddFieldTest extends TestCase
      *
      * @return array
      */
-    public function providerGetPartitionsDefinition()
+    public function providerGetPartitionsDefinition(): array
     {
         return [
             [
@@ -83,10 +70,8 @@ class CreateAddFieldTest extends TestCase
      * @param array  $request  $_REQUEST array
      *
      * @dataProvider providerGetTableCreationQuery
-     *
-     * @return void
      */
-    public function testGetTableCreationQuery($expected, $db, $table, $request): void
+    public function testGetTableCreationQuery(string $expected, string $db, string $table, array $request): void
     {
         $_POST = $request;
         $actual = $this->createAddField->getTableCreationQuery($db, $table);
@@ -98,7 +83,7 @@ class CreateAddFieldTest extends TestCase
      *
      * @return array
      */
-    public function providerGetTableCreationQuery()
+    public function providerGetTableCreationQuery(): array
     {
         return [
             [
@@ -137,14 +122,12 @@ class CreateAddFieldTest extends TestCase
     /**
      * Test for getNumberOfFieldsFromRequest
      *
-     * @param string $expected Expected result
-     * @param array  $request  $_REQUEST array
+     * @param int   $expected Expected result
+     * @param array $request  $_REQUEST array
      *
      * @dataProvider providerGetNumberOfFieldsFromRequest
-     *
-     * @return void
      */
-    public function testGetNumberOfFieldsFromRequest($expected, $request): void
+    public function testGetNumberOfFieldsFromRequest(int $expected, array $request): void
     {
         $_POST = $request;
         $actual = $this->createAddField->getNumberOfFieldsFromRequest();
@@ -156,7 +139,7 @@ class CreateAddFieldTest extends TestCase
      *
      * @return array
      */
-    public function providerGetNumberOfFieldsFromRequest()
+    public function providerGetNumberOfFieldsFromRequest(): array
     {
         return [
             [

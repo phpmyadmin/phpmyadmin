@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-12">
+    <fieldset id="tableFilter">
+      <legend>{% trans "Filters" %}</legend>
+      <div class="formelement">
+        <label for="filterText">{% trans "Containing the word:" %}</label>
+        <input name="filterText" type="text" id="filterText" value="">
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<form id="rteListForm" class="ajax" action="{{ url('/database/routines') }}">
+  {{ get_hidden_inputs(db, table) }}
+
+  <fieldset>
+    <legend>
+      {% trans 'Routines' %}
+      {{ show_mysql_docu('STORED_ROUTINES') }}
+    </legend>
+
+    <div id="nothing2display"{{ items is not empty ? ' class="hide"' }}>
+      {% trans 'There are no routines to display.' %}
+    </div>
+
+    <table class="table table-light table-striped table-hover{{ items is empty ? ' hide' }} data">
+      <thead class="thead-light">
+      <tr>
+        <th></th>
+        <th>{% trans 'Name' %}</th>
+        <th colspan="4">{% trans 'Action' %}</th>
+        <th>{% trans 'Type' %}</th>
+        <th>{% trans 'Returns' %}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="hide">{% for i in 0..7 %}<td></td>{% endfor %}</tr>
+
+      {{ rows|raw }}
+      </tbody>
+    </table>
+
+    {% if items is not empty %}
+      <div class="withSelected">
+        <img class="selectallarrow" src="{{ select_all_arrow_src }}" width="38" height="22" alt="{% trans 'With selected:' %}">
+        <input type="checkbox" id="rteListForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
+        <label for="rteListForm_checkall">{% trans 'Check all' %}</label>
+        <em class="with-selected">{% trans 'With selected:' %}</em>
+
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{% trans 'Export' %}">
+          {{ get_icon('b_export', 'Export'|trans) }}
+        </button>
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="drop" title="{% trans 'Drop' %}">
+          {{ get_icon('b_drop', 'Drop'|trans) }}
+        </button>
+      </div>
+    {% endif %}
+  </fieldset>
+</form>
+
+<fieldset class="left">
+  <legend>{% trans %}New{% context %}Create new routine{% endtrans %}</legend>
+  <div class='wrap'>
+    {% if has_privilege %}
+      <a class="ajax add_anchor" href="{{ url('/database/routines', {'db': db, 'table': table, 'add_item': true}) }}">
+        {{ get_icon('b_routine_add') }}
+        {% trans 'Add routine' %}
+      </a>
+    {% else %}
+      {{ get_icon('bd_routine_add') }}
+      {% trans 'Add routine' %}
+    {% endif %}
+    {{ show_mysql_docu('CREATE_PROCEDURE') }}
+  </div>
+</fieldset>

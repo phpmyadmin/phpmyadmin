@@ -1,9 +1,6 @@
-<script type="text/javascript">
-    url_query = '{{ url_query }}';
-</script>
 {# Display Chart options #}
 <div id="div_view_options">
-    <form method="post" id="tblchartform" action="tbl_chart.php" class="ajax">
+    <form method="post" id="tblchartform" action="{{ url('/table/chart') }}" class="ajax">
         {{ get_hidden_inputs(url_params) }}
         <fieldset>
             <legend>

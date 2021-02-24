@@ -6,6 +6,7 @@ filter:
   excluded_paths:
     - build/
     - js/vendor/
+    - js/dist/
     - node_modules/
     - tmp/
     - vendor/
@@ -13,6 +14,10 @@ filter:
 checks:
   javascript: true
   php: true
+tools:
+  external_code_coverage:
+    runs: 4 # php 7.x versions
+    timeout: 900 # 15 min
 build:
   nodes:
     analysis:

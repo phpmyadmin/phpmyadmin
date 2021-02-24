@@ -1,23 +1,14 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Test for PhpMyAdmin\Gis\GisPoint
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPoint;
-use PhpMyAdmin\Tests\Gis\GisGeomTestCase;
 use TCPDF;
+use function function_exists;
+use function imagecreatetruecolor;
 
-/**
- * Tests for PhpMyAdmin\Gis\GisPoint class.
- *
- * @package PhpMyAdmin-test
- */
 class GisPointTest extends GisGeomTestCase
 {
     /**
@@ -31,10 +22,10 @@ class GisPointTest extends GisGeomTestCase
      * This method is called before a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
         $this->object = GisPoint::singleton();
     }
 
@@ -43,10 +34,10 @@ class GisPointTest extends GisGeomTestCase
      * This method is called after a test is executed.
      *
      * @access protected
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->object);
     }
 
@@ -55,7 +46,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt()
+    public function providerForTestGenerateWkt(): array
     {
         return [
             [
@@ -112,9 +103,8 @@ class GisPointTest extends GisGeomTestCase
      * @param string $shape    expected shape in WKT
      *
      * @dataProvider providerForTestGetShape
-     * @return void
      */
-    public function testGetShape($row_data, $shape): void
+    public function testGetShape(array $row_data, string $shape): void
     {
         $this->assertEquals($this->object->getShape($row_data), $shape);
     }
@@ -124,7 +114,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array data for testGetShape
      */
-    public function providerForTestGetShape()
+    public function providerForTestGetShape(): array
     {
         return [
             [
@@ -142,7 +132,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams()
+    public function providerForTestGenerateParams(): array
     {
         return [
             [
@@ -150,8 +140,8 @@ class GisPointTest extends GisGeomTestCase
                 null,
                 [
                     'srid' => '124',
-                    0      => [
-                        'POINT'    => [
+                    0 => [
+                        'POINT' => [
                             'x' => '5.02',
                             'y' => '8.45',
                         ],
@@ -164,7 +154,7 @@ class GisPointTest extends GisGeomTestCase
                 [
                     2 => [
                         'gis_type' => 'POINT',
-                        'POINT'    => [
+                        'POINT' => [
                             'x' => '5.02',
                             'y' => '8.45',
                         ],
@@ -179,7 +169,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow()
+    public function providerForTestScaleRow(): array
     {
         return [
             [
@@ -203,16 +193,15 @@ class GisPointTest extends GisGeomTestCase
      * @param array    $scale_data  array containing data related to scaling
      * @param resource $image       image object
      *
-     * @return void
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial,
-        $label,
-        $point_color,
-        $scale_data,
+        string $spatial,
+        string $label,
+        string $point_color,
+        array $scale_data,
         $image
-    ) {
+    ): void {
         $return = $this->object->prepareRowAsPng(
             $spatial,
             $label,
@@ -228,11 +217,12 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPng() test case
      */
-    public function providerForPrepareRowAsPng()
+    public function providerForPrepareRowAsPng(): array
     {
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
+
         return [
             [
                 'POINT(12 35)',
@@ -258,16 +248,15 @@ class GisPointTest extends GisGeomTestCase
      * @param array  $scale_data  array containing data related to scaling
      * @param TCPDF  $pdf         TCPDF instance
      *
-     * @return void
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial,
-        $label,
-        $point_color,
-        $scale_data,
-        $pdf
-    ) {
+        string $spatial,
+        string $label,
+        string $point_color,
+        array $scale_data,
+        TCPDF $pdf
+    ): void {
         $return = $this->object->prepareRowAsPdf(
             $spatial,
             $label,
@@ -283,7 +272,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array test data for prepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf()
+    public function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -304,29 +293,28 @@ class GisPointTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsSvg() method
      *
-     * @param string $spatial     GIS POINT object
-     * @param string $label       label for the GIS POINT object
-     * @param string $point_color color for the GIS POINT object
-     * @param array  $scale_data  array containing data related to scaling
-     * @param string $output      expected output
+     * @param string $spatial    GIS POINT object
+     * @param string $label      label for the GIS POINT object
+     * @param string $pointColor color for the GIS POINT object
+     * @param array  $scaleData  array containing data related to scaling
+     * @param string $output     expected output
      *
-     * @return void
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial,
-        $label,
-        $point_color,
-        $scale_data,
-        $output
-    ) {
+        string $spatial,
+        string $label,
+        string $pointColor,
+        array $scaleData,
+        string $output
+    ): void {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsSvg(
                 $spatial,
                 $label,
-                $point_color,
-                $scale_data
+                $pointColor,
+                $scaleData
             )
         );
     }
@@ -336,7 +324,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array test data for prepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg()
+    public function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -360,21 +348,20 @@ class GisPointTest extends GisGeomTestCase
      * @param string $spatial     GIS POINT object
      * @param int    $srid        spatial reference ID
      * @param string $label       label for the GIS POINT object
-     * @param string $point_color color for the GIS POINT object
+     * @param array  $point_color color for the GIS POINT object
      * @param array  $scale_data  array containing data related to scaling
      * @param string $output      expected output
      *
-     * @return void
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial,
-        $srid,
-        $label,
-        $point_color,
-        $scale_data,
-        $output
-    ) {
+        string $spatial,
+        int $srid,
+        string $label,
+        array $point_color,
+        array $scale_data,
+        string $output
+    ): void {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
@@ -392,30 +379,36 @@ class GisPointTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl()
+    public function providerForPrepareRowAsOl(): array
     {
         return [
             [
                 'POINT(12 35)',
                 4326,
                 'Ol',
-                '#B02EE0',
+                [176, 46, 224],
                 [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
                 ],
-                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.'
-                . 'LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject())); bound.extend(new OpenLayers.LonLat'
-                . '(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), '
-                . 'map.getProjectionObject()));vectorLayer.addFeatures(new Open'
-                . 'Layers.Feature.Vector((new OpenLayers.Geometry.Point(12,35)).'
-                . 'transform(new OpenLayers.Projection("EPSG:4326"), map.get'
-                . 'ProjectionObject()), null, {"pointRadius":3,"fillColor":"#ffffff"'
-                . ',"strokeColor":"#B02EE0","strokeWidth":2,"label":"Ol","labelY'
-                . 'Offset":-8,"fontSize":10}));',
+                'var fill = new ol.style.Fill({"color":"white"});'
+                . 'var stroke = new ol.style.Stroke({"color":[176'
+                . ',46,224],"width":2});var style = new ol.style.'
+                . 'Style({image: new ol.style.Circle({fill: fill,'
+                . 'stroke: stroke,radius: 3}),fill: fill,stroke: '
+                . 'stroke,text: new ol.style.Text({"text":"Ol","o'
+                . 'ffsetY":-9})});var minLoc = [0, 0];var maxLoc '
+                . '= [1, 1];var ext = ol.extent.boundingExtent([m'
+                . 'inLoc, maxLoc]);ext = ol.proj.transformExtent('
+                . 'ext, ol.proj.get("EPSG:4326"), ol.proj.get(\'E'
+                . 'PSG:3857\'));map.getView().fit(ext, map.getSiz'
+                . 'e());var point = new ol.Feature({geometry: (ne'
+                . 'w ol.geom.Point([12,35]).transform(ol.proj.get'
+                . '("EPSG:4326"), ol.proj.get(\'EPSG:3857\')))});'
+                . 'point.setStyle(style);vectorLayer.addFeature(p'
+                . 'oint);',
             ],
         ];
     }

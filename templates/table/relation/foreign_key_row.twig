@@ -10,8 +10,8 @@
             %}
             {% set this_params = url_params %}
             {% set this_params = {
-                'goto': 'tbl_relation.php',
-                'back': 'tbl_relation.php',
+                'goto': url('/table/relation'),
+                'back': url('/table/relation'),
                 'sql_query': drop_fk_query,
                 'message_to_show': 'Foreign key constraint %s has been dropped'|trans|format(
                     one_key['constraint']
@@ -22,7 +22,7 @@
         {% if one_key['constraint'] is defined %}
             <input type="hidden" class="drop_foreign_key_msg" value="
                 {{- js_msg }}">
-            {% set drop_url = 'sql.php' ~ get_common(this_params) %}
+            {% set drop_url = url('/sql', this_params) %}
             {% set drop_str = get_icon('b_drop', 'Drop'|trans) %}
             {{ link_or_button(drop_url, drop_str, {'class': 'drop_foreign_key_anchor ajax'}) }}
         {% endif %}
@@ -89,6 +89,8 @@
     {% set tables = [] %}
     {% if foreign_db %}
         {% set tables = get_tables(foreign_db, tbl_storage_engine) %}
+    {% else %}
+        {% set tables = get_tables(db, tbl_storage_engine) %}
     {% endif %}
     <td>
         <span class="formelement clearfloat">
@@ -96,7 +98,8 @@
                 'name': 'destination_foreign_db[' ~ i ~ ']',
                 'title': 'Database'|trans,
                 'values': databases,
-                'foreign': foreign_db
+                'foreign': foreign_db,
+                'db': db
             } only %}
         </span>
     </td>

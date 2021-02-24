@@ -1,5 +1,5 @@
-<div id="prefs_autoload" class="notice print_ignore hide">
-    <form action="prefs_manage.php" method="post" class="disableAjax">
+<div id="prefs_autoload" class="alert alert-primary print_ignore hide" role="alert">
+    <form action="{{ url('/preferences/manage') }}" method="post" class="disableAjax">
         {{ hidden_inputs|raw }}
         <input type="hidden" name="json" value="">
         <input type="hidden" name="submit_import" value="1">

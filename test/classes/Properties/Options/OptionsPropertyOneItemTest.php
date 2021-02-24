@@ -1,42 +1,33 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for PhpMyAdmin\Properties\Options\OptionsPropertyOneItem class
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Properties\Options;
 
-use PHPUnit\Framework\TestCase;
+use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
+use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
-/**
- * Tests for PhpMyAdmin\Properties\Options\OptionsPropertyOneItem class
- *
- * @package PhpMyAdmin-test
- */
-class OptionsPropertyOneItemTest extends TestCase
+class OptionsPropertyOneItemTest extends AbstractTestCase
 {
+    /** @var OptionsPropertyOneItem|MockObject  */
     protected $stub;
 
     /**
      * Configures global environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Options\OptionsPropertyOneItem');
+        parent::setUp();
+        $this->stub = $this->getMockForAbstractClass(OptionsPropertyOneItem::class);
     }
 
     /**
      * tearDown for test cases
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
+        parent::tearDown();
         unset($this->stub);
     }
 
@@ -44,10 +35,8 @@ class OptionsPropertyOneItemTest extends TestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getValues
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setValues
-     *
-     * @return void
      */
-    public function testGetSetValues()
+    public function testGetSetValues(): void
     {
         $this->stub->setValues([1, 2]);
 
@@ -64,10 +53,8 @@ class OptionsPropertyOneItemTest extends TestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getLen
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setLen
-     *
-     * @return void
      */
-    public function testGetSetLen()
+    public function testGetSetLen(): void
     {
         $this->stub->setLen(12);
 
@@ -81,10 +68,8 @@ class OptionsPropertyOneItemTest extends TestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getForce
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setForce
-     *
-     * @return void
      */
-    public function testGetSetForce()
+    public function testGetSetForce(): void
     {
         $this->stub->setForce('force123');
 
@@ -98,10 +83,8 @@ class OptionsPropertyOneItemTest extends TestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getDoc
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setDoc
-     *
-     * @return void
      */
-    public function testGetSetDoc()
+    public function testGetSetDoc(): void
     {
         $this->stub->setDoc('doc123');
 
@@ -115,10 +98,8 @@ class OptionsPropertyOneItemTest extends TestCase
      * Test for
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::getSize
      *     - PhpMyAdmin\Properties\Options\OptionsPropertyOneItem::setSize
-     *
-     * @return void
      */
-    public function testGetSetSize()
+    public function testGetSetSize(): void
     {
         $this->stub->setSize(22);
 

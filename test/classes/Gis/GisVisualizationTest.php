@@ -1,58 +1,32 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Test for PhpMyAdmin\Gis\GisVisualization
- *
- * @package PhpMyAdmin-test
- */
+
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisVisualization;
-use PHPUnit\Framework\TestCase;
-use ReflectionClass;
+use PhpMyAdmin\Tests\AbstractTestCase;
 
-/**
- * Tests for PhpMyAdmin\Gis\GisVisualization class
- *
- * @package PhpMyAdmin-test
- */
-class GisVisualizationTest extends TestCase
+class GisVisualizationTest extends AbstractTestCase
 {
     /**
-     * Call private functions by setting visibility to public.
-     *
-     * @param string           $name      method name
-     * @param array            $params    parameters for the invocation
-     * @param GisVisualization $gisObject The GisVisualization instance
-     *
-     * @return mixed the output from the private method.
-     */
-    private function _callPrivateFunction(string $name, array $params, GisVisualization $gisObject)
-    {
-        $class = new ReflectionClass(GisVisualization::class);
-        $method = $class->getMethod($name);
-        $method->setAccessible(true);
-        return $method->invokeArgs($gisObject, $params);
-    }
-
-    /**
      * Modify the query for an old version
-     * @return void
      */
     public function testModifyQueryOld(): void
     {
-        $queryString = $this->_callPrivateFunction(
-            '_modifySqlQuery',
-            [
-                '',
-                0,
-                0,
-            ],
+        $queryString = $this->callFunction(
             GisVisualization::getByData([], [
                 'mysqlVersion' => 50500,
                 'spatialColumn' => 'abc',
                 'isMariaDB' => false,
-            ])
+            ]),
+            GisVisualization::class,
+            'modifySqlQuery',
+            [
+                '',
+                0,
+                0,
+            ]
         );
 
         $this->assertEquals(
@@ -62,23 +36,23 @@ class GisVisualizationTest extends TestCase
     }
 
     /**
-     * Modify the query for a MySQL 8.0 version
-     * @return void
+     * Modify the query for an MySQL 8.0 version
      */
     public function testModifyQuery(): void
     {
-        $queryString = $this->_callPrivateFunction(
-            '_modifySqlQuery',
-            [
-                '',
-                0,
-                0,
-            ],
+        $queryString = $this->callFunction(
             GisVisualization::getByData([], [
                 'mysqlVersion' => 80000,
                 'spatialColumn' => 'abc',
                 'isMariaDB' => false,
-            ])
+            ]),
+            GisVisualization::class,
+            'modifySqlQuery',
+            [
+                '',
+                0,
+                0,
+            ]
         );
 
         $this->assertEquals(
@@ -88,23 +62,23 @@ class GisVisualizationTest extends TestCase
     }
 
     /**
-     * Modify the query for a MySQL 8.1 version
-     * @return void
+     * Modify the query for an MySQL 8.1 version
      */
     public function testModifyQueryVersion8(): void
     {
-        $queryString = $this->_callPrivateFunction(
-            '_modifySqlQuery',
-            [
-                '',
-                0,
-                0,
-            ],
+        $queryString = $this->callFunction(
             GisVisualization::getByData([], [
                 'mysqlVersion' => 80010,
                 'spatialColumn' => 'abc',
                 'isMariaDB' => false,
-            ])
+            ]),
+            GisVisualization::class,
+            'modifySqlQuery',
+            [
+                '',
+                0,
+                0,
+            ]
         );
 
         $this->assertEquals(
@@ -115,22 +89,22 @@ class GisVisualizationTest extends TestCase
 
     /**
      * Modify the query for a MariaDB 10.4 version
-     * @return void
      */
     public function testModifyQueryMariaDB(): void
     {
-        $queryString = $this->_callPrivateFunction(
-            '_modifySqlQuery',
-            [
-                '',
-                0,
-                0,
-            ],
+        $queryString = $this->callFunction(
             GisVisualization::getByData([], [
                 'mysqlVersion' => 100400,
                 'spatialColumn' => 'abc',
                 'isMariaDB' => true,
-            ])
+            ]),
+            GisVisualization::class,
+            'modifySqlQuery',
+            [
+                '',
+                0,
+                0,
+            ]
         );
 
         $this->assertEquals(

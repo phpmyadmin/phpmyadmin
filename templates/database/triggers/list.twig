@@ -1,0 +1,50 @@
+<form id="rteListForm" class="ajax" action="{{ url(table is not empty ? '/table/triggers' : '/database/triggers') }}">
+  {{ get_hidden_inputs(db, table) }}
+
+  <fieldset>
+    <legend>
+      {% trans 'Triggers' %}
+      {{ show_mysql_docu('TRIGGERS') }}
+    </legend>
+
+    <div id="nothing2display"{{ items is not empty ? ' class="hide"' }}>
+      {% trans 'There are no triggers to display.' %}
+    </div>
+
+    <table class="table table-light table-striped table-hover{{ items is empty ? ' hide' }} data">
+      <thead class="thead-light">
+      <tr>
+        <th></th>
+        <th>{% trans 'Name' %}</th>
+        {% if table is empty %}
+          <th>{% trans 'Table' %}</th>
+        {% endif %}
+        <th colspan="3">{% trans 'Action' %}</th>
+        <th>{% trans 'Time' %}</th>
+        <th>{% trans 'Event' %}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="hide">{% for i in 0..(table is empty ? 7 : 6) %}<td></td>{% endfor %}</tr>
+
+      {{ rows|raw }}
+      </tbody>
+    </table>
+
+    {% if items is not empty %}
+      <div class="withSelected">
+        <img class="selectallarrow" src="{{ select_all_arrow_src }}" width="38" height="22" alt="{% trans 'With selected:' %}">
+        <input type="checkbox" id="rteListForm_checkall" class="checkall_box" title="{% trans 'Check all' %}">
+        <label for="rteListForm_checkall">{% trans 'Check all' %}</label>
+        <em class="with-selected">{% trans 'With selected:' %}</em>
+
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="export" title="{% trans 'Export' %}">
+          {{ get_icon('b_export', 'Export'|trans) }}
+        </button>
+        <button class="btn btn-link mult_submit" type="submit" name="submit_mult" value="drop" title="{% trans 'Drop' %}">
+          {{ get_icon('b_drop', 'Drop'|trans) }}
+        </button>
+      </div>
+    {% endif %}
+  </fieldset>
+</form>

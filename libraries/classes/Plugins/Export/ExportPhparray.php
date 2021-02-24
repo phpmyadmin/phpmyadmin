@@ -1,35 +1,30 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Set of functions used to build dumps of tables as PHP Arrays
- *
- * @package    PhpMyAdmin-Export
- * @subpackage PHP
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+use function preg_match;
+use function preg_replace;
+use function stripslashes;
+use function strtr;
+use function var_export;
 
 /**
  * Handles the export for the PHP Array class
- *
- * @package    PhpMyAdmin-Export
- * @subpackage PHP
  */
 class ExportPhparray extends ExportPlugin
 {
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -53,13 +48,13 @@ class ExportPhparray extends ExportPlugin
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // general options main group
-        $generalOptions = new OptionsPropertyMainGroup("general_opts");
+        $generalOptions = new OptionsPropertyMainGroup('general_opts');
         // create primary items and add them to the group
-        $leaf = new HiddenPropertyItem("structure_or_data");
+        $leaf = new HiddenPropertyItem('structure_or_data');
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
@@ -80,7 +75,6 @@ class ExportPhparray extends ExportPlugin
     {
         return strtr($string, '*/', '-');
     }
-
 
     /**
      * Outputs export header
@@ -178,20 +172,22 @@ class ExportPhparray extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
+        global $dbi;
+
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        $result = $GLOBALS['dbi']->query(
+        $result = $dbi->query(
             $sql_query,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
 
-        $columns_cnt = $GLOBALS['dbi']->numFields($result);
+        $columns_cnt = $dbi->numFields($result);
         $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
-            $col_as = $GLOBALS['dbi']->fieldName($result, $i);
+            $col_as = $dbi->fieldName($result, $i);
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
@@ -229,7 +225,7 @@ class ExportPhparray extends ExportPlugin
             . $this->commentString(Util::backquote($table_alias)) . ' */' . $crlf;
         $buffer .= '$' . $tablefixed . ' = array(';
 
-        while ($record = $GLOBALS['dbi']->fetchRow($result)) {
+        while ($record = $dbi->fetchRow($result)) {
             $record_cnt++;
 
             if ($record_cnt == 1) {
@@ -240,8 +236,8 @@ class ExportPhparray extends ExportPlugin
 
             for ($i = 0; $i < $columns_cnt; $i++) {
                 $buffer .= var_export($columns[$i], true)
-                    . " => " . var_export($record[$i], true)
-                    . (($i + 1 >= $columns_cnt) ? '' : ',');
+                    . ' => ' . var_export($record[$i], true)
+                    . ($i + 1 >= $columns_cnt ? '' : ',');
             }
 
             $buffer .= ')';
@@ -252,8 +248,22 @@ class ExportPhparray extends ExportPlugin
             return false;
         }
 
-        $GLOBALS['dbi']->freeResult($result);
+        $dbi->freeResult($result);
 
         return true;
+    }
+
+    /**
+     * Outputs result of raw query as PHP array
+     *
+     * @param string $err_url   the url to go back in case of error
+     * @param string $sql_query the rawquery to output
+     * @param string $crlf      the end of line sequence
+     *
+     * @return bool if succeeded
+     */
+    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    {
+        return $this->exportData('', '', $crlf, $err_url, $sql_query);
     }
 }

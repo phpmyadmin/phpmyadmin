@@ -1,17 +1,17 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Validation callback.
- *
- * @package PhpMyAdmin-Setup
  */
+
 declare(strict_types=1);
 
 use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Core;
 
 if (! defined('ROOT_PATH')) {
+    // phpcs:disable PSR1.Files.SideEffects
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+    // phpcs:enable
 }
 
 /**

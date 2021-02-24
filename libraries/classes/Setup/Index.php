@@ -1,23 +1,23 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Various checks and message functions used on index page.
- *
- * @package PhpMyAdmin-Setup
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\VersionInformation;
+use function htmlspecialchars;
+use function is_array;
+use function sprintf;
+use function uniqid;
 
 /**
  * PhpMyAdmin\Setup\Index class
  *
  * Various checks and message functions used on index page.
- *
- * @package PhpMyAdmin-Setup
  */
 class Index
 {
@@ -75,9 +75,11 @@ class Index
         foreach ($_SESSION['messages'] as &$messages) {
             $remove_ids = [];
             foreach ($messages as $id => &$msg) {
-                if ($msg['active'] == false) {
-                    $remove_ids[] = $id;
+                if ($msg['active'] != false) {
+                    continue;
                 }
+
+                $remove_ids[] = $id;
             }
             foreach ($remove_ids as $id) {
                 unset($messages[$id]);
@@ -104,6 +106,7 @@ class Index
                 ];
             }
         }
+
         return $return;
     }
 
@@ -132,17 +135,18 @@ class Index
                     . 'Maybe you\'re offline or the upgrade server does not respond.'
                 )
             );
+
             return;
         }
 
         $releases = $version_data->releases;
         $latestCompatible = $versionInformation->getLatestCompatibleVersion($releases);
-        if ($latestCompatible != null) {
-            $version = $latestCompatible['version'];
-            $date = $latestCompatible['date'];
-        } else {
+        if ($latestCompatible == null) {
             return;
         }
+
+        $version = $latestCompatible['version'];
+        $date = $latestCompatible['date'];
 
         $version_upstream = $versionInformation->versionToInt($version);
         if ($version_upstream === false) {
@@ -152,6 +156,7 @@ class Index
                 __('Version check'),
                 __('Got invalid version string from server')
             );
+
             return;
         }
 
@@ -165,6 +170,7 @@ class Index
                 __('Version check'),
                 __('Unparsable version string')
             );
+
             return;
         }
 
@@ -175,7 +181,8 @@ class Index
                 'notice',
                 $message_id,
                 __('Version check'),
-                sprintf(__('A newer version of phpMyAdmin is available and you should consider upgrading. The newest version is %s, released on %s.'), $version, $date)
+                sprintf(__('A newer version of phpMyAdmin is available and you should consider upgrading.'
+                    . ' The newest version is %s, released on %s.'), $version, $date)
             );
         } else {
             if ($version_local % 100 == 0) {
@@ -183,7 +190,8 @@ class Index
                     'notice',
                     $message_id,
                     __('Version check'),
-                    Sanitize::sanitizeMessage(sprintf(__('You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable version is %s, released on %s.'), $version, $date))
+                    Sanitize::sanitizeMessage(sprintf(__('You are using Git version, run [kbd]git pull[/kbd]'
+                        . ' :-)[br]The latest stable version is %s, released on %s.'), $version, $date))
                 );
             } else {
                 self::messagesSet(

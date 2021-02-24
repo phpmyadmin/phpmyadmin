@@ -1,5 +1,5 @@
 <div id="div_create_version">
-    <form method="post" action="{{ url_query|raw }}">
+    <form method="post" action="{{ url(route, url_params) }}">
         {{ get_hidden_inputs(db) }}
         {% for selected_table in selected %}
             <input type="hidden" name="selected[]" value="{{ selected_table }}">

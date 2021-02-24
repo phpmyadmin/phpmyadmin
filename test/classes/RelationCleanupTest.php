@@ -1,10 +1,5 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * tests for PhpMyAdmin\RelationCleanup
- *
- * @package PhpMyAdmin-test
- */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
@@ -12,34 +7,28 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PHPUnit\Framework\MockObject\MockObject;
-use PHPUnit\Framework\TestCase;
+use function array_merge;
 
 /**
  * PhpMyAdmin\Tests\RelationCleanupTest class
  *
  * this class is for testing PhpMyAdmin\RelationCleanup methods
- *
- * @package PhpMyAdmin-test
  */
-class RelationCleanupTest extends TestCase
+class RelationCleanupTest extends AbstractTestCase
 {
-    /**
-     * @var Relation|MockObject
-     */
+    /** @var Relation|MockObject */
     private $relation;
 
-    /**
-     * @var RelationCleanup
-     */
+    /** @var RelationCleanup */
     private $relationCleanup;
 
     /**
      * Prepares environment for the test.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
+        parent::setUp();
+        parent::defineVersionConstants();
         $GLOBALS['server'] = 1;
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = [
@@ -95,8 +84,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for column method
-     *
-     * @return void
      */
     public function testColumnWithoutRelations(): void
     {
@@ -108,8 +95,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for column method
-     *
-     * @return void
      */
     public function testColumnWithRelations(): void
     {
@@ -125,10 +110,30 @@ class RelationCleanupTest extends TestCase
         $this->relation->expects($this->exactly(4))
             ->method('queryAsControlUser')
             ->withConsecutive(
-                [$this->equalTo("DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database' AND table_name = 'table' AND column_name = 'column'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database' AND table_name = 'table' AND display_field = 'column'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database' AND master_table = 'table' AND master_field = 'column'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database' AND foreign_table = 'table' AND foreign_field = 'column'")]
+                [
+                    $this->equalTo(
+                        "DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database' AND"
+                        . " table_name = 'table' AND column_name = 'column'"
+                    ),
+                ],
+                [
+                    $this->equalTo(
+                        "DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database' AND"
+                        . " table_name = 'table' AND display_field = 'column'"
+                    ),
+                ],
+                [
+                    $this->equalTo(
+                        "DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database' AND"
+                        . " master_table = 'table' AND master_field = 'column'"
+                    ),
+                ],
+                [
+                    $this->equalTo(
+                        "DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database' AND"
+                        . " foreign_table = 'table' AND foreign_field = 'column'"
+                    ),
+                ]
             );
 
         $this->relationCleanup->column('database', 'table', 'column');
@@ -136,8 +141,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for table method
-     *
-     * @return void
      */
     public function testTableWithoutRelations(): void
     {
@@ -149,8 +152,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for table method
-     *
-     * @return void
      */
     public function testTableWithRelations(): void
     {
@@ -169,13 +170,42 @@ class RelationCleanupTest extends TestCase
         $this->relation->expects($this->exactly(7))
             ->method('queryAsControlUser')
             ->withConsecutive(
-                [$this->equalTo("DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database' AND table_name = 'table'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database' AND table_name = 'table'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`table_coords` WHERE db_name  = 'database' AND table_name = 'table'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database' AND master_table = 'table'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database' AND foreign_table = 'table'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`table_uiprefs` WHERE db_name  = 'database' AND table_name = 'table'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`navigationhiding` WHERE db_name  = 'database' AND (table_name = 'table' OR (item_name = 'table' AND item_type = 'table'))")]
+                [
+                    $this->equalTo(
+                        "DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database' AND table_name = 'table'"
+                    ),
+                ],
+                [
+                    $this->equalTo(
+                        "DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database' AND table_name = 'table'"
+                    ),
+                ],
+                [
+                    $this->equalTo(
+                        "DELETE FROM `pmadb`.`table_coords` WHERE db_name  = 'database' AND table_name = 'table'"
+                    ),
+                ],
+                [
+                    $this->equalTo(
+                        "DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database' AND master_table = 'table'"
+                    ),
+                ],
+                [
+                    $this->equalTo(
+                        "DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database' AND foreign_table = 'table'"
+                    ),
+                ],
+                [
+                    $this->equalTo(
+                        "DELETE FROM `pmadb`.`table_uiprefs` WHERE db_name  = 'database' AND table_name = 'table'"
+                    ),
+                ],
+                [
+                    $this->equalTo(
+                        "DELETE FROM `pmadb`.`navigationhiding` WHERE db_name  = 'database' AND"
+                        . " (table_name = 'table' OR (item_name = 'table' AND item_type = 'table'))"
+                    ),
+                ]
             );
 
         $this->relationCleanup->table('database', 'table');
@@ -183,8 +213,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for database method
-     *
-     * @return void
      */
     public function testDatabaseWithoutRelations(): void
     {
@@ -196,8 +224,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for database method
-     *
-     * @return void
      */
     public function testDatabaseWithRelations(): void
     {
@@ -237,8 +263,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for user method
-     *
-     * @return void
      */
     public function testUserWithoutRelations(): void
     {
@@ -250,8 +274,6 @@ class RelationCleanupTest extends TestCase
 
     /**
      * Test for user method
-     *
-     * @return void
      */
     public function testUserWithRelations(): void
     {

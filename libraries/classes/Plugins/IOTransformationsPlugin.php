@@ -1,27 +1,30 @@
 <?php
-/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Abstract class for the I/O transformations plugins
- *
- * @package PhpMyAdmin
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
-use PhpMyAdmin\Plugins\TransformationsPlugin;
-
 /**
  * Provides a common interface that will have to be implemented
  * by all of the Input/Output transformations plugins.
- *
- * @package PhpMyAdmin
  */
 abstract class IOTransformationsPlugin extends TransformationsPlugin
 {
-    // specifies whether transformation was successful or not
+    /**
+     * Specifies whether transformation was successful or not.
+     *
+     * @var bool
+     */
     protected $success = true;
-    // to store the error message in case of failed transformations
+
+    /**
+     * To store the error message in case of failed transformations.
+     *
+     * @var string
+     */
     protected $error = '';
 
     /**
