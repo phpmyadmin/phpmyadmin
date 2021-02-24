@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-02-24 10:22+0100\n"
-"PO-Revision-Date: 2021-01-29 20:33+0000\n"
+"PO-Revision-Date: 2021-02-24 22:13+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7068,10 +7068,10 @@ msgid "Submit"
 msgstr "Soumettre"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:551
-#, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "Appuyer sur la touche d'échappement pour annuler l'édition."
+msgstr ""
+"Appuyer sur la touche d'échappement pour annuler l'édition.<br>- Maj+Entrée "
+"pour une nouvelle ligne."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid ""
@@ -12400,6 +12400,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Le cache de routage n'a pas pu être écrit, vous devez ajuster les "
+"permissions sur le dossier/fichier \"%s\""
 
 #: libraries/classes/Routing.php:164
 #, php-format
@@ -15948,20 +15950,17 @@ msgid "License"
 msgstr "Licence"
 
 #: templates/home/index.twig:247
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
-msgstr "Page d'accueil de phpMyAdmin"
+msgstr "Thèmes pour phpMyAdmin"
 
 #: templates/home/index.twig:258
 msgid "Get more themes!"
 msgstr "Obtenir d'autres thèmes !"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Schéma de la base %s"
+msgstr "Capture d'écran du thème %s."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
