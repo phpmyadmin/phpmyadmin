@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-02-24 14:37+0000\n"
+"PO-Revision-Date: 2021-02-24 22:13+0000\n"
 "Last-Translator: Danushka Malinga Ranasinghe <dranasinghe99@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "si/>\n"
@@ -628,13 +628,13 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"ඔබ එක් සේවාදායකයකින් ඉවත් වී ඇත, phpMyAdmin වෙතින් සම්පූර්ණයෙන්ම ඉවත් වීමට, "
+"ඔබ සියලුම සේවාදායකයන්ගෙන් ඉවත් විය යුතුය."
 
 #: index.php:202 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin මුල් පිටුව"
+msgstr "phpMyAdmin නිරූපණ සේවාදායකය"
 
 #: index.php:206 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
