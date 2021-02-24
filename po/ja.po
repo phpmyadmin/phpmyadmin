@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-02-24 10:22+0100\n"
-"PO-Revision-Date: 2021-02-12 17:50+0000\n"
+"PO-Revision-Date: 2021-02-24 22:13+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6900,10 +6900,8 @@ msgid "Submit"
 msgstr "実行する"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:551
-#, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "ESC キーで編集をキャンセルします。"
+msgstr "ESC キーで編集をキャンセルします。<br>- Shift+Enter で改行します。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid ""
@@ -12073,7 +12071,7 @@ msgstr "マスタサーバを %s へ切り替えるのに成功しました。"
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
-msgstr ""
+msgstr "ルーティングキャッシュが書き込みできません。 \"%s\" フォルダ/ファイルのアクセス権を調整する必要があります"
 
 #: libraries/classes/Routing.php:164
 #, php-format
@@ -15573,20 +15571,17 @@ msgid "License"
 msgstr "ライセンス"
 
 #: templates/home/index.twig:247
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
-msgstr "phpMyAdmin オフィシャルサイト"
+msgstr "phpMyAdmin のテーマ"
 
 #: templates/home/index.twig:258
 msgid "Get more themes!"
 msgstr "他のテーマを入手する！"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "データベース %s のスキーマ"
+msgstr "%s テーマのスクリーンショットです。"
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
