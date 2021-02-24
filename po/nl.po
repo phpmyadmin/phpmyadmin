@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-02-24 10:22+0100\n"
-"PO-Revision-Date: 2021-01-29 20:33+0000\n"
+"PO-Revision-Date: 2021-02-25 23:50+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7037,10 +7037,10 @@ msgid "Submit"
 msgstr "Verzenden"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:551
-#, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "Druk op ESC om het bewerken te annuleren."
+msgstr ""
+"Druk op ESC om bewerking te annuleren.<br>- Shift + Enter voor een nieuwe "
+"regel."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid ""
@@ -12343,6 +12343,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"De routing cache kon niet weggeschreven worden, u moet de rechten op map/"
+"bestand \"%s\" aanpassen"
 
 #: libraries/classes/Routing.php:164
 #, php-format
@@ -15889,20 +15891,17 @@ msgid "License"
 msgstr "Licentie"
 
 #: templates/home/index.twig:247
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
-msgstr "phpMyAdmin-website"
+msgstr "phpMyAdmin Thema's"
 
 #: templates/home/index.twig:258
 msgid "Get more themes!"
 msgstr "Bekijk meer thema's!"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Schema van database %s"
+msgstr "Schermafdruk van het %s thema."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
