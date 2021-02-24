@@ -240,6 +240,7 @@ ensure_local_branch $branch
 
 VERSION_FILE=libraries/classes/Version.php
 
+# Keep in sync with update-po script
 fetchReleaseFromFile() {
     php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;"
 }
