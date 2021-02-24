@@ -107,6 +107,11 @@
       <code>loadTemplate</code>
     </TooFewArguments>
   </file>
+  <file src="libraries/classes/Command/SetVersionCommand.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$defaultName</code>
+    </NonInvariantDocblockPropertyType>
+  </file>
   <file src="libraries/classes/Config.php">
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;get('is_https')</code>
@@ -115,10 +120,9 @@
       <code>$default_value</code>
       <code>$request</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyNullArgument occurrences="2">
       <code>$oldErrorReporting</code>
       <code>$oldErrorReporting</code>
-      <code>$this-&gt;get('PMA_VERSION')</code>
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Config/ConfigFile.php">
@@ -1360,9 +1364,6 @@
     <ImplicitToStringCast occurrences="1"/>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationSignon.php">
-    <InvalidArgument occurrences="1">
-      <code>$sessionCookieParams</code>
-    </InvalidArgument>
     <PossiblyInvalidArgument occurrences="5">
       <code>$sessionCookieParams['domain']</code>
       <code>$sessionCookieParams['httponly']</code>
