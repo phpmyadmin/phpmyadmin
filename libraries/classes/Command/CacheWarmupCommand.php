@@ -10,6 +10,7 @@ use PhpMyAdmin\Routing;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Twig\AssetExtension;
 use PhpMyAdmin\Twig\CoreExtension;
+use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\PluginsExtension;
@@ -122,6 +123,10 @@ final class CacheWarmupCommand extends Command
             'auto_reload' => true,
             'cache' => $tmpDir,
         ]);
+
+        // Add this to know at what line the code was for getDebugInfo to work
+        TransNode::$enableAddDebugInfo = true;
+
         $twig->setExtensions([
             new AssetExtension(),
             new CoreExtension(),
