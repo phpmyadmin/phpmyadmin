@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.0-rc1\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-01-28 16:15+0100\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-02-24 01:28+0000\n"
+"Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-1/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -259,21 +259,14 @@ msgid "Suboptimal caching method."
 msgstr "最佳缓存模式。"
 
 #: libraries/advisory_rules_generic.php:192
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
-"您正在一台具有相当高流量的数据库中使用 MySQL 查询缓存。除非您有多台从服务器，"
-"使用 <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html"
-"\">memcached</a> 代替 MySQL 查询缓存将更好。"
+"您正在一台具有相当高流量的数据库中使用 MySQL 查询缓存。使用 <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> 代替 MySQL 查询缓存将更好，尤其是当您有多台从服务器的时候。"
 
 #: libraries/advisory_rules_generic.php:198
 #, php-format
@@ -494,15 +487,6 @@ msgid "Temp disk rate"
 msgstr "临时磁盘使用率"
 
 #: libraries/advisory_rules_generic.php:345
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -512,11 +496,10 @@ msgid ""
 "mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"增加 {max_heap_table_size} 和 {tmp_table_size} 可能会有帮助。但有些临时表总是"
-"会写入硬盘，和这些变量无关。要避免这些，您需要重写您的查询来避免 <a href="
-"\"https://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
-"\">MySQL 文档</a>中所提到的这些条件 (临时表内: 具有 BLOB 或 TEXT 字段或具有大"
-"于 512 字节的字段)"
+"增加 {max_heap_table_size} 和 {tmp_table_size} "
+"可能会有帮助。但有些临时表总是会写入硬盘，和这些变量无关。要避免这些，您需要重写您的查询来避免 <a href=\"https://dev.mysql."
+"com/doc/refman/8.0/en/internal-temporary-tables.html\">MySQL 文档</a>中所提到的这些条件 "
+"(临时表内: 具有 BLOB 或 TEXT 字段或具有大于 512 字节的字段)"
 
 #: libraries/advisory_rules_generic.php:354
 #, php-format
@@ -544,17 +527,15 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size 为 0"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "最大 %% MyISAM 索引缓存从未使用"
+msgstr "最大 % MyISAM 索引缓存从未使用"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
-#, fuzzy, no-php-format
-#| msgid "MyISAM key buffer (index cache) %% used is low."
+#, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "MyISAM 索引缓存 %% 使用率低。"
+msgstr "MyISAM 索引缓存 % 使用率低。"
 
 #: libraries/advisory_rules_generic.php:380
 #: libraries/advisory_rules_generic.php:397
@@ -586,10 +567,9 @@ msgid "Percentage of index reads from memory"
 msgstr "从内存读取索引的百分比"
 
 #: libraries/advisory_rules_generic.php:411
-#, fuzzy, no-php-format
-#| msgid "The %% of indexes that use the MyISAM key buffer is low."
+#, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr "%% 使用索引缓存的比例是低的。"
+msgstr "% 使用索引缓存的比例是低的。"
 
 #: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
@@ -624,15 +604,10 @@ msgid "Percentage of used open files limit"
 msgstr "打开文件限制使用率"
 
 #: libraries/advisory_rules_generic.php:436
-#, fuzzy
-#| msgid ""
-#| "The number of open files is approaching the max number of open files.  "
-#| "You may get a \"Too many open files\" error."
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
-msgstr ""
-"打开文件的数量接近打开文件的最大数量。您可能会收到 \"过多打开的文件\" 错误。"
+msgstr "打开文件的数量接近打开文件的最大数量。您可能会收到 \"过多打开的文件\" 错误。"
 
 #: libraries/advisory_rules_generic.php:440
 #: libraries/advisory_rules_generic.php:453
@@ -662,10 +637,9 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "已打开文件的比率：%s,这个值应该低于5每小时"
 
 #: libraries/advisory_rules_generic.php:462
-#, fuzzy, no-php-format
-#| msgid "Immediate table locks %%"
+#, no-php-format
 msgid "Immediate table locks %"
-msgstr "立即锁表 %%"
+msgstr "立即锁表 %"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -710,10 +684,9 @@ msgid "The thread cache is set to 0"
 msgstr "线程缓存被设为 0"
 
 #: libraries/advisory_rules_generic.php:493
-#, fuzzy, no-php-format
-#| msgid "Thread cache hit rate %%"
+#, no-php-format
 msgid "Thread cache hit rate %"
-msgstr "线程缓存命中率 %%"
+msgstr "线程缓存命中率 %"
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -886,18 +859,7 @@ msgid ""
 msgstr "InnoDB 日志文件大小不合适，此关系到 InnoDB 缓冲池。"
 
 #: libraries/advisory_rules_generic.php:622
-#, fuzzy, no-php-format
-#| msgid ""
-#| "Especially on a system with a lot of writes to InnoDB tables you should "
-#| "set {innodb_log_file_size} to 25%% of {innodb_buffer_pool_size}. However "
-#| "the bigger this value, the longer the recovery time will be when database "
-#| "crashes, so this value should not be set much higher than 256 MiB. Please "
-#| "note however that you cannot simply change the value of this variable. "
-#| "You need to shutdown the server, remove the InnoDB log files, set the new "
-#| "value in my.cnf, start the server, then check the error logs if "
-#| "everything went fine. See also <a href=\"https://"
-#| "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#| "innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
 "{innodb_log_file_size} to 25% of {innodb_buffer_pool_size}. However the "
@@ -909,12 +871,11 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"在一个 InnoDB 表写入很多的系统上您应该将 {innodb_log_file_size} 设为 "
-"{innodb_buffer_pool_size} 的 25%% 。因为该值越大，当数据库崩溃时恢复的时间就"
-"越长，所以该值不应高于 256 MB 。请注意您不能简单的修改该变量的值。您需要关闭"
-"服务器，删除 InnoDB 日志文件，在 my.cnf 中设置新的值，启动服务器，一切正常后"
-"再检查错误日志。参见<a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">这篇博客</a>"
+"在一个 InnoDB 表写入很多的系统上您应该将 {innodb_log_file_size} 设为 {innodb_buffer_pool_size} "
+"的 25%。因为该值越大，当数据库崩溃时恢复的时间就越长，所以该值不应高于 256 MB 。请注意您不能简单的修改该变量的值。您需要关闭服务器，删除 "
+"InnoDB 日志文件，在 my.cnf 中设置新的值，启动服务器，一切正常后再检查错误日志。参见<a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">这篇博客</a>"
 
 #: libraries/advisory_rules_generic.php:633
 #, php-format
@@ -932,17 +893,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB 日志文件大小设置的不够大。"
 
 #: libraries/advisory_rules_generic.php:646
-#, fuzzy, no-php-format
-#| msgid ""
-#| "It is usually sufficient to set {innodb_log_file_size} to 25%% of the "
-#| "size of {innodb_buffer_pool_size}. A very big {innodb_log_file_size} "
-#| "slows down the recovery time after a database crash considerably. See "
-#| "also <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-#| "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#| "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#| "the server, then check the error logs if everything went fine. See also "
-#| "<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-#| "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+#, no-php-format
 msgid ""
 "It is usually sufficient to set {innodb_log_file_size} to 25% of the size of "
 "{innodb_buffer_pool_size}. A very big {innodb_log_file_size} slows down the "
@@ -954,13 +905,12 @@ msgid ""
 "\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"通常将 {innodb_log_file_size} 设置为 {innodb_buffer_pool_size} 的 25%% 已经足"
-"够。过大的 {innodb_log_file_size} 将会严重减慢数据库崩溃后的恢复时间。参见<a "
-"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">这篇文章</a>。您首先需要关闭服务器，移除 InnoDB 日志"
-"文件，然后在 my.cnf 中设置新的值，最后启动服务器，并检查错误日志确定一切都正"
-"常。另见<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
-"increase-innodblogfilesize-proper-way.html\">这篇博客</a>"
+"通常将 {innodb_log_file_size} 设置为 {innodb_buffer_pool_size} 的 25% 已经足够。过大的 "
+"{innodb_log_file_size} 将会严重减慢数据库崩溃后的恢复时间。参见<a href=\"https://www.percona.com/"
+"blog/2006/07/03/choosing-proper-innodb_log_file_size/\">这篇文章</a>。您首先需要关闭服务器，"
+"移除 InnoDB 日志文件，然后在 my.cnf 中设置新的值，最后启动服务器，并检查错误日志确定一切都正常。另见<a href=\"https"
+"://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">这篇博客</a>"
 
 #: libraries/advisory_rules_generic.php:656
 #, php-format
@@ -976,18 +926,7 @@ msgid "Your InnoDB buffer pool is fairly small."
 msgstr "你的 InnoDB 缓冲池相当小。"
 
 #: libraries/advisory_rules_generic.php:667
-#, fuzzy, no-php-format
-#| msgid ""
-#| "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#| "tables. Assign all your remaining memory to this buffer. For database "
-#| "servers that use solely InnoDB as storage engine and have no other "
-#| "services (e.g. a web server) running, you may set this as high as 80%% of "
-#| "your available memory. If that is not the case, you need to carefully "
-#| "assess the memory consumption of your other services and non-InnoDB-"
-#| "Tables and set this variable accordingly. If it is set too high, your "
-#| "system will start swapping, which decreases performance significantly. "
-#| "See also <a href=\"https://www.percona.com/blog/2007/11/03/choosing-"
-#| "innodb_buffer_pool_size/\">this article</a>"
+#, no-php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
 "tables. Assign all your remaining memory to this buffer. For database "
@@ -1000,12 +939,10 @@ msgid ""
 "\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
 "\">this article</a>"
 msgstr ""
-"InnoDB缓冲池对InnoDB表的性能有着深远的影响。将所有剩余内存分配给此缓冲区。对"
-"于仅使用InnoDB作为存储引擎并且没有其他服务（例如Web服务器）运行的数据库服务"
-"器，您可以将其设置为高达可用内存的80%%。如果不是这种情况，则需要仔细评估其他"
-"服务和非InnoDB-Tables的内存消耗，并相应地设置此变量。如果设置得太高，系统将开"
-"始使用交换内存，这会显着降低性能。另请参见<a href=\"https://www.percona.com/"
-"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">这篇文章</a>"
+"InnoDB缓冲池对InnoDB表的性能有着深远的影响。将所有剩余内存分配给此缓冲区。对于仅使用InnoDB作为存储引擎并且没有其他服务（例如Web服务器"
+"）运行的数据库服务器，您可以将其设置为高达可用内存的80%。如果不是这种情况，则需要仔细评估其他服务和非InnoDB-"
+"Tables的内存消耗，并相应地设置此变量。如果设置得太高，系统将开始使用交换内存，这会显着降低性能。另请参见<a href=\"https://www."
+"percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">这篇文章</a>"
 
 #: libraries/advisory_rules_generic.php:677
 #, php-format
@@ -1065,10 +1002,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr "query_cache_size 被设为 0 或 query_cache_type 被设为 'OFF'"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "查询缓存效率 (%%)"
+msgstr "查询缓存效率 (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1088,10 +1024,9 @@ msgid "Query Cache usage"
 msgstr "查询缓存使用率"
 
 #: libraries/advisory_rules_mysql_before80003.php:39
-#, fuzzy, no-php-format
-#| msgid "Less than 80%% of the query cache is being utilized."
+#, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr "查询缓存使用不到 80%%。"
+msgstr "查询缓存使用不到 80%。"
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -1683,24 +1618,22 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "导入的时候使用bzip2进行压缩。"
 
 #: libraries/classes/Config/Descriptions.php:88
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "输入您域名的reCaptcha服务私钥。"
+msgstr "输入与reCaptcha v2兼容的API的URL。"
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
-msgstr ""
+msgstr "输入与reCaptcha v2兼容的API的Content-Security-Policy代码段。"
 
 #: libraries/classes/Config/Descriptions.php:90
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "输入您的reCaptcha v2兼容API使用的请求参数。"
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "输入您的reCaptcha v2兼容API使用的响应参数。"
 
 #: libraries/classes/Config/Descriptions.php:92
 msgid "Enter your public key for your domain reCaptcha service."
@@ -1711,10 +1644,8 @@ msgid "Enter your private key for your domain reCaptcha service."
 msgstr "输入您域名的reCaptcha服务私钥。"
 
 #: libraries/classes/Config/Descriptions.php:94
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr "输入您域名的reCaptcha服务私钥。"
+msgstr "输入您的reCaptcha服务的siteverify URL。"
 
 #: libraries/classes/Config/Descriptions.php:96
 msgid ""
@@ -2037,16 +1968,10 @@ msgstr ""
 "页\" 的链接。"
 
 #: libraries/classes/Config/Descriptions.php:282
-#, fuzzy
-#| msgid ""
-#| "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
-#| "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
-msgstr ""
-"一个脚本可分配的内存大小，如 [kbd]32MB[/kbd]（[kbd]-1[/kbd] 为无限制，"
-"[kbd]0[/kbd] 为不做变更）。"
+msgstr "一个脚本可分配的内存大小，如 [kbd]32MB[/kbd]（[kbd]-1[/kbd] 为无限制，[kbd]0[/kbd] 为不做变更）。"
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -2159,9 +2084,7 @@ msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
-msgstr ""
-"允许使用基于数据库的查询历史 (需要 phpMyAdmin  高级功能)。如果禁用，将使用 "
-"JS 程序来显示查询历史 (关闭窗口即丢失)。"
+msgstr "允许使用基于数据库的查询历史 (需要 phpMyAdmin 高级功能)。如果禁用，将使用 JS 程序来显示查询历史 (关闭窗口即丢失)。"
 
 #: libraries/classes/Config/Descriptions.php:342
 msgid ""
@@ -2263,8 +2186,8 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"关系、书签、PDF 功能所用的数据库。参见 [doc@linked-tables]pmadb (外链，英文)"
-"[/doc]。不使用请留空。推荐:  [kbd]phpmyadmin[/kbd]。"
+"关系、书签、PDF 功能所用的数据库。参见 [doc@linked-tables]pmadb (外链，英文)[/doc]。不使用请留空。推荐: "
+"[kbd]phpmyadmin[/kbd]。"
 
 #: libraries/classes/Config/Descriptions.php:404
 msgid ""
@@ -2489,8 +2412,6 @@ msgid ""
 msgstr "定义是否显示 phpMyAdmin 生成的 SQL 查询。"
 
 #: libraries/classes/Config/Descriptions.php:516
-#, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr "允许显示数据库和数据表的统计信息 (如：空间使用)。"
 
@@ -4152,19 +4073,19 @@ msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:976
 msgid "URL for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API的网址"
 
 #: libraries/classes/Config/Descriptions.php:977
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API的内容安全策略代码段"
 
 #: libraries/classes/Config/Descriptions.php:978
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API的请求参数"
 
 #: libraries/classes/Config/Descriptions.php:979
 msgid "Response parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "reCaptcha v2 API的响应参数"
 
 #: libraries/classes/Config/Descriptions.php:980
 msgid "Public key for reCaptcha"
@@ -4176,7 +4097,7 @@ msgstr "reCaptcha私有密匙"
 
 #: libraries/classes/Config/Descriptions.php:982
 msgid "URL for reCaptcha siteverify"
-msgstr ""
+msgstr "reCaptcha网站的网址验证"
 
 #: libraries/classes/Config/Descriptions.php:983
 msgid "Send error reports"
@@ -4807,8 +4728,6 @@ msgstr "无法加载导出插件，请检查安装！"
 #: libraries/classes/Controllers/Table/MaintenanceController.php:117
 #: libraries/classes/Controllers/Table/MaintenanceController.php:153
 #: libraries/classes/Controllers/Table/MaintenanceController.php:188
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "没有已选择的表。"
 
@@ -4847,7 +4766,7 @@ msgstr "phpMyAdmin 设置存储功能已停用。%s查看原因%s。"
 #: libraries/classes/Controllers/Database/OperationsController.php:363
 #: libraries/classes/Controllers/Table/OperationsController.php:269
 msgid "No collation provided."
-msgstr "未提供排序规则"
+msgstr "未提供排序规则。"
 
 #: libraries/classes/Controllers/Database/SearchController.php:55
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:89
@@ -5330,10 +5249,8 @@ msgstr "编辑索引"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:106
-#, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
-msgstr "删除索引"
+msgstr "重命名索引"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 #: templates/table/index_form.twig:227
@@ -5647,8 +5564,6 @@ msgstr "无"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:203
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL 查询"
 
@@ -5700,8 +5615,7 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"已启用 slow_query_log，但服务器仅记录查询时间超过 %d 秒的查询。请根据您的系统"
-"适当设置  long_query_time 为 0-2 秒。"
+"已启用 slow_query_log，但服务器仅记录查询时间超过 %d 秒的查询。请根据您的系统适当设置 long_query_time 为 0-2 秒。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:220
 #, php-format
@@ -5969,7 +5883,7 @@ msgstr "请输入有效表名。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Please enter a valid database name."
-msgstr "请输入有效数据库名。"
+msgstr "请输入有效的数据库名称。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "No files available on server for import!"
@@ -6226,8 +6140,7 @@ msgstr "在该列表中搜索"
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
-msgstr ""
-"中心列表中没有列。请确保数据库  %s 的中心列表存在没有显示在当前表中的列。"
+msgstr "中心列表中没有列。请确保数据库 %s 的中心列表存在没有显示在当前表中的列。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:407
 msgid "See more"
@@ -6526,7 +6439,7 @@ msgstr "加密密匙"
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
-msgstr ""
+msgstr "HEX函数在计算十六进制值时会将整数视为字符串"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:509
 msgid ""
@@ -7937,10 +7850,8 @@ msgstr "表名无效"
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:70
 #: libraries/classes/Controllers/TransformationWrapperController.php:111
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "有太多的联合查询未使用索引。"
+msgstr "您的请求有问题。"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
 #: libraries/classes/Database/Routines.php:1502
@@ -7960,7 +7871,7 @@ msgstr "主键的名称必须称为 “PRIMARY”！"
 #: libraries/classes/Controllers/Table/MaintenanceController.php:160
 #: libraries/classes/Controllers/Table/MaintenanceController.php:195
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "对多个表的维护操作是禁用的。"
 
 #: libraries/classes/Controllers/Table/OperationsController.php:113
 #: libraries/classes/Controllers/Table/OperationsController.php:300
@@ -8325,11 +8236,10 @@ msgid "Export of event %s"
 msgstr "导出事件 %s"
 
 #: libraries/classes/Database/Events.php:583
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "在数据库 %2$s 中找不到名为 %1$s 的事件。"
+msgstr "处理请求时出错：在数据库 %2$s 中找不到名为 %1$s 的事件。"
 
 #: libraries/classes/DatabaseInterface.php:1100
 #, php-format
@@ -8719,16 +8629,12 @@ msgid "Export of routine %s"
 msgstr "导出程序 %s"
 
 #: libraries/classes/Database/Routines.php:1914
-#, fuzzy, php-format
-#| msgid ""
-#| "No routine with name %1$s found in database %2$s. You might be lacking "
-#| "the necessary privileges to view/export this routine."
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
-msgstr ""
-"在数据库%2$s中找不到名称为%1$s的例程。您可能缺少查看/导出此例程的必要权限。"
+msgstr "处理请求时出错：在数据库%2$s中找不到名称为%1$s的例程。您可能缺少查看/导出此例程的必要权限。"
 
 #: libraries/classes/Database/Search.php:109
 #: templates/database/search/main.twig:19
@@ -8828,12 +8734,11 @@ msgid "Export of trigger %s"
 msgstr "导出触发器 %s"
 
 #: libraries/classes/Database/Triggers.php:635
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "在数据库 %2$s 中找不到名为 %1$s 的触发器。"
+msgstr "处理请求时出错：在数据库 %2$s 中找不到名为 %1$s 的触发器。"
 
 #: libraries/classes/Dbal/DbiMysqli.php:188
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9297,7 +9202,7 @@ msgstr "已保存转储到文件 %s 中。"
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:990
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "此导出方法不支持导出原始查询。"
 
 #: libraries/classes/File.php:286
 msgid "File was not an uploaded file."
@@ -9413,11 +9318,11 @@ msgstr "已使用SSL"
 
 #: libraries/classes/Html/Generator.php:353
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "PHP函数password_hash()在用默认选项。"
 
 #: libraries/classes/Html/Generator.php:354
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "password_hash() PHP函数"
 
 #: libraries/classes/Html/Generator.php:659
 msgid "Skip Explain SQL"
@@ -10415,7 +10320,7 @@ msgstr "输入的验证码有误，请再试一次！"
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
-msgstr ""
+msgstr "您的密码太长。为了防止拒绝服务攻击，phpMyAdmin将密码限制为少于1000个字符。"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -10439,7 +10344,7 @@ msgstr "空密码登录被禁止 (参见 允许空密码)"
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
-msgstr ""
+msgstr "由于%s秒的闲置时间，您已自动退出。再次登录后，您应该能够从上次中断的地方继续工作。"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:215
 #: libraries/classes/Plugins/AuthenticationPlugin.php:218
@@ -10719,10 +10624,8 @@ msgstr "导出表头"
 
 #: libraries/classes/Plugins/Export/ExportOdt.php:267
 #: libraries/classes/Plugins/Export/ExportTexytext.php:192
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
-msgstr "转存表中的数据"
+msgstr "转存查询结果中的数据"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:98
 msgid "Report title:"
@@ -10733,10 +10636,8 @@ msgid "Dumping data"
 msgstr "转存数据"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:252
-#, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
-msgstr "查询结果"
+msgstr "查询结果数据"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:310
 msgid "View structure"
@@ -10798,7 +10699,7 @@ msgstr "%s值"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
-msgstr ""
+msgstr "使用简单视图查看"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:381
 msgid ""
@@ -11295,18 +11196,6 @@ msgstr ""
 "表中的一个字段值作为文件名。如果想使用字段值作为文件名，第一个选项必须留空。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:39
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -11319,12 +11208,11 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"仅 LINUX：调用外部程序并通过标准输入传入字段数据。返回此应用程序的标准输出。"
-"默认为 Tidy，可以很好的打印 HTML 代码。为了安全起见，您需要手动编辑 "
-"libraries/classes/Plugins/Transformations/Output/Text_Plain_External.php 文件"
-"来加入可以运行的工具。第一个选项是您想要使用的程序编号，第二个选项是程序的参"
-"数。第三个参数如果设为 1 的话将会用 htmlspecialchars() 处理输出 (默认为 1)。"
-"第四个参数如果设为 1 的话，将禁止换行，确保所有内容显示在一行中 (默认为 1)。"
+"仅 LINUX：调用外部程序并通过标准输入传入字段数据。返回此应用程序的标准输出。默认为 Tidy，可以很好的打印 HTML 代码。为了安全起见，"
+"您需要手动编辑 libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php "
+"文件来加入可以运行的工具。第一个选项是您想要使用的程序编号，由于历史的原因，第二个选项应该为空。第三个参数如果设为 1 的话将会用 "
+"htmlspecialchars() 处理输出 (默认为 1)。第四个参数如果设为 1 的话，将禁止换行，确保所有内容显示在一行中 (默认为 1)。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:124
 #, php-format
@@ -11332,7 +11220,7 @@ msgid ""
 "You are using the external transformation command line options field, which "
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
-msgstr ""
+msgstr "您正在使用外部转换命令行选项字段，出于安全原因，该字段已弃用。 将所有命令行选项直接添加到 %s中的定义中。"
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:27
 msgid ""
@@ -11445,12 +11333,10 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "将（IPv4 / IPv6）格式的Internet网络地址转换为二进制"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
-msgstr "将（IPv4 / IPv6）格式的Internet网络地址转换为二进制"
+msgstr "将（IPv4 / IPv6）格式的Internet网络地址转换为长整数。"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -12828,7 +12714,7 @@ msgstr "存储并可高效访问 JSON （JavaScript 对象） 文档中的数据
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
-msgstr ""
+msgstr "旨在存储IPv6地址以及假定IPv4地址到IPv6地址的常规映射的IPv4地址"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
@@ -13261,8 +13147,6 @@ msgstr "连接："
 #: templates/columns_definitions/column_definitions_form.twig:113
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:128
-#, fuzzy
-#| msgid "Storage engines"
 msgid "Storage engine"
 msgstr "存储引擎"
 
@@ -13271,11 +13155,9 @@ msgid "PARTITION definition:"
 msgstr "分区定义："
 
 #: templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "使用事务执行导出"
+msgstr "在线事务"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -13580,8 +13462,6 @@ msgid "Create version"
 msgstr "创建版本"
 
 #: templates/database/central_columns/edit.twig:13
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr "自增"
@@ -14001,19 +13881,15 @@ msgid "OFF"
 msgstr "关"
 
 #: templates/database/export/index.twig:62
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr "，@DATABASE@ 将变成数据库名"
+msgstr "@SERVER@将变成服务器名称，@DATABASE@ 将变成数据库名。"
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
-msgstr "显示 SQL 查询"
+msgstr "导出原始查询"
 
 #: templates/database/export/index.twig:7
 #, php-format
@@ -14110,14 +13986,10 @@ msgstr "新数据库名"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:113
 #: templates/table/operations/index.twig:291
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
-msgstr "您的权限不足以执行此操作，请参考说明文档了解详情"
+msgstr "您的权限不足以执行此操作，请参考说明文档了解详情。"
 
 #: templates/database/operations/index.twig:89
 msgid "Remove database"
@@ -14249,10 +14121,8 @@ msgid "Ins:"
 msgstr "插入："
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "且："
+msgstr "且"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -14288,21 +14158,15 @@ msgid "Modify:"
 msgstr "修改："
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "添加/删除标准行"
+msgstr "添加/删除标准行："
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "添加/删除字段"
+msgstr "添加/删除字段："
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
 msgstr "使用表"
 
@@ -14331,12 +14195,9 @@ msgid "Returns"
 msgstr "返回"
 
 #: templates/database/routines/index.twig:62
-#, fuzzy
-#| msgctxt "Create new column"
-#| msgid "New"
 msgctxt "Create new routine"
 msgid "New"
-msgstr "新建"
+msgstr "新"
 
 #: templates/database/routines/row.twig:32
 #: templates/database/routines/row.twig:42
@@ -14493,10 +14354,8 @@ msgid "Make consistent with central list"
 msgstr "与中央列表保持一致"
 
 #: templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "选项"
+msgstr "选项："
 
 #: templates/database/structure/copy_form.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -14751,8 +14610,6 @@ msgid "Update"
 msgstr "更新"
 
 #: templates/export.twig:53
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Show SQL query"
 msgstr "显示 SQL 查询"
 
@@ -14839,19 +14696,14 @@ msgid "File name template:"
 msgstr "文件名模板："
 
 #: templates/export.twig:324
-#, fuzzy, php-format
-#| msgid ""
-#| "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-#| "formatting strings. Additionally the following transformations will "
-#| "happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for "
-#| "details."
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
-"这个值是使用 %1$sstrftime%2$s 来解析的，所以你能用时间格式的字符串。另外，下"
-"列内容也将被转换：%3$s。其他文本将保持原样。参见%4$s常见问题 (FAQ)%5$s。"
+"这个值是使用 'strftime' 函数来解析的，所以你能用时间格式的字符串。另外，下列内容也将被转换：%s 其他文本将保持原样。参见常见问题FAQ 6."
+"27。"
 
 #: templates/export.twig:329
 msgid "use this for future exports"
@@ -14995,22 +14847,19 @@ msgid "no branch"
 msgstr "没有分支"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
-#, fuzzy, php-format
-#| msgid "%1$s from %2$s branch"
+#, php-format
 msgid "from %s branch"
-msgstr "%1$s 来自 %2$s 分支"
+msgstr "来自 %s 分支"
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
-msgstr "由 %2$s 提交于 %1$s"
+msgstr "于 %s 由 %s 提交"
 
 #: templates/home/git_info.twig:32
-#, fuzzy, php-format
-#| msgid "authored on %1$s by %2$s"
+#, php-format
 msgid "authored on %s by %s"
-msgstr "%2$s 基于版本 %1$s 进行修改创作"
+msgstr "基于版本 %s 由 %s 进行修改创作"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
@@ -15175,26 +15024,21 @@ msgid "Browse your computer:"
 msgstr "从计算机中上传："
 
 #: templates/import.twig:62
-#, fuzzy
-#| msgid "Browse your computer:"
 msgid "Browse your computer"
-msgstr "从计算机中上传："
+msgstr "从计算机中上传"
 
 #: templates/import.twig:68 templates/import.twig:101
 msgid "You may also drag and drop a file on any page."
 msgstr "您可在各页面间拖放文件。"
 
 #: templates/import.twig:74 templates/import.twig:104
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "从网站服务器上传文件夹 <b>%s</b> 中选择："
+msgstr "从网站服务器上传文件夹 [strong]%s[/strong] 中选择："
 
 #: templates/import.twig:80
-#, fuzzy
-#| msgid "File to import:"
 msgid "Select file to import"
-msgstr "要导入的文件："
+msgstr "选择要导入的文件"
 
 #: templates/import.twig:85 templates/import.twig:115
 msgid "There are no files to upload!"
@@ -15557,16 +15401,12 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 文档"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
-msgstr "文档"
+msgstr "MariaDB 文档"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
-msgstr "文档"
+msgstr "MySQL 文档"
 
 #: templates/navigation/main.twig:43 templates/navigation/main.twig:44
 msgid "Navigation panel settings"
@@ -15812,10 +15652,8 @@ msgid "Character sets and collations"
 msgstr "字符集和排序规则"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "默认"
+msgstr "(默认)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -15884,10 +15722,8 @@ msgid "Unknown storage engine."
 msgstr "未知的存储引擎。"
 
 #: templates/server/export/index.twig:32
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ 将变成服务器名称"
+msgstr "@SERVER@ 将变成服务器名称。"
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -15979,10 +15815,8 @@ msgid "User group"
 msgstr "用户组"
 
 #: templates/server/privileges/choose_user_group.twig:6
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "用户组"
+msgstr "用户组："
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -16196,20 +16030,16 @@ msgid ""
 msgstr "允许添加用户和权限而不重新载入权限表。"
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "允许创建存储过程。"
+msgstr "允许创建外键关系。"
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "未在MariaDB上使用。"
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "在此版本的 MySQL 中无效。"
+msgstr "在此版本的 MySQL 中未使用。"
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -16554,44 +16384,32 @@ msgstr ""
 "效果就撤销改变。"
 
 #: templates/server/status/advisor/index.twig:55
-#, fuzzy
-#| msgid "Some error occurred while getting SQL debug info."
 msgid "Errors occurred while executing rule expressions:"
-msgstr "获取SQL调试信息时出错。"
+msgstr "执行规则表达式时发生错误："
 
 #: templates/server/status/advisor/index.twig:65
 msgid "Possible performance issues"
 msgstr "可能存在的性能问题"
 
 #: templates/server/status/advisor/index.twig:78
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
-msgstr "问题"
+msgstr "问题："
 
 #: templates/server/status/advisor/index.twig:81
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
-msgstr "建议"
+msgstr "建议："
 
 #: templates/server/status/advisor/index.twig:84
-#, fuzzy
-#| msgid "Justification"
 msgid "Justification:"
-msgstr "现状"
+msgstr "现状："
 
 #: templates/server/status/advisor/index.twig:87
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
-msgstr "使用的变量/公式"
+msgstr "使用的变量/公式："
 
 #: templates/server/status/advisor/index.twig:90
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
-msgstr "检验"
+msgstr "检验："
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -16848,10 +16666,8 @@ msgstr "查询数量"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "每小时"
+msgstr "ø 每小时"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -17111,10 +16927,8 @@ msgid "Rollback when finished"
 msgstr "完成后回滚"
 
 #: templates/sql/query.twig:149
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
-msgstr "书签"
+msgstr "书签："
 
 #: templates/sql/query.twig:156
 msgid "shared"
@@ -17221,12 +17035,10 @@ msgid "Save chart as image"
 msgstr "将图表另存为图像"
 
 #: templates/table/export/index.twig:8
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr "，@DATABASE@ 将变成数据库名"
+msgstr "@SERVER@ 将变成服务器名，@DATABASE@ 将变成数据库名，@TABLE@ 将变成表名。"
 
 #: templates/table/export/index.twig:5
 #, php-format
@@ -17310,8 +17122,6 @@ msgid "Index choice:"
 msgstr "索引选择："
 
 #: templates/table/index_form.twig:52
-#, fuzzy
-#| msgid "Advanced Options"
 msgid "Advanced options"
 msgstr "高级选项"
 
@@ -17341,27 +17151,21 @@ msgid "Continue insertion with %s rows"
 msgstr "继续插入 %s 行"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "检查"
+msgstr "校验值"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
 msgstr "更改表的排序，根据"
 
 #: templates/table/operations/index.twig:20
-#, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(逐一)"
 
 #: templates/table/operations/index.twig:50
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "将数据表移动到(数据库名<b>.</b>数据表名)"
+msgstr "将数据表移动到(数据库名.数据表名)"
 
 #: templates/table/operations/index.twig:103
 msgid "Table options"
@@ -17380,10 +17184,8 @@ msgid "Change all column collations"
 msgstr "更改所有列排序规则"
 
 #: templates/table/operations/index.twig:227
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "将数据表复制到(数据库名<b>.</b>数据表名)"
+msgstr "将数据表复制到(数据库名.数据表名)"
 
 #: templates/table/operations/index.twig:300
 msgid "Switch to copied table"
@@ -17420,10 +17222,8 @@ msgid "Remove partitioning"
 msgstr "删除分区"
 
 #: templates/table/operations/index.twig:469
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "检查引用完整性："
+msgstr "检查引用完整性"
 
 #: templates/table/operations/view.twig:11
 msgid "Rename view to"
@@ -17438,46 +17238,32 @@ msgid "Relation view"
 msgstr "关联视图"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "已分区"
+msgstr "分析分区"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "已分区"
+msgstr "检查分区"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "已分区"
+msgstr "删除分区"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "删除分区"
+msgstr "优化分区"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "子分区"
+msgstr "重建分区"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "删除分区"
+msgstr "修复分区"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "子分区"
+msgstr "清空分区"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -17682,14 +17468,11 @@ msgid "at beginning of table"
 msgstr "于表开头"
 
 #: templates/table/structure/display_structure.twig:445
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "改名为"
+msgstr "改名"
 
 #: templates/table/structure/display_structure.twig:507
-#, fuzzy, php-format
-#| msgid "Create an index on &nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on %s columns"
 msgstr "在第 %s 个字段创建索引"
 
@@ -17808,15 +17591,13 @@ msgstr "获得更多主题！"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
-msgstr "表导航条"
+msgstr "切换导航"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "（当前的）"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media types"
