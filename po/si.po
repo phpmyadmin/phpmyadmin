@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2021-02-24 22:13+0000\n"
-"Last-Translator: Danushka Malinga Ranasinghe <dranasinghe99@gmail.com>\n"
+"Last-Translator: චතුර බුද්ධික <chathu.buddi@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "si/>\n"
 "Language: si\n"
@@ -614,7 +614,7 @@ msgstr "\"DROP DATABASE\" ප්‍රකාශ අක්‍රීය කර ඇ
 
 #: import_status.php:108
 msgid "Could not load the progress of the import."
-msgstr "ආනයනයේ ප්‍රගතිය පැටවීමට නොහැකි විය."
+msgstr "ආනයන ප්‍රගතිය ප්‍රවේශනය කල නොහැක"
 
 #: import_status.php:117 js/messages.php:461 js/messages.php:627
 #: libraries/classes/Export.php:509
