@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-02-24 10:18+0100\n"
+"POT-Creation-Date: 2021-02-24 10:22+0100\n"
 "PO-Revision-Date: 2021-02-08 11:50+0000\n"
 "Last-Translator: Jwtiyar Nariman <jwtiyar@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://hosted.weblate.org/projects/"
@@ -14638,6 +14638,7 @@ msgstr ""
 msgid "Screenshot of the %s theme."
 msgstr "گەڕان لە بنکەی دراو"
 
+#. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
 msgid "Take it"
 msgstr "وەریگرە"

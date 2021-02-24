@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-02-24 10:18+0100\n"
+"POT-Creation-Date: 2021-02-24 10:22+0100\n"
 "PO-Revision-Date: 2021-01-22 01:10+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -15235,6 +15235,7 @@ msgstr "取得更多的佈景主題！"
 msgid "Screenshot of the %s theme."
 msgstr "%s 資料庫綱要"
 
+#. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
 msgid "Take it"
 msgstr "使用"

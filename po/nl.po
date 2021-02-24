@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-02-24 10:18+0100\n"
+"POT-Creation-Date: 2021-02-24 10:22+0100\n"
 "PO-Revision-Date: 2021-01-29 20:33+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -15904,6 +15904,7 @@ msgstr "Bekijk meer thema's!"
 msgid "Screenshot of the %s theme."
 msgstr "Schema van database %s"
 
+#. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
 msgid "Take it"
 msgstr "Gebruik deze"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-02-24 10:18+0100\n"
+"POT-Creation-Date: 2021-02-24 10:22+0100\n"
 "PO-Revision-Date: 2018-07-23 11:06+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -16024,6 +16024,7 @@ msgstr "تېخىمۇ كۆپ تېمىغا ئىرىشىش !"
 msgid "Screenshot of the %s theme."
 msgstr "سانداندىن ئىزدەش"
 
+#. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
 #, fuzzy
 #| msgid "take it"

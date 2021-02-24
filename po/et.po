@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-02-24 10:18+0100\n"
+"POT-Creation-Date: 2021-02-24 10:22+0100\n"
 "PO-Revision-Date: 2021-02-08 11:50+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15635,6 +15635,7 @@ msgstr "Hangi rohkem välimusi!"
 msgid "Screenshot of the %s theme."
 msgstr "Andmebaasi %s skeem"
 
+#. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
 msgid "Take it"
 msgstr "Võta see"
