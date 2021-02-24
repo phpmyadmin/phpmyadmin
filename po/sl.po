@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-02-24 10:22+0100\n"
-"PO-Revision-Date: 2021-01-29 20:33+0000\n"
+"PO-Revision-Date: 2021-02-24 22:13+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6947,10 +6947,10 @@ msgid "Submit"
 msgstr "Pošlji"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:551
-#, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "Za prekinitev urejanja pritisnite ubežnico (escape)."
+msgstr ""
+"Za prekinitev urejanja pritisnite ubežnico (escape).<br>- Shift+Enter za "
+"novo vrstico."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid ""
@@ -12193,6 +12193,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Nismo mogli zapisati usmerjevalnega predpomnilnika; nastaviti je treba "
+"dovoljenja mape/datoteke \"%s\""
 
 #: libraries/classes/Routing.php:164
 #, php-format
@@ -15721,20 +15723,17 @@ msgid "License"
 msgstr "Dovoljenje"
 
 #: templates/home/index.twig:247
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
-msgstr "Domača stran phpMyAdmin"
+msgstr "Motivi phpMyAdmina"
 
 #: templates/home/index.twig:258
 msgid "Get more themes!"
 msgstr "Pridobi več preoblek!"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Shema zbirke podatkov %s"
+msgstr "Zaslonski posnetek motiva %s."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
