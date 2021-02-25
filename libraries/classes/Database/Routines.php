@@ -306,6 +306,7 @@ class Routines
         $this->response->addJSON('new_row', $this->getRow($routine));
         $this->response->addJSON('insert', ! empty($routine));
         $this->response->addJSON('message', $output);
+        $this->response->addJSON('tableType', 'routines');
         exit;
     }
 
