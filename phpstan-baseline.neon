@@ -2201,11 +2201,6 @@ parameters:
 			path: libraries/classes/Transformations.php
 
 		-
-			message: "#^Parameter \\#1 \\$node of method Twig\\\\Compiler\\:\\:subcompile\\(\\) expects Twig\\\\Node\\\\Node, Twig\\\\Node\\\\Node\\|null given\\.$#"
-			count: 3
-			path: libraries/classes/Twig/I18n/NodeTrans.php
-
-		-
 			message: "#^Parameter \\#1 \\$stack of function array_push expects array, array\\<int, string\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Types.php
