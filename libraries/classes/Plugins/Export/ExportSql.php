@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -45,7 +46,6 @@ use function preg_split;
 use function sprintf;
 use function str_repeat;
 use function str_replace;
-use function stripos;
 use function strtotime;
 use function strtoupper;
 use function trigger_error;
@@ -2283,6 +2283,7 @@ class ExportSql extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
+        /** @var DatabaseInterface $dbi */
         global $current_row, $sql_backquotes, $dbi;
 
         // Do not export data for merge tables
@@ -2341,7 +2342,8 @@ class ExportSql extends ExportPlugin
         }
 
         if ($result == false) {
-            $dbi->freeResult($result);
+            /** @var mixed $result */
+            $dbi->freeResult($result);// This makes no sense
 
             return true;
         }
@@ -2349,11 +2351,8 @@ class ExportSql extends ExportPlugin
         $fields_cnt = $dbi->numFields($result);
 
         // Get field information
+        /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $dbi->getFieldsMeta($result);
-        $field_flags = [];
-        for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_flags[$j] = $dbi->fieldFlags($result, $j);
-        }
 
         $field_set = [];
         for ($j = 0; $j < $fields_cnt; $j++) {
@@ -2502,15 +2501,15 @@ class ExportSql extends ExportPlugin
                 // NULL
                 if (! isset($row[$j]) || $row[$j] === null) {
                     $values[] = 'NULL';
-                } elseif ($fields_meta[$j]->numeric
-                    && $fields_meta[$j]->type !== 'timestamp'
-                    && ! $fields_meta[$j]->blob
+                } elseif ($fields_meta[$j]->isNumeric
+                    && ! $fields_meta[$j]->isMappedTypeTimestamp
+                    && ! $fields_meta[$j]->isBlob
                 ) {
                     // a number
                     // timestamp is numeric on some MySQL 4.1, BLOBs are
                     // sometimes numeric
                     $values[] = $row[$j];
-                } elseif (stripos($field_flags[$j], 'BINARY') !== false
+                } elseif ($fields_meta[$j]->isBinary
                     && isset($GLOBALS['sql_hex_for_binary'])
                 ) {
                     // a true BLOB
@@ -2527,7 +2526,7 @@ class ExportSql extends ExportPlugin
                     } else {
                         $values[] = '0x' . bin2hex($row[$j]);
                     }
-                } elseif ($fields_meta[$j]->type === 'bit') {
+                } elseif ($fields_meta[$j]->isMappedTypeBit) {
                     // detection of 'bit' works only on mysqli extension
                     $values[] = "b'" . $dbi->escapeString(
                         Util::printableBitValue(
@@ -2536,7 +2535,7 @@ class ExportSql extends ExportPlugin
                         )
                     )
                     . "'";
-                } elseif ($fields_meta[$j]->type === 'geometry') {
+                } elseif ($fields_meta[$j]->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $values[] = '0x' . bin2hex($row[$j]);
                 } elseif (! empty($GLOBALS['exporting_metadata'])

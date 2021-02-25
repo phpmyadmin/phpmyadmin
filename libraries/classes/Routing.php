@@ -6,35 +6,121 @@ namespace PhpMyAdmin;
 
 use FastRoute\Dispatcher;
 use Psr\Container\ContainerInterface;
-use function FastRoute\cachedDispatcher;
+use FastRoute\RouteParser\Std as RouteParserStd;
+use FastRoute\DataGenerator\GroupCountBased as DataGeneratorGroupCountBased;
+use FastRoute\Dispatcher\GroupCountBased as DispatcherGroupCountBased;
+use FastRoute\RouteCollector;
 use function htmlspecialchars;
 use function mb_strlen;
 use function rawurldecode;
 use function sprintf;
 use function is_writable;
+use function file_exists;
+use function is_array;
+use RuntimeException;
+use function var_export;
+use function is_readable;
+use function trigger_error;
+use const E_USER_WARNING;
+use function fopen;
+use function fwrite;
+use function fclose;
 
 /**
  * Class used to warm up the routing cache and manage routing.
  */
 class Routing
 {
+    public const ROUTES_CACHE_FILE = CACHE_DIR . 'routes.cache.php';
+
     public static function getDispatcher(): Dispatcher
+    {
+        $routes = require ROOT_PATH . 'libraries/routes.php';
+
+        return self::routesCachedDispatcher($routes);
+    }
+
+    public static function skipCache(): bool
     {
         global $cfg;
 
-        $routes = require ROOT_PATH . 'libraries/routes.php';
+        return ($cfg['environment'] ?? '') === 'development';
+    }
 
-        $cacheDisabled = ($cfg['environment'] ?? '') === 'development';
-        $cacheFile = CACHE_DIR . 'routes.cache.php';
-
-        if (! is_writable($cacheFile)) {
-            $cacheDisabled = true;
+    public static function canWriteCache(): bool
+    {
+        $cacheFileExists = file_exists(self::ROUTES_CACHE_FILE);
+        $canWriteFile = is_writable(self::ROUTES_CACHE_FILE);
+        if ($cacheFileExists && $canWriteFile) {
+            return true;
         }
 
-        return cachedDispatcher($routes, [
-            'cacheFile' => $cacheFile,
-            'cacheDisabled' => $cacheDisabled,
-        ]);
+        // Write without read does not work, chmod 200 for example
+        if (! $cacheFileExists && is_writable(CACHE_DIR) && is_readable(CACHE_DIR)) {
+            return true;
+        }
+
+        return $canWriteFile;
+    }
+
+    private static function routesCachedDispatcher(callable $routeDefinitionCallback): Dispatcher
+    {
+        $skipCache = self::skipCache();
+
+        // If skip cache is enabled, do not try to read the file
+        // If no cache skipping then read it and use it
+        if (! $skipCache && file_exists(self::ROUTES_CACHE_FILE)) {
+            $dispatchData = require self::ROUTES_CACHE_FILE;
+            if (! is_array($dispatchData)) {
+                throw new RuntimeException('Invalid cache file "' . self::ROUTES_CACHE_FILE . '"');
+            }
+
+            return new DispatcherGroupCountBased($dispatchData);
+        }
+
+        $routeCollector = new RouteCollector(
+            new RouteParserStd(),
+            new DataGeneratorGroupCountBased()
+        );
+        $routeDefinitionCallback($routeCollector);
+
+        /** @var RouteCollector $routeCollector */
+        $dispatchData = $routeCollector->getData();
+        $canWriteCache = self::canWriteCache();
+
+        // If skip cache is enabled, do not try to write it
+        // If no skip cache then try to write if write is possible
+        if (! $skipCache && $canWriteCache) {
+            $writeWorks = self::writeCache(
+                '<?php return ' . var_export($dispatchData, true) . ';'
+            );
+            if (! $writeWorks) {
+                trigger_error(
+                    sprintf(
+                        __(
+                            'The routing cache could not be written, '
+                            . 'you need to adjust permissions on the folder/file "%s"'
+                        ),
+                        self::ROUTES_CACHE_FILE
+                    ),
+                    E_USER_WARNING
+                );
+            }
+        }
+
+        return new DispatcherGroupCountBased($dispatchData);
+    }
+
+    public static function writeCache(string $cacheContents): bool
+    {
+        $handle = @fopen(self::ROUTES_CACHE_FILE, 'w');
+        if ($handle === false) {
+            return false;
+        }
+        $couldWrite = fwrite($handle, $cacheContents);
+        fclose($handle);
+
+        return $couldWrite !== false;
     }
 
     public static function getCurrentRoute(): string

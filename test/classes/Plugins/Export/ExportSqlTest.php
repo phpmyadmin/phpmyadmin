@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -24,6 +25,13 @@ use stdClass;
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;
+use const MYSQLI_TYPE_LONG;
+use const MYSQLI_NUM_FLAG;
+use const MYSQLI_TYPE_STRING;
+use const MYSQLI_TYPE_BLOB;
+use const MYSQLI_PRI_KEY_FLAG;
+use const MYSQLI_UNIQUE_KEY_FLAG;
+use const MYSQLI_TYPE_FLOAT;
 
 /**
  * @group medium
@@ -1468,53 +1476,37 @@ class ExportSqlTest extends AbstractTestCase
 
         $flags = [];
         $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = true;
-        $a->type = 'ts';
         $a->name = 'name';
         $a->length = 2;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_LONG, 0, $a);
 
         $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = true;
-        $a->type = 'ts';
         $a->name = 'name';
         $a->length = 2;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(-1, MYSQLI_NUM_FLAG, $a);
 
         $a = new stdClass();
-        $a->blob = true;
-        $a->numeric = false;
-        $a->type = 'ts';
         $a->name = 'name';
         $a->length = 2;
-        $flags[] = $a;
+        $a->charsetnr = 63;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $a);
 
         $a = new stdClass();
-        $a->type = 'bit';
-        $a->blob = false;
-        $a->numeric = false;
         $a->name = 'name';
         $a->length = 2;
-        $flags[] = $a;
+        $a->charsetnr = 63;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $a);
 
         $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = true;
-        $a->type = 'timestamp';
         $a->name = 'name';
         $a->length = 2;
-        $flags[] = $a;
+        $a->charsetnr = 63;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, $a);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with('res')
             ->will($this->returnValue($flags));
-
-        $dbi->expects($this->any())
-            ->method('fieldFlags')
-            ->will($this->returnValue('biNAry'));
 
         $dbi->expects($this->once())
             ->method('tryQuery')
@@ -1623,36 +1615,25 @@ class ExportSqlTest extends AbstractTestCase
 
         $flags = [];
         $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = true;
-        $a->type = 'real';
         $a->name = 'name';
-        $a->length = 2;
-        $a->table = 'tbl';
         $a->orgname = 'pma';
-        $a->primary_key = 1;
-        $flags[] = $a;
+        $a->table = 'tbl';
+        $a->orgtable = 'tbl';
+        $a->length = 2;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_FLOAT, MYSQLI_PRI_KEY_FLAG, $a);
 
         $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = true;
-        $a->type = '';
         $a->name = 'name';
-        $a->table = 'tbl';
         $a->orgname = 'pma';
+        $a->table = 'tbl';
+        $a->orgtable = 'tbl';
         $a->length = 2;
-        $a->primary_key = 0;
-        $a->unique_key = 1;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_FLOAT, MYSQLI_UNIQUE_KEY_FLAG, $a);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with('res')
             ->will($this->returnValue($flags));
-
-        $dbi->expects($this->any())
-            ->method('fieldFlags')
-            ->will($this->returnValue('biNAry'));
 
         $dbi->expects($this->once())
             ->method('tryQuery')

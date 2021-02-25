@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Components\Limit;
@@ -16,7 +17,6 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use function array_keys;
 use function htmlspecialchars;
-use function in_array;
 use function json_encode;
 use function min;
 use function strlen;
@@ -125,20 +125,19 @@ class ChartController extends AbstractController
         $data = [];
 
         $result = $this->dbi->tryQuery($sql_query);
-        $fields_meta = $this->dbi->getFieldsMeta($result);
+        $fields_meta = $this->dbi->getFieldsMeta($result) ?? [];
         while ($row = $this->dbi->fetchAssoc($result)) {
             $data[] = $row;
         }
 
         $keys = array_keys($data[0]);
 
-        $numeric_types = [
-            'int',
-            'real',
-        ];
         $numeric_column_count = 0;
         foreach ($keys as $idx => $key) {
-            if (! in_array($fields_meta[$idx]->type, $numeric_types)) {
+            if (isset($fields_meta[$idx]) && (
+                $fields_meta[$idx]->isNotType(FieldMetadata::TYPE_INT)
+                || $fields_meta[$idx]->isNotType(FieldMetadata::TYPE_REAL)
+            )) {
                 continue;
             }
 
@@ -165,7 +164,6 @@ class ChartController extends AbstractController
             'url_params' => $url_params,
             'keys' => $keys,
             'fields_meta' => $fields_meta,
-            'numeric_types' => $numeric_types,
             'numeric_column_count' => $numeric_column_count,
             'sql_query' => $sql_query,
         ]);

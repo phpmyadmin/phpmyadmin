@@ -10,6 +10,7 @@ use PhpMyAdmin\Routing;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Twig\AssetExtension;
 use PhpMyAdmin\Twig\CoreExtension;
+use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\PluginsExtension;
@@ -34,6 +35,8 @@ use function fwrite;
 use function json_encode;
 use function str_replace;
 use function strpos;
+use function is_file;
+use function sprintf;
 
 final class CacheWarmupCommand extends Command
 {
@@ -53,7 +56,7 @@ final class CacheWarmupCommand extends Command
         if ($input->getOption('twig') === true && $input->getOption('routing') === true) {
             $output->writeln('Please specify --twig or --routing');
 
-            return 1;
+            return Command::FAILURE;
         }
 
         if ($input->getOption('twig') === true) {
@@ -79,16 +82,28 @@ final class CacheWarmupCommand extends Command
         }
         $output->writeln('Warm up of all caches done.', OutputInterface::VERBOSITY_VERBOSE);
 
-        return 0;
+        return Command::SUCCESS;
     }
 
     private function warmUpRoutingCache(OutputInterface $output): int
     {
         $output->writeln('Warming up the routing cache', OutputInterface::VERBOSITY_VERBOSE);
         Routing::getDispatcher();
-        $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);
 
-        return 0;
+        if (is_file(Routing::ROUTES_CACHE_FILE)) {
+            $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);
+
+            return Command::SUCCESS;
+        }
+        $output->writeln(
+            sprintf(
+                'Warm up did not work, the folder "%s" is probably not writable.',
+                CACHE_DIR
+            ),
+            OutputInterface::VERBOSITY_NORMAL
+        );
+
+        return Command::FAILURE;
     }
 
     private function warmUpTwigCache(OutputInterface $output): int
@@ -108,6 +123,10 @@ final class CacheWarmupCommand extends Command
             'auto_reload' => true,
             'cache' => $tmpDir,
         ]);
+
+        // Add this to know at what line the code was for getDebugInfo to work
+        TransNode::$enableAddDebugInfo = true;
+
         $twig->setExtensions([
             new AssetExtension(),
             new CoreExtension(),
@@ -164,13 +183,13 @@ final class CacheWarmupCommand extends Command
         // Store replacements in JSON
         $handle = fopen($tmpDir . '/replace.json', 'w');
         if ($handle === false) {
-            return 1;
+            return Command::FAILURE;
         }
 
         fwrite($handle, (string) json_encode($replacements));
         fclose($handle);
         $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);
 
-        return 0;
+        return Command::SUCCESS;
     }
 }

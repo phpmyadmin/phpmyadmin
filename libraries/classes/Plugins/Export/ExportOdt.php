@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -20,7 +21,6 @@ use PhpMyAdmin\Util;
 use function bin2hex;
 use function htmlspecialchars;
 use function str_replace;
-use function stripos;
 use function stripslashes;
 
 /**
@@ -241,6 +241,7 @@ class ExportOdt extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
+        /** @var DatabaseInterface $dbi */
         global $what, $dbi;
 
         $db_alias = $db;
@@ -253,11 +254,8 @@ class ExportOdt extends ExportPlugin
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $dbi->numFields($result);
+        /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $dbi->getFieldsMeta($result);
-        $field_flags = [];
-        for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_flags[$j] = $dbi->fieldFlags($result, $j);
-        }
 
         $GLOBALS['odt_buffer']
             .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
@@ -296,7 +294,7 @@ class ExportOdt extends ExportPlugin
         while ($row = $dbi->fetchRow($result)) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if ($fields_meta[$j]->type === 'geometry') {
+                if ($fields_meta[$j]->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $row[$j] = '0x' . bin2hex($row[$j]);
                 }
@@ -307,17 +305,17 @@ class ExportOdt extends ExportPlugin
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif (stripos($field_flags[$j], 'BINARY') !== false
-                    && $fields_meta[$j]->blob
+                } elseif ($fields_meta[$j]->isBinary
+                    && $fields_meta[$j]->isBlob
                 ) {
                     // ignore BLOB
                     $GLOBALS['odt_buffer']
                         .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->numeric
-                    && $fields_meta[$j]->type !== 'timestamp'
-                    && ! $fields_meta[$j]->blob
+                } elseif ($fields_meta[$j]->isNumeric
+                    && ! $fields_meta[$j]->isMappedTypeTimestamp
+                    && ! $fields_meta[$j]->isBlob
                 ) {
                     $GLOBALS['odt_buffer']
                         .= '<table:table-cell office:value-type="float"'

@@ -5,20 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Twig;
 
 use PhpMyAdmin\Twig\Extensions\I18nExtension as TwigI18nExtension;
-use PhpMyAdmin\Twig\I18n\TokenParserTrans;
-use Twig\TokenParser\TokenParserInterface;
+use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use Twig\TwigFilter;
 
 class I18nExtension extends TwigI18nExtension
 {
-    /**
-     * Returns the token parser instances to add to the existing list.
-     *
-     * @return TokenParserInterface[]
-     */
-    public function getTokenParsers()
+    public function __construct()
     {
-        return [new TokenParserTrans()];
+        TransNode::$notesLabel = '// l10n: ';
+        TransNode::$enableMoTranslator = true;
     }
 
     /**
@@ -29,6 +24,7 @@ class I18nExtension extends TwigI18nExtension
     public function getFilters()
     {
         return [
+            // This is just a performance override
             new TwigFilter('trans', '_gettext'),
         ];
     }

@@ -28,7 +28,6 @@ use function session_start;
 use function session_write_close;
 use function sprintf;
 use function str_replace;
-use function stripos;
 use function strlen;
 use function strpos;
 use function ucwords;
@@ -1205,10 +1204,12 @@ class Sql
     private function getResponseForGridEdit($result): void
     {
         $row = $this->dbi->fetchRow($result);
-        $field_flags = $this->dbi->fieldFlags($result, 0);
-        if (stripos($field_flags, DisplayResults::BINARY_FIELD) !== false) {
+        $fieldsMeta = $this->dbi->getFieldsMeta($result);
+
+        if ($fieldsMeta !== null && isset($fieldsMeta[0]) && $fieldsMeta[0]->isBinary()) {
             $row[0] = bin2hex($row[0]);
         }
+
         $response = Response::getInstance();
         $response->addJSON('value', $row[0]);
     }
@@ -1270,12 +1271,8 @@ class Sql
                 $num_rows = $this->dbi->numRows($result);
 
                 if ($result !== false && $num_rows > 0) {
-                    $fields_meta = $this->dbi->getFieldsMeta($result);
-                    if (! is_array($fields_meta)) {
-                        $fields_cnt = 0;
-                    } else {
-                        $fields_cnt  = count($fields_meta);
-                    }
+                    $fields_meta = $this->dbi->getFieldsMeta($result) ?? [];
+                    $fields_cnt  = count($fields_meta);
 
                     $displayResultsObject->setProperties(
                         $num_rows,
@@ -1320,7 +1317,7 @@ class Sql
         } else {
             $fields_meta = [];
             if (isset($result) && ! is_bool($result)) {
-                $fields_meta = $this->dbi->getFieldsMeta($result);
+                $fields_meta = $this->dbi->getFieldsMeta($result) ?? [];
             }
             $fields_cnt = count($fields_meta);
             $_SESSION['is_multi_query'] = false;
@@ -1474,7 +1471,7 @@ class Sql
 
         // Gets the list of fields properties
         if (isset($result) && $result) {
-            $fields_meta = $this->dbi->getFieldsMeta($result);
+            $fields_meta = $this->dbi->getFieldsMeta($result) ?? [];
         } else {
             $fields_meta = [];
         }

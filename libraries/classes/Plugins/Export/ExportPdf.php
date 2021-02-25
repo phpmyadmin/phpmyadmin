@@ -44,7 +44,7 @@ class ExportPdf extends ExportPlugin
      *
      * @var string
      */
-    private $pdfReportTitle;
+    private $pdfReportTitle = '';
 
     public function __construct()
     {
@@ -64,7 +64,7 @@ class ExportPdf extends ExportPlugin
     protected function initSpecificVariables()
     {
         if (! empty($_POST['pdf_report_title'])) {
-            $this->setPdfReportTitle($_POST['pdf_report_title']);
+            $this->pdfReportTitle = $_POST['pdf_report_title'];
         }
         $this->setPdf(new Pdf('L', 'pt', 'A3'));
     }
@@ -130,15 +130,11 @@ class ExportPdf extends ExportPlugin
      */
     public function exportHeader()
     {
-        $pdf_report_title = $this->getPdfReportTitle();
         $pdf = $this->getPdf();
         $pdf->Open();
 
-        $attr = [
-            'titleFontSize' => 18,
-            'titleText' => $pdf_report_title,
-        ];
-        $pdf->setAttributes($attr);
+        $pdf->setTitleFontSize(18);
+        $pdf->setTitleText($this->pdfReportTitle);
         $pdf->setTopMargin(30);
 
         return true;
@@ -220,15 +216,12 @@ class ExportPdf extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $pdf = $this->getPdf();
-        $attr = [
-            'currentDb'    => $db,
-            'currentTable' => $table,
-            'dbAlias'      => $db_alias,
-            'tableAlias'   => $table_alias,
-            'aliases'      => $aliases,
-            'purpose'      => __('Dumping data'),
-        ];
-        $pdf->setAttributes($attr);
+        $pdf->setCurrentDb($db);
+        $pdf->setCurrentTable($table);
+        $pdf->setDbAlias($db_alias);
+        $pdf->setTableAlias($table_alias);
+        $pdf->setAliases($aliases);
+        $pdf->setPurpose(__('Dumping data'));
         $pdf->mysqlReport($sql_query);
 
         return true;
@@ -246,12 +239,9 @@ class ExportPdf extends ExportPlugin
     public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
     {
         $pdf = $this->getPdf();
-        $attr = [
-            'dbAlias'      => '----',
-            'tableAlias'   => '----',
-            'purpose'      => __('Query result data'),
-        ];
-        $pdf->setAttributes($attr);
+        $pdf->setDbAlias('----');
+        $pdf->setTableAlias('----');
+        $pdf->setPurpose(__('Query result data'));
         $pdf->mysqlReport($sql_query);
 
         return true;
@@ -295,7 +285,7 @@ class ExportPdf extends ExportPlugin
     ) {
         $db_alias = $db;
         $table_alias = $table;
-        $purpose = null;
+        $purpose = '';
         $this->initAlias($aliases, $db_alias, $table_alias);
         $pdf = $this->getPdf();
         // getting purpose to show at top
@@ -313,15 +303,13 @@ class ExportPdf extends ExportPlugin
                 $purpose = __('Stand in');
         }
 
-        $attr = [
-            'currentDb'    => $db,
-            'currentTable' => $table,
-            'dbAlias'      => $db_alias,
-            'tableAlias'   => $table_alias,
-            'aliases'      => $aliases,
-            'purpose'      => $purpose,
-        ];
-        $pdf->setAttributes($attr);
+        $pdf->setCurrentDb($db);
+        $pdf->setCurrentTable($table);
+        $pdf->setDbAlias($db_alias);
+        $pdf->setTableAlias($table_alias);
+        $pdf->setAliases($aliases);
+        $pdf->setPurpose($purpose);
+
         /**
          * comment display set true as presently in pdf
          * format, no option is present to take user input.
@@ -385,27 +373,5 @@ class ExportPdf extends ExportPlugin
     private function setPdf($pdf)
     {
         $this->pdf = $pdf;
-    }
-
-    /**
-     * Gets the PDF report title
-     *
-     * @return string
-     */
-    private function getPdfReportTitle()
-    {
-        return $this->pdfReportTitle;
-    }
-
-    /**
-     * Sets the PDF report title
-     *
-     * @param string $pdfReportTitle PDF report title
-     *
-     * @return void
-     */
-    private function setPdfReportTitle($pdfReportTitle)
-    {
-        $this->pdfReportTitle = $pdfReportTitle;
     }
 }

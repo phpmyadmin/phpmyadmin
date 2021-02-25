@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Dbal;
 
 use mysqli_result;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Table;
 
@@ -670,9 +671,9 @@ interface DbalInterface
      *
      * @param object $result result set identifier
      *
-     * @return mixed meta info for fields in $result
+     * @return FieldMetadata[]|null meta info for fields in $result
      */
-    public function getFieldsMeta($result);
+    public function getFieldsMeta($result): ?array;
 
     /**
      * return number of fields in given $result
@@ -702,16 +703,6 @@ interface DbalInterface
      * @return string name of $i. field in $result
      */
     public function fieldName($result, int $i): string;
-
-    /**
-     * returns concatenated string of human readable field flags
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string field flags
-     */
-    public function fieldFlags($result, $i): string;
 
     /**
      * returns properly escaped string for use in MySQL queries

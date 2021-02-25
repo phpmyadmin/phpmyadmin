@@ -1199,7 +1199,7 @@ class TableTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with('v1')
-            ->will($this->returnValue('movecols'));
+            ->will($this->returnValue(['aNonValidExampleToRefactor']));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1207,7 +1207,7 @@ class TableTest extends AbstractTestCase
 
         $this->assertEquals(
             $tableObj->getColumnsMeta(),
-            'movecols'
+            ['aNonValidExampleToRefactor']
         );
     }
 

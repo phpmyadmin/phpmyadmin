@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
@@ -16,7 +17,6 @@ use TCPDF_STATIC;
 use function array_key_exists;
 use function count;
 use function ksort;
-use function stripos;
 
 /**
  * Adapted from a LGPL script by Philip Clarke
@@ -35,19 +35,19 @@ class Pdf extends PdfLib
     /** @var int|float */
     private $cellFontSize;
 
-    /** @var mixed */
+    /** @var int */
     private $titleFontSize;
 
-    /** @var mixed */
+    /** @var string */
     private $titleText;
 
-    /** @var mixed */
+    /** @var string */
     private $dbAlias;
 
-    /** @var mixed */
+    /** @var string */
     private $tableAlias;
 
-    /** @var mixed */
+    /** @var string */
     private $purpose;
 
     /** @var array */
@@ -71,16 +71,16 @@ class Pdf extends PdfLib
     /** @var int */
     private $numFields;
 
-    /** @var array */
+    /** @var FieldMetadata[] */
     private $fields;
 
     /** @var int|float */
     private $sColWidth;
 
-    /** @var mixed */
+    /** @var string */
     private $currentDb;
 
-    /** @var mixed */
+    /** @var string */
     private $currentTable;
 
     /** @var array */
@@ -350,20 +350,6 @@ class Pdf extends PdfLib
         }
         // set it to the last page, if not it'll cause some problems
         $this->page = $maxpage;
-    }
-
-    /**
-     * Sets a set of attributes.
-     *
-     * @param array $attr array containing the attributes
-     *
-     * @return void
-     */
-    public function setAttributes(array $attr = [])
-    {
-        foreach ($attr as $key => $val) {
-            $this->$key = $val;
-        }
     }
 
     /**
@@ -750,6 +736,7 @@ class Pdf extends PdfLib
      */
     public function mysqlReport($query)
     {
+        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         unset(
@@ -770,7 +757,7 @@ class Pdf extends PdfLib
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $this->numFields = $dbi->numFields($this->results);
-        $this->fields = $dbi->getFieldsMeta($this->results);
+        $this->fields = $dbi->getFieldsMeta($this->results) ?? [];
 
         // sColWidth = starting col width (an average size width)
         $availableWidth = $this->w - $this->lMargin - $this->rMargin;
@@ -803,27 +790,25 @@ class Pdf extends PdfLib
             $this->colTitles[$i] = $col_as;
             $this->displayColumn[$i] = true;
 
-            switch ($this->fields[$i]->type) {
-                case 'int':
-                    $this->colAlign[$i] = 'R';
-                    break;
-                case 'blob':
-                case 'tinyblob':
-                case 'mediumblob':
-                case 'longblob':
-                    /**
-                 * @todo do not deactivate completely the display
-                 * but show the field's name and [BLOB]
-                 */
-                    if (stripos($this->fields[$i]->flags, 'BINARY') !== false) {
-                        $this->displayColumn[$i] = false;
-                        unset($this->colTitles[$i]);
-                    }
-                    $this->colAlign[$i] = 'L';
-                    break;
-                default:
-                    $this->colAlign[$i] = 'L';
+            $this->colAlign[$i] = 'L';
+
+            if ($this->fields[$i]->isType(FieldMetadata::TYPE_INT)) {
+                $this->colAlign[$i] = 'R';
             }
+
+            if (! $this->fields[$i]->isType(FieldMetadata::TYPE_BLOB)) {
+                continue;
+            }
+
+            /**
+             * @todo do not deactivate completely the display
+             * but show the field's name and [BLOB]
+             */
+            if ($this->fields[$i]->isBinary()) {
+                $this->displayColumn[$i] = false;
+                unset($this->colTitles[$i]);
+            }
+            $this->colAlign[$i] = 'L';
         }
 
         // title width verification
@@ -905,5 +890,48 @@ class Pdf extends PdfLib
         $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
         $this->morepagestable($this->FontSizePt);
         $dbi->freeResult($this->results);
+    }
+
+    public function setTitleFontSize(int $titleFontSize): void
+    {
+        $this->titleFontSize = $titleFontSize;
+    }
+
+    public function setTitleText(string $titleText): void
+    {
+        $this->titleText = $titleText;
+    }
+
+    public function setCurrentDb(?string $currentDb): void
+    {
+        $this->currentDb = $currentDb ?? '';
+    }
+
+    public function setCurrentTable(?string $currentTable): void
+    {
+        $this->currentTable = $currentTable ?? '';
+    }
+
+    public function setDbAlias(?string $dbAlias): void
+    {
+        $this->dbAlias = $dbAlias ?? '';
+    }
+
+    public function setTableAlias(?string $tableAlias): void
+    {
+        $this->tableAlias = $tableAlias ?? '';
+    }
+
+    /**
+     * @param array $aliases
+     */
+    public function setAliases(array $aliases): void
+    {
+        $this->aliases = $aliases;
+    }
+
+    public function setPurpose(string $purpose): void
+    {
+        $this->purpose = $purpose;
     }
 }
