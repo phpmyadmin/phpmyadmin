@@ -233,6 +233,7 @@ class Triggers
                     $this->response->addJSON('message', $message);
                     $this->response->setRequestStatus(false);
                 }
+                $this->response->addJSON('tableType', 'triggers');
                 exit;
             }
         }

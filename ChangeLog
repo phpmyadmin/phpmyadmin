@@ -12,6 +12,8 @@ phpMyAdmin - ChangeLog
 - issue #16005 Improve the performance of the Export logic
 
 5.1.1 (not yet released)
+- issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
+- issue        Fixed adding an event shows an empty row
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type

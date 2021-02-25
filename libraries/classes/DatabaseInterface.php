@@ -1633,7 +1633,7 @@ class DatabaseInterface implements DbalInterface
         } else {
             $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
             if (! empty($name)) {
-                $query .= " AND `Name` = '"
+                $query .= " WHERE `Name` = '"
                     . $this->escapeString($name) . "'";
             }
         }
