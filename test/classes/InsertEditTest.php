@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
@@ -18,6 +19,10 @@ use stdClass;
 use function hash;
 use function md5;
 use function sprintf;
+use const MYSQLI_TYPE_DECIMAL;
+use const MYSQLI_PRI_KEY_FLAG;
+use const MYSQLI_TYPE_TINY;
+use const MYSQLI_TYPE_TIMESTAMP;
 
 /**
  * @group medium
@@ -232,9 +237,7 @@ class InsertEditTest extends AbstractTestCase
         $temp = new stdClass();
         $temp->orgname = 'orgname';
         $temp->table = 'table';
-        $temp->type = 'real';
-        $temp->primary_key = 1;
-        $meta_arr = [$temp];
+        $meta_arr = [new FieldMetadata(MYSQLI_TYPE_DECIMAL, MYSQLI_PRI_KEY_FLAG, $temp)];
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -2814,9 +2817,8 @@ class InsertEditTest extends AbstractTestCase
         $temp = new stdClass();
         $temp->orgname = 'orgname';
         $temp->table = 'table';
-        $temp->type = 'real';
-        $temp->primary_key = 1;
-        $meta_arr = [$temp];
+        $temp->orgtable = 'table';
+        $meta_arr = [new FieldMetadata(MYSQLI_TYPE_DECIMAL, MYSQLI_PRI_KEY_FLAG, $temp)];
 
         $row = ['1' => 1];
         $res = 'foobar';
@@ -3751,8 +3753,7 @@ class InsertEditTest extends AbstractTestCase
             ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
 
-        $meta = new stdClass();
-        $meta->type = 'int';
+        $meta = new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []);
         $dbi->expects($this->at(1))
             ->method('getFieldsMeta')
             ->will($this->returnValue([$meta]));
@@ -3768,9 +3769,7 @@ class InsertEditTest extends AbstractTestCase
             ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
 
-        $meta = new stdClass();
-        $meta->type = 'int';
-        $meta->flags = '';
+        $meta = new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []);
         $dbi->expects($this->at(5))
             ->method('getFieldsMeta')
             ->will($this->returnValue([$meta]));
@@ -3786,9 +3785,7 @@ class InsertEditTest extends AbstractTestCase
             ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
 
-        $meta = new stdClass();
-        $meta->type = 'timestamp';
-        $meta->flags = '';
+        $meta = new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) []);
         $dbi->expects($this->at(9))
             ->method('getFieldsMeta')
             ->will($this->returnValue([$meta]));

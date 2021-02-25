@@ -485,6 +485,9 @@
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;dbi-&gt;fetchSingleRow($sql_query)</code>
     </NullableReturnStatement>
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(int) $fields_meta[$i]-&gt;length</code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
     <ImplicitToStringCast occurrences="1">
@@ -538,6 +541,9 @@
       <code>$dataLabel</code>
       <code>$key</code>
     </PossiblyFalseArgument>
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(int) $fields_meta[$i]-&gt;length</code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Core.php">
     <InvalidOperand occurrences="1">
@@ -682,15 +688,11 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <ImplementedReturnTypeMismatch occurrences="2">
-      <code>array|bool</code>
-      <code>string|false</code>
-    </ImplementedReturnTypeMismatch>
     <InvalidPropertyFetch occurrences="2">
       <code>$mysqli-&gt;connect_errno</code>
       <code>$mysqli-&gt;connect_error</code>
     </InvalidPropertyFetch>
-    <MoreSpecificImplementedParamType occurrences="24">
+    <MoreSpecificImplementedParamType occurrences="23">
       <code>$mysqli</code>
       <code>$mysqli</code>
       <code>$mysqli</code>
@@ -704,7 +706,6 @@
       <code>$mysqli</code>
       <code>$mysqli</code>
       <code>$mysqli</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
@@ -808,6 +809,14 @@
       <code>(string) '1'</code>
       <code>(string) '1'</code>
     </RedundantCast>
+    <RedundantCastGivenDocblockType occurrences="6">
+      <code>(int) $meta-&gt;length</code>
+      <code>(string) $fields_meta-&gt;name</code>
+      <code>(string) $fields_meta-&gt;name</code>
+      <code>(string) $fields_meta-&gt;name</code>
+      <code>(string) $fields_meta[$i]-&gt;name</code>
+      <code>(string) $fields_meta[$i]-&gt;name</code>
+    </RedundantCastGivenDocblockType>
     <TypeDoesNotContainNull occurrences="3">
       <code>$column === null</code>
       <code>$column === null</code>
@@ -1487,7 +1496,8 @@
       <code>$view_alias</code>
       <code>$view_alias</code>
     </PossiblyNullArgument>
-    <RedundantCastGivenDocblockType occurrences="2">
+    <RedundantCastGivenDocblockType occurrences="3">
+      <code>(int) $fields_meta[$j]-&gt;length</code>
       <code>(string) $create_query</code>
       <code>(string) $table</code>
     </RedundantCastGivenDocblockType>
@@ -2206,9 +2216,6 @@
     <PossiblyInvalidOperand occurrences="1">
       <code>$timestamp</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullPropertyFetch occurrences="1">
-      <code>$meta-&gt;type</code>
-    </PossiblyNullPropertyFetch>
     <RedundantCastGivenDocblockType occurrences="3">
       <code>(string) $buffer</code>
       <code>(string) $buffer</code>
@@ -2416,9 +2423,7 @@
     <PossiblyFalseReference occurrences="1">
       <code>save</code>
     </PossiblyFalseReference>
-    <PossiblyInvalidArgument occurrences="5">
-      <code>$fields_meta</code>
-      <code>$fields_meta</code>
+    <PossiblyInvalidArgument occurrences="3">
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
@@ -2684,7 +2689,8 @@
     <RedundantCast occurrences="1">
       <code>(string) strftime($string)</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="8">
+    <RedundantCastGivenDocblockType occurrences="9">
+      <code>(int) $meta-&gt;length</code>
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>

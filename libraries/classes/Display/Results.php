@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Display;
 use PhpMyAdmin\Config\SpecialSchemaLinks;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
@@ -27,8 +28,6 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use stdClass;
-use const MYSQLI_TYPE_BIT;
 use function array_filter;
 use function array_keys;
 use function array_merge;
@@ -92,15 +91,6 @@ class Results
     public const HEADER_FLIP_TYPE_AUTO = 'auto';
     public const HEADER_FLIP_TYPE_CSS = 'css';
     public const HEADER_FLIP_TYPE_FAKE = 'fake';
-
-    public const DATE_FIELD = 'date';
-    public const DATETIME_FIELD = 'datetime';
-    public const TIMESTAMP_FIELD = 'timestamp';
-    public const TIME_FIELD = 'time';
-    public const STRING_FIELD = 'string';
-    public const GEOMETRY_FIELD = 'geometry';
-    public const BLOB_FIELD = 'BLOB';
-    public const BINARY_FIELD = 'BINARY';
 
     public const RELATIONAL_KEY = 'K';
     public const RELATIONAL_DISPLAY_COLUMN = 'D';
@@ -361,31 +351,31 @@ class Results
     /**
      * Set properties which were not initialized at the constructor
      *
-     * @param int      $unlim_num_rows the total number of rows returned by
-     *                                 the SQL query without any appended
-     *                                 "LIMIT" clause programmatically
-     * @param stdClass $fields_meta    meta information about fields
-     * @param bool     $is_count       statement is SELECT COUNT
-     * @param int      $is_export      statement contains INTO OUTFILE
-     * @param bool     $is_func        statement contains a function like SUM()
-     * @param int      $is_analyse     statement contains PROCEDURE ANALYSE
-     * @param int      $num_rows       total no. of rows returned by SQL query
-     * @param int      $fields_cnt     total no.of fields returned by SQL query
-     * @param double   $querytime      time taken for execute the SQL query
-     * @param string   $text_dir       text direction
-     * @param bool     $is_maint       statement contains a maintenance command
-     * @param bool     $is_explain     statement contains EXPLAIN
-     * @param bool     $is_show        statement contains SHOW
-     * @param array    $showtable      table definitions
-     * @param string   $printview      print view was requested
-     * @param bool     $editable       whether the results set is editable
-     * @param bool     $is_browse_dist whether browsing distinct values
+     * @param int    $unlim_num_rows the total number of rows returned by
+     *                               the SQL query without any appended
+     *                               "LIMIT" clause programmatically
+     * @param array  $fields_meta    meta information about fields
+     * @param bool   $is_count       statement is SELECT COUNT
+     * @param int    $is_export      statement contains INTO OUTFILE
+     * @param bool   $is_func        statement contains a function like SUM()
+     * @param int    $is_analyse     statement contains PROCEDURE ANALYSE
+     * @param int    $num_rows       total no. of rows returned by SQL query
+     * @param int    $fields_cnt     total no.of fields returned by SQL query
+     * @param double $querytime      time taken for execute the SQL query
+     * @param string $text_dir       text direction
+     * @param bool   $is_maint       statement contains a maintenance command
+     * @param bool   $is_explain     statement contains EXPLAIN
+     * @param bool   $is_show        statement contains SHOW
+     * @param array  $showtable      table definitions
+     * @param string $printview      print view was requested
+     * @param bool   $editable       whether the results set is editable
+     * @param bool   $is_browse_dist whether browsing distinct values
      *
      * @return void
      */
     public function setProperties(
         $unlim_num_rows,
-        $fields_meta,
+        array $fields_meta,
         $is_count,
         $is_export,
         $is_func,
@@ -537,6 +527,7 @@ class Results
         // $displayParts['edit_lnk'], $displayParts['del_lnk'] and
         // $displayParts['text_btn'] (keeps other default values)
 
+        /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $this->properties['fields_meta'];
         $prev_table = '';
         $displayParts['text_btn']  = (string) '1';
@@ -1016,6 +1007,7 @@ class Results
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in the for loop
         $highlight_columns = $this->properties['highlight_columns'];
+        /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $this->properties['fields_meta'];
 
         // Prepare Display column comments if enabled
@@ -1557,18 +1549,19 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param array $commentsMap comments array
-     * @param array $fieldsMeta  set of field properties
+     * @param array         $commentsMap comments array
+     * @param FieldMetadata $fieldsMeta  set of field properties
      *
      * @return string html content
      *
      * @access private
      */
-    private function getCommentForRow(array $commentsMap, $fieldsMeta)
+    private function getCommentForRow(array $commentsMap, FieldMetadata $fieldsMeta)
     {
         return $this->template->render('display/results/comment_for_row', [
             'comments_map' => $commentsMap,
-            'fields_meta' => $fieldsMeta,
+            'column_name' => $fieldsMeta->name,
+            'table_name' => $fieldsMeta->table,
             'limit_chars' => $GLOBALS['cfg']['LimitChars'],
         ]);
     }
@@ -1578,23 +1571,23 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param stdClass $fields_meta                 set of field properties
-     * @param array    $sort_expression             sort expression
-     * @param array    $sort_expression_nodirection sort expression without direction
-     * @param int      $column_index                the index of the column
-     * @param string   $unsorted_sql_query          the unsorted sql query
-     * @param int      $session_max_rows            maximum rows resulted by sql
-     * @param string   $comments                    comment for row
-     * @param array    $sort_direction              sort direction
-     * @param bool     $col_visib                   column is visible(false) or column isn't visible(string array)
-     * @param string   $col_visib_j                 element of $col_visib array
+     * @param FieldMetadata $fields_meta                 set of field properties
+     * @param array         $sort_expression             sort expression
+     * @param array         $sort_expression_nodirection sort expression without direction
+     * @param int           $column_index                the index of the column
+     * @param string        $unsorted_sql_query          the unsorted sql query
+     * @param int           $session_max_rows            maximum rows resulted by sql
+     * @param string        $comments                    comment for row
+     * @param array         $sort_direction              sort direction
+     * @param bool          $col_visib                   column is visible(false) or column isn't visible(string array)
+     * @param string        $col_visib_j                 element of $col_visib array
      *
      * @return array   2 element array - $order_link, $sorted_header_html
      *
      * @access private
      */
     private function getOrderLinkAndSortedHeaderHtml(
-        $fields_meta,
+        FieldMetadata $fields_meta,
         array $sort_expression,
         array $sort_expression_nodirection,
         $column_index,
@@ -1696,14 +1689,14 @@ class Results
      *
      * @see    getOrderLinkAndSortedHeaderHtml()
      *
-     * @param array    $sort_expression             sort expression
-     * @param array    $sort_expression_nodirection sort expression without direction
-     * @param string   $sort_tbl                    The name of the table to which
-     *                                              the current column belongs to
-     * @param string   $name_to_use_in_sort         The current column under
-     *                                              consideration
-     * @param array    $sort_direction              sort direction
-     * @param stdClass $fields_meta                 set of field properties
+     * @param array         $sort_expression             sort expression
+     * @param array         $sort_expression_nodirection sort expression without direction
+     * @param string        $sort_tbl                    The name of the table to which
+     *                                                   the current column belongs to
+     * @param string        $name_to_use_in_sort         The current column under
+     *                                                   consideration
+     * @param array         $sort_direction              sort direction
+     * @param FieldMetadata $fields_meta                 set of field properties
      *
      * @return array   3 element array - $single_sort_order, $sort_order, $order_img
      *
@@ -1715,7 +1708,7 @@ class Results
         $sort_tbl,
         $name_to_use_in_sort,
         array $sort_direction,
-        $fields_meta
+        FieldMetadata $fields_meta
     ) {
         $sort_order = '';
         // Check if the current column is in the order by clause
@@ -1734,10 +1727,9 @@ class Results
                 = Util::backquote(
                     $current_name
                 );
-            $sort_direction[$special_index] = preg_match(
-                '@time|date@i',
-                $fields_meta->type ?? ''
-            ) ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
+            $isTimeOrDate = $fields_meta->isType(FieldMetadata::TYPE_TIME)
+                            || $fields_meta->isType(FieldMetadata::TYPE_DATE);
+            $sort_direction[$special_index] = $isTimeOrDate ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
         }
 
         $sort_expression_nodirection = array_filter($sort_expression_nodirection);
@@ -1979,10 +1971,10 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param string   $order_img       the sort order image
-     * @param stdClass $fields_meta     set of field properties
-     * @param string   $order_url       the url for sort
-     * @param string   $multi_order_url the url for sort
+     * @param string        $order_img       the sort order image
+     * @param FieldMetadata $fields_meta     set of field properties
+     * @param string        $order_url       the url for sort
+     * @param string        $multi_order_url the url for sort
      *
      * @return string the sort order link
      *
@@ -1990,7 +1982,7 @@ class Results
      */
     private function getSortOrderLink(
         $order_img,
-        $fields_meta,
+        FieldMetadata $fields_meta,
         $order_url,
         $multi_order_url
     ) {
@@ -2013,21 +2005,22 @@ class Results
      *
      * @see  getDraggableClassForSortableColumns()
      *
-     * @param stdClass $fields_meta set of field properties
-     * @param array    $th_class    array containing classes
+     * @param FieldMetadata $fields_meta set of field properties
+     * @param array         $th_class    array containing classes
      *
      * @return void
      */
-    private function getClassForNumericColumnType($fields_meta, array &$th_class)
+    private function getClassForNumericColumnType(FieldMetadata $fields_meta, array &$th_class)
     {
-        if (! preg_match(
-            '@int|decimal|float|double|real|bit|boolean|serial@i',
-            (string) $fields_meta->type
-        )) {
+        // This was defined in commit b661cd7c9b31f8bc564d2f9a1b8527e0eb966de8
+        // For issue https://github.com/phpmyadmin/phpmyadmin/issues/4746
+        if (! $fields_meta->isType(FieldMetadata::TYPE_REAL)
+            && ! $fields_meta->isMappedTypeBit
+            && ! $fields_meta->isType(FieldMetadata::TYPE_INT)) {
             return;
         }
 
-        $th_class[] = 'text-end';
+            $th_class[] = 'text-end';
     }
 
     /**
@@ -2035,12 +2028,12 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param bool     $col_visib   the column is visible (false)
-     *                              array                the column is not visible (string array)
-     * @param string   $col_visib_j element of $col_visib array
-     * @param stdClass $fields_meta set of field properties
-     * @param string   $order_link  the order link
-     * @param string   $comments    the comment for the column
+     * @param bool          $col_visib   the column is visible (false)
+     *                                   array                the column is not visible (string array)
+     * @param string        $col_visib_j element of $col_visib array
+     * @param FieldMetadata $fields_meta set of field properties
+     * @param string        $order_link  the order link
+     * @param string        $comments    the comment for the column
      *
      * @return string  html content
      *
@@ -2049,7 +2042,7 @@ class Results
     private function getDraggableClassForSortableColumns(
         $col_visib,
         $col_visib_j,
-        $fields_meta,
+        FieldMetadata $fields_meta,
         $order_link,
         $comments
     ) {
@@ -2084,12 +2077,12 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param bool     $col_visib       the column is visible (false)
-     *                                  array                    the column is not visible (string array)
-     * @param string   $col_visib_j     element of $col_visib array
-     * @param bool     $condition_field whether to add CSS class condition
-     * @param stdClass $fields_meta     set of field properties
-     * @param string   $comments        the comment for the column
+     * @param bool          $col_visib       the column is visible (false)
+     *                                       array                    the column is not visible (string array)
+     * @param string        $col_visib_j     element of $col_visib array
+     * @param bool          $condition_field whether to add CSS class condition
+     * @param FieldMetadata $fields_meta     set of field properties
+     * @param string        $comments        the comment for the column
      *
      * @return string  html content
      *
@@ -2099,7 +2092,7 @@ class Results
         $col_visib,
         $col_visib_j,
         $condition_field,
-        $fields_meta,
+        FieldMetadata $fields_meta,
         $comments
     ) {
         $draggable_html = '<th';
@@ -2216,22 +2209,23 @@ class Results
      *          getDataCellForGeometryColumns(),
      *          getDataCellForNonNumericColumns()
      *
-     * @param string   $class          class of table cell
-     * @param bool     $conditionField whether to add CSS class condition
-     * @param stdClass $meta           the meta-information about this field
-     * @param string   $align          cell alignment
+     * @param string        $class          class of table cell
+     * @param bool          $conditionField whether to add CSS class condition
+     * @param FieldMetadata $meta           the meta-information about this field
+     * @param string        $align          cell alignment
      *
      * @return string  the td
      *
      * @access private
      */
-    private function buildNullDisplay($class, $conditionField, $meta, $align = '')
+    private function buildNullDisplay($class, $conditionField, FieldMetadata $meta, $align = '')
     {
         $classes = $this->addClass($class, $conditionField, $meta, '');
 
         return $this->template->render('display/results/null_display', [
             'align' => $align,
-            'meta' => $meta,
+            'data_decimals' => $meta->decimals ?? -1,
+            'data_type' => $meta->getMappedType(),
             'classes' => $classes,
         ]);
     }
@@ -2243,16 +2237,16 @@ class Results
      *          getDataCellForGeometryColumns(),
      *          getDataCellForNonNumericColumns()
      *
-     * @param string   $class          class of table cell
-     * @param bool     $conditionField whether to add CSS class condition
-     * @param stdClass $meta           the meta-information about this field
-     * @param string   $align          cell alignment
+     * @param string        $class          class of table cell
+     * @param bool          $conditionField whether to add CSS class condition
+     * @param FieldMetadata $meta           the meta-information about this field
+     * @param string        $align          cell alignment
      *
      * @return string  the td
      *
      * @access private
      */
-    private function buildEmptyDisplay($class, $conditionField, $meta, $align = '')
+    private function buildEmptyDisplay($class, $conditionField, FieldMetadata $meta, $align = '')
     {
         $classes = $this->addClass($class, $conditionField, $meta, 'text-nowrap');
 
@@ -2270,7 +2264,7 @@ class Results
      * @param string                       $class                 class of table cell
      * @param bool                         $condition_field       whether to add CSS class
      *                                                            condition
-     * @param stdClass                     $meta                  the meta-information about the
+     * @param FieldMetadata                $meta                  the meta-information about the
      *                                                            field
      * @param string                       $nowrap                avoid wrapping
      * @param bool                         $is_field_truncated    is field truncated (display ...)
@@ -2286,7 +2280,7 @@ class Results
     private function addClass(
         $class,
         $condition_field,
-        $meta,
+        FieldMetadata $meta,
         $nowrap,
         $is_field_truncated = false,
         $transformation_plugin = '',
@@ -2297,8 +2291,8 @@ class Results
             $nowrap,
         ];
 
-        if (isset($meta->mimetype)) {
-            $classes[] = preg_replace('/\//', '_', $meta->mimetype);
+        if (isset($meta->internalMediaType)) {
+            $classes[] = preg_replace('/\//', '_', $meta->internalMediaType);
         }
 
         if ($condition_field) {
@@ -2319,22 +2313,21 @@ class Results
         }
 
         // Define classes to be added to this data field based on the type of data
-        $matches = [
-            'enum' => 'enum',
-            'set' => 'set',
-            'binary' => 'hex',
-        ];
 
-        foreach ($matches as $key => $value) {
-            if (mb_strpos($meta->flags, $key) === false) {
-                continue;
-            }
-
-            $classes[] = $value;
+        if ($meta->isEnum()) {
+            $classes[] = 'enum';
         }
 
-        if (mb_strpos($meta->type, 'bit') !== false) {
+        if ($meta->isSet()) {
+            $classes[] = 'set';
+        }
+
+        if ($meta->isMappedTypeBit) {
             $classes[] = 'bit';
+        }
+
+        if ($meta->isBinary()) {
+            $classes[] = 'hex';
         }
 
         return implode(' ', $classes);
@@ -2607,6 +2600,7 @@ class Results
      */
     private function setMimeMap()
     {
+        /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $this->properties['fields_meta'];
         $mimeMap = [];
         $added = [];
@@ -2710,6 +2704,7 @@ class Results
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in foreach
         $sql_query = $this->properties['sql_query'];
+        /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $this->properties['fields_meta'];
         $highlight_columns = $this->properties['highlight_columns'];
         $mime_map = $this->properties['mime_map'];
@@ -2731,7 +2726,7 @@ class Results
             $orgFullColName
                 = $this->properties['db'] . '.' . $meta->orgtable . '.' . $meta->orgname;
 
-            $not_null_class = $meta->not_null ? 'not_null' : '';
+            $not_null_class = $meta->isNotNull() ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
             $hide_class = is_array($col_visib) && isset($col_visib[$currentColumn]) && ! $col_visib[$currentColumn]
                 ? 'hide'
@@ -2740,7 +2735,7 @@ class Results
 
             // handle datetime-related class, for grid editing
             $field_type_class
-                = $this->getClassForDateTimeRelatedFields($meta->type);
+                = $this->getClassForDateTimeRelatedFields($meta);
 
             $is_field_truncated = false;
             // combine all the classes applicable to this column's value
@@ -2788,7 +2783,7 @@ class Results
                                 $mime_map[$orgFullColName]['transformation_options'] ?? ''
                             );
 
-                            $meta->mimetype = str_replace(
+                            $meta->internalMediaType = str_replace(
                                 '_',
                                 '/',
                                 $mime_map[$orgFullColName]['mimetype']
@@ -2818,7 +2813,7 @@ class Results
                 $orgTable = mb_strtolower($meta->orgtable);
                 $orgName = mb_strtolower($meta->orgname);
 
-                $meta->mimetype = str_replace(
+                $meta->internalMediaType = str_replace(
                     '_',
                     '/',
                     $this->transformationInfo[$dbLower][$orgTable][$orgName][2]
@@ -2840,7 +2835,7 @@ class Results
                     2 => true,
                 ];
 
-                $meta->mimetype = str_replace(
+                $meta->internalMediaType = str_replace(
                     '_',
                     '/',
                     'Text/Plain'
@@ -2896,7 +2891,8 @@ class Results
             // even for a string type
             // for decimal numeric is returning 1
             // have to improve logic
-            if (($meta->numeric == 1 && $meta->type !== 'string') || $meta->type === 'real') {
+            if (($meta->isNumeric && $meta->isNotType(FieldMetadata::TYPE_STRING))
+                || $meta->isType(FieldMetadata::TYPE_REAL)) {
                 // n u m e r i c
 
                 $display_params['data'][$row_no][$i]
@@ -2912,7 +2908,7 @@ class Results
                         $default_function,
                         $transform_options
                     );
-            } elseif ($meta->type === self::GEOMETRY_FIELD) {
+            } elseif ($meta->isMappedTypeGeometry) {
                 // g e o m e t r y
 
                 // Remove 'grid_edit' from $class as we do not allow to
@@ -2984,7 +2980,7 @@ class Results
         array $specialSchemaLinks,
         $column_value,
         array $row_info,
-        $field_name
+        string $field_name
     ) {
         $linking_url_params = [];
         $db = mb_strtolower($this->properties['db']);
@@ -3042,6 +3038,7 @@ class Results
     private function getRowInfoForSpecialLinks(array $row, $col_order)
     {
         $row_info = [];
+        /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $this->properties['fields_meta'];
 
         for ($n = 0; $n < $this->properties['fields_cnt']; ++$n) {
@@ -3361,25 +3358,25 @@ class Results
      *
      * @see     getTableBody()
      *
-     * @param string $grid_edit_class  the class for all editable columns
-     * @param string $not_null_class   the class for not null columns
-     * @param string $relation_class   the class for relations in a column
-     * @param string $hide_class       the class for visibility of a column
-     * @param string $field_type_class the class related to type of the field
+     * @param string $gridEditClass  the class for all editable columns
+     * @param string $notNullClass   the class for not null columns
+     * @param string $relationClass  the class for relations in a column
+     * @param string $hideClass      the class for visibility of a column
+     * @param string $fieldTypeClass the class related to type of the field
      *
      * @return string the combined classes
      *
      * @access private
      */
     private function getClassesForColumn(
-        $grid_edit_class,
-        $not_null_class,
-        $relation_class,
-        $hide_class,
-        $field_type_class
+        string $gridEditClass,
+        string $notNullClass,
+        string $relationClass,
+        string $hideClass,
+        string $fieldTypeClass
     ) {
-        return 'data ' . $grid_edit_class . ' ' . $not_null_class . ' '
-            . $relation_class . ' ' . $hide_class . ' ' . $field_type_class;
+        return 'data ' . $gridEditClass . ' ' . $notNullClass . ' '
+            . $relationClass . ' ' . $hideClass . ' ' . $fieldTypeClass;
     }
 
     /**
@@ -3387,29 +3384,29 @@ class Results
      *
      * @see    getTableBody()
      *
-     * @param string $type the type of the column field
+     * @param FieldMetadata $meta the type of the column field
      *
      * @return string   the class for the column
      *
      * @access private
      */
-    private function getClassForDateTimeRelatedFields($type)
+    private function getClassForDateTimeRelatedFields(FieldMetadata $meta): string
     {
-        if ((substr($type, 0, 9) === self::TIMESTAMP_FIELD)
-            || ($type === self::DATETIME_FIELD)
+        $fieldTypeClass = '';
+
+        if ($meta->isMappedTypeTimestamp
+            || $meta->isType(FieldMetadata::TYPE_DATETIME)
         ) {
-            $field_type_class = 'datetimefield';
-        } elseif ($type === self::DATE_FIELD) {
-            $field_type_class = 'datefield';
-        } elseif ($type === self::TIME_FIELD) {
-            $field_type_class = 'timefield';
-        } elseif ($type === self::STRING_FIELD) {
-            $field_type_class = 'text';
-        } else {
-            $field_type_class = '';
+            $fieldTypeClass = 'datetimefield';
+        } elseif ($meta->isType(FieldMetadata::TYPE_DATE)) {
+            $fieldTypeClass = 'datefield';
+        } elseif ($meta->isType(FieldMetadata::TYPE_TIME)) {
+            $fieldTypeClass = 'timefield';
+        } elseif ($meta->isType(FieldMetadata::TYPE_STRING)) {
+            $fieldTypeClass = 'text';
         }
 
-        return $field_type_class;
+        return $fieldTypeClass;
     }
 
     /**
@@ -3421,8 +3418,8 @@ class Results
      * @param string                $class                 the html class for column
      * @param bool                  $condition_field       the column should highlighted
      *                                                     or not
-     * @param stdClass              $meta                  the meta-information about this
-     *                                                     field
+     * @param FieldMetadata         $meta                  the meta-information about this
+     *                                                field
      * @param array                 $map                   the list of relations
      * @param bool                  $is_field_truncated    the condition for blob data
      *                                                     replacements
@@ -3440,7 +3437,7 @@ class Results
         ?string $column,
         $class,
         $condition_field,
-        $meta,
+        FieldMetadata $meta,
         array $map,
         $is_field_truncated,
         array $analyzed_sql_results,
@@ -3494,8 +3491,8 @@ class Results
      *
      * @param string|null           $column                the relevant column in data row
      * @param string                $class                 the html class for column
-     * @param stdClass              $meta                  the meta-information about
-     *                                                     this field
+     * @param FieldMetadata         $meta                  the meta-information about
+     *                                                this field
      * @param array                 $map                   the list of relations
      * @param array                 $_url_params           the parameters for generate url
      * @param bool                  $condition_field       the column should highlighted
@@ -3514,7 +3511,7 @@ class Results
     private function getDataCellForGeometryColumns(
         ?string $column,
         $class,
-        $meta,
+        FieldMetadata $meta,
         array $map,
         array $_url_params,
         $condition_field,
@@ -3534,7 +3531,7 @@ class Results
         // Display as [GEOMETRY - (size)]
         if ($_SESSION['tmpval']['geoOption'] === self::GEOMETRY_DISP_GEOM) {
             $geometry_text = $this->handleNonPrintableContents(
-                strtoupper(self::GEOMETRY_FIELD),
+                'GEOMETRY',
                 $column,
                 $transformation_plugin,
                 $transform_options,
@@ -3611,7 +3608,7 @@ class Results
         }
 
         $wkbval = $this->handleNonPrintableContents(
-            self::BINARY_FIELD,
+            'BINARY',
             $column,
             $transformation_plugin,
             $transform_options,
@@ -3634,8 +3631,8 @@ class Results
      *
      * @param string|null           $column                the relevant column in data row
      * @param string                $class                 the html class for column
-     * @param stdClass              $meta                  the meta-information about
-     *                                                     the field
+     * @param FieldMetadata         $meta                  the meta-information about
+     *                                                the field
      * @param array                 $map                   the list of relations
      * @param array                 $_url_params           the parameters for generate
      *                                                     url
@@ -3661,7 +3658,7 @@ class Results
     private function getDataCellForNonNumericColumns(
         ?string $column,
         $class,
-        $meta,
+        FieldMetadata $meta,
         array $map,
         array $_url_params,
         $condition_field,
@@ -3678,7 +3675,6 @@ class Results
         $original_length = 0;
 
         $is_analyse = $this->properties['is_analyse'];
-        $field_flags = $dbi->fieldFlags($dt_result, $col_index);
 
         $bIsText = is_object($transformation_plugin)
             && strpos($transformation_plugin->getMIMEType(), 'Text')
@@ -3688,13 +3684,15 @@ class Results
         // if binary fields are protected
         // or transformation plugin is of non text type
         // such as image
-        if ((stripos($field_flags, self::BINARY_FIELD) !== false
-            && ($GLOBALS['cfg']['ProtectBinary'] === 'all'
-            || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob'
-            && stripos($meta->type, self::BLOB_FIELD) === false)
-            || ($GLOBALS['cfg']['ProtectBinary'] === 'blob'
-            && stripos($meta->type, self::BLOB_FIELD) !== false)))
-            || $bIsText
+        $isTypeBlob = $meta->isType(FieldMetadata::TYPE_BLOB);
+        $cfgProtectBinary = $GLOBALS['cfg']['ProtectBinary'];
+        if (($meta->isBinary()
+            && (
+                $cfgProtectBinary === 'all'
+                || ($cfgProtectBinary === 'noblob' && ! $isTypeBlob)
+                || ($cfgProtectBinary === 'blob' && $isTypeBlob)
+                )
+            ) || $bIsText
         ) {
             $class = str_replace('grid_edit', '', $class);
         }
@@ -3712,7 +3710,7 @@ class Results
         $displayedColumn = $column;
         if (! (is_object($transformation_plugin)
             && strpos($transformation_plugin->getName(), 'Link') !== false)
-            && stripos($field_flags, self::BINARY_FIELD) === false
+            && ! $meta->isBinary()
         ) {
             [
                 $is_field_truncated,
@@ -3722,7 +3720,7 @@ class Results
         }
 
         $formatted = false;
-        if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
+        if ($meta->isMappedTypeBit) {
             $displayedColumn = Util::printableBitValue(
                 (int) $displayedColumn,
                 (int) $meta->length
@@ -3731,14 +3729,14 @@ class Results
             // some results of PROCEDURE ANALYSE() are reported as
             // being BINARY but they are quite readable,
             // so don't treat them as BINARY
-        } elseif (stripos($field_flags, self::BINARY_FIELD) !== false
+        } elseif ($meta->isBinary()
             && ! (isset($is_analyse) && $is_analyse)
         ) {
             // we show the BINARY or BLOB message and field's size
             // (or maybe use a transformation)
-            $binary_or_blob = self::BLOB_FIELD;
-            if ($meta->type === self::STRING_FIELD) {
-                $binary_or_blob = self::BINARY_FIELD;
+            $binary_or_blob = 'BLOB';
+            if ($meta->isType(FieldMetadata::TYPE_STRING)) {
+                $binary_or_blob = 'BINARY';
             }
             $displayedColumn = $this->handleNonPrintableContents(
                 $binary_or_blob,
@@ -3786,8 +3784,7 @@ class Results
 
         // do not wrap if date field type or if no-wrapping enabled by transform functions
         // otherwise, preserve whitespaces and wrap
-        $nowrap = preg_match('@DATE|TIME@i', $meta->type)
-            || $bool_nowrap ? 'text-nowrap' : 'pre_wrap';
+        $nowrap = $meta->isDateTimeType() || $bool_nowrap ? 'text-nowrap' : 'pre_wrap';
 
         $where_comparison = ' = \''
             . $dbi->escapeString($column)
@@ -3999,6 +3996,7 @@ class Results
 
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in foreach
+        /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $this->properties['fields_meta'];
         $showtable = $this->properties['showtable'];
         $printview = $this->properties['printview'];
@@ -4263,6 +4261,7 @@ class Results
     ) {
         global $dbi;
 
+        /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $this->properties['fields_meta']; // To use array indexes
 
         if (empty($sort_expression_nodirection)) {
@@ -4309,11 +4308,12 @@ class Results
         // check for non printable sorted row data
         $meta = $fields_meta[$sorted_column_index];
 
-        if (stripos($meta->type, self::BLOB_FIELD) !== false
-            || ($meta->type === self::GEOMETRY_FIELD)
-        ) {
+        $isBlobOrGeometry = $meta->isType(FieldMetadata::TYPE_BLOB)
+                    || $meta->isMappedTypeGeometry;
+
+        if ($isBlobOrGeometry) {
             $column_for_first_row = $this->handleNonPrintableContents(
-                $meta->type,
+                $meta->getMappedType(),
                 $row[$sorted_column_index],
                 $transformation_plugin,
                 $transform_options,
@@ -4341,11 +4341,9 @@ class Results
 
         // check for non printable sorted row data
         $meta = $fields_meta[$sorted_column_index];
-        if (stripos($meta->type, self::BLOB_FIELD) !== false
-            || ($meta->type === self::GEOMETRY_FIELD)
-        ) {
+        if ($isBlobOrGeometry) {
             $column_for_last_row = $this->handleNonPrintableContents(
-                $meta->type,
+                $meta->getMappedType(),
                 $row[$sorted_column_index],
                 $transformation_plugin,
                 $transform_options,
@@ -4671,9 +4669,10 @@ class Results
                 }
             }
 
+            /** @var FieldMetadata[] $fields_meta */
             $fields_meta = $this->properties['fields_meta'];
             foreach ($fields_meta as $meta) {
-                if ($meta->type === self::GEOMETRY_FIELD) {
+                if ($meta->isMappedTypeGeometry) {
                     $geometry_found = true;
                     break;
                 }
@@ -4695,18 +4694,18 @@ class Results
      *
      * @see getDataCellForGeometryColumns(), getDataCellForNonNumericColumns(), getSortedColumnMessage()
      *
-     * @param string      $category              BLOB|BINARY|GEOMETRY
-     * @param string|null $content               the binary content
-     * @param mixed       $transformation_plugin transformation plugin.
-     *                                           Can also be the
-     *                                           default function:
-     *                                           Core::mimeDefaultFunction
-     * @param string      $transform_options     transformation parameters
-     * @param string      $default_function      default transformation function
-     * @param stdClass    $meta                  the meta-information about the field
-     * @param array       $url_params            parameters that should go to the
-     *                                           download link
-     * @param bool        $is_truncated          the result is truncated or not
+     * @param string        $category              BLOB|BINARY|GEOMETRY
+     * @param string|null   $content               the binary content
+     * @param mixed         $transformation_plugin transformation plugin.
+     *                                             Can also be the
+     *                                             default function:
+     *                                             Core::mimeDefaultFunction
+     * @param string        $transform_options     transformation parameters
+     * @param string        $default_function      default transformation function
+     * @param FieldMetadata $meta                  the meta-information about the field
+     * @param array         $url_params            parameters that should go to the
+     *                                             download link
+     * @param bool          $is_truncated          the result is truncated or not
      *
      * @return mixed  string or float
      *
@@ -4718,7 +4717,7 @@ class Results
         $transformation_plugin,
         $transform_options,
         $default_function,
-        $meta,
+        FieldMetadata $meta,
         array $url_params = [],
         &$is_truncated = null
     ) {
@@ -4769,9 +4768,9 @@ class Results
 
         $result = $default_function($result, [], $meta);
         if (($_SESSION['tmpval']['display_binary']
-            && $meta->type === self::STRING_FIELD)
+            && $meta->isType(FieldMetadata::TYPE_STRING))
             || ($_SESSION['tmpval']['display_blob']
-            && stripos($meta->type, self::BLOB_FIELD) !== false)
+            && $meta->isType(FieldMetadata::TYPE_BLOB))
         ) {
             // in this case, restart from the original $content
             if (mb_check_encoding($content, 'utf-8')
@@ -4809,15 +4808,15 @@ class Results
     /**
      * Retrieves the associated foreign key info for a data cell
      *
-     * @param array    $map              the list of relations
-     * @param stdClass $meta             the meta-information about the field
-     * @param string   $where_comparison data for the where clause
+     * @param array         $map              the list of relations
+     * @param FieldMetadata $meta             the meta-information about the field
+     * @param string        $where_comparison data for the where clause
      *
      * @return string|null  formatted data
      *
      * @access private
      */
-    private function getFromForeign(array $map, $meta, $where_comparison)
+    private function getFromForeign(array $map, FieldMetadata $meta, $where_comparison)
     {
         global $dbi;
 
@@ -4859,8 +4858,8 @@ class Results
      * @param bool                  $condition_field       whether the column is a part of
      *                                                     the where clause
      * @param array                 $analyzed_sql_results  the analyzed query
-     * @param stdClass              $meta                  the meta-information about the
-     *                                                     field
+     * @param FieldMetadata         $meta                  the meta-information about the
+     *                                                field
      * @param array                 $map                   the list of relations
      * @param string                $data                  data
      * @param string                $displayedData         data that will be displayed (maybe be chunked)
@@ -4883,7 +4882,7 @@ class Results
         $class,
         $condition_field,
         array $analyzed_sql_results,
-        $meta,
+        FieldMetadata $meta,
         array $map,
         $data,
         $displayedData,
@@ -4899,7 +4898,7 @@ class Results
         $printview = $this->properties['printview'];
         $decimals = $meta->decimals ?? '-1';
         $result = '<td data-decimals="' . $decimals . '"'
-            . ' data-type="' . $meta->type . '"';
+            . ' data-type="' . $meta->getMappedType() . '"';
 
         if (! empty($original_length)) {
             // cannot use data-original-length

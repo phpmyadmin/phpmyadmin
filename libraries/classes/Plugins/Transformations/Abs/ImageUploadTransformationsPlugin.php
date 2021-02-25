@@ -7,9 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Url;
-use stdClass;
 use function bin2hex;
 use function intval;
 
@@ -35,13 +35,13 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string        $buffer  text to be transformed
-     * @param array         $options transformation options
-     * @param stdClass|null $meta    meta information
+     * @param string             $buffer  text to be transformed
+     * @param array              $options transformation options
+     * @param FieldMetadata|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
+    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
     {
         return $buffer;
     }

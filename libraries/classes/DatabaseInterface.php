@@ -772,6 +772,7 @@ class DatabaseInterface implements DbalInterface
             return [];
         }
 
+        /** @var FieldMetadata[] $meta */
         $meta = $this->getFieldsMeta(
             $result
         );
@@ -2219,13 +2220,13 @@ class DatabaseInterface implements DbalInterface
      *
      * @param object $result result set identifier
      *
-     * @return mixed meta info for fields in $result
+     * @return FieldMetadata[]|null meta info for fields in $result
      */
-    public function getFieldsMeta($result)
+    public function getFieldsMeta($result): ?array
     {
         $result = $this->extension->getFieldsMeta($result);
 
-        if ($this->getLowerCaseNames() === '2') {
+        if ($result !== null && $this->getLowerCaseNames() === '2') {
             /**
              * Fixup orgtable for lower_case_table_names = 2
              *
@@ -2283,19 +2284,6 @@ class DatabaseInterface implements DbalInterface
     public function fieldName($result, int $i): string
     {
         return $this->extension->fieldName($result, $i);
-    }
-
-    /**
-     * returns concatenated string of human readable field flags
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string field flags
-     */
-    public function fieldFlags($result, $i): string
-    {
-        return $this->extension->fieldFlags($result, $i);
     }
 
     /**

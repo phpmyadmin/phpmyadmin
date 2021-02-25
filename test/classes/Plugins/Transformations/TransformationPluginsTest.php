@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Transformations;
 
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload;
 use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_FileUpload;
 use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_Iptolong;
@@ -30,6 +31,8 @@ use ReflectionMethod;
 use function date_default_timezone_set;
 use function function_exists;
 use function method_exists;
+use const MYSQLI_TYPE_TINY;
+use const MYSQLI_TYPE_STRING;
 
 /**
  * Tests for different input/output transformation plugins
@@ -839,7 +842,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 [
                     12345,
                     [0],
-                    ((object) ['type' => 'int']),
+                    new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []),
                 ],
                 '<dfn onclick="alert(\'12345\');" title="12345">'
                 . 'Jan 01, 1970 at 03:25 AM</dfn>',
@@ -849,7 +852,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 [
                     12345678,
                     [0],
-                    ((object) ['type' => 'string']),
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),
                 ],
                 '<dfn onclick="alert(\'12345678\');" title="12345678">'
                 . 'May 23, 1970 at 09:21 PM</dfn>',
@@ -859,7 +862,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 [
                     123456789,
                     [0],
-                    ((object) ['type' => null]),
+                    new FieldMetadata(-1, 0, (object) []),
                 ],
                 '<dfn onclick="alert(\'123456789\');" title="123456789">'
                 . 'Nov 29, 1973 at 09:33 PM</dfn>',
@@ -869,7 +872,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 [
                     '20100201',
                     [0],
-                    ((object) ['type' => null]),
+                    new FieldMetadata(-1, 0, (object) []),
                 ],
                 '<dfn onclick="alert(\'20100201\');" title="20100201">'
                 . 'Feb 01, 2010 at 12:00 AM</dfn>',

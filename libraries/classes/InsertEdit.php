@@ -231,7 +231,7 @@ class InsertEdit
              * exit if we want the message to be displayed
              */
         } else {// end if (no row returned)
-            $meta = $this->dbi->getFieldsMeta($result[$key_id]);
+            $meta = $this->dbi->getFieldsMeta($result[$key_id]) ?? [];
 
             [$unique_condition, $tmp_clause_is_unique] = Util::getUniqueCondition(
                 $result[$key_id],
@@ -2265,7 +2265,7 @@ class InsertEdit
 
         $res = $this->dbi->query($local_query);
         $row = $this->dbi->fetchRow($res);
-        $meta = $this->dbi->getFieldsMeta($res);
+        $meta = $this->dbi->getFieldsMeta($res) ?? [];
         // must find a unique condition based on unique key,
         // not a combination of all fields
         [$unique_condition, $clause_is_unique] = Util::getUniqueCondition(
@@ -2954,18 +2954,16 @@ class InsertEdit
             . ' WHERE ' . $_POST['where_clause'][0];
 
         $result = $this->dbi->tryQuery($sql_for_real_value);
-        $fields_meta = $this->dbi->getFieldsMeta($result);
+        $fields_meta = $this->dbi->getFieldsMeta($result) ?? [];
+        /** @var FieldMetadata $meta */
         $meta = $fields_meta[0];
         $row = $this->dbi->fetchRow($result);
 
         if ($row) {
             $new_value = $row[0];
-            if ((substr($meta->type, 0, 9) === 'timestamp')
-                || ($meta->type === 'datetime')
-                || ($meta->type === 'time')
-            ) {
+            if ($meta->isTimeType()) {
                 $new_value = Util::addMicroseconds($new_value);
-            } elseif (mb_strpos($meta->flags, 'binary') !== false) {
+            } elseif ($meta->isBinary()) {
                 $new_value = '0x' . bin2hex($new_value);
             }
             $extra_data['isNeedToRecheck'] = true;

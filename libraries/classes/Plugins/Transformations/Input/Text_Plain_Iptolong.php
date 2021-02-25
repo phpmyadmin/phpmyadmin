@@ -7,9 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Utils\FormatConverter;
-use stdClass;
 use function htmlspecialchars;
 
 /**
@@ -33,15 +33,15 @@ class Text_Plain_Iptolong extends IOTransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string   $buffer  text to be transformed. a binary string containing
-     *                          an IP address, as returned from MySQL's INET6_ATON
-     *                          function
-     * @param array    $options transformation options
-     * @param stdClass $meta    meta information
+     * @param string        $buffer  text to be transformed. a binary string containing
+     *                               an IP address, as returned from MySQL's INET6_ATON
+     *                               function
+     * @param array         $options transformation options
+     * @param FieldMetadata $meta    meta information
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
+    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
     {
         return (string) FormatConverter::ipToLong($buffer);
     }

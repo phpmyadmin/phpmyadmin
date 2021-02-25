@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -20,7 +21,6 @@ use function bin2hex;
 use function explode;
 use function json_encode;
 use function stripslashes;
-use function strpos;
 
 /**
  * Handles the export for the JSON format
@@ -210,6 +210,7 @@ class ExportJson extends ExportPlugin
         $sql_query,
         array $aliases = []
     ) {
+        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $db_alias = $db;
@@ -244,7 +245,7 @@ class ExportJson extends ExportPlugin
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $columns_cnt = $dbi->numFields($result);
-        $fieldsMeta = $dbi->getFieldsMeta($result);
+        $fieldsMeta = $dbi->getFieldsMeta($result) ?? [];
 
         $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
@@ -269,7 +270,8 @@ class ExportJson extends ExportPlugin
             $data = [];
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if ($fieldsMeta[$i]->type === 'geometry' || strpos($fieldsMeta[$i]->type, 'blob') !== false) {
+                if ($fieldsMeta[$i]->isMappedTypeGeometry
+                    || $fieldsMeta[$i]->isType(FieldMetadata::TYPE_BLOB)) {
                     // export GIS and blob types as hex
                     $record[$i] = '0x' . bin2hex($record[$i]);
                 }

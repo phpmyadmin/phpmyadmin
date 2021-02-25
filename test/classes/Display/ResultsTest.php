@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Display;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\Results as DisplayResults;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\SqlParser\Parser;
@@ -19,6 +20,14 @@ use PhpMyAdmin\Transformations;
 use stdClass;
 use function count;
 use function hex2bin;
+use const MYSQLI_TYPE_TIMESTAMP;
+use const MYSQLI_TYPE_DATE;
+use const MYSQLI_TYPE_STRING;
+use const MYSQLI_TYPE_BLOB;
+use const MYSQLI_TYPE_DATETIME;
+use const MYSQLI_TYPE_LONG;
+use const MYSQLI_NUM_FLAG;
+use const MYSQLI_NOT_NULL_FLAG;
 
 /**
  * Test cases for displaying results.
@@ -53,9 +62,6 @@ class ResultsTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-
-        $dbi->expects($this->any())->method('fieldFlags')
-            ->will($this->returnArgument(1));
 
         $GLOBALS['dbi'] = $dbi;
     }
@@ -246,7 +252,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getClassForDateTimeRelatedFields',
-                [DisplayResults::DATETIME_FIELD]
+                [new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) [])]
             )
         );
     }
@@ -259,7 +265,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getClassForDateTimeRelatedFields',
-                [DisplayResults::DATE_FIELD]
+                [new FieldMetadata(MYSQLI_TYPE_DATE, 0, (object) [])]
             )
         );
     }
@@ -272,7 +278,7 @@ class ResultsTest extends AbstractTestCase
                 $this->object,
                 DisplayResults::class,
                 'getClassForDateTimeRelatedFields',
-                [DisplayResults::STRING_FIELD]
+                [new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [])]
             )
         );
     }
@@ -662,9 +668,7 @@ class ResultsTest extends AbstractTestCase
     public function dataProviderForTestHandleNonPrintableContents(): array
     {
         $transformation_plugin = new Text_Plain_Link();
-        $meta = new stdClass();
-        $meta->type = 'BLOB';
-        $meta->orgtable = 'bar';
+        $meta = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['orgtable' => 'bar']);
         $url_params = [
             'db' => 'foo',
             'table' => 'bar',
@@ -834,30 +838,26 @@ class ResultsTest extends AbstractTestCase
         $meta->db = 'foo';
         $meta->table = 'tbl';
         $meta->orgtable = 'tbl';
-        $meta->type = 'BLOB';
-        $meta->flags = 'blob binary';
         $meta->name = 'tblob';
         $meta->orgname = 'tblob';
+        $meta->charsetnr = 63;
+        $meta = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, $meta);
 
         $meta2 = new stdClass();
         $meta2->db = 'foo';
         $meta2->table = 'tbl';
         $meta2->orgtable = 'tbl';
-        $meta2->type = 'string';
-        $meta2->flags = '';
-        $meta2->decimals = 0;
         $meta2->name = 'varchar';
         $meta2->orgname = 'varchar';
+        $meta2 = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $meta2);
 
         $meta3 = new stdClass();
         $meta3->db = 'foo';
         $meta3->table = 'tbl';
         $meta3->orgtable = 'tbl';
-        $meta3->type = 'datetime';
-        $meta3->flags = '';
-        $meta3->decimals = 0;
         $meta3->name = 'datetime';
         $meta3->orgname = 'datetime';
+        $meta3 = new FieldMetadata(MYSQLI_TYPE_DATETIME, 0, $meta3);
 
         $url_params = [
             'db' => 'foo',
@@ -1108,38 +1108,23 @@ class ResultsTest extends AbstractTestCase
         $meta->db = 'db';
         $meta->table = 'table';
         $meta->orgtable = 'table';
-        $meta->type = 'INT';
-        $meta->flags = '';
         $meta->name = '1';
         $meta->orgname = '1';
-        $meta->not_null = true;
-        $meta->numeric = true;
-        $meta->primary_key = false;
-        $meta->unique_key = false;
         $meta2 = new stdClass();
         $meta2->db = 'db';
         $meta2->table = 'table';
         $meta2->orgtable = 'table';
-        $meta2->type = 'INT';
-        $meta2->flags = '';
         $meta2->name = '2';
         $meta2->orgname = '2';
-        $meta2->not_null = true;
-        $meta2->numeric = true;
-        $meta2->primary_key = false;
-        $meta2->unique_key = false;
         $fields_meta = [
-            $meta,
-            $meta2,
+            new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG, $meta),
+            new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG | MYSQLI_NOT_NULL_FLAG, $meta2),
         ];
         $this->object->properties['fields_meta'] = $fields_meta;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-
-        $dbi->expects($this->any())->method('fieldFlags')
-            ->willReturn('');
 
         // MIME transformations
         $dbi->expects($this->exactly(1))

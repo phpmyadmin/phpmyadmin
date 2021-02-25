@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Export\ExportOds;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -17,6 +18,13 @@ use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
 use function array_shift;
+use const MYSQLI_TYPE_TINY_BLOB;
+use const MYSQLI_TYPE_DATE;
+use const MYSQLI_TYPE_TIME;
+use const MYSQLI_TYPE_DATETIME;
+use const MYSQLI_TYPE_DECIMAL;
+use const MYSQLI_TYPE_STRING;
+use const MYSQLI_BLOB_FLAG;
 
 /**
  * @requires extension zip
@@ -237,65 +245,28 @@ class ExportOdsTest extends AbstractTestCase
             ->getMock();
 
         $flags = [];
-        $a = new stdClass();
-        $a->type = '';
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(-1, 0, (object) []);
 
         $a = new stdClass();
-        $a->type = '';
-        $a->blob = true;
-        $flags[] = $a;
+        $a->charsetnr = 63;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_TINY_BLOB, MYSQLI_BLOB_FLAG, $a);
 
-        $a = new stdClass();
-        $a->blob = false;
-        $a->type = 'date';
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_DATE, 0, (object) []);
 
-        $a = new stdClass();
-        $a->blob = false;
-        $a->type = 'time';
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_TIME, 0, (object) []);
 
-        $a = new stdClass();
-        $a->blob = false;
-        $a->type = 'datetime';
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_DATETIME, 0, (object) []);
 
-        $a = new stdClass();
-        $a->numeric = true;
-        $a->type = 'none';
-        $a->blob = false;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_DECIMAL, 0, (object) []);
 
-        $a = new stdClass();
-        $a->numeric = true;
-        $a->type = 'real';
-        $a->blob = true;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_DECIMAL, 0, (object) []);
 
-        $a = new stdClass();
-        $a->type = 'dummy';
-        $a->blob = false;
-        $a->numeric = false;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with(true)
             ->will($this->returnValue($flags));
-
-        $dbi->expects($this->exactly(8))
-            ->method('fieldFlags')
-            ->willReturnOnConsecutiveCalls(
-                'BINARYTEST',
-                'binary',
-                '',
-                '',
-                '',
-                '',
-                '',
-                ''
-            );
 
         $dbi->expects($this->once())
             ->method('query')
@@ -307,22 +278,19 @@ class ExportOdsTest extends AbstractTestCase
             ->with(true)
             ->will($this->returnValue(8));
 
-        $dbi->expects($this->at(11))
+        $dbi->expects($this->exactly(2))
             ->method('fetchRow')
-            ->with(true)
-            ->will(
-                $this->returnValue(
-                    [
-                        null,
-                        '01-01-2000',
-                        '01-01-2000',
-                        '01-01-2000 10:00:00',
-                        '01-01-2014 10:02:00',
-                        't>s',
-                        'a&b',
-                        '<',
-                    ]
-                )
+            ->willReturnOnConsecutiveCalls(
+                [
+                    null,
+                    '01-01-2000',
+                    '01-01-2000',
+                    '01-01-2000 10:00:00',
+                    '01-01-2014 10:02:00',
+                    't>s',
+                    'a&b',
+                    '<',
+                ]
             );
 
         $GLOBALS['dbi'] = $dbi;
@@ -370,28 +338,18 @@ class ExportOdsTest extends AbstractTestCase
 
         $flags = [];
         $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = false;
-        $a->type = 'string';
         $a->name = 'fna\"me';
         $a->length = 20;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $a);
         $b = new stdClass();
-        $b->blob = false;
-        $b->numeric = false;
-        $b->type = 'string';
         $b->name = 'fnam/<e2';
         $b->length = 20;
-        $flags[] = $b;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $b);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with(true)
             ->will($this->returnValue($flags));
-
-        $dbi->expects($this->any())
-            ->method('fieldFlags')
-            ->will($this->returnValue('BINARYTEST'));
 
         $dbi->expects($this->once())
             ->method('query')
@@ -403,15 +361,14 @@ class ExportOdsTest extends AbstractTestCase
             ->with(true)
             ->will($this->returnValue(2));
 
-        $dbi->expects($this->at(5))
+        $dbi->expects($this->exactly(2))
             ->method('fieldName')
-            ->will($this->returnValue('fna\"me'));
+            ->willReturnOnConsecutiveCalls(
+                'fna\"me',
+                'fnam/<e2'
+            );
 
-        $dbi->expects($this->at(6))
-            ->method('fieldName')
-            ->will($this->returnValue('fnam/<e2'));
-
-        $dbi->expects($this->at(7))
+        $dbi->expects($this->exactly(1))
             ->method('fetchRow')
             ->with(true)
             ->will(
