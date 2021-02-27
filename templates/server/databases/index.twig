@@ -64,7 +64,7 @@
                 <label class="form-check-label" for="checkAllCheckbox">{% trans 'Check all' %}</label>
               </div>
             </div>
-            <button class="btn btn-outline-secondary" id="bulkActionDropButton" type="submit" name="submit_mult" value="Drop" form="dbStatsForm" title="{% trans 'Drop' %}">
+            <button class="btn btn-outline-secondary" type="submit" name="submit_mult" value="Drop" form="dbStatsForm" title="{% trans 'Drop' %}">
               {{ get_icon('db_drop', 'Drop'|trans) }}
             </button>
           </div>
@@ -309,3 +309,21 @@
     </div>
   {% endif %}
 </div>
+
+{% if is_drop_allowed %}
+  <div class="modal fade" id="dropDatabaseModal" tabindex="-1" aria-labelledby="dropDatabaseModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dropDatabaseModalLabel">{% trans 'Confirm' %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Cancel' %}"></button>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Cancel' %}</button>
+          <button type="button" class="btn btn-danger" id="dropDatabaseModalDropButton">{% trans 'Drop' %}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
