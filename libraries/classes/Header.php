@@ -165,8 +165,9 @@ class Header
         $this->scripts->addFile('vendor/sprintf.js');
         $this->scripts->addFile('ajax.js');
         $this->scripts->addFile('keyhandler.js');
-        $this->scripts->addFile('vendor/bootstrap/bootstrap.bundle.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui.min.js');
+        $this->scripts->addFile('name-conflict-fixes.js');
+        $this->scripts->addFile('vendor/bootstrap/bootstrap.bundle.min.js');
         $this->scripts->addFile('vendor/js.cookie.js');
         $this->scripts->addFile('vendor/jquery/jquery.mousewheel.js');
         $this->scripts->addFile('vendor/jquery/jquery.event.drag-2.2.js');

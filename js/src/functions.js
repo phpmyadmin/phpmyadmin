@@ -161,7 +161,7 @@ Functions.addDatepicker = function ($thisElement, type, options) {
                 // Fix wrong timepicker z-index, doesn't work without timeout
                 $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
                 // Integrate tooltip text into dialog
-                var tooltip = $thisElement.tooltip('instance');
+                var tooltip = $thisElement.uiTooltip('instance');
                 if (typeof tooltip !== 'undefined') {
                     tooltip.disable();
                     var $note = $('<p class="note"></div>');
@@ -179,7 +179,7 @@ Functions.addDatepicker = function ($thisElement, type, options) {
             if (typeof $thisElement.data('datepicker') !== 'undefined') {
                 $thisElement.data('datepicker').inline = false;
             }
-            var tooltip = $thisElement.tooltip('instance');
+            var tooltip = $thisElement.uiTooltip('instance');
             if (typeof tooltip !== 'undefined') {
                 tooltip.enable();
             }
@@ -378,7 +378,7 @@ Functions.tooltip = function ($elements, item, myContent, additionalOptions) {
         hide: false
     };
 
-    $elements.tooltip($.extend(true, defaultOptions, additionalOptions));
+    $elements.uiTooltip($.extend(true, defaultOptions, additionalOptions));
 };
 
 /**
@@ -2233,7 +2233,7 @@ Functions.ajaxShowMessage = function (message, timeout, type) {
             .delay(newTimeOut)
             .fadeOut('medium', function () {
                 if ($(this).is(':data(tooltip)')) {
-                    $(this).tooltip('destroy');
+                    $(this).uiTooltip('destroy');
                 }
                 // Remove the notification
                 $(this).remove();
@@ -2275,7 +2275,7 @@ Functions.ajaxRemoveMessage = function ($thisMessageBox) {
             .stop(true, true)
             .fadeOut('medium');
         if ($thisMessageBox.is(':data(tooltip)')) {
-            $thisMessageBox.tooltip('destroy');
+            $thisMessageBox.uiTooltip('destroy');
         } else {
             $thisMessageBox.remove();
         }
@@ -2434,12 +2434,12 @@ $(function () {
      */
     $(document).on('mouseover', 'span.ajax_notification a, span.ajax_notification button, span.ajax_notification input', function () {
         if ($(this).parents('span.ajax_notification').is(':data(tooltip)')) {
-            $(this).parents('span.ajax_notification').tooltip('disable');
+            $(this).parents('span.ajax_notification').uiTooltip('disable');
         }
     });
     $(document).on('mouseout', 'span.ajax_notification a, span.ajax_notification button, span.ajax_notification input', function () {
         if ($(this).parents('span.ajax_notification').is(':data(tooltip)')) {
-            $(this).parents('span.ajax_notification').tooltip('enable');
+            $(this).parents('span.ajax_notification').uiTooltip('enable');
         }
     });
 

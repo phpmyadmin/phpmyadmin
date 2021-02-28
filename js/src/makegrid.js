@@ -1637,7 +1637,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 })
                 .on('mouseleave', function () {
                     g.showReorderHint = false;
-                    $(this).tooltip('option', {
+                    $(this).uiTooltip('option', {
                         content: g.updateHint()
                     });
                 })
@@ -2252,14 +2252,14 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         .on('mouseenter', function () {
             g.showSortHint = true;
             g.showMultiSortHint = true;
-            $(t).find('th.draggable').tooltip('option', {
+            $(t).find('th.draggable').uiTooltip('option', {
                 content: g.updateHint()
             });
         })
         .on('mouseleave', function () {
             g.showSortHint = false;
             g.showMultiSortHint = false;
-            $(t).find('th.draggable').tooltip('option', {
+            $(t).find('th.draggable').uiTooltip('option', {
                 content: g.updateHint()
             });
         });
