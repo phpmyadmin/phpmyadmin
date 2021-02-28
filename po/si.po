@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-02-24 10:22+0100\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-03-01 13:50+0000\n"
+"Last-Translator: HelaBasa <R45XvezA@protonmail.ch>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/si/>\n"
 "Language: si\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -19234,7 +19234,7 @@ msgstr "අක්‍රීය කරන්න"
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 msgctxt "Number"
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: templates/table/tracking/report_table.twig:5
 msgid "Date"
@@ -19305,10 +19305,8 @@ msgid "Description"
 msgstr "විස්තරය"
 
 #: templates/transformation_overview.twig:32
-#, fuzzy
-#| msgid "Hide browser transformation"
 msgid "Available input transformations"
-msgstr "බ්‍රව්සර රූපාන්තරනය සඟවන්න"
+msgstr "පවතින ආදාන පරිවර්තනයන්"
 
 #: templates/view_create.twig:65
 msgid "VIEW name"
