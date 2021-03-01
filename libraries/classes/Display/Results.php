@@ -1728,7 +1728,9 @@ class Results
                     $current_name
                 );
             $isTimeOrDate = $fields_meta->isType(FieldMetadata::TYPE_TIME)
-                            || $fields_meta->isType(FieldMetadata::TYPE_DATE);
+                || $fields_meta->isType(FieldMetadata::TYPE_DATE)
+                || $fields_meta->isType(FieldMetadata::TYPE_DATETIME)
+                || $fields_meta->isType(FieldMetadata::TYPE_TIMESTAMP);
             $sort_direction[$special_index] = $isTimeOrDate ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
         }
 
