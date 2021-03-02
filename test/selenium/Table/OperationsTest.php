@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Table;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use function sleep;
 
 /**
  * OperationsTest class
@@ -137,6 +138,8 @@ class OperationsTest extends TestBase
         $this->byName('comment')->sendKeys('foobar');
 
         $this->scrollIntoView('tableOptionsForm');
+        sleep(1);
+        $this->scrollIntoView('tableOptionsForm');
         $this->waitUntilElementIsVisible('cssSelector', 'form#tableOptionsForm', 30);
         $this->byCssSelector("form#tableOptionsForm input[type='submit']")->click();
         $this->waitAjax();
@@ -164,6 +167,8 @@ class OperationsTest extends TestBase
      */
     public function testCopyTable(): void
     {
+        $this->scrollIntoView('copyTable');
+        sleep(1);
         $this->scrollIntoView('copyTable');
         $this->waitUntilElementIsVisible('cssSelector', 'form#copyTable', 30);
         $this->byCssSelector("form#copyTable input[name='new_name']")->sendKeys('2');
@@ -196,6 +201,8 @@ class OperationsTest extends TestBase
     public function testTruncateTable(): void
     {
         $this->scrollToBottom();
+        sleep(1);
+        $this->scrollToBottom();
         $this->waitUntilElementIsVisible('id', 'drop_tbl_anchor', 30);
         $this->byId('truncate_tbl_anchor')->click();
         $this->byCssSelector('button.submitOK')->click();
@@ -224,7 +231,9 @@ class OperationsTest extends TestBase
     public function testDropTable(): void
     {
         $dropLink = $this->waitUntilElementIsVisible('partialLinkText', 'Delete the table (DROP)', 30);
-        $this->scrollToElement($this->byId('selflink'));
+        $this->scrollToBottom();
+        sleep(1);
+        $this->scrollToBottom();
         $dropLink->click();
         $this->byCssSelector('button.submitOK')->click();
         $this->waitAjax();

@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use function sleep;
+
 /**
  * ExportTest class
  *
@@ -155,10 +157,14 @@ class ExportTest extends TestBase
         }
 
         $this->scrollIntoView('radio_view_as_text');
+        sleep(1);
+        $this->scrollIntoView('radio_view_as_text');
         $this->byCssSelector('label[for=radio_view_as_text]')->click();
 
         if ($plugin === 'SQL') {
             if ($type !== 'db') {
+                $this->scrollIntoView('radio_sql_structure_or_data_structure_and_data');
+                sleep(1);
                 $this->scrollIntoView('radio_sql_structure_or_data_structure_and_data');
                 $this->byCssSelector('label[for=radio_sql_structure_or_data_structure_and_data]')->click();
             }
@@ -170,6 +176,8 @@ class ExportTest extends TestBase
             }
         }
 
+        $this->scrollToBottom();
+        sleep(1);
         $this->scrollToBottom();
 
         $this->byId('buttonGo')->click();
