@@ -1256,7 +1256,7 @@
     terminal-link "^2.0.0"
     v8-to-istanbul "^7.0.0"
   optionalDependencies:
-    node-notifier "^8.0.1"
+    node-notifier "^8.0.0"
 
 "@jest/source-map@^26.6.2":
   version "26.6.2"
@@ -1918,10 +1918,10 @@ blueimp-md5@^2.18.0:
   resolved "https://registry.yarnpkg.com/blueimp-md5/-/blueimp-md5-2.18.0.tgz#1152be1335f0c6b3911ed9e36db54f3e6ac52935"
   integrity sha512-vE52okJvzsVWhcgUHOv+69OG3Mdg151xyn41aVQN/5W5S+S43qZhxECtYLAEHMSFWX6Mv5IZrzj3T5+JqXfj5Q==
 
-bootstrap@5.0.0-beta1:
-  version "5.0.0-beta1"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.0.0-beta1.tgz#18135001a452b3ec38b344ac638a1f9549285ee7"
-  integrity sha512-UrHApw/WRmT7l2rlDdn5iXr7Jps/LlMZtJlLn9G41aGDfss48hyDeYyHtX1C6NHKVcmdUarGG+ve0LZB5iHyTQ==
+bootstrap@5.0.0-beta2:
+  version "5.0.0-beta2"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.0.0-beta2.tgz#ab1504a12807fa58e5e41408e35fcea42461e84b"
+  integrity sha512-e+uPbPHqTQWKyCX435uVlOmgH9tUt0xtjvyOC7knhKgOS643BrQKuTo+KecGpPV7qlmOyZgCfaM4xxPWtDEN/g==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
