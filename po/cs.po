@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-01-05 22:29+0000\n"
+"PO-Revision-Date: 2021-03-02 18:02+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-0/cs/>"
 "\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.1-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -10996,7 +10996,7 @@ msgstr "Neznámá chyba"
 #: libraries/classes/ReplicationGui.php:504
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr "Nepodařilo se připojit k nadřízenému %s."
+msgstr "Nepodařilo se připojit k nadřízenému serveru %s."
 
 #: libraries/classes/ReplicationGui.php:515
 msgid ""
@@ -11007,12 +11007,12 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:533
 msgid "Unable to change master!"
-msgstr "Nepodařilo se změnit nadřízeného!"
+msgstr "Nepodařilo se změnit nadřízený server!"
 
 #: libraries/classes/ReplicationGui.php:537
 #, php-format
 msgid "Master server changed successfully to %s."
-msgstr "Nadřízený server bych úspěšně změněn na %s."
+msgstr "Nadřízený server byl úspěšně změněn na %s."
 
 #: libraries/classes/Rte/Events.php:173 libraries/classes/Rte/Events.php:182
 #: libraries/classes/Rte/Events.php:213 libraries/classes/Rte/Routines.php:294
@@ -12185,7 +12185,7 @@ msgstr "Zobrazit podřízené servery"
 #: libraries/classes/Server/Status/Data.php:168
 #: templates/server/replication/master_replication.twig:8
 msgid "Show master status"
-msgstr "Zobrazit stav nadřízeného"
+msgstr "Zobrazit stav nadřízeného serveru"
 
 #: libraries/classes/Server/Status/Data.php:174
 msgid "Show slave status"
@@ -15053,12 +15053,12 @@ msgstr "Žádná oprávnění k vytváření databází"
 #: templates/server/replication/index.twig:14
 #: templates/server/replication/master_replication.twig:3
 msgid "Master replication"
-msgstr "Replikace nadřízeného"
+msgstr "Replikace nadřízeného serveru"
 
 #: templates/server/databases/index.twig:157
 #: templates/server/replication/slave_configuration.twig:2
 msgid "Slave replication"
-msgstr "Replikace podřízeného"
+msgstr "Replikace podřízeného serveru"
 
 #: templates/server/databases/index.twig:179
 #, php-format
@@ -15239,7 +15239,7 @@ msgstr "Vytvořit heslo:"
 
 #: templates/server/replication/master_configuration.twig:2
 msgid "Master configuration"
-msgstr "Nastavení nadřízeného"
+msgstr "Nastavení nadřízeného serveru"
 
 #: templates/server/replication/master_configuration.twig:4
 msgid ""
@@ -15375,7 +15375,7 @@ msgstr ""
 
 #: templates/server/replication/status_table.twig:6
 msgid "Master status"
-msgstr "Stav nadřízeného"
+msgstr "Stav nadřízeného serveru"
 
 #: templates/server/replication/status_table.twig:8
 msgid "Slave status"
