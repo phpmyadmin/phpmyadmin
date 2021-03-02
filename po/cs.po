@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-02-24 10:22+0100\n"
-"PO-Revision-Date: 2021-02-13 22:50+0000\n"
+"PO-Revision-Date: 2021-03-02 18:02+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6908,10 +6908,9 @@ msgid "Submit"
 msgstr "Provést"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:551
-#, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "Klávesou Esc ukončíte editaci."
+msgstr ""
+"Klávesou Esc ukončíte editaci.<br>Klávesami Shift + Enter vložíte nový řádek."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid ""
@@ -12090,7 +12089,7 @@ msgstr "Neznámá chyba"
 #: libraries/classes/ReplicationGui.php:536
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr "Nepodařilo se připojit k nadřízenému %s."
+msgstr "Nepodařilo se připojit k nadřízenému serveru %s."
 
 #: libraries/classes/ReplicationGui.php:547
 msgid ""
@@ -12101,12 +12100,12 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:565
 msgid "Unable to change master!"
-msgstr "Nepodařilo se změnit nadřízeného!"
+msgstr "Nepodařilo se změnit nadřízený server!"
 
 #: libraries/classes/ReplicationGui.php:569
 #, php-format
 msgid "Master server changed successfully to %s."
-msgstr "Nadřízený server bych úspěšně změněn na %s."
+msgstr "Nadřízený server byl úspěšně změněn na %s."
 
 #: libraries/classes/Routing.php:101
 #, php-format
@@ -12114,6 +12113,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Nelze zapisovat do mezipaměti směrování, je třeba upravit oprávnění pro slož"
+"ku/soubor „%s“"
 
 #: libraries/classes/Routing.php:164
 #, php-format
@@ -12583,7 +12584,7 @@ msgstr "Zobrazit podřízené servery"
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/master_replication.twig:9
 msgid "Show master status"
-msgstr "Zobrazit stav nadřízeného"
+msgstr "Zobrazit stav nadřízeného serveru"
 
 #: libraries/classes/Server/Status/Data.php:206
 msgid "Show slave status"
@@ -15617,20 +15618,17 @@ msgid "License"
 msgstr "Licence"
 
 #: templates/home/index.twig:247
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
-msgstr "Domovská stránka phpMyAdmina"
+msgstr "Témata vzhledu phpMyAdmina"
 
 #: templates/home/index.twig:258
 msgid "Get more themes!"
 msgstr "Získejte další témata vzhledu!"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Schéma databáze %s"
+msgstr "Snímek obrazovky s tématem vzhledu %s."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
@@ -16376,12 +16374,12 @@ msgstr "Žádná oprávnění k vytváření databází"
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/master_replication.twig:3
 msgid "Master replication"
-msgstr "Replikace nadřízeného"
+msgstr "Replikace nadřízeného serveru"
 
 #: templates/server/databases/index.twig:160
 #: templates/server/replication/slave_configuration.twig:2
 msgid "Slave replication"
-msgstr "Replikace podřízeného"
+msgstr "Replikace podřízeného serveru"
 
 #: templates/server/databases/index.twig:181
 #, php-format
@@ -16927,7 +16925,7 @@ msgstr "Vytvořit heslo:"
 
 #: templates/server/replication/master_configuration.twig:2
 msgid "Master configuration"
-msgstr "Nastavení nadřízeného"
+msgstr "Nastavení nadřízeného serveru"
 
 #: templates/server/replication/master_configuration.twig:4
 msgid ""
@@ -17063,7 +17061,7 @@ msgstr ""
 
 #: templates/server/replication/status_table.twig:6
 msgid "Master status"
-msgstr "Stav nadřízeného"
+msgstr "Stav nadřízeného serveru"
 
 #: templates/server/replication/status_table.twig:8
 msgid "Slave status"
