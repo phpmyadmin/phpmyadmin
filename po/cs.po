@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-01-05 22:29+0000\n"
+"PO-Revision-Date: 2021-03-02 18:02+0000\n"
 "Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-9/cs/>"
 "\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.1-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -10351,7 +10351,7 @@ msgstr "%sVytvořit%s chybějící tabulky v úložišti nastavení phpMyAdmina.
 #: libraries/classes/ReplicationGui.php:352
 #: templates/server/databases/table_header.twig:34
 msgid "Master replication"
-msgstr "Replikace nadřízeného"
+msgstr "Replikace nadřízeného serveru"
 
 #: libraries/classes/ReplicationGui.php:59
 msgid "This server is configured as master in a replication process."
@@ -10360,7 +10360,7 @@ msgstr "Tento server je v replikačním procesu nastavený jako nadřízený."
 #: libraries/classes/ReplicationGui.php:62
 #: libraries/classes/Server/Status/Data.php:166
 msgid "Show master status"
-msgstr "Zobrazit stav nadřízeného"
+msgstr "Zobrazit stav nadřízeného serveru"
 
 #: libraries/classes/ReplicationGui.php:67
 msgid "Show connected slaves"
@@ -10373,7 +10373,7 @@ msgstr "Přidat replikačního uživatele pro podřízený server"
 
 #: libraries/classes/ReplicationGui.php:100
 msgid "Master configuration"
-msgstr "Nastavení nadřízeného"
+msgstr "Nastavení nadřízeného serveru"
 
 #: libraries/classes/ReplicationGui.php:102
 msgid ""
@@ -10420,7 +10420,7 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:153
 #: templates/server/databases/table_header.twig:37
 msgid "Slave replication"
-msgstr "Replikace podřízeného"
+msgstr "Replikace podřízeného serveru"
 
 #: libraries/classes/ReplicationGui.php:161
 msgid "Master connection:"
@@ -10566,7 +10566,7 @@ msgstr "Port:"
 
 #: libraries/classes/ReplicationGui.php:539
 msgid "Master status"
-msgstr "Stav nadřízeného"
+msgstr "Stav nadřízeného serveru"
 
 #: libraries/classes/ReplicationGui.php:542
 msgid "Slave status"
@@ -10690,7 +10690,7 @@ msgstr "Neznámá chyba"
 #: libraries/classes/ReplicationGui.php:996
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr "Nepodařilo se připojit k nadřízenému %s."
+msgstr "Nepodařilo se připojit k nadřízenému serveru %s."
 
 #: libraries/classes/ReplicationGui.php:1007
 msgid ""
@@ -10701,12 +10701,12 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:1025
 msgid "Unable to change master!"
-msgstr "Nepodařilo se změnit nadřízeného!"
+msgstr "Nepodařilo se změnit nadřízený server!"
 
 #: libraries/classes/ReplicationGui.php:1029
 #, php-format
 msgid "Master server changed successfully to %s."
-msgstr "Nadřízený server bych úspěšně změněn na %s."
+msgstr "Nadřízený server byl úspěšně změněn na %s."
 
 #: libraries/classes/Rte/Events.php:122 libraries/classes/Rte/Events.php:131
 #: libraries/classes/Rte/Events.php:162 libraries/classes/Rte/Routines.php:240
