@@ -601,8 +601,7 @@ class ExportSql extends ExportPlugin
         $text = '';
         $delimiter = '$$';
 
-        $procedure_names = $dbi
-            ->getProceduresOrFunctions($db, 'PROCEDURE');
+        $procedure_names = $dbi->getProceduresOrFunctions($db, 'PROCEDURE');
         $function_names = $dbi->getProceduresOrFunctions($db, 'FUNCTION');
 
         if ($procedure_names || $function_names) {
