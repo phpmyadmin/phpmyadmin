@@ -2196,6 +2196,11 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
+                'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'test\_table%\'',
+                'columns' => ['Name', 'Engine', 'Rows'],
+                'result' => [['test_table', 'InnoDB', '3']],
+            ],
+            [
                 'query' => 'SELECT * FROM `test_db`.`test_table`;',
                 'columns' => ['id', 'name', 'datetimefield'],
                 'result' => [
