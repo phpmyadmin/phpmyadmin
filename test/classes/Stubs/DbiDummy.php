@@ -2201,12 +2201,22 @@ class DbiDummy implements DbiExtension
                 'result' => [['test_table', 'InnoDB', '3']],
             ],
             [
+                'query' => 'SHOW INDEXES FROM `test_db`.`test_table`',
+                'columns' => ['Table', 'Non_unique', 'Key_name', 'Column_name'],
+                'result' => [['test_table', '0', 'PRIMARY', 'id']],
+            ],
+            [
+                'query' => 'SHOW TRIGGERS FROM `test_db` LIKE \'test_table\';',
+                'columns' => ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
+                'result' => [['test_trigger', 'INSERT', 'test_table', 'BEGIN END', 'AFTER', 'definer@localhost']],
+            ],
+            [
                 'query' => 'SELECT * FROM `test_db`.`test_table`;',
                 'columns' => ['id', 'name', 'datetimefield'],
                 'result' => [
                     ['1', 'abcd', '2011-01-20 02:00:02'],
-                    ['2', 'foo', '2011-01-20 02:00:02'],
-                    ['3', 'Abcd', '2011-01-20 02:00:02'],
+                    ['2', 'foo', '2010-01-20 02:00:02'],
+                    ['3', 'Abcd', '2012-01-20 02:00:02'],
                 ],
             ],
         ];

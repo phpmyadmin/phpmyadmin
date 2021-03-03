@@ -192,11 +192,11 @@ class ExportYamlTest extends AbstractTestCase
             '-' . "\n" .
             '  id: 2' . "\n" .
             '  name: &quot;foo&quot;' . "\n" .
-            '  datetimefield: &quot;2011-01-20 02:00:02&quot;' . "\n" .
+            '  datetimefield: &quot;2010-01-20 02:00:02&quot;' . "\n" .
             '-' . "\n" .
             '  id: 3' . "\n" .
             '  name: &quot;Abcd&quot;' . "\n" .
-            '  datetimefield: &quot;2011-01-20 02:00:02&quot;' . "\n",
+            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n",
             $result
         );
     }
