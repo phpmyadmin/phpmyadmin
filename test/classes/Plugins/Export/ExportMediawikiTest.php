@@ -326,7 +326,7 @@ class ExportMediawikiTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'SELECT * FROM `test_db`.`test_table`;'
             )
         );

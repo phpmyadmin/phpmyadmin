@@ -396,7 +396,12 @@ class DbiDummy implements DbiExtension
      */
     public function fieldName($result, $i)
     {
-        return '';
+        $query_data = &$this->getQueryData($result);
+        if (! isset($query_data['columns'])) {
+            return '';
+        }
+
+        return $query_data['columns'][$i];
     }
 
     /**
@@ -2182,61 +2187,21 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query'   => 'SHOW COLUMNS FROM `test_db`.`test_table`',
-                'columns' => [
-                    'Field',
-                    'Type',
-                    'Null',
-                    'Key',
-                    'Default',
-                    'Extra',
-                ],
-                'result'  => [
-                    [
-                        'id',
-                        'int(11)',
-                        'NO',
-                        'PRI',
-                        'NULL',
-                        'auto_increment',
-                    ],
-                    [
-                        'name',
-                        'varchar(20)',
-                        'NO',
-                        '',
-                        'NULL',
-                        '',
-                    ],
-                    [
-                        'datetimefield',
-                        'datetime',
-                        'NO',
-                        '',
-                        'NULL',
-                        '',
-                    ],
+                'query' => 'SHOW COLUMNS FROM `test_db`.`test_table`',
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'result' => [
+                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
+                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
+                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
                 ],
             ],
             [
                 'query' => 'SELECT * FROM `test_db`.`test_table`;',
                 'columns' => ['id', 'name', 'datetimefield'],
                 'result' => [
-                    [
-                        '1',
-                        'abcd',
-                        '2011-01-20 02:00:02',
-                    ],
-                    [
-                        '2',
-                        'foo',
-                        '2011-01-20 02:00:02',
-                    ],
-                    [
-                        '3',
-                        'Abcd',
-                        '2011-01-20 02:00:02',
-                    ],
+                    ['1', 'abcd', '2011-01-20 02:00:02'],
+                    ['2', 'foo', '2011-01-20 02:00:02'],
+                    ['3', 'Abcd', '2011-01-20 02:00:02'],
                 ],
             ],
         ];
