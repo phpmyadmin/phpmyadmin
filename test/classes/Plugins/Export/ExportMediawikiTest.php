@@ -33,12 +33,19 @@ class ExportMediawikiTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::defineVersionConstants();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = '';
         $this->object = new ExportMediawiki();
     }
 
@@ -254,7 +261,7 @@ class ExportMediawikiTest extends AbstractTestCase
             ],
         ];
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'table')
             ->will($this->returnValue($columns));
@@ -310,73 +317,45 @@ class ExportMediawikiTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('getColumnNames')
-            ->with('db', 'table')
-            ->will($this->returnValue(['name1', 'fields']));
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(2));
-
-        $dbi->expects($this->at(3))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(['r1', 'r2']));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(['r3', '']));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
-
-        $GLOBALS['dbi'] = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
 
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db',
-                'table',
+                'test_db',
+                'test_table',
                 "\n",
                 'example.com',
-                'SELECT'
+                'SELECT * FROM `test_db`.`test_table`;'
             )
         );
         $result = ob_get_clean();
 
         $this->assertEquals(
             "\n<!--\n" .
-            "Table data for `table`\n" .
+            "Table data for `test_table`\n" .
             "-->\n" .
             "\n" .
             '{| class="wikitable sortable" style="text-align:' .
             "center;\"\n" .
-            "|+'''table'''\n" .
+            "|+'''test_table'''\n" .
             "|-\n" .
-            " ! name1\n" .
-            " ! fields\n" .
+            " ! id\n" .
+            " ! name\n" .
+            " ! datetimefield\n" .
             "|-\n" .
-            " | r1\n" .
-            " | r2\n" .
+            " | 1\n" .
+            " | abcd\n" .
+            " | 2011-01-20 02:00:02\n" .
             "|-\n" .
-            " | r3\n" .
-            " | \n" .
+            " | 2\n" .
+            " | foo\n" .
+            " | 2011-01-20 02:00:02\n" .
+            "|-\n" .
+            " | 3\n" .
+            " | Abcd\n" .
+            " | 2011-01-20 02:00:02\n" .
             "|}\n\n",
             $result
         );
