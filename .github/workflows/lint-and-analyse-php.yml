@@ -39,8 +39,6 @@ jobs:
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
         steps:
             - uses: actions/checkout@v2
-            - name: Lint PHP files
-              run: ./test/ci-phplint
             - name: Use php 7.1
               uses: shivammathur/setup-php@v2
               with:
