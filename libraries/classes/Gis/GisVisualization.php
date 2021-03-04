@@ -28,6 +28,7 @@ use function mb_strtolower;
 use function mb_substr;
 use function ob_get_clean;
 use function ob_start;
+use function is_string;
 
 /**
  * Handles visualization of GIS data
@@ -623,6 +624,9 @@ class GisVisualization
         foreach ($data as $row) {
             // Figure out the data type
             $ref_data = $row[$this->settings['spatialColumn']];
+            if (! is_string($ref_data)) {
+                continue;
+            }
             $type_pos = mb_strpos($ref_data, '(');
             if ($type_pos === false) {
                 continue;
