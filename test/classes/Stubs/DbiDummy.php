@@ -2210,6 +2210,15 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
+                'query' => 'DESC `test_db`.`test_table`',
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'result' => [
+                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
+                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
+                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
+                ],
+            ],
+            [
                 'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'test\_table%\'',
                 'columns' => ['Name', 'Engine', 'Rows'],
                 'result' => [['test_table', 'InnoDB', '3']],
