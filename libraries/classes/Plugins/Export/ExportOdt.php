@@ -725,7 +725,7 @@ class ExportOdt extends ExportPlugin
                 );
                 break;
             case 'triggers':
-                $triggers = $dbi->getTriggers($db, $table, $aliases);
+                $triggers = $dbi->getTriggers($db, $table);
                 if ($triggers) {
                     $GLOBALS['odt_buffer']
                     .= '<text:h text:outline-level="2" text:style-name="Heading_2"'

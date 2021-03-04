@@ -14,6 +14,8 @@ phpMyAdmin - ChangeLog
 5.1.1 (not yet released)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
 - issue        Fixed adding an event shows an empty row
+- issue #16706 Fixed a PHP error when visualizing a nullable geometry column
+- issue        Fixed a PHP type error when exporting triggers to ODF
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
