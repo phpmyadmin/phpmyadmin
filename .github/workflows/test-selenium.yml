@@ -62,8 +62,7 @@ jobs:
               uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-version }}
-                  extensions: mbstring, iconv, mysqli, zip, gd
-                  tools: composer:v2
+                  extensions: mbstring, iconv, mysqli, zip, gd, bz2
             - name: Cache module
               uses: actions/cache@v2
               with:

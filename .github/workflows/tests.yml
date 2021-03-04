@@ -27,9 +27,8 @@ jobs:
               uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-version }}
-                  extensions: mbstring, iconv, mysqli, zip, gd
+                  extensions: mbstring, iconv, mysqli, zip, gd, bz2
                   coverage: xdebug
-                  tools: composer:v2
             - name: Cache module
               uses: actions/cache@v2
               with:
@@ -78,7 +77,6 @@ jobs:
                   php-version: ${{ matrix.php-version }}
                   extensions: dbase, mbstring, iconv, mysqli, zip, gd
                   coverage: xdebug
-                  tools: composer:v2
             - name: Cache module
               uses: actions/cache@v2
               with:
@@ -127,7 +125,6 @@ jobs:
                   php-version: ${{ matrix.php-version }}
                   extensions: recode, mbstring, iconv, mysqli, zip, gd
                   coverage: xdebug
-                  tools: composer:v2
             - name: Cache module
               uses: actions/cache@v2
               with:
@@ -174,8 +171,7 @@ jobs:
               uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-version }}
-                  extensions: mbstring, iconv, mysqli, zip, gd
-                  tools: composer:v2
+                  extensions: mbstring, iconv, mysqli, zip, gd, bz2
             - name: Cache module
               uses: actions/cache@v2
               with:
