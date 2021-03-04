@@ -1478,61 +1478,26 @@ class Routines
             );
         }
 
-        // Create the output
-        $retval  = '';
-        $retval .= "<!-- START ROUTINE EXECUTE FORM -->\n\n";
-        $retval .= '<form action="' . Url::getFromRoute('/database/routines') . '" method="post"' . "\n";
-        $retval .= "       class='rte_form ajax' onsubmit='return false'>\n";
-        $retval .= "<input type='hidden' name='item_name'\n";
-        $retval .= "       value='" . $routine['item_name'] . "'>\n";
-        $retval .= "<input type='hidden' name='item_type'\n";
-        $retval .= "       value='" . $routine['item_type'] . "'>\n";
-        $retval .= Url::getHiddenInputs($db) . "\n";
-        $retval .= "<fieldset class=\"pma-fieldset\">\n";
-        if (! $this->response->isAjax()) {
-            $retval .= '<legend>' . $routine['item_name'] . "</legend>\n";
-            $retval .= "<table class='pma-table rte_table'>\n";
-            $retval .= "<caption class='tblHeaders'>\n";
-            $retval .= __('Routine parameters');
-            $retval .= "</caption>\n";
-        } else {
-            $retval .= '<legend>' . __('Routine parameters') . "</legend>\n";
-            $retval .= "<table class='pma-table rte_table'>\n";
-        }
-
-        $retval .= "<tr>\n";
-        $retval .= '<th>' . __('Name') . "</th>\n";
-        $retval .= '<th>' . __('Type') . "</th>\n";
-        if ($cfg['ShowFunctionFields']) {
-            $retval .= '<th>' . __('Function') . "</th>\n";
-        }
-
-        $retval .= '<th>' . __('Value') . "</th>\n";
-        $retval .= "</tr>\n";
-        // Get a list of data types that are not yet supported.
         $no_support_types = Util::unsupportedDatatypes();
-        for ($i = 0; $i < $routine['item_num_params']; $i++) { // Each parameter
-            if (
-                $routine['item_type'] === 'PROCEDURE'
-                && $routine['item_param_dir'][$i] === 'OUT'
+
+        $params = array();
+        $params['no_support_types'] = $no_support_types;
+
+        for ($i = 0; $i < $routine['item_num_params']; $i++) {
+            if ($routine['item_type'] == 'PROCEDURE'
+                && $routine['item_param_dir'][$i] == 'OUT'
             ) {
                 continue;
             }
-
-            $retval .= "\n<tr>\n";
-            $retval .= '<td>' . $routine['item_param_name'][$i] . "</td>\n";
-            $retval .= '<td>' . $routine['item_param_type'][$i] . "</td>\n";
             if ($cfg['ShowFunctionFields']) {
-                $retval .= "<td>\n";
-                if (
-                    stripos($routine['item_param_type'][$i], 'enum') !== false
+                if (stripos($routine['item_param_type'][$i], 'enum') !== false
                     || stripos($routine['item_param_type'][$i], 'set') !== false
                     || in_array(
                         mb_strtolower($routine['item_param_type'][$i]),
                         $no_support_types
                     )
                 ) {
-                    $retval .= "--\n";
+                    $params[$i]['generator'] = null;
                 } else {
                     $field = [
                         'True_Type'       => mb_strtolower(
@@ -1544,75 +1509,53 @@ class Routines
                         'Default'         => '',
                         'first_timestamp' => false,
                     ];
-                    $retval .= "<select name='funcs["
-                        . $routine['item_param_name'][$i] . "]'>";
-                    $retval .= Generator::getFunctionsForField($field, false, []);
-                    $retval .= '</select>';
+
+                    $generator = Generator::getFunctionsForField($field, false, []);
+                    $params[$i]['generator'] = $generator;
+
                 }
-
-                $retval .= "</td>\n";
             }
 
-            // Append a class to date/time fields so that
-            // jQuery can attach a datepicker to them
-            $class = '';
-            if (
-                $routine['item_param_type'][$i] === 'DATETIME'
-                || $routine['item_param_type'][$i] === 'TIMESTAMP'
+            if ($routine['item_param_type'][$i] == 'DATETIME'
+                || $routine['item_param_type'][$i] == 'TIMESTAMP'
             ) {
-                $class = 'datetimefield';
-            } elseif ($routine['item_param_type'][$i] === 'DATE') {
-                $class = 'datefield';
+                $params[$i]['class'] = 'datetimefield';
+            } elseif ($routine['item_param_type'][$i] == 'DATE') {
+
+                $params[$i]['class'] = 'datefield';
             }
 
-            $retval .= "<td class='text-nowrap'>\n";
+            $input_type = '';
             if (in_array($routine['item_param_type'][$i], ['ENUM', 'SET'])) {
-                if ($routine['item_param_type'][$i] === 'ENUM') {
-                    $input_type = 'radio';
+                if ($routine['item_param_type'][$i] == 'ENUM') {
+                    $params[$i]['input_type']  = 'radio';
                 } else {
-                    $input_type = 'checkbox';
+                    $params[$i]['input_type'] = 'checkbox';
                 }
 
                 foreach ($routine['item_param_length_arr'][$i] as $value) {
                     $value = htmlentities(Util::unQuote($value), ENT_QUOTES);
-                    $retval .= "<input name='params["
-                        . $routine['item_param_name'][$i] . "][]' "
-                        . "value='" . $value . "' type='"
-                        . $input_type . "'>"
-                        . $value . "<br>\n";
+                    $params[$i]['htmlentities'][] = $value;
                 }
-            } elseif (
-                in_array(
-                    mb_strtolower($routine['item_param_type'][$i]),
-                    $no_support_types
-                )
-            ) {
-                $retval .= "\n";
-            } else {
-                $retval .= "<input class='" . $class . "' type='text' name='params["
-                    . $routine['item_param_name'][$i] . "]'>\n";
+            } elseif (in_array(
+                mb_strtolower($routine['item_param_type'][$i]), $no_support_types
+            )) {
+                $params[$i]['input_type'] = null;
             }
-
-            $retval .= "</td>\n";
-            $retval .= "</tr>\n";
+            else {
+                $params[$i]['input_type'] = $input_type;
+            }
         }
 
-        $retval .= "\n</table>\n";
-        if (! $this->response->isAjax()) {
-            $retval .= "</fieldset>\n\n";
-            $retval .= "<fieldset class=\"pma-fieldset tblFooters\">\n";
-            $retval .= "    <input type='submit' name='execute_routine'\n";
-            $retval .= "           value='" . __('Go') . "'>\n";
-            $retval .= "</fieldset>\n";
-        } else {
-            $retval .= "<input type='hidden' name='execute_routine' value='true'>";
-            $retval .= "<input type='hidden' name='ajax_request' value='true'>";
-        }
-
-        $retval .= "</form>\n\n";
-        $retval .= "<!-- END ROUTINE EXECUTE FORM -->\n\n";
-
-        return $retval;
+        return $this->template->render('database/routines/execute_form', [
+            'routine' => $routine,
+            'fromRoute' => Url::getFromRoute('/database/routines'),
+            'getHiddenInputs' => Url::getHiddenInputs($db),
+            'ajax' => $this->response->isAjax(),
+            'cfg' => $cfg,
+            'noSupportTypes' => Util::unsupportedDatatypes(),
+            'params' => $params,
+        ]);
     }
 
     /**
