@@ -75,7 +75,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
                     'setBodyId',
                     'setTitle',
                     'disableMenuAndConsole',
-                    'addHTML',
                 ]
             )
             ->getMock();
@@ -104,10 +103,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             ->method('getHeader')
             ->with()
             ->will($this->returnValue($mockHeader));
-
-        $mockResponse->expects($this->exactly($set_title * 7))
-            ->method('addHTML')
-            ->with();
 
         if (! empty($_REQUEST['old_usr'])) {
             $this->object->logOut();
