@@ -57,14 +57,15 @@ jobs:
                 project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
                 coverage-reports: build/logs/clover.xml
 
-    test-php-dbase:
-        name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
+    test-php-optional-extensions:
+        name: Test on php (+ ext-${{ matrix.extension }}) ${{ matrix.php-version }} and ${{ matrix.os }}
         runs-on: ${{ matrix.os }}
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
         strategy:
             matrix:
                 php-version: ["7.1"]
                 os: [ubuntu-latest]
+                extension: ["dbase", "recode"]
         steps:
             - uses: actions/checkout@v2
             - name: Install gettext
@@ -75,7 +76,7 @@ jobs:
               uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-version }}
-                  extensions: dbase, mbstring, iconv, mysqli, zip, gd
+                  extensions: ${{ matrix.extension }}, mbstring, iconv, mysqli, zip, gd
                   coverage: xdebug
             - name: Cache module
               uses: actions/cache@v2
@@ -89,56 +90,8 @@ jobs:
             - name: Send coverage
               uses: codecov/codecov-action@v1
               with:
-                flags: dbase-extension
-                name: php-7.1-dbase-enabled
-            - name: Send coverage to Scrutinizer
-              uses: sudo-bot/action-scrutinizer@latest
-              # Upload can fail on forks
-              continue-on-error: true
-              with:
-                  cli-args: "--format=php-clover build/logs/clover.xml"
-            - name: Send coverage to Codacy
-              # Upload can fail on forks or if the secret is missing
-              continue-on-error: true
-              uses: codacy/codacy-coverage-reporter-action@master
-              with:
-                project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-                coverage-reports: build/logs/clover.xml
-
-    test-php-recode:
-        name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
-        runs-on: ${{ matrix.os }}
-        if: "!contains(github.event.head_commit.message, '[ci skip]')"
-        strategy:
-            matrix:
-                php-version: ["7.1"]
-                os: [ubuntu-latest]
-        steps:
-            - uses: actions/checkout@v2
-            - name: Install gettext
-              run: sudo apt-get install -y gettext
-            - name: Generate mo files
-              run: ./scripts/generate-mo --quiet
-            - name: Use php ${{ matrix.php-version }}
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: ${{ matrix.php-version }}
-                  extensions: recode, mbstring, iconv, mysqli, zip, gd
-                  coverage: xdebug
-            - name: Cache module
-              uses: actions/cache@v2
-              with:
-                  path: ~/.composer/cache/
-                  key: composer-cache
-            - name: Install dependencies
-              run: composer install
-            - name: Run php tests
-              run: composer run phpunit --  --exclude-group selenium
-            - name: Send coverage
-              uses: codecov/codecov-action@v1
-              with:
-                flags: recode-extension
-                name: php-7.1-recode-enabled
+                flags: ${{ matrix.extension }}-extension
+                name: php-7.1-${{ matrix.extension }}-enabled
             - name: Send coverage to Scrutinizer
               uses: sudo-bot/action-scrutinizer@latest
               # Upload can fail on forks
@@ -154,7 +107,7 @@ jobs:
                 coverage-reports: build/logs/clover.xml
 
     test-php-random:
-        name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
+        name: Test (random) on php ${{ matrix.php-version }} and ${{ matrix.os }}
         runs-on: ${{ matrix.os }}
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
         strategy:
@@ -179,12 +132,13 @@ jobs:
                   key: composer-cache
             - name: Install dependencies
               run: composer install
-            - name: Run php tests
+            - name: Run random php tests
               # This one is allowed to fail, but we hope it will not
               continue-on-error: true
               run: composer run phpunit --  --exclude-group selenium --order-by=random --stop-on-failure
 
     test-js:
+        name: Test javascript files
         runs-on: ubuntu-latest
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
         steps:
