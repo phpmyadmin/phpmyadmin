@@ -62,7 +62,7 @@ class ServerConfigChecksTest extends AbstractTestCase
         $_SESSION[$this->sessionID]['ZipDump'] = true;
 
         $configChecker = $this->getMockBuilder(ServerConfigChecks::class)
-            ->setMethods(['functionExists'])
+            ->onlyMethods(['functionExists'])
             ->setConstructorArgs([$GLOBALS['ConfigFile']])
             ->getMock();
 

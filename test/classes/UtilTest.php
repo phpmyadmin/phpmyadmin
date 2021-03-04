@@ -2412,7 +2412,7 @@ class UtilTest extends AbstractTestCase
     public function testCurrentUserHasNotUserPrivilegeButDbPrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->setMethods(['getCurrentUserAndHost', 'fetchValue'])
+            ->onlyMethods(['getCurrentUserAndHost', 'fetchValue'])
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2446,7 +2446,7 @@ class UtilTest extends AbstractTestCase
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->setMethods(['getCurrentUserAndHost', 'fetchValue'])
+            ->onlyMethods(['getCurrentUserAndHost', 'fetchValue'])
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2480,7 +2480,7 @@ class UtilTest extends AbstractTestCase
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeButTablePrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->setMethods(['getCurrentUserAndHost', 'fetchValue'])
+            ->onlyMethods(['getCurrentUserAndHost', 'fetchValue'])
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -2520,7 +2520,7 @@ class UtilTest extends AbstractTestCase
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeAndNotTablePrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->setMethods(['getCurrentUserAndHost', 'fetchValue'])
+            ->onlyMethods(['getCurrentUserAndHost', 'fetchValue'])
             ->disableOriginalConstructor()
             ->getMock();
 

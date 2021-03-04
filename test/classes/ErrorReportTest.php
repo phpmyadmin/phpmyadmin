@@ -117,7 +117,7 @@ class ErrorReportTest extends AbstractTestCase
         $return = 'return';
 
         $httpRequest = $this->getMockBuilder(HttpRequest::class)
-            ->setMethods(['create'])
+            ->onlyMethods(['create'])
             ->getMock();
         $httpRequest->expects($this->once())
             ->method('create')

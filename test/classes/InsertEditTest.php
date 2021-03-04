@@ -271,7 +271,7 @@ class InsertEditTest extends AbstractTestCase
 
         $responseMock = $this->getMockBuilder(Response::class)
             ->disableOriginalConstructor()
-            ->setMethods(['addHtml'])
+            ->onlyMethods(['addHtml'])
             ->getMock();
 
         $restoreInstance = Response::getInstance();
@@ -2773,7 +2773,7 @@ class InsertEditTest extends AbstractTestCase
 
         $scriptsMock = $this->getMockBuilder(Scripts::class)
             ->disableOriginalConstructor()
-            ->setMethods(['addFile'])
+            ->onlyMethods(['addFile'])
             ->getMock();
 
         $scriptsMock->expects($this->exactly(2))
@@ -2781,7 +2781,7 @@ class InsertEditTest extends AbstractTestCase
 
         $headerMock = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
-            ->setMethods(['getScripts'])
+            ->onlyMethods(['getScripts'])
             ->getMock();
 
         $headerMock->expects($this->once())
@@ -2790,7 +2790,7 @@ class InsertEditTest extends AbstractTestCase
 
         $responseMock = $this->getMockBuilder(Response::class)
             ->disableOriginalConstructor()
-            ->setMethods(['getHeader'])
+            ->onlyMethods(['getHeader'])
             ->getMock();
 
         $responseMock->expects($this->once())
@@ -3886,7 +3886,7 @@ class InsertEditTest extends AbstractTestCase
 
         $responseMock = $this->getMockBuilder(Response::class)
             ->disableOriginalConstructor()
-            ->setMethods(['addHtml'])
+            ->onlyMethods(['addHtml'])
             ->getMock();
 
         $restoreInstance = Response::getInstance();

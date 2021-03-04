@@ -45,7 +45,7 @@ class TwoFactorTest extends AbstractTestCase
             $config['settings'] = [];
         }
         $result = $this->getMockBuilder(TwoFactor::class)
-            ->setMethods(['readConfig'])
+            ->onlyMethods(['readConfig'])
             ->disableOriginalConstructor()
             ->getMock();
         $result->method('readConfig')->willReturn($config);

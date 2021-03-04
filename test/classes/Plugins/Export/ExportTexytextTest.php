@@ -302,7 +302,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $this->object = $this->getMockBuilder(ExportTexytext::class)
             ->disableOriginalConstructor()
-            ->setMethods(['formatOneColumnDefinition'])
+            ->onlyMethods(['formatOneColumnDefinition'])
             ->getMock();
 
         $this->object->expects($this->at(0))
@@ -326,7 +326,7 @@ class ExportTexytextTest extends AbstractTestCase
     public function testGetTableDef(): void
     {
         $this->object = $this->getMockBuilder(ExportTexytext::class)
-            ->setMethods(['formatOneColumnDefinition'])
+            ->onlyMethods(['formatOneColumnDefinition'])
             ->getMock();
 
         // case 1
@@ -469,7 +469,7 @@ class ExportTexytextTest extends AbstractTestCase
             ->will($this->returnValue(1));
 
         $this->object = $this->getMockBuilder(ExportTexytext::class)
-            ->setMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
+            ->onlyMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
             ->getMock();
 
         $this->object->expects($this->at(0))

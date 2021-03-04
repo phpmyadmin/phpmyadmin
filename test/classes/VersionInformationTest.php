@@ -175,7 +175,7 @@ class VersionInformationTest extends AbstractTestCase
         ];
 
         $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
-            ->setMethods(['evaluateVersionCondition'])
+            ->onlyMethods(['evaluateVersionCondition'])
             ->getMock();
 
         $mockVersionInfo->expects($this->at(0))
@@ -209,7 +209,7 @@ class VersionInformationTest extends AbstractTestCase
         ];
 
         $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
-            ->setMethods(['evaluateVersionCondition'])
+            ->onlyMethods(['evaluateVersionCondition'])
             ->getMock();
 
         $mockVersionInfo->expects($this->at(0))
@@ -238,7 +238,7 @@ class VersionInformationTest extends AbstractTestCase
         ];
 
         $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
-            ->setMethods(['evaluateVersionCondition'])
+            ->onlyMethods(['evaluateVersionCondition'])
             ->getMock();
 
         $mockVersionInfo->expects($this->at(0))
@@ -283,7 +283,7 @@ class VersionInformationTest extends AbstractTestCase
         $GLOBALS['cfg']['Servers'] = [];
 
         $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
-            ->setMethods(['evaluateVersionCondition'])
+            ->onlyMethods(['evaluateVersionCondition'])
             ->getMock();
 
         $i = 0;
@@ -550,7 +550,7 @@ class VersionInformationTest extends AbstractTestCase
     public function testEvaluateVersionCondition(): void
     {
         $mockVersionInfo = $this->getMockBuilder(VersionInformation::class)
-            ->setMethods(['getPHPVersion'])
+            ->onlyMethods(['getPHPVersion'])
             ->getMock();
 
         $mockVersionInfo->expects($this->any())

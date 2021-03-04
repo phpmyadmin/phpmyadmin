@@ -59,7 +59,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         // mock footer
         $mockFooter = $this->getMockBuilder(Footer::class)
             ->disableOriginalConstructor()
-            ->setMethods(['setMinimal'])
+            ->onlyMethods(['setMinimal'])
             ->getMock();
 
         $mockFooter->expects($this->exactly($set_minimal))
@@ -70,7 +70,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
         $mockHeader = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
-            ->setMethods(
+            ->onlyMethods(
                 [
                     'setBodyId',
                     'setTitle',
@@ -415,7 +415,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
 
         $this->object = $this->getMockBuilder(AuthenticationHttp::class)
             ->disableOriginalConstructor()
-            ->setMethods(['authForm'])
+            ->onlyMethods(['authForm'])
             ->getMock();
 
         $this->object->expects($this->exactly(2))

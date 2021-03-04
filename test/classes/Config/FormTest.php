@@ -268,7 +268,7 @@ class FormTest extends AbstractTestCase
     {
         $this->object = $this->getMockBuilder(Form::class)
             ->disableOriginalConstructor()
-            ->setMethods(['readFormPaths', 'readTypes'])
+            ->onlyMethods(['readFormPaths', 'readTypes'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -293,7 +293,7 @@ class FormTest extends AbstractTestCase
     {
         $this->object = $this->getMockBuilder(Form::class)
             ->disableOriginalConstructor()
-            ->setMethods(['readFormPaths', 'readTypes'])
+            ->onlyMethods(['readFormPaths', 'readTypes'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))->method('readFormPaths')->with([

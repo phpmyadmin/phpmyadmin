@@ -99,7 +99,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         // mock footer
         $mockFooter = $this->getMockBuilder(Footer::class)
             ->disableOriginalConstructor()
-            ->setMethods(['setMinimal'])
+            ->onlyMethods(['setMinimal'])
             ->getMock();
 
         $mockFooter->expects($this->once())
@@ -110,7 +110,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $mockHeader = $this->getMockBuilder(Header::class)
             ->disableOriginalConstructor()
-            ->setMethods(
+            ->onlyMethods(
                 [
                     'setBodyId',
                     'setTitle',
@@ -157,7 +157,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $mockErrorHandler = $this->getMockBuilder(ErrorHandler::class)
             ->disableOriginalConstructor()
-            ->setMethods(['hasDisplayErrors'])
+            ->onlyMethods(['hasDisplayErrors'])
             ->getMock();
 
         $mockErrorHandler->expects($this->once())
@@ -604,7 +604,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['cookieDecrypt'])
+            ->onlyMethods(['cookieDecrypt'])
             ->getMock();
 
         $this->object->expects($this->once())
@@ -643,7 +643,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['cookieDecrypt'])
+            ->onlyMethods(['cookieDecrypt'])
             ->getMock();
 
         $this->object->expects($this->at(1))
@@ -686,7 +686,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showFailure', 'cookieDecrypt'])
+            ->onlyMethods(['showFailure', 'cookieDecrypt'])
             ->getMock();
 
         $this->object->expects($this->once())
@@ -780,7 +780,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $GLOBALS['server'] = 2;
@@ -861,7 +861,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $GLOBALS['server'] = 2;
@@ -883,7 +883,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $GLOBALS['server'] = 2;
@@ -909,7 +909,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $GLOBALS['server'] = 2;
@@ -942,7 +942,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

@@ -107,7 +107,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $this->object = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
-            ->setMethods(['save'])
+            ->onlyMethods(['save'])
             ->getMock();
 
         $attrForms = new ReflectionProperty(FormDisplay::class, 'forms');

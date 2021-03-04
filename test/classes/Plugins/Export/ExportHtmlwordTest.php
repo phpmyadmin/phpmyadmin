@@ -372,7 +372,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testGetTableDefStandIn(): void
     {
         $this->object = $this->getMockBuilder(ExportHtmlword::class)
-            ->setMethods(['formatOneColumnDefinition'])
+            ->onlyMethods(['formatOneColumnDefinition'])
             ->getMock();
 
         // case 1
@@ -423,7 +423,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testGetTableDef(): void
     {
         $this->object = $this->getMockBuilder(ExportHtmlword::class)
-            ->setMethods(['formatOneColumnDefinition'])
+            ->onlyMethods(['formatOneColumnDefinition'])
             ->getMock();
 
         $keys = [
@@ -730,7 +730,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->will($this->returnValue(1));
 
         $this->object = $this->getMockBuilder(ExportHtmlword::class)
-            ->setMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
+            ->onlyMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
             ->getMock();
 
         $this->object->expects($this->at(0))

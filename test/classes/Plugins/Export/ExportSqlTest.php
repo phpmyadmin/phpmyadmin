@@ -1279,7 +1279,7 @@ class ExportSqlTest extends AbstractTestCase
             );
 
         $this->object = $this->getMockBuilder(ExportSql::class)
-            ->setMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
+            ->onlyMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
             ->getMock();
 
         $this->object->expects($this->at(0))

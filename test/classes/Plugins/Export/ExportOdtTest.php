@@ -602,7 +602,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $this->object = $this->getMockBuilder(ExportOdt::class)
             ->disableOriginalConstructor()
-            ->setMethods(['formatOneColumnDefinition'])
+            ->onlyMethods(['formatOneColumnDefinition'])
             ->getMock();
 
         $this->object->expects($this->at(0))
@@ -635,7 +635,7 @@ class ExportOdtTest extends AbstractTestCase
     public function testGetTableDef(): void
     {
         $this->object = $this->getMockBuilder(ExportOdt::class)
-            ->setMethods(['formatOneColumnDefinition'])
+            ->onlyMethods(['formatOneColumnDefinition'])
             ->getMock();
 
         // case 1
@@ -884,7 +884,7 @@ class ExportOdtTest extends AbstractTestCase
             ->will($this->returnValue(1));
 
         $this->object = $this->getMockBuilder(ExportOdt::class)
-            ->setMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
+            ->onlyMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
             ->getMock();
 
         $this->object->expects($this->at(0))

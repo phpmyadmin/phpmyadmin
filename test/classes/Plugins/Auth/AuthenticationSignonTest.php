@@ -238,7 +238,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -260,7 +260,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -281,7 +281,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -306,7 +306,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -338,7 +338,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -366,7 +366,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
     {
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
         ->disableOriginalConstructor()
-        ->setMethods(['setCookieParams'])
+        ->onlyMethods(['setCookieParams'])
         ->getMock();
 
         $this->object->setCookieParams([]);

@@ -77,7 +77,7 @@ class RelationCleanupTest extends AbstractTestCase
 
         $this->relation = $this->getMockBuilder(Relation::class)
             ->disableOriginalConstructor()
-            ->setMethods(['queryAsControlUser'])
+            ->onlyMethods(['queryAsControlUser'])
             ->getMock();
         $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $this->relation);
     }

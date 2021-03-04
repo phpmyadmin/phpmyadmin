@@ -42,7 +42,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
     {
         $mockResponse = $this->getMockBuilder(Response::class)
             ->disableOriginalConstructor()
-            ->setMethods([
+            ->onlyMethods([
                 'header',
                 'headersSent',
                 'disable',

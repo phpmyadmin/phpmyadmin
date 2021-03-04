@@ -50,7 +50,7 @@ class FormProcessingTest extends AbstractNetworkTestCase
         // case 1
         $formDisplay = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
-            ->setMethods(['process', 'getDisplay'])
+            ->onlyMethods(['process', 'getDisplay'])
             ->getMock();
 
         $formDisplay->expects($this->once())
@@ -66,7 +66,7 @@ class FormProcessingTest extends AbstractNetworkTestCase
         // case 2
         $formDisplay = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
-            ->setMethods(['process', 'hasErrors', 'displayErrors'])
+            ->onlyMethods(['process', 'hasErrors', 'displayErrors'])
             ->getMock();
 
         $formDisplay->expects($this->once())
@@ -108,7 +108,7 @@ class FormProcessingTest extends AbstractNetworkTestCase
         // case 3
         $formDisplay = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
-            ->setMethods(['process', 'hasErrors'])
+            ->onlyMethods(['process', 'hasErrors'])
             ->getMock();
 
         $formDisplay->expects($this->once())
