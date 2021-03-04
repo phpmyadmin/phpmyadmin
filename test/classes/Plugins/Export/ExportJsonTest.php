@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Export\ExportJson;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -14,9 +12,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
-use stdClass;
 use function array_shift;
-use const MYSQLI_TYPE_STRING;
 
 /**
  * @group medium
@@ -184,59 +180,22 @@ class ExportJsonTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $flags = [];
-        $a = new stdClass();
-        $a->name = 'f1';
-        $a->length = 20;
-        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $a);
-
-        $dbi->expects($this->once())
-            ->method('getFieldsMeta')
-            ->with(null)
-            ->will($this->returnValue($flags));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(null)
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->at(3))
-            ->method('fieldName')
-            ->with(null, 0)
-            ->will($this->returnValue('f1'));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(null)
-            ->will($this->returnValue(['foo']));
-
-        $dbi->expects($this->at(5))
-            ->method('fetchRow')
-            ->with(null)
-            ->will($this->returnValue(['bar']));
-
-        $dbi->expects($this->at(6))
-            ->method('fetchRow')
-            ->with(null)
-            ->will($this->returnValue(null));
-
-        $GLOBALS['dbi'] = $dbi;
-
         $this->expectOutputString(
-            '{"type":"table","name":"tbl","database":"db","data":'
-            . "\n[\n"
-            . '{"f1":"foo"},'
-            . "\n"
-            . '{"f1":"bar"}'
-            . "\n]\n}\n"
+            '{"type":"table","name":"test_table","database":"test_db","data":' . "\n"
+            . '[' . "\n"
+            . '{"id":"1","name":"abcd","datetimefield":"2011-01-20 02:00:02"},' . "\n"
+            . '{"id":"2","name":"foo","datetimefield":"2010-01-20 02:00:02"},' . "\n"
+            . '{"id":"3","name":"Abcd","datetimefield":"2012-01-20 02:00:02"}' . "\n"
+            . ']' . "\n"
+            . '}' . "\n"
         );
 
-        $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", 'example.com', 'SELECT')
-        );
+        $this->assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
     }
 }
