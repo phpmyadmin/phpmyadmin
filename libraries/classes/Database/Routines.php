@@ -809,7 +809,6 @@ class Routines
             'has_privileges' => $GLOBALS['proc_priv'] && $GLOBALS['is_reload_priv'],
             'sql_data_access' => $this->sqlDataAccess,
         ]);
-
     }
 
     /**
@@ -1400,6 +1399,7 @@ class Routines
     {
         global $db, $cfg;
 
+        // Escape special characters
         $routine['item_name'] = htmlentities($routine['item_name'], ENT_QUOTES);
         for ($i = 0; $i < $routine['item_num_params']; $i++) {
             $routine['item_param_name'][$i] = htmlentities(
@@ -1419,7 +1419,6 @@ class Routines
             ) {
                 continue;
             }
-
             if ($cfg['ShowFunctionFields']) {
                 if (stripos($routine['item_param_type'][$i], 'enum') !== false
                     || stripos($routine['item_param_type'][$i], 'set') !== false
