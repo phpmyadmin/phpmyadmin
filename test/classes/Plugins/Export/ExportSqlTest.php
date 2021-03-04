@@ -50,7 +50,12 @@ class ExportSqlTest extends AbstractTestCase
         parent::defineVersionConstants();
         parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
-        $GLOBALS['db'] = 'db';
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = '';
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
@@ -344,44 +349,15 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_drop_table'] = true;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(0))
-            ->method('getProceduresOrFunctions')
-            ->with('db', 'PROCEDURE')
-            ->will($this->returnValue(['p1', 'p2']));
-
-        $dbi->expects($this->at(1))
-            ->method('getProceduresOrFunctions')
-            ->with('db', 'FUNCTION')
-            ->will($this->returnValue(['f1']));
-
-        $dbi->expects($this->at(2))
-            ->method('getDefinition')
-            ->with('db', 'PROCEDURE', 'p1')
-            ->will($this->returnValue('testp1'));
-
-        $dbi->expects($this->at(3))
-            ->method('getDefinition')
-            ->with('db', 'PROCEDURE', 'p2')
-            ->will($this->returnValue('testp2'));
-
-        $dbi->expects($this->at(4))
-            ->method('getDefinition')
-            ->with('db', 'FUNCTION', 'f1')
-            ->will($this->returnValue('testf1'));
-
-        $GLOBALS['dbi'] = $dbi;
-
         $this->expectOutputString(
-            '##DELIMITER $$##DROP PROCEDURE IF EXISTS `p1`$$##testp1$$####' .
-            'DROP PROCEDURE IF EXISTS `p2`$$##testp2$$####DROP FUNCTION IF' .
-            ' EXISTS `f1`$$##testf1$$####DELIMITER ;##'
+            '##DELIMITER $$##DROP PROCEDURE IF EXISTS `test_proc1`$$##CREATE PROCEDURE'
+                . ' `test_proc1` (`p` INT)  BEGIN END$$####DROP PROCEDURE IF EXISTS'
+                . ' `test_proc2`$$##CREATE PROCEDURE `test_proc2` (`p` INT)  BEGIN END$$####DROP'
+                . ' FUNCTION IF EXISTS `test_func`$$##CREATE FUNCTION'
+                . ' `test_func` (`p` INT) RETURNS INT(11) BEGIN END$$####DELIMITER ;##'
         );
 
-        $this->object->exportRoutines('db');
+        $this->object->exportRoutines('test_db');
     }
 
     public function testExportComment(): void
@@ -1258,52 +1234,6 @@ class ExportSqlTest extends AbstractTestCase
      */
     public function testExportStructure(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
-
-        $dbi->expects($this->once())
-            ->method('getTriggers')
-            ->with('db', 't&bl')
-            ->will(
-                $this->returnValue(
-                    [
-                        [
-                            'create' => 'bar',
-                            'drop' => 'foo',
-                        ],
-                    ]
-                )
-            );
-
-        $this->object = $this->getMockBuilder(ExportSql::class)
-            ->onlyMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
-            ->getMock();
-
-        $this->object->expects($this->at(0))
-            ->method('getTableDef')
-            ->with('db', 't&bl', "\n", 'example.com', false)
-            ->will($this->returnValue('dumpText1'));
-
-        $this->object->expects($this->at(1))
-            ->method('getTableDef')
-            ->with(
-                'db',
-                't&bl',
-                "\n",
-                'example.com',
-                false
-            )
-            ->will($this->returnValue('dumpText3'));
-
-        $this->object->expects($this->once())
-            ->method('getTableDefStandIn')
-            ->with('db', 't&bl', "\n")
-            ->will($this->returnValue('dumpText4'));
-
-        $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_include_comments'] = true;
@@ -1313,10 +1243,10 @@ class ExportSqlTest extends AbstractTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'create_table',
                 'test'
             )
@@ -1324,16 +1254,8 @@ class ExportSqlTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            '-- Table structure for table &quot;t&amp;bl&quot;',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            'dumpText1',
-            $result
-        );
+        $this->assertStringContainsString('-- Table structure for table &quot;test_table&quot;', $result);
+        $this->assertStringContainsString('CREATE TABLE `test_table`', $result);
 
         // case 2
         unset($GLOBALS['sql_compatibility']);
@@ -1345,10 +1267,10 @@ class ExportSqlTest extends AbstractTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'triggers',
                 'test'
             )
@@ -1356,14 +1278,9 @@ class ExportSqlTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
+        $this->assertStringContainsString('-- Triggers test_table', $result);
         $this->assertStringContainsString(
-            "-- Triggers t&amp;bl\n",
-            $result
-        );
-
-        $this->assertStringContainsString(
-            "foo;\nDELIMITER $$\nbarDELIMITER ;\n",
+            'CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table` FOR EACH ROW BEGIN END',
             $result
         );
 
@@ -1376,10 +1293,10 @@ class ExportSqlTest extends AbstractTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'create_view',
                 'test'
             )
@@ -1387,43 +1304,21 @@ class ExportSqlTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            "-- Structure for view t&amp;bl\n",
-            $result
-        );
-
-        $this->assertStringContainsString(
-            "DROP TABLE IF EXISTS `t&amp;bl`;\n" .
-            'dumpText3',
-            $result
-        );
+        $this->assertStringContainsString('-- Structure for view test_table', $result);
+        $this->assertStringContainsString('DROP TABLE IF EXISTS `test_table`;', $result);
+        $this->assertStringContainsString('CREATE TABLE `test_table`', $result);
 
         // case 4
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
-
-        $dbi->expects($this->once())
-            ->method('getColumns')
-            ->will(
-                $this->returnValue(
-                    []
-                )
-            );
-        $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_views_as_tables'] = true;
         unset($GLOBALS['sql_if_not_exists']);
 
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'create_view',
                 'test'
             )
@@ -1431,26 +1326,18 @@ class ExportSqlTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            "CREATE TABLE`t&amp;bl`(\n\n);",
-            $result
-        );
-
-        $this->assertStringContainsString(
-            "DROP TABLE IF EXISTS `t&amp;bl`;\n",
-            $result
-        );
+        $this->assertStringContainsString('-- Structure for view test_table exported as a table', $result);
+        $this->assertStringContainsString('DROP TABLE IF EXISTS `test_table`;', $result);
+        $this->assertStringContainsString('CREATE TABLE`test_table`', $result);
 
         // case 5
-
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'stand_in',
                 'test'
             )
@@ -1458,11 +1345,8 @@ class ExportSqlTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            'dumpText4',
-            $result
-        );
+        $this->assertStringContainsString('-- Stand-in structure for view test_table', $result);
+        $this->assertStringContainsString('CREATE TABLE `test_table`', $result);
     }
 
     /**

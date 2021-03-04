@@ -529,103 +529,61 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['latex_null'] = 'null';
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['verbose'] = 'verb';
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(null)
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->at(2))
-            ->method('fieldName')
-            ->with(null, 0)
-            ->will($this->returnValue('f1'));
-
-        $dbi->expects($this->at(3))
-            ->method('fetchAssoc')
-            ->with(null)
-            ->will($this->returnValue(['f1' => 'foo$%']));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchAssoc')
-            ->with(null)
-            ->will($this->returnValue(['f1' => null]));
-
-        $dbi->expects($this->at(5))
-            ->method('fetchAssoc')
-            ->with(null)
-            ->will($this->returnValue(null));
-
-        $GLOBALS['dbi'] = $dbi;
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", 'example.com', 'SELECT')
-        );
+        $this->assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
         $result = ob_get_clean();
 
         $this->assertEquals(
             "\n" . '%' . "\n" .
-            '% Data: tbl' . "\n" .
+            '% Data: test_table' . "\n" .
             '%' . "\n" .
-            ' \\begin{longtable}{|l|} ' . "\n" .
-            ' \\hline \\endhead \\hline \\endfoot \\hline ' . "\n" .
-            ' \\caption{latex data caption} \\label{datalabel} ' .
-            '\\\\\\hline \\multicolumn{1}{|c|}{\\textbf{f1}} ' .
-            '\\\\ \\hline \hline  \\endfirsthead ' . "\n" .
-            '\caption{continued caption} \\\\ \hline \multicolumn{1}' .
-            '{|c|}{\textbf{f1}} \\\\ \hline \hline \endhead \endfoot' . "\n" .
-            'foo\$\% \\\\ \hline ' . "\n" .
-            'null \\\\ \hline ' . "\n" .
+            ' \begin{longtable}{|l|l|l|} ' . "\n" .
+            ' \hline \endhead \hline \endfoot \hline ' . "\n" .
+            ' \caption{latex data caption} \label{datalabel} \\\\\hline \multicolumn{1}{|c|}' .
+            '{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}' .
+            '{\textbf{datetimefield}} \\\ \hline \hline  \endfirsthead ' . "\n" .
+            '\caption{continued caption} \\\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}' .
+            '{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{datetimefield}}' .
+            ' \\\ \hline \hline \endhead \endfoot' . "\n" .
+            '1 & abcd & 2011-01-20 02:00:02 \\\\ \hline ' . "\n" .
+            '2 & foo & 2010-01-20 02:00:02 \\\\ \hline ' . "\n" .
+            '3 & Abcd & 2012-01-20 02:00:02 \\\\ \hline ' . "\n" .
             ' \end{longtable}' . "\n",
             $result
         );
 
         // case 2
         unset($GLOBALS['latex_columns']);
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(null)
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->at(2))
-            ->method('fieldName')
-            ->with(null, 0)
-            ->will($this->returnValue('f1'));
-
-        $dbi->expects($this->at(3))
-            ->method('fetchAssoc')
-            ->with(null)
-            ->will($this->returnValue(['f1' => 'foo$%']));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchAssoc')
-            ->with(null)
-            ->will($this->returnValue(['f1' => null]));
-
-        $dbi->expects($this->at(5))
-            ->method('fetchAssoc')
-            ->with(null)
-            ->will($this->returnValue(null));
-
-        $GLOBALS['dbi'] = $dbi;
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", 'example.com', 'SELECT')
-        );
+        $this->assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            '{datalabel} \\\\\\\\ \hlinefoo',
+        $this->assertEquals(
+            "\n" . '%' . "\n" .
+            '% Data: test_table' . "\n" .
+            '%' . "\n" .
+            ' \begin{longtable}{|l|l|l|} ' . "\n" .
+            ' \hline \endhead \hline \endfoot \hline ' . "\n" .
+            ' \caption{latex data caption} \label{datalabel} \\\\\\\\ \hline' .
+            '1 & abcd & 2011-01-20 02:00:02 \\\\ \hline ' . "\n" .
+            '2 & foo & 2010-01-20 02:00:02 \\\\ \hline ' . "\n" .
+            '3 & Abcd & 2012-01-20 02:00:02 \\\\ \hline ' . "\n" .
+            ' \end{longtable}' . "\n",
             $result
         );
     }

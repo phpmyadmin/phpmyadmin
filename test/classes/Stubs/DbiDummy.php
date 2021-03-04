@@ -396,7 +396,12 @@ class DbiDummy implements DbiExtension
      */
     public function fieldName($result, $i)
     {
-        return '';
+        $query_data = &$this->getQueryData($result);
+        if (! isset($query_data['columns'])) {
+            return '';
+        }
+
+        return $query_data['columns'][$i];
     }
 
     /**
@@ -2182,62 +2187,105 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query'   => 'SHOW COLUMNS FROM `test_db`.`test_table`',
-                'columns' => [
-                    'Field',
-                    'Type',
-                    'Null',
-                    'Key',
-                    'Default',
-                    'Extra',
+                'query' => 'SHOW CREATE TABLE `test_db`.`test_table`',
+                'columns' => ['Table', 'Create Table'],
+                'result' => [['test_table', 'CREATE TABLE `test_table`']],
+            ],
+            [
+                'query' => 'SHOW COLUMNS FROM `test_db`.`test_table`',
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'result' => [
+                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
+                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
+                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
                 ],
-                'result'  => [
-                    [
-                        'id',
-                        'int(11)',
-                        'NO',
-                        'PRI',
-                        'NULL',
-                        'auto_increment',
-                    ],
-                    [
-                        'name',
-                        'varchar(20)',
-                        'NO',
-                        '',
-                        'NULL',
-                        '',
-                    ],
-                    [
-                        'datetimefield',
-                        'datetime',
-                        'NO',
-                        '',
-                        'NULL',
-                        '',
-                    ],
+            ],
+            [
+                'query' => 'SHOW FULL COLUMNS FROM `test_db`.`test_table`',
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'result' => [
+                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
+                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
+                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
                 ],
+            ],
+            [
+                'query' => 'DESC `test_db`.`test_table`',
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'result' => [
+                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
+                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
+                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
+                ],
+            ],
+            [
+                'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'test\_table%\'',
+                'columns' => ['Name', 'Engine', 'Rows'],
+                'result' => [['test_table', 'InnoDB', '3']],
+            ],
+            [
+                'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE Name = \'test_table\'',
+                'columns' => ['Name', 'Engine', 'Rows'],
+                'result' => [['test_table', 'InnoDB', '3']],
+            ],
+            [
+                'query' => 'SHOW INDEXES FROM `test_db`.`test_table`',
+                'columns' => ['Table', 'Non_unique', 'Key_name', 'Column_name'],
+                'result' => [['test_table', '0', 'PRIMARY', 'id']],
+            ],
+            [
+                'query' => 'SHOW TRIGGERS FROM `test_db` LIKE \'test_table\';',
+                'columns' => ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
+                'result' => [['test_trigger', 'INSERT', 'test_table', 'BEGIN END', 'AFTER', 'definer@localhost']],
             ],
             [
                 'query' => 'SELECT * FROM `test_db`.`test_table`;',
                 'columns' => ['id', 'name', 'datetimefield'],
                 'result' => [
-                    [
-                        '1',
-                        'abcd',
-                        '2011-01-20 02:00:02',
-                    ],
-                    [
-                        '2',
-                        'foo',
-                        '2011-01-20 02:00:02',
-                    ],
-                    [
-                        '3',
-                        'Abcd',
-                        '2011-01-20 02:00:02',
-                    ],
+                    ['1', 'abcd', '2011-01-20 02:00:02'],
+                    ['2', 'foo', '2010-01-20 02:00:02'],
+                    ['3', 'Abcd', '2012-01-20 02:00:02'],
                 ],
+            ],
+            [
+                'query' => 'SHOW PROCEDURE STATUS;',
+                'columns' => ['Db', 'Name', 'Type'],
+                'result' => [
+                    ['test_db', 'test_proc1', 'PROCEDURE'],
+                    ['test_db', 'test_proc2', 'PROCEDURE'],
+                ],
+            ],
+            [
+                'query' => 'SHOW FUNCTION STATUS;',
+                'columns' => ['Db', 'Name', 'Type'],
+                'result' => [['test_db', 'test_func', 'FUNCTION']],
+            ],
+            [
+                'query' => 'SHOW CREATE PROCEDURE `test_db`.`test_proc1`',
+                'columns' => ['Procedure', 'Create Procedure'],
+                'result' => [['test_proc1', 'CREATE PROCEDURE `test_proc1` (p INT) BEGIN END']],
+            ],
+            [
+                'query' => 'SHOW CREATE PROCEDURE `test_db`.`test_proc2`',
+                'columns' => ['Procedure', 'Create Procedure'],
+                'result' => [['test_proc2', 'CREATE PROCEDURE `test_proc2` (p INT) BEGIN END']],
+            ],
+            [
+                'query' => 'SHOW CREATE FUNCTION `test_db`.`test_func`',
+                'columns' => ['Function', 'Create Function'],
+                'result' => [['test_func', 'CREATE FUNCTION `test_func` (p INT) RETURNS int(11) BEGIN END']],
+            ],
+            [
+                'query'  => 'USE `test_db`',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SET SQL_QUOTE_SHOW_CREATE = 0',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SET SQL_QUOTE_SHOW_CREATE = 1',
+                'result' => [],
             ],
         ];
         /**

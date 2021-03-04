@@ -326,7 +326,7 @@ class ExportMediawikiTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'SELECT * FROM `test_db`.`test_table`;'
             )
         );
@@ -351,11 +351,11 @@ class ExportMediawikiTest extends AbstractTestCase
             "|-\n" .
             " | 2\n" .
             " | foo\n" .
-            " | 2011-01-20 02:00:02\n" .
+            " | 2010-01-20 02:00:02\n" .
             "|-\n" .
             " | 3\n" .
             " | Abcd\n" .
-            " | 2011-01-20 02:00:02\n" .
+            " | 2012-01-20 02:00:02\n" .
             "|}\n\n",
             $result
         );

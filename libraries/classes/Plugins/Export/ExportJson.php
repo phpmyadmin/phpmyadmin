@@ -270,8 +270,9 @@ class ExportJson extends ExportPlugin
             $data = [];
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if ($fieldsMeta[$i]->isMappedTypeGeometry
-                    || $fieldsMeta[$i]->isType(FieldMetadata::TYPE_BLOB)) {
+                if (isset($fieldsMeta[$i]) && ($fieldsMeta[$i]->isMappedTypeGeometry
+                    || $fieldsMeta[$i]->isType(FieldMetadata::TYPE_BLOB))
+                ) {
                     // export GIS and blob types as hex
                     $record[$i] = '0x' . bin2hex($record[$i]);
                 }
