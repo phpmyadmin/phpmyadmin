@@ -10,6 +10,76 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 class GisVisualizationTest extends AbstractTestCase
 {
     /**
+     * Scale the data set
+     */
+    public function testScaleDataSet(): void
+    {
+        $gis = GisVisualization::getByData([], [
+            'mysqlVersion' => 50500,
+            'spatialColumn' => 'abc',
+            'isMariaDB' => false,
+        ]);
+        $this->callFunction(
+            $gis,
+            GisVisualization::class,
+            'handleOptions',
+            []
+        );
+        $dataSet = $this->callFunction(
+            $gis,
+            GisVisualization::class,
+            'scaleDataSet',
+            [
+                [
+                    ['abc' => null],// The column is nullable
+                    ['abc' => 2],// Some impossible test case
+                ],
+            ]
+        );
+        $this->assertSame(
+            [
+                'scale' => 1,
+                'x' => -15.0,
+                'y' => -210.0,
+                'minX' => 0.0,
+                'maxX' => 0.0,
+                'minY' => 0.0,
+                'maxY' => 0.0,
+                'height' => 450,
+            ],
+            $dataSet
+        );
+        $dataSet = $this->callFunction(
+            $gis,
+            GisVisualization::class,
+            'scaleDataSet',
+            [
+                [
+                    ['abc' => null],// The column is nullable
+                    ['abc' => 2],// Some impossible test case
+                    ['abc' => 'MULTILINESTRING((36 140,47 233,62 75),(36 100,17 233,178 93))'],
+                    ['abc' => 'POINT(100 250)'],
+                    ['abc' => 'MULTIPOINT(125 50,156 250,178 143,175 80)'],
+                ],
+            ]
+        );
+        $this->assertSame(
+            [
+                'scale' => 2.1,
+                'x' => -38.21428571428572,
+                'y' => 42.85714285714286,
+                'minX' => 17.0,
+                'maxX' => 178.0,
+                'minY' => 50.0 ,
+                'maxY' => 250.0,
+                'height' => 450,
+
+            ],
+            $dataSet
+        );
+    }
+
+    /**
      * Modify the query for an old version
      */
     public function testModifyQueryOld(): void
