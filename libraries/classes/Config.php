@@ -139,7 +139,6 @@ class Config
     {
         // All the version handling is now done in the Version class
         $this->set('PMA_VERSION', Version::VERSION);
-        $this->set('PMA_MAJOR_VERSION', Version::SERIES);
 
         $this->checkWebServerOs();
         $this->checkWebServer();
@@ -1054,7 +1053,6 @@ class Config
 
         $defines = [
             'PMA_VERSION',
-            'PMA_MAJOR_VERSION',
             'PMA_THEME_VERSION',
             'PMA_THEME_GENERATION',
             'PMA_IS_WINDOWS',

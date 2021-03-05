@@ -22,6 +22,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Version;
 
 use function count;
 use function extension_loaded;
@@ -247,7 +248,7 @@ class HomeController extends AbstractController
             'show_php_info' => $cfg['ShowPhpInfo'],
             'is_version_checked' => $cfg['VersionCheck'],
             'phpmyadmin_version' => PMA_VERSION,
-            'phpmyadmin_major_version' => PMA_MAJOR_VERSION,
+            'phpmyadmin_major_version' => Version::SERIES,
             'config_storage_message' => $configStorageMessage ?? '',
             'has_theme_manager' => $cfg['ThemeManager'],
             'themes' => $this->themeManager->getThemesArray(),

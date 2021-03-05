@@ -145,7 +145,6 @@ abstract class AbstractTestCase extends TestCase
         // phpcs:disable PSR1.Files.SideEffects
         if (! defined('PMA_VERSION')) {
             define('PMA_VERSION', $PMA_Config->get('PMA_VERSION'));
-            define('PMA_MAJOR_VERSION', $PMA_Config->get('PMA_MAJOR_VERSION'));
         }
         // phpcs:enable
     }

@@ -34,7 +34,6 @@ $GLOBALS['PMA_Config'] = new Config();
 
 // phpcs:disable PSR1.Files.SideEffects
 define('PMA_VERSION', $GLOBALS['PMA_Config']->get('PMA_VERSION'));
-define('PMA_MAJOR_VERSION', $GLOBALS['PMA_Config']->get('PMA_MAJOR_VERSION'));
 define('PROXY_URL', '');
 define('PROXY_USER', '');
 define('PROXY_PASS', '');

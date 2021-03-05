@@ -141,7 +141,7 @@ class Theme
             return false;
         }
 
-        if (! in_array(PMA_MAJOR_VERSION, $data['supports'])) {
+        if (! in_array(Version::SERIES, $data['supports'])) {
             return false;
         }
 
