@@ -39,7 +39,7 @@
             <td class='nowrap'>
               {% if routine['item_param_type'][loop.index0] in ['ENUM', 'SET'] %}
                 {% for value in routine['item_param_length_arr'][loop.index0] %}
-                  <input name= 'params[{{routine['item_param_name'][loop.parent.loop.index0]}}][]' value='{{params[loop.parent.loop.index0]['htmlentities'][loop.index0]}}' type="{{params[loop.parent.loop.index0]['input_type']}}">
+                  <input name='params[{{routine['item_param_name'][loop.parent.loop.index0]}}][]' value='{{params[loop.parent.loop.index0]['htmlentities'][loop.index0]}}' type="{{params[loop.parent.loop.index0]['input_type']}}">
                   {{params[loop.parent.loop.index0]['htmlentities'][loop.index0]}}
                   <br>
                 {% endfor %}
