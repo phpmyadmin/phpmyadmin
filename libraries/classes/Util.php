@@ -1742,7 +1742,7 @@ class Util
     {
         $url = self::getUrlForOption($target, $location);
         if ($url === null) {
-            return '/';
+            return './';
         }
 
         return Url::getFromRoute($url);
