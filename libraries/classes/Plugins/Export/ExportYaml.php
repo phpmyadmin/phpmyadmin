@@ -16,6 +16,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use function is_numeric;
 use function str_replace;
 use function stripslashes;
+use function strpos;
 
 /**
  * Handles the export for the YAML format
@@ -159,6 +160,8 @@ class ExportYaml extends ExportPlugin
         );
 
         $columns_cnt = $dbi->numFields($result);
+        $fieldsMeta = $dbi->getFieldsMeta($result);
+
         $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
             $col_as = $dbi->fieldName($result, $i);
@@ -191,7 +194,7 @@ class ExportYaml extends ExportPlugin
                     continue;
                 }
 
-                if (is_numeric($record[$i])) {
+                if (is_numeric($record[$i]) && strpos($fieldsMeta[$i]->type, 'string') === false) {
                     $buffer .= '  ' . $columns[$i] . ': ' . $record[$i] . $crlf;
                     continue;
                 }

@@ -13,6 +13,8 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+use stdClass;
+
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;
@@ -169,6 +171,28 @@ class ExportYamlTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        $flags = [];
+        $a = new stdClass();
+        $a->type = '';
+        $flags[] = $a;
+        $b = new stdClass();
+        $b->type = '';
+        $flags[] = $b;
+        $c = new stdClass();
+        $c->type = '';
+        $flags[] = $c;
+        $d = new stdClass();
+        $d->type = 'string';
+        $flags[] = $d;
+        $e = new stdClass();
+        $e->type = 'string';
+        $flags[] = $e;
+
+        $dbi->expects($this->once())
+            ->method('getFieldsMeta')
+            ->with(true)
+            ->will($this->returnValue($flags));
+
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
@@ -177,44 +201,24 @@ class ExportYamlTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('numFields')
             ->with(true)
-            ->will($this->returnValue(4));
+            ->will($this->returnValue(5));
 
-        $dbi->expects($this->at(2))
+        $dbi->expects($this->exactly(5))
             ->method('fieldName')
-            ->will($this->returnValue('fName1'));
+            ->willReturn('fName1', 'fNa"me2', 'fNa\\me3', 'fName4', 'fName5');
 
-        $dbi->expects($this->at(3))
-            ->method('fieldName')
-            ->will($this->returnValue('fNa"me2'));
-
-        $dbi->expects($this->at(4))
-            ->method('fieldName')
-            ->will($this->returnValue('fNa\\me3'));
-
-        $dbi->expects($this->at(5))
-            ->method('fieldName')
-            ->will($this->returnValue('fName4'));
-
-        $dbi->expects($this->at(6))
+        $dbi->expects($this->exactly(3))
             ->method('fetchRow')
-            ->with(true)
-            ->will(
-                $this->returnValue(
-                    [
-                        null,
-                        '123',
-                        "\"c\\a\nb\r",
-                    ]
-                )
-            );
-
-        $dbi->expects($this->at(7))
-            ->method('fetchRow')
-            ->with(true)
-            ->will(
-                $this->returnValue(
-                    [null]
-                )
+            ->willReturn(
+                [
+                    null,
+                    '123',
+                    "\"c\\a\nb\r",
+                    '123',
+                    '+30.2103210000',
+                ],
+                [null],
+                null
             );
 
         $GLOBALS['dbi'] = $dbi;
@@ -236,6 +240,8 @@ class ExportYamlTest extends AbstractTestCase
             '-' . "\n" .
             '  fNa&quot;me2: 123' . "\n" .
             '  fName3: &quot;\&quot;c\\\\a\nb\r&quot;' . "\n" .
+            '  fName4: &quot;123&quot;' . "\n" .
+            '  fName5: &quot;+30.2103210000&quot;' . "\n" .
             '-' . "\n",
             $result
         );
