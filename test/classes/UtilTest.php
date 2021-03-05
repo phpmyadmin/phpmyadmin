@@ -2600,4 +2600,177 @@ class UtilTest extends AbstractTestCase
         $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
         $GLOBALS['dbi'] = $oldDbi;
     }
+
+    /**
+     * @return array[]
+     */
+    public function dataProviderScriptNames(): array
+    {
+        // target
+        // location
+        // function output
+        return [
+            [
+                'structure', // Notice the typo on db_structure.php
+                'databasesss',
+                './',// Fallback to a relative path, impossible to build a valid route link
+            ],
+            [
+                'db_structures.php', // Notice the typo on databases
+                'database',
+                './',// Fallback to a relative path, impossible to build a valid route link
+            ],
+            [
+                'tbl_structure.php', // Support the legacy value
+                'table',
+                'index.php?route=/table/structure&amp;lang=en',
+            ],
+            [
+                'structure',
+                'table',
+                'index.php?route=/table/structure&amp;lang=en',
+            ],
+            [
+                'tbl_sql.php', // Support the legacy value
+                'table',
+                'index.php?route=/table/sql&amp;lang=en',
+            ],
+            [
+                'sql',
+                'table',
+                'index.php?route=/table/sql&amp;lang=en',
+            ],
+            [
+                'tbl_select.php', // Support the legacy value
+                'table',
+                'index.php?route=/table/search&amp;lang=en',
+            ],
+            [
+                'search',
+                'table',
+                'index.php?route=/table/search&amp;lang=en',
+            ],
+            [
+                'tbl_change.php', // Support the legacy value
+                'table',
+                'index.php?route=/table/change&amp;lang=en',
+            ],
+            [
+                'insert',
+                'table',
+                'index.php?route=/table/change&amp;lang=en',
+            ],
+            [
+                'sql.php', // Support the legacy value
+                'table',
+                'index.php?route=/sql&amp;lang=en',
+            ],
+            [
+                'browse',
+                'table',
+                'index.php?route=/sql&amp;lang=en',
+            ],
+            [
+                'db_structure.php', // Support the legacy value
+                'database',
+                'index.php?route=/database/structure&amp;lang=en',
+            ],
+            [
+                'structure',
+                'database',
+                'index.php?route=/database/structure&amp;lang=en',
+            ],
+            [
+                'db_sql.php', // Support the legacy value
+                'database',
+                'index.php?route=/database/sql&amp;lang=en',
+            ],
+            [
+                'sql',
+                'database',
+                'index.php?route=/database/sql&amp;lang=en',
+            ],
+            [
+                'db_search.php', // Support the legacy value
+                'database',
+                'index.php?route=/database/search&amp;lang=en',
+            ],
+            [
+                'search',
+                'database',
+                'index.php?route=/database/search&amp;lang=en',
+            ],
+            [
+                'db_operations.php', // Support the legacy value
+                'database',
+                'index.php?route=/database/operations&amp;lang=en',
+            ],
+            [
+                'operations',
+                'database',
+                'index.php?route=/database/operations&amp;lang=en',
+            ],
+            [
+                'index.php', // Support the legacy value
+                'server',
+                'index.php?route=/&amp;lang=en',
+            ],
+            [
+                'welcome',
+                'server',
+                'index.php?route=/&amp;lang=en',
+            ],
+            [
+                'server_databases.php', // Support the legacy value
+                'server',
+                'index.php?route=/server/databases&amp;lang=en',
+            ],
+            [
+                'databases',
+                'server',
+                'index.php?route=/server/databases&amp;lang=en',
+            ],
+            [
+                'server_status.php', // Support the legacy value
+                'server',
+                'index.php?route=/server/status&amp;lang=en',
+            ],
+            [
+                'status',
+                'server',
+                'index.php?route=/server/status&amp;lang=en',
+            ],
+            [
+                'server_variables.php', // Support the legacy value
+                'server',
+                'index.php?route=/server/variables&amp;lang=en',
+            ],
+            [
+                'variables',
+                'server',
+                'index.php?route=/server/variables&amp;lang=en',
+            ],
+            [
+                'server_privileges.php', // Support the legacy value
+                'server',
+                'index.php?route=/server/privileges&amp;lang=en',
+            ],
+            [
+                'privileges',
+                'server',
+                'index.php?route=/server/privileges&amp;lang=en',
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider dataProviderScriptNames
+     */
+    public function testGetScriptNameForOption(string $target, string $location, string $finalLink): void
+    {
+        $this->assertSame(
+            $finalLink,
+            Util::getScriptNameForOption($target, $location)
+        );
+    }
 }
