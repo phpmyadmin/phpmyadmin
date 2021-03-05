@@ -179,7 +179,7 @@ class ExportYamlTest extends AbstractTestCase
                 'test_table',
                 "\n",
                 'localhost',
-                'SELECT * FROM `test_db`.`test_table`;'
+                'SELECT * FROM `test_db`.`test_table_yaml`;'
             )
         );
         $result = ob_get_clean();
@@ -197,7 +197,17 @@ class ExportYamlTest extends AbstractTestCase
             '-' . "\n" .
             '  id: 3' . "\n" .
             '  name: &quot;Abcd&quot;' . "\n" .
-            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n",
+            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
+            '-' . "\n" .
+            '  id: 4' . "\n" .
+            '  name: &quot;Abcd&quot;' . "\n" .
+            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
+            '  textfield: &quot;123&quot;' . "\n" .
+            '-' . "\n" .
+            '  id: 5' . "\n" .
+            '  name: &quot;Abcd&quot;' . "\n" .
+            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
+            '  textfield: &quot;+30.2103210000&quot;' . "\n",
             $result
         );
     }

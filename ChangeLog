@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 - issue #16713 Fixed "PhpMyAdmin\Url::getFromRoute" PHP error for old config values
 - issue #16713 Add a legacy fallback for the old config value of "$cfg['DefaultTabDatabase']" and others
 - issue #16698 Fix relative fallback URL to './' instead of '/'
+- issue        Fixed Yaml export to quote strings even when they are numeric
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type

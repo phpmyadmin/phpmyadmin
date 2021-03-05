@@ -21,6 +21,9 @@ use function is_bool;
 use function preg_replace;
 use function str_replace;
 use function trim;
+use const MYSQLI_TYPE_DECIMAL;
+use const MYSQLI_TYPE_STRING;
+use const MYSQLI_TYPE_DATETIME;
 
 /**
  * Fake database driver for testing purposes
@@ -358,7 +361,12 @@ class DbiDummy implements DbiExtension
      */
     public function getFieldsMeta($result): ?array
     {
-        return [];
+        $query_data = &$this->getQueryData($result);
+        if (! isset($query_data['metadata'])) {
+            return [];
+        }
+
+        return $query_data['metadata'];
     }
 
     /**
@@ -2242,6 +2250,23 @@ class DbiDummy implements DbiExtension
                 'query' => 'SHOW TRIGGERS FROM `test_db` LIKE \'test_table\';',
                 'columns' => ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
                 'result' => [['test_trigger', 'INSERT', 'test_table', 'BEGIN END', 'AFTER', 'definer@localhost']],
+            ],
+            [
+                'query' => 'SELECT * FROM `test_db`.`test_table_yaml`;',
+                'columns' => ['id', 'name', 'datetimefield', 'textfield'],
+                'metadata' => [
+                    new FieldMetadata(MYSQLI_TYPE_DECIMAL, 0, (object) []),
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),
+                    new FieldMetadata(MYSQLI_TYPE_DATETIME, 0, (object) []),
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),
+                ],
+                'result' => [
+                    ['1', 'abcd', '2011-01-20 02:00:02', null],
+                    ['2', 'foo', '2010-01-20 02:00:02', null],
+                    ['3', 'Abcd', '2012-01-20 02:00:02', null],
+                    ['4', 'Abcd', '2012-01-20 02:00:02', '123'],
+                    ['5', 'Abcd', '2012-01-20 02:00:02', '+30.2103210000'],
+                ],
             ],
             [
                 'query' => 'SELECT * FROM `test_db`.`test_table`;',
