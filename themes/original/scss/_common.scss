@@ -1021,6 +1021,7 @@ kbd {
 }
 
 code {
+  font-size: 1em;
   color: $main-color;
 
   &.php {
@@ -1936,7 +1937,7 @@ input#auto_increment_opt {
 }
 
 .cDrop {
-  left: 0;
+  right: 0;
   position: absolute;
   top: 0;
 }
@@ -1945,9 +1946,7 @@ input#auto_increment_opt {
   background: url("../img/col_drop.png");
   cursor: pointer;
   height: 16px;
-  margin-left: 0.5em;
   margin-top: 0.3em;
-  position: absolute;
   width: 16px;
 
   &:hover {
@@ -1963,6 +1962,8 @@ input#auto_increment_opt {
   background: #eee;
   border: solid 1px #999;
   position: absolute;
+  margin-left: 75%;
+  right: 0;
 
   .lDiv div {
     padding: 0.2em 0.5em 0.2em 0.2em;

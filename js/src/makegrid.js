@@ -1780,9 +1780,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 g.hideColList();
             });
 
-            // attach to global div
-            $(g.gDiv).append(g.cDrop);
-            $(g.gDiv).append(g.cList);
+            // attach to first row first col of the grid
+            var thFirst = $(g.t).find('th.print_ignore');
+            $(thFirst).append(g.cDrop);
+            $(thFirst).append(g.cList);
 
             // some adjustment
             g.reposDrop();

@@ -1225,6 +1225,7 @@ kbd {
 }
 
 code {
+  font-size: 1em;
   color: $main-color;
 
   &.php {
@@ -2149,7 +2150,7 @@ form.append_fields_form .tblFooters {
 }
 
 .cDrop {
-  left: 0;
+  right: 0;
   position: absolute;
   top: 0;
 }
@@ -2158,9 +2159,7 @@ form.append_fields_form .tblFooters {
   background: url("../img/col_drop.png");
   cursor: pointer;
   height: 16px;
-  margin-left: 0.3em;
   margin-top: 0.3em;
-  position: absolute;
   width: 16px;
 
   &:hover {
@@ -2176,7 +2175,9 @@ form.append_fields_form .tblFooters {
   background: #fff;
   border: solid 1px #ccc;
   position: absolute;
-
+  margin-left: 75%;
+  right: 0;
+  
   .lDiv div {
     padding: 0.2em 0.5em 0.2em;
     padding-left: 0.2em;
