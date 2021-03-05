@@ -7,12 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use const DIRECTORY_SEPARATOR;
-use const E_USER_ERROR;
-use const PHP_OS;
-use const PHP_URL_PATH;
-use const PHP_URL_SCHEME;
-use const PHP_VERSION_ID;
 use function array_filter;
 use function array_flip;
 use function array_intersect_key;
@@ -68,6 +62,13 @@ use function sys_get_temp_dir;
 use function time;
 use function trigger_error;
 use function trim;
+
+use const DIRECTORY_SEPARATOR;
+use const E_USER_ERROR;
+use const PHP_OS;
+use const PHP_URL_PATH;
+use const PHP_URL_SCHEME;
+use const PHP_VERSION_ID;
 
 /**
  * Configuration class

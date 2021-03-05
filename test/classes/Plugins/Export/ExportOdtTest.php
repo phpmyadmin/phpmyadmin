@@ -18,12 +18,14 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
+
 use function array_shift;
-use const MYSQLI_TYPE_DECIMAL;
-use const MYSQLI_NUM_FLAG;
-use const MYSQLI_TYPE_STRING;
-use const MYSQLI_TYPE_BLOB;
+
 use const MYSQLI_BLOB_FLAG;
+use const MYSQLI_NUM_FLAG;
+use const MYSQLI_TYPE_BLOB;
+use const MYSQLI_TYPE_DECIMAL;
+use const MYSQLI_TYPE_STRING;
 
 /**
  * @requires extension zip

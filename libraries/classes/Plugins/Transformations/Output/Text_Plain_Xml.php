@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Output;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Response;
+
 use function htmlspecialchars;
 
 /**

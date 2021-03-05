@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\FileListing;
+
 use function array_values;
 use function extension_loaded;
 use function is_bool;

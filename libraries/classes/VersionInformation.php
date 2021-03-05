@@ -9,7 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
 use stdClass;
-use const PHP_VERSION;
+
 use function count;
 use function explode;
 use function intval;
@@ -22,6 +22,8 @@ use function strpos;
 use function substr;
 use function time;
 use function version_compare;
+
+use const PHP_VERSION;
 
 /**
  * Responsible for retrieving version information and notifying about latest version

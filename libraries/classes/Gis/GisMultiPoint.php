@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use TCPDF;
+
 use function count;
 use function hexdec;
 use function imagearc;

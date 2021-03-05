@@ -6,10 +6,11 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\FieldMetadata;
 use stdClass;
-use const MYSQLI_TYPE_STRING;
-use const MYSQLI_NUM_FLAG;
+
 use const MYSQLI_BLOB_FLAG;
+use const MYSQLI_NUM_FLAG;
 use const MYSQLI_TYPE_FLOAT;
+use const MYSQLI_TYPE_STRING;
 
 class FieldMetadataTest extends AbstractTestCase
 {

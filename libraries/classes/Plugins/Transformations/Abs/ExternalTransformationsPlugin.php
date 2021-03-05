@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use const E_USER_DEPRECATED;
+
 use function count;
 use function fclose;
 use function feof;
@@ -22,6 +22,8 @@ use function proc_open;
 use function sprintf;
 use function strlen;
 use function trigger_error;
+
+use const E_USER_DEPRECATED;
 
 /**
  * Provides common methods for all of the external transformations plugins.

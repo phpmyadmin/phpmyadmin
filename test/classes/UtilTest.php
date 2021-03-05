@@ -12,7 +12,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
-use const LC_ALL;
+
 use function date_default_timezone_get;
 use function date_default_timezone_set;
 use function file_exists;
@@ -25,12 +25,14 @@ use function str_repeat;
 use function str_replace;
 use function strlen;
 use function trim;
-use const MYSQLI_TYPE_STRING;
-use const MYSQLI_TYPE_SHORT;
+
+use const LC_ALL;
 use const MYSQLI_NUM_FLAG;
 use const MYSQLI_TYPE_BIT;
 use const MYSQLI_TYPE_GEOMETRY;
 use const MYSQLI_TYPE_LONG;
+use const MYSQLI_TYPE_SHORT;
+use const MYSQLI_TYPE_STRING;
 
 class UtilTest extends AbstractTestCase
 {

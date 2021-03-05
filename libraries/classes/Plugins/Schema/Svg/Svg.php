@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Schema\Svg;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
 use XMLWriter;
+
 use function intval;
 use function is_int;
 use function sprintf;

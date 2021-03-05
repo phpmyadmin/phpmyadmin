@@ -22,6 +22,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Throwable;
+
 use function define;
 use function htmlspecialchars;
 use function in_array;

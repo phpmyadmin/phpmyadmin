@@ -6,12 +6,14 @@ namespace PhpMyAdmin\Tests\Utils;
 
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\HttpRequest;
-use const CURLOPT_CAINFO;
-use const CURLOPT_CAPATH;
+
 use function curl_version;
 use function function_exists;
 use function ini_get;
 use function stripos;
+
+use const CURLOPT_CAINFO;
+use const CURLOPT_CAPATH;
 
 class HttpRequestTest extends AbstractTestCase
 {

@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
 use PhpMyAdmin\Tests\AbstractTestCase;
+
 use function ob_get_clean;
 use function ob_start;
 

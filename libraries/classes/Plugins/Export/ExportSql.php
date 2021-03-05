@@ -27,8 +27,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
-use const E_USER_ERROR;
-use const PHP_VERSION;
+
 use function bin2hex;
 use function count;
 use function defined;
@@ -49,6 +48,9 @@ use function str_replace;
 use function strtotime;
 use function strtoupper;
 use function trigger_error;
+
+use const E_USER_ERROR;
+use const PHP_VERSION;
 
 /**
  * Handles the export for the SQL class

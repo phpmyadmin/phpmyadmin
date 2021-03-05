@@ -11,7 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 use TCPDF;
-use const PNG_ALL_FILTERS;
+
 use function array_merge;
 use function base64_encode;
 use function count;
@@ -22,13 +22,15 @@ use function imagefilledrectangle;
 use function imagepng;
 use function intval;
 use function is_numeric;
+use function is_string;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_strtolower;
 use function mb_substr;
 use function ob_get_clean;
 use function ob_start;
-use function is_string;
+
+use const PNG_ALL_FILTERS;
 
 /**
  * Handles visualization of GIS data

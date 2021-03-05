@@ -16,6 +16,7 @@ use PhpMyAdmin\TablePartitionDefinition;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_merge;
 use function bin2hex;
 use function count;

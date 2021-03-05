@@ -10,6 +10,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function strlen;
 
 final class EventsController extends AbstractController

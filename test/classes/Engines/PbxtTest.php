@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Tests\AbstractTestCase;
+
 use function sprintf;
 
 class PbxtTest extends AbstractTestCase

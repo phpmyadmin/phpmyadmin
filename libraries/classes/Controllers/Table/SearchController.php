@@ -17,6 +17,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function in_array;
 use function intval;
 use function mb_strtolower;

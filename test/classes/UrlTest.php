@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Url;
+
 use function htmlentities;
 
 class UrlTest extends AbstractTestCase

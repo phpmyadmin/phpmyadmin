@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Util;
+
 use function array_sum;
 use function count;
 use function implode;

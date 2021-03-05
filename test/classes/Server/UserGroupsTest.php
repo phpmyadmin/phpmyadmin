@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
+
 use function htmlspecialchars;
 
 class UserGroupsTest extends AbstractTestCase

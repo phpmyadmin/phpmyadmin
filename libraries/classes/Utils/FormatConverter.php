@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Utils;
 
 use PhpMyAdmin\Util;
+
 use function bin2hex;
 use function hex2bin;
 use function inet_ntop;

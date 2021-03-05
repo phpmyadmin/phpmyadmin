@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+
 use function bin2hex;
 use function chunk_split;
 use function intval;

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Setup;
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+
 use function ob_get_clean;
 use function ob_start;
 

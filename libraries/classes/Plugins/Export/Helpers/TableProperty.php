@@ -5,13 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\Plugins\Export\ExportCodegen;
-use const ENT_COMPAT;
+
 use function htmlspecialchars;
 use function mb_strpos;
 use function mb_substr;
 use function str_replace;
 use function strlen;
 use function trim;
+
+use const ENT_COMPAT;
 
 /**
  * PhpMyAdmin\Plugins\Export\Helpers\TableProperty class

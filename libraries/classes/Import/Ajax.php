@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Import;
 
 use PhpMyAdmin\Core;
+
 use function extension_loaded;
 use function function_exists;
 use function ini_get;

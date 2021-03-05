@@ -9,14 +9,16 @@ use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
+
+use function define;
+use function defined;
 use function htmlspecialchars;
+use function json_encode;
+use function phpversion;
+
 use const ENT_QUOTES;
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
-use function define;
-use function defined;
-use function json_encode;
-use function phpversion;
 
 /**
  * PhpMyAdmin\Tests\ErrorReportTest class

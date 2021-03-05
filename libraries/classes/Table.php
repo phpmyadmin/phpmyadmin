@@ -16,7 +16,7 @@ use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
-use const E_USER_WARNING;
+
 use function array_key_exists;
 use function array_map;
 use function count;
@@ -45,6 +45,8 @@ use function substr;
 use function substr_compare;
 use function trigger_error;
 use function trim;
+
+use const E_USER_WARNING;
 
 /**
  * Handles everything related to tables

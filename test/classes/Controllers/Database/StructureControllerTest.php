@@ -23,6 +23,7 @@ use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionClass;
 use ReflectionException;
+
 use function define;
 use function defined;
 use function json_encode;

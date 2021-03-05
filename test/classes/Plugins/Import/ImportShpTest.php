@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportShp;
 use PhpMyAdmin\Tests\AbstractTestCase;
+
 use function define;
 use function defined;
 use function extension_loaded;

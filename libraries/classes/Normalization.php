@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Html\Generator;
+
 use function array_merge;
 use function array_pop;
 use function array_unique;

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
+
 use function strlen;
 use function substr;
 

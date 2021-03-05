@@ -16,6 +16,7 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
+
 use function array_keys;
 use function md5;
 

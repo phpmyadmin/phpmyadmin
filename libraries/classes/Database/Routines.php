@@ -16,7 +16,7 @@ use PhpMyAdmin\SqlParser\Utils\Routine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use const ENT_QUOTES;
+
 use function array_merge;
 use function count;
 use function explode;
@@ -35,6 +35,8 @@ use function sprintf;
 use function stripos;
 use function substr;
 use function trim;
+
+use const ENT_QUOTES;
 
 /**
  * Functions for routine management.

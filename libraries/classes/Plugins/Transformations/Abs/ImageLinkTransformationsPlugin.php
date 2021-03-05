@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Url;
+
 use function htmlspecialchars;
 
 /**

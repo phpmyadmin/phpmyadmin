@@ -15,6 +15,7 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_keys;
 use function htmlspecialchars;
 use function json_encode;

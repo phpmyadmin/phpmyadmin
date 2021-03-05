@@ -19,13 +19,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Utils\SessionCache;
-use const E_USER_WARNING;
-use const LOG_INFO;
-use const LOG_NDELAY;
-use const LOG_PID;
-use const LOG_USER;
-use const SORT_ASC;
-use const SORT_DESC;
+
 use function array_diff;
 use function array_keys;
 use function array_map;
@@ -61,6 +55,14 @@ use function trigger_error;
 use function uasort;
 use function uksort;
 use function usort;
+
+use const E_USER_WARNING;
+use const LOG_INFO;
+use const LOG_NDELAY;
+use const LOG_PID;
+use const LOG_USER;
+use const SORT_ASC;
+use const SORT_DESC;
 
 /**
  * Main interface for database interactions

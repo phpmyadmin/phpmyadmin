@@ -13,6 +13,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+
 use function array_key_exists;
 use function array_keys;
 use function array_values;

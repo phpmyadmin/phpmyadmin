@@ -18,7 +18,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use const PHP_URL_HOST;
+
 use function count;
 use function defined;
 use function file_exists;
@@ -26,6 +26,8 @@ use function is_bool;
 use function parse_url;
 use function strpos;
 use function trim;
+
+use const PHP_URL_HOST;
 
 /**
  * The navigation panel - displays server, db and table selection tree

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\SessionCache;
+
 use function is_array;
 
 /**

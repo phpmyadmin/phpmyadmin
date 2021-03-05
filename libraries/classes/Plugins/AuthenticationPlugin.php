@@ -17,6 +17,7 @@ use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
+
 use function defined;
 use function htmlspecialchars;
 use function intval;

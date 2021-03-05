@@ -14,6 +14,7 @@ use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
 use function is_array;
 
 /**

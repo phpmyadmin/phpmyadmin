@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\AssertionFailedError;
+
 use function array_push;
 use function trim;
 

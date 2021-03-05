@@ -13,13 +13,15 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
-use const PHP_SAPI;
+
 use function define;
 use function defined;
 use function getenv;
 use function in_array;
 use function is_array;
 use function parse_url;
+
+use const PHP_SAPI;
 
 /**
  * Abstract class to hold some usefull methods used in tests

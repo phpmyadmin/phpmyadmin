@@ -9,6 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
+
 use function array_slice;
 
 class CentralColumnsTest extends AbstractTestCase

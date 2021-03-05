@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Url;
+
 use function array_slice;
 use function debug_backtrace;
 use function explode;

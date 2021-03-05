@@ -11,6 +11,7 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function implode;
 
 /**

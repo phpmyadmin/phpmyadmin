@@ -8,6 +8,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
+
 use function header;
 use function ini_get;
 use function session_start;

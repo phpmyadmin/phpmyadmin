@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use TCPDF;
+
 use function array_merge;
 use function array_push;
 use function array_slice;

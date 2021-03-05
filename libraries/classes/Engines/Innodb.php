@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Engines;
 
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Util;
+
 use function htmlspecialchars;
 use function implode;
 

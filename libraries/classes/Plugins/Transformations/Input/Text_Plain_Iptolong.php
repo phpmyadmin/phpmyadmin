@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Input;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Utils\FormatConverter;
+
 use function htmlspecialchars;
 
 /**

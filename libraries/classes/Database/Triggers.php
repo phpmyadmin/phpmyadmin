@@ -12,7 +12,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use const ENT_QUOTES;
+
 use function count;
 use function explode;
 use function htmlentities;
@@ -22,6 +22,8 @@ use function mb_strpos;
 use function mb_strtoupper;
 use function sprintf;
 use function trim;
+
+use const ENT_QUOTES;
 
 /**
  * Functions for trigger management.

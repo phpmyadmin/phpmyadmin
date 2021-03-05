@@ -9,12 +9,7 @@ namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Util;
-use function mysqli_report;
-use const FILTER_FLAG_IPV4;
-use const FILTER_FLAG_IPV6;
-use const FILTER_VALIDATE_IP;
-use const MYSQLI_REPORT_OFF;
-use const PHP_INT_MAX;
+
 use function array_map;
 use function array_merge;
 use function array_shift;
@@ -32,11 +27,18 @@ use function mb_strpos;
 use function mb_substr;
 use function mysqli_close;
 use function mysqli_connect;
+use function mysqli_report;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
 use function str_replace;
 use function trim;
+
+use const FILTER_FLAG_IPV4;
+use const FILTER_FLAG_IPV6;
+use const FILTER_VALIDATE_IP;
+use const MYSQLI_REPORT_OFF;
+use const PHP_INT_MAX;
 
 /**
  * Validation class for various validation functions

@@ -11,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
+
 use function is_array;
 use function parse_url;
 use function sprintf;

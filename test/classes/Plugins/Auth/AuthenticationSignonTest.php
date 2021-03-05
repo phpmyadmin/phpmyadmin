@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+
 use function ob_get_clean;
 use function ob_start;
 use function phpversion;

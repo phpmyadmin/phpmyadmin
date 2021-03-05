@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
+
 use function array_keys;
 use function array_merge;
 use function count;

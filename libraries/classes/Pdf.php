@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use Exception;
 use TCPDF;
 use TCPDF_FONTS;
+
 use function count;
 use function strlen;
 use function strtr;

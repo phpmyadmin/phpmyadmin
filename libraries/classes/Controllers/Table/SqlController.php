@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function htmlspecialchars;
 
 /**

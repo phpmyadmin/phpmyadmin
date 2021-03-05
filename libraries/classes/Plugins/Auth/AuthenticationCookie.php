@@ -22,6 +22,7 @@ use PhpMyAdmin\Utils\SessionCache;
 use phpseclib3\Crypt\AES;
 use phpseclib3\Crypt\Random;
 use ReCaptcha;
+
 use function base64_decode;
 use function base64_encode;
 use function class_exists;

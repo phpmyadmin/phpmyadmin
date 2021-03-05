@@ -14,7 +14,15 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Query\Utilities;
 use stdClass;
+
+use function defined;
+use function is_array;
+use function is_bool;
+use function mysqli_init;
 use function mysqli_report;
+use function stripos;
+use function trigger_error;
+
 use const E_USER_WARNING;
 use const MYSQLI_ASSOC;
 use const MYSQLI_BOTH;
@@ -27,12 +35,6 @@ use const MYSQLI_OPT_SSL_VERIFY_SERVER_CERT;
 use const MYSQLI_REPORT_OFF;
 use const MYSQLI_STORE_RESULT;
 use const MYSQLI_USE_RESULT;
-use function defined;
-use function is_array;
-use function is_bool;
-use function mysqli_init;
-use function stripos;
-use function trigger_error;
 
 /**
  * Interface to the MySQL Improved extension (MySQLi)

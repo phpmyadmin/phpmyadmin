@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Schema\Eps;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
+
 use function strlen;
 
 /**

@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
+
 use function array_flip;
 use function array_merge;
 use function basename;

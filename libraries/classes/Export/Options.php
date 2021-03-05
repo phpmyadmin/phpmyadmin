@@ -12,6 +12,7 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
+
 use function explode;
 use function function_exists;
 use function in_array;

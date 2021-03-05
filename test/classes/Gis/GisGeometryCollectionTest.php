@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Gis;
 use PhpMyAdmin\Gis\GisGeometryCollection;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use TCPDF;
+
 use function function_exists;
 use function imagecreatetruecolor;
 use function imagesx;

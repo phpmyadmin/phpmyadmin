@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionException;
 use ReflectionProperty;
+
 use function array_keys;
 
 class ServerConfigChecksTest extends AbstractTestCase

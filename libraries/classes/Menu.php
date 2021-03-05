@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Utils\SessionCache;
+
 use function array_key_exists;
 use function count;
 use function in_array;

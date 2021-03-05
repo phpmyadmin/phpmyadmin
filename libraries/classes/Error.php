@@ -5,23 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use Throwable;
-use const DIRECTORY_SEPARATOR;
-use const E_COMPILE_ERROR;
-use const E_COMPILE_WARNING;
-use const E_CORE_ERROR;
-use const E_CORE_WARNING;
-use const E_DEPRECATED;
-use const E_ERROR;
-use const E_NOTICE;
-use const E_PARSE;
-use const E_RECOVERABLE_ERROR;
-use const E_STRICT;
-use const E_USER_DEPRECATED;
-use const E_USER_ERROR;
-use const E_USER_NOTICE;
-use const E_USER_WARNING;
-use const E_WARNING;
-use const PATH_SEPARATOR;
+
 use function array_pop;
 use function array_slice;
 use function basename;
@@ -43,6 +27,24 @@ use function realpath;
 use function serialize;
 use function str_replace;
 use function var_export;
+
+use const DIRECTORY_SEPARATOR;
+use const E_COMPILE_ERROR;
+use const E_COMPILE_WARNING;
+use const E_CORE_ERROR;
+use const E_CORE_WARNING;
+use const E_DEPRECATED;
+use const E_ERROR;
+use const E_NOTICE;
+use const E_PARSE;
+use const E_RECOVERABLE_ERROR;
+use const E_STRICT;
+use const E_USER_DEPRECATED;
+use const E_USER_ERROR;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const E_WARNING;
+use const PATH_SEPARATOR;
 
 /**
  * a single error

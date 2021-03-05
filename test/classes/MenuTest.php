@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Menu;
+
 use function define;
 use function defined;
 

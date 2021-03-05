@@ -17,6 +17,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function intval;
 use function is_array;
 use function min;

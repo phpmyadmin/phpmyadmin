@@ -14,6 +14,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use ReflectionProperty;
+
 use function htmlspecialchars;
 use function str_replace;
 

@@ -18,6 +18,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Plugins\TransformationsInterface;
+
 use function array_shift;
 use function class_exists;
 use function closedir;

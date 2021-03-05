@@ -10,6 +10,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Url;
+
 use function htmlspecialchars;
 
 class ProcessesControllerTest extends AbstractTestCase

@@ -12,6 +12,7 @@ use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
 use ReflectionException;
 use ReflectionMethod;
+
 use function base64_encode;
 use function function_exists;
 use function is_readable;

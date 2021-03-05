@@ -8,6 +8,7 @@ use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\TwoFactor;
 use Samyoul\U2F\U2FServer\RegistrationRequest;
 use Samyoul\U2F\U2FServer\SignRequest;
+
 use function count;
 use function in_array;
 

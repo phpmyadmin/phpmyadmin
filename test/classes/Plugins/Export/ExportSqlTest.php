@@ -22,16 +22,18 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
+
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;
-use const MYSQLI_TYPE_LONG;
+
 use const MYSQLI_NUM_FLAG;
-use const MYSQLI_TYPE_STRING;
-use const MYSQLI_TYPE_BLOB;
 use const MYSQLI_PRI_KEY_FLAG;
-use const MYSQLI_UNIQUE_KEY_FLAG;
+use const MYSQLI_TYPE_BLOB;
 use const MYSQLI_TYPE_FLOAT;
+use const MYSQLI_TYPE_LONG;
+use const MYSQLI_TYPE_STRING;
+use const MYSQLI_UNIQUE_KEY_FLAG;
 
 /**
  * @group medium

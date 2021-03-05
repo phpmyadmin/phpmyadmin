@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
+
 use function array_keys;
 
 /**

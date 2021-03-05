@@ -16,13 +16,15 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Url;
 use ReflectionProperty;
 use stdClass;
+
 use function hash;
 use function md5;
 use function sprintf;
-use const MYSQLI_TYPE_DECIMAL;
+
 use const MYSQLI_PRI_KEY_FLAG;
-use const MYSQLI_TYPE_TINY;
+use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_TIMESTAMP;
+use const MYSQLI_TYPE_TINY;
 
 /**
  * @group medium

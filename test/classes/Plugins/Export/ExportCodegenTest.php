@@ -14,6 +14,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
+
 use function ob_get_clean;
 use function ob_start;
 

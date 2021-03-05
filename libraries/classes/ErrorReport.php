@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
-use const E_USER_WARNING;
-use const PHP_VERSION;
+
 use function count;
 use function http_build_query;
 use function is_array;
@@ -17,6 +16,9 @@ use function parse_str;
 use function parse_url;
 use function preg_match;
 use function str_replace;
+
+use const E_USER_WARNING;
+use const PHP_VERSION;
 
 /**
  * Error reporting functions used to generate and submit error reports

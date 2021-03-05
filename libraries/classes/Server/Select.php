@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Server;
 
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function count;
 use function htmlspecialchars;
 use function implode;

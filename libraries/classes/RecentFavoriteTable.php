@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
-use const SORT_REGULAR;
+
 use function array_key_exists;
 use function array_merge;
 use function array_pop;
@@ -21,6 +21,8 @@ use function json_encode;
 use function max;
 use function md5;
 use function ucfirst;
+
+use const SORT_REGULAR;
 
 /**
  * Handles the recently used and favorite tables.

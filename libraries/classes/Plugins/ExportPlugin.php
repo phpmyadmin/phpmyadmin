@@ -11,6 +11,7 @@ use PhpMyAdmin\Export;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
+
 use function stripos;
 
 /**

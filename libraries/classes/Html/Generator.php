@@ -23,7 +23,7 @@ use Throwable;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
-use const ENT_COMPAT;
+
 use function addslashes;
 use function array_key_exists;
 use function ceil;
@@ -51,6 +51,8 @@ use function strncmp;
 use function strpos;
 use function trim;
 use function urlencode;
+
+use const ENT_COMPAT;
 
 /**
  * HTML Generator

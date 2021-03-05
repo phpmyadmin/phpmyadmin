@@ -13,6 +13,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPreferences;
+
 use function count;
 use function in_array;
 use function is_string;

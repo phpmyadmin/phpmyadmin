@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use ArrayObject;
 use PhpMyAdmin\Query\Utilities;
+
 use function in_array;
 
 /**

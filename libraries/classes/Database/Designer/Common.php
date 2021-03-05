@@ -10,6 +10,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
+
 use function count;
 use function explode;
 use function in_array;

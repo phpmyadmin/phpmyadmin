@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+
 use function array_merge;
 use function count;
 use function implode;

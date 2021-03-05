@@ -28,11 +28,13 @@ use PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
+
 use function date_default_timezone_set;
 use function function_exists;
 use function method_exists;
-use const MYSQLI_TYPE_TINY;
+
 use const MYSQLI_TYPE_STRING;
+use const MYSQLI_TYPE_TINY;
 
 /**
  * Tests for different input/output transformation plugins

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Url;
+
 use function bin2hex;
 use function intval;
 

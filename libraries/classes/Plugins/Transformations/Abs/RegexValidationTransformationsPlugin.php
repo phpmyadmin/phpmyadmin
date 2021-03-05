@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
+
 use function htmlspecialchars;
 use function preg_match;
 use function sprintf;

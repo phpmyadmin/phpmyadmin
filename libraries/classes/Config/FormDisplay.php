@@ -18,7 +18,7 @@ use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
-use const E_USER_WARNING;
+
 use function array_flip;
 use function array_keys;
 use function array_search;
@@ -37,6 +37,8 @@ use function sprintf;
 use function str_replace;
 use function trigger_error;
 use function trim;
+
+use const E_USER_WARNING;
 
 /**
  * Form management class, displays and processes forms

@@ -10,6 +10,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
 use function array_keys;
 use function ksort;
 use function mb_strtolower;

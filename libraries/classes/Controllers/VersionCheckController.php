@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\VersionInformation;
+
 use function json_encode;
 
 /**

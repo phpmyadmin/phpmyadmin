@@ -12,6 +12,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 use stdClass;
+
 use function count;
 use function intval;
 use function is_array;

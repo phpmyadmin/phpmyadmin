@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
+
 use function json_encode;
 
 class FooterTest extends AbstractTestCase

@@ -8,8 +8,10 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Url;
-use const PHP_INT_MAX;
+
 use function time;
+
+use const PHP_INT_MAX;
 
 /**
  * Tests for import functions

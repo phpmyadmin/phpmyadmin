@@ -7,8 +7,7 @@ namespace PhpMyAdmin;
 use DirectoryIterator;
 use PhpMyAdmin\Utils\HttpRequest;
 use stdClass;
-use const DIRECTORY_SEPARATOR;
-use const PHP_EOL;
+
 use function array_key_exists;
 use function array_shift;
 use function basename;
@@ -27,6 +26,7 @@ use function gzuncompress;
 use function implode;
 use function in_array;
 use function intval;
+use function is_bool;
 use function is_dir;
 use function is_file;
 use function json_decode;
@@ -39,7 +39,9 @@ use function strtolower;
 use function substr;
 use function trim;
 use function unpack;
-use function is_bool;
+
+use const DIRECTORY_SEPARATOR;
+use const PHP_EOL;
 
 /**
  * Git class to manipulate Git data

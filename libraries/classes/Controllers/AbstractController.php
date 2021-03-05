@@ -9,6 +9,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
 use function strlen;
 
 abstract class AbstractController

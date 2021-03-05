@@ -12,6 +12,7 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_keys;
 use function count;
 use function mb_strtolower;

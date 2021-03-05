@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisVisualization;
+
 use function array_merge;
 use function in_array;
 use function intval;

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
+
 use function array_shift;
 use function implode;
 

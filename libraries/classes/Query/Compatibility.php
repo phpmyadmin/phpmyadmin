@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
+
 use function is_string;
 use function strlen;
 use function strpos;

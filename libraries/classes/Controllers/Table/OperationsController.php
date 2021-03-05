@@ -20,6 +20,7 @@ use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function count;
 use function implode;
 use function mb_strstr;

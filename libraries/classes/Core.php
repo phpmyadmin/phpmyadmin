@@ -11,10 +11,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use const DATE_RFC1123;
-use const E_USER_ERROR;
-use const E_USER_WARNING;
-use const FILTER_VALIDATE_IP;
+
 use function array_keys;
 use function array_pop;
 use function array_walk_recursive;
@@ -67,6 +64,11 @@ use function trigger_error;
 use function unserialize;
 use function urldecode;
 use function vsprintf;
+
+use const DATE_RFC1123;
+use const E_USER_ERROR;
+use const E_USER_WARNING;
+use const FILTER_VALIDATE_IP;
 
 /**
  * Core class

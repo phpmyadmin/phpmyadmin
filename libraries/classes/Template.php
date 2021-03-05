@@ -25,10 +25,12 @@ use Twig\Error\SyntaxError;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
 use Twig\TemplateWrapper;
-use const DIRECTORY_SEPARATOR;
-use const E_USER_WARNING;
+
 use function sprintf;
 use function trigger_error;
+
+use const DIRECTORY_SEPARATOR;
+use const E_USER_WARNING;
 
 /**
  * Handle front end templating

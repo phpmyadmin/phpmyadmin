@@ -9,6 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
+
 use function json_encode;
 use function time;
 

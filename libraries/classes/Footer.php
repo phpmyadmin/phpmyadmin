@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use Traversable;
+
 use function basename;
 use function file_exists;
 use function htmlspecialchars;

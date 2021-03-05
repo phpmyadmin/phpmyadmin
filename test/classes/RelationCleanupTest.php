@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PHPUnit\Framework\MockObject\MockObject;
+
 use function array_merge;
 
 /**

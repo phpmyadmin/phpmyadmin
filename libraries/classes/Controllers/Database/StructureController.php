@@ -27,6 +27,7 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_search;
 use function ceil;
 use function count;

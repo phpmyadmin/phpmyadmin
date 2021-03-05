@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
+
 use function htmlspecialchars;
 use function sprintf;
 

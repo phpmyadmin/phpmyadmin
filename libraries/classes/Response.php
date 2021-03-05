@@ -7,16 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use const JSON_ERROR_CTRL_CHAR;
-use const JSON_ERROR_DEPTH;
-use const JSON_ERROR_INF_OR_NAN;
-use const JSON_ERROR_NONE;
-use const JSON_ERROR_RECURSION;
-use const JSON_ERROR_STATE_MISMATCH;
-use const JSON_ERROR_SYNTAX;
-use const JSON_ERROR_UNSUPPORTED_TYPE;
-use const JSON_ERROR_UTF8;
-use const PHP_SAPI;
 use function defined;
 use function explode;
 use function headers_sent;
@@ -28,6 +18,17 @@ use function json_last_error;
 use function mb_strlen;
 use function register_shutdown_function;
 use function strlen;
+
+use const JSON_ERROR_CTRL_CHAR;
+use const JSON_ERROR_DEPTH;
+use const JSON_ERROR_INF_OR_NAN;
+use const JSON_ERROR_NONE;
+use const JSON_ERROR_RECURSION;
+use const JSON_ERROR_STATE_MISMATCH;
+use const JSON_ERROR_SYNTAX;
+use const JSON_ERROR_UNSUPPORTED_TYPE;
+use const JSON_ERROR_UTF8;
+use const PHP_SAPI;
 
 /**
  * Singleton class used to manage the rendering of pages in PMA

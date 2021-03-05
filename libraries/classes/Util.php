@@ -12,12 +12,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Utils\SessionCache;
 use phpseclib3\Crypt\Random;
-use const ENT_COMPAT;
-use const ENT_QUOTES;
-use const PHP_INT_SIZE;
-use const PHP_MAJOR_VERSION;
-use const PREG_OFFSET_CAPTURE;
-use const STR_PAD_LEFT;
+
 use function abs;
 use function array_key_exists;
 use function array_map;
@@ -88,6 +83,13 @@ use function time;
 use function trim;
 use function uksort;
 use function version_compare;
+
+use const ENT_COMPAT;
+use const ENT_QUOTES;
+use const PHP_INT_SIZE;
+use const PHP_MAJOR_VERSION;
+use const PREG_OFFSET_CAPTURE;
+use const STR_PAD_LEFT;
 
 /**
  * Misc functions used all over the scripts.

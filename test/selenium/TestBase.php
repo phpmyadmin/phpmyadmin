@@ -23,13 +23,7 @@ use Facebook\WebDriver\WebDriverSelect;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Throwable;
-use const CURLOPT_CUSTOMREQUEST;
-use const CURLOPT_HTTPHEADER;
-use const CURLOPT_POSTFIELDS;
-use const CURLOPT_RETURNTRANSFER;
-use const CURLOPT_URL;
-use const CURLOPT_USERPWD;
-use const PHP_EOL;
+
 use function curl_close;
 use function curl_errno;
 use function curl_error;
@@ -38,6 +32,7 @@ use function curl_init;
 use function curl_setopt;
 use function current;
 use function end;
+use function file_put_contents;
 use function getenv;
 use function is_bool;
 use function is_string;
@@ -52,13 +47,20 @@ use function sha1;
 use function sprintf;
 use function strlen;
 use function substr;
+use function time;
 use function trim;
 use function usleep;
+
+use const CURLOPT_CUSTOMREQUEST;
+use const CURLOPT_HTTPHEADER;
+use const CURLOPT_POSTFIELDS;
+use const CURLOPT_RETURNTRANSFER;
+use const CURLOPT_URL;
+use const CURLOPT_USERPWD;
 use const DIRECTORY_SEPARATOR;
-use function time;
-use function file_put_contents;
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
+use const PHP_EOL;
 
 /**
  * Base class for Selenium tests.

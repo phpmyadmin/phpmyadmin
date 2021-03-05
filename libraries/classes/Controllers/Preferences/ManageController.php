@@ -16,9 +16,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
-use const JSON_PRETTY_PRINT;
-use const PHP_URL_PATH;
-use const UPLOAD_ERR_OK;
+
 use function array_merge;
 use function define;
 use function file_exists;
@@ -32,6 +30,10 @@ use function parse_url;
 use function str_replace;
 use function urlencode;
 use function var_export;
+
+use const JSON_PRETTY_PRINT;
+use const PHP_URL_PATH;
+use const UPLOAD_ERR_OK;
 
 /**
  * User preferences management page.

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Theme;
+
 use function filemtime;
 
 class ThemeTest extends AbstractTestCase

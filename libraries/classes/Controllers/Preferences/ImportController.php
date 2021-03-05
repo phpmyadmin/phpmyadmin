@@ -14,6 +14,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
+
 use function define;
 use function ltrim;
 

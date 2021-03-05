@@ -4,27 +4,29 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use FastRoute\Dispatcher;
-use Psr\Container\ContainerInterface;
-use FastRoute\RouteParser\Std as RouteParserStd;
 use FastRoute\DataGenerator\GroupCountBased as DataGeneratorGroupCountBased;
+use FastRoute\Dispatcher;
 use FastRoute\Dispatcher\GroupCountBased as DispatcherGroupCountBased;
 use FastRoute\RouteCollector;
+use FastRoute\RouteParser\Std as RouteParserStd;
+use Psr\Container\ContainerInterface;
+use RuntimeException;
+
+use function fclose;
+use function file_exists;
+use function fopen;
+use function fwrite;
 use function htmlspecialchars;
+use function is_array;
+use function is_readable;
+use function is_writable;
 use function mb_strlen;
 use function rawurldecode;
 use function sprintf;
-use function is_writable;
-use function file_exists;
-use function is_array;
-use RuntimeException;
-use function var_export;
-use function is_readable;
 use function trigger_error;
+use function var_export;
+
 use const E_USER_WARNING;
-use function fopen;
-use function fwrite;
-use function fclose;
 
 /**
  * Class used to warm up the routing cache and manage routing.

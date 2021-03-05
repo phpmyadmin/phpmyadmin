@@ -10,6 +10,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Util;
+
 use function array_sum;
 use function htmlspecialchars;
 

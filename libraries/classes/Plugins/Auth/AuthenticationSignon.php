@@ -10,7 +10,7 @@ namespace PhpMyAdmin\Plugins\Auth;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Util;
-use const PHP_VERSION;
+
 use function array_merge;
 use function defined;
 use function file_exists;
@@ -22,6 +22,8 @@ use function session_set_cookie_params;
 use function session_start;
 use function session_write_close;
 use function version_compare;
+
+use const PHP_VERSION;
 
 /**
  * Handles the SignOn authentication method

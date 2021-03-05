@@ -11,6 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
+
 use function function_exists;
 use function gettype;
 

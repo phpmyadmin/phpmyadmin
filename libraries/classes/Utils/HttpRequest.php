@@ -4,6 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
+use function base64_encode;
+use function curl_exec;
+use function curl_getinfo;
+use function curl_init;
+use function curl_setopt;
+use function file_get_contents;
+use function function_exists;
+use function ini_get;
+use function intval;
+use function preg_match;
+use function stream_context_create;
+use function strlen;
+
 use const CURL_IPRESOLVE_V4;
 use const CURLINFO_HTTP_CODE;
 use const CURLINFO_SSL_VERIFYRESULT;
@@ -22,18 +35,6 @@ use const CURLOPT_SSL_VERIFYHOST;
 use const CURLOPT_SSL_VERIFYPEER;
 use const CURLOPT_TIMEOUT;
 use const CURLOPT_USERAGENT;
-use function base64_encode;
-use function curl_exec;
-use function curl_getinfo;
-use function curl_init;
-use function curl_setopt;
-use function file_get_contents;
-use function function_exists;
-use function ini_get;
-use function intval;
-use function preg_match;
-use function stream_context_create;
-use function strlen;
 
 /**
  * Handles HTTP requests

@@ -10,6 +10,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+
 use function count;
 use function explode;
 use function htmlspecialchars;

@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use ZipArchive;
+
 use function array_combine;
 use function count;
 use function crc32;

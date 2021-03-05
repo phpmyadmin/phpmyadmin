@@ -12,6 +12,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+
 use function array_unique;
 use function bin2hex;
 use function ceil;

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
+
 use function sprintf;
 
 final class TemplateModel

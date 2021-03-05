@@ -17,6 +17,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use stdClass;
+
 use function htmlspecialchars;
 use function implode;
 

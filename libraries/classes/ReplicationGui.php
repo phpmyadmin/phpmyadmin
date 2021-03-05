@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Query\Utilities;
+
 use function htmlspecialchars;
 use function in_array;
 use function is_array;

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Tests\AbstractTestCase;
+
 use function in_array;
 
 class DescriptionTest extends AbstractTestCase

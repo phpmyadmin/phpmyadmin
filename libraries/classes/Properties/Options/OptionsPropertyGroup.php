@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Properties\Options;
 
 use Countable;
+
 use function array_diff;
 use function count;
 use function in_array;

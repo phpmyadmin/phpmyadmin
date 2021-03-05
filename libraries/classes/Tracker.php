@@ -17,6 +17,7 @@ use PhpMyAdmin\SqlParser\Statements\InsertStatement;
 use PhpMyAdmin\SqlParser\Statements\RenameStatement;
 use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
+
 use function array_values;
 use function count;
 use function explode;

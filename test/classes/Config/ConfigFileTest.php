@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use stdClass;
+
 use function array_keys;
 use function count;
 

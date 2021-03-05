@@ -28,6 +28,7 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_filter;
 use function array_keys;
 use function array_merge;

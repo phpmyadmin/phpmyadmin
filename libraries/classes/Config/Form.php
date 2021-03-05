@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
-use const E_USER_ERROR;
 use function array_combine;
 use function array_shift;
 use function array_walk;
@@ -23,6 +22,8 @@ use function mb_strrpos;
 use function mb_substr;
 use function str_replace;
 use function trigger_error;
+
+use const E_USER_ERROR;
 
 /**
  * Base class for forms, loads default configuration options, checks allowed

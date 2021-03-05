@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+
 use function strlen;
 
 /**

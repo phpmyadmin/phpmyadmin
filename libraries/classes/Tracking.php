@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
-use const SORT_ASC;
+
 use function array_key_exists;
 use function array_merge;
 use function array_multisort;
@@ -26,6 +26,8 @@ use function rtrim;
 use function sprintf;
 use function strlen;
 use function strtotime;
+
+use const SORT_ASC;
 
 /**
  * PhpMyAdmin\Tracking class

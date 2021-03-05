@@ -17,12 +17,14 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use const ENT_COMPAT;
+
 use function htmlentities;
 use function mb_strpos;
 use function strlen;
 use function strpos;
 use function urlencode;
+
+use const ENT_COMPAT;
 
 class SqlController extends AbstractController
 {

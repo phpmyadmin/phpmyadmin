@@ -5,14 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use ZipArchive;
-use const UPLOAD_ERR_CANT_WRITE;
-use const UPLOAD_ERR_EXTENSION;
-use const UPLOAD_ERR_FORM_SIZE;
-use const UPLOAD_ERR_INI_SIZE;
-use const UPLOAD_ERR_NO_FILE;
-use const UPLOAD_ERR_NO_TMP_DIR;
-use const UPLOAD_ERR_OK;
-use const UPLOAD_ERR_PARTIAL;
+
 use function basename;
 use function bin2hex;
 use function bzopen;
@@ -40,6 +33,15 @@ use function strlen;
 use function tempnam;
 use function trim;
 use function unlink;
+
+use const UPLOAD_ERR_CANT_WRITE;
+use const UPLOAD_ERR_EXTENSION;
+use const UPLOAD_ERR_FORM_SIZE;
+use const UPLOAD_ERR_INI_SIZE;
+use const UPLOAD_ERR_NO_FILE;
+use const UPLOAD_ERR_NO_TMP_DIR;
+use const UPLOAD_ERR_OK;
+use const UPLOAD_ERR_PARTIAL;
 
 /**
  * File wrapper class

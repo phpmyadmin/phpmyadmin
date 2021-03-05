@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use ReflectionProperty;
+
 use function array_keys;
 use function preg_match;
 

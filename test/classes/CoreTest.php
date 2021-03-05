@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use stdClass;
+
 use function hash;
 use function htmlspecialchars;
 use function mb_strpos;

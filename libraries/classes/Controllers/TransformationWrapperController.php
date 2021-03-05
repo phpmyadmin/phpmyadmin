@@ -12,6 +12,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+
 use function define;
 use function htmlspecialchars;
 use function imagecopyresampled;

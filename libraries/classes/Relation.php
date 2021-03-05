@@ -11,6 +11,7 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
+
 use function array_reverse;
 use function array_search;
 use function array_shift;

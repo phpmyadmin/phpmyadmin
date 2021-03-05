@@ -20,6 +20,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_key_exists;
 use function array_keys;
 use function array_search;

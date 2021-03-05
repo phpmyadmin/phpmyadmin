@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Utils\SessionCache;
+
 use function mb_strpos;
 use function mb_substr;
 use function preg_match;

@@ -10,6 +10,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
+
 use function count;
 
 class TwoFactorController extends AbstractController

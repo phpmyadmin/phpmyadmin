@@ -29,14 +29,15 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Twig\Cache\CacheInterface;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
+
 use function fclose;
 use function fopen;
 use function fwrite;
+use function is_file;
 use function json_encode;
+use function sprintf;
 use function str_replace;
 use function strpos;
-use function is_file;
-use function sprintf;
 
 final class CacheWarmupCommand extends Command
 {

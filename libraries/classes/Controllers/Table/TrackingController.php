@@ -12,6 +12,7 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_map;
 use function define;
 use function explode;

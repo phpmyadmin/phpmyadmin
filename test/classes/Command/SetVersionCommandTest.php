@@ -6,10 +6,11 @@ namespace PhpMyAdmin\Tests\Command;
 
 use PhpMyAdmin\Command\SetVersionCommand;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use Symfony\Component\Console\Command\Command;
 use RangeException;
-use function sprintf;
+use Symfony\Component\Console\Command\Command;
+
 use function class_exists;
+use function sprintf;
 
 class SetVersionCommandTest extends AbstractTestCase
 {

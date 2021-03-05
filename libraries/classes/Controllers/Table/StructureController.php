@@ -38,6 +38,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use stdClass;
+
 use function array_keys;
 use function array_splice;
 use function count;

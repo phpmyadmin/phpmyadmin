@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Import\Upload;
 
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Plugins\UploadInterface;
+
 use function array_key_exists;
 use function ini_get;
 use function trim;

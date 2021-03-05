@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
 use ReflectionProperty;
+
 use function define;
 use function defined;
 

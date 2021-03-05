@@ -16,6 +16,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function htmlspecialchars;
 use function is_array;
 use function mb_strtolower;

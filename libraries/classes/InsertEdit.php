@@ -10,7 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use const PASSWORD_DEFAULT;
+
 use function array_fill;
 use function array_flip;
 use function array_merge;
@@ -50,6 +50,8 @@ use function strpos;
 use function substr;
 use function time;
 use function trim;
+
+use const PASSWORD_DEFAULT;
 
 /**
  * PhpMyAdmin\InsertEdit class

@@ -8,6 +8,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table\Partition;
 use PhpMyAdmin\Template;
+
 use function strlen;
 
 final class PartitionController extends AbstractController

@@ -11,6 +11,7 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+
 use function count;
 use function explode;
 use function mb_strlen;

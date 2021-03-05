@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Version;
+
 use function defined;
 
 class VersionTest extends AbstractTestCase

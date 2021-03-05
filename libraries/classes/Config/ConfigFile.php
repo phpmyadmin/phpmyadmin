@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Core;
+
 use function array_diff;
 use function array_flip;
 use function array_keys;

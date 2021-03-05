@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisLineString;
 use TCPDF;
+
 use function function_exists;
 use function imagecreatetruecolor;
 use function preg_match;

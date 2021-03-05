@@ -18,16 +18,18 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use stdClass;
+
 use function count;
 use function hex2bin;
-use const MYSQLI_TYPE_TIMESTAMP;
-use const MYSQLI_TYPE_DATE;
-use const MYSQLI_TYPE_STRING;
+
+use const MYSQLI_NOT_NULL_FLAG;
+use const MYSQLI_NUM_FLAG;
 use const MYSQLI_TYPE_BLOB;
+use const MYSQLI_TYPE_DATE;
 use const MYSQLI_TYPE_DATETIME;
 use const MYSQLI_TYPE_LONG;
-use const MYSQLI_NUM_FLAG;
-use const MYSQLI_NOT_NULL_FLAG;
+use const MYSQLI_TYPE_STRING;
+use const MYSQLI_TYPE_TIMESTAMP;
 
 /**
  * Test cases for displaying results.

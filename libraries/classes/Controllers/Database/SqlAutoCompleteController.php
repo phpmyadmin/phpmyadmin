@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+
 use function json_encode;
 
 /**

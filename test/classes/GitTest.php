@@ -6,9 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Git;
-use const CONFIG_FILE;
-use const DIRECTORY_SEPARATOR;
-use const PHP_EOL;
+
 use function chdir;
 use function file_put_contents;
 use function getcwd;
@@ -18,6 +16,10 @@ use function mt_rand;
 use function rmdir;
 use function sys_get_temp_dir;
 use function unlink;
+
+use const CONFIG_FILE;
+use const DIRECTORY_SEPARATOR;
+use const PHP_EOL;
 
 /**
  * @group git-revision

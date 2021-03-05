@@ -16,6 +16,7 @@ use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+
 use function array_diff;
 use function array_fill;
 use function array_keys;

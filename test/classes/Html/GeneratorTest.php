@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Html;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
+
 use function call_user_func_array;
 use function htmlspecialchars;
 use function urlencode;

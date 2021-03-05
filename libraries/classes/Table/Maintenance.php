@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Table;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Util;
+
 use function implode;
 use function sprintf;
 

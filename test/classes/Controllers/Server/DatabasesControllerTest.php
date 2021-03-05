@@ -13,6 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
 use stdClass;
+
 use function sprintf;
 
 class DatabasesControllerTest extends AbstractTestCase

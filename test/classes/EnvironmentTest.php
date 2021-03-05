@@ -7,8 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use const PHP_VERSION;
 use function version_compare;
+
+use const PHP_VERSION;
 
 /**
  * Environment tests

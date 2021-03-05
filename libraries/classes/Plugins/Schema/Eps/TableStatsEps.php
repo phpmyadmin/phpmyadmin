@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Schema\Eps;
 
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\TableStats;
+
 use function count;
 use function max;
 use function sprintf;

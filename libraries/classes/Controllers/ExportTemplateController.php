@@ -9,6 +9,7 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+
 use function is_array;
 use function is_string;
 

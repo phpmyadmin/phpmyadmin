@@ -14,6 +14,7 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function count;
 use function htmlspecialchars;
 use function sprintf;

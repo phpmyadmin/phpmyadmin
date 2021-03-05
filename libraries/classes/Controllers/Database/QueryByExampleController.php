@@ -16,6 +16,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function stripos;
 
 class QueryByExampleController extends AbstractController

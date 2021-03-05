@@ -15,6 +15,7 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;

@@ -13,6 +13,7 @@ use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_search;
 use function count;
 use function htmlspecialchars;

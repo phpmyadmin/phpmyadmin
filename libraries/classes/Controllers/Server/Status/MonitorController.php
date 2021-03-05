@@ -11,6 +11,7 @@ use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
 use function is_numeric;
 use function microtime;
 

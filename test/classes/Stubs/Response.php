@@ -13,6 +13,7 @@ namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
+
 use function is_array;
 
 class Response extends \PhpMyAdmin\Response

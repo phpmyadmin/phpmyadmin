@@ -7,9 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PHPUnit\Framework\Exception;
-use const DIRECTORY_SEPARATOR;
-use const INFO_MODULES;
-use const PHP_OS;
+
 use function array_merge;
 use function array_replace_recursive;
 use function constant;
@@ -29,6 +27,10 @@ use function realpath;
 use function strip_tags;
 use function stristr;
 use function sys_get_temp_dir;
+
+use const DIRECTORY_SEPARATOR;
+use const INFO_MODULES;
+use const PHP_OS;
 
 class ConfigTest extends AbstractTestCase
 {

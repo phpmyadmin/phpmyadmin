@@ -13,6 +13,7 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
 use function array_merge;
 
 final class ExportController extends AbstractController

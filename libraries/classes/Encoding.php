@@ -13,14 +13,14 @@ use function fgets;
 use function fopen;
 use function function_exists;
 use function fwrite;
-use function recode_string;
+use function iconv;
 use function mb_convert_encoding;
 use function mb_convert_kana;
 use function mb_detect_encoding;
 use function mb_list_encodings;
+use function recode_string;
 use function tempnam;
 use function unlink;
-use function iconv;
 
 /**
  * Encoding conversion helper class

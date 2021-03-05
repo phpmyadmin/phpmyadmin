@@ -12,12 +12,14 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
-use const PHP_EOL;
+
 use function count;
 use function is_array;
 use function preg_split;
 use function strlen;
 use function trim;
+
+use const PHP_EOL;
 
 // phpcs:disable PSR1.Files.SideEffects
 // We need relations enabled and we work only on database

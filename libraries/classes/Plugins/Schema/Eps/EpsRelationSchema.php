@@ -11,6 +11,7 @@ use PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
 use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
+
 use function date;
 use function in_array;
 use function sprintf;

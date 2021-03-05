@@ -4,6 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_splice;
+use function count;
+use function defined;
+use function error_reporting;
+use function headers_sent;
+use function htmlspecialchars;
+use function set_error_handler;
+use function trigger_error;
+
 use const E_COMPILE_ERROR;
 use const E_COMPILE_WARNING;
 use const E_CORE_ERROR;
@@ -19,14 +28,6 @@ use const E_USER_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
-use function array_splice;
-use function count;
-use function defined;
-use function error_reporting;
-use function headers_sent;
-use function htmlspecialchars;
-use function set_error_handler;
-use function trigger_error;
 
 /**
  * handling errors
