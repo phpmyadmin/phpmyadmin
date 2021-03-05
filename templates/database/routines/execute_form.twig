@@ -45,7 +45,7 @@
                 {% endfor %}
               {% elseif routine['item_param_type'][loop.index0] in params['no_support_types'] %}
               {% else %}
-                <input class ="{{  params[loop.index0]['class']  }}" type="text" name='params[{{  routine['item_param_name'][loop.index0]  }}]'>
+                <input class ='{{  params[loop.index0]['class']  }}' type='text' name='params[{{  routine['item_param_name'][loop.index0]  }}]'>
               {% endif %}
             </td>
           </tr>
