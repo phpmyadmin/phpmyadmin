@@ -36,7 +36,7 @@
                 <th>
                   {{ plugin.name }}
                   {% if plugin.status != 'ACTIVE' %}
-                    <span class="badge badge-danger">
+                    <span class="badge bg-danger">
                       {% if plugin.status == 'INACTIVE' %}
                         {% trans 'inactive' %}
                       {% elseif plugin.status == 'DISABLED' %}
