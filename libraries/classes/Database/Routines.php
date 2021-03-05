@@ -14,7 +14,6 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\Routine;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function array_merge;
@@ -1480,12 +1479,12 @@ class Routines
 
         $no_support_types = Util::unsupportedDatatypes();
 
-        $params = array();
+        $params = [];
         $params['no_support_types'] = $no_support_types;
 
         for ($i = 0; $i < $routine['item_num_params']; $i++) {
-            if ($routine['item_type'] == 'PROCEDURE'
-                && $routine['item_param_dir'][$i] == 'OUT'
+            if ($routine['item_type'] === 'PROCEDURE'
+                && $routine['item_param_dir'][$i] === 'OUT'
             ) {
                 continue;
             }
@@ -1512,22 +1511,20 @@ class Routines
 
                     $generator = Generator::getFunctionsForField($field, false, []);
                     $params[$i]['generator'] = $generator;
-
                 }
             }
 
-            if ($routine['item_param_type'][$i] == 'DATETIME'
-                || $routine['item_param_type'][$i] == 'TIMESTAMP'
+            if ($routine['item_param_type'][$i] === 'DATETIME'
+                || $routine['item_param_type'][$i] === 'TIMESTAMP'
             ) {
                 $params[$i]['class'] = 'datetimefield';
-            } elseif ($routine['item_param_type'][$i] == 'DATE') {
-
+            } elseif ($routine['item_param_type'][$i] === 'DATE') {
                 $params[$i]['class'] = 'datefield';
             }
 
             $input_type = '';
             if (in_array($routine['item_param_type'][$i], ['ENUM', 'SET'])) {
-                if ($routine['item_param_type'][$i] == 'ENUM') {
+                if ($routine['item_param_type'][$i] === 'ENUM') {
                     $params[$i]['input_type']  = 'radio';
                 } else {
                     $params[$i]['input_type'] = 'checkbox';
@@ -1538,19 +1535,17 @@ class Routines
                     $params[$i]['htmlentities'][] = $value;
                 }
             } elseif (in_array(
-                mb_strtolower($routine['item_param_type'][$i]), $no_support_types
+                mb_strtolower($routine['item_param_type'][$i]),
+                $no_support_types
             )) {
                 $params[$i]['input_type'] = null;
-            }
-            else {
+            } else {
                 $params[$i]['input_type'] = $input_type;
             }
         }
 
         return $this->template->render('database/routines/execute_form', [
             'routine' => $routine,
-            'fromRoute' => Url::getFromRoute('/database/routines'),
-            'getHiddenInputs' => Url::getHiddenInputs($db),
             'ajax' => $this->response->isAjax(),
             'cfg' => $cfg,
             'noSupportTypes' => Util::unsupportedDatatypes(),
