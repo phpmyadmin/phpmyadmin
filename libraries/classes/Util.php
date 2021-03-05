@@ -1742,7 +1742,7 @@ class Util
     {
         $url = self::getUrlForOption($target, $location);
         if ($url === null) {
-            return '/';
+            return './';
         }
 
         return Url::getFromRoute($url);
@@ -1767,26 +1767,35 @@ class Util
             // Values for $cfg['DefaultTabServer']
             switch ($target) {
                 case 'welcome':
+                case 'index.php':
                     return '/';
                 case 'databases':
+                case 'server_databases.php':
                     return '/server/databases';
                 case 'status':
+                case 'server_status.php':
                     return '/server/status';
                 case 'variables':
+                case 'server_variables.php':
                     return '/server/variables';
                 case 'privileges':
+                case 'server_privileges.php':
                     return '/server/privileges';
             }
         } elseif ($location === 'database') {
             // Values for $cfg['DefaultTabDatabase']
             switch ($target) {
                 case 'structure':
+                case 'db_structure.php':
                     return '/database/structure';
                 case 'sql':
+                case 'db_sql.php':
                     return '/database/sql';
                 case 'search':
+                case 'db_search.php':
                     return '/database/search';
                 case 'operations':
+                case 'db_operations.php':
                     return '/database/operations';
             }
         } elseif ($location === 'table') {
@@ -1795,14 +1804,19 @@ class Util
             // $cfg['NavigationTreeDefaultTabTable2']
             switch ($target) {
                 case 'structure':
+                case 'tbl_structure.php':
                     return '/table/structure';
                 case 'sql':
+                case 'tbl_sql.php':
                     return '/table/sql';
                 case 'search':
+                case 'tbl_select.php':
                     return '/table/search';
                 case 'insert':
+                case 'tbl_change.php':
                     return '/table/change';
                 case 'browse':
+                case 'sql.php':
                     return '/sql';
             }
         }
