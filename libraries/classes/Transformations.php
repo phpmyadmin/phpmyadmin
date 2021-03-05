@@ -76,7 +76,8 @@ class Transformations
 
         while (($option = array_shift($transformOptions)) !== null) {
             $trimmed = trim($option);
-            if (strlen($trimmed) > 1
+            if (
+                strlen($trimmed) > 1
                 && $trimmed[0] == "'"
                 && $trimmed[strlen($trimmed) - 1] == "'"
             ) {
@@ -95,8 +96,10 @@ class Transformations
                         break;
                     }
                 }
+
                 $option = mb_substr($rtrimmed, 1, -1);
             }
+
             $result[] = stripslashes($option);
         }
 
@@ -141,10 +144,12 @@ class Transformations
                 if ($file[0] === '.') {
                     continue;
                 }
+
                 // Ignore old plugins (.class in filename)
                 if (strpos($file, '.class') !== false) {
                     continue;
                 }
+
                 $filestack[] = $file;
             }
 
@@ -300,6 +305,7 @@ class Transformations
         } else {
             $com_qry  = 'SELECT `column_name`, ';
         }
+
         $com_qry .= '`mimetype`, '
                     . '`transformation`, '
                     . '`transformation_options`, '
@@ -433,6 +439,7 @@ class Transformations
                     . Util::backquote($cfgRelation['db'])
                     . '.' . Util::backquote($cfgRelation['column_info']);
             }
+
             $upd_query .= '
                 WHERE `db_name`     = \'' . $dbi->escapeString($db) . '\'
                   AND `table_name`  = \'' . $dbi->escapeString($table)

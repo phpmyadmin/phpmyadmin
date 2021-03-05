@@ -113,7 +113,8 @@ class Relation
      */
     public function getRelationsParam(): array
     {
-        if (empty($_SESSION['relation'][$GLOBALS['server']])
+        if (
+            empty($_SESSION['relation'][$GLOBALS['server']])
             || empty($_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'])
             || $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] != PMA_VERSION
         ) {
@@ -168,7 +169,8 @@ class Relation
         } else {
             $retval .= '<table class="pma-table">' . "\n";
 
-            if (! $cfgRelation['allworks']
+            if (
+                ! $cfgRelation['allworks']
                 && $GLOBALS['cfg']['ZeroConf']
                 // Avoid showing a "Create missing tables" link if it's a
                 // problem of missing definition
@@ -252,6 +254,7 @@ class Relation
                 );
                 $retval .= '</td></tr>';
             }
+
             $retval .= $this->getDiagMessageForParameter(
                 'bookmarktable',
                 isset($cfgRelation['bookmark']),
@@ -428,13 +431,15 @@ class Relation
         $skip_line = true
     ) {
         $retval = '    <tr><td colspan=2 class="text-end">' . $feature_name . ': ';
-        if (isset($GLOBALS['cfgRelation'][$relation_parameter])
+        if (
+            isset($GLOBALS['cfgRelation'][$relation_parameter])
             && $GLOBALS['cfgRelation'][$relation_parameter]
         ) {
             $retval .= $messages['enabled'];
         } else {
             $retval .= $messages['disabled'];
         }
+
         $retval .= '</td></tr>';
         if ($skip_line) {
             $retval .= '<tr><td>&nbsp;</td></tr>';
@@ -470,6 +475,7 @@ class Relation
                 MySQLDocumentation::getDocumentationLink('config', 'cfg_Servers_' . $docAnchor)
             );
         }
+
         $retval .= '</td></tr>' . "\n";
 
         return $retval;
@@ -553,6 +559,7 @@ class Relation
         if (is_bool($tableRes)) {
             return null;
         }
+
         while ($currTable = @$this->dbi->fetchRow($tableRes)) {
             if ($currTable[0] == $GLOBALS['cfg']['Server']['bookmarktable']) {
                 $cfgRelation['bookmark']        = $currTable[0];
@@ -594,6 +601,7 @@ class Relation
                 $cfgRelation['export_templates']    = $currTable[0];
             }
         }
+
         $this->dbi->freeResult($tableRes);
 
         return $cfgRelation;
@@ -646,11 +654,13 @@ class Relation
         foreach ($workToTable as $work => $table) {
             $cfgRelation[$work] = false;
         }
+
         $cfgRelation['allworks']       = false;
         $cfgRelation['user']           = null;
         $cfgRelation['db']             = null;
 
-        if ($GLOBALS['server'] == 0
+        if (
+            $GLOBALS['server'] == 0
             || empty($GLOBALS['cfg']['Server']['pmadb'])
             || ! $this->dbi->selectDb(
                 $GLOBALS['cfg']['Server']['pmadb'],
@@ -693,7 +703,8 @@ class Relation
             }
 
             if (is_string($table)) {
-                if (isset($GLOBALS['cfg']['Server'][$table])
+                if (
+                    isset($GLOBALS['cfg']['Server'][$table])
                     && $GLOBALS['cfg']['Server'][$table] !== false
                 ) {
                     $allWorks = false;
@@ -702,19 +713,22 @@ class Relation
             } elseif (is_array($table)) {
                 $oneNull = false;
                 foreach ($table as $t) {
-                    if (isset($GLOBALS['cfg']['Server'][$t])
+                    if (
+                        isset($GLOBALS['cfg']['Server'][$t])
                         && $GLOBALS['cfg']['Server'][$t] === false
                     ) {
                         $oneNull = true;
                         break;
                     }
                 }
+
                 if (! $oneNull) {
                     $allWorks = false;
                     break;
                 }
             }
         }
+
         $cfgRelation['allworks'] = $allWorks;
 
         return $cfgRelation;
@@ -800,6 +814,7 @@ class Relation
                     && $this->dbi->nextResult(DatabaseInterface::CONNECT_CONTROL)
                 );
             } while ($hasResult);
+
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
 
             // return true if no error exists otherwise false
@@ -844,6 +859,7 @@ class Relation
                 $rel_query .= ' AND `master_field` = '
                     . '\'' . $this->dbi->escapeString($column) . '\'';
             }
+
             $foreign = $this->dbi->fetchResult(
                 $rel_query,
                 'master_field',
@@ -872,7 +888,8 @@ class Relation
          */
         $isInformationSchema = mb_strtolower($db) === 'information_schema';
             $isMysql = mb_strtolower($db) === 'mysql';
-        if (($isInformationSchema || $isMysql)
+        if (
+            ($isInformationSchema || $isMysql)
             && ($source === 'internal' || $source === 'both')
         ) {
             if ($isInformationSchema) {
@@ -880,9 +897,11 @@ class Relation
             } else {
                 $internalRelations = InternalRelations::getMySql();
             }
+
             if (isset($internalRelations[$table])) {
                 foreach ($internalRelations[$table] as $field => $relations) {
-                    if ((strlen($column) !== 0 && $column != $field)
+                    if (
+                        (strlen($column) !== 0 && $column != $field)
                         || (isset($foreign[$field])
                         && strlen($foreign[$field]) !== 0)
                     ) {
@@ -940,6 +959,7 @@ class Relation
             switch ($table) {
                 case 'CHARACTER_SETS':
                     return 'DESCRIPTION';
+
                 case 'TABLES':
                     return 'TABLE_COMMENT';
             }
@@ -1027,6 +1047,7 @@ class Relation
                 $row = $this->dbi->fetchAssoc($com_rs);
                 $comment = $row['comment'];
             }
+
             $this->dbi->freeResult($com_rs);
         }
 
@@ -1064,6 +1085,7 @@ class Relation
                     $comments[$row['db_name']] = $row['comment'];
                 }
             }
+
             $this->dbi->freeResult($com_rs);
         }
 
@@ -1129,7 +1151,8 @@ class Relation
     {
         $maxCharactersInDisplayedSQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
         // Prevent to run this automatically on Footer class destroying in testsuite
-        if (defined('TESTSUITE')
+        if (
+            defined('TESTSUITE')
             || mb_strlen($sqlquery) > $maxCharactersInDisplayedSQL
         ) {
             return;
@@ -1314,7 +1337,8 @@ class Relation
             $value = (string) $value;
             $data = (string) $data;
 
-            if (mb_check_encoding($key, 'utf-8')
+            if (
+                mb_check_encoding($key, 'utf-8')
                 && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $key)
             ) {
                 $selected = ($key == $data);
@@ -1327,13 +1351,16 @@ class Relation
                 } else {
                     $selected = ($key == '0x' . $data);
                 }
+
                 $key .= $selected;
             }
 
-            if (mb_check_encoding($value, 'utf-8')
+            if (
+                mb_check_encoding($value, 'utf-8')
                 && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $value)
             ) {
-                if (mb_strlen($value) <= $GLOBALS['cfg']['LimitChars']
+                if (
+                    mb_strlen($value) <= $GLOBALS['cfg']['LimitChars']
                 ) {
                     // show as text if it's valid utf-8
                     $value = htmlspecialchars($value);
@@ -1427,6 +1454,7 @@ class Relation
                         $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]
                     );
                 }
+
                 if (Core::isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])) {
                     $bottom = $this->buildForeignDropdown(
                         $foreign,
@@ -1453,6 +1481,7 @@ class Relation
                 $ret .= '<option value="">&nbsp;</option>';
             }
         }
+
         if ($foreign_display) {
             $ret .= implode('', $bottom);
         }
@@ -1491,6 +1520,7 @@ class Relation
             if (! $foreigners) {
                 break;
             }
+
             $foreigner = $this->searchColumnInForeigners($foreigners, $field);
             if ($foreigner == false) {
                 break;
@@ -1513,7 +1543,8 @@ class Relation
             $moreThanLimit = $this->dbi->getTable($foreign_db, $foreign_table)
                 ->checkIfMinRecordsExist($GLOBALS['cfg']['ForeignKeyMaxLimit']);
 
-            if ($override_total === true
+            if (
+                $override_total === true
                 || ! $moreThanLimit
             ) {
                 // foreign_display can be false if no display field defined:
@@ -1565,6 +1596,7 @@ class Relation
                     while ($single_disp_row = @$this->dbi->fetchAssoc($disp)) {
                         $disp_row[] = $single_disp_row;
                     }
+
                     @$this->dbi->freeResult($disp);
                 } else {
                     // Either no data in the foreign table or
@@ -1845,6 +1877,7 @@ class Relation
         if (! isset($newpage) || $newpage == '') {
             $newpage = __('no description');
         }
+
         $ins_query   = 'INSERT INTO '
             . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
             . Util::backquote($cfgRelation['pdf_pages'])
@@ -1924,12 +1957,14 @@ class Relation
             if (isset($foreigners_full[$column])) {
                 $foreigners[$column] = $foreigners_full[$column];
             }
+
             if (isset($foreigners_full['foreign_keys_data'])) {
                 $foreigners['foreign_keys_data'] = $foreigners_full['foreign_keys_data'];
             }
         } else {
             $foreigners = $this->getForeigners($db, $table, $column, 'foreign');
         }
+
         $foreigner = $this->searchColumnInForeigners($foreigners, $column);
 
         $child_references = [];
@@ -1941,7 +1976,8 @@ class Relation
             $child_references = $this->getChildReferences($db, $table, $column);
         }
 
-        if (count($child_references) > 0
+        if (
+            count($child_references) > 0
             || $foreigner
         ) {
             if (count($child_references) > 0) {
@@ -2010,11 +2046,12 @@ class Relation
         $queries = explode(';', $create_tables_file);
 
         foreach ($queries as $query) {
-            if (! preg_match(
-                '/CREATE TABLE IF NOT EXISTS `(.*)` \(/',
-                $query,
-                $table
-            )
+            if (
+                ! preg_match(
+                    '/CREATE TABLE IF NOT EXISTS `(.*)` \(/',
+                    $query,
+                    $table
+                )
             ) {
                 continue;
             }
@@ -2095,6 +2132,7 @@ class Relation
                         $createQueries = $this->getDefaultPmaTableNames();
                         $this->dbi->selectDb($db);
                     }
+
                     $this->dbi->tryQuery($createQueries[$table]);
 
                     $error = $this->dbi->getError();
@@ -2116,6 +2154,7 @@ class Relation
         if (! $foundOne) {
             return;
         }
+
         $GLOBALS['cfg']['Server']['pmadb'] = $db;
         $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
 
@@ -2184,6 +2223,7 @@ class Relation
                 __('%sCreate%s missing phpMyAdmin configuration storage tables.')
             );
         }
+
         $message->addParamHtml(
             '<a href="' . Url::getFromRoute('/check-relations') . '" data-post="' . Url::getCommon($params, '') . '">'
         );
@@ -2275,6 +2315,7 @@ class Relation
 
             $tables[] = $row[0];
         }
+
         if ($GLOBALS['cfg']['NaturalOrder']) {
             usort($tables, 'strnatcasecmp');
         }

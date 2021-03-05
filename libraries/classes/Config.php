@@ -217,51 +217,63 @@ class Config
             $mozilla_version
         );
 
-        if (preg_match(
-            '@Opera(/| )([0-9]\.[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $log_version
-        )) {
+        if (
+            preg_match(
+                '@Opera(/| )([0-9]\.[0-9]{1,2})@',
+                $HTTP_USER_AGENT,
+                $log_version
+            )
+        ) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
-        } elseif (preg_match(
-            '@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@',
-            $HTTP_USER_AGENT,
-            $log_version
-        )) {
+        } elseif (
+            preg_match(
+                '@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@',
+                $HTTP_USER_AGENT,
+                $log_version
+            )
+        ) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
-        } elseif (preg_match(
-            '@Trident/(7)\.0@',
-            $HTTP_USER_AGENT,
-            $log_version
-        )) {
+        } elseif (
+            preg_match(
+                '@Trident/(7)\.0@',
+                $HTTP_USER_AGENT,
+                $log_version
+            )
+        ) {
             $this->set('PMA_USR_BROWSER_VER', intval($log_version[1]) + 4);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
-        } elseif (preg_match(
-            '@OmniWeb/([0-9]{1,3})@',
-            $HTTP_USER_AGENT,
-            $log_version
-        )) {
+        } elseif (
+            preg_match(
+                '@OmniWeb/([0-9]{1,3})@',
+                $HTTP_USER_AGENT,
+                $log_version
+            )
+        ) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OMNIWEB');
             // Konqueror 2.2.2 says Konqueror/2.2.2
             // Konqueror 3.0.3 says Konqueror/3
-        } elseif (preg_match(
-            '@(Konqueror/)(.*)(;)@',
-            $HTTP_USER_AGENT,
-            $log_version
-        )) {
+        } elseif (
+            preg_match(
+                '@(Konqueror/)(.*)(;)@',
+                $HTTP_USER_AGENT,
+                $log_version
+            )
+        ) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
             // must check Chrome before Safari
-        } elseif ($is_mozilla
+        } elseif (
+            $is_mozilla
             && preg_match('@Chrome/([0-9.]*)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set('PMA_USR_BROWSER_VER', $log_version[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'CHROME');
             // newer Safari
-        } elseif ($is_mozilla
+        } elseif (
+            $is_mozilla
             && preg_match('@Version/(.*) Safari@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
@@ -270,7 +282,8 @@ class Config
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // older Safari
-        } elseif ($is_mozilla
+        } elseif (
+            $is_mozilla
             && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
@@ -279,7 +292,8 @@ class Config
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
-        } elseif (! mb_strstr($HTTP_USER_AGENT, 'compatible')
+        } elseif (
+            ! mb_strstr($HTTP_USER_AGENT, 'compatible')
             && preg_match('@Firefox/([\w.]+)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
@@ -341,7 +355,8 @@ class Config
     {
         // some versions return Microsoft-IIS, some Microsoft/IIS
         // we could use a preg_match() but it's slower
-        if (Core::getenv('SERVER_SOFTWARE')
+        if (
+            Core::getenv('SERVER_SOFTWARE')
             && stripos(Core::getenv('SERVER_SOFTWARE'), 'Microsoft') !== false
             && stripos(Core::getenv('SERVER_SOFTWARE'), 'IIS') !== false
         ) {
@@ -388,6 +403,7 @@ class Config
 
             return false;
         }
+
         $canUseErrorReporting = Util::isErrorReportingAvailable();
         $oldErrorReporting = null;
         if ($canUseErrorReporting) {
@@ -508,7 +524,8 @@ class Config
         global $dbi;
 
         $collation_connection = $this->get('DefaultConnectionCollation');
-        if (empty($collation_connection)
+        if (
+            empty($collation_connection)
             || $collation_connection == $GLOBALS['collation_connection']
         ) {
             return;
@@ -533,7 +550,8 @@ class Config
         if ($server > 0 && ! defined('PMA_MINIMUM_COMMON')) {
             $config_mtime = max($this->defaultSourceMtime, $this->sourceMtime);
             // cache user preferences, use database only when needed
-            if (! isset($_SESSION['cache'][$cache_key]['userprefs'])
+            if (
+                ! isset($_SESSION['cache'][$cache_key]['userprefs'])
                 || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime
             ) {
                 $prefs = $userPreferences->load();
@@ -543,13 +561,15 @@ class Config
                 $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
                 $_SESSION['cache'][$cache_key]['config_mtime'] = $config_mtime;
             }
-        } elseif ($server == 0
+        } elseif (
+            $server == 0
             || ! isset($_SESSION['cache'][$cache_key]['userprefs'])
         ) {
             $this->set('user_preferences', false);
 
             return;
         }
+
         $config_data = $_SESSION['cache'][$cache_key]['userprefs'];
         // type is 'db' or 'session'
         $this->set(
@@ -576,7 +596,8 @@ class Config
         /** @var ThemeManager $tmanager */
         $tmanager = ThemeManager::getInstance();
         if ($tmanager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
-            if ((! isset($config_data['ThemeDefault'])
+            if (
+                (! isset($config_data['ThemeDefault'])
                 && $tmanager->theme->getId() !== 'original')
                 || isset($config_data['ThemeDefault'])
                 && $config_data['ThemeDefault'] != $tmanager->theme->getId()
@@ -591,7 +612,8 @@ class Config
             }
         } else {
             // no cookie - read default from settings
-            if ($tmanager->theme !== null
+            if (
+                $tmanager->theme !== null
                 && $this->settings['ThemeDefault'] != $tmanager->theme->getId()
                 && $tmanager->checkTheme($this->settings['ThemeDefault'])
             ) {
@@ -602,7 +624,8 @@ class Config
 
         // save language
         if ($this->issetCookie('pma_lang') || isset($_POST['lang'])) {
-            if ((! isset($config_data['lang'])
+            if (
+                (! isset($config_data['lang'])
                 && $GLOBALS['lang'] !== 'en')
                 || isset($config_data['lang'])
                 && $GLOBALS['lang'] != $config_data['lang']
@@ -655,15 +678,19 @@ class Config
             if ($default_value === null) {
                 $default_value = Core::arrayRead($cfg_path, $this->default);
             }
+
             $result = $userPreferences->persistOption($cfg_path, $new_cfg_value, $default_value);
         }
+
         if ($prefs_type !== 'db' && $cookie_name) {
             // fall back to cookies
             if ($default_value === null) {
                 $default_value = Core::arrayRead($cfg_path, $this->settings);
             }
+
             $this->setCookie($cookie_name, $new_cfg_value, $default_value);
         }
+
         Core::arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
         Core::arrayWrite($cfg_path, $this->settings, $new_cfg_value);
 
@@ -733,6 +760,7 @@ class Config
                 $contents = @fread($handle, 1); // reading 1 byte is enough to test
                 fclose($handle);
             }
+
             if ($contents === false) {
                 $this->sourceMtime = 0;
                 Core::fatalError(
@@ -836,7 +864,8 @@ class Config
      */
     public function set(string $setting, $value): void
     {
-        if (isset($this->settings[$setting])
+        if (
+            isset($this->settings[$setting])
             && $this->settings[$setting] === $value
         ) {
             return;
@@ -1058,6 +1087,7 @@ class Config
         if ($this->issetCookie($cookieName)) {
             unset($_COOKIE[$httpCookieName]);
         }
+
         if (defined('TESTSUITE')) {
             return true;
         }
@@ -1093,7 +1123,8 @@ class Config
     ): bool {
         global $cfg;
 
-        if (strlen($value) > 0 && $default !== null && $value === $default
+        if (
+            strlen($value) > 0 && $default !== null && $value === $default
         ) {
             // default value is used
             if ($this->issetCookie($cookie)) {
@@ -1123,6 +1154,7 @@ class Config
             } else {
                 $validity = time() + $validity;
             }
+
             if (defined('TESTSUITE')) {
                 $_COOKIE[$httpCookieName] = $value;
 
@@ -1140,6 +1172,7 @@ class Config
                     $httponly
                 );
             }
+
             $optionalParams = [
                 'expires' => $validity,
                 'path' => $this->getRootPath(),
@@ -1282,6 +1315,7 @@ class Config
             if (! @is_dir($path)) {
                 @mkdir($path, 0770, true);
             }
+
             if (! @is_dir($path) || ! @is_writable($path)) {
                 $path = null;
             }
@@ -1329,7 +1363,8 @@ class Config
             foreach ($this->settings['Servers'] as $i => $server) {
                 $verboseToLower = mb_strtolower($server['verbose']);
                 $serverToLower = mb_strtolower($request);
-                if ($server['host'] == $request
+                if (
+                    $server['host'] == $request
                     || $server['verbose'] == $request
                     || $verboseToLower == $serverToLower
                     || md5($verboseToLower) === $serverToLower
@@ -1338,6 +1373,7 @@ class Config
                     break;
                 }
             }
+
             if (is_string($request)) {
                 $request = 0;
             }
@@ -1403,6 +1439,7 @@ class Config
 
                 $new_servers[$server_index] = $each_server;
             }
+
             $this->settings['Servers'] = $new_servers;
         }
     }
@@ -1438,6 +1475,7 @@ class Config
             } else {
                 $server['host'] = $cfg['Server']['host'];
             }
+
             // Share the settings if the host is same
             if ($server['host'] == $cfg['Server']['host']) {
                 $shared = [
@@ -1460,10 +1498,12 @@ class Config
                     $server[$item] = $cfg['Server'][$item];
                 }
             }
+
             // Set configured port
             if (! empty($cfg['Server']['controlport'])) {
                 $server['port'] = $cfg['Server']['controlport'];
             }
+
             // Set any configuration with control_ prefix
             foreach ($cfg['Server'] as $key => $val) {
                 if (substr($key, 0, 8) !== 'control_') {
@@ -1480,9 +1520,11 @@ class Config
                     null,
                 ];
             }
+
             if (isset($server['user'])) {
                 $user = $server['user'];
             }
+
             if (isset($server['password'])) {
                 $password = $server['password'];
             }
@@ -1494,12 +1536,15 @@ class Config
         if (empty($server['socket'])) {
             $server['socket'] = null;
         }
+
         if (empty($server['host'])) {
             $server['host'] = 'localhost';
         }
+
         if (! isset($server['ssl'])) {
             $server['ssl'] = false;
         }
+
         if (! isset($server['compress'])) {
             $server['compress'] = false;
         }

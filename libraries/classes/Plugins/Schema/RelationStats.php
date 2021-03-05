@@ -101,6 +101,7 @@ abstract class RelationStats
             $this->xDest = $dest_pos[1];
             $this->destDir = 1;
         }
+
         $this->ySrc = $src_pos[2];
         $this->yDest = $dest_pos[2];
     }

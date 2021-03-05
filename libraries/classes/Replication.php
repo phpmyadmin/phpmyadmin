@@ -55,6 +55,7 @@ class Replication
         if ($action !== 'START' && $action !== 'STOP') {
             return -1;
         }
+
         if ($control !== 'SQL_THREAD' && $control !== 'IO_THREAD' && $control != null) {
             return -1;
         }

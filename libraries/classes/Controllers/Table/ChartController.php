@@ -46,7 +46,8 @@ class ChartController extends AbstractController
     {
         global $db, $table, $cfg, $sql_query, $err_url;
 
-        if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
+        if (
+            isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
         ) {
             $this->ajax();
 
@@ -135,10 +136,12 @@ class ChartController extends AbstractController
 
         $numeric_column_count = 0;
         foreach ($keys as $idx => $key) {
-            if (isset($fields_meta[$idx]) && (
+            if (
+                isset($fields_meta[$idx]) && (
                 $fields_meta[$idx]->isNotType(FieldMetadata::TYPE_INT)
                 || $fields_meta[$idx]->isNotType(FieldMetadata::TYPE_REAL)
-            )) {
+                )
+            ) {
                 continue;
             }
 
@@ -205,6 +208,7 @@ class ChartController extends AbstractController
             );
             $statement->limit = new Limit($rows, $start);
         }
+
         $sql_with_limit = $statement->build();
 
         $data = [];
@@ -219,6 +223,7 @@ class ChartController extends AbstractController
 
             return;
         }
+
         $sanitized_data = [];
 
         foreach ($data as $data_row_number => $data_row) {
@@ -227,8 +232,10 @@ class ChartController extends AbstractController
                 $escaped_value = $data_value === null ? null : htmlspecialchars($data_value);
                 $tmp_row[htmlspecialchars($data_column)] = $escaped_value;
             }
+
             $sanitized_data[] = $tmp_row;
         }
+
         $this->response->setRequestStatus(true);
         $this->response->addJSON('message', null);
         $this->response->addJSON('chartData', json_encode($sanitized_data));

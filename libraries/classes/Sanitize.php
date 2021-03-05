@@ -62,17 +62,21 @@ class Sanitize
                 $valid_starts[$key] = '.' . $value;
             }
         }
+
         if ($other) {
             $valid_starts[] = 'mailto:';
             $valid_starts[] = 'ftp://';
         }
+
         if ($http) {
             $valid_starts[] = 'http://';
         }
+
         if ($is_setup) {
             $valid_starts[] = '?page=form&';
             $valid_starts[] = '?page=servers&';
         }
+
         foreach ($valid_starts as $val) {
             if (substr($url, 0, strlen($val)) == $val) {
                 return true;
@@ -103,6 +107,7 @@ class Sanitize
         if (! self::checkLink($found[1])) {
             return $found[0];
         }
+
         /* a-z and _ allowed in target */
         if (! empty($found[3]) && preg_match('/[^a-z_]+/i', $found[3])) {
             return $found[0];
@@ -152,6 +157,7 @@ class Sanitize
                 $page = 'setup';
             }
         }
+
         $link = MySQLDocumentation::getDocumentationLink($page, $anchor, self::isSetup() ? '../' : './');
 
         return '<a href="' . $link . '" target="documentation">';
@@ -250,6 +256,7 @@ class Sanitize
             // then add the dot to the list of legit characters
             $pattern .= '.';
         }
+
         $pattern .= '-]/';
         $filename = preg_replace($pattern, '_', $filename);
 
@@ -358,6 +365,7 @@ class Sanitize
             foreach ($value as $val) {
                 $result .= self::formatJsVal($val) . ',';
             }
+
             $result .= "];\n";
         } else {
             $result .= self::formatJsVal($value) . ";\n";
@@ -393,12 +401,15 @@ class Sanitize
             if (isset($_REQUEST[$key]) && ! is_string($_REQUEST[$key])) {
                 unset($_REQUEST[$key]);
             }
+
             if (isset($_POST[$key]) && ! is_string($_POST[$key])) {
                 unset($_POST[$key]);
             }
+
             if (isset($_COOKIE[$key]) && ! is_string($_COOKIE[$key])) {
                 unset($_COOKIE[$key]);
             }
+
             if (! isset($_GET[$key]) || is_string($_GET[$key])) {
                 continue;
             }

@@ -115,6 +115,7 @@ class TableStatsEps extends TableStats
                 $this->font->getStringWidth($field, $font, (int) $fontSize)
             );
         }
+
         $this->width += $this->font->getStringWidth(
             '      ',
             $font,
@@ -124,7 +125,8 @@ class TableStatsEps extends TableStats
          * it is unknown what value must be added, because
         * table title is affected by the table width value
         */
-        while ($this->width
+        while (
+            $this->width
             < $this->font->getStringWidth(
                 $this->getTitle(),
                 $font,

@@ -63,6 +63,7 @@ class AuthenticationHttp extends AuthenticationPlugin
             } else {
                 $server_message = $GLOBALS['cfg']['Server']['verbose'];
             }
+
             $realm_message = 'phpMyAdmin ' . $server_message;
         } else {
             $realm_message = $GLOBALS['cfg']['Server']['auth_http_realm'];
@@ -114,6 +115,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         if (isset($GLOBALS['PHP_AUTH_USER'])) {
             $this->user = $GLOBALS['PHP_AUTH_USER'];
         }
+
         if (empty($this->user)) {
             if (Core::getenv('PHP_AUTH_USER')) {
                 $this->user = Core::getenv('PHP_AUTH_USER');
@@ -134,10 +136,12 @@ class AuthenticationHttp extends AuthenticationPlugin
                 $this->user = Core::getenv('Authorization');
             }
         }
+
         // Grabs the $PHP_AUTH_PW variable
         if (isset($GLOBALS['PHP_AUTH_PW'])) {
             $this->password = $GLOBALS['PHP_AUTH_PW'];
         }
+
         if (empty($this->password)) {
             if (Core::getenv('PHP_AUTH_PW')) {
                 $this->password = Core::getenv('PHP_AUTH_PW');
@@ -149,6 +153,7 @@ class AuthenticationHttp extends AuthenticationPlugin
                 $this->password = Core::getenv('AUTH_PASSWORD');
             }
         }
+
         // Sanitize empty password login
         if ($this->password === null) {
             $this->password = '';
@@ -167,8 +172,10 @@ class AuthenticationHttp extends AuthenticationPlugin
                     $this->user = substr($usr_pass, 0, $colon);
                     $this->password = substr($usr_pass, $colon + 1);
                 }
+
                 unset($colon);
             }
+
             unset($usr_pass);
         }
 
@@ -177,7 +184,8 @@ class AuthenticationHttp extends AuthenticationPlugin
 
         // User logged out -> ensure the new username is not the same
         $old_usr = $_REQUEST['old_usr'] ?? '';
-        if (! empty($old_usr)
+        if (
+            ! empty($old_usr)
             && (isset($this->user) && hash_equals($old_usr, $this->user))
         ) {
             $this->user = '';

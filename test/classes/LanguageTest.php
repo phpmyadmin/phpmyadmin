@@ -25,6 +25,7 @@ class LanguageTest extends AbstractTestCase
         if (! is_readable($loc)) {
             $this->markTestSkipped('Missing compiled locales.');
         }
+
         $this->manager = new LanguageManager();
     }
 

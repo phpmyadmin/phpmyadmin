@@ -108,7 +108,8 @@ class FindReplaceController extends AbstractController
 
             $type = (string) $row['Type'];
             // reformat mysql query output
-            if (strncasecmp($type, 'set', 3) == 0
+            if (
+                strncasecmp($type, 'set', 3) == 0
                 || strncasecmp($type, 'enum', 4) == 0
             ) {
                 $type = str_replace(',', ', ', $type);
@@ -118,13 +119,16 @@ class FindReplaceController extends AbstractController
                 if (! preg_match('@BINARY[\(]@i', $type)) {
                     $type = str_ireplace('BINARY', '', $type);
                 }
+
                 $type = str_ireplace('ZEROFILL', '', $type);
                 $type = str_ireplace('UNSIGNED', '', $type);
                 $type = mb_strtolower($type);
             }
+
             if (empty($type)) {
                 $type = '&nbsp;';
             }
+
             $this->columnTypes[] = $type;
         }
     }
@@ -310,9 +314,11 @@ class FindReplaceController extends AbstractController
                     break;
                 }
             }
+
             if (! $found) {
                 return false;
             }
+
             $find = $delimiters[$i] . $find . $delimiters[$i];
             foreach ($result as $index => $row) {
                 $result[$index][1] = preg_replace(
@@ -361,6 +367,7 @@ class FindReplaceController extends AbstractController
                         . "' THEN '" . $this->dbi->escapeString($row[1]) . "'";
                 }
             }
+
             $sql_query .= ' END'
                 . ' WHERE ' . Util::backquote($column)
                 . " RLIKE '" . $this->dbi->escapeString($find) . "' COLLATE "
@@ -381,6 +388,7 @@ class FindReplaceController extends AbstractController
             // binary collation to make sure that the comparison
             // is case sensitive
         }
+
         $this->dbi->query(
             $sql_query,
             DatabaseInterface::CONNECT_USER,

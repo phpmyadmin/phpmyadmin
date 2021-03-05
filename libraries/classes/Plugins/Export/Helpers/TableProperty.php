@@ -120,24 +120,31 @@ class TableProperty
         if (mb_strpos($this->type, 'int') === 0) {
             return 'int';
         }
+
         if (mb_strpos($this->type, 'longtext') === 0) {
             return 'string';
         }
+
         if (mb_strpos($this->type, 'long') === 0) {
             return 'long';
         }
+
         if (mb_strpos($this->type, 'char') === 0) {
             return 'string';
         }
+
         if (mb_strpos($this->type, 'varchar') === 0) {
             return 'string';
         }
+
         if (mb_strpos($this->type, 'text') === 0) {
             return 'string';
         }
+
         if (mb_strpos($this->type, 'tinyint') === 0) {
             return 'bool';
         }
+
         if (mb_strpos($this->type, 'datetime') === 0) {
             return 'DateTime';
         }
@@ -155,24 +162,31 @@ class TableProperty
         if (mb_strpos($this->type, 'int') === 0) {
             return 'Int32';
         }
+
         if (mb_strpos($this->type, 'longtext') === 0) {
             return 'String';
         }
+
         if (mb_strpos($this->type, 'long') === 0) {
             return 'Long';
         }
+
         if (mb_strpos($this->type, 'char') === 0) {
             return 'String';
         }
+
         if (mb_strpos($this->type, 'varchar') === 0) {
             return 'String';
         }
+
         if (mb_strpos($this->type, 'text') === 0) {
             return 'String';
         }
+
         if (mb_strpos($this->type, 'tinyint') === 0) {
             return 'Boolean';
         }
+
         if (mb_strpos($this->type, 'datetime') === 0) {
             return 'DateTime';
         }

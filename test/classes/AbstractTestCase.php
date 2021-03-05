@@ -53,8 +53,10 @@ abstract class AbstractTestCase extends TestCase
             if (in_array($key, $this->globalsAllowList)) {
                 continue;
             }
+
             unset($GLOBALS[$key]);
         }
+
         $_GET = [];
         $_POST = [];
         $_SERVER = [
@@ -158,6 +160,7 @@ abstract class AbstractTestCase extends TestCase
             if (in_array($key, $this->globalsAllowList)) {
                 continue;
             }
+
             unset($GLOBALS[$key]);
         }
     }

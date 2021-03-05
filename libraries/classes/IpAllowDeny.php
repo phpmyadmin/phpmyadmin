@@ -42,7 +42,8 @@ class IpAllowDeny
      */
     public function ipMaskTest($testRange, $ipToTest)
     {
-        if (mb_strpos($testRange, ':') > -1
+        if (
+            mb_strpos($testRange, ':') > -1
             || mb_strpos($ipToTest, ':') > -1
         ) {
             // assume IPv6
@@ -319,7 +320,8 @@ class IpAllowDeny
             }
 
             // check for username
-            if (($rule_data[1] !== '%') //wildcarded first
+            if (
+                ($rule_data[1] !== '%') //wildcarded first
                 && (! hash_equals($rule_data[1], $username))
             ) {
                 continue;

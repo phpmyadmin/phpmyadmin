@@ -84,6 +84,7 @@ class Navigation
             if (! Sanitize::checkLink($logo['link'], true)) {
                 $logo['link'] = 'index.php';
             }
+
             if ($cfg['NavigationLogoLinkWindow'] === 'main') {
                 if (empty(parse_url($logo['link'], PHP_URL_HOST))) {
                     $hasStartChar = strpos($logo['link'], '?');
@@ -92,6 +93,7 @@ class Navigation
                         is_bool($hasStartChar) ? '?' : Url::getArgSeparator()
                     );
                 }
+
                 $logo['attributes'] = '';
             }
 
@@ -105,7 +107,9 @@ class Navigation
                 $navigationSettings = $pageSettings->getHTML();
             }
         }
-        if (! $response->isAjax()
+
+        if (
+            ! $response->isAjax()
             || ! empty($_POST['full'])
             || ! empty($_POST['reload'])
         ) {
@@ -258,9 +262,11 @@ class Navigation
                 if (! isset($hidden[$type])) {
                     $hidden[$type] = [];
                 }
+
                 $hidden[$type][] = $row['item_name'];
             }
         }
+
         $this->dbi->freeResult($result);
 
         return $hidden;

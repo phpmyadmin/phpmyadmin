@@ -97,6 +97,7 @@ class DbiDummy implements DbiExtension
 
             return $i;
         }
+
         for ($i = 0, $nb = count($GLOBALS['dummy_queries']); $i < $nb; $i++) {
             if ($GLOBALS['dummy_queries'][$i]['query'] != $query) {
                 continue;
@@ -109,6 +110,7 @@ class DbiDummy implements DbiExtension
 
             return $i + self::OFFSET_GLOBAL;
         }
+
         echo 'Not supported query: ' . $query . "\n";
 
         return false;
@@ -138,6 +140,7 @@ class DbiDummy implements DbiExtension
         if ($query_data['pos'] >= count((array) $query_data['result'])) {
             return null;
         }
+
         $ret = $query_data['result'][$query_data['pos']];
         $query_data['pos'] += 1;
 
@@ -153,7 +156,8 @@ class DbiDummy implements DbiExtension
     {
         $query_data = &$this->getQueryData($result);
         $data = $this->fetchAny($result);
-        if (! is_array($data)
+        if (
+            ! is_array($data)
             || ! isset($query_data['columns'])
         ) {
             return $data;
@@ -211,6 +215,7 @@ class DbiDummy implements DbiExtension
         if ($offset > count($query_data['result'])) {
             return false;
         }
+
         $query_data['pos'] = $offset;
 
         return true;

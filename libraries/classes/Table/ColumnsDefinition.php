@@ -90,6 +90,7 @@ final class ColumnsDefinition
                     $form_params['after_field'] = $_POST['after_field'];
                 }
             }
+
             $form_params['table'] = $table;
         }
 
@@ -152,7 +153,9 @@ final class ColumnsDefinition
                 $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;
             }
         }
-        if (isset($_POST['submit_num_fields'])
+
+        if (
+            isset($_POST['submit_num_fields'])
             || isset($_POST['submit_partition_change'])
         ) {
             //if adding new fields, set regenerate to keep the original values
@@ -305,6 +308,7 @@ final class ColumnsDefinition
                     );
                     $columnMeta['Expression'] = is_array($expressions) ? $expressions[$columnMeta['Field']] : null;
                 }
+
                 switch ($columnMeta['Default']) {
                     case null:
                         if ($columnMeta['Default'] === null) {
@@ -319,6 +323,7 @@ final class ColumnsDefinition
                             $columnMeta['DefaultType'] = 'USER_DEFINED';
                             $columnMeta['DefaultValue'] = $columnMeta['Default'];
                         }
+
                         break;
                     case 'CURRENT_TIMESTAMP':
                     case 'current_timestamp()':
@@ -346,6 +351,7 @@ final class ColumnsDefinition
                     $columnMeta['Default']
                         = Util::convertBitDefaultValue($columnMeta['Default']);
                 }
+
                 $type = $extracted_columnspec['type'];
                 if ($length == '') {
                     $length = $extracted_columnspec['spec_in_brackets'];
@@ -383,7 +389,8 @@ final class ColumnsDefinition
                 if (isset($columnMeta['Field'])) {
                     $form_params['field_orig[' . $columnNumber . ']']
                         = $columnMeta['Field'];
-                    if (isset($columnMeta['column_status'])
+                    if (
+                        isset($columnMeta['column_status'])
                         && ! $columnMeta['column_status']['isEditable']
                     ) {
                         $form_params['field_name[' . $columnNumber . ']']
@@ -397,7 +404,8 @@ final class ColumnsDefinition
                 if (isset($columnMeta['Type'])) {
                     // keep in uppercase because the new type will be in uppercase
                     $form_params['field_type_orig[' . $columnNumber . ']'] = mb_strtoupper($type);
-                    if (isset($columnMeta['column_status'])
+                    if (
+                        isset($columnMeta['column_status'])
                         && ! $columnMeta['column_status']['isEditable']
                     ) {
                         $form_params['field_type[' . $columnNumber . ']'] = mb_strtoupper($type);
@@ -467,6 +475,7 @@ final class ColumnsDefinition
             if (isset($columnMeta['DefaultValue'])) {
                 $default_value = $columnMeta['DefaultValue'];
             }
+
             if ($type_upper === 'BIT') {
                 $default_value = Util::convertBitDefaultValue($columnMeta['DefaultValue']);
             } elseif ($type_upper === 'BINARY' || $type_upper === 'VARBINARY') {
@@ -507,6 +516,7 @@ final class ColumnsDefinition
                     'description' => $collation->getDescription(),
                 ];
             }
+
             $charsetsList[] = [
                 'name' => $charset->getName(),
                 'description' => $charset->getDescription(),

@@ -95,6 +95,7 @@ if (! @is_readable(AUTOLOAD_FILE)) {
         . 'install library files</a>.</p>'
     );
 }
+
 require_once AUTOLOAD_FILE;
 
 $route = Routing::getCurrentRoute();
@@ -180,6 +181,7 @@ $sql_query = '';
 if (Core::isValid($_POST['sql_query'])) {
     $sql_query = $_POST['sql_query'];
 }
+
 $containerBuilder->setParameter('sql_query', $sql_query);
 
 //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
@@ -313,7 +315,8 @@ $containerBuilder->set('theme_manager', ThemeManager::getInstance());
 /* Tell tracker that it can actually work */
 Tracker::enable();
 
-if (! defined('PMA_MINIMUM_COMMON')
+if (
+    ! defined('PMA_MINIMUM_COMMON')
     && ! empty($server)
     && isset($cfg['ZeroConf'])
     && $cfg['ZeroConf'] == true

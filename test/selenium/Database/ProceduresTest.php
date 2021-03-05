@@ -99,6 +99,7 @@ class ProceduresTest extends TestBase
                 $this->getSqlMode()
             );
         }
+
         parent::tearDown();
     }
 

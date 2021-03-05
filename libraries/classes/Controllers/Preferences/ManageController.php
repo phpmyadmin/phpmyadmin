@@ -107,7 +107,8 @@ class ManageController extends AbstractController
         if (isset($_POST['submit_import'])) {
             // load from JSON file
             $json = '';
-            if (isset($_POST['import_type'], $_FILES['import_file'])
+            if (
+                isset($_POST['import_type'], $_FILES['import_file'])
                 && $_POST['import_type'] === 'text_file'
                 && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
                 && is_uploaded_file($_FILES['import_file']['tmp_name'])
@@ -142,11 +143,13 @@ class ManageController extends AbstractController
                 if (! empty($_POST['import_merge'])) {
                     $new_config = array_merge($new_config, $cf->getConfigArray());
                 }
+
                 $new_config = array_merge($new_config, $config);
                 $_POST_bak = $_POST;
                 foreach ($new_config as $k => $v) {
                     $_POST[str_replace('/', '-', (string) $k)] = $v;
                 }
+
                 $cf->resetConfigData();
                 $all_ok = $form_display->process(true, false);
                 $all_ok = $all_ok && ! $form_display->hasErrors();
@@ -156,6 +159,7 @@ class ManageController extends AbstractController
                     $form_display->fixErrors();
                     $all_ok = true;
                 }
+
                 if (! $all_ok) {
                     // mimic original form and post json in a hidden field
                     $cfgRelation = $this->relation->getRelationsParam();
@@ -179,14 +183,17 @@ class ManageController extends AbstractController
                 // check for ThemeDefault
                 $params = [];
                 $tmanager = ThemeManager::getInstance();
-                if (isset($config['ThemeDefault'])
+                if (
+                    isset($config['ThemeDefault'])
                     && $tmanager->theme->getId() != $config['ThemeDefault']
                     && $tmanager->checkTheme($config['ThemeDefault'])
                 ) {
                     $tmanager->setActiveTheme($config['ThemeDefault']);
                     $tmanager->setThemeCookie();
                 }
-                if (isset($config['lang'])
+
+                if (
+                    isset($config['lang'])
                     && $config['lang'] != $lang
                 ) {
                     $params['lang'] = $config['lang'];
@@ -205,11 +212,13 @@ class ManageController extends AbstractController
                             if ($k === 'token') {
                                 continue;
                             }
+
                             $params[$k] = mb_substr($q, $pos + 1);
                         }
                     } else {
                         $return_url = 'index.php?route=/preferences/manage';
                     }
+
                     // reload config
                     $PMA_Config->loadUserPreferences();
                     $this->userPreferences->redirect($return_url ?? '', $params);
@@ -249,6 +258,7 @@ class ManageController extends AbstractController
             if (! $error instanceof Message) {
                 $error = Message::error($error);
             }
+
             $error->getDisplay();
         }
 

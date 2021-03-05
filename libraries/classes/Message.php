@@ -420,6 +420,7 @@ class Message
         if ($sanitize) {
             $message = self::sanitize($message);
         }
+
         $this->message = $message;
     }
 
@@ -434,6 +435,7 @@ class Message
         if ($sanitize) {
             $string = self::sanitize($string);
         }
+
         $this->string = $string;
     }
 
@@ -518,6 +520,7 @@ class Message
         if (! empty($separator)) {
             $this->addedMessages[] = $separator;
         }
+
         $this->addedMessages[] = $message;
     }
 
@@ -565,6 +568,7 @@ class Message
         if ($sanitize) {
             $params = self::sanitize($params);
         }
+
         $this->params = $params;
     }
 
@@ -683,6 +687,7 @@ class Message
         if ($this->isDisplayed()) {
             $message = $this->getMessageWithIcon($message);
         }
+
         if (count($this->getParams()) > 0) {
             $message = self::format($message, $this->getParams());
         }
@@ -793,6 +798,7 @@ class Message
         } else {
             $image = 's_notice';
         }
+
         $message = self::notice(Html\Generator::getImage($image)) . ' ' . $message;
 
         return $message;

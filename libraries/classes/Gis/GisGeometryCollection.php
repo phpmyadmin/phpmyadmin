@@ -78,12 +78,14 @@ class GisGeometryCollection extends GisGeometry
             if ($type_pos === false) {
                 continue;
             }
+
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
             if (! $gis_obj) {
                 continue;
             }
+
             $scale_data = $gis_obj->scaleRow($sub_part);
 
             // Update minimum/maximum values for x and y coordinates.
@@ -143,12 +145,14 @@ class GisGeometryCollection extends GisGeometry
             if ($type_pos === false) {
                 continue;
             }
+
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
             if (! $gis_obj) {
                 continue;
             }
+
             $image = $gis_obj->prepareRowAsPng(
                 $sub_part,
                 $label,
@@ -191,12 +195,14 @@ class GisGeometryCollection extends GisGeometry
             if ($type_pos === false) {
                 continue;
             }
+
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
             if (! $gis_obj) {
                 continue;
             }
+
             $pdf = $gis_obj->prepareRowAsPdf(
                 $sub_part,
                 $label,
@@ -240,12 +246,14 @@ class GisGeometryCollection extends GisGeometry
             if ($type_pos === false) {
                 continue;
             }
+
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
             if (! $gis_obj) {
                 continue;
             }
+
             $row .= $gis_obj->prepareRowAsSvg(
                 $sub_part,
                 $label,
@@ -290,12 +298,14 @@ class GisGeometryCollection extends GisGeometry
             if ($type_pos === false) {
                 continue;
             }
+
             $type = mb_substr($sub_part, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
             if (! $gis_obj) {
                 continue;
             }
+
             $row .= $gis_obj->prepareRowAsOl(
                 $sub_part,
                 $srid,
@@ -338,6 +348,7 @@ class GisGeometryCollection extends GisGeometry
                     $start = $count + 2;
                 }
             }
+
             $count++;
         }
 
@@ -369,8 +380,10 @@ class GisGeometryCollection extends GisGeometry
             if (! $gis_obj) {
                 continue;
             }
+
             $wkt .= $gis_obj->generateWkt($gis_data, $i, $empty) . ',';
         }
+
         if (isset($gis_data[0]['gis_type'])) {
             $wkt
                 = mb_substr(
@@ -416,6 +429,7 @@ class GisGeometryCollection extends GisGeometry
             if ($type_pos === false) {
                 continue;
             }
+
             $type = mb_substr($sub_part, 0, $type_pos);
             /**
              * @var GisMultiPolygon|GisPolygon|GisMultiPoint|GisPoint|GisMultiLineString|GisLineString $gis_obj
@@ -424,6 +438,7 @@ class GisGeometryCollection extends GisGeometry
             if (! $gis_obj) {
                 continue;
             }
+
             $params = array_merge($params, $gis_obj->generateParams($sub_part, $i));
             $i++;
         }

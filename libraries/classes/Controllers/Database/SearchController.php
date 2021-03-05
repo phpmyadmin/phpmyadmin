@@ -58,6 +58,7 @@ class SearchController extends AbstractController
                 $err_url
             );
         }
+
         $url_params['goto'] = Url::getFromRoute('/database/search');
 
         // Create a database search instance

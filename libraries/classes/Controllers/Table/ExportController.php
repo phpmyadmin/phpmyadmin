@@ -70,7 +70,8 @@ class ExportController extends AbstractController
         if (! empty($sql_query)) {
             $parser = new Parser($sql_query);
 
-            if (! empty($parser->statements[0])
+            if (
+                ! empty($parser->statements[0])
                 && ($parser->statements[0] instanceof SelectStatement)
             ) {
                 // Checking if the WHERE clause has to be replaced.
@@ -101,9 +102,11 @@ class ExportController extends AbstractController
         if (! isset($sql_query)) {
             $sql_query = '';
         }
+
         if (! isset($num_tables)) {
             $num_tables = 0;
         }
+
         if (! isset($unlim_num_rows)) {
             $unlim_num_rows = 0;
         }

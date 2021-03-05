@@ -108,10 +108,12 @@ class OutputBuffering
         if ($this->mode && function_exists('ob_gzhandler')) {
             ob_start('ob_gzhandler');
         }
+
         ob_start();
         if (! defined('TESTSUITE')) {
             header('X-ob_mode: ' . $this->mode);
         }
+
         register_shutdown_function(
             [
                 self::class,

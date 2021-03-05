@@ -69,6 +69,7 @@ class PageSettings
         if (! empty($elemId)) {
             $this->elemId = $elemId;
         }
+
         $this->groupName = $formGroupName;
 
         $cf = new ConfigFile($GLOBALS['PMA_Config']->baseSettings);
@@ -78,7 +79,8 @@ class PageSettings
 
         // Process form
         $error = null;
-        if (isset($_POST['submit_save'])
+        if (
+            isset($_POST['submit_save'])
             && $_POST['submit_save'] == $formGroupName
         ) {
             $this->processPageSettings($formDisplay, $cf, $error);
@@ -131,6 +133,7 @@ class PageSettings
         if ($error) {
             $retval .= $error->getDisplay();
         }
+
         if ($formDisplay->hasErrors()) {
             // form has errors
             $retval .= '<div class="alert alert-danger config-form" role="alert">'
@@ -141,6 +144,7 @@ class PageSettings
                 . $formDisplay->displayErrors()
                 . '</div>';
         }
+
         $this->errorHTML = $retval;
     }
 

@@ -62,6 +62,7 @@ class Template
         if ($cache_dir === null) {
             $cache_dir = false;
         }
+
         $twig = new Environment($loader, [
             'auto_reload' => true,
             'cache' => $cache_dir,
@@ -70,6 +71,7 @@ class Template
             $twig->enableDebug();
             $twig->addExtension(new DebugExtension());
         }
+
         $twig->addExtension(new AssetExtension());
         $twig->addExtension(new CoreExtension());
         $twig->addExtension(new I18nExtension());

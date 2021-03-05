@@ -79,6 +79,7 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
             $html .= '<input type="hidden" name="fields' . $column_name_appendix
                 . '" value="' . htmlspecialchars($value) . '">';
         }
+
         $html .= '<input type="file" name="fields_upload'
             . $column_name_appendix . '">';
 

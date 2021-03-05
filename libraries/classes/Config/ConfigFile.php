@@ -159,6 +159,7 @@ class ConfigFile
 
             return;
         }
+
         // checking key presence is much faster than searching so move values
         // to keys
         $this->setFilter = array_flip($keys);
@@ -216,11 +217,13 @@ class ConfigFile
             $canonicalPath = $this->getCanonicalPath($path);
         }
 
-        if ($this->setFilter !== null
+        if (
+            $this->setFilter !== null
             && ! isset($this->setFilter[$canonicalPath])
         ) {
             return;
         }
+
         // if the path isn't protected it may be removed
         if (isset($this->persistKeys[$canonicalPath])) {
             Core::arrayWrite($path, $_SESSION[$this->id], $value);
@@ -247,6 +250,7 @@ class ConfigFile
             $removePath = $removePath
                 && ($instanceDefaultValue === $defaultValue);
         }
+
         if ($removePath) {
             Core::arrayRemove($path, $_SESSION[$this->id]);
 
@@ -334,6 +338,7 @@ class ConfigFile
             if (isset($this->cfgUpdateReadMapping[$path])) {
                 $path = $this->cfgUpdateReadMapping[$path];
             }
+
             $this->set($path, $value, $path);
         }
     }
@@ -381,6 +386,7 @@ class ConfigFile
         if ($v !== null) {
             return $v;
         }
+
         $path = $this->getCanonicalPath($path);
 
         return $this->getDefault($path, $default);
@@ -453,8 +459,10 @@ class ConfigFile
             if (! empty($this->getValue($path . '/password'))) {
                 $dsn .= ':***';
             }
+
             $dsn .= '@';
         }
+
         if ($this->getValue($path . '/host') !== 'localhost') {
             $dsn .= $this->getValue($path . '/host');
             $port = $this->getValue($path . '/port');
@@ -480,10 +488,12 @@ class ConfigFile
         if (! isset($_SESSION[$this->id]['Servers'][$id])) {
             return '';
         }
+
         $verbose = $this->get('Servers/' . $id . '/verbose');
         if (! empty($verbose)) {
             return $verbose;
         }
+
         $host = $this->get('Servers/' . $id . '/host');
 
         return empty($host) ? 'localhost' : $host;
@@ -501,15 +511,18 @@ class ConfigFile
         if (! isset($_SESSION[$this->id]['Servers'][$server])) {
             return;
         }
+
         $lastServer = $this->getServerCount();
 
         for ($i = $server; $i < $lastServer; $i++) {
             $_SESSION[$this->id]['Servers'][$i]
                 = $_SESSION[$this->id]['Servers'][$i + 1];
         }
+
         unset($_SESSION[$this->id]['Servers'][$lastServer]);
 
-        if (! isset($_SESSION[$this->id]['ServerDefault'])
+        if (
+            ! isset($_SESSION[$this->id]['ServerDefault'])
             || $_SESSION[$this->id]['ServerDefault'] != $lastServer
         ) {
             return;
@@ -569,6 +582,7 @@ class ConfigFile
             if (! isset($c[$mapFrom])) {
                 continue;
             }
+
             $c[$mapTo] = $c[$mapFrom];
             unset($c[$mapFrom]);
         }

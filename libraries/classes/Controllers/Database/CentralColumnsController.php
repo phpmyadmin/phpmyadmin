@@ -67,6 +67,7 @@ class CentralColumnsController extends AbstractController
                 'collation' => $_POST['collation'] ?? null,
             ]);
         }
+
         if (isset($_POST['getColumnList'])) {
             $this->response->addJSON('message', $this->getColumnList([
                 'cur_table' => $_POST['cur_table'] ?? null,
@@ -74,6 +75,7 @@ class CentralColumnsController extends AbstractController
 
             return;
         }
+
         if (isset($_POST['add_column'])) {
             $tmp_msg = $this->addColumn([
                 'table-select' => $_POST['table-select'] ?? null,
@@ -95,6 +97,7 @@ class CentralColumnsController extends AbstractController
 
             return;
         }
+
         if (isset($_POST['multi_edit_central_column_save'])) {
             $message = $this->updateMultipleColumn([
                 'db' => $_POST['db'] ?? null,
@@ -114,6 +117,7 @@ class CentralColumnsController extends AbstractController
                 $this->response->addJSON('message', $message);
             }
         }
+
         if (isset($_POST['delete_save'])) {
             $tmp_msg = $this->deleteSave([
                 'db' => $_POST['db'] ?? null,
@@ -130,6 +134,7 @@ class CentralColumnsController extends AbstractController
         if (Core::isValid($_POST['pos'], 'integer')) {
             $pos = (int) $_POST['pos'];
         }
+
         $num_cols = $this->centralColumns->getColumnsCount(
             $db,
             $pos,
@@ -152,7 +157,8 @@ class CentralColumnsController extends AbstractController
     {
         global $text_dir;
 
-        if (! empty($params['total_rows'])
+        if (
+            ! empty($params['total_rows'])
             && Core::isValid($params['total_rows'], 'integer')
         ) {
             $totalRows = (int) $params['total_rows'];

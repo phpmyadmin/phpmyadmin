@@ -80,6 +80,7 @@ class AdvisorTest extends AbstractTestCase
         if (isset($runResult['errors']) || $error !== null) {
             $this->assertEquals([$error], $runResult['errors']);
         }
+
         if (! isset($runResult['fired']) && $expected == []) {
             return;
         }

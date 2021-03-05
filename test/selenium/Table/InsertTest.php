@@ -48,6 +48,7 @@ class InsertTest extends TestBase
             /* TODO: this should be fixed, but the cause is unclear to me */
             $this->markTestIncomplete('Fails with Safari');
         }
+
         $this->waitAjax();
         $this->expandMore();
 

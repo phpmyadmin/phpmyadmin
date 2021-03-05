@@ -64,6 +64,7 @@ class RoutinesTest extends AbstractTestCase
             $_POST[$key] = $value;
             $_REQUEST[$key] = $value;
         }
+
         $this->assertEquals($out, $this->routines->getDataFromRequest());
     }
 

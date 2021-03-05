@@ -73,10 +73,12 @@ class TwoFactor
         if (isset($config['config_data']['2fa'])) {
             $result = $config['config_data']['2fa'];
         }
+
         $result['type'] = $config['type'];
         if (! isset($result['backend'])) {
             $result['backend'] = '';
         }
+
         if (! isset($result['settings'])) {
             $result['settings'] = [];
         }
@@ -120,9 +122,11 @@ class TwoFactor
         if ($GLOBALS['cfg']['DBG']['simple2fa']) {
             $result[] = 'simple';
         }
+
         if (class_exists(Google2FA::class)) {
             $result[] = 'application';
         }
+
         if (class_exists(U2FServer::class)) {
             $result[] = 'key';
         }
@@ -144,12 +148,14 @@ class TwoFactor
                 'dep' => 'pragmarx/google2fa-qrcode',
             ];
         }
+
         if (! class_exists('BaconQrCode\Renderer\Image\Png')) {
             $result[] = [
                 'class' => Application::getName(),
                 'dep' => 'bacon/bacon-qr-code',
             ];
         }
+
         if (! class_exists(U2FServer::class)) {
             $result[] = [
                 'class' => Key::getName(),
@@ -203,6 +209,7 @@ class TwoFactor
         if ($skip_session) {
             return $this->backend->check();
         }
+
         if (empty($_SESSION['two_factor_check'])) {
             $_SESSION['two_factor_check'] = $this->backend->check();
         }
@@ -261,6 +268,7 @@ class TwoFactor
             if (! in_array($name, $this->available)) {
                 return false;
             }
+
             $cls = $this->getBackendClass($name);
             $this->config['settings'] = [];
             $this->backend = new $cls($this);
@@ -268,6 +276,7 @@ class TwoFactor
                 return false;
             }
         }
+
         $result = $this->save();
         if ($result !== true) {
             echo $result->getDisplay();

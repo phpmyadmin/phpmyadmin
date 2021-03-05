@@ -187,11 +187,12 @@ class ExportTexytext extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        if (! $this->export->outputHandler(
-            $table_alias != ''
+        if (
+            ! $this->export->outputHandler(
+                $table_alias != ''
                 ? '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n"
                 : '==' . __('Dumping data for query result') . "\n\n"
-        )
+            )
         ) {
             return false;
         }
@@ -212,9 +213,11 @@ class ExportTexytext extends ExportPlugin
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
+
                 $text_output .= '|'
                     . htmlspecialchars(stripslashes($col_as));
             }
+
             $text_output .= "\n|------\n";
             if (! $this->export->outputHandler($text_output)) {
                 return false;
@@ -232,6 +235,7 @@ class ExportTexytext extends ExportPlugin
                 } else {
                     $value = ' ';
                 }
+
                 $text_output .= '|'
                     . str_replace(
                         '|',
@@ -239,11 +243,13 @@ class ExportTexytext extends ExportPlugin
                         htmlspecialchars($value)
                     );
             }
+
             $text_output .= "\n";
             if (! $this->export->outputHandler($text_output)) {
                 return false;
             }
         }
+
         $dbi->freeResult($result);
 
         return true;
@@ -314,6 +320,7 @@ class ExportTexytext extends ExportPlugin
             if (! empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$view]['columns'][$col_as];
             }
+
             $text_output .= $this->formatOneColumnDefinition(
                 $column,
                 $unique_keys,
@@ -402,14 +409,17 @@ class ExportTexytext extends ExportPlugin
         if ($do_relation && $have_rel) {
             $text_output .= '|' . __('Links to');
         }
+
         if ($do_comments) {
             $text_output .= '|' . __('Comments');
             $comments = $this->relation->getComments($db, $table);
         }
+
         if ($do_mime && $cfgRelation['mimework']) {
             $text_output .= '|' . __('Media type');
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
+
         $text_output .= "\n|------\n";
 
         $columns = $dbi->getColumns($db, $table);
@@ -418,6 +428,7 @@ class ExportTexytext extends ExportPlugin
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
+
             $text_output .= $this->formatOneColumnDefinition(
                 $column,
                 $unique_keys,
@@ -434,12 +445,14 @@ class ExportTexytext extends ExportPlugin
                     )
                 );
             }
+
             if ($do_comments && $cfgRelation['commwork']) {
                 $text_output .= '|'
                     . (isset($comments[$field_name])
                         ? htmlspecialchars($comments[$field_name])
                         : '');
             }
+
             if ($do_mime && $cfgRelation['mimework']) {
                 $text_output .= '|'
                     . (isset($mime_map[$field_name])
@@ -560,6 +573,7 @@ class ExportTexytext extends ExportPlugin
                     $dump .= '== ' . __('Triggers') . ' ' . $table_alias . "\n\n";
                     $dump .= $this->getTriggers($db, $table);
                 }
+
                 break;
             case 'create_view':
                 $dump .= '== ' . __('Structure for view') . ' ' . $table_alias . "\n\n";
@@ -604,6 +618,7 @@ class ExportTexytext extends ExportPlugin
         if (empty($col_alias)) {
             $col_alias = $column['Field'];
         }
+
         $extracted_columnspec
             = Util::extractColumnSpec($column['Type']);
         $type = $extracted_columnspec['print_type'];
@@ -623,10 +638,12 @@ class ExportTexytext extends ExportPlugin
             $fmt_pre = '**' . $fmt_pre;
             $fmt_post .= '**';
         }
+
         if ($column['Key'] === 'PRI') {
             $fmt_pre = '//' . $fmt_pre;
             $fmt_post .= '//';
         }
+
         $definition = '|'
             . $fmt_pre . htmlspecialchars($col_alias) . $fmt_post;
         $definition .= '|' . htmlspecialchars($type);

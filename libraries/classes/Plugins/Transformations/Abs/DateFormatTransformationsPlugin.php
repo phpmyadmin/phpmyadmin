@@ -112,6 +112,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                         $aDate['year']
                     );
                 }
+
                 // If all fails, assume one of the dozens of valid strtime() syntaxes
                 // (https://www.gnu.org/manual/tar-1.12/html_chapter/tar_7.html)
             } else {

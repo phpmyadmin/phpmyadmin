@@ -30,6 +30,7 @@ $values = json_decode($vals);
 if (! ($values instanceof stdClass)) {
     Core::fatalError(__('Wrong data'));
 }
+
 $values = (array) $values;
 $result = Validator::validate($GLOBALS['ConfigFile'], $vids, $values, true);
 if ($result === false) {
@@ -38,4 +39,5 @@ if ($result === false) {
         implode(',', $vids)
     );
 }
+
 echo $result !== true ? json_encode($result) : '';

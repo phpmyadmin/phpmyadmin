@@ -80,14 +80,17 @@ class Logging
             apache_note('userID', $user);
             apache_note('userStatus', $status);
         }
+
         /* Do not log successful authentications */
         if (! $GLOBALS['PMA_Config']->get('AuthLogSuccess') && $status === 'ok') {
             return;
         }
+
         $log_file = self::getLogDestination();
         if (empty($log_file)) {
             return;
         }
+
         $message = self::getLogMessage($user, $status);
         if ($log_file === 'syslog') {
             if (function_exists('syslog')) {

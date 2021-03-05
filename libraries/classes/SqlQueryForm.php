@@ -64,6 +64,7 @@ class SqlQueryForm
         if (! $display_tab) {
             $display_tab = 'full';
         }
+
         // query to show
         if ($query === true) {
             $query = $GLOBALS['sql_query'];
@@ -203,6 +204,7 @@ class SqlQueryForm
                 );
             }
         }
+
         $legend .= ': ' . MySQLDocumentation::show('SELECT');
 
         return [

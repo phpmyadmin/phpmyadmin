@@ -240,6 +240,7 @@ class GisPoint extends GisGeometry
             foreach ($point_options as $option => $val) {
                 $row .= ' ' . $option . '="' . trim((string) $val) . '"';
             }
+
             $row .= '/>';
         }
 
@@ -296,6 +297,7 @@ class GisPoint extends GisGeometry
         if ($srid == 0) {
             $srid = 4326;
         }
+
         $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'POINT(' and trailing ')'

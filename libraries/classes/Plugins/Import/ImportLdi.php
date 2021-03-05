@@ -28,6 +28,7 @@ if (! isset($GLOBALS['plugin_param']) || $GLOBALS['plugin_param'] !== 'table') {
 
     return;
 }
+
 // phpcs:enable
 
 /**
@@ -63,6 +64,7 @@ class ImportLdi extends AbstractImportCsv
                     $GLOBALS['cfg']['Import']['ldi_local_option'] = true;
                 }
             }
+
             $dbi->freeResult($result);
             unset($result);
         }
@@ -108,7 +110,8 @@ class ImportLdi extends AbstractImportCsv
             $compression = $importHandle->getCompression();
         }
 
-        if ($import_file === 'none'
+        if (
+            $import_file === 'none'
             || $compression !== 'none'
             || $charset_conversion
         ) {
@@ -125,6 +128,7 @@ class ImportLdi extends AbstractImportCsv
         if (isset($ldi_local_option)) {
             $sql .= ' LOCAL';
         }
+
         $sql .= ' INFILE \'' . $dbi->escapeString($import_file)
             . '\'';
         if (isset($ldi_replace)) {
@@ -132,19 +136,23 @@ class ImportLdi extends AbstractImportCsv
         } elseif (isset($ldi_ignore)) {
             $sql .= ' IGNORE';
         }
+
         $sql .= ' INTO TABLE ' . Util::backquote($table);
 
         if (strlen((string) $ldi_terminated) > 0) {
             $sql .= ' FIELDS TERMINATED BY \'' . $ldi_terminated . '\'';
         }
+
         if (strlen((string) $ldi_enclosed) > 0) {
             $sql .= ' ENCLOSED BY \''
                 . $dbi->escapeString($ldi_enclosed) . '\'';
         }
+
         if (strlen((string) $ldi_escaped) > 0) {
             $sql .= ' ESCAPED BY \''
                 . $dbi->escapeString($ldi_escaped) . '\'';
         }
+
         if (strlen((string) $ldi_new_line) > 0) {
             if ($ldi_new_line === 'auto') {
                 $ldi_new_line
@@ -152,12 +160,15 @@ class ImportLdi extends AbstractImportCsv
                     ? '\n'
                     : '\r\n';
             }
+
             $sql .= ' LINES TERMINATED BY \'' . $ldi_new_line . '\'';
         }
+
         if ($skip_queries > 0) {
             $sql .= ' IGNORE ' . $skip_queries . ' LINES';
             $skip_queries = 0;
         }
+
         if (strlen((string) $ldi_columns) > 0) {
             $sql .= ' (';
             $tmp = preg_split('/,( ?)/', $ldi_columns);
@@ -171,11 +182,13 @@ class ImportLdi extends AbstractImportCsv
                 if ($i > 0) {
                     $sql .= ', ';
                 }
+
                 /* Trim also `, if user already included backquoted fields */
                 $sql .= Util::backquote(
                     trim($tmp[$i], " \t\r\n\0\x0B`")
                 );
             }
+
             $sql .= ')';
         }
 

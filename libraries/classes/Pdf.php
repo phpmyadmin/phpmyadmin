@@ -142,6 +142,7 @@ class Pdf extends TCPDF
                 $this->pages[$n] = strtr($this->pages[$n], $this->alias);
             }
         }
+
         parent::_putpages();
         // phpcs:enable
     }

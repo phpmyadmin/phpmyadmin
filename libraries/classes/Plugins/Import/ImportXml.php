@@ -268,6 +268,7 @@ class ImportXml extends ImportPlugin
                     if (! in_array((string) $row_attr['name'], $tempRow)) {
                         $tempRow[] = (string) $row_attr['name'];
                     }
+
                     $tempCells[] = (string) $v2;
                 }
 

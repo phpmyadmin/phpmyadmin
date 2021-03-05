@@ -155,12 +155,14 @@ class Sql
         $just_one_table = true;
         $prev_table = '';
         foreach ($fields_meta as $one_field_meta) {
-            if ($one_field_meta->table != ''
+            if (
+                $one_field_meta->table != ''
                 && $prev_table != ''
                 && $one_field_meta->table != $prev_table
             ) {
                 $just_one_table = false;
             }
+
             if ($one_field_meta->table == '') {
                 continue;
             }
@@ -188,6 +190,7 @@ class Sql
         foreach ($fields_meta as $oneMeta) {
             $resultSetColumnNames[] = $oneMeta->name;
         }
+
         foreach (Index::getFromTable($table, $db) as $index) {
             if (! $index->isUnique()) {
                 continue;
@@ -204,6 +207,7 @@ class Sql
                     $numberFound++;
                 }
             }
+
             if ($numberFound == count($indexColumns)) {
                 return true;
             }
@@ -530,7 +534,8 @@ class Sql
         } else {
             $defaultOrderByClause = '';
 
-            if (isset($GLOBALS['cfg']['TablePrimaryKeyOrder'])
+            if (
+                isset($GLOBALS['cfg']['TablePrimaryKeyOrder'])
                 && ($GLOBALS['cfg']['TablePrimaryKeyOrder'] !== 'NONE')
             ) {
                 $primaryKey     = null;
@@ -579,6 +584,7 @@ class Sql
         } else {
             Generator::mysqlDie($error, $full_sql_query, '', '');
         }
+
         exit;
     }
 
@@ -764,7 +770,8 @@ class Sql
             // result are less than max_rows to display, there is no need
             // to count total rows for that query again
             $unlim_num_rows = $_SESSION['tmpval']['pos'] + $num_rows;
-        } elseif ($analyzed_sql_results['querytype'] === 'SELECT'
+        } elseif (
+            $analyzed_sql_results['querytype'] === 'SELECT'
             || $analyzed_sql_results['is_subquery']
         ) {
             //    c o u n t    q u e r y
@@ -914,7 +921,8 @@ class Sql
                 $_POST['purge'] ?? null
             );
 
-            if (isset($_POST['dropped_column'])
+            if (
+                isset($_POST['dropped_column'])
                 && isset($db) && strlen($db) > 0
                 && isset($table) && strlen($table) > 0
             ) {
@@ -955,9 +963,11 @@ class Sql
         if (! isset($analyzed_sql_results['statement'])) {
             return;
         }
+
         $statement = $analyzed_sql_results['statement'];
         if ($statement instanceof AlterStatement) {
-            if (! empty($statement->altered[0])
+            if (
+                ! empty($statement->altered[0])
                 && $statement->altered[0]->options->has('DROP')
             ) {
                 if (! empty($statement->altered[0]->field->column)) {
@@ -997,6 +1007,7 @@ class Sql
             } else {
                 $message = Message::getMessageForInsertedRows($num_rows);
             }
+
             $insert_id = $this->dbi->insertId();
             if ($insert_id != 0) {
                 // insert_id is id of FIRST record inserted in one insert,
@@ -1019,7 +1030,8 @@ class Sql
             // fact that $message_to_show is sent for every case.
             // The $message_to_show containing a success message and sent with
             // the form should not have priority over errors
-        } elseif (! empty($message_to_show)
+        } elseif (
+            ! empty($message_to_show)
             && $analyzed_sql_results['querytype'] !== 'SELECT'
         ) {
             $message = Message::rawSuccess(htmlspecialchars($message_to_show));
@@ -1167,7 +1179,8 @@ class Sql
 
         $bookmark = '';
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
-        if (is_array($cfgBookmark)
+        if (
+            is_array($cfgBookmark)
             && $displayParts['bkm_form'] == '1'
             && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
             && ! empty($sql_query)
@@ -1269,6 +1282,7 @@ class Sql
                 if (! isset($result)) {
                     $result = $this->dbi->storeResult();
                 }
+
                 $num_rows = $this->dbi->numRows($result);
 
                 if ($result !== false && $num_rows > 0) {
@@ -1320,6 +1334,7 @@ class Sql
             if (isset($result) && ! is_bool($result)) {
                 $fields_meta = $this->dbi->getFieldsMeta($result) ?? [];
             }
+
             $fields_cnt = count($fields_meta);
             $_SESSION['is_multi_query'] = false;
             $displayResultsObject->setProperties(
@@ -1350,6 +1365,7 @@ class Sql
                     $is_limited_display
                 );
             }
+
             $this->dbi->freeResult($result);
         }
 
@@ -1503,7 +1519,8 @@ class Sql
                 }
             }
 
-            if ($analyzed_sql_results['join']
+            if (
+                $analyzed_sql_results['join']
                 || $analyzed_sql_results['is_subquery']
                 || count($analyzed_sql_results['select_tables']) !== 1
             ) {
@@ -1545,6 +1562,7 @@ class Sql
                 'pview_lnk' => '1',
             ];
         }
+
         if (isset($_POST['printview']) && $_POST['printview'] == '1') {
             $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
@@ -1602,7 +1620,8 @@ class Sql
 
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         $bookmarkSupportHtml = '';
-        if (is_array($cfgBookmark)
+        if (
+            is_array($cfgBookmark)
             && $displayParts['bkm_form'] == '1'
             && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
             && ! empty($sql_query)
@@ -1739,7 +1758,8 @@ class Sql
         // (the parser never sets the 'union' key to 0).
         // Handling is also not required if we came from the "Sort by key"
         // drop-down.
-        if (! empty($analyzed_sql_results)
+        if (
+            ! empty($analyzed_sql_results)
             && $this->isRememberSortingOrder($analyzed_sql_results)
             && empty($analyzed_sql_results['union'])
             && ! isset($_POST['sort_by_key'])
@@ -1795,7 +1815,8 @@ class Sql
         $warning_messages = $this->operations->getWarningMessagesArray();
 
         // No rows returned -> move back to the calling page
-        if (($num_rows == 0 && $unlim_num_rows == 0)
+        if (
+            ($num_rows == 0 && $unlim_num_rows == 0)
             || $analyzed_sql_results['is_affected']
         ) {
             $html_output = $this->getQueryResponseForNoResultsReturned(

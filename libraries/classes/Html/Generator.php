@@ -134,6 +134,7 @@ class Generator
             if ((string) $GLOBALS['db'] === '') {
                 return '';
             }
+
             $database = $GLOBALS['db'];
         } else {
             $database = Util::unescapeMysqlWildcards($database);
@@ -213,23 +214,29 @@ class Generator
         if (Util::showIcons($control_param)) {
             $include_icon = true;
         }
-        if ($force_text
+
+        if (
+            $force_text
             || Util::showText($control_param)
         ) {
             $include_text = true;
         }
+
         // Sometimes use a span (we rely on this in js/sql.js). But for menu bar
         // we don't need a span
         $button = $menu_icon ? '' : '<span class="text-nowrap">';
         if ($include_icon) {
             $button .= self::getImage($icon, $alternate);
         }
+
         if ($include_icon && $include_text) {
             $button .= '&nbsp;';
         }
+
         if ($include_text) {
             $button .= $alternate;
         }
+
         $button .= $menu_icon ? '' : '</span>';
 
         return $button;
@@ -294,7 +301,8 @@ class Generator
         // (not including CURRENT_TIMESTAMP)
         // and the column does not have the
         // ON UPDATE DEFAULT TIMESTAMP attribute.
-        if (($field['True_Type'] === 'timestamp')
+        if (
+            ($field['True_Type'] === 'timestamp')
             && $field['first_timestamp']
             && empty($field['Default'])
             && empty($data)
@@ -307,7 +315,8 @@ class Generator
         // For primary keys of type char(36) or varchar(36) UUID if the default
         // function
         // Only applies to insert mode, as it would silently trash data on updates.
-        if ($insert_mode
+        if (
+            $insert_mode
             && $field['Key'] === 'PRI'
             && ($field['Type'] === 'char(36)' || $field['Type'] === 'varchar(36)')
         ) {
@@ -342,11 +351,13 @@ class Generator
         $functions = $dbi->types->getAllFunctions();
         foreach ($functions as $function) {
             $retval .= '<option';
-            if (isset($foreignData['foreign_link']) && $foreignData['foreign_link'] !== false
+            if (
+                isset($foreignData['foreign_link']) && $foreignData['foreign_link'] !== false
                 && $default_function === $function
             ) {
                 $retval .= ' selected="selected"';
             }
+
             $retval .= '>' . $function . '</option>' . "\n";
             $dropdown_built[$function] = true;
         }
@@ -389,15 +400,19 @@ class Generator
         if (! empty($linkId)) {
             $retval .= ' id="' . $linkId . '"';
         }
+
         if (! empty($linkTarget)) {
             $retval .= ' target="' . $linkTarget . '"';
         }
+
         if ($disableAjax) {
             $classes[] = 'disableAjax';
         }
+
         if (! empty($classes)) {
             $retval .= ' class="' . implode(' ', $classes) . '"';
         }
+
         $retval .= ' title="' . $text . '">';
         if ($showIcon) {
             $retval .= self::getImage(
@@ -405,9 +420,11 @@ class Generator
                 $text
             );
         }
+
         if ($showText) {
             $retval .= $text;
         }
+
         $retval .= '</a>';
         if ($showText) {
             $retval .= '<br>';
@@ -434,7 +451,8 @@ class Generator
 
         if (isset($_REQUEST['session_max_rows'])) {
             $rows = $_REQUEST['session_max_rows'];
-        } elseif (isset($_SESSION['tmpval']['max_rows'])
+        } elseif (
+            isset($_SESSION['tmpval']['max_rows'])
             && $_SESSION['tmpval']['max_rows'] !== 'all'
         ) {
             $rows = $_SESSION['tmpval']['max_rows'];
@@ -486,6 +504,7 @@ class Generator
                 $devider .= '---+';
                 $columnNames .= ' ' . $meta->name . ' |';
             }
+
             $devider .= "\n";
 
             $ret .= $devider . $columnNames . "\n" . $devider;
@@ -495,10 +514,13 @@ class Generator
                     if ($value === null) {
                         $value = 'NULL';
                     }
+
                     $values .= ' ' . $value . ' |';
                 }
+
                 $ret .= $values . "\n";
             }
+
             $ret .= $devider;
         }
 
@@ -557,6 +579,7 @@ class Generator
                 $message->addText($GLOBALS['special_message']);
                 unset($GLOBALS['special_message']);
             }
+
             $retval .= $message->getDisplay();
         } else {
             $context = 'primary';
@@ -565,12 +588,14 @@ class Generator
             } elseif ($type === 'success') {
                 $context = 'success';
             }
+
             $retval .= '<div class="alert alert-' . $context . '" role="alert">';
             $retval .= Sanitize::sanitizeMessage($message);
             if (isset($GLOBALS['special_message'])) {
                 $retval .= Sanitize::sanitizeMessage($GLOBALS['special_message']);
                 unset($GLOBALS['special_message']);
             }
+
             $retval .= '</div>';
         }
 
@@ -623,6 +648,7 @@ class Generator
             if (! isset($GLOBALS['db'])) {
                 $GLOBALS['db'] = '';
             }
+
             if (strlen($GLOBALS['db']) > 0) {
                 $url_params['db'] = $GLOBALS['db'];
                 if (strlen($GLOBALS['table']) > 0) {
@@ -649,10 +675,12 @@ class Generator
                             Url::getFromRoute('/import', $explain_params),
                             __('Explain SQL')
                         ) . '&nbsp;]';
-                } elseif (preg_match(
-                    '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i',
-                    $sql_query
-                )) {
+                } elseif (
+                    preg_match(
+                        '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i',
+                        $sql_query
+                    )
+                ) {
                     $explain_params['sql_query']
                         = mb_substr($sql_query, 8);
                     $explain_link = ' [&nbsp;'
@@ -678,7 +706,8 @@ class Generator
 
             // even if the query is big and was truncated, offer the chance
             // to edit it (unless it's enormous, see linkOrButton() )
-            if (! empty($cfg['SQLQuery']['Edit'])
+            if (
+                ! empty($cfg['SQLQuery']['Edit'])
                 && empty($GLOBALS['show_as_php'])
             ) {
                 $edit_link .= Url::getCommon($url_params, '&');
@@ -721,7 +750,8 @@ class Generator
             }
 
             // Refresh query
-            if (! empty($cfg['SQLQuery']['Refresh'])
+            if (
+                ! empty($cfg['SQLQuery']['Refresh'])
                 && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
                 && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
             ) {
@@ -750,12 +780,14 @@ class Generator
                 $retval .= isset($_SESSION['profiling']) ? ' checked' : '';
                 $retval .= '> <label for="profilingCheckbox">' . __('Profiling') . '</label>';
             }
+
             $retval .= '</form>';
 
             /**
              * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
              */
-            if (! empty($cfg['SQLQuery']['Edit'])
+            if (
+                ! empty($cfg['SQLQuery']['Edit'])
                 && ! $query_too_big
                 && empty($GLOBALS['show_as_php'])
             ) {
@@ -769,6 +801,7 @@ class Generator
             } else {
                 $inline_edit_link = '';
             }
+
             $retval .= $inline_edit_link . $edit_link . $explain_link . $php_link
                 . $refresh_link;
             $retval .= '</div>';
@@ -857,6 +890,7 @@ class Generator
         if (empty($sql_query) && ! empty($GLOBALS['sql_query'])) {
             $sql_query = $GLOBALS['sql_query'];
         }
+
         $sql_query = trim($sql_query);
 
         /**
@@ -1104,8 +1138,10 @@ class Generator
                 $tag_params['onclick'] = 'return Functions.confirmLink(this, \''
                     . Sanitize::escapeJsString($tmp) . '\')';
             }
+
             unset($tmp);
         }
+
         if (! empty($target)) {
             $tag_params['target'] = $target;
             if ($target === '_blank' && strncmp($url, 'url.php?', 8) == 0) {
@@ -1134,7 +1170,8 @@ class Generator
         }
 
         $tag_params_strings = [];
-        if (($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
+        if (
+            ($url_length > $GLOBALS['cfg']['LinkLengthLimit'])
             || ! $in_suhosin_limits
             // Has as sql_query without a signature
             || (strpos($url, 'sql_query=') !== false && strpos($url, 'sql_signature=') === false)
@@ -1147,7 +1184,8 @@ class Generator
              */
             $tag_params_strings[] = 'data-post="' . ($parts[1] ?? '') . '"';
             $url = $parts[0];
-            if (array_key_exists('class', $tag_params)
+            if (
+                array_key_exists('class', $tag_params)
                 && strpos($tag_params['class'], 'create_view') !== false
             ) {
                 $url .= '?' . explode('&', $parts[1], 2)[0];
@@ -1220,10 +1258,12 @@ class Generator
                     $caption1 .= '&lt;&lt; ';
                     $caption2 .= '&lt; ';
                 }
+
                 if (Util::showText('TableNavigationLinksMode')) {
                     $caption1 .= _pgettext('First page', 'Begin');
                     $caption2 .= _pgettext('Previous page', 'Previous');
                 }
+
                 $title1 = ' title="' . _pgettext('First page', 'Begin') . '"';
                 $title2 = ' title="' . _pgettext('Previous page', 'Previous') . '"';
 
@@ -1257,10 +1297,12 @@ class Generator
                     $caption3 .= _pgettext('Next page', 'Next');
                     $caption4 .= _pgettext('Last page', 'End');
                 }
+
                 if (Util::showIcons('TableNavigationLinksMode')) {
                     $caption3 .= ' &gt;';
                     $caption4 .= ' &gt;&gt;';
                 }
+
                 $title3 = ' title="' . _pgettext('Next page', 'Next') . '"';
                 $title4 = ' title="' . _pgettext('Last page', 'End') . '"';
 
@@ -1278,6 +1320,7 @@ class Generator
                     . ' href="' . $script . Url::getCommon($_url_params, '&') . '" >'
                     . $caption4 . '</a>';
             }
+
             $list_navigator_html .= '</div>' . "\n";
         }
 
@@ -1300,7 +1343,8 @@ class Generator
     {
         global $cfg;
 
-        if ($truncate
+        if (
+            $truncate
             && mb_strlen($sqlQuery) > $cfg['MaxCharactersInDisplayedSQL']
         ) {
             $sqlQuery = mb_substr(
@@ -1351,6 +1395,7 @@ class Generator
                         );
                     }
                 }
+
                 $retval .= '</optgroup>';
             } elseif ($selected == $value) {
                 $retval .= sprintf(

@@ -202,22 +202,23 @@ class Monitor
         $cpuload,
         $memory
     ) {
+        /**
+         * We only collect the status and server variables here to read them all in one query,
+         * and only afterwards assign them. Also do some allow list filtering on the names
+         */
         switch ($type) {
-        /* We only collect the status and server variables here to
-         * read them all in one query,
-         * and only afterwards assign them.
-         * Also do some allow list filtering on the names
-        */
             case 'servervar':
                 if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
                     $serverVars[] = $pName;
                 }
+
                 break;
 
             case 'statusvar':
                 if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
                     $statusVars[] = $pName;
                 }
+
                 break;
 
             case 'proc':
@@ -229,6 +230,7 @@ class Monitor
                 if (! $sysinfo) {
                     $sysinfo = SysInfo::get();
                 }
+
                 if (! $cpuload) {
                     $cpuload = $sysinfo->loadavg();
                 }
@@ -246,6 +248,7 @@ class Monitor
                 if (! $sysinfo) {
                     $sysinfo = SysInfo::get();
                 }
+
                 if (! $memory) {
                     $memory = $sysinfo->memory();
                 }
@@ -313,6 +316,7 @@ class Monitor
                         $row['sql_text'] = mb_substr($row['sql_text'], 0, 200)
                             . '... [' . $implodeSqlText . ']';
                     }
+
                     break;
                 default:
                     break;
@@ -321,6 +325,7 @@ class Monitor
             if (! isset($return['sum'][$type])) {
                 $return['sum'][$type] = 0;
             }
+
             $return['sum'][$type] += $row['#'];
             $return['rows'][] = $row;
         }
@@ -379,18 +384,19 @@ class Monitor
             if (! isset($return['sum'][$type])) {
                 $return['sum'][$type] = 0;
             }
+
             $return['sum'][$type] += $row['#'];
 
             switch ($type) {
             /** @noinspection PhpMissingBreakStatementInspection */
                 case 'insert':
                     // Group inserts if selected
-                    if ($removeVariables
-                    && preg_match(
-                        '/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',
-                        $row['argument'],
-                        $matches
-                    )
+                    if (
+                        $removeVariables && preg_match(
+                            '/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',
+                            $row['argument'],
+                            $matches
+                        )
                     ) {
                         $insertTables[$matches[2]]++;
                         if ($insertTables[$matches[2]] > 1) {
@@ -412,6 +418,7 @@ class Monitor
                         $insertTablesFirst = $i;
                         $insertTables[$matches[2]] += $row['#'] - 1;
                     }
+
                     // No break here
 
                 case 'update':
@@ -430,6 +437,7 @@ class Monitor
                         )
                             . ']';
                     }
+
                     break;
 
                 default:
@@ -550,6 +558,7 @@ class Monitor
             while ($row = $this->dbi->fetchAssoc($result)) {
                 $return['profiling'][] = $row;
             }
+
             $this->dbi->freeResult($result);
         }
 

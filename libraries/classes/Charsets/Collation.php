@@ -186,6 +186,7 @@ final class Collation
                 );
                 continue;
             }
+
             if ($level === 1) {
                 /* Next will be variant unless changed later */
                 $level = 4;
@@ -204,6 +205,7 @@ final class Collation
                 }
                 // Not parsed token, fall to next level
             }
+
             if ($level === 2) {
                 /* Next will be variant */
                 $level = 4;
@@ -212,9 +214,11 @@ final class Collation
                     $name = _pgettext('Collation', 'German (phone book order)');
                     continue;
                 }
+
                 $name = _pgettext('Collation', 'German (dictionary order)');
                 // Not parsed token, fall to next level
             }
+
             if ($level === 3) {
                 /* Next will be variant */
                 $level = 4;
@@ -223,9 +227,11 @@ final class Collation
                     $name = _pgettext('Collation', 'Spanish (traditional)');
                     continue;
                 }
+
                 $name = _pgettext('Collation', 'Spanish (modern)');
                 // Not parsed token, fall to next level
             }
+
             if ($level === 4) {
                 /* Next will be suffix */
                 $level = 5;
@@ -237,11 +243,13 @@ final class Collation
                 } else {
                     $variant = $variantFound;
                 }
+
                 if ($found) {
                     continue;
                 }
                 // Not parsed token, fall to next level
             }
+
             if ($level < 5) {
                 continue;
             }
@@ -258,6 +266,7 @@ final class Collation
         if ($variant !== null) {
             $result .= ' (' . $variant . ')';
         }
+
         if (count($suffixes) > 0) {
             $result .= ', ' . implode(', ', $suffixes);
         }
@@ -270,12 +279,16 @@ final class Collation
         switch ($part) {
             case '0900':
                 return 'UCA 9.0.0';
+
             case '520':
                 return 'UCA 5.2.0';
+
             case 'mysql561':
                 return 'MySQL 5.6.1';
+
             case 'mysql500':
                 return 'MySQL 5.0.0';
+
             default:
                 return null;
         }
@@ -449,6 +462,7 @@ final class Collation
                 if ($unicode) {
                     $name = _pgettext('Collation', 'Chinese');
                 }
+
                 break;
             case 'croatian':
             case 'hr':
@@ -579,6 +593,7 @@ final class Collation
                 if ($unknown) {
                     $name = _pgettext('Collation', 'Unicode');
                 }
+
                 break;
             default:
                 $found = false;

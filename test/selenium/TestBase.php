@@ -275,6 +275,7 @@ abstract class TestBase extends TestCase
         if ($suiteUrl === false) {
             $suiteUrl = '';
         }
+
         if (substr($suiteUrl, -1) === '/') {
             $url = $suiteUrl . $url;
         } else {
@@ -382,6 +383,7 @@ abstract class TestBase extends TestCase
                 }
 
                 return $capabilities;
+
             case 'safari':
                 $capabilities = DesiredCapabilities::safari();
                 if ($this->hasCIConfig() && $this->hasBrowserstackConfig()) {
@@ -400,6 +402,7 @@ abstract class TestBase extends TestCase
                 }
 
                 return $capabilities;
+
             case 'edge':
                 $capabilities = DesiredCapabilities::microsoftEdge();
                 if ($this->hasCIConfig() && $this->hasBrowserstackConfig()) {
@@ -466,10 +469,12 @@ abstract class TestBase extends TestCase
     {
         $this->navigateTo('index.php?route=/check-relations');
         $pageContent = $this->waitForElement('id', 'page_content');
-        if (! preg_match(
-            '/Configuration of pmadb… not OK/i',
-            $pageContent->getText()
-        )) {
+        if (
+            ! preg_match(
+                '/Configuration of pmadb… not OK/i',
+                $pageContent->getText()
+            )
+        ) {
             return;
         }
 
@@ -478,6 +483,7 @@ abstract class TestBase extends TestCase
                 'The phpMyAdmin configuration storage is not working.'
             );
         }
+
         // If it failed the code already has exited with markTestSkipped
         $this->hadStorageDatabaseInstall = true;
     }
@@ -494,14 +500,18 @@ abstract class TestBase extends TestCase
         if ($username === '') {
             $username = $this->getTestSuiteUserLogin();
         }
+
         if ($password === '') {
             $password = $this->getTestSuiteUserPassword();
         }
+
         $this->navigateTo('');
         /* Wait while page */
-        while ($this->webDriver->executeScript(
-            'return document.readyState !== "complete";'
-        )) {
+        while (
+            $this->webDriver->executeScript(
+                'return document.readyState !== "complete";'
+            )
+        ) {
             usleep(5000);
         }
 
@@ -669,6 +679,7 @@ abstract class TestBase extends TestCase
 
                 return false;
             }
+
             $this->byXPath('//*[contains(@class,"nav-item") and contains(., "SQL")]')->click();
             $this->waitAjax();
             $this->typeInTextArea($query);
@@ -676,6 +687,7 @@ abstract class TestBase extends TestCase
             if ($afterSubmit !== null) {
                 $afterSubmit->call($this);
             }
+
             $this->waitAjax();
             $this->waitForElement('className', 'result_query');
             // If present then
@@ -703,6 +715,7 @@ abstract class TestBase extends TestCase
         if ($this->webDriver === null) {
             return;
         }
+
         $key = time();
 
         // This call will also create the file path
@@ -802,6 +815,7 @@ abstract class TestBase extends TestCase
             if (! $this->isElementPresent($func, $arg)) {
                 return;
             }
+
             usleep(5000);
         }
     }
@@ -971,6 +985,7 @@ abstract class TestBase extends TestCase
         if ($this->isElementPresent('cssSelector', 'li.nav-item.dropdown.d-none')) {
             return;
         }
+
         // Not found, searching for another alternative
         try {
             $ele = $this->waitForElement('cssSelector', 'li.dropdown > a');
@@ -1159,12 +1174,15 @@ abstract class TestBase extends TestCase
         if (static::$createDatabase) {
             $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->databaseName . '`;');
         }
+
         if ($this->hadStorageDatabaseInstall) {
             $this->dbQuery('DROP DATABASE IF EXISTS `phpmyadmin`;');
         }
+
         if (! $this->hasFailed()) {
             $this->markTestAs('passed', '');
         }
+
         $this->sqlWindowHandle = null;
         $this->webDriver->quit();
     }
@@ -1213,6 +1231,7 @@ abstract class TestBase extends TestCase
         if ($ch !== false && curl_errno($ch)) {
             echo 'Error: ' . curl_error($ch) . PHP_EOL;
         }
+
         curl_close($ch);
     }
 
@@ -1241,13 +1260,16 @@ abstract class TestBase extends TestCase
 
             return;
         }
+
         $proj = json_decode($result);
         if (isset($proj->automation_session)) {
             echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
         }
+
         if ($ch !== false && curl_errno($ch)) {
             echo 'Error: ' . curl_error($ch) . PHP_EOL;
         }
+
         curl_close($ch);
     }
 
@@ -1264,6 +1286,7 @@ abstract class TestBase extends TestCase
         if ($this->webDriver !== null) {
             $this->webDriver->quit();
         }
+
         $this->sqlWindowHandle = null;
 
         $this->getErrorVideoUrl();

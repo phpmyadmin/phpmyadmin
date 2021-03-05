@@ -83,6 +83,7 @@ abstract class AbstractController
             if (isset($message)) {
                 $params['message'] = $message;
             }
+
             $uri = './index.php?route=/' . Url::getCommonRaw($params, '&');
             Core::sendHeaderLocation($uri);
 

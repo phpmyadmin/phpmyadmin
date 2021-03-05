@@ -73,7 +73,8 @@ class Git
         }
 
         // caching
-        if (isset($_SESSION['is_git_revision'])
+        if (
+            isset($_SESSION['is_git_revision'])
             && array_key_exists('git_location', $_SESSION)
         ) {
             // Define location using cached value
@@ -98,11 +99,13 @@ class Git
             $contents = (string) file_get_contents($git);
             $gitmatch = [];
             // Matches expected format
-            if (! preg_match(
-                '/^gitdir: (.*)$/',
-                $contents,
-                $gitmatch
-            )) {
+            if (
+                ! preg_match(
+                    '/^gitdir: (.*)$/',
+                    $contents,
+                    $gitmatch
+                )
+            ) {
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
 
@@ -124,6 +127,7 @@ class Git
 
             return false;
         }
+
         // Define session for caching
         $_SESSION['git_location'] = $git_location;
         $_SESSION['is_git_revision'] = true;
@@ -141,6 +145,7 @@ class Git
         if ($packFileRes === false) {
             return null;
         }
+
         // seek to start
         fseek($packFileRes, $packOffset);
 
@@ -149,6 +154,7 @@ class Git
         if ($headerData === false) {
             return null;
         }
+
         $header = ord($headerData);
         $type = ($header >> 4) & 7;
         $hasnext = ($header & 128) >> 7;
@@ -160,6 +166,7 @@ class Git
             if ($readData === false) {
                 return null;
             }
+
             $byte = ord($readData);
             $size |= ($byte & 0x7f) << $offset;
             $hasnext = ($byte & 128) >> 7;
@@ -191,15 +198,18 @@ class Git
         if ($index_data === false) {
             return null;
         }
+
         // check format
         if (substr($index_data, 0, 4) != "\377tOc") {
             return null;
         }
+
         // check version
         $version = unpack('N', substr($index_data, 4, 4));
         if ($version[1] != 2) {
             return null;
         }
+
         // parse fanout table
         $fanout = unpack(
             'N*',
@@ -215,6 +225,7 @@ class Git
         } else {
             $start = $fanout[$firstbyte];
         }
+
         $end = $fanout[$firstbyte + 1];
 
         // stupid linear search for our sha
@@ -231,9 +242,11 @@ class Git
                 break;
             }
         }
+
         if (! $found) {
             return null;
         }
+
         // read pack offset
         $offset = 8 + (256 * 4) + (24 * $fanout[256]);
         $packOffsets = unpack(
@@ -293,10 +306,12 @@ class Git
                     if (strlen(trim($line)) == 0) {
                         continue;
                     }
+
                     // skip non pack lines
                     if ($line[0] !== 'P') {
                         continue;
                     }
+
                     // parse names
                     $pack_names[] = substr($line, 2);
                 }
@@ -312,7 +327,8 @@ class Git
                 foreach ($dirIterator as $file_info) {
                     $file_name = $file_info->getFilename();
                     // if this is a .pack file
-                    if (! $file_info->isFile() || substr($file_name, -5) !== '.pack'
+                    if (
+                        ! $file_info->isFile() || substr($file_name, -5) !== '.pack'
                     ) {
                         continue;
                     }
@@ -320,6 +336,7 @@ class Git
                     $pack_names[] = $file_name;
                 }
             }
+
             $hash = strtolower($hash);
             foreach ($pack_names as $pack_name) {
                 $index_name = str_replace('.pack', '.idx', $pack_name);
@@ -328,6 +345,7 @@ class Git
                 if ($packOffset === null) {
                     continue;
                 }
+
                 $commit = $this->readPackFile($gitFolder . '/objects/pack/' . $pack_name, $packOffset);
                 if ($commit !== null) {
                     $commit = gzuncompress($commit);
@@ -335,6 +353,7 @@ class Git
                         $commit = explode("\n", $commit);
                     }
                 }
+
                 $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
             }
         }
@@ -380,8 +399,10 @@ class Git
             if (isset($user[4])) {
                 $user2['date'] .= $user[4];
             }
+
             $$linetype = $user2;
         } while ($dataline != '');
+
         $message = trim(implode(' ', $commit));
 
         return [$author, $committer, $message];
@@ -401,7 +422,8 @@ class Git
         $httpRequest = new HttpRequest();
 
         // check if commit exists in Github
-        if ($commit !== false
+        if (
+            $commit !== false
             && isset($_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash])
         ) {
             $isRemoteCommit = $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash];
@@ -417,6 +439,7 @@ class Git
 
             return null;
         }
+
         if ($is_found === null) {
             // no remote link for now, but don't cache this as GitHub is down
             $isRemoteCommit = false;
@@ -470,6 +493,7 @@ class Git
 
             return [null, null];
         }
+
         // split file to lines
         $refLines = explode(PHP_EOL, $packedRefs);
         foreach ($refLines as $line) {
@@ -477,18 +501,21 @@ class Git
             if ($line[0] === '#') {
                 continue;
             }
+
             // parse line
             $parts = explode(' ', $line);
             // care only about named refs
             if (count($parts) != 2) {
                 continue;
             }
+
             // have found our ref?
             if ($parts[1] == $refHead) {
                 $hash = $parts[0];
                 break;
             }
         }
+
         if (! isset($hash)) {
             $this->config->set('PMA_VERSION_GIT', 0);
 
@@ -563,6 +590,7 @@ class Git
                     $is_remote_branch = $is_found;
                     $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = $is_found;
                 }
+
                 if ($is_found === null) {
                     // no remote link for now, but don't cache this as Github is down
                     $is_remote_branch = false;

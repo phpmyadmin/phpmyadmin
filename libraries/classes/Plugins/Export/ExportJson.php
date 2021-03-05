@@ -48,12 +48,15 @@ class ExportJson extends ExportPlugin
     public function encode($data)
     {
         $options = 0;
-        if (isset($GLOBALS['json_pretty_print'])
+        if (
+            isset($GLOBALS['json_pretty_print'])
             && $GLOBALS['json_pretty_print']
         ) {
             $options |= JSON_PRETTY_PRINT;
         }
-        if (isset($GLOBALS['json_unicode'])
+
+        if (
+            isset($GLOBALS['json_unicode'])
             && $GLOBALS['json_unicode']
         ) {
             $options |= JSON_UNESCAPED_UNICODE;
@@ -255,6 +258,7 @@ class ExportJson extends ExportPlugin
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
+
             $columns[$i] = stripslashes($col_as);
         }
 
@@ -272,12 +276,14 @@ class ExportJson extends ExportPlugin
             $data = [];
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if (isset($fieldsMeta[$i]) && ($fieldsMeta[$i]->isMappedTypeGeometry
+                if (
+                    isset($fieldsMeta[$i]) && ($fieldsMeta[$i]->isMappedTypeGeometry
                     || $fieldsMeta[$i]->isType(FieldMetadata::TYPE_BLOB))
                 ) {
                     // export GIS and blob types as hex
                     $record[$i] = '0x' . bin2hex($record[$i]);
                 }
+
                 $data[$columns[$i]] = $record[$i];
             }
 
@@ -285,6 +291,7 @@ class ExportJson extends ExportPlugin
             if (! $encodedData) {
                 return false;
             }
+
             if (! $this->export->outputHandler($encodedData)) {
                 return false;
             }
@@ -357,6 +364,7 @@ class ExportJson extends ExportPlugin
             if (! $encodedData) {
                 return false;
             }
+
             if (! $this->export->outputHandler($encodedData)) {
                 return false;
             }

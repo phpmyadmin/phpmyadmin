@@ -120,6 +120,7 @@ class DiaRelationSchema extends ExportRelationSchema
                             $this->showKeys
                         );
                     }
+
                     continue;
                 }
 
@@ -140,11 +141,13 @@ class DiaRelationSchema extends ExportRelationSchema
                 }
             }
         }
+
         $this->drawTables();
 
         if ($seen_a_relation) {
             $this->drawRelations();
         }
+
         $this->diagram->endDiaDoc();
     }
 
@@ -191,6 +194,7 @@ class DiaRelationSchema extends ExportRelationSchema
                 $showKeys
             );
         }
+
         if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new TableStatsDia(
                 $this->diagram,
@@ -200,6 +204,7 @@ class DiaRelationSchema extends ExportRelationSchema
                 $showKeys
             );
         }
+
         $this->relations[] = new RelationStatsDia(
             $this->diagram,
             $this->tables[$masterTable],

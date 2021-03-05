@@ -107,6 +107,7 @@ class RelationStatsPdf extends RelationStats
         } else {
             $this->diagram->SetDrawColor(0);
         }
+
         $this->diagram->setLineWidthScale(0.2);
         $this->diagram->lineScale(
             $this->xSrc,

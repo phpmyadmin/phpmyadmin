@@ -57,6 +57,7 @@ class EventsTest extends AbstractTestCase
 
             $_POST[$key] = $value;
         }
+
         $this->assertEquals($out, $this->events->getDataFromRequest());
     }
 

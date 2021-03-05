@@ -184,7 +184,8 @@ class Designer
         $classes_array = [];
         $params_array = $this->getSideMenuParamsArray();
 
-        if (isset($params_array['angular_direct'])
+        if (
+            isset($params_array['angular_direct'])
             && $params_array['angular_direct'] === 'angular'
         ) {
             $classes_array['angular_direct'] = 'M_butt_Selected_down';
@@ -192,7 +193,8 @@ class Designer
             $classes_array['angular_direct'] = 'M_butt';
         }
 
-        if (isset($params_array['snap_to_grid'])
+        if (
+            isset($params_array['snap_to_grid'])
             && $params_array['snap_to_grid'] === 'on'
         ) {
             $classes_array['snap_to_grid'] = 'M_butt_Selected_down';
@@ -200,7 +202,8 @@ class Designer
             $classes_array['snap_to_grid'] = 'M_butt';
         }
 
-        if (isset($params_array['pin_text'])
+        if (
+            isset($params_array['pin_text'])
             && $params_array['pin_text'] === 'true'
         ) {
             $classes_array['pin_text'] = 'M_butt_Selected_down';
@@ -208,7 +211,8 @@ class Designer
             $classes_array['pin_text'] = 'M_butt';
         }
 
-        if (isset($params_array['relation_lines'])
+        if (
+            isset($params_array['relation_lines'])
             && $params_array['relation_lines'] === 'false'
         ) {
             $classes_array['relation_lines'] = 'M_butt_Selected_down';
@@ -216,7 +220,8 @@ class Designer
             $classes_array['relation_lines'] = 'M_butt';
         }
 
-        if (isset($params_array['small_big_all'])
+        if (
+            isset($params_array['small_big_all'])
             && $params_array['small_big_all'] === 'v'
         ) {
             $classes_array['small_big_all'] = 'M_butt_Selected_down';
@@ -224,7 +229,8 @@ class Designer
             $classes_array['small_big_all'] = 'M_butt';
         }
 
-        if (isset($params_array['side_menu'])
+        if (
+            isset($params_array['side_menu'])
             && $params_array['side_menu'] === 'true'
         ) {
             $classes_array['side_menu'] = 'M_butt_Selected_down';
@@ -267,17 +273,20 @@ class Designer
                     $columns_type[$table_column_name] = 'designer/FieldKey_small';
                 } else {
                     $columns_type[$table_column_name] = 'designer/Field_small';
-                    if (strpos($tab_column[$table_name]['TYPE'][$j], 'char') !== false
+                    if (
+                        strpos($tab_column[$table_name]['TYPE'][$j], 'char') !== false
                         || strpos($tab_column[$table_name]['TYPE'][$j], 'text') !== false
                     ) {
                         $columns_type[$table_column_name] .= '_char';
-                    } elseif (strpos($tab_column[$table_name]['TYPE'][$j], 'int') !== false
+                    } elseif (
+                        strpos($tab_column[$table_name]['TYPE'][$j], 'int') !== false
                         || strpos($tab_column[$table_name]['TYPE'][$j], 'float') !== false
                         || strpos($tab_column[$table_name]['TYPE'][$j], 'double') !== false
                         || strpos($tab_column[$table_name]['TYPE'][$j], 'decimal') !== false
                     ) {
                         $columns_type[$table_column_name] .= '_int';
-                    } elseif (strpos($tab_column[$table_name]['TYPE'][$j], 'date') !== false
+                    } elseif (
+                        strpos($tab_column[$table_name]['TYPE'][$j], 'date') !== false
                         || strpos($tab_column[$table_name]['TYPE'][$j], 'time') !== false
                         || strpos($tab_column[$table_name]['TYPE'][$j], 'year') !== false
                     ) {
@@ -348,17 +357,20 @@ class Designer
                     $columnsType[$tableColumnName] = 'designer/FieldKey_small';
                 } else {
                     $columnsType[$tableColumnName] = 'designer/Field_small';
-                    if (strpos($tabColumn[$tableName]['TYPE'][$j], 'char') !== false
+                    if (
+                        strpos($tabColumn[$tableName]['TYPE'][$j], 'char') !== false
                         || strpos($tabColumn[$tableName]['TYPE'][$j], 'text') !== false
                     ) {
                         $columnsType[$tableColumnName] .= '_char';
-                    } elseif (strpos($tabColumn[$tableName]['TYPE'][$j], 'int') !== false
+                    } elseif (
+                        strpos($tabColumn[$tableName]['TYPE'][$j], 'int') !== false
                         || strpos($tabColumn[$tableName]['TYPE'][$j], 'float') !== false
                         || strpos($tabColumn[$tableName]['TYPE'][$j], 'double') !== false
                         || strpos($tabColumn[$tableName]['TYPE'][$j], 'decimal') !== false
                     ) {
                         $columnsType[$tableColumnName] .= '_int';
-                    } elseif (strpos($tabColumn[$tableName]['TYPE'][$j], 'date') !== false
+                    } elseif (
+                        strpos($tabColumn[$tableName]['TYPE'][$j], 'date') !== false
                         || strpos($tabColumn[$tableName]['TYPE'][$j], 'time') !== false
                         || strpos($tabColumn[$tableName]['TYPE'][$j], 'year') !== false
                     ) {

@@ -121,6 +121,7 @@ class EpsRelationSchema extends ExportRelationSchema
                             $this->tableDimension
                         );
                     }
+
                     continue;
                 }
 
@@ -143,6 +144,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 }
             }
         }
+
         if ($seen_a_relation) {
             $this->drawRelations();
         }
@@ -200,6 +202,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 $tableDimension
             );
         }
+
         if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new TableStatsEps(
                 $this->diagram,
@@ -213,6 +216,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 $tableDimension
             );
         }
+
         $this->relations[] = new RelationStatsEps(
             $this->diagram,
             $this->tables[$masterTable],

@@ -108,6 +108,7 @@ class DesignerController extends AbstractController
                     $page = $this->designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);
                     $this->response->addJSON('id', $page);
                 }
+
                 $success = $this->designerCommon->saveTablePositions($page);
                 $this->response->setRequestStatus($success);
             } elseif ($_POST['operation'] === 'setDisplayField') {
@@ -175,9 +176,11 @@ class DesignerController extends AbstractController
         } else {
             $display_page = $this->designerCommon->getLoadingPage($_GET['db']);
         }
+
         if ($display_page != -1) {
             $selected_page = $this->designerCommon->getPageName($display_page);
         }
+
         $tab_pos = $this->designerCommon->getTablePositions($display_page);
 
         $fullTableNames = [];

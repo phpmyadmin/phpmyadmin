@@ -178,13 +178,16 @@ abstract class GisGeometry
             if (! isset($min_max['maxX']) || $x > $min_max['maxX']) {
                 $min_max['maxX'] = $x;
             }
+
             if (! isset($min_max['minX']) || $x < $min_max['minX']) {
                 $min_max['minX'] = $x;
             }
+
             $y = (float) $cordinates[1];
             if (! isset($min_max['maxY']) || $y > $min_max['maxY']) {
                 $min_max['maxY'] = $y;
             }
+
             if (isset($min_max['minY']) && $y >= $min_max['minY']) {
                 continue;
             }

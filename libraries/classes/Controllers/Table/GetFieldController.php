@@ -63,7 +63,8 @@ class GetFieldController extends AbstractController
             Generator::mysqlDie(__('Invalid table name'));
         }
 
-        if (! isset($_GET['where_clause'])
+        if (
+            ! isset($_GET['where_clause'])
             || ! isset($_GET['where_clause_sign'])
             || ! Core::checkSqlQuerySignature($_GET['where_clause'], $_GET['where_clause_sign'])
         ) {

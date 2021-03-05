@@ -47,6 +47,7 @@ class SqlAutoCompleteController extends AbstractController
                 }
             }
         }
+
         $this->response->addJSON(['tables' => json_encode($sql_autocomplete)]);
     }
 }

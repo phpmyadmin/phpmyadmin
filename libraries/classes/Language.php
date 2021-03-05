@@ -50,6 +50,7 @@ class Language
         if (strpos($regex, '[-_]') === false) {
             $regex = str_replace('|', '([-_][[:alpha:]]{2,3})?|', $regex);
         }
+
         $this->regex = $regex;
         $this->mysql = $mysql;
     }

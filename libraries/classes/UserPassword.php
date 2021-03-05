@@ -72,7 +72,8 @@ class UserPassword
         $serverType = Util::getServerType();
         $serverVersion = $dbi->getVersion();
 
-        if (isset($_POST['authentication_plugin'])
+        if (
+            isset($_POST['authentication_plugin'])
             && ! empty($_POST['authentication_plugin'])
         ) {
             $orig_auth_plugin = $_POST['authentication_plugin'];
@@ -87,14 +88,16 @@ class UserPassword
         $sql_query = 'SET password = '
             . ($password == '' ? '\'\'' : $hashing_function . '(\'***\')');
 
-        if ($serverType === 'MySQL'
+        if (
+            $serverType === 'MySQL'
             && $serverVersion >= 50706
         ) {
             $sql_query = 'ALTER USER \'' . $dbi->escapeString($username)
                 . '\'@\'' . $dbi->escapeString($hostname)
                 . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
                 . ($password == '' ? '\'\'' : '\'***\'');
-        } elseif (($serverType === 'MySQL'
+        } elseif (
+            ($serverType === 'MySQL'
             && $serverVersion >= 50507)
             || ($serverType === 'MariaDB'
             && $serverVersion >= 50200)
@@ -108,6 +111,7 @@ class UserPassword
             } else {
                 $value = 0;
             }
+
             $dbi->tryQuery('SET `old_passwords` = ' . $value . ';');
         }
 
@@ -132,11 +136,13 @@ class UserPassword
      */
     private function changePassHashingFunction()
     {
-        if (Core::isValid(
-            $_POST['authentication_plugin'],
-            'identical',
-            'mysql_old_password'
-        )) {
+        if (
+            Core::isValid(
+                $_POST['authentication_plugin'],
+                'identical',
+                'mysql_old_password'
+            )
+        ) {
             $hashing_function = 'OLD_PASSWORD';
         } else {
             $hashing_function = 'PASSWORD';
@@ -179,7 +185,8 @@ class UserPassword
                 . ($password == ''
                 ? '\'\''
                 : '\'' . $dbi->escapeString($password) . '\'');
-        } elseif ($serverType === 'MariaDB'
+        } elseif (
+            $serverType === 'MariaDB'
             && $serverVersion >= 50200
             && $serverVersion < 100100
             && $orig_auth_plugin !== ''
@@ -208,6 +215,7 @@ class UserPassword
                 : $hashing_function . '(\''
                     . $dbi->escapeString($password) . '\')');
         }
+
         if (! @$dbi->tryQuery($local_query)) {
             Generator::mysqlDie(
                 $dbi->getError(),

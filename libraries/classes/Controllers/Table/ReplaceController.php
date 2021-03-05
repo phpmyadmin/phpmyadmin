@@ -105,7 +105,8 @@ final class ReplaceController extends AbstractController
             'same_insert',
             'edit_next',
         ];
-        if (isset($_POST['after_insert'])
+        if (
+            isset($_POST['after_insert'])
             && in_array($_POST['after_insert'], $after_insert_actions)
         ) {
             $url_params['after_insert'] = $_POST['after_insert'];
@@ -119,6 +120,7 @@ final class ReplaceController extends AbstractController
                 }
             }
         }
+
         //get $goto_include for different cases
         $goto_include = $this->insertEdit->getGotoInclude($goto_include);
 
@@ -255,8 +257,10 @@ final class ReplaceController extends AbstractController
                 if ($possibly_uploaded_val !== false) {
                     $current_value = $possibly_uploaded_val;
                 }
+
                 // Apply Input Transformation if defined
-                if (! empty($mime_map[$column_name])
+                if (
+                    ! empty($mime_map[$column_name])
                     && ! empty($mime_map[$column_name]['input_transformation'])
                 ) {
                     $filename = 'libraries/classes/Plugins/Transformations/'
@@ -275,7 +279,8 @@ final class ReplaceController extends AbstractController
                             );
                             // check if transformation was successful or not
                             // and accordingly set error messages & insert_fail
-                            if (method_exists($transformation_plugin, 'isSuccess')
+                            if (
+                                method_exists($transformation_plugin, 'isSuccess')
                                 && ! $transformation_plugin->isSuccess()
                             ) {
                                 $insert_fail = true;
@@ -294,6 +299,7 @@ final class ReplaceController extends AbstractController
                 if ($file_to_insert->isError()) {
                     $insert_errors[] = $file_to_insert->getError();
                 }
+
                 // delete $file_to_insert temporary variable
                 $file_to_insert->cleanUp();
 
@@ -344,6 +350,7 @@ final class ReplaceController extends AbstractController
                         $multi_edit_columns_null_prev
                     );
                 }
+
                 if (! isset($multi_edit_columns_null[$key])) {
                     continue;
                 }
@@ -356,6 +363,7 @@ final class ReplaceController extends AbstractController
             if ($insert_fail) {
                 $unsaved_values[$rownumber] = $multi_edit_columns;
             }
+
             if ($insert_fail || count($query_values) <= 0) {
                 continue;
             }
@@ -370,6 +378,7 @@ final class ReplaceController extends AbstractController
                     . ($_POST['clause_is_unique'] ? '' : ' LIMIT 1');
             }
         }
+
         unset(
             $multi_edit_columns_name,
             $multi_edit_columns_prev,
@@ -400,6 +409,7 @@ final class ReplaceController extends AbstractController
             if ($goto_include === '/table/replace') {
                 $goto_include = '/table/change';
             }
+
             $active_page = $goto_include;
 
             if ($goto_include === '/sql') {
@@ -438,6 +448,7 @@ final class ReplaceController extends AbstractController
 
             return;
         }
+
         unset($multi_edit_columns, $is_insertignore);
 
         // If there is a request for SQL previewing.
@@ -470,6 +481,7 @@ final class ReplaceController extends AbstractController
                 $total_affected_rows
             );
         }
+
         if ($row_skipped) {
             $goto_include = '/table/change';
             $message->addMessagesString($insert_errors, '<br>');
@@ -482,10 +494,12 @@ final class ReplaceController extends AbstractController
             $message->addMessagesString($warning_messages, '<br>');
             $message->isError(true);
         }
+
         if (! empty($error_messages)) {
             $message->addMessagesString($error_messages);
             $message->isError(true);
         }
+
         unset(
             $error_messages,
             $warning_messages,
@@ -534,7 +548,9 @@ final class ReplaceController extends AbstractController
                     }
                 }
             }
-            if (isset($_POST['do_transformations'])
+
+            if (
+                isset($_POST['do_transformations'])
                 && $_POST['do_transformations'] == true
             ) {
                 $edited_values = [];
@@ -543,6 +559,7 @@ final class ReplaceController extends AbstractController
                 if (! isset($extra_data)) {
                     $extra_data = [];
                 }
+
                 $transformation_types = [
                     'input_transformation',
                     'transformation',

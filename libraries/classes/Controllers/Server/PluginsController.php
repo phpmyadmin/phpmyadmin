@@ -55,6 +55,7 @@ class PluginsController extends AbstractController
         foreach ($serverPlugins as $plugin) {
             $plugins[$plugin->getType()][] = $plugin->toArray();
         }
+
         ksort($plugins);
 
         $cleanTypes = [];

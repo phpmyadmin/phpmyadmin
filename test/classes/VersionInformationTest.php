@@ -298,6 +298,7 @@ class VersionInformationTest extends AbstractTestCase
                 ->will($this->returnValue($returnValue));
             $i++;
         }
+
         /** @var VersionInformation $mockVersionInfo */
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($versions);
         $this->assertEquals($matchedLastVersion, $compatible['version'] ?? null);

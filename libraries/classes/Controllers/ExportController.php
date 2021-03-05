@@ -234,6 +234,7 @@ final class ExportController extends AbstractController
         if ($GLOBALS['cfg']['ZipDump'] && function_exists('gzcompress')) {
             $compression_methods[] = 'zip';
         }
+
         if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzencode')) {
             $compression_methods[] = 'gzip';
         }
@@ -254,7 +255,8 @@ final class ExportController extends AbstractController
         $separate_files = '';
 
         // Is it a quick or custom export?
-        if (isset($_POST['quick_or_custom'])
+        if (
+            isset($_POST['quick_or_custom'])
             && $_POST['quick_or_custom'] === 'quick'
         ) {
             $quick_export = true;
@@ -266,21 +268,26 @@ final class ExportController extends AbstractController
             $asfile = false;
         } else {
             $asfile = true;
-            if (isset($_POST['as_separate_files'])
+            if (
+                isset($_POST['as_separate_files'])
                 && ! empty($_POST['as_separate_files'])
             ) {
-                if (isset($_POST['compression'])
+                if (
+                    isset($_POST['compression'])
                     && ! empty($_POST['compression'])
                     && $_POST['compression'] === 'zip'
                 ) {
                     $separate_files = $_POST['as_separate_files'];
                 }
             }
+
             if (in_array($_POST['compression'], $compression_methods)) {
                 $compression = $_POST['compression'];
                 $buffer_needed = true;
             }
-            if (($quick_export && ! empty($_POST['quick_export_onserver']))
+
+            if (
+                ($quick_export && ! empty($_POST['quick_export_onserver']))
                 || (! $quick_export && ! empty($_POST['onserver']))
             ) {
                 if ($quick_export) {
@@ -288,6 +295,7 @@ final class ExportController extends AbstractController
                 } else {
                     $onserver = $_POST['onserver'];
                 }
+
                 // Will we save dump on server?
                 $save_on_server = ! empty($cfg['SaveDir']) && $onserver;
             }
@@ -337,11 +345,13 @@ final class ExportController extends AbstractController
         // preference over SQL Query aliases.
         $parser = new Parser($sql_query);
         $aliases = [];
-        if (! empty($parser->statements[0])
+        if (
+            ! empty($parser->statements[0])
             && ($parser->statements[0] instanceof SelectStatement)
         ) {
             $aliases = Misc::getAliases($parser->statements[0], $db);
         }
+
         if (! empty($_POST['aliases'])) {
             $aliases = $this->export->mergeAliases($aliases, $_POST['aliases']);
             $_SESSION['tmpval']['aliases'] = $_POST['aliases'];
@@ -354,6 +364,7 @@ final class ExportController extends AbstractController
         if (! empty($cfg['MemoryLimit'])) {
             ini_set('memory_limit', $cfg['MemoryLimit']);
         }
+
         register_shutdown_function([$this->export, 'shutdown']);
         // Start with empty buffer
         $dump_buffer = '';
@@ -392,6 +403,7 @@ final class ExportController extends AbstractController
             if (empty($remember_template)) {
                 $remember_template = '';
             }
+
             [$filename, $mime_type] = $this->export->getFilenameAndMimetype(
                 $export_type,
                 $remember_template,
@@ -453,6 +465,7 @@ final class ExportController extends AbstractController
                         exit;
                     }
                 }
+
                 [$html, $back_button, $refreshButton] = $this->export->getHtmlForDisplayedExportHeader(
                     $export_type,
                     $db,
@@ -498,6 +511,7 @@ final class ExportController extends AbstractController
                 if (! isset($db_select)) {
                     $db_select = '';
                 }
+
                 $this->export->exportServer(
                     $db_select,
                     $whatStrucOrData,
@@ -516,13 +530,16 @@ final class ExportController extends AbstractController
                 if (! isset($table_structure) || ! is_array($table_structure)) {
                     $table_structure = [];
                 }
+
                 if (! isset($table_data) || ! is_array($table_data)) {
                     $table_data = [];
                 }
+
                 if (! empty($_POST['structure_or_data_forced'])) {
                     $table_structure = $tables;
                     $table_data = $tables;
                 }
+
                 if (isset($lock_tables)) {
                     $this->export->lockTables($db, $tables, 'READ');
                     try {
@@ -580,12 +597,15 @@ final class ExportController extends AbstractController
                 if (! isset($allrows)) {
                     $allrows = '';
                 }
+
                 if (! isset($limit_to)) {
                     $limit_to = '0';
                 }
+
                 if (! isset($limit_from)) {
                     $limit_from = '0';
                 }
+
                 if (isset($lock_tables)) {
                     try {
                         $this->export->lockTables($db, [$table], 'READ');
@@ -631,6 +651,7 @@ final class ExportController extends AbstractController
                     );
                 }
             }
+
             if (! $export_plugin->exportFooter()) {
                 throw new ExportException('Failure during footer export.');
             }

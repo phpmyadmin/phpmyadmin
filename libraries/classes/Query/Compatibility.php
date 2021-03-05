@@ -21,13 +21,15 @@ class Compatibility
     public static function getISCompatForGetTablesFull(array $eachTables, string $eachDatabase): array
     {
         foreach ($eachTables as $table_name => $_) {
-            if (! isset($eachTables[$table_name]['Type'])
+            if (
+                ! isset($eachTables[$table_name]['Type'])
                 && isset($eachTables[$table_name]['Engine'])
             ) {
                 // pma BC, same parts of PMA still uses 'Type'
                 $eachTables[$table_name]['Type']
                     =& $eachTables[$table_name]['Engine'];
-            } elseif (! isset($eachTables[$table_name]['Engine'])
+            } elseif (
+                ! isset($eachTables[$table_name]['Engine'])
                 && isset($eachTables[$table_name]['Type'])
             ) {
                 // old MySQL reports Type, newer MySQL reports Engine
@@ -75,7 +77,8 @@ class Compatibility
             $eachTables[$table_name]['TABLE_COMMENT']
                 =& $eachTables[$table_name]['Comment'];
 
-            if (strtoupper($eachTables[$table_name]['Comment'] ?? '') === 'VIEW'
+            if (
+                strtoupper($eachTables[$table_name]['Comment'] ?? '') === 'VIEW'
                 && $eachTables[$table_name]['Engine'] == null
             ) {
                 $eachTables[$table_name]['TABLE_TYPE'] = 'VIEW';

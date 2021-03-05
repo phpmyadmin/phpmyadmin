@@ -44,6 +44,7 @@ class UploadApc implements UploadInterface
         if (trim($id) == '') {
             return null;
         }
+
         if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
             $_SESSION[$SESSION_KEY][$id] = [
                 'id'       => $id,
@@ -54,11 +55,13 @@ class UploadApc implements UploadInterface
                 'plugin'   => self::getIdKey(),
             ];
         }
+
         $ret = $_SESSION[$SESSION_KEY][$id];
 
         if (! Ajax::apcCheck() || $ret['finished']) {
             return $ret;
         }
+
         $status = apc_fetch('upload_' . $id);
 
         if ($status) {

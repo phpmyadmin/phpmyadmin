@@ -122,6 +122,7 @@ class CreateController extends AbstractController
                     $table
                 );
             }
+
             $sql_query = $createAddField->getTableCreationQuery($db, $table);
 
             // If there is a request for SQL previewing.
@@ -130,17 +131,20 @@ class CreateController extends AbstractController
 
                 return;
             }
+
             // Executes the query
             $result = $this->dbi->tryQuery($sql_query);
 
             if ($result) {
                 // Update comment table for mime types [MIME]
-                if (isset($_POST['field_mimetype'])
+                if (
+                    isset($_POST['field_mimetype'])
                     && is_array($_POST['field_mimetype'])
                     && $cfg['BrowseMIME']
                 ) {
                     foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
-                        if (! isset($_POST['field_name'][$fieldindex])
+                        if (
+                            ! isset($_POST['field_name'][$fieldindex])
                             || strlen($_POST['field_name'][$fieldindex]) <= 0
                         ) {
                             continue;

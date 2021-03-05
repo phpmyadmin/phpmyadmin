@@ -83,6 +83,7 @@ class Dia extends XMLWriter
         } else {
             $isPortrait = 'false';
         }
+
         $this->startElement('dia:diagram');
         $this->writeAttribute('xmlns:dia', 'http://www.lysator.liu.se/~alla/dia/');
         $this->startElement('dia:diagramdata');
@@ -187,6 +188,7 @@ class Dia extends XMLWriter
         if (ob_get_clean()) {
             ob_end_clean();
         }
+
         $output = $this->flush();
         Response::getInstance()->disable();
         Core::downloadHeader(

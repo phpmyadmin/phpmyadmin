@@ -25,6 +25,7 @@ class MenuTest extends AbstractTestCase
         if (! defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
         }
+
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';

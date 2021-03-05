@@ -26,6 +26,7 @@ if (! class_exists('TCPDF')) {
 
     return;
 }
+
 // phpcs:enable
 
 /**
@@ -67,6 +68,7 @@ class ExportPdf extends ExportPlugin
         if (! empty($_POST['pdf_report_title'])) {
             $this->pdfReportTitle = $_POST['pdf_report_title'];
         }
+
         $this->setPdf(new Pdf('L', 'pt', 'A3'));
     }
 

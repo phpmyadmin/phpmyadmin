@@ -142,7 +142,8 @@ class Utilities
         global $cfg;
 
         /* No sorting when key is not present */
-        if (! isset($a[$sortBy], $b[$sortBy])
+        if (
+            ! isset($a[$sortBy], $b[$sortBy])
         ) {
             return 0;
         }
@@ -189,6 +190,7 @@ class Utilities
                 = '<span class="text-danger">'
                 . htmlspecialchars($errorMessage) . '</span>';
         }
+
         $dbgInfo['query'] = htmlspecialchars($query);
         $dbgInfo['time'] = $time;
         // Get and slightly format backtrace, this is used

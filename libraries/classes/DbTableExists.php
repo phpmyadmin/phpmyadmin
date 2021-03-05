@@ -72,7 +72,8 @@ final class DbTableExists
     {
         global $containerBuilder, $db, $table, $dbi, $is_table;
 
-        if (! empty($is_table)
+        if (
+            ! empty($is_table)
             || defined('PMA_SUBMIT_MULT')
             || defined('TABLE_MAY_BE_ABSENT')
         ) {

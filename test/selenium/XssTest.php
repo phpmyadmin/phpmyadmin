@@ -37,6 +37,7 @@ class XssTest extends TestBase
         if ($this->isSafari()) {
             $this->markTestSkipped('Alerts not supported on Safari browser.');
         }
+
         $this->waitForElement('partialLinkText', 'SQL')->click();
         $this->waitAjax();
 

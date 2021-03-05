@@ -165,12 +165,15 @@ class TwoFactorPlugin
                 $parsed = $parsedUrl;
             }
         }
+
         if (! isset($parsed['scheme']) || strlen($parsed['scheme']) === 0) {
             $parsed['scheme'] = $PMA_Config->isHttps() ? 'https' : 'http';
         }
+
         if (! isset($parsed['host']) || strlen($parsed['host']) === 0) {
             $parsed['host'] = Core::getenv('HTTP_HOST');
         }
+
         if ($return_url) {
             $port = '';
             if (isset($parsed['port'])) {

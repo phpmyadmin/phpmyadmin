@@ -90,6 +90,7 @@ class Normalization
                 $columnTypeList = [];
             }
         }
+
         $this->dbi->selectDb($db);
         $columns = $this->dbi->getColumns(
             $db,
@@ -104,7 +105,9 @@ class Normalization
                 $extractedColumnSpec = Util::extractColumnSpec($def['Type']);
                 $type = $extractedColumnSpec['type'];
             }
-            if (! empty($columnTypeList)
+
+            if (
+                ! empty($columnTypeList)
                 && ! in_array(mb_strtoupper($type), $columnTypeList)
             ) {
                 continue;
@@ -153,6 +156,7 @@ class Normalization
                 $availableMime = $availableMimeTypes;
             }
         }
+
         $commentsMap = $this->relation->getComments($db, $table);
         for ($columnNumber = 0; $columnNumber < $numFields; $columnNumber++) {
             $contentCells[$columnNumber] = [
@@ -186,6 +190,7 @@ class Normalization
                     'description' => $collation->getDescription(),
                 ];
             }
+
             $charsetsList[] = [
                 'name' => $charset->getName(),
                 'description' => $charset->getDescription(),
@@ -425,6 +430,7 @@ class Normalization
                 . htmlspecialchars($col->getName()) . '">'
                 . htmlspecialchars($col->getName());
         }
+
         $key = implode(', ', $pk);
         if (count($primarycols) > 1) {
             $this->dbi->selectDb($db);
@@ -560,6 +566,7 @@ class Normalization
                 'queryError' => $error,
             ];
         }
+
         $message = '';
         $this->dbi->selectDb($db);
         foreach ($partialDependencies as $key => $dependents) {
@@ -583,12 +590,14 @@ class Normalization
             foreach ($nonPKCols as $col) {
                 $query .= ' DROP ' . Util::backquote($col) . ',';
             }
+
             $query = trim($query, ', ');
             $query .= ';';
             $queries[] = $query;
         } else {
             $queries[] = 'DROP TABLE ' . Util::backquote($table);
         }
+
         foreach ($queries as $query) {
             if (! $this->dbi->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
@@ -630,12 +639,14 @@ class Normalization
             if (count(array_unique($arrDependson)) === 1) {
                 continue;
             }
+
             $primary = Index::getPrimary($table, $db);
             $primarycols = $primary->getColumns();
             $pk = [];
             foreach ($primarycols as $col) {
                 $pk[] = $col->getName();
             }
+
             $html .= '<p><b>' . sprintf(
                 __(
                     'In order to put the '
@@ -651,6 +662,7 @@ class Normalization
                 if ($key == $table) {
                     $key = implode(', ', $pk);
                 }
+
                 $tmpTableCols = array_merge(explode(', ', $key), $dependents);
                 sort($tmpTableCols);
                 if (in_array($tmpTableCols, $columnList)) {
@@ -703,6 +715,7 @@ class Normalization
                 'queryError' => $error,
             ];
         }
+
         $message = '';
         $this->dbi->selectDb($db);
         foreach ($newTables as $originalTable => $tablesList) {
@@ -726,6 +739,7 @@ class Normalization
                     $dropCols = $cols;
                 }
             }
+
             if ($dropCols) {
                 $columns = (array) $this->dbi->getColumnNames(
                     $db,
@@ -743,14 +757,17 @@ class Normalization
 
                     $query .= ' DROP ' . Util::backquote($col) . ',';
                 }
+
                 $query = trim($query, ', ');
                 $query .= ';';
                 $queries[] = $query;
             } else {
                 $queries[] = 'DROP TABLE ' . Util::backquote($originalTable);
             }
+
             $dropCols = false;
         }
+
         foreach ($queries as $query) {
             if (! $this->dbi->tryQuery($query)) {
                 $message = Message::error(__('Error in processing!'));
@@ -815,12 +832,14 @@ class Normalization
             if (! $first) {
                 $query1 .= ' UNION ';
             }
+
             $first = false;
             $query1 .=  ' SELECT ' . $primaryColumns . ',' . $repeatingColumn
                 . ' as ' . Util::backquote($newColumn)
                 . ' FROM ' . Util::backquote($table);
             $query2 .= ' DROP ' . $repeatingColumn . ',';
         }
+
         $query2 = trim($query2, ',');
         $queries = [
             $query1,
@@ -880,6 +899,7 @@ class Normalization
             foreach ($primarycols as $col) {
                 $pk[] = $col->getName();
             }
+
             $this->dbi->selectDb($db);
             $columns = (array) $this->dbi->getColumnNames(
                 $db,
@@ -888,6 +908,7 @@ class Normalization
             if (count($columns) - count($pk) <= 1) {
                 continue;
             }
+
             foreach ($columns as $column) {
                 if (in_array($column, $pk)) {
                     continue;
@@ -897,6 +918,7 @@ class Normalization
                 . htmlspecialchars($column) . '">'
                 . '<span>' . htmlspecialchars($column) . '</span>';
             }
+
             foreach ($columns as $column) {
                 if (in_array($column, $pk)) {
                     continue;
@@ -915,6 +937,7 @@ class Normalization
                     . '</form><br><br>';
             }
         }
+
         if ($extra == '') {
             $headText = __(
                 'No Transitive dependencies possible as the table '
@@ -1007,6 +1030,7 @@ class Normalization
         foreach ($primarycols as $col) {
             $pk[] = Util::backquote($col->getName());
         }
+
         $partialKeys = $this->getAllCombinationPartialKeys($pk);
         $distinctValCount = $this->findDistinctValuesCount(
             array_unique(
@@ -1020,7 +1044,8 @@ class Normalization
             }
 
             foreach ($partialKeys as $partialKey) {
-                if (! $partialKey
+                if (
+                    ! $partialKey
                     || ! $this->checkPartialDependency(
                         $partialKey,
                         $column,
@@ -1052,10 +1077,12 @@ class Normalization
                 . '</span>'
                 . '</span>';
         }
+
         if (empty($dependencyList)) {
             $html .= '<p class="d-block desc">'
                 . __('No partial dependencies found!') . '</p>';
         }
+
         $html .= '</div>';
 
         return $html;
@@ -1112,10 +1139,12 @@ class Normalization
             if (! $column) {
                 continue;
             }
+
             //each column is already backquoted
             $query .= 'COUNT(DISTINCT ' . $column . ') as \''
                 . $column . '_cnt\', ';
         }
+
         $query = trim($query, ', ');
         $query .= ' FROM (SELECT * FROM ' . Util::backquote($table)
             . ' LIMIT 500) as dt;';
@@ -1146,6 +1175,7 @@ class Normalization
                 $results[] = trim($element . ',' . $combination, ',');
             }
         }
+
         array_pop($results); //remove key which consist of all primary key columns
 
         return $results;

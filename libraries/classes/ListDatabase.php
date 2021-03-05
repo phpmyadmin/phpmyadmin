@@ -130,7 +130,8 @@ class ListDatabase extends ListAbstract
      */
     protected function checkOnlyDatabase()
     {
-        if (is_string($GLOBALS['cfg']['Server']['only_db'])
+        if (
+            is_string($GLOBALS['cfg']['Server']['only_db'])
             && strlen($GLOBALS['cfg']['Server']['only_db']) > 0
         ) {
             $GLOBALS['cfg']['Server']['only_db'] = [

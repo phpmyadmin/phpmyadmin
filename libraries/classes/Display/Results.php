@@ -315,33 +315,42 @@ class Results
         if (! empty($cfgRelation['history'])) {
             $relDb[$cfgRelation['history']] = ['sqlquery' => $sql_highlighting_data];
         }
+
         if (! empty($cfgRelation['bookmark'])) {
             $relDb[$cfgRelation['bookmark']] = ['query' => $sql_highlighting_data];
         }
+
         if (! empty($cfgRelation['tracking'])) {
             $relDb[$cfgRelation['tracking']] = [
                 'schema_sql' => $sql_highlighting_data,
                 'data_sql' => $sql_highlighting_data,
             ];
         }
+
         if (! empty($cfgRelation['favorite'])) {
             $relDb[$cfgRelation['favorite']] = ['tables' => $json_highlighting_data];
         }
+
         if (! empty($cfgRelation['recent'])) {
             $relDb[$cfgRelation['recent']] = ['tables' => $json_highlighting_data];
         }
+
         if (! empty($cfgRelation['savedsearches'])) {
             $relDb[$cfgRelation['savedsearches']] = ['search_data' => $json_highlighting_data];
         }
+
         if (! empty($cfgRelation['designer_settings'])) {
             $relDb[$cfgRelation['designer_settings']] = ['settings_data' => $json_highlighting_data];
         }
+
         if (! empty($cfgRelation['table_uiprefs'])) {
             $relDb[$cfgRelation['table_uiprefs']] = ['prefs' => $json_highlighting_data];
         }
+
         if (! empty($cfgRelation['userconfig'])) {
             $relDb[$cfgRelation['userconfig']] = ['config_data' => $json_highlighting_data];
         }
+
         if (empty($cfgRelation['export_templates'])) {
             return;
         }
@@ -473,6 +482,7 @@ class Results
             // no delete link
             $displayParts['del_lnk']  = self::NO_EDIT_OR_DELETE;
         }
+
         // Other settings
         $displayParts['sort_lnk']  = (string) '0';
         $displayParts['nav_bar']   = (string) '0';
@@ -508,6 +518,7 @@ class Results
         } else {
             $displayParts['text_btn']  = (string) '0';
         }
+
         $displayParts['pview_lnk'] = (string) '1';
 
         return $displayParts;
@@ -540,7 +551,8 @@ class Results
                 || ($displayParts['sort_lnk'] != '0');
 
             // Displays edit/delete/sort/insert links?
-            if ($is_link
+            if (
+                $is_link
                 && $prev_table != ''
                 && $fields_meta[$i]->table != ''
                 && $fields_meta[$i]->table != $prev_table
@@ -611,7 +623,8 @@ class Results
         // 2. Updates the display parts
         if ($printview == '1') {
             $displayParts = $this->setDisplayPartsForPrintView($displayParts);
-        } elseif ($this->properties['is_count'] || $this->properties['is_analyse']
+        } elseif (
+            $this->properties['is_count'] || $this->properties['is_analyse']
             || $this->properties['is_maint'] || $this->properties['is_explain']
         ) {
             $displayParts = $this->setDisplayPartsForNonData($displayParts);
@@ -624,7 +637,8 @@ class Results
         // 3. Gets the total number of rows if it is unknown
         if (isset($unlim_num_rows) && $unlim_num_rows != '') {
             $the_total = $unlim_num_rows;
-        } elseif (($displayParts['nav_bar'] == '1')
+        } elseif (
+            ($displayParts['nav_bar'] == '1')
             || ($displayParts['sort_lnk'] == '1')
             && (strlen($db) > 0 && strlen($table) > 0)
         ) {
@@ -637,6 +651,7 @@ class Results
             $displayParts['nav_bar']   = (string) '1';
             $displayParts['sort_lnk']  = (string) '1';
         }
+
         // 4. If navigation bar or sorting fields names URLs should be
         //    displayed but there is only one row, change these settings to
         //    false
@@ -646,7 +661,8 @@ class Results
             //   so don't test this number here, it would remove the possibility
             //   of sorting VIEW results.
             $_table = new Table($table, $db);
-            if (isset($unlim_num_rows)
+            if (
+                isset($unlim_num_rows)
                 && ($unlim_num_rows < 2)
                 && ! $_table->isView()
             ) {
@@ -718,6 +734,7 @@ class Results
             if (Util::showIcons('TableNavigationLinksMode')) {
                 $caption_output .= $caption;
             }
+
             if (Util::showText('TableNavigationLinksMode')) {
                 $caption_output .= '&nbsp;' . $title;
             }
@@ -725,6 +742,7 @@ class Results
             if (Util::showText('TableNavigationLinksMode')) {
                 $caption_output .= $title;
             }
+
             if (Util::showIcons('TableNavigationLinksMode')) {
                 $caption_output .= '&nbsp;' . $caption;
             }
@@ -836,7 +854,8 @@ class Results
 
         // Move to the next page or to the last one
         $moveForwardButtons = '';
-        if ($this->properties['unlim_num_rows'] === false // view with unknown number of rows
+        if (
+            $this->properties['unlim_num_rows'] === false // view with unknown number of rows
             || (! $isShowingAll
             && $_SESSION['tmpval']['pos'] + $_SESSION['tmpval']['max_rows'] < $this->properties['unlim_num_rows']
             && $this->properties['num_rows'] >= $_SESSION['tmpval']['max_rows'])
@@ -932,7 +951,8 @@ class Results
         );
 
         // prepare some options for the End button
-        if ($is_innodb
+        if (
+            $is_innodb
             && $this->properties['unlim_num_rows'] > $GLOBALS['cfg']['MaxExactCount']
         ) {
             $input_for_real_end = '<input id="real_end_input" type="hidden" '
@@ -1275,12 +1295,14 @@ class Results
 
             $unsortedSqlQueryFirstPart = $unsortedSqlQuery;
             $unsortedSqlQuerySecondPart = '';
-            if (preg_match(
-                '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|'
-                . 'FOR UPDATE|LOCK IN SHARE MODE))@is',
-                $unsortedSqlQuery,
-                $myReg
-            )) {
+            if (
+                preg_match(
+                    '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|'
+                    . 'FOR UPDATE|LOCK IN SHARE MODE))@is',
+                    $unsortedSqlQuery,
+                    $myReg
+                )
+            ) {
                 $unsortedSqlQueryFirstPart = $myReg[1];
                 $unsortedSqlQuerySecondPart = $myReg[2];
             }
@@ -1298,6 +1320,7 @@ class Results
                 'is_selected' => $localOrder === $descSort,
             ];
         }
+
         $options[] = [
             'value' => $unsortedSqlQuery,
             'content' => __('None'),
@@ -1343,12 +1366,14 @@ class Results
                    || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH;
 
         //     ... before the result table
-        if (($displayParts['edit_lnk'] === self::NO_EDIT_OR_DELETE)
+        if (
+            ($displayParts['edit_lnk'] === self::NO_EDIT_OR_DELETE)
             && ($displayParts['del_lnk'] === self::NO_EDIT_OR_DELETE)
             && ($displayParts['text_btn'] == '1')
         ) {
             $display_params['emptypre'] = $emptyPreCondition ? 4 : 0;
-        } elseif ($leftOrBoth && ($displayParts['text_btn'] == '1')
+        } elseif (
+            $leftOrBoth && ($displayParts['text_btn'] == '1')
         ) {
             //     ... at the left column of the result table header if possible
             //     and required
@@ -1357,7 +1382,8 @@ class Results
 
             $button_html .= '<th class="column_action sticky print_ignore" ' . $colspan
                 . '>' . $full_or_partial_text_link . '</th>';
-        } elseif ($leftOrBoth
+        } elseif (
+            $leftOrBoth
             && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
             || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
         ) {
@@ -1393,7 +1419,8 @@ class Results
      */
     private function getTableCommentsArray(array $analyzed_sql_results)
     {
-        if (! $GLOBALS['cfg']['ShowBrowseComments']
+        if (
+            ! $GLOBALS['cfg']['ShowBrowseComments']
             || empty($analyzed_sql_results['statement']->from)
         ) {
             return [];
@@ -1404,6 +1431,7 @@ class Results
             if (empty($field->table)) {
                 continue;
             }
+
             $ret[$field->table] = $this->relation->getComments(
                 empty($field->database) ? $this->properties['db'] : $field->database,
                 $field->table
@@ -1486,7 +1514,8 @@ class Results
      */
     private function getOptionsBlock(): array
     {
-        if (isset($_SESSION['tmpval']['possible_as_geometry'])
+        if (
+            isset($_SESSION['tmpval']['possible_as_geometry'])
             && $_SESSION['tmpval']['possible_as_geometry'] == false
         ) {
             if ($_SESSION['tmpval']['geoOption'] === self::GEOMETRY_DISP_GEOM) {
@@ -1629,12 +1658,14 @@ class Results
                 $fields_meta
             );
 
-        if (preg_match(
-            '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|'
-            . 'LOCK IN SHARE MODE))@is',
-            $unsorted_sql_query,
-            $regs3
-        )) {
+        if (
+            preg_match(
+                '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|'
+                . 'LOCK IN SHARE MODE))@is',
+                $unsorted_sql_query,
+                $regs3
+            )
+        ) {
             $single_sorted_sql_query = $regs3[1] . $single_sort_order . $regs3[2];
             $multi_sorted_sql_query = $regs3[1] . $multi_sort_order . $regs3[2];
         } else {
@@ -1769,6 +1800,7 @@ class Results
                 if (strlen($sort_tbl_new) > 0) {
                     $sort_tbl_new .= '.';
                 }
+
                 $sort_order .=  $query_head . $sort_tbl_new
                   . Util::backquote(
                       $name_to_use_in_sort
@@ -1788,6 +1820,7 @@ class Results
                             $current_name
                         ) . ' ';
                 }
+
                 if ($is_in_sort) {
                     [$single_sort_order, $order_img]
                         = $this->getSortingUrlParams(
@@ -1799,6 +1832,7 @@ class Results
                     $single_sort_order .= strtoupper($sort_direction[$index]);
                 }
             }
+
             if ($current_name == $name_to_use_in_sort && $is_in_sort) {
                 // We need to generate the arrow button and related html
                 [$sort_order, $order_img] = $this->getSortingUrlParams(
@@ -1810,9 +1844,11 @@ class Results
             } else {
                 $sort_order .= strtoupper($sort_direction[$index]);
             }
+
             // Separate columns by a comma
             $sort_order .= ', ';
         }
+
         // remove the comma from the last column name in the newly
         // constructed clause
         $sort_order = mb_substr(
@@ -1860,11 +1896,13 @@ class Results
             } else {
                 $clause2 = $sort_tbl . str_replace('`', '', $clause);
             }
+
             if ($clause2 === $sort_tbl . $name_to_use_in_sort) {
                 $index_in_expression = $index;
                 break;
             }
         }
+
         if (empty($sort_expression[$index_in_expression])) {
             $is_in_sort = false;
         } else {
@@ -1900,7 +1938,8 @@ class Results
             $is_in_sort = false;
             $sort_name = str_replace('`', '', $sort_tbl) . $name_to_use_in_sort;
 
-            if ($sort_name == str_replace('`', '', $new_sort_expression_nodirection)
+            if (
+                $sort_name == str_replace('`', '', $new_sort_expression_nodirection)
                 || $sort_name == str_replace('`', '', $sort_expression_nodirection[$index_in_expression])
             ) {
                 $is_in_sort = true;
@@ -2017,9 +2056,11 @@ class Results
     {
         // This was defined in commit b661cd7c9b31f8bc564d2f9a1b8527e0eb966de8
         // For issue https://github.com/phpmyadmin/phpmyadmin/issues/4746
-        if (! $fields_meta->isType(FieldMetadata::TYPE_REAL)
+        if (
+            ! $fields_meta->isType(FieldMetadata::TYPE_REAL)
             && ! $fields_meta->isMappedTypeBit
-            && ! $fields_meta->isType(FieldMetadata::TYPE_INT)) {
+            && ! $fields_meta->isType(FieldMetadata::TYPE_INT)
+        ) {
             return;
         }
 
@@ -2146,7 +2187,8 @@ class Results
 
         // Displays the needed checkboxes at the right
         // column of the result table header if possible and required...
-        if (($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT)
+        if (
+            ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT)
             || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
             && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
             || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
@@ -2160,7 +2202,8 @@ class Results
                 . '<th class="column_action print_ignore" ' . $colspan . '>'
                 . $full_or_partial_text_link
                 . '</th>';
-        } elseif (($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT)
+        } elseif (
+            ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT)
             || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
             && (($displayParts['edit_lnk'] === self::NO_EDIT_OR_DELETE)
             && ($displayParts['del_lnk'] === self::NO_EDIT_OR_DELETE))
@@ -2309,7 +2352,8 @@ class Results
         $mime_map = $this->properties['mime_map'];
         $orgFullColName = $this->properties['db'] . '.' . $meta->orgtable
             . '.' . $meta->orgname;
-        if ($transformation_plugin != $default_function
+        if (
+            $transformation_plugin != $default_function
             || ! empty($mime_map[$orgFullColName]['input_transformation'])
         ) {
             $classes[] = 'transformed';
@@ -2426,7 +2470,8 @@ class Results
         $whereClauseMap = $this->properties['whereClauseMap'];
         while ($row = $dbi->fetchRow($dt_result)) {
             // add repeating headers
-            if (($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0)
+            if (
+                ($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0)
                 && ! $row_no % $_SESSION['tmpval']['repeat_cells']
             ) {
                 $table_body_html .= $this->getRepeatingHeaders(
@@ -2438,6 +2483,7 @@ class Results
             if ($GLOBALS['cfg']['BrowsePointerEnable'] != true) {
                 $tr_class[] = 'nopointer';
             }
+
             if ($GLOBALS['cfg']['BrowseMarkerEnable'] != true) {
                 $tr_class[] = 'nomarker';
             }
@@ -2459,12 +2505,14 @@ class Results
 
             // 1.2 Defines the URLs for the modify/delete link(s)
 
-            if (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+            if (
+                ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
             ) {
                 $expressions = [];
 
-                if (isset($analyzed_sql_results['statement'])
+                if (
+                    isset($analyzed_sql_results['statement'])
                     && $analyzed_sql_results['statement'] instanceof SelectStatement
                 ) {
                     $expressions = $analyzed_sql_results['statement']->expr;
@@ -2515,7 +2563,8 @@ class Results
                     );
 
                 // 1.3 Displays the links at left if required
-                if (($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT)
+                if (
+                    ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT)
                     || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
                 ) {
                     $table_body_html .= $this->template->render('display/results/checkbox_and_links', [
@@ -2550,6 +2599,7 @@ class Results
             if ($this->properties['mime_map'] === null) {
                 $this->setMimeMap();
             }
+
             $table_body_html .= $this->getRowValues(
                 $dt_result,
                 $row,
@@ -2563,10 +2613,12 @@ class Results
             );
 
             // 3. Displays the modify/delete links on the right if required
-            if (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+            if (
+                ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
             ) {
-                if (($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT)
+                if (
+                    ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT)
                     || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
                 ) {
                     $table_body_html .= $this->template->render('display/results/checkbox_and_links', [
@@ -2612,7 +2664,8 @@ class Results
             $meta = $fields_meta[$currentColumn];
             $orgFullTableName = $this->properties['db'] . '.' . $meta->orgtable;
 
-            if (! $GLOBALS['cfgRelation']['commwork']
+            if (
+                ! $GLOBALS['cfgRelation']['commwork']
                 || ! $GLOBALS['cfgRelation']['mimework']
                 || ! $GLOBALS['cfg']['BrowseMIME']
                 || $_SESSION['tmpval']['hide_transformation']
@@ -2629,7 +2682,8 @@ class Results
         }
 
         // special browser transformation for some SHOW statements
-        if ($this->properties['is_show']
+        if (
+            $this->properties['is_show']
             && ! $_SESSION['tmpval']['hide_transformation']
         ) {
             preg_match(
@@ -2764,10 +2818,12 @@ class Results
             $transformation_plugin = $default_function;
             $transform_options = [];
 
-            if ($GLOBALS['cfgRelation']['mimework']
+            if (
+                $GLOBALS['cfgRelation']['mimework']
                 && $GLOBALS['cfg']['BrowseMIME']
             ) {
-                if (isset($mime_map[$orgFullColName]['mimetype'])
+                if (
+                    isset($mime_map[$orgFullColName]['mimetype'])
                     && ! empty($mime_map[$orgFullColName]['transformation'])
                 ) {
                     $file = $mime_map[$orgFullColName]['transformation'];
@@ -2801,7 +2857,8 @@ class Results
             $dbLower = mb_strtolower($this->properties['db']);
             $tblLower = mb_strtolower($meta->orgtable);
             $nameLower = mb_strtolower($meta->orgname);
-            if (! empty($this->transformationInfo[$dbLower][$tblLower][$nameLower])
+            if (
+                ! empty($this->transformationInfo[$dbLower][$tblLower][$nameLower])
                 && isset($row[$i])
                 && (trim($row[$i]) != '')
                 && ! $_SESSION['tmpval']['hide_transformation']
@@ -2847,7 +2904,8 @@ class Results
 
             $expressions = [];
 
-            if (isset($analyzed_sql_results['statement'])
+            if (
+                isset($analyzed_sql_results['statement'])
                 && $analyzed_sql_results['statement'] instanceof SelectStatement
             ) {
                 $expressions = $analyzed_sql_results['statement']->expr;
@@ -2894,8 +2952,10 @@ class Results
             // even for a string type
             // for decimal numeric is returning 1
             // have to improve logic
-            if (($meta->isNumeric && $meta->isNotType(FieldMetadata::TYPE_STRING))
-                || $meta->isType(FieldMetadata::TYPE_REAL)) {
+            if (
+                ($meta->isNumeric && $meta->isNotType(FieldMetadata::TYPE_STRING))
+                || $meta->isType(FieldMetadata::TYPE_REAL)
+            ) {
                 // n u m e r i c
 
                 $display_params['data'][$row_no][$i]
@@ -3066,7 +3126,8 @@ class Results
      */
     private function getUrlSqlQuery(array $analyzed_sql_results)
     {
-        if (($analyzed_sql_results['querytype'] !== 'SELECT')
+        if (
+            ($analyzed_sql_results['querytype'] !== 'SELECT')
             || (mb_strlen($this->properties['sql_query']) < 200)
         ) {
             return $this->properties['sql_query'];
@@ -3119,6 +3180,7 @@ class Results
                     $fields_cnt = false;
                 }
             }
+
             $col_visib = $pmatable->getUiProp(Table::PROP_COLUMN_VISIB);
         } else {
             $col_order = false;
@@ -3165,6 +3227,7 @@ class Results
                 . '">'
                 . "\n" . '        &nbsp;</th>' . "\n";
         }
+
         $header_html .= '</tr>' . "\n";
 
         return $header_html;
@@ -3333,7 +3396,8 @@ class Results
     {
         $linkContent = '';
 
-        if (isset($GLOBALS['cfg']['RowActionType'])
+        if (
+            isset($GLOBALS['cfg']['RowActionType'])
             && $GLOBALS['cfg']['RowActionType'] === self::ACTION_LINK_CONTENT_ICONS
         ) {
             $linkContent .= '<span class="text-nowrap">'
@@ -3342,7 +3406,8 @@ class Results
                     $display_text
                 )
                 . '</span>';
-        } elseif (isset($GLOBALS['cfg']['RowActionType'])
+        } elseif (
+            isset($GLOBALS['cfg']['RowActionType'])
             && $GLOBALS['cfg']['RowActionType'] === self::ACTION_LINK_CONTENT_TEXT
         ) {
             $linkContent .= '<span class="text-nowrap">' . $display_text . '</span>';
@@ -3397,7 +3462,8 @@ class Results
     {
         $fieldTypeClass = '';
 
-        if ($meta->isMappedTypeTimestamp
+        if (
+            $meta->isMappedTypeTimestamp
             || $meta->isType(FieldMetadata::TYPE_DATETIME)
         ) {
             $fieldTypeClass = 'datetimefield';
@@ -3689,7 +3755,8 @@ class Results
         // such as image
         $isTypeBlob = $meta->isType(FieldMetadata::TYPE_BLOB);
         $cfgProtectBinary = $GLOBALS['cfg']['ProtectBinary'];
-        if (($meta->isBinary()
+        if (
+            ($meta->isBinary()
             && (
                 $cfgProtectBinary === 'all'
                 || ($cfgProtectBinary === 'noblob' && ! $isTypeBlob)
@@ -3711,7 +3778,8 @@ class Results
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
         // (unless it's a link-type transformation or binary)
         $displayedColumn = $column;
-        if (! (is_object($transformation_plugin)
+        if (
+            ! (is_object($transformation_plugin)
             && strpos($transformation_plugin->getName(), 'Link') !== false)
             && ! $meta->isBinary()
         ) {
@@ -3732,7 +3800,8 @@ class Results
             // some results of PROCEDURE ANALYSE() are reported as
             // being BINARY but they are quite readable,
             // so don't treat them as BINARY
-        } elseif ($meta->isBinary()
+        } elseif (
+            $meta->isBinary()
             && ! (isset($is_analyse) && $is_analyse)
         ) {
             // we show the BINARY or BLOB message and field's size
@@ -3741,6 +3810,7 @@ class Results
             if ($meta->isType(FieldMetadata::TYPE_STRING)) {
                 $binary_or_blob = 'BINARY';
             }
+
             $displayedColumn = $this->handleNonPrintableContents(
                 $binary_or_blob,
                 $displayedColumn,
@@ -3766,6 +3836,7 @@ class Results
             if (stripos($result, $binary_or_blob) !== false) {
                 $class = str_replace('grid_edit', '', $class);
             }
+
             $formatted = true;
         }
 
@@ -3859,13 +3930,14 @@ class Results
             $query['pos'] = 0;
         }
 
-        if (Core::isValid(
-            $_REQUEST['pftext'],
-            [
-                self::DISPLAY_PARTIAL_TEXT,
-                self::DISPLAY_FULL_TEXT,
-            ]
-        )
+        if (
+            Core::isValid(
+                $_REQUEST['pftext'],
+                [
+                    self::DISPLAY_PARTIAL_TEXT,
+                    self::DISPLAY_FULL_TEXT,
+                ]
+            )
         ) {
             $query['pftext'] = $_REQUEST['pftext'];
             unset($_REQUEST['pftext']);
@@ -3873,13 +3945,14 @@ class Results
             $query['pftext'] = self::DISPLAY_PARTIAL_TEXT;
         }
 
-        if (Core::isValid(
-            $_REQUEST['relational_display'],
-            [
-                self::RELATIONAL_KEY,
-                self::RELATIONAL_DISPLAY_COLUMN,
-            ]
-        )
+        if (
+            Core::isValid(
+                $_REQUEST['relational_display'],
+                [
+                    self::RELATIONAL_KEY,
+                    self::RELATIONAL_DISPLAY_COLUMN,
+                ]
+            )
         ) {
             $query['relational_display'] = $_REQUEST['relational_display'];
             unset($_REQUEST['relational_display']);
@@ -3890,14 +3963,15 @@ class Results
             $query['relational_display'] = $GLOBALS['cfg']['RelationalDisplay'];
         }
 
-        if (Core::isValid(
-            $_REQUEST['geoOption'],
-            [
-                self::GEOMETRY_DISP_WKT,
-                self::GEOMETRY_DISP_WKB,
-                self::GEOMETRY_DISP_GEOM,
-            ]
-        )
+        if (
+            Core::isValid(
+                $_REQUEST['geoOption'],
+                [
+                    self::GEOMETRY_DISP_WKT,
+                    self::GEOMETRY_DISP_WKB,
+                    self::GEOMETRY_DISP_GEOM,
+                ]
+            )
         ) {
             $query['geoOption'] = $_REQUEST['geoOption'];
             unset($_REQUEST['geoOption']);
@@ -4152,6 +4226,7 @@ class Results
                 ];
             }
         }
+
         // end 2b
 
         // 3. ----- Prepare the results table -----
@@ -4411,7 +4486,8 @@ class Results
             } else {
                 $last_shown_rec = $first_shown_rec + $total - 1;
             }
-        } elseif (($_SESSION['tmpval']['max_rows'] === self::ALL_ROWS)
+        } elseif (
+            ($_SESSION['tmpval']['max_rows'] === self::ALL_ROWS)
             || ($pos_next > $total)
         ) {
             $first_shown_rec = $_SESSION['tmpval']['pos'];
@@ -4422,7 +4498,8 @@ class Results
         }
 
         $table = new Table($this->properties['table'], $this->properties['db']);
-        if ($table->isView()
+        if (
+            $table->isView()
             && ($total == $GLOBALS['cfg']['MaxExactCountViews'])
         ) {
             $message = Message::notice(
@@ -4465,6 +4542,7 @@ class Results
             if (! empty($after_count)) {
                 $message_total->addHtml($after_count);
             }
+
             $message->addMessage($message_total, '');
 
             $message->addText(', ', '');
@@ -4580,7 +4658,8 @@ class Results
 
         $expressions = [];
 
-        if (isset($analyzed_sql_results['statement'])
+        if (
+            isset($analyzed_sql_results['statement'])
             && $analyzed_sql_results['statement'] instanceof SelectStatement
         ) {
             $expressions = $analyzed_sql_results['statement']->expr;
@@ -4640,7 +4719,8 @@ class Results
         // If the parser found a PROCEDURE clause
         // (most probably PROCEDURE ANALYSE()) it makes no sense to
         // display the Export link).
-        if (($analyzed_sql_results['querytype'] === self::QUERY_TYPE_SELECT)
+        if (
+            ($analyzed_sql_results['querytype'] === self::QUERY_TYPE_SELECT)
             && ! isset($printview)
             && empty($analyzed_sql_results['procedure'])
         ) {
@@ -4746,7 +4826,8 @@ class Results
                 'Octetstream'
             );
             $posMimeText = strpos($transformation_plugin->getMIMEtype(), 'Text');
-            if ($posMimeOctetstream
+            if (
+                $posMimeOctetstream
                 || $posMimeText !== false
             ) {
                 // Applying Transformations on hex string of binary data
@@ -4770,13 +4851,15 @@ class Results
         }
 
         $result = $default_function($result, [], $meta);
-        if (($_SESSION['tmpval']['display_binary']
+        if (
+            ($_SESSION['tmpval']['display_binary']
             && $meta->isType(FieldMetadata::TYPE_STRING))
             || ($_SESSION['tmpval']['display_blob']
             && $meta->isType(FieldMetadata::TYPE_BLOB))
         ) {
             // in this case, restart from the original $content
-            if (mb_check_encoding($content, 'utf-8')
+            if (
+                mb_check_encoding($content, 'utf-8')
                 && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $content)
             ) {
                 // show as text if it's valid utf-8
@@ -4784,6 +4867,7 @@ class Results
             } else {
                 $result = '0x' . bin2hex($content);
             }
+
             [
                 $is_truncated,
                 $result,
@@ -4795,7 +4879,8 @@ class Results
 
         // in PHP < 5.5, empty() only checks variables
         $tmpdb = $this->properties['db'];
-        if (count($url_params) > 0
+        if (
+            count($url_params) > 0
             && (! empty($tmpdb) && ! empty($meta->orgtable))
         ) {
             $url_params['where_clause_sign'] = Core::signSqlQuery($url_params['where_clause']);
@@ -4925,6 +5010,7 @@ class Results
                 if (empty($expr->alias) || empty($expr->column)) {
                     continue;
                 }
+
                 if (strcasecmp($meta->name, $expr->alias) != 0) {
                     continue;
                 }
@@ -4935,7 +5021,8 @@ class Results
 
         if (isset($map[$meta->name])) {
             // Field to display from the foreign table?
-            if (isset($map[$meta->name][2])
+            if (
+                isset($map[$meta->name][2])
                 && strlen((string) $map[$meta->name][2]) > 0
             ) {
                 $dispval = $this->getFromForeign(
@@ -4992,7 +5079,8 @@ class Results
                         $meta
                     );
                 } else {
-                    if ($relational_display === self::RELATIONAL_DISPLAY_COLUMN
+                    if (
+                        $relational_display === self::RELATIONAL_DISPLAY_COLUMN
                         && ! empty($map[$meta->name][2])
                     ) {
                         // user chose "relational display field" in the
@@ -5008,6 +5096,7 @@ class Results
                 if (strpos($class, 'grid_edit') !== false) {
                     $tag_params['class'] = 'ajax';
                 }
+
                 $result .= Generator::linkOrButton(
                     Url::getFromRoute('/sql', $_url_params),
                     $displayedData,
@@ -5046,7 +5135,8 @@ class Results
     private function getPartialText($str): array
     {
         $original_length = mb_strlen($str);
-        if ($original_length > $GLOBALS['cfg']['LimitChars']
+        if (
+            $original_length > $GLOBALS['cfg']['LimitChars']
             && $_SESSION['tmpval']['pftext'] === self::DISPLAY_PARTIAL_TEXT
         ) {
             $str = mb_substr(

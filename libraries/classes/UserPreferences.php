@@ -88,6 +88,7 @@ class UserPreferences
                 'type' => 'session',
             ];
         }
+
         // load configuration from pmadb
         $query_table = Util::backquote($cfgRelation['db']) . '.'
             . Util::backquote($cfgRelation['userconfig']);
@@ -162,9 +163,11 @@ class UserPreferences
                 . $dbi->escapeString($cfgRelation['user']) . '\', NOW(), '
                 . '\'' . $dbi->escapeString($config_data) . '\')';
         }
+
         if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             unset($_SESSION['cache'][$cache_key]['userprefs']);
         }
+
         if (! $dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
             $message->addMessage(
@@ -203,6 +206,7 @@ class UserPreferences
             if (! isset($allowList[$path]) || isset($excludeList[$path])) {
                 continue;
             }
+
             Core::arrayWrite($path, $cfg, $value);
         }
 
@@ -255,9 +259,11 @@ class UserPreferences
         if (is_array($params)) {
             $url_params = array_merge($params, $url_params);
         }
+
         if ($hash) {
             $hash = '#' . urlencode($hash);
         }
+
         Core::sendHeaderLocation('./' . $file_name
             . Url::getCommonRaw($url_params, strpos($file_name, '?') === false ? '?' : '&') . $hash);
     }
@@ -270,7 +276,8 @@ class UserPreferences
      */
     public function autoloadGetHeader()
     {
-        if (isset($_REQUEST['prefs_autoload'])
+        if (
+            isset($_REQUEST['prefs_autoload'])
             && $_REQUEST['prefs_autoload'] === 'hide'
         ) {
             $_SESSION['userprefs_autoload'] = true;

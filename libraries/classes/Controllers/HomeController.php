@@ -89,6 +89,7 @@ class HomeController extends AbstractController
             $displayMessage = Generator::getMessage($message);
             unset($message);
         }
+
         if (isset($_SESSION['partial_logout'])) {
             $partialLogout = Message::success(__(
                 'You were logged out from one server, to logout completely '
@@ -128,6 +129,7 @@ class HomeController extends AbstractController
                             'is_selected' => $collation_connection === $collation->getName(),
                         ];
                     }
+
                     $charsetsList[] = [
                         'name' => $charset->getName(),
                         'description' => $charset->getDescription(),
@@ -151,9 +153,11 @@ class HomeController extends AbstractController
                     $hostInfo .= ' (';
                 }
             }
+
             if ($cfg['ShowServerInfo'] || empty($cfg['Server']['verbose'])) {
                 $hostInfo .= $this->dbi->getHostInfo();
             }
+
             if (! empty($cfg['Server']['verbose']) && $cfg['ShowServerInfo']) {
                 $hostInfo .= ')';
             }
@@ -189,7 +193,8 @@ class HomeController extends AbstractController
         $relation = new Relation($this->dbi);
         if ($server > 0) {
             $cfgRelation = $relation->getRelationsParam();
-            if (! $cfgRelation['allworks']
+            if (
+                ! $cfgRelation['allworks']
                 && $cfg['PmaNoRelation_DisableWarning'] == false
             ) {
                 $messageText = __(
@@ -204,6 +209,7 @@ class HomeController extends AbstractController
                             . 'to set it up there.'
                         );
                 }
+
                 $messageInstance = Message::notice($messageText);
                 $messageInstance->addParamHtml(
                     '<a href="' . Url::getFromRoute('/check-relations')
@@ -214,6 +220,7 @@ class HomeController extends AbstractController
                 if (! empty($cfg['Servers'][$server]['pmadb'])) {
                     $messageInstance->isError(true);
                 }
+
                 $configStorageMessage = $messageInstance->getDisplay();
             }
         }
@@ -351,7 +358,8 @@ class HomeController extends AbstractController
         /**
          * Check whether LoginCookieValidity is limited by LoginCookieStore.
          */
-        if ($cfg['LoginCookieStore'] != 0
+        if (
+            $cfg['LoginCookieStore'] != 0
             && $cfg['LoginCookieStore'] < $cfg['LoginCookieValidity']
         ) {
             trigger_error(
@@ -367,7 +375,8 @@ class HomeController extends AbstractController
         /**
          * Warning if using the default MySQL controluser account
          */
-        if (isset($cfg['Server']['controluser'], $cfg['Server']['controlpass'])
+        if (
+            isset($cfg['Server']['controluser'], $cfg['Server']['controlpass'])
             && $server != 0
             && $cfg['Server']['controluser'] === 'pma'
             && $cfg['Server']['controlpass'] === 'pmapass'
@@ -424,7 +433,8 @@ class HomeController extends AbstractController
         /**
          * Warning about Suhosin only if its simulation mode is not enabled
          */
-        if ($cfg['SuhosinDisableWarning'] == false
+        if (
+            $cfg['SuhosinDisableWarning'] == false
             && ini_get('suhosin.request.max_value_length')
             && ini_get('suhosin.simulation') == '0'
         ) {
@@ -471,7 +481,8 @@ class HomeController extends AbstractController
          * handling incomplete translations here and focus on english
          * speaking users.
          */
-        if (! isset($GLOBALS['language_stats'][$lang])
+        if (
+            ! isset($GLOBALS['language_stats'][$lang])
             || $GLOBALS['language_stats'][$lang] >= $cfg['TranslationWarningThreshold']
         ) {
             return;

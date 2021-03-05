@@ -38,10 +38,12 @@ class Linux extends Base
         if ($buf === false) {
             $buf = '';
         }
+
         $pos = mb_strpos($buf, "\n");
         if ($pos === false) {
             $pos = 0;
         }
+
         $nums = preg_split(
             '/\s+/',
             mb_substr(

@@ -146,7 +146,8 @@ class Header
         // offer to load exported settings from localStorage
         // (detection will be done in JavaScript)
         $this->userprefsOfferImport = false;
-        if ($GLOBALS['PMA_Config']->get('user_preferences') === 'session'
+        if (
+            $GLOBALS['PMA_Config']->get('user_preferences') === 'session'
             && ! isset($_SESSION['userprefs_autoload'])
         ) {
             $this->userprefsOfferImport = true;
@@ -203,9 +204,11 @@ class Header
         if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
             $this->scripts->addFile('drag_drop_import.js');
         }
+
         if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {
             $this->scripts->addFile('shortcuts_handler.js');
         }
+
         $this->scripts->addCode($this->getJsParamsCode());
     }
 
@@ -488,10 +491,12 @@ class Header
         } elseif (! empty($_REQUEST['message'])) {
             $message = $_REQUEST['message'];
         }
+
         if (! empty($message)) {
             if (isset($GLOBALS['buffer_message'])) {
                 $buffer_message = $GLOBALS['buffer_message'];
             }
+
             $retval .= Generator::getMessage($message);
             if (isset($buffer_message)) {
                 $GLOBALS['buffer_message'] = $buffer_message;
@@ -525,6 +530,7 @@ class Header
                 'X-Frame-Options: DENY'
             );
         }
+
         header(
             'Referrer-Policy: no-referrer'
         );
@@ -560,6 +566,7 @@ class Header
             // Define the charset to be used
             header('Content-Type: text/html; charset=utf-8');
         }
+
         $this->headerIsSent = true;
     }
 
@@ -580,6 +587,7 @@ class Header
                 } else {
                     $temp_title = $GLOBALS['cfg']['TitleDefault'];
                 }
+
                 $this->title = htmlspecialchars(
                     Util::expandUserString($temp_title)
                 );
@@ -604,7 +612,8 @@ class Header
         $captchaUrl = '';
         $cspAllow = $cfg['CSPAllow'];
 
-        if (! empty($cfg['CaptchaApi'])
+        if (
+            ! empty($cfg['CaptchaApi'])
             && ! empty($cfg['CaptchaRequestParam'])
             && ! empty($cfg['CaptchaResponseParam'])
             && ! empty($cfg['CaptchaLoginPrivateKey'])
@@ -673,7 +682,8 @@ class Header
     private function addRecentTable(string $db, string $table): string
     {
         $retval = '';
-        if ($this->menuEnabled
+        if (
+            $this->menuEnabled
             && strlen($table) > 0
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {

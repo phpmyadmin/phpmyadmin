@@ -94,6 +94,7 @@ class ErrorReport
             if (empty($_POST['exception'])) {
                 return [];
             }
+
             $exception = $_POST['exception'];
 
             if (isset($exception['stack'])) {
@@ -127,14 +128,17 @@ class ErrorReport
             $errors = [];
             // create php error report
             $i = 0;
-            if (! isset($_SESSION['prev_errors'])
+            if (
+                ! isset($_SESSION['prev_errors'])
                 || $_SESSION['prev_errors'] == ''
             ) {
                 return [];
             }
+
             foreach ($_SESSION['prev_errors'] as $errorObj) {
                 /** @var Error $errorObj */
-                if (! $errorObj->getLine()
+                if (
+                    ! $errorObj->getLine()
                     || ! $errorObj->getType()
                     || $errorObj->getNumber() == E_USER_WARNING
                 ) {
@@ -155,6 +159,7 @@ class ErrorReport
             if ($i == 0) {
                 return []; // then return empty array
             }
+
             $report['exception_type'] = 'php';
             $report['errors'] = $errors;
         } else {
@@ -184,7 +189,8 @@ class ErrorReport
             $components = [];
         }
 
-        if (isset($components['fragment'])
+        if (
+            isset($components['fragment'])
             && preg_match('<PMAURL-\d+:>', $components['fragment'], $matches)
         ) {
             $uri = str_replace($matches[0], '', $components['fragment']);
@@ -257,11 +263,13 @@ class ErrorReport
 
                 $line = mb_substr($line, 0, 75) . '//...';
             }
+
             [$uri, $scriptName] = $this->sanitizeUrl($level['url']);
             $level['uri'] = $uri;
             $level['scriptname'] = $scriptName;
             unset($level['url']);
         }
+
         unset($level);
 
         return $stack;

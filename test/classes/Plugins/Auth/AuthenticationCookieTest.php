@@ -1036,6 +1036,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         if (! function_exists('openssl_encrypt')) {
             $this->markTestSkipped('openssl not available');
         }
+
         $this->object->setUseOpenSSL(true);
         $this->testCookieEncrypt();
     }
@@ -1079,6 +1080,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         if (! function_exists('openssl_encrypt')) {
             $this->markTestSkipped('openssl not available');
         }
+
         $this->object->setUseOpenSSL(true);
         $this->testCookieDecrypt();
     }

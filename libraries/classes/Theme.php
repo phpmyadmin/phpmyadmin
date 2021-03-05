@@ -111,16 +111,19 @@ class Theme
         if ($this->mtimeInfo === filemtime($infofile)) {
             return true;
         }
+
         $content = @file_get_contents($infofile);
         if ($content === false) {
             return false;
         }
+
         $data = json_decode($content, true);
 
         // Did we get expected data?
         if (! is_array($data)) {
             return false;
         }
+
         // Check that all required data are there
         $members = [
             'name',
@@ -137,6 +140,7 @@ class Theme
         if (! is_array($data['supports'])) {
             return false;
         }
+
         if (! in_array(PMA_MAJOR_VERSION, $data['supports'])) {
             return false;
         }

@@ -171,6 +171,7 @@ class Generator
         if ($routineType !== null) {
             $query .= " AND `ROUTINE_TYPE` = '" . $routineType . "'";
         }
+
         if ($escapedRoutineName !== null) {
             $query .= ' AND `SPECIFIC_NAME`'
                 . " = '" . $escapedRoutineName . "'";
@@ -286,17 +287,20 @@ class Generator
                 . ' SUM(t.DATA_LENGTH + t.INDEX_LENGTH) AS SCHEMA_LENGTH,'
                 . ' SUM(IF(t.ENGINE <> \'InnoDB\', t.DATA_FREE, 0)) AS SCHEMA_DATA_FREE';
         }
+
         $sql .= ' FROM `information_schema`.SCHEMATA s ';
         if ($forceStats) {
             $sql .= ' LEFT JOIN `information_schema`.TABLES t'
                     . ' ON BINARY t.TABLE_SCHEMA = BINARY s.SCHEMA_NAME';
         }
+
         $sql .= $sqlWhereSchema
                 . ' GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME'
                 . ' ORDER BY ';
         if ($sortBy === 'SCHEMA_NAME' || $sortBy === 'DEFAULT_COLLATION_NAME') {
             $sql .= 'BINARY ';
         }
+
         $sql .= Util::backquote($sortBy)
             . ' ' . $sortOrder
             . $limit;
@@ -320,12 +324,14 @@ class Generator
         } else {
             $arrayKeys[] = 'TABLE_SCHEMA';
         }
+
         if ($escapedTable !== null) {
             $sqlWheres[] = '`TABLE_NAME` = \''
                 . $escapedTable . '\' ';
         } else {
             $arrayKeys[] = 'TABLE_NAME';
         }
+
         if ($escapedColumn !== null) {
             $sqlWheres[] = '`COLUMN_NAME` = \''
                 . $escapedColumn . '\' ';

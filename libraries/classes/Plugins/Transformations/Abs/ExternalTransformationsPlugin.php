@@ -151,6 +151,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
             while (! feof($pipes[1])) {
                 $newstring .= fgets($pipes[1], 1024);
             }
+
             fclose($pipes[1]);
             // we don't currently use the return value
             proc_close($process);

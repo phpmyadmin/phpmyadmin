@@ -61,7 +61,8 @@ class ExportLatex extends ExportPlugin
     {
         global $plugin_param;
         $hide_structure = false;
-        if ($plugin_param['export_type'] === 'table'
+        if (
+            $plugin_param['export_type'] === 'table'
             && ! $plugin_param['single_table']
         ) {
             $hide_structure = true;
@@ -142,6 +143,7 @@ class ExportLatex extends ExportPlugin
                 );
                 $structureOptions->addProperty($leaf);
             }
+
             $leaf = new BoolPropertyItem(
                 'comments',
                 __('Display comments')
@@ -154,6 +156,7 @@ class ExportLatex extends ExportPlugin
                 );
                 $structureOptions->addProperty($leaf);
             }
+
             // add the main group to the root group
             $exportSpecificOptions->addProperty($structureOptions);
         }
@@ -218,6 +221,7 @@ class ExportLatex extends ExportPlugin
         if (! empty($cfg['Server']['port'])) {
             $head .= ':' . $cfg['Server']['port'];
         }
+
         $head .= $crlf
             . '% ' . __('Generation Time:') . ' '
             . Util::localisedDate() . $crlf
@@ -250,6 +254,7 @@ class ExportLatex extends ExportPlugin
         if (empty($db_alias)) {
             $db_alias = $db;
         }
+
         global $crlf;
         $head = '% ' . $crlf
             . '% ' . __('Database:') . ' \'' . $db_alias . '\'' . $crlf
@@ -324,6 +329,7 @@ class ExportLatex extends ExportPlugin
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
+
             $columns_alias[$i] = $col_as;
         }
 
@@ -333,6 +339,7 @@ class ExportLatex extends ExportPlugin
         for ($index = 0; $index < $columns_cnt; $index++) {
             $buffer .= 'l|';
         }
+
         $buffer .= '} ' . $crlf;
 
         $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
@@ -360,6 +367,7 @@ class ExportLatex extends ExportPlugin
                 )
                 . '} \\\\';
         }
+
         if (! $this->export->outputHandler($buffer)) {
             return false;
         }
@@ -376,26 +384,29 @@ class ExportLatex extends ExportPlugin
             if (! $this->export->outputHandler($buffer . ' \\endfirsthead ' . $crlf)) {
                 return false;
             }
+
             if (isset($GLOBALS['latex_caption'])) {
-                if (! $this->export->outputHandler(
-                    '\\caption{'
-                    . Util::expandUserString(
-                        $GLOBALS['latex_data_continued_caption'],
-                        [
-                            'texEscape',
-                            static::class,
-                        ],
-                        [
-                            'table' => $table_alias,
-                            'database' => $db_alias,
-                        ]
+                if (
+                    ! $this->export->outputHandler(
+                        '\\caption{'
+                        . Util::expandUserString(
+                            $GLOBALS['latex_data_continued_caption'],
+                            [
+                                'texEscape',
+                                static::class,
+                            ],
+                            [
+                                'table' => $table_alias,
+                                'database' => $db_alias,
+                            ]
+                        )
+                        . '} \\\\ '
                     )
-                    . '} \\\\ '
-                )
                 ) {
                     return false;
                 }
             }
+
             if (! $this->export->outputHandler($buffer . '\\endhead \\endfoot' . $crlf)) {
                 return false;
             }
@@ -410,7 +421,8 @@ class ExportLatex extends ExportPlugin
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if ($record[$columns[$i]] !== null
+                if (
+                    $record[$columns[$i]] !== null
                     && isset($record[$columns[$i]])
                 ) {
                     $column_value = self::texEscape(
@@ -427,6 +439,7 @@ class ExportLatex extends ExportPlugin
                     $buffer .= $column_value . ' & ';
                 }
             }
+
             $buffer .= ' \\\\ \\hline ' . $crlf;
             if (! $this->export->outputHandler($buffer)) {
                 return false;
@@ -543,12 +556,15 @@ class ExportLatex extends ExportPlugin
         if ($do_relation && $have_rel) {
             $alignment .= 'l|';
         }
+
         if ($do_comments) {
             $alignment .= 'l|';
         }
+
         if ($do_mime && $cfgRelation['mimework']) {
             $alignment .= 'l|';
         }
+
         $buffer = $alignment . '} ' . $crlf;
 
         $header = ' \\hline ';
@@ -559,10 +575,12 @@ class ExportLatex extends ExportPlugin
         if ($do_relation && $have_rel) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Links to') . '}}';
         }
+
         if ($do_comments) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Comments') . '}}';
             $comments = $this->relation->getComments($db, $table);
         }
+
         if ($do_mime && $cfgRelation['mimework']) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{MIME}}';
             $mime_map = $this->transformations->getMime($db, $table, true);
@@ -593,6 +611,7 @@ class ExportLatex extends ExportPlugin
                 )
                 . '} \\\\' . $crlf;
         }
+
         $buffer .= $header . ' \\\\ \\hline \\hline' . $crlf
             . '\\endfirsthead' . $crlf;
         // Table caption on next pages
@@ -611,6 +630,7 @@ class ExportLatex extends ExportPlugin
                 )
                 . '} \\\\ ' . $crlf;
         }
+
         $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ' . $crlf;
 
         if (! $this->export->outputHandler($buffer)) {
@@ -650,12 +670,14 @@ class ExportLatex extends ExportPlugin
                     $aliases
                 );
             }
+
             if ($do_comments && $cfgRelation['commwork']) {
                 $local_buffer .= "\000";
                 if (isset($comments[$field_name])) {
                     $local_buffer .= $comments[$field_name];
                 }
             }
+
             if ($do_mime && $cfgRelation['mimework']) {
                 $local_buffer .= "\000";
                 if (isset($mime_map[$field_name])) {
@@ -666,6 +688,7 @@ class ExportLatex extends ExportPlugin
                     );
                 }
             }
+
             $local_buffer = self::texEscape($local_buffer);
             if ($row['Key'] === 'PRI') {
                 $pos = (int) mb_strpos($local_buffer, "\000");
@@ -675,6 +698,7 @@ class ExportLatex extends ExportPlugin
                     . '}' .
                     mb_substr($local_buffer, $pos);
             }
+
             if (in_array($field_name, $unique_keys)) {
                 $pos = (int) mb_strpos($local_buffer, "\000");
                 $local_buffer = '\\textbf{'
@@ -683,6 +707,7 @@ class ExportLatex extends ExportPlugin
                     . '}' .
                     mb_substr($local_buffer, $pos);
             }
+
             $buffer = str_replace("\000", ' & ', $local_buffer);
             $buffer .= ' \\\\ \\hline ' . $crlf;
 

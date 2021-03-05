@@ -97,7 +97,8 @@ class ImportShp extends ImportPlugin
         $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
-        if ($compression === 'application/zip'
+        if (
+            $compression === 'application/zip'
             && $this->zipExtension->getNumberOfFiles($import_file) > 1
         ) {
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
@@ -150,7 +151,8 @@ class ImportShp extends ImportPlugin
                         }
                     }
                 }
-            } elseif (! empty($local_import_file)
+            } elseif (
+                ! empty($local_import_file)
                 && ! empty($GLOBALS['cfg']['UploadDir'])
                 && $compression === 'none'
             ) {
@@ -171,7 +173,8 @@ class ImportShp extends ImportPlugin
         $shp->loadFromFile('');
 
         // Delete the .dbf file extracted to 'TempDir'
-        if ($temp_dbf_file
+        if (
+            $temp_dbf_file
             && isset($dbf_file_path)
             && @file_exists($dbf_file_path)
         ) {
@@ -252,6 +255,7 @@ class ImportShp extends ImportPlugin
                         $tempRow[] = $cell;
                     }
                 }
+
                 $rows[] = $tempRow;
             }
         }
@@ -273,6 +277,7 @@ class ImportShp extends ImportPlugin
             if ($dbfHeader === null) {
                 continue;
             }
+
             $col_names[] = $dbfHeader[$n][0];
         }
 
@@ -283,6 +288,7 @@ class ImportShp extends ImportPlugin
         } else {
             $table_name = 'TBL_NAME';
         }
+
         $tables = [
             [
                 $table_name,
@@ -345,6 +351,7 @@ class ImportShp extends ImportPlugin
                 $buffer .= $import->getNextChunk($importHandle);
             }
         }
+
         $result = substr($buffer, 0, $length);
         $buffer = substr($buffer, $length);
 

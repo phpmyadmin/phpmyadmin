@@ -116,6 +116,7 @@ class ExportCsv extends ExportPlugin
         if ($what === 'csv') {
             $GLOBALS['csv_columns'] = 'yes';
         }
+
         // Here we just prepare some values for export
         if ($what === 'excel') {
             $csv_terminated = "\015\012";
@@ -131,13 +132,15 @@ class ExportCsv extends ExportPlugin
                     $csv_separator = ',';
                     break;
             }
+
             $csv_enclosed = '"';
             $csv_escaped = '"';
             if (isset($GLOBALS['excel_columns'])) {
                 $GLOBALS['csv_columns'] = 'yes';
             }
         } else {
-            if (empty($csv_terminated)
+            if (
+                empty($csv_terminated)
                 || mb_strtolower($csv_terminated) === 'auto'
             ) {
                 $csv_terminated = $GLOBALS['crlf'];
@@ -156,6 +159,7 @@ class ExportCsv extends ExportPlugin
                     $csv_terminated
                 );
             }
+
             $csv_separator = str_replace('\\t', "\011", $csv_separator);
         }
 
@@ -253,6 +257,7 @@ class ExportCsv extends ExportPlugin
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
+
                 $col_as = stripslashes($col_as);
                 if ($csv_enclosed == '') {
                     $schema_insert .= $col_as;
@@ -265,8 +270,10 @@ class ExportCsv extends ExportPlugin
                         )
                         . $csv_enclosed;
                 }
+
                 $schema_insert .= $csv_separator;
             }
+
             $schema_insert = trim(mb_substr($schema_insert, 0, -1));
             if (! $this->export->outputHandler($schema_insert . $csv_terminated)) {
                 return false;
@@ -284,8 +291,10 @@ class ExportCsv extends ExportPlugin
                     if ($what === 'excel') {
                         $row[$j] = preg_replace("/\015(\012)?/", "\012", $row[$j]);
                     }
+
                     // remove CRLF characters within field
-                    if (isset($GLOBALS[$what . '_removeCRLF'])
+                    if (
+                        isset($GLOBALS[$what . '_removeCRLF'])
                         && $GLOBALS[$what . '_removeCRLF']
                     ) {
                         $row[$j] = str_replace(
@@ -297,6 +306,7 @@ class ExportCsv extends ExportPlugin
                             $row[$j]
                         );
                     }
+
                     if ($csv_enclosed == '') {
                         $schema_insert .= $row[$j];
                     } else {
@@ -327,6 +337,7 @@ class ExportCsv extends ExportPlugin
                 } else {
                     $schema_insert .= '';
                 }
+
                 if ($j >= $fields_cnt - 1) {
                     continue;
                 }
@@ -338,6 +349,7 @@ class ExportCsv extends ExportPlugin
                 return false;
             }
         }
+
         $dbi->freeResult($result);
 
         return true;

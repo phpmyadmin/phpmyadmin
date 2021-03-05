@@ -228,9 +228,11 @@ class ThemeManager
             if ($dir === '.' || $dir === '..' || ! @is_dir(ROOT_PATH . 'themes/' . $dir . '/')) {
                 continue;
             }
+
             if (array_key_exists($dir, $this->themes)) {
                 continue;
             }
+
             $newTheme = Theme::load($dir);
             if (! $newTheme instanceof Theme) {
                 continue;

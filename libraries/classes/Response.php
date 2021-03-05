@@ -182,6 +182,7 @@ class Response
             $buffer->start();
             register_shutdown_function([$this, 'response']);
         }
+
         $this->header = new Header();
         $this->HTML   = '';
         $this->JSON   = [];
@@ -388,6 +389,7 @@ class Response
                 if (isset($_REQUEST['menuHashes'])) {
                     $hashes = explode('-', $_REQUEST['menuHashes']);
                 }
+
                 if (! in_array($menuHash, $hashes)) {
                     $this->addJSON(
                         'menu',
@@ -403,7 +405,8 @@ class Response
             $this->addJSON('displayMessage', $this->getHeader()->getMessage());
 
             $debug = $this->footer->getDebugMessage();
-            if (empty($_REQUEST['no_debug'])
+            if (
+                empty($_REQUEST['no_debug'])
                 && strlen($debug) > 0
             ) {
                 $this->addJSON('debug', $debug);
@@ -413,6 +416,7 @@ class Response
             if (strlen($errors) > 0) {
                 $this->addJSON('errors', $errors);
             }
+
             $promptPhpErrors = $GLOBALS['error_handler']->hasErrorsForPrompt();
             $this->addJSON('promptPhpErrors', $promptPhpErrors);
 
@@ -421,11 +425,13 @@ class Response
                 // (this is for the bottom console)
                 $query = '';
                 $maxChars = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
-                if (isset($GLOBALS['sql_query'])
+                if (
+                    isset($GLOBALS['sql_query'])
                     && mb_strlen($GLOBALS['sql_query']) < $maxChars
                 ) {
                     $query = $GLOBALS['sql_query'];
                 }
+
                 $this->addJSON(
                     'reloadQuerywindow',
                     [
@@ -437,9 +443,11 @@ class Response
                 if (! empty($GLOBALS['focus_querywindow'])) {
                     $this->addJSON('_focusQuerywindow', $query);
                 }
+
                 if (! empty($GLOBALS['reload'])) {
                     $this->addJSON('reloadNavigation', 1);
                 }
+
                 $this->addJSON('params', $this->getHeader()->getJsParams());
             }
         }
@@ -482,6 +490,7 @@ class Response
                     $error = 'Unknown error';
                     break;
             }
+
             echo json_encode([
                 'success' => false,
                 'error' => 'JSON encoding failed: ' . $error,
@@ -502,11 +511,13 @@ class Response
         if (empty($this->HTML)) {
             $this->HTML = $buffer->getContents();
         }
+
         if ($this->isAjax()) {
             $this->ajaxResponse();
         } else {
             $this->htmlResponse();
         }
+
         $buffer->flush();
         exit;
     }
@@ -560,6 +571,7 @@ class Response
         } else {
             $header .= 'Web server is down';
         }
+
         if (PHP_SAPI === 'cgi-fcgi') {
             return;
         }

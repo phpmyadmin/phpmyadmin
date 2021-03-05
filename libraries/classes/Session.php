@@ -73,6 +73,7 @@ class Session
         if (session_status() === PHP_SESSION_ACTIVE && ! defined('TESTSUITE')) {
             session_regenerate_id(true);
         }
+
         // continue with empty session
         session_unset();
         self::generateToken();
@@ -135,7 +136,8 @@ class Session
         // verify if PHP supports session, die if it does not
         if (! function_exists('session_name')) {
             Core::warnMissingExtension('session', true);
-        } elseif (! empty(ini_get('session.auto_start'))
+        } elseif (
+            ! empty(ini_get('session.auto_start'))
             && session_name() !== 'phpMyAdmin'
             && ! empty(session_id())
         ) {
@@ -205,13 +207,15 @@ class Session
 
         $session_result = session_start();
 
-        if ($session_result !== true
+        if (
+            $session_result !== true
             || $orig_error_count != $errorHandler->countErrors(false)
         ) {
             setcookie($httpCookieName, '', 1);
             $errors = $errorHandler->sliceErrors($orig_error_count);
             self::sessionFailed($errors);
         }
+
         unset($orig_error_count, $session_result);
 
         /**
@@ -243,6 +247,7 @@ class Session
             $errors = $errorHandler->sliceErrors($orig_error_count);
             self::sessionFailed($errors);
         }
+
         session_start();
         if (! empty($_SESSION[' PMA_token '])) {
             return;

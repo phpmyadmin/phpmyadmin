@@ -95,7 +95,8 @@ class Scripts
      */
     private function hasOnloadEvent($filename)
     {
-        if (strpos($filename, 'jquery') !== false
+        if (
+            strpos($filename, 'jquery') !== false
             || strpos($filename, 'codemirror') !== false
             || strpos($filename, 'messages.php') !== false
             || strpos($filename, 'ajax.js') !== false
@@ -133,6 +134,7 @@ class Scripts
             if (strpos($file['filename'], '?') !== false) {
                 continue;
             }
+
             $retval[] = [
                 'name' => $file['filename'],
                 'fire' => $file['has_onload'],

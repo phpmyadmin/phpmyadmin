@@ -213,9 +213,11 @@ class TableStatsDia extends TableStats
             if (in_array($field, $this->primary)) {
                 $pm = 'true';
             }
+
             if ($field == $this->displayfield) {
                 $pm = 'false';
             }
+
             $this->diagram->writeRaw(
                 '<dia:attribute name="primary_key">
                     <dia:boolean val="' . $pm . '"/>
@@ -229,6 +231,7 @@ class TableStatsDia extends TableStats
                 </dia:composite>'
             );
         }
+
         $this->diagram->endElement();
         $this->diagram->endElement();
     }

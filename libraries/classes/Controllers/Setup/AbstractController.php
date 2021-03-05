@@ -43,6 +43,7 @@ abstract class AbstractController
             if (in_array($formset, $ignored)) {
                 continue;
             }
+
             /** @var BaseForm $formClass */
             $formClass = SetupFormList::get($formset);
 

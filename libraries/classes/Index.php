@@ -161,27 +161,36 @@ class Index
     {
         $indexes = [];
         foreach (self::getFromTable($table, $schema) as $index) {
-            if (($choices & self::PRIMARY)
+            if (
+                ($choices & self::PRIMARY)
                 && $index->getChoice() === 'PRIMARY'
             ) {
                 $indexes[] = $index;
             }
-            if (($choices & self::UNIQUE)
+
+            if (
+                ($choices & self::UNIQUE)
                 && $index->getChoice() === 'UNIQUE'
             ) {
                 $indexes[] = $index;
             }
-            if (($choices & self::INDEX)
+
+            if (
+                ($choices & self::INDEX)
                 && $index->getChoice() === 'INDEX'
             ) {
                 $indexes[] = $index;
             }
-            if (($choices & self::SPATIAL)
+
+            if (
+                ($choices & self::SPATIAL)
                 && $index->getChoice() === 'SPATIAL'
             ) {
                 $indexes[] = $index;
             }
-            if ((! ($choices & self::FULLTEXT))
+
+            if (
+                (! ($choices & self::FULLTEXT))
                 || $index->getChoice() !== 'FULLTEXT'
             ) {
                 continue;
@@ -254,7 +263,8 @@ class Index
      */
     public function addColumn(array $params)
     {
-        if (! isset($params['Column_name'])
+        if (
+            ! isset($params['Column_name'])
             || strlen($params['Column_name']) <= 0
         ) {
             return;
@@ -322,30 +332,39 @@ class Index
         if (isset($params['columns'])) {
             $this->addColumns($params['columns']);
         }
+
         if (isset($params['Schema'])) {
             $this->schema = $params['Schema'];
         }
+
         if (isset($params['Table'])) {
             $this->table = $params['Table'];
         }
+
         if (isset($params['Key_name'])) {
             $this->name = $params['Key_name'];
         }
+
         if (isset($params['Index_type'])) {
             $this->type = $params['Index_type'];
         }
+
         if (isset($params['Comment'])) {
             $this->remarks = $params['Comment'];
         }
+
         if (isset($params['Index_comment'])) {
             $this->comment = $params['Index_comment'];
         }
+
         if (isset($params['Non_unique'])) {
             $this->nonUnique = $params['Non_unique'];
         }
+
         if (isset($params['Packed'])) {
             $this->packed = $params['Packed'];
         }
+
         if (isset($params['Index_choice'])) {
             $this->choice = $params['Index_choice'];
         } elseif ($this->name === 'PRIMARY') {
@@ -361,9 +380,11 @@ class Index
         } else {
             $this->choice = 'INDEX';
         }
+
         if (isset($params['Key_block_size'])) {
             $this->keyBlockSize = $params['Key_block_size'];
         }
+
         if (! isset($params['Parser'])) {
             return;
         }
@@ -432,6 +453,7 @@ class Index
         if (strlen($comments) > 0) {
             $comments .= "\n";
         }
+
         $comments .= $this->getComment();
 
         return $comments;
@@ -611,7 +633,8 @@ class Index
         while ($while_index = array_pop($indexes)) {
             // ... compare with every remaining index in stack
             foreach ($indexes as $each_index) {
-                if ($each_index->getCompareData() !== $while_index->getCompareData()
+                if (
+                    $each_index->getCompareData() !== $while_index->getCompareData()
                 ) {
                     continue;
                 }

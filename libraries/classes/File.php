@@ -307,11 +307,13 @@ class File
         string $key,
         string $rownumber
     ): bool {
-        if (! isset($_FILES['fields_upload'])
+        if (
+            ! isset($_FILES['fields_upload'])
             || empty($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])
         ) {
             return false;
         }
+
         $file = $this->fetchUploadedFromTblChangeRequestMultiple(
             $_FILES['fields_upload'],
             $rownumber,
@@ -321,6 +323,7 @@ class File
         switch ($file['error']) {
             case UPLOAD_ERR_OK:
                 return $this->setUploadedFile($file['tmp_name']);
+
             case UPLOAD_ERR_NO_FILE:
                 break;
             case UPLOAD_ERR_INI_SIZE:
@@ -412,7 +415,8 @@ class File
         string $key,
         ?string $rownumber = null
     ): bool {
-        if (! empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
+        if (
+            ! empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
             && is_string($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
         ) {
             // ... whether with multiple rows ...
@@ -474,6 +478,7 @@ class File
 
             return true;
         }
+
         // all failed, whether just no file uploaded/selected or an error
 
         return false;
@@ -503,6 +508,7 @@ class File
 
             return false;
         }
+
         if (! $this->isReadable()) {
             $this->errorMessage = Message::error(__('File could not be read!'));
             $this->setName(null);
@@ -674,6 +680,7 @@ class File
         switch ($this->getCompression()) {
             case false:
                 return false;
+
             case 'application/bzip2':
                 if (! $GLOBALS['cfg']['BZipDump'] || ! function_exists('bzopen')) {
                     $this->errorUnsupported();
@@ -700,6 +707,7 @@ class File
                 $this->errorUnsupported();
 
                 return false;
+
             case 'none':
                 $this->handle = @fopen((string) $this->getName(), 'r');
                 break;
@@ -725,6 +733,7 @@ class File
 
             return false;
         }
+
         $this->content = $result['data'];
         $this->offset = 0;
 
@@ -755,6 +764,7 @@ class File
             $this->content = '';
             $this->offset = 0;
         }
+
         $this->cleanUp();
     }
 
@@ -768,13 +778,16 @@ class File
         switch ($this->compression) {
             case 'application/bzip2':
                 return (string) bzread($this->handle, $size);
+
             case 'application/gzip':
                 return (string) gzread($this->handle, $size);
+
             case 'application/zip':
                 $result = mb_strcut($this->content, $this->offset, $size);
                 $this->offset += strlen($result);
 
                 return $result;
+
             case 'none':
             default:
                 return (string) fread($this->handle, $size);

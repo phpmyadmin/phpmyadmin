@@ -73,7 +73,8 @@ class VariablesController extends AbstractController
                     'name' => $sectionName,
                     'is_selected' => false,
                 ];
-                if (empty($params['filterCategory'])
+                if (
+                    empty($params['filterCategory'])
                     || $params['filterCategory'] !== $sectionId
                 ) {
                     continue;

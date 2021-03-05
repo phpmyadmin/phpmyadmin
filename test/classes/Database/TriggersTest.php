@@ -56,6 +56,7 @@ class TriggersTest extends AbstractTestCase
 
             $_POST[$key] = $value;
         }
+
         $this->assertEquals($out, $this->triggers->getDataFromRequest());
     }
 

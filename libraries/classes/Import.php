@@ -130,6 +130,7 @@ class Import
             if (! isset($my_die)) {
                 $my_die = [];
             }
+
             $my_die[] = [
                 'sql' => $full,
                 'error' => $dbi->getError(),
@@ -164,9 +165,11 @@ class Import
                 if (! isset($sql_data['valid_queries'])) {
                     $sql_data['valid_queries'] = 0;
                 }
+
                 $sql_data['valid_queries']++;
             }
         }
+
         if (! $sql_query_disabled) {
             $sql_query .= $msg . "\n";
         }
@@ -183,7 +186,8 @@ class Import
 
         $pattern = '@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)'
             . '?(TABLE|DATABASE)[[:space:]]+(.+)@im';
-        if ($result == false
+        if (
+            $result == false
             || ! preg_match($pattern, $sql)
         ) {
             return;
@@ -234,7 +238,8 @@ class Import
             return;
         }
 
-        if (! empty($import_run_buffer['sql'])
+        if (
+            ! empty($import_run_buffer['sql'])
             && trim($import_run_buffer['sql']) != ''
         ) {
             $max_sql_len = max(
@@ -257,12 +262,14 @@ class Import
                     $complete_query = '';
                     $display_query = '';
                 }
+
                 $sql_query = $import_run_buffer['sql'];
                 $sql_data['valid_sql'][] = $import_run_buffer['sql'];
                 $sql_data['valid_full'][] = $import_run_buffer['full'];
                 if (! isset($sql_data['valid_queries'])) {
                     $sql_data['valid_queries'] = 0;
                 }
+
                 $sql_data['valid_queries']++;
             } elseif ($run_query) {
                 /* Handle rollback from go_sql */
@@ -298,11 +305,13 @@ class Import
                 $sql_query .= $import_run_buffer['full'];
             }
         }
+
         // check length of query unless we decided to pass it to /sql
         // (if $run_query is false, we are just displaying so show
         // the complete query in the textarea)
         if (! $go_sql && $run_query && ! empty($sql_query)) {
-            if (mb_strlen($sql_query) > 50000
+            if (
+                mb_strlen($sql_query) > 50000
                 || $executed_queries > 50
                 || $max_sql_len > 1000
             ) {
@@ -396,6 +405,7 @@ class Import
         } else {
             $size *= 8;
         }
+
         $read_multiply++;
 
         // We can not read too much
@@ -406,6 +416,7 @@ class Import
         if ($this->checkTimeout()) {
             return false;
         }
+
         if ($GLOBALS['finished']) {
             return true;
         }
@@ -472,7 +483,8 @@ class Import
             // UTF-16 BE, LE
         }
 
-        if (strncmp($contents, "\xFE\xFF", 2) === 0
+        if (
+            strncmp($contents, "\xFE\xFF", 2) === 0
             || strncmp($contents, "\xFF\xFE", 2) === 0
         ) {
             return substr($contents, 2);
@@ -907,7 +919,8 @@ class Import
             return self::VARCHAR;
         }
 
-        if ($cell == (string) (float) $cell
+        if (
+            $cell == (string) (float) $cell
             && mb_strpos((string) $cell, '.') !== false
             && mb_substr_count((string) $cell, '.') === 1
         ) {
@@ -958,7 +971,8 @@ class Import
         }
 
         /* If the passed array is not of the correct form, do not process it */
-        if (! is_array($table)
+        if (
+            ! is_array($table)
             || is_array($table[self::TBL_NAME])
             || ! is_array($table[self::COL_NAMES])
             || ! is_array($table[self::ROWS])
@@ -1003,7 +1017,8 @@ class Import
                         $types[$i] = self::BIGINT;
                     }
                 } elseif ($curr_type == self::INT) {
-                    if ($types[$i] != self::VARCHAR
+                    if (
+                        $types[$i] != self::VARCHAR
                         && $types[$i] != self::DECIMAL
                         && $types[$i] != self::BIGINT
                     ) {
@@ -1181,6 +1196,7 @@ class Import
 
                     $tempSQLStr .= ', ';
                 }
+
                 $tempSQLStr .= ') DEFAULT CHARACTER SET ' . $charset
                     . ' COLLATE ' . $collation . ';';
 
@@ -1226,7 +1242,8 @@ class Import
                 for ($k = 0; $k < $num_cols; ++$k) {
                     // If fully formatted SQL, no need to enclose
                     // with apostrophes, add slashes etc.
-                    if ($analyses != null
+                    if (
+                        $analyses != null
                         && isset($analyses[$i][self::FORMATTEDSQL][$col_count])
                         && $analyses[$i][self::FORMATTEDSQL][$col_count] == true
                     ) {
@@ -1458,7 +1475,8 @@ class Import
                 'statement' => $statement,
             ];
 
-            if (! ($statement instanceof UpdateStatement
+            if (
+                ! ($statement instanceof UpdateStatement
                     || $statement instanceof DeleteStatement)
                 || ! empty($statement->join)
             ) {
@@ -1558,8 +1576,10 @@ class Import
             if (strtoupper($set->value) === 'NULL') {
                 $not_equal_operator = ' IS NOT ';
             }
+
             $diff[] = $set->column . $not_equal_operator . $set->value;
         }
+
         if (! empty($diff)) {
             $where .= ' AND (' . implode(' OR ', $diff) . ')';
         }
@@ -1684,6 +1704,7 @@ class Import
             } else {
                 $error = $error_msg;
             }
+
             break;
         }
 
@@ -1715,7 +1736,8 @@ class Import
         $statement = $parser->statements[0];
 
         // Check if query is supported.
-        if (! (($statement instanceof InsertStatement)
+        if (
+            ! (($statement instanceof InsertStatement)
             || ($statement instanceof UpdateStatement)
             || ($statement instanceof DeleteStatement)
             || ($statement instanceof ReplaceStatement))
@@ -1800,9 +1822,11 @@ class Import
         if ($cfg['GZipDump'] && function_exists('gzopen')) {
             $compressions[] = 'gzip';
         }
+
         if ($cfg['BZipDump'] && function_exists('bzopen')) {
             $compressions[] = 'bzip2';
         }
+
         if ($cfg['ZipDump'] && function_exists('zip_open')) {
             $compressions[] = 'zip';
         }
@@ -1824,6 +1848,7 @@ class Import
             if (! empty($extensions)) {
                 $extensions .= '|';
             }
+
             $extensions .= $importPlugin->getProperties()->getExtension();
         }
 

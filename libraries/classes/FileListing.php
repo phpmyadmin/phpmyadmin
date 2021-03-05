@@ -44,8 +44,10 @@ class FileListing
         if (substr($dir, -1) !== '/') {
             $dir .= '/';
         }
+
         while ($file = @readdir($handle)) {
-            if (! @is_file($dir . $file)
+            if (
+                ! @is_file($dir . $file)
                 || @is_link($dir . $file)
                 || ($expression != '' && ! preg_match($expression, $file))
             ) {
@@ -54,6 +56,7 @@ class FileListing
 
             $result[] = $file;
         }
+
         closedir($handle);
         asort($result);
 
@@ -101,16 +104,20 @@ class FileListing
         if ($cfg['GZipDump'] && function_exists('gzopen')) {
             $compressions = 'gz';
         }
+
         if ($cfg['BZipDump'] && function_exists('bzopen')) {
             if (! empty($compressions)) {
                 $compressions .= '|';
             }
+
             $compressions .= 'bz2';
         }
+
         if ($cfg['ZipDump'] && function_exists('gzinflate')) {
             if (! empty($compressions)) {
                 $compressions .= '|';
             }
+
             $compressions .= 'zip';
         }
 

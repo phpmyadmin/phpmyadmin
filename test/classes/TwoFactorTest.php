@@ -42,9 +42,11 @@ class TwoFactorTest extends AbstractTestCase
         if (! isset($config['backend'])) {
             $config['backend'] = '';
         }
+
         if (! isset($config['settings'])) {
             $config['settings'] = [];
         }
+
         $result = $this->getMockBuilder(TwoFactor::class)
             ->onlyMethods(['readConfig'])
             ->disableOriginalConstructor()
@@ -124,6 +126,7 @@ class TwoFactorTest extends AbstractTestCase
         if (! in_array('application', $object->getAvailable())) {
             $this->markTestSkipped('google2fa not available');
         }
+
         /* Without providing code this should fail */
         unset($_POST['2fa_code']);
         $this->assertFalse($object->configure('application'));
@@ -169,6 +172,7 @@ class TwoFactorTest extends AbstractTestCase
         if (! in_array('key', $object->getAvailable())) {
             $this->markTestSkipped('u2f-php-server not available');
         }
+
         $_SESSION['registrationRequest'] = null;
         /* Without providing code this should fail */
         unset($_POST['u2f_registration_response']);
@@ -231,6 +235,7 @@ class TwoFactorTest extends AbstractTestCase
         if (! in_array('key', $object->getAvailable())) {
             $this->markTestSkipped('u2f-php-server not available');
         }
+
         $_SESSION['registrationRequest'] = new RegistrationRequest(
             'yKA0x075tjJ-GE7fKTfnzTOSaNUOWQxRd9TWz5aFOg8',
             'http://demo.example.com'

@@ -99,7 +99,8 @@ class CheckUserPrivileges
         // '... ALL PRIVILEGES ON *.* ...' OR '... ALL PRIVILEGES ON `mysql`.* ..'
         // OR
         // SELECT, INSERT, UPDATE, DELETE .... ON *.* OR `mysql`.*
-        if ($show_grants_str !== 'ALL'
+        if (
+            $show_grants_str !== 'ALL'
             && $show_grants_str !== 'ALL PRIVILEGES'
             && (mb_strpos(
                 $show_grants_str,
@@ -109,7 +110,8 @@ class CheckUserPrivileges
             return;
         }
 
-        if ($show_grants_dbname === '*'
+        if (
+            $show_grants_dbname === '*'
             && $show_grants_tblname === '*'
         ) {
             $GLOBALS['col_priv'] = true;
@@ -117,7 +119,8 @@ class CheckUserPrivileges
             $GLOBALS['proc_priv'] = true;
             $GLOBALS['table_priv'] = true;
 
-            if ($show_grants_str === 'ALL PRIVILEGES'
+            if (
+                $show_grants_str === 'ALL PRIVILEGES'
                 || $show_grants_str === 'ALL'
             ) {
                 $GLOBALS['is_reload_priv'] = true;
@@ -254,7 +257,8 @@ class CheckUserPrivileges
              * @todo if we find CREATE VIEW but not CREATE, do not offer
              * the create database dialog box
              */
-            if ($show_grants_str !== 'ALL'
+            if (
+                $show_grants_str !== 'ALL'
                 && $show_grants_str !== 'ALL PRIVILEGES'
                 && $show_grants_str !== 'CREATE'
                 && strpos($show_grants_str, 'CREATE,') === false
@@ -284,7 +288,8 @@ class CheckUserPrivileges
             }
 
             // does this db exist?
-            if ((! preg_match('/' . $re0 . '%|_/', $show_grants_dbname)
+            if (
+                (! preg_match('/' . $re0 . '%|_/', $show_grants_dbname)
                 || preg_match('/\\\\%|\\\\_/', $show_grants_dbname))
                 && ($this->dbi->tryQuery(
                     'USE ' . preg_replace(

@@ -126,6 +126,7 @@ class GisLineString extends GisGeometry
                 $temp_point = $point;
             }
         }
+
         // print label if applicable
         if (isset($label) && trim($label) != '') {
             imagestring(
@@ -193,6 +194,7 @@ class GisLineString extends GisGeometry
                 $temp_point = $point;
             }
         }
+
         // print label
         if (isset($label) && trim($label) != '') {
             $pdf->SetXY($points_arr[1][0], $points_arr[1][1]);
@@ -239,10 +241,12 @@ class GisLineString extends GisGeometry
         foreach ($points_arr as $point) {
             $row .= $point[0] . ',' . $point[1] . ' ';
         }
+
         $row .= '"';
         foreach ($line_options as $option => $val) {
             $row .= ' ' . $option . '="' . trim((string) $val) . '"';
         }
+
         $row .= '/>';
 
         return $row;
@@ -281,6 +285,7 @@ class GisLineString extends GisGeometry
         if ($srid == 0) {
             $srid = 4326;
         }
+
         $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
@@ -315,6 +320,7 @@ class GisLineString extends GisGeometry
         if ($no_of_points < 2) {
             $no_of_points = 2;
         }
+
         $wkt = 'LINESTRING(';
         for ($i = 0; $i < $no_of_points; $i++) {
             $wkt .= (isset($gis_data[$index]['LINESTRING'][$i]['x'])

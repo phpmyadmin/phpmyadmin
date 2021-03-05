@@ -82,6 +82,7 @@ class Tracker
         if (! self::$enabled) {
             return false;
         }
+
         /* We need to avoid attempt to track any queries
          * from Relation::getRelationsParam
          */
@@ -147,6 +148,7 @@ class Tracker
         if (isset(self::$trackingCache[$dbname][$tablename])) {
             return self::$trackingCache[$dbname][$tablename];
         }
+
         /* We need to avoid attempt to track any queries
          * from Relation::getRelationsParam
          */
@@ -256,14 +258,16 @@ class Tracker
 
         $create_sql  = '';
 
-        if ($GLOBALS['cfg']['Server']['tracking_add_drop_table'] == true
+        if (
+            $GLOBALS['cfg']['Server']['tracking_add_drop_table'] == true
             && $is_view === false
         ) {
             $create_sql .= self::getLogComment()
                 . 'DROP TABLE IF EXISTS ' . Util::backquote($tablename) . ";\n";
         }
 
-        if ($GLOBALS['cfg']['Server']['tracking_add_drop_view'] == true
+        if (
+            $GLOBALS['cfg']['Server']['tracking_add_drop_view'] == true
             && $is_view === true
         ) {
             $create_sql .= self::getLogComment()
@@ -469,6 +473,7 @@ class Tracker
         } else {
             return false;
         }
+
         $date  = Util::date('Y-m-d H:i:s');
 
         $new_data_processed = '';
@@ -587,6 +592,7 @@ class Tracker
             $sql_query .= " AND `table_name` = '"
                 . $dbi->escapeString($tablename) . "' ";
         }
+
         $sql_query .= " AND `version` = '" . $dbi->escapeString($version)
             . "' ORDER BY `version` DESC LIMIT 1";
 
@@ -628,6 +634,7 @@ class Tracker
                 $ddl_date_from = $date;
                 $first_iteration = false;
             }
+
             $statement = rtrim((string) mb_strstr($log_entry, "\n"));
 
             $ddlog[] = [
@@ -662,6 +669,7 @@ class Tracker
                 $dml_date_from = $date;
                 $first_iteration = false;
             }
+
             $statement = rtrim((string) mb_strstr($log_entry, "\n"));
 
             $dmlog[] = [
@@ -680,11 +688,13 @@ class Tracker
         } else {
             $data['date_from'] = $dml_date_from;
         }
+
         if (strtotime($ddl_date_to) >= strtotime($dml_date_to)) {
             $data['date_to'] = $ddl_date_to;
         } else {
             $data['date_to'] = $dml_date_to;
         }
+
         $data['ddlog']           = $ddlog;
         $data['dmlog']           = $dmlog;
         $data['tracking']        = $mixed['tracking'];
@@ -750,7 +760,8 @@ class Tracker
 
                     // In case of CREATE DATABASE, database field of the CreateStatement is the name of the database
                     $GLOBALS['db']        = $statement->name->database;
-                } elseif ($options[6] === 'INDEX'
+                } elseif (
+                    $options[6] === 'INDEX'
                           || $options[6] === 'UNIQUE INDEX'
                           || $options[6] === 'FULLTEXT INDEX'
                           || $options[6] === 'SPATIAL INDEX'
@@ -858,6 +869,7 @@ class Tracker
         if (! (substr($query, -1) === ';')) {
             $query .= ";\n";
         }
+
         // Get some information about query
         $result = self::parseQuery($query);
 
@@ -881,7 +893,8 @@ class Tracker
         );
 
         // If version not exists and auto-creation is enabled
-        if ($GLOBALS['cfg']['Server']['tracking_version_auto_create'] == true
+        if (
+            $GLOBALS['cfg']['Server']['tracking_version_auto_create'] == true
             && $version == -1
         ) {
             // Create the version
@@ -921,6 +934,7 @@ class Tracker
         } else {
             $save_to = '';
         }
+
         $date  = Util::date('Y-m-d H:i:s');
 
         // Cut off `dbname`. from query

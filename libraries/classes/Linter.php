@@ -32,7 +32,8 @@ class Linter
      */
     public static function getLines($str)
     {
-        if ((! ($str instanceof UtfString))
+        if (
+            (! ($str instanceof UtfString))
             && defined('USE_UTF_STRINGS')
             && USE_UTF_STRINGS
         ) {
@@ -84,6 +85,7 @@ class Linter
             if ($lineStart > $pos) {
                 break;
             }
+
             $line = $lineNo;
         }
 

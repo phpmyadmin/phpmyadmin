@@ -51,16 +51,19 @@ class Url
             if (strlen((string) $db) > 0) {
                 $params['db'] = $db;
             }
+
             if (strlen((string) $table) > 0) {
                 $params['table'] = $table;
             }
         }
 
-        if (! empty($GLOBALS['server'])
+        if (
+            ! empty($GLOBALS['server'])
             && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
         ) {
             $params['server'] = $GLOBALS['server'];
         }
+
         if (empty($PMA_Config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
             $params['lang'] = $GLOBALS['lang'];
         }
@@ -215,7 +218,8 @@ class Url
         $separator = self::getArgSeparator();
 
         // avoid overwriting when creating navigation panel links to servers
-        if (isset($GLOBALS['server'])
+        if (
+            isset($GLOBALS['server'])
             && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
             && ! isset($params['server'])
             && ! $PMA_Config->get('is_setup')
@@ -269,12 +273,14 @@ class Url
             } else {
                 $separator = '&';
             }
+
             $html_separator = htmlentities($separator);
         }
 
         switch ($encode) {
             case 'html':
                 return $html_separator;
+
             case 'text':
             case 'none':
             default:

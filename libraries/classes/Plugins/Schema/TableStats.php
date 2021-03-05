@@ -151,6 +151,7 @@ abstract class TableStats
                     array_flip(array_keys($index->getColumns()))
                 );
             }
+
             $this->fields = array_keys($all_columns);
         } else {
             while ($row = $dbi->fetchRow($result)) {

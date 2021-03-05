@@ -122,6 +122,7 @@ class ProcessesController extends AbstractController
             );
             $this->response->setRequestStatus(false);
         }
+
         $message->addParam($kill);
 
         $this->response->addJSON(['message' => $message]);
@@ -186,7 +187,8 @@ class ProcessesController extends AbstractController
         $sqlQuery = $showFullSql
             ? 'SHOW FULL PROCESSLIST'
             : 'SHOW PROCESSLIST';
-        if ((! empty($params['order_by_field'])
+        if (
+            (! empty($params['order_by_field'])
                 && ! empty($params['sort_order']))
             || ! empty($params['showExecuting'])
         ) {
@@ -195,9 +197,11 @@ class ProcessesController extends AbstractController
             $urlParams['showExecuting'] = $params['showExecuting'];
             $sqlQuery = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
         }
+
         if (! empty($params['showExecuting'])) {
             $sqlQuery .= ' WHERE state != "" ';
         }
+
         if (! empty($params['order_by_field']) && ! empty($params['sort_order'])) {
             $sqlQuery .= ' ORDER BY '
                 . Util::backquote($params['order_by_field'])
@@ -216,6 +220,7 @@ class ProcessesController extends AbstractController
             if ($is_sorted && $params['sort_order'] === 'ASC') {
                 $column['sort_order'] = 'DESC';
             }
+
             if (isset($params['showExecuting'])) {
                 $column['showExecuting'] = 'on';
             }
@@ -245,7 +250,8 @@ class ProcessesController extends AbstractController
         while ($process = $this->dbi->fetchAssoc($result)) {
             // Array keys need to modify due to the way it has used
             // to display column values
-            if ((! empty($params['order_by_field']) && ! empty($params['sort_order']))
+            if (
+                (! empty($params['order_by_field']) && ! empty($params['sort_order']))
                 || ! empty($params['showExecuting'])
             ) {
                 foreach (array_keys($process) as $key) {

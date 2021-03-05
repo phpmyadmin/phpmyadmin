@@ -60,6 +60,7 @@ class UserGroups
                 }
             }
         }
+
         $dbi->freeResult($result);
         $template = new Template();
 
@@ -97,6 +98,7 @@ class UserGroups
                 if (! isset($userGroups[$groupName])) {
                     $userGroups[$groupName] = [];
                 }
+
                 $userGroups[$groupName][$row['tab']] = $row['allowed'];
             }
 
@@ -127,6 +129,7 @@ class UserGroups
                 $userGroupsValues[] = $userGroupVal;
             }
         }
+
         $addUserUrl = Url::getFromRoute('/server/user-groups', ['addUserGroup' => 1]);
         $addUserIcon = Generator::getIcon('b_usradd');
         $dbi->freeResult($result);
@@ -157,7 +160,8 @@ class UserGroups
         $tabNames = [];
         $tabs = Util::getMenuTabList($level);
         foreach ($tabs as $tab => $tabName) {
-            if (isset($row[$level . '_' . $tab])
+            if (
+                isset($row[$level . '_' . $tab])
                 && $row[$level . '_' . $tab] !== 'Y'
             ) {
                 continue;
@@ -212,12 +216,14 @@ class UserGroups
         if ($userGroup !== null) {
             $editUserGroupSpecialChars = htmlspecialchars($userGroup);
         }
+
         if ($userGroup !== null) {
             $urlParams['userGroup'] = $userGroup;
             $urlParams['editUserGroupSubmit'] = '1';
         } else {
             $urlParams['addUserGroupSubmit'] = '1';
         }
+
         $allowedTabs = [
             'server' => [],
             'db' => [],
@@ -239,15 +245,18 @@ class UserGroups
                         $allowedTabs['server'][] = mb_substr($key, 7);
                     } elseif (substr($key, 0, 3) === 'db_' && $value === 'Y') {
                         $allowedTabs['db'][] = mb_substr($key, 3);
-                    } elseif (substr($key, 0, 6) === 'table_'
+                    } elseif (
+                        substr($key, 0, 6) === 'table_'
                         && $value === 'Y'
                     ) {
                         $allowedTabs['table'][] = mb_substr($key, 6);
                     }
                 }
             }
+
             $dbi->freeResult($result);
         }
+
         $tabList = self::getTabList(
             __('Server-level tabs'),
             'server',
@@ -296,6 +305,7 @@ class UserGroups
             $tabDetail['tab_name'] = $tabName;
             $tabDetails[] = $tabDetail;
         }
+
         $template = new Template();
 
         return $template->render('/server/user_groups/tab_list', [
@@ -337,6 +347,7 @@ class UserGroups
                 if (! $first) {
                     $sql_query .= ', ';
                 }
+
                 $tabName = $tabGroupName . '_' . $tab;
                 $allowed = isset($_POST[$tabName]) && $_POST[$tabName] === 'Y';
                 $sql_query .= "('" . $dbi->escapeString($userGroup) . "', '" . $tabName . "', '"
@@ -344,6 +355,7 @@ class UserGroups
                 $first = false;
             }
         }
+
         $sql_query .= ';';
         $relation->queryAsControlUser($sql_query, true);
     }

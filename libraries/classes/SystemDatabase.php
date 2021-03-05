@@ -89,7 +89,8 @@ class SystemDatabase
 
         while ($data_row = $this->dbi->fetchAssoc($pma_transformation_data)) {
             foreach ($column_map as $column) {
-                if ($data_row['table_name'] != $column['table_name']
+                if (
+                    $data_row['table_name'] != $column['table_name']
                     || $data_row['column_name'] != $column['refering_column']
                 ) {
                     continue;

@@ -225,6 +225,7 @@ class GisVisualization
             )
             . ', ';
         }
+
         // Wrap the spatial column with 'ST_ASTEXT()' function and add it
         $modified_query .= $spatialAsText . '('
             . Util::backquote($this->userSpecifiedSettings['spatialColumn'])
@@ -629,16 +630,19 @@ class GisVisualization
             if (! is_string($ref_data)) {
                 continue;
             }
+
             $type_pos = mb_strpos($ref_data, '(');
             if ($type_pos === false) {
                 continue;
             }
+
             $type = mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
             if (! $gis_obj) {
                 continue;
             }
+
             $scale_data = $gis_obj->scaleRow(
                 $row[$this->settings['spatialColumn']]
             );
@@ -725,12 +729,14 @@ class GisVisualization
             if ($type_pos === false) {
                 continue;
             }
+
             $type = mb_substr($ref_data, 0, $type_pos);
 
             $gis_obj = GisFactory::factory($type);
             if (! $gis_obj) {
                 continue;
             }
+
             $label = '';
             if (isset($this->settings['labelColumn'], $row[$this->settings['labelColumn']])) {
                 $label = $row[$this->settings['labelColumn']];
@@ -768,6 +774,7 @@ class GisVisualization
                     $scale_data
                 );
             }
+
             $color_number++;
         }
 

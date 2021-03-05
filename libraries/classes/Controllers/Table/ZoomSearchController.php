@@ -118,7 +118,8 @@ class ZoomSearchController extends AbstractController
         /**
          * Handle AJAX request for data row on point select
          */
-        if (isset($_POST['get_data_row'])
+        if (
+            isset($_POST['get_data_row'])
             && $_POST['get_data_row'] == true
         ) {
             $this->getDataRowAction();
@@ -130,7 +131,8 @@ class ZoomSearchController extends AbstractController
          * Handle AJAX request for changing field information
          * (value,collation,operators,field values) in input form
          */
-        if (isset($_POST['change_tbl_info'])
+        if (
+            isset($_POST['change_tbl_info'])
             && $_POST['change_tbl_info'] == true
         ) {
             $this->changeTableInfoAction();
@@ -152,7 +154,8 @@ class ZoomSearchController extends AbstractController
          * Handle the input criteria and generate the query result
          * Form for displaying query results
          */
-        if (! isset($_POST['zoom_submit'])
+        if (
+            ! isset($_POST['zoom_submit'])
             || $_POST['criteriaColumnNames'][0] === 'pma_null'
             || $_POST['criteriaColumnNames'][1] === 'pma_null'
             || $_POST['criteriaColumnNames'][0] == $_POST['criteriaColumnNames'][1]
@@ -166,6 +169,7 @@ class ZoomSearchController extends AbstractController
                 'table'
             );
         }
+
         $this->zoomSubmitAction($dataLabel, $goto);
     }
 
@@ -196,8 +200,10 @@ class ZoomSearchController extends AbstractController
             if (in_array($type, $geom_types)) {
                 $this->geomColumnFlag = true;
             }
+
             // reformat mysql query output
-            if (strncasecmp($type, 'set', 3) == 0
+            if (
+                strncasecmp($type, 'set', 3) == 0
                 || strncasecmp($type, 'enum', 4) == 0
             ) {
                 $type = str_replace(',', ', ', $type);
@@ -207,13 +213,16 @@ class ZoomSearchController extends AbstractController
                 if (! preg_match('@BINARY[\(]@i', $type)) {
                     $type = str_ireplace('BINARY', '', $type);
                 }
+
                 $type = str_ireplace('ZEROFILL', '', $type);
                 $type = str_ireplace('UNSIGNED', '', $type);
                 $type = mb_strtolower($type);
             }
+
             if (empty($type)) {
                 $type = '&nbsp;';
             }
+
             $this->columnTypes[] = $type;
             $this->columnNullFlags[] = $row['Null'];
             $this->columnCollations[]
@@ -306,10 +315,13 @@ class ZoomSearchController extends AbstractController
                         (int) $fields_meta[$i]->length
                     );
                 }
+
                 $i++;
             }
+
             $extra_data['row_info'] = $row;
         }
+
         $this->response->addJSON($extra_data);
     }
 
@@ -329,6 +341,7 @@ class ZoomSearchController extends AbstractController
 
             return;
         }
+
         $key = array_search($field, $this->columnNames);
         $search_index
             = (isset($_POST['it']) && is_numeric($_POST['it'])
@@ -373,6 +386,7 @@ class ZoomSearchController extends AbstractController
             foreach ($row as $val) {
                 $tmpRow[] = $val;
             }
+
             //Get unique condition on each row (will be needed for row update)
             $uniqueCondition = Util::getUniqueCondition(
                 $result,
@@ -396,6 +410,7 @@ class ZoomSearchController extends AbstractController
             $tmpData[$dataLabel] = $dataLabel ? $row[$dataLabel] : '';
             $data[] = $tmpData;
         }
+
         unset($tmpData);
 
         $column_names_hashes = [];

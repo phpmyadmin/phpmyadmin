@@ -68,6 +68,7 @@ class ConfigGenerator
 
             unset($persistKeys[$k]);
         }
+
         // keep 1d array keys which are present in $persist_keys (config.values.php)
         foreach (array_keys($persistKeys) as $k) {
             if (mb_strpos($k, '/') !== false) {
@@ -96,6 +97,7 @@ class ConfigGenerator
             return "\$cfg['" . $var_name . "'] = "
                 . var_export($var_value, true) . ';' . $crlf;
         }
+
         $ret = '';
         if (self::isZeroBasedArray($var_value)) {
             $ret = "\$cfg['" . $var_name . "'] = "
@@ -145,6 +147,7 @@ class ConfigGenerator
         foreach ($array as $v) {
             $retv[] = var_export($v, true);
         }
+
         $ret = 'array(';
         if (count($retv) <= 4) {
             // up to 4 values - one line
@@ -189,8 +192,10 @@ class ConfigGenerator
                         : var_export($v, true))
                     . ';' . $crlf;
             }
+
             $ret .= $crlf;
         }
+
         $ret .= '/* End of servers configuration */' . $crlf . $crlf;
 
         return $ret;

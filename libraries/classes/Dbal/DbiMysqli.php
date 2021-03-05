@@ -72,7 +72,8 @@ class DbiMysqli implements DbiExtension
         /* Optionally enable SSL */
         if ($server['ssl']) {
             $client_flags |= MYSQLI_CLIENT_SSL;
-            if (! empty($server['ssl_key']) ||
+            if (
+                ! empty($server['ssl_key']) ||
                 ! empty($server['ssl_cert']) ||
                 ! empty($server['ssl_ca']) ||
                 ! empty($server['ssl_ca_path']) ||
@@ -86,6 +87,7 @@ class DbiMysqli implements DbiExtension
                     $server['ssl_ciphers'] ?? ''
                 );
             }
+
             /*
              * disables SSL certificate validation on mysqlnd for MySQL 5.6 or later
              * @link https://bugs.php.net/bug.php?id=68344
@@ -127,7 +129,8 @@ class DbiMysqli implements DbiExtension
              */
             $error_number = $mysqli->connect_errno;
             $error_message = $mysqli->connect_error;
-            if (! $server['ssl']
+            if (
+                ! $server['ssl']
                 && ($error_number == 3159
                     || (($error_number == 2001 || $error_number == 9002)
                         && stripos($error_message, 'SSL Connection is required') !== false))
@@ -362,6 +365,7 @@ class DbiMysqli implements DbiExtension
             $error_number = $mysqli->connect_errno;
             $error_message = $mysqli->connect_error;
         }
+
         if ($error_number == 0) {
             return false;
         }
@@ -414,6 +418,7 @@ class DbiMysqli implements DbiExtension
         if (! $result instanceof mysqli_result) {
             return null;
         }
+
         $fields = $result->fetch_fields();
         if (! is_array($fields)) {
             return null;
@@ -451,6 +456,7 @@ class DbiMysqli implements DbiExtension
         if ($i >= $this->numFields($result)) {
             return false;
         }
+
         /** @var stdClass $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
         if ($fieldDefinition !== false) {
@@ -473,6 +479,7 @@ class DbiMysqli implements DbiExtension
         if ($i >= $this->numFields($result)) {
             return '';
         }
+
         /** @var stdClass $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
         if ($fieldDefinition !== false) {

@@ -99,6 +99,7 @@ class WindowsNt extends Base
                     $arrInstance[$name] = $value;
                 }
             }
+
             $arrData[] = $arrInstance;
         }
 

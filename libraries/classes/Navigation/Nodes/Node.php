@@ -122,9 +122,11 @@ class Node
             $this->name = $name;
             $this->realName = $name;
         }
+
         if ($type === self::CONTAINER) {
             $this->type = self::CONTAINER;
         }
+
         $this->isGroup = (bool) $isGroup;
         $this->relation = new Relation($dbi);
     }
@@ -196,19 +198,23 @@ class Node
     public function parents($self = false, $containers = false, $groups = false): array
     {
         $parents = [];
-        if ($self
+        if (
+            $self
             && ($this->type != self::CONTAINER || $containers)
             && (! $this->isGroup || $groups)
         ) {
             $parents[] = $this;
         }
+
         $parent = $this->parent;
         while ($parent !== null) {
-            if (($parent->type != self::CONTAINER || $containers)
+            if (
+                ($parent->type != self::CONTAINER || $containers)
                 && (! $parent->isGroup || $groups)
             ) {
                 $parents[] = $parent;
             }
+
             $parent = $parent->parent;
         }
 
@@ -276,7 +282,8 @@ class Node
         }
 
         foreach ($this->parent->children as $child) {
-            if ($child !== $this
+            if (
+                $child !== $this
                 && ($child->type == self::OBJECT || $child->hasChildren(false))
             ) {
                 $retval = true;
@@ -320,6 +327,7 @@ class Node
             $aPath[] = base64_encode($parent->realName);
             $aPathClean[] = $parent->realName;
         }
+
         $aPath = implode('.', array_reverse($aPath));
         $aPathClean = array_reverse($aPathClean);
 
@@ -329,6 +337,7 @@ class Node
             $vPath[] = base64_encode((string) $parent->name);
             $vPathClean[] = $parent->name;
         }
+
         $vPath = implode('.', array_reverse($vPath));
         $vPathClean = array_reverse($vPathClean);
 
@@ -381,10 +390,12 @@ class Node
         /** @var DatabaseInterface $dbi */
         global $dbi;
 
-        if (! $GLOBALS['cfg']['NavigationTreeEnableGrouping']
+        if (
+            ! $GLOBALS['cfg']['NavigationTreeEnableGrouping']
             || ! $GLOBALS['cfg']['ShowDatabasesNavigationAsTree']
         ) {
-            if (isset($GLOBALS['cfg']['Server']['DisableIS'])
+            if (
+                isset($GLOBALS['cfg']['Server']['DisableIS'])
                 && ! $GLOBALS['cfg']['Server']['DisableIS']
             ) {
                 $query = 'SELECT COUNT(*) ';
@@ -441,10 +452,12 @@ class Node
                     if ($this->isHideDb($arr[0])) {
                         continue;
                     }
+
                     $prefix = strstr($arr[0], $dbSeparator, true);
                     if ($prefix === false) {
                         $prefix = $arr[0];
                     }
+
                     $prefixMap[$prefix] = 1;
                 }
             }
@@ -462,6 +475,7 @@ class Node
                 if ($prefix === false) {
                     $prefix = $arr[0];
                 }
+
                 $prefixMap[$prefix] = 1;
             }
         }
@@ -507,6 +521,7 @@ class Node
         } elseif (! empty($GLOBALS['dbs_to_test'])) {
             $databases = $GLOBALS['dbs_to_test'];
         }
+
         sort($databases);
 
         return $databases;
@@ -547,6 +562,7 @@ class Node
                     $GLOBALS['cfg']['Server']['only_db'],
                 ];
             }
+
             $whereClause .= 'AND (';
             $subClauses = [];
             foreach ($GLOBALS['cfg']['Server']['only_db'] as $eachOnlyDb) {
@@ -554,6 +570,7 @@ class Node
                     . " LIKE '"
                     . $dbi->escapeString($eachOnlyDb) . "' ";
             }
+
             $whereClause .= implode('OR', $subClauses) . ') ';
         }
 
@@ -579,7 +596,8 @@ class Node
      */
     public function getCssClasses($match): string
     {
-        if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
+        if (
+            ! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return '';
         }
@@ -589,6 +607,7 @@ class Node
         if ($this->isGroup || $match) {
             $result[] = 'loaded';
         }
+
         if ($this->type == self::CONTAINER) {
             $result[] = 'container';
         }
@@ -605,7 +624,8 @@ class Node
      */
     public function getIcon($match): string
     {
-        if (! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
+        if (
+            ! $GLOBALS['cfg']['NavigationTreeEnableExpansion']
         ) {
             return '';
         }
@@ -745,11 +765,13 @@ class Node
                 if ($prefix === false) {
                     $prefix = $arr[0];
                 }
+
                 $prefixMap[$prefix] = 1;
                 if (count($prefixMap) == $total) {
                     break;
                 }
             }
+
             $prefixes = array_slice(array_keys($prefixMap), (int) $pos);
         }
 
@@ -761,6 +783,7 @@ class Node
                 $dbSeparator
             );
         }
+
         $query = sprintf(
             'SHOW DATABASES %sAND (%s)',
             $this->getWhereClause('Database', $searchClause),
@@ -794,6 +817,7 @@ class Node
                     if ($this->isHideDb($arr[0])) {
                         continue;
                     }
+
                     if (in_array($arr[0], $retval)) {
                         continue;
                     }
@@ -802,9 +826,11 @@ class Node
                         $retval[] = $arr[0];
                         $count++;
                     }
+
                     $pos--;
                 }
             }
+
             sort($retval);
 
             return $retval;
@@ -824,16 +850,19 @@ class Node
                 if ($this->isHideDb($arr[0])) {
                     continue;
                 }
+
                 $prefix = strstr($arr[0], $dbSeparator, true);
                 if ($prefix === false) {
                     $prefix = $arr[0];
                 }
+
                 $prefixMap[$prefix] = 1;
                 if (count($prefixMap) == $total) {
                     break 2;
                 }
             }
         }
+
         $prefixes = array_slice(array_keys($prefixMap), $pos);
 
         foreach ($this->getDatabasesToSearch($searchClause) as $db) {
@@ -846,6 +875,7 @@ class Node
                 if ($this->isHideDb($arr[0])) {
                     continue;
                 }
+
                 if (in_array($arr[0], $retval)) {
                     continue;
                 }
@@ -862,6 +892,7 @@ class Node
                 }
             }
         }
+
         sort($retval);
 
         return $retval;

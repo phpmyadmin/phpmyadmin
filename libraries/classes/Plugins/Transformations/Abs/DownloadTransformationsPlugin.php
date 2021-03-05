@@ -58,10 +58,12 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
                         break;
                     }
                 }
+
                 if (isset($pos)) {
                     $cn = $row[$pos];
                 }
             }
+
             if (empty($cn)) {
                 $cn = 'binary_file.dat';
             }

@@ -83,6 +83,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
                 . '" value="' . bin2hex($value) . '">';
             $src = Url::getFromRoute('/transformation/wrapper', $options['wrapper_params']);
         }
+
         $html .= '<img src="' . $src . '" width="'
             . (isset($options[0]) ? intval($options[0]) : '100') . '" height="'
             . (isset($options[1]) ? intval($options[1]) : '100') . '" alt="'

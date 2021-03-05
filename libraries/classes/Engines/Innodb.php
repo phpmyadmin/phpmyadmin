@@ -108,6 +108,7 @@ class Innodb extends StorageEngine
         if ($this->support < PMA_ENGINE_SUPPORT_YES) {
             return [];
         }
+
         $pages = [];
         $pages['Bufferpool'] = __('Buffer Pool');
         $pages['Status'] = __('InnoDB Status');

@@ -137,7 +137,8 @@ class Footer
     public function getDebugMessage(): string
     {
         $retval = '\'null\'';
-        if ($GLOBALS['cfg']['DBG']['sql']
+        if (
+            $GLOBALS['cfg']['DBG']['sql']
             && empty($_REQUEST['no_debug'])
             && ! empty($_SESSION['debug'])
         ) {
@@ -149,6 +150,7 @@ class Footer
 
             return json_last_error() ? '\'false\'' : $retval;
         }
+
         $_SESSION['debug'] = [];
 
         return $retval;
@@ -165,39 +167,49 @@ class Footer
         if (isset($route)) {
             $params['route'] = $route;
         }
+
         if (isset($db) && strlen($db) > 0) {
             $params['db'] = $db;
         }
+
         if (isset($table) && strlen($table) > 0) {
             $params['table'] = $table;
         }
+
         $params['server'] = $server;
 
         // needed for server privileges tabs
-        if (isset($_GET['viewing_mode'])
+        if (
+            isset($_GET['viewing_mode'])
             && in_array($_GET['viewing_mode'], ['server', 'db', 'table'])
         ) {
             $params['viewing_mode'] = $_GET['viewing_mode'];
         }
+
         /*
          * @todo    coming from /server/privileges, here $db is not set,
          *          add the following condition below when that is fixed
          *          && $_GET['checkprivsdb'] == $db
          */
-        if (isset($_GET['checkprivsdb'])
+        if (
+            isset($_GET['checkprivsdb'])
         ) {
             $params['checkprivsdb'] = $_GET['checkprivsdb'];
         }
+
         /*
          * @todo    coming from /server/privileges, here $table is not set,
          *          add the following condition below when that is fixed
          *          && $_REQUEST['checkprivstable'] == $table
          */
-        if (isset($_GET['checkprivstable'])
+        if (
+            isset($_GET['checkprivstable'])
         ) {
             $params['checkprivstable'] = $_GET['checkprivstable'];
         }
-        if (isset($_REQUEST['single_table'])
+
+        if (
+            isset($_REQUEST['single_table'])
             && in_array($_REQUEST['single_table'], [true, false])
         ) {
             $params['single_table'] = $_REQUEST['single_table'];
@@ -225,6 +237,7 @@ class Footer
         } else {
             $retval .=  __('Open new phpMyAdmin window');
         }
+
         $retval .= '</a>';
         $retval .= '</div>';
 
@@ -256,7 +269,8 @@ class Footer
     {
         global $dbi;
 
-        if (Core::isValid($_REQUEST['no_history'])
+        if (
+            Core::isValid($_REQUEST['no_history'])
             || ! empty($GLOBALS['error_message'])
             || empty($GLOBALS['sql_query'])
             || ! isset($dbi)
@@ -318,7 +332,8 @@ class Footer
         $this->setHistory();
         if ($this->isEnabled) {
             if (! $this->isAjax && ! $this->isMinimal) {
-                if (Core::getenv('SCRIPT_NAME')
+                if (
+                    Core::getenv('SCRIPT_NAME')
                     && empty($_POST)
                     && ! $this->isAjax
                 ) {
@@ -341,12 +356,15 @@ class Footer
                         )
                     );
                 }
-                if (Core::getenv('SCRIPT_NAME')
+
+                if (
+                    Core::getenv('SCRIPT_NAME')
                     && ! $this->isAjax
                 ) {
                     $url = $this->getSelfUrl();
                     $selfLink = $this->getSelfLink($url);
                 }
+
                 $this->scripts->addCode(
                     'var debugSQLInfo = ' . $this->getDebugMessage() . ';'
                 );

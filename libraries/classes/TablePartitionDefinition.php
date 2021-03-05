@@ -138,6 +138,7 @@ class TablePartitionDefinition
                 $partition['value_type'] = '';
                 $partition['value'] = '';
             }
+
             if (! isset($partition['engine'])) { // When removing subpartitioning
                 $partition['engine'] = '';
                 $partition['comment'] = '';
@@ -161,6 +162,7 @@ class TablePartitionDefinition
             if (! isset($partition['subpartitions'])) {
                 $partition['subpartitions'] = [];
             }
+
             $subpartitions =& $partition['subpartitions'];
 
             // Remove details of the additional subpartitions
@@ -186,6 +188,7 @@ class TablePartitionDefinition
                     . '[subpartitions][' . $j . ']';
             }
         }
+
         $partitionDetails['partitions'] = $partitions;
 
         return $partitionDetails;

@@ -49,6 +49,7 @@ class NormalizationController extends AbstractController
 
             return;
         }
+
         if (isset($_POST['splitColumn'])) {
             $num_fields = min(4096, intval($_POST['numFields']));
             $html = $this->normalization->getHtmlForCreateNewColumn($num_fields, $db, $table);
@@ -57,6 +58,7 @@ class NormalizationController extends AbstractController
 
             return;
         }
+
         if (isset($_POST['addNewPrimary'])) {
             $num_fields = 1;
             $columnMeta = [
@@ -74,6 +76,7 @@ class NormalizationController extends AbstractController
 
             return;
         }
+
         if (isset($_POST['findPdl'])) {
             $html = $this->normalization->findPartialDependencies($table, $db);
             echo $html;
@@ -106,6 +109,7 @@ class NormalizationController extends AbstractController
         if (Core::isValid($_POST['normalizeTo'], ['1nf', '2nf', '3nf'])) {
             $normalForm = $_POST['normalizeTo'];
         }
+
         if (isset($_POST['createNewTables2NF'])) {
             $partialDependencies = json_decode($_POST['pd']);
             $tablesName = json_decode($_POST['newTablesName']);
@@ -114,6 +118,7 @@ class NormalizationController extends AbstractController
 
             return;
         }
+
         if (isset($_POST['createNewTables3NF'])) {
             $newtables = json_decode($_POST['newTables']);
             $res = $this->normalization->createNewTablesFor3NF($newtables, $db);
@@ -121,6 +126,7 @@ class NormalizationController extends AbstractController
 
             return;
         }
+
         if (isset($_POST['repeatingColumns'])) {
             $repeatingColumns = $_POST['repeatingColumns'];
             $newTable = $_POST['newTable'];
@@ -138,6 +144,7 @@ class NormalizationController extends AbstractController
 
             return;
         }
+
         if (isset($_POST['step1'])) {
             $html = $this->normalization->getHtmlFor1NFStep1($db, $table, $normalForm);
             $this->response->addHTML($html);

@@ -153,8 +153,10 @@ class SearchController extends AbstractController
             if (in_array($type, $geom_types)) {
                 $this->geomColumnFlag = true;
             }
+
             // reformat mysql query output
-            if (strncasecmp($type, 'set', 3) == 0
+            if (
+                strncasecmp($type, 'set', 3) == 0
                 || strncasecmp($type, 'enum', 4) == 0
             ) {
                 $type = str_replace(',', ', ', $type);
@@ -164,13 +166,16 @@ class SearchController extends AbstractController
                 if (! preg_match('@BINARY[\(]@i', $type)) {
                     $type = str_ireplace('BINARY', '', $type);
                 }
+
                 $type = str_ireplace('ZEROFILL', '', $type);
                 $type = str_ireplace('UNSIGNED', '', $type);
                 $type = mb_strtolower($type);
             }
+
             if (empty($type)) {
                 $type = '&nbsp;';
             }
+
             $this->columnTypes[] = $type;
             $this->columnNullFlags[] = $row['Null'];
             $this->columnCollations[]
@@ -217,7 +222,8 @@ class SearchController extends AbstractController
         /**
          * No selection criteria received -> display the selection form
          */
-        if (! isset($_POST['columnsToDisplay'])
+        if (
+            ! isset($_POST['columnsToDisplay'])
             && ! isset($_POST['displayAllColumns'])
         ) {
             $this->displaySelectionFormAction();
@@ -256,10 +262,13 @@ class SearchController extends AbstractController
                         (int) $fields_meta[$i]->length
                     );
                 }
+
                 $i++;
             }
+
             $extra_data['row_info'] = $row;
         }
+
         $this->response->addJSON($extra_data);
     }
 

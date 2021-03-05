@@ -56,6 +56,7 @@ class UploadSession implements UploadInterface
                 'plugin'   => self::getIdKey(),
             ];
         }
+
         $ret = $_SESSION[$SESSION_KEY][$id];
 
         if (! Ajax::sessionCheck() || $ret['finished']) {

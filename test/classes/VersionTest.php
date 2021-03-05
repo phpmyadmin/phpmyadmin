@@ -28,6 +28,7 @@ class VersionTest extends AbstractTestCase
         if (defined('VERSION_SUFFIX')) {
             $this->assertIsString(VERSION_SUFFIX);
         }
+
         $this->assertIsInt(Version::ID);
         $this->assertIsString(Version::PRE_RELEASE_NAME);
         $this->assertIsBool(Version::IS_DEV);

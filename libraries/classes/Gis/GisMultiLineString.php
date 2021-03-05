@@ -139,6 +139,7 @@ class GisMultiLineString extends GisGeometry
                     $temp_point = $point;
                 }
             }
+
             unset($temp_point);
             // print label if applicable
             if (isset($label) && trim($label) != '' && $first_line) {
@@ -151,6 +152,7 @@ class GisMultiLineString extends GisGeometry
                     $black
                 );
             }
+
             $first_line = false;
         }
 
@@ -213,6 +215,7 @@ class GisMultiLineString extends GisGeometry
                     $temp_point = $point;
                 }
             }
+
             unset($temp_point);
             // print label
             if (isset($label) && trim($label) != '' && $first_line) {
@@ -220,6 +223,7 @@ class GisMultiLineString extends GisGeometry
                 $pdf->SetFontSize(5);
                 $pdf->Cell(0, 0, trim($label));
             }
+
             $first_line = false;
         }
 
@@ -266,11 +270,13 @@ class GisMultiLineString extends GisGeometry
             foreach ($points_arr as $point) {
                 $row .= $point[0] . ',' . $point[1] . ' ';
             }
+
             $row .= '"';
             $line_options['id'] = $label . $this->getRandomId();
             foreach ($line_options as $option => $val) {
                 $row .= ' ' . $option . '="' . trim((string) $val) . '"';
             }
+
             $row .= '/>';
         }
 
@@ -310,6 +316,7 @@ class GisMultiLineString extends GisGeometry
         if ($srid == 0) {
             $srid = 4326;
         }
+
         $row .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
@@ -355,6 +362,7 @@ class GisMultiLineString extends GisGeometry
             if ($no_of_points < 2) {
                 $no_of_points = 2;
             }
+
             $wkt .= '(';
             for ($j = 0; $j < $no_of_points; $j++) {
                 $wkt .= (isset($data_row[$i][$j]['x'])
@@ -364,6 +372,7 @@ class GisMultiLineString extends GisGeometry
                         && trim((string) $data_row[$i][$j]['y']) != ''
                         ? $data_row[$i][$j]['y'] : $empty) . ',';
             }
+
             $wkt
                 = mb_substr(
                     $wkt,
@@ -372,6 +381,7 @@ class GisMultiLineString extends GisGeometry
                 );
             $wkt .= '),';
         }
+
         $wkt
             = mb_substr(
                 $wkt,
@@ -399,6 +409,7 @@ class GisMultiLineString extends GisGeometry
             foreach ($row_data['parts'][$i]['points'] as $point) {
                 $wkt .= $point['x'] . ' ' . $point['y'] . ',';
             }
+
             $wkt
                 = mb_substr(
                     $wkt,
@@ -407,6 +418,7 @@ class GisMultiLineString extends GisGeometry
                 );
             $wkt .= '),';
         }
+
         $wkt
             = mb_substr(
                 $wkt,
@@ -460,6 +472,7 @@ class GisMultiLineString extends GisGeometry
                 $params[$index]['MULTILINESTRING'][$j][$i]['x'] = $points_arr[$i][0];
                 $params[$index]['MULTILINESTRING'][$j][$i]['y'] = $points_arr[$i][1];
             }
+
             $j++;
         }
 

@@ -109,6 +109,7 @@ final class ImportController extends AbstractController
 
             return;
         }
+
         // If it's a console bookmark add request
         if (isset($_POST['console_bookmark_add'])) {
             if (! isset($_POST['label'], $_POST['db'], $_POST['bookmark_query'], $_POST['shared'])) {
@@ -165,7 +166,8 @@ final class ImportController extends AbstractController
         // (eg. non import, but query box/window run)
         if (! empty($sql_query)) {
             // apply values for parameters
-            if (! empty($_POST['parameterized'])
+            if (
+                ! empty($_POST['parameterized'])
                 && ! empty($_POST['parameters'])
                 && is_array($_POST['parameters'])
             ) {
@@ -205,20 +207,24 @@ final class ImportController extends AbstractController
             }
 
             // refresh navigation panel only
-            if (preg_match(
-                '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
-                $sql_query
-            )) {
+            if (
+                preg_match(
+                    '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
+                    $sql_query
+                )
+            ) {
                 $ajax_reload['reload'] = true;
             }
 
             // do a dynamic reload if table is RENAMED
             // (by sending the instruction to the AJAX response handler)
-            if (preg_match(
-                '/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i',
-                $sql_query,
-                $rename_table_names
-            )) {
+            if (
+                preg_match(
+                    '/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i',
+                    $sql_query,
+                    $rename_table_names
+                )
+            ) {
                 $ajax_reload['reload'] = true;
                 $ajax_reload['table_name'] = Util::unQuote(
                     $rename_table_names[2]
@@ -270,18 +276,19 @@ final class ImportController extends AbstractController
          * We only need to load the selected plugin
          */
 
-        if (! in_array(
-            $format,
-            [
-                'csv',
-                'ldi',
-                'mediawiki',
-                'ods',
-                'shp',
-                'sql',
-                'xml',
-            ]
-        )
+        if (
+            ! in_array(
+                $format,
+                [
+                    'csv',
+                    'ldi',
+                    'mediawiki',
+                    'ods',
+                    'shp',
+                    'sql',
+                    'xml',
+                ]
+            )
         ) {
             // this should not happen for a normal user
             // but only during an attack
@@ -328,6 +335,7 @@ final class ImportController extends AbstractController
                 $goto = Url::getFromRoute('/server/sql');
             }
         }
+
         $err_url = $goto . Url::getCommon($url_params, '&');
         $_SESSION['Import_message']['go_back_url'] = $err_url;
 
@@ -393,22 +401,26 @@ final class ImportController extends AbstractController
                     }
 
                     // refresh navigation and main panels
-                    if (preg_match(
-                        '/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
-                        $import_text
-                    )) {
+                    if (
+                        preg_match(
+                            '/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
+                            $import_text
+                        )
+                    ) {
                         $reload = true;
                         $ajax_reload['reload'] = true;
                     }
 
                     // refresh navigation panel only
-                    if (preg_match(
-                        '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
-                        $import_text
-                    )
+                    if (
+                        preg_match(
+                            '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
+                            $import_text
+                        )
                     ) {
                         $ajax_reload['reload'] = true;
                     }
+
                     break;
                 case 1: // bookmarked query that have to be displayed
                     $bookmark = Bookmark::get(
@@ -420,6 +432,7 @@ final class ImportController extends AbstractController
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }
+
                     $import_text = $bookmark->getQuery();
                     if ($this->response->isAjax()) {
                         $message = Message::success(__('Showing bookmark'));
@@ -432,6 +445,7 @@ final class ImportController extends AbstractController
                     } else {
                         $run_query = false;
                     }
+
                     break;
                 case 2: // bookmarked query that have to be deleted
                     $bookmark = Bookmark::get(
@@ -443,6 +457,7 @@ final class ImportController extends AbstractController
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }
+
                     $bookmark->delete();
                     if ($this->response->isAjax()) {
                         $message = Message::success(
@@ -475,6 +490,7 @@ final class ImportController extends AbstractController
         if (empty($memory_limit)) {
             $memory_limit = 2 * 1024 * 1024;
         }
+
         // In case no memory limit we work on 10MB chunks
         if ($memory_limit === '-1') {
             $memory_limit = 10 * 1024 * 1024;
@@ -500,6 +516,7 @@ final class ImportController extends AbstractController
             $import_file = $_FILES['import_file']['tmp_name'];
             $import_file_name = $_FILES['import_file']['name'];
         }
+
         if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
             // sanitize $local_import_file as it comes from a POST
             $local_import_file = Core::securePath($local_import_file);
@@ -541,6 +558,7 @@ final class ImportController extends AbstractController
 
                 return;
             }
+
             $importHandle->setDecompressContent(true);
             $importHandle->open();
             if ($importHandle->isError()) {
@@ -596,6 +614,7 @@ final class ImportController extends AbstractController
                 $read_multiply = 1;
                 $skip -= $read_limit;
             }
+
             unset($skip);
         }
 
@@ -682,6 +701,7 @@ final class ImportController extends AbstractController
                 if (! empty($import_notice)) {
                     $message->addHtml($import_notice);
                 }
+
                 if (! empty($local_import_file)) {
                     $message->addText('(' . $local_import_file . ')');
                 } else {
@@ -725,6 +745,7 @@ final class ImportController extends AbstractController
         if (isset($message)) {
             $_SESSION['Import_message']['message'] = $message->getDisplay();
         }
+
         // Parse and analyze the query, for correct db and table name
         // in case of a query typed in the query window
         // (but if the query is too large, in case of an imported file, the parser
@@ -780,11 +801,13 @@ final class ImportController extends AbstractController
                 $reload = $analyzed_sql_results['reload'];
 
                 // Check if User is allowed to issue a 'DROP DATABASE' Statement
-                if ($this->sql->hasNoRightsToDropDatabase(
-                    $analyzed_sql_results,
-                    $cfg['AllowUserDropDatabase'],
-                    $this->dbi->isSuperUser()
-                )) {
+                if (
+                    $this->sql->hasNoRightsToDropDatabase(
+                        $analyzed_sql_results,
+                        $cfg['AllowUserDropDatabase'],
+                        $this->dbi->isSuperUser()
+                    )
+                ) {
                     Generator::mysqlDie(
                         __('"DROP DATABASE" statements are disabled.'),
                         '',

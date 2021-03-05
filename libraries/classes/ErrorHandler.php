@@ -66,6 +66,7 @@ class ErrorHandler
         if (! defined('TESTSUITE')) {
             set_error_handler([$this, 'handleError']);
         }
+
         if (! Util::isErrorReportingAvailable()) {
             return;
         }
@@ -101,7 +102,8 @@ class ErrorHandler
                 break;
             }
 
-            if ((! ($error instanceof Error))
+            if (
+                (! ($error instanceof Error))
                 || $error->isDisplayed()
             ) {
                 continue;
@@ -185,7 +187,8 @@ class ErrorHandler
             * Check if Error Control Operator (@) was used, but still show
             * user errors even in this case.
             */
-            if (error_reporting() == 0 &&
+            if (
+                error_reporting() == 0 &&
                 $this->errorReporting != 0 &&
                 ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0
             ) {
@@ -227,6 +230,7 @@ class ErrorHandler
         if ($escape) {
             $errstr = htmlspecialchars($errstr);
         }
+
         // create error object
         $error = new Error(
             $errno,
@@ -291,6 +295,7 @@ class ErrorHandler
         if (! headers_sent()) {
             $this->dispPageStart($error);
         }
+
         echo $error->getDisplay();
         $this->dispPageEnd();
         exit;
@@ -335,6 +340,7 @@ class ErrorHandler
         } else {
             echo 'phpMyAdmin error reporting page';
         }
+
         echo '</title></head>';
     }
 
@@ -364,9 +370,11 @@ class ErrorHandler
         } else {
             $retval .= $this->getDispUserErrors();
         }
+
         // if preference is not 'never' and
         // there are 'actual' errors to be reported
-        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never'
+        if (
+            $GLOBALS['cfg']['SendErrorReports'] !== 'never'
             && $this->countErrors() !=  $this->countUserErrors()
         ) {
             // add report button.
@@ -376,6 +384,7 @@ class ErrorHandler
                 // in case of 'always', generate 'invisible' form.
                 $retval .= ' class="hide"';
             }
+
             $retval .=  '>';
             $retval .= Url::getHiddenFields([
                 'exception_type' => 'php',
@@ -397,6 +406,7 @@ class ErrorHandler
                         . __('Ignore')
                         . '" id="pma_ignore_errors_bottom" class="btn btn-secondary float-end">';
             }
+
             $retval .= '<input type="submit" value="'
                     . __('Ignore All')
                     . '" id="pma_ignore_all_errors_bottom" class="btn btn-secondary float-end">';
@@ -534,12 +544,14 @@ class ErrorHandler
     public function reportErrors(): void
     {
         // if there're no actual errors,
-        if (! $this->hasErrors()
+        if (
+            ! $this->hasErrors()
             || $this->countErrors() ==  $this->countUserErrors()
         ) {
             // then simply return.
             return;
         }
+
         // Delete all the prev_errors in session & store new prev_errors in session
         $this->savePreviousErrors();
         $response = Response::getInstance();
@@ -585,6 +597,7 @@ class ErrorHandler
                         }, "slow");';
             }
         }
+
         // The errors are already sent from the response.
         // Just focus on errors division upon load event.
         $response->getFooter()->getScripts()->addCode($jsCode);

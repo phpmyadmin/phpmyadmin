@@ -84,6 +84,7 @@ class Validator
                 if (! is_array($uv)) {
                     continue;
                 }
+
                 for ($i = 1, $nb = count($uv); $i < $nb; $i++) {
                     if (mb_substr($uv[$i], 0, 6) !== 'value:') {
                         continue;
@@ -95,6 +96,7 @@ class Validator
                     );
                 }
             }
+
             $validators[$field] = isset($validators[$field])
                 ? array_merge((array) $validators[$field], $uvList)
                 : $uvList;
@@ -138,6 +140,7 @@ class Validator
 
             $vids[] = $vid;
         }
+
         if (empty($vids)) {
             return false;
         }
@@ -175,9 +178,11 @@ class Validator
                     if (! $isPostSource && empty($errorList)) {
                         continue;
                     }
+
                     if (! isset($result[$key])) {
                         $result[$key] = [];
                     }
+
                     $result[$key] = array_merge(
                         $result[$key],
                         (array) $errorList
@@ -241,6 +246,7 @@ class Validator
         } else {
             mysqli_close($conn);
         }
+
         if ($error !== null) {
             $lastError = error_get_last();
             if ($lastError !== null) {
@@ -275,7 +281,9 @@ class Validator
             $result['Servers/1/auth_type'] = __('Invalid authentication type!');
             $error = true;
         }
-        if ($values['Servers/1/auth_type'] === 'config'
+
+        if (
+            $values['Servers/1/auth_type'] === 'config'
             && empty($values['Servers/1/user'])
         ) {
             $result['Servers/1/user'] = __(
@@ -283,7 +291,9 @@ class Validator
             );
             $error = true;
         }
-        if ($values['Servers/1/auth_type'] === 'signon'
+
+        if (
+            $values['Servers/1/auth_type'] === 'signon'
             && empty($values['Servers/1/SignonSession'])
         ) {
             $result['Servers/1/SignonSession'] = __(
@@ -292,7 +302,9 @@ class Validator
             );
             $error = true;
         }
-        if ($values['Servers/1/auth_type'] === 'signon'
+
+        if (
+            $values['Servers/1/auth_type'] === 'signon'
             && empty($values['Servers/1/SignonURL'])
         ) {
             $result['Servers/1/SignonURL'] = __(
@@ -307,6 +319,7 @@ class Validator
             if (! empty($values['Servers/1/password'])) {
                 $password = $values['Servers/1/password'];
             }
+
             $test = static::testDBConnection(
                 empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
                 empty($values['Servers/1/port']) ? '' : $values['Servers/1/port'],
@@ -355,6 +368,7 @@ class Validator
             );
             $error = true;
         }
+
         if (empty($values['Servers/1/controlpass'])) {
             $result['Servers/1/controlpass'] = __(
                 'Empty phpMyAdmin control user password while using phpMyAdmin '
@@ -362,6 +376,7 @@ class Validator
             );
             $error = true;
         }
+
         if (! $error) {
             $test = static::testDBConnection(
                 empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
@@ -442,6 +457,7 @@ class Validator
             // AJAX validation
             $lines = explode("\n", $values[$path]);
         }
+
         foreach ($lines as $line) {
             $line = trim($line);
             $matches = [];
@@ -451,8 +467,10 @@ class Validator
                     . htmlspecialchars($line);
                 continue;
             }
+
             // now let's check whether we really have an IP address
-            if (filter_var($matches[1], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false
+            if (
+                filter_var($matches[1], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false
                 && filter_var($matches[1], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false
             ) {
                 $ip = htmlspecialchars(trim($matches[1]));
@@ -490,7 +508,8 @@ class Validator
 
         $value = Util::requestString($values[$path]);
 
-        if (intval($value) != $value
+        if (
+            intval($value) != $value
             || (! $allowNegative && $value < 0)
             || (! $allowZero && $value == 0)
             || $value > $maxValue
@@ -582,6 +601,7 @@ class Validator
         if (! isset($values[$path])) {
             return '';
         }
+
         $result = preg_match($regex, Util::requestString($values[$path]));
 
         return [$path => $result ? '' : __('Incorrect value!')];

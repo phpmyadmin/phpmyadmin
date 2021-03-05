@@ -103,6 +103,7 @@ class SvgRelationSchema extends ExportRelationSchema
             if ($this->sameWide) {
                 $this->tables[$table]->width = &$this->tablewidth;
             }
+
             $this->setMinMax($this->tables[$table]);
         }
 
@@ -140,6 +141,7 @@ class SvgRelationSchema extends ExportRelationSchema
                             $this->tableDimension
                         );
                     }
+
                     continue;
                 }
 
@@ -162,6 +164,7 @@ class SvgRelationSchema extends ExportRelationSchema
                 }
             }
         }
+
         if ($seen_a_relation) {
             $this->drawRelations();
         }
@@ -234,6 +237,7 @@ class SvgRelationSchema extends ExportRelationSchema
             );
             $this->setMinMax($this->tables[$masterTable]);
         }
+
         if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new TableStatsSvg(
                 $this->diagram,
@@ -248,6 +252,7 @@ class SvgRelationSchema extends ExportRelationSchema
             );
             $this->setMinMax($this->tables[$foreignTable]);
         }
+
         $this->relations[] = new RelationStatsSvg(
             $this->diagram,
             $this->tables[$masterTable],

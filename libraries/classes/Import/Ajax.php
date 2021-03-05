@@ -77,7 +77,8 @@ final class Ajax
      */
     public static function apcCheck()
     {
-        if (! extension_loaded('apc')
+        if (
+            ! extension_loaded('apc')
             || ! function_exists('apc_fetch')
             || ! function_exists('getallheaders')
         ) {

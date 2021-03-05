@@ -41,6 +41,7 @@ if (! class_exists('TCPDF')) {
 if (getcwd() == __DIR__) {
     die('Attack stopped');
 }
+
 // phpcs:enable
 
 /**
@@ -189,9 +190,11 @@ class PdfRelationSchema extends ExportRelationSchema
                     $this->offline
                 );
             }
+
             if ($this->sameWide) {
                 $this->tables[$table]->width = $this->tablewidth;
             }
+
             $this->setMinMax($this->tables[$table]);
         }
 
@@ -221,6 +224,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->SetFontSize(10);
             $this->strokeGrid();
         }
+
         $this->diagram->setFontSizeScale(14);
         // previous logic was checking master tables and foreign tables
         // but I think that looping on every table of the pdf page as a master
@@ -247,6 +251,7 @@ class PdfRelationSchema extends ExportRelationSchema
                             $rel['foreign_field']
                         );
                     }
+
                     continue;
                 }
 
@@ -270,6 +275,7 @@ class PdfRelationSchema extends ExportRelationSchema
         if ($seen_a_relation) {
             $this->drawRelations();
         }
+
         $this->drawTables();
     }
 
@@ -395,6 +401,7 @@ class PdfRelationSchema extends ExportRelationSchema
             );
             $this->setMinMax($this->tables[$masterTable]);
         }
+
         if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new TableStatsPdf(
                 $this->diagram,
@@ -408,6 +415,7 @@ class PdfRelationSchema extends ExportRelationSchema
             );
             $this->setMinMax($this->tables[$foreignTable]);
         }
+
         $this->relations[] = new RelationStatsPdf(
             $this->diagram,
             $this->tables[$masterTable],
@@ -449,7 +457,8 @@ class PdfRelationSchema extends ExportRelationSchema
                 $l * $gridSize + $topSpace
             );
             // Avoid duplicates
-            if ($l <= 0
+            if (
+                $l <= 0
                 || $l > intval(($innerHeight - $labelHeight) / $gridSize)
             ) {
                 continue;
@@ -463,6 +472,7 @@ class PdfRelationSchema extends ExportRelationSchema
             );
             $this->diagram->Cell($labelWidth, $labelHeight, ' ' . $label);
         }
+
         // Draws vertical lines
         for ($j = 0, $size = intval($this->diagram->getPageWidth() / $gridSize); $j <= $size; $j++) {
             $this->diagram->line(
@@ -560,8 +570,10 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->customLinks['doc'][$table][$field_name]
                     = $this->diagram->AddLink();
             }
+
             $i++;
         }
+
         $this->diagram->customLinks['RT']['-'] = $this->diagram->AddLink();
         $this->diagram->SetX(10);
         $this->diagram->Cell(
@@ -725,6 +737,7 @@ class PdfRelationSchema extends ExportRelationSchema
                      */
                     $comments_width = 50;
                 }
+
                 $this->diagram->Cell($comments_width, 8, __('Comments'), 1, 0, 'C');
                 $this->diagram->Cell(45, 8, 'MIME', 1, 1, 'C');
                 $this->diagram->setWidths(
@@ -752,6 +765,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->Cell(30, 8, 'MIME', 1, 1, 'C');
                 $this->diagram->setWidths([20, 20, 20, 10, 15, 15, 30, 30, 30]);
             }
+
             $this->diagram->SetFont($this->ff, '');
 
             foreach ($columns as $row) {
@@ -764,6 +778,7 @@ class PdfRelationSchema extends ExportRelationSchema
                         $row['Default'] = 'NULL';
                     }
                 }
+
                 $field_name = $row['Field'];
                 // $this->diagram->Ln();
                 $this->diagram->customLinks['RT'][$table][$field_name]
@@ -781,6 +796,7 @@ class PdfRelationSchema extends ExportRelationSchema
                     if ($foreigner['foreign_db'] != $this->db) {
                         $linksTo .= $foreigner['foreign_db'] . '.';
                     }
+
                     $linksTo .= $foreigner['foreign_table']
                         . '.' . $foreigner['foreign_field'];
 
@@ -807,7 +823,8 @@ class PdfRelationSchema extends ExportRelationSchema
                 ];
                 $links = [];
                 $links[0] = $this->diagram->customLinks['RT'][$table][$field_name];
-                if ($foreigner
+                if (
+                    $foreigner
                     && isset(
                         $this->diagram->customLinks['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']]
                     )
@@ -815,8 +832,10 @@ class PdfRelationSchema extends ExportRelationSchema
                     $foreignTable = $this->diagram->customLinks['doc'][$foreigner['foreign_table']];
                     $links[6] = $foreignTable[$foreigner['foreign_field']];
                 }
+
                 $this->diagram->row($diagram_row, $links);
             }
+
             $this->diagram->SetFont($this->ff, '', 14);
         }
     }

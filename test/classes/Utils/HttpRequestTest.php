@@ -37,6 +37,7 @@ class HttpRequestTest extends AbstractTestCase
         if (! function_exists('curl_init')) {
             $this->markTestSkipped('curl not supported');
         }
+
         if (! $ssl_flags) {
             return;
         }
@@ -47,7 +48,8 @@ class HttpRequestTest extends AbstractTestCase
          * and CURLOPT_CAINFO flags, see
          * https://curl.haxx.se/docs/ssl-compared.html
          */
-        if ($curl !== false && stripos($curl['ssl_version'], 'WinSSL') === false
+        if (
+            $curl !== false && stripos($curl['ssl_version'], 'WinSSL') === false
             && stripos($curl['ssl_version'], 'SecureTransport') === false
         ) {
             return;
@@ -149,6 +151,7 @@ class HttpRequestTest extends AbstractTestCase
         if (! ini_get('allow_url_fopen')) {
             $this->markTestSkipped('allow_url_fopen not supported');
         }
+
         $result = $this->callFunction(
             $this->httpRequest,
             HttpRequest::class,
@@ -175,6 +178,7 @@ class HttpRequestTest extends AbstractTestCase
         if (! function_exists('curl_init') && ! ini_get('allow_url_fopen')) {
             $this->markTestSkipped('neither curl nor allow_url_fopen are supported');
         }
+
         $result = $this->httpRequest->create($url, $method, $return_only_status);
         $this->validateHttp($result, $expected);
     }

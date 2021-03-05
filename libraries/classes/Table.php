@@ -99,6 +99,7 @@ class Table
         if (empty($dbi)) {
             $dbi = $GLOBALS['dbi'];
         }
+
         $this->dbi = $dbi;
         $this->name = $table_name;
         $this->dbName = $db_name;
@@ -236,7 +237,8 @@ class Table
         }
 
         // use cached data or load information with SHOW command
-        if ($this->dbi->getCache()->getCachedTableContent([$db, $table]) != null
+        if (
+            $this->dbi->getCache()->getCachedTableContent([$db, $table]) != null
             || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = $this->getStatusInfo('TABLE_TYPE');
@@ -324,7 +326,8 @@ class Table
 
         // sometimes there is only one entry (ExactRows) so
         // we have to get the table's details
-        if ($cachedResult === null
+        if (
+            $cachedResult === null
             || $force_read
             || count($cachedResult) === 1
         ) {
@@ -344,10 +347,11 @@ class Table
         }
 
         // array_key_exists allows for null values
-        if (! array_key_exists(
-            $info,
-            $cachedResult
-        )
+        if (
+            ! array_key_exists(
+                $info,
+                $cachedResult
+            )
         ) {
             if (! $disable_error) {
                 trigger_error(
@@ -473,6 +477,7 @@ class Table
             // ensure there is no ambiguity for PHP 5 and 7
             $create_options[$each_create_option[0]] = $each_create_option[1];
         }
+
         // we need explicit DEFAULT value here (different from '0')
         $hasPackKeys = isset($create_options['pack_keys']) && strlen($create_options['pack_keys']) > 0;
         $create_options['pack_keys'] = $hasPackKeys ? $create_options['pack_keys'] : 'DEFAULT';
@@ -543,10 +548,12 @@ class Table
             // so we can't just convert it to integer
             $query .= '(' . $length . ')';
         }
+
         if ($attribute != '') {
             $query .= ' ' . $attribute;
 
-            if ($is_timestamp
+            if (
+                $is_timestamp
                 && stripos($attribute, 'TIMESTAMP') !== false
                 && strlen($length) !== 0
                 && $length !== 0
@@ -593,7 +600,8 @@ class Table
                             // a TIMESTAMP does not accept DEFAULT '0'
                             // but DEFAULT 0 works
                             $query .= ' DEFAULT 0';
-                        } elseif ($is_timestamp
+                        } elseif (
+                            $is_timestamp
                             && preg_match(
                                 '/^\'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(\.\d{1,6})?\'$/',
                                 (string) $default_value
@@ -620,6 +628,7 @@ class Table
                             $query .= ' DEFAULT \''
                             . $dbi->escapeString((string) $default_value) . '\'';
                         }
+
                         break;
                 /** @noinspection PhpMissingBreakStatementInspection */
                     case 'NULL':
@@ -633,13 +642,15 @@ class Table
                     case 'current_timestamp()':
                         $query .= ' DEFAULT ' . $default_type;
 
-                        if (strlen($length) !== 0
-                        && $length !== 0
-                        && $is_timestamp
-                        && $default_type !== 'NULL' // Not to be added in case of NULL
+                        if (
+                            strlen($length) !== 0
+                            && $length !== 0
+                            && $is_timestamp
+                            && $default_type !== 'NULL' // Not to be added in case of NULL
                         ) {
                             $query .= '(' . $length . ')';
                         }
+
                         break;
                     case 'NONE':
                     default:
@@ -666,6 +677,7 @@ class Table
         } elseif ($move_to != '') {
             $query .= ' AFTER ' . Util::backquote($move_to);
         }
+
         if (! $virtuality && ! empty($extra)) {
             if ($oldColumnName === null) {
                 if (is_array($columns_with_index) && ! in_array($name, $columns_with_index)) {
@@ -747,10 +759,12 @@ class Table
                 ]
             );
         }
+
         $row_count = false;
 
         if (! $force_exact) {
-            if (($this->dbi->getCache()->getCachedTableContent([$db, $table, 'Rows']) == null)
+            if (
+                ($this->dbi->getCache()->getCachedTableContent([$db, $table, 'Rows']) == null)
                 && ! $is_view
             ) {
                 $tmp_tables = $this->dbi->getTablesFull($db, $table);
@@ -764,6 +778,7 @@ class Table
                     );
                 }
             }
+
             if ($this->dbi->getCache()->getCachedTableContent([$db, $table, 'Rows']) != null) {
                 $row_count = $this->dbi->getCache()->getCachedTableContent(
                     [
@@ -776,8 +791,10 @@ class Table
                 $row_count = false;
             }
         }
+
         // for a VIEW, $row_count is always false at this point
-        if ($row_count !== false
+        if (
+            $row_count !== false
             && $row_count >= $GLOBALS['cfg']['MaxExactCount']
         ) {
             return $row_count;
@@ -814,6 +831,7 @@ class Table
                 }
             }
         }
+
         if ($row_count) {
             $this->dbi->getCache()->cacheTableContent([$db, $table, 'ExactRows'], $row_count);
         }
@@ -1028,6 +1046,7 @@ class Table
                     )
                 );
             }
+
             if (! $GLOBALS['dblist']->databases->exists($target_db)) {
                 $GLOBALS['message'] = Message::rawError(
                     sprintf(
@@ -1131,7 +1150,8 @@ class Table
             // Phase 1: Dropping existent element of the same name (if exists
             // and required).
 
-            if (isset($_POST['drop_if_exists'])
+            if (
+                isset($_POST['drop_if_exists'])
                 && $_POST['drop_if_exists'] === 'true'
             ) {
 
@@ -1205,7 +1225,8 @@ class Table
             // Phase 3: Adding constraints.
             // All constraint names are removed because they must be unique.
 
-            if (($move || isset($GLOBALS['add_constraints']))
+            if (
+                ($move || isset($GLOBALS['add_constraints']))
                 && ! empty($GLOBALS['sql_constraints_query'])
             ) {
                 $parser = new Parser($GLOBALS['sql_constraints_query']);
@@ -1237,6 +1258,7 @@ class Table
                 if ($mode === 'one_table') {
                     $dbi->query($GLOBALS['sql_constraints_query']);
                 }
+
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
                 if ($mode === 'one_table') {
                     unset($GLOBALS['sql_constraints_query']);
@@ -1319,7 +1341,8 @@ class Table
 
         $_table = new Table($target_table, $target_db);
         // Copy the data unless this is a VIEW
-        if (($what === 'data' || $what === 'dataonly')
+        if (
+            ($what === 'data' || $what === 'dataonly')
             && ! $_table->isView()
         ) {
             $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
@@ -1353,6 +1376,7 @@ class Table
             } else {
                 $sql_drop_query = 'DROP TABLE';
             }
+
             $sql_drop_query .= ' ' . $source;
             $dbi->query($sql_drop_query);
 
@@ -1426,6 +1450,7 @@ class Table
                     . ')';
                 $relation->queryAsControlUser($new_comment_query);
             }
+
             $dbi->freeResult($comments_copy_rs);
             unset($comments_copy_rs);
         }
@@ -1651,6 +1676,7 @@ class Table
                     $this->dbi->query($trigger['create']);
                 }
             }
+
             $this->errors[] = sprintf(
                 __('Failed to rename table %1$s to %2$s!'),
                 $this->getFullName(),
@@ -1720,16 +1746,19 @@ class Table
             if (count($index) > 1) {
                 continue;
             }
+
             if ($fullName) {
                 $possible_column = $this->getFullName($backquoted) . '.';
             } else {
                 $possible_column = '';
             }
+
             if ($backquoted) {
                 $possible_column .= Util::backquote($index[0]);
             } else {
                 $possible_column .= $index[0];
             }
+
             // a column might have a primary and an unique index on it
             if (in_array($possible_column, $return)) {
                 continue;
@@ -1844,7 +1873,8 @@ class Table
             $columns_meta_query
         );
 
-        if ($columns_meta_query_result
+        if (
+            $columns_meta_query_result
             && $columns_meta_query_result !== false
         ) {
             foreach ($columns_meta_query_result as $column) {
@@ -1854,7 +1884,8 @@ class Table
                 }
 
                 // If contains GENERATED or VIRTUAL and does not contain DEFAULT_GENERATED
-                if ((
+                if (
+                    (
                     strpos($column['Extra'], 'GENERATED') !== false
                     || strpos($column['Extra'], 'VIRTUAL') !== false
                     ) && strpos($column['Extra'], 'DEFAULT_GENERATED') === false
@@ -1988,6 +2019,7 @@ class Table
             $uiPrefs = $cfgRelation['uiprefswork'] ? $this->getUiPrefsFromDb() : [];
             $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->dbName][$this->name] = $uiPrefs;
         }
+
         $this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->dbName][$this->name];
     }
 
@@ -2026,23 +2058,26 @@ class Table
 
                 foreach ($avail_columns as $each_col) {
                     // check if $each_col ends with $colname
-                    if (substr_compare(
-                        $each_col,
-                        $colname,
-                        mb_strlen($each_col) - mb_strlen($colname)
-                    ) === 0
+                    if (
+                        substr_compare(
+                            $each_col,
+                            $colname,
+                            mb_strlen($each_col) - mb_strlen($colname)
+                        ) === 0
                     ) {
                         return $this->uiprefs[$property];
                     }
                 }
             }
+
             // remove the property, since it no longer exists in database
             $this->removeUiProp($property);
 
             return false;
         }
 
-        if ($property == self::PROP_COLUMN_ORDER
+        if (
+            $property == self::PROP_COLUMN_ORDER
             || $property == self::PROP_COLUMN_VISIB
         ) {
             if ($this->isView() || ! isset($this->uiprefs[$property])) {
@@ -2050,7 +2085,8 @@ class Table
             }
 
             // check if the table has not been modified
-            if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']
+            if (
+                $this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']
             ) {
                 return array_map('intval', $this->uiprefs[$property]);
             }
@@ -2086,13 +2122,16 @@ class Table
         if (! isset($this->uiprefs)) {
             $this->loadUiPrefs();
         }
+
         // we want to save the create time if the property is PROP_COLUMN_ORDER
-        if (! $this->isView()
+        if (
+            ! $this->isView()
             && ($property == self::PROP_COLUMN_ORDER
             || $property == self::PROP_COLUMN_VISIB)
         ) {
             $curr_create_time = $this->getStatusInfo('CREATE_TIME');
-            if (! isset($table_create_time)
+            if (
+                ! isset($table_create_time)
                 || $table_create_time != $curr_create_time
             ) {
                 // there is no $table_create_time, or
@@ -2112,6 +2151,7 @@ class Table
 
             $this->uiprefs['CREATE_TIME'] = $curr_create_time;
         }
+
         // save the value
         $this->uiprefs[$property] = $value;
 
@@ -2136,6 +2176,7 @@ class Table
         if (! isset($this->uiprefs)) {
             $this->loadUiPrefs();
         }
+
         if (isset($this->uiprefs[$property])) {
             unset($this->uiprefs[$property]);
 
@@ -2181,10 +2222,12 @@ class Table
     public function getNameAndTypeOfTheColumns()
     {
         $columns = [];
-        foreach ($this->dbi->getColumnsFull(
-            $this->dbName,
-            $this->name
-        ) as $row) {
+        foreach (
+            $this->dbi->getColumnsFull(
+                $this->dbName,
+                $this->name
+            ) as $row
+        ) {
             if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
                 $tmp[2] = mb_substr(
                     (string) preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]),
@@ -2251,6 +2294,7 @@ class Table
                         __('The name of the primary key must be "PRIMARY"!')
                     );
                 }
+
                 $sql_query .= ' ADD PRIMARY KEY';
                 break;
             case 'FULLTEXT':
@@ -2262,6 +2306,7 @@ class Table
                         __('Can\'t rename index to PRIMARY!')
                     );
                 }
+
                 $sql_query .= sprintf(
                     ' ADD %s ',
                     $index->getChoice()
@@ -2269,6 +2314,7 @@ class Table
                 if ($index->getName()) {
                     $sql_query .= Util::backquote($index->getName());
                 }
+
                 break;
         }
 
@@ -2300,7 +2346,8 @@ class Table
         // TokuDB is using Fractal Tree, Using Type is not useless
         // Ref: https://mariadb.com/kb/en/mariadb/storage-engine-index-types/
         $type = $index->getType();
-        if ($index->getChoice() !== 'SPATIAL'
+        if (
+            $index->getChoice() !== 'SPATIAL'
             && $index->getChoice() !== 'FULLTEXT'
             && in_array($type, Index::getIndexTypes())
             && ! $this->isEngine(['TOKUDB'])
@@ -2396,7 +2443,8 @@ class Table
             $master_field = $multi_edit_columns_name[$master_field_md5];
             $foreign_table = $destination_table[$master_field_md5];
             $foreign_field = $destination_column[$master_field_md5];
-            if (! empty($foreign_db)
+            if (
+                ! empty($foreign_db)
                 && ! empty($foreign_table)
                 && ! empty($foreign_field)
             ) {
@@ -2413,7 +2461,8 @@ class Table
                         . '\'' . $this->dbi->escapeString($foreign_db) . '\', '
                         . '\'' . $this->dbi->escapeString($foreign_table) . '\','
                         . '\'' . $this->dbi->escapeString($foreign_field) . '\')';
-                } elseif ($existrel[$master_field]['foreign_db'] != $foreign_db
+                } elseif (
+                    $existrel[$master_field]['foreign_db'] != $foreign_db
                     || $existrel[$master_field]['foreign_table'] != $foreign_table
                     || $existrel[$master_field]['foreign_field'] != $foreign_field
                 ) {
@@ -2506,7 +2555,8 @@ class Table
 
             $empty_fields = false;
             foreach ($master_field as $key => $one_field) {
-                if ((! empty($one_field) && empty($foreign_field[$key]))
+                if (
+                    (! empty($one_field) && empty($foreign_field[$key]))
                     || (empty($one_field) && ! empty($foreign_field[$key]))
                 ) {
                     $empty_fields = true;
@@ -2519,7 +2569,8 @@ class Table
                 unset($master_field[$key], $foreign_field[$key]);
             }
 
-            if (! empty($foreign_db)
+            if (
+                ! empty($foreign_db)
                 && ! empty($foreign_table)
                 && ! $empty_fields
             ) {
@@ -2537,7 +2588,8 @@ class Table
                         ? $existrel_foreign[$master_field_md5]['on_update']
                         : 'RESTRICT';
 
-                    if ($ref_db_name != $foreign_db
+                    if (
+                        $ref_db_name != $foreign_db
                         || $existrel_foreign[$master_field_md5]['ref_table_name'] != $foreign_table
                         || $existrel_foreign[$master_field_md5]['ref_index_list'] != $foreign_field
                         || $existrel_foreign[$master_field_md5]['index_list'] != $master_field
@@ -2587,6 +2639,7 @@ class Table
                     $preview_sql_data .= $drop_query . "\n";
                 }
             }
+
             $tmp_error_create = false;
             if (! $create) {
                 continue;
@@ -2628,6 +2681,7 @@ class Table
                             false
                         );
                     }
+
                     $html_output .= MySQLDocumentation::show(
                         'InnoDB_foreign_key_constraints'
                     ) . "\n";
@@ -2638,7 +2692,8 @@ class Table
 
             // this is an alteration and the old constraint has been dropped
             // without creation of a new one
-            if (! $drop || ! empty($tmp_error_drop)
+            if (
+                ! $drop || ! empty($tmp_error_drop)
                 || empty($tmp_error_create)
             ) {
                 continue;
@@ -2705,9 +2760,11 @@ class Table
         foreach ($field as $key => $one_field) {
             $field[$key] = Util::backquote($one_field);
         }
+
         foreach ($foreignField as $key => $one_field) {
             $foreignField[$key] = Util::backquote($one_field);
         }
+
         $sql_query .= ' FOREIGN KEY (' . implode(', ', $field) . ') REFERENCES '
             . ($this->dbName != $foreignDb
                 ? Util::backquote($foreignDb) . '.' : '')
@@ -2717,9 +2774,11 @@ class Table
         if (! empty($onDelete)) {
             $sql_query .= ' ON DELETE ' . $onDelete;
         }
+
         if (! empty($onUpdate)) {
             $sql_query .= ' ON UPDATE ' . $onUpdate;
         }
+
         $sql_query .= ';';
 
         return $sql_query;
@@ -2736,7 +2795,8 @@ class Table
     public function getColumnGenerationExpression($column = null)
     {
         $serverType = Util::getServerType();
-        if ($serverType === 'MySQL'
+        if (
+            $serverType === 'MySQL'
             && $this->dbi->getVersion() > 50705
             && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {
@@ -2834,11 +2894,13 @@ class Table
     public function getColumnsWithIndex($types)
     {
         $columns_with_index = [];
-        foreach (Index::getFromTableByChoice(
-            $this->name,
-            $this->dbName,
-            $types
-        ) as $index) {
+        foreach (
+            Index::getFromTableByChoice(
+                $this->name,
+                $this->dbName,
+                $types
+            ) as $index
+        ) {
             $columns = $index->getColumns();
             foreach ($columns as $column_name => $dummy) {
                 $columns_with_index[] = $column_name;

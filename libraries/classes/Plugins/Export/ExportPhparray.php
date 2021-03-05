@@ -118,6 +118,7 @@ class ExportPhparray extends ExportPlugin
         if (empty($db_alias)) {
             $db_alias = $db;
         }
+
         $this->export->outputHandler(
             '/**' . $GLOBALS['crlf']
             . ' * Database ' . $this->commentString(Util::backquote($db_alias))
@@ -192,15 +193,17 @@ class ExportPhparray extends ExportPlugin
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
+
             $columns[$i] = stripslashes($col_as);
         }
 
         // fix variable names (based on
         // https://www.php.net/manual/en/language.variables.basics.php)
-        if (! preg_match(
-            '/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/',
-            $table_alias
-        )
+        if (
+            ! preg_match(
+                '/^[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*$/',
+                $table_alias
+            )
         ) {
             // fix invalid characters in variable names by replacing them with
             // underscores

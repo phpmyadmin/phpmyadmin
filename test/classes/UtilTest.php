@@ -2231,6 +2231,7 @@ class UtilTest extends AbstractTestCase
                 (string) hex2bin('000000000101000000000000000000F03F000000000000F03F')
             ));
         }
+
         $this->assertSame($functionResult, Util::asWKT(
             (string) hex2bin('000000000101000000000000000000F03F000000000000F03F'),
             $SRIDOption

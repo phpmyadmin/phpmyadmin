@@ -147,8 +147,10 @@ class Pdf extends PdfLib
         if (TCPDF_STATIC::empty_string($y)) {
             $y = $this->y;
         }
+
         $current_page = $this->page;
-        if (($y + $h > $this->PageBreakTrigger)
+        if (
+            ($y + $h > $this->PageBreakTrigger)
             && (! $this->InFooter)
             && $this->AcceptPageBreak()
         ) {
@@ -233,6 +235,7 @@ class Pdf extends PdfLib
                 $l += $this->tablewidths[$col];
                 $maxY = $maxY < $this->GetY() ? $this->GetY() : $maxY;
             }
+
             $this->SetXY($this->lMargin, $this->tMargin);
             $this->SetFillColor(200, 200, 200);
             $l = $this->lMargin;
@@ -257,6 +260,7 @@ class Pdf extends PdfLib
                 );
                 $l += $this->tablewidths[$col];
             }
+
             $this->SetFillColor(255, 255, 255);
             // set headerset
             $this->headerset[$this->page] = 1;
@@ -315,12 +319,15 @@ class Pdf extends PdfLib
                 if (! isset($tmpheight[$row . '-' . $this->page])) {
                     $tmpheight[$row . '-' . $this->page] = 0;
                 }
+
                 if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
                     $tmpheight[$row . '-' . $this->page] = $this->GetY();
                 }
+
                 if ($this->page > $maxpage) {
                     $maxpage = $this->page;
                 }
+
                 unset($data[$col]);
             }
 
@@ -333,6 +340,7 @@ class Pdf extends PdfLib
             unset($data[$row]);
             $row++;
         }
+
         // draw the borders
         // we start adding a horizontal line on the last page
         $this->page = $maxpage;
@@ -349,6 +357,7 @@ class Pdf extends PdfLib
                 $this->Line($l, $t, $l, $lh);
             }
         }
+
         // set it to the last page, if not it'll cause some problems
         $this->page = $maxpage;
     }
@@ -457,15 +466,18 @@ class Pdf extends PdfLib
                 if (! isset($tmpheight[$row . '-' . $this->page])) {
                     $tmpheight[$row . '-' . $this->page] = 0;
                 }
+
                 if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
                     $tmpheight[$row . '-' . $this->page] = $this->GetY();
                 }
+
                 if ($this->page <= $maxpage) {
                     continue;
                 }
 
                 $maxpage = $this->page;
             }
+
             // get the height we were in the last used page
             $h = $tmpheight[$row . '-' . $maxpage];
             // set the "pointer" to the left margin
@@ -475,6 +487,7 @@ class Pdf extends PdfLib
             unset($data);
             $row++;
         }
+
         // draw the borders
         // we start adding a horizontal line on the last page
         $this->page = $maxpage;
@@ -491,6 +504,7 @@ class Pdf extends PdfLib
                 $this->Line($l, $t, $l, $lh);
             }
         }
+
         // set it to the last page, if not it'll cause some problems
         $this->page = $maxpage;
     }
@@ -581,6 +595,7 @@ class Pdf extends PdfLib
             $this->tablewidths[$columns_cnt] = 120;
             $columns_cnt++;
         }
+
         if ($do_comments /*&& $cfgRelation['commwork']*/) {
             $this->colTitles[$columns_cnt] = __('Comments');
             $this->displayColumn[$columns_cnt] = true;
@@ -588,6 +603,7 @@ class Pdf extends PdfLib
             $this->tablewidths[$columns_cnt] = 120;
             $columns_cnt++;
         }
+
         if ($do_mime && $cfgRelation['mimework']) {
             $this->colTitles[$columns_cnt] = __('Media type');
             $this->displayColumn[$columns_cnt] = true;
@@ -607,6 +623,7 @@ class Pdf extends PdfLib
         if ($do_comments) {
             $comments = $this->relation->getComments($db, $table);
         }
+
         if ($do_mime && $cfgRelation['mimework']) {
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
@@ -643,6 +660,7 @@ class Pdf extends PdfLib
                     $column['Default'] = 'NULL';
                 }
             }
+
             $data[] = $column['Field'];
             $data[] = $type;
             $data[] = $column['Null'] == '' || $column['Null'] === 'NO'
@@ -659,9 +677,11 @@ class Pdf extends PdfLib
                     . ')'
                     : '';
             }
+
             if ($do_comments) {
                 $data[] = $comments[$field_name] ?? '';
             }
+
             if ($do_mime) {
                 $data[] = isset($mime_map[$field_name])
                     ? $mime_map[$field_name]['mimetype']
@@ -689,9 +709,11 @@ class Pdf extends PdfLib
                 if (! isset($tmpheight[$row . '-' . $this->page])) {
                     $tmpheight[$row . '-' . $this->page] = 0;
                 }
+
                 if ($tmpheight[$row . '-' . $this->page] < $this->GetY()) {
                     $tmpheight[$row . '-' . $this->page] = $this->GetY();
                 }
+
                 if ($this->page <= $maxpage) {
                     continue;
                 }
@@ -708,6 +730,7 @@ class Pdf extends PdfLib
             unset($data);
             $row++;
         }
+
         // draw the borders
         // we start adding a horizontal line on the last page
         $this->page = $maxpage;
@@ -724,6 +747,7 @@ class Pdf extends PdfLib
                 $this->Line($l, $t, $l, $lh);
             }
         }
+
         // set it to the last page, if not it'll cause some problems
         $this->page = $maxpage;
     }
@@ -778,6 +802,7 @@ class Pdf extends PdfLib
             if (! empty($this->aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $this->aliases[$db]['tables'][$table]['columns'][$col_as];
             }
+
             $stringWidth = $this->GetStringWidth($col_as) + 6;
             // save the real title's width
             $titleWidth[$i] = $stringWidth;
@@ -788,6 +813,7 @@ class Pdf extends PdfLib
             if ($stringWidth < $this->sColWidth) {
                 $colFits[$i] = $stringWidth;
             }
+
             $this->colTitles[$i] = $col_as;
             $this->displayColumn[$i] = true;
 
@@ -809,6 +835,7 @@ class Pdf extends PdfLib
                 $this->displayColumn[$i] = false;
                 unset($this->colTitles[$i]);
             }
+
             $this->colAlign[$i] = 'L';
         }
 
@@ -840,7 +867,8 @@ class Pdf extends PdfLib
                     // if data's width is bigger than the current column width,
                     // enlarge the column (but avoid enlarging it if the
                     // data's width is very big)
-                    if ($stringWidth > $val
+                    if (
+                        $stringWidth > $val
                         && $stringWidth < $this->sColWidth * 3
                     ) {
                         $colFits[$key] = $stringWidth;
@@ -868,6 +896,7 @@ class Pdf extends PdfLib
             if (! array_key_exists($i, $colFits)) {
                 $this->tablewidths[$i] = $this->sColWidth + $surplusToAdd;
             }
+
             if ($this->displayColumn[$i] != false) {
                 continue;
             }

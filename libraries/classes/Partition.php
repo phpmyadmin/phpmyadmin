@@ -260,9 +260,11 @@ class Partition extends SubPartition
 
         if (! $already_checked) {
             if ($dbi->getVersion() < 50600) {
-                if ($dbi->fetchValue(
-                    'SELECT @@have_partitioning;'
-                )) {
+                if (
+                    $dbi->fetchValue(
+                        'SELECT @@have_partitioning;'
+                    )
+                ) {
                     $have_partitioning = true;
                 }
             } elseif ($dbi->getVersion() >= 80000) {
@@ -277,6 +279,7 @@ class Partition extends SubPartition
                     }
                 }
             }
+
             $already_checked = true;
         }
 

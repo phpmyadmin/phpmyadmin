@@ -138,7 +138,8 @@ class StorageEngine
 
         foreach (self::getStorageEngines() as $details) {
             // Don't show PERFORMANCE_SCHEMA engine (MySQL 5.5)
-            if ($details['Support'] === 'NO'
+            if (
+                $details['Support'] === 'NO'
                 || $details['Support'] === 'DISABLED'
                 || $details['Engine'] === 'PERFORMANCE_SCHEMA'
             ) {
@@ -169,28 +170,40 @@ class StorageEngine
         switch (mb_strtolower($engine)) {
             case 'bdb':
                 return new Bdb($engine);
+
             case 'berkeleydb':
                 return new Berkeleydb($engine);
+
             case 'binlog':
                 return new Binlog($engine);
+
             case 'innobase':
                 return new Innobase($engine);
+
             case 'innodb':
                 return new Innodb($engine);
+
             case 'memory':
                 return new Memory($engine);
+
             case 'merge':
                 return new Merge($engine);
+
             case 'mrg_myisam':
                 return new MrgMyisam($engine);
+
             case 'myisam':
                 return new Myisam($engine);
+
             case 'ndbcluster':
                 return new Ndbcluster($engine);
+
             case 'pbxt':
                 return new Pbxt($engine);
+
             case 'performance_schema':
                 return new PerformanceSchema($engine);
+
             default:
                 return new StorageEngine($engine);
         }
@@ -210,6 +223,7 @@ class StorageEngine
         if ($engine === 'PBMS') {
             return true;
         }
+
         $storage_engines = self::getStorageEngines();
 
         return isset($storage_engines[$engine]);
@@ -233,6 +247,7 @@ class StorageEngine
                     . Generator::showHint($details['desc'])
                     . "\n";
             }
+
             $ret .= '    </td>' . "\n"
                   . '    <th scope="row">' . htmlspecialchars($details['title']) . '</th>'
                   . "\n"
@@ -249,6 +264,7 @@ class StorageEngine
                 default:
                     $ret .= htmlspecialchars($details['value']) . '   ';
             }
+
             $ret .= '</td>' . "\n"
                   . '</tr>' . "\n";
         }
@@ -313,11 +329,13 @@ class StorageEngine
             if (isset($variables[$row['Variable_name']])) {
                 $mysql_vars[$row['Variable_name']]
                     = $variables[$row['Variable_name']];
-            } elseif (! $like
+            } elseif (
+                ! $like
                 && mb_stripos($row['Variable_name'], $this->engine) !== 0
             ) {
                 continue;
             }
+
             $mysql_vars[$row['Variable_name']]['value'] = $row['Value'];
 
             if (empty($mysql_vars[$row['Variable_name']]['title'])) {
@@ -331,6 +349,7 @@ class StorageEngine
             $mysql_vars[$row['Variable_name']]['type']
                 = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
         }
+
         $dbi->freeResult($res);
 
         return $mysql_vars;

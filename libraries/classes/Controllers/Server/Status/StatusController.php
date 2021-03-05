@@ -73,6 +73,7 @@ class StatusController extends AbstractController
             if ($primaryInfo['status']) {
                 $replication .= $this->replicationGui->getHtmlForReplicationStatusTable('master');
             }
+
             if ($replicaInfo['status']) {
                 $replication .= $this->replicationGui->getHtmlForReplicationStatusTable('slave');
             }

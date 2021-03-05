@@ -104,6 +104,7 @@ class Common
                 if (! isset($tabColumn[$designerTable->getDbTableString()])) {
                     $tabColumn[$designerTable->getDbTableString()] = [];
                 }
+
                 $tabColumn[$designerTable->getDbTableString()]['COLUMN_ID'][$j]   = $j;
                 $tabColumn[$designerTable->getDbTableString()]['COLUMN_NAME'][$j] = $row['Field'];
                 $tabColumn[$designerTable->getDbTableString()]['TYPE'][$j]        = $row['Type'];
@@ -188,6 +189,7 @@ class Common
                     1 => $con['SCN'][$i],
                 ];
             }
+
             $ti++;
         }
 
@@ -225,6 +227,7 @@ class Common
                 if ($unique_only && ! $index->isUnique()) {
                     continue;
                 }
+
                 $columns = $index->getColumns();
                 foreach ($columns as $column_name => $dummy) {
                     $keys[$schema . '.' . $designerTable->getTableName() . '.' . $column_name] = 1;
@@ -603,14 +606,16 @@ class Common
         $type_T2 = mb_strtoupper($tables[$T2]['ENGINE'] ?? '');
 
         // native foreign key
-        if (Util::isForeignKeySupported($type_T1)
+        if (
+            Util::isForeignKeySupported($type_T1)
             && Util::isForeignKeySupported($type_T2)
             && $type_T1 == $type_T2
         ) {
             // relation exists?
             $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
             $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);
-            if ($foreigner
+            if (
+                $foreigner
                 && isset($foreigner['constraint'])
             ) {
                 return [
@@ -618,6 +623,7 @@ class Common
                     __('Error: relationship already exists.'),
                 ];
             }
+
             // note: in InnoDB, the index does not requires to be on a PRIMARY
             // or UNIQUE key
             // improve: check all other requirements for InnoDB relations
@@ -631,6 +637,7 @@ class Common
             while ($row = $this->dbi->fetchAssoc($result)) {
                 $index_array1[$row['Column_name']] = 1;
             }
+
             $this->dbi->freeResult($result);
 
             $result = $this->dbi->query(
@@ -642,6 +649,7 @@ class Common
             while ($row = $this->dbi->fetchAssoc($result)) {
                 $index_array2[$row['Column_name']] = 1;
             }
+
             $this->dbi->freeResult($result);
 
             if (! empty($index_array1[$F1]) && ! empty($index_array2[$F2])) {
@@ -657,9 +665,11 @@ class Common
                 if ($on_delete !== 'nix') {
                     $upd_query   .= ' ON DELETE ' . $on_delete;
                 }
+
                 if ($on_update !== 'nix') {
                     $upd_query   .= ' ON UPDATE ' . $on_update;
                 }
+
                 $upd_query .= ';';
                 if ($this->dbi->tryQuery($upd_query)) {
                     return [
@@ -708,7 +718,8 @@ class Common
             . "'" . $this->dbi->escapeString($T1) . "', "
             . "'" . $this->dbi->escapeString($F1) . "')";
 
-        if ($this->relation->queryAsControlUser($q, false, DatabaseInterface::QUERY_STORE)
+        if (
+            $this->relation->queryAsControlUser($q, false, DatabaseInterface::QUERY_STORE)
         ) {
             return [
                 true,
@@ -745,7 +756,8 @@ class Common
         $tables = $this->dbi->getTablesFull($DB2, $T2);
         $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
 
-        if (Util::isForeignKeySupported($type_T1)
+        if (
+            Util::isForeignKeySupported($type_T1)
             && Util::isForeignKeySupported($type_T2)
             && $type_T1 == $type_T2
         ) {

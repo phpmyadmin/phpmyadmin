@@ -190,6 +190,7 @@ class BrowseForeigners
             $output .= '<input type="hidden" name="rownumber" value="'
                 . htmlspecialchars((string) $_POST['rownumber']) . '">';
         }
+
         $filter_value = (isset($_POST['foreign_filter'])
             ? htmlspecialchars($_POST['foreign_filter'])
             : '');
@@ -344,6 +345,7 @@ class BrowseForeigners
         if (isset($foreignShowAll) && $foreignShowAll == __('Show all')) {
             return null;
         }
+
         isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
 
         return 'LIMIT ' . $pos . ', ' . $this->maxRows . ' ';

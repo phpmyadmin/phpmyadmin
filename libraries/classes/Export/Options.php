@@ -69,21 +69,25 @@ final class Options
             if (Utilities::isSystemSchema($currentDb, true)) {
                 continue;
             }
+
             $isSelected = false;
             if (isset($_POST['db_select'])) {
                 if (in_array($currentDb, $_POST['db_select'])) {
                     $isSelected = true;
                 }
             } elseif (! empty($tmpSelect)) {
-                if (mb_strpos(
-                    ' ' . $tmpSelect,
-                    '|' . $currentDb . '|'
-                )) {
+                if (
+                    mb_strpos(
+                        ' ' . $tmpSelect,
+                        '|' . $currentDb . '|'
+                    )
+                ) {
                     $isSelected = true;
                 }
             } else {
                 $isSelected = true;
             }
+
             $databases[] = [
                 'name' => $currentDb,
                 'is_selected' => $isSelected,

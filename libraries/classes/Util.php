@@ -192,7 +192,8 @@ class Util
         }
 
         foreach ($quotes as $quote) {
-            if (mb_substr($quoted_string, 0, 1) === $quote
+            if (
+                mb_substr($quoted_string, 0, 1) === $quote
                 && mb_substr($quoted_string, -1, 1) === $quote
             ) {
                 $unquoted_string = mb_substr($quoted_string, 1, -1);
@@ -230,6 +231,7 @@ class Util
         if (empty($link)) {
             $link = 'index';
         }
+
         $mysql = '5.5';
         $lang = 'en';
         if (isset($dbi)) {
@@ -244,6 +246,7 @@ class Util
                 $mysql = '5.5';
             }
         }
+
         $url = 'https://dev.mysql.com/doc/refman/'
             . $mysql . '/' . $lang . '/' . $link . '.html';
         if (! empty($anchor)) {
@@ -346,7 +349,8 @@ class Util
 
             // in $group we save the reference to the place in $table_groups
             // where to store the table info
-            if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
+            if (
+                $GLOBALS['cfg']['NavigationTreeEnableGrouping']
                 && $sep && mb_strstr($table_name, $sep)
             ) {
                 $parts = explode($sep, $table_name);
@@ -356,7 +360,8 @@ class Util
                 $group_name_full = '';
                 $parts_cnt = count($parts) - 1;
 
-                while (($i < $parts_cnt)
+                while (
+                    ($i < $parts_cnt)
                     && ($i < $GLOBALS['cfg']['NavigationTreeTableLevel'])
                 ) {
                     $group_name = $parts[$i] . $sep;
@@ -387,6 +392,7 @@ class Util
                 if (! isset($table_groups[$table_name])) {
                     $table_groups[$table_name] = [];
                 }
+
                 $group =& $table_groups;
             }
 
@@ -809,6 +815,7 @@ class Util
         } else {
             $am_pm = _pgettext('AM/PM indication in time', 'AM');
         }
+
         $date = (string) preg_replace('@%[pP]@', $am_pm, $date);
 
         // Can return false on windows for Japanese language
@@ -816,7 +823,8 @@ class Util
         $ret = strftime($date, (int) $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
-        if ($ret === false
+        if (
+            $ret === false
             || mb_detect_encoding($ret, 'UTF-8', true) !== 'UTF-8'
         ) {
             $ret = date('Y-m-d H:i:s', (int) $timestamp);
@@ -923,6 +931,7 @@ class Util
                 . '[br]';
             $found_error = true;
         }
+
         if (! $found_error) {
             return;
         }
@@ -959,12 +968,14 @@ class Util
         // for real we use CONCAT above and it should compare to string
         // See commit: 049fc7fef7548c2ba603196937c6dcaf9ff9bf00
         // See bug: https://sourceforge.net/p/phpmyadmin/bugs/3064/
-        if ($meta->isNumeric
+        if (
+            $meta->isNumeric
             && ! $meta->isMappedTypeTimestamp
             && $meta->isNotType(FieldMetadata::TYPE_REAL)
         ) {
             $conditionValue = '= ' . $row;
-        } elseif ($meta->isType(FieldMetadata::TYPE_BLOB) || ($meta->isType(FieldMetadata::TYPE_STRING))
+        } elseif (
+            $meta->isType(FieldMetadata::TYPE_BLOB) || ($meta->isType(FieldMetadata::TYPE_STRING))
             && $meta->isBinary()
             && ! empty($row)
         ) {
@@ -984,7 +995,8 @@ class Util
                 // this blob won't be part of the final condition
                 $conditionValue = null;
             }
-        } elseif ($meta->isMappedTypeGeometry
+        } elseif (
+            $meta->isMappedTypeGeometry
             && ! empty($row)
         ) {
             // do not build a too big condition
@@ -1048,6 +1060,7 @@ class Util
                     if (empty($expression->alias) || empty($expression->column)) {
                         continue;
                     }
+
                     if (strcasecmp($meta->name, $expression->alias) == 0) {
                         $meta->orgname = $expression->column;
                         break;
@@ -1066,7 +1079,8 @@ class Util
             // a view because this view might be updatable.
             // (The isView() verification should not be costly in most cases
             // because there is some caching in the function).
-            if (isset($meta->orgtable)
+            if (
+                isset($meta->orgtable)
                 && ($meta->table != $meta->orgtable)
                 && ! $dbi->getTable($GLOBALS['db'], $meta->table)->isView()
             ) {
@@ -1091,6 +1105,7 @@ class Util
                 $con_key = self::backquote($meta->table) . '.'
                     . self::backquote($meta->orgname);
             }
+
             $condition = ' ' . $con_key . ' ';
 
             [$con_val, $condition] = self::getConditionValue(
@@ -1306,6 +1321,7 @@ class Util
             } else {
                 $selected = '';
             }
+
             $gotopage .= '                <option ' . $selected
                 . ' value="' . (($i - 1) * $rows) . '">' . $i . '</option>' . "\n";
         }
@@ -1386,6 +1402,7 @@ class Util
             while ($value >= pow(2, $i)) {
                 ++$i;
             }
+
             if ($i != 0) {
                 --$i;
             }
@@ -1397,10 +1414,13 @@ class Util
                     $printable = '1' . $printable;
                     $value -= pow(2, $i);
                 }
+
                 --$i;
             }
+
             $printable = strrev($printable);
         }
+
         $printable = str_pad($printable, $length, '0', STR_PAD_LEFT);
 
         return $printable;
@@ -1473,7 +1493,8 @@ class Util
             // this would be a BINARY or VARBINARY column type;
             // by the way, a BLOB should not show the BINARY attribute
             // because this is not accepted in MySQL syntax.
-            if (strpos($printtype, 'binary') !== false
+            if (
+                strpos($printtype, 'binary') !== false
                 && ! preg_match('@binary[\(]@', $printtype)
             ) {
                 $printtype = str_replace('binary', '', $printtype);
@@ -1505,15 +1526,18 @@ class Util
         if ($binary) {
             $attribute = 'BINARY';
         }
+
         if ($unsigned) {
             $attribute = 'UNSIGNED';
         }
+
         if ($zerofill) {
             $attribute = 'UNSIGNED ZEROFILL';
         }
 
         $can_contain_collation = false;
-        if (! $binary
+        if (
+            ! $binary
             && preg_match(
                 '@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@',
                 $type
@@ -1678,6 +1702,7 @@ class Util
             $srid = $wktarr[1] ?? null;
             $wktval = "'" . $wktval . "'," . $srid;
         }
+
         @$dbi->freeResult($wktresult);
 
         return $wktval;
@@ -1768,15 +1793,19 @@ class Util
                 case 'welcome':
                 case 'index.php':
                     return '/';
+
                 case 'databases':
                 case 'server_databases.php':
                     return '/server/databases';
+
                 case 'status':
                 case 'server_status.php':
                     return '/server/status';
+
                 case 'variables':
                 case 'server_variables.php':
                     return '/server/variables';
+
                 case 'privileges':
                 case 'server_privileges.php':
                     return '/server/privileges';
@@ -1787,12 +1816,15 @@ class Util
                 case 'structure':
                 case 'db_structure.php':
                     return '/database/structure';
+
                 case 'sql':
                 case 'db_sql.php':
                     return '/database/sql';
+
                 case 'search':
                 case 'db_search.php':
                     return '/database/search';
+
                 case 'operations':
                 case 'db_operations.php':
                     return '/database/operations';
@@ -1805,15 +1837,19 @@ class Util
                 case 'structure':
                 case 'tbl_structure.php':
                     return '/table/structure';
+
                 case 'sql':
                 case 'tbl_sql.php':
                     return '/table/sql';
+
                 case 'search':
                 case 'tbl_select.php':
                     return '/table/search';
+
                 case 'insert':
                 case 'tbl_change.php':
                     return '/table/change';
+
                 case 'browse':
                 case 'sql.php':
                     return '/sql';
@@ -1890,6 +1926,7 @@ class Util
                 $escape_class = new $escape[1]();
                 $escape_method = $escape[0];
             }
+
             foreach ($replace as $key => $val) {
                 if (isset($escape_class, $escape_method)) {
                     $replace[$key] = $escape_class->$escape_method($val);
@@ -1923,6 +1960,7 @@ class Util
                         $column_names[] = $column['Field'];
                     }
                 }
+
                 $replace['@COLUMNS@'] = implode(',', $column_names);
             } else {
                 $replace['@COLUMNS@'] = '*';
@@ -2175,6 +2213,7 @@ class Util
                 // use the ST_ prefix.
                 $spatialPrefix = 'ST_';
             }
+
             $funcs[$spatialPrefix . 'Crosses']    = [
                 'params' => 2,
                 'type' => 'int',
@@ -2211,6 +2250,7 @@ class Util
             if ($display) {
                 $funcs[] = ['display' => '--------'];
             }
+
             // Minimum bounding rectangle functions
             $funcs['MBRContains']   = [
                 'params' => 2,
@@ -2299,6 +2339,7 @@ class Util
         if ($user_privileges) {
             return true;
         }
+
         // If a database name was provided and user does not have the
         // required global privilege, try database-wise permissions.
         if ($db === null) {
@@ -2320,6 +2361,7 @@ class Util
         if ($schema_privileges) {
             return true;
         }
+
         // If a table name was also provided and we still didn't
         // find any valid privileges, try table-wise privileges.
         if ($tbl !== null) {
@@ -2400,7 +2442,8 @@ class Util
             } elseif (($in_string && $curr === '\\') && $next === '\\') {
                 $buffer .= '&#92;';
                 $i++;
-            } elseif (($in_string && $next == "'")
+            } elseif (
+                ($in_string && $next == "'")
                 && ($curr == "'" || $curr === '\\')
             ) {
                 $buffer .= '&#39;';
@@ -2446,7 +2489,8 @@ class Util
                 continue;
             }
 
-            if ($minimum_first_occurence_index !== null
+            if (
+                $minimum_first_occurence_index !== null
                 && ($matches[0][1] >= $minimum_first_occurence_index)
             ) {
                 continue;
@@ -2537,7 +2581,8 @@ class Util
      */
     public static function addMicroseconds($value)
     {
-        if (empty($value) || $value === 'CURRENT_TIMESTAMP'
+        if (
+            empty($value) || $value === 'CURRENT_TIMESTAMP'
             || $value === 'current_timestamp()'
         ) {
             return $value;
@@ -2579,9 +2624,11 @@ class Util
         if ($len >= 2 && $test[0] == chr(31) && $test[1] == chr(139)) {
             return 'application/gzip';
         }
+
         if ($len >= 3 && substr($test, 0, 3) === 'BZh') {
             return 'application/bzip2';
         }
+
         if ($len >= 4 && $test == "PK\003\004") {
             return 'application/zip';
         }
@@ -2634,16 +2681,19 @@ class Util
                 $primary   .= $row['Column_name'] . ', ';
                 $pk_array[$row['Column_name']] = 1;
             }
+
             // Retains keys informations
             if ($row['Key_name'] != $lastIndex) {
                 $indexes[] = $row['Key_name'];
                 $lastIndex = $row['Key_name'];
             }
+
             $indexes_info[$row['Key_name']]['Sequences'][] = $row['Seq_in_index'];
             $indexes_info[$row['Key_name']]['Non_unique'] = $row['Non_unique'];
             if (isset($row['Cardinality'])) {
                 $indexes_info[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
             }
+
             // I don't know what does following column mean....
             // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
 
@@ -2699,15 +2749,18 @@ class Util
         /**
          * limits for table list
          */
-        if (! isset($_SESSION['tmpval']['table_limit_offset'])
+        if (
+            ! isset($_SESSION['tmpval']['table_limit_offset'])
             || $_SESSION['tmpval']['table_limit_offset_db'] != $db
         ) {
             $_SESSION['tmpval']['table_limit_offset'] = 0;
             $_SESSION['tmpval']['table_limit_offset_db'] = $db;
         }
+
         if (isset($_REQUEST['pos'])) {
             $_SESSION['tmpval']['table_limit_offset'] = (int) $_REQUEST['pos'];
         }
+
         $pos = $_SESSION['tmpval']['table_limit_offset'];
 
         /**
@@ -2786,6 +2839,7 @@ class Util
                     // only tables for selected type
                     $tbl_type = $_REQUEST['tbl_type'];
                 }
+
                 if (! empty($_REQUEST['tbl_group'])) {
                     // only tables for selected group
                     $tbl_group = $_REQUEST['tbl_group'];
@@ -2816,6 +2870,7 @@ class Util
                     $limit_count = true;
                 }
             }
+
             $tables = array_merge(
                 $groupTable,
                 $dbi->getTablesFull(
@@ -2877,6 +2932,7 @@ class Util
         while ($tmp = $dbi->fetchAssoc($db_info_result)) {
             $sot_cache[$tmp['Table']] = true;
         }
+
         $dbi->freeResult($db_info_result);
 
         // is there at least one "in use" table?
@@ -2897,6 +2953,7 @@ class Util
                     . " LIKE '" . $group . "')";
                 $whereAdded = true;
             }
+
             if (Core::isValid($_REQUEST['tbl_type'], ['table', 'view'])) {
                 $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
                 if ($_REQUEST['tbl_type'] === 'view') {
@@ -2905,6 +2962,7 @@ class Util
                     $tblGroupSql .= " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
                 }
             }
+
             $db_info_result = $dbi->query(
                 'SHOW FULL TABLES FROM ' . self::backquote($db) . $tblGroupSql,
                 DatabaseInterface::CONNECT_USER,
@@ -2927,18 +2985,21 @@ class Util
                         ];
                     }
                 }
+
                 if (count($names) > 0) {
                     $tables = array_merge(
                         $tables,
                         $dbi->getTablesFull($db, $names)
                     );
                 }
+
                 if ($GLOBALS['cfg']['NaturalOrder']) {
                     uksort($tables, 'strnatcasecmp');
                 }
             } elseif ($db_info_result) {
                 $dbi->freeResult($db_info_result);
             }
+
             unset($sot_cache);
         }
 
@@ -2989,6 +3050,7 @@ class Util
             if (is_object($value)) {
                 $value = (array) $value;
             }
+
             $value = reset($value);
         }
 
@@ -3012,6 +3074,7 @@ class Util
         } else {
             $random_func = 'openssl_random_pseudo_bytes';
         }
+
         while (strlen($result) < $length) {
             // Get random byte and strip highest bit
             // to get ASCII only range
@@ -3070,11 +3133,13 @@ class Util
         if (is_string($path)) {
             $path = explode('.', $path);
         }
+
         $p = array_shift($path);
         while (isset($p)) {
             if (! isset($array[$p])) {
                 return $default;
             }
+
             $array = $array[$p];
             $p = array_shift($path);
         }
@@ -3103,6 +3168,7 @@ class Util
                 $requestedSortOrder = $_REQUEST['sort_order'];
             }
         }
+
         $orderImg = '';
         $orderLinkParams = [];
         $orderLinkParams['title'] = __('Sort');
@@ -3156,6 +3222,7 @@ class Util
                 $orderLinkParams['onmouseout'] = "$('.sort_arrow').toggle();";
             }
         }
+
         $urlParams = [
             'db' => $_REQUEST['db'],
             'pos' => 0, // We set the position back to 0 every time they sort.
@@ -3166,6 +3233,7 @@ class Util
         if (Core::isValid($_REQUEST['tbl_type'], ['view', 'table'])) {
             $urlParams['tbl_type'] = $_REQUEST['tbl_type'];
         }
+
         if (! empty($_REQUEST['tbl_group'])) {
             $urlParams['tbl_group'] = $_REQUEST['tbl_group'];
         }

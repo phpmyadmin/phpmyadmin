@@ -88,9 +88,11 @@ class AddFieldController extends AbstractController
             if (isset($_POST['orig_after_field'])) {
                 $_POST['after_field'] = $_POST['orig_after_field'];
             }
+
             if (isset($_POST['orig_field_where'])) {
                 $_POST['field_where'] = $_POST['orig_field_where'];
             }
+
             $num_fields = min(
                 intval($_POST['orig_num_fields']) + intval($_POST['added_fields']),
                 4096
@@ -126,12 +128,14 @@ class AddFieldController extends AbstractController
             }
 
             // Update comment table for mime types [MIME]
-            if (isset($_POST['field_mimetype'])
+            if (
+                isset($_POST['field_mimetype'])
                 && is_array($_POST['field_mimetype'])
                 && $cfg['BrowseMIME']
             ) {
                 foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
-                    if (! isset($_POST['field_name'][$fieldindex])
+                    if (
+                        ! isset($_POST['field_name'][$fieldindex])
                         || strlen($_POST['field_name'][$fieldindex]) <= 0
                     ) {
                         continue;

@@ -107,7 +107,8 @@ class SqlController extends AbstractController
                 ['db' => $GLOBALS['db']],
                 strpos($err_url, '?') === false ? '?' : '&'
             );
-            if ((mb_strpos(' ' . $err_url, 'db_') !== 1 || mb_strpos($err_url, '?route=/database/') === false)
+            if (
+                (mb_strpos(' ' . $err_url, 'db_') !== 1 || mb_strpos($err_url, '?route=/database/') === false)
                 && strlen($table) > 0
             ) {
                 $err_url .= '&amp;table=' . urlencode($table);
@@ -162,11 +163,13 @@ class SqlController extends AbstractController
          * but since a malicious user may pass this variable by url/form, we don't take
          * into account this case.
          */
-        if ($this->sql->hasNoRightsToDropDatabase(
-            $analyzed_sql_results,
-            $cfg['AllowUserDropDatabase'],
-            $this->dbi->isSuperUser()
-        )) {
+        if (
+            $this->sql->hasNoRightsToDropDatabase(
+                $analyzed_sql_results,
+                $cfg['AllowUserDropDatabase'],
+                $this->dbi->isSuperUser()
+            )
+        ) {
             Generator::mysqlDie(
                 __('"DROP DATABASE" statements are disabled.'),
                 '',
@@ -233,7 +236,8 @@ class SqlController extends AbstractController
         $this->checkUserPrivileges->getPrivileges();
 
         $column = $_POST['column'];
-        if ($_SESSION['tmpval']['relational_display'] === 'D'
+        if (
+            $_SESSION['tmpval']['relational_display'] === 'D'
             && isset($_POST['relation_key_or_display_column'])
             && $_POST['relation_key_or_display_column']
         ) {
@@ -241,6 +245,7 @@ class SqlController extends AbstractController
         } else {
             $curr_value = $_POST['curr_value'];
         }
+
         $dropdown = $this->sql->getHtmlForRelationalColumnDropdown(
             $db,
             $table,

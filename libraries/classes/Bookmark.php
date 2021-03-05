@@ -193,6 +193,7 @@ class Bookmark
             if (! empty($variables[$i])) {
                 $var = $this->dbi->escapeString($variables[$i]);
             }
+
             $query = str_replace('[VARIABLE' . $i . ']', $var, $query);
             // backward compatibility
             if ($i != 1) {
@@ -257,7 +258,8 @@ class Bookmark
         array $bkm_fields,
         bool $all_users = false
     ) {
-        if (! (isset($bkm_fields['bkm_sql_query'], $bkm_fields['bkm_label'])
+        if (
+            ! (isset($bkm_fields['bkm_sql_query'], $bkm_fields['bkm_label'])
             && strlen($bkm_fields['bkm_sql_query']) > 0
             && strlen($bkm_fields['bkm_label']) > 0)
         ) {
@@ -321,6 +323,7 @@ class Bookmark
         if ($db !== false) {
             $query .= " AND dbase = '" . $dbi->escapeString($db) . "'";
         }
+
         $query .= ' ORDER BY label ASC';
 
         $result = $dbi->fetchResult(
@@ -382,8 +385,10 @@ class Bookmark
             if (! $exact_user_match) {
                 $query .= " OR user = ''";
             }
+
             $query .= ')';
         }
+
         $query .= ' AND ' . Util::backquote($id_field)
             . " = '" . $dbi->escapeString((string) $id) . "' LIMIT 1";
 

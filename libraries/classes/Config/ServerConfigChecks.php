@@ -171,6 +171,7 @@ class ServerConfigChecks
                     )
                 );
             }
+
             $sSecurityInfoMsg = Sanitize::sanitizeMessage(sprintf(
                 __(
                     'If you feel this is necessary, use additional protection settings - '
@@ -186,7 +187,8 @@ class ServerConfigChecks
 
             // $cfg['Servers'][$i]['auth_type']
             // warn about full user credentials if 'auth_type' is 'config'
-            if ($this->cfg->getValue('Servers/' . $i . '/auth_type') === 'config'
+            if (
+                $this->cfg->getValue('Servers/' . $i . '/auth_type') === 'config'
                 && $this->cfg->getValue('Servers/' . $i . '/user') != ''
                 && $this->cfg->getValue('Servers/' . $i . '/password') != ''
             ) {
@@ -214,7 +216,8 @@ class ServerConfigChecks
             // $cfg['Servers'][$i]['AllowRoot']
             // $cfg['Servers'][$i]['AllowNoPassword']
             // serious security flaw
-            if (! $this->cfg->getValue('Servers/' . $i . '/AllowRoot')
+            if (
+                ! $this->cfg->getValue('Servers/' . $i . '/AllowRoot')
                 || ! $this->cfg->getValue('Servers/' . $i . '/AllowNoPassword')
             ) {
                 continue;
@@ -384,6 +387,7 @@ class ServerConfigChecks
                     'Key is too short, it should have at least 32 characters.'
                 );
             }
+
             // check used characters
             $hasDigits = (bool) preg_match('/\d/', $blowfishSecret);
             $hasChars = (bool) preg_match('/\S/', $blowfishSecret);
@@ -396,6 +400,7 @@ class ServerConfigChecks
                     )
                 );
             }
+
             if (! empty($blowfishWarnings)) {
                 SetupIndex::messagesSet(
                     'error',
@@ -418,7 +423,8 @@ class ServerConfigChecks
         // value greater than session.gc_maxlifetime will cause
         // random session invalidation after that time
         $loginCookieValidity = $this->cfg->getValue('LoginCookieValidity');
-        if ($loginCookieValidity > ini_get('session.gc_maxlifetime')
+        if (
+            $loginCookieValidity > ini_get('session.gc_maxlifetime')
         ) {
             SetupIndex::messagesSet(
                 'error',
@@ -461,7 +467,8 @@ class ServerConfigChecks
         // $cfg['LoginCookieValidity']
         // $cfg['LoginCookieStore']
         // LoginCookieValidity must be less or equal to LoginCookieStore
-        if (($this->cfg->getValue('LoginCookieStore') == 0)
+        if (
+            ($this->cfg->getValue('LoginCookieStore') == 0)
             || ($loginCookieValidity <= $this->cfg->getValue('LoginCookieStore'))
         ) {
             return;
@@ -494,7 +501,8 @@ class ServerConfigChecks
     {
         // $cfg['BZipDump']
         // requires bzip2 functions
-        if (! $this->cfg->getValue('BZipDump')
+        if (
+            ! $this->cfg->getValue('BZipDump')
             || ($this->functionExists('bzopen') && $this->functionExists('bzcompress'))
         ) {
             return;
@@ -533,7 +541,8 @@ class ServerConfigChecks
     {
         // $cfg['GZipDump']
         // requires zlib functions
-        if (! $this->cfg->getValue('GZipDump')
+        if (
+            ! $this->cfg->getValue('GZipDump')
             || ($this->functionExists('gzopen') && $this->functionExists('gzencode'))
         ) {
             return;

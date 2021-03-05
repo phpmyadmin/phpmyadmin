@@ -40,6 +40,7 @@ if (! defined('PHPMYADMIN')) {
     define('PHPMYADMIN', 1);
     define('TESTSUITE', 1);
 }
+
 // phpcs:enable
 
 require_once ROOT_PATH . 'libraries/vendor_config.php';

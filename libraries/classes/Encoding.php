@@ -182,15 +182,18 @@ class Encoding
         if ($src_charset == $dest_charset) {
             return $what;
         }
+
         if (self::$engine === null) {
             self::initEngine();
         }
+
         switch (self::$engine) {
             case self::ENGINE_RECODE:
                 return recode_string(
                     $src_charset . '..' . $dest_charset,
                     $what
                 );
+
             case self::ENGINE_ICONV:
                 return iconv(
                     $src_charset,
@@ -198,12 +201,14 @@ class Encoding
                     ($GLOBALS['cfg']['IconvExtraParams'] ?? ''),
                     $what
                 );
+
             case self::ENGINE_MB:
                 return mb_convert_encoding(
                     $what,
                     $dest_charset,
                     $src_charset
                 );
+
             default:
                 return $what;
         }
@@ -272,6 +277,7 @@ class Encoding
             $dist = mb_convert_kana($str, 'KV', $string_encoding);
             $str  = $dist;
         }
+
         if ($string_encoding != $enc && $enc != '') {
             $dist = mb_convert_encoding($str, $enc, $string_encoding);
         } else {
@@ -295,6 +301,7 @@ class Encoding
         if ($enc == '' && $kana == '') {
             return $file;
         }
+
         $tmpfname = (string) tempnam($GLOBALS['PMA_Config']->getUploadTempDir(), $enc);
         $fpd      = fopen($tmpfname, 'wb');
         $fps      = fopen($file, 'r');
@@ -304,6 +311,7 @@ class Encoding
             $dist = self::kanjiStrConv($line, $enc, $kana);
             fwrite($fpd, $dist);
         }
+
         self::kanjiChangeOrder();
         fclose($fps);
         fclose($fpd);
@@ -334,6 +342,7 @@ class Encoding
         if (self::$engine === null) {
             self::initEngine();
         }
+
         /* Most engines do not support listing */
         if (self::$engine != self::ENGINE_MB) {
             return $GLOBALS['cfg']['AvailableCharsets'];

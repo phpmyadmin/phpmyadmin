@@ -132,6 +132,7 @@ class ConfigTest extends AbstractTestCase
                 $this->object->get('PMA_USR_BROWSER_AGENT')
             );
         }
+
         if ($version == null) {
             return;
         }
@@ -1074,6 +1075,7 @@ class ConfigTest extends AbstractTestCase
         } else {
             $expected = array_merge($this->object->defaultServer, $expected);
         }
+
         $this->assertEquals($expected, $this->object->settings['Servers'][1]);
     }
 

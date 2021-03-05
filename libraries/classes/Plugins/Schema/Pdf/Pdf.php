@@ -37,6 +37,7 @@ if (! class_exists('TCPDF')) {
 if (getcwd() == __DIR__) {
     die('Attack stopped');
 }
+
 // phpcs:enable
 
 /**
@@ -156,6 +157,7 @@ class Pdf extends PdfLib
         if ($this->leftMargin != -1) {
             $this->leftMargin = $leftMargin;
         }
+
         if ($this->topMargin == -1) {
             return;
         }
@@ -311,6 +313,7 @@ class Pdf extends PdfLib
             if (is_array($pages)) {
                 $pageDesc = (string) $pages['page_descr'];
             }
+
             $pg_name = ucfirst($pageDesc);
         }
 
@@ -366,6 +369,7 @@ class Pdf extends PdfLib
         for ($i = 0; $i < $data_cnt; $i++) {
             $nb = max($nb, $this->numLines($this->widths[$i], $data[$i]));
         }
+
         $il = $this->FontSize;
         $h = ($il + 1) * $nb;
         // page break if necessary
@@ -382,11 +386,13 @@ class Pdf extends PdfLib
             if (isset($links[$i])) {
                 $this->Link($x, $y, $w, $h, $links[$i]);
             }
+
             // print text
             $this->MultiCell($w, $il + 1, $data[$i], 0, 'L');
             // go to right side
             $this->SetXY($x + $w, $y);
         }
+
         // go to line
         $this->Ln($h);
     }
@@ -405,12 +411,14 @@ class Pdf extends PdfLib
         if ($w == 0) {
             $w = $this->w - $this->rMargin - $this->x;
         }
+
         $wmax = ($w - 2 * $this->cMargin) * 1000 / $this->FontSize;
         $s = str_replace("\r", '', $txt);
         $nb = strlen($s);
         if ($nb > 0 && $s[$nb - 1] == "\n") {
             $nb--;
         }
+
         $sep = -1;
         $i = 0;
         $j = 0;
@@ -426,9 +434,11 @@ class Pdf extends PdfLib
                 $nl++;
                 continue;
             }
+
             if ($c === ' ') {
                 $sep = $i;
             }
+
             $l += $cw[mb_ord($c)] ?? 0;
             if ($l > $wmax) {
                 if ($sep == -1) {
@@ -438,6 +448,7 @@ class Pdf extends PdfLib
                 } else {
                     $i = $sep + 1;
                 }
+
                 $sep = -1;
                 $j = $i;
                 $l = 0;

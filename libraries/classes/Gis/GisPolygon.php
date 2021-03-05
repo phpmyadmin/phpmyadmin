@@ -279,6 +279,7 @@ class GisPolygon extends GisGeometry
         foreach ($polygon_options as $option => $val) {
             $row .= ' ' . $option . '="' . trim((string) $val) . '"';
         }
+
         $row .= '/>';
 
         return $row;
@@ -314,11 +315,13 @@ class GisPolygon extends GisGeometry
             $text_style = ['text' => $label];
             $row .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
+
         $row .= '});';
 
         if ($srid == 0) {
             $srid = 4326;
         }
+
         $row .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
@@ -358,6 +361,7 @@ class GisPolygon extends GisGeometry
         foreach ($other_points as $point) {
             $row .= ' L ' . $point[0] . ', ' . $point[1];
         }
+
         $row .= ' Z ';
 
         return $row;
@@ -387,6 +391,7 @@ class GisPolygon extends GisGeometry
             if ($no_of_points < 4) {
                 $no_of_points = 4;
             }
+
             $wkt .= '(';
             for ($j = 0; $j < $no_of_points; $j++) {
                 $wkt .= (isset($gis_data[$index]['POLYGON'][$i][$j]['x'])
@@ -396,6 +401,7 @@ class GisPolygon extends GisGeometry
                         && trim((string) $gis_data[$index]['POLYGON'][$i][$j]['y']) != ''
                         ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
             }
+
             $wkt
                 =
                 mb_substr(
@@ -405,6 +411,7 @@ class GisPolygon extends GisGeometry
                 );
             $wkt .= '),';
         }
+
         $wkt
             =
             mb_substr(
@@ -432,7 +439,8 @@ class GisPolygon extends GisGeometry
 
         // If the last point is same as the first point ignore it
         $last = count($ring) - 1;
-        if (($ring[0]['x'] == $ring[$last]['x'])
+        if (
+            ($ring[0]['x'] == $ring[$last]['x'])
             && ($ring[0]['y'] == $ring[$last]['y'])
         ) {
             $no_of_points--;
@@ -448,6 +456,7 @@ class GisPolygon extends GisGeometry
             $area += $ring[$i]['x'] * $ring[$j]['y'];
             $area -= $ring[$i]['y'] * $ring[$j]['x'];
         }
+
         $area /= 2.0;
 
         return $area;
@@ -486,7 +495,8 @@ class GisPolygon extends GisGeometry
     {
         // If first point is repeated at the end remove it
         $last = count($polygon) - 1;
-        if (($polygon[0]['x'] == $polygon[$last]['x'])
+        if (
+            ($polygon[0]['x'] == $polygon[$last]['x'])
             && ($polygon[0]['y'] == $polygon[$last]['y'])
         ) {
             $polygon = array_slice($polygon, 0, $last);
@@ -642,6 +652,7 @@ class GisPolygon extends GisGeometry
                 $params[$index]['POLYGON'][$j][$i]['x'] = $points_arr[$i][0];
                 $params[$index]['POLYGON'][$j][$i]['y'] = $points_arr[$i][1];
             }
+
             $j++;
         }
 

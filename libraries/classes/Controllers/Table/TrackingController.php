@@ -60,7 +60,8 @@ final class TrackingController extends AbstractController
         DbTableExists::check();
 
         $activeMessage = '';
-        if (Tracker::isActive()
+        if (
+            Tracker::isActive()
             && Tracker::isTracked($GLOBALS['db'], $GLOBALS['table'])
             && ! (isset($_POST['toggle_activation'])
                 && $_POST['toggle_activation'] === 'deactivate_now')
@@ -99,6 +100,7 @@ final class TrackingController extends AbstractController
             if (! isset($_POST['logtype'])) {
                 $_POST['logtype'] = 'schema_and_data';
             }
+
             if ($_POST['logtype'] === 'schema') {
                 $selection_schema = true;
             } elseif ($_POST['logtype'] === 'data') {
@@ -106,15 +108,19 @@ final class TrackingController extends AbstractController
             } else {
                 $selection_both   = true;
             }
+
             if (! isset($_POST['date_from'])) {
                 $_POST['date_from'] = $data['date_from'];
             }
+
             if (! isset($_POST['date_to'])) {
                 $_POST['date_to'] = $data['date_to'];
             }
+
             if (! isset($_POST['users'])) {
                 $_POST['users'] = '*';
             }
+
             $filter_ts_from = strtotime($_POST['date_from']);
             $filter_ts_to = strtotime($_POST['date_to']);
             $filter_users = array_map('trim', explode(',', $_POST['users']));
@@ -131,7 +137,8 @@ final class TrackingController extends AbstractController
         }
 
         // Export as file download
-        if (isset($_POST['report_export'])
+        if (
+            isset($_POST['report_export'])
             && $_POST['export_type'] === 'sqldumpfile'
         ) {
             $this->tracking->exportAsFileDownload($entries);
@@ -144,6 +151,7 @@ final class TrackingController extends AbstractController
                     foreach ($_POST['selected_versions'] as $version) {
                         $this->tracking->deleteTrackingVersion($version);
                     }
+
                     $actionMessage = Message::success(
                         __('Tracking versions deleted successfully.')
                     )->getDisplay();
@@ -166,14 +174,16 @@ final class TrackingController extends AbstractController
         }
 
         $deactivateTracking = '';
-        if (isset($_POST['toggle_activation'])
+        if (
+            isset($_POST['toggle_activation'])
             && $_POST['toggle_activation'] === 'deactivate_now'
         ) {
             $deactivateTracking = $this->tracking->changeTracking('deactivate');
         }
 
         $activateTracking = '';
-        if (isset($_POST['toggle_activation'])
+        if (
+            isset($_POST['toggle_activation'])
             && $_POST['toggle_activation'] === 'activate_now'
         ) {
             $activateTracking = $this->tracking->changeTracking('activate');
@@ -198,7 +208,8 @@ final class TrackingController extends AbstractController
         }
 
         $trackingReportRows = '';
-        if (isset($_POST['report'])
+        if (
+            isset($_POST['report'])
             && (isset($_POST['delete_ddlog']) || isset($_POST['delete_dmlog']))
         ) {
             $trackingReportRows = $this->tracking->deleteTrackingReportRows($data);

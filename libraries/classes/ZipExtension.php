@@ -238,6 +238,7 @@ class ZipExtension
                 );
                 $newData[$newName] = $value;
             }
+
             $data = $newData;
         } elseif (is_array($data) && is_array($name) && count($data) === count($name)) {
             $data = array_combine($name, $data);

@@ -288,7 +288,8 @@ class SavedSearches
             exit;
         }
 
-        if ($this->getUsername() == null
+        if (
+            $this->getUsername() == null
             || $this->getDbname() == null
             || $this->getSearchName() == null
             || $this->getCriterias() == null
@@ -458,7 +459,8 @@ class SavedSearches
     {
         global $dbi;
 
-        if ($this->getUsername() == null
+        if (
+            $this->getUsername() == null
             || $this->getDbname() == null
         ) {
             return [];

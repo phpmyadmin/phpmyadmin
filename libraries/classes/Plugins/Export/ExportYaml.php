@@ -166,6 +166,7 @@ class ExportYaml extends ExportPlugin
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
+
             $columns[$i] = stripslashes($col_as);
         }
 
@@ -219,6 +220,7 @@ class ExportYaml extends ExportPlugin
                 return false;
             }
         }
+
         $dbi->freeResult($result);
 
         return true;

@@ -145,13 +145,16 @@ class Export
                             $dump_buffer
                         );
                     }
-                    if ($GLOBALS['compression'] === 'gzip'
+
+                    if (
+                        $GLOBALS['compression'] === 'gzip'
                         && $this->gzencodeNeeded()
                     ) {
                         // as a gzipped file
                         // without the optional parameter level because it bugs
                         $dump_buffer = gzencode($dump_buffer);
                     }
+
                     if ($GLOBALS['save_on_server']) {
                         $write_result = @fwrite($GLOBALS['file_handle'], (string) $dump_buffer);
                         // Here, use strlen rather than mb_strlen to get the length
@@ -167,6 +170,7 @@ class Export
                     } else {
                         echo $dump_buffer;
                     }
+
                     $dump_buffer = '';
                     $dump_buffer_len = 0;
                 }
@@ -185,15 +189,18 @@ class Export
                     $line
                 );
             }
+
             if ($GLOBALS['save_on_server'] && mb_strlen((string) $line) > 0) {
                 if ($GLOBALS['file_handle'] !== null) {
                     $write_result = @fwrite($GLOBALS['file_handle'], (string) $line);
                 } else {
                     $write_result = false;
                 }
+
                 // Here, use strlen rather than mb_strlen to get the length
                 // in bytes to compare against the number of bytes written.
-                if (! $write_result
+                if (
+                    ! $write_result
                     || $write_result != strlen((string) $line)
                 ) {
                     $GLOBALS['message'] = Message::error(
@@ -203,6 +210,7 @@ class Export
 
                     return false;
                 }
+
                 $time_now = time();
                 if ($time_start >= $time_now + 30) {
                     $time_start = $time_now;
@@ -317,6 +325,7 @@ class Export
         if (mb_strtolower($userExtension) != $requiredExtension) {
             $filename  .= $requiredExtension;
         }
+
         $mime_type  = $exportPlugin->getProperties()->getMimeType();
 
         // If dump is going to be compressed, set correct mime_type and add
@@ -386,6 +395,7 @@ class Export
                 );
             }
         }
+
         $filename = Util::expandUserString($filename_template);
         // remove dots in filename (coming from either the template or already
         // part of the filename) to avoid a remote code execution vulnerability
@@ -419,7 +429,8 @@ class Export
         $save_filename = Util::userDir($GLOBALS['cfg']['SaveDir'])
             . preg_replace('@[/\\\\]@', '_', $filename);
 
-        if (@file_exists($save_filename)
+        if (
+            @file_exists($save_filename)
             && ((! $quick_export && empty($_POST['onserver_overwrite']))
             || ($quick_export
             && $doNotSaveItOver))
@@ -478,7 +489,8 @@ class Export
         fclose($file_handle);
         // Here, use strlen rather than mb_strlen to get the length
         // in bytes to compare against the number of bytes written.
-        if (strlen($dump_buffer) > 0
+        if (
+            strlen($dump_buffer) > 0
             && (! $write_result || $write_result != strlen($dump_buffer))
         ) {
             $message = new Message(
@@ -585,6 +597,7 @@ class Export
             if ($structOrDataForced && ! isset($_POST['table_structure'])) {
                 $_POST['table_structure'] = [];
             }
+
             if ($structOrDataForced && ! isset($_POST['table_data'])) {
                 $_POST['table_data'] = [];
             }
@@ -597,6 +610,7 @@ class Export
 
             $back_button .= '&amp;' . urlencode((string) $name) . '=' . urlencode((string) $value);
         }
+
         $back_button .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
         $html .= '<br>';
         $html .= $back_button;
@@ -614,6 +628,7 @@ class Export
                     . '" value="' . htmlentities((string) $value) . '">';
             }
         }
+
         $refreshButton .= '</form>';
         $html .= $refreshButton
             . '<br>'
@@ -662,9 +677,11 @@ class Export
             $tmp_select = implode('|', $db_select);
             $tmp_select = '|' . $tmp_select . '|';
         }
+
         // Walk over databases
         foreach ($GLOBALS['dblist']->databases as $current_db) {
-            if (! isset($tmp_select)
+            if (
+                ! isset($tmp_select)
                 || ! mb_strpos(' ' . $tmp_select, '|' . $current_db . '|')
             ) {
                 continue;
@@ -738,14 +755,17 @@ class Export
         if (! $export_plugin->exportDBHeader($db, $db_alias)) {
             return;
         }
+
         if (! $export_plugin->exportDBCreate($db, $export_type, $db_alias)) {
             return;
         }
+
         if ($separate_files === 'database') {
             $this->saveObjectInBuffer('database', true);
         }
 
-        if (($GLOBALS['sql_structure_or_data'] === 'structure'
+        if (
+            ($GLOBALS['sql_structure_or_data'] === 'structure'
             || $GLOBALS['sql_structure_or_data'] === 'structure_and_data')
             && isset($GLOBALS['sql_procedure_function'])
         ) {
@@ -766,14 +786,17 @@ class Export
             if ($is_view) {
                 $views[] = $table;
             }
-            if (($whatStrucOrData === 'structure'
+
+            if (
+                ($whatStrucOrData === 'structure'
                 || $whatStrucOrData === 'structure_and_data')
                 && in_array($table, $table_structure)
             ) {
                 // for a view, export a stand-in definition of the table
                 // to resolve view dependencies (only when it's a single-file export)
                 if ($is_view) {
-                    if ($separate_files == ''
+                    if (
+                        $separate_files == ''
                         && isset($GLOBALS['sql_create_view'])
                         && ! $export_plugin->exportStructure(
                             $db,
@@ -810,25 +833,29 @@ class Export
                         }
                     }
 
-                    if (! $export_plugin->exportStructure(
-                        $db,
-                        $table,
-                        $crlf,
-                        $err_url,
-                        'create_table',
-                        $export_type,
-                        $do_relation,
-                        $do_comments,
-                        $do_mime,
-                        $do_dates,
-                        $aliases
-                    )) {
+                    if (
+                        ! $export_plugin->exportStructure(
+                            $db,
+                            $table,
+                            $crlf,
+                            $err_url,
+                            'create_table',
+                            $export_type,
+                            $do_relation,
+                            $do_comments,
+                            $do_mime,
+                            $do_dates,
+                            $aliases
+                        )
+                    ) {
                         break;
                     }
                 }
             }
+
             // if this is a view or a merge table, don't export data
-            if (($whatStrucOrData === 'data' || $whatStrucOrData === 'structure_and_data')
+            if (
+                ($whatStrucOrData === 'data' || $whatStrucOrData === 'structure_and_data')
                 && in_array($table, $table_data)
                 && ! $is_view
             ) {
@@ -839,14 +866,16 @@ class Export
                     . ' FROM ' . Util::backquote($db)
                     . '.' . Util::backquote($table);
 
-                if (! $export_plugin->exportData(
-                    $db,
-                    $table,
-                    $crlf,
-                    $err_url,
-                    $local_query,
-                    $aliases
-                )) {
+                if (
+                    ! $export_plugin->exportData(
+                        $db,
+                        $table,
+                        $crlf,
+                        $err_url,
+                        $local_query,
+                        $aliases
+                    )
+                ) {
                     break;
                 }
             }
@@ -858,26 +887,29 @@ class Export
 
             // now export the triggers (needs to be done after the data because
             // triggers can modify already imported tables)
-            if (! isset($GLOBALS['sql_create_trigger']) || ($whatStrucOrData !== 'structure'
+            if (
+                ! isset($GLOBALS['sql_create_trigger']) || ($whatStrucOrData !== 'structure'
                 && $whatStrucOrData !== 'structure_and_data')
                 || ! in_array($table, $table_structure)
             ) {
                 continue;
             }
 
-            if (! $export_plugin->exportStructure(
-                $db,
-                $table,
-                $crlf,
-                $err_url,
-                'triggers',
-                $export_type,
-                $do_relation,
-                $do_comments,
-                $do_mime,
-                $do_dates,
-                $aliases
-            )) {
+            if (
+                ! $export_plugin->exportStructure(
+                    $db,
+                    $table,
+                    $crlf,
+                    $err_url,
+                    'triggers',
+                    $export_type,
+                    $do_relation,
+                    $do_comments,
+                    $do_mime,
+                    $do_dates,
+                    $aliases
+                )
+            ) {
                 break;
             }
 
@@ -891,25 +923,28 @@ class Export
         if (isset($GLOBALS['sql_create_view'])) {
             foreach ($views as $view) {
                 // no data export for a view
-                if ($whatStrucOrData !== 'structure'
+                if (
+                    $whatStrucOrData !== 'structure'
                     && $whatStrucOrData !== 'structure_and_data'
                 ) {
                     continue;
                 }
 
-                if (! $export_plugin->exportStructure(
-                    $db,
-                    $view,
-                    $crlf,
-                    $err_url,
-                    'create_view',
-                    $export_type,
-                    $do_relation,
-                    $do_comments,
-                    $do_mime,
-                    $do_dates,
-                    $aliases
-                )) {
+                if (
+                    ! $export_plugin->exportStructure(
+                        $db,
+                        $view,
+                        $crlf,
+                        $err_url,
+                        'create_view',
+                        $export_type,
+                        $do_relation,
+                        $do_comments,
+                        $do_mime,
+                        $do_dates,
+                        $aliases
+                    )
+                ) {
                     break;
                 }
 
@@ -941,7 +976,8 @@ class Export
             $this->saveObjectInBuffer('extra');
         }
 
-        if (($GLOBALS['sql_structure_or_data'] !== 'structure'
+        if (
+            ($GLOBALS['sql_structure_or_data'] !== 'structure'
             && $GLOBALS['sql_structure_or_data'] !== 'structure_and_data')
             || ! isset($GLOBALS['sql_procedure_function'])
         ) {
@@ -980,11 +1016,13 @@ class Export
             return;
         }
 
-        if (! $export_plugin->exportRawQuery(
-            $err_url,
-            $sql_query,
-            $crlf
-        )) {
+        if (
+            ! $export_plugin->exportRawQuery(
+                $err_url,
+                $sql_query,
+                $crlf
+            )
+        ) {
             $GLOBALS['message'] = Message::error(
                 // phpcs:disable Generic.Files.LineLength.TooLong
                 /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
@@ -1038,7 +1076,9 @@ class Export
         if (! $export_plugin->exportDBHeader($db, $db_alias)) {
             return;
         }
-        if (isset($allrows)
+
+        if (
+            isset($allrows)
             && $allrows == '0'
             && $limit_to > 0
             && $limit_from >= 0
@@ -1052,49 +1092,56 @@ class Export
 
         $_table = new Table($table, $db);
         $is_view = $_table->isView();
-        if ($whatStrucOrData === 'structure'
+        if (
+            $whatStrucOrData === 'structure'
             || $whatStrucOrData === 'structure_and_data'
         ) {
             if ($is_view) {
                 if (isset($GLOBALS['sql_create_view'])) {
-                    if (! $export_plugin->exportStructure(
+                    if (
+                        ! $export_plugin->exportStructure(
+                            $db,
+                            $table,
+                            $crlf,
+                            $err_url,
+                            'create_view',
+                            $export_type,
+                            $do_relation,
+                            $do_comments,
+                            $do_mime,
+                            $do_dates,
+                            $aliases
+                        )
+                    ) {
+                        return;
+                    }
+                }
+            } elseif (isset($GLOBALS['sql_create_table'])) {
+                if (
+                    ! $export_plugin->exportStructure(
                         $db,
                         $table,
                         $crlf,
                         $err_url,
-                        'create_view',
+                        'create_table',
                         $export_type,
                         $do_relation,
                         $do_comments,
                         $do_mime,
                         $do_dates,
                         $aliases
-                    )) {
-                        return;
-                    }
-                }
-            } elseif (isset($GLOBALS['sql_create_table'])) {
-                if (! $export_plugin->exportStructure(
-                    $db,
-                    $table,
-                    $crlf,
-                    $err_url,
-                    'create_table',
-                    $export_type,
-                    $do_relation,
-                    $do_comments,
-                    $do_mime,
-                    $do_dates,
-                    $aliases
-                )) {
+                    )
+                ) {
                     return;
                 }
             }
         }
+
         // If this is an export of a single view, we have to export data;
         // for example, a PDF report
         // if it is a merge table, no data is exported
-        if ($whatStrucOrData === 'data'
+        if (
+            $whatStrucOrData === 'data'
             || $whatStrucOrData === 'structure_and_data'
         ) {
             if (! empty($sql_query)) {
@@ -1103,6 +1150,7 @@ class Export
                     // remove trailing semicolon before adding a LIMIT
                     $sql_query = preg_replace('%;\s*$%', '', $sql_query);
                 }
+
                 $local_query = $sql_query . $add_query;
                 $this->dbi->selectDb($db);
             } else {
@@ -1114,38 +1162,46 @@ class Export
                     . ' FROM ' . Util::backquote($db)
                     . '.' . Util::backquote($table) . $add_query;
             }
-            if (! $export_plugin->exportData(
-                $db,
-                $table,
-                $crlf,
-                $err_url,
-                $local_query,
-                $aliases
-            )) {
+
+            if (
+                ! $export_plugin->exportData(
+                    $db,
+                    $table,
+                    $crlf,
+                    $err_url,
+                    $local_query,
+                    $aliases
+                )
+            ) {
                 return;
             }
         }
+
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
-        if (isset($GLOBALS['sql_create_trigger']) && ($whatStrucOrData === 'structure'
+        if (
+            isset($GLOBALS['sql_create_trigger']) && ($whatStrucOrData === 'structure'
             || $whatStrucOrData === 'structure_and_data')
         ) {
-            if (! $export_plugin->exportStructure(
-                $db,
-                $table,
-                $crlf,
-                $err_url,
-                'triggers',
-                $export_type,
-                $do_relation,
-                $do_comments,
-                $do_mime,
-                $do_dates,
-                $aliases
-            )) {
+            if (
+                ! $export_plugin->exportStructure(
+                    $db,
+                    $table,
+                    $crlf,
+                    $err_url,
+                    'triggers',
+                    $export_type,
+                    $do_relation,
+                    $do_comments,
+                    $do_mime,
+                    $do_dates,
+                    $aliases
+                )
+            ) {
                 return;
             }
         }
+
         if (! $export_plugin->exportDBFooter($db)) {
             return;
         }
@@ -1217,9 +1273,11 @@ class Export
                 $aliases[$db_name]['alias']
                     = empty($val2) ? $val1 : $val2;
             }
+
             if (! isset($db['tables'])) {
                 continue;
             }
+
             foreach ($db['tables'] as $tbl_name => $tbl) {
                 if (isset($tbl['alias']) && is_array($tbl['alias'])) {
                     $val1 = $tbl['alias'][0];
@@ -1228,9 +1286,11 @@ class Export
                     $aliases[$db_name]['tables'][$tbl_name]['alias']
                         = empty($val2) ? $val1 : $val2;
                 }
+
                 if (! isset($tbl['columns'])) {
                     continue;
                 }
+
                 foreach ($tbl['columns'] as $col => $col_as) {
                     if (! isset($col_as) || ! is_array($col_as)) {
                         continue;

@@ -82,6 +82,7 @@ class Index
 
                 $remove_ids[] = $id;
             }
+
             foreach ($remove_ids as $id) {
                 unset($messages[$id]);
             }

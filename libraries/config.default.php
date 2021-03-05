@@ -2794,7 +2794,6 @@ if (defined('TEMP_DIR')) {
     $cfg['TempDir'] = ROOT_PATH . 'tmp' . DIRECTORY_SEPARATOR;
 }
 
-
 /**
  * Misc. settings
  */

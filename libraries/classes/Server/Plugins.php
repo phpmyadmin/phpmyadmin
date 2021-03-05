@@ -30,11 +30,13 @@ class Plugins
         if (! $cfg['Server']['DisableIS']) {
             $sql = 'SELECT * FROM information_schema.PLUGINS ORDER BY PLUGIN_TYPE, PLUGIN_NAME';
         }
+
         $result = $this->dbi->query($sql);
         $plugins = [];
         while ($row = $this->dbi->fetchAssoc($result)) {
             $plugins[] = $this->mapRowToPlugin($row);
         }
+
         $this->dbi->freeResult($result);
 
         return $plugins;

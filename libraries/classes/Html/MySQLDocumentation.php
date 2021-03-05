@@ -42,6 +42,7 @@ class MySQLDocumentation
         if ($url === null) {
             $url = Util::getMySQLDocuURL($link, $anchor);
         }
+
         $openLink = '<a href="' . htmlspecialchars($url) . '" target="mysql_doc">';
         $closeLink = '</a>';
 

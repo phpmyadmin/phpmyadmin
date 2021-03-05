@@ -86,13 +86,16 @@ class ViewOperationsController extends AbstractController
                 } else {
                     $message->addText(__('Error'));
                 }
+
                 // $result should exist, regardless of $_message
                 $type = $result ? 'success' : 'error';
             }
+
             if (! empty($warning_messages)) {
                 $message->addMessagesString($warning_messages);
                 $message->isError(true);
             }
+
             $this->response->addHTML(Generator::getMessage(
                 $message,
                 $sql_query,

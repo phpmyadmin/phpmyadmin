@@ -86,6 +86,7 @@ class ReplicationController extends AbstractController
                     $replicationInfo->getReplicaStatus()
                 );
             }
+
             if (isset($params['sl_configure'])) {
                 $changeMasterHtml = $this->replicationGui->getHtmlForReplicationChangeMaster('slave_changemaster');
             }

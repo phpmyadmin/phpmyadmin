@@ -759,7 +759,8 @@ class LanguageManager
             $path = LOCALE_PATH
                 . '/' . $file
                 . '/LC_MESSAGES/phpmyadmin.mo';
-            if ($file === '.'
+            if (
+                $file === '.'
                 || $file === '..'
                 || ! @file_exists($path)
             ) {
@@ -768,6 +769,7 @@ class LanguageManager
 
             $result[] = $file;
         }
+
         /* Close the handle */
         closedir($handle);
 
@@ -899,6 +901,7 @@ class LanguageManager
             if ($lang !== false) {
                 return $lang;
             }
+
             $this->langFailedConfig = true;
         }
 
@@ -909,6 +912,7 @@ class LanguageManager
             if ($lang !== false) {
                 return $lang;
             }
+
             $this->langFailedRequest = true;
         }
 
@@ -918,6 +922,7 @@ class LanguageManager
             if ($lang !== false) {
                 return $lang;
             }
+
             $this->langFailedRequest = true;
         }
 
@@ -927,6 +932,7 @@ class LanguageManager
             if ($lang !== false) {
                 return $lang;
             }
+
             $this->langFailedCookie = true;
         }
 
@@ -972,7 +978,8 @@ class LanguageManager
     public function showWarnings()
     {
         // now, that we have loaded the language strings we can send the errors
-        if (! $this->langFailedConfig
+        if (
+            ! $this->langFailedConfig
             && ! $this->langFailedCookie
             && ! $this->langFailedRequest
         ) {

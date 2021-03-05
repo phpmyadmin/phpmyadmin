@@ -56,18 +56,21 @@ class SysInfo
                 if ($sysInfo->supported()) {
                     return $sysInfo;
                 }
+
                 break;
             case 'WINNT':
                 $sysInfo = new WindowsNt();
                 if ($sysInfo->supported()) {
                     return $sysInfo;
                 }
+
                 break;
             case 'SunOS':
                 $sysInfo = new SunOs();
                 if ($sysInfo->supported()) {
                     return $sysInfo;
                 }
+
                 break;
         }
 

@@ -107,6 +107,7 @@ class Operations
             $local_query .= ' DEFAULT'
                 . Util::getCharsetQueryPart($_POST['db_collation'] ?? '');
         }
+
         $local_query .= ';';
         $GLOBALS['sql_query'] .= $local_query;
 
@@ -151,7 +152,8 @@ class Operations
             }
 
             // If view exists, and 'add drop view' is selected: Drop it!
-            if ($_POST['what'] !== 'nocopy'
+            if (
+                $_POST['what'] !== 'nocopy'
                 && isset($_POST['drop_if_exists'])
                 && $_POST['drop_if_exists'] === 'true'
             ) {
@@ -205,6 +207,7 @@ class Operations
                 if ($this_what === 'data') {
                     $this_what = 'structure';
                 }
+
                 if ($this_what === 'dataonly') {
                     $this_what = 'nocopy';
                 }
@@ -219,18 +222,21 @@ class Operations
             //  for importing via the mysql client or our Import feature)
             $triggers = $this->dbi->getTriggers($db, (string) $each_table, '');
 
-            if (! Table::moveCopy(
-                $db,
-                $each_table,
-                $_POST['newname'],
-                $each_table,
-                ($this_what ?? 'data'),
-                $move,
-                'db_copy'
-            )) {
+            if (
+                ! Table::moveCopy(
+                    $db,
+                    $each_table,
+                    $_POST['newname'],
+                    $each_table,
+                    ($this_what ?? 'data'),
+                    $move,
+                    'db_copy'
+                )
+            ) {
                 $GLOBALS['_error'] = true;
                 break;
             }
+
             // apply the triggers to the destination db+table
             if ($triggers) {
                 $this->dbi->selectDb($_POST['newname']);
@@ -241,7 +247,8 @@ class Operations
             }
 
             // this does not apply to a rename operation
-            if (! isset($_POST['add_constraints'])
+            if (
+                ! isset($_POST['add_constraints'])
                 || empty($GLOBALS['sql_constraints_query'])
             ) {
                 continue;
@@ -319,6 +326,7 @@ class Operations
                 break;
             }
         }
+
         unset($_POST['drop_if_exists']);
 
         if (! isset($temp_drop_if_exists)) {
@@ -339,7 +347,8 @@ class Operations
      */
     public function adjustPrivilegesMoveDb($oldDb, $newname)
     {
-        if (! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
+        if (
+            ! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
             || ! $GLOBALS['col_priv'] || ! $GLOBALS['proc_priv']
             || ! $GLOBALS['is_reload_priv']
         ) {
@@ -389,7 +398,8 @@ class Operations
      */
     public function adjustPrivilegesCopyDb($oldDb, $newname)
     {
-        if (! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
+        if (
+            ! $GLOBALS['db_priv'] || ! $GLOBALS['table_priv']
             || ! $GLOBALS['col_priv'] || ! $GLOBALS['proc_priv']
             || ! $GLOBALS['is_reload_priv']
         ) {
@@ -413,6 +423,7 @@ class Operations
             for ($i = 2; $i < $privCount; $i++) {
                 $newDb_db_privs_query .= ', "' . $old_priv[$i] . '"';
             }
+
                 $newDb_db_privs_query .= ')';
 
             $this->dbi->query($newDb_db_privs_query);
@@ -576,12 +587,14 @@ class Operations
         } else {
             $innodb_file_format = '';
         }
+
         /**
          * Newer MySQL/MariaDB always return empty a.k.a '' on $innodb_file_format otherwise
          * old versions of MySQL/MariaDB must be returning something or not empty.
          * This patch is to support newer MySQL/MariaDB while also for backward compatibilities.
          */
-        if (($innodb_file_format === 'Barracuda') || ($innodb_file_format == '')
+        if (
+            ($innodb_file_format === 'Barracuda') || ($innodb_file_format == '')
             && $innodbEnginePlugin->supportsFilePerTable()
         ) {
             $possible_row_formats['INNODB']['DYNAMIC'] = 'DYNAMIC';
@@ -610,7 +623,8 @@ class Operations
         $partitionMethod = Partition::getPartitionMethod($db, $table);
 
         // add COALESCE or DROP option to choices array depending on Partition method
-        if ($partitionMethod === 'RANGE'
+        if (
+            $partitionMethod === 'RANGE'
             || $partitionMethod === 'RANGE COLUMNS'
             || $partitionMethod === 'LIST'
             || $partitionMethod === 'LIST COLUMNS'
@@ -707,13 +721,15 @@ class Operations
             . Util::backquote($GLOBALS['table'])
             . ' ORDER BY '
             . Util::backquote(urldecode($_POST['order_field']));
-        if (isset($_POST['order_order'])
+        if (
+            isset($_POST['order_order'])
             && $_POST['order_order'] === 'desc'
         ) {
             $sql_query .= ' DESC';
         } else {
             $sql_query .= ' ASC';
         }
+
         $sql_query .= ';';
         $result = $this->dbi->query($sql_query);
 
@@ -753,26 +769,31 @@ class Operations
 
         $table_alters = [];
 
-        if (isset($_POST['comment'])
+        if (
+            isset($_POST['comment'])
             && urldecode($_POST['prev_comment']) !== $_POST['comment']
         ) {
             $table_alters[] = 'COMMENT = \''
                 . $this->dbi->escapeString($_POST['comment']) . '\'';
         }
 
-        if (! empty($newTblStorageEngine)
+        if (
+            ! empty($newTblStorageEngine)
             && mb_strtolower($newTblStorageEngine) !== mb_strtolower($GLOBALS['tbl_storage_engine'])
         ) {
             $table_alters[] = 'ENGINE = ' . $newTblStorageEngine;
         }
-        if (! empty($_POST['tbl_collation'])
+
+        if (
+            ! empty($_POST['tbl_collation'])
             && $_POST['tbl_collation'] !== $tbl_collation
         ) {
             $table_alters[] = 'DEFAULT '
                 . Util::getCharsetQueryPart($_POST['tbl_collation'] ?? '');
         }
 
-        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'ISAM'])
+        if (
+            $pma_table->isEngine(['MYISAM', 'ARIA', 'ISAM'])
             && isset($_POST['new_pack_keys'])
             && $_POST['new_pack_keys'] != (string) $pack_keys
         ) {
@@ -780,7 +801,8 @@ class Operations
         }
 
         $_POST['new_checksum'] = empty($_POST['new_checksum']) ? '0' : '1';
-        if ($pma_table->isEngine(['MYISAM', 'ARIA'])
+        if (
+            $pma_table->isEngine(['MYISAM', 'ARIA'])
             && $_POST['new_checksum'] !== $checksum
         ) {
             $table_alters[] = 'checksum = ' . $_POST['new_checksum'];
@@ -788,7 +810,8 @@ class Operations
 
         $_POST['new_transactional']
             = empty($_POST['new_transactional']) ? '0' : '1';
-        if ($pma_table->isEngine('ARIA')
+        if (
+            $pma_table->isEngine('ARIA')
             && $_POST['new_transactional'] !== $transactional
         ) {
             $table_alters[] = 'TRANSACTIONAL = ' . $_POST['new_transactional'];
@@ -796,7 +819,8 @@ class Operations
 
         $_POST['new_page_checksum']
             = empty($_POST['new_page_checksum']) ? '0' : '1';
-        if ($pma_table->isEngine('ARIA')
+        if (
+            $pma_table->isEngine('ARIA')
             && $_POST['new_page_checksum'] !== $page_checksum
         ) {
             $table_alters[] = 'PAGE_CHECKSUM = ' . $_POST['new_page_checksum'];
@@ -804,13 +828,15 @@ class Operations
 
         $_POST['new_delay_key_write']
             = empty($_POST['new_delay_key_write']) ? '0' : '1';
-        if ($pma_table->isEngine(['MYISAM', 'ARIA'])
+        if (
+            $pma_table->isEngine(['MYISAM', 'ARIA'])
             && $_POST['new_delay_key_write'] !== $delay_key_write
         ) {
             $table_alters[] = 'delay_key_write = ' . $_POST['new_delay_key_write'];
         }
 
-        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'])
+        if (
+            $pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'])
             && ! empty($_POST['new_auto_increment'])
             && (! isset($auto_increment)
             || $_POST['new_auto_increment'] !== $auto_increment)
@@ -823,7 +849,8 @@ class Operations
         if (! empty($_POST['new_row_format'])) {
             $newRowFormat = $_POST['new_row_format'];
             $newRowFormatLower = mb_strtolower($newRowFormat);
-            if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT'])
+            if (
+                $pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT'])
                 && (strlen($row_format) === 0
                 || $newRowFormatLower !== mb_strtolower($row_format))
             ) {
@@ -850,7 +877,8 @@ class Operations
             // should not be reported with a Level of Error, so here
             // I just ignore it. But there are other 1478 messages
             // that it's better to show.
-            if (isset($_POST['new_tbl_storage_engine'])
+            if (
+                isset($_POST['new_tbl_storage_engine'])
                 && $_POST['new_tbl_storage_engine'] === 'MyISAM'
                 && $warning['Code'] == '1478'
                 && $warning['Level'] === 'Error'
@@ -904,7 +932,8 @@ class Operations
      */
     public function adjustPrivilegesRenameOrMoveTable($oldDb, $oldTable, $newDb, $newTable)
     {
-        if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
+        if (
+            ! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
             || ! $GLOBALS['is_reload_priv']
         ) {
             return;
@@ -947,7 +976,8 @@ class Operations
      */
     public function adjustPrivilegesCopyTable($oldDb, $oldTable, $newDb, $newTable)
     {
-        if (! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
+        if (
+            ! $GLOBALS['table_priv'] || ! $GLOBALS['col_priv']
             || ! $GLOBALS['is_reload_priv']
         ) {
             return;
@@ -1067,7 +1097,8 @@ class Operations
                     'one_table'
                 );
 
-                if (isset($_POST['adjust_privileges'])
+                if (
+                    isset($_POST['adjust_privileges'])
                     && ! empty($_POST['adjust_privileges'])
                 ) {
                     if (isset($_POST['submit_move'])) {

@@ -119,6 +119,7 @@ class Routing
         if ($handle === false) {
             return false;
         }
+
         $couldWrite = fwrite($handle, $cacheContents);
         fclose($handle);
 

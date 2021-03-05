@@ -47,9 +47,11 @@ class ErrorReportTest extends AbstractTestCase
         if (! defined('PMA_USR_BROWSER_AGENT')) {
             define('PMA_USR_BROWSER_AGENT', 'Other');
         }
+
         if (! defined('PMA_USR_BROWSER_VER')) {
             define('PMA_USR_BROWSER_VER', 1);
         }
+
         if (! defined('PMA_USR_OS')) {
             define('PMA_USR_OS', 'os');
         }

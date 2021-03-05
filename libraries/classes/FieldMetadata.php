@@ -285,6 +285,7 @@ final class FieldMetadata
         if (! defined('MYSQLI_TYPE_JSON')) {
             define('MYSQLI_TYPE_JSON', 245);
         }
+
         // Build an associative array for a type look up
         $typeAr = [];
         $typeAr[MYSQLI_TYPE_DECIMAL]     = self::TYPE_REAL;
