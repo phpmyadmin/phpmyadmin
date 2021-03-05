@@ -52,9 +52,7 @@ class VersionInformationTest extends AbstractTestCase
      */
     public function testGetLatestVersion(): void
     {
-        $GLOBALS['cfg']['ProxyUrl'] = PROXY_URL;
-        $GLOBALS['cfg']['ProxyUser'] = PROXY_USER;
-        $GLOBALS['cfg']['ProxyPass'] = PROXY_PASS;
+        $this->setProxySettings();
         $GLOBALS['cfg']['VersionCheck'] = true;
         $versionInformation = new VersionInformation();
         $version = $versionInformation->getLatestVersion();

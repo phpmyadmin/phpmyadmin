@@ -128,14 +128,6 @@ abstract class AbstractTestCase extends TestCase
             $GLOBALS['cfg']['ProxyUser'] = $proxyUser;
             $GLOBALS['cfg']['ProxyPass'] = $proxyPass;
         }
-
-        // phpcs:disable PSR1.Files.SideEffects
-        if (! defined('PROXY_URL')) {
-            define('PROXY_URL', $proxyUrl ?? '');
-            define('PROXY_USER', $proxyUser ?? '');
-            define('PROXY_PASS', $proxyPass ?? '');
-        }
-        // phpcs:enable
     }
 
     protected function defineVersionConstants(): void
