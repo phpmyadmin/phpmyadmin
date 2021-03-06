@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-02-24 10:09+0100\n"
+"POT-Creation-Date: 2021-03-06 15:47+0100\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-1/th/"
@@ -1286,9 +1286,9 @@ msgstr "ค้นหา:"
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:323
 #: libraries/classes/Controllers/Server/PrivilegesController.php:324
-#: libraries/classes/Database/Routines.php:1026
-#: libraries/classes/Database/Routines.php:1742
-#: libraries/classes/Database/Triggers.php:462
+#: libraries/classes/Database/Routines.php:1027
+#: libraries/classes/Database/Routines.php:1743
+#: libraries/classes/Database/Triggers.php:463
 #: libraries/classes/InsertEdit.php:1978 libraries/classes/InsertEdit.php:2012
 #: libraries/classes/Normalization.php:261
 #: libraries/classes/Normalization.php:973 libraries/classes/Tracking.php:332
@@ -3325,7 +3325,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:757
 #: libraries/classes/Config/Descriptions.php:768 libraries/classes/Menu.php:530
-#: libraries/classes/Util.php:2460 libraries/config.values.php:155
+#: libraries/classes/Util.php:2474 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:8
 #: templates/server/privileges/user_properties.twig:20
@@ -3445,8 +3445,8 @@ msgstr "เปลี่ยนแปลงการติดตาม"
 #: libraries/classes/Config/Descriptions.php:784 libraries/classes/Menu.php:290
 #: libraries/classes/Menu.php:406 libraries/classes/Menu.php:535
 #: libraries/classes/Navigation/Nodes/NodeTable.php:319
-#: libraries/classes/Util.php:1718 libraries/classes/Util.php:2461
-#: libraries/classes/Util.php:2476 libraries/classes/Util.php:2493
+#: libraries/classes/Util.php:1718 libraries/classes/Util.php:2475
+#: libraries/classes/Util.php:2490 libraries/classes/Util.php:2507
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -4275,7 +4275,7 @@ msgid "Server"
 msgstr "เซิร์ฟเวอร์"
 
 #: libraries/classes/Config/Descriptions.php:966
-#: libraries/classes/Database/Triggers.php:397
+#: libraries/classes/Database/Triggers.php:398
 #: libraries/classes/Plugins/Export/ExportXml.php:521
 #: libraries/classes/Server/Privileges.php:1951
 #: libraries/classes/Server/Privileges.php:1953
@@ -4649,8 +4649,8 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:57
 #: libraries/classes/Navigation/Nodes/NodeTable.php:310
-#: libraries/classes/Util.php:1717 libraries/classes/Util.php:2475
-#: libraries/classes/Util.php:2492 libraries/config.values.php:60
+#: libraries/classes/Util.php:1717 libraries/classes/Util.php:2489
+#: libraries/classes/Util.php:2506 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4698,8 +4698,8 @@ msgstr "เอกสารอ้างอิง"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 #: libraries/classes/Menu.php:312 libraries/classes/Menu.php:426
 #: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1621
-#: libraries/classes/Util.php:2464 libraries/classes/Util.php:2479
-#: libraries/classes/Util.php:2496 templates/database/events/index.twig:58
+#: libraries/classes/Util.php:2478 libraries/classes/Util.php:2493
+#: libraries/classes/Util.php:2510 templates/database/events/index.twig:58
 #: templates/database/events/index.twig:91
 #: templates/database/events/index.twig:92
 #: templates/database/events/row.twig:33
@@ -4742,8 +4742,8 @@ msgstr ""
 #: libraries/classes/Config/Forms/User/ImportForm.php:65
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:309
 #: libraries/classes/Menu.php:321 libraries/classes/Menu.php:436
-#: libraries/classes/Menu.php:568 libraries/classes/Util.php:2465
-#: libraries/classes/Util.php:2480 libraries/classes/Util.php:2497
+#: libraries/classes/Menu.php:568 libraries/classes/Util.php:2479
+#: libraries/classes/Util.php:2494 libraries/classes/Util.php:2511
 #: templates/import.twig:33 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -5845,7 +5845,7 @@ msgid "Traffic"
 msgstr "การจราจร"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:198
-#: libraries/classes/Menu.php:573 libraries/classes/Util.php:2466
+#: libraries/classes/Menu.php:573 libraries/classes/Util.php:2480
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "การตั้งค่า"
@@ -6068,7 +6068,7 @@ msgstr "อธิบายผลคำสั่ง"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:272
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:171
-#: libraries/classes/Menu.php:540 libraries/classes/Util.php:2462
+#: libraries/classes/Menu.php:540 libraries/classes/Util.php:2476
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:18
 #: templates/database/events/index.twig:19
@@ -7828,7 +7828,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:549
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
-"table cache value is probably too small."
+"table_open_cache value is probably too small."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:553
@@ -8135,7 +8135,7 @@ msgstr "มีผู้ใช้ %s อยู่แล้ว!"
 #: libraries/classes/Controllers/Table/PartitionController.php:194
 #: libraries/classes/Controllers/Table/RelationController.php:273
 #: libraries/classes/Controllers/ViewOperationsController.php:84
-#: libraries/classes/Database/Routines.php:1481
+#: libraries/classes/Database/Routines.php:1482
 #: libraries/classes/Display/Results.php:4095 libraries/classes/Message.php:174
 #: templates/sql/query.twig:7
 #, fuzzy
@@ -8156,7 +8156,7 @@ msgid "There is an issue with your request."
 msgstr "ตารางที่ถูกติดตาม"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
-#: libraries/classes/Database/Routines.php:1502
+#: libraries/classes/Database/Routines.php:1503
 #: libraries/classes/Import.php:156 libraries/classes/InsertEdit.php:225
 #: libraries/classes/Sql.php:1033
 msgid "MySQL returned an empty result set (i.e. zero rows)."
@@ -8191,7 +8191,7 @@ msgstr "ตารางจำลอง (View)"
 #: libraries/classes/Controllers/ViewOperationsController.php:87
 #: libraries/classes/Html/Generator.php:894 libraries/classes/Import.php:137
 #: libraries/classes/InsertEdit.php:1574 libraries/classes/Message.php:194
-#: templates/error/generic.twig:37 templates/javascript/variables.twig:108
+#: templates/error/generic.twig:37
 msgid "Error"
 msgstr "ผิดพลาด"
 
@@ -8467,8 +8467,8 @@ msgstr "ไม่สามารถโหลดนำเข้าปลั๊ก
 #: libraries/classes/Database/Events.php:143
 #: libraries/classes/Database/Routines.php:227
 #: libraries/classes/Database/Routines.php:251
-#: libraries/classes/Database/Routines.php:363
-#: libraries/classes/Database/Routines.php:1510
+#: libraries/classes/Database/Routines.php:364
+#: libraries/classes/Database/Routines.php:1511
 #: libraries/classes/Database/Triggers.php:131
 #: libraries/classes/Database/Triggers.php:140
 #: libraries/classes/Database/Triggers.php:165
@@ -8479,16 +8479,16 @@ msgstr ""
 #: libraries/classes/Database/Events.php:114
 #: libraries/classes/Database/Events.php:123
 #: libraries/classes/Database/Events.php:147
-#: libraries/classes/Database/Events.php:501
+#: libraries/classes/Database/Events.php:502
 #: libraries/classes/Database/Routines.php:231
 #: libraries/classes/Database/Routines.php:255
-#: libraries/classes/Database/Routines.php:367
-#: libraries/classes/Database/Routines.php:1514
-#: libraries/classes/Database/Routines.php:1868
+#: libraries/classes/Database/Routines.php:368
+#: libraries/classes/Database/Routines.php:1515
+#: libraries/classes/Database/Routines.php:1869
 #: libraries/classes/Database/Triggers.php:135
 #: libraries/classes/Database/Triggers.php:144
 #: libraries/classes/Database/Triggers.php:169
-#: libraries/classes/Database/Triggers.php:550
+#: libraries/classes/Database/Triggers.php:551
 #: libraries/classes/Html/Generator.php:966
 msgid "MySQL said: "
 msgstr "MySQL แสดง: "
@@ -8510,78 +8510,78 @@ msgstr "โยนตาราง %s ทิ้งไปเรียบร้อ�
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
-#: libraries/classes/Database/Events.php:235
+#: libraries/classes/Database/Events.php:236
 #: templates/database/events/index.twig:109
 #: templates/database/events/index.twig:113
 #, fuzzy
 msgid "Add event"
 msgstr "เพิ่มผู้ใช้ใหม่"
 
-#: libraries/classes/Database/Events.php:239
+#: libraries/classes/Database/Events.php:240
 #, fuzzy
 msgid "Edit event"
 msgstr "ถูกส่ง"
 
-#: libraries/classes/Database/Events.php:394
-#: libraries/classes/Database/Routines.php:1235
-#: libraries/classes/Database/Triggers.php:488
+#: libraries/classes/Database/Events.php:395
+#: libraries/classes/Database/Routines.php:1236
+#: libraries/classes/Database/Triggers.php:489
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
-#: libraries/classes/Database/Events.php:401
+#: libraries/classes/Database/Events.php:402
 #, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide an event name!"
 msgstr "คุณจะต้องให้ชื่อปกติ"
 
-#: libraries/classes/Database/Events.php:416
+#: libraries/classes/Database/Events.php:417
 msgid "You must provide a valid interval value for the event."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:435
+#: libraries/classes/Database/Events.php:436
 msgid "You must provide a valid execution time for the event."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:439
+#: libraries/classes/Database/Events.php:440
 msgid "You must provide a valid type for the event."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:463
+#: libraries/classes/Database/Events.php:464
 msgid "You must provide an event definition."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:498
+#: libraries/classes/Database/Events.php:499
 msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:499
-#: libraries/classes/Database/Routines.php:1866
-#: libraries/classes/Database/Triggers.php:548
+#: libraries/classes/Database/Events.php:500
+#: libraries/classes/Database/Routines.php:1867
+#: libraries/classes/Database/Triggers.php:549
 msgid "The backed up query was:"
 msgstr ""
 
-#: libraries/classes/Database/Events.php:531
+#: libraries/classes/Database/Events.php:532
 #: libraries/classes/Database/Routines.php:151
-#: libraries/classes/Database/Routines.php:1398
-#: libraries/classes/Database/Routines.php:1576
-#: libraries/classes/Database/Triggers.php:579
+#: libraries/classes/Database/Routines.php:1399
+#: libraries/classes/Database/Routines.php:1577
+#: libraries/classes/Database/Triggers.php:580
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request:"
 msgstr "โพรเซส"
 
-#: libraries/classes/Database/Events.php:533
+#: libraries/classes/Database/Events.php:534
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s."
 msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
 
-#: libraries/classes/Database/Events.php:565
+#: libraries/classes/Database/Events.php:566
 #, php-format
 msgid "Export of event %s"
 msgstr ""
 
-#: libraries/classes/Database/Events.php:583
+#: libraries/classes/Database/Events.php:584
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid ""
@@ -8687,7 +8687,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:208
-#: libraries/classes/Database/Routines.php:1244
+#: libraries/classes/Database/Routines.php:1245
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr ""
@@ -8697,33 +8697,33 @@ msgstr ""
 msgid "Routine %1$s has been created."
 msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
 
-#: libraries/classes/Database/Routines.php:429
+#: libraries/classes/Database/Routines.php:430
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
 
-#: libraries/classes/Database/Routines.php:434
+#: libraries/classes/Database/Routines.php:435
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
 
-#: libraries/classes/Database/Routines.php:841
-#: libraries/classes/Database/Triggers.php:389
+#: libraries/classes/Database/Routines.php:842
+#: libraries/classes/Database/Triggers.php:390
 #: templates/database/events/editor_form.twig:9 templates/view_create.twig:8
 msgid "Details"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:844
+#: libraries/classes/Database/Routines.php:845
 #, fuzzy
 #| msgid "Column names"
 msgid "Routine name"
 msgstr "ชื่อคอลัมน์"
 
-#: libraries/classes/Database/Routines.php:849
-#: libraries/classes/Database/Routines.php:879
-#: libraries/classes/Database/Routines.php:1655
+#: libraries/classes/Database/Routines.php:850
+#: libraries/classes/Database/Routines.php:880
+#: libraries/classes/Database/Routines.php:1656
 #: libraries/classes/InsertEdit.php:355
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:292
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:392
@@ -8755,25 +8755,25 @@ msgstr "ชื่อคอลัมน์"
 msgid "Type"
 msgstr "ชนิด"
 
-#: libraries/classes/Database/Routines.php:863
+#: libraries/classes/Database/Routines.php:864
 #: templates/database/events/editor_form.twig:41
 #, fuzzy, php-format
 #| msgid "Change"
 msgid "Change to %s"
 msgstr "เปลี่ยน"
 
-#: libraries/classes/Database/Routines.php:869
+#: libraries/classes/Database/Routines.php:870
 msgid "Parameters"
 msgstr "พารามิเตอร์"
 
-#: libraries/classes/Database/Routines.php:877
+#: libraries/classes/Database/Routines.php:878
 #, fuzzy
 #| msgid "Creation"
 msgid "Direction"
 msgstr "สร้างเมื่อ"
 
-#: libraries/classes/Database/Routines.php:878
-#: libraries/classes/Database/Routines.php:1654
+#: libraries/classes/Database/Routines.php:879
+#: libraries/classes/Database/Routines.php:1655
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:492
 #: libraries/classes/Plugins/Export/ExportOdt.php:622
 #: libraries/classes/Plugins/Export/ExportTexytext.php:470
@@ -8791,13 +8791,13 @@ msgstr "สร้างเมื่อ"
 msgid "Name"
 msgstr "ชื่อ"
 
-#: libraries/classes/Database/Routines.php:880
+#: libraries/classes/Database/Routines.php:881
 #: templates/columns_definitions/table_fields_definitions.twig:16
 #: templates/database/central_columns/edit.twig:8
 msgid "Length/Values"
 msgstr "ความยาว/เซต*"
 
-#: libraries/classes/Database/Routines.php:881
+#: libraries/classes/Database/Routines.php:882
 #: libraries/classes/Import.php:1349 libraries/classes/Import.php:1383
 #: libraries/classes/Plugins/Export/ExportCodegen.php:71
 #: libraries/classes/Plugins/Export/ExportCsv.php:47
@@ -8813,7 +8813,7 @@ msgstr "ความยาว/เซต*"
 #: libraries/classes/Plugins/Export/ExportSql.php:111
 #: libraries/classes/Plugins/Export/ExportTexytext.php:46
 #: libraries/classes/Plugins/Export/ExportXml.php:89
-#: libraries/classes/Plugins/Export/ExportYaml.php:43
+#: libraries/classes/Plugins/Export/ExportYaml.php:44
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:31
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:61
 #: libraries/classes/Plugins/Import/ImportOds.php:54
@@ -8828,42 +8828,42 @@ msgstr "ความยาว/เซต*"
 msgid "Options"
 msgstr "ตัวเลือก"
 
-#: libraries/classes/Database/Routines.php:898
+#: libraries/classes/Database/Routines.php:899
 #, fuzzy
 #| msgid "Add new field"
 msgid "Add parameter"
 msgstr "เพิ่มฟิลด์ใหม่"
 
-#: libraries/classes/Database/Routines.php:902
+#: libraries/classes/Database/Routines.php:903
 #, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
 msgstr "เอาฐานข้อมูลออก"
 
-#: libraries/classes/Database/Routines.php:907
+#: libraries/classes/Database/Routines.php:908
 msgid "Return type"
 msgstr "ประเภทการส่งกลับ"
 
-#: libraries/classes/Database/Routines.php:913
+#: libraries/classes/Database/Routines.php:914
 #, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "ความยาว/เซต*"
 
-#: libraries/classes/Database/Routines.php:919
+#: libraries/classes/Database/Routines.php:920
 #, fuzzy
 #| msgid "Table options"
 msgid "Return options"
 msgstr "ตัวเลือกตาราง"
 
-#: libraries/classes/Database/Routines.php:922
+#: libraries/classes/Database/Routines.php:923
 #: templates/database/routines/parameter_row.twig:31
 #: templates/database/structure/table_header.twig:42
 msgid "Charset"
 msgstr "ชุดตัวอักษร"
 
-#: libraries/classes/Database/Routines.php:952
-#: libraries/classes/Database/Triggers.php:443
+#: libraries/classes/Database/Routines.php:953
+#: libraries/classes/Database/Triggers.php:444
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:495
 #: libraries/classes/Plugins/Export/ExportOdt.php:631
 #: libraries/classes/Plugins/Export/ExportTexytext.php:473
@@ -8874,11 +8874,11 @@ msgstr "ชุดตัวอักษร"
 msgid "Definition"
 msgstr "รายละเอียด"
 
-#: libraries/classes/Database/Routines.php:958
+#: libraries/classes/Database/Routines.php:959
 msgid "Is deterministic"
 msgstr "คือการกำหนด"
 
-#: libraries/classes/Database/Routines.php:966
+#: libraries/classes/Database/Routines.php:967
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:74
 #: templates/database/operations/index.twig:178
@@ -8891,29 +8891,29 @@ msgstr "คือการกำหนด"
 msgid "Adjust privileges"
 msgstr "แก้ไขสิทธิ"
 
-#: libraries/classes/Database/Routines.php:977
+#: libraries/classes/Database/Routines.php:978
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:987
-#: libraries/classes/Database/Triggers.php:449
+#: libraries/classes/Database/Routines.php:988
+#: libraries/classes/Database/Triggers.php:450
 #: templates/database/events/editor_form.twig:89 templates/view_create.twig:45
 msgid "Definer"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:992
+#: libraries/classes/Database/Routines.php:993
 #, fuzzy
 #| msgid "Query type"
 msgid "Security type"
 msgstr "ชนิดคำค้น"
 
-#: libraries/classes/Database/Routines.php:1001
+#: libraries/classes/Database/Routines.php:1002
 msgid "SQL data access"
 msgstr "เข้าถึงข้อมูล SQL"
 
-#: libraries/classes/Database/Routines.php:1013
+#: libraries/classes/Database/Routines.php:1014
 #: templates/columns_definitions/partitions.twig:85
 #: templates/database/data_dictionary/index.twig:73
 #: templates/database/events/editor_form.twig:95
@@ -8925,65 +8925,65 @@ msgstr "เข้าถึงข้อมูล SQL"
 msgid "Comment"
 msgstr "หมายเหตุ"
 
-#: libraries/classes/Database/Routines.php:1067
+#: libraries/classes/Database/Routines.php:1068
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1085
+#: libraries/classes/Database/Routines.php:1086
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1107
-#: libraries/classes/Database/Routines.php:1180
+#: libraries/classes/Database/Routines.php:1108
+#: libraries/classes/Database/Routines.php:1181
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1162
+#: libraries/classes/Database/Routines.php:1163
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1251
+#: libraries/classes/Database/Routines.php:1252
 #, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
 msgstr "คุณจะต้องให้ชื่อปกติ"
 
-#: libraries/classes/Database/Routines.php:1316
+#: libraries/classes/Database/Routines.php:1317
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1400
-#: libraries/classes/Database/Routines.php:1578
+#: libraries/classes/Database/Routines.php:1401
+#: libraries/classes/Database/Routines.php:1579
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "ไม่พบตารางใด ๆ ในฐานข้อมูล"
 
-#: libraries/classes/Database/Routines.php:1439
+#: libraries/classes/Database/Routines.php:1440
 #, php-format
 msgid "Execution results of routine %s"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1489
+#: libraries/classes/Database/Routines.php:1490
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 
-#: libraries/classes/Database/Routines.php:1562
-#: libraries/classes/Database/Routines.php:1569
+#: libraries/classes/Database/Routines.php:1563
+#: libraries/classes/Database/Routines.php:1570
 msgid "Execute routine"
 msgstr "ดำเนินงานตามปกติ"
 
-#: libraries/classes/Database/Routines.php:1647
-#: libraries/classes/Database/Routines.php:1650
+#: libraries/classes/Database/Routines.php:1648
+#: libraries/classes/Database/Routines.php:1651
 msgid "Routine parameters"
 msgstr "พารามิเตอร์ตามปกติ"
 
-#: libraries/classes/Database/Routines.php:1657
+#: libraries/classes/Database/Routines.php:1658
 #: libraries/classes/InsertEdit.php:353
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:29
 #: templates/table/search/index.twig:36
@@ -8991,7 +8991,7 @@ msgstr "พารามิเตอร์ตามปกติ"
 msgid "Function"
 msgstr "ฟังก์ชั่น"
 
-#: libraries/classes/Database/Routines.php:1659
+#: libraries/classes/Database/Routines.php:1660
 #: libraries/classes/InsertEdit.php:2006
 #: templates/database/designer/main.twig:486
 #: templates/database/designer/main.twig:651
@@ -9006,16 +9006,16 @@ msgstr "ฟังก์ชั่น"
 msgid "Value"
 msgstr "ค่า"
 
-#: libraries/classes/Database/Routines.php:1865
+#: libraries/classes/Database/Routines.php:1866
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1895
+#: libraries/classes/Database/Routines.php:1896
 #, php-format
 msgid "Export of routine %s"
 msgstr ""
 
-#: libraries/classes/Database/Routines.php:1914
+#: libraries/classes/Database/Routines.php:1915
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -9065,31 +9065,31 @@ msgstr "โยนตาราง %s ทิ้งไปเรียบร้อ�
 msgid "Trigger %1$s has been created."
 msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
 
-#: libraries/classes/Database/Triggers.php:262
+#: libraries/classes/Database/Triggers.php:263
 #: templates/database/triggers/footer.twig:7
 #: templates/database/triggers/footer.twig:11
 msgid "Add trigger"
 msgstr "เพิ่ม Trigger"
 
-#: libraries/classes/Database/Triggers.php:266
+#: libraries/classes/Database/Triggers.php:267
 #, fuzzy
 msgid "Edit trigger"
 msgstr "เพิ่มผู้ใช้ใหม่"
 
-#: libraries/classes/Database/Triggers.php:392
+#: libraries/classes/Database/Triggers.php:393
 #, fuzzy
 #| msgid "server name"
 msgid "Trigger name"
 msgstr "ชื่อผู้ใช้"
 
-#: libraries/classes/Database/Triggers.php:415
+#: libraries/classes/Database/Triggers.php:416
 #, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "เวลา"
 
-#: libraries/classes/Database/Triggers.php:429
+#: libraries/classes/Database/Triggers.php:430
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:494
 #: libraries/classes/Plugins/Export/ExportOdt.php:628
 #: libraries/classes/Plugins/Export/ExportTexytext.php:472
@@ -9098,50 +9098,50 @@ msgstr "เวลา"
 msgid "Event"
 msgstr "เหตุการณ์"
 
-#: libraries/classes/Database/Triggers.php:495
+#: libraries/classes/Database/Triggers.php:496
 #, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a trigger name!"
 msgstr "คุณจะต้องให้ชื่อปกติ"
 
-#: libraries/classes/Database/Triggers.php:502
+#: libraries/classes/Database/Triggers.php:503
 #, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid timing for the trigger!"
 msgstr "คุณจะต้องให้ชื่อปกติ"
 
-#: libraries/classes/Database/Triggers.php:509
+#: libraries/classes/Database/Triggers.php:510
 #, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid event for the trigger!"
 msgstr "คุณจะต้องให้ชื่อปกติ"
 
-#: libraries/classes/Database/Triggers.php:517
+#: libraries/classes/Database/Triggers.php:518
 #, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a valid table name!"
 msgstr "คุณจะต้องให้ชื่อปกติ"
 
-#: libraries/classes/Database/Triggers.php:523
+#: libraries/classes/Database/Triggers.php:524
 msgid "You must provide a trigger definition."
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:547
+#: libraries/classes/Database/Triggers.php:548
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
-#: libraries/classes/Database/Triggers.php:581
+#: libraries/classes/Database/Triggers.php:582
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "ไม่พบ Trigger %1$s ในฐานข้อมูล %2$s"
 
-#: libraries/classes/Database/Triggers.php:617
+#: libraries/classes/Database/Triggers.php:618
 #, php-format
 msgid "Export of trigger %s"
 msgstr "นำออก Trigger %s"
 
-#: libraries/classes/Database/Triggers.php:635
+#: libraries/classes/Database/Triggers.php:636
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid ""
@@ -9200,8 +9200,8 @@ msgid "Full texts"
 msgstr "ทั้งข้อความ"
 
 #: libraries/classes/Display/Results.php:1939
-#: libraries/classes/Display/Results.php:1965 libraries/classes/Util.php:3111
-#: libraries/classes/Util.php:3134 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1965 libraries/classes/Util.php:3125
+#: libraries/classes/Util.php:3148 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:61
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:114
@@ -9214,8 +9214,8 @@ msgid "Descending"
 msgstr "มากไปน้อย"
 
 #: libraries/classes/Display/Results.php:1947
-#: libraries/classes/Display/Results.php:1957 libraries/classes/Util.php:3103
-#: libraries/classes/Util.php:3126 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1957 libraries/classes/Util.php:3117
+#: libraries/classes/Util.php:3140 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:60
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:112
@@ -10021,7 +10021,7 @@ msgstr ""
 
 #: libraries/classes/Menu.php:275
 #: libraries/classes/Navigation/Nodes/NodeTable.php:322
-#: libraries/classes/Util.php:1721 libraries/classes/Util.php:2491
+#: libraries/classes/Util.php:1721 libraries/classes/Util.php:2505
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10031,8 +10031,8 @@ msgstr "เปิดดู"
 
 #: libraries/classes/Menu.php:294 libraries/classes/Menu.php:410
 #: libraries/classes/Navigation/Nodes/NodeTable.php:313
-#: libraries/classes/Util.php:1719 libraries/classes/Util.php:2477
-#: libraries/classes/Util.php:2494 libraries/config.values.php:64
+#: libraries/classes/Util.php:1719 libraries/classes/Util.php:2491
+#: libraries/classes/Util.php:2508 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179
 #: templates/database/structure/structure_table_row.twig:53
@@ -10041,7 +10041,7 @@ msgstr "ค้นหา"
 
 #: libraries/classes/Menu.php:305
 #: libraries/classes/Navigation/Nodes/NodeTable.php:316
-#: libraries/classes/Util.php:1720 libraries/classes/Util.php:2495
+#: libraries/classes/Util.php:1720 libraries/classes/Util.php:2509
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10051,8 +10051,8 @@ msgid "Insert"
 msgstr "แทรก"
 
 #: libraries/classes/Menu.php:332 libraries/classes/Menu.php:450
-#: libraries/classes/Server/Privileges.php:2973 libraries/classes/Util.php:2482
-#: libraries/classes/Util.php:2498 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2973 libraries/classes/Util.php:2496
+#: libraries/classes/Util.php:2512 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -10062,14 +10062,14 @@ msgstr "สิทธิ"
 
 #: libraries/classes/Menu.php:342 libraries/classes/Menu.php:351
 #: libraries/classes/Menu.php:441 libraries/classes/Util.php:1722
-#: libraries/classes/Util.php:2481 libraries/classes/Util.php:2499
+#: libraries/classes/Util.php:2495 libraries/classes/Util.php:2513
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "กระบวนการ"
 
 #: libraries/classes/Menu.php:357 libraries/classes/Menu.php:476
-#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2486
-#: libraries/classes/Util.php:2500
+#: libraries/classes/Relation.php:316 libraries/classes/Util.php:2500
+#: libraries/classes/Util.php:2514
 msgid "Tracking"
 msgstr "การติดตาม"
 
@@ -10081,7 +10081,7 @@ msgstr "การติดตาม"
 #: libraries/classes/Plugins/Export/ExportSql.php:2165
 #: libraries/classes/Plugins/Export/ExportTexytext.php:559
 #: libraries/classes/Plugins/Export/ExportXml.php:135
-#: libraries/classes/Util.php:2485 libraries/classes/Util.php:2501
+#: libraries/classes/Util.php:2499 libraries/classes/Util.php:2515
 #: templates/database/triggers/list.twig:6
 msgid "Triggers"
 msgstr "ทริกเกอร์"
@@ -10091,11 +10091,11 @@ msgstr "ทริกเกอร์"
 msgid "Database seems to be empty!"
 msgstr "ดูเหมือนว่าฐานข้อมูลจะว่างเปล่า!"
 
-#: libraries/classes/Menu.php:418 libraries/classes/Util.php:2478
+#: libraries/classes/Menu.php:418 libraries/classes/Util.php:2492
 msgid "Query"
 msgstr "คำค้นจากตัวอย่าง"
 
-#: libraries/classes/Menu.php:456 libraries/classes/Util.php:2483
+#: libraries/classes/Menu.php:456 libraries/classes/Util.php:2497
 #: templates/database/routines/index.twig:18
 msgid "Routines"
 msgstr ""
@@ -10104,15 +10104,15 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:24
 #: libraries/classes/Plugins/Export/ExportSql.php:1017
 #: libraries/classes/Plugins/Export/ExportXml.php:115
-#: libraries/classes/Util.php:2484 templates/database/events/index.twig:6
+#: libraries/classes/Util.php:2498 templates/database/events/index.twig:6
 msgid "Events"
 msgstr "เหตุการณ์"
 
-#: libraries/classes/Menu.php:483 libraries/classes/Util.php:2487
+#: libraries/classes/Menu.php:483 libraries/classes/Util.php:2501
 msgid "Designer"
 msgstr "ผู้ออกแบบ"
 
-#: libraries/classes/Menu.php:492 libraries/classes/Util.php:2488
+#: libraries/classes/Menu.php:492 libraries/classes/Util.php:2502
 #: templates/database/structure/check_all_tables.twig:32
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
@@ -10126,13 +10126,13 @@ msgid "User accounts"
 msgstr "ผู้ใช้"
 
 #: libraries/classes/Menu.php:588 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:2467 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:2481 templates/server/binlog/index.twig:3
 #, fuzzy
 msgid "Binary log"
 msgstr "ข้อมูลไบนารี "
 
 #: libraries/classes/Menu.php:595 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:2468
+#: libraries/classes/Util.php:2482
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10140,21 +10140,21 @@ msgid "Replication"
 msgstr "การจำลองแบบ"
 
 #: libraries/classes/Menu.php:601 libraries/classes/Server/Status/Data.php:228
-#: libraries/classes/Util.php:2469 libraries/config.values.php:159
+#: libraries/classes/Util.php:2483 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:178
 msgid "Variables"
 msgstr "ตัวแปร"
 
-#: libraries/classes/Menu.php:606 libraries/classes/Util.php:2470
+#: libraries/classes/Menu.php:606 libraries/classes/Util.php:2484
 msgid "Charsets"
 msgstr "ชุดอักขระ"
 
-#: libraries/classes/Menu.php:611 libraries/classes/Util.php:2472
+#: libraries/classes/Menu.php:611 libraries/classes/Util.php:2486
 msgid "Engines"
 msgstr "เครื่องมือ"
 
-#: libraries/classes/Menu.php:616 libraries/classes/Util.php:2471
+#: libraries/classes/Menu.php:616 libraries/classes/Util.php:2485
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "ปลั๊กอิน"
@@ -13511,11 +13511,11 @@ msgstr "%s วัน, %s ชั่วโมง, %s นาที, %s วินา
 msgid "Missing parameter:"
 msgstr "เพิ่มฟิลด์ใหม่"
 
-#: libraries/classes/Util.php:2463
+#: libraries/classes/Util.php:2477
 msgid "Users"
 msgstr "ผู้ใช้"
 
-#: libraries/classes/Util.php:3095
+#: libraries/classes/Util.php:3109
 #: templates/database/multi_table_query/form.twig:59
 msgid "Sort"
 msgstr "เรียง"
@@ -16304,6 +16304,18 @@ msgstr "กรุณากรอกวันที่และเวลาที
 #: templates/javascript/variables.twig:107
 msgid "Please enter a valid HEX input"
 msgstr "กรุณากรอกเลขฐานสิบหกที่ถูกต้อง"
+
+#. l10n: To validate the usage of a MD5 function on the column
+#: templates/javascript/variables.twig:108
+msgid "This column can not contain a 32 chars value"
+msgstr ""
+
+#. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
+#: templates/javascript/variables.twig:109
+msgid ""
+"These functions are meant to return a binary result; to avoid inconsistent "
+"results you should store it in a BINARY, VARBINARY, or BLOB column."
+msgstr ""
 
 #: templates/login/form.twig:30
 msgid "Log in"
