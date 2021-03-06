@@ -46,9 +46,6 @@ use PhpMyAdmin\Session;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi;
 global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $PMA_Theme;
@@ -105,9 +102,7 @@ if ($route === '/import-status') {
     // phpcs:enable
 }
 
-$containerBuilder = new ContainerBuilder();
-$loader = new PhpFileLoader($containerBuilder, new FileLocator(__DIR__));
-$loader->load('services_loader.php');
+$containerBuilder = Core::getContainerBuilder();
 
 /**
  * Load gettext functions.
