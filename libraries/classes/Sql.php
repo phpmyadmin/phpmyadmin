@@ -32,6 +32,7 @@ use function stripos;
 use function strlen;
 use function strpos;
 use function ucwords;
+use function defined;
 
 /**
  * Set of functions for the SQL executor
@@ -641,8 +642,10 @@ class Sql
      */
     private function executeQueryAndMeasureTime($full_sql_query)
     {
-        // close session in case the query takes too long
-        session_write_close();
+        if (! defined('TESTSUITE')) {
+            // close session in case the query takes too long
+            session_write_close();
+        }
 
         // Measure query time.
         $querytime_before = array_sum(explode(' ', microtime()));
@@ -654,8 +657,10 @@ class Sql
         );
         $querytime_after = array_sum(explode(' ', microtime()));
 
-        // reopen session
-        session_start();
+        if (! defined('TESTSUITE')) {
+            // reopen session
+            session_start();
+        }
 
         return [
             $result,
