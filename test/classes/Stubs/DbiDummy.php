@@ -351,7 +351,12 @@ class DbiDummy implements DbiExtension
      */
     public function getFieldsMeta($result)
     {
-        return [];
+        $query_data = &$this->getQueryData($result);
+        if (! isset($query_data['metadata'])) {
+            return [];
+        }
+
+        return $query_data['metadata'];
     }
 
     /**
