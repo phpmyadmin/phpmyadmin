@@ -118,16 +118,18 @@ abstract class AbstractTestCase extends TestCase
     {
         $httpProxy = getenv('http_proxy');
         $urlInfo = parse_url((string) $httpProxy);
-        if (PHP_SAPI === 'cli' && is_array($urlInfo)) {
-            $proxyUrl = ($urlInfo['host'] ?? '')
-                . (isset($urlInfo['port']) ? ':' . $urlInfo['port'] : '');
-            $proxyUser = $urlInfo['user'] ?? '';
-            $proxyPass = $urlInfo['pass'] ?? '';
-
-            $GLOBALS['cfg']['ProxyUrl'] = $proxyUrl;
-            $GLOBALS['cfg']['ProxyUser'] = $proxyUser;
-            $GLOBALS['cfg']['ProxyPass'] = $proxyPass;
+        if (PHP_SAPI !== 'cli' || ! is_array($urlInfo)) {
+            return;
         }
+
+        $proxyUrl = ($urlInfo['host'] ?? '')
+            . (isset($urlInfo['port']) ? ':' . $urlInfo['port'] : '');
+        $proxyUser = $urlInfo['user'] ?? '';
+        $proxyPass = $urlInfo['pass'] ?? '';
+
+        $GLOBALS['cfg']['ProxyUrl'] = $proxyUrl;
+        $GLOBALS['cfg']['ProxyUser'] = $proxyUser;
+        $GLOBALS['cfg']['ProxyPass'] = $proxyPass;
     }
 
     protected function defineVersionConstants(): void

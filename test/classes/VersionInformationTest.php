@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\VersionInformation;
 use stdClass;
+use function count;
 
 class VersionInformationTest extends AbstractTestCase
 {
@@ -182,11 +183,9 @@ class VersionInformationTest extends AbstractTestCase
                 ['PHP', '>=5.3'],
                 ['PHP', '<7.1'],
                 ['MySQL', '>=5.5'],
-
                 ['PHP', '>=5.3'],
                 ['PHP', '<7.0'],
                 ['MySQL', '>=5.5'],
-
                 ['PHP', '>=5.2'],
                 ['PHP', '<5.3'],
                 ['MySQL', '>=5.0']
