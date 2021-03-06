@@ -94,7 +94,7 @@ They are called ':term:`Media type`', 'Browser transformation' and
   the phpMyAdmin SQL editor interface) or selector (such as for uploading an image).
   It's also possible to manipulate the data such as converting an IPv4 address to binary
   or parsing it through a regular expression.
-* Finally, 'Input transformation options' is the equivilent of the "Browser display
+* Finally, 'Input transformation options' is the equivalent of the "Browser display
   transformation options" section above and is where optional and required parameters are entered.
 
 .. _transformationsfiles:
