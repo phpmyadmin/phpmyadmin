@@ -2600,11 +2600,13 @@ class InsertEdit
     ) {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
         if (is_file($include_file)) {
+            // $cfg['SaveCellsAtOnce'] = true; JS code sends an array
+            $whereClause = is_array($_POST['where_clause']) ? $_POST['where_clause'][0] : $_POST['where_clause'];
             $_url_params = [
                 'db'            => $db,
                 'table'         => $table,
-                'where_clause_sign' => Core::signSqlQuery($_POST['where_clause']),
-                'where_clause'  => $_POST['where_clause'],
+                'where_clause_sign' => Core::signSqlQuery($whereClause),
+                'where_clause'  => $whereClause,
                 'transform_key' => $column_name,
             ];
             $transform_options = $this->transformations->getOptions(
