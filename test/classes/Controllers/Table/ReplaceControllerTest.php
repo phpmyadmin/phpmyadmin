@@ -94,7 +94,11 @@ class ReplaceControllerTest extends AbstractTestCase
         $replaceController = $containerBuilder->get(ReplaceController::class);
         $replaceController->index();
         $this->assertStringContainsString(
-            'MySQL returned an empty result set (i.e. zero rows)',
+            'class="icon ic_s_success"> Showing rows 0 -  1 (2 total, Query took',
+            $this->getResponseHtmlResult()
+        );
+        $this->assertStringContainsString(
+            'SELECT * FROM `test_tbl`',
             $this->getResponseHtmlResult()
         );
     }

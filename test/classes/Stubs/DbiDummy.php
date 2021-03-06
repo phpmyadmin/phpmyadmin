@@ -948,6 +948,12 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                    . ' WHERE TABLE_SCHEMA = \'my_db\' '
+                    . 'AND TABLE_NAME = \'test_tbl\' AND IS_UPDATABLE = \'YES\'',
+                'result' => [],
+            ],
+            [
                 'query'   => 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`,'
                     . ' `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`,'
                     . ' `ENGINE` AS `Type`, `VERSION` AS `Version`,'
@@ -1910,6 +1916,10 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
+                'query' => 'SHOW COLUMNS FROM `my_db`.`test_tbl`',
+                'result' => [],
+            ],
+            [
                 'query' => 'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
                 'result' => [
                     ['Type' => 'set(\'Select\',\'Insert\',\'Update\',\'References\',\'Create View\',\'Show view\')'],
@@ -2101,6 +2111,10 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SHOW INDEXES FROM `mysql`.`user`',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW INDEXES FROM `my_db`.`test_tbl`',
                 'result' => [],
             ],
             [
@@ -2329,7 +2343,19 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SELECT * FROM `test_tbl` LIMIT 0, 25',
-                'result' => [],
+                'columns' => ['vc', 'text', 'ser'],
+                'result' => [
+                    [
+                        'sss s s  ',
+                        '…z',
+                        1,
+                    ],
+                    [
+                        'zzff s sf',
+                        '…zff',
+                        2,
+                    ],
+                ],
             ],
             [
                 'query' => 'SELECT @@have_profiling',
