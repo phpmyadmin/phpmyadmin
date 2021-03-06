@@ -10,7 +10,6 @@ use PhpMyAdmin\Plugins\Export\ExportSql;
 use function array_merge;
 use function count;
 use function explode;
-use function implode;
 use function mb_strtolower;
 use function str_replace;
 use function strlen;
@@ -711,35 +710,6 @@ class Operations
     }
 
     /**
-     * Reorder table based on request params
-     *
-     * @return array SQL query and result
-     */
-    public function getQueryAndResultForReorderingTable()
-    {
-        $sql_query = 'ALTER TABLE '
-            . Util::backquote($GLOBALS['table'])
-            . ' ORDER BY '
-            . Util::backquote(urldecode($_POST['order_field']));
-        if (
-            isset($_POST['order_order'])
-            && $_POST['order_order'] === 'desc'
-        ) {
-            $sql_query .= ' DESC';
-        } else {
-            $sql_query .= ' ASC';
-        }
-
-        $sql_query .= ';';
-        $result = $this->dbi->query($sql_query);
-
-        return [
-            $sql_query,
-            $result,
-        ];
-    }
-
-    /**
      * Get table alters array
      *
      * @param Table  $pma_table           The Table object
@@ -891,33 +861,6 @@ class Operations
         }
 
         return $warning_messages;
-    }
-
-    /**
-     * Get SQL query and result after ran this SQL query for a partition operation
-     * has been requested by the user
-     *
-     * @return array $sql_query, $result
-     */
-    public function getQueryAndResultForPartition()
-    {
-        $sql_query = 'ALTER TABLE '
-            . Util::backquote($GLOBALS['table']) . ' '
-            . $_POST['partition_operation']
-            . ' PARTITION ';
-
-        if ($_POST['partition_operation'] === 'COALESCE') {
-            $sql_query .= count($_POST['partition_name']);
-        } else {
-            $sql_query .= implode(', ', $_POST['partition_name']) . ';';
-        }
-
-        $result = $this->dbi->query($sql_query);
-
-        return [
-            $sql_query,
-            $result,
-        ];
     }
 
     /**

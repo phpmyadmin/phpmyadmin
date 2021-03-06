@@ -13,6 +13,7 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Partition;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -28,6 +29,7 @@ use function mb_strtolower;
 use function mb_strtoupper;
 use function preg_replace;
 use function strlen;
+use function urldecode;
 
 class OperationsController extends AbstractController
 {
@@ -284,7 +286,12 @@ class OperationsController extends AbstractController
          * Reordering the table has been requested by the user
          */
         if (isset($_POST['submitorderby']) && ! empty($_POST['order_field'])) {
-            [$sql_query, $result] = $this->operations->getQueryAndResultForReorderingTable();
+            $sql_query = QueryGenerator::getQueryForReorderingTable(
+                $table,
+                urldecode($_POST['order_field']),
+                $_POST['order_order'] ?? null
+            );
+            $result = $this->dbi->query($sql_query);
         }
 
         /**
@@ -294,7 +301,12 @@ class OperationsController extends AbstractController
             isset($_POST['submit_partition'])
             && ! empty($_POST['partition_operation'])
         ) {
-            [$sql_query, $result] = $this->operations->getQueryAndResultForPartition();
+            $sql_query = QueryGenerator::getQueryForPartitioningTable(
+                $table,
+                $_POST['partition_operation'],
+                $_POST['partition_name']
+            );
+            $result = $this->dbi->query($sql_query);
         }
 
         if ($reread_info) {

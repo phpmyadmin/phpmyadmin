@@ -377,4 +377,41 @@ class Generator
             Util::backquote($newIndexName)
         );
     }
+
+    /**
+     * Function to get sql query to re-order the table
+     */
+    public static function getQueryForReorderingTable(
+        string $table,
+        string $orderField,
+        ?string $order
+    ): string {
+        return 'ALTER TABLE '
+            . Util::backquote($table)
+            . ' ORDER BY '
+            . Util::backquote($orderField)
+            . ($order === 'desc' ? ' DESC;' : ' ASC;');
+    }
+
+    /**
+     * Function to get sql query to partition the table
+     *
+     * @param string[] $partitionNames
+     */
+    public static function getQueryForPartitioningTable(
+        string $table,
+        string $partitionOperation,
+        array $partitionNames
+    ): string {
+        $sql_query = 'ALTER TABLE '
+            . Util::backquote($table) . ' '
+            . $partitionOperation
+            . ' PARTITION ';
+
+        if ($partitionOperation === 'COALESCE') {
+            return $sql_query . count($partitionNames);
+        }
+
+        return $sql_query . implode(', ', $partitionNames) . ';';
+    }
 }
