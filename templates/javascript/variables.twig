@@ -105,7 +105,8 @@ function extendingValidatorMessages () {
     min: $.validator.format('{{ 'Please enter a value greater than or equal to {0}'|trans }}'),
     validationFunctionForDateTime: $.validator.format('{{ 'Please enter a valid date or time'|trans }}'),
     validationFunctionForHex: $.validator.format('{{ 'Please enter a valid HEX input'|trans }}'),
-    validationFunctionForFuns: $.validator.format('{{ 'Error'|trans }}')
+    validationFunctionForMd5: $.validator.format('{% apply escape('js') %}{% trans %}This column can not contain a 32 chars value{% notes %}To validate the usage of a MD5 function on the column{% endtrans %}{% endapply %}'),
+    validationFunctionForAesDesEncrypt: $.validator.format('{% apply escape('js') %}{% trans %}These functions are meant to return a binary result; to avoid inconsistent results you should store it in a BINARY, VARBINARY, or BLOB column.{% notes %}To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column{% endtrans %}{% endapply %}')
   });
 }
 {% endautoescape %}

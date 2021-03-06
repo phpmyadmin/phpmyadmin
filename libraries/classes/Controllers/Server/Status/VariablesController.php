@@ -549,7 +549,7 @@ class VariablesController extends AbstractController
             ),
             'Opened_tables' => __(
                 'The number of tables that have been opened. If opened tables is'
-                . ' big, your table cache value is probably too small.'
+                . ' big, your table_open_cache value is probably too small.'
             ),
             'Open_files' => __(
                 'The number of files that are open.'

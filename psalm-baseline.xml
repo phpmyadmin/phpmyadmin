@@ -2231,6 +2231,13 @@
       <code>bool</code>
     </ImplementedReturnTypeMismatch>
   </file>
+  <file src="libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php">
+    <RedundantCastGivenDocblockType occurrences="3">
+      <code>(string) $buffer</code>
+      <code>(string) $buffer</code>
+      <code>(string) $buffer</code>
+    </RedundantCastGivenDocblockType>
+  </file>
   <file src="libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php">
     <FalsableReturnStatement occurrences="1">
       <code>FormatConverter::binaryToIp($buffer)</code>

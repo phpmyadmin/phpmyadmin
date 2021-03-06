@@ -1035,6 +1035,98 @@ class TransformationPluginsTest extends AbstractTestCase
                 'suffixMA_suffix',
             ],
             [
+                new Text_Plain_Substring(),
+                [
+                    'PMA_BUFFER',
+                    [
+                        '1',
+                        '3',
+                        'suffix',
+                    ],
+                ],
+                'suffixMA_suffix',
+            ],
+            [
+                new Text_Plain_Substring(),
+                [
+                    'PMA_BUFFER',
+                    ['2'],
+                ],
+                '…A_BUFFER',
+            ],
+            [
+                new Text_Plain_Substring(),
+                [
+                    'PMA_BUFFER',
+                    [2],
+                ],
+                '…A_BUFFER',
+            ],
+            [
+                new Text_Plain_Substring(),
+                [
+                    'PMA_BUFFER',
+                    [0],
+                ],
+                'PMA_BUFFER',
+            ],
+            [
+                new Text_Plain_Substring(),
+                [
+                    'PMA_BUFFER',
+                    ['0'],
+                ],
+                'PMA_BUFFER',
+            ],
+            [
+                new Text_Plain_Substring(),
+                [
+                    'PMA_BUFFER',
+                    [
+                        -1,
+                    ],
+                ],
+                '…R…',
+            ],
+            [
+                new Text_Plain_Substring(),
+                [
+                    'PMA_BUFFER',
+                    ['-1'],
+                ],
+                '…R…',
+            ],
+            [
+                new Text_Plain_Substring(),
+                [
+                    'PMA_BUFFER',
+                    [
+                        0,
+                        2,
+                    ],
+                ],
+                'PM…',
+            ],
+            [
+                new Text_Plain_Substring(),
+                [
+                    'PMA_BUFFER',
+                    [
+                        '0',
+                        '2',
+                    ],
+                ],
+                'PM…',
+            ],
+            [
+                new Text_Plain_Substring(),
+                [
+                    2,
+                    [],
+                ],
+                '2',
+            ],
+            [
                 new Text_Plain_Longtoipv4(),
                 [168496141],
                 '10.11.12.13',

@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Theme;
@@ -81,6 +83,39 @@ abstract class AbstractTestCase extends TestCase
         global $cfg;
 
         require ROOT_PATH . 'libraries/config.default.php';
+    }
+
+    protected function loadContainerBuilder(): void
+    {
+        global $containerBuilder;
+
+        $containerBuilder = Core::getContainerBuilder();
+    }
+
+    protected function loadDbiIntoContainerBuilder(): void
+    {
+        global $containerBuilder, $dbi;
+
+        $containerBuilder->set(DatabaseInterface::class, $dbi);
+        $containerBuilder->setAlias('dbi', DatabaseInterface::class);
+    }
+
+    protected function loadResponseIntoContainerBuilder(): void
+    {
+        global $containerBuilder;
+
+        $response = new Response();
+        $containerBuilder->set(Response::class, $response);
+        $containerBuilder->setAlias('response', Response::class);
+    }
+
+    protected function getResponseHtmlResult(): string
+    {
+        global $containerBuilder;
+        $response = $containerBuilder->get(Response::class);
+
+        /** @var Response $response */
+        return $response->getHTMLResult();
     }
 
     protected function setGlobalDbi(): void

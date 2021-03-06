@@ -908,8 +908,51 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
+                'query'   => 'SELECT `column_name`, `mimetype`, `transformation`,'
+                    . ' `transformation_options`, `input_transformation`,'
+                    . ' `input_transformation_options`'
+                    . ' FROM `information_schema`.`column_info`'
+                    . ' WHERE `db_name` = \'my_db\' AND `table_name` = \'test_tbl\''
+                    . ' AND ( `mimetype` != \'\' OR `transformation` != \'\''
+                    . ' OR `transformation_options` != \'\''
+                    . ' OR `input_transformation` != \'\''
+                    . ' OR `input_transformation_options` != \'\')',
+                'columns' => [
+                    'column_name',
+                    'mimetype',
+                    'transformation',
+                    'transformation_options',
+                    'input_transformation',
+                    'input_transformation_options',
+                ],
+                'result'  => [
+                    [
+                        'vc',
+                        '',
+                        'output/text_plain_json.php',
+                        '',
+                        'Input/Text_Plain_JsonEditor.php',
+                        '',
+                    ],
+                    [
+                        'vc',
+                        '',
+                        'output/text_plain_formatted.php',
+                        '',
+                        'Text_Plain_Substring.php',
+                        '1',
+                    ],
+                ],
+            ],
+            [
                 'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'pma_test\' AND TABLE_NAME = \'table1\'',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                    . ' WHERE TABLE_SCHEMA = \'my_db\' '
+                    . 'AND TABLE_NAME = \'test_tbl\' AND IS_UPDATABLE = \'YES\'',
                 'result' => [],
             ],
             [
@@ -1123,6 +1166,69 @@ class DbiDummy implements DbiExtension
                         'NULL',
                     ],
                 ],
+            ],
+            [
+                'query'   => 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`,'
+                    . ' `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`,'
+                    . ' `ENGINE` AS `Type`, `VERSION` AS `Version`,'
+                    . ' `ROW_FORMAT` AS `Row_format`, `TABLE_ROWS` AS `Rows`,'
+                    . ' `AVG_ROW_LENGTH` AS `Avg_row_length`,'
+                    . ' `DATA_LENGTH` AS `Data_length`,'
+                    . ' `MAX_DATA_LENGTH` AS `Max_data_length`,'
+                    . ' `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`,'
+                    . ' `AUTO_INCREMENT` AS `Auto_increment`,'
+                    . ' `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`,'
+                    . ' `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`,'
+                    . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
+                    . ' `TABLE_COMMENT` AS `Comment`'
+                    . ' FROM `information_schema`.`TABLES` t'
+                    . ' WHERE `TABLE_SCHEMA` IN (\'my_db\')'
+                    . ' AND t.`TABLE_NAME` = \'test_tbl\' ORDER BY Name ASC',
+                'columns' => [
+                    'TABLE_CATALOG',
+                    'TABLE_SCHEMA',
+                    'TABLE_NAME',
+                    'TABLE_TYPE',
+                    'ENGINE',
+                    'VERSION',
+                    'ROW_FORMAT',
+                    'TABLE_ROWS',
+                    'AVG_ROW_LENGTH',
+                    'DATA_LENGTH',
+                    'MAX_DATA_LENGTH',
+                    'INDEX_LENGTH',
+                    'DATA_FREE',
+                    'AUTO_INCREMENT',
+                    'CREATE_TIME',
+                    'UPDATE_TIME',
+                    'CHECK_TIME',
+                    'TABLE_COLLATION',
+                    'CHECKSUM',
+                    'CREATE_OPTIONS',
+                    'TABLE_COMMENT',
+                    'Db',
+                    'Name',
+                    'TABLE_TYPE',
+                    'Engine',
+                    'Type',
+                    'Version',
+                    'Row_format',
+                    'Rows',
+                    'Avg_row_length',
+                    'Data_length',
+                    'Max_data_length',
+                    'Index_length',
+                    'Data_free',
+                    'Auto_increment',
+                    'Create_time',
+                    'Update_time',
+                    'Check_time',
+                    'Collation',
+                    'Checksum',
+                    'Create_options',
+                    'Comment',
+                ],
+                'result'  => [],
             ],
             [
                 'query'  => 'SELECT COUNT(*) FROM `pma_test`.`table1`',
@@ -1812,6 +1918,10 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
+                'query' => 'SHOW COLUMNS FROM `my_db`.`test_tbl`',
+                'result' => [],
+            ],
+            [
                 'query' => 'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
                 'result' => [
                     ['Type' => 'set(\'Select\',\'Insert\',\'Update\',\'References\',\'Create View\',\'Show view\')'],
@@ -2003,6 +2113,10 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SHOW INDEXES FROM `mysql`.`user`',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW INDEXES FROM `my_db`.`test_tbl`',
                 'result' => [],
             ],
             [
@@ -2316,6 +2430,90 @@ class DbiDummy implements DbiExtension
             [
                 'query'  => 'SET SQL_QUOTE_SHOW_CREATE = 1',
                 'result' => [],
+            ],
+            [
+                'query' => 'UPDATE `test_tbl` SET `vc` = \'…zff s sf\' WHERE `test`.`ser` = 2',
+                'result' => [],
+            ],
+            [
+                'query' => 'UPDATE `test_tbl` SET `vc` = \'…ss s s\' WHERE `test`.`ser` = 1',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT LAST_INSERT_ID();',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW WARNINGS',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT * FROM `information_schema`.`bookmark` WHERE dbase = \'my_db\''
+                . ' AND (user = \'user\') AND `label` = \'test_tbl\' LIMIT 1',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT `prefs` FROM `information_schema`.`table_uiprefs` WHERE `username` = \'user\''
+                . ' AND `db_name` = \'my_db\' AND `table_name` = \'test_tbl\'',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT DATABASE()',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT * FROM `test_tbl` LIMIT 0, 25',
+                'columns' => ['vc', 'text', 'ser'],
+                'result' => [
+                    [
+                        'sss s s  ',
+                        '…z',
+                        1,
+                    ],
+                    [
+                        'zzff s sf',
+                        '…zff',
+                        2,
+                    ],
+                ],
+            ],
+            [
+                'query' => 'SELECT @@have_profiling',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                    . ' WHERE TABLE_SCHEMA = \'my_db\' AND TABLE_NAME = \'test_tbl\'',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW FULL COLUMNS FROM `my_db`.`test_tbl`',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW TABLE STATUS FROM `my_db` WHERE `Name` LIKE \'test\_tbl%\'',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW CREATE TABLE `my_db`.`test_tbl`',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM `my_db`.`test_tbl`',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT `master_field`, `foreign_db`, `foreign_table`, `foreign_field`'
+                . ' FROM `information_schema`.`relation`'
+                . ' WHERE `master_db` = \'my_db\' AND `master_table` = \'test_tbl\'',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT `test_tbl`.`vc` FROM `my_db`.`test_tbl` WHERE `test`.`ser` = 2',
+                'result' => [],
+                'metadata' => [
+                    (object) ['type' => 'string'],
+                ],
             ],
         ];
         /**

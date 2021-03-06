@@ -10,7 +10,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 use function array_keys;
 use function array_pop;
@@ -1445,5 +1448,17 @@ class Core
          * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
          */
         $dbi->connect(DatabaseInterface::CONNECT_USER, null, DatabaseInterface::CONNECT_CONTROL);
+    }
+
+    /**
+     * Get the container builder
+     */
+    public static function getContainerBuilder(): ContainerBuilder
+    {
+        $containerBuilder = new ContainerBuilder();
+        $loader = new PhpFileLoader($containerBuilder, new FileLocator(ROOT_PATH . 'libraries'));
+        $loader->load('services_loader.php');
+
+        return $containerBuilder;
     }
 }
