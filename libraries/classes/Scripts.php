@@ -63,9 +63,9 @@ class Scripts
             return;
         }
 
-        $has_onload = $this->hasOnloadEvent($filename);
+        $hasOnload = $this->hasOnloadEvent($filename);
         $this->files[$hash] = [
-            'has_onload' => $has_onload,
+            'has_onload' => $hasOnload,
             'filename' => $filename,
             'params' => $params,
         ];

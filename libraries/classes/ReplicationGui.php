@@ -52,12 +52,12 @@ class ReplicationGui
         $html = '';
         if (isset($_SESSION['replication']['sr_action_status'], $_SESSION['replication']['sr_action_info'])) {
             if ($_SESSION['replication']['sr_action_status'] === 'error') {
-                $error_message = $_SESSION['replication']['sr_action_info'];
-                $html .= Message::error($error_message)->getDisplay();
+                $errorMessage = $_SESSION['replication']['sr_action_info'];
+                $html .= Message::error($errorMessage)->getDisplay();
                 $_SESSION['replication']['sr_action_status'] = 'unknown';
             } elseif ($_SESSION['replication']['sr_action_status'] === 'success') {
-                $success_message = $_SESSION['replication']['sr_action_info'];
-                $html .= Message::success($success_message)->getDisplay();
+                $successMessage = $_SESSION['replication']['sr_action_info'];
+                $html .= Message::success($successMessage)->getDisplay();
                 $_SESSION['replication']['sr_action_status'] = 'unknown';
             }
         }
@@ -340,28 +340,28 @@ class ReplicationGui
     {
         global $dbi;
 
-        $fields_info = $dbi->getColumns('mysql', 'user');
-        $username_length = 16;
-        $hostname_length = 41;
-        foreach ($fields_info as $val) {
+        $fieldsInfo = $dbi->getColumns('mysql', 'user');
+        $usernameLength = 16;
+        $hostnameLength = 41;
+        foreach ($fieldsInfo as $val) {
             if ($val['Field'] === 'User') {
                 strtok($val['Type'], '()');
                 $v = strtok('()');
                 if (Util::isInteger($v)) {
-                    $username_length = (int) $v;
+                    $usernameLength = (int) $v;
                 }
             } elseif ($val['Field'] === 'Host') {
                 strtok($val['Type'], '()');
                 $v = strtok('()');
                 if (Util::isInteger($v)) {
-                    $hostname_length = (int) $v;
+                    $hostnameLength = (int) $v;
                 }
             }
         }
 
         return [
-            $username_length,
-            $hostname_length,
+            $usernameLength,
+            $hostnameLength,
         ];
     }
 
@@ -528,14 +528,14 @@ class ReplicationGui
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
 
         // Attempt to connect to the new master server
-        $link_to_master = $this->replication->connectToMaster(
+        $linkToMaster = $this->replication->connectToMaster(
             $sr['username'],
             $sr['pma_pw'],
             $sr['hostname'],
             $sr['port']
         );
 
-        if (! $link_to_master) {
+        if (! $linkToMaster) {
             $_SESSION['replication']['sr_action_status'] = 'error';
             $_SESSION['replication']['sr_action_info'] = sprintf(
                 __('Unable to connect to master %s.'),
@@ -543,7 +543,7 @@ class ReplicationGui
             );
         } else {
             // Read the current master position
-            $position = $this->replication->slaveBinLogMaster($link_to_master);
+            $position = $this->replication->slaveBinLogMaster($linkToMaster);
 
             if (empty($position)) {
                 $_SESSION['replication']['sr_action_status'] = 'error';

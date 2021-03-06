@@ -416,37 +416,37 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#4 \\$sort_expression_nodirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeadersForColumns\\(\\) expects array, array\\|string given\\.$#"
+			message: "#^Parameter \\#4 \\$sortExpressionNoDirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getTableHeadersForColumns\\(\\) expects array, array\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#2 \\$sort_order of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSortingUrlParams\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#2 \\$sortOrder of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getSortingUrlParams\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#9 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#9 \\$defaultFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#8 \\$defaultFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#9 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array given\\.$#"
+			message: "#^Parameter \\#9 \\$transformOptions of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#8 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#8 \\$defaultFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#9 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array given\\.$#"
+			message: "#^Parameter \\#9 \\$transformOptions of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
@@ -456,17 +456,17 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#12 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowData\\(\\) expects array, string given\\.$#"
+			message: "#^Parameter \\#12 \\$transformOptions of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowData\\(\\) expects array, string given\\.$#"
 			count: 3
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#4 \\$transform_options of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array given\\.$#"
+			message: "#^Parameter \\#4 \\$transformOptions of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array given\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#5 \\$default_function of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array\\<int, string\\> given\\.$#"
+			message: "#^Parameter \\#5 \\$defaultFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array\\<int, string\\> given\\.$#"
 			count: 2
 			path: libraries/classes/Display/Results.php
 
@@ -1991,7 +1991,7 @@ parameters:
 			path: libraries/classes/Setup/ConfigGenerator.php
 
 		-
-			message: "#^Parameter \\#3 \\$is_modify_link of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects bool, string given\\.$#"
+			message: "#^Parameter \\#3 \\$isModifyLink of static method PhpMyAdmin\\\\Html\\\\Generator\\:\\:mysqlDie\\(\\) expects bool, string given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -2041,22 +2041,22 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$unlim_num_rows of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects int, int\\<1, max\\>\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$unlimNumRows of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects int, int\\<1, max\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#7 \\$num_rows of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects int, int\\<1, max\\>\\|string given\\.$#"
+			message: "#^Parameter \\#7 \\$numRows of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects int, int\\<1, max\\>\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#14 \\$showtable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array, bool given\\.$#"
+			message: "#^Parameter \\#14 \\$showTable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array, bool given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#15 \\$printview of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#15 \\$printView of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 

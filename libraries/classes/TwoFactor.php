@@ -200,13 +200,13 @@ class TwoFactor
     /**
      * Checks authentication, returns true on success
      *
-     * @param bool $skip_session Skip session cache
+     * @param bool $skipSession Skip session cache
      *
      * @return bool
      */
-    public function check($skip_session = false)
+    public function check($skipSession = false)
     {
-        if ($skip_session) {
+        if ($skipSession) {
             return $this->backend->check();
         }
 
