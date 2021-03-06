@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-02-24 10:22+0100\n"
-"PO-Revision-Date: 2021-02-24 22:13+0000\n"
+"PO-Revision-Date: 2021-03-08 13:16+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.5.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2304,8 +2304,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"[doc@bookmarks@]Yer imi[/doc] desteği olmaması için boş bırakın, önerilen: "
-"[kbd]pma__bookmark[/kbd]"
+"[doc@bookmarks@]Yer işareti[/doc] desteği olmaması için boş bırakın, "
+"önerilen: [kbd]pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:350
 msgid ""
@@ -2415,8 +2415,8 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"İlişkiler, yer imleri ve PDF özellikleri için kullanılan veritabanı. Tam "
-"bilgi için [doc@linked-tables]pmadb[/doc]'ye bakın. Destek istenmiyorsa boş "
+"İlişkiler, yer işaretleri ve PDF özellikleri için kullanılan veritabanı. Tam "
+"bilgi için [doc@linked-tables]pmadb[/doc]'ye bakın. Destek olmaması için boş "
 "bırakın. Önerilen: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:404
@@ -3994,7 +3994,7 @@ msgstr "Kimlik doğrulaması türü"
 
 #: libraries/classes/Config/Descriptions.php:895
 msgid "Bookmark table"
-msgstr "Yer imi tablosu"
+msgstr "Yer işareti tablosu"
 
 #: libraries/classes/Config/Descriptions.php:896
 msgid "Column information table"
@@ -4916,12 +4916,12 @@ msgstr "Değer, %s değerinden az ya da eşit olmalıdır!"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "%1$d yer imi gösteriliyor (hem özel hem de paylaşılan)"
-msgstr[1] "%1$d yer imi gösteriliyor (hem özel hem de paylaşılan)"
+msgstr[0] "%1$d yer işareti gösteriliyor (hem özel hem de paylaşılan)"
+msgstr[1] "%1$d yer işareti gösteriliyor (hem özel hem de paylaşılan)"
 
 #: libraries/classes/Console.php:98
 msgid "No bookmarks"
-msgstr "Yer imleri yok"
+msgstr "Yer işaretleri yok"
 
 #: libraries/classes/Console.php:132
 msgid "SQL Query Console"
@@ -5316,12 +5316,12 @@ msgstr ""
 #: libraries/classes/Controllers/ImportController.php:424
 #: libraries/classes/Controllers/ImportController.php:660
 msgid "Showing bookmark"
-msgstr "Gösterilen yer imi"
+msgstr "Gösterilen yer işareti"
 
 #: libraries/classes/Controllers/ImportController.php:448
 #: libraries/classes/Controllers/ImportController.php:656
 msgid "The bookmark has been deleted."
-msgstr "Yer imi silindi."
+msgstr "Yer işareti silindi."
 
 #: libraries/classes/Controllers/ImportController.php:562
 msgid ""
@@ -5338,7 +5338,7 @@ msgstr ""
 #: libraries/classes/Sql.php:1225
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "Yer imi %s oluşturuldu."
+msgstr "Yer işareti %s oluşturuldu."
 
 #: libraries/classes/Controllers/ImportController.php:673
 #, php-format
@@ -7231,7 +7231,7 @@ msgstr "Bu sorgu tekrar çalıştırılsın mı?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Do you really want to delete this bookmark?"
-msgstr "Bu yer imini silmek istediğinize emin misiniz?"
+msgstr "Bu yer işaretini silmek istediğinize emin misiniz?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Some error occurred while getting SQL debug info."
@@ -8255,7 +8255,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/SqlController.php:377
 msgid "Bookmark not created!"
-msgstr "Yer imi oluşturulmadı!"
+msgstr "Yer işareti oluşturulmadı!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:246
@@ -8770,23 +8770,23 @@ msgstr "Del"
 
 #: libraries/classes/Database/Qbe.php:1731
 msgid "Saved bookmarked search:"
-msgstr "Kaydedilen işaretli arama:"
+msgstr "Kaydedilen yer işaretli arama:"
 
 #: libraries/classes/Database/Qbe.php:1733
 msgid "New bookmark"
-msgstr "Yeni yer imi"
+msgstr "Yeni yer işareti"
 
 #: libraries/classes/Database/Qbe.php:1759
 msgid "Create bookmark"
-msgstr "Yer imi oluştur"
+msgstr "Yer işareti oluştur"
 
 #: libraries/classes/Database/Qbe.php:1762
 msgid "Update bookmark"
-msgstr "Yer imini güncelle"
+msgstr "Yer işaretini güncelle"
 
 #: libraries/classes/Database/Qbe.php:1764
 msgid "Delete bookmark"
-msgstr "Yer imini sil"
+msgstr "Yer işaretini sil"
 
 #: libraries/classes/Database/Routines.php:115
 msgid "Add routine"
@@ -12074,7 +12074,7 @@ msgstr ""
 
 #: libraries/classes/Relation.php:261 templates/sql/query.twig:157
 msgid "Bookmarked SQL query"
-msgstr "İşaretlenmiş SQL sorgusu"
+msgstr "Yer işaretli SQL sorgusu"
 
 #: libraries/classes/Relation.php:272
 msgid "SQL history"
@@ -12239,11 +12239,11 @@ msgstr "Hata 405! İstek yöntemine izin verilmedi."
 
 #: libraries/classes/SavedSearches.php:282
 msgid "Please provide a name for this bookmarked search."
-msgstr "Lütfen bu işaretli arama için bir isim verin."
+msgstr "Lütfen bu yer işaretli arama için bir ad verin."
 
 #: libraries/classes/SavedSearches.php:297
 msgid "Missing information to save the bookmarked search."
-msgstr "İşaretli aramayı kaydetmek için eksik bilgi."
+msgstr "Yer işaretli aramayı kaydetmek için eksik bilgi."
 
 #: libraries/classes/SavedSearches.php:319
 #: libraries/classes/SavedSearches.php:356
@@ -12759,7 +12759,7 @@ msgstr "Daha yeni sağlam sürüm mevcut değil"
 #: libraries/classes/Sql.php:523
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr "Varsayılan gözatma sorgusu olarak \"%s\" yer imi kullanılıyor."
+msgstr "Varsayılan gözatma sorgusu olarak \"%s\" yer işareti kullanılıyor."
 
 #: libraries/classes/Sql.php:1027
 msgid "Showing as PHP code"
@@ -14026,7 +14026,7 @@ msgstr "Geçmiş"
 
 #: templates/console/display.twig:11 templates/console/display.twig:99
 msgid "Bookmarks"
-msgstr "Yer imleri"
+msgstr "Yer işaretleri"
 
 #: templates/console/display.twig:20
 msgid "Press Ctrl+Enter to execute query"
@@ -14042,7 +14042,7 @@ msgstr "Açıkla"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Bookmark"
-msgstr "Yer imi"
+msgstr "Yer işareti"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Query failed"
@@ -14099,7 +14099,7 @@ msgstr "İzi gizle"
 
 #: templates/console/display.twig:112
 msgid "Add bookmark"
-msgstr "Yer imi ekle"
+msgstr "Yer işareti ekle"
 
 #: templates/console/display.twig:121
 msgid "Label"
@@ -14111,7 +14111,7 @@ msgstr "Hedef veritabanı"
 
 #: templates/console/display.twig:127
 msgid "Share this bookmark"
-msgstr "Bu yer imini paylaş"
+msgstr "Bu yer işaretini paylaş"
 
 #: templates/console/display.twig:140
 msgid "Set default"
@@ -17795,7 +17795,7 @@ msgstr "Yeni sunucu ekle"
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
-msgstr "Bu SQL sorgusunu işaretle"
+msgstr "Bu SQL sorgusu yerini işaretle"
 
 #: templates/sql/bookmark.twig:15
 msgid "Label:"
@@ -17803,7 +17803,7 @@ msgstr "Etiket:"
 
 #: templates/sql/bookmark.twig:22 templates/sql/query.twig:94
 msgid "Let every user access this bookmark"
-msgstr "Her kullanıcının bu yer imine erişmesine izin ver"
+msgstr "Her kullanıcının bu yer işaretine erişmesine izin ver"
 
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
@@ -17844,11 +17844,11 @@ msgstr "Parametreleri bağla"
 
 #: templates/sql/query.twig:85
 msgid "Bookmark this SQL query:"
-msgstr "Bu SQL sorgusunu işaretle:"
+msgstr "Bu SQL sorgusunun yerini işaretle:"
 
 #: templates/sql/query.twig:101
 msgid "Replace existing bookmark of same name"
-msgstr "Aynı ismin mevcut yer imini değiştir"
+msgstr "Aynı adlı varolan yer işaretini değiştir"
 
 #: templates/sql/query.twig:111 templates/sql/query.twig:112
 msgid "Delimiter"
@@ -17864,7 +17864,7 @@ msgstr "Tamamlandığında geri döndür"
 
 #: templates/sql/query.twig:161
 msgid "Bookmark:"
-msgstr "Yer imi:"
+msgstr "Yer işareti:"
 
 #: templates/sql/query.twig:170
 msgid "shared"
