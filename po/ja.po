@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-03-06 15:47+0100\n"
-"PO-Revision-Date: 2021-02-24 22:12+0000\n"
+"PO-Revision-Date: 2021-03-08 13:15+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.5.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7933,16 +7933,10 @@ msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "INSERT DELAYED キューの中で書き込まれるのを待っている行数。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:549
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
-msgstr ""
-"開いているテーブルの数。開いているテーブルが多い場合はおそらくテーブルキャッ"
-"シュの値が小さすぎます。"
+msgstr "開いているテーブルの数。開いているテーブルが多い場合はおそらく table_open_cache の値が小さすぎます。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The number of files that are open."
@@ -13940,7 +13934,7 @@ msgstr "入力変換機能"
 
 #: templates/columns_definitions/table_fields_definitions.twig:92
 msgid "Input transformation options"
-msgstr "入力変換機能オプション"
+msgstr "入力変換オプション"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
@@ -15937,7 +15931,7 @@ msgstr "有効な 16 進数の値を入力してください"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "このカラムには32文字の値を入れることはできません"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -15945,6 +15939,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"これらの関数はバイナリの結果を返します。一貫性のない結果を避けるために、 BINARY、 VARBINARY、 BLOB "
+"のいずれかのカラムに格納する必要があります。"
 
 #: templates/login/form.twig:30
 msgid "Log in"
