@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-02-24 10:22+0100\n"
-"PO-Revision-Date: 2021-02-24 22:13+0000\n"
+"PO-Revision-Date: 2021-03-08 13:16+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.5.1\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -13805,7 +13805,7 @@ msgstr "入力変換機能"
 
 #: templates/columns_definitions/table_fields_definitions.twig:92
 msgid "Input transformation options"
-msgstr "入力変換機能オプション"
+msgstr "入力変換オプション"
 
 #: templates/config/form_display/input.twig:15
 msgid "This setting is disabled, it will not be applied to your configuration."
