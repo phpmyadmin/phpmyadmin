@@ -2412,19 +2412,19 @@
     <InvalidArgument occurrences="4">
       <code>$result</code>
       <code>$result</code>
-      <code>$showtable</code>
-      <code>$showtable</code>
+      <code>$showTable</code>
+      <code>$showTable</code>
     </InvalidArgument>
     <InvalidReturnStatement occurrences="1">
-      <code>$num_rows</code>
+      <code>$numRows</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
     <InvalidScalarArgument occurrences="4">
       <code>$error</code>
-      <code>$num_rows</code>
-      <code>$num_rows</code>
+      <code>$numRows</code>
+      <code>$numRows</code>
       <code>''</code>
     </InvalidScalarArgument>
     <PossiblyFalseReference occurrences="1">
@@ -2436,7 +2436,7 @@
       <code>$result</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidOperand occurrences="1">
-      <code>$insert_id</code>
+      <code>$insertId</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument occurrences="22">
       <code>$_POST['purge'] ?? null</code>
@@ -2445,17 +2445,17 @@
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
-      <code>$disp_message ?? null</code>
-      <code>$extra_data ?? null</code>
-      <code>$message_to_show ?? null</code>
-      <code>$printview</code>
-      <code>$printview</code>
+      <code>$dispMessage ?? null</code>
+      <code>$extraData ?? null</code>
+      <code>$messageToShow ?? null</code>
+      <code>$printView</code>
+      <code>$printView</code>
       <code>$result</code>
       <code>$result ?? null</code>
       <code>$row[0]</code>
       <code>$showtable</code>
-      <code>$sql_data ?? null</code>
-      <code>$sql_query_for_bookmark ?? null</code>
+      <code>$sqlData ?? null</code>
+      <code>$sqlQueryForBookmark ?? null</code>
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>

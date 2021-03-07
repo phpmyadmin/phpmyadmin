@@ -2031,7 +2031,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$message_to_show of method PhpMyAdmin\\\\Sql\\:\\:getMessageForNoRowsReturned\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$messageToShow of method PhpMyAdmin\\\\Sql\\:\\:getMessageForNoRowsReturned\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -2096,12 +2096,12 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#7 \\$sql_query_for_bookmark of method PhpMyAdmin\\\\Sql\\:\\:executeTheQuery\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#7 \\$sqlQueryForBookmark of method PhpMyAdmin\\\\Sql\\:\\:executeTheQuery\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#8 \\$extra_data of method PhpMyAdmin\\\\Sql\\:\\:executeTheQuery\\(\\) expects array, array\\|null given\\.$#"
+			message: "#^Parameter \\#8 \\$extraData of method PhpMyAdmin\\\\Sql\\:\\:executeTheQuery\\(\\) expects array, array\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
@@ -2346,7 +2346,7 @@ parameters:
 			path: test/classes/Stubs/DbiDummy.php
 
 		-
-			message: "#^Parameter \\#1 \\$pma_transformation_data of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects object, array given\\.$#"
+			message: "#^Parameter \\#1 \\$transformationData of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects object, array given\\.$#"
 			count: 1
 			path: test/classes/SystemDatabaseTest.php
 

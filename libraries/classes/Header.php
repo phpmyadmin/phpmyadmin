@@ -494,12 +494,12 @@ class Header
 
         if (! empty($message)) {
             if (isset($GLOBALS['buffer_message'])) {
-                $buffer_message = $GLOBALS['buffer_message'];
+                $bufferMessage = $GLOBALS['buffer_message'];
             }
 
             $retval .= Generator::getMessage($message);
-            if (isset($buffer_message)) {
-                $GLOBALS['buffer_message'] = $buffer_message;
+            if (isset($bufferMessage)) {
+                $GLOBALS['buffer_message'] = $bufferMessage;
             }
         }
 
@@ -579,17 +579,17 @@ class Header
         if (strlen($this->title) == 0) {
             if ($GLOBALS['server'] > 0) {
                 if (strlen($GLOBALS['table'])) {
-                    $temp_title = $GLOBALS['cfg']['TitleTable'];
+                    $tempTitle = $GLOBALS['cfg']['TitleTable'];
                 } elseif (strlen($GLOBALS['db'])) {
-                    $temp_title = $GLOBALS['cfg']['TitleDatabase'];
+                    $tempTitle = $GLOBALS['cfg']['TitleDatabase'];
                 } elseif (strlen($GLOBALS['cfg']['Server']['host'])) {
-                    $temp_title = $GLOBALS['cfg']['TitleServer'];
+                    $tempTitle = $GLOBALS['cfg']['TitleServer'];
                 } else {
-                    $temp_title = $GLOBALS['cfg']['TitleDefault'];
+                    $tempTitle = $GLOBALS['cfg']['TitleDefault'];
                 }
 
                 $this->title = htmlspecialchars(
-                    Util::expandUserString($temp_title)
+                    Util::expandUserString($tempTitle)
                 );
             } else {
                 $this->title = 'phpMyAdmin';
@@ -687,14 +687,14 @@ class Header
             && strlen($table) > 0
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
-            $tmp_result = RecentFavoriteTable::getInstance('recent')->add(
+            $tmpResult = RecentFavoriteTable::getInstance('recent')->add(
                 $db,
                 $table
             );
-            if ($tmp_result === true) {
+            if ($tmpResult === true) {
                 $retval = RecentFavoriteTable::getHtmlUpdateRecentTables();
             } else {
-                $error  = $tmp_result;
+                $error  = $tmpResult;
                 $retval = $error->getDisplay();
             }
         }
