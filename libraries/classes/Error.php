@@ -433,13 +433,13 @@ class Error extends Message
     public static function getArg($arg, string $function): string
     {
         $retval = '';
-        $include_functions = [
+        $includeFunctions = [
             'include',
             'include_once',
             'require',
             'require_once',
         ];
-        $connect_functions = [
+        $connectFunctions = [
             'mysql_connect',
             'mysql_pconnect',
             'mysqli_connect',
@@ -448,10 +448,10 @@ class Error extends Message
             '_realConnect',
         ];
 
-        if (in_array($function, $include_functions)) {
+        if (in_array($function, $includeFunctions)) {
             $retval .= self::relPath($arg);
         } elseif (
-            in_array($function, $connect_functions)
+            in_array($function, $connectFunctions)
             && is_string($arg)
         ) {
             $retval .= gettype($arg) . ' ********';
@@ -529,24 +529,23 @@ class Error extends Message
             return basename($path);
         }
 
-        $Ahere = explode(
+        $hereParts = explode(
             DIRECTORY_SEPARATOR,
             (string) realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..')
         );
-        $Adest = explode(DIRECTORY_SEPARATOR, $dest);
+        $destParts = explode(DIRECTORY_SEPARATOR, $dest);
 
         $result = '.';
-        // && count ($Adest)>0 && count($Ahere)>0 )
-        while (implode(DIRECTORY_SEPARATOR, $Adest) != implode(DIRECTORY_SEPARATOR, $Ahere)) {
-            if (count($Ahere) > count($Adest)) {
-                array_pop($Ahere);
+        while (implode(DIRECTORY_SEPARATOR, $destParts) != implode(DIRECTORY_SEPARATOR, $hereParts)) {
+            if (count($hereParts) > count($destParts)) {
+                array_pop($hereParts);
                 $result .= DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..';
             } else {
-                array_pop($Adest);
+                array_pop($destParts);
             }
         }
 
-        $path = $result . str_replace(implode(DIRECTORY_SEPARATOR, $Adest), '', $dest);
+        $path = $result . str_replace(implode(DIRECTORY_SEPARATOR, $destParts), '', $dest);
 
         return str_replace(
             DIRECTORY_SEPARATOR . PATH_SEPARATOR,

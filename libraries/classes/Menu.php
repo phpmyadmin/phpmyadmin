@@ -97,19 +97,19 @@ class Menu
      */
     private function getMenu(): string
     {
-        $url_params = [];
+        $urlParams = [];
 
         $hasDbArg = strlen($this->db) > 0;
 
         // The URL will not work if the table is defined without a database
         if (strlen((string) $this->table) > 0 && $hasDbArg) {
             $tabs = $this->getTableTabs();
-            $url_params['db'] = $this->db;
-            $url_params['table'] = $this->table;
+            $urlParams['db'] = $this->db;
+            $urlParams['table'] = $this->table;
             $level = 'table';
         } elseif ($hasDbArg) {
             $tabs = $this->getDbTabs();
-            $url_params['db'] = $this->db;
+            $urlParams['db'] = $this->db;
             $level = 'db';
         } else {
             $tabs = $this->getServerTabs();
@@ -127,7 +127,7 @@ class Menu
 
         return $this->template->render('top_menu', [
             'tabs' => $tabs,
-            'url_params' => $url_params,
+            'url_params' => $urlParams,
         ]);
     }
 
@@ -143,9 +143,9 @@ class Menu
         /** @var DatabaseInterface $dbi */
         global $dbi;
 
-        $cache_key = 'menu-levels-' . $level;
-        if (SessionCache::has($cache_key)) {
-            return SessionCache::get($cache_key);
+        $cacheKey = 'menu-levels-' . $level;
+        if (SessionCache::has($cacheKey)) {
+            return SessionCache::get($cacheKey);
         }
 
         $allowedTabs = Util::getMenuTabList($level);
@@ -157,14 +157,14 @@ class Menu
             $userTable = Util::backquote($cfgRelation['db'])
                 . '.' . Util::backquote($cfgRelation['users']);
 
-            $sql_query = 'SELECT `tab` FROM ' . $groupTable
+            $sqlQuery = 'SELECT `tab` FROM ' . $groupTable
                 . " WHERE `allowed` = 'N'"
                 . " AND `tab` LIKE '" . $level . "%'"
                 . ' AND `usergroup` = (SELECT usergroup FROM '
                 . $userTable . " WHERE `username` = '"
                 . $dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "')";
 
-            $result = $this->relation->queryAsControlUser($sql_query, false);
+            $result = $this->relation->queryAsControlUser($sqlQuery, false);
             if ($result) {
                 while ($row = $dbi->fetchAssoc($result)) {
                     $tabName = mb_substr(
@@ -176,7 +176,7 @@ class Menu
             }
         }
 
-        SessionCache::set($cache_key, $allowedTabs);
+        SessionCache::set($cacheKey, $allowedTabs);
 
         return $allowedTabs;
     }
@@ -264,15 +264,15 @@ class Menu
         global $route, $dbi;
 
         $isSystemSchema = Utilities::isSystemSchema($this->db);
-        $tbl_is_view = $dbi->getTable($this->db, $this->table)
+        $tableIsView = $dbi->getTable($this->db, $this->table)
             ->isView();
-        $updatable_view = false;
-        if ($tbl_is_view) {
-            $updatable_view = $dbi->getTable($this->db, $this->table)
+        $updatableView = false;
+        if ($tableIsView) {
+            $updatableView = $dbi->getTable($this->db, $this->table)
                 ->isUpdatableView();
         }
 
-        $is_superuser = $dbi->isSuperUser();
+        $isSuperUser = $dbi->isSuperUser();
         $isCreateOrGrantUser = $dbi->isGrantUser() || $dbi->isCreateUser();
 
         $tabs = [];
@@ -305,7 +305,7 @@ class Menu
             '/table/zoom-search',
         ]);
 
-        if (! $isSystemSchema && (! $tbl_is_view || $updatable_view)) {
+        if (! $isSystemSchema && (! $tableIsView || $updatableView)) {
             $tabs['insert']['icon'] = 'b_insrow';
             $tabs['insert']['route'] = '/table/change';
             $tabs['insert']['text'] = __('Insert');
@@ -321,7 +321,7 @@ class Menu
         /**
          * Don't display "Import" for views and information_schema
          */
-        if (! $tbl_is_view && ! $isSystemSchema) {
+        if (! $tableIsView && ! $isSystemSchema) {
             $tabs['import']['icon'] = 'b_tblimport';
             $tabs['import']['route'] = '/table/import';
             $tabs['import']['text'] = __('Import');
@@ -329,7 +329,7 @@ class Menu
         }
 
         if (
-            ($is_superuser || $isCreateOrGrantUser)
+            ($isSuperUser || $isCreateOrGrantUser)
             && ! $isSystemSchema
         ) {
             $tabs['privileges']['route'] = '/server/privileges';
@@ -345,7 +345,7 @@ class Menu
         /**
          * Don't display "Operations" for views and information_schema
          */
-        if (! $tbl_is_view && ! $isSystemSchema) {
+        if (! $tableIsView && ! $isSystemSchema) {
             $tabs['operation']['icon'] = 'b_tblops';
             $tabs['operation']['route'] = '/table/operations';
             $tabs['operation']['text'] = __('Operations');
@@ -355,7 +355,7 @@ class Menu
         /**
          * Views support a limited number of operations
          */
-        if ($tbl_is_view && ! $isSystemSchema) {
+        if ($tableIsView && ! $isSystemSchema) {
             $tabs['operation']['icon'] = 'b_tblops';
             $tabs['operation']['route'] = '/view/operations';
             $tabs['operation']['text'] = __('Operations');
@@ -376,7 +376,7 @@ class Menu
                 $this->db,
                 $this->table
             )
-            && ! $tbl_is_view
+            && ! $tableIsView
         ) {
             $tabs['triggers']['route'] = '/table/triggers';
             $tabs['triggers']['text'] = __('Triggers');
@@ -398,8 +398,8 @@ class Menu
         global $route, $dbi;
 
         $isSystemSchema = Utilities::isSystemSchema($this->db);
-        $num_tables = count($dbi->getTables($this->db));
-        $is_superuser = $dbi->isSuperUser();
+        $numTables = count($dbi->getTables($this->db));
+        $isSuperUser = $dbi->isSuperUser();
         $isCreateOrGrantUser = $dbi->isGrantUser() || $dbi->isCreateUser();
 
         /**
@@ -423,7 +423,7 @@ class Menu
         $tabs['search']['icon'] = 'b_search';
         $tabs['search']['route'] = '/database/search';
         $tabs['search']['active'] = $route === '/database/search';
-        if ($num_tables == 0) {
+        if ($numTables == 0) {
             $tabs['search']['warning'] = __('Database seems to be empty!');
         }
 
@@ -431,7 +431,7 @@ class Menu
         $tabs['query']['icon'] = 's_db';
         $tabs['query']['route'] = '/database/multi-table-query';
         $tabs['query']['active'] = $route === '/database/multi-table-query' || $route === '/database/qbe';
-        if ($num_tables == 0) {
+        if ($numTables == 0) {
             $tabs['query']['warning'] = __('Database seems to be empty!');
         }
 
@@ -439,7 +439,7 @@ class Menu
         $tabs['export']['icon'] = 'b_export';
         $tabs['export']['route'] = '/database/export';
         $tabs['export']['active'] = $route === '/database/export';
-        if ($num_tables == 0) {
+        if ($numTables == 0) {
             $tabs['export']['warning'] = __('Database seems to be empty!');
         }
 
@@ -454,7 +454,7 @@ class Menu
             $tabs['operation']['icon'] = 'b_tblops';
             $tabs['operation']['active'] = $route === '/database/operations';
 
-            if ($is_superuser || $isCreateOrGrantUser) {
+            if ($isSuperUser || $isCreateOrGrantUser) {
                 $tabs['privileges']['route'] = '/server/privileges';
                 $tabs['privileges']['args']['checkprivsdb'] = $this->db;
                 // stay on database view
@@ -521,19 +521,19 @@ class Menu
         /** @var DatabaseInterface $dbi */
         global $route, $dbi;
 
-        $is_superuser = $dbi->isSuperUser();
+        $isSuperUser = $dbi->isSuperUser();
         $isCreateOrGrantUser = $dbi->isGrantUser() || $dbi->isCreateUser();
         if (SessionCache::has('binary_logs')) {
-            $binary_logs = SessionCache::get('binary_logs');
+            $binaryLogs = SessionCache::get('binary_logs');
         } else {
-            $binary_logs = $dbi->fetchResult(
+            $binaryLogs = $dbi->fetchResult(
                 'SHOW MASTER LOGS',
                 'Log_name',
                 null,
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_STORE
             );
-            SessionCache::set('binary_logs', $binary_logs);
+            SessionCache::set('binary_logs', $binaryLogs);
         }
 
         $tabs = [];
@@ -560,7 +560,7 @@ class Menu
             '/server/status/variables',
         ]);
 
-        if ($is_superuser || $isCreateOrGrantUser) {
+        if ($isSuperUser || $isCreateOrGrantUser) {
             $tabs['rights']['icon'] = 's_rights';
             $tabs['rights']['route'] = '/server/privileges';
             $tabs['rights']['text'] = __('User accounts');
@@ -595,14 +595,14 @@ class Menu
             '/preferences/two-factor',
         ]);
 
-        if (! empty($binary_logs)) {
+        if (! empty($binaryLogs)) {
             $tabs['binlog']['icon'] = 's_tbl';
             $tabs['binlog']['route'] = '/server/binlog';
             $tabs['binlog']['text'] = __('Binary log');
             $tabs['binlog']['active'] = $route === '/server/binlog';
         }
 
-        if ($is_superuser) {
+        if ($isSuperUser) {
             $tabs['replication']['icon'] = 's_replication';
             $tabs['replication']['route'] = '/server/replication';
             $tabs['replication']['text'] = __('Replication');

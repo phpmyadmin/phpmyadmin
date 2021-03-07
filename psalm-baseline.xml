@@ -94,10 +94,10 @@
   </file>
   <file src="libraries/classes/CheckUserPrivileges.php">
     <PossiblyFalseOperand occurrences="6">
-      <code>$tblname_end_offset</code>
-      <code>$tblname_start_offset</code>
-      <code>$tblname_start_offset</code>
-      <code>$tblname_start_offset</code>
+      <code>$tableNameEndOffset</code>
+      <code>$tableNameStartOffset</code>
+      <code>$tableNameStartOffset</code>
+      <code>$tableNameStartOffset</code>
       <code>mb_strpos($row, ' ON ')</code>
       <code>mb_strpos($row, ' ON ')</code>
     </PossiblyFalseOperand>
@@ -1223,7 +1223,7 @@
   <file src="libraries/classes/Menu.php">
     <NullableReturnStatement occurrences="2">
       <code>$allowedTabs</code>
-      <code>SessionCache::get($cache_key)</code>
+      <code>SessionCache::get($cacheKey)</code>
     </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strpos($row['tab'], '_')</code>
@@ -2566,7 +2566,7 @@
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
     <RedundantCastGivenDocblockType occurrences="2">
-      <code>(bool) $per_server</code>
+      <code>(bool) $perServer</code>
       <code>(string) $this-&gt;theme-&gt;id</code>
     </RedundantCastGivenDocblockType>
   </file>
@@ -2575,8 +2575,8 @@
       <code>(int) $version - 1</code>
     </InvalidScalarArgument>
     <PossiblyFalseOperand occurrences="2">
-      <code>mb_strpos($log_entry, "\n")</code>
-      <code>mb_strpos($log_entry, "\n")</code>
+      <code>mb_strpos($logEntry, "\n")</code>
+      <code>mb_strpos($logEntry, "\n")</code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$version ?? ''</code>
@@ -2649,15 +2649,15 @@
   </file>
   <file src="libraries/classes/Util.php">
     <EmptyArrayAccess occurrences="1">
-      <code>$group[$group_name]['tab' . $sep . 'count']</code>
+      <code>$group[$groupName]['tab' . $sep . 'count']</code>
     </EmptyArrayAccess>
     <InvalidArrayOffset occurrences="3">
-      <code>$group[$group_name]['is' . $sep . 'group']</code>
-      <code>$group[$group_name]['tab' . $sep . 'count']</code>
+      <code>$group[$groupName]['is' . $sep . 'group']</code>
+      <code>$group[$groupName]['tab' . $sep . 'count']</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
     <InvalidReturnStatement occurrences="1">
-      <code>$return_value</code>
+      <code>$returnValue</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>int</code>
@@ -2667,18 +2667,18 @@
     </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="2">
       <code>mb_strpos($value, '.')</code>
-      <code>mb_strrpos($columnspec, ')')</code>
+      <code>mb_strrpos($columnSpecification, ')')</code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$table</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayAccess occurrences="2">
-      <code>$group[$group_name]['tab' . $sep . 'count']</code>
+      <code>$group[$groupName]['tab' . $sep . 'count']</code>
       <code>$table['Name']</code>
     </PossiblyInvalidArrayAccess>
     <PossiblyInvalidArrayAssignment occurrences="3">
-      <code>$group[$group_name]['tab' . $sep . 'count']</code>
-      <code>$group[$table_name]</code>
+      <code>$group[$groupName]['tab' . $sep . 'count']</code>
+      <code>$group[$tableName]</code>
       <code>$table['disp_name']</code>
     </PossiblyInvalidArrayAssignment>
     <PossiblyInvalidArrayOffset occurrences="2">
@@ -2686,12 +2686,12 @@
       <code>$table['disp_name']</code>
     </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument occurrences="2">
-      <code>$max_size</code>
-      <code>$max_unit</code>
+      <code>$maxSize</code>
+      <code>$maxUnit</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="2">
-      <code>$max_size</code>
-      <code>$max_unit</code>
+      <code>$maxSize</code>
+      <code>$maxUnit</code>
     </PossiblyNullArrayAccess>
     <RedundantCast occurrences="1">
       <code>(string) strftime($string)</code>
@@ -2703,8 +2703,8 @@
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
-      <code>(string) $a_name</code>
-      <code>(string) $a_name</code>
+      <code>(string) $aName</code>
+      <code>(string) $aName</code>
       <code>(string) $engine</code>
     </RedundantCastGivenDocblockType>
     <TypeDoesNotContainType occurrences="1">

@@ -67,7 +67,7 @@ class ThemeManager
 
         $this->theme = new Theme();
 
-        $config_theme_exists = true;
+        $configThemeExists = true;
 
         if (! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
             trigger_error(
@@ -77,18 +77,18 @@ class ThemeManager
                 ),
                 E_USER_ERROR
             );
-            $config_theme_exists = false;
+            $configThemeExists = false;
         } else {
             $this->themeDefault = $GLOBALS['cfg']['ThemeDefault'];
         }
 
         // check if user have a theme cookie
-        $cookie_theme = $this->getThemeCookie();
-        if ($cookie_theme && $this->setActiveTheme($cookie_theme)) {
+        $cookieTheme = $this->getThemeCookie();
+        if ($cookieTheme && $this->setActiveTheme($cookieTheme)) {
             return;
         }
 
-        if ($config_theme_exists) {
+        if ($configThemeExists) {
             // otherwise use default theme
             $this->setActiveTheme($this->themeDefault);
         } else {
@@ -114,13 +114,13 @@ class ThemeManager
     /**
      * sets if there are different themes per server
      *
-     * @param bool $per_server Whether to enable per server flag
+     * @param bool $perServer Whether to enable per server flag
      *
      * @access public
      */
-    public function setThemePerServer($per_server): void
+    public function setThemePerServer($perServer): void
     {
-        $this->perServer = (bool) $per_server;
+        $this->perServer = (bool) $perServer;
     }
 
     /**
