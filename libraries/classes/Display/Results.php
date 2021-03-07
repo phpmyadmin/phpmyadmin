@@ -1545,7 +1545,7 @@ class Results
      */
     private function getFullOrPartialTextButtonOrLink()
     {
-        global $PMA_Theme;
+        global $theme;
 
         $urlParamsFullText = [
             'db' => $this->properties['db'],
@@ -1567,7 +1567,7 @@ class Results
         }
 
         $tmpImage = '<img class="fulltext" src="'
-            . ($PMA_Theme instanceof Theme ? $PMA_Theme->getImgPath($tmpImageFile) : '')
+            . ($theme instanceof Theme ? $theme->getImgPath($tmpImageFile) : '')
             . '" alt="' . $tmpTxt . '" title="' . $tmpTxt . '">';
         $tmpUrl = Url::getFromRoute('/sql', $urlParamsFullText);
 

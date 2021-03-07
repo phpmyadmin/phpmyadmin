@@ -133,8 +133,8 @@ abstract class AbstractTestCase extends TestCase
 
     protected function setTheme(): void
     {
-        global $PMA_Theme;
-        $PMA_Theme = Theme::load('pmahomme');
+        global $theme;
+        $theme = Theme::load('pmahomme');
     }
 
     protected function setLanguage(string $code = 'en'): void

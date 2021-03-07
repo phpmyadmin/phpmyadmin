@@ -277,15 +277,15 @@ class Navigation
      */
     private function getLogoSource(): string
     {
-        global $PMA_Theme;
+        global $theme;
 
-        if ($PMA_Theme instanceof Theme) {
-            if (@file_exists($PMA_Theme->getFsPath() . 'img/logo_left.png')) {
-                return $PMA_Theme->getPath() . '/img/logo_left.png';
+        if ($theme instanceof Theme) {
+            if (@file_exists($theme->getFsPath() . 'img/logo_left.png')) {
+                return $theme->getPath() . '/img/logo_left.png';
             }
 
-            if (@file_exists($PMA_Theme->getFsPath() . 'img/pma_logo2.png')) {
-                return $PMA_Theme->getPath() . '/img/pma_logo2.png';
+            if (@file_exists($theme->getFsPath() . 'img/pma_logo2.png')) {
+                return $theme->getPath() . '/img/pma_logo2.png';
             }
         }
 

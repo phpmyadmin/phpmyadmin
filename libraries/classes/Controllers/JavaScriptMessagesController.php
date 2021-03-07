@@ -28,9 +28,9 @@ final class JavaScriptMessagesController
 
     private function setMessages(): void
     {
-        global $cfg, $PMA_Theme;
+        global $cfg, $theme;
 
-        $ajaxClockSmallGifPath = $PMA_Theme instanceof Theme ? $PMA_Theme->getImgPath('ajax_clock_small.gif') : '';
+        $ajaxClockSmallGifPath = $theme instanceof Theme ? $theme->getImgPath('ajax_clock_small.gif') : '';
 
         $this->messages = [
             /* For confirmations */

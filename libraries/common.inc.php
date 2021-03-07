@@ -48,7 +48,7 @@ use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
 
 global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi;
-global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $PMA_Theme;
+global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $theme;
 global $url_params, $goto, $back, $db, $table, $sql_query, $token_mismatch;
 
 /**
@@ -226,7 +226,7 @@ $PMA_Config->enableBc();
 
 /* setup themes                                          LABEL_theme_setup    */
 
-$PMA_Theme = ThemeManager::initializeTheme();
+$theme = ThemeManager::initializeTheme();
 
 /** @var DatabaseInterface $dbi */
 $dbi = null;

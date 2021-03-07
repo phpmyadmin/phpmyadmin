@@ -380,7 +380,7 @@ class Header
      */
     public function getDisplay(): string
     {
-        global $db, $table, $PMA_Theme, $dbi;
+        global $db, $table, $theme, $dbi;
 
         if ($this->headerIsSent || ! $this->isEnabled) {
             return '';
@@ -399,7 +399,7 @@ class Header
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
         $uniqueValue = $GLOBALS['PMA_Config']->getThemeUniqueValue();
-        $themePath = $PMA_Theme instanceof Theme ? $PMA_Theme->getPath() : '';
+        $themePath = $theme instanceof Theme ? $theme->getPath() : '';
         $version = self::getVersionParameter();
 
         // The user preferences have been merged at this point

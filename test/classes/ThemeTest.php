@@ -22,12 +22,14 @@ class ThemeTest extends AbstractTestCase
      */
     protected function setUp(): void
     {
+        global $theme;
+
         parent::setUp();
         parent::defineVersionConstants();
         parent::setTheme();
         $this->object = new Theme();
-        $this->backup = $GLOBALS['PMA_Theme'];
-        $GLOBALS['PMA_Theme'] = $this->object;
+        $this->backup = $theme;
+        $theme = $this->object;
         parent::setGlobalConfig();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
@@ -40,8 +42,10 @@ class ThemeTest extends AbstractTestCase
      */
     protected function tearDown(): void
     {
+        global $theme;
+
         parent::tearDown();
-        $GLOBALS['PMA_Theme'] = $this->backup;
+        $theme = $this->backup;
     }
 
     /**

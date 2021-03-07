@@ -69,7 +69,7 @@ class BrowseForeigners
         int $indexByDescription,
         string $currentValue
     ): array {
-        global $PMA_Theme;
+        global $theme;
 
         $horizontalCount++;
         $output = '';
@@ -124,7 +124,7 @@ class BrowseForeigners
         ]);
 
         $output .= '<td width="20%"><img src="'
-            . ($PMA_Theme instanceof Theme ? $PMA_Theme->getImgPath('spacer.png') : '')
+            . ($theme instanceof Theme ? $theme->getImgPath('spacer.png') : '')
             . '" alt="" width="1" height="1"></td>';
 
         $output .= $this->template->render('table/browse_foreigners/column_element', [

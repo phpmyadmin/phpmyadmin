@@ -951,11 +951,13 @@ class ConfigTest extends AbstractTestCase
      */
     public function testGetThemeUniqueValue(): void
     {
+        global $theme;
+
         $partial_sum = $this->object->sourceMtime +
             $this->object->defaultSourceMtime +
             $this->object->get('user_preferences_mtime') +
-            $GLOBALS['PMA_Theme']->mtimeInfo +
-            $GLOBALS['PMA_Theme']->filesizeInfo;
+            $theme->mtimeInfo +
+            $theme->filesizeInfo;
 
         $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
     }

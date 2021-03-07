@@ -893,14 +893,14 @@ class Config
      */
     public function getThemeUniqueValue(): int
     {
-        global $PMA_Theme;
+        global $theme;
 
         return (int) (
             $this->sourceMtime +
             $this->defaultSourceMtime +
             $this->get('user_preferences_mtime') +
-            ($PMA_Theme->mtimeInfo ?? 0) +
-            ($PMA_Theme->filesizeInfo ?? 0)
+            ($theme->mtimeInfo ?? 0) +
+            ($theme->filesizeInfo ?? 0)
         );
     }
 
