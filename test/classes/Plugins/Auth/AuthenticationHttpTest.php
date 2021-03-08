@@ -27,7 +27,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         parent::setUp();
         parent::setGlobalConfig();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';

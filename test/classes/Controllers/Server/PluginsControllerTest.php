@@ -23,7 +23,7 @@ class PluginsControllerTest extends AbstractTestCase
         parent::setGlobalConfig();
         parent::defineVersionConstants();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';

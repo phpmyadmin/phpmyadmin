@@ -41,7 +41,7 @@ class PrivilegesTest extends AbstractTestCase
         parent::setLanguage();
         parent::setGlobalConfig();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfgRelation'] = [];
         $GLOBALS['cfgRelation']['menuswork'] = false;
@@ -76,7 +76,7 @@ class PrivilegesTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $GLOBALS['PMA_Config'] = $pmaconfig;
+        $GLOBALS['config'] = $pmaconfig;
 
         //Mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

@@ -28,7 +28,7 @@ class AdvisorControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         parent::setTheme();
 
         $GLOBALS['server'] = 1;

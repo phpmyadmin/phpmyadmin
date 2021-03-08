@@ -33,7 +33,7 @@ class Logging
      */
     public static function getLogDestination()
     {
-        $log_file = $GLOBALS['PMA_Config']->get('AuthLog');
+        $log_file = $GLOBALS['config']->get('AuthLog');
 
         /* Autodetect */
         if ($log_file === 'auto') {
@@ -82,7 +82,7 @@ class Logging
         }
 
         /* Do not log successful authentications */
-        if (! $GLOBALS['PMA_Config']->get('AuthLogSuccess') && $status === 'ok') {
+        if (! $GLOBALS['config']->get('AuthLogSuccess') && $status === 'ok') {
             return;
         }
 

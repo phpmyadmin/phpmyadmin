@@ -15,7 +15,7 @@ class PdfTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
     }
 
     /**

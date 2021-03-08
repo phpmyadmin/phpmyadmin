@@ -24,7 +24,7 @@ class OptionsTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['server'] = 0;
@@ -43,7 +43,7 @@ class OptionsTest extends AbstractTestCase
             ->method('getUserValue')
             ->will($this->returnValue('user value for test'));
 
-        $GLOBALS['PMA_Config'] = $pmaconfig;
+        $GLOBALS['config'] = $pmaconfig;
 
         $this->export = new Options(
             new Relation($GLOBALS['dbi']),

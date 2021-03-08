@@ -107,7 +107,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             trigger_error(__('Access denied!'), E_USER_NOTICE);
         } else {
             // Check whether user has configured something
-            if ($GLOBALS['PMA_Config']->sourceMtime == 0) {
+            if ($GLOBALS['config']->sourceMtime == 0) {
                 echo '<p>' , sprintf(
                     __(
                         'You probably did not create a configuration file.'

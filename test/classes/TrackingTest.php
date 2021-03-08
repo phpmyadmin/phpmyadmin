@@ -29,9 +29,9 @@ class TrackingTest extends AbstractTestCase
         parent::defineVersionConstants();
         parent::setTheme();
 
-        global $PMA_Config;
+        global $config;
 
-        $PMA_Config->enableBc();
+        $config->enableBc();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'PMA_db';

@@ -209,18 +209,18 @@ class TwoFactorTest extends AbstractTestCase
     public function testKeyAppId(): void
     {
         $object = new TwoFactor('user');
-        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', 'http://demo.example.com');
+        $GLOBALS['config']->set('PmaAbsoluteUri', 'http://demo.example.com');
         $this->assertEquals('http://demo.example.com', $object->getBackend()->getAppId(true));
         $this->assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
-        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', 'https://demo.example.com:123');
+        $GLOBALS['config']->set('PmaAbsoluteUri', 'https://demo.example.com:123');
         $this->assertEquals('https://demo.example.com:123', $object->getBackend()->getAppId(true));
         $this->assertEquals('demo.example.com', $object->getBackend()->getAppId(false));
-        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
-        $GLOBALS['PMA_Config']->set('is_https', true);
+        $GLOBALS['config']->set('PmaAbsoluteUri', '');
+        $GLOBALS['config']->set('is_https', true);
         $_SERVER['HTTP_HOST'] = 'pma.example.com';
         $this->assertEquals('https://pma.example.com', $object->getBackend()->getAppId(true));
         $this->assertEquals('pma.example.com', $object->getBackend()->getAppId(false));
-        $GLOBALS['PMA_Config']->set('is_https', false);
+        $GLOBALS['config']->set('is_https', false);
         $this->assertEquals('http://pma.example.com', $object->getBackend()->getAppId(true));
         $this->assertEquals('pma.example.com', $object->getBackend()->getAppId(false));
     }

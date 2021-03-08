@@ -114,7 +114,7 @@ class ImportShp extends ImportPlugin
         $temp_dbf_file = false;
         // We need dbase extension to handle .dbf file
         if (extension_loaded('dbase')) {
-            $temp = $GLOBALS['PMA_Config']->getTempDir('shp');
+            $temp = $GLOBALS['config']->getTempDir('shp');
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression === 'application/zip' && $temp !== null) {

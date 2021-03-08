@@ -27,7 +27,7 @@ class FormListTest extends AbstractTestCase
      */
     public function testForms(string $class, string $prefix): void
     {
-        $cf = new ConfigFile($GLOBALS['PMA_Config']->baseSettings);
+        $cf = new ConfigFile($GLOBALS['config']->baseSettings);
 
         /* Static API */
         $this->assertTrue($class::isValid('Export'));

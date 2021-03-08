@@ -112,7 +112,7 @@ class FormDisplay
      */
     public function __construct(ConfigFile $cf)
     {
-        $this->formDisplayTemplate = new FormDisplayTemplate($GLOBALS['PMA_Config']);
+        $this->formDisplayTemplate = new FormDisplayTemplate($GLOBALS['config']);
         $this->configFile = $cf;
         // initialize validators
         Validator::getValidators($this->configFile);
@@ -594,7 +594,7 @@ class FormDisplay
 
         $values = [];
         $toSave = [];
-        $isSetupScript = $GLOBALS['PMA_Config']->get('is_setup');
+        $isSetupScript = $GLOBALS['config']->get('is_setup');
         if ($isSetupScript) {
             $this->loadUserprefsInfo();
         }
@@ -814,7 +814,7 @@ class FormDisplay
 
         $this->userprefsKeys = array_flip(UserFormList::getFields());
         // read real config for user preferences display
-        $userPrefsDisallow = $GLOBALS['PMA_Config']->get('is_setup')
+        $userPrefsDisallow = $GLOBALS['config']->get('is_setup')
             ? $this->configFile->get('UserprefsDisallow', [])
             : $GLOBALS['cfg']['UserprefsDisallow'];
         $this->userprefsDisallow = array_flip($userPrefsDisallow ?? []);
@@ -899,7 +899,7 @@ class FormDisplay
             $opts['comment_warning'] = true;
         }
 
-        if ($GLOBALS['PMA_Config']->get('is_setup')) {
+        if ($GLOBALS['config']->get('is_setup')) {
             return;
         }
 

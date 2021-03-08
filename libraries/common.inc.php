@@ -47,7 +47,7 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
 
-global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi;
+global $containerBuilder, $error_handler, $config, $server, $dbi;
 global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $theme;
 global $url_params, $goto, $back, $db, $table, $sql_query, $token_mismatch;
 
@@ -136,9 +136,9 @@ $isConfigLoading = false;
  * Force reading of config file, because we removed sensitive values
  * in the previous iteration.
  *
- * @var Config $PMA_Config
+ * @var Config $config
  */
-$PMA_Config = $containerBuilder->get('config');
+$config = $containerBuilder->get('config');
 
 register_shutdown_function([Config::class, 'fatalErrorHandler']);
 
@@ -146,7 +146,7 @@ register_shutdown_function([Config::class, 'fatalErrorHandler']);
  * include session handling after the globals, to prevent overwriting
  */
 if (! defined('PMA_NO_SESSION')) {
-    Session::setUp($PMA_Config, $error_handler);
+    Session::setUp($config, $error_handler);
 }
 
 /**
@@ -161,7 +161,7 @@ if (! defined('PMA_NO_SESSION')) {
 $url_params = [];
 $containerBuilder->setParameter('url_params', $url_params);
 
-Core::setGotoAndBackGlobals($containerBuilder, $PMA_Config);
+Core::setGotoAndBackGlobals($containerBuilder, $config);
 
 Core::checkTokenRequestParam();
 
@@ -195,8 +195,8 @@ $language->activate();
  * check for errors occurred while loading configuration
  * this check is done here after loading language files to present errors in locale
  */
-$PMA_Config->checkPermissions();
-$PMA_Config->checkErrors();
+$config->checkPermissions();
+$config->checkErrors();
 
 /* Check server configuration */
 Core::checkConfiguration();
@@ -206,14 +206,14 @@ Core::checkRequest();
 
 /* setup servers                                       LABEL_setup_servers    */
 
-$PMA_Config->checkServers();
+$config->checkServers();
 
 /**
  * current server
  *
  * @global integer $server
  */
-$server = $PMA_Config->selectServer();
+$server = $config->selectServer();
 $url_params['server'] = $server;
 $containerBuilder->setParameter('server', $server);
 $containerBuilder->setParameter('url_params', $url_params);
@@ -222,7 +222,7 @@ $containerBuilder->setParameter('url_params', $url_params);
  * BC - enable backward compatibility
  * exports all configuration settings into globals ($cfg global)
  */
-$PMA_Config->enableBc();
+$config->enableBc();
 
 /* setup themes                                          LABEL_theme_setup    */
 
@@ -237,7 +237,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      *
      * @todo should be done in PhpMyAdmin\Config
      */
-    $PMA_Config->setCookie('pma_lang', (string) $lang);
+    $config->setCookie('pma_lang', (string) $lang);
 
     ThemeManager::getInstance()->setThemeCookie();
 
@@ -246,7 +246,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     $containerBuilder->setAlias('dbi', DatabaseInterface::class);
 
     if (! empty($cfg['Server'])) {
-        $PMA_Config->getLoginCookieValidityFromCache($server);
+        $config->getLoginCookieValidityFromCache($server);
 
         $auth_plugin = Plugins::getAuthPlugin();
         $auth_plugin->authenticate();
@@ -303,7 +303,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 }
 
 // load user preferences
-$PMA_Config->loadUserPreferences();
+$config->loadUserPreferences();
 
 $containerBuilder->set('theme_manager', ThemeManager::getInstance());
 

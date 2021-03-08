@@ -126,9 +126,9 @@ abstract class AbstractTestCase extends TestCase
 
     protected function setGlobalConfig(): void
     {
-        global $PMA_Config;
-        $PMA_Config = new Config();
-        $PMA_Config->set('environment', 'development');
+        global $config;
+        $config = new Config();
+        $config->set('environment', 'development');
     }
 
     protected function setTheme(): void
@@ -169,11 +169,11 @@ abstract class AbstractTestCase extends TestCase
 
     protected function defineVersionConstants(): void
     {
-        global $PMA_Config;
+        global $config;
         // Initialize PMA_VERSION variable
         // phpcs:disable PSR1.Files.SideEffects
         if (! defined('PMA_VERSION')) {
-            define('PMA_VERSION', $PMA_Config->get('PMA_VERSION'));
+            define('PMA_VERSION', $config->get('PMA_VERSION'));
         }
         // phpcs:enable
     }

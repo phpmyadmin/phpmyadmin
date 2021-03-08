@@ -277,8 +277,8 @@ class Core
          * (this can happen on early fatal error)
          */
         if (
-            isset($dbi, $GLOBALS['PMA_Config']) && $dbi !== null
-            && $GLOBALS['PMA_Config']->get('is_setup') === false
+            isset($dbi, $GLOBALS['config']) && $dbi !== null
+            && $GLOBALS['config']->get('is_setup') === false
             && Response::getInstance()->isAjax()
         ) {
             $response = Response::getInstance();
@@ -540,7 +540,7 @@ class Core
      */
     public static function sendHeaderLocation(string $uri, bool $use_refresh = false): void
     {
-        if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
+        if ($GLOBALS['config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
             Response::getInstance()->disable();
 
             $template = new Template();
@@ -554,7 +554,7 @@ class Core
          * like /phpmyadmin/index.php/ which some web servers happily accept.
          */
         if ($uri[0] === '.') {
-            $uri = $GLOBALS['PMA_Config']->getRootPath() . substr($uri, 2);
+            $uri = $GLOBALS['config']->getRootPath() . substr($uri, 2);
         }
 
         $response = Response::getInstance();
@@ -570,7 +570,7 @@ class Core
         // bug #1523784: IE6 does not like 'Refresh: 0', it
         // results in a blank page
         // but we need it when coming from the cookie login panel)
-        if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && $use_refresh) {
+        if ($GLOBALS['config']->get('PMA_IS_IIS') && $use_refresh) {
             $response->header('Refresh: 0; ' . $uri);
         } else {
             $response->header('Location: ' . $uri);
@@ -781,7 +781,7 @@ class Core
         parse_str($arr['query'] ?? '', $vars);
         $query = http_build_query(['url' => $vars['url']]);
 
-        if ($GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup')) {
+        if ($GLOBALS['config'] !== null && $GLOBALS['config']->get('is_setup')) {
             $url = '../url.php?' . $query;
         } else {
             $url = './url.php?' . $query;

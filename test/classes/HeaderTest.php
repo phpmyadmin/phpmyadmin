@@ -36,7 +36,7 @@ class HeaderTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = '';
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';

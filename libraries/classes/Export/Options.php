@@ -219,27 +219,27 @@ final class Options
 
     private function getFileNameTemplate(string $exportType, ?string $filename = null): string
     {
-        global $cfg, $PMA_Config;
+        global $cfg, $config;
 
         if ($filename !== null) {
             return $filename;
         }
 
         if ($exportType === 'database') {
-            return (string) $PMA_Config->getUserValue(
+            return (string) $config->getUserValue(
                 'pma_db_filename_template',
                 $cfg['Export']['file_template_database']
             );
         }
 
         if ($exportType === 'table') {
-            return (string) $PMA_Config->getUserValue(
+            return (string) $config->getUserValue(
                 'pma_table_filename_template',
                 $cfg['Export']['file_template_table']
             );
         }
 
-        return (string) $PMA_Config->getUserValue(
+        return (string) $config->getUserValue(
             'pma_server_filename_template',
             $cfg['Export']['file_template_server']
         );

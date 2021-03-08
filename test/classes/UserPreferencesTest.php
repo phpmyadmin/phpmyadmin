@@ -344,8 +344,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $this->mockResponse('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash');
 
-        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
-        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', false);
+        $GLOBALS['config']->set('PmaAbsoluteUri', '');
+        $GLOBALS['config']->set('PMA_IS_IIS', false);
 
         $this->userPreferences->redirect(
             'file.html',

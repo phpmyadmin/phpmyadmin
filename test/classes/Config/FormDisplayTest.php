@@ -503,7 +503,7 @@ class FormDisplayTest extends AbstractTestCase
             $opts['comment_warning']
         );
 
-        $GLOBALS['PMA_Config']->set('is_setup', false);
+        $GLOBALS['config']->set('is_setup', false);
 
         $GLOBALS['cfg']['MaxDbList'] = 10;
         $GLOBALS['cfg']['MaxTableList'] = 10;

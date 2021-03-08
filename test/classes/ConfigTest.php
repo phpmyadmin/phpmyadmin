@@ -61,7 +61,7 @@ class ConfigTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $_SESSION['git_location'] = '.git';
         $_SESSION['is_git_revision'] = true;
-        $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
+        $GLOBALS['config'] = new Config(CONFIG_FILE);
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions

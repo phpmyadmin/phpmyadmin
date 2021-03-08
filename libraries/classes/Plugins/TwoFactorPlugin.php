@@ -154,9 +154,9 @@ class TwoFactorPlugin
      */
     public function getAppId($return_url)
     {
-        global $PMA_Config;
+        global $config;
 
-        $url = $PMA_Config->get('PmaAbsoluteUri');
+        $url = $config->get('PmaAbsoluteUri');
         $parsed = [];
         if (! empty($url)) {
             $parsedUrl = parse_url($url);
@@ -167,7 +167,7 @@ class TwoFactorPlugin
         }
 
         if (! isset($parsed['scheme']) || strlen($parsed['scheme']) === 0) {
-            $parsed['scheme'] = $PMA_Config->isHttps() ? 'https' : 'http';
+            $parsed['scheme'] = $config->isHttps() ? 'https' : 'http';
         }
 
         if (! isset($parsed['host']) || strlen($parsed['host']) === 0) {

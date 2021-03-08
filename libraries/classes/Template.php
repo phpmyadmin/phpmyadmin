@@ -51,7 +51,7 @@ class Template
         global $cfg;
 
         /** @var Config|null $config */
-        $config = $GLOBALS['PMA_Config'];
+        $config = $GLOBALS['config'];
         if (static::$twig !== null) {
             return;
         }

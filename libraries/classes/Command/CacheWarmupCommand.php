@@ -112,12 +112,12 @@ final class CacheWarmupCommand extends Command
 
     private function warmUpTwigCache(OutputInterface $output): int
     {
-        global $cfg, $PMA_Config, $dbi;
+        global $cfg, $config, $dbi;
 
         $output->writeln('Warming up the twig cache', OutputInterface::VERBOSITY_VERBOSE);
         $cfg['environment'] = 'production';
-        $PMA_Config = new Config(CONFIG_FILE);
-        $PMA_Config->set('environment', $cfg['environment']);
+        $config = new Config(CONFIG_FILE);
+        $config->set('environment', $cfg['environment']);
         $dbi = new DatabaseInterface(new DbiDummy());
         $tplDir = ROOT_PATH . 'templates';
         $tmpDir = ROOT_PATH . 'twig-templates';

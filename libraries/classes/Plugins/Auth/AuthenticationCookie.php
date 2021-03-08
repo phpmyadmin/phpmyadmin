@@ -395,7 +395,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // and $this->password variables from cookies
 
         // check cookies
-        $serverCookie = $GLOBALS['PMA_Config']->getCookie('pmaUser-' . $GLOBALS['server']);
+        $serverCookie = $GLOBALS['config']->getCookie('pmaUser-' . $GLOBALS['server']);
         if (empty($serverCookie)) {
             return false;
         }
@@ -446,7 +446,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // check password cookie
-        $serverCookie = $GLOBALS['PMA_Config']->getCookie('pmaAuth-' . $GLOBALS['server']);
+        $serverCookie = $GLOBALS['config']->getCookie('pmaAuth-' . $GLOBALS['server']);
 
         if (empty($serverCookie)) {
             return false;
@@ -606,7 +606,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
-        $GLOBALS['PMA_Config']->setCookie(
+        $GLOBALS['config']->setCookie(
             'pmaUser-' . $GLOBALS['server'],
             $this->cookieEncrypt(
                 $username,
@@ -630,7 +630,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // Duration = as configured
-        $GLOBALS['PMA_Config']->setCookie(
+        $GLOBALS['config']->setCookie(
             'pmaAuth-' . $GLOBALS['server'],
             $this->cookieEncrypt(
                 json_encode($payload),
@@ -661,7 +661,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         parent::showFailure($failure);
 
         // Deletes password cookie and displays the login form
-        $GLOBALS['PMA_Config']->removeCookie('pmaAuth-' . $GLOBALS['server']);
+        $GLOBALS['config']->removeCookie('pmaAuth-' . $GLOBALS['server']);
 
         $conn_error = $this->getErrorMessage($failure);
 
@@ -956,23 +956,23 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function logOut()
     {
-        global $PMA_Config;
+        global $config;
 
         // -> delete password cookie(s)
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                $PMA_Config->removeCookie('pmaAuth-' . $key);
-                if (! $PMA_Config->issetCookie('pmaAuth-' . $key)) {
+                $config->removeCookie('pmaAuth-' . $key);
+                if (! $config->issetCookie('pmaAuth-' . $key)) {
                     continue;
                 }
 
-                $PMA_Config->removeCookie('pmaAuth-' . $key);
+                $config->removeCookie('pmaAuth-' . $key);
             }
         } else {
             $cookieName = 'pmaAuth-' . $GLOBALS['server'];
-            $PMA_Config->removeCookie($cookieName);
-            if ($PMA_Config->issetCookie($cookieName)) {
-                $PMA_Config->removeCookie($cookieName);
+            $config->removeCookie($cookieName);
+            if ($config->issetCookie($cookieName)) {
+                $config->removeCookie($cookieName);
             }
         }
 

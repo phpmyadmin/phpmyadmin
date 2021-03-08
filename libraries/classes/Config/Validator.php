@@ -69,7 +69,7 @@ class Validator
         }
 
         $validators = $cf->getDbEntry('_validators', []);
-        if ($GLOBALS['PMA_Config']->get('is_setup')) {
+        if ($GLOBALS['config']->get('is_setup')) {
             return $validators;
         }
 
@@ -92,7 +92,7 @@ class Validator
 
                     $uv[$i] = Core::arrayRead(
                         mb_substr($uv[$i], 6),
-                        $GLOBALS['PMA_Config']->baseSettings
+                        $GLOBALS['config']->baseSettings
                     );
                 }
             }

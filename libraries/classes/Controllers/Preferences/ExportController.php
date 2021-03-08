@@ -43,9 +43,9 @@ class ExportController extends AbstractController
     public function index(): void
     {
         global $cfg, $cf, $error, $tabHash, $hash;
-        global $server, $PMA_Config, $route;
+        global $server, $config, $route;
 
-        $cf = new ConfigFile($PMA_Config->baseSettings);
+        $cf = new ConfigFile($config->baseSettings);
         $this->userPreferences->pageInit($cf);
 
         $formDisplay = new ExportForm($cf, 1);
@@ -68,7 +68,7 @@ class ExportController extends AbstractController
             $twoFactor->save();
             if ($result === true) {
                 // reload config
-                $PMA_Config->loadUserPreferences();
+                $config->loadUserPreferences();
                 $tabHash = $_POST['tab_hash'] ?? null;
                 $hash = ltrim($tabHash, '#');
                 $this->userPreferences->redirect(

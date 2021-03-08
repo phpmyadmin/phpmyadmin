@@ -147,7 +147,7 @@ class Header
         // (detection will be done in JavaScript)
         $this->userprefsOfferImport = false;
         if (
-            $GLOBALS['PMA_Config']->get('user_preferences') === 'session'
+            $GLOBALS['config']->get('user_preferences') === 'session'
             && ! isset($_SESSION['userprefs_autoload'])
         ) {
             $this->userprefsOfferImport = true;
@@ -205,7 +205,7 @@ class Header
             $this->scripts->addFile('drag_drop_import.js');
         }
 
-        if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {
+        if (! $GLOBALS['config']->get('DisableShortcutKeys')) {
             $this->scripts->addFile('shortcuts_handler.js');
         }
 
@@ -253,8 +253,8 @@ class Header
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
             'logged_in' => isset($dbi) ? $dbi->isConnected() : false,
-            'is_https' => $GLOBALS['PMA_Config']->isHttps(),
-            'rootPath' => $GLOBALS['PMA_Config']->getRootPath(),
+            'is_https' => $GLOBALS['config']->isHttps(),
+            'rootPath' => $GLOBALS['config']->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
             'PMA_VERSION' => PMA_VERSION,
         ];
@@ -398,7 +398,7 @@ class Header
         $this->sendHttpHeaders();
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-        $uniqueValue = $GLOBALS['PMA_Config']->getThemeUniqueValue();
+        $uniqueValue = $GLOBALS['config']->getThemeUniqueValue();
         $themePath = $theme instanceof Theme ? $theme->getPath() : '';
         $version = self::getVersionParameter();
 

@@ -24,8 +24,8 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
 restore_error_handler();
 
 // Save current language in a cookie, required since we use PMA_MINIMUM_COMMON
-$GLOBALS['PMA_Config']->setCookie('pma_lang', (string) $GLOBALS['lang']);
-$GLOBALS['PMA_Config']->set('is_setup', true);
+$GLOBALS['config']->setCookie('pma_lang', (string) $GLOBALS['lang']);
+$GLOBALS['config']->set('is_setup', true);
 
 $GLOBALS['ConfigFile'] = new ConfigFile();
 $GLOBALS['ConfigFile']->setPersistKeys(

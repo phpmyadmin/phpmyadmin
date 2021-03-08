@@ -633,7 +633,7 @@ class UtilTest extends AbstractTestCase
     public function testExpandUserString(string $in, string $out): void
     {
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg'] = [
             'Server' => [
                 'host' => 'host&',

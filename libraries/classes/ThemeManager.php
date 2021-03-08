@@ -181,11 +181,11 @@ class ThemeManager
      */
     public function getThemeCookie()
     {
-        global $PMA_Config;
+        global $config;
 
         $name = $this->getThemeCookieName();
-        if ($PMA_Config->issetCookie($name)) {
-            return $PMA_Config->getCookie($name);
+        if ($config->issetCookie($name)) {
+            return $config->getCookie($name);
         }
 
         return false;
@@ -201,14 +201,14 @@ class ThemeManager
     public function setThemeCookie(): bool
     {
         $themeId = $this->theme !== null ? (string) $this->theme->id : '';
-        $GLOBALS['PMA_Config']->setCookie(
+        $GLOBALS['config']->setCookie(
             $this->getThemeCookieName(),
             $themeId,
             $this->themeDefault
         );
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php
-        $GLOBALS['PMA_Config']->set('theme-update', $themeId);
+        $GLOBALS['config']->set('theme-update', $themeId);
 
         return true;
     }

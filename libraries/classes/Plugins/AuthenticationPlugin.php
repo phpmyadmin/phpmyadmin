@@ -119,7 +119,7 @@ abstract class AuthenticationPlugin
      */
     public function logOut()
     {
-        global $PMA_Config;
+        global $config;
 
         /* Obtain redirect URL (before doing logout) */
         if (! empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
@@ -141,7 +141,7 @@ abstract class AuthenticationPlugin
             && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie'
         ) {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                if (! $PMA_Config->issetCookie('pmaAuth-' . $key)) {
+                if (! $config->issetCookie('pmaAuth-' . $key)) {
                     continue;
                 }
 

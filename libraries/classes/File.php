@@ -549,7 +549,7 @@ class File
             return true;
         }
 
-        $tmp_subdir = $GLOBALS['PMA_Config']->getUploadTempDir();
+        $tmp_subdir = $GLOBALS['config']->getUploadTempDir();
         if ($tmp_subdir === null) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->errorMessage = Message::error(__(

@@ -163,7 +163,7 @@ class Index
         }
 
         $version_local = $versionInformation->versionToInt(
-            $GLOBALS['PMA_Config']->get('PMA_VERSION')
+            $GLOBALS['config']->get('PMA_VERSION')
         );
         if ($version_local === false) {
             self::messagesSet(

@@ -584,8 +584,8 @@ class CoreTest extends AbstractNetworkTestCase
     public function testSendHeaderLocationWithoutSidWithIis(): void
     {
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
+        $GLOBALS['config']->enableBc();
+        $GLOBALS['config']->set('PMA_IS_IIS', true);
 
         $testUri = 'https://example.com/test.php';
 
@@ -603,8 +603,8 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $GLOBALS['server'] = 0;
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', null);
+        $GLOBALS['config']->enableBc();
+        $GLOBALS['config']->set('PMA_IS_IIS', null);
 
         $testUri = 'https://example.com/test.php';
 
@@ -619,8 +619,8 @@ class CoreTest extends AbstractNetworkTestCase
     {
         $GLOBALS['server'] = 0;
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', true);
+        $GLOBALS['config']->enableBc();
+        $GLOBALS['config']->set('PMA_IS_IIS', true);
 
         // over 600 chars
         $testUri = 'https://example.com/test.php?testlonguri=over600chars&test=test'

@@ -56,7 +56,7 @@ class ResultsTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $this->object = new DisplayResults('as', '', 0, '', '');
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $_SESSION[' HMAC_secret '] = 'test';

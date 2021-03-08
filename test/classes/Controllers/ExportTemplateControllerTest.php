@@ -26,13 +26,13 @@ class ExportTemplateControllerTest extends AbstractTestCase
 
     protected function setUp(): void
     {
-        global $dbi, $PMA_Config;
+        global $dbi, $config;
 
         $this->setGlobalDbi();
         parent::setTheme();
 
-        $PMA_Config = new Config();
-        $PMA_Config->enableBc();
+        $config = new Config();
+        $config->enableBc();
 
         $_SESSION = [' PMA_token ' => 'token'];
         $GLOBALS['server'] = 1;

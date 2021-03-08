@@ -364,7 +364,7 @@ class Export
     ): array {
         if ($export_type === 'server') {
             if (! empty($remember_template)) {
-                $GLOBALS['PMA_Config']->setUserValue(
+                $GLOBALS['config']->setUserValue(
                     'pma_server_filename_template',
                     'Export/file_template_server',
                     $filename_template
@@ -372,7 +372,7 @@ class Export
             }
         } elseif ($export_type === 'database') {
             if (! empty($remember_template)) {
-                $GLOBALS['PMA_Config']->setUserValue(
+                $GLOBALS['config']->setUserValue(
                     'pma_db_filename_template',
                     'Export/file_template_database',
                     $filename_template
@@ -380,7 +380,7 @@ class Export
             }
         } elseif ($export_type === 'raw') {
             if (! empty($remember_template)) {
-                $GLOBALS['PMA_Config']->setUserValue(
+                $GLOBALS['config']->setUserValue(
                     'pma_raw_filename_template',
                     'Export/file_template_raw',
                     $filename_template
@@ -388,7 +388,7 @@ class Export
             }
         } else {
             if (! empty($remember_template)) {
-                $GLOBALS['PMA_Config']->setUserValue(
+                $GLOBALS['config']->setUserValue(
                     'pma_table_filename_template',
                     'Export/file_template_table',
                     $filename_template

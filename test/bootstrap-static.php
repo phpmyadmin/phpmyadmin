@@ -30,18 +30,18 @@ require_once AUTOLOAD_FILE;
 
 $GLOBALS['cfg'] = $cfg;
 $GLOBALS['server'] = 0;
-$GLOBALS['PMA_Config'] = new Config();
+$GLOBALS['config'] = new Config();
 
 // phpcs:disable PSR1.Files.SideEffects
-define('PMA_VERSION', $GLOBALS['PMA_Config']->get('PMA_VERSION'));
+define('PMA_VERSION', $GLOBALS['config']->get('PMA_VERSION'));
 define('PMA_PATH_TO_BASEDIR', '');
 // phpcs:enable
 
 $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'
     . ' (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36';
-$GLOBALS['PMA_Config']->checkClient();
-$GLOBALS['PMA_Config']->checkWebServerOs();
-$GLOBALS['PMA_Config']->enableBc();// Defines constants, phpstan:level=1
+$GLOBALS['config']->checkClient();
+$GLOBALS['config']->checkWebServerOs();
+$GLOBALS['config']->enableBc();// Defines constants, phpstan:level=1
 
 Loader::loadFunctions();
 

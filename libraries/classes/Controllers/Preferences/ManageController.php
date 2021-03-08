@@ -62,10 +62,10 @@ class ManageController extends AbstractController
 
     public function index(): void
     {
-        global $cf, $error, $filename, $json, $PMA_Config, $lang, $max_upload_size;
-        global $new_config, $config, $return_url, $form_display, $all_ok, $params, $query, $route;
+        global $cf, $error, $filename, $json, $config, $lang, $max_upload_size;
+        global $new_config, $return_url, $form_display, $all_ok, $params, $query, $route;
 
-        $cf = new ConfigFile($PMA_Config->baseSettings);
+        $cf = new ConfigFile($config->baseSettings);
         $this->userPreferences->pageInit($cf);
 
         $error = '';
@@ -129,9 +129,9 @@ class ManageController extends AbstractController
             // hide header message
             $_SESSION['userprefs_autoload'] = true;
 
-            $config = json_decode($json, true);
+            $configuration = json_decode($json, true);
             $return_url = $_POST['return_url'] ?? null;
-            if (! is_array($config)) {
+            if (! is_array($configuration)) {
                 if (! isset($error)) {
                     $error = __('Could not import configuration');
                 }
@@ -144,7 +144,7 @@ class ManageController extends AbstractController
                     $new_config = array_merge($new_config, $cf->getConfigArray());
                 }
 
-                $new_config = array_merge($new_config, $config);
+                $new_config = array_merge($new_config, $configuration);
                 $_POST_bak = $_POST;
                 foreach ($new_config as $k => $v) {
                     $_POST[str_replace('/', '-', (string) $k)] = $v;
@@ -184,19 +184,19 @@ class ManageController extends AbstractController
                 $params = [];
                 $tmanager = ThemeManager::getInstance();
                 if (
-                    isset($config['ThemeDefault'])
-                    && $tmanager->theme->getId() != $config['ThemeDefault']
-                    && $tmanager->checkTheme($config['ThemeDefault'])
+                    isset($configuration['ThemeDefault'])
+                    && $tmanager->theme->getId() != $configuration['ThemeDefault']
+                    && $tmanager->checkTheme($configuration['ThemeDefault'])
                 ) {
-                    $tmanager->setActiveTheme($config['ThemeDefault']);
+                    $tmanager->setActiveTheme($configuration['ThemeDefault']);
                     $tmanager->setThemeCookie();
                 }
 
                 if (
-                    isset($config['lang'])
-                    && $config['lang'] != $lang
+                    isset($configuration['lang'])
+                    && $configuration['lang'] != $lang
                 ) {
-                    $params['lang'] = $config['lang'];
+                    $params['lang'] = $configuration['lang'];
                 }
 
                 // save settings
@@ -220,7 +220,7 @@ class ManageController extends AbstractController
                     }
 
                     // reload config
-                    $PMA_Config->loadUserPreferences();
+                    $config->loadUserPreferences();
                     $this->userPreferences->redirect($return_url ?? '', $params);
 
                     return;
@@ -232,8 +232,8 @@ class ManageController extends AbstractController
             $result = $this->userPreferences->save([]);
             if ($result === true) {
                 $params = [];
-                $PMA_Config->removeCookie('pma_collaction_connection');
-                $PMA_Config->removeCookie('pma_lang');
+                $config->removeCookie('pma_collaction_connection');
+                $config->removeCookie('pma_lang');
                 $this->userPreferences->redirect('index.php?route=/preferences/manage', $params);
 
                 return;
