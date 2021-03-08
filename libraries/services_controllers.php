@@ -338,6 +338,7 @@ return [
                 '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
+                '$config' => '@config',
             ],
         ],
         PhpMyAdmin\Controllers\Preferences\FeaturesController::class => [
@@ -347,6 +348,7 @@ return [
                 '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
+                '$config' => '@config',
             ],
         ],
         PhpMyAdmin\Controllers\Preferences\ImportController::class => [
@@ -356,6 +358,7 @@ return [
                 '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
+                '$config' => '@config',
             ],
         ],
         PhpMyAdmin\Controllers\Preferences\MainPanelController::class => [
@@ -365,6 +368,7 @@ return [
                 '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
+                '$config' => '@config',
             ],
         ],
         PhpMyAdmin\Controllers\Preferences\ManageController::class => [
@@ -374,6 +378,7 @@ return [
                 '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
+                '$config' => '@config',
             ],
         ],
         PhpMyAdmin\Controllers\Preferences\NavigationController::class => [
@@ -383,6 +388,7 @@ return [
                 '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
+                '$config' => '@config',
             ],
         ],
         PhpMyAdmin\Controllers\Preferences\SqlController::class => [
@@ -392,6 +398,7 @@ return [
                 '$template' => '@template',
                 '$userPreferences' => '@user_preferences',
                 '$relation' => '@relation',
+                '$config' => '@config',
             ],
         ],
         PhpMyAdmin\Controllers\Preferences\TwoFactorController::class => [

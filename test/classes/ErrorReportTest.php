@@ -57,7 +57,12 @@ class ErrorReportTest extends AbstractTestCase
         }
 
         $template = new Template();
-        $this->errorReport = new ErrorReport(new HttpRequest(), new Relation(null, $template), $template);
+        $this->errorReport = new ErrorReport(
+            new HttpRequest(),
+            new Relation(null, $template),
+            $template,
+            $GLOBALS['config']
+        );
         $this->errorReport->setSubmissionUrl('http://localhost');
     }
 
@@ -135,7 +140,12 @@ class ErrorReportTest extends AbstractTestCase
             ->willReturn($return);
 
         $template = new Template();
-        $this->errorReport = new ErrorReport($httpRequest, new Relation(null, $template), $template);
+        $this->errorReport = new ErrorReport(
+            $httpRequest,
+            new Relation(null, $template),
+            $template,
+            $GLOBALS['config']
+        );
         $this->errorReport->setSubmissionUrl($submissionUrl);
 
         $this->assertEquals($return, $this->errorReport->send($report));

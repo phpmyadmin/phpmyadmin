@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\ImportForm;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -26,6 +27,9 @@ class ImportController extends AbstractController
     /** @var Relation */
     private $relation;
 
+    /** @var Config */
+    private $config;
+
     /**
      * @param Response $response
      */
@@ -33,19 +37,20 @@ class ImportController extends AbstractController
         $response,
         Template $template,
         UserPreferences $userPreferences,
-        Relation $relation
+        Relation $relation,
+        Config $config
     ) {
         parent::__construct($response, $template);
         $this->userPreferences = $userPreferences;
         $this->relation = $relation;
+        $this->config = $config;
     }
 
     public function index(): void
     {
-        global $cfg, $cf, $error, $tabHash, $hash;
-        global $server, $config, $route;
+        global $cfg, $cf, $error, $tabHash, $hash, $server, $route;
 
-        $cf = new ConfigFile($config->baseSettings);
+        $cf = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($cf);
 
         $formDisplay = new ImportForm($cf, 1);
@@ -68,7 +73,7 @@ class ImportController extends AbstractController
             $twoFactor->save();
             if ($result === true) {
                 // reload config
-                $config->loadUserPreferences();
+                $this->config->loadUserPreferences();
                 $tabHash = $_POST['tab_hash'] ?? null;
                 $hash = ltrim($tabHash, '#');
                 $this->userPreferences->redirect(

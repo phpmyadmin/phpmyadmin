@@ -41,16 +41,20 @@ class ErrorReport
     /** @var Template */
     public $template;
 
+    /** @var Config */
+    private $config;
+
     /**
      * @param HttpRequest $httpRequest HttpRequest instance
      * @param Relation    $relation    Relation instance
      * @param Template    $template    Template instance
      */
-    public function __construct(HttpRequest $httpRequest, Relation $relation, Template $template)
+    public function __construct(HttpRequest $httpRequest, Relation $relation, Template $template, Config $config)
     {
         $this->httpRequest = $httpRequest;
         $this->relation = $relation;
         $this->template = $template;
+        $this->config = $config;
     }
 
     /**
@@ -73,8 +77,6 @@ class ErrorReport
      */
     public function getData(string $exceptionType = 'js'): array
     {
-        global $config;
-
         $relParams = $this->relation->getRelationsParam();
         // common params for both, php & js exceptions
         $report = [
@@ -84,9 +86,8 @@ class ErrorReport
             'user_os' => PMA_USR_OS,
             'server_software' => $_SERVER['SERVER_SOFTWARE'],
             'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
-            'locale' => $config->getCookie('pma_lang'),
-            'configuration_storage' =>
-                $relParams['db'] === null ? 'disabled' : 'enabled',
+            'locale' => $this->config->getCookie('pma_lang'),
+            'configuration_storage' => $relParams['db'] === null ? 'disabled' : 'enabled',
             'php_version' => PHP_VERSION,
         ];
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -46,6 +47,9 @@ class ManageController extends AbstractController
     /** @var Relation */
     private $relation;
 
+    /** @var Config */
+    private $config;
+
     /**
      * @param Response $response
      */
@@ -53,19 +57,21 @@ class ManageController extends AbstractController
         $response,
         Template $template,
         UserPreferences $userPreferences,
-        Relation $relation
+        Relation $relation,
+        Config $config
     ) {
         parent::__construct($response, $template);
         $this->userPreferences = $userPreferences;
         $this->relation = $relation;
+        $this->config = $config;
     }
 
     public function index(): void
     {
-        global $cf, $error, $filename, $json, $config, $lang, $max_upload_size;
+        global $cf, $error, $filename, $json, $lang, $max_upload_size;
         global $new_config, $return_url, $form_display, $all_ok, $params, $query, $route;
 
-        $cf = new ConfigFile($config->baseSettings);
+        $cf = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($cf);
 
         $error = '';
@@ -220,7 +226,7 @@ class ManageController extends AbstractController
                     }
 
                     // reload config
-                    $config->loadUserPreferences();
+                    $this->config->loadUserPreferences();
                     $this->userPreferences->redirect($return_url ?? '', $params);
 
                     return;
@@ -232,8 +238,8 @@ class ManageController extends AbstractController
             $result = $this->userPreferences->save([]);
             if ($result === true) {
                 $params = [];
-                $config->removeCookie('pma_collaction_connection');
-                $config->removeCookie('pma_lang');
+                $this->config->removeCookie('pma_collaction_connection');
+                $this->config->removeCookie('pma_lang');
                 $this->userPreferences->redirect('index.php?route=/preferences/manage', $params);
 
                 return;

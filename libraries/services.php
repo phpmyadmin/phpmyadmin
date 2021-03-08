@@ -55,6 +55,7 @@ return [
                 '@http_request',
                 '@relation',
                 '@template',
+                '@config',
             ],
         ],
         'events' => [
