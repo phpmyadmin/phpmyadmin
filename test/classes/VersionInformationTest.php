@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\VersionInformation;
 use stdClass;
+
 use function count;
 
 class VersionInformationTest extends AbstractTestCase

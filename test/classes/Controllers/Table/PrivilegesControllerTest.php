@@ -19,7 +19,6 @@ class PrivilegesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::loadDefaultConfig();
         parent::setLanguage();
         parent::setTheme();

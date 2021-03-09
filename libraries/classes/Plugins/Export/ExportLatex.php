@@ -16,6 +16,7 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Version;
 
 use function count;
 use function in_array;
@@ -214,7 +215,7 @@ class ExportLatex extends ExportPlugin
         global $crlf, $cfg, $dbi;
 
         $head = '% phpMyAdmin LaTeX Dump' . $crlf
-            . '% version ' . PMA_VERSION . $crlf
+            . '% version ' . Version::VERSION . $crlf
             . '% https://www.phpmyadmin.net/' . $crlf
             . '%' . $crlf
             . '% ' . __('Host:') . ' ' . $cfg['Server']['host'];

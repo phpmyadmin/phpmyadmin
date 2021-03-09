@@ -9,15 +9,13 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
-use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
-use function define;
-use function defined;
 use function getenv;
 use function in_array;
 use function is_array;
@@ -165,17 +163,6 @@ abstract class AbstractTestCase extends TestCase
         $GLOBALS['cfg']['ProxyUrl'] = $proxyUrl;
         $GLOBALS['cfg']['ProxyUser'] = $proxyUser;
         $GLOBALS['cfg']['ProxyPass'] = $proxyPass;
-    }
-
-    protected function defineVersionConstants(): void
-    {
-        global $config;
-        // Initialize PMA_VERSION variable
-        // phpcs:disable PSR1.Files.SideEffects
-        if (! defined('PMA_VERSION')) {
-            define('PMA_VERSION', $config->get('PMA_VERSION'));
-        }
-        // phpcs:enable
     }
 
     /**

@@ -10,6 +10,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Version;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -29,7 +30,6 @@ class ExportJsonTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -129,7 +129,7 @@ class ExportJsonTest extends AbstractTestCase
 
         $this->expectOutputString(
             "[\n"
-            . '{"type":"header","version":"' . PMA_VERSION
+            . '{"type":"header","version":"' . Version::VERSION
             . '","comment":"Export to JSON plugin for PHPMyAdmin"},'
             . "\n"
         );

@@ -9,6 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
+use PhpMyAdmin\Version;
 
 use function array_slice;
 
@@ -89,7 +90,6 @@ class CentralColumnsTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
-        parent::defineVersionConstants();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -103,7 +103,7 @@ class CentralColumnsTest extends AbstractTestCase
         //$_SESSION
         $GLOBALS['server'] = 1;
         $_SESSION['relation'][1] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'centralcolumnswork' => true,
             'relwork' => 1,
             'db' => 'phpmyadmin',

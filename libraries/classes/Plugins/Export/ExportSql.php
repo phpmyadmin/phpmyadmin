@@ -27,6 +27,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Version;
 
 use function bin2hex;
 use function count;
@@ -756,7 +757,7 @@ class ExportSql extends ExportPlugin
         }
 
         $head = $this->exportComment('phpMyAdmin SQL Dump')
-            . $this->exportComment('version ' . PMA_VERSION)
+            . $this->exportComment('version ' . Version::VERSION)
             . $this->exportComment('https://www.phpmyadmin.net/')
             . $this->exportComment();
         $host_string = __('Host:') . ' ' . $cfg['Server']['host'];

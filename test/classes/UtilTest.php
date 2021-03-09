@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
+use PhpMyAdmin\Version;
 
 use function date_default_timezone_get;
 use function date_default_timezone_set;
@@ -42,7 +43,6 @@ class UtilTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setTheme();
         parent::loadDefaultConfig();
@@ -643,8 +643,6 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['db'] = 'database';
         $GLOBALS['table'] = 'table';
 
-        $out = str_replace('PMA_VERSION', PMA_VERSION, $out);
-
         $this->assertEquals(
             $out,
             Util::expandUserString($in)
@@ -689,7 +687,7 @@ class UtilTest extends AbstractTestCase
             ],
             [
                 '@PHPMYADMIN@',
-                'phpMyAdmin PMA_VERSION',
+                'phpMyAdmin ' . Version::VERSION,
             ],
         ];
     }

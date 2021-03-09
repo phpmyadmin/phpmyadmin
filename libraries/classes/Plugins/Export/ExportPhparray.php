@@ -14,6 +14,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Version;
 
 use function preg_match;
 use function preg_replace;
@@ -88,7 +89,7 @@ class ExportPhparray extends ExportPlugin
             '<?php' . $GLOBALS['crlf']
             . '/**' . $GLOBALS['crlf']
             . ' * Export to PHP Array plugin for PHPMyAdmin' . $GLOBALS['crlf']
-            . ' * @version ' . PMA_VERSION . $GLOBALS['crlf']
+            . ' * @version ' . Version::VERSION . $GLOBALS['crlf']
             . ' */' . $GLOBALS['crlf'] . $GLOBALS['crlf']
         );
 

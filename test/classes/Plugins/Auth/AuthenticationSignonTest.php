@@ -27,7 +27,6 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setGlobalConfig();
         parent::setTheme();

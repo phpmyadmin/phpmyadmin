@@ -21,7 +21,6 @@ class TriggersTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setTheme();
         $GLOBALS['server'] = 0;

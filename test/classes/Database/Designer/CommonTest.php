@@ -8,6 +8,7 @@ use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Version;
 
 class CommonTest extends AbstractTestCase
 {
@@ -20,12 +21,11 @@ class CommonTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         $GLOBALS['server'] = 1;
         $_SESSION = [
             'relation' => [
                 '1' => [
-                    'PMA_VERSION' => PMA_VERSION,
+                    'version' => Version::VERSION,
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
                     'pdfwork' => true,

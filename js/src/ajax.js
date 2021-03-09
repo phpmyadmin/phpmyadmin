@@ -699,10 +699,10 @@ var AJAX = {
             // Clear loaded scripts if they are from another version of phpMyAdmin.
             // Depends on common params being set before loading scripts in responseHandler
             if (self.scriptsVersion === null) {
-                self.scriptsVersion = CommonParams.get('PMA_VERSION');
-            } else if (self.scriptsVersion !== CommonParams.get('PMA_VERSION')) {
+                self.scriptsVersion = CommonParams.get('version');
+            } else if (self.scriptsVersion !== CommonParams.get('version')) {
                 self.scripts = [];
-                self.scriptsVersion = CommonParams.get('PMA_VERSION');
+                self.scriptsVersion = CommonParams.get('version');
             }
             self.scriptsCompleted = false;
             self.scriptsToBeFired = [];
@@ -772,7 +772,7 @@ var AJAX = {
 
             script.type = 'text/javascript';
             var file = name.indexOf('vendor/') !== -1 ? name : 'dist/' + name;
-            script.src = 'js/' + file + '?' + 'v=' + encodeURIComponent(CommonParams.get('PMA_VERSION'));
+            script.src = 'js/' + file + '?' + 'v=' + encodeURIComponent(CommonParams.get('version'));
             script.async = false;
             script.onload = function () {
                 self.done(name, callback);

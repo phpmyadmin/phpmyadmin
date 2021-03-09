@@ -16,6 +16,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Version;
 use stdClass;
 
 use function htmlspecialchars;
@@ -37,7 +38,6 @@ class PrivilegesTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setGlobalConfig();
         parent::setTheme();
@@ -63,7 +63,7 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['pred_password'] = 'none';
         //$_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups',
@@ -1663,7 +1663,7 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['old_hostname'] = 'old_hostname';
         $_POST['old_username'] = 'old_username';
         $_SESSION['relation'][1] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'bookmarkwork' => false,
             'historywork' => false,
             'recentwork' => false,

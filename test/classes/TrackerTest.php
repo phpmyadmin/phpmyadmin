@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Version;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -20,7 +21,6 @@ class TrackerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         /**
          * SET these to avoid undefined index error
          */
@@ -33,7 +33,7 @@ class TrackerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'db' => 'pmadb',
             'tracking' => 'tracking',
         ];
@@ -75,7 +75,7 @@ class TrackerTest extends AbstractTestCase
         Tracker::enable();
 
         $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'trackingwork' => false,
         ];
 
@@ -84,7 +84,7 @@ class TrackerTest extends AbstractTestCase
         );
 
         $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'trackingwork' => true,
             'db' => 'pmadb',
             'tracking' => 'tracking',
@@ -149,7 +149,7 @@ class TrackerTest extends AbstractTestCase
 
         Tracker::enable();
 
-        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
+        $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
 
         $this->assertFalse(

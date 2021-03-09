@@ -54,7 +54,6 @@ class ConfigTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         $_SERVER['HTTP_USER_AGENT'] = '';
         $this->object = new Config();
@@ -88,7 +87,7 @@ class ConfigTest extends AbstractTestCase
     {
         $this->object->checkSystem();
 
-        $this->assertNotEmpty($this->object->get('PMA_VERSION'));
+        $this->assertIsBool($this->object->get('PMA_IS_WINDOWS'));
     }
 
     /**
@@ -751,7 +750,6 @@ class ConfigTest extends AbstractTestCase
         $this->object->enableBc();
 
         $defines = [
-            'PMA_VERSION',
             'PMA_IS_WINDOWS',
             'PMA_IS_GD2',
             'PMA_USR_OS',

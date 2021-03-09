@@ -15,6 +15,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Version;
 
 use function bin2hex;
 use function explode;
@@ -122,7 +123,7 @@ class ExportJson extends ExportPlugin
 
         $meta = [
             'type' => 'header',
-            'version' => PMA_VERSION,
+            'version' => Version::VERSION,
             'comment' => 'Export to JSON plugin for PHPMyAdmin',
         ];
 

@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Version;
 
 class EpsRelationSchemaTest extends AbstractTestCase
 {
@@ -23,7 +24,6 @@ class EpsRelationSchemaTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         $_REQUEST['page_number'] = 33;
         $_REQUEST['eps_show_color'] = true;
         $_REQUEST['eps_show_keys'] = true;
@@ -42,7 +42,7 @@ class EpsRelationSchemaTest extends AbstractTestCase
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'table_coords' => 'table_name',
             'displaywork' => 'displaywork',
             'db' => 'information_schema',

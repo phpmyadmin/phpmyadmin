@@ -14,6 +14,7 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Version;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -35,7 +36,6 @@ class ExportHtmlwordTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $this->object = new ExportHtmlword();
@@ -473,7 +473,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
@@ -563,7 +563,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
@@ -632,7 +632,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'relwork' => false,
             'commwork' => false,
             'mimework' => false,

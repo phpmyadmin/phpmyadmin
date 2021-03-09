@@ -23,7 +23,6 @@ class RoutinesTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setTheme();
         $GLOBALS['config']->enableBc();

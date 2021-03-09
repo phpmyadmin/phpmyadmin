@@ -25,7 +25,6 @@ class CoreTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         parent::setLanguage();
         parent::loadDefaultConfig();

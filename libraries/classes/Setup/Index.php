@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Version;
 use PhpMyAdmin\VersionInformation;
 
 use function htmlspecialchars;
@@ -162,9 +163,7 @@ class Index
             return;
         }
 
-        $version_local = $versionInformation->versionToInt(
-            $GLOBALS['config']->get('PMA_VERSION')
-        );
+        $version_local = $versionInformation->versionToInt(Version::VERSION);
         if ($version_local === false) {
             self::messagesSet(
                 'error',

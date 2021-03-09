@@ -115,8 +115,8 @@ class Relation
     {
         if (
             empty($_SESSION['relation'][$GLOBALS['server']])
-            || empty($_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'])
-            || $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] != PMA_VERSION
+            || empty($_SESSION['relation'][$GLOBALS['server']]['version'])
+            || $_SESSION['relation'][$GLOBALS['server']]['version'] !== Version::VERSION
         ) {
             $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
         }
@@ -618,8 +618,8 @@ class Relation
      */
     public function checkRelationsParam(): array
     {
-        $cfgRelation                   = [];
-        $cfgRelation['PMA_VERSION']    = PMA_VERSION;
+        $cfgRelation = [];
+        $cfgRelation['version'] = Version::VERSION;
 
         $workToTable = [
             'relwork' => 'relation',

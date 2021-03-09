@@ -80,7 +80,7 @@ class ErrorReport
         $relParams = $this->relation->getRelationsParam();
         // common params for both, php & js exceptions
         $report = [
-            'pma_version' => PMA_VERSION,
+            'pma_version' => Version::VERSION,
             'browser_name' => PMA_USR_BROWSER_AGENT,
             'browser_version' => PMA_USR_BROWSER_VER,
             'user_os' => PMA_USR_OS,

@@ -25,7 +25,6 @@ class ThemeTest extends AbstractTestCase
         global $theme;
 
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         $this->object = new Theme();
         $this->backup = $theme;

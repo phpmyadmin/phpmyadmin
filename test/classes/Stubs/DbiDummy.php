@@ -21,9 +21,10 @@ use function is_bool;
 use function preg_replace;
 use function str_replace;
 use function trim;
+
+use const MYSQLI_TYPE_DATETIME;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
-use const MYSQLI_TYPE_DATETIME;
 
 /**
  * Fake database driver for testing purposes

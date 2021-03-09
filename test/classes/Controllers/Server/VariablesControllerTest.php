@@ -23,7 +23,6 @@ class VariablesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setGlobalConfig();
         parent::setLanguage();
         parent::setTheme();
