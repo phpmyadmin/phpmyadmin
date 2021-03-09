@@ -19,6 +19,7 @@ use function array_sum;
 use function bin2hex;
 use function ceil;
 use function count;
+use function defined;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
@@ -32,7 +33,6 @@ use function str_replace;
 use function strlen;
 use function strpos;
 use function ucwords;
-use function defined;
 
 /**
  * Set of functions for the SQL executor

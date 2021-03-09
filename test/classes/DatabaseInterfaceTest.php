@@ -30,7 +30,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         parent::setUp();
         parent::loadDefaultConfig();
-        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $extension = new DbiDummy();
         $this->dbi = new DatabaseInterface($extension);

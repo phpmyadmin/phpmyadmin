@@ -24,7 +24,6 @@ class RelationTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';

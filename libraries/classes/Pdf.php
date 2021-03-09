@@ -65,7 +65,7 @@ class Pdf extends TCPDF
             $diskcache,
             $pdfa
         );
-        $this->SetAuthor('phpMyAdmin ' . PMA_VERSION);
+        $this->SetAuthor('phpMyAdmin ' . Version::VERSION);
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
         $this->SetFont(self::PMA_PDF_FONT, '', 14);

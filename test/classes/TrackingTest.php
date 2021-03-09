@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Version;
 
 use function htmlspecialchars;
 use function sprintf;
@@ -26,7 +27,6 @@ class TrackingTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
 
         global $config;
@@ -43,7 +43,7 @@ class TrackingTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 
         $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'db' => 'pmadb',
             'tracking' => 'tracking',
             'trackingwork' => true,

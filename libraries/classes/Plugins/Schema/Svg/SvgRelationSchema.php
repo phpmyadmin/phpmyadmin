@@ -11,6 +11,7 @@ use PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia;
 use PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
+use PhpMyAdmin\Version;
 
 use function in_array;
 use function max;
@@ -78,7 +79,7 @@ class SvgRelationSchema extends ExportRelationSchema
                 $this->pageNumber
             )
         );
-        $this->diagram->SetAuthor('phpMyAdmin ' . PMA_VERSION);
+        $this->diagram->SetAuthor('phpMyAdmin ' . Version::VERSION);
         $this->diagram->setFont('Arial');
         $this->diagram->setFontSize(16);
 

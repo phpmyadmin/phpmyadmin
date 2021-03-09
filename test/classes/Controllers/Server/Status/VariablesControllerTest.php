@@ -18,7 +18,6 @@ class VariablesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setGlobalConfig();
         $GLOBALS['config']->enableBc();
         parent::setTheme();

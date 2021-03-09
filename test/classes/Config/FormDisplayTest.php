@@ -26,7 +26,6 @@ class FormDisplayTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         parent::loadDefaultConfig();
         parent::setGlobalConfig();

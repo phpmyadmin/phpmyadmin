@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Version;
 
 /**
  * tests for transformation wrappers
@@ -24,7 +25,6 @@ class TransformationsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $GLOBALS['cfg'] = [
@@ -198,7 +198,7 @@ class TransformationsTest extends AbstractTestCase
      */
     public function testGetMime(): void
     {
-        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
+        $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['mimework'] = true;
         $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
         $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
@@ -246,7 +246,7 @@ class TransformationsTest extends AbstractTestCase
             $actual
         );
 
-        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
+        $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
         $_SESSION['relation'][$GLOBALS['server']]['db'] = 'pmadb';
 

@@ -23,7 +23,6 @@ class EnginesControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
-        parent::defineVersionConstants();
         parent::setTheme();
         $GLOBALS['config']->enableBc();
 

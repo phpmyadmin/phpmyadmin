@@ -18,7 +18,6 @@ class FindReplaceControllerTest extends AbstractTestCase
         parent::setUp();
         parent::setLanguage();
         parent::setGlobalConfig();
-        parent::defineVersionConstants();
         parent::setTheme();
         $GLOBALS['config']->enableBc();
 

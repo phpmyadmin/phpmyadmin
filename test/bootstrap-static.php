@@ -33,7 +33,6 @@ $GLOBALS['server'] = 0;
 $GLOBALS['config'] = new Config();
 
 // phpcs:disable PSR1.Files.SideEffects
-define('PMA_VERSION', $GLOBALS['config']->get('PMA_VERSION'));
 define('PMA_PATH_TO_BASEDIR', '');
 // phpcs:enable
 

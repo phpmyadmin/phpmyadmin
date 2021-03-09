@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Version;
 
 class ReplaceControllerTest extends AbstractTestCase
 {
@@ -14,7 +15,6 @@ class ReplaceControllerTest extends AbstractTestCase
     {
         parent::setUp();
         parent::loadDefaultConfig();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setTheme();
         parent::setGlobalDbi();
@@ -31,7 +31,7 @@ class ReplaceControllerTest extends AbstractTestCase
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'table_coords' => 'table_name',
             'displaywork' => 'displaywork',
             'db' => 'information_schema',

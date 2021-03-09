@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
+use PhpMyAdmin\Version;
 use PHPUnit\Framework\MockObject\MockObject;
 
 use function array_merge;
@@ -29,11 +30,10 @@ class RelationCleanupTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         $GLOBALS['server'] = 1;
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'relwork' => false,
             'displaywork' => false,
             'bookmarkwork' => false,

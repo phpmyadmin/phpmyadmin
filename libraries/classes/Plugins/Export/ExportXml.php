@@ -15,6 +15,7 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Version;
 
 use function count;
 use function htmlspecialchars;
@@ -248,7 +249,7 @@ class ExportXml extends ExportPlugin
         $head = '<?xml version="1.0" encoding="' . $charset . '"?>' . $crlf
             . '<!--' . $crlf
             . '- phpMyAdmin XML Dump' . $crlf
-            . '- version ' . PMA_VERSION . $crlf
+            . '- version ' . Version::VERSION . $crlf
             . '- https://www.phpmyadmin.net' . $crlf
             . '-' . $crlf
             . '- ' . __('Host:') . ' ' . htmlspecialchars($cfg['Server']['host']);

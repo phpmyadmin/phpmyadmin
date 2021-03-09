@@ -12,6 +12,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Version;
 
 class ExportTemplateControllerTest extends AbstractTestCase
 {
@@ -40,7 +41,7 @@ class ExportTemplateControllerTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = '';
 
         $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'exporttemplateswork' => true,
             'db' => 'db',
             'export_templates' => 'table',

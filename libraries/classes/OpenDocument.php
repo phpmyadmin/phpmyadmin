@@ -44,8 +44,8 @@ EOT;
             . 'xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" '
             . 'office:version="1.0">'
             . '<office:meta>'
-            . '<meta:generator>phpMyAdmin ' . PMA_VERSION . '</meta:generator>'
-            . '<meta:initial-creator>phpMyAdmin ' . PMA_VERSION
+            . '<meta:generator>phpMyAdmin ' . Version::VERSION . '</meta:generator>'
+            . '<meta:initial-creator>phpMyAdmin ' . Version::VERSION
             . '</meta:initial-creator>'
             . '<meta:creation-date>' . strftime('%Y-%m-%dT%H:%M:%S')
             . '</meta:creation-date>'

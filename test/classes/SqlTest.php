@@ -24,7 +24,6 @@ class SqlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::loadDefaultConfig();
         parent::setTheme();

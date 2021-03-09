@@ -17,6 +17,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Version;
 use stdClass;
 
 use function count;
@@ -48,7 +49,6 @@ class ResultsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setGlobalConfig();
         $GLOBALS['server'] = 0;
@@ -1094,7 +1094,7 @@ class ResultsTest extends AbstractTestCase
     {
         // Fake relation settings
         $_SESSION['tmpval']['relational_display'] = 'K';
-        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
+        $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['mimework'] = true;
         $_SESSION['relation'][$GLOBALS['server']]['column_info'] = 'column_info';
         $GLOBALS['cfg']['BrowseMIME'] = true;

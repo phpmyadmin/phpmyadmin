@@ -137,9 +137,6 @@ class Config
      */
     public function checkSystem(): void
     {
-        // All the version handling is now done in the Version class
-        $this->set('PMA_VERSION', Version::VERSION);
-
         $this->checkWebServerOs();
         $this->checkWebServer();
         $this->checkGd2();
@@ -1052,7 +1049,6 @@ class Config
         $GLOBALS['is_https']        = $this->get('is_https');
 
         $defines = [
-            'PMA_VERSION',
             'PMA_IS_WINDOWS',
             'PMA_IS_GD2',
             'PMA_USR_OS',

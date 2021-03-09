@@ -256,7 +256,7 @@ class Header
             'is_https' => $GLOBALS['config']->isHttps(),
             'rootPath' => $GLOBALS['config']->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
         ];
         if (isset($GLOBALS['cfg']['Server'], $GLOBALS['cfg']['Server']['auth_type'])) {
             $params['auth_type'] = $GLOBALS['cfg']['Server']['auth_type'];
@@ -369,7 +369,7 @@ class Header
     public function enablePrintView(): void
     {
         $this->disableMenuAndConsole();
-        $this->setTitle(__('Print view') . ' - phpMyAdmin ' . PMA_VERSION);
+        $this->setTitle(__('Print view') . ' - phpMyAdmin ' . Version::VERSION);
         $this->isPrintView = true;
     }
 
@@ -710,7 +710,7 @@ class Header
      */
     public static function getVersionParameter(): string
     {
-        return 'v=' . urlencode(PMA_VERSION);
+        return 'v=' . urlencode(Version::VERSION);
     }
 
     private function getVariablesForJavaScript(): string
