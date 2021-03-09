@@ -216,11 +216,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/VariablesController.php
 
 		-
-			message: "#^Ternary operator condition is always false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Setup/HomeController.php
-
-		-
 			message: "#^Parameter \\#1 \\$server of method PhpMyAdmin\\\\Config\\\\ConfigFile\\:\\:getServerDSN\\(\\) expects int, int\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Setup/ServersController.php
@@ -274,11 +269,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$column_index of method PhpMyAdmin\\\\Controllers\\\\Table\\\\ZoomSearchController\\:\\:getColumnProperties\\(\\) expects int, int\\|string\\|false given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: "#^Comparison operation \"\\<\" between 1 and 43 is always true\\.$#"
-			count: 1
-			path: libraries/classes/Core.php
 
 		-
 			message: "#^Offset 'pass'\\|'port'\\|'user' does not exist on array\\(\\?'scheme' \\=\\> string, 'host' \\=\\> string, \\?'port' \\=\\> int, \\?'user' \\=\\> string, \\?'pass' \\=\\> string, \\?'path' \\=\\> string, \\?'query' \\=\\> string, \\?'fragment' \\=\\> string\\)\\.$#"
@@ -557,21 +547,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, array\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Result of && is always false\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Comparison operation \"\\>\\=\" between 1 and 43 is always false\\.$#"
-			count: 1
-			path: libraries/classes/Export.php
-
-		-
-			message: "#^Right side of \\|\\| is always false\\.$#"
 			count: 1
 			path: libraries/classes/Export.php
 
