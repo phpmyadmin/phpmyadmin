@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-02-24 10:22+0100\n"
-"PO-Revision-Date: 2021-02-08 11:50+0000\n"
+"PO-Revision-Date: 2021-03-12 07:02+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6898,10 +6898,9 @@ msgid "Submit"
 msgstr "Saada"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:551
-#, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "Muutmisest loobumiseks vajuta ESC."
+msgstr ""
+"Muutmisest loobumiseks vajuta ESC.<br>- Reavahetuseks vajuta Shift+Enter."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid ""
@@ -12113,6 +12112,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Marsruutimispuhvrit ei suudetud kirjutada; sa pead kohandama kataloogi/faili "
+"\"%s\" õiguseid"
 
 #: libraries/classes/Routing.php:164
 #, php-format
@@ -15620,20 +15621,17 @@ msgid "License"
 msgstr "Litsents"
 
 #: templates/home/index.twig:247
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
-msgstr "phpMyAdmini koduleht"
+msgstr "phpMyAdmini teemad"
 
 #: templates/home/index.twig:258
 msgid "Get more themes!"
 msgstr "Hangi rohkem välimusi!"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Andmebaasi %s skeem"
+msgstr "Teema %s kuvatõmmis."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
