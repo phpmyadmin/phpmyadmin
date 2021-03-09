@@ -1943,7 +1943,7 @@ class Table
             . " (username, db_name, table_name, prefs) VALUES ('"
             . $this->dbi->escapeString($username) . "', '" . $secureDbName
             . "', '" . $this->dbi->escapeString($this->name) . "', '"
-            . $this->dbi->escapeString(json_encode($this->uiprefs)) . "')";
+            . $this->dbi->escapeString((string) json_encode($this->uiprefs)) . "')";
 
         $success = $this->dbi->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
 
@@ -2338,7 +2338,7 @@ class Table
         if (! empty($keyBlockSizes)) {
             $sql_query .= sprintf(
                 ' KEY_BLOCK_SIZE = %s',
-                $this->dbi->escapeString($keyBlockSizes)
+                $this->dbi->escapeString((string) $keyBlockSizes)
             );
         }
 

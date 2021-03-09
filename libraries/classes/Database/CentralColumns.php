@@ -591,10 +591,7 @@ class CentralColumns
                     (string) $this->dbi->getError()
                 );
             } else {
-                $message->addText(
-                    $this->dbi->getError(),
-                    '<br>'
-                );
+                $message->addText((string) $this->dbi->getError(), '<br>');
             }
         }
 

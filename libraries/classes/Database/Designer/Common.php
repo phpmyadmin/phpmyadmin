@@ -499,7 +499,7 @@ class Common
      */
     public function saveTablePositions($pg)
     {
-        $pageId = $this->dbi->escapeString($pg);
+        $pageId = $this->dbi->escapeString((string) $pg);
 
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {

@@ -445,16 +445,6 @@
       <code>$biggest_max_file_size &gt; 0</code>
     </TypeDoesNotContainType>
   </file>
-  <file src="libraries/classes/Controllers/Table/ChartController.php">
-    <ImplicitToStringCast occurrences="1">
-      <code>Message::error(__('No SQL query was set to fetch data.'))</code>
-    </ImplicitToStringCast>
-  </file>
-  <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
-    <ImplicitToStringCast occurrences="1">
-      <code>Message::error(__('No SQL query was set to fetch data.'))</code>
-    </ImplicitToStringCast>
-  </file>
   <file src="libraries/classes/Controllers/Table/RelationController.php">
     <PossiblyNullArgument occurrences="2">
       <code>$multi_edit_columns_name</code>
@@ -490,9 +480,6 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
-    <ImplicitToStringCast occurrences="1">
-      <code>$message</code>
-    </ImplicitToStringCast>
     <InvalidReturnStatement occurrences="1">
       <code>$partitionDetails</code>
     </InvalidReturnStatement>
@@ -568,9 +555,6 @@
     <InvalidScalarArgument occurrences="1">
       <code>$tn_pageNow</code>
     </InvalidScalarArgument>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$this-&gt;dbi-&gt;getError()</code>
-    </PossiblyInvalidArgument>
     <RedundantCast occurrences="3">
       <code>(array) $has_list</code>
     </RedundantCast>
@@ -591,9 +575,6 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Database/Designer/Common.php">
-    <InvalidArgument occurrences="1">
-      <code>$pg</code>
-    </InvalidArgument>
     <PossiblyUndefinedArrayOffset occurrences="4">
       <code>$con['DCN']</code>
       <code>$con['DTN']</code>
@@ -736,9 +717,6 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Display/Results.php">
-    <ImplicitToStringCast occurrences="1">
-      <code>$message</code>
-    </ImplicitToStringCast>
     <InvalidArgument occurrences="16">
       <code>$added[$orgFullTableName]</code>
       <code>$defaultFunction</code>
@@ -1369,9 +1347,6 @@
       <code>(string) $conn_error</code>
     </RedundantCast>
   </file>
-  <file src="libraries/classes/Plugins/Auth/AuthenticationHttp.php">
-    <ImplicitToStringCast occurrences="1"/>
-  </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationSignon.php">
     <PossiblyInvalidArgument occurrences="5">
       <code>$sessionCookieParams['domain']</code>
@@ -1548,9 +1523,6 @@
     </ImplementedReturnTypeMismatch>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportCsv.php">
-    <ImplicitToStringCast occurrences="1">
-      <code>$hint</code>
-    </ImplicitToStringCast>
     <ParadoxicalCondition occurrences="1">
       <code>$error</code>
     </ParadoxicalCondition>
@@ -2438,14 +2410,13 @@
     <PossiblyInvalidOperand occurrences="1">
       <code>$insertId</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument occurrences="22">
+    <PossiblyNullArgument occurrences="21">
       <code>$_POST['purge'] ?? null</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
-      <code>$dispMessage ?? null</code>
       <code>$extraData ?? null</code>
       <code>$messageToShow ?? null</code>
       <code>$printView</code>
@@ -2481,9 +2452,6 @@
     </NullableReturnStatement>
   </file>
   <file src="libraries/classes/Table.php">
-    <InvalidArgument occurrences="1">
-      <code>$keyBlockSizes</code>
-    </InvalidArgument>
     <InvalidReturnStatement occurrences="1">
       <code>$table_auto_increment ?? ''</code>
     </InvalidReturnStatement>

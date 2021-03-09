@@ -4480,7 +4480,7 @@ class Results
 
             $message->addParam('[doc@cfg_MaxExactCount]');
             $message->addParam('[/doc]');
-            $messageViewWarning = Generator::showHint($message);
+            $messageViewWarning = Generator::showHint($message->getMessage());
         } else {
             $messageViewWarning = false;
         }

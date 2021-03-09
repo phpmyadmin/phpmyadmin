@@ -107,7 +107,7 @@ class Generator
      *
      * @access public
      */
-    public static function showHint($message): string
+    public static function showHint(string $message): string
     {
         if ($GLOBALS['cfg']['ShowHint']) {
             $classClause = ' class="pma_hint"';

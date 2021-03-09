@@ -1594,7 +1594,7 @@ class Sql
             $dispQuery ?? null,
             (bool) $GLOBALS['cfg']['ShowSQL'],
             $sqlData ?? null,
-            $dispMessage ?? null
+            $dispMessage ?? ''
         );
 
         $profilingChartHtml = '';

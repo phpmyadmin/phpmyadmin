@@ -2972,9 +2972,8 @@ class InsertEdit
                     $current_value = '0x' . $current_value;
                 }
             } elseif ($type === 'bit') {
-                $current_value = preg_replace('/[^01]/', '0', $current_value);
-                $current_value = "b'" . $this->dbi->escapeString($current_value)
-                    . "'";
+                $current_value = (string) preg_replace('/[^01]/', '0', $current_value);
+                $current_value = "b'" . $this->dbi->escapeString($current_value) . "'";
             } elseif (
                 ! ($type === 'datetime' || $type === 'timestamp')
                 || ($current_value !== 'CURRENT_TIMESTAMP'

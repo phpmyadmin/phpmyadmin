@@ -124,7 +124,7 @@ class ImportCsv extends AbstractImportCsv
             );
             $leaf = new TextPropertyItem(
                 'columns',
-                __('Column names:') . ' ' . Generator::showHint($hint)
+                __('Column names:') . ' ' . Generator::showHint($hint->getMessage())
             );
             $generalOptions->addProperty($leaf);
         }
