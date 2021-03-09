@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-03-06 15:47+0100\n"
-"PO-Revision-Date: 2021-02-08 11:50+0000\n"
+"PO-Revision-Date: 2021-03-10 06:02+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7950,16 +7950,12 @@ msgstr ""
 "INSERT DELAYED järjekordades kirjutamisvalmis olevate ootel ridade hulk."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:549
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
-"Avatud tabelite hulk. Kui see on liiga suur, siis sinu tabeli puhvri väärtus "
-"on tõenäoliselt liiga väike."
+"Avatud tabelite arv. Kui avatud tabeleid on palju, siis sinu on parameetri "
+"table_open_cache väärtus tõenäoliselt liiga väike."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The number of files that are open."
@@ -12268,6 +12264,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Marsruutimispuhvrit ei suudetud kirjutada; sa pead kohandama kataloogi/faili "
+"\"%s\" õiguseid"
 
 #: libraries/classes/Routing.php:164
 #, php-format
@@ -15979,7 +15977,7 @@ msgstr "Palun sisesta korrektne 16-nd väärtus"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "See veerg ei saa sisaldada 32 märgilist väärtust"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -15987,6 +15985,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Need funktsioonid on mõeldud binaartulemusele. Vasturääkivate tulemuste "
+"vältimiseks peaksid neid salvestama BINARY, VARBINARY või BLOB tüüpi veerus."
 
 #: templates/login/form.twig:30
 msgid "Log in"
