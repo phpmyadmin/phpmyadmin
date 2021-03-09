@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-03-10 14:02+0000\n"
+"Last-Translator: Tymofij Lytvynenko <till.svit@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "uk/>\n"
 "Language: uk\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1511,14 +1511,13 @@ msgstr ""
 "так що інші атрибути запиту, такі як час початку, можуть відрізнятися."
 
 #: js/messages.php:278
-#, fuzzy
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 "Оскільки було обрано групування запитів INSERT, INSERT запити в тій же "
-"таблиці також групуються разом, незважаючи на вставлені дані."
+"таблиці також групуються разом, попри вставлені дані."
 
 #: js/messages.php:283
 msgid "Log data loaded. Queries executed in this time span:"
@@ -9981,18 +9980,6 @@ msgstr ""
 "порожнього рядка."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Output/Text_Plain_External.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -10008,13 +9995,13 @@ msgstr ""
 "ЛИШЕ LINUX: Запускає зовнішню програму і подає стовпцеві дані через "
 "стандартний ввід. Повертає стандартний вивід програми. Типовою програмою є "
 "Tidy, яка гарно друкує HTML код. З міркувань безпеки Вам потрібно самостійно "
-"відредагувати файл libraries/classes/Plugins/Transformations/Output/"
-"Text_Plain_External.php та вписати програми дозволені для запуску. У такому "
-"випадку, перша опція - кількість програм, які Ви бажаєте використовувати і "
-"друга - параметри для програм. Третя опція, встановлена в 1, буде "
-"конвертувати вивід, використовуючи htmlspecialchars() (типово: 1). Четверта "
-"опція, встановлена в 1, запобігатиме перенесенню рядка і виведе усі дані "
-"одним рядком (типово: 1)."
+"відредагувати файл libraries/classes/Plugins/Transformations//Abs/"
+"ExternalTransformationsPlugin.php та вписати програми дозволені для запуску. "
+"У такому випадку, перша опція - кількість програм, які Ви бажаєте "
+"використовувати. Друга - має бути порожньою з історичних причин. Третя "
+"опція, встановлена в 1, буде конвертувати вивід, використовуючи "
+"htmlspecialchars() (типово: 1). Четверта опція, встановлена в 1, "
+"запобігатиме перенесенню рядка і виведе усі дані одним рядком (типово: 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
 #, php-format
@@ -10023,6 +10010,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Ви використовуєте поле параметрів командного рядка зовнішнього перетворення, "
+"яке застаріло з міркувань безпеки. Додайте всі параметри командного рядка "
+"безпосередньо до визначення у %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -14387,10 +14377,8 @@ msgstr "Неправильна назва таблиці"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46 transformation_wrapper.php:69
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Забагато об'єднань без індексів."
+msgstr "Виникла проблема з Вашим запитом."
 
 #: tbl_replace.php:258
 #, php-format
