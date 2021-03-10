@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Twig\AssetExtension;
 use PhpMyAdmin\Twig\CoreExtension;
+use PhpMyAdmin\Twig\Extensions\Node\TransNode;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\PluginsExtension;
@@ -29,7 +30,6 @@ use Twig\TemplateWrapper;
 use function sprintf;
 use function trigger_error;
 
-use const DIRECTORY_SEPARATOR;
 use const E_USER_WARNING;
 
 /**
@@ -44,32 +44,47 @@ class Template
      */
     protected static $twig;
 
-    public const BASE_PATH = ROOT_PATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
+    public const TEMPLATES_FOLDER = ROOT_PATH . 'templates';
 
     public function __construct()
     {
-        global $cfg;
-
-        /** @var Config|null $config */
-        $config = $GLOBALS['config'];
         if (static::$twig !== null) {
             return;
         }
 
-        $loader = new FilesystemLoader(self::BASE_PATH);
-        $cache_dir = $config !== null ? $config->getTempDir('twig') : null;
+        /** @var Config|null $config */
+        $config = $GLOBALS['config'];
+        $cacheDir = $config !== null ? $config->getTempDir('twig') : null;
+
+        static::$twig = self::getTwigEnvironment($cacheDir);
+    }
+
+    public static function getTwigEnvironment(?string $cacheDir): Environment
+    {
+        global $cfg;
+
         /* Twig expects false when cache is not configured */
-        if ($cache_dir === null) {
-            $cache_dir = false;
+        if ($cacheDir === null) {
+            $cacheDir = false;
         }
 
+        $loader = new FilesystemLoader(self::TEMPLATES_FOLDER);
         $twig = new Environment($loader, [
             'auto_reload' => true,
-            'cache' => $cache_dir,
+            'cache' => $cacheDir,
         ]);
+
         if ($cfg['environment'] === 'development') {
             $twig->enableDebug();
             $twig->addExtension(new DebugExtension());
+            // This will enable debug for the extension to print lines
+            // It is used in po file lines re-mapping
+            TransNode::$enableAddDebugInfo = true;
+        }
+
+        if ($cfg['environment'] === 'production') {
+            $twig->disableDebug();
+            TransNode::$enableAddDebugInfo = false;
         }
 
         $twig->addExtension(new AssetExtension());
@@ -84,7 +99,8 @@ class Template
         $twig->addExtension(new TransformationsExtension());
         $twig->addExtension(new UrlExtension());
         $twig->addExtension(new UtilExtension());
-        static::$twig = $twig;
+
+        return $twig;
     }
 
     /**

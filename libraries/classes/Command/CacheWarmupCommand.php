@@ -7,28 +7,16 @@ namespace PhpMyAdmin\Command;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Routing;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
-use PhpMyAdmin\Twig\AssetExtension;
-use PhpMyAdmin\Twig\CoreExtension;
-use PhpMyAdmin\Twig\Extensions\Node\TransNode;
-use PhpMyAdmin\Twig\I18nExtension;
-use PhpMyAdmin\Twig\MessageExtension;
-use PhpMyAdmin\Twig\PluginsExtension;
-use PhpMyAdmin\Twig\RelationExtension;
-use PhpMyAdmin\Twig\SanitizeExtension;
-use PhpMyAdmin\Twig\TableExtension;
-use PhpMyAdmin\Twig\TrackerExtension;
-use PhpMyAdmin\Twig\TransformationsExtension;
-use PhpMyAdmin\Twig\UrlExtension;
-use PhpMyAdmin\Twig\UtilExtension;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Twig\Cache\CacheInterface;
 use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
 
 use function fclose;
 use function fopen;
@@ -49,11 +37,22 @@ final class CacheWarmupCommand extends Command
         $this->setDescription('Warms up the Twig templates cache');
         $this->addOption('twig', null, null, 'Warm up twig templates cache.');
         $this->addOption('routing', null, null, 'Warm up routing cache.');
+        $this->addOption('twig-po', null, null, 'Warm up twig templates and write file mappings.');
+        $this->addOption(
+            'env',
+            null,
+            InputArgument::OPTIONAL,
+            'Defines the environment (production or development) for twig warmup',
+            'production'
+        );
         $this->setHelp('The <info>%command.name%</info> command warms up the cache of the Twig templates.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        /** @var string $env */
+        $env = $input->getOption('env');
+
         if ($input->getOption('twig') === true && $input->getOption('routing') === true) {
             $output->writeln('Please specify --twig or --routing');
 
@@ -61,7 +60,11 @@ final class CacheWarmupCommand extends Command
         }
 
         if ($input->getOption('twig') === true) {
-            return $this->warmUpTwigCache($output);
+            return $this->warmUpTwigCache($output, $env, false);
+        }
+
+        if ($input->getOption('twig-po') === true) {
+            return $this->warmUpTwigCache($output, $env, true);
         }
 
         if ($input->getOption('routing') === true) {
@@ -69,7 +72,7 @@ final class CacheWarmupCommand extends Command
         }
 
         $output->writeln('Warming up all caches.', OutputInterface::VERBOSITY_VERBOSE);
-        $twigCode = $this->warmUptwigCache($output);
+        $twigCode = $this->warmUptwigCache($output, $env, false);
         if ($twigCode !== 0) {
             $output->writeln('Twig cache generation had an error.');
 
@@ -110,51 +113,34 @@ final class CacheWarmupCommand extends Command
         return Command::FAILURE;
     }
 
-    private function warmUpTwigCache(OutputInterface $output): int
-    {
+    private function warmUpTwigCache(
+        OutputInterface $output,
+        string $environment,
+        bool $writeReplacements
+    ): int {
         global $cfg, $config, $dbi;
 
         $output->writeln('Warming up the twig cache', OutputInterface::VERBOSITY_VERBOSE);
-        $cfg['environment'] = 'production';
         $config = new Config(CONFIG_FILE);
+        $cfg['environment'] = $environment;
         $config->set('environment', $cfg['environment']);
         $dbi = new DatabaseInterface(new DbiDummy());
-        $tplDir = ROOT_PATH . 'templates';
         $tmpDir = ROOT_PATH . 'twig-templates';
-
-        $loader = new FilesystemLoader($tplDir);
-        $twig = new Environment($loader, [
-            'auto_reload' => true,
-            'cache' => $tmpDir,
-        ]);
-
-        // Add this to know at what line the code was for getDebugInfo to work
-        TransNode::$enableAddDebugInfo = true;
-
-        $twig->setExtensions([
-            new AssetExtension(),
-            new CoreExtension(),
-            new I18nExtension(),
-            new MessageExtension(),
-            new PluginsExtension(),
-            new RelationExtension(),
-            new SanitizeExtension(),
-            new TableExtension(),
-            new TrackerExtension(),
-            new TransformationsExtension(),
-            new UrlExtension(),
-            new UtilExtension(),
-        ]);
-
-        /** @var CacheInterface $twigCache */
-        $twigCache = $twig->getCache(false);
+        $twig = Template::getTwigEnvironment($tmpDir);
 
         $output->writeln('Searching for files...', OutputInterface::VERBOSITY_VERY_VERBOSE);
 
-        $replacements = [];
         $templates = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($tplDir),
+            new RecursiveDirectoryIterator(Template::TEMPLATES_FOLDER),
             RecursiveIteratorIterator::LEAVES_ONLY
+        );
+
+        /** @var CacheInterface $twigCache */
+        $twigCache = $twig->getCache(false);
+        $replacements = [];
+        $output->writeln(
+            'Twig debug is: ' . ($twig->isDebug() ? 'enabled' : 'disabled'),
+            OutputInterface::VERBOSITY_DEBUG
         );
 
         $output->writeln('Warming templates', OutputInterface::VERBOSITY_VERY_VERBOSE);
@@ -169,7 +155,7 @@ final class CacheWarmupCommand extends Command
                 continue;
             }
 
-            $name = str_replace($tplDir . '/', '', $file->getPathname());
+            $name = str_replace(Template::TEMPLATES_FOLDER . '/', '', $file->getPathname());
             $output->writeln('Loading: ' . $name, OutputInterface::VERBOSITY_DEBUG);
             if (Environment::MAJOR_VERSION === 3) {
                 $template = $twig->loadTemplate($twig->getTemplateClass($name), $name);
@@ -177,11 +163,21 @@ final class CacheWarmupCommand extends Command
                 $template = $twig->loadTemplate($name);// @phpstan-ignore-line Twig 2
             }
 
+            if (! $writeReplacements) {
+                continue;
+            }
+
             // Generate line map
             $cacheFilename = $twigCache->generateKey($name, $twig->getTemplateClass($name));
             $template_file = 'templates/' . $name;
             $cache_file = str_replace($tmpDir, 'twig-templates', $cacheFilename);
             $replacements[$cache_file] = [$template_file, $template->getDebugInfo()];
+        }
+
+        if (! $writeReplacements) {
+            $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);
+
+            return Command::SUCCESS;
         }
 
         $output->writeln('Writing replacements...', OutputInterface::VERBOSITY_VERY_VERBOSE);
@@ -193,6 +189,8 @@ final class CacheWarmupCommand extends Command
 
         fwrite($handle, (string) json_encode($replacements));
         fclose($handle);
+
+        $output->writeln('Replacements written done.', OutputInterface::VERBOSITY_VERBOSE);
         $output->writeln('Warm up done.', OutputInterface::VERBOSITY_VERBOSE);
 
         return Command::SUCCESS;
