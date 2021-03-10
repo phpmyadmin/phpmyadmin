@@ -334,31 +334,6 @@ class Footer
             if (! $this->isAjax && ! $this->isMinimal) {
                 if (
                     Core::getenv('SCRIPT_NAME')
-                    && empty($_POST)
-                    && ! $this->isAjax
-                ) {
-                    $url = $this->getSelfUrl();
-                    $header = Response::getInstance()->getHeader();
-                    $scripts = $header->getScripts()->getFiles();
-                    $menuHash = $header->getMenu()->getHash();
-                    // prime the client-side cache
-                    $this->scripts->addCode(
-                        sprintf(
-                            'if (! (history && history.pushState)) '
-                            . 'MicroHistory.primer = {'
-                            . ' url: "%s",'
-                            . ' scripts: %s,'
-                            . ' menuHash: "%s"'
-                            . '};',
-                            Sanitize::escapeJsString($url),
-                            json_encode($scripts),
-                            Sanitize::escapeJsString($menuHash)
-                        )
-                    );
-                }
-
-                if (
-                    Core::getenv('SCRIPT_NAME')
                     && ! $this->isAjax
                 ) {
                     $url = $this->getSelfUrl();

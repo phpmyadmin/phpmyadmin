@@ -175,7 +175,6 @@ class Header
         $this->scripts->addFile('vendor/jquery/jquery.event.drag-2.2.js');
         $this->scripts->addFile('vendor/jquery/jquery.validate.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
-        $this->scripts->addFile('vendor/jquery/jquery.ba-hashchange-2.0.js');
         $this->scripts->addFile('vendor/jquery/jquery.debounce-1.0.6.js');
         $this->scripts->addFile('menu_resizer.js');
 

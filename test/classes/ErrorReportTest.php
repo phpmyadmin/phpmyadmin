@@ -186,7 +186,6 @@ class ErrorReportTest extends AbstractTestCase
             ],
             'url' => 'http://pma.7.3.local/index.php?route=/table/sql&db=aaaaa&table=a&server=14',
         ];
-        $_POST['microhistory'] = '';
         $_POST['description'] = 'description';
 
         $report = [
@@ -217,7 +216,6 @@ class ErrorReportTest extends AbstractTestCase
                 ],
                 'uri' => 'index.php?route=%2Ftable%2Fsql',
             ],
-            'microhistory' => $_POST['microhistory'],
             'steps' => $_POST['description'],
         ];
         $expectedData = json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);

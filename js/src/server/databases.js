@@ -7,8 +7,6 @@
  * @required    js/functions.js
  */
 
-/* global MicroHistory */ // js/microhistory.js
-
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -130,9 +128,6 @@ AJAX.registerOnload('server/databases.js', function () {
                 var dbStructUrl = data.url;
                 dbStructUrl = dbStructUrl.replace(/amp;/ig, '');
                 var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
-                if (! (history && history.pushState)) {
-                    params += MicroHistory.menus.getRequestParam();
-                }
                 $.get(dbStructUrl, params, AJAX.responseHandler);
             } else {
                 Functions.ajaxShowMessage(data.error, false);

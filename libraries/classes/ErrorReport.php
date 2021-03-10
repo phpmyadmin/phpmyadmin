@@ -118,9 +118,6 @@ class ErrorReport
 
             $report['exception_type'] = 'js';
             $report['exception'] = $exception;
-            if (isset($_POST['microhistory'])) {
-                $report['microhistory'] = $_POST['microhistory'];
-            }
 
             if (! empty($_POST['description'])) {
                 $report['steps'] = $_POST['description'];

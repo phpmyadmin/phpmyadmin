@@ -612,7 +612,7 @@ parameters:
 
 		-
 			message: "#^Negated boolean expression is always true\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Footer.php
 
 		-

@@ -619,9 +619,6 @@ final class JavaScriptMessagesController
             'linkWithMain' => __('Link with main panel'),
             'unlinkWithMain' => __('Unlink from main panel'),
 
-            /* microhistory */
-            'strInvalidPage' => __('The requested page was not found in the history, it may have expired.'),
-
             /* update */
             'strNewerVersion' => __(
                 'A newer version of phpMyAdmin is available and you should consider upgrading. '

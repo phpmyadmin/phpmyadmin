@@ -10,7 +10,6 @@
 /* global Stickyfill */
 /* global isStorageSupported */ // js/config.js
 /* global codeMirrorEditor */ // js/functions.js
-/* global MicroHistory */ // js/microhistory.js
 /* global makeGrid */ // js/makegrid.js
 /* global sqlBoxLocked */ // js/functions.js
 
@@ -591,21 +590,12 @@ AJAX.registerOnload('sql.js', function () {
                 Functions.highlightSql($sqlqueryresultsouter);
 
                 if (data.menu) {
-                    if (history && history.pushState) {
-                        history.replaceState({
-                            menu : data.menu
-                        },
-                        null
-                        );
-                        AJAX.handleMenu.replace(data.menu);
-                    } else {
-                        MicroHistory.menus.replace(data.menu);
-                        MicroHistory.menus.add(data.menuHash, data.menu);
-                    }
-                } else if (data.menuHash) {
-                    if (! (history && history.pushState)) {
-                        MicroHistory.menus.replace(MicroHistory.menus.get(data.menuHash));
-                    }
+                    history.replaceState({
+                        menu : data.menu
+                    },
+                    null
+                    );
+                    AJAX.handleMenu.replace(data.menu);
                 }
 
                 if (data.params) {

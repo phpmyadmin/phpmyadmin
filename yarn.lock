@@ -4211,11 +4211,6 @@ jquery-fullscreen-plugin@^1.1.5:
   dependencies:
     jquery ">=1.5"
 
-jquery-hashchange@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/jquery-hashchange/-/jquery-hashchange-2.0.0.tgz#905b801803b6928fa8b3655381badf42dc49ba82"
-  integrity sha512-9/RrnnUKw7qLy5e4X8nCusAlvXZPpUuNZv9BnpSfSfIY/RJLyhd1N1YRvP03H3RwEdx4TKTWZ59AnBgcrdfC3A==
-
 jquery-migrate@3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.3.2.tgz#7829ee24de3054d0d2f42dd093390d8a7b7af01a"
