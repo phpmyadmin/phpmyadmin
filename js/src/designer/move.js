@@ -26,7 +26,7 @@ AJAX.registerOnload('designer/move.js', function () {
 
     $content.css({ 'margin-left': '3px' });
     $(document).on('fullscreenchange', function () {
-        if (!$.fn.fullScreen() || !$content.fullScreen()) {
+        if (! document.fullscreenElement) {
             $content.removeClass('content_fullscreen')
                 .css({ 'width': 'auto', 'height': 'auto' });
             $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
@@ -531,7 +531,9 @@ DesignerMove.toggleFullscreen = function () {
     var $img = $('#toggleFullscreen').find('img');
     var $span = $img.siblings('span');
     var $content = $('#page_content');
-    if (! $content.fullScreen()) {
+    const pageContent = document.getElementById('page_content');
+
+    if (! document.fullscreenElement) {
         $img.attr('src', $img.data('exit'))
             .attr('title', $span.data('exit'));
         $span.text($span.data('exit'));
@@ -541,7 +543,7 @@ DesignerMove.toggleFullscreen = function () {
 
         $('#osn_tab').css({ 'width': screen.width + 'px', 'height': screen.height });
         valueSent = 'on';
-        $content.fullScreen(true);
+        pageContent.requestFullscreen();
     } else {
         $img.attr('src', $img.data('enter'))
             .attr('title', $span.data('enter'));
@@ -549,7 +551,7 @@ DesignerMove.toggleFullscreen = function () {
         $content.removeClass('content_fullscreen')
             .css({ 'width': 'auto', 'height': 'auto' });
         $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
-        $content.fullScreen(false);
+        document.exitFullscreen();
         valueSent = 'off';
     }
     DesignerMove.saveValueInConfig('full_screen', valueSent);
