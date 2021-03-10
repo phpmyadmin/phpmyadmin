@@ -244,7 +244,7 @@ class InsertEditTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with('result1')
             ->will($this->returnValue($meta_arr));
@@ -309,7 +309,7 @@ class InsertEditTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('query')
             ->with(
                 'SELECT * FROM `db`.`table` LIMIT 1;',
@@ -2828,17 +2828,17 @@ class InsertEditTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT * FROM `db`.`table` WHERE `a` > 2 LIMIT 1;')
             ->will($this->returnValue($res));
 
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->once())
             ->method('fetchRow')
             ->with($res)
             ->will($this->returnValue($row));
 
-        $dbi->expects($this->at(2))
+        $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($res)
             ->will($this->returnValue($meta_arr));
@@ -3750,52 +3750,22 @@ class InsertEditTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->exactly(3))
             ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
 
-        $meta = new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []);
-        $dbi->expects($this->at(1))
+        $meta1 = new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []);
+        $meta2 = new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []);
+        $meta3 = new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) []);
+        $dbi->expects($this->exactly(3))
             ->method('getFieldsMeta')
-            ->will($this->returnValue([$meta]));
+            ->will($this->onConsecutiveCalls([$meta1], [$meta2], [$meta3]));
 
-        $dbi->expects($this->at(2))
+        $dbi->expects($this->exactly(3))
             ->method('fetchRow')
-            ->will($this->returnValue(null));
+            ->will($this->onConsecutiveCalls(null, [0 => '123'], [0 => '2013-08-28 06:34:14']));
 
-        $dbi->expects($this->at(3))
-            ->method('freeResult');
-
-        $dbi->expects($this->at(4))
-            ->method('tryQuery')
-            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
-
-        $meta = new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []);
-        $dbi->expects($this->at(5))
-            ->method('getFieldsMeta')
-            ->will($this->returnValue([$meta]));
-
-        $dbi->expects($this->at(6))
-            ->method('fetchRow')
-            ->will($this->returnValue([0 => '123']));
-
-        $dbi->expects($this->at(7))
-            ->method('freeResult');
-
-        $dbi->expects($this->at(8))
-            ->method('tryQuery')
-            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
-
-        $meta = new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) []);
-        $dbi->expects($this->at(9))
-            ->method('getFieldsMeta')
-            ->will($this->returnValue([$meta]));
-
-        $dbi->expects($this->at(10))
-            ->method('fetchRow')
-            ->will($this->returnValue([0 => '2013-08-28 06:34:14']));
-
-        $dbi->expects($this->at(11))
+        $dbi->expects($this->exactly(3))
             ->method('freeResult');
 
         $GLOBALS['dbi'] = $dbi;
@@ -3843,11 +3813,11 @@ class InsertEditTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('selectDb')
             ->with('db');
 
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'table')
             ->will($this->returnValue(['a' => 'b', 'c' => 'd']));
