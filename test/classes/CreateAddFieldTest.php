@@ -148,4 +148,51 @@ class CreateAddFieldTest extends AbstractTestCase
             ],
         ];
     }
+
+    public function testGetColumnCreationQuery(): void
+    {
+        $_POST['db'] = '2fa';
+        $_POST['field_where'] = 'after';
+        $_POST['after_field'] = 'd';
+        $_POST['table'] = 'aes';
+        $_POST['orig_num_fields'] = '1';
+        $_POST['orig_field_where'] = 'after';
+        $_POST['orig_after_field'] = 'd';
+        $_POST['primary_indexes'] = '[]';
+        $_POST['unique_indexes'] = '[]';
+        $_POST['indexes'] = '[]';
+        $_POST['fulltext_indexes'] = '[]';
+        $_POST['spatial_indexes'] = '[]';
+        $_POST['field_name'] = ['dd'];
+        $_POST['field_type'] = ['INT'];
+        $_POST['field_length'] = [''];
+        $_POST['field_default_type'] = ['NONE'];
+        $_POST['field_default_value'] = [''];
+        $_POST['field_collation'] = [''];
+        $_POST['field_attribute'] = [''];
+        $_POST['field_key'] = ['none_0'];
+        $_POST['field_comments'] = [''];
+        $_POST['field_virtuality'] = [''];
+        $_POST['field_expression'] = [''];
+        $_POST['field_move_to'] = [''];
+        $_POST['field_mimetype'] = [''];
+        $_POST['field_transformation'] = [''];
+        $_POST['field_transformation_options'] = [''];
+        $_POST['field_input_transformation'] = [''];
+        $_POST['field_input_transformation_options'] = [''];
+        $_POST['do_save_data'] = '1';
+        $_POST['preview_sql'] = '1';
+        $_POST['ajax_request'] = '1';
+        $sqlQuery = $this->createAddField->getColumnCreationQuery('my_table');
+        $this->assertEquals(
+            'ALTER TABLE `my_table`  ADD `dd` INT NOT NULL  AFTER `d`;',
+            $sqlQuery
+        );
+        $_POST['online_transaction'] = 'ONLINE_TRANSACTION_ENABLED';
+        $sqlQuery = $this->createAddField->getColumnCreationQuery('my_table');
+        $this->assertEquals(
+            'ALTER TABLE `my_table`  ADD `dd` INT NOT NULL  AFTER `d`, ALGORITHM=INPLACE, LOCK=NONE;',
+            $sqlQuery
+        );
+    }
 }
