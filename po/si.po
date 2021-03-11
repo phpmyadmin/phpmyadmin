@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-02-24 10:22+0100\n"
-"PO-Revision-Date: 2021-03-01 13:50+0000\n"
+"PO-Revision-Date: 2021-03-12 07:02+0000\n"
 "Last-Translator: HelaBasa <R45XvezA@protonmail.ch>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/si/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5716,10 +5716,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:95
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save & close"
-msgstr "ගොනුවක් ලෙස තෝරන්න"
+msgstr "සුරකින්න සහ වසන්න"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:96
 #: libraries/classes/InsertEdit.php:1976
@@ -5746,10 +5744,8 @@ msgid "Select at least one of the options!"
 msgstr "අවම වශයෙන් එක් වචනයක්වත්"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:102
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid number!"
-msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
+msgstr "වලංගු අංකයක් යොදන්න"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:103
 #, fuzzy
