@@ -372,6 +372,10 @@ class Response
                 $this->addJSON('title', '<title>' . $this->getHeader()->getPageTitle() . '</title>');
             }
 
+            if (isset($dbi)) {
+                $this->addJSON('menu', $this->getHeader()->getMenu()->getDisplay());
+            }
+
             $this->addJSON('scripts', $this->getHeader()->getScripts()->getFiles());
             $this->addJSON('selflink', $this->getFooter()->getSelfUrl());
             $this->addJSON('displayMessage', $this->getHeader()->getMessage());
