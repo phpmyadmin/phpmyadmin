@@ -76,7 +76,7 @@ final class CacheWarmupCommand extends Command
             return $twigCode;
         }
 
-        $routingCode = $this->warmUpTwigCache($output);
+        $routingCode = $this->warmUpRoutingCache($output);
         if ($routingCode !== 0) {
             $output->writeln('Routing cache generation had an error.');
 
