@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -111,7 +112,16 @@ class AddFieldController extends AbstractController
 
             $createAddField = new CreateAddField($this->dbi);
 
-            [$result, $sql_query] = $createAddField->tryColumnCreationQuery($db, $table, $err_url);
+            $sqlQuery = $createAddField->getColumnCreationQuery($table);
+
+            // If there is a request for SQL previewing.
+            if (isset($_POST['preview_sql'])) {
+                Core::previewSQL($sqlQuery);
+
+                return;
+            }
+
+            [$result, $sql_query] = $createAddField->tryColumnCreationQuery($db, $sqlQuery, $err_url);
 
             if ($result !== true) {
                 $error_message_html = Generator::mysqlDie(

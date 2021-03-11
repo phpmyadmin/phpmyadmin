@@ -525,22 +525,39 @@ class CreateAddField
     }
 
     /**
+     * Function to get the column creation statement
+     *
+     * @param string $table current table
+     */
+    public function getColumnCreationQuery(
+        string $table
+    ): string {
+        // get column addition statements
+        $sqlStatement = $this->getColumnCreationStatements(false);
+
+        $sqlQuery = 'ALTER TABLE ' .
+            Util::backquote($table) . ' ' . $sqlStatement;
+        if (isset($_POST['online_transaction'])) {
+            $sqlQuery .= ', ALGORITHM=INPLACE, LOCK=NONE';
+        }
+
+        return $sqlQuery . ';';
+    }
+
+    /**
      * Function to execute the column creation statement
      *
      * @param string $db       current database
-     * @param string $table    current table
+     * @param string $sqlQuery the query to run
      * @param string $errorUrl error page url
      *
      * @return array
      */
     public function tryColumnCreationQuery(
         string $db,
-        string $table,
+        string $sqlQuery,
         string $errorUrl
     ): array {
-        // get column addition statements
-        $sqlStatement = $this->getColumnCreationStatements(false);
-
         // To allow replication, we first select the db to use and then run queries
         // on this db.
         if (! $this->dbi->selectDb($db)) {
@@ -550,21 +567,6 @@ class CreateAddField
                 false,
                 $errorUrl
             );
-        }
-
-        $sqlQuery = 'ALTER TABLE ' .
-            Util::backquote($table) . ' ' . $sqlStatement;
-        if (isset($_POST['online_transaction'])) {
-            $sqlQuery .= ', ALGORITHM=INPLACE, LOCK=NONE';
-        }
-
-        $sqlQuery .= ';';
-
-        // If there is a request for SQL previewing.
-        if (isset($_POST['preview_sql'])) {
-            Core::previewSQL($sqlQuery);
-
-            exit;
         }
 
         return [
