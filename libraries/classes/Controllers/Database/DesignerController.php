@@ -218,7 +218,6 @@ class DesignerController extends AbstractController
         $header->setBodyId('designer_body');
 
         $this->addScriptFiles([
-            'vendor/jquery/jquery.fullscreen.js',
             'designer/database.js',
             'designer/objects.js',
             'designer/page.js',
