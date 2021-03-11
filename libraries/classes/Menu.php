@@ -16,10 +16,8 @@ use function in_array;
 use function mb_strpos;
 use function mb_strstr;
 use function mb_substr;
-use function md5;
 use function preg_replace;
 use function strlen;
-use function substr;
 
 /**
  * Class for generating the top menu
@@ -74,20 +72,6 @@ class Menu
         $retval .= $this->getMenu();
 
         return $retval;
-    }
-
-    /**
-     * Returns hash for the menu and the breadcrumbs
-     *
-     * @return string
-     */
-    public function getHash()
-    {
-        return substr(
-            md5($this->getMenu() . $this->getBreadcrumbs()),
-            0,
-            8
-        );
     }
 
     /**

@@ -8,10 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use function defined;
-use function explode;
 use function headers_sent;
 use function http_response_code;
-use function in_array;
 use function is_array;
 use function json_encode;
 use function json_last_error;
@@ -372,24 +370,6 @@ class Response
         if ($this->isSuccess) {
             if (! isset($this->JSON['title'])) {
                 $this->addJSON('title', '<title>' . $this->getHeader()->getPageTitle() . '</title>');
-            }
-
-            if (isset($dbi)) {
-                $menuHash = $this->getHeader()->getMenu()->getHash();
-                $this->addJSON('menuHash', $menuHash);
-                $hashes = [];
-                if (isset($_REQUEST['menuHashes'])) {
-                    $hashes = explode('-', $_REQUEST['menuHashes']);
-                }
-
-                if (! in_array($menuHash, $hashes)) {
-                    $this->addJSON(
-                        'menu',
-                        $this->getHeader()
-                            ->getMenu()
-                            ->getDisplay()
-                    );
-                }
             }
 
             $this->addJSON('scripts', $this->getHeader()->getScripts()->getFiles());
