@@ -196,6 +196,14 @@ cleanup_composer_vendors() {
         vendor/google/recaptcha/.github/ \
         vendor/google/recaptcha/examples/ \
         vendor/google/recaptcha/tests/
+    rm -rf \
+        vendor/google/recaptcha/CONTRIBUTING.md \
+        vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
+        vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
+        vendor/phpmyadmin/motranslator/PERFORMANCE.md \
+        vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
+        vendor/phpmyadmin/sql-parser/CODE_OF_CONDUCT.md \
+        vendor/phpmyadmin/sql-parser/CONTRIBUTING.md
     find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f \
         -not -name AES.php \
         -not -name Base.php \
