@@ -147,11 +147,16 @@ cleanup_composer_vendors() {
         vendor/tecnickcom/tcpdf/examples/ \
         vendor/tecnickcom/tcpdf/tools/ \
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
-        vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.33/ \
+        vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.34/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
         vendor/tecnickcom/tcpdf/.git \
         vendor/tecnickcom/tcpdf/.github/ \
+        vendor/tecnickcom/tcpdf/tcpdf_barcodes_1d.php \
+        vendor/tecnickcom/tcpdf/tcpdf_barcodes_2d.php \
+        vendor/tecnickcom/tcpdf/tcpdf_import.php \
+        vendor/tecnickcom/tcpdf/tcpdf_parser.php \
+        vendor/tecnickcom/tcpdf/include/barcodes/ \
         vendor/bacon/bacon-qr-code/phpunit.xml.dist \
         vendor/bacon/bacon-qr-code/test/ \
         vendor/dasprid/enum/phpunit.xml.dist \
@@ -159,6 +164,10 @@ cleanup_composer_vendors() {
         vendor/williamdes/mariadb-mysql-kbs/phpunit.xml \
         vendor/williamdes/mariadb-mysql-kbs/test/ \
         vendor/williamdes/mariadb-mysql-kbs/schemas/ \
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.json \
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.md \
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-slim.json \
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.php \
         vendor/nikic/fast-route/.travis.yml \
         vendor/nikic/fast-route/.hhconfig \
         vendor/nikic/fast-route/FastRoute.hhi \
@@ -187,6 +196,14 @@ cleanup_composer_vendors() {
         vendor/google/recaptcha/.github/ \
         vendor/google/recaptcha/examples/ \
         vendor/google/recaptcha/tests/
+    rm -rf \
+        vendor/google/recaptcha/CONTRIBUTING.md \
+        vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
+        vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
+        vendor/phpmyadmin/motranslator/PERFORMANCE.md \
+        vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
+        vendor/phpmyadmin/sql-parser/CODE_OF_CONDUCT.md \
+        vendor/phpmyadmin/sql-parser/CONTRIBUTING.md
     find vendor/phpseclib/phpseclib/phpseclib/Crypt/ -maxdepth 1 -type f \
         -not -name AES.php \
         -not -name Base.php \

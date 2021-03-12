@@ -25,6 +25,8 @@ phpMyAdmin - ChangeLog
 - issue        Fixed Yaml export to quote strings even when they are numeric
 - issue #16704 Fixed PHP type errors on the substring transformation
 - issue #14026 Fixed error messages and conditions for MD5 and AES_* functions
+- issue #16708 Fixed PHP "Uncaught TypeError: hash_hmac()" on double quick edit
+- issue #16709 Fix TCPDF open_basedir issue due to internal guessing code from TCPDF
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type

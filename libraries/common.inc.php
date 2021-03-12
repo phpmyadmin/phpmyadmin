@@ -95,6 +95,19 @@ if (! @is_readable(AUTOLOAD_FILE)) {
 
 require_once AUTOLOAD_FILE;
 
+/**
+ * (TCPDF workaround)
+ * Avoid referring to nonexistent files (causes warnings when open_basedir is used)
+ * This is defined to avoid the tcpdf code to search for a directory outside of open_basedir
+ * See: https://github.com/phpmyadmin/phpmyadmin/issues/16709
+ * This value if not used but is usefull, no header logic is used for PDF exports
+ */
+if (! defined('K_PATH_IMAGES')) {
+    // phpcs:disable PSR1.Files.SideEffects
+    define('K_PATH_IMAGES', ROOT_PATH);
+    // phpcs:enable
+}
+
 $route = Routing::getCurrentRoute();
 
 if ($route === '/import-status') {
