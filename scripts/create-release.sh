@@ -164,6 +164,10 @@ cleanup_composer_vendors() {
         vendor/williamdes/mariadb-mysql-kbs/phpunit.xml \
         vendor/williamdes/mariadb-mysql-kbs/test/ \
         vendor/williamdes/mariadb-mysql-kbs/schemas/ \
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.json \
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.md \
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-slim.json \
+        vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.php \
         vendor/nikic/fast-route/.travis.yml \
         vendor/nikic/fast-route/.hhconfig \
         vendor/nikic/fast-route/FastRoute.hhi \
