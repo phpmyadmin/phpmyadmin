@@ -19,6 +19,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Table;
@@ -1679,6 +1680,11 @@ class Results
             $multi_order_url
         );
 
+        $order_link .= $this->getSortOrderHiddenInputs(
+            $_multi_url_params,
+            $name_to_use_in_sort
+        );
+
         $sorted_header_html .= $this->getDraggableClassForSortableColumns(
             $col_visib,
             $col_visib_j,
@@ -2007,6 +2013,48 @@ class Results
             $inner_link_content,
             $order_link_params
         );
+    }
+
+    private function getSortOrderHiddenInputs(
+        array $multipleUrlParams,
+        string $nameToUseInSort
+    ): string {
+        $sqlQuery = $multipleUrlParams['sql_query'];
+        $sqlQueryAdd = $sqlQuery;
+        $sqlQueryRemove = null;
+        $parser = new Parser($sqlQuery);
+
+        $firstStatement = $parser->statements[0] ?? null;
+        $numberOfClausesFound = null;
+        if ($firstStatement instanceof SelectStatement) {
+            $orderClauses = $firstStatement->order ?? [];
+            foreach ($orderClauses as $key => $order) {
+                // If this is the column name, then remove it from the order clause
+                if ($order->expr->column !== $nameToUseInSort) {
+                    continue;
+                }
+                // remove the order clause for this column and from the counted array
+                unset($firstStatement->order[$key], $orderClauses[$key]);
+            }
+            $numberOfClausesFound = count($orderClauses);
+            $sqlQueryRemove = $firstStatement->build();
+        }
+
+        $multipleUrlParams['sql_query'] = $sqlQueryRemove ?? $sqlQuery;
+        $multipleUrlParams['sql_signature'] = Core::signSqlQuery($multipleUrlParams['sql_query']);
+
+        $urlRemoveOrder = Url::getFromRoute('/sql', $multipleUrlParams);
+        if ($numberOfClausesFound !== null && $numberOfClausesFound === 0) {
+            $urlRemoveOrder .= '&discard_remembered_sort=1';
+        }
+
+        $multipleUrlParams['sql_query'] = $sqlQueryAdd;
+        $multipleUrlParams['sql_signature'] = Core::signSqlQuery($multipleUrlParams['sql_query']);
+
+        $urlAddOrder = Url::getFromRoute('/sql', $multipleUrlParams);
+
+        return '<input type="hidden" name="url-remove-order" value="' . $urlRemoveOrder . '">' . "\n"
+             . '<input type="hidden" name="url-add-order" value="' . $urlAddOrder . '">';
     }
 
     /**
