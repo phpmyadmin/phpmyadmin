@@ -8,7 +8,7 @@
         {{ get_hidden_inputs(db) }}
         <input type="hidden" name="add_new_column" value="add_new_column">
         <div class="table-responsive">
-            <table class="table table-light">
+            <table class="table table-light w-auto">
                 <thead class="table-light">
                     <tr>
                         <th></th>
@@ -210,7 +210,7 @@
     </form>
     <div id="tableslistcontainer">
         <form name="tableslistcontainer">
-            <table id="table_columns" class="table table-light table-striped table-hover tablesorter">
+            <table id="table_columns" class="table table-light table-striped table-hover tablesorter w-auto">
                 {% set class = 'column_heading' %}
                 {% set title = 'Click to sort.' | trans %}
                 <thead class="table-light">
