@@ -43,7 +43,9 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      */
     public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
     {
-        return FormatConverter::binaryToIp($buffer);
+        $isBinary = ($meta !== null && $meta->isBinary);
+
+        return FormatConverter::binaryToIp($buffer, $isBinary);
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

@@ -30,6 +30,8 @@ phpMyAdmin - ChangeLog
 - issue #16729 Fixed the silencing error management for PHP >= 8.0
 - issue #16604 Set back tables width like in 5.0 versions
 - issue #16716 Fixed rename button disappears after a column drop on table structure page
+- issue #15628 Fixed "JSON encoding failed: Malformed UTF-8 characters" when browsing data that uses binary to IP transformation
+- issue #14395 Fixed display chart with timeline & series name column trigger JS error
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type

@@ -30,10 +30,10 @@ class FormatConverter
      *
      * @return false|string
      */
-    public static function binaryToIp($buffer)
+    public static function binaryToIp($buffer, bool $isBinary)
     {
         if (strpos($buffer, '0x') !== 0) {
-            return $buffer;
+            return $isBinary ? bin2hex($buffer) : $buffer;
         }
 
         $ipHex = substr($buffer, 2);

@@ -2212,7 +2212,7 @@
   </file>
   <file src="libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php">
     <FalsableReturnStatement occurrences="1">
-      <code>FormatConverter::binaryToIp($buffer)</code>
+      <code>FormatConverter::binaryToIp($buffer, $isBinary)</code>
     </FalsableReturnStatement>
     <InvalidFalsableReturnType occurrences="1">
       <code>string</code>
