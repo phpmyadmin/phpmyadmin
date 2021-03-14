@@ -40,7 +40,7 @@
           </div>
         </td>
         <td class="navigation_goto">
-          <form action="{{ url('/sql') }}" method="post" id="maxRowsForm">
+          <form action="{{ url('/sql') }}" method="post" class="maxRowsForm">
             {{ get_hidden_fields(navigation.hidden_fields|merge({
               'pos': navigation.pos,
               'unlim_num_rows': unlim_num_rows
