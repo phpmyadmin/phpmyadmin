@@ -81,7 +81,7 @@ class ProcessesControllerTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table id="tableprocesslist" class="table table-light table-striped table-hover sortable">',
+            '<table id="tableprocesslist" class="table table-light table-striped table-hover sortable w-auto">',
             $html
         );
         $this->assertStringContainsString(
