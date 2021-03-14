@@ -531,12 +531,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             // only show when not resizing or reordering
             if (!g.colRsz && !g.colReorder) {
                 var pos = $(obj).position();
-                // check if the list position is too right
-                if (pos.left + $(g.cList).outerWidth(true) > $(document).width()) {
-                    pos.left = $(document).width() - $(g.cList).outerWidth(true);
-                }
                 $(g.cList).css({
-                    left: pos.left,
                     top: pos.top + $(obj).outerHeight(true)
                 })
                     .show();

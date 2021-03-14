@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 - issue #14026 Fixed error messages and conditions for MD5 and AES_* functions
 - issue #16708 Fixed PHP "Uncaught TypeError: hash_hmac()" on double quick edit
 - issue #16709 Fix TCPDF open_basedir issue due to internal guessing code from TCPDF
+- issue #16729 Fixed the silencing error management for PHP >= 8.0
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type

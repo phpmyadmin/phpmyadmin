@@ -22,6 +22,9 @@ use stdClass;
 
 use function count;
 use function hex2bin;
+use function urldecode;
+use function htmlspecialchars_decode;
+use function explode;
 
 use const MYSQLI_NOT_NULL_FLAG;
 use const MYSQLI_NUM_FLAG;
@@ -1182,5 +1185,125 @@ class ResultsTest extends AbstractTestCase
         );
         unset($_SESSION['tmpval']);
         unset($_SESSION['relation']);
+    }
+
+    public function dataProviderGetSortOrderHiddenInputs(): array
+    {
+        // SQL to add the column
+        // SQL to remove the column
+        // The URL params
+        // The column name
+        return [
+            [
+                '',
+                '',
+                ['sql_query' => ''],
+                'colname',
+                '',
+            ],
+            [
+                'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC, `gis_all`.`name` ASC',
+                'SELECT * FROM `gis_all` ORDER BY `gis_all`.`name` ASC',
+                ['sql_query' => 'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC, `gis_all`.`name` ASC'],
+                'shape',
+                '',
+            ],
+            [
+                'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC, `gis_all`.`name` ASC',
+                'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC',
+                ['sql_query' => 'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC, `gis_all`.`name` ASC'],
+                'name',
+                '',
+            ],
+            [
+                'SELECT * FROM `gis_all`',
+                'SELECT * FROM `gis_all`',
+                ['sql_query' => 'SELECT * FROM `gis_all`'],
+                'name',
+                '',
+            ],
+            [
+                'SELECT * FROM `gd_cities` ORDER BY `gd_cities`.`region_slug` DESC, '
+                . '`gd_cities`.`country_slug` ASC, `gd_cities`.`city_id` ASC, `gd_cities`.`city` ASC',
+                'SELECT * FROM `gd_cities` ORDER BY `gd_cities`.`region_slug` DESC, '
+                . '`gd_cities`.`country_slug` ASC, `gd_cities`.`city_id` ASC, `gd_cities`.`city` ASC',
+                [
+                    'sql_query' => 'SELECT * FROM `gd_cities` ORDER BY `gd_cities`.`region_slug` DESC, '
+                . '`gd_cities`.`country_slug` ASC, `gd_cities`.`city_id` ASC, `gd_cities`.`city` ASC',
+                ],
+                '',
+                '',
+            ],
+            [
+                'SELECT * FROM `gd_cities` ORDER BY `gd_cities`.`region_slug` DESC, '
+                . '`gd_cities`.`country_slug` ASC, `gd_cities`.`city_id` ASC, `gd_cities`.`city` ASC',
+                'SELECT * FROM `gd_cities` ORDER BY `gd_cities`.`country_slug` ASC, `gd_cities`.`city_id`'
+                . ' ASC, `gd_cities`.`city` ASC',
+                [
+                    'sql_query' => 'SELECT * FROM `gd_cities` ORDER BY `gd_cities`.`region_slug` DESC, '
+                . '`gd_cities`.`country_slug` ASC, `gd_cities`.`city_id` ASC, `gd_cities`.`city` ASC',
+                ],
+                'region_slug',
+                '',
+            ],
+            [
+                'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC',
+                'SELECT * FROM `gis_all`',
+                ['sql_query' => 'SELECT * FROM `gis_all` ORDER BY `gis_all`.`shape` DESC'],
+                'shape',
+                '&discard_remembered_sort=1',
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider dataProviderGetSortOrderHiddenInputs
+     */
+    public function testGetSortOrderHiddenInputs(
+        string $sqlAdd,
+        string $sqlRemove,
+        array $urlParams,
+        string $colName,
+        string $urlParamsRemove
+    ): void {
+        $output = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSortOrderHiddenInputs',
+            [
+                $urlParams,
+                $colName,
+            ]
+        );
+        $out = urldecode(htmlspecialchars_decode($output));
+        $this->assertStringContainsString(
+            'name="url-remove-order" value="index.php?route=/sql&sql_query=' . $sqlRemove,
+            $out,
+            'The remove query should be found'
+        );
+
+        $this->assertStringContainsString(
+            'name="url-add-order" value="index.php?route=/sql&sql_query=' . $sqlAdd,
+            $out,
+            'The add query should be found'
+        );
+
+        $firstLine = explode("\n", $out)[0] ?? '';
+        $this->assertStringContainsString(
+            'url-remove-order',
+            $firstLine,
+            'The first line should contain url-remove-order input'
+        );
+        $this->assertStringNotContainsString(
+            'url-add-order',
+            $firstLine,
+            'The first line should contain NOT url-add-order input'
+        );
+
+        $this->assertStringContainsString(
+            $urlParamsRemove,
+            $firstLine,
+            'The first line should contain the URL params'
+        );
     }
 }
