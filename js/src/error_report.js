@@ -228,21 +228,6 @@ var ErrorReport = {
         return reportData;
     },
     /**
-     * Wraps all global functions that start with PMA_
-     *
-     * @return {void}
-     */
-    wrapGlobalFunctions: function () {
-        for (var key in window) {
-            if (key.indexOf('PMA_') === 0) {
-                var global = window[key];
-                if (typeof(global) === 'function') {
-                    window[key] = ErrorReport.wrapFunction(global);
-                }
-            }
-        }
-    },
-    /**
      * Wraps given function in error reporting code and returns wrapped function
      *
      * @param {Function} func function to be wrapped
@@ -297,13 +282,11 @@ var ErrorReport = {
         };
     },
     /**
-     * Wraps all global functions that start with PMA_
-     * also automatically wraps the callback in AJAX.registerOnload
+     * Wraps the callback in AJAX.registerOnload automatically
      *
      * @return {void}
      */
     setUpErrorReporting: function () {
-        ErrorReport.wrapGlobalFunctions();
         ErrorReport.wrapAjaxOnloadCallback();
         ErrorReport.wrapJqueryOnCallback();
     }
@@ -312,5 +295,4 @@ var ErrorReport = {
 AJAX.registerOnload('error_report.js', function () {
     TraceKit.report.subscribe(ErrorReport.errorHandler);
     ErrorReport.setUpErrorReporting();
-    ErrorReport.wrapGlobalFunctions();
 });
