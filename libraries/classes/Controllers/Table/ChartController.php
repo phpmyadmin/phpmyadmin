@@ -133,22 +133,20 @@ class ChartController extends AbstractController
         }
 
         $keys = array_keys($data[0]);
-
-        $numeric_column_count = 0;
+        $numericColumnFound = false;
         foreach ($keys as $idx => $key) {
             if (
                 isset($fields_meta[$idx]) && (
-                $fields_meta[$idx]->isNotType(FieldMetadata::TYPE_INT)
-                || $fields_meta[$idx]->isNotType(FieldMetadata::TYPE_REAL)
+                $fields_meta[$idx]->isType(FieldMetadata::TYPE_INT)
+                || $fields_meta[$idx]->isType(FieldMetadata::TYPE_REAL)
                 )
             ) {
-                continue;
+                $numericColumnFound = true;
+                break;
             }
-
-            $numeric_column_count++;
         }
 
-        if ($numeric_column_count == 0) {
+        if (! $numericColumnFound) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(
                 'message',
@@ -168,7 +166,7 @@ class ChartController extends AbstractController
             'url_params' => $url_params,
             'keys' => $keys,
             'fields_meta' => $fields_meta,
-            'numeric_column_count' => $numeric_column_count,
+            'table_has_a_numeric_column' => $numericColumnFound,
             'sql_query' => $sql_query,
         ]);
     }
