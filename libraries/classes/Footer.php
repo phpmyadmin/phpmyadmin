@@ -363,7 +363,6 @@ class Footer
                 'is_demo' => $GLOBALS['cfg']['DBG']['demo'],
                 'demo_message' => $demoMessage ?? '',
                 'footer' => $footer ?? '',
-                'has_error_report_modal' => $GLOBALS['cfg']['SendErrorReports'] !== 'never',
             ]);
         }
 
