@@ -132,7 +132,8 @@ var ErrorReport = {
         buttonHtml += Messages.strShowReportDetails;
         buttonHtml += '</button>';
 
-        buttonHtml += '<a id="change_error_settings">';
+        var settingsUrl = 'index.php?route=/preferences/features&server=' + CommonParams.get('server');
+        buttonHtml += '<a class="ajax" href="' + settingsUrl + '">';
         buttonHtml += Functions.getImage('s_cog', Messages.strChangeReportSettings);
         buttonHtml += '</a>';
 
@@ -145,7 +146,6 @@ var ErrorReport = {
         $div.append($buttons);
         $div.appendTo(document.body);
         $(document).on('click', '#show_error_report_' + key, ErrorReport.createReportDialog);
-        $(document).on('click', '#change_error_settings', ErrorReport.redirectToSettings);
         $(document).on('click', '#ignore_error', ErrorReport.removeErrorNotification);
     },
     /**
@@ -190,15 +190,6 @@ var ErrorReport = {
     createReportDialog: function () {
         ErrorReport.removeErrorNotification();
         ErrorReport.showReportDialog(ErrorReport.lastException);
-    },
-    /**
-     * Redirects to the settings page containing error report
-     * preferences
-     *
-     * @return {void}
-     */
-    redirectToSettings: function () {
-        window.location.href = 'index.php?route=/preferences/features';
     },
     /**
      * Returns the report data to send to the server
