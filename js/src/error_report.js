@@ -114,7 +114,6 @@ var ErrorReport = {
      * @return {void}
      */
     showErrorNotification: function () {
-        ErrorReport.removeErrorNotification();
 
         var $div = $(
             '<div class="alert alert-danger userPermissionModal error_message" role="alert" id="error_notification"></div>'
