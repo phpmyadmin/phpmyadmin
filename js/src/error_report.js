@@ -114,19 +114,19 @@ var ErrorReport = {
      * @return {void}
      */
     showErrorNotification: function () {
-
-        var $div = $(
-            '<div class="alert alert-danger userPermissionModal error_message" role="alert" id="error_notification"></div>'
-        ).append(
-            Functions.getImage('s_error') + Messages.strErrorOccurred
-        );
-
-        var $buttons = $('<div class="float-end"></div>');
         var key = Math.random().toString(36).substring(2, 12);
         while (key in ErrorReport.keyDict) {
             key = Math.random().toString(36).substring(2, 12);
         }
         ErrorReport.keyDict[key] = 1;
+
+        var $div = $(
+            '<div class="alert alert-danger userPermissionModal" role="alert" id="error_notification_' + key + '"></div>'
+        ).append(
+            Functions.getImage('s_error') + Messages.strErrorOccurred
+        );
+
+        var $buttons = $('<div class="float-end"></div>');
         var buttonHtml  = '<button class="btn btn-primary" id="show_error_report_' + key + '">';
         buttonHtml += Messages.strShowReportDetails;
         buttonHtml += '</button>';
@@ -136,7 +136,7 @@ var ErrorReport = {
         buttonHtml += Functions.getImage('s_cog', Messages.strChangeReportSettings);
         buttonHtml += '</a>';
 
-        buttonHtml += '<a href="#" id="ignore_error_' + key + '">';
+        buttonHtml += '<a href="#" id="ignore_error_' + key + '" data-notification-id="' + key + '">';
         buttonHtml += Functions.getImage('b_close', Messages.strIgnore);
         buttonHtml += '</a>';
 
@@ -158,7 +158,7 @@ var ErrorReport = {
             // don't remove the hash fragment by navigating to #
             e.preventDefault();
         }
-        $('.error_message').fadeOut(function () {
+        $('#error_notification_' + $(this).data('notification-id')).fadeOut(function () {
             $(this).remove();
         });
     },
