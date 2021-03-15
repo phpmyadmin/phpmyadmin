@@ -183,6 +183,8 @@ class ExportTest extends TestBase
         $this->byId('buttonGo')->click();
         $this->waitAjax();
 
+        sleep(1);
+
         return $this->waitForElement('id', 'textSQLDUMP')->getText();
     }
 }
