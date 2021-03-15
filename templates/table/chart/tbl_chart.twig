@@ -128,7 +128,7 @@
                 <select name="chartValueColumn" id="select_valueColumn" disabled>
                     {% set selected = false %}
                     {% for idx, key in keys %}
-                        {% if fields_meta[idx].type in numeric_types %}
+                        {% if fields_meta[idx].isNumericType() %}
                             {% if not selected and idx != xaxis and idx != series_column %}
                                 <option value="{{ idx }}" selected="selected">{{ key }}</option>
                                 {% set selected = true %}
