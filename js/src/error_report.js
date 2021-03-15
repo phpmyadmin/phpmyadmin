@@ -121,7 +121,7 @@ var ErrorReport = {
         ErrorReport.keyDict[key] = 1;
 
         var $div = $(
-            '<div class="alert alert-danger userPermissionModal" role="alert" id="error_notification_' + key + '"></div>'
+            '<div class="alert alert-danger" role="alert" id="error_notification_' + key + '"></div>'
         ).append(
             Functions.getImage('s_error') + Messages.strErrorOccurred
         );
