@@ -1,4 +1,5 @@
 /* global firstDayOfCalendar */ // templates/javascript/variables.twig
+/* global isStorageSupported */ // js/config.js
 
 /**
  * Create advanced table (resize, reorder, and show/hide columns; and also grid editing).
@@ -233,16 +234,82 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         },
 
         /**
+         * Get data from localstorage or Cookies
+         *
+         * @param key {string} the key to get data from
+         * @return {object|undefined} the data corresponding to the saved key
+         */
+        getStorageData: function (key) {
+            if (isStorageSupported('localStorage')) {
+                return window.localStorage.getItem(key);
+            }
+            return Cookies.get(key);
+        },
+
+        /**
+         * Set data into localstorage or Cookies
+         *
+         * @param key {string} the key to set data to
+         * @param value {string} the value to be saved for the corresponding key
+         */
+        setStorageData: function (key, value) {
+            if (isStorageSupported('localStorage')) {
+                window.localStorage.setItem(key, value);
+                return;
+            }
+            Cookies.set(key, value);
+        },
+
+        /**
          * Resize column n to new width "nw"
          *
          * @param n zero-based column index
          * @param nw new width of the column in pixel
          */
         resize: function (n, nw) {
+            g.storeColumnWidth(n, nw);
             $(g.t).find('tr').each(function () {
                 $(this).find('th.draggable:visible').eq(n).find('span')
                     .add($(this).find('td:visible').eq(g.actionSpan + n).find('span'))
                     .css('width', nw);
+            });
+        },
+
+        /**
+         * Get saved column width and resize the columns
+         */
+        restoreColumnWidth: function () {
+            var key   = g.dbTableHash + '_column_width';
+            var table = $('.pma_table').eq(0).find('th');
+            var data = g.getStorageData(key);
+
+            if (table.length === 1 || data === null) {
+                return;
+            }
+
+            data = JSON.parse(data);
+            table.each(function (ind) {
+                const column = table[ind];
+
+                if (column === undefined) {
+                    return;
+                }
+
+                const width = data[column.dataset.column];
+                if (width !== undefined) {
+                    $('.pma_table tr').find('th').each(function (i) {
+                        if (i === ind) {
+                            $(this).find('span')[0].style.width = width + 'px';
+                        }
+                    });
+
+                    $('.pma_table').find('tr').each(function () {
+                        let tableRow = $(this).find('td')[ind + 3];
+                        if (tableRow !== undefined) {
+                            tableRow.children[0].style.width = width + 'px';
+                        }
+                    });
+                }
             });
         },
 
@@ -318,6 +385,24 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 g.colVisib.splice(oldn, 1);
                 g.colVisib.splice(newn, 0, tmp);
             }
+        },
+
+        /**
+         * Store the column width
+         *
+         * @param ind {number} zero-based column index
+         * @param newWidth {number} new width of the column in pixel
+         */
+        storeColumnWidth: function (ind, newWidth) {
+            const key   = g.dbTableHash + '_column_width';
+            const name = $('.pma_table').eq(0).find('th').eq(ind)[0].dataset.column;
+            var data = g.getStorageData(key);
+
+            let encodeData = data === null ? {} : JSON.parse(data);
+            encodeData[name] = newWidth;
+            let value = JSON.stringify(encodeData);
+
+            g.setStorageData(key, value);
         },
 
         /**
@@ -2207,6 +2292,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
     g.server = $commonHiddenInputs.find('input[name=server]').val();
     g.db = $commonHiddenInputs.find('input[name=db]').val();
     g.table = $commonHiddenInputs.find('input[name=table]').val();
+    g.dbTableHash = $commonHiddenInputs.find('input[name=db_table_hash]').val();
 
     // add table class
     $(t).addClass('pma_table');
@@ -2217,6 +2303,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
     // link the global div
     $(t).before(g.gDiv);
     $(g.gDiv).append(t);
+
+    g.restoreColumnWidth();
 
     // FEATURES
     if (isResizeEnabled) {

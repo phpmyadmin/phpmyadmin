@@ -4288,6 +4288,9 @@ class Results
             );
         }
 
+        $db_table = $this->properties['db'] . '_' . $this->properties['table'];
+        $db_table_hash = hash('sha1', $db_table);
+
         return $this->template->render('display/results/table', [
             'sql_query_message' => $sqlQueryMessage,
             'navigation' => $navigation,
@@ -4297,6 +4300,7 @@ class Results
             'operations' => $operations,
             'db' => $this->properties['db'],
             'table' => $this->properties['table'],
+            'db_table_hash' => $db_table_hash,
             'unique_id' => $this->properties['unique_id'],
             'sql_query' => $this->properties['sql_query'],
             'goto' => $this->properties['goto'],
