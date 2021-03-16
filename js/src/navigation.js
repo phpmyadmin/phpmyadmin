@@ -1617,7 +1617,7 @@ Navigation.FastFilter.Filter.prototype.request = function () {
         }
     }
     self.xhr = $.ajax({
-        url: 'index.php?route=/navigation&ajax_request=1',
+        url: 'index.php?route=/navigation&ajax_request=1&server=' + CommonParams.get('server'),
         type: 'post',
         dataType: 'json',
         data: params,
