@@ -393,7 +393,7 @@ class Response
                 $this->addJSON('errors', $errors);
             }
 
-            $promptPhpErrors = $GLOBALS['error_handler']->hasErrorsForPrompt();
+            $promptPhpErrors = $GLOBALS['errorHandler']->hasErrorsForPrompt();
             $this->addJSON('promptPhpErrors', $promptPhpErrors);
 
             if (empty($GLOBALS['error_message'])) {

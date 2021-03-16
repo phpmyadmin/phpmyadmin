@@ -1970,13 +1970,13 @@ class DatabaseInterface implements DbalInterface
         }
 
         // Do not show location and backtrace for connection errors
-        $GLOBALS['error_handler']->setHideLocation(true);
+        $GLOBALS['errorHandler']->setHideLocation(true);
         $result = $this->extension->connect(
             $user,
             $password,
             $server
         );
-        $GLOBALS['error_handler']->setHideLocation(false);
+        $GLOBALS['errorHandler']->setHideLocation(false);
 
         if ($result) {
             $this->links[$target] = $result;

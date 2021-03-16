@@ -523,7 +523,7 @@ class ErrorHandler
     public function savePreviousErrors(): void
     {
         unset($_SESSION['prev_errors']);
-        $_SESSION['prev_errors'] = $GLOBALS['error_handler']->getCurrentErrors();
+        $_SESSION['prev_errors'] = $GLOBALS['errorHandler']->getCurrentErrors();
     }
 
     /**
@@ -544,7 +544,7 @@ class ErrorHandler
     /**
      * Function to report all the collected php errors.
      * Must be called at the end of each script
-     *      by the $GLOBALS['error_handler'] only.
+     *      by the $GLOBALS['errorHandler'] only.
      */
     public function reportErrors(): void
     {

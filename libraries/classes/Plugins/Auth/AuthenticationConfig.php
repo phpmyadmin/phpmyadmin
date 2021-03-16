@@ -150,7 +150,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             );
         }
 
-        $GLOBALS['error_handler']->dispUserErrors();
+        $GLOBALS['errorHandler']->dispUserErrors();
         echo '</td>
         </tr>
         <tr>

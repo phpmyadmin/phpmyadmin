@@ -356,8 +356,8 @@ class Core
         bool $fatal = false,
         string $extra = ''
     ): void {
-        /** @var ErrorHandler $error_handler */
-        global $error_handler;
+        /** @var ErrorHandler $errorHandler */
+        global $errorHandler;
 
         /* Gettext does not have to be loaded yet here */
         if (function_exists('__')) {
@@ -384,7 +384,7 @@ class Core
             return;
         }
 
-        $error_handler->addError(
+        $errorHandler->addError(
             $message,
             E_USER_WARNING,
             '',

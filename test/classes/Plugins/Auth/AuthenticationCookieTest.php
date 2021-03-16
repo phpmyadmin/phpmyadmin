@@ -165,7 +165,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->with()
             ->will($this->returnValue(true));
 
-        $GLOBALS['error_handler'] = $mockErrorHandler;
+        $GLOBALS['errorHandler'] = $mockErrorHandler;
     }
 
     /**
@@ -190,7 +190,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['db'] = 'testDb';
         $GLOBALS['table'] = 'testTable';
         $GLOBALS['cfg']['Servers'] = [1, 2];
-        $GLOBALS['error_handler'] = new ErrorHandler();
+        $GLOBALS['errorHandler'] = new ErrorHandler();
 
         ob_start();
         $this->object->showLoginForm();
@@ -285,7 +285,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['error_handler'] = new ErrorHandler();
+        $GLOBALS['errorHandler'] = new ErrorHandler();
 
         ob_start();
         $this->object->showLoginForm();
@@ -365,7 +365,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['cfg']['CaptchaMethod'] = 'checkbox';
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['error_handler'] = new ErrorHandler();
+        $GLOBALS['errorHandler'] = new ErrorHandler();
 
         ob_start();
         $this->object->showLoginForm();

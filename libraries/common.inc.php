@@ -47,7 +47,7 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
 
-global $containerBuilder, $error_handler, $config, $server, $dbi;
+global $containerBuilder, $errorHandler, $config, $server, $dbi;
 global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $theme;
 global $url_params, $goto, $back, $db, $table, $sql_query, $token_mismatch;
 
@@ -123,8 +123,8 @@ $containerBuilder = Core::getContainerBuilder();
  */
 Loader::loadFunctions();
 
-/** @var ErrorHandler $error_handler */
-$error_handler = $containerBuilder->get('error_handler');
+/** @var ErrorHandler $errorHandler */
+$errorHandler = $containerBuilder->get('error_handler');
 
 /**
  * Warning about missing PHP extensions.
@@ -159,7 +159,7 @@ register_shutdown_function([Config::class, 'fatalErrorHandler']);
  * include session handling after the globals, to prevent overwriting
  */
 if (! defined('PMA_NO_SESSION')) {
-    Session::setUp($config, $error_handler);
+    Session::setUp($config, $errorHandler);
 }
 
 /**

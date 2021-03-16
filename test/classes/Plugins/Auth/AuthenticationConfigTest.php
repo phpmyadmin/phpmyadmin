@@ -72,7 +72,7 @@ class AuthenticationConfigTest extends AbstractTestCase
 
     public function testAuthFails(): void
     {
-        $GLOBALS['error_handler'] = new ErrorHandler();
+        $GLOBALS['errorHandler'] = new ErrorHandler();
         $GLOBALS['cfg']['Servers'] = [1];
         $GLOBALS['allowDeny_forbidden'] = false;
 

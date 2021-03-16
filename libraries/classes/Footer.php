@@ -250,14 +250,14 @@ class Footer
     public function getErrorMessages(): string
     {
         $retval = '';
-        if ($GLOBALS['error_handler']->hasDisplayErrors()) {
-            $retval .= $GLOBALS['error_handler']->getDispErrors();
+        if ($GLOBALS['errorHandler']->hasDisplayErrors()) {
+            $retval .= $GLOBALS['errorHandler']->getDispErrors();
         }
 
         /**
          * Report php errors
          */
-        $GLOBALS['error_handler']->reportErrors();
+        $GLOBALS['errorHandler']->reportErrors();
 
         return $retval;
     }

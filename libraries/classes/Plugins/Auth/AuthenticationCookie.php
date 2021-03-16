@@ -208,8 +208,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         $errors = '';
-        if ($GLOBALS['error_handler']->hasDisplayErrors()) {
-            $errors = $GLOBALS['error_handler']->getDispErrors();
+        if ($GLOBALS['errorHandler']->hasDisplayErrors()) {
+            $errors = $GLOBALS['errorHandler']->getDispErrors();
         }
 
         // close the wrapping div tag, if the request is after session timeout
