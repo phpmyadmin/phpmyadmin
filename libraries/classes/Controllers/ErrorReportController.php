@@ -162,6 +162,7 @@ class ErrorReportController extends AbstractController
         } elseif (! empty($_POST['get_settings'])) {
             $this->response->addJSON('report_setting', $cfg['SendErrorReports']);
         } elseif ($_POST['exception_type'] === 'js') {
+            $this->response->addJSON('report_modal', $this->errorReport->getEmptyModal());
             $this->response->addHTML($this->errorReport->getForm());
         } else {
             // clear previous errors & save new ones.

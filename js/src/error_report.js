@@ -98,12 +98,18 @@ var ErrorReport = {
         };
 
         $.post('index.php?route=/error-report', reportData).done(function (data) {
+            // Delete the modal to refresh it in case the user changed SendErrorReports value
+            if (document.getElementById('errorReportModal') !== null) {
+                $('#errorReportModal').remove();
+            }
+
+            $('body').append($(data.report_modal));
             const $errorReportModal = $('#errorReportModal');
             $errorReportModal.on('show.bs.modal', function () {
                 // Prevents multiple onClick events
                 $('#errorReportModalConfirm').off('click', sendErrorReport);
                 $('#errorReportModalConfirm').on('click', sendErrorReport);
-                this.querySelector('.modal-body').innerHTML = data.message;
+                $('#errorReportModal .modal-body').html(data.message);
             });
             $errorReportModal.modal('show');
         });

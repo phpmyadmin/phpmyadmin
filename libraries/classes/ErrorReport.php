@@ -287,6 +287,7 @@ class ErrorReport
             'report_data' => $reportData,
             'hidden_inputs' => Url::getHiddenInputs(),
             'hidden_fields' => null,
+            'allowed_to_send_error_reports' => $this->config->get('SendErrorReports') !== 'never',
         ];
 
         if (! empty($reportData)) {
@@ -294,5 +295,12 @@ class ErrorReport
         }
 
         return $this->template->render('error/report_form', $datas);
+    }
+
+    public function getEmptyModal(): string
+    {
+        return $this->template->render('error/report_modal', [
+            'allowed_to_send_error_reports' => $this->config->get('SendErrorReports') !== 'never',
+        ]);
     }
 }
