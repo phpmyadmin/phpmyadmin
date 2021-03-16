@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 - issue #16716 Fixed rename button disappears after a column drop on table structure page
 - issue #15628 Fixed "JSON encoding failed: Malformed UTF-8 characters" when browsing data that uses binary to IP transformation
 - issue #14395 Fixed display chart with timeline & series name column trigger JS error
+- issue #16738 Fixed quick search submit is not working on multi server server > 1
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
