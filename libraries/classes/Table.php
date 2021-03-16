@@ -2234,7 +2234,7 @@ class Table
             } else {
                 $sql_query .= sprintf(
                     ' DROP INDEX %s,',
-                    Util::backquote($_POST['old_index'])
+                    Util::backquote($_POST['old_index']['Key_name'])
                 );
             }
         }
