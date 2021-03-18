@@ -943,24 +943,6 @@ class ConfigTest extends AbstractTestCase
     }
 
     /**
-     * Should test getting unique value for theme
-     *
-     * @group 32bit-incompatible
-     */
-    public function testGetThemeUniqueValue(): void
-    {
-        global $theme;
-
-        $partial_sum = $this->object->sourceMtime +
-            $this->object->defaultSourceMtime +
-            $this->object->get('user_preferences_mtime') +
-            $theme->mtimeInfo +
-            $theme->filesizeInfo;
-
-        $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
-    }
-
-    /**
      * Should test checking of config permissions
      */
     public function testCheckPermissions(): void
