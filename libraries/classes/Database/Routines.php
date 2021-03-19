@@ -1483,13 +1483,16 @@ class Routines
         $params['no_support_types'] = $no_support_types;
 
         for ($i = 0; $i < $routine['item_num_params']; $i++) {
-            if ($routine['item_type'] === 'PROCEDURE'
+            if (
+                $routine['item_type'] === 'PROCEDURE'
                 && $routine['item_param_dir'][$i] === 'OUT'
             ) {
                 continue;
             }
+
             if ($cfg['ShowFunctionFields']) {
-                if (stripos($routine['item_param_type'][$i], 'enum') !== false
+                if (
+                    stripos($routine['item_param_type'][$i], 'enum') !== false
                     || stripos($routine['item_param_type'][$i], 'set') !== false
                     || in_array(
                         mb_strtolower($routine['item_param_type'][$i]),
@@ -1514,7 +1517,8 @@ class Routines
                 }
             }
 
-            if ($routine['item_param_type'][$i] === 'DATETIME'
+            if (
+                $routine['item_param_type'][$i] === 'DATETIME'
                 || $routine['item_param_type'][$i] === 'TIMESTAMP'
             ) {
                 $params[$i]['class'] = 'datetimefield';
@@ -1534,21 +1538,23 @@ class Routines
                     $value = htmlentities(Util::unQuote($value), ENT_QUOTES);
                     $params[$i]['htmlentities'][] = $value;
                 }
-            } elseif (in_array(
-                mb_strtolower($routine['item_param_type'][$i]),
-                $no_support_types
-            )) {
+            } elseif (
+                in_array(
+                    mb_strtolower($routine['item_param_type'][$i]),
+                    $no_support_types
+                )
+            ) {
                 $params[$i]['input_type'] = null;
             } else {
-                $params[$i]['input_type'] = $input_type;
+                $params[$i]['input_type'] = 'text';
             }
         }
 
         return $this->template->render('database/routines/execute_form', [
+            'db' => $db,
             'routine' => $routine,
             'ajax' => $this->response->isAjax(),
-            'cfg' => $cfg,
-            'noSupportTypes' => Util::unsupportedDatatypes(),
+            'show_function_fields' => $cfg['ShowFunctionFields'],
             'params' => $params,
         ]);
     }
