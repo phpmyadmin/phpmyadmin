@@ -23,6 +23,7 @@ phpMyAdmin - ChangeLog
 - issue #15628 Fixed "JSON encoding failed: Malformed UTF-8 characters" when browsing data that uses binary to IP transformation
 - issue #14395 Fixed display chart with timeline & series name column trigger JS error
 - issue #16738 Fixed quick search submit is not working on multi server server > 1
+- issue #16717 Fixed main drawer js call slowing down the page and remove the reflow effect
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
