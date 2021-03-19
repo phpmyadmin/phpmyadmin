@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2016-11-17 19:24+0000\n"
-"Last-Translator: Nebojsa Tausanov <n.tausanov@gmail.com>\n"
+"PO-Revision-Date: 2021-03-20 09:18+0000\n"
+"Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/mk/>\n"
+"4-9/mk/>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -17335,11 +17335,12 @@ msgstr "Базата на податоци не постои"
 
 #: libraries/advisory_rules_generic.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Работно време под еден ден"
 
 #: libraries/advisory_rules_generic.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Работно време под еден ден, тунирање на перформанса може да не биде точно."
 
 #: libraries/advisory_rules_generic.txt:53
 msgid ""
@@ -17350,7 +17351,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Работно време е само %s"
 
 #: libraries/advisory_rules_generic.txt:56
 #, fuzzy
@@ -17362,6 +17363,8 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Помалку од 1000 обработки на податоци се поднесни на овој сервер. Овие "
+"препорачувања може да не се точни."
 
 #: libraries/advisory_rules_generic.txt:60
 msgid ""
