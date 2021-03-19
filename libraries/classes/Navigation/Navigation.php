@@ -121,6 +121,7 @@ class Navigation
         return $this->template->render('navigation/main', [
             'is_ajax' => $response->isAjax(),
             'logo' => $logo,
+            'config_navigation_width' => $cfg['NavigationWidth'],
             'is_synced' => $cfg['NavigationLinkWithMainPanel'],
             'is_highlighted' => $cfg['NavigationTreePointerEnable'],
             'is_autoexpanded' => $cfg['NavigationTreeAutoexpandSingleDb'],

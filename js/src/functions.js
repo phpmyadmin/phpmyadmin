@@ -5164,7 +5164,7 @@ Functions.configSet = function (key, value) {
  * @param {boolean}    cached          Configuration type.
  * @param {Function}   successCallback  The callback to call after the value is received
  *
- * @return {object}                Configuration value.
+ * @return {void}
  */
 Functions.configGet = function (key, cached, successCallback) {
     var isCached = (typeof cached !== 'undefined') ? cached : true;
@@ -5176,8 +5176,6 @@ Functions.configGet = function (key, cached, successCallback) {
     // Result not found in local storage or ignored.
     // Hitting the server.
     $.ajax({
-        // Value at false to be synchronous (then ignore the callback on success)
-        async: typeof successCallback === 'function',
         url: 'index.php?route=/config/get',
         type: 'POST',
         dataType: 'json',
@@ -5200,7 +5198,6 @@ Functions.configGet = function (key, cached, successCallback) {
             }
         }
     });
-    return JSON.parse(localStorage.getItem(key));
 };
 
 /**

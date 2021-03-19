@@ -1342,25 +1342,42 @@ Navigation.ResizeHandler = function () {
         // Set content bottom space because of console
         $('body').css('margin-bottom', $('#pma_console').height() + 'px');
     };
-    // Hide the pma_navigation initially when loaded on mobile
-    if ($(window).width() < 768) {
-        this.setWidth(0);
-    } else {
-        this.setWidth(Functions.configGet('NavigationWidth', false));
-        $('#topmenu').menuResizer('resize');
-    }
-    // Register the events for the resizer and the collapser
-    $(document).on('mousedown', '#pma_navigation_resizer', { 'resize_handler': this }, this.mousedown);
-    $(document).on('click', '#pma_navigation_collapser', { 'resize_handler': this }, this.collapse);
+    /**
+     * Init handlers for the tree resizers
+     *
+     * @return void
+     */
+    this.treeInit = function () {
+        const isLoadedOnMobile = $(window).width() < 768;
+        // Hide the pma_navigation initially when loaded on mobile
+        if (isLoadedOnMobile) {
+            this.setWidth(0);
+        }
+        // Register the events for the resizer and the collapser
+        $(document).on('mousedown', '#pma_navigation_resizer', { 'resize_handler': this }, this.mousedown);
+        $(document).on('click', '#pma_navigation_collapser', { 'resize_handler': this }, this.collapse);
 
-    // Add the correct arrow symbol to the collapser
-    $('#pma_navigation_collapser').html(this.getSymbol($('#pma_navigation').width()));
-    // Fix navigation tree height
-    $(window).on('resize', this.treeResize);
-    // need to call this now and then, browser might decide
-    // to show/hide horizontal scrollbars depending on page content width
-    setInterval(this.treeResize, 2000);
-    this.treeResize();
+        // Add the correct arrow symbol to the collapser
+        $('#pma_navigation_collapser').html(this.getSymbol($('#pma_navigation').width()));
+        // Fix navigation tree height
+        $(window).on('resize', this.treeResize);
+        // need to call this now and then, browser might decide
+        // to show/hide horizontal scrollbars depending on page content width
+        setInterval(this.treeResize, 2000);
+        this.treeResize();
+        const callbackSuccessGetConfigValue = (data) => {
+            this.setWidth(data);
+            $('#topmenu').menuResizer('resize');
+        };
+        // Skip mobile
+        if (isLoadedOnMobile === false) {
+            // Make an init using the default found value
+            const initialResizeValue = $('#pma_navigation').data('config-navigation-width');
+            callbackSuccessGetConfigValue(initialResizeValue);
+        }
+        Functions.configGet('NavigationWidth', false, callbackSuccessGetConfigValue);
+    };
+    this.treeInit();
 };
 
 /**
