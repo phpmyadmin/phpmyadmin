@@ -292,9 +292,9 @@ class Response
     /**
      * Add JSON code to the response
      *
-     * @param string|int|array<array-key, mixed> $json  Either a key (string) or an array or key-value pairs
-     * @param mixed|null                         $value Null, if passing an array in $json otherwise
-     *                                                  it's a string value to the key
+     * @param string|int|array $json  Either a key (string) or an array or key-value pairs
+     * @param mixed|null       $value Null, if passing an array in $json otherwise
+     *                                it's a string value to the key
      */
     public function addJSON($json, $value = null): void
     {
