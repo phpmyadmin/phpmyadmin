@@ -67,6 +67,7 @@ var onDisplayField = 0;
 var onAngularDirect = 1;
 var clickField    = 0;
 var linkRelation  = '';
+var fieldType = '';
 var canvasWidth   = 0;
 var canvasHeight  = 0;
 var osnTabWidth  = 0;
@@ -74,6 +75,8 @@ var osnTabHeight = 0;
 var heightField   = 7;
 var globX;
 var globY;
+var prevX;
+var prevY;
 var timeoutId;
 var layerMenuCurClick = 0;
 var fromArray = [];
@@ -1264,8 +1267,16 @@ DesignerMove.startRelation = function () {
     }
 };
 
+DesignerMove.displayTable = function (name) {
+    var tableName = $('#'+name)[0];
+    var left = prevX - (tableName.offsetWidth >> 1);
+    tableName.style.left = left + 'px';
+    var top = prevY - tableName.offsetHeight;
+    tableName.style.top  = top + 'px';
+    tableName.style.display = 'block';
+};
 // table field
-DesignerMove.clickField = function (db, T, f, pk) {
+DesignerMove.clickField = function (db, T, f, pk, type) {
     var pkLocal = parseInt(pk);
     var argsep = CommonParams.get('arg_separator');
     if (onRelation) {
@@ -1280,17 +1291,20 @@ DesignerMove.clickField = function (db, T, f, pk) {
             }
             clickField = 1;
             linkRelation = 'DB1=' + db + argsep + 'T1=' + T + argsep + 'F1=' + f;
+            fieldType = type;
             document.getElementById('designer_hint').innerHTML = Messages.strSelectForeignKey;
         } else {
             DesignerMove.startRelation(); // hidden hint...
             if (jTabs[db + '.' + T] !== 1 || !pkLocal) {
                 document.getElementById('foreign_relation').style.display = 'none';
             }
-            var left = globX - (document.getElementById('layer_new_relation').offsetWidth >> 1);
-            document.getElementById('layer_new_relation').style.left = left + 'px';
-            var top = globY - document.getElementById('layer_new_relation').offsetHeight;
-            document.getElementById('layer_new_relation').style.top  = top + 'px';
-            document.getElementById('layer_new_relation').style.display = 'block';
+            prevX = globX;
+            prevY = globY;
+            if (fieldType !== type) {
+                DesignerMove.displayTable('layer_confirm_relation');
+            } else {
+                DesignerMove.displayTable('layer_new_relation');
+            }
             linkRelation += argsep + 'DB2=' + db + argsep + 'T2=' + T + argsep + 'F2=' + f;
         }
     }
@@ -2032,7 +2046,7 @@ DesignerMove.enableTableEvents = function (index, element) {
     });
     $(element).on('click', '.tab_field_2,.tab_field_3,.tab_field', function () {
         var params = ($(this).attr('click_field_param')).split(',');
-        DesignerMove.clickField(params[3], params[0], params[1], params[2]);
+        DesignerMove.clickField(params[3], params[0], params[1], params[2], params[4]);
     });
 
     $(element).find('.tab_zag_noquery').on('mouseover', function () {
@@ -2096,6 +2110,8 @@ AJAX.registerTeardown('designer/move.js', function () {
     $('#cancel_close_option').off('click');
     $('#ok_new_rel_panel').off('click');
     $('#cancel_new_rel_panel').off('click');
+    $('#confirm_rel').off('click');
+    $('#cancel_rel').off('click');
     $('#page_content').off('mouseup');
     $('#page_content').off('mousedown');
     $('#page_content').off('mousemove');
@@ -2235,6 +2251,13 @@ AJAX.registerOnload('designer/move.js', function () {
     });
     $('input#cancel_new_rel_panel').on('click', function () {
         document.getElementById('layer_new_relation').style.display = 'none';
+    });
+    $('input#confirm_rel').on('click', function () {
+        $('#layer_confirm_relation').hide();
+        DesignerMove.displayTable('layer_new_relation');
+    });
+    $('input#cancel_rel').on('click', function () {
+        $('#layer_confirm_relation')[0].style.display = 'none';
     });
     DesignerMove.enablePageContentEvents();
 });

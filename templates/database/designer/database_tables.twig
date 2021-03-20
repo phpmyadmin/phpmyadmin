@@ -78,6 +78,7 @@
                     {% set click_field_param = click_field_param|merge([tables_all_keys[tmp_column] is defined ? 1 : 0]) %}
                 {% endif %}
                 {% set click_field_param = click_field_param|merge([db]) %}
+                {% set click_field_param = click_field_param|merge([tab_column[t_n]['TYPE'][j]]) %}
                 <tr id="id_tr_{{ designerTable.getTableName()|escape('url') }}.{{ tab_column[t_n]['COLUMN_NAME'][j] }}" class="tab_field
                     {{- display_field == tab_column[t_n]['COLUMN_NAME'][j] ? '_3' }}" click_field_param="
                     {{- click_field_param|join(',') }}">
