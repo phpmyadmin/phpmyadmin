@@ -2677,7 +2677,10 @@ class Privileges
         }
 
         $sql_query = '';
-        if ($_POST['pred_username'] === 'any') {
+        // Some reports where sent to the error reporting server with phpMyAdmin 5.1.0
+        // pred_username was reported to be not defined
+        $predUsername = $_POST['pred_username'] ?? '';
+        if ($predUsername === 'any') {
             $username = '';
         }
         switch ($_POST['pred_hostname']) {
