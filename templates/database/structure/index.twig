@@ -1,3 +1,11 @@
+{% for flash_key, flash_messages in flash() %}
+  {% for flash_message in flash_messages %}
+    <div class="alert alert-{{ flash_key }}" role="alert">
+      {{ flash_message }}
+    </div>
+  {% endfor %}
+{% endfor %}
+
 {% if has_tables %}
   <div id="tableslistcontainer">
     {{ list_navigator_html|raw }}
