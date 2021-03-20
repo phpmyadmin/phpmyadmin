@@ -4,6 +4,7 @@
 use PhpMyAdmin\Command\CacheWarmupCommand;
 use PhpMyAdmin\Command\SetVersionCommand;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -24,6 +25,7 @@ if (! class_exists(Application::class)) {
     exit(1);
 }
 
+$containerBuilder = Core::getContainerBuilder();
 $cfg['environment'] = 'production';
 $config = new Config(CONFIG_FILE);
 $config->set('environment', $cfg['environment']);
