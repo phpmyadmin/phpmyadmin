@@ -1299,7 +1299,7 @@ Navigation.ResizeHandler = function () {
     /**
      * Init handlers for the tree resizers
      *
-     * @return void
+     * @return {void}
      */
     this.treeInit = function () {
         const isLoadedOnMobile = $(window).width() < 768;
