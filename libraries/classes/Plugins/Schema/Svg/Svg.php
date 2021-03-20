@@ -291,11 +291,11 @@ class Svg extends XMLWriter
     public function printElementLine($name, $x1, $y1, $x2, $y2, $styles)
     {
         $this->startElement($name);
-        $this->writeAttribute('x1', $x1);
-        $this->writeAttribute('y1', $y1);
-        $this->writeAttribute('x2', $x2);
-        $this->writeAttribute('y2', $y2);
-        $this->writeAttribute('style', $styles);
+        $this->writeAttribute('x1', (string) $x1);
+        $this->writeAttribute('y1', (string) $y1);
+        $this->writeAttribute('x2', (string) $x2);
+        $this->writeAttribute('y2', (string) $y2);
+        $this->writeAttribute('style', (string) $styles);
         $this->endElement();
     }
 }
