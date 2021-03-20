@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2020-11-08 11:26+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2021-03-21 14:29+0000\n"
+"Last-Translator: Simon Picot <simonpicot06@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-9/fr/"
 ">\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -429,11 +429,11 @@ msgstr "SRID :"
 #: gis_data_editor.php:199
 #, php-format
 msgid "Geometry %d:"
-msgstr "Géométrie %d : "
+msgstr "Géométrie %d :"
 
 #: gis_data_editor.php:221
 msgid "Point:"
-msgstr "Point : "
+msgstr "Point :"
 
 #: gis_data_editor.php:222 gis_data_editor.php:249 gis_data_editor.php:305
 #: gis_data_editor.php:378 js/messages.php:521
@@ -459,16 +459,16 @@ msgstr "Ajouter un point"
 #: gis_data_editor.php:277
 #, php-format
 msgid "Linestring %d:"
-msgstr "Ligne %d : "
+msgstr "Ligne %d :"
 
 #: gis_data_editor.php:280 gis_data_editor.php:357
 msgid "Outer ring:"
-msgstr "Anneau extérieur : "
+msgstr "Anneau extérieur :"
 
 #: gis_data_editor.php:282 gis_data_editor.php:359
 #, php-format
 msgid "Inner ring %d:"
-msgstr "Anneau intérieur %d : "
+msgstr "Anneau intérieur %d :"
 
 #: gis_data_editor.php:319
 msgid "Add a linestring"
@@ -481,7 +481,7 @@ msgstr "Ajouter un anneau intérieur"
 #: gis_data_editor.php:341
 #, php-format
 msgid "Polygon %d:"
-msgstr "Polygone %d : "
+msgstr "Polygone %d :"
 
 #: gis_data_editor.php:405
 msgid "Add a polygon"
@@ -693,11 +693,11 @@ msgstr "Serveur de base de données"
 
 #: index.php:343 libraries/classes/Plugins/Auth/AuthenticationCookie.php:165
 msgid "Server:"
-msgstr "Serveur : "
+msgstr "Serveur :"
 
 #: index.php:347
 msgid "Server type:"
-msgstr "Type de serveur : "
+msgstr "Type de serveur :"
 
 #: index.php:351
 msgid "Server connection:"
@@ -707,11 +707,11 @@ msgstr "Connexion au serveur :"
 #: libraries/classes/Plugins/Export/ExportSql.php:705
 #: libraries/classes/Plugins/Export/ExportXml.php:245
 msgid "Server version:"
-msgstr "Version du serveur : "
+msgstr "Version du serveur :"
 
 #: index.php:361
 msgid "Protocol version:"
-msgstr "Version du protocole : "
+msgstr "Version du protocole :"
 
 #: index.php:365
 msgid "User:"
@@ -5361,8 +5361,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
-"Un serveur alternatif pour le stockage des configurations; laisser vide pour "
-"utiliser le serveur déjà défini."
+"Un serveur alternatif pour le stockage des configurations ; laisser vide "
+"pour utiliser le serveur déjà défini."
 
 #: libraries/classes/Config/Descriptions.php:1028
 msgid "Control host"
@@ -5692,7 +5692,7 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Laisser vide pour désactiver le suivi des changements SQL; suggestion : "
+"Laisser vide pour désactiver le suivi des changements SQL ; suggestion : "
 "[kbd]pma__tracking[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1205
@@ -8655,7 +8655,7 @@ msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
-"Y-a-t-il une colonne qui peut être scindée en plusieurs colonnes? Par "
+"Y-a-t-il une colonne qui peut être scindée en plusieurs colonnes ? Par "
 "exemple : l'adresse peut être divisée en rue, ville, pays et code postal."
 
 #: libraries/classes/Normalization.php:196
@@ -8732,7 +8732,7 @@ msgid ""
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 "Y-a-t-il un groupe de colonnes qui, lorsque combinées, correspond à une "
-"colonne existante? Par exemple, avec prénom, nom et nom_complet et en "
+"colonne existante ? Par exemple, avec prénom, nom et nom_complet et en "
 "combinant prénom et nom on obtient nom_complet qui est redondant."
 
 #: libraries/classes/Normalization.php:295
@@ -10229,10 +10229,10 @@ msgid ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"…\")."
 msgstr ""
-"N'affiche qu'une partie du champ. En première option, la position de départ "
-"(par défaut, 0). En seconde option, le nombre de caractères à afficher (par "
+"N'affiche qu'une partie du champ. En première option, la position de départ ("
+"par défaut, 0). En seconde option, le nombre de caractères à afficher (par "
 "défaut, le reste). En troisième option, des caractères à afficher à la fin "
-"du texte (par défaut: « … »)."
+"du texte (par défaut : « … »)."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php:30
 msgid ""
