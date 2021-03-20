@@ -24,6 +24,9 @@ phpMyAdmin - ChangeLog
 - issue #14395 Fixed display chart with timeline & series name column trigger JS error
 - issue #16738 Fixed quick search submit is not working on multi server server > 1
 - issue #16717 Fixed main drawer js call slowing down the page and remove the reflow effect
+- issue        Fixed a PHP notice "Undefined index: pred_username"
+- issue #16744 Fixed "Uncaught TypeError: XMLWriter::writeAttribute()" on Designer SVG export
+- issue        Fixed an PHP undefined index notice on export
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
