@@ -301,6 +301,14 @@ if [ $do_pull -eq 1 ] ; then
 fi
 if [ $do_daily -eq 1 ] ; then
     git_head=`git log -n 1 --format=%H`
+    git_head_short=`git log -n 1 --format=%h`
+    today_date=`date +'%Y%m%d' -u`
+fi
+
+if [ $do_daily -eq 1 ] ; then
+    echo '* setting the version suffix for the snapshot'
+    sed -i "s/'VERSION_SUFFIX', '.*'/'VERSION_SUFFIX', '+$today_date.$git_head_short'/" libraries/vendor_config.php
+    php -l libraries/vendor_config.php
 fi
 
 # Check release version
