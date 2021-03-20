@@ -13,10 +13,14 @@ jobs:
         name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
         runs-on: ${{ matrix.os }}
+        continue-on-error: ${{ matrix.experimental }}
         strategy:
             matrix:
                 php-version: ["7.1", "7.2", "7.3", "7.4", "8.0"]
+                experimental: [false]
                 os: [ubuntu-latest]
+                include:
+                    - { php-version: '8.1', dependencies: '--ignore-platform-req=php', experimental: true, os: ubuntu-latest }
         steps:
             - uses: actions/checkout@v2
             - name: Install gettext
