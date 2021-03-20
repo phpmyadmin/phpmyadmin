@@ -27,6 +27,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed a PHP notice "Undefined index: pred_username"
 - issue #16744 Fixed "Uncaught TypeError: XMLWriter::writeAttribute()" on Designer SVG export
 - issue        Fixed an PHP undefined index notice on export
+- issue #14555 Fixed JavaScript error when auto completion is open (upgraded CodeMirror to 5.60.0)
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
