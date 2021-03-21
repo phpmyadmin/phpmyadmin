@@ -397,7 +397,6 @@ class Header
         $this->sendHttpHeaders();
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-        $uniqueValue = $GLOBALS['config']->getThemeUniqueValue();
         $themePath = $theme instanceof Theme ? $theme->getPath() : '';
         $version = self::getVersionParameter();
 
@@ -455,7 +454,6 @@ class Header
             'allow_third_party_framing' => $GLOBALS['cfg']['AllowThirdPartyFraming'],
             'is_print_view' => $this->isPrintView,
             'base_dir' => $baseDir,
-            'unique_value' => $uniqueValue,
             'theme_path' => $themePath,
             'version' => $version,
             'text_dir' => $GLOBALS['text_dir'],

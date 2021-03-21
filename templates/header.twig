@@ -19,8 +19,7 @@
     <link rel="stylesheet" type="text/css" href="{{ base_dir }}js/vendor/codemirror/lib/codemirror.css?{{ version }}">
     <link rel="stylesheet" type="text/css" href="{{ base_dir }}js/vendor/codemirror/addon/hint/show-hint.css?{{ version }}">
     <link rel="stylesheet" type="text/css" href="{{ base_dir }}js/vendor/codemirror/addon/lint/lint.css?{{ version }}">
-    <link rel="stylesheet" type="text/css" href="{{ theme_path }}/css/theme{{ text_dir == 'rtl' ? '.rtl' }}.css?{{ version }}&nocache=
-      {{- unique_value }}{{ text_dir }}{% if server is not empty %}&server={{ server }}{% endif %}">
+    <link rel="stylesheet" type="text/css" href="{{ theme_path }}/css/theme{{ text_dir == 'rtl' ? '.rtl' }}.css?{{ version }}">
     <link rel="stylesheet" type="text/css" href="{{ theme_path }}/css/printview.css?{{ version }}" media="print" id="printcss">
   {% endif %}
   <title>{{ title }}</title>
