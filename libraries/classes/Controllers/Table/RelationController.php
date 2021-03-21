@@ -13,6 +13,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
 
 use function array_key_exists;
 use function array_keys;
@@ -86,7 +87,7 @@ final class RelationController extends AbstractController
         }
 
         $relationsForeign = [];
-        if (Util::isForeignKeySupported($storageEngine)) {
+        if (ForeignKey::isSupported($storageEngine)) {
             $relationsForeign = $this->relation->getForeigners(
                 $this->db,
                 $this->table,
@@ -141,7 +142,7 @@ final class RelationController extends AbstractController
 
         if (
             isset($_POST['destination_foreign_db'])
-            && Util::isForeignKeySupported($storageEngine)
+            && ForeignKey::isSupported($storageEngine)
         ) {
             $relationsForeign = $this->relation->getForeigners(
                 $this->db,
@@ -181,7 +182,7 @@ final class RelationController extends AbstractController
         // common form
         $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
         $this->render('table/relation/common_form', [
-            'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'is_foreign_key_supported' => ForeignKey::isSupported($engine),
             'db' => $this->db,
             'table' => $this->table,
             'cfg_relation' => $cfgRelation,

@@ -76,13 +76,11 @@ use function strlen;
 use function strpos;
 use function strrev;
 use function strtolower;
-use function strtoupper;
 use function strtr;
 use function substr;
 use function time;
 use function trim;
 use function uksort;
-use function version_compare;
 
 use const ENT_COMPAT;
 use const ENT_QUOTES;
@@ -1567,92 +1565,6 @@ class Util
             'can_contain_collation' => $canContainCollation,
             'displayed_type' => $displayedType,
         ];
-    }
-
-    /**
-     * Verifies if this table's engine supports foreign keys
-     *
-     * @param string $engine engine
-     */
-    public static function isForeignKeySupported($engine): bool
-    {
-        global $dbi;
-
-        $engine = strtoupper((string) $engine);
-        if (($engine === 'INNODB') || ($engine === 'PBXT')) {
-            return true;
-        }
-
-        if ($engine === 'NDBCLUSTER' || $engine === 'NDB') {
-            $ndbver = strtolower(
-                $dbi->fetchValue('SELECT @@ndb_version_string')
-            );
-            if (substr($ndbver, 0, 4) === 'ndb-') {
-                $ndbver = substr($ndbver, 4);
-            }
-
-            return version_compare($ndbver, '7.3', '>=');
-        }
-
-        return false;
-    }
-
-    /**
-     * Is Foreign key check enabled?
-     */
-    public static function isForeignKeyCheck(): bool
-    {
-        global $dbi;
-
-        if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'enable') {
-            return true;
-        }
-
-        if ($GLOBALS['cfg']['DefaultForeignKeyChecks'] === 'disable') {
-            return false;
-        }
-
-        return $dbi->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
-    }
-
-    /**
-     * Handle foreign key check request
-     *
-     * @return bool Default foreign key checks value
-     */
-    public static function handleDisableFKCheckInit(): bool
-    {
-        /** @var DatabaseInterface $dbi */
-        global $dbi;
-
-        $defaultFkCheckValue = $dbi->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
-        if (isset($_REQUEST['fk_checks'])) {
-            if (empty($_REQUEST['fk_checks'])) {
-                // Disable foreign key checks
-                $dbi->setVariable('FOREIGN_KEY_CHECKS', 'OFF');
-            } else {
-                // Enable foreign key checks
-                $dbi->setVariable('FOREIGN_KEY_CHECKS', 'ON');
-            }
-        }
-
-        return $defaultFkCheckValue;
-    }
-
-    /**
-     * Cleanup changes done for foreign key check
-     *
-     * @param bool $defaultFkCheckValue original value for 'FOREIGN_KEY_CHECKS'
-     */
-    public static function handleDisableFKCheckCleanup(bool $defaultFkCheckValue): void
-    {
-        /** @var DatabaseInterface $dbi */
-        global $dbi;
-
-        $dbi->setVariable(
-            'FOREIGN_KEY_CHECKS',
-            $defaultFkCheckValue ? 'ON' : 'OFF'
-        );
     }
 
     /**

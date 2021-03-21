@@ -2659,7 +2659,7 @@
     <RedundantCast occurrences="1">
       <code>(string) strftime($string)</code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType occurrences="9">
+    <RedundantCastGivenDocblockType occurrences="8">
       <code>(int) $meta-&gt;length</code>
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
@@ -2668,11 +2668,15 @@
       <code>(int) $timestamp</code>
       <code>(string) $aName</code>
       <code>(string) $aName</code>
-      <code>(string) $engine</code>
     </RedundantCastGivenDocblockType>
     <TypeDoesNotContainType occurrences="1">
       <code>$ret === false</code>
     </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Utils/ForeignKey.php">
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(string) $engine</code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Utils/FormatConverter.php">
     <RedundantCast occurrences="1">

@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Utils\ForeignKey;
 
 use function htmlspecialchars;
 use function sprintf;
@@ -132,7 +133,7 @@ class SqlQueryForm
             'display_tab' => $display_tab,
             'bookmarks' => $bookmarks,
             'can_convert_kanji' => Encoding::canConvertKanji(),
-            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+            'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
         ]);
     }
 

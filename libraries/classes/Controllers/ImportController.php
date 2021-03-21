@@ -21,6 +21,7 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
 use Throwable;
 
 use function define;
@@ -650,12 +651,12 @@ final class ImportController extends AbstractController
             }
 
             // Do the real import
-            $default_fk_check = Util::handleDisableFKCheckInit();
+            $default_fk_check = ForeignKey::handleDisableCheckInit();
             try {
                 $import_plugin->doImport($importHandle ?? null, $sql_data);
-                Util::handleDisableFKCheckCleanup($default_fk_check);
+                ForeignKey::handleDisableCheckCleanup($default_fk_check);
             } catch (Throwable $e) {
-                Util::handleDisableFKCheckCleanup($default_fk_check);
+                ForeignKey::handleDisableCheckCleanup($default_fk_check);
 
                 throw $e;
             }

@@ -88,7 +88,7 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'is_foreign_key_supported',
-                'PhpMyAdmin\Util::isForeignKeySupported'
+                'PhpMyAdmin\Utils\ForeignKey::isSupported'
             ),
             new TwigFunction(
                 'link_or_button',

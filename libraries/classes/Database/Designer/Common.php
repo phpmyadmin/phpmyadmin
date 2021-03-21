@@ -10,6 +10,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
 
 use function count;
 use function explode;
@@ -607,8 +608,8 @@ class Common
 
         // native foreign key
         if (
-            Util::isForeignKeySupported($type_T1)
-            && Util::isForeignKeySupported($type_T2)
+            ForeignKey::isSupported($type_T1)
+            && ForeignKey::isSupported($type_T2)
             && $type_T1 == $type_T2
         ) {
             // relation exists?
@@ -757,8 +758,8 @@ class Common
         $type_T2 = mb_strtoupper($tables[$T2]['ENGINE']);
 
         if (
-            Util::isForeignKeySupported($type_T1)
-            && Util::isForeignKeySupported($type_T2)
+            ForeignKey::isSupported($type_T1)
+            && ForeignKey::isSupported($type_T2)
             && $type_T1 == $type_T2
         ) {
             // InnoDB

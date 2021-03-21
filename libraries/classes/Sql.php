@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\Utils\ForeignKey;
 
 use function array_map;
 use function array_sum;
@@ -1756,7 +1757,7 @@ class Sql
         ?string $completeQuery
     ) {
         // Handle disable/enable foreign key checks
-        $defaultFkCheck = Util::handleDisableFKCheckInit();
+        $defaultFkCheck = ForeignKey::handleDisableCheckInit();
 
         // Handle remembered sorting order, only for single table query.
         // Handling is not required when it's a union query
@@ -1857,7 +1858,7 @@ class Sql
         }
 
         // Handle disable/enable foreign key checks
-        Util::handleDisableFKCheckCleanup($defaultFkCheck);
+        ForeignKey::handleDisableCheckCleanup($defaultFkCheck);
 
         foreach ($warningMessages as $warning) {
             $message = Message::notice(Message::sanitize($warning));

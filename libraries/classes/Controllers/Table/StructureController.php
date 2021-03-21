@@ -37,6 +37,7 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
 use stdClass;
 
 use function array_keys;
@@ -1574,7 +1575,7 @@ class StructureController extends AbstractController
 
         return $this->template->render('table/structure/display_structure', [
             'collations' => $collations,
-            'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'is_foreign_key_supported' => ForeignKey::isSupported($engine),
             'indexes' => Index::getFromTable($this->table, $this->db),
             'indexes_duplicates' => Index::findDuplicates($this->table, $this->db),
             'cfg_relation' => $this->relation->getRelationsParam(),
@@ -1726,7 +1727,7 @@ class StructureController extends AbstractController
         return $this->template->render('table/structure/display_table_stats', [
             'db' => $GLOBALS['db'],
             'table' => $GLOBALS['table'],
-            'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'is_foreign_key_supported' => ForeignKey::isSupported($engine),
             'cfg_relation' => $this->relation->getRelationsParam(),
             'showtable' => $showtable,
             'table_info_num_rows' => $table_info_num_rows,
