@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
@@ -52,6 +53,9 @@ class StructureControllerTest extends AbstractTestCase
 
     /** @var Operations */
     private $operations;
+
+    /** @var FlashMessages */
+    private $flash;
 
     /**
      * Prepares environment for the test.
@@ -95,6 +99,7 @@ class StructureControllerTest extends AbstractTestCase
         $this->replication = new Replication();
         $this->relationCleanup = new RelationCleanup($dbi, $this->relation);
         $this->operations = new Operations($dbi, $this->relation);
+        $this->flash = new FlashMessages();
     }
 
     /**
@@ -113,7 +118,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -173,7 +179,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
 
         $currentTable['ENGINE'] = 'InnoDB';
@@ -216,7 +223,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -280,7 +288,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
         [$currentTable, , , , , , $sumSize] = $method->invokeArgs(
             $controller,
@@ -304,7 +313,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
         [$currentTable] = $method->invokeArgs(
             $controller,
@@ -338,7 +348,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
 
         // When parameter $db is empty
@@ -376,7 +387,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
 
         $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = [
@@ -414,7 +426,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
 
         // The user hash for test
@@ -474,7 +487,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);
@@ -524,7 +538,8 @@ class StructureControllerTest extends AbstractTestCase
             $this->replication,
             $this->relationCleanup,
             $this->operations,
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            $this->flash
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);

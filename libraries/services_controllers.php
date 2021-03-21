@@ -201,6 +201,7 @@ return [
                 '$relationCleanup' => '@relation_cleanup',
                 '$operations' => '@operations',
                 '$dbi' => '@dbi',
+                '$flash' => '@flash',
             ],
         ],
         PhpMyAdmin\Controllers\Database\TrackingController::class => [

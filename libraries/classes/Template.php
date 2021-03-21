@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Twig\AssetExtension;
 use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\Extensions\Node\TransNode;
+use PhpMyAdmin\Twig\FlashMessagesExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\PluginsExtension;
@@ -25,6 +26,7 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
+use Twig\RuntimeLoader\ContainerRuntimeLoader;
 use Twig\TemplateWrapper;
 
 use function sprintf;
@@ -61,7 +63,7 @@ class Template
 
     public static function getTwigEnvironment(?string $cacheDir): Environment
     {
-        global $cfg;
+        global $cfg, $containerBuilder;
 
         /* Twig expects false when cache is not configured */
         if ($cacheDir === null) {
@@ -73,6 +75,8 @@ class Template
             'auto_reload' => true,
             'cache' => $cacheDir,
         ]);
+
+        $twig->addRuntimeLoader(new ContainerRuntimeLoader($containerBuilder));
 
         if ($cfg['environment'] === 'development') {
             $twig->enableDebug();
@@ -89,6 +93,7 @@ class Template
 
         $twig->addExtension(new AssetExtension());
         $twig->addExtension(new CoreExtension());
+        $twig->addExtension(new FlashMessagesExtension());
         $twig->addExtension(new I18nExtension());
         $twig->addExtension(new MessageExtension());
         $twig->addExtension(new PluginsExtension());

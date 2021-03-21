@@ -10,6 +10,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
@@ -91,6 +92,9 @@ class StructureController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
+    /** @var FlashMessages */
+    private $flash;
+
     /**
      * @param Response          $response
      * @param string            $db          Database name
@@ -106,7 +110,8 @@ class StructureController extends AbstractController
         $replication,
         RelationCleanup $relationCleanup,
         Operations $operations,
-        $dbi
+        $dbi,
+        FlashMessages $flash
     ) {
         parent::__construct($response, $template, $db);
         $this->relation = $relation;
@@ -114,6 +119,7 @@ class StructureController extends AbstractController
         $this->relationCleanup = $relationCleanup;
         $this->operations = $operations;
         $this->dbi = $dbi;
+        $this->flash = $flash;
 
         $this->replicationInfo = new ReplicationInfo($this->dbi);
     }
@@ -1552,15 +1558,9 @@ class StructureController extends AbstractController
         $selected = $_POST['selected'] ?? [];
 
         if ($mult_btn !== __('Yes')) {
-            $message = Message::success(__('No change'));
+            $this->flash->addMessage('success', __('No change'));
 
-            if (empty($_POST['message'])) {
-                $_POST['message'] = Message::success();
-            }
-
-            unset($_POST['mult_btn']);
-
-            $this->index();
+            Core::sendHeaderLocation('./index.php?route=/database/structure' . Url::getCommonRaw(['db' => $db], '&'));
 
             return;
         }

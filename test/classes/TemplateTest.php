@@ -30,6 +30,8 @@ class TemplateTest extends AbstractTestCase
     {
         global $cfg;
 
+        $this->loadContainerBuilder();
+
         $cfg['environment'] = 'production';
         $twig = Template::getTwigEnvironment(null);
         $this->assertFalse($twig->isDebug());
