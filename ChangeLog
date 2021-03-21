@@ -28,6 +28,7 @@ phpMyAdmin - ChangeLog
 - issue #16744 Fixed "Uncaught TypeError: XMLWriter::writeAttribute()" on Designer SVG export
 - issue        Fixed an PHP undefined index notice on export
 - issue #14555 Fixed JavaScript error when auto completion is open (upgraded CodeMirror to 5.60.0)
+- issue #16647 Fixed preferences form not showing texts and not respecting TabsMode config
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
