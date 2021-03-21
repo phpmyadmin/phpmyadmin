@@ -1,7 +1,7 @@
 {{ login_header|raw }}
 
 {% if is_demo %}
-  <fieldset class="pma-fieldset">
+  <fieldset class="pma-fieldset mb-4">
     <legend>{% trans 'phpMyAdmin Demo Server' %}</legend>
     {% apply format('<a href="url.php?url=https://demo.phpmyadmin.net/" target="_blank" rel="noopener noreferrer">demo.phpmyadmin.net</a>')|raw %}
       {% trans %}
