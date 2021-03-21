@@ -482,12 +482,13 @@ AJAX.registerOnload('table/change.js', function () {
                     isTime(dtValue.substring(dv + 1));
             }
         });
-        /*
-         * message extending script must be run
-         * after initiation of functions
-         */
-        extendingValidatorMessages();
     }
+
+    /*
+     * message extending script must be run
+     * after initiation of functions
+     */
+    extendingValidatorMessages();
 
     $.datepicker.initialized = false;
 
