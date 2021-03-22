@@ -2324,8 +2324,6 @@ class Util
         // If a table name was also provided and we still didn't
         // find any valid privileges, try table-wise privileges.
         if ($tbl !== null) {
-            // need to escape wildcards in db and table names, see bug #3518484
-            $tbl = str_replace(['%', '_'], ['\%', '\_'], $tbl);
             $query .= " AND TABLE_NAME='%s'";
             $table_privileges = $dbi->fetchValue(
                 sprintf(

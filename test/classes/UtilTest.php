@@ -2546,7 +2546,7 @@ class UtilTest extends AbstractTestCase
                 [
                     'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
                 . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my\_data\_table'",
+                . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
                 ]
             )
             ->willReturnOnConsecutiveCalls(
@@ -2586,7 +2586,7 @@ class UtilTest extends AbstractTestCase
                 [
                     'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
                 . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my\_data\_table'",
+                . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
                 ]
             )
             ->willReturnOnConsecutiveCalls(
