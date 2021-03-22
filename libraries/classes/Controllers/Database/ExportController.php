@@ -140,7 +140,7 @@ final class ExportController extends AbstractController
             $export_type = 'database';
         }
 
-        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? null;
+        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? $GLOBALS['single_table'] ?? null;
 
         $exportList = Plugins::getExport($export_type, isset($GLOBALS['single_table']));
 
