@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use PhpMyAdmin\Utils\Gis;
 
 use function array_fill;
 use function array_flip;
@@ -2115,7 +2116,7 @@ class InsertEdit
             // Convert gis data to Well Know Text format
             $current_row[$column['Field']] = $as_is
                 ? $current_row[$column['Field']]
-                : Util::asWKT(
+                : Gis::convertToWellKnownText(
                     $current_row[$column['Field']],
                     true
                 );
@@ -3393,7 +3394,7 @@ class InsertEdit
         }
 
         // Get a list of GIS data types.
-        $gis_data_types = Util::getGISDatatypes();
+        $gis_data_types = Gis::getDataTypes();
 
         // Prepares the field value
         $real_null_value = false;

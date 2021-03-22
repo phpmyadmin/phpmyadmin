@@ -29,6 +29,7 @@ use PhpMyAdmin\Theme;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\Gis;
 
 use function array_filter;
 use function array_keys;
@@ -3656,7 +3657,7 @@ class Results
             $whereComparison = ' = ' . $column;
 
             // Convert to WKT format
-            $wktval = Util::asWKT($column);
+            $wktval = Gis::convertToWellKnownText($column);
             [
                 $isFieldTruncated,
                 $displayedColumn,
