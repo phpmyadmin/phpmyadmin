@@ -29,6 +29,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed an PHP undefined index notice on export
 - issue #14555 Fixed JavaScript error when auto completion is open (upgraded CodeMirror to 5.60.0)
 - issue #16647 Fixed preferences form not showing texts and not respecting TabsMode config
+- issue        Fixed escape_mysql_wildcards Twig filter
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
