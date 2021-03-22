@@ -19,6 +19,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
 
 use function intval;
 
@@ -121,7 +122,7 @@ final class ImportController extends AbstractController
             'offset' => $offset,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'charsets' => $charsets,
-            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+            'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
             'user_upload_dir' => Util::userDir($cfg['UploadDir'] ?? ''),
             'local_files' => Import::getLocalFiles($importList),
         ]);

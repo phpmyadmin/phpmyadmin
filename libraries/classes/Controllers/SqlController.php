@@ -17,6 +17,7 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
 
 use function htmlentities;
 use function mb_strpos;
@@ -318,7 +319,7 @@ class SqlController extends AbstractController
 
         $this->response->addJSON(
             'default_fk_check_value',
-            Util::isForeignKeyCheck()
+            ForeignKey::isCheckEnabled()
         );
     }
 

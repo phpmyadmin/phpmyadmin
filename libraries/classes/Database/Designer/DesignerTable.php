@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Database\Designer;
 
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
 
 /**
  * Common functions for Designer
@@ -48,7 +48,7 @@ class DesignerTable
      */
     public function supportsForeignkeys(): bool
     {
-        return Util::isForeignKeySupported($this->tableEngine);
+        return ForeignKey::isSupported($this->tableEngine);
     }
 
     /**

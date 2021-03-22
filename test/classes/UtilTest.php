@@ -339,29 +339,6 @@ class UtilTest extends AbstractTestCase
     }
 
     /**
-     * Test for isForeignKeyCheck
-     */
-    public function testIsForeignKeyCheck(): void
-    {
-        $GLOBALS['server'] = 1;
-
-        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'enable';
-        $this->assertTrue(
-            Util::isForeignKeyCheck()
-        );
-
-        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'disable';
-        $this->assertFalse(
-            Util::isForeignKeyCheck()
-        );
-
-        $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
-        $this->assertTrue(
-            Util::isForeignKeyCheck()
-        );
-    }
-
-    /**
      * Test for getCharsetQueryPart
      *
      * @param string $collation Collation
@@ -880,52 +857,6 @@ class UtilTest extends AbstractTestCase
             [
                 '256K',
                 262144,
-            ],
-        ];
-    }
-
-    /**
-     * foreign key supported test
-     *
-     * @param string $a Engine
-     * @param bool   $e Expected Value
-     *
-     * @covers \PhpMyAdmin\Util::isForeignKeySupported
-     * @dataProvider providerIsForeignKeySupported
-     */
-    public function testIsForeignKeySupported(string $a, bool $e): void
-    {
-        $GLOBALS['server'] = 1;
-
-        $this->assertEquals(
-            $e,
-            Util::isForeignKeySupported($a)
-        );
-    }
-
-    /**
-     * data provider for foreign key supported test
-     *
-     * @return array
-     */
-    public function providerIsForeignKeySupported(): array
-    {
-        return [
-            [
-                'MyISAM',
-                false,
-            ],
-            [
-                'innodb',
-                true,
-            ],
-            [
-                'pBxT',
-                true,
-            ],
-            [
-                'ndb',
-                true,
             ],
         ];
     }
@@ -2234,119 +2165,6 @@ class UtilTest extends AbstractTestCase
             (string) hex2bin('000000000101000000000000000000F03F000000000000F03F'),
             $SRIDOption
         ));
-
-        $GLOBALS['dbi'] = $oldDbi;
-    }
-
-    /**
-     * @return array[]
-     */
-    public function providerFkChecks(): array
-    {
-        return [
-            [
-                '',
-                'OFF',
-            ],
-            [
-                '0',
-                'OFF',
-            ],
-            [
-                '1',
-                'ON',
-            ],
-        ];
-    }
-
-    /**
-     * @dataProvider providerFkChecks
-     */
-    public function testHandleDisableFKCheckInit(string $fkChecksValue, string $setVariableParam): void
-    {
-        $oldDbi = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
-
-        $_REQUEST['fk_checks'] = $fkChecksValue;
-
-        $dbi->expects($this->once())
-            ->method('getVariable')
-            ->will($this->returnValue('ON'));
-
-        $dbi->expects($this->once())
-            ->method('setVariable')
-            ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
-            ->will($this->returnValue(true));
-
-        $this->assertTrue(Util::handleDisableFKCheckInit());
-
-        $GLOBALS['dbi'] = $oldDbi;
-    }
-
-    /**
-     * @dataProvider providerFkChecks
-     */
-    public function testHandleDisableFKCheckInitVarFalse(string $fkChecksValue, string $setVariableParam): void
-    {
-        $oldDbi = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
-
-        $_REQUEST['fk_checks'] = $fkChecksValue;
-
-        $dbi->expects($this->once())
-            ->method('getVariable')
-            ->will($this->returnValue('OFF'));
-
-        $dbi->expects($this->once())
-            ->method('setVariable')
-            ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
-            ->will($this->returnValue(true));
-
-        $this->assertFalse(Util::handleDisableFKCheckInit());
-
-        $GLOBALS['dbi'] = $oldDbi;
-    }
-
-    /**
-     * @return array[]
-     */
-    public function providerFkCheckCleanup(): array
-    {
-        return [
-            [
-                true,
-                'ON',
-            ],
-            [
-                false,
-                'OFF',
-            ],
-        ];
-    }
-
-    /**
-     * @dataProvider providerFkCheckCleanup
-     */
-    public function testHandleDisableFKCheckCleanup(bool $fkChecksValue, string $setVariableParam): void
-    {
-        $oldDbi = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $GLOBALS['dbi'] = $dbi;
-
-        $dbi->expects($this->once())
-            ->method('setVariable')
-            ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
-            ->will($this->returnValue(true));
-
-        Util::handleDisableFKCheckCleanup($fkChecksValue);
 
         $GLOBALS['dbi'] = $oldDbi;
     }

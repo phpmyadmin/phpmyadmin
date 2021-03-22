@@ -28,6 +28,7 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
 
 use function array_search;
 use function ceil;
@@ -1431,7 +1432,7 @@ class StructureController extends AbstractController
         $this->render('database/structure/drop_form', [
             'url_params' => $_url_params,
             'full_query' => $full_query,
-            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+            'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
         ]);
     }
 
@@ -1460,7 +1461,7 @@ class StructureController extends AbstractController
         $this->render('database/structure/empty_form', [
             'url_params' => $urlParams,
             'full_query' => $fullQuery,
-            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+            'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
         ]);
     }
 
@@ -1488,7 +1489,7 @@ class StructureController extends AbstractController
             return;
         }
 
-        $default_fk_check_value = Util::handleDisableFKCheckInit();
+        $default_fk_check_value = ForeignKey::handleDisableCheckInit();
         $sql_query = '';
         $sql_query_views = '';
         $selectedCount = count($selected);
@@ -1537,7 +1538,7 @@ class StructureController extends AbstractController
             $message = Message::error((string) $this->dbi->getError());
         }
 
-        Util::handleDisableFKCheckCleanup($default_fk_check_value);
+        ForeignKey::handleDisableCheckCleanup($default_fk_check_value);
 
         $message = Message::success();
 
@@ -1565,7 +1566,7 @@ class StructureController extends AbstractController
             return;
         }
 
-        $default_fk_check_value = Util::handleDisableFKCheckInit();
+        $default_fk_check_value = ForeignKey::handleDisableCheckInit();
 
         $sql_query = '';
         $selectedCount = count($selected);
@@ -1592,7 +1593,7 @@ class StructureController extends AbstractController
             $_REQUEST['pos'] = $sql->calculatePosForLastPage($db, $table, $_REQUEST['pos']);
         }
 
-        Util::handleDisableFKCheckCleanup($default_fk_check_value);
+        ForeignKey::handleDisableCheckCleanup($default_fk_check_value);
 
         $message = Message::success();
 
