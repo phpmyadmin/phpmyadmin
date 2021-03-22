@@ -163,7 +163,7 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFilter(
                 'escape_mysql_wildcards',
-                'PhpMyAdmin\Util::convertBitDefaultValue'
+                'PhpMyAdmin\Util::escapeMysqlWildcards'
             ),
         ];
     }
