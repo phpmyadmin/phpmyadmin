@@ -60,11 +60,11 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'get_gis_datatypes',
-                'PhpMyAdmin\Util::getGISDatatypes'
+                'PhpMyAdmin\Utils\Gis::getDataTypes'
             ),
             new TwigFunction(
                 'get_gis_functions',
-                'PhpMyAdmin\Util::getGISFunctions'
+                'PhpMyAdmin\Utils\Gis::getFunctions'
             ),
             new TwigFunction(
                 'get_icon',

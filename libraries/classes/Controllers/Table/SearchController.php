@@ -17,6 +17,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\Gis;
 
 use function in_array;
 use function intval;
@@ -140,7 +141,7 @@ class SearchController extends AbstractController
             true
         );
         // Get details about the geometry functions
-        $geom_types = Util::getGISDatatypes();
+        $geom_types = Gis::getDataTypes();
 
         foreach ($columns as $row) {
             // set column name

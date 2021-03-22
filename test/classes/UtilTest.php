@@ -18,7 +18,6 @@ use function date_default_timezone_get;
 use function date_default_timezone_set;
 use function file_exists;
 use function floatval;
-use function hex2bin;
 use function htmlspecialchars;
 use function ini_get;
 use function ini_set;
@@ -46,36 +45,6 @@ class UtilTest extends AbstractTestCase
         parent::setLanguage();
         parent::setTheme();
         parent::loadDefaultConfig();
-    }
-
-    /**
-     * Test for createGISData
-     */
-    public function testCreateGISDataOldMysql(): void
-    {
-        $this->assertEquals(
-            'abc',
-            Util::createGISData('abc', 50500)
-        );
-        $this->assertEquals(
-            "GeomFromText('POINT()',10)",
-            Util::createGISData("'POINT()',10", 50500)
-        );
-    }
-
-    /**
-     * Test for createGISData
-     */
-    public function testCreateGISDataNewMysql(): void
-    {
-        $this->assertEquals(
-            'abc',
-            Util::createGISData('abc', 50600)
-        );
-        $this->assertEquals(
-            "ST_GeomFromText('POINT()',10)",
-            Util::createGISData("'POINT()',10", 50600)
-        );
     }
 
     /**
@@ -298,26 +267,6 @@ class UtilTest extends AbstractTestCase
                     '',// condition
                 ]
             )
-        );
-    }
-
-    /**
-     * Test for getGISFunctions
-     */
-    public function testGetGISFunctions(): void
-    {
-        $funcs = Util::getGISFunctions();
-        $this->assertArrayHasKey(
-            'Dimension',
-            $funcs
-        );
-        $this->assertArrayHasKey(
-            'GeometryType',
-            $funcs
-        );
-        $this->assertArrayHasKey(
-            'MBRDisjoint',
-            $funcs
         );
     }
 
@@ -2027,146 +1976,6 @@ class UtilTest extends AbstractTestCase
                 'https'
             ]*/
         ];
-    }
-
-    /**
-     * Some data to test Util::asWKT for testAsWKT
-     */
-    public function dataProviderAsWKT(): array
-    {
-        return [
-            [
-                'SELECT ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                ['POINT(1 1)'],
-                'POINT(1 1)',
-                false,
-                50300,
-            ],
-            [
-                'SELECT ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\'),'
-                . ' SRID(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                [
-                    'POINT(1 1)',
-                    '0',
-                ],
-                '\'POINT(1 1)\',0',
-                true,
-                50300,
-            ],
-            [
-                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                ['POINT(1 1)'],
-                'POINT(1 1)',
-                false,
-                50700,
-            ],
-            [
-                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\'),'
-                . ' ST_SRID(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                [
-                    'POINT(1 1)',
-                    '0',
-                ],
-                '\'POINT(1 1)\',0',
-                true,
-                50700,
-            ],
-            [
-                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\', \'axis-order=long-lat\'),'
-                . ' ST_SRID(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                [
-                    'POINT(1 1)',
-                    '0',
-                ],
-                '\'POINT(1 1)\',0',
-                true,
-                80010,
-            ],
-            [
-                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\'),'
-                . ' ST_SRID(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                [
-                    'POINT(1 1)',
-                    '0',
-                ],
-                '\'POINT(1 1)\',0',
-                true,
-                50700,
-            ],
-            [
-                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\', \'axis-order=long-lat\')',
-                [
-                    'POINT(1 1)',
-                    '0',
-                ],
-                'POINT(1 1)',
-                false,
-                80010,
-            ],
-            [
-                'SELECT ST_ASTEXT(x\'000000000101000000000000000000f03f000000000000f03f\')',
-                [
-                    'POINT(1 1)',
-                    '0',
-                ],
-                'POINT(1 1)',
-                false,
-                50700,
-            ],
-        ];
-    }
-
-    /**
-     * Test to get data asWKT
-     *
-     * @param string $expectedQuery  The query to expect
-     * @param array  $returnData     The data to return for fetchRow
-     * @param string $functionResult Result of the Util::asWKT invocation
-     * @param bool   $SRIDOption     Use the SRID option or not
-     * @param int    $mysqlVersion   The mysql version to return for getVersion
-     *
-     * @dataProvider dataProviderAsWKT
-     */
-    public function testAsWKT(
-        string $expectedQuery,
-        array $returnData,
-        string $functionResult,
-        bool $SRIDOption,
-        int $mysqlVersion
-    ): void {
-        $oldDbi = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($SRIDOption ? $this->once() : $this->exactly(2))
-            ->method('getVersion')
-            ->will($this->returnValue($mysqlVersion));
-
-        $dbi->expects($SRIDOption ? $this->once() : $this->exactly(2))
-            ->method('tryQuery')
-            ->with($expectedQuery)
-            ->will($this->returnValue([]));// Omit the real object
-
-        $dbi->expects($SRIDOption ? $this->once() : $this->exactly(2))
-            ->method('fetchRow')
-            ->will($this->returnValue($returnData));
-
-        $GLOBALS['dbi'] = $dbi;
-
-        if (! $SRIDOption) {
-            // Also test default signature
-            $this->assertSame($functionResult, Util::asWKT(
-                (string) hex2bin('000000000101000000000000000000F03F000000000000F03F')
-            ));
-        }
-
-        $this->assertSame($functionResult, Util::asWKT(
-            (string) hex2bin('000000000101000000000000000000F03F000000000000F03F'),
-            $SRIDOption
-        ));
-
-        $GLOBALS['dbi'] = $oldDbi;
     }
 
     public function testCurrentUserHasPrivilegeSkipGrantTables(): void

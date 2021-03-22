@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\Gis;
 
 use function count;
 use function explode;
@@ -280,7 +281,7 @@ final class Search
         $where = '';
 
         // Get details about the geometry functions
-        $geom_funcs = Util::getGISFunctions($types, true, false);
+        $geom_funcs = Gis::getFunctions($types, true, false);
 
         // If the function takes multiple parameters
         if (strpos($func_type, 'IS NULL') !== false || strpos($func_type, 'IS NOT NULL') !== false) {
@@ -289,7 +290,7 @@ final class Search
 
         if ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
-            $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
+            $gis_data = Gis::createData($criteriaValues, $this->dbi->getVersion());
 
             return $geom_func . '(' . Util::backquote($names)
                 . ', ' . $gis_data . ')';
@@ -307,11 +308,11 @@ final class Search
         ) {
             $where = $geom_function_applied;
         } elseif (
-            in_array($type, Util::getGISDatatypes())
+            in_array($type, Gis::getDataTypes())
             && ! empty($criteriaValues)
         ) {
             // create gis data from the criteria input
-            $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
+            $gis_data = Gis::createData($criteriaValues, $this->dbi->getVersion());
             $where = $geom_function_applied . ' ' . $func_type . ' ' . $gis_data;
         } elseif (strlen($criteriaValues) > 0) {
             $where = $geom_function_applied . ' '
