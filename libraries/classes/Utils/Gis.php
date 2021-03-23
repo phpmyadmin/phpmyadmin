@@ -20,7 +20,7 @@ final class Gis
      *
      * @return string GIS data in Well Know Text format
      */
-    public static function convertToWellKnownText($data, $includeSRID = false)
+    public static function convertToWellKnownText($data, $includeSRID = false): string
     {
         global $dbi;
 
@@ -48,7 +48,7 @@ final class Gis
             $wktsql
         );
         $wktarr = $dbi->fetchRow($wktresult, 0);
-        $wktval = $wktarr[0] ?? null;
+        $wktval = $wktarr[0] ?? '';
 
         if ($includeSRID) {
             $srid = $wktarr[1] ?? null;
