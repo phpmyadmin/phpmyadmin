@@ -30,6 +30,12 @@ phpMyAdmin - ChangeLog
 - issue #14555 Fixed JavaScript error when auto completion is open (upgraded CodeMirror to 5.60.0)
 - issue #16647 Fixed preferences form not showing texts and not respecting TabsMode config
 - issue        Fixed escape_mysql_wildcards Twig filter
+- issue        Change text from "Null" to "NULL" on grid edit popup
+- issue        Translate a non translated string on a change password page
+- issue        Fix designer modal buttons sizes for pmahomme and bootstrap themes
+- issue #16694 Fixed "Triggers" page not visible for user table specific privileges
+- issue #14430 Fixed execute button is disabled for routines
+- issue #16703 Fixed SQL option to Export specific rows from a table
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
