@@ -4961,20 +4961,16 @@ class Results
      *          getDataCellForNonNumericColumns(),
      *
      * @param string                $class                css classes for the td element
-     * @param bool                  $conditionField       whether the column is a part of
-     *                                                     the where clause
+     * @param bool                  $conditionField       whether the column is a part of the where clause
      * @param array                 $analyzedSqlResults   the analyzed query
-     * @param FieldMetadata         $meta                 the meta-information about the
-     *                                               field
+     * @param FieldMetadata         $meta                 the meta-information about the field
      * @param array                 $map                  the list of relations
      * @param string                $data                 data
      * @param string                $displayedData        data that will be displayed (maybe be chunked)
-     * @param TransformationsPlugin $transformationPlugin transformation plugin.
-     *                                                     Can also be the default function:
-     *                                                     Core::mimeDefaultFunction
+     * @param TransformationsPlugin $transformationPlugin transformation plugin. Can also be the default function:
+     *                                                    Core::mimeDefaultFunction
      * @param string                $defaultFunction      default function
-     * @param string                $nowrap               'nowrap' if the content should
-     *                                                    not be wrapped
+     * @param string                $nowrap               'nowrap' if the content should not be wrapped
      * @param string                $whereComparison      data for the where clause
      * @param array                 $transformOptions     options for transformation
      * @param bool                  $isFieldTruncated     whether the field is truncated
@@ -5002,16 +4998,8 @@ class Results
     ) {
         $relationalDisplay = $_SESSION['tmpval']['relational_display'];
         $printView = $this->properties['printview'];
-        $decimals = $meta->decimals ?? '-1';
-        $result = '<td data-decimals="' . $decimals . '"'
-            . ' data-type="' . $meta->getMappedType() . '"';
-
-        if (! empty($originalLength)) {
-            // cannot use data-original-length
-            $result .= ' data-originallength="' . $originalLength . '"';
-        }
-
-        $result .= ' class="' . $this->addClass(
+        $value = '';
+        $tableDataCellClass = $this->addClass(
             $class,
             $conditionField,
             $meta,
@@ -5019,7 +5007,7 @@ class Results
             $isFieldTruncated,
             $transformationPlugin,
             $defaultFunction
-        ) . '">';
+        );
 
         if (! empty($analyzedSqlResults['statement']->expr)) {
             foreach ($analyzedSqlResults['statement']->expr as $expr) {
@@ -5051,7 +5039,7 @@ class Results
             }
 
             if (isset($printView) && ($printView == '1')) {
-                $result .= ($transformationPlugin != $defaultFunction
+                $value .= ($transformationPlugin != $defaultFunction
                     ? $transformationPlugin->applyTransformation(
                         $data,
                         $transformOptions,
@@ -5113,14 +5101,14 @@ class Results
                     $tagParams['class'] = 'ajax';
                 }
 
-                $result .= Generator::linkOrButton(
+                $value .= Generator::linkOrButton(
                     Url::getFromRoute('/sql', $urlParams),
                     $displayedData,
                     $tagParams
                 );
             }
         } else {
-            $result .= ($transformationPlugin != $defaultFunction
+            $value .= ($transformationPlugin != $defaultFunction
                 ? $transformationPlugin->applyTransformation(
                     $data,
                     $transformOptions,
@@ -5130,9 +5118,13 @@ class Results
             );
         }
 
-        $result .= '</td>' . "\n";
-
-        return $result;
+        return $this->template->render('display/results/row_data', [
+            'value' => $value,
+            'td_class' => $tableDataCellClass,
+            'decimals' => $meta->decimals ?? '-1',
+            'type' => $meta->getMappedType(),
+            'original_length' => $originalLength,
+        ]);
     }
 
     /**
