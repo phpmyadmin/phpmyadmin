@@ -73,8 +73,7 @@ class Triggers
         $this->export();
 
         $items = $this->dbi->getTriggers($db, $table);
-        $hasDropPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db);
-        $hasEditPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db, $table);
+        $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db, $table);
         $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
@@ -83,8 +82,8 @@ class Triggers
                 'db' => $db,
                 'table' => $table,
                 'trigger' => $item,
-                'has_drop_privilege' => $hasDropPrivilege,
-                'has_edit_privilege' => $hasEditPrivilege,
+                'has_drop_privilege' => $hasTriggerPrivilege,
+                'has_edit_privilege' => $hasTriggerPrivilege,
                 'row_class' => $isAjax ? 'ajaxInsert hide' : '',
             ]);
         }
@@ -94,7 +93,7 @@ class Triggers
             'table' => $table,
             'items' => $items,
             'rows' => $rows,
-            'has_privilege' => Util::currentUserHasPrivilege('TRIGGER', $db, $table),
+            'has_privilege' => $hasTriggerPrivilege,
         ]);
     }
 
@@ -213,14 +212,15 @@ class Triggers
                         || ($trigger !== false && $table == $trigger['table'])
                     ) {
                         $insert = true;
+                        $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db, $table);
                         $this->response->addJSON(
                             'new_row',
                             $this->template->render('database/triggers/row', [
                                 'db' => $db,
                                 'table' => $table,
                                 'trigger' => $trigger,
-                                'has_drop_privilege' => Util::currentUserHasPrivilege('TRIGGER', $db),
-                                'has_edit_privilege' => Util::currentUserHasPrivilege('TRIGGER', $db, $table),
+                                'has_drop_privilege' => $hasTriggerPrivilege,
+                                'has_edit_privilege' => $hasTriggerPrivilege,
                                 'row_class' => '',
                             ])
                         );
