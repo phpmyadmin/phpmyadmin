@@ -31,7 +31,6 @@ class MultiTableQueryController extends AbstractController
     public function index(): void
     {
         $this->addScriptFiles([
-            'vendor/jquery/jquery.md5.js',
             'database/multi_table_query.js',
             'database/query_generator.js',
         ]);
