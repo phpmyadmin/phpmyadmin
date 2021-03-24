@@ -170,6 +170,8 @@ class ExportTest extends TestBase
             }
 
             $this->scrollIntoView('checkbox_sql_if_not_exists');
+            sleep(1);
+            $this->scrollIntoView('checkbox_sql_if_not_exists');
             $ele = $this->byId('checkbox_sql_if_not_exists');
             if (! $ele->isSelected()) {
                 $this->byCssSelector('label[for=checkbox_sql_if_not_exists]')->click();
