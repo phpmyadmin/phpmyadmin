@@ -51,7 +51,7 @@ class ChangeController extends AbstractController
     public function index(): void
     {
         global $cfg, $is_upload, $db, $table, $text_dir, $disp_message, $url_params;
-        global $err_url, $where_clause, $unsaved_values, $insert_mode, $where_clause_array, $where_clauses;
+        global $errorUrl, $where_clause, $unsaved_values, $insert_mode, $where_clause_array, $where_clauses;
         global $result, $rows, $found_unique_key, $after_insert, $comments_map, $table_columns;
         global $chg_evt_handler, $timestamp_seen, $columns_cnt, $tabindex, $tabindex_for_function;
         global $tabindex_for_null, $tabindex_for_value, $o_rows, $biggest_max_file_size, $has_blob_field;
@@ -99,7 +99,7 @@ class ChangeController extends AbstractController
         }
 
         $_url_params = $this->insertEdit->getUrlParameters($db, $table);
-        $err_url = $GLOBALS['goto'] . Url::getCommon(
+        $errorUrl = $GLOBALS['goto'] . Url::getCommon(
             $_url_params,
             mb_strpos($GLOBALS['goto'], '?') === false ? '?' : '&'
         );
@@ -140,7 +140,7 @@ class ChangeController extends AbstractController
             $table,
             $where_clauses,
             $where_clause_array,
-            $err_url
+            $errorUrl
         );
 
         /**
@@ -293,7 +293,7 @@ class ChangeController extends AbstractController
                 $table,
                 $db,
                 $where_clause_array,
-                $err_url
+                $errorUrl
             );
         }
 

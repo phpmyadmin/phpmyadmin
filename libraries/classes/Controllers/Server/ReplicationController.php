@@ -41,7 +41,7 @@ class ReplicationController extends AbstractController
 
     public function index(): void
     {
-        global $url_params, $err_url;
+        global $url_params, $errorUrl;
 
         $params = [
             'url_params' => $_POST['url_params'] ?? null,
@@ -49,7 +49,7 @@ class ReplicationController extends AbstractController
             'sl_configure' => $_POST['sl_configure'] ?? null,
             'repl_clear_scr' => $_POST['repl_clear_scr'] ?? null,
         ];
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

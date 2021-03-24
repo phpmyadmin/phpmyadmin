@@ -42,7 +42,7 @@ final class ImportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $max_upload_size, $table, $url_params, $SESSION_KEY, $cfg, $err_url;
+        global $db, $max_upload_size, $table, $url_params, $SESSION_KEY, $cfg, $errorUrl;
 
         $pageSettings = new PageSettings('Import');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
@@ -53,8 +53,8 @@ final class ImportController extends AbstractController
         Util::checkParameters(['db', 'table']);
 
         $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($url_params, '&');
 
         DbTableExists::check();
 

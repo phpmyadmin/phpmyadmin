@@ -33,7 +33,7 @@ class SqlController extends AbstractController
 
     public function index(): void
     {
-        global $goto, $back, $db, $cfg, $err_url;
+        global $goto, $back, $db, $cfg, $errorUrl;
 
         $this->addScriptFiles([
             'makegrid.js',
@@ -48,8 +48,8 @@ class SqlController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;

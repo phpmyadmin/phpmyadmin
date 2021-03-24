@@ -39,7 +39,7 @@ class ViewOperationsController extends AbstractController
     public function index(): void
     {
         global $sql_query, $url_params, $reload, $result, $warning_messages;
-        global $db, $table, $cfg, $err_url;
+        global $db, $table, $cfg, $errorUrl;
 
         $tableObject = $this->dbi->getTable($db, $table);
 
@@ -48,8 +48,8 @@ class ViewOperationsController extends AbstractController
         Util::checkParameters(['db', 'table']);
 
         $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($url_params, '&');
 
         DbTableExists::check();
 

@@ -87,7 +87,7 @@ class DatabasesController extends AbstractController
     public function index(): void
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
-        global $db_to_create, $text_dir, $err_url;
+        global $db_to_create, $text_dir, $errorUrl;
 
         $params = [
             'statistics' => $_REQUEST['statistics'] ?? null,
@@ -97,7 +97,7 @@ class DatabasesController extends AbstractController
         ];
 
         $this->addScriptFiles(['server/databases.js']);
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -271,7 +271,7 @@ class DatabasesController extends AbstractController
      */
     public function destroy(): void
     {
-        global $selected, $err_url, $cfg, $dblist, $reload;
+        global $selected, $errorUrl, $cfg, $dblist, $reload;
 
         $params = [
             'drop_selected_dbs' => $_POST['drop_selected_dbs'] ?? null,
@@ -302,7 +302,7 @@ class DatabasesController extends AbstractController
             return;
         }
 
-        $err_url = Url::getFromRoute('/server/databases');
+        $errorUrl = Url::getFromRoute('/server/databases');
         $selected = $_POST['selected_dbs'];
         $rebuildDatabaseList = false;
         $sqlQuery = '';

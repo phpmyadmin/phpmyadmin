@@ -145,7 +145,7 @@ class StructureController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $db, $err_url;
+        global $cfg, $db, $errorUrl;
 
         $parameters = [
             'sort' => $_REQUEST['sort'] ?? null,
@@ -154,8 +154,8 @@ class StructureController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;
@@ -230,7 +230,7 @@ class StructureController extends AbstractController
 
     public function addRemoveFavoriteTablesAction(): void
     {
-        global $cfg, $db, $err_url;
+        global $cfg, $db, $errorUrl;
 
         $parameters = [
             'favorite_table' => $_REQUEST['favorite_table'] ?? null,
@@ -240,8 +240,8 @@ class StructureController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase() || ! $this->response->isAjax()) {
             return;
@@ -333,7 +333,7 @@ class StructureController extends AbstractController
      */
     public function handleRealRowCountRequestAction(): void
     {
-        global $cfg, $db, $err_url;
+        global $cfg, $db, $errorUrl;
 
         $parameters = [
             'real_row_count_all' => $_REQUEST['real_row_count_all'] ?? null,
@@ -342,8 +342,8 @@ class StructureController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase() || ! $this->response->isAjax()) {
             return;

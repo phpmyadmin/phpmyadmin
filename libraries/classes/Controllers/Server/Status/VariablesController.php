@@ -36,7 +36,7 @@ class VariablesController extends AbstractController
 
     public function index(): void
     {
-        global $err_url;
+        global $errorUrl;
 
         $params = [
             'flush' => $_POST['flush'] ?? null,
@@ -45,7 +45,7 @@ class VariablesController extends AbstractController
             'filterCategory' => $_POST['filterCategory'] ?? null,
             'dontFormat' => $_POST['dontFormat'] ?? null,
         ];
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

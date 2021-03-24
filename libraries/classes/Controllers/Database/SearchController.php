@@ -30,7 +30,7 @@ class SearchController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $db, $err_url, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;
+        global $cfg, $db, $errorUrl, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;
         global $tooltip_truename, $tooltip_aliasname, $pos;
 
         $this->addScriptFiles([
@@ -42,8 +42,8 @@ class SearchController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;
@@ -55,7 +55,7 @@ class SearchController extends AbstractController
                 __('Access denied!'),
                 '',
                 false,
-                $err_url
+                $errorUrl
             );
         }
 

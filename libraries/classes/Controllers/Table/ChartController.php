@@ -44,7 +44,7 @@ class ChartController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $cfg, $sql_query, $err_url;
+        global $db, $table, $cfg, $sql_query, $errorUrl;
 
         if (
             isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
@@ -88,8 +88,8 @@ class ChartController extends AbstractController
             Util::checkParameters(['db', 'table']);
 
             $url_params = ['db' => $db, 'table' => $table];
-            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-            $err_url .= Url::getCommon($url_params, '&');
+            $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $errorUrl .= Url::getCommon($url_params, '&');
 
             DbTableExists::check();
 
@@ -105,8 +105,8 @@ class ChartController extends AbstractController
 
             Util::checkParameters(['db']);
 
-            $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-            $err_url .= Url::getCommon(['db' => $db], '&');
+            $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+            $errorUrl .= Url::getCommon(['db' => $db], '&');
 
             if (! $this->hasDatabase()) {
                 return;
@@ -117,7 +117,7 @@ class ChartController extends AbstractController
                 'server'
             );
             $url_params['back'] = Url::getFromRoute('/sql');
-            $err_url = Url::getFromRoute('/');
+            $errorUrl = Url::getFromRoute('/');
 
             if ($this->dbi->isSuperUser()) {
                 $this->dbi->selectDb('mysql');
@@ -176,14 +176,14 @@ class ChartController extends AbstractController
      */
     public function ajax(): void
     {
-        global $db, $table, $sql_query, $url_params, $err_url, $cfg;
+        global $db, $table, $sql_query, $url_params, $errorUrl, $cfg;
 
         if (strlen($table) > 0 && strlen($db) > 0) {
             Util::checkParameters(['db', 'table']);
 
             $url_params = ['db' => $db, 'table' => $table];
-            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-            $err_url .= Url::getCommon($url_params, '&');
+            $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $errorUrl .= Url::getCommon($url_params, '&');
 
             DbTableExists::check();
         }

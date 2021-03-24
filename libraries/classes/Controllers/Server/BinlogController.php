@@ -50,14 +50,14 @@ class BinlogController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $err_url;
+        global $cfg, $errorUrl;
 
         $params = [
             'log' => $_POST['log'] ?? null,
             'pos' => $_POST['pos'] ?? null,
             'is_full_query' => $_POST['is_full_query'] ?? null,
         ];
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

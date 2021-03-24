@@ -52,7 +52,7 @@ class PrivilegesController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $err_url, $message, $text_dir, $post_patterns;
+        global $db, $table, $errorUrl, $message, $text_dir, $post_patterns;
         global $username, $hostname, $dbname, $tablename, $routinename, $db_and_table, $dbname_is_wildcard;
         global $queries, $password, $ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error;
         global $itemType, $tables, $num_tables, $total_num_tables, $sub_part;
@@ -107,7 +107,7 @@ class PrivilegesController extends AbstractController
 
         Core::setPostAsGlobal($post_patterns);
 
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -280,7 +280,7 @@ class PrivilegesController extends AbstractController
          */
         if (isset($_POST['change_pw'])) {
             $message = $serverPrivileges->updatePassword(
-                $err_url,
+                $errorUrl,
                 $username,
                 $hostname
             );

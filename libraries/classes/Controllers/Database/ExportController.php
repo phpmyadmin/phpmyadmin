@@ -40,7 +40,7 @@ final class ExportController extends AbstractController
     {
         global $db, $table, $sub_part, $url_params, $sql_query;
         global $tables, $num_tables, $total_num_tables, $tooltip_truename;
-        global $tooltip_aliasname, $pos, $table_select, $unlim_num_rows, $cfg, $err_url;
+        global $tooltip_aliasname, $pos, $table_select, $unlim_num_rows, $cfg, $errorUrl;
 
         $pageSettings = new PageSettings('Export');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
@@ -54,8 +54,8 @@ final class ExportController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;

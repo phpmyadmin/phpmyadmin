@@ -66,7 +66,7 @@ class AddFieldController extends AbstractController
 
     public function index(): void
     {
-        global $err_url, $message, $action, $active_page, $sql_query;
+        global $errorUrl, $message, $action, $active_page, $sql_query;
         global $num_fields, $regenerate, $result, $db, $table;
 
         $this->addScriptFiles(['table/structure.js']);
@@ -79,7 +79,7 @@ class AddFieldController extends AbstractController
         /**
          * Defines the url to return to in case of error in a sql statement
          */
-        $err_url = Url::getFromRoute('/table/sql', [
+        $errorUrl = Url::getFromRoute('/table/sql', [
             'db' => $db,
             'table' => $table,
         ]);
@@ -121,14 +121,14 @@ class AddFieldController extends AbstractController
                 return;
             }
 
-            [$result, $sql_query] = $createAddField->tryColumnCreationQuery($db, $sqlQuery, $err_url);
+            [$result, $sql_query] = $createAddField->tryColumnCreationQuery($db, $sqlQuery, $errorUrl);
 
             if ($result !== true) {
                 $error_message_html = Generator::mysqlDie(
                     '',
                     '',
                     false,
-                    $err_url,
+                    $errorUrl,
                     false
                 );
                 $this->response->addHTML($error_message_html ?? '');
@@ -178,8 +178,8 @@ class AddFieldController extends AbstractController
         }
 
         $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($url_params, '&');
 
         DbTableExists::check();
 

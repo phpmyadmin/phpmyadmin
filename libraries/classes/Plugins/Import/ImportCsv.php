@@ -147,7 +147,7 @@ class ImportCsv extends AbstractImportCsv
     {
         global $error, $message, $dbi;
         global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped,
-               $csv_new_line, $csv_columns, $err_url;
+               $csv_new_line, $csv_columns, $errorUrl;
         // $csv_replace and $csv_ignore should have been here,
         // but we use directly from $_POST
         global $timeout_passed, $finished;
@@ -167,7 +167,7 @@ class ImportCsv extends AbstractImportCsv
             $csv_enclosed,
             $csv_escaped,
             $csv_new_line,
-            (string) $err_url
+            (string) $errorUrl
         );
 
         [$sql_template, $required_fields, $fields] = $this->getSqlTemplateAndRequiredFields($db, $table, $csv_columns);

@@ -46,14 +46,14 @@ class TrackingController extends AbstractController
     {
         global $db, $text_dir, $url_params, $tables, $num_tables;
         global $total_num_tables, $sub_part, $pos, $data, $cfg;
-        global $tooltip_truename, $tooltip_aliasname, $err_url;
+        global $tooltip_truename, $tooltip_aliasname, $errorUrl;
 
         $this->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;

@@ -43,7 +43,7 @@ class QueryByExampleController extends AbstractController
     {
         global $db, $savedSearchList, $savedSearch, $currentSearchId;
         global $sql_query, $goto, $sub_part, $tables, $num_tables, $total_num_tables;
-        global $tooltip_truename, $tooltip_aliasname, $pos, $url_params, $cfg, $err_url;
+        global $tooltip_truename, $tooltip_aliasname, $pos, $url_params, $cfg, $errorUrl;
 
         // Gets the relation settings
         $cfgRelation = $this->relation->getRelationsParam();
@@ -139,8 +139,8 @@ class QueryByExampleController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;

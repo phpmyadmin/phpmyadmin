@@ -44,7 +44,7 @@ class DesignerController extends AbstractController
         global $db, $script_display_field, $tab_column, $tables_all_keys, $tables_pk_or_unique_keys;
         global $success, $page, $message, $display_page, $selected_page, $tab_pos, $fullTableNames, $script_tables;
         global $script_contr, $params, $tables, $num_tables, $total_num_tables, $sub_part;
-        global $tooltip_truename, $tooltip_aliasname, $pos, $classes_side_menu, $cfg, $err_url;
+        global $tooltip_truename, $tooltip_aliasname, $pos, $classes_side_menu, $cfg, $errorUrl;
 
         if (isset($_POST['dialog'])) {
             if ($_POST['dialog'] === 'edit') {
@@ -155,8 +155,8 @@ class DesignerController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;

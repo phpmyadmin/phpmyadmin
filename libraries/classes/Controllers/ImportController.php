@@ -70,7 +70,7 @@ final class ImportController extends AbstractController
     public function index(): void
     {
         global $cfg, $collation_connection, $db, $import_type, $table, $goto, $display_query;
-        global $format, $local_import_file, $ajax_reload, $import_text, $sql_query, $message, $err_url, $url_params;
+        global $format, $local_import_file, $ajax_reload, $import_text, $sql_query, $message, $errorUrl, $url_params;
         global $memory_limit, $read_limit, $finished, $offset, $charset_conversion, $charset_of_file;
         global $timestamp, $maximum_time, $timeout_passed, $import_file, $go_sql, $sql_file, $error, $max_sql_len, $msg;
         global $sql_query_disabled, $executed_queries, $run_query, $reset_charset, $bookmark_created;
@@ -337,8 +337,8 @@ final class ImportController extends AbstractController
             }
         }
 
-        $err_url = $goto . Url::getCommon($url_params, '&');
-        $_SESSION['Import_message']['go_back_url'] = $err_url;
+        $errorUrl = $goto . Url::getCommon($url_params, '&');
+        $_SESSION['Import_message']['go_back_url'] = $errorUrl;
 
         if (strlen($db) > 0) {
             $this->dbi->selectDb($db);
@@ -719,7 +719,7 @@ final class ImportController extends AbstractController
                 $url_params['local_import_file'] = $local_import_file;
             }
 
-            $importUrl = $err_url = $goto . Url::getCommon($url_params, '&');
+            $importUrl = $errorUrl = $goto . Url::getCommon($url_params, '&');
 
             $message = Message::error(
                 __(
@@ -774,7 +774,7 @@ final class ImportController extends AbstractController
                     $die['error'],
                     $die['sql'],
                     false,
-                    $err_url,
+                    $errorUrl,
                     $error
                 );
             }

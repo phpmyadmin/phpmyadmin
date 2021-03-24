@@ -74,7 +74,7 @@ final class ReplaceController extends AbstractController
     public function index(): void
     {
         global $containerBuilder, $db, $table, $url_params, $message;
-        global $err_url, $mime_map, $unsaved_values, $active_page, $disp_query, $disp_message;
+        global $errorUrl, $mime_map, $unsaved_values, $active_page, $disp_query, $disp_message;
         global $goto_include, $loop_array, $using_key, $is_insert, $is_insertignore, $query;
         global $value_sets, $func_no_param, $func_optional_param, $gis_from_text_functions, $gis_from_wkb_functions;
         global $query_fields, $insert_errors, $row_skipped, $query_values;
@@ -125,7 +125,7 @@ final class ReplaceController extends AbstractController
         $goto_include = $this->insertEdit->getGotoInclude($goto_include);
 
         // Defines the url to return in case of failure of the query
-        $err_url = $this->insertEdit->getErrorUrl($url_params);
+        $errorUrl = $this->insertEdit->getErrorUrl($url_params);
 
         /**
          * Prepares the update/insert of a row

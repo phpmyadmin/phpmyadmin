@@ -1018,7 +1018,7 @@ class Table
         $move,
         $mode
     ) {
-        global $err_url, $dbi;
+        global $errorUrl, $dbi;
 
         $relation = new Relation($dbi);
 
@@ -1118,7 +1118,7 @@ class Table
                 $source_db,
                 $source_table,
                 "\n",
-                $err_url,
+                $errorUrl,
                 false,
                 false
             );

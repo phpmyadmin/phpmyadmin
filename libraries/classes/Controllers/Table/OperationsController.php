@@ -74,7 +74,7 @@ class OperationsController extends AbstractController
         global $show_comment, $tbl_collation, $table_info_num_rows, $row_format, $auto_increment, $create_options;
         global $table_alters, $warning_messages, $lowerCaseNames, $db, $table, $reload, $result;
         global $new_tbl_storage_engine, $sql_query, $message_to_show, $columns, $hideOrderTable, $indexes;
-        global $notNull, $comment, $err_url, $cfg;
+        global $notNull, $comment, $errorUrl, $cfg;
 
         $this->checkUserPrivileges->getPrivileges();
 
@@ -93,8 +93,8 @@ class OperationsController extends AbstractController
 
         $isSystemSchema = Utilities::isSystemSchema($db);
         $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($url_params, '&');
 
         DbTableExists::check();
 

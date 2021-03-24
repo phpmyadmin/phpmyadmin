@@ -69,7 +69,7 @@ class OperationsController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $db, $server, $sql_query, $move, $message, $tables_full, $err_url;
+        global $cfg, $db, $server, $sql_query, $move, $message, $tables_full, $errorUrl;
         global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $url_params, $tables;
         global $total_num_tables, $sub_part, $tooltip_truename;
         global $db_collation, $tooltip_aliasname, $pos, $is_information_schema, $single_table, $num_tables;
@@ -272,8 +272,8 @@ class OperationsController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;
@@ -361,7 +361,7 @@ class OperationsController extends AbstractController
 
     public function collation(): void
     {
-        global $db, $cfg, $err_url;
+        global $db, $cfg, $errorUrl;
 
         if (! $this->response->isAjax()) {
             return;
@@ -376,8 +376,8 @@ class OperationsController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;
