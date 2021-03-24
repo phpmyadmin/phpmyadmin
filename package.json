@@ -18,7 +18,7 @@
     "blueimp-md5": "^2.18.0",
     "bootstrap": "5.0.0-beta2",
     "codemirror": "5.60.0",
-    "jquery": "3.5.1",
+    "jquery": "3.6.0",
     "jquery-debounce-throttle": "^1.0.6-rc.0",
     "jquery-migrate": "3.3.2",
     "jquery-mousewheel": "3.1.13",
