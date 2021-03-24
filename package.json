@@ -37,7 +37,7 @@
     "sass": "^1.32.8",
     "stickyfilljs": "2.1.0",
     "tablesorter": "^2.31.3",
-    "tracekit": "0.4.5",
+    "tracekit": "0.4.6",
     "u2f-api-polyfill": "0.4.4",
     "updated-jqplot": "1.0.9",
     "zxcvbn": "4.4.2"
