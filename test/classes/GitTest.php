@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Git;
 
 use function chdir;
@@ -17,7 +16,6 @@ use function rmdir;
 use function sys_get_temp_dir;
 use function unlink;
 
-use const CONFIG_FILE;
 use const DIRECTORY_SEPARATOR;
 use const PHP_EOL;
 
@@ -28,9 +26,6 @@ class GitTest extends AbstractTestCase
 {
     /** @var Git */
     protected $object;
-
-    /** @var Config */
-    protected $config;
 
     /** @var string */
     protected $testDir;
@@ -46,9 +41,7 @@ class GitTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setProxySettings();
-        $this->config = new Config(CONFIG_FILE);
-        $this->config->set('ShowGitRevision', true);
-        $this->object = new Git($this->config);
+        $this->object = new Git(true);
         $this->testDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'gittempdir_' . mt_rand();
 
         unset($_SESSION['git_location']);
@@ -80,14 +73,9 @@ class GitTest extends AbstractTestCase
 
         $git_location = '';
 
-        $this->assertTrue(
-            $this->object->isGitRevision($git_location)
-        );
+        $this->assertTrue($this->object->isGitRevision($git_location));
 
-        $this->assertEquals(
-            null,
-            $this->config->get('PMA_VERSION_GIT')
-        );
+        $this->assertFalse($this->object->hasGitInformation());
 
         $this->assertEquals('.cachedgitlocation', $git_location);
     }
@@ -97,7 +85,7 @@ class GitTest extends AbstractTestCase
      */
     public function testIsGitRevisionSkipped(): void
     {
-        $this->config->set('ShowGitRevision', false);
+        $this->object = new Git(false);
         $this->assertFalse(
             $this->object->isGitRevision($git_location)
         );
@@ -114,10 +102,7 @@ class GitTest extends AbstractTestCase
             $this->object->isGitRevision()
         );
 
-        $this->assertEquals(
-            null,
-            $this->config->get('PMA_VERSION_GIT')
-        );
+        $this->assertFalse($this->object->hasGitInformation());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
@@ -128,24 +113,16 @@ class GitTest extends AbstractTestCase
             $this->object->isGitRevision()
         );
 
-        $this->assertEquals(
-            null,
-            $this->config->get('PMA_VERSION_GIT')
-        );
+        $this->assertFalse($this->object->hasGitInformation());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
         file_put_contents('.git/config', '');
 
-        $this->assertTrue(
-            $this->object->isGitRevision()
-        );
+        $this->assertTrue($this->object->isGitRevision());
 
-        $this->assertEquals(
-            null,
-            $this->config->get('PMA_VERSION_GIT')
-        );
+        $this->assertFalse($this->object->hasGitInformation());
 
         unlink('.git/config');
         rmdir('.git');
@@ -163,24 +140,16 @@ class GitTest extends AbstractTestCase
             $this->object->isGitRevision()
         );
 
-        $this->assertEquals(
-            null,
-            $this->config->get('PMA_VERSION_GIT')
-        );
+        $this->assertFalse($this->object->hasGitInformation());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
         mkdir('.customgitdir');
 
-        $this->assertTrue(
-            $this->object->isGitRevision()
-        );
+        $this->assertTrue($this->object->isGitRevision());
 
-        $this->assertEquals(
-            null,
-            $this->config->get('PMA_VERSION_GIT')
-        );
+        $this->assertFalse($this->object->hasGitInformation());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
@@ -191,10 +160,7 @@ class GitTest extends AbstractTestCase
             $this->object->isGitRevision()
         );
 
-        $this->assertEquals(
-            null,
-            $this->config->get('PMA_VERSION_GIT')
-        );
+        $this->assertFalse($this->object->hasGitInformation());
 
         unlink('.git');
         rmdir('.customgitdir');
@@ -213,10 +179,7 @@ class GitTest extends AbstractTestCase
         $commit = $this->object->checkGitRevision();
 
         $this->assertNull($commit);
-        $this->assertEquals(
-            '0',
-            $this->config->get('PMA_VERSION_GIT')
-        );
+        $this->assertFalse($this->object->hasGitInformation());
 
         file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
 
@@ -290,10 +253,7 @@ class GitTest extends AbstractTestCase
         $commit = $this->object->checkGitRevision();
 
         $this->assertNull($commit);
-        $this->assertEquals(
-            '0',
-            $this->config->get('PMA_VERSION_GIT')
-        );
+        $this->assertFalse($this->object->hasGitInformation());
 
         file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
         mkdir('.git/refs/remotes/origin', 0777, true);
@@ -302,10 +262,7 @@ class GitTest extends AbstractTestCase
         $commit = $this->object->checkGitRevision();
 
         $this->assertNull($commit);
-        $this->assertEquals(
-            0,
-            $this->config->get('PMA_VERSION_GIT')
-        );
+        $this->assertFalse($this->object->hasGitInformation());
 
         unlink('.git/refs/remotes/origin/master');
         rmdir('.git/refs/remotes/origin');
@@ -331,10 +288,7 @@ class GitTest extends AbstractTestCase
         $commit = $this->object->checkGitRevision();
 
         $this->assertNull($commit);
-        $this->assertEquals(
-            '0',
-            $this->config->get('PMA_VERSION_GIT')
-        );
+        $this->assertFalse($this->object->hasGitInformation());
 
         file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
 
@@ -409,15 +363,12 @@ class GitTest extends AbstractTestCase
      */
     public function testCheckGitRevisionSkipped(): void
     {
-        $this->config->set('ShowGitRevision', false);
+        $this->object = new Git(false);
         $commit = $this->object->checkGitRevision();
 
         $this->assertNull($commit);
 
-        $this->assertEquals(
-            null,
-            $this->config->get('PMA_VERSION_GIT')
-        );
+        $this->assertFalse($this->object->hasGitInformation());
     }
 
     /**

@@ -228,7 +228,7 @@ class HomeController extends AbstractController
 
         $this->checkRequirements();
 
-        $git = new Git($this->config);
+        $git = new Git($this->config->get('ShowGitRevision'));
 
         $this->render('home/index', [
             'message' => $displayMessage ?? '',
@@ -284,7 +284,7 @@ class HomeController extends AbstractController
             return;
         }
 
-        $git = new Git($this->config);
+        $git = new Git($this->config->get('ShowGitRevision'));
 
         if (! $git->isGitRevision()) {
             return;
@@ -292,7 +292,7 @@ class HomeController extends AbstractController
 
         $commit = $git->checkGitRevision();
 
-        if (! $this->config->get('PMA_VERSION_GIT') || $commit === null) {
+        if (! $git->hasGitInformation() || $commit === null) {
             $this->response->setRequestStatus(false);
 
             return;
