@@ -50,7 +50,7 @@ class ChangeController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $is_upload, $db, $table, $text_dir, $disp_message, $url_params;
+        global $cfg, $is_upload, $db, $table, $text_dir, $disp_message, $urlParams;
         global $errorUrl, $where_clause, $unsaved_values, $insert_mode, $where_clause_array, $where_clauses;
         global $result, $rows, $found_unique_key, $after_insert, $comments_map, $table_columns;
         global $chg_evt_handler, $timestamp_seen, $columns_cnt, $tabindex, $tabindex_for_function;
@@ -164,10 +164,10 @@ class ChangeController extends AbstractController
         $o_rows                = 0;
         $biggest_max_file_size = 0;
 
-        $url_params['db'] = $db;
-        $url_params['table'] = $table;
-        $url_params = $this->insertEdit->urlParamsInEditMode(
-            $url_params,
+        $urlParams['db'] = $db;
+        $urlParams['table'] = $table;
+        $urlParams = $this->insertEdit->urlParamsInEditMode(
+            $urlParams,
             $where_clause_array
         );
 
@@ -202,11 +202,11 @@ class ChangeController extends AbstractController
         }
 
         if (! $cfg['ShowFunctionFields']) {
-            $html_output .= $this->insertEdit->showTypeOrFunction('function', $url_params, false);
+            $html_output .= $this->insertEdit->showTypeOrFunction('function', $urlParams, false);
         }
 
         if (! $cfg['ShowFieldTypesInDataEditView']) {
-            $html_output .= $this->insertEdit->showTypeOrFunction('type', $url_params, false);
+            $html_output .= $this->insertEdit->showTypeOrFunction('type', $urlParams, false);
         }
 
         $GLOBALS['plugin_scripts'] = [];
@@ -233,7 +233,7 @@ class ChangeController extends AbstractController
             }
 
             $html_output .= $this->insertEdit->getHtmlForInsertEditRow(
-                $url_params,
+                $urlParams,
                 $table_columns,
                 $comments_map,
                 $timestamp_seen,

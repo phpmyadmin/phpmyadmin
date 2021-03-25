@@ -78,7 +78,7 @@ class ReplicationGui
             $masterStatusTable = $this->getHtmlForReplicationStatusTable('master', true, false);
             $slaves = $dbi->fetchResult('SHOW SLAVE HOSTS', null, null);
 
-            $urlParams = $GLOBALS['url_params'];
+            $urlParams = $GLOBALS['urlParams'];
             $urlParams['mr_adduser'] = true;
             $urlParams['repl_clear_scr'] = true;
         }
@@ -130,7 +130,7 @@ class ReplicationGui
             'SHOW ALL SLAVES STATUS'
         );
         if ($serverSlaveStatus) {
-            $urlParams = $GLOBALS['url_params'];
+            $urlParams = $GLOBALS['urlParams'];
             $urlParams['sr_take_action'] = true;
             $urlParams['sr_slave_server_control'] = true;
 
@@ -167,12 +167,12 @@ class ReplicationGui
             $urlParams['sr_slave_action'] = 'reset';
             $slaveControlResetLink = Url::getCommon($urlParams, '');
 
-            $urlParams = $GLOBALS['url_params'];
+            $urlParams = $GLOBALS['urlParams'];
             $urlParams['sr_take_action'] = true;
             $urlParams['sr_slave_skip_error'] = true;
             $slaveSkipErrorLink = Url::getCommon($urlParams, '');
 
-            $urlParams = $GLOBALS['url_params'];
+            $urlParams = $GLOBALS['urlParams'];
             $urlParams['sl_configure'] = true;
             $urlParams['repl_clear_scr'] = true;
 
@@ -186,7 +186,7 @@ class ReplicationGui
 
         return $this->template->render('server/replication/slave_configuration', [
             'server_slave_multi_replication' => $serverSlaveMultiReplication,
-            'url_params' => $GLOBALS['url_params'],
+            'url_params' => $GLOBALS['urlParams'],
             'master_connection' => $_POST['master_connection'] ?? '',
             'server_slave_status' => $serverSlaveStatus,
             'slave_status_table' => $slaveStatusTable ?? '',
@@ -494,7 +494,7 @@ class ReplicationGui
             } else {
                 Core::sendHeaderLocation(
                     './index.php?route=/server/replication'
-                    . Url::getCommonRaw($GLOBALS['url_params'], '&')
+                    . Url::getCommonRaw($GLOBALS['urlParams'], '&')
                 );
             }
         }

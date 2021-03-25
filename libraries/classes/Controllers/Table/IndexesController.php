@@ -42,14 +42,14 @@ class IndexesController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $url_params, $cfg, $errorUrl;
+        global $db, $table, $urlParams, $cfg, $errorUrl;
 
         if (! isset($_POST['create_edit_table'])) {
             Util::checkParameters(['db', 'table']);
 
-            $url_params = ['db' => $db, 'table' => $table];
+            $urlParams = ['db' => $db, 'table' => $table];
             $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-            $errorUrl .= Url::getCommon($url_params, '&');
+            $errorUrl .= Url::getCommon($urlParams, '&');
 
             DbTableExists::check();
         }
@@ -76,14 +76,14 @@ class IndexesController extends AbstractController
 
     public function indexRename(): void
     {
-        global $db, $table, $url_params, $cfg, $errorUrl;
+        global $db, $table, $urlParams, $cfg, $errorUrl;
 
         if (! isset($_POST['create_edit_table'])) {
             Util::checkParameters(['db', 'table']);
 
-            $url_params = ['db' => $db, 'table' => $table];
+            $urlParams = ['db' => $db, 'table' => $table];
             $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-            $errorUrl .= Url::getCommon($url_params, '&');
+            $errorUrl .= Url::getCommon($urlParams, '&');
 
             DbTableExists::check();
         }

@@ -42,7 +42,7 @@ class IndexesControllerTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['url_params'] = [
+        $GLOBALS['urlParams'] = [
             'db' => 'db',
             'server' => 1,
         ];

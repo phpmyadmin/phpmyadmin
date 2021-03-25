@@ -70,7 +70,7 @@ class OperationsController extends AbstractController
 
     public function index(): void
     {
-        global $url_params, $reread_info, $tbl_is_view, $tbl_storage_engine;
+        global $urlParams, $reread_info, $tbl_is_view, $tbl_storage_engine;
         global $show_comment, $tbl_collation, $table_info_num_rows, $row_format, $auto_increment, $create_options;
         global $table_alters, $warning_messages, $lowerCaseNames, $db, $table, $reload, $result;
         global $new_tbl_storage_engine, $sql_query, $message_to_show, $columns, $hideOrderTable, $indexes;
@@ -92,13 +92,13 @@ class OperationsController extends AbstractController
         Util::checkParameters(['db', 'table']);
 
         $isSystemSchema = Utilities::isSystemSchema($db);
-        $url_params = ['db' => $db, 'table' => $table];
+        $urlParams = ['db' => $db, 'table' => $table];
         $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($url_params, '&');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check();
 
-        $url_params['goto'] = $url_params['back'] = Url::getFromRoute('/table/operations');
+        $urlParams['goto'] = $urlParams['back'] = Url::getFromRoute('/table/operations');
 
         /**
          * Gets relation settings
@@ -395,7 +395,7 @@ class OperationsController extends AbstractController
             unset($_message);
         }
 
-        $url_params['goto'] = $url_params['back'] = Url::getFromRoute('/table/operations');
+        $urlParams['goto'] = $urlParams['back'] = Url::getFromRoute('/table/operations');
 
         $columns = $this->dbi->getColumns($db, $table);
 
@@ -479,14 +479,14 @@ class OperationsController extends AbstractController
         }
 
         $foreigners = $this->operations->getForeignersForReferentialIntegrityCheck(
-            $url_params,
+            $urlParams,
             (bool) $cfgRelation['relwork']
         );
 
         $this->render('table/operations/index', [
             'db' => $db,
             'table' => $table,
-            'url_params' => $url_params,
+            'url_params' => $urlParams,
             'columns' => $columns,
             'hide_order_table' => $hideOrderTable,
             'table_comment' => $comment,

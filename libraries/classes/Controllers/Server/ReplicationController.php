@@ -41,7 +41,7 @@ class ReplicationController extends AbstractController
 
     public function index(): void
     {
-        global $url_params, $errorUrl;
+        global $urlParams, $errorUrl;
 
         $params = [
             'url_params' => $_POST['url_params'] ?? null,
@@ -64,7 +64,7 @@ class ReplicationController extends AbstractController
         $this->addScriptFiles(['server/privileges.js', 'replication.js', 'vendor/zxcvbn.js']);
 
         if (isset($params['url_params']) && is_array($params['url_params'])) {
-            $url_params = $params['url_params'];
+            $urlParams = $params['url_params'];
         }
 
         if ($this->dbi->isSuperUser()) {
@@ -93,7 +93,7 @@ class ReplicationController extends AbstractController
         }
 
         $this->render('server/replication/index', [
-            'url_params' => $url_params,
+            'url_params' => $urlParams,
             'is_super_user' => $this->dbi->isSuperUser(),
             'error_messages' => $errorMessages,
             'is_master' => $primaryInfo['status'],

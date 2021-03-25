@@ -73,7 +73,7 @@ final class ReplaceController extends AbstractController
 
     public function index(): void
     {
-        global $containerBuilder, $db, $table, $url_params, $message;
+        global $containerBuilder, $db, $table, $urlParams, $message;
         global $errorUrl, $mime_map, $unsaved_values, $active_page, $disp_query, $disp_message;
         global $goto_include, $loop_array, $using_key, $is_insert, $is_insertignore, $query;
         global $value_sets, $func_no_param, $func_optional_param, $gis_from_text_functions, $gis_from_wkb_functions;
@@ -109,11 +109,11 @@ final class ReplaceController extends AbstractController
             isset($_POST['after_insert'])
             && in_array($_POST['after_insert'], $after_insert_actions)
         ) {
-            $url_params['after_insert'] = $_POST['after_insert'];
+            $urlParams['after_insert'] = $_POST['after_insert'];
             if (isset($_POST['where_clause'])) {
                 foreach ($_POST['where_clause'] as $one_where_clause) {
                     if ($_POST['after_insert'] === 'same_insert') {
-                        $url_params['where_clause'][] = $one_where_clause;
+                        $urlParams['where_clause'][] = $one_where_clause;
                     } elseif ($_POST['after_insert'] === 'edit_next') {
                         $this->insertEdit->setSessionForEditNext($one_where_clause);
                     }
@@ -125,7 +125,7 @@ final class ReplaceController extends AbstractController
         $goto_include = $this->insertEdit->getGotoInclude($goto_include);
 
         // Defines the url to return in case of failure of the query
-        $errorUrl = $this->insertEdit->getErrorUrl($url_params);
+        $errorUrl = $this->insertEdit->getErrorUrl($urlParams);
 
         /**
          * Prepares the update/insert of a row
@@ -463,13 +463,13 @@ final class ReplaceController extends AbstractController
          * page
          */
         [
-            $url_params,
+            $urlParams,
             $total_affected_rows,
             $last_messages,
             $warning_messages,
             $error_messages,
             $return_to_sql_query,
-        ] = $this->insertEdit->executeSqlQuery($url_params, $query);
+        ] = $this->insertEdit->executeSqlQuery($urlParams, $query);
 
         if ($is_insert && (count($value_sets) > 0 || $row_skipped)) {
             $message = Message::getMessageForInsertedRows(

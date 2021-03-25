@@ -44,7 +44,7 @@ class RoutinesController extends AbstractController
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part;
         global $tooltip_truename, $tooltip_aliasname, $pos;
-        global $errors, $errorUrl, $url_params, $cfg;
+        global $errors, $errorUrl, $urlParams, $cfg;
 
         $this->addScriptFiles(['database/routines.js']);
 
@@ -59,9 +59,9 @@ class RoutinesController extends AbstractController
             if (! empty($table) && in_array($table, $this->dbi->getTables($db))) {
                 Util::checkParameters(['db', 'table']);
 
-                $url_params = ['db' => $db, 'table' => $table];
+                $urlParams = ['db' => $db, 'table' => $table];
                 $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-                $errorUrl .= Url::getCommon($url_params, '&');
+                $errorUrl .= Url::getCommon($urlParams, '&');
 
                 DbTableExists::check();
             } else {

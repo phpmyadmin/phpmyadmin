@@ -43,7 +43,7 @@ final class TrackingController extends AbstractController
 
     public function index(): void
     {
-        global $text_dir, $url_params, $msg, $errorUrl;
+        global $text_dir, $urlParams, $msg, $errorUrl;
         global $data, $entries, $filter_ts_from, $filter_ts_to, $filter_users, $selection_schema;
         global $selection_data, $selection_both, $sql_result, $db, $table, $cfg;
 
@@ -53,9 +53,9 @@ final class TrackingController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $db, 'table' => $table];
+        $urlParams = ['db' => $db, 'table' => $table];
         $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($url_params, '&');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check();
 
@@ -77,8 +77,8 @@ final class TrackingController extends AbstractController
             $activeMessage = $msg->getDisplay();
         }
 
-        $url_params['goto'] = Url::getFromRoute('/table/tracking');
-        $url_params['back'] = Url::getFromRoute('/table/tracking');
+        $urlParams['goto'] = Url::getFromRoute('/table/tracking');
+        $urlParams['back'] = Url::getFromRoute('/table/tracking');
 
         $data = [];
         $entries = [];
@@ -204,7 +204,7 @@ final class TrackingController extends AbstractController
 
         $schemaSnapshot = '';
         if (isset($_POST['snapshot'])) {
-            $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot($url_params);
+            $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot($urlParams);
         }
 
         $trackingReportRows = '';
@@ -219,7 +219,7 @@ final class TrackingController extends AbstractController
         if (isset($_POST['report']) || isset($_POST['report_export'])) {
             $trackingReport = $this->tracking->getHtmlForTrackingReport(
                 $data,
-                $url_params,
+                $urlParams,
                 $selection_schema,
                 $selection_data,
                 $selection_both,
@@ -230,7 +230,7 @@ final class TrackingController extends AbstractController
         }
 
         $main = $this->tracking->getHtmlForMainPage(
-            $url_params,
+            $urlParams,
             $text_dir
         );
 

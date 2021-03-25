@@ -80,7 +80,7 @@ final class ReplicationInfo
 
     public function load(?string $connection = null): void
     {
-        global $url_params;
+        global $urlParams;
 
         $this->setPrimaryStatus();
 
@@ -89,7 +89,7 @@ final class ReplicationInfo
 
             if ($this->multiPrimaryStatus) {
                 $this->setDefaultPrimaryConnection($connection);
-                $url_params['master_connection'] = $connection;
+                $urlParams['master_connection'] = $connection;
             }
         }
 

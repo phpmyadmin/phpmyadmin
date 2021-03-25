@@ -939,7 +939,7 @@ class Sql
                 $template = new Template();
 
                 $extraData['indexes_list'] = $template->render('indexes', [
-                    'url_params' => $GLOBALS['url_params'],
+                    'url_params' => $GLOBALS['urlParams'],
                     'indexes' => $indexes,
                     'indexes_duplicates' => $indexesDuplicates,
                 ]);

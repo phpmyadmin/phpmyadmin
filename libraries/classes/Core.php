@@ -943,7 +943,7 @@ class Core
 
     public static function setDatabaseAndTableFromRequest(ContainerInterface $containerBuilder): void
     {
-        global $db, $table, $url_params;
+        global $db, $table, $urlParams;
 
         $databaseFromRequest = $_POST['db'] ?? $_GET['db'] ?? $_REQUEST['db'] ?? null;
         $tableFromRequest = $_POST['table'] ?? $_GET['table'] ?? $_REQUEST['table'] ?? null;
@@ -951,11 +951,11 @@ class Core
         $db = self::isValid($databaseFromRequest) ? $databaseFromRequest : '';
         $table = self::isValid($tableFromRequest) ? $tableFromRequest : '';
 
-        $url_params['db'] = $db;
-        $url_params['table'] = $table;
+        $urlParams['db'] = $db;
+        $urlParams['table'] = $table;
         $containerBuilder->setParameter('db', $db);
         $containerBuilder->setParameter('table', $table);
-        $containerBuilder->setParameter('url_params', $url_params);
+        $containerBuilder->setParameter('url_params', $urlParams);
     }
 
     /**
@@ -1387,7 +1387,7 @@ class Core
 
     public static function setGotoAndBackGlobals(ContainerInterface $container, Config $config): void
     {
-        global $goto, $back, $url_params;
+        global $goto, $back, $urlParams;
 
         // Holds page that should be displayed.
         $goto = '';
@@ -1395,9 +1395,9 @@ class Core
 
         if (isset($_REQUEST['goto']) && self::checkPageValidity($_REQUEST['goto'])) {
             $goto = $_REQUEST['goto'];
-            $url_params['goto'] = $goto;
+            $urlParams['goto'] = $goto;
             $container->setParameter('goto', $goto);
-            $container->setParameter('url_params', $url_params);
+            $container->setParameter('url_params', $urlParams);
         } else {
             if ($config->issetCookie('goto')) {
                 $config->removeCookie('goto');

@@ -44,7 +44,7 @@ class TrackingController extends AbstractController
 
     public function index(): void
     {
-        global $db, $text_dir, $url_params, $tables, $num_tables;
+        global $db, $text_dir, $urlParams, $tables, $num_tables;
         global $total_num_tables, $sub_part, $pos, $data, $cfg;
         global $tooltip_truename, $tooltip_aliasname, $errorUrl;
 
@@ -59,8 +59,8 @@ class TrackingController extends AbstractController
             return;
         }
 
-        $url_params['goto'] = Url::getFromRoute('/table/tracking');
-        $url_params['back'] = Url::getFromRoute('/database/tracking');
+        $urlParams['goto'] = Url::getFromRoute('/table/tracking');
+        $urlParams['back'] = Url::getFromRoute('/database/tracking');
 
         // Get the database structure
         $sub_part = '_structure';
@@ -105,7 +105,7 @@ class TrackingController extends AbstractController
                 } elseif ($_POST['submit_mult'] === 'track') {
                     echo $this->template->render('create_tracking_version', [
                         'route' => '/database/tracking',
-                        'url_params' => $url_params,
+                        'url_params' => $urlParams,
                         'last_version' => 0,
                         'db' => $db,
                         'selected' => $_POST['selected_tbl'],
@@ -141,7 +141,7 @@ class TrackingController extends AbstractController
 
         echo $this->tracking->getHtmlForDbTrackingTables(
             $db,
-            $url_params,
+            $urlParams,
             $text_dir
         );
 

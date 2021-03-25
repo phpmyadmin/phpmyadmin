@@ -52,7 +52,7 @@ class ReplaceControllerTest extends AbstractTestCase
     public function testReplace(): void
     {
         global $containerBuilder;
-        $GLOBALS['url_params'] = [];
+        $GLOBALS['urlParams'] = [];
         Response::getInstance()->setAjax(true);
         $_POST['db'] = $GLOBALS['db'];
         $_POST['table'] = $GLOBALS['table'];

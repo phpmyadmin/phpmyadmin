@@ -195,7 +195,7 @@ final class RelationController extends AbstractController
             'column_array' => $column_array,
             'column_hash_array' => $column_hash_array,
             'save_row' => array_values($columns),
-            'url_params' => $GLOBALS['url_params'],
+            'url_params' => $GLOBALS['urlParams'],
             'databases' => $GLOBALS['dblist']->databases,
             'dbi' => $this->dbi,
             'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],

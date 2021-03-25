@@ -30,7 +30,7 @@ class SearchController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $db, $errorUrl, $url_params, $tables, $num_tables, $total_num_tables, $sub_part;
+        global $cfg, $db, $errorUrl, $urlParams, $tables, $num_tables, $total_num_tables, $sub_part;
         global $tooltip_truename, $tooltip_aliasname, $pos;
 
         $this->addScriptFiles([
@@ -59,7 +59,7 @@ class SearchController extends AbstractController
             );
         }
 
-        $url_params['goto'] = Url::getFromRoute('/database/search');
+        $urlParams['goto'] = Url::getFromRoute('/database/search');
 
         // Create a database search instance
         $databaseSearch = new Search($this->dbi, $db, $this->template);

@@ -176,14 +176,14 @@ class ChartController extends AbstractController
      */
     public function ajax(): void
     {
-        global $db, $table, $sql_query, $url_params, $errorUrl, $cfg;
+        global $db, $table, $sql_query, $urlParams, $errorUrl, $cfg;
 
         if (strlen($table) > 0 && strlen($db) > 0) {
             Util::checkParameters(['db', 'table']);
 
-            $url_params = ['db' => $db, 'table' => $table];
+            $urlParams = ['db' => $db, 'table' => $table];
             $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-            $errorUrl .= Url::getCommon($url_params, '&');
+            $errorUrl .= Url::getCommon($urlParams, '&');
 
             DbTableExists::check();
         }

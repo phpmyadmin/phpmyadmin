@@ -49,7 +49,7 @@ use PhpMyAdmin\Tracker;
 
 global $containerBuilder, $errorHandler, $config, $server, $dbi;
 global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $theme;
-global $url_params, $goto, $back, $db, $table, $sql_query, $token_mismatch;
+global $urlParams, $goto, $back, $db, $table, $sql_query, $token_mismatch;
 
 /**
  * block attempts to directly run this script
@@ -169,10 +169,10 @@ if (! defined('PMA_NO_SESSION')) {
 /**
  * holds parameters to be passed to next page
  *
- * @global array $url_params
+ * @global array $urlParams
  */
-$url_params = [];
-$containerBuilder->setParameter('url_params', $url_params);
+$urlParams = [];
+$containerBuilder->setParameter('url_params', $urlParams);
 
 Core::setGotoAndBackGlobals($containerBuilder, $config);
 
@@ -227,9 +227,9 @@ $config->checkServers();
  * @global integer $server
  */
 $server = $config->selectServer();
-$url_params['server'] = $server;
+$urlParams['server'] = $server;
 $containerBuilder->setParameter('server', $server);
-$containerBuilder->setParameter('url_params', $url_params);
+$containerBuilder->setParameter('url_params', $urlParams);
 
 /**
  * BC - enable backward compatibility

@@ -38,7 +38,7 @@ class TriggersController extends AbstractController
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part;
         global $tooltip_truename, $tooltip_aliasname, $pos;
-        global $errors, $url_params, $errorUrl, $cfg;
+        global $errors, $urlParams, $errorUrl, $cfg;
 
         $this->addScriptFiles(['database/triggers.js']);
 
@@ -49,9 +49,9 @@ class TriggersController extends AbstractController
             if (! empty($table) && in_array($table, $this->dbi->getTables($db))) {
                 Util::checkParameters(['db', 'table']);
 
-                $url_params = ['db' => $db, 'table' => $table];
+                $urlParams = ['db' => $db, 'table' => $table];
                 $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-                $errorUrl .= Url::getCommon($url_params, '&');
+                $errorUrl .= Url::getCommon($urlParams, '&');
 
                 DbTableExists::check();
             } else {

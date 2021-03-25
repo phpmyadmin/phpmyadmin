@@ -466,7 +466,7 @@ class StructureController extends AbstractController
 
     public function primary(): void
     {
-        global $db, $table, $message, $sql_query, $url_params, $errorUrl, $cfg;
+        global $db, $table, $message, $sql_query, $urlParams, $errorUrl, $cfg;
 
         $selected = $_POST['selected'] ?? [];
         $selected_fld = $_POST['selected_fld'] ?? [];
@@ -490,9 +490,9 @@ class StructureController extends AbstractController
         if (! empty($selected_fld) && ! empty($primary)) {
             Util::checkParameters(['db', 'table']);
 
-            $url_params = ['db' => $db, 'table' => $table];
+            $urlParams = ['db' => $db, 'table' => $table];
             $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-            $errorUrl .= Url::getCommon($url_params, '&');
+            $errorUrl .= Url::getCommon($urlParams, '&');
 
             DbTableExists::check();
 
@@ -586,7 +586,7 @@ class StructureController extends AbstractController
 
     public function dropConfirm(): void
     {
-        global $db, $table, $url_params, $errorUrl, $cfg;
+        global $db, $table, $urlParams, $errorUrl, $cfg;
 
         $selected = $_POST['selected_fld'] ?? null;
 
@@ -599,9 +599,9 @@ class StructureController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $db, 'table' => $table];
+        $urlParams = ['db' => $db, 'table' => $table];
         $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($url_params, '&');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check();
 

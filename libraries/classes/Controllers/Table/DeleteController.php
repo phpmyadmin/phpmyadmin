@@ -84,7 +84,7 @@ class DeleteController extends AbstractController
             $disp_query = $sql_query;
         }
 
-        $_url_params = $GLOBALS['url_params'];
+        $_url_params = $GLOBALS['urlParams'];
         $_url_params['goto'] = Url::getFromRoute('/table/sql');
 
         if (isset($original_sql_query)) {
@@ -113,7 +113,7 @@ class DeleteController extends AbstractController
 
     public function confirm(): void
     {
-        global $db, $table, $sql_query, $url_params, $errorUrl, $cfg;
+        global $db, $table, $sql_query, $urlParams, $errorUrl, $cfg;
 
         $selected = $_POST['rows_to_delete'] ?? null;
 
@@ -126,9 +126,9 @@ class DeleteController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $db, 'table' => $table];
+        $urlParams = ['db' => $db, 'table' => $table];
         $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($url_params, '&');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check();
 

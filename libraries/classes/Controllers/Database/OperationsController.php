@@ -70,7 +70,7 @@ class OperationsController extends AbstractController
     public function index(): void
     {
         global $cfg, $db, $server, $sql_query, $move, $message, $tables_full, $errorUrl;
-        global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $url_params, $tables;
+        global $export_sql_plugin, $views, $sqlConstratints, $local_query, $reload, $urlParams, $tables;
         global $total_num_tables, $sub_part, $tooltip_truename;
         global $db_collation, $tooltip_aliasname, $pos, $is_information_schema, $single_table, $num_tables;
 
@@ -279,7 +279,7 @@ class OperationsController extends AbstractController
             return;
         }
 
-        $url_params['goto'] = Url::getFromRoute('/database/operations');
+        $urlParams['goto'] = Url::getFromRoute('/database/operations');
 
         // Gets the database structure
         $sub_part = '_structure';
