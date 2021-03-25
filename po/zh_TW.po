@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-03-06 15:47+0100\n"
-"PO-Revision-Date: 2020-08-09 15:50+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-03-26 09:29+0000\n"
+"Last-Translator: inecmc <silence0225@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_Hant/>\n"
+"phpmyadmin/5-1/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.5.2\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3009,14 +3009,14 @@ msgstr "將欄位名稱儲存至第一行"
 #: libraries/classes/Config/Descriptions.php:809
 #: libraries/classes/Plugins/Import/ImportCsv.php:670
 msgid "Columns enclosed with"
-msgstr "內容分隔符號："
+msgstr "內容分隔符號:"
 
 #: libraries/classes/Config/Descriptions.php:671
 #: libraries/classes/Config/Descriptions.php:804
 #: libraries/classes/Config/Descriptions.php:810
 #: libraries/classes/Plugins/Import/ImportCsv.php:681
 msgid "Columns escaped with"
-msgstr "內容跳脫符號："
+msgstr "內容跳脫符號:"
 
 #: libraries/classes/Config/Descriptions.php:672
 #: libraries/classes/Config/Descriptions.php:678
@@ -9916,7 +9916,7 @@ msgstr "程序："
 #: libraries/classes/Navigation/Navigation.php:221
 #: templates/database/export/index.twig:14
 msgid "Tables:"
-msgstr "資料表："
+msgstr "資料表:"
 
 #: libraries/classes/Navigation/Navigation.php:222
 msgid "Views:"
@@ -10758,7 +10758,7 @@ msgstr "PHP 版本："
 #: templates/database/structure/copy_form.twig:5
 #: templates/menu/breadcrumbs.twig:16
 msgid "Database:"
-msgstr "資料庫："
+msgstr "資料庫:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:328
 #: libraries/classes/Plugins/Export/ExportSql.php:2317
@@ -15135,7 +15135,7 @@ msgstr "資料庫伺服器"
 #: templates/home/index.twig:117 templates/login/form.twig:37
 #: templates/menu/breadcrumbs.twig:7
 msgid "Server:"
-msgstr "伺服器："
+msgstr "伺服器:"
 
 #: templates/home/index.twig:121
 msgid "Server type:"
