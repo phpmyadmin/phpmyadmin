@@ -112,6 +112,14 @@
       <code>$defaultName</code>
     </NonInvariantDocblockPropertyType>
   </file>
+  <file src="libraries/classes/Command/WriteGitRevisionCommand.php">
+    <ForbiddenCode occurrences="1">
+      <code>shell_exec('git ' . $command)</code>
+    </ForbiddenCode>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$defaultName</code>
+    </NonInvariantDocblockPropertyType>
+  </file>
   <file src="libraries/classes/Config.php">
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;get('is_https')</code>
@@ -305,7 +313,9 @@
     <MissingFile occurrences="1">
       <code>include ROOT_PATH . 'libraries/language_stats.inc.php'</code>
     </MissingFile>
-    <PossiblyNullArgument occurrences="1">
+    <PossiblyNullArgument occurrences="3">
+      <code>$this-&gt;config-&gt;get('ShowGitRevision')</code>
+      <code>$this-&gt;config-&gt;get('ShowGitRevision')</code>
       <code>$this-&gt;config-&gt;get('TempDir')</code>
     </PossiblyNullArgument>
   </file>
@@ -948,9 +958,6 @@
     <InvalidReturnType occurrences="1">
       <code>object</code>
     </InvalidReturnType>
-    <MissingFile occurrences="1">
-      <code>include ROOT_PATH . 'revision-info.php'</code>
-    </MissingFile>
     <ReferenceConstraintViolation occurrences="2">
       <code>$object</code>
       <code>return $object;</code>

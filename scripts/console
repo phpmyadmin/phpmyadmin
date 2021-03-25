@@ -3,6 +3,7 @@
 
 use PhpMyAdmin\Command\CacheWarmupCommand;
 use PhpMyAdmin\Command\SetVersionCommand;
+use PhpMyAdmin\Command\WriteGitRevisionCommand;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
@@ -37,5 +38,6 @@ $application = new Application('phpMyAdmin Console Tool');
 $application->add(new CacheWarmupCommand());
 $application->add(new LintCommand($twig));
 $application->add(new SetVersionCommand());
+$application->add(new WriteGitRevisionCommand());
 
 $application->run();
