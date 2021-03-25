@@ -228,7 +228,7 @@ class HomeController extends AbstractController
 
         $this->checkRequirements();
 
-        $git = new Git($this->config->get('ShowGitRevision'));
+        $git = new Git($this->config->get('ShowGitRevision') ?? true);
 
         $this->render('home/index', [
             'message' => $displayMessage ?? '',
@@ -284,7 +284,7 @@ class HomeController extends AbstractController
             return;
         }
 
-        $git = new Git($this->config->get('ShowGitRevision'));
+        $git = new Git($this->config->get('ShowGitRevision') ?? true);
 
         if (! $git->isGitRevision()) {
             return;

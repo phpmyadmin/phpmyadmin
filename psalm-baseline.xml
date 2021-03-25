@@ -2625,9 +2625,6 @@
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
-    <NullableReturnStatement occurrences="1">
-      <code>$wktval</code>
-    </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="2">
       <code>mb_strpos($value, '.')</code>
       <code>mb_strrpos($columnSpecification, ')')</code>
