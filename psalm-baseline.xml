@@ -1150,26 +1150,26 @@
   </file>
   <file src="libraries/classes/InsertEdit.php">
     <InvalidArgument occurrences="1">
-      <code>$current_result</code>
+      <code>$currentResult</code>
     </InvalidArgument>
     <NullableReturnStatement occurrences="1">
       <code>$dispval</code>
     </NullableReturnStatement>
     <PossiblyInvalidOperand occurrences="2">
-      <code>$insert_id</code>
+      <code>$insertId</code>
       <code>$tmp</code>
     </PossiblyInvalidOperand>
     <PossiblyNullArrayAccess occurrences="3">
-      <code>$data_size[0]</code>
-      <code>$data_size[1]</code>
+      <code>$dataSize[0]</code>
+      <code>$dataSize[1]</code>
       <code>$dispval</code>
     </PossiblyNullArrayAccess>
     <PossiblyUndefinedVariable occurrences="1">
-      <code>$protected_row</code>
+      <code>$protectedRow</code>
     </PossiblyUndefinedVariable>
     <TypeDoesNotContainType occurrences="2">
-      <code>$input_type === 'time'</code>
-      <code>$input_type === 'time'</code>
+      <code>$inputType === 'time'</code>
+      <code>$inputType === 'time'</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/IpAllowDeny.php">

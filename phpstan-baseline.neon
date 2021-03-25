@@ -2196,7 +2196,7 @@ parameters:
 			path: test/classes/InsertEditTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$where_clause of method PhpMyAdmin\\\\InsertEdit\\:\\:determineInsertOrEdit\\(\\) expects string, null given\\.$#"
+			message: "#^Parameter \\#1 \\$whereClause of method PhpMyAdmin\\\\InsertEdit\\:\\:determineInsertOrEdit\\(\\) expects string, null given\\.$#"
 			count: 1
 			path: test/classes/InsertEditTest.php
 
