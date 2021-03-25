@@ -2448,50 +2448,50 @@
   </file>
   <file src="libraries/classes/Table.php">
     <InvalidReturnStatement occurrences="1">
-      <code>$table_auto_increment ?? ''</code>
+      <code>$tableAutoIncrement ?? ''</code>
     </InvalidReturnStatement>
     <PossiblyNullArgument occurrences="4">
-      <code>$existrel_foreign[$master_field_md5]['constraint']</code>
-      <code>$existrel_foreign[$master_field_md5]['ref_db_name']</code>
-      <code>$existrel_foreign[$master_field_md5]['ref_index_list']</code>
-      <code>$existrel_foreign[$master_field_md5]['ref_table_name']</code>
+      <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_db_name']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_index_list']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_table_name']</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="7">
-      <code>$existrel_foreign[$master_field_md5]['constraint']</code>
-      <code>$existrel_foreign[$master_field_md5]['constraint']</code>
-      <code>$existrel_foreign[$master_field_md5]['on_delete']</code>
-      <code>$existrel_foreign[$master_field_md5]['on_update']</code>
-      <code>$existrel_foreign[$master_field_md5]['ref_db_name']</code>
-      <code>$existrel_foreign[$master_field_md5]['ref_index_list']</code>
-      <code>$existrel_foreign[$master_field_md5]['ref_table_name']</code>
+      <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
+      <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
+      <code>$existrelForeign[$masterFieldMd5]['on_delete']</code>
+      <code>$existrelForeign[$masterFieldMd5]['on_update']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_db_name']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_index_list']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_table_name']</code>
     </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset occurrences="2">
-      <code>$options_array</code>
-      <code>$options_array</code>
+      <code>$optionsArray</code>
+      <code>$optionsArray</code>
     </PossiblyNullArrayOffset>
     <PossiblyNullPropertyAssignmentValue occurrences="2">
       <code>null</code>
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
     <PossiblyNullReference occurrences="7">
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
     </PossiblyNullReference>
     <RedundantCastGivenDocblockType occurrences="9">
       <code>(string) $db</code>
-      <code>(string) $default_value</code>
-      <code>(string) $default_value</code>
-      <code>(string) $default_value</code>
-      <code>(string) $default_value</code>
-      <code>(string) $default_value</code>
-      <code>(string) $source_table</code>
+      <code>(string) $defaultValue</code>
+      <code>(string) $defaultValue</code>
+      <code>(string) $defaultValue</code>
+      <code>(string) $defaultValue</code>
+      <code>(string) $defaultValue</code>
+      <code>(string) $sourceTable</code>
       <code>(string) $table</code>
-      <code>(string) $table_name</code>
+      <code>(string) $tableName</code>
     </RedundantCastGivenDocblockType>
     <RedundantPropertyInitializationCheck occurrences="3">
       <code>isset($this-&gt;uiprefs)</code>
@@ -2500,10 +2500,10 @@
     </RedundantPropertyInitializationCheck>
     <ReferenceConstraintViolation occurrences="2">
       <code>$error</code>
-      <code>return $sql_query;</code>
+      <code>return $sqlQuery;</code>
     </ReferenceConstraintViolation>
     <TypeDoesNotContainType occurrences="1">
-      <code>$row_fields[$_key] != 'cc'</code>
+      <code>$rowFields[$key] != 'cc'</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Table/ColumnsDefinition.php">

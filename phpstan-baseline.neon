@@ -2261,17 +2261,17 @@ parameters:
 			path: test/classes/SystemDatabaseTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$table_name of class PhpMyAdmin\\\\Table constructor expects string, null given\\.$#"
+			message: "#^Parameter \\#1 \\$tableName of class PhpMyAdmin\\\\Table constructor expects string, null given\\.$#"
 			count: 2
 			path: test/classes/TableTest.php
 
 		-
-			message: "#^Parameter \\#2 \\$db_name of class PhpMyAdmin\\\\Table constructor expects string, null given\\.$#"
+			message: "#^Parameter \\#2 \\$dbName of class PhpMyAdmin\\\\Table constructor expects string, null given\\.$#"
 			count: 2
 			path: test/classes/TableTest.php
 
 		-
-			message: "#^Parameter \\#8 \\$default_value of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, int given\\.$#"
+			message: "#^Parameter \\#8 \\$defaultValue of static method PhpMyAdmin\\\\Table\\:\\:generateFieldSpec\\(\\) expects string, int given\\.$#"
 			count: 7
 			path: test/classes/TableTest.php
 
