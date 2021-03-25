@@ -2308,23 +2308,23 @@
       <code>null</code>
     </NullArgument>
     <NullableReturnStatement occurrences="2">
-      <code>$authentication_plugin</code>
+      <code>$authenticationPlugin</code>
       <code>$result['password']</code>
     </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="6">
       <code>mb_strpos($row1['Type'], '(')</code>
       <code>mb_strpos($row1['Type'], '(')</code>
       <code>mb_strpos($row1['Type'], ')')</code>
-      <code>mb_strrpos($_user_name, '@')</code>
       <code>mb_strrpos($currentUser, '@')</code>
-      <code>mb_strrpos($export_user, ';')</code>
+      <code>mb_strrpos($currentUserName, '@')</code>
+      <code>mb_strrpos($exportUser, ';')</code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$dbname</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="6">
       <code>$dbname</code>
-      <code>$old_usergroup</code>
+      <code>$oldUserGroup</code>
       <code>$row1['Type']</code>
       <code>$row1['Type']</code>
       <code>$row1['Type']</code>
@@ -2334,10 +2334,10 @@
       <code>$result['password']</code>
       <code>$row1['Type']</code>
       <code>$row['@@old_passwords']</code>
-      <code>$tmp_initial</code>
+      <code>$tmpInitial</code>
     </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset occurrences="1">
-      <code>$array_initials</code>
+      <code>$arrayInitials</code>
     </PossiblyNullArrayOffset>
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_POST['pred_dbname']</code>
