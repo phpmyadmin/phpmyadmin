@@ -1450,35 +1450,35 @@
       <code>Context::escape($alias)</code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullArgument occurrences="20">
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$view_alias</code>
-      <code>$view_alias</code>
-      <code>$view_alias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$viewAlias</code>
+      <code>$viewAlias</code>
+      <code>$viewAlias</code>
     </PossiblyNullArgument>
     <RedundantCastGivenDocblockType occurrences="3">
-      <code>(int) $fields_meta[$j]-&gt;length</code>
-      <code>(string) $create_query</code>
+      <code>(int) $fieldsMeta[$j]-&gt;length</code>
+      <code>(string) $createQuery</code>
       <code>(string) $table</code>
     </RedundantCastGivenDocblockType>
     <ReferenceConstraintViolation occurrences="3">
       <code>$flag</code>
-      <code>return $sql_query;</code>
+      <code>return $sqlQuery;</code>
       <code>return $statement-&gt;build();</code>
     </ReferenceConstraintViolation>
     <UndefinedMethod occurrences="4">
