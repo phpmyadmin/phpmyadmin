@@ -13,15 +13,11 @@ use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Theme;
+use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
-use function getenv;
 use function in_array;
-use function is_array;
-use function parse_url;
-
-use const PHP_SAPI;
 
 /**
  * Abstract class to hold some usefull methods used in tests
@@ -149,20 +145,7 @@ abstract class AbstractTestCase extends TestCase
 
     protected function setProxySettings(): void
     {
-        $httpProxy = getenv('http_proxy');
-        $urlInfo = parse_url((string) $httpProxy);
-        if (PHP_SAPI !== 'cli' || ! is_array($urlInfo)) {
-            return;
-        }
-
-        $proxyUrl = ($urlInfo['host'] ?? '')
-            . (isset($urlInfo['port']) ? ':' . $urlInfo['port'] : '');
-        $proxyUser = $urlInfo['user'] ?? '';
-        $proxyPass = $urlInfo['pass'] ?? '';
-
-        $GLOBALS['cfg']['ProxyUrl'] = $proxyUrl;
-        $GLOBALS['cfg']['ProxyUser'] = $proxyUser;
-        $GLOBALS['cfg']['ProxyPass'] = $proxyPass;
+        HttpRequest::setProxySettingsFromEnv();
     }
 
     /**

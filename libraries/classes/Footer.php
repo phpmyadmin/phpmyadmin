@@ -82,26 +82,23 @@ class Footer
     {
         $message = '<a href="/">' . __('phpMyAdmin Demo Server') . '</a>: ';
         if (@file_exists(ROOT_PATH . 'revision-info.php')) {
-            $revision = '';
-            $fullrevision = '';
-            $repobase = '';
-            $repobranchbase = '';
-            $branch = '';
-            include ROOT_PATH . 'revision-info.php';
-            $message .= sprintf(
-                __('Currently running Git revision %1$s from the %2$s branch.'),
-                '<a target="_blank" rel="noopener noreferrer" href="'
-                . htmlspecialchars($repobase . $fullrevision) . '">'
-                . htmlspecialchars($revision) . '</a>',
-                '<a target="_blank" rel="noopener noreferrer" href="'
-                . htmlspecialchars($repobranchbase . $branch) . '">'
-                . htmlspecialchars($branch) . '</a>'
-            );
-        } else {
-            $message .= __('Git information missing!');
+            $info = include ROOT_PATH . 'revision-info.php';
+            if (is_array($info)) {
+                return Message::notice(
+                    $message . sprintf(
+                        __('Currently running Git revision %1$s from the %2$s branch.'),
+                        '<a target="_blank" rel="noopener noreferrer" href="'
+                        . htmlspecialchars($info['revisionUrl'] ?? '') . '">'
+                        . htmlspecialchars($info['revision'] ?? '') . '</a>',
+                        '<a target="_blank" rel="noopener noreferrer" href="'
+                        . htmlspecialchars($info['branchUrl'] ?? '') . '">'
+                        . htmlspecialchars($info['branch'] ?? '') . '</a>'
+                    )
+                )->getDisplay();
+            }
         }
 
-        return Message::notice($message)->getDisplay();
+        return Message::notice($message . __('Git information missing!'))->getDisplay();
     }
 
     /**
