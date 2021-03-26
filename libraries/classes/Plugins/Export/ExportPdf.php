@@ -159,12 +159,12 @@ class ExportPdf extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader($db, $dbAlias = '')
     {
         return true;
     }
@@ -184,13 +184,13 @@ class ExportPdf extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db         Database name
+     * @param string $exportType 'server', 'database', 'table'
+     * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = '')
     {
         return true;
     }
@@ -198,12 +198,12 @@ class ExportPdf extends ExportPlugin
     /**
      * Outputs the content of a table in NHibernate format
      *
-     * @param string $db        database name
-     * @param string $table     table name
-     * @param string $crlf      the end of line sequence
-     * @param string $error_url the url to go back in case of error
-     * @param string $sql_query SQL query for obtaining data
-     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $db       database name
+     * @param string $table    table name
+     * @param string $crlf     the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery SQL query for obtaining data
+     * @param array  $aliases  Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -211,8 +211,8 @@ class ExportPdf extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $sql_query,
+        $errorUrl,
+        $sqlQuery,
         array $aliases = []
     ) {
         $db_alias = $db;
@@ -225,7 +225,7 @@ class ExportPdf extends ExportPlugin
         $pdf->setTableAlias($table_alias);
         $pdf->setAliases($aliases);
         $pdf->setPurpose(__('Dumping data'));
-        $pdf->mysqlReport($sql_query);
+        $pdf->mysqlReport($sqlQuery);
 
         return true;
     }
@@ -233,19 +233,19 @@ class ExportPdf extends ExportPlugin
     /**
      * Outputs result of raw query in PDF format
      *
-     * @param string $err_url   the url to go back in case of error
-     * @param string $sql_query the rawquery to output
-     * @param string $crlf      the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery the rawquery to output
+     * @param string $crlf     the end of line sequence
      *
      * @return bool if succeeded
      */
-    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
     {
         $pdf = $this->getPdf();
         $pdf->setDbAlias('----');
         $pdf->setTableAlias('----');
         $pdf->setPurpose(__('Query result data'));
-        $pdf->mysqlReport($sql_query);
+        $pdf->mysqlReport($sqlQuery);
 
         return true;
     }
@@ -256,10 +256,10 @@ class ExportPdf extends ExportPlugin
      * @param string $db          database name
      * @param string $table       table name
      * @param string $crlf        the end of line sequence
-     * @param string $error_url   the url to go back in case of error
-     * @param string $export_mode 'create_table', 'triggers', 'create_view',
-     *                            'stand_in'
-     * @param string $export_type 'server', 'database', 'table'
+     * @param string $errorUrl    the url to go back in case of error
+     * @param string $exportMode  'create_table', 'triggers', 'create_view',
+     *                             'stand_in'
+     * @param string $exportType  'server', 'database', 'table'
      * @param bool   $do_relation whether to include relation comments
      * @param bool   $do_comments whether to include the pmadb-style column
      *                            comments as comments in the structure;
@@ -277,9 +277,9 @@ class ExportPdf extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $export_mode,
-        $export_type,
+        $errorUrl,
+        $exportMode,
+        $exportType,
         $do_relation = false,
         $do_comments = false,
         $do_mime = false,
@@ -292,7 +292,7 @@ class ExportPdf extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
         $pdf = $this->getPdf();
         // getting purpose to show at top
-        switch ($export_mode) {
+        switch ($exportMode) {
             case 'create_table':
                 $purpose = __('Table structure');
                 break;
@@ -318,7 +318,7 @@ class ExportPdf extends ExportPlugin
          * format, no option is present to take user input.
          */
         $do_comments = true;
-        switch ($export_mode) {
+        switch ($exportMode) {
             case 'create_table':
                 $pdf->getTableDef(
                     $db,

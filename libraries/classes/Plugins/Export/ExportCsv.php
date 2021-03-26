@@ -179,12 +179,12 @@ class ExportCsv extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db       Database name
-     * @param string $db_alias Alias of db
+     * @param string $db      Database name
+     * @param string $dbAlias Alias of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader($db, $dbAlias = '')
     {
         return true;
     }
@@ -204,13 +204,13 @@ class ExportCsv extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db         Database name
+     * @param string $exportType 'server', 'database', 'table'
+     * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = '')
     {
         return true;
     }
@@ -218,12 +218,12 @@ class ExportCsv extends ExportPlugin
     /**
      * Outputs the content of a table in CSV format
      *
-     * @param string $db        database name
-     * @param string $table     table name
-     * @param string $crlf      the end of line sequence
-     * @param string $error_url the url to go back in case of error
-     * @param string $sql_query SQL query for obtaining data
-     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $db       database name
+     * @param string $table    table name
+     * @param string $crlf     the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery SQL query for obtaining data
+     * @param array  $aliases  Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -231,8 +231,8 @@ class ExportCsv extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $sql_query,
+        $errorUrl,
+        $sqlQuery,
         array $aliases = []
     ) {
         global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped, $dbi;
@@ -243,7 +243,7 @@ class ExportCsv extends ExportPlugin
 
         // Gets the data from the database
         $result = $dbi->query(
-            $sql_query,
+            $sqlQuery,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
@@ -358,14 +358,14 @@ class ExportCsv extends ExportPlugin
     /**
      * Outputs result of raw query in CSV format
      *
-     * @param string $err_url   the url to go back in case of error
-     * @param string $sql_query the rawquery to output
-     * @param string $crlf      the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery the rawquery to output
+     * @param string $crlf     the end of line sequence
      *
      * @return bool if succeeded
      */
-    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
     {
-        return $this->exportData('', '', $crlf, $err_url, $sql_query);
+        return $this->exportData('', '', $crlf, $errorUrl, $sqlQuery);
     }
 }

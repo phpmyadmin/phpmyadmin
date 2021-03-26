@@ -851,18 +851,18 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db         Database name
+     * @param string $exportType 'server', 'database', 'table'
+     * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = '')
     {
         global $crlf, $dbi;
 
-        if (empty($db_alias)) {
-            $db_alias = $db;
+        if (empty($dbAlias)) {
+            $dbAlias = $db;
         }
 
         if (isset($GLOBALS['sql_compatibility'])) {
@@ -876,7 +876,7 @@ class ExportSql extends ExportPlugin
                 ! $this->export->outputHandler(
                     'DROP DATABASE IF EXISTS '
                     . Util::backquoteCompat(
-                        $db_alias,
+                        $dbAlias,
                         $compat,
                         isset($GLOBALS['sql_backquotes'])
                     )
@@ -887,13 +887,13 @@ class ExportSql extends ExportPlugin
             }
         }
 
-        if ($export_type === 'database' && ! isset($GLOBALS['sql_create_database'])) {
+        if ($exportType === 'database' && ! isset($GLOBALS['sql_create_database'])) {
             return true;
         }
 
         $createQuery = 'CREATE DATABASE IF NOT EXISTS '
             . Util::backquoteCompat(
-                $db_alias,
+                $dbAlias,
                 $compat,
                 isset($GLOBALS['sql_backquotes'])
             );
@@ -915,7 +915,7 @@ class ExportSql extends ExportPlugin
             return false;
         }
 
-        return $this->exportUseStatement($db_alias, $compat);
+        return $this->exportUseStatement($dbAlias, $compat);
     }
 
     /**
@@ -953,15 +953,15 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db       Database name
-     * @param string $db_alias Alias of db
+     * @param string $db      Database name
+     * @param string $dbAlias Alias of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader($db, $dbAlias = '')
     {
-        if (empty($db_alias)) {
-            $db_alias = $db;
+        if (empty($dbAlias)) {
+            $dbAlias = $db;
         }
 
         if (isset($GLOBALS['sql_compatibility'])) {
@@ -974,7 +974,7 @@ class ExportSql extends ExportPlugin
             . $this->exportComment(
                 __('Database:') . ' '
                 . Util::backquoteCompat(
-                    $db_alias,
+                    $dbAlias,
                     $compat,
                     isset($GLOBALS['sql_backquotes'])
                 )
@@ -2126,37 +2126,37 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs a raw query
      *
-     * @param string $err_url   the url to go back in case of error
-     * @param string $sql_query the rawquery to output
-     * @param string $crlf      the seperator for a file
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery the rawquery to output
+     * @param string $crlf     the seperator for a file
      *
      * @return bool if succeeded
      */
-    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
     {
-        return $this->export->outputHandler($sql_query);
+        return $this->export->outputHandler($sqlQuery);
     }
 
     /**
      * Outputs table's structure
      *
-     * @param string $db          database name
-     * @param string $table       table name
-     * @param string $crlf        the end of line sequence
-     * @param string $error_url   the url to go back in case of error
-     * @param string $export_mode 'create_table','triggers','create_view',
+     * @param string $db         database name
+     * @param string $table      table name
+     * @param string $crlf       the end of line sequence
+     * @param string $errorUrl   the url to go back in case of error
+     * @param string $exportMode 'create_table','triggers','create_view',
      *                            'stand_in'
-     * @param string $export_type 'server', 'database', 'table'
-     * @param bool   $relation    whether to include relation comments
-     * @param bool   $comments    whether to include the pmadb-style column
-     *                            comments as comments in the structure; this is
-     *                            deprecated but the parameter is left here
-     *                            because /export calls exportStructure()
-     *                            also for other export types which use this
-     *                            parameter
-     * @param bool   $mime        whether to include mime comments
-     * @param bool   $dates       whether to include creation/update/check dates
-     * @param array  $aliases     Aliases of db/table/columns
+     * @param string $exportType 'server', 'database', 'table'
+     * @param bool   $relation   whether to include relation comments
+     * @param bool   $comments   whether to include the pmadb-style column
+     *                           comments as comments in the structure; this is
+     *                           deprecated but the parameter is left here
+     *                           because /export calls exportStructure()
+     *                           also for other export types which use this
+     *                           parameter
+     * @param bool   $mime       whether to include mime comments
+     * @param bool   $dates      whether to include creation/update/check dates
+     * @param array  $aliases    Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -2164,9 +2164,9 @@ class ExportSql extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $export_mode,
-        $export_type,
+        $errorUrl,
+        $exportMode,
+        $exportType,
         $relation = false,
         $comments = false,
         $mime = false,
@@ -2194,7 +2194,7 @@ class ExportSql extends ExportPlugin
             . $this->possibleCRLF()
             . $this->exportComment();
 
-        switch ($export_mode) {
+        switch ($exportMode) {
             case 'create_table':
                 $dump .= $this->exportComment(
                     __('Table structure for table') . ' ' . $formattedTableName
@@ -2204,7 +2204,7 @@ class ExportSql extends ExportPlugin
                     $db,
                     $table,
                     $crlf,
-                    $error_url,
+                    $errorUrl,
                     $dates,
                     true,
                     false,
@@ -2277,7 +2277,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment();
                     // delete the stand-in table previously created (if any)
-                    if ($export_type !== 'table') {
+                    if ($exportType !== 'table') {
                         $dump .= 'DROP TABLE IF EXISTS '
                             . Util::backquote($tableAlias) . ';' . $crlf;
                     }
@@ -2286,7 +2286,7 @@ class ExportSql extends ExportPlugin
                         $db,
                         $table,
                         $crlf,
-                        $error_url,
+                        $errorUrl,
                         $dates,
                         true,
                         true,
@@ -2302,7 +2302,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment();
                     // delete the stand-in table previously created (if any)
-                    if ($export_type !== 'table') {
+                    if ($exportType !== 'table') {
                         $dump .= 'DROP TABLE IF EXISTS '
                         . Util::backquote($tableAlias) . ';' . $crlf;
                     }
@@ -2339,12 +2339,12 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs the content of a table in SQL format
      *
-     * @param string $db        database name
-     * @param string $table     table name
-     * @param string $crlf      the end of line sequence
-     * @param string $error_url the url to go back in case of error
-     * @param string $sql_query SQL query for obtaining data
-     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $db       database name
+     * @param string $table    table name
+     * @param string $crlf     the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery SQL query for obtaining data
+     * @param array  $aliases  Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -2352,8 +2352,8 @@ class ExportSql extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $sql_query,
+        $errorUrl,
+        $sqlQuery,
         array $aliases = []
     ) {
         /** @var DatabaseInterface $dbi */
@@ -2397,7 +2397,7 @@ class ExportSql extends ExportPlugin
         }
 
         $result = $dbi->tryQuery(
-            $sql_query,
+            $sqlQuery,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );

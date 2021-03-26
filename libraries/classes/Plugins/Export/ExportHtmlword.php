@@ -135,19 +135,19 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader($db, $dbAlias = '')
     {
-        if (empty($db_alias)) {
-            $db_alias = $db;
+        if (empty($dbAlias)) {
+            $dbAlias = $db;
         }
 
         return $this->export->outputHandler(
-            '<h1>' . __('Database') . ' ' . htmlspecialchars($db_alias) . '</h1>'
+            '<h1>' . __('Database') . ' ' . htmlspecialchars($dbAlias) . '</h1>'
         );
     }
 
@@ -166,13 +166,13 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db         Database name
+     * @param string $exportType 'server', 'database', 'table'
+     * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = '')
     {
         return true;
     }
@@ -180,12 +180,12 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Outputs the content of a table in HTML-Word format
      *
-     * @param string $db        database name
-     * @param string $table     table name
-     * @param string $crlf      the end of line sequence
-     * @param string $error_url the url to go back in case of error
-     * @param string $sql_query SQL query for obtaining data
-     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $db       database name
+     * @param string $table    table name
+     * @param string $crlf     the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery SQL query for obtaining data
+     * @param array  $aliases  Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -193,8 +193,8 @@ class ExportHtmlword extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $sql_query,
+        $errorUrl,
+        $sqlQuery,
         array $aliases = []
     ) {
         global $what, $dbi;
@@ -223,7 +223,7 @@ class ExportHtmlword extends ExportPlugin
 
         // Gets the data from the database
         $result = $dbi->query(
-            $sql_query,
+            $sqlQuery,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
@@ -542,10 +542,10 @@ class ExportHtmlword extends ExportPlugin
      * @param string $db          database name
      * @param string $table       table name
      * @param string $crlf        the end of line sequence
-     * @param string $error_url   the url to go back in case of error
-     * @param string $export_mode 'create_table', 'triggers', 'create_view',
-     *                            'stand_in'
-     * @param string $export_type 'server', 'database', 'table'
+     * @param string $errorUrl    the url to go back in case of error
+     * @param string $exportMode  'create_table', 'triggers', 'create_view',
+     *                             'stand_in'
+     * @param string $exportType  'server', 'database', 'table'
      * @param bool   $do_relation whether to include relation comments
      * @param bool   $do_comments whether to include the pmadb-style column
      *                            comments as comments in the structure;
@@ -563,9 +563,9 @@ class ExportHtmlword extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $export_mode,
-        $export_type,
+        $errorUrl,
+        $exportMode,
+        $exportType,
         $do_relation = false,
         $do_comments = false,
         $do_mime = false,
@@ -580,7 +580,7 @@ class ExportHtmlword extends ExportPlugin
 
         $dump = '';
 
-        switch ($export_mode) {
+        switch ($exportMode) {
             case 'create_table':
                 $dump .= '<h2>'
                 . __('Table structure for table') . ' '

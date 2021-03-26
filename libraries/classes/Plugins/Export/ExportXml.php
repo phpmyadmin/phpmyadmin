@@ -420,17 +420,17 @@ class ExportXml extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader($db, $dbAlias = '')
     {
         global $crlf;
 
-        if (empty($db_alias)) {
-            $db_alias = $db;
+        if (empty($dbAlias)) {
+            $dbAlias = $db;
         }
 
         if (
@@ -439,9 +439,9 @@ class ExportXml extends ExportPlugin
         ) {
             $head = '    <!--' . $crlf
                 . '    - ' . __('Database:') . ' \''
-                . htmlspecialchars($db_alias) . '\'' . $crlf
+                . htmlspecialchars($dbAlias) . '\'' . $crlf
                 . '    -->' . $crlf . '    <database name="'
-                . htmlspecialchars($db_alias) . '">' . $crlf;
+                . htmlspecialchars($dbAlias) . '">' . $crlf;
 
             return $this->export->outputHandler($head);
         }
@@ -473,13 +473,13 @@ class ExportXml extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db         Database name
+     * @param string $exportType 'server', 'database', 'table'
+     * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = '')
     {
         return true;
     }
@@ -487,12 +487,12 @@ class ExportXml extends ExportPlugin
     /**
      * Outputs the content of a table in XML format
      *
-     * @param string $db        database name
-     * @param string $table     table name
-     * @param string $crlf      the end of line sequence
-     * @param string $error_url the url to go back in case of error
-     * @param string $sql_query SQL query for obtaining data
-     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $db       database name
+     * @param string $table    table name
+     * @param string $crlf     the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery SQL query for obtaining data
+     * @param array  $aliases  Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -500,8 +500,8 @@ class ExportXml extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $sql_query,
+        $errorUrl,
+        $sqlQuery,
         array $aliases = []
     ) {
         global $dbi;
@@ -519,7 +519,7 @@ class ExportXml extends ExportPlugin
             && $GLOBALS['xml_export_contents']
         ) {
             $result = $dbi->query(
-                $sql_query,
+                $sqlQuery,
                 DatabaseInterface::CONNECT_USER,
                 DatabaseInterface::QUERY_UNBUFFERED
             );

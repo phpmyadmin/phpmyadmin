@@ -180,21 +180,21 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader($db, $dbAlias = '')
     {
-        if (empty($db_alias)) {
-            $db_alias = $db;
+        if (empty($dbAlias)) {
+            $dbAlias = $db;
         }
 
         $GLOBALS['odt_buffer']
             .= '<text:h text:outline-level="1" text:style-name="Heading_1"'
             . ' text:is-list-header="true">'
-            . __('Database') . ' ' . htmlspecialchars($db_alias)
+            . __('Database') . ' ' . htmlspecialchars($dbAlias)
             . '</text:h>';
 
         return true;
@@ -215,13 +215,13 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db         Database name
+     * @param string $exportType 'server', 'database', 'table'
+     * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = '')
     {
         return true;
     }
@@ -229,12 +229,12 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs the content of a table in NHibernate format
      *
-     * @param string $db        database name
-     * @param string $table     table name
-     * @param string $crlf      the end of line sequence
-     * @param string $error_url the url to go back in case of error
-     * @param string $sql_query SQL query for obtaining data
-     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $db       database name
+     * @param string $table    table name
+     * @param string $crlf     the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery SQL query for obtaining data
+     * @param array  $aliases  Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -242,8 +242,8 @@ class ExportOdt extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $sql_query,
+        $errorUrl,
+        $sqlQuery,
         array $aliases = []
     ) {
         /** @var DatabaseInterface $dbi */
@@ -254,7 +254,7 @@ class ExportOdt extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
         // Gets the data from the database
         $result = $dbi->query(
-            $sql_query,
+            $sqlQuery,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
@@ -357,15 +357,15 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs result raw query in ODT format
      *
-     * @param string $err_url   the url to go back in case of error
-     * @param string $sql_query the rawquery to output
-     * @param string $crlf      the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery the rawquery to output
+     * @param string $crlf     the end of line sequence
      *
      * @return bool if succeeded
      */
-    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
     {
-        return $this->exportData('', '', $crlf, $err_url, $sql_query);
+        return $this->exportData('', '', $crlf, $errorUrl, $sqlQuery);
     }
 
     /**
@@ -694,10 +694,10 @@ class ExportOdt extends ExportPlugin
      * @param string $db          database name
      * @param string $table       table name
      * @param string $crlf        the end of line sequence
-     * @param string $error_url   the url to go back in case of error
-     * @param string $export_mode 'create_table', 'triggers', 'create_view',
-     *                            'stand_in'
-     * @param string $export_type 'server', 'database', 'table'
+     * @param string $errorUrl    the url to go back in case of error
+     * @param string $exportMode  'create_table', 'triggers', 'create_view',
+     *                             'stand_in'
+     * @param string $exportType  'server', 'database', 'table'
      * @param bool   $do_relation whether to include relation comments
      * @param bool   $do_comments whether to include the pmadb-style column
      *                            comments as comments in the structure;
@@ -714,9 +714,9 @@ class ExportOdt extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $export_mode,
-        $export_type,
+        $errorUrl,
+        $exportMode,
+        $exportType,
         $do_relation = false,
         $do_comments = false,
         $do_mime = false,
@@ -728,7 +728,7 @@ class ExportOdt extends ExportPlugin
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
-        switch ($export_mode) {
+        switch ($exportMode) {
             case 'create_table':
                 $GLOBALS['odt_buffer']
                 .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
@@ -740,7 +740,7 @@ class ExportOdt extends ExportPlugin
                     $db,
                     $table,
                     $crlf,
-                    $error_url,
+                    $errorUrl,
                     $do_relation,
                     $do_comments,
                     $do_mime,
@@ -774,7 +774,7 @@ class ExportOdt extends ExportPlugin
                     $db,
                     $table,
                     $crlf,
-                    $error_url,
+                    $errorUrl,
                     $do_relation,
                     $do_comments,
                     $do_mime,
