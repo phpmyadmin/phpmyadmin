@@ -82,6 +82,7 @@ class Footer
     {
         $message = '<a href="/">' . __('phpMyAdmin Demo Server') . '</a>: ';
         if (@file_exists(ROOT_PATH . 'revision-info.php')) {
+            /** @psalm-suppress MissingFile */
             $info = include ROOT_PATH . 'revision-info.php';
             if (is_array($info)) {
                 return Message::notice(
