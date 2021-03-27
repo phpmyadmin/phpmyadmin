@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use const ENT_COMPAT;
 use function array_unshift;
 use function count;
 use function htmlspecialchars;
@@ -462,7 +463,7 @@ class Message
         if ($param instanceof self || is_float($param) || is_int($param)) {
             $this->params[] = $param;
         } else {
-            $this->params[] = htmlspecialchars((string) $param);
+            $this->params[] = htmlspecialchars((string) $param, ENT_COMPAT);
         }
     }
 
