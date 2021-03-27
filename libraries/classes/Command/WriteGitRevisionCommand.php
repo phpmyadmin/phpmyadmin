@@ -11,9 +11,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use function file_put_contents;
 use function shell_exec;
-use function trim;
-use function str_replace;
 use function sprintf;
+use function str_replace;
+use function trim;
 
 class WriteGitRevisionCommand extends Command
 {
@@ -89,14 +89,17 @@ PHP;
         if ($revisionText === null) {
             return null;
         }
+
         $commitHash = $this->gitCli('log -1 --format="%H"');
         if ($commitHash === null) {
             return null;
         }
+
         $branchName = $this->gitCli('symbolic-ref -q HEAD') ?? $this->gitCli('name-rev --name-only HEAD 2>/dev/null');
         if ($branchName === null) {
             return null;
         }
+
         $branchName = trim(str_replace('refs/heads/', '', $branchName));
 
         return sprintf(

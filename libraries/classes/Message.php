@@ -14,6 +14,8 @@ use function md5;
 use function sprintf;
 use function strlen;
 
+use const ENT_COMPAT;
+
 /**
  * a single message
  *
@@ -464,7 +466,7 @@ class Message
         if ($param instanceof self || is_float($param) || is_int($param)) {
             $this->params[] = $param;
         } else {
-            $this->params[] = htmlspecialchars((string) $param);
+            $this->params[] = htmlspecialchars((string) $param, ENT_COMPAT);
         }
     }
 

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Utils;
 
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\FormatConverter;
+
 use function hex2bin;
 
 class FormatConverterTest extends AbstractTestCase

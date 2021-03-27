@@ -269,10 +269,12 @@ final class ExportController extends AbstractController
         } else {
             $asfile = true;
             $selectedCompression = $_POST['compression'] ?? '';
-            if (isset($_POST['as_separate_files'])
+            if (
+                isset($_POST['as_separate_files'])
                 && ! empty($_POST['as_separate_files'])
             ) {
-                if (! empty($selectedCompression)
+                if (
+                    ! empty($selectedCompression)
                     && $selectedCompression === 'zip'
                 ) {
                     $separate_files = $_POST['as_separate_files'];

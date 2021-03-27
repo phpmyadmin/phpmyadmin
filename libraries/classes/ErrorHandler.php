@@ -193,7 +193,9 @@ class ErrorHandler
             if (PHP_VERSION_ID < 80000) {
                 $isSilenced = error_reporting() == 0;
             }
-            if ($isSilenced &&
+
+            if (
+                $isSilenced &&
                 $this->errorReporting != 0 &&
                 ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) == 0
             ) {

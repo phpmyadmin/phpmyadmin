@@ -1540,7 +1540,7 @@ class Util
         }
 
         // for the case ENUM('&#8211;','&ldquo;')
-        $displayedType = htmlspecialchars($printType);
+        $displayedType = htmlspecialchars($printType, ENT_COMPAT);
         if (mb_strlen($printType) > $GLOBALS['cfg']['LimitChars']) {
             $displayedType  = '<abbr title="' . htmlspecialchars($printType) . '">';
             $displayedType .= htmlspecialchars(
@@ -1548,7 +1548,8 @@ class Util
                     $printType,
                     0,
                     (int) $GLOBALS['cfg']['LimitChars']
-                ) . '...'
+                ) . '...',
+                ENT_COMPAT
             );
             $displayedType .= '</abbr>';
         }

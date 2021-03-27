@@ -11,8 +11,11 @@ use function curl_init;
 use function curl_setopt;
 use function file_get_contents;
 use function function_exists;
+use function getenv;
 use function ini_get;
 use function intval;
+use function is_array;
+use function parse_url;
 use function preg_match;
 use function stream_context_create;
 use function strlen;
@@ -35,10 +38,7 @@ use const CURLOPT_SSL_VERIFYHOST;
 use const CURLOPT_SSL_VERIFYPEER;
 use const CURLOPT_TIMEOUT;
 use const CURLOPT_USERAGENT;
-use function getenv;
-use function parse_url;
 use const PHP_SAPI;
-use function is_array;
 
 /**
  * Handles HTTP requests

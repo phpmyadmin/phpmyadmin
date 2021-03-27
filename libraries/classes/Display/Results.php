@@ -2065,9 +2065,11 @@ class Results
                 if ($order->expr->column !== $nameToUseInSort) {
                     continue;
                 }
+
                 // remove the order clause for this column and from the counted array
                 unset($firstStatement->order[$key], $orderClauses[$key]);
             }
+
             $numberOfClausesFound = count($orderClauses);
             $sqlQueryRemove = $firstStatement->build();
         }

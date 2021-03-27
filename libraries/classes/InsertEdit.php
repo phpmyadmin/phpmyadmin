@@ -52,6 +52,7 @@ use function substr;
 use function time;
 use function trim;
 
+use const ENT_COMPAT;
 use const PASSWORD_DEFAULT;
 
 /**
@@ -2090,7 +2091,7 @@ class InsertEdit
                 : Util::addMicroseconds(
                     $currentRow[$column['Field']]
                 );
-            $specialChars = htmlspecialchars($currentRow[$column['Field']]);
+            $specialChars = htmlspecialchars($currentRow[$column['Field']], ENT_COMPAT);
         } elseif (in_array($column['True_Type'], $gisDataTypes)) {
             // Convert gis data to Well Know Text format
             $currentRow[$column['Field']] = $asIs
@@ -2099,7 +2100,7 @@ class InsertEdit
                     $currentRow[$column['Field']],
                     true
                 );
-            $specialChars = htmlspecialchars($currentRow[$column['Field']]);
+            $specialChars = htmlspecialchars($currentRow[$column['Field']], ENT_COMPAT);
         } else {
             // special binary "characters"
             if (
@@ -2113,7 +2114,7 @@ class InsertEdit
                     );
             }
 
-            $specialChars = htmlspecialchars($currentRow[$column['Field']]);
+            $specialChars = htmlspecialchars($currentRow[$column['Field']], ENT_COMPAT);
 
             //We need to duplicate the first \n or otherwise we will lose
             //the first newline entered in a VARCHAR or TEXT column
@@ -2143,7 +2144,7 @@ class InsertEdit
         // it's better to set a fields_prev in this situation
         $backupField = '<input type="hidden" name="fields_prev'
             . $columnNameAppendix . '" value="'
-            . htmlspecialchars($currentRow[$column['Field']]) . '">';
+            . htmlspecialchars($currentRow[$column['Field']], ENT_COMPAT) . '">';
 
         return [
             $realNullValue,

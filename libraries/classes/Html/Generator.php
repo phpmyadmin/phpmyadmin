@@ -631,7 +631,7 @@ class Generator
                     . '</pre></code>';
             } elseif ($queryTooBig) {
                 $queryBase = '<code class="sql"><pre>' . "\n" .
-                    htmlspecialchars($queryBase) .
+                    htmlspecialchars($queryBase, ENT_COMPAT) .
                     '</pre></code>';
             } else {
                 $queryBase = self::formatSql($queryBase);
@@ -1353,7 +1353,7 @@ class Generator
         }
 
         return '<code class="sql"><pre>' . "\n"
-            . htmlspecialchars($sqlQuery) . "\n"
+            . htmlspecialchars($sqlQuery, ENT_COMPAT) . "\n"
             . '</pre></code>';
     }
 

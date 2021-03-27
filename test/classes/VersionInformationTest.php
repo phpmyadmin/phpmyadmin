@@ -305,6 +305,7 @@ class VersionInformationTest extends AbstractTestCase
             $conditionsCalls[] = ['PHP', $condition];
             $returnValues[] = $returnValue;
         }
+
         $mockVersionInfo->expects($this->exactly(count($conditionsCalls)))
             ->method('evaluateVersionCondition')
             ->withConsecutive(

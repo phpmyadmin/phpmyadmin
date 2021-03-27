@@ -21,10 +21,10 @@ use PhpMyAdmin\Version;
 use stdClass;
 
 use function count;
-use function hex2bin;
-use function urldecode;
-use function htmlspecialchars_decode;
 use function explode;
+use function hex2bin;
+use function htmlspecialchars_decode;
+use function urldecode;
 
 use const MYSQLI_NOT_NULL_FLAG;
 use const MYSQLI_NUM_FLAG;
