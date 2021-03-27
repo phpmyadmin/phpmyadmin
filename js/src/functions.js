@@ -484,6 +484,7 @@ Functions.hideShowExpression = function ($virtuality) {
 Functions.verifyColumnsProperties = function () {
     $('select.column_type').each(function () {
         Functions.showNoticeForEnum($(this));
+        Functions.showWarningForIntTypes();
     });
     $('select.default_type').each(function () {
         Functions.hideShowDefaultValue($(this));
@@ -2498,6 +2499,25 @@ Functions.showNoticeForEnum = function (selectElement) {
 };
 
 /**
+ * Hides/shows a warning message when LENGTH is used with inappropriate integer type
+ */
+Functions.showWarningForIntTypes = function () {
+    if ($('div#length_not_allowed').length) {
+        var lengthRestrictions = $('select.column_type option').map(function () {
+            return $(this).filter(':selected').attr('data-length-restricted');
+        }).get();
+
+        var restricationFound = lengthRestrictions.some(restriction => Number(restriction) === 1);
+
+        if (restricationFound) {
+            $('div#length_not_allowed').show();
+        } else {
+            $('div#length_not_allowed').hide();
+        }
+    }
+};
+
+/**
  * Creates a Profiling Chart. Used in sql.js
  * and in server/status/monitor.js
  *
@@ -3265,6 +3285,7 @@ AJAX.registerOnload('functions.js', function () {
     // needs on() to work also in the Create Table dialog
     $(document).on('change', 'select.column_type', function () {
         Functions.showNoticeForEnum($(this));
+        Functions.showWarningForIntTypes();
     });
     $(document).on('change', 'select.default_type', function () {
         Functions.hideShowDefaultValue($(this));

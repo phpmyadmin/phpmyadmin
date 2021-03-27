@@ -11,6 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
+use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Lexer;
@@ -1357,9 +1358,11 @@ class Generator
             if (is_array($value)) {
                 $retval .= '<optgroup label="' . htmlspecialchars($key) . '">';
                 foreach ($value as $subvalue) {
+                    $isLengthRestricted = Compatibility::isIntegersSupportLength($subvalue, '2', $dbi) === true ? 0 : 1;
                     if ($subvalue == $selected) {
                         $retval .= sprintf(
-                            '<option selected="selected" title="%s">%s</option>',
+                            '<option data-length-restricted="%b" selected="selected" title="%s">%s</option>',
+                            $isLengthRestricted,
                             $dbi->types->getTypeDescription($subvalue),
                             $subvalue
                         );
@@ -1369,7 +1372,8 @@ class Generator
                         $retval .= '</option>';
                     } else {
                         $retval .= sprintf(
-                            '<option title="%s">%s</option>',
+                            '<option data-length-restricted="%b" title="%s">%s</option>',
+                            $isLengthRestricted,
                             $dbi->types->getTypeDescription($subvalue),
                             $subvalue
                         );
@@ -1377,18 +1381,23 @@ class Generator
                 }
 
                 $retval .= '</optgroup>';
-            } elseif ($selected == $value) {
-                $retval .= sprintf(
-                    '<option selected="selected" title="%s">%s</option>',
-                    $dbi->types->getTypeDescription($value),
-                    $value
-                );
             } else {
-                $retval .= sprintf(
-                    '<option title="%s">%s</option>',
-                    $dbi->types->getTypeDescription($value),
-                    $value
-                );
+                $isLengthRestricted = Compatibility::isIntegersSupportLength($value, '2', $dbi) === true ? 0 : 1;
+                if ($selected == $value) {
+                    $retval .= sprintf(
+                        '<option data-length-restricted="%b" selected="selected" title="%s">%s</option>',
+                        $isLengthRestricted,
+                        $dbi->types->getTypeDescription($value),
+                        $value
+                    );
+                } else {
+                    $retval .= sprintf(
+                        '<option data-length-restricted="%b" title="%s">%s</option>',
+                        $isLengthRestricted,
+                        $dbi->types->getTypeDescription($value),
+                        $value
+                    );
+                }
             }
         }
 
