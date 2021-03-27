@@ -916,111 +916,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getNullColumn
-     */
-    public function testGetNullColumn(): void
-    {
-        $column = ['Field' => ''];
-        $column['Null'] = 'YES';
-        $column['first_timestamp'] = false;
-        $column['True_Type'] = 'enum';
-        $column['Type'] = 0;
-        $column['Field_md5'] = 'foobar';
-        $foreigners = ['foreign_keys_data' => []];
-
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'getNullColumn',
-            [
-                $column,
-                'a',
-                true,
-                2,
-                0,
-                1,
-                '<script>',
-                $foreigners,
-                [],
-                false,
-            ]
-        );
-
-        $this->assertStringContainsString(
-            '<input type="hidden" name="fields_null_preva" value="on">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<input type="checkbox" class="checkbox_null" tabindex="2" '
-            . 'name="fields_nulla" id="field_1_2" aria-label="Use the NULL value for this column." checked',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<input type="hidden" class="nullify_code" name="nullify_codea" '
-            . 'value="2"',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<input type="hidden" class="hashed_field" name="hashed_fielda" '
-            . 'value="foobar">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<input type="hidden" class="multi_edit" name="multi_edita" '
-            . 'value="<script>"',
-            $result
-        );
-
-        // case 2
-        $column['Null'] = 'NO';
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'getNullColumn',
-            [
-                $column,
-                'a',
-                true,
-                2,
-                0,
-                1,
-                '<script>',
-                $foreigners,
-                [],
-                false,
-            ]
-        );
-
-        $this->assertEquals('<td>' . "\n" . '  </td>' . "\n", $result);
-
-        // case 3
-        $column['Null'] = 'YES';
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'getNullColumn',
-            [
-                $column,
-                'a',
-                true,
-                2,
-                0,
-                1,
-                '<script>',
-                $foreigners,
-                [],
-                true,
-            ]
-        );
-
-        $this->assertEquals('<td>' . "\n" . '  </td>' . "\n", $result);
-    }
-
-    /**
      * Test for getNullifyCodeForNullColumn
      */
     public function testGetNullifyCodeForNullColumn(): void
@@ -4110,7 +4005,7 @@ class InsertEditTest extends AbstractTestCase
                 [],
                 '',
                 '',
-                '',
+                '[a][0]',
                 true,
                 [],
                 &$o_rows,
@@ -4146,8 +4041,38 @@ class InsertEditTest extends AbstractTestCase
         );
         $this->assertStringContainsString(
             '<input type="text" '
-            . 'name="fields[d8578edf8458ce06fbc5bb76a58c5ca4]" '
+            . 'name="fields[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" '
             . 'value="12-10-14.000000"',
+            $actual
+        );
+
+        $this->assertStringContainsString(
+            '<input type="hidden" name="fields_null_prev[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]">',
+            $actual
+        );
+
+        $this->assertStringContainsString(
+            '<input type="checkbox" class="checkbox_null" tabindex="1"'
+            . ' name="fields_null[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" id="field_1_2"'
+            . ' aria-label="Use the NULL value for this column.">',
+            $actual
+        );
+
+        $this->assertStringContainsString(
+            '<input type="hidden" class="nullify_code" name="nullify_code[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" '
+            . 'value="5"',
+            $actual
+        );
+
+        $this->assertStringContainsString(
+            '<input type="hidden" class="hashed_field" name="hashed_field[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" '
+            . 'value="d8578edf8458ce06fbc5bb76a58c5ca4">',
+            $actual
+        );
+
+        $this->assertStringContainsString(
+            '<input type="hidden" class="multi_edit" name="multi_edit[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" '
+            . 'value="[a][0]"',
             $actual
         );
     }

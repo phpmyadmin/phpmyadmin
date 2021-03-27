@@ -570,54 +570,6 @@ class InsertEdit
     }
 
     /**
-     * The null column
-     *
-     * @param array  $column             description of column in given table
-     * @param string $columnNameAppendix the name attribute
-     * @param bool   $realNullValue      is column value null or not null
-     * @param int    $tabindex           tab index
-     * @param int    $tabindexForNull    +6000
-     * @param int    $idindex            id index
-     * @param string $vkey               [multi_edit]['row_id']
-     * @param array  $foreigners         keys into foreign fields
-     * @param array  $foreignData        data about the foreign keys
-     * @param bool   $readOnly           is column read only or not
-     *
-     * @return string                       an html snippet
-     */
-    private function getNullColumn(
-        array $column,
-        $columnNameAppendix,
-        $realNullValue,
-        $tabindex,
-        $tabindexForNull,
-        $idindex,
-        $vkey,
-        array $foreigners,
-        array $foreignData,
-        $readOnly
-    ) {
-        // nullify code is needed by the js nullify() function to be able to generate calls to nullify() in jQuery
-        $nullifyCode = $this->getNullifyCodeForNullColumn(
-            $column,
-            $foreigners,
-            $foreignData
-        );
-
-        return $this->template->render('table/insert/null_column', [
-            'has_null_checkbox' => $column['Null'] === 'YES' && ! $readOnly,
-            'column_name_appendix' => $columnNameAppendix,
-            'real_null_value' => $realNullValue,
-            'column_first_timestamp' => $column['first_timestamp'],
-            'id_index' => $idindex,
-            'tab_index' => $tabindex + $tabindexForNull,
-            'nullify_code' => $nullifyCode,
-            'column_field_md5' => $column['Field_md5'],
-            'vkey' => $vkey,
-        ]);
-    }
-
-    /**
      * Retrieve the nullify code for the null column
      *
      * @param array $column      description of column in given table
@@ -3200,37 +3152,6 @@ class InsertEdit
     }
 
     /**
-     * Function to get html for the function option
-     *
-     * @param array  $column             column
-     * @param string $columnNameAppendix column name appendix
-     */
-    private function getHtmlForFunctionOption(array $column, $columnNameAppendix): string
-    {
-        return '<tr class="noclick">'
-            . '<td '
-            . 'class="text-center">'
-            . $column['Field_title']
-            . '<input type="hidden" name="fields_name' . $columnNameAppendix
-            . '" value="' . $column['Field_html'] . '">'
-            . '</td>';
-    }
-
-    /**
-     * Function to get html for the column type
-     *
-     * @param array $column column
-     *
-     * @return string
-     */
-    private function getHtmlForInsertEditColumnType(array $column)
-    {
-        return '<td class="text-center' . $column['wrap'] . '">'
-            . '<span class="column_type" dir="ltr">' . $column['pma_type'] . '</span>'
-            . '</td>';
-    }
-
-    /**
      * Function to get html for the insert edit form header
      *
      * @param bool $hasBlobField whether has blob field
@@ -3322,11 +3243,7 @@ class InsertEdit
         $readOnly = false;
 
         if (! isset($column['processed'])) {
-            $column = $this->analyzeTableColumnsArray(
-                $column,
-                $commentsMap,
-                $timestampSeen
-            );
+            $column = $this->analyzeTableColumnsArray($column, $commentsMap, $timestampSeen);
         }
 
         $asIs = false;
@@ -3335,14 +3252,10 @@ class InsertEdit
             $asIs = true;
         }
 
-        $extractedColumnspec
-            = Util::extractColumnSpec($column['Type']);
+        $extractedColumnspec = Util::extractColumnSpec($column['Type']);
 
         if ($column['len'] === -1) {
-            $column['len'] = $this->dbi->fieldLen(
-                $currentResult,
-                $columnNumber
-            );
+            $column['len'] = $this->dbi->fieldLen($currentResult, $columnNumber);
             // length is unknown for geometry fields,
             // make enough space to edit very simple WKTs
             if ($column['len'] === -1) {
@@ -3364,15 +3277,6 @@ class InsertEdit
             $column['Default'] = date('Y-m-d H:i:s', time());
         }
 
-        $htmlOutput = $this->getHtmlForFunctionOption(
-            $column,
-            $columnNameAppendix
-        );
-
-        if ($GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
-            $htmlOutput .= $this->getHtmlForInsertEditColumnType($column);
-        }
-
         // Get a list of GIS data types.
         $gisDataTypes = Gis::getDataTypes();
 
@@ -3387,16 +3291,15 @@ class InsertEdit
                 $specialChars,
                 $data,
                 $backupField,
-            ]
-                = $this->getSpecialCharsAndBackupFieldForExistingRow(
-                    $currentRow,
-                    $column,
-                    $extractedColumnspec,
-                    $realNullValue,
-                    $gisDataTypes,
-                    $columnNameAppendix,
-                    $asIs
-                );
+            ] = $this->getSpecialCharsAndBackupFieldForExistingRow(
+                $currentRow,
+                $column,
+                $extractedColumnspec,
+                $realNullValue,
+                $gisDataTypes,
+                $columnNameAppendix,
+                $asIs
+            );
         } else {
             // (we are inserting)
             // display default values
@@ -3411,11 +3314,7 @@ class InsertEdit
                 $specialChars,
                 $backupField,
                 $specialCharsEncoded,
-            ]
-                = $this->getSpecialCharsAndBackupFieldForInsertingMode(
-                    $tmp,
-                    $realNullValue
-                );
+            ] = $this->getSpecialCharsAndBackupFieldForInsertingMode($tmp, $realNullValue);
             unset($tmp);
         }
 
@@ -3427,15 +3326,11 @@ class InsertEdit
 
         // The function column
         // -------------------
-        $foreignData = $this->relation->getForeignData(
-            $foreigners,
-            $column['Field'],
-            false,
-            '',
-            ''
-        );
+        $foreignData = $this->relation->getForeignData($foreigners, $column['Field'], false, '', '');
+
+        $functionColumn = '';
         if ($GLOBALS['cfg']['ShowFunctionFields']) {
-            $htmlOutput .= $this->getFunctionColumn(
+            $functionColumn = $this->getFunctionColumn(
                 $column,
                 $isUpload,
                 $columnNameAppendix,
@@ -3450,20 +3345,8 @@ class InsertEdit
             );
         }
 
-        // The null column
-        // ---------------
-        $htmlOutput .= $this->getNullColumn(
-            $column,
-            $columnNameAppendix,
-            $realNullValue,
-            $tabindex,
-            $tabindexForNull,
-            $idindex,
-            $vkey,
-            $foreigners,
-            $foreignData,
-            $readOnly
-        );
+        // nullify code is needed by the js nullify() function to be able to generate calls to nullify() in jQuery
+        $nullifyCode = $this->getNullifyCodeForNullColumn($column, $foreigners, $foreignData);
 
         // The value column (depends on type)
         // ----------------
@@ -3477,13 +3360,6 @@ class InsertEdit
             $match[0] = trim($match[0], '()');
             $noDecimals = $match[0];
         }
-
-        $htmlOutput .= '<td data-type="' . $type . '" data-decimals="'
-            . $noDecimals . '">' . "\n";
-        // Will be used by js/table/change.js to set the default value
-        // for the "Continue insertion" feature
-        $htmlOutput .= '<span class="default_value hide">'
-            . $specialChars . '</span>';
 
         // Check input transformation of column
         $transformedHtml = '';
@@ -3535,10 +3411,9 @@ class InsertEdit
             }
         }
 
-        if (! empty($transformedHtml)) {
-            $htmlOutput .= $transformedHtml;
-        } else {
-            $htmlOutput .= $this->getValueColumn(
+        $columnValue = '';
+        if (empty($transformedHtml)) {
+            $columnValue = $this->getValueColumn(
                 $column,
                 $backupField,
                 $columnNameAppendix,
@@ -3549,10 +3424,7 @@ class InsertEdit
                 $data,
                 $specialChars,
                 $foreignData,
-                [
-                    $table,
-                    $db,
-                ],
+                [$table, $db],
                 $rowId,
                 $textDir,
                 $specialCharsEncoded,
@@ -3567,7 +3439,24 @@ class InsertEdit
             );
         }
 
-        return $htmlOutput;
+        return $this->template->render('table/insert/column_row', [
+            'column' => $column,
+            'vkey' => $vkey,
+            'show_field_types_in_data_edit_view' => $GLOBALS['cfg']['ShowFieldTypesInDataEditView'],
+            'show_function_fields' => $GLOBALS['cfg']['ShowFunctionFields'],
+            'function_column' => $functionColumn,
+            'read_only' => $readOnly,
+            'nullify_code' => $nullifyCode,
+            'real_null_value' => $realNullValue,
+            'id_index' => $idindex,
+            'tab_index' => $tabindex,
+            'tab_index_for_null' => $tabindexForNull,
+            'type' => $type,
+            'decimals' => $noDecimals,
+            'special_chars' => $specialChars,
+            'transformed_value' => $transformedHtml,
+            'value' => $columnValue,
+        ]);
     }
 
     /**

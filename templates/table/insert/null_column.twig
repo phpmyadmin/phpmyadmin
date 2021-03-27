@@ -1,9 +1,0 @@
-<td>
-  {% if has_null_checkbox %}
-    <input type="hidden" name="fields_null_prev{{ column_name_appendix }}"{{ real_null_value and not column_first_timestamp ? ' value="on"' }}>
-    <input type="checkbox" class="checkbox_null" tabindex="{{ tab_index }}" name="fields_null{{ column_name_appendix }}" id="field_{{ id_index }}_2" aria-label="{% trans 'Use the NULL value for this column.' %}"{{ real_null_value ? ' checked' }}>
-    <input type="hidden" class="nullify_code" name="nullify_code{{ column_name_appendix }}" value="{{ nullify_code }}">
-    <input type="hidden" class="hashed_field" name="hashed_field{{ column_name_appendix }}" value="{{ column_field_md5 }}">
-    <input type="hidden" class="multi_edit" name="multi_edit{{ column_name_appendix }}" value="{{ vkey|escape_js_string }}">
-  {% endif %}
-</td>
