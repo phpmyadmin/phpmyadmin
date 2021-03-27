@@ -596,45 +596,24 @@ class InsertEdit
         array $foreignData,
         $readOnly
     ) {
-        if ($column['Null'] !== 'YES' || $readOnly) {
-            return "<td></td>\n";
-        }
-
-        $htmlOutput = '';
-        $htmlOutput .= '<td>' . "\n";
-        $htmlOutput .= '<input type="hidden" name="fields_null_prev'
-            . $columnNameAppendix . '"';
-        if ($realNullValue && ! $column['first_timestamp']) {
-            $htmlOutput .= ' value="on"';
-        }
-
-        $htmlOutput .= '>' . "\n";
-
-        $htmlOutput .= '<input type="checkbox" class="checkbox_null" tabindex="'
-            . ($tabindex + $tabindexForNull) . '"'
-            . ' name="fields_null' . $columnNameAppendix . '"';
-        if ($realNullValue) {
-            $htmlOutput .= ' checked="checked"';
-        }
-
-        $htmlOutput .= ' id="field_' . $idindex . '_2">';
-
-        // nullify_code is needed by the js nullify() function
+        // nullify code is needed by the js nullify() function to be able to generate calls to nullify() in jQuery
         $nullifyCode = $this->getNullifyCodeForNullColumn(
             $column,
             $foreigners,
             $foreignData
         );
-        // to be able to generate calls to nullify() in jQuery
-        $htmlOutput .= '<input type="hidden" class="nullify_code" name="nullify_code'
-            . $columnNameAppendix . '" value="' . $nullifyCode . '">';
-        $htmlOutput .= '<input type="hidden" class="hashed_field" name="hashed_field'
-            . $columnNameAppendix . '" value="' . $column['Field_md5'] . '">';
-        $htmlOutput .= '<input type="hidden" class="multi_edit" name="multi_edit'
-            . $columnNameAppendix . '" value="' . Sanitize::escapeJsString($vkey) . '">';
-        $htmlOutput .= '</td>' . "\n";
 
-        return $htmlOutput;
+        return $this->template->render('table/insert/null_column', [
+            'has_null_checkbox' => $column['Null'] === 'YES' && ! $readOnly,
+            'column_name_appendix' => $columnNameAppendix,
+            'real_null_value' => $realNullValue,
+            'column_first_timestamp' => $column['first_timestamp'],
+            'id_index' => $idindex,
+            'tab_index' => $tabindex + $tabindexForNull,
+            'nullify_code' => $nullifyCode,
+            'column_field_md5' => $column['Field_md5'],
+            'vkey' => $vkey,
+        ]);
     }
 
     /**

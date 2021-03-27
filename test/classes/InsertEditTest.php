@@ -926,9 +926,7 @@ class InsertEditTest extends AbstractTestCase
         $column['True_Type'] = 'enum';
         $column['Type'] = 0;
         $column['Field_md5'] = 'foobar';
-        $foreigners = [
-            'foreign_keys_data' => [],
-        ];
+        $foreigners = ['foreign_keys_data' => []];
 
         $result = $this->callFunction(
             $this->insertEdit,
@@ -955,7 +953,7 @@ class InsertEditTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<input type="checkbox" class="checkbox_null" tabindex="2" '
-            . 'name="fields_nulla" checked="checked" id="field_1_2"',
+            . 'name="fields_nulla" id="field_1_2" aria-label="Use the NULL value for this column." checked',
             $result
         );
 
@@ -991,16 +989,13 @@ class InsertEditTest extends AbstractTestCase
                 0,
                 1,
                 '<script>',
-                [],
+                $foreigners,
                 [],
                 false,
             ]
         );
 
-        $this->assertEquals(
-            "<td></td>\n",
-            $result
-        );
+        $this->assertEquals('<td>' . "\n" . '  </td>' . "\n", $result);
 
         // case 3
         $column['Null'] = 'YES';
@@ -1016,16 +1011,13 @@ class InsertEditTest extends AbstractTestCase
                 0,
                 1,
                 '<script>',
-                [],
+                $foreigners,
                 [],
                 true,
             ]
         );
 
-        $this->assertEquals(
-            "<td></td>\n",
-            $result
-        );
+        $this->assertEquals('<td>' . "\n" . '  </td>' . "\n", $result);
     }
 
     /**
@@ -4008,6 +4000,7 @@ class InsertEditTest extends AbstractTestCase
         $o_rows = 0;
         $tabindex = 0;
         $GLOBALS['plugin_scripts'] = [];
+        $foreigners = ['foreign_keys_data' => []];
         $table_columns = [
             [
                 'Field' => 'col',
@@ -4043,7 +4036,7 @@ class InsertEditTest extends AbstractTestCase
                 0,
                 false,
                 0,
-                [],
+                $foreigners,
                 0,
                 0,
                 'table',
@@ -4125,7 +4118,7 @@ class InsertEditTest extends AbstractTestCase
                 0,
                 false,
                 0,
-                [],
+                $foreigners,
                 0,
                 0,
                 'table',
@@ -4169,6 +4162,7 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['plugin_scripts'] = [];
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = true;
         $GLOBALS['cfg']['CharEditing'] = true;
+        $foreigners = ['foreign_keys_data' => []];
         $table_columns = [
             [
                 'Field' => 'test',
@@ -4196,7 +4190,7 @@ class InsertEditTest extends AbstractTestCase
             1,
             false,
             0,
-            [],
+            $foreigners,
             0,
             0,
             'table',
@@ -4243,6 +4237,7 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['plugin_scripts'] = [];
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = true;
         $GLOBALS['cfg']['CharEditing'] = true;
+        $foreigners = ['foreign_keys_data' => []];
 
         // edit
         $table_columns = [
@@ -4281,7 +4276,7 @@ class InsertEditTest extends AbstractTestCase
             1,
             false,
             0,
-            [],
+            $foreigners,
             0,
             0,
             'table',
@@ -4340,7 +4335,7 @@ class InsertEditTest extends AbstractTestCase
             2,
             false,
             0,
-            [],
+            $foreigners,
             0,
             0,
             'table',
