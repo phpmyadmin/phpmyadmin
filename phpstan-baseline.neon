@@ -611,11 +611,6 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Negated boolean expression is always true\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
 			message: "#^Negated boolean expression is always false\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php

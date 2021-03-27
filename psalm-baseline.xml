@@ -313,9 +313,7 @@
     <MissingFile occurrences="1">
       <code>include ROOT_PATH . 'libraries/language_stats.inc.php'</code>
     </MissingFile>
-    <PossiblyNullArgument occurrences="3">
-      <code>$this-&gt;config-&gt;get('ShowGitRevision')</code>
-      <code>$this-&gt;config-&gt;get('ShowGitRevision')</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;config-&gt;get('TempDir')</code>
     </PossiblyNullArgument>
   </file>

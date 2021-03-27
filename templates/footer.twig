@@ -12,7 +12,20 @@
 
   {% if is_demo %}
     <div id="pma_demo">
-      {{ demo_message|raw }}
+      {% apply notice %}
+        <a href="{{ url('/') }}">{% trans 'phpMyAdmin Demo Server' %}:</a>
+        {% if git_revision_info is not empty %}
+          {% set revision_info -%}
+            <a target="_blank" rel="noopener noreferrer" href="{{ git_revision_info.revisionUrl }}">{{ git_revision_info.revision }}</a>
+          {%- endset %}
+          {% set branch_info -%}
+            <a target="_blank" rel="noopener noreferrer" href="{{ git_revision_info.branchUrl }}">{{ git_revision_info.branch }}</a>
+          {%- endset %}
+          {{ 'Currently running Git revision %1$s from the %2$s branch.'|trans|format(revision_info, branch_info)|raw }}
+        {% else %}
+          {% trans 'Git information missing!' %}
+        {% endif %}
+      {% endapply %}
     </div>
   {% endif %}
 
