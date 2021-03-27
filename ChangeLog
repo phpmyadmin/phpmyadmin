@@ -48,6 +48,8 @@ phpMyAdmin - ChangeLog
 - issue #16703 Fixed SQL option to Export specific rows from a table
 - issue #16656 Fixed error messages are not always translated
 - issue #16728 Fixed wrong SQL query built on table structure index for new column
+- issue #16647 Fixed table search forms not showing texts and not respecting TabsMode config
+- issue #16758 Fixed copy to clipboard feature not working on ja or zh_TW languages because of the non ascii colon
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
