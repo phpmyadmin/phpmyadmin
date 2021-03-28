@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-02-24 10:22+0100\n"
-"PO-Revision-Date: 2021-02-22 11:50+0000\n"
+"PO-Revision-Date: 2021-03-29 10:48+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.6-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7033,10 +7033,9 @@ msgid "Submit"
 msgstr "Submete"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:551
-#, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "Carregue em ESC para cancelar a edição."
+msgstr ""
+"Carregue em ESC para cancelar a edição.<br>- Shift+Enter para uma nova linha."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid ""
