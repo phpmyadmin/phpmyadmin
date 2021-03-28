@@ -743,179 +743,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getFunctionColumn
-     */
-    public function testGetFunctionColumn(): void
-    {
-        $GLOBALS['cfg']['ProtectBinary'] = 'blob';
-        $column = [];
-        $column['is_blob'] = true;
-        $this->assertStringContainsString(
-            '<td class="text-center">Binary</td>',
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getFunctionColumn',
-                [
-                    $column,
-                    false,
-                    '',
-                    '',
-                    [],
-                    0,
-                    0,
-                    0,
-                    false,
-                    false,
-                    [],
-                ]
-            )
-        );
-
-        $GLOBALS['cfg']['ProtectBinary'] = 'all';
-        $column['is_binary'] = true;
-        $this->assertStringContainsString(
-            '<td class="text-center">Binary</td>',
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getFunctionColumn',
-                [
-                    $column,
-                    true,
-                    '',
-                    '',
-                    [],
-                    0,
-                    0,
-                    0,
-                    false,
-                    false,
-                    [],
-                ]
-            )
-        );
-
-        $GLOBALS['cfg']['ProtectBinary'] = 'noblob';
-        $column['is_blob'] = false;
-        $this->assertStringContainsString(
-            '<td class="text-center">Binary</td>',
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getFunctionColumn',
-                [
-                    $column,
-                    true,
-                    '',
-                    '',
-                    [],
-                    0,
-                    0,
-                    0,
-                    false,
-                    false,
-                    [],
-                ]
-            )
-        );
-
-        $GLOBALS['cfg']['ProtectBinary'] = false;
-        $column['True_Type'] = 'enum';
-        $this->assertStringContainsString(
-            '<td class="text-center">--</td>',
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getFunctionColumn',
-                [
-                    $column,
-                    true,
-                    '',
-                    '',
-                    [],
-                    0,
-                    0,
-                    0,
-                    false,
-                    false,
-                    [],
-                ]
-            )
-        );
-
-        $column['True_Type'] = 'set';
-        $this->assertStringContainsString(
-            '<td class="text-center">--</td>',
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getFunctionColumn',
-                [
-                    $column,
-                    true,
-                    '',
-                    '',
-                    [],
-                    0,
-                    0,
-                    0,
-                    false,
-                    false,
-                    [],
-                ]
-            )
-        );
-
-        $column['True_Type'] = '';
-        $column['pma_type'] = 'int';
-        $this->assertStringContainsString(
-            '<td class="text-center">--</td>',
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getFunctionColumn',
-                [
-                    $column,
-                    true,
-                    '',
-                    '',
-                    ['int'],
-                    0,
-                    0,
-                    0,
-                    false,
-                    false,
-                    [],
-                ]
-            )
-        );
-
-        $column['Field'] = 'num';
-        $this->assertStringContainsString(
-            '<select name="funcsa" b tabindex="5" id="field_3_1"',
-            $this->callFunction(
-                $this->insertEdit,
-                InsertEdit::class,
-                'getFunctionColumn',
-                [
-                    $column,
-                    true,
-                    'a',
-                    'b',
-                    [],
-                    2,
-                    3,
-                    3,
-                    false,
-                    false,
-                    [],
-                ]
-            )
-        );
-    }
-
-    /**
      * Test for getNullifyCodeForNullColumn
      */
     public function testGetNullifyCodeForNullColumn(): void
@@ -3930,9 +3757,7 @@ class InsertEditTest extends AbstractTestCase
                 &$tabindex,
                 0,
                 false,
-                0,
                 $foreigners,
-                0,
                 0,
                 'table',
                 'db',
@@ -4012,9 +3837,7 @@ class InsertEditTest extends AbstractTestCase
                 &$tabindex,
                 0,
                 false,
-                0,
                 $foreigners,
-                0,
                 0,
                 'table',
                 'db',
@@ -4027,18 +3850,9 @@ class InsertEditTest extends AbstractTestCase
                 '',
             ]
         );
-        $this->assertStringContainsString(
-            'qwerty',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<option>UUID</option>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<span class="column_type" dir="ltr">datetime</span>',
-            $actual
-        );
+        $this->assertStringContainsString('qwerty', $actual);
+        $this->assertStringContainsString('<option>UUID</option>', $actual);
+        $this->assertStringContainsString('<span class="column_type" dir="ltr">datetime</span>', $actual);
         $this->assertStringContainsString(
             '<input type="text" '
             . 'name="fields[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" '
@@ -4047,32 +3861,41 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<input type="hidden" name="fields_null_prev[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]">',
+            '<select name="funcs[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]"'
+            . ' onchange="return verificationsAfterFieldChange(\'d8578edf8458ce06fbc5bb76a58c5ca4\','
+            . ' \'0\', \'datetime\')" id="field_1_1">',
+            $actual
+        );
+        $this->assertStringContainsString('<option>DATE</option>', $actual);
+
+        $this->assertStringContainsString(
+            '<input type="hidden" name="fields_null_prev[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]">',
             $actual
         );
 
         $this->assertStringContainsString(
-            '<input type="checkbox" class="checkbox_null" tabindex="1"'
-            . ' name="fields_null[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" id="field_1_2"'
+            '<input type="checkbox" class="checkbox_null"'
+            . ' name="fields_null[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]" id="field_1_2"'
             . ' aria-label="Use the NULL value for this column.">',
             $actual
         );
 
         $this->assertStringContainsString(
-            '<input type="hidden" class="nullify_code" name="nullify_code[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" '
-            . 'value="5"',
+            '<input type="hidden" class="nullify_code"'
+            . ' name="nullify_code[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]" value="5"',
             $actual
         );
 
         $this->assertStringContainsString(
-            '<input type="hidden" class="hashed_field" name="hashed_field[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" '
+            '<input type="hidden" class="hashed_field"'
+            . ' name="hashed_field[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]" '
             . 'value="d8578edf8458ce06fbc5bb76a58c5ca4">',
             $actual
         );
 
         $this->assertStringContainsString(
-            '<input type="hidden" class="multi_edit" name="multi_edit[a][0][d8578edf8458ce06fbc5bb76a58c5ca4]" '
-            . 'value="[a][0]"',
+            '<input type="hidden" class="multi_edit"'
+            . ' name="multi_edit[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]" value="[multi_edit][0]"',
             $actual
         );
     }
@@ -4114,9 +3937,7 @@ class InsertEditTest extends AbstractTestCase
             $tabindex,
             1,
             false,
-            0,
             $foreigners,
-            0,
             0,
             'table',
             'db',
@@ -4200,9 +4021,7 @@ class InsertEditTest extends AbstractTestCase
             $tabindex,
             1,
             false,
-            0,
             $foreigners,
-            0,
             0,
             'table',
             'db',
@@ -4259,9 +4078,7 @@ class InsertEditTest extends AbstractTestCase
             $tabindex,
             2,
             false,
-            0,
             $foreigners,
-            0,
             0,
             'table',
             'db',

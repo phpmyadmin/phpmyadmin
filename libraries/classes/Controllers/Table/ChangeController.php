@@ -53,8 +53,8 @@ class ChangeController extends AbstractController
         global $cfg, $is_upload, $db, $table, $text_dir, $disp_message, $urlParams;
         global $errorUrl, $where_clause, $unsaved_values, $insert_mode, $where_clause_array, $where_clauses;
         global $result, $rows, $found_unique_key, $after_insert, $comments_map, $table_columns;
-        global $chg_evt_handler, $timestamp_seen, $columns_cnt, $tabindex, $tabindex_for_function;
-        global $tabindex_for_null, $tabindex_for_value, $o_rows, $biggest_max_file_size, $has_blob_field;
+        global $chg_evt_handler, $timestamp_seen, $columns_cnt, $tabindex;
+        global $tabindex_for_value, $o_rows, $biggest_max_file_size, $has_blob_field;
         global $jsvkey, $vkey, $current_result, $repopulate, $checked;
 
         $pageSettings = new PageSettings('Edit');
@@ -158,8 +158,6 @@ class ChangeController extends AbstractController
         $columns_cnt     = count($table_columns);
 
         $tabindex              = 0;
-        $tabindex_for_function = +3000;
-        $tabindex_for_null     = +6000;
         $tabindex_for_value    = 0;
         $o_rows                = 0;
         $biggest_max_file_size = 0;
@@ -247,9 +245,7 @@ class ChangeController extends AbstractController
                 $tabindex,
                 $columns_cnt,
                 $is_upload,
-                $tabindex_for_function,
                 $foreigners,
-                $tabindex_for_null,
                 $tabindex_for_value,
                 $table,
                 $db,

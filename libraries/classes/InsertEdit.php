@@ -499,77 +499,6 @@ class InsertEdit
     }
 
     /**
-     * The function column
-     * We don't want binary data to be destroyed
-     * Note: from the MySQL manual: "BINARY doesn't affect how the column is
-     *       stored or retrieved" so it does not mean that the contents is binary
-     *
-     * @param array  $column              description of column in given table
-     * @param bool   $isUpload            upload or no
-     * @param string $columnNameAppendix  the name attribute
-     * @param string $onChangeClause      onchange clause for fields
-     * @param array  $noSupportTypes      list of datatypes that are not (yet)
-     *                                      handled by PMA
-     * @param int    $tabindexForFunction +3000
-     * @param int    $tabindex            tab index
-     * @param int    $idindex             id index
-     * @param bool   $insertMode          insert mode or edit mode
-     * @param bool   $readOnly            is column read only or not
-     * @param array  $foreignData         foreign key data
-     *
-     * @return string                           an html snippet
-     */
-    private function getFunctionColumn(
-        array $column,
-        $isUpload,
-        $columnNameAppendix,
-        $onChangeClause,
-        array $noSupportTypes,
-        $tabindexForFunction,
-        $tabindex,
-        $idindex,
-        $insertMode,
-        $readOnly,
-        array $foreignData
-    ): string {
-        $htmlOutput = '';
-        if (
-            ($GLOBALS['cfg']['ProtectBinary'] === 'blob'
-            && $column['is_blob'] && ! $isUpload)
-            || ($GLOBALS['cfg']['ProtectBinary'] === 'all'
-            && $column['is_binary'])
-            || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob'
-            && $column['is_binary'])
-        ) {
-            $htmlOutput .= '<td class="text-center">' . __('Binary') . '</td>' . "\n";
-        } elseif (
-            $readOnly
-            || mb_strstr($column['True_Type'], 'enum')
-            || mb_strstr($column['True_Type'], 'set')
-            || in_array($column['pma_type'], $noSupportTypes)
-        ) {
-            $htmlOutput .= '<td class="text-center">--</td>' . "\n";
-        } else {
-            $htmlOutput .= '<td>' . "\n";
-
-            $htmlOutput .= '<select name="funcs' . $columnNameAppendix . '"'
-                . ' ' . $onChangeClause
-                . ' tabindex="' . ($tabindex + $tabindexForFunction) . '"'
-                . ' id="field_' . $idindex . '_1">';
-            $htmlOutput .= Generator::getFunctionsForField(
-                $column,
-                $insertMode,
-                $foreignData
-            ) . "\n";
-
-            $htmlOutput .= '</select>' . "\n";
-            $htmlOutput .= '</td>' . "\n";
-        }
-
-        return $htmlOutput;
-    }
-
-    /**
      * Retrieve the nullify code for the null column
      *
      * @param array $column      description of column in given table
@@ -3179,34 +3108,31 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit column
      *
-     * @param array  $tableColumns        table columns
-     * @param int    $columnNumber        column index in table_columns
-     * @param array  $commentsMap         comments map
-     * @param bool   $timestampSeen       whether timestamp seen
-     * @param array  $currentResult       current result
-     * @param string $chgEvtHandler       javascript change event handler
-     * @param string $jsvkey              javascript validation key
-     * @param string $vkey                validation key
-     * @param bool   $insertMode          whether insert mode
-     * @param array  $currentRow          current row
-     * @param int    $oRows               row offset
-     * @param int    $tabindex            tab index
-     * @param int    $columnsCnt          columns count
-     * @param bool   $isUpload            whether upload
-     * @param int    $tabindexForFunction tab index offset for function
-     * @param array  $foreigners          foreigners
-     * @param int    $tabindexForNull     tab index offset for null
-     * @param int    $tabindexForValue    tab index offset for value
-     * @param string $table               table
-     * @param string $db                  database
-     * @param int    $rowId               row id
-     * @param int    $biggestMaxFileSize  biggest max file size
-     * @param string $defaultCharEditing  default char editing mode which is stored
-     *                                      in the config.inc.php script
-     * @param string $textDir             text direction
-     * @param array  $repopulate          the data to be repopulated
-     * @param array  $columnMime          the mime information of column
-     * @param string $whereClause         the where clause
+     * @param array  $tableColumns       table columns
+     * @param int    $columnNumber       column index in table_columns
+     * @param array  $commentsMap        comments map
+     * @param bool   $timestampSeen      whether timestamp seen
+     * @param array  $currentResult      current result
+     * @param string $chgEvtHandler      javascript change event handler
+     * @param string $jsvkey             javascript validation key
+     * @param string $vkey               validation key
+     * @param bool   $insertMode         whether insert mode
+     * @param array  $currentRow         current row
+     * @param int    $oRows              row offset
+     * @param int    $tabindex           tab index
+     * @param int    $columnsCnt         columns count
+     * @param bool   $isUpload           whether upload
+     * @param array  $foreigners         foreigners
+     * @param int    $tabindexForValue   tab index offset for value
+     * @param string $table              table
+     * @param string $db                 database
+     * @param int    $rowId              row id
+     * @param int    $biggestMaxFileSize biggest max file size
+     * @param string $defaultCharEditing default char editing mode which is stored in the config.inc.php script
+     * @param string $textDir            text direction
+     * @param array  $repopulate         the data to be repopulated
+     * @param array  $columnMime         the mime information of column
+     * @param string $whereClause        the where clause
      *
      * @return string
      */
@@ -3225,9 +3151,7 @@ class InsertEdit
         &$tabindex,
         $columnsCnt,
         $isUpload,
-        $tabindexForFunction,
         array $foreigners,
-        $tabindexForNull,
         $tabindexForValue,
         $table,
         $db,
@@ -3327,22 +3251,11 @@ class InsertEdit
         // The function column
         // -------------------
         $foreignData = $this->relation->getForeignData($foreigners, $column['Field'], false, '', '');
+        $isColumnBinary = $this->isColumnBinary($column, $isUpload);
+        $functionOptions = '';
 
-        $functionColumn = '';
         if ($GLOBALS['cfg']['ShowFunctionFields']) {
-            $functionColumn = $this->getFunctionColumn(
-                $column,
-                $isUpload,
-                $columnNameAppendix,
-                $onChangeClause,
-                $noSupportTypes,
-                $tabindexForFunction,
-                $tabindex,
-                $idindex,
-                $insertMode,
-                $readOnly,
-                $foreignData
-            );
+            $functionOptions = Generator::getFunctionsForField($column, $insertMode, $foreignData);
         }
 
         // nullify code is needed by the js nullify() function to be able to generate calls to nullify() in jQuery
@@ -3441,16 +3354,15 @@ class InsertEdit
 
         return $this->template->render('table/insert/column_row', [
             'column' => $column,
-            'vkey' => $vkey,
+            'row_id' => $rowId,
             'show_field_types_in_data_edit_view' => $GLOBALS['cfg']['ShowFieldTypesInDataEditView'],
             'show_function_fields' => $GLOBALS['cfg']['ShowFunctionFields'],
-            'function_column' => $functionColumn,
+            'is_column_binary' => $isColumnBinary,
+            'function_options' => $functionOptions,
             'read_only' => $readOnly,
             'nullify_code' => $nullifyCode,
             'real_null_value' => $realNullValue,
             'id_index' => $idindex,
-            'tab_index' => $tabindex,
-            'tab_index_for_null' => $tabindexForNull,
             'type' => $type,
             'decimals' => $noDecimals,
             'special_chars' => $specialChars,
@@ -3459,34 +3371,45 @@ class InsertEdit
         ]);
     }
 
+    private function isColumnBinary(array $column, bool $isUpload): bool
+    {
+        global $cfg;
+
+        if (! $cfg['ShowFunctionFields']) {
+            return false;
+        }
+
+        return ($cfg['ProtectBinary'] === 'blob' && $column['is_blob'] && ! $isUpload)
+            || ($cfg['ProtectBinary'] === 'all' && $column['is_binary'])
+            || ($cfg['ProtectBinary'] === 'noblob' && $column['is_binary']);
+    }
+
     /**
      * Function to get html for each insert/edit row
      *
-     * @param array  $urlParams           url parameters
-     * @param array  $tableColumns        table columns
-     * @param array  $commentsMap         comments map
-     * @param bool   $timestampSeen       whether timestamp seen
-     * @param array  $currentResult       current result
-     * @param string $chgEvtHandler       javascript change event handler
-     * @param string $jsvkey              javascript validation key
-     * @param string $vkey                validation key
-     * @param bool   $insertMode          whether insert mode
-     * @param array  $currentRow          current row
-     * @param int    $oRows               row offset
-     * @param int    $tabindex            tab index
-     * @param int    $columnsCnt          columns count
-     * @param bool   $isUpload            whether upload
-     * @param int    $tabindexForFunction tab index offset for function
-     * @param array  $foreigners          foreigners
-     * @param int    $tabindexForNull     tab index offset for null
-     * @param int    $tabindexForValue    tab index offset for value
-     * @param string $table               table
-     * @param string $db                  database
-     * @param int    $rowId               row id
-     * @param int    $biggestMaxFileSize  biggest max file size
-     * @param string $textDir             text direction
-     * @param array  $repopulate          the data to be repopulated
-     * @param array  $whereClauseArray    the array of where clauses
+     * @param array  $urlParams          url parameters
+     * @param array  $tableColumns       table columns
+     * @param array  $commentsMap        comments map
+     * @param bool   $timestampSeen      whether timestamp seen
+     * @param array  $currentResult      current result
+     * @param string $chgEvtHandler      javascript change event handler
+     * @param string $jsvkey             javascript validation key
+     * @param string $vkey               validation key
+     * @param bool   $insertMode         whether insert mode
+     * @param array  $currentRow         current row
+     * @param int    $oRows              row offset
+     * @param int    $tabindex           tab index
+     * @param int    $columnsCnt         columns count
+     * @param bool   $isUpload           whether upload
+     * @param array  $foreigners         foreigners
+     * @param int    $tabindexForValue   tab index offset for value
+     * @param string $table              table
+     * @param string $db                 database
+     * @param int    $rowId              row id
+     * @param int    $biggestMaxFileSize biggest max file size
+     * @param string $textDir            text direction
+     * @param array  $repopulate         the data to be repopulated
+     * @param array  $whereClauseArray   the array of where clauses
      *
      * @return string
      */
@@ -3505,9 +3428,7 @@ class InsertEdit
         &$tabindex,
         $columnsCnt,
         $isUpload,
-        $tabindexForFunction,
         array $foreigners,
-        $tabindexForNull,
         $tabindexForValue,
         $table,
         $db,
@@ -3560,9 +3481,7 @@ class InsertEdit
                 $tabindex,
                 $columnsCnt,
                 $isUpload,
-                $tabindexForFunction,
                 $foreigners,
-                $tabindexForNull,
                 $tabindexForValue,
                 $table,
                 $db,
