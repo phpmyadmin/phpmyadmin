@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.6.4@97fe86c4e158b5a57c5150aa5055c38b5a809aab">
+<files psalm-version="4.7.0@d4377c0baf3ffbf0b1ec6998e8d1be2a40971005">
   <file src="libraries/classes/Bookmark.php">
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
@@ -204,8 +204,7 @@
     <PossiblyNullArgument occurrences="1">
       <code>$error</code>
     </PossiblyNullArgument>
-    <ReferenceConstraintViolation occurrences="2">
-      <code>$error</code>
+    <ReferenceConstraintViolation occurrences="1">
       <code>return $retval;</code>
     </ReferenceConstraintViolation>
   </file>
@@ -443,9 +442,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>$jsvkey</code>
-    </InvalidScalarArgument>
     <PossiblyNullArgument occurrences="1">
       <code>$where_clause ?? null</code>
     </PossiblyNullArgument>
@@ -956,8 +952,7 @@
     <InvalidReturnType occurrences="1">
       <code>object</code>
     </InvalidReturnType>
-    <ReferenceConstraintViolation occurrences="2">
-      <code>$object</code>
+    <ReferenceConstraintViolation occurrences="1">
       <code>return $object;</code>
     </ReferenceConstraintViolation>
   </file>
@@ -1333,12 +1328,6 @@
       <code>(string) array_pop($elem)</code>
       <code>(string) array_pop($elem)</code>
     </RedundantCast>
-    <TypeDoesNotContainType occurrences="4">
-      <code>$property_class == BoolPropertyItem::class</code>
-      <code>$property_class == MessageOnlyPropertyItem::class</code>
-      <code>$property_class == SelectPropertyItem::class</code>
-      <code>$property_class == TextPropertyItem::class</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -1481,8 +1470,7 @@
       <code>(string) $createQuery</code>
       <code>(string) $table</code>
     </RedundantCastGivenDocblockType>
-    <ReferenceConstraintViolation occurrences="3">
-      <code>$flag</code>
+    <ReferenceConstraintViolation occurrences="2">
       <code>return $sqlQuery;</code>
       <code>return $statement-&gt;build();</code>
     </ReferenceConstraintViolation>
@@ -2503,8 +2491,7 @@
       <code>isset($this-&gt;uiprefs)</code>
       <code>isset($this-&gt;uiprefs)</code>
     </RedundantPropertyInitializationCheck>
-    <ReferenceConstraintViolation occurrences="2">
-      <code>$error</code>
+    <ReferenceConstraintViolation occurrences="1">
       <code>return $sqlQuery;</code>
     </ReferenceConstraintViolation>
     <TypeDoesNotContainType occurrences="1">

@@ -102,6 +102,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         }
 
         if (version_compare(PHP_VERSION, '7.3.0', '>=')) {
+            /** @psalm-suppress InvalidArgument */
             session_set_cookie_params($sessionCookieParams);
         } else {
             session_set_cookie_params(
