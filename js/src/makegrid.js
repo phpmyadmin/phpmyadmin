@@ -683,14 +683,16 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         var newHtml = Functions.escapeHtml(value);
                         newHtml = newHtml.replace(/\n/g, '<br>\n');
 
+                        var decimals = parseInt($thisField.attr('data-decimals'));
+
                         // remove decimal places if column type not supported
-                        if (($thisField.attr('data-decimals') === 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
+                        if ((decimals === 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
                             newHtml = newHtml.substring(0, newHtml.indexOf('.'));
                         }
 
-                        // remove addtional decimal places
-                        if (($thisField.attr('data-decimals') > 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
-                            newHtml = newHtml.substring(0, newHtml.length - (6 - $thisField.attr('data-decimals')));
+                        // remove additional decimal places
+                        if ((decimals > 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
+                            newHtml = newHtml.substring(0, newHtml.length - (6 - decimals));
                         }
 
                         var selector = 'span';
