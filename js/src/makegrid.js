@@ -688,7 +688,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         newHtml = newHtml.replace(/\n/g, '<br>\n');
 
                         // remove decimal places if column type not supported
-                        if (($thisField.attr('data-decimals') === 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
+                        if (($thisField.attr('data-decimals') == 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
                             newHtml = newHtml.substring(0, newHtml.indexOf('.'));
                         }
 
