@@ -47,9 +47,9 @@ final class ExportTemplateController extends AbstractController
 
         $template = ExportTemplate::fromArray([
             'username' => $cfg['Server']['user'],
-            'exportType' => $_POST['exportType'],
-            'name' => $_POST['templateName'],
-            'data' => $_POST['templateData'],
+            'exportType' => $_POST['exportType'] ?? '',
+            'name' => $_POST['templateName'] ?? '',
+            'data' => $_POST['templateData'] ?? '',
         ]);
         $result = $this->model->create($cfgRelation['db'], $cfgRelation['export_templates'], $template);
 

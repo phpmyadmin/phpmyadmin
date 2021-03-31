@@ -2317,7 +2317,7 @@ class InsertEdit
         $errorMessages = [];
 
         foreach ($query as $singleQuery) {
-            if ($_POST['submit_type'] === 'showinsert') {
+            if (isset($_POST['submit_type']) && $_POST['submit_type'] === 'showinsert') {
                 $lastMessages[] = Message::notice(__('Showing SQL query'));
                 continue;
             }

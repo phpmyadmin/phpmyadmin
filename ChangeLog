@@ -51,6 +51,12 @@ phpMyAdmin - ChangeLog
 - issue #16647 Fixed table search forms not showing texts and not respecting TabsMode config
 - issue #16758 Fixed copy to clipboard feature not working on ja or zh_TW languages because of the non ascii colon
 - issue #16601 Update tcpdf dependency to ^6.4.1
+- issue #16770 Fixed a notice or warning, when clicking on Structure tab
+- issue #16756 Fixed refresh UI on server status
+- issue        Fixed a PHP notice when searching for .git/commondir on the login page for users using ShowGitRevision
+- issue        Fixed reported PHP notice on export save template
+- issue        Fixed reported PHP warnings on server status page
+- issue #15629 Fixed datetime decimals displayed (.00000) after edit
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
