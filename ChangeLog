@@ -47,6 +47,8 @@ phpMyAdmin - ChangeLog
 - issue        Fixed reported PHP notice on export save template
 - issue        Fixed reported PHP warnings on server status page
 - issue #15629 Fixed datetime decimals displayed (.00000) after edit
+- issue #16780 Fixed new event shows an empty row
+- isseu #16765 Fixed new lines in text fields are doubled
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
