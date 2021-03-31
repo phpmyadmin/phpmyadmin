@@ -3341,8 +3341,7 @@ AJAX.registerOnload('functions.js', function () {
  */
 Functions.hideShowConnection = function ($engineSelector) {
     var $connection = $('.create_table_form input[name=connection]');
-    var index = $connection.parent('td').index();
-    var $labelTh = $connection.parents('tr').prev('tr').children('th').eq(index);
+    var $labelTh = $('.create_table_form #storage-engine-connection');
     if ($engineSelector.val() !== 'FEDERATED') {
         $connection
             .prop('disabled', true)
