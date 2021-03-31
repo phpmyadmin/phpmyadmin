@@ -401,33 +401,13 @@ parameters:
 			path: libraries/classes/Display/Results.php
 
 		-
-			message: "#^Parameter \\#9 \\$transformOptions of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForGeometryColumns\\(\\) expects string, array given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
 			message: "#^Parameter \\#8 \\$defaultFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array\\<int, string\\> given\\.$#"
-			count: 1
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#9 \\$transformOptions of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getDataCellForNonNumericColumns\\(\\) expects string, array given\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
 			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
 			count: 3
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#12 \\$transformOptions of method PhpMyAdmin\\\\Display\\\\Results\\:\\:getRowData\\(\\) expects array, string given\\.$#"
-			count: 3
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Parameter \\#4 \\$transformOptions of method PhpMyAdmin\\\\Display\\\\Results\\:\\:handleNonPrintableContents\\(\\) expects string, array given\\.$#"
-			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-

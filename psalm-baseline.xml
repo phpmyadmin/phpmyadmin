@@ -721,20 +721,13 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Display/Results.php">
-    <InvalidArgument occurrences="16">
+    <InvalidArgument occurrences="9">
       <code>$added[$orgFullTableName]</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
       <code>$defaultFunction</code>
-      <code>$transformOptions</code>
-      <code>$transformOptions</code>
-      <code>$transformOptions</code>
-      <code>$transformOptions</code>
-      <code>$transformOptions</code>
-      <code>$transformOptions</code>
-      <code>$transformOptions</code>
       <code>$transformationPlugin</code>
       <code>$transformationPlugin</code>
       <code>$transformationPlugin</code>
