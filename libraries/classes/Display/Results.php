@@ -3554,7 +3554,7 @@ class Results
      *                                                     function
      * @param string                $default_function      the default transformation
      *                                                     function
-     * @param string                $transform_options     the transformation parameters
+     * @param array                 $transform_options     the transformation parameters
      * @param array                 $analyzed_sql_results  the analyzed query
      *
      * @return string the prepared data cell, html content
@@ -3695,7 +3695,7 @@ class Results
      *                                                     function
      * @param string                $default_function      the default transformation
      *                                                     function
-     * @param string                $transform_options     the transformation parameters
+     * @param array                 $transform_options     the transformation parameters
      * @param bool                  $is_field_truncated    is data truncated due to
      *                                                     LimitChars
      * @param array                 $analyzed_sql_results  the analyzed query
@@ -4752,7 +4752,7 @@ class Results
      *                                           Can also be the
      *                                           default function:
      *                                           Core::mimeDefaultFunction
-     * @param string      $transform_options     transformation parameters
+     * @param array       $transform_options     transformation parameters
      * @param string      $default_function      default transformation function
      * @param stdClass    $meta                  the meta-information about the field
      * @param array       $url_params            parameters that should go to the

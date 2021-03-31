@@ -752,20 +752,13 @@
     <ImplicitToStringCast occurrences="1">
       <code>$message</code>
     </ImplicitToStringCast>
-    <InvalidArgument occurrences="16">
+    <InvalidArgument occurrences="9">
       <code>$added[$orgFullTableName]</code>
       <code>$default_function</code>
       <code>$default_function</code>
       <code>$default_function</code>
       <code>$default_function</code>
       <code>$default_function</code>
-      <code>$transform_options</code>
-      <code>$transform_options</code>
-      <code>$transform_options</code>
-      <code>$transform_options</code>
-      <code>$transform_options</code>
-      <code>$transform_options</code>
-      <code>$transform_options</code>
       <code>$transformation_plugin</code>
       <code>$transformation_plugin</code>
       <code>$transformation_plugin</code>
