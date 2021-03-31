@@ -1240,11 +1240,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             fieldsType.push('hex');
                         }
                         fieldsNull.push('');
-                        // Convert \n to \r\n to be consistent with form submitted value.
-                        // The internal browser representation has to be just \n
-                        // while form submitted value \r\n, see specification:
-                        // https://www.w3.org/TR/html5/forms.html#the-textarea-element
-                        fields.push($thisField.data('value').replace(/\n/g, '\r\n'));
+                        fields.push($thisField.data('value'));
 
                         var cellIndex = $thisField.index('.to_be_saved');
                         if ($thisField.is(':not(.relation, .enum, .set, .bit)')) {
