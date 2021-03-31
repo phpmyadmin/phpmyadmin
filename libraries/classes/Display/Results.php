@@ -3766,7 +3766,7 @@ class Results
         ) {
             [
                 $is_field_truncated,
-                $column,
+                $displayedColumn,
                 $original_length,
             ] = $this->getPartialText($column);
         }
