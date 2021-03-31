@@ -1152,9 +1152,7 @@
       <code>$insertId</code>
       <code>$tmp</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArrayAccess occurrences="3">
-      <code>$dataSize[0]</code>
-      <code>$dataSize[1]</code>
+    <PossiblyNullArrayAccess occurrences="1">
       <code>$dispval</code>
     </PossiblyNullArrayAccess>
     <PossiblyUndefinedVariable occurrences="1">

@@ -13,7 +13,6 @@ use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Utils\Gis;
 
 use function array_fill;
-use function array_flip;
 use function array_merge;
 use function array_values;
 use function bin2hex;
@@ -42,7 +41,6 @@ use function min;
 use function password_hash;
 use function preg_match;
 use function preg_replace;
-use function sprintf;
 use function str_replace;
 use function stripcslashes;
 use function stripslashes;
@@ -541,330 +539,6 @@ class InsertEdit
     }
 
     /**
-     * Get the HTML elements for value column in insert form
-     * (here, "column" is used in the sense of HTML column in HTML table)
-     *
-     * @param array  $column              description of column in given table
-     * @param string $backupField         hidden input field
-     * @param string $columnNameAppendix  the name attribute
-     * @param string $onChangeClause      onchange clause for fields
-     * @param int    $tabindex            tab index
-     * @param int    $tabindexForValue    offset for the values tabindex
-     * @param int    $idindex             id index
-     * @param string $data                description of the column field
-     * @param string $specialChars        special characters
-     * @param array  $foreignData         data about the foreign keys
-     * @param array  $paramTableDbArray   array containing $table and $db
-     * @param int    $rownumber           the row number
-     * @param string $textDir             text direction
-     * @param string $specialCharsEncoded replaced char if the string starts
-     *                                      with a \r\n pair (0x0d0a) add an extra \n
-     * @param string $vkey                [multi_edit]['row_id']
-     * @param bool   $isUpload            is upload or not
-     * @param int    $biggestMaxFileSize  0 integer
-     * @param string $defaultCharEditing  default char editing mode which is stored
-     *                                      in the config.inc.php script
-     * @param array  $noSupportTypes      list of datatypes that are not (yet)
-     *                                      handled by PMA
-     * @param array  $gisDataTypes        list of GIS data types
-     * @param array  $extractedColumnspec associative array containing type,
-     *                                     spec_in_brackets and possibly
-     *                                     enum_set_values (another array)
-     * @param bool   $readOnly            is column read only or not
-     *
-     * @return string an html snippet
-     */
-    private function getValueColumn(
-        array $column,
-        $backupField,
-        $columnNameAppendix,
-        $onChangeClause,
-        $tabindex,
-        $tabindexForValue,
-        $idindex,
-        $data,
-        $specialChars,
-        array $foreignData,
-        array $paramTableDbArray,
-        $rownumber,
-        $textDir,
-        $specialCharsEncoded,
-        $vkey,
-        $isUpload,
-        $biggestMaxFileSize,
-        $defaultCharEditing,
-        array $noSupportTypes,
-        array $gisDataTypes,
-        array $extractedColumnspec,
-        $readOnly
-    ) {
-        // HTML5 data-* attribute data-type
-        $dataType = $this->dbi->types->getTypeClass($column['True_Type']);
-        $htmlOutput = '';
-
-        if ($foreignData['foreign_link'] == true) {
-            $htmlOutput .= $this->getForeignLink(
-                $column,
-                $backupField,
-                $columnNameAppendix,
-                $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
-                $data,
-                $paramTableDbArray,
-                $rownumber,
-                $readOnly
-            );
-        } elseif (is_array($foreignData['disp_row'])) {
-            $htmlOutput .= $this->dispRowForeignData(
-                $column,
-                $backupField,
-                $columnNameAppendix,
-                $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
-                $data,
-                $foreignData,
-                $readOnly
-            );
-        } elseif (
-            (
-                $GLOBALS['cfg']['LongtextDoubleTextarea']
-                && mb_strstr($column['pma_type'], 'longtext'))
-            || mb_strstr($column['pma_type'], 'json')
-        ) {
-            $htmlOutput .= $this->getTextarea(
-                $column,
-                $backupField,
-                $columnNameAppendix,
-                $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
-                $textDir,
-                $specialCharsEncoded,
-                $dataType,
-                $readOnly
-            );
-        } elseif (mb_strstr($column['pma_type'], 'text')) {
-            $htmlOutput .= $this->getTextarea(
-                $column,
-                $backupField,
-                $columnNameAppendix,
-                $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
-                $textDir,
-                $specialCharsEncoded,
-                $dataType,
-                $readOnly
-            );
-            $htmlOutput .= "\n";
-            if (mb_strlen($specialChars) > 32000) {
-                $htmlOutput .= "</td>\n";
-                $htmlOutput .= '<td>' . __(
-                    'Because of its length,<br> this column might not be editable.'
-                );
-            }
-        } elseif ($column['pma_type'] === 'enum') {
-            $htmlOutput .= $this->getPmaTypeEnum(
-                $column,
-                $backupField,
-                $columnNameAppendix,
-                $extractedColumnspec,
-                $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
-                $data,
-                $readOnly
-            );
-        } elseif ($column['pma_type'] === 'set') {
-            $htmlOutput .= $this->getPmaTypeSet(
-                $column,
-                $extractedColumnspec,
-                $backupField,
-                $columnNameAppendix,
-                $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
-                $data,
-                $readOnly
-            );
-        } elseif ($column['is_binary'] || $column['is_blob']) {
-            $htmlOutput .= $this->getBinaryAndBlobColumn(
-                $column,
-                $data,
-                $specialChars,
-                $biggestMaxFileSize,
-                $backupField,
-                $columnNameAppendix,
-                $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
-                $textDir,
-                $specialCharsEncoded,
-                $vkey,
-                $isUpload,
-                $readOnly
-            );
-        } elseif (! in_array($column['pma_type'], $noSupportTypes)) {
-            $htmlOutput .= $this->getValueColumnForOtherDatatypes(
-                $column,
-                $defaultCharEditing,
-                $backupField,
-                $columnNameAppendix,
-                $onChangeClause,
-                $tabindex,
-                $specialChars,
-                $tabindexForValue,
-                $idindex,
-                $textDir,
-                $specialCharsEncoded,
-                $data,
-                $extractedColumnspec,
-                $readOnly
-            );
-        }
-
-        if (in_array($column['pma_type'], $gisDataTypes)) {
-            $htmlOutput .= $this->getHtmlForGisDataTypes();
-        }
-
-        return $htmlOutput;
-    }
-
-    /**
-     * Get HTML for foreign link in insert form
-     *
-     * @param array  $column             description of column in given table
-     * @param string $backupField        hidden input field
-     * @param string $columnNameAppendix the name attribute
-     * @param string $onChangeClause     onchange clause for fields
-     * @param int    $tabindex           tab index
-     * @param int    $tabindexForValue   offset for the values tabindex
-     * @param int    $idindex            id index
-     * @param string $data               data to edit
-     * @param array  $paramTableDbArray  array containing $table and $db
-     * @param int    $rownumber          the row number
-     * @param bool   $readOnly           is column read only or not
-     *
-     * @return string                       an html snippet
-     */
-    private function getForeignLink(
-        array $column,
-        $backupField,
-        $columnNameAppendix,
-        $onChangeClause,
-        $tabindex,
-        $tabindexForValue,
-        $idindex,
-        $data,
-        array $paramTableDbArray,
-        $rownumber,
-        $readOnly
-    ) {
-        [$table, $db] = $paramTableDbArray;
-        $htmlOutput = '';
-        $htmlOutput .= $backupField . "\n";
-
-        $htmlOutput .= '<input type="hidden" name="fields_type'
-            . $columnNameAppendix . '" value="foreign">';
-
-        $htmlOutput .= '<input type="text" name="fields' . $columnNameAppendix . '" '
-            . 'class="textfield" '
-            . $onChangeClause . ' '
-            . ($readOnly ? 'readonly="readonly" ' : '')
-            . 'tabindex="' . ($tabindex + $tabindexForValue) . '" '
-            . 'id="field_' . $idindex . '_3" '
-            . 'value="' . htmlspecialchars($data) . '">';
-
-        $htmlOutput .= '<a class="ajax browse_foreign" href="'
-            . Url::getFromRoute('/browse-foreigners')
-            . '" data-post="'
-            . Url::getCommon(
-                [
-                    'db' => $db,
-                    'table' => $table,
-                    'field' => $column['Field'],
-                    'rownumber' => $rownumber,
-                    'data'      => $data,
-                ],
-                ''
-            ) . '">'
-            . Generator::getIcon('b_browse', __('Browse foreign values')) . '</a>';
-
-        return $htmlOutput;
-    }
-
-    /**
-     * Get HTML to display foreign data
-     *
-     * @param array  $column             description of column in given table
-     * @param string $backupField        hidden input field
-     * @param string $columnNameAppendix the name attribute
-     * @param string $onChangeClause     onchange clause for fields
-     * @param int    $tabindex           tab index
-     * @param int    $tabindexForValue   offset for the values tabindex
-     * @param int    $idindex            id index
-     * @param string $data               data to edit
-     * @param array  $foreignData        data about the foreign keys
-     * @param bool   $readOnly           is display read only or not
-     *
-     * @return string                       an html snippet
-     */
-    private function dispRowForeignData(
-        $column,
-        $backupField,
-        $columnNameAppendix,
-        $onChangeClause,
-        $tabindex,
-        $tabindexForValue,
-        $idindex,
-        $data,
-        array $foreignData,
-        $readOnly
-    ) {
-        $htmlOutput = '';
-        $htmlOutput .= $backupField . "\n";
-        $htmlOutput .= '<input type="hidden"'
-            . ' name="fields_type' . $columnNameAppendix . '"';
-        if ($column['is_binary']) {
-            $htmlOutput .= ' value="hex">';
-        } else {
-            $htmlOutput .= ' value="foreign">';
-        }
-
-        $htmlOutput .= '<select name="fields' . $columnNameAppendix . '"'
-            . ' ' . $onChangeClause
-            . ' class="textfield"'
-            . ($readOnly ? ' disabled' : '')
-            . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
-            . ' id="field_' . $idindex . '_3">';
-        $htmlOutput .= $this->relation->foreignDropdown(
-            $foreignData['disp_row'],
-            $foreignData['foreign_field'],
-            $foreignData['foreign_display'],
-            $data,
-            $GLOBALS['cfg']['ForeignKeyMaxLimit']
-        );
-        $htmlOutput .= '</select>';
-
-        //Add hidden input, as disabled <select> input does not included in POST.
-        if ($readOnly) {
-            $htmlOutput .= '<input name="fields' . $columnNameAppendix . '"'
-                . ' type="hidden" value="' . htmlspecialchars($data) . '">';
-        }
-
-        return $htmlOutput;
-    }
-
-    /**
      * Get HTML textarea for insert form
      *
      * @param array  $column              column information
@@ -936,77 +610,6 @@ class InsertEdit
     }
 
     /**
-     * Get HTML for enum type
-     *
-     * @param array  $column              description of column in given table
-     * @param string $backupField         hidden input field
-     * @param string $columnNameAppendix  the name attribute
-     * @param array  $extractedColumnspec associative array containing type,
-     *                                     spec_in_brackets and possibly
-     *                                     enum_set_values (another array)
-     * @param string $onChangeClause      onchange clause for fields
-     * @param int    $tabindex            tab index
-     * @param int    $tabindexForValue    offset for the values tabindex
-     * @param int    $idindex             id index
-     * @param mixed  $data                data to edit
-     * @param bool   $readOnly            is column read only or not
-     *
-     * @return string an html snippet
-     */
-    private function getPmaTypeEnum(
-        array $column,
-        $backupField,
-        $columnNameAppendix,
-        array $extractedColumnspec,
-        $onChangeClause,
-        $tabindex,
-        $tabindexForValue,
-        $idindex,
-        $data,
-        $readOnly
-    ) {
-        $htmlOutput = '';
-        if (! isset($column['values'])) {
-            $column['values'] = $this->getColumnEnumValues(
-                $column,
-                $extractedColumnspec
-            );
-        }
-
-        $columnEnumValues = $column['values'];
-        $htmlOutput .= '<input type="hidden" name="fields_type'
-            . $columnNameAppendix . '" value="enum">';
-        $htmlOutput .= "\n" . '            ' . $backupField . "\n";
-        if (mb_strlen($column['Type']) > 20) {
-            $htmlOutput .= $this->getDropDownDependingOnLength(
-                $column,
-                $columnNameAppendix,
-                $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
-                $data,
-                $columnEnumValues,
-                $readOnly
-            );
-        } else {
-            $htmlOutput .= $this->getRadioButtonDependingOnLength(
-                $columnNameAppendix,
-                $onChangeClause,
-                $tabindex,
-                $column,
-                $tabindexForValue,
-                $idindex,
-                $data,
-                $columnEnumValues,
-                $readOnly
-            );
-        }
-
-        return $htmlOutput;
-    }
-
-    /**
      * Get column values
      *
      * @param array $column              description of column in given table
@@ -1027,193 +630,6 @@ class InsertEdit
         }
 
         return $column['values'];
-    }
-
-    /**
-     * Get HTML drop down for more than 20 string length
-     *
-     * @param array  $column             description of column in given table
-     * @param string $columnNameAppendix the name attribute
-     * @param string $onChangeClause     onchange clause for fields
-     * @param int    $tabindex           tab index
-     * @param int    $tabindexForValue   offset for the values tabindex
-     * @param int    $idindex            id index
-     * @param string $data               data to edit
-     * @param array  $columnEnumValues   $column['values']
-     * @param bool   $readOnly           is column read only or not
-     *
-     * @return string                       an html snippet
-     */
-    private function getDropDownDependingOnLength(
-        array $column,
-        $columnNameAppendix,
-        $onChangeClause,
-        $tabindex,
-        $tabindexForValue,
-        $idindex,
-        $data,
-        array $columnEnumValues,
-        $readOnly
-    ) {
-        $htmlOutput = '<select name="fields' . $columnNameAppendix . '"'
-            . ' ' . $onChangeClause
-            . ' class="textfield"'
-            . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
-            . ($readOnly ? ' disabled' : '')
-            . ' id="field_' . $idindex . '_3">';
-        $htmlOutput .= '<option value="">&nbsp;</option>' . "\n";
-
-        $selectedHtml = '';
-        foreach ($columnEnumValues as $enumValue) {
-            $htmlOutput .= '<option value="' . $enumValue['html'] . '"';
-            if (
-                $data == $enumValue['plain']
-                || ($data == ''
-                && (! isset($_POST['where_clause']) || $column['Null'] !== 'YES')
-                && isset($column['Default'])
-                && $enumValue['plain'] == $column['Default'])
-            ) {
-                $htmlOutput .= ' selected="selected"';
-                $selectedHtml = $enumValue['html'];
-            }
-
-            $htmlOutput .= '>' . $enumValue['html'] . '</option>' . "\n";
-        }
-
-        $htmlOutput .= '</select>';
-
-        //Add hidden input, as disabled <select> input does not included in POST.
-        if ($readOnly) {
-            $htmlOutput .= '<input name="fields' . $columnNameAppendix . '"'
-                . ' type="hidden" value="' . $selectedHtml . '">';
-        }
-
-        return $htmlOutput;
-    }
-
-    /**
-     * Get HTML radio button for less than 20 string length
-     *
-     * @param string $columnNameAppendix the name attribute
-     * @param string $onChangeClause     onchange clause for fields
-     * @param int    $tabindex           tab index
-     * @param array  $column             description of column in given table
-     * @param int    $tabindexForValue   offset for the values tabindex
-     * @param int    $idindex            id index
-     * @param string $data               data to edit
-     * @param array  $columnEnumValues   $column['values']
-     * @param bool   $readOnly           is column read only or not
-     *
-     * @return string                       an html snippet
-     */
-    private function getRadioButtonDependingOnLength(
-        $columnNameAppendix,
-        $onChangeClause,
-        $tabindex,
-        array $column,
-        $tabindexForValue,
-        $idindex,
-        $data,
-        array $columnEnumValues,
-        $readOnly
-    ) {
-        $j = 0;
-        $htmlOutput = '';
-        foreach ($columnEnumValues as $enumValue) {
-            $htmlOutput .= '            '
-                . '<input type="radio" name="fields' . $columnNameAppendix . '"'
-                . ' class="textfield"'
-                . ' value="' . $enumValue['html'] . '"'
-                . ' id="field_' . $idindex . '_3_' . $j . '"'
-                . ' ' . $onChangeClause;
-            if (
-                $data == $enumValue['plain']
-                || ($data == ''
-                && (! isset($_POST['where_clause']) || $column['Null'] !== 'YES')
-                && isset($column['Default'])
-                && $enumValue['plain'] == $column['Default'])
-            ) {
-                $htmlOutput .= ' checked="checked"';
-            } elseif ($readOnly) {
-                $htmlOutput .= ' disabled';
-            }
-
-            $htmlOutput .= ' tabindex="' . ($tabindex + $tabindexForValue) . '">';
-            $htmlOutput .= '<label for="field_' . $idindex . '_3_' . $j . '">'
-                . $enumValue['html'] . '</label>' . "\n";
-            $j++;
-        }
-
-        return $htmlOutput;
-    }
-
-    /**
-     * Get the HTML for 'set' pma type
-     *
-     * @param array  $column              description of column in given table
-     * @param array  $extractedColumnspec associative array containing type,
-     *                                     spec_in_brackets and possibly
-     *                                     enum_set_values (another array)
-     * @param string $backupField         hidden input field
-     * @param string $columnNameAppendix  the name attribute
-     * @param string $onChangeClause      onchange clause for fields
-     * @param int    $tabindex            tab index
-     * @param int    $tabindexForValue    offset for the values tabindex
-     * @param int    $idindex             id index
-     * @param string $data                description of the column field
-     * @param bool   $readOnly            is column read only or not
-     *
-     * @return string                       an html snippet
-     */
-    private function getPmaTypeSet(
-        array $column,
-        array $extractedColumnspec,
-        $backupField,
-        $columnNameAppendix,
-        $onChangeClause,
-        $tabindex,
-        $tabindexForValue,
-        $idindex,
-        $data,
-        $readOnly
-    ) {
-        [$columnSetValues, $selectSize] = $this->getColumnSetValueAndSelectSize(
-            $column,
-            $extractedColumnspec
-        );
-        $vset = array_flip(explode(',', $data));
-        $htmlOutput = $backupField . "\n";
-        $htmlOutput .= '<input type="hidden" name="fields_type'
-            . $columnNameAppendix . '" value="set">';
-        $htmlOutput .= '<select name="fields' . $columnNameAppendix . '[]"'
-            . ' class="textfield"'
-            . ($readOnly ? ' disabled' : '')
-            . ' size="' . $selectSize . '"'
-            . ' multiple="multiple"'
-            . ' ' . $onChangeClause
-            . ' tabindex="' . ($tabindex + $tabindexForValue) . '"'
-            . ' id="field_' . $idindex . '_3">';
-
-        $selectedHtml = '';
-        foreach ($columnSetValues as $columnSetValue) {
-            $htmlOutput .= '<option value="' . $columnSetValue['html'] . '"';
-            if (isset($vset[$columnSetValue['plain']])) {
-                $htmlOutput .= ' selected="selected"';
-                $selectedHtml = $columnSetValue['html'];
-            }
-
-            $htmlOutput .= '>' . $columnSetValue['html'] . '</option>' . "\n";
-        }
-
-        $htmlOutput .= '</select>';
-
-        //Add hidden input, as disabled <select> input does not included in POST.
-        if ($readOnly) {
-            $htmlOutput .= '<input name="fields' . $columnNameAppendix . '[]"'
-                . ' type="hidden" value="' . $selectedHtml . '">';
-        }
-
-        return $htmlOutput;
     }
 
     /**
@@ -1246,130 +662,6 @@ class InsertEdit
             $column['values'],
             $column['select_size'],
         ];
-    }
-
-    /**
-     * Get HTML for binary and blob column
-     *
-     * @param array       $column              description of column in given table
-     * @param string|null $data                data to edit
-     * @param string      $specialChars        special characters
-     * @param int         $biggestMaxFileSize  biggest max file size for uploading
-     * @param string      $backupField         hidden input field
-     * @param string      $columnNameAppendix  the name attribute
-     * @param string      $onChangeClause      onchange clause for fields
-     * @param int         $tabindex            tab index
-     * @param int         $tabindexForValue    offset for the values tabindex
-     * @param int         $idindex             id index
-     * @param string      $textDir             text direction
-     * @param string      $specialCharsEncoded replaced char if the string starts
-     *                                           with a \r\n pair (0x0d0a) add an
-     *                                           extra \n
-     * @param string      $vkey                [multi_edit]['row_id']
-     * @param bool        $isUpload            is upload or not
-     * @param bool        $readOnly            is column read only or not
-     *
-     * @return string                           an html snippet
-     */
-    private function getBinaryAndBlobColumn(
-        array $column,
-        ?string $data,
-        $specialChars,
-        $biggestMaxFileSize,
-        $backupField,
-        $columnNameAppendix,
-        $onChangeClause,
-        $tabindex,
-        $tabindexForValue,
-        $idindex,
-        $textDir,
-        $specialCharsEncoded,
-        $vkey,
-        $isUpload,
-        $readOnly
-    ) {
-        $htmlOutput = '';
-        // Add field type : Protected or Hexadecimal
-        $fieldsTypeHtml = '<input type="hidden" name="fields_type'
-            . $columnNameAppendix . '" value="%s">';
-        // Default value : hex
-        $fieldsTypeVal = 'hex';
-        if (
-            ($GLOBALS['cfg']['ProtectBinary'] === 'blob' && $column['is_blob'])
-            || ($GLOBALS['cfg']['ProtectBinary'] === 'all')
-            || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob' && ! $column['is_blob'])
-        ) {
-            $htmlOutput .= __('Binary - do not edit');
-            if (isset($data)) {
-                $dataSize = Util::formatByteDown(
-                    mb_strlen(stripslashes($data)),
-                    3,
-                    1
-                );
-                $htmlOutput .= ' (' . $dataSize[0] . ' ' . $dataSize[1] . ')';
-                unset($dataSize);
-            }
-
-            $fieldsTypeVal = 'protected';
-            $htmlOutput .= '<input type="hidden" name="fields'
-                . $columnNameAppendix . '" value="">';
-        } elseif (
-            $column['is_blob']
-            || ($column['len'] > $GLOBALS['cfg']['LimitChars'])
-        ) {
-            $htmlOutput .= "\n" . $this->getTextarea(
-                $column,
-                $backupField,
-                $columnNameAppendix,
-                $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
-                $textDir,
-                $specialCharsEncoded,
-                'HEX',
-                $readOnly
-            );
-        } else {
-            // field size should be at least 4 and max $GLOBALS['cfg']['LimitChars']
-            $fieldsize = min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']);
-            $htmlOutput .= "\n" . $backupField . "\n" . $this->getHtmlInput(
-                $column,
-                $columnNameAppendix,
-                $specialChars,
-                $fieldsize,
-                $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
-                'HEX',
-                $readOnly
-            );
-        }
-
-        $htmlOutput .= sprintf($fieldsTypeHtml, $fieldsTypeVal);
-
-        if ($isUpload && $column['is_blob'] && ! $readOnly) {
-            // We don't want to prevent users from using
-            // browser's default drag-drop feature on some page(s),
-            // so we add noDragDrop class to the input
-            $htmlOutput .= '<br>'
-                . '<input type="file"'
-                . ' name="fields_upload' . $vkey . '[' . $column['Field_md5'] . ']"'
-                . ' class="textfield noDragDrop" id="field_' . $idindex . '_3" size="10"'
-                . ' ' . $onChangeClause . '>&nbsp;';
-            [$htmlOut] = $this->getMaxUploadSize(
-                $column,
-                $biggestMaxFileSize
-            );
-            $htmlOutput .= $htmlOut;
-        }
-
-        if (! empty($GLOBALS['cfg']['UploadDir']) && ! $readOnly) {
-            $htmlOutput .= $this->getSelectOptionForUpload($vkey, $column);
-        }
-
-        return $htmlOutput;
     }
 
     /**
@@ -1671,25 +963,6 @@ class InsertEdit
             max($fieldsize, $GLOBALS['cfg']['MinSizeForInputField']),
             $GLOBALS['cfg']['MaxSizeForInputField']
         );
-    }
-
-    /**
-     * Get HTML for gis data types
-     *
-     * @return string an html snippet
-     */
-    private function getHtmlForGisDataTypes()
-    {
-        $editStr = Generator::getIcon('b_edit', __('Edit/Insert'));
-
-        return '<span class="open_gis_editor">'
-            . Generator::linkOrButton(
-                '#',
-                $editStr,
-                [],
-                '_blank'
-            )
-            . '</span>';
     }
 
     /**
@@ -3325,34 +2598,118 @@ class InsertEdit
         }
 
         $columnValue = '';
+        $foreignDropdown = '';
+        $dataType = '';
+        $textAreaRows = $GLOBALS['cfg']['TextareaRows'];
+        $textareaCols = $GLOBALS['cfg']['TextareaCols'];
+        $maxlength = '';
+        $enumSelectedValue = '';
+        $columnSetValues = [];
+        $setSelectSize = 0;
+        $isColumnProtectedBlob = false;
+        $blobValue = '';
+        $blobValueUnit = '';
+        $maxUploadSize = 0;
+        $selectOptionForUpload = '';
+        $inputFieldHtml = '';
         if (empty($transformedHtml)) {
-            $columnValue = $this->getValueColumn(
-                $column,
-                $backupField,
-                $columnNameAppendix,
-                $onChangeClause,
-                $tabindex,
-                $tabindexForValue,
-                $idindex,
-                $data,
-                $specialChars,
-                $foreignData,
-                [$table, $db],
-                $rowId,
-                $textDir,
-                $specialCharsEncoded,
-                $vkey,
-                $isUpload,
-                $biggestMaxFileSize,
-                $defaultCharEditing,
-                $noSupportTypes,
-                $gisDataTypes,
-                $extractedColumnspec,
-                $readOnly
-            );
+            if (is_array($foreignData['disp_row'])) {
+                $foreignDropdown = $this->relation->foreignDropdown(
+                    $foreignData['disp_row'],
+                    $foreignData['foreign_field'],
+                    $foreignData['foreign_display'],
+                    $data,
+                    $GLOBALS['cfg']['ForeignKeyMaxLimit']
+                );
+            }
+
+            $dataType = $this->dbi->types->getTypeClass($column['True_Type']);
+
+            if ($column['is_char']) {
+                $textAreaRows = max($GLOBALS['cfg']['CharTextareaRows'], 7);
+                $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
+                $extractedColumnspec = Util::extractColumnSpec($column['Type']);
+                $maxlength = $extractedColumnspec['spec_in_brackets'];
+            } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea'] && mb_strstr($column['pma_type'], 'longtext')) {
+                $textAreaRows = $GLOBALS['cfg']['TextareaRows'] * 2;
+                $textareaCols = $GLOBALS['cfg']['TextareaCols'] * 2;
+            }
+
+            if ($column['pma_type'] === 'enum') {
+                if (! isset($column['values'])) {
+                    $column['values'] = $this->getColumnEnumValues($column, $extractedColumnspec);
+                }
+                foreach ($column['values'] as $enumValue) {
+                    if (
+                        $data == $enumValue['plain'] || ($data == ''
+                            && (! isset($_POST['where_clause']) || $column['Null'] !== 'YES')
+                            && isset($column['Default']) && $enumValue['plain'] == $column['Default'])
+                    ) {
+                        $enumSelectedValue = $enumValue['plain'];
+                        break;
+                    }
+                }
+            } elseif ($column['pma_type'] === 'set') {
+                [$columnSetValues, $setSelectSize] = $this->getColumnSetValueAndSelectSize(
+                    $column,
+                    $extractedColumnspec
+                );
+            } elseif ($column['is_binary'] || $column['is_blob']) {
+                $isColumnProtectedBlob = ($GLOBALS['cfg']['ProtectBinary'] === 'blob' && $column['is_blob'])
+                    || ($GLOBALS['cfg']['ProtectBinary'] === 'all')
+                    || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob' && ! $column['is_blob']);
+                if ($isColumnProtectedBlob && isset($data)) {
+                    $blobSize = Util::formatByteDown(mb_strlen(stripslashes($data)), 3, 1);
+                    if ($blobSize !== null) {
+                        [$blobValue, $blobValueUnit] = $blobSize;
+                    }
+                }
+                if ($isUpload && $column['is_blob']) {
+                    [$maxUploadSize] = $this->getMaxUploadSize($column, $biggestMaxFileSize);
+                }
+                if (! empty($GLOBALS['cfg']['UploadDir'])) {
+                    $selectOptionForUpload = $this->getSelectOptionForUpload($vkey, $column);
+                }
+                if (
+                    ! $isColumnProtectedBlob
+                    && ! ($column['is_blob'] || ($column['len'] > $GLOBALS['cfg']['LimitChars']))
+                ) {
+                    $inputFieldHtml = $this->getHtmlInput(
+                        $column,
+                        $columnNameAppendix,
+                        $specialChars,
+                        min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']),
+                        $onChangeClause,
+                        $tabindex,
+                        $tabindexForValue,
+                        $idindex,
+                        'HEX',
+                        $readOnly
+                    );
+                }
+            } else {
+                $columnValue = $this->getValueColumnForOtherDatatypes(
+                    $column,
+                    $defaultCharEditing,
+                    $backupField,
+                    $columnNameAppendix,
+                    $onChangeClause,
+                    $tabindex,
+                    $specialChars,
+                    $tabindexForValue,
+                    $idindex,
+                    $textDir,
+                    $specialCharsEncoded,
+                    $data,
+                    $extractedColumnspec,
+                    $readOnly
+                );
+            }
         }
 
         return $this->template->render('table/insert/column_row', [
+            'db' => $db,
+            'table' => $table,
             'column' => $column,
             'row_id' => $rowId,
             'show_field_types_in_data_edit_view' => $GLOBALS['cfg']['ShowFieldTypesInDataEditView'],
@@ -3368,6 +2725,28 @@ class InsertEdit
             'special_chars' => $specialChars,
             'transformed_value' => $transformedHtml,
             'value' => $columnValue,
+            'is_value_foreign_link' => $foreignData['foreign_link'] === true,
+            'backup_field' => $backupField,
+            'data' => $data,
+            'gis_data_types' => $gisDataTypes,
+            'foreign_dropdown' => $foreignDropdown,
+            'data_type' => $dataType,
+            'textarea_cols' => $textareaCols,
+            'textarea_rows' => $textAreaRows,
+            'text_dir' => $textDir,
+            'max_length' => $maxlength,
+            'longtext_double_textarea' => $GLOBALS['cfg']['LongtextDoubleTextarea'],
+            'enum_selected_value' => $enumSelectedValue,
+            'set_values' => $columnSetValues,
+            'set_select_size' => $setSelectSize,
+            'is_column_protected_blob' => $isColumnProtectedBlob,
+            'blob_value' => $blobValue,
+            'blob_value_unit' => $blobValueUnit,
+            'is_upload' => $isUpload,
+            'max_upload_size' => $maxUploadSize,
+            'select_option_for_upload' => $selectOptionForUpload,
+            'limit_chars' => $GLOBALS['cfg']['LimitChars'],
+            'input_field_html' => $inputFieldHtml,
         ]);
     }
 

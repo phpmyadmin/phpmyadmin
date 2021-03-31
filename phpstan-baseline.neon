@@ -876,16 +876,6 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
-			message: "#^Offset 0 does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
-			message: "#^Offset 1 does not exist on array\\|null\\.$#"
-			count: 1
-			path: libraries/classes/InsertEdit.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between 'text' and 'time' will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/InsertEdit.php
