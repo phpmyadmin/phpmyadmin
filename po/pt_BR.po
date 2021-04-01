@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-02-24 10:22+0100\n"
-"PO-Revision-Date: 2021-01-22 01:09+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-04-02 09:26+0000\n"
+"Last-Translator: tiesco donadio <tiiesco@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.6-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1794,48 +1794,37 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "Habilitar compressão bzip2 para operações de importação."
 
 #: libraries/classes/Config/Descriptions.php:88
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr "Digite a sua URL siteverify para o seu serviço reCaptcha."
+msgstr "Digite sua URL de verificação de site para o serviço reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:89
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
-msgstr "Digite a sua URL siteverify para o seu serviço reCaptcha."
+msgstr "Digite seu Content-Security-Policy para o serviço reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:90
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Digite a sua URL siteverify para o seu serviço reCaptcha."
+msgstr ""
+"Insira o parâmetro de solicitação usado por sua API compatível com reCAPTCHA "
+"v2."
 
 #: libraries/classes/Config/Descriptions.php:91
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
-msgstr "Digite a sua URL siteverify para o seu serviço reCaptcha."
+msgstr ""
+"Insira o parâmetro de resposta usado por sua API compatível com reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:92
-#, fuzzy
-#| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr "Digite a chave pública do seu domínio no serviço reCaptcha."
+msgstr "Insira sua chave pública para o serviço reCAPTCHA em seu domínio."
 
 #: libraries/classes/Config/Descriptions.php:93
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr "Digite a sua chave privada para o seu domínio no serviço reCaptcha."
+msgstr "Insira sua chave privada para o serviço reCAPTCHA de seu domínio."
 
 #: libraries/classes/Config/Descriptions.php:94
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr "Digite a sua URL siteverify para o seu serviço reCaptcha."
+msgstr "Digite sua URL de verificação de domínio para o serviço reCaptcha."
 
 #: libraries/classes/Config/Descriptions.php:96
 msgid ""
@@ -2803,22 +2792,16 @@ msgstr ""
 "abaixo, independentemente da checkbox a direita.."
 
 #: libraries/classes/Config/Descriptions.php:548
-#, fuzzy
-#| msgid ""
-#| "The url of the proxy to be used when retrieving the information about the "
-#| "latest version of phpMyAdmin or when submitting error reports. You need "
-#| "this if the server where phpMyAdmin is installed does not have direct "
-#| "access to the internet. The format is: \"hostname:portnumber\"."
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
 "this if the server where phpMyAdmin is installed does not have direct access "
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
-"A url do proxy a ser usada para recuperar informações sobre a última versão "
-"do phpMyAdmin ou para enviar relatórios de erro. Voce precisa disto se o "
-"servidor onde o phpMyAdmin está instalado não tiver acesso direto à "
-"internet. O formato é: \"hostname:portnumber\"."
+"O URL do proxy a ser usado ao recuperar as informações sobre a versão mais "
+"recente do phpMyAdmin ou ao enviar relatórios de erro. Você precisará disso "
+"se o servidor onde o phpMyAdmin está instalado não tiver acesso direto à "
+"Internet. O formato é: \"host:porta\"."
 
 #: libraries/classes/Config/Descriptions.php:554
 msgid ""
@@ -2839,16 +2822,12 @@ msgstr ""
 "linhas serão inseridas com Shift+Enter."
 
 #: libraries/classes/Config/Descriptions.php:564
-#, fuzzy
-#| msgid ""
-#| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
-#| "configuration storage tables automatically."
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
 msgstr ""
-"Ative o Modo de Configuração Zero, que possibilitará que você configure as "
-"tabelas de armazenamento do phpMyAdmin automaticamente."
+"Habilitar \"Zero Configuration\", que possibilita configurar as tabelas de "
+"armazenamento do phpMyAdmin automaticamente."
 
 #: libraries/classes/Config/Descriptions.php:567
 msgid "Highlight selected rows."
@@ -3412,10 +3391,8 @@ msgid "Export as separate files"
 msgstr "Exportar como arquivos separados"
 
 #: libraries/classes/Config/Descriptions.php:714
-#, fuzzy
-#| msgid "Remember file name template"
 msgid "Remember filename template"
-msgstr "Lembrar modelo de nome de arquivo"
+msgstr "Lembrar do nome de arquivo do modelo"
 
 #: libraries/classes/Config/Descriptions.php:715
 #: templates/database/operations/index.twig:165
@@ -4438,8 +4415,6 @@ msgid "Version check"
 msgstr "Verificação de versão"
 
 #: libraries/classes/Config/Descriptions.php:972
-#, fuzzy
-#| msgid "Proxy url"
 msgid "Proxy URL"
 msgstr "URL de Proxy"
 
@@ -4456,40 +4431,32 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:976
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCAPTCHA v2 API"
-msgstr "URL para o siteverify do reCaptcha"
+msgstr "URL privada de verificação do reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:977
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Fragmento do Content-Security-Policy para API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:978
 msgid "Request parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Parâmetro de solicitação para API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:979
 msgid "Response parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Parâmetro de resposta para API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:980
-#, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Public key for reCAPTCHA"
-msgstr "Chave pública para o reCaptcha"
+msgstr "Chave pública para o reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:981
-#, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Private key for reCAPTCHA"
-msgstr "Chave pública para o reCaptcha"
+msgstr "Chave privada para o reCaptcha v2"
 
 #: libraries/classes/Config/Descriptions.php:982
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCAPTCHA siteverify"
-msgstr "URL para o siteverify do reCaptcha"
+msgstr "URL para verificação de domínio do reCaptcha"
 
 #: libraries/classes/Config/Descriptions.php:983
 msgid "Send error reports"
@@ -4519,8 +4486,6 @@ msgid "Show current browsing query"
 msgstr "Mostrar consulta de navegação atual"
 
 #: libraries/classes/Config/Descriptions.php:989
-#, fuzzy
-#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr "Execute consultas com Enter e insira nova linha com Shift + Enter"
 
@@ -5664,10 +5629,8 @@ msgstr "Editar índice"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
-#, fuzzy
-#| msgid "Remove index(s)"
 msgid "Rename index"
-msgstr "Remover índice(s)"
+msgstr "Renomear índice"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:108
 #: templates/table/index_form.twig:227
@@ -7065,10 +7028,8 @@ msgid "Submit"
 msgstr "Submit"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:551
-#, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "Pressione ESC para cancelar a edição."
+msgstr "Pressione ESC para cancelar a edição.<br>Shift+Enter para nova linha.."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:555
 msgid ""
@@ -8844,9 +8805,9 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 "Não é possível usar o fuso horário de \"%1$s\" para o servidor %2$d. Por "
-"favor, verifique sua configuração em [em]$cfg['Servers'][%3$d]"
-"['SessionTimeZone'][/em]. O phpMyAdmin está atualmente usando o fuso horário "
-"padrão do servidor de banco de dados."
+"favor verifique sua configuração em "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. O phpMyAdmin está "
+"atualmente usando o fuso horário padrão do servidor."
 
 #: libraries/classes/DatabaseInterface.php:1147
 msgid "Failed to set configured collation connection!"
@@ -12363,6 +12324,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"O cache de roteamento não pôde ser gravado, você precisa ajustar as "
+"permissões na pasta/arquivo \"%s\""
 
 #: libraries/classes/Routing.php:164
 #, php-format
@@ -14016,22 +13979,16 @@ msgid "Length/Values"
 msgstr "Tamanho/Valores"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br>If you ever need to put a backslash (\"\\\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Se o tipo de campo é \"enum\" ou \"set\", por favor entre com valores usando "
-"este formato: 'a','b','c'…<br>Se você precisar colocar uma barra contrária "
-"(\"\\\") ou aspas simples (\"'\") entre esses valores, coloque uma barra "
-"contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
+"Se o tipo de campo é \"ENUM\" ou \"SET\", por favor entre com valores usando "
+"este formato: 'a','b','c'…<br>Se você precisar colocar uma barra contrária ("
+"\" \\ \") ou uma aspa simples (\" ' \") entre esses valores, coloque uma "
+"barra contrária antes (por exemplo \"\\\\xyz\" ou \"\\'a\\'b\")."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -14259,16 +14216,12 @@ msgid "Set default"
 msgstr "Definir padrão"
 
 #: templates/console/display.twig:162
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
 msgstr ""
 "Execute consultas com Enter e insira nova linha com Shift + Enter. Para "
-"definir como permanente, vá em configurações."
+"definir esta configuração como permanente, vá em configurações."
 
 #: templates/create_tracking_version.twig:11
 #, php-format
@@ -14671,10 +14624,8 @@ msgid "Check all"
 msgstr "Marcar todos"
 
 #: templates/database/events/index.twig:27
-#, fuzzy
-#| msgid "Create event"
 msgid "Create new event"
-msgstr "Criar usuário"
+msgstr "Criar novo evento"
 
 #: templates/database/events/index.twig:36
 msgid "There are no events to display."
@@ -15053,16 +15004,12 @@ msgid "Is deterministic"
 msgstr "É determinístico"
 
 #: templates/database/routines/editor_form.twig:130
-#, fuzzy
-#| msgid ""
-#| "You do not have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
 "Você não tem privilégios suficientes para executar esta operação; Por favor "
-"verifique a documentação para maiores detalhes"
+"verifique a documentação para maiores detalhes."
 
 #: templates/database/routines/editor_form.twig:143
 msgid "Security type"
@@ -15073,10 +15020,8 @@ msgid "SQL data access"
 msgstr "Acesso de dados SQL"
 
 #: templates/database/routines/index.twig:33
-#, fuzzy
-#| msgid "Create version"
 msgid "Create new routine"
-msgstr "Criar versão"
+msgstr "Criar nova rotina"
 
 #: templates/database/routines/index.twig:42
 msgid "There are no routines to display."
@@ -15386,10 +15331,8 @@ msgid "Track table"
 msgstr "Monitorar tabela"
 
 #: templates/database/triggers/list.twig:27
-#, fuzzy
-#| msgid "Create trigger"
 msgid "Create new trigger"
-msgstr "Criar usuário"
+msgstr "Criar novo gatilho"
 
 #: templates/database/triggers/list.twig:36
 msgid "There are no triggers to display."
@@ -15909,20 +15852,17 @@ msgid "License"
 msgstr "Licença"
 
 #: templates/home/index.twig:247
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
-msgstr "Página inicial do phpMyAdmin"
+msgstr "Temas do phpMyAdmin"
 
 #: templates/home/index.twig:258
 msgid "Get more themes!"
 msgstr "Obter mais temas!"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Esquema de banco de dados %s"
+msgstr "Screenshot do tema %s."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
@@ -16660,10 +16600,8 @@ msgid "Character sets and collations"
 msgstr "Conjuntos de caracteres e collations"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "Padrão"
+msgstr "(Padrão)"
 
 #: templates/server/databases/index.twig:3
 msgid "Databases statistics"
@@ -16873,10 +16811,8 @@ msgid "Allows executing this routine."
 msgstr "Permitir executar esta rotina."
 
 #: templates/server/privileges/initials_row.twig:1
-#, fuzzy
-#| msgid "Change login information / Copy user account"
 msgid "Pagination of user accounts"
-msgstr "Mudar informações de login / Copiar conta de usuário"
+msgstr "Paginação de contas de usuário"
 
 #: templates/server/privileges/login_information_fields.twig:2
 #: templates/server/privileges/user_properties.twig:106
@@ -17061,20 +16997,16 @@ msgstr ""
 "privilégios."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Permitir criar rotinas armazenadas."
+msgstr "Permite criar relações de chave estrangeira."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Não usado no MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "Não tem nenhum efeito nessa versão do MySQL."
+msgstr "Não usado nessa versão do MySQL."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -17745,10 +17677,8 @@ msgstr "#"
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "por hora"
+msgstr "ø por hora"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -17851,10 +17781,8 @@ msgid "Table level tabs"
 msgstr "Guias de Tabelas"
 
 #: templates/server/user_groups/user_groups.twig:50
-#, fuzzy
-#| msgid "Edit user group"
 msgid "Delete user group"
-msgstr "Editar grupo de usuários"
+msgstr "Deletar grupo de usuários"
 
 #: templates/server/user_groups/user_listings.twig:1
 #, php-format
@@ -17893,10 +17821,8 @@ msgid "Configuration file"
 msgstr "Arquivo de configuração"
 
 #: templates/setup/config/index.twig:16
-#, fuzzy
-#| msgid "Failed to read configuration file!"
 msgid "Generated configuration file"
-msgstr "Falhou ao ler o arquivo de configuração!"
+msgstr "Arquivo de configuração gerado"
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
 msgid "Download"
@@ -18362,46 +18288,32 @@ msgid "Relation view"
 msgstr "Visão de relação(ões)"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "particionado"
+msgstr "Analisar partição"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "particionado"
+msgstr "Verificar partição"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "particionado"
+msgstr "Remover partição"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Remover particionamento"
+msgstr "Otimizar partição"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Subpartição"
+msgstr "Reconstruir partição"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Remover particionamento"
+msgstr "Reparar partição"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Subpartição"
+msgstr "Truncar partição"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -18611,10 +18523,8 @@ msgid "at beginning of table"
 msgstr "No início da tabela"
 
 #: templates/table/structure/display_structure.twig:444
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Renomear para"
+msgstr "Renomear"
 
 #: templates/table/structure/display_structure.twig:506
 #, php-format
