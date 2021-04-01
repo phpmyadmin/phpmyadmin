@@ -1509,7 +1509,7 @@ Generic settings
     :default: true
 
     Enables check for latest versions using JavaScript on the main phpMyAdmin
-    page or by directly accessing :file:`version_check.php`.
+    page or by directly accessing `index.php?route=/git-revision`.
 
     .. note::
 
