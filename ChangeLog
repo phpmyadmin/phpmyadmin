@@ -48,7 +48,9 @@ phpMyAdmin - ChangeLog
 - issue        Fixed reported PHP warnings on server status page
 - issue #15629 Fixed datetime decimals displayed (.00000) after edit
 - issue #16780 Fixed new event shows an empty row
-- isseu #16765 Fixed new lines in text fields are doubled
+- issue #16765 Fixed new lines in text fields are doubled
+- issue        Fix "Connection" label always shown on table create, should be hidden like it's input
+- issue #16773 Fix do not use cast as binary for an empty text value on edit button condition
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
