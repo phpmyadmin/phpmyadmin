@@ -318,4 +318,128 @@ class SanitizeTest extends AbstractTestCase
         $this->assertArrayNotHasKey('second', $_REQUEST);
         $this->assertArrayHasKey('allow', $_REQUEST);
     }
+
+    /**
+     * Data provider for sanitize links
+     *
+     * @return array
+     */
+    public function dataProviderCheckLinks(): array
+    {
+        // Expected
+        // The url
+        // Allow http links
+        // Allow other links
+        return [
+            [
+                false,
+                'foo',
+                false,
+                false,
+            ],
+            [
+                true,
+                './doc/html/',
+                false,
+                false,
+            ],
+            [
+                false,
+                'index.php',
+                false,
+                false,
+            ],
+            [
+                false,
+                './index.php',
+                false,
+                false,
+            ],
+            [
+                true,
+                './index.php?',
+                false,
+                false,
+            ],
+            [
+                true,
+                './index.php?route=/server/sql',
+                false,
+                false,
+            ],
+            [
+                false,
+                'index.php?route=/server/sql',
+                false,
+                false,
+            ],
+            [
+                false,
+                'ftp://ftp.example.com',
+                false,
+                false,
+            ],
+            [
+                true,
+                'ftp://ftp.example.com',
+                false,
+                true,
+            ],
+            [
+                false,
+                'mailto:admin@domain.tld',
+                false,
+                false,
+            ],
+            [
+                true,
+                'mailto:admin@domain.tld',
+                false,
+                true,
+            ],
+            [
+                false,
+                './url.php?url=https://example.com',
+                false,
+                false,
+            ],
+            [
+                true,
+                './url.php?url=https%3a%2f%2fexample.com',
+                false,
+                false,
+            ],
+            [
+                true,
+                'https://example.com',
+                false,
+                false,
+            ],
+            [
+                false,
+                'http://example.com',
+                false,
+                false,
+            ],
+            [
+                true,
+                'http://example.com',
+                true,
+                false,
+            ],
+        ];
+    }
+
+    /**
+     * Tests link sanitize
+     *
+     * @dataProvider dataProviderCheckLinks
+     */
+    public function testCheckLink(bool $expected, string $url, bool $http, bool $other): void
+    {
+        $this->assertSame(
+            $expected,
+            Sanitize::checkLink($url, $http, $other)
+        );
+    }
 }
