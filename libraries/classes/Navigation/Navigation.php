@@ -89,8 +89,13 @@ class Navigation
                         [],
                         is_bool($hasStartChar) ? '?' : Url::getArgSeparator()
                     );
+                    // Internal link detected
+                    $logo['attributes'] = '';
+                } else {
+                    // External links having a domain name should not be considered
+                    // to be links that can use our internal ajax loading
+                    $logo['attributes'] = ' class="disableAjax"';
                 }
-                $logo['attributes'] = '';
             }
 
             if ($cfg['NavigationDisplayServers'] && count($cfg['Servers']) > 1) {
