@@ -1269,6 +1269,11 @@ class Results
             'sort_by_key' => '1',
         ];
 
+        // Keep the number of rows (25, 50, 100, ...) when changing sort key value
+        if (isset($_SESSION['tmpval']) && isset($_SESSION['tmpval']['max_rows'])) {
+            $hiddenFields['session_max_rows'] = $_SESSION['tmpval']['max_rows'];
+        }
+
         $isIndexUsed = false;
         $localOrder = is_array($sortExpression) ? implode(', ', $sortExpression) : '';
 
