@@ -351,8 +351,10 @@ class FormDisplayTemplate
                 . '">' . $icons['edit'] . '</a>';
         }
         if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
-            $htmlOutput .= '<a class="restore-default hide" href="#' . $path . '" title="'
+            $htmlOutput .= '<a class="restore-default hide" data-path="'. $path .'" href="#' . $path . '" title="'
                 . __('Restore default value') . '">' . $icons['reload'] . '</a>';
+            $htmlOutput .= '<input type="hidden" name="reset_form[]" value="' . $path
+                . '" id="' . $path . '_restore" disabled="disabled"/>';
         }
         // this must match with displayErrors() in scripts/config.js
         if ($hasErrors) {

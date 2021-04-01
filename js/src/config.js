@@ -704,6 +704,8 @@ function setupRestoreField () {
             if ($(this).hasClass('restore-default')) {
                 fieldSel = href;
                 restoreField(fieldSel.substr(1));
+                var pathName = $(this)[0].getAttribute('data-path');
+                $('#' + pathName + '_restore')[0].disabled = false;
             } else {
                 fieldSel = href.match(/^[^=]+/)[0];
                 var value = href.match(/=(.+)$/)[1];

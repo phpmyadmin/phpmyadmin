@@ -115,6 +115,16 @@ class UserPreferences
     {
         global $dbi;
 
+        if (isset($_POST['reset_form'])) {
+            foreach ($_POST['reset_form'] as $field) {
+                $type = explode("-", $field)[2];
+                if ($type == 'only_db') {
+                    unset($config_array['Server/only_db']);
+                } else if ($type == 'hide_db') {
+                    unset($config_array['Server/hide_db']);
+                }
+            }
+        }
         $cfgRelation = $this->relation->getRelationsParam();
         $server = $GLOBALS['server'] ?? $GLOBALS['cfg']['ServerDefault'];
         $cache_key = 'server_' . $server;
