@@ -2100,10 +2100,12 @@ Navigation panel setup
     :type: string
     :default: ``'index.php'``
 
-    Enter :term:`URL` where logo in the navigation panel will point to.
+    Enter the :term:`URL` where the logo in the navigation panel will point to.
     For use especially with self made theme which changes this.
     For relative/internal URLs, you need to have leading `` ./ `` or trailing characters `` ? `` such as ``'./index.php?route=/server/sql?'``.
     For external URLs, you should include URL protocol schemes (``http`` or ``https``) with absolute URLs.
+
+    You may want to make the link open in a new browser tab, for that you need to use :config:option:`$cfg['NavigationLogoLinkWindow']`
 
 .. config:option:: $cfg['NavigationLogoLinkWindow']
 
@@ -2113,6 +2115,9 @@ Navigation panel setup
     Whether to open the linked page in the main window (``main``) or in a
     new one (``new``). Note: use ``new`` if you are linking to
     ``phpmyadmin.net``.
+
+    To open the link in the main window you will need to add the value of :config:option:`$cfg['NavigationLogoLink']`
+    to :config:option:`$cfg['CSPAllow']` because of the Content Security Policy header.
 
 .. config:option:: $cfg['NavigationTreeDisplayItemFilterMinimum']
 
