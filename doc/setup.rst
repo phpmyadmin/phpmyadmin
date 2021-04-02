@@ -1132,6 +1132,9 @@ are several configuration options involved in the SSL setup:
     This configuration disables server certificate verification. Use with
     caution.
 
+When the database server is using a local connection or private network and SSL can not be configured
+you can use :config:option:`$cfg['MysqlSslWarningSafeHosts']` to explicitly list the hostnames that are considered secure.
+
 .. seealso::
 
     :ref:`example-google-ssl`,
