@@ -54,6 +54,8 @@ phpMyAdmin - ChangeLog
 - issue        Fixed a JS error on a missing script on zoom search
 - issue        Added button style on the reset charts of zoom search
 - issue        Fixed number of rows not kept when changing sort by index value
+- issue #16784 Fixed spacing between icons when using NavigationTreeDefaultTabTable2 configuration
+- issue #16786 Fixed browser error when clicking the logo with NavigationLogoLink configuration
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
