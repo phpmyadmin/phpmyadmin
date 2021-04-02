@@ -1509,7 +1509,7 @@ Generic settings
     :default: true
 
     Enables check for latest versions using JavaScript on the main phpMyAdmin
-    page or by directly accessing `index.php?route=/git-revision`.
+    page or by directly accessing `index.php?route=/version-check`.
 
     .. note::
 
@@ -2117,7 +2117,7 @@ Navigation panel setup
     ``phpmyadmin.net``.
 
     To open the link in the main window you will need to add the value of :config:option:`$cfg['NavigationLogoLink']`
-    to :config:option:`$cfg['CSPAllow']` because of the Content Security Policy header.
+    to :config:option:`$cfg['CSPAllow']` because of the :term:`Content Security Policy` header.
 
 .. config:option:: $cfg['NavigationTreeDisplayItemFilterMinimum']
 
@@ -2862,7 +2862,7 @@ Web server settings
 
     This can be useful when you want to include some external JavaScript files
     in :file:`config.footer.inc.php` or :file:`config.header.inc.php`, which
-    would be normally not allowed by Content Security Policy.
+    would be normally not allowed by :term:`Content Security Policy`.
 
     To allow some sites, just list them within the string:
 
