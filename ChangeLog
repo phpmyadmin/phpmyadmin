@@ -58,7 +58,14 @@ phpMyAdmin - ChangeLog
 - issue        Fixed reported PHP warnings on server status page
 - issue #15629 Fixed datetime decimals displayed (.00000) after edit
 - issue #16780 Fixed new event shows an empty row
-- isseu #16765 Fixed new lines in text fields are doubled
+- issue #16765 Fixed new lines in text fields are doubled
+- issue        Fix "Connection" label always shown on table create, should be hidden like it's input
+- issue #16773 Fix do not use cast as binary for an empty text value on edit button condition
+- issue        Fixed a JS error on a missing script on zoom search
+- issue        Added button style on the reset charts of zoom search
+- issue        Fixed number of rows not kept when changing sort by index value
+- issue #16784 Fixed spacing between icons when using NavigationTreeDefaultTabTable2 configuration
+- issue #16786 Fixed browser error when clicking the logo with NavigationLogoLink configuration
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
