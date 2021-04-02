@@ -91,7 +91,7 @@
     <form class="ajax" action="{{ url('/server/databases') }}" method="post" name="dbStatsForm" id="dbStatsForm">
       {{ get_hidden_inputs(url_params) }}
       <div class="table-responsive">
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover w-auto">
           <thead class="table-light">
             <tr>
               {% if is_drop_allowed %}
