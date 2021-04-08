@@ -1294,6 +1294,27 @@ class TableTest extends AbstractTestCase
     }
 
     /**
+     * Tests for getSqlQueryForIndexCreateOrEdit() method.
+     */
+    public function testGetSqlQueryForIndexCreateOrEditSecondFormat(): void
+    {
+        $db = 'pma_db';
+        $table = 'pma_table';
+        $index = new Index();
+        $error = false;
+
+        $_POST['old_index']['Key_name'] = 'PRIMARY';
+
+        $table = new Table($table, $db);
+        $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
+
+        $this->assertEquals(
+            'ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;',
+            $sql
+        );
+    }
+
+    /**
      * Test for getColumns
      */
     public function testGetColumns(): void

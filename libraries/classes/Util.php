@@ -971,7 +971,8 @@ class Util
             // hexify only if this is a true not empty BLOB or a BINARY
 
             // do not waste memory building a too big condition
-            if (mb_strlen((string) $row) < 1000) {
+            $rowLength = mb_strlen((string) $row);
+            if ($rowLength > 0 && $rowLength < 1000) {
                 // use a CAST if possible, to avoid problems
                 // if the field contains wildcard characters % or _
                 $conditionValue = '= CAST(0x' . bin2hex((string) $row) . ' AS BINARY)';
@@ -979,7 +980,7 @@ class Util
                 // when this blob is the only field present
                 // try settling with length comparison
                 $condition = ' CHAR_LENGTH(' . $conditionKey . ') ';
-                $conditionValue = ' = ' . mb_strlen((string) $row);
+                $conditionValue = ' = ' . $rowLength;
             } else {
                 // this blob won't be part of the final condition
                 $conditionValue = null;
@@ -1524,7 +1525,7 @@ class Util
         }
 
         // for the case ENUM('&#8211;','&ldquo;')
-        $displayed_type = htmlspecialchars($printtype);
+        $displayed_type = htmlspecialchars($printtype, ENT_COMPAT);
         if (mb_strlen($printtype) > $GLOBALS['cfg']['LimitChars']) {
             $displayed_type  = '<abbr title="' . htmlspecialchars($printtype) . '">';
             $displayed_type .= htmlspecialchars(
@@ -1532,7 +1533,8 @@ class Util
                     $printtype,
                     0,
                     (int) $GLOBALS['cfg']['LimitChars']
-                ) . '...'
+                ) . '...',
+                ENT_COMPAT
             );
             $displayed_type .= '</abbr>';
         }

@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-03-06 15:47+0100\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-04-03 19:26+0000\n"
+"Last-Translator: Jakub Sip <jakubsip52@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/5-1/sk/"
 ">\n"
 "Language: sk\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.6-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -28,6 +28,8 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Pre presnejšie hodnoty sa odporúča nechať server bežať viac ako deň pred "
+"spustením tejto analýzy"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
@@ -42,13 +44,13 @@ msgstr "Menej než 1000 dopytov"
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
-msgstr ""
+msgstr "Server vybavil menej než 1000 dotazov. Odporúčania nemusia byť presné."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr ""
+msgstr "Nechajte server bežať dlhšiu dobu, kým nevybaví viac dotazov."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
@@ -70,6 +72,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Môžete zvýšiť  {long_query_time} alebo optimalizovať query zahrnuté v slow "
+"query log"
 
 #: libraries/advisory_rules_generic.php:46
 #, php-format
@@ -11482,10 +11486,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:126
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Názvy stĺpcov: "
+msgstr "Názvy stĺpcov:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:265
 #: libraries/classes/Plugins/Import/ImportCsv.php:635
@@ -13253,32 +13255,32 @@ msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
-"Stĺpec BLOB, maximálna dĺžka 255 (2^8 - 1) bytov, ukladá sa sa 1-bytovým "
-"prefixom, ktorý obsahuje dĺžku hodnoty"
+"Stĺpec BLOB s maximálnou dĺžkou 255 (2^8 - 1) byte-ov, sa ukladá s 1 byte-"
+"ovým prefixom, ktorý určuje dĺžku hodnoty"
 
 #: libraries/classes/Types.php:350
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
-"Stĺpec BLOB, maximálna dĺžka 16 777 (2^24 - 1) bytov, ukladá sa sa 3-bytovým "
-"prefixom, ktorý obsahuje dĺžku hodnoty"
+"Stĺpec BLOB s maximálnou dĺžkou 16 777 215 (2^24 - 1) byte-ov sa ukladá s 3"
+"-byte-ovým prefixom, ktorý určuje dĺžku hodnoty"
 
 #: libraries/classes/Types.php:356
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
-"Stĺpec BLOB, maximálna dĺžka 65 535 (2^16 - 1) bytov, ukladá sa sa 2-bytovým "
-"prefixom, ktorý obsahuje dĺžku hodnoty"
+"Stĺpec BLOB s maximálnou dĺžkou 65 535 (2^16 - 1) byte-ov sa ukladá s 2-byte-"
+"ovým prefixom ktorý určuje dĺžku hodnoty"
 
 #: libraries/classes/Types.php:361
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"Stĺpec BLOB, maximálna dĺžka 4 294 967 295 alebo 4 GB (2^32 - 1) bytov, "
-"ukladá sa sa 4-bytovým prefixom, ktorý obsahuje dĺžku hodnoty"
+"Stĺpec BLOB s maximálnou dĺžkou 4 294 967 295 alebo 4 GB (2^32 - 1) byte-ov "
+"sa ukladá so 4-byte-ovým prefixom, ktorý určuje dĺžku hodnoty"
 
 #: libraries/classes/Types.php:367
 msgid ""
@@ -15282,7 +15284,7 @@ msgstr "Text (Well Known Text)"
 
 #: templates/display/results/table.twig:168
 msgid "Well Known Binary"
-msgstr "Well Known Binary"
+msgstr "Známy binárny súbor"
 
 #: templates/display/results/table.twig:238
 #: templates/sql/no_results_returned.twig:9

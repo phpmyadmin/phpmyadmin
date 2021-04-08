@@ -36,6 +36,26 @@ phpMyAdmin - ChangeLog
 - issue #16694 Fixed "Triggers" page not visible for user table specific privileges
 - issue #14430 Fixed execute button is disabled for routines
 - issue #16703 Fixed SQL option to Export specific rows from a table
+- issue #16656 Fixed error messages are not always translated
+- issue #16728 Fixed wrong SQL query built on table structure index for new column
+- issue #16647 Fixed table search forms not showing texts and not respecting TabsMode config
+- issue #16758 Fixed copy to clipboard feature not working on ja or zh_TW languages because of the non ascii colon
+- issue #16601 Update tcpdf dependency to ^6.4.1
+- issue #16770 Fixed a notice or warning, when clicking on Structure tab
+- issue #16756 Fixed refresh UI on server status
+- issue        Fixed a PHP notice when searching for .git/commondir on the login page for users using ShowGitRevision
+- issue        Fixed reported PHP notice on export save template
+- issue        Fixed reported PHP warnings on server status page
+- issue #15629 Fixed datetime decimals displayed (.00000) after edit
+- issue #16780 Fixed new event shows an empty row
+- issue #16765 Fixed new lines in text fields are doubled
+- issue        Fix "Connection" label always shown on table create, should be hidden like it's input
+- issue #16773 Fix do not use cast as binary for an empty text value on edit button condition
+- issue        Fixed a JS error on a missing script on zoom search
+- issue        Added button style on the reset charts of zoom search
+- issue        Fixed number of rows not kept when changing sort by index value
+- issue #16784 Fixed spacing between icons when using NavigationTreeDefaultTabTable2 configuration
+- issue #16786 Fixed browser error when clicking the logo with NavigationLogoLink configuration
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type

@@ -497,6 +497,19 @@ class Git
         return [$hash, $branch];
     }
 
+    private function getCommonDirContents(string $gitFolder): ?string
+    {
+        if (! is_file($gitFolder . '/commondir')) {
+            return null;
+        }
+        $commonDirContents = @file_get_contents($gitFolder . '/commondir');
+        if ($commonDirContents === false) {
+            return null;
+        }
+
+        return trim($commonDirContents);
+    }
+
     /**
      * detects Git revision, if running inside repo
      */
@@ -518,10 +531,9 @@ class Git
             return null;
         }
 
-        $common_dir_contents = @file_get_contents($gitFolder . '/commondir');
-
-        if ($common_dir_contents !== false) {
-            $gitFolder .= DIRECTORY_SEPARATOR . trim($common_dir_contents);
+        $commonDirContents = $this->getCommonDirContents($gitFolder);
+        if ($commonDirContents !== null) {
+            $gitFolder .= DIRECTORY_SEPARATOR . $commonDirContents;
         }
 
         [$hash, $branch] = $this->getHashFromHeadRef($gitFolder, $ref_head);

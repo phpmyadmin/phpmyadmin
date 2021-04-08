@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
+use const ENT_COMPAT;
 use const PASSWORD_DEFAULT;
 use function array_fill;
 use function array_flip;
@@ -2067,7 +2068,7 @@ class InsertEdit
                 : Util::addMicroseconds(
                     $current_row[$column['Field']]
                 );
-            $special_chars = htmlspecialchars($current_row[$column['Field']]);
+            $special_chars = htmlspecialchars($current_row[$column['Field']], ENT_COMPAT);
         } elseif (in_array($column['True_Type'], $gis_data_types)) {
             // Convert gis data to Well Know Text format
             $current_row[$column['Field']] = $as_is
@@ -2076,7 +2077,7 @@ class InsertEdit
                     $current_row[$column['Field']],
                     true
                 );
-            $special_chars = htmlspecialchars($current_row[$column['Field']]);
+            $special_chars = htmlspecialchars($current_row[$column['Field']], ENT_COMPAT);
         } else {
             // special binary "characters"
             if ($column['is_binary']
@@ -2088,7 +2089,7 @@ class InsertEdit
                         $current_row[$column['Field']]
                     );
             }
-            $special_chars = htmlspecialchars($current_row[$column['Field']]);
+            $special_chars = htmlspecialchars($current_row[$column['Field']], ENT_COMPAT);
 
             //We need to duplicate the first \n or otherwise we will lose
             //the first newline entered in a VARCHAR or TEXT column
@@ -2115,7 +2116,7 @@ class InsertEdit
         // it's better to set a fields_prev in this situation
         $backup_field = '<input type="hidden" name="fields_prev'
             . $column_name_appendix . '" value="'
-            . htmlspecialchars($current_row[$column['Field']]) . '">';
+            . htmlspecialchars($current_row[$column['Field']], ENT_COMPAT) . '">';
 
         return [
             $real_null_value,
@@ -2397,7 +2398,7 @@ class InsertEdit
         $error_messages = [];
 
         foreach ($query as $single_query) {
-            if ($_POST['submit_type'] === 'showinsert') {
+            if (isset($_POST['submit_type']) && $_POST['submit_type'] === 'showinsert') {
                 $last_messages[] = Message::notice(__('Showing SQL query'));
                 continue;
             }

@@ -1269,6 +1269,11 @@ class Results
             'sort_by_key' => '1',
         ];
 
+        // Keep the number of rows (25, 50, 100, ...) when changing sort key value
+        if (isset($_SESSION['tmpval']) && isset($_SESSION['tmpval']['max_rows'])) {
+            $hiddenFields['session_max_rows'] = $_SESSION['tmpval']['max_rows'];
+        }
+
         $isIndexUsed = false;
         $localOrder = is_array($sortExpression) ? implode(', ', $sortExpression) : '';
 
@@ -3554,7 +3559,7 @@ class Results
      *                                                     function
      * @param string                $default_function      the default transformation
      *                                                     function
-     * @param string                $transform_options     the transformation parameters
+     * @param array                 $transform_options     the transformation parameters
      * @param array                 $analyzed_sql_results  the analyzed query
      *
      * @return string the prepared data cell, html content
@@ -3695,7 +3700,7 @@ class Results
      *                                                     function
      * @param string                $default_function      the default transformation
      *                                                     function
-     * @param string                $transform_options     the transformation parameters
+     * @param array                 $transform_options     the transformation parameters
      * @param bool                  $is_field_truncated    is data truncated due to
      *                                                     LimitChars
      * @param array                 $analyzed_sql_results  the analyzed query
@@ -3766,7 +3771,7 @@ class Results
         ) {
             [
                 $is_field_truncated,
-                $column,
+                $displayedColumn,
                 $original_length,
             ] = $this->getPartialText($column);
         }
@@ -4752,7 +4757,7 @@ class Results
      *                                           Can also be the
      *                                           default function:
      *                                           Core::mimeDefaultFunction
-     * @param string      $transform_options     transformation parameters
+     * @param array       $transform_options     transformation parameters
      * @param string      $default_function      default transformation function
      * @param stdClass    $meta                  the meta-information about the field
      * @param array       $url_params            parameters that should go to the

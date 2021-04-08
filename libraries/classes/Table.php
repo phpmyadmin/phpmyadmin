@@ -2229,12 +2229,13 @@ class Table
 
         // Drops the old index
         if (! empty($_POST['old_index'])) {
-            if ($_POST['old_index'] === 'PRIMARY') {
+            $oldIndex = is_array($_POST['old_index']) ? $_POST['old_index']['Key_name'] : $_POST['old_index'];
+            if ($oldIndex === 'PRIMARY') {
                 $sql_query .= ' DROP PRIMARY KEY,';
             } else {
                 $sql_query .= sprintf(
                     ' DROP INDEX %s,',
-                    Util::backquote($_POST['old_index'])
+                    Util::backquote($oldIndex)
                 );
             }
         }
