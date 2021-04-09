@@ -383,17 +383,9 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->exactly(3))
             ->method('getError')
-            ->will($this->returnValue('error 123'));
-
-        $dbi->expects($this->at(1))
-            ->method('getError')
-            ->will($this->returnValue('error 321'));
-
-        $dbi->expects($this->at(2))
-            ->method('getError')
-            ->will($this->returnValue(null));
+            ->will($this->onConsecutiveCalls('error 123', 'error 321', null));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['errno'] = 31;

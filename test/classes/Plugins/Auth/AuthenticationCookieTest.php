@@ -646,7 +646,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->onlyMethods(['cookieDecrypt'])
             ->getMock();
 
-        $this->object->expects($this->at(1))
+        $this->object->expects($this->exactly(2))
             ->method('cookieDecrypt')
             ->will($this->returnValue('{"password":""}'));
 
@@ -919,7 +919,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('getError')
             ->will($this->returnValue(false));
 
@@ -949,7 +949,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('getError')
             ->will($this->returnValue(false));
 

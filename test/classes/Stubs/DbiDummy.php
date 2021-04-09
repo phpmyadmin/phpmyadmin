@@ -2362,6 +2362,11 @@ class DbiDummy implements DbiExtension
                 'result' => [['test_table', '0', 'PRIMARY', 'id']],
             ],
             [
+                'query' => 'SHOW INDEX FROM `test_table`;',
+                'columns' => ['Table', 'Non_unique', 'Key_name', 'Column_name'],
+                'result' => [['test_table', '0', 'PRIMARY', 'id']],
+            ],
+            [
                 'query' => 'SHOW TRIGGERS FROM `test_db` LIKE \'test_table\';',
                 'columns' => ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
                 'result' => [['test_trigger', 'INSERT', 'test_table', 'BEGIN END', 'AFTER', 'definer@localhost']],
@@ -2520,6 +2525,25 @@ class DbiDummy implements DbiExtension
                 'query' => 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC',
                 'columns' => ['usergroup', 'tab', 'allowed'],
                 'result' => [['usergroup', 'server_sql', 'Y']],
+            ],
+            [
+                'query' => 'DESCRIBE `test_table`',
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'result' => [
+                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
+                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
+                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
+                ],
+            ],
+            [
+                'query' => 'SELECT * FROM `test_table` WHERE `id` = 4;',
+                'columns' => ['id', 'name', 'datetimefield'],
+                'result' => [['4', '101', '2013-01-20 02:00:02']],
+            ],
+            [
+                'query' => 'SELECT * FROM `mysql`.`user` WHERE `User` = \'username\' AND `Host` = \'hostname\';',
+                'columns' => ['Host', 'User', 'Password'],
+                'result' => [['hostname', 'username', 'password']],
             ],
         ];
         /**

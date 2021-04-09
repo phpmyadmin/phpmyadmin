@@ -9,7 +9,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\InsertEdit;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Table;
@@ -1949,86 +1948,19 @@ class InsertEditTest extends AbstractTestCase
     public function testExecuteSqlQuery(): void
     {
         $query = [
-            'SELECT 1',
-            'SELECT 2',
+            'SELECT * FROM `test_db`.`test_table`;',
+            'SELECT * FROM `test_db`.`test_table_yaml`;',
         ];
-        $GLOBALS['sql_query'] = 'SELECT';
+        $GLOBALS['sql_query'] = 'SELECT * FROM `test_db`.`test_table`;';
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = false;
         $_POST['submit_type'] = '';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(0))
-            ->method('query')
-            ->with('SELECT 1')
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->at(1))
-            ->method('affectedRows')
-            ->will($this->returnValue(2));
-
-        $dbi->expects($this->at(2))
-            ->method('insertId')
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->at(5))
-            ->method('query')
-            ->with('SELECT 2')
-            ->will($this->returnValue(false));
-
-        $dbi->expects($this->once())
-            ->method('getError')
-            ->will($this->returnValue('err'));
-
-        $dbi->expects($this->exactly(2))
-            ->method('getWarnings')
-            ->will($this->returnValue([]));
-
-        $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
-
         $result = $this->insertEdit->executeSqlQuery([], $query);
 
-        $this->assertEquals(
-            ['sql_query' => 'SELECT'],
-            $result[0]
-        );
-
-        $this->assertEquals(
-            2,
-            $result[1]
-        );
-
-        $this->assertInstanceOf(
-            Message::class,
-            $result[2][0]
-        );
-
-        $msg = $result[2][0];
-        $reflectionMsg = new ReflectionProperty(Message::class, 'params');
-        $reflectionMsg->setAccessible(true);
-
-        $this->assertEquals(
-            [2],
-            $reflectionMsg->getValue($msg)
-        );
-
-        $this->assertEquals(
-            [],
-            $result[3]
-        );
-
-        $this->assertEquals(
-            ['err'],
-            $result[4]
-        );
-
-        $this->assertEquals(
-            'SELECT',
-            $result[5]
-        );
+        $this->assertEquals(['sql_query' => 'SELECT * FROM `test_db`.`test_table`;'], $result[0]);
+        $this->assertEquals([], $result[3]);
+        $this->assertEquals('SELECT * FROM `test_db`.`test_table`;', $result[5]);
     }
 
     /**
@@ -2037,86 +1969,19 @@ class InsertEditTest extends AbstractTestCase
     public function testExecuteSqlQueryWithTryQuery(): void
     {
         $query = [
-            'SELECT 1',
-            'SELECT 2',
+            'SELECT * FROM `test_db`.`test_table`;',
+            'SELECT * FROM `test_db`.`test_table_yaml`;',
         ];
-        $GLOBALS['sql_query'] = 'SELECT';
+        $GLOBALS['sql_query'] = 'SELECT * FROM `test_db`.`test_table`;';
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = true;
         $_POST['submit_type'] = '';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(0))
-            ->method('tryQuery')
-            ->with('SELECT 1')
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->at(1))
-            ->method('affectedRows')
-            ->will($this->returnValue(2));
-
-        $dbi->expects($this->at(2))
-            ->method('insertId')
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->at(5))
-            ->method('tryQuery')
-            ->with('SELECT 2')
-            ->will($this->returnValue(false));
-
-        $dbi->expects($this->once())
-            ->method('getError')
-            ->will($this->returnValue('err'));
-
-        $dbi->expects($this->exactly(2))
-            ->method('getWarnings')
-            ->will($this->returnValue([]));
-
-        $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
-
         $result = $this->insertEdit->executeSqlQuery([], $query);
 
-        $this->assertEquals(
-            ['sql_query' => 'SELECT'],
-            $result[0]
-        );
-
-        $this->assertEquals(
-            2,
-            $result[1]
-        );
-
-        $this->assertInstanceOf(
-            Message::class,
-            $result[2][0]
-        );
-
-        $msg = $result[2][0];
-        $reflectionMsg = new ReflectionProperty(Message::class, 'params');
-        $reflectionMsg->setAccessible(true);
-
-        $this->assertEquals(
-            [2],
-            $reflectionMsg->getValue($msg)
-        );
-
-        $this->assertEquals(
-            [],
-            $result[3]
-        );
-
-        $this->assertEquals(
-            ['err'],
-            $result[4]
-        );
-
-        $this->assertEquals(
-            'SELECT',
-            $result[5]
-        );
+        $this->assertEquals(['sql_query' => 'SELECT * FROM `test_db`.`test_table`;'], $result[0]);
+        $this->assertEquals([], $result[3]);
+        $this->assertEquals('SELECT * FROM `test_db`.`test_table`;', $result[5]);
     }
 
     /**
@@ -2488,25 +2353,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetCurrentValueForDifferentTypes(): void
     {
-        $prow = [];
-        $prow['a'] = '101';
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(4))
-            ->method('fetchSingleRow')
-            ->with('SELECT * FROM `table` WHERE 1;')
-            ->will($this->returnValue($prow));
-        $dbi->expects($this->exactly(2))
-            ->method('escapeString')
-            ->willReturnOnConsecutiveCalls(
-                $this->returnArgument(0),
-                "20\'12"
-            );
-
-        $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
@@ -2521,8 +2367,8 @@ class InsertEditTest extends AbstractTestCase
             [],
             true,
             true,
-            '1',
-            'table',
+            '',
+            'test_table',
             []
         );
 
@@ -2544,8 +2390,8 @@ class InsertEditTest extends AbstractTestCase
             [],
             true,
             true,
-            '1',
-            'table',
+            '',
+            'test_table',
             []
         );
 
@@ -2567,8 +2413,8 @@ class InsertEditTest extends AbstractTestCase
             [],
             true,
             true,
-            '1',
-            'table',
+            '',
+            'test_table',
             []
         );
 
@@ -2591,8 +2437,8 @@ class InsertEditTest extends AbstractTestCase
             [],
             true,
             true,
-            '1',
-            'table',
+            '',
+            'test_table',
             []
         );
 
@@ -2609,13 +2455,13 @@ class InsertEditTest extends AbstractTestCase
             '',
             [],
             0,
-            ['a'],
+            ['name'],
             [],
             [],
             true,
             true,
-            '1',
-            'table',
+            '`id` = 4',
+            'test_table',
             []
         );
 
@@ -2637,8 +2483,8 @@ class InsertEditTest extends AbstractTestCase
             [],
             true,
             true,
-            '1',
-            'table',
+            '',
+            'test_table',
             []
         );
 
@@ -2660,8 +2506,8 @@ class InsertEditTest extends AbstractTestCase
             [],
             true,
             true,
-            '1',
-            'table',
+            '',
+            'test_table',
             []
         );
 
@@ -2683,8 +2529,8 @@ class InsertEditTest extends AbstractTestCase
             [],
             true,
             true,
-            '1',
-            'table',
+            '',
+            'test_table',
             []
         );
 
@@ -2707,8 +2553,8 @@ class InsertEditTest extends AbstractTestCase
             [],
             true,
             true,
-            '1',
-            'table',
+            '',
+            'test_table',
             []
         );
 
@@ -2730,8 +2576,8 @@ class InsertEditTest extends AbstractTestCase
             [1],
             true,
             true,
-            '1',
-            'table',
+            '',
+            'test_table',
             []
         );
 

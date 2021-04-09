@@ -790,58 +790,18 @@ class PrivilegesTest extends AbstractTestCase
      */
     public function testGetHtmlToDisplayPrivilegesTable(): void
     {
-        $dbi_old = $GLOBALS['dbi'];
         $GLOBALS['hostname'] = 'hostname';
         $GLOBALS['username'] = 'username';
+        $GLOBALS['dbi'] = DatabaseInterface::load(new DbiDummy());
 
-        //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $fetchSingleRow = [
-            'password' => 'pma_password',
-            'max_questions' => 'max_questions',
-            'max_updates' => 'max_updates',
-            'max_connections' => 'max_connections',
-            'max_user_connections' => 'max_user_connections',
-            'Table_priv' => 'Select,Insert,Update,Delete,File,Create,Alter,Index,'
-                . 'Drop,Super,Process,Reload,Shutdown,Create_routine,Alter_routine,'
-                . 'Show_db,Repl_slave,Create_tmp_table,Show_view,Execute,'
-                . 'Repl_client,Lock_tables,References,Grant,dd'
-                . 'Create_user,Repl_slave,Repl_client',
-            'Type' => "'Super1','Select','Insert','Update','Create','Alter','Index',"
-                . "'Drop','Delete','File','Super','Process','Reload','Shutdown','"
-                . "Show_db','Repl_slave','Create_tmp_table',"
-                . "'Show_view','Create_routine','"
-                . "Repl_client','Lock_tables','References','Alter_routine','"
-                . "Create_user','Repl_slave','Repl_client','Execute','Grant','ddd",
-        ];
-        $dbi->expects($this->any())->method('fetchSingleRow')
-            ->will($this->returnValue($fetchSingleRow));
-
-        $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue(true));
-
-        $columns = [
-            'val1',
-            'replace1',
-            5,
-        ];
-        $dbi->expects($this->at(0))
-            ->method('fetchRow')
-            ->will($this->returnValue($columns));
-        $dbi->expects($this->at(1))
-            ->method('fetchRow')
-            ->will($this->returnValue(null));
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
-
-        $GLOBALS['dbi'] = $dbi;
-        $this->serverPrivileges->dbi = $dbi;
-
-        $html = $this->serverPrivileges->getHtmlToDisplayPrivilegesTable();
+        $relation = new Relation($GLOBALS['dbi']);
+        $serverPrivileges = new Privileges(
+            new Template(),
+            $GLOBALS['dbi'],
+            $relation,
+            new RelationCleanup($GLOBALS['dbi'], $relation)
+        );
+        $html = $serverPrivileges->getHtmlToDisplayPrivilegesTable();
         $GLOBALS['username'] = 'username';
 
         //validate 1: fieldset
@@ -929,7 +889,7 @@ class PrivilegesTest extends AbstractTestCase
             $html
         );
         $this->assertStringContainsString(
-            'id="text_max_updates" value="max_updates"',
+            'id="text_max_updates" value="0"',
             $html
         );
         $this->assertStringContainsString(
@@ -961,9 +921,6 @@ class PrivilegesTest extends AbstractTestCase
             'value="SPECIFIED"',
             $html
         );
-
-        $GLOBALS['dbi'] = $dbi_old;
-        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**

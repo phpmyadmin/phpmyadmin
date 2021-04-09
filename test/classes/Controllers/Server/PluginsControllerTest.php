@@ -55,12 +55,9 @@ class PluginsControllerTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('query')
             ->will($this->returnValue(true));
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->exactly(2))
             ->method('fetchAssoc')
-            ->will($this->returnValue($row));
-        $dbi->expects($this->at(2))
-            ->method('fetchAssoc')
-            ->will($this->returnValue(null));
+            ->will($this->onConsecutiveCalls($row, null));
         $dbi->expects($this->once())
             ->method('freeResult')
             ->will($this->returnValue(true));

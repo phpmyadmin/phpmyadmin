@@ -455,16 +455,9 @@ class StructureControllerTest extends AbstractTestCase
         $favoriteInstance = $this->getMockBuilder(RecentFavoriteTable::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $favoriteInstance->expects($this->at(1))->method('getTables')
-            ->willReturn([]);
-        $favoriteInstance->expects($this->at(2))
+        $favoriteInstance->expects($this->exactly(2))
             ->method('getTables')
-            ->willReturn([
-                [
-                    'db' => 'db',
-                    'table' => 'table',
-                ],
-            ]);
+            ->will($this->onConsecutiveCalls([[]], [['db' => 'db', 'table' => 'table']]));
 
         return $favoriteInstance;
     }

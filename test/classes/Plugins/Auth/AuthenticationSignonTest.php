@@ -316,7 +316,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('getError')
             ->will($this->returnValue('error<123>'));
 
@@ -348,7 +348,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('getError')
             ->will($this->returnValue(null));
 
