@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-03-06 15:47+0100\n"
-"PO-Revision-Date: 2021-03-08 13:15+0000\n"
+"PO-Revision-Date: 2021-04-11 10:26+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5.1\n"
+"X-Generator: Weblate 4.6-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -15728,7 +15728,7 @@ msgstr "Sunucu karakter grubu:"
 
 #: templates/home/index.twig:153
 msgid "Web server"
-msgstr "Web server"
+msgstr "Web sunucusu"
 
 #: templates/home/index.twig:161
 msgid "Database client version:"
