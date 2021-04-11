@@ -77,8 +77,12 @@ function getFieldType (field) {
  * @param {boolean} display
  */
 function setRestoreDefaultBtn (field, display) {
+    var displayStatus = display;
+    if (field[0].id.indexOf('only_db') !== -1 || field[0].id.indexOf('hide_db') !== -1) {
+        displayStatus = true;
+    }
     var $el = $(field).closest('td').find('.restore-default img');
-    $el[display ? 'show' : 'hide']();
+    $el[displayStatus ? 'show' : 'hide']();
 }
 
 /**
