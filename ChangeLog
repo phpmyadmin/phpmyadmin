@@ -60,6 +60,7 @@ phpMyAdmin - ChangeLog
 - issue #16789 Fix create PHP code removes ; from SQL query on Structure snapshot
 - issue #16791 Fixed "Undefined index table_schema" on special schema table
 - issue        Fixed "DESCRIBE FILES;" broken links in query results
+- issue #16790 Fixed "Undefined index field_name" PHP error
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
