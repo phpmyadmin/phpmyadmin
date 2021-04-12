@@ -3108,7 +3108,7 @@ class Results
             $linkingUrlParams[$linkRelations['link_param'][0]] = $sql;
         }
 
-        $divider = strpos($linkRelations['default_page'], '?') ? '&' : '?';
+        $divider = strpos($linkRelations['default_page'] ?? '', '?') ? '&' : '?';
         if (empty($linkRelations['link_dependancy_params'])) {
             return $linkRelations['default_page']
                 . Url::getCommonRaw($linkingUrlParams, $divider);

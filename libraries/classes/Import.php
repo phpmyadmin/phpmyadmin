@@ -347,8 +347,8 @@ class Import
     ): ?array {
         if (! empty($sql) || ! empty($full)) {
             return [
-                'sql' => $sql,
-                'full' => $full,
+                'sql' => $sql . ';',
+                'full' => $full . ';',
             ];
         }
 
