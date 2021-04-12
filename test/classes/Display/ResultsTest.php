@@ -415,9 +415,6 @@ class ResultsTest extends AbstractTestCase
             ],
         ];
 
-        $this->object->properties['db'] = $db;
-        $this->object->properties['table'] = $table;
-
         $this->assertEquals(
             $output,
             $this->callFunction(
@@ -425,10 +422,9 @@ class ResultsTest extends AbstractTestCase
                 DisplayResults::class,
                 'getSpecialLinkUrl',
                 [
-                    $specialSchemaLinks,
+                    $specialSchemaLinks[$db][$table][$field_name],
                     $column_value,
                     $row_info,
-                    $field_name,
                 ]
             )
         );
