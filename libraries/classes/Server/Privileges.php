@@ -2660,7 +2660,6 @@ class Privileges
         ?string $password,
         $is_menuwork
     ) {
-        $_add_user_error = false;
         $message = null;
         $queries = null;
         $queries_for_display = null;
@@ -2672,7 +2671,7 @@ class Privileges
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error,
+                false, // Add user error
             ];
         }
 
@@ -2709,14 +2708,13 @@ class Privileges
             $message = Message::error(__('The user %s already exists!'));
             $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
             $_GET['adduser'] = true;
-            $_add_user_error = true;
 
             return [
                 $message,
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error,
+                true, // Add user error
             ];
         }
 
@@ -2772,7 +2770,7 @@ class Privileges
                 $queries,
                 $queries_for_display,
                 $sql_query,
-                $_add_user_error,
+                $_error, // Add user error if the query fails
             ];
         }
 
@@ -2813,7 +2811,7 @@ class Privileges
             $queries,
             $queries_for_display,
             $sql_query,
-            $_add_user_error,
+            false, // Add user error
         ];
     }
 

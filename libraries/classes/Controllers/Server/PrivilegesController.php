@@ -401,7 +401,7 @@ class PrivilegesController extends AbstractController
             $this->response->addHTML('<h2>' . $title . '</h2>' . $export);
         }
 
-        if (isset($_GET['adduser'])) {
+        if (isset($_GET['adduser']) || $_add_user_error === true) {
             // Add user
             $this->response->addHTML(
                 $serverPrivileges->getHtmlForAddUser(($dbname ?? ''))
