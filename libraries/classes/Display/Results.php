@@ -3062,16 +3062,7 @@ class Results
         $table = mb_strtolower($this->properties['table']);
         $link_relations = $specialSchemaLinks[$db][$table][$field_name];
 
-        if (! is_array($link_relations['link_param'])) {
-            $linking_url_params[$link_relations['link_param']] = $column_value;
-        } else {
-            // Consider only the case of creating link for column field
-            // sql query that needs to be passed as url param
-            $sql = 'SELECT `' . $column_value . '` FROM `'
-                . $row_info[$link_relations['link_param'][1]] . '`.`'
-                . $row_info[$link_relations['link_param'][2]] . '`';
-            $linking_url_params[$link_relations['link_param'][0]] = $sql;
-        }
+        $linking_url_params[$link_relations['link_param']] = $column_value;
 
         $divider = strpos($link_relations['default_page'] ?? '', '?') ? '&' : '?';
         if (empty($link_relations['link_dependancy_params'])) {
@@ -3080,14 +3071,6 @@ class Results
         }
 
         foreach ($link_relations['link_dependancy_params'] as $new_param) {
-            // If param_info is an array, set the key and value
-            // from that array
-            if (is_array($new_param['param_info'])) {
-                $linking_url_params[$new_param['param_info'][0]]
-                    = $new_param['param_info'][1];
-                continue;
-            }
-
             $linking_url_params[$new_param['param_info']]
                 = $row_info[mb_strtolower($new_param['column_name'])];
 

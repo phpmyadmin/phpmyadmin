@@ -355,19 +355,6 @@ class ResultsTest extends AbstractTestCase
                 'index.php?route=/database/routines&item_name=area&db=data'
                 . '&item_type=PROCEDURE&server=0&lang=en',
             ],
-            [
-                'information_schema',
-                'columns',
-                'CHARACTER_SET_NAME',
-                [
-                    'table_schema' => 'information_schema',
-                    'table_name' => 'CHARACTER_SETS',
-                ],
-                'column_name',
-                'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60info'
-                . 'rmation_schema%60.%60CHARACTER_SETS%60&db=information_schema'
-                . '&test_name=value&server=0&lang=en',
-            ],
         ];
     }
 
@@ -411,21 +398,15 @@ class ResultsTest extends AbstractTestCase
                 ],
                 'columns' => [
                     'column_name' => [
-                        'link_param' => [
-                            'sql_query',
-                            'table_schema',
-                            'table_name',
-                        ],
+                        'link_param' => 'table_schema',
                         'link_dependancy_params' => [
                             0 => [
                                 'param_info' => 'db',
                                 'column_name' => 'table_schema',
                             ],
                             1 => [
-                                'param_info' => [
-                                    'test_name',
-                                    'value',
-                                ],
+                                'param_info' => 'db2',
+                                'column_name' => 'table_schema',
                             ],
                         ],
                         'default_page' => 'index.php',
