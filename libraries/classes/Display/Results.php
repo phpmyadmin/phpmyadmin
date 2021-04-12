@@ -3028,12 +3028,28 @@ class Results
     /**
      * Get link for display special schema links
      *
-     * @param array  $specialSchemaLinks special schema links
-     * @param string $column_value       column value
-     * @param array  $row_info           information about row
-     * @param string $field_name         column name
-     *
+     * // phpcs:disable Generic.Files.LineLength.TooLong
+     * @param array<string,array<string,array<string,array<string,array<int,array<string,string>>|string>>>> $specialSchemaLinks
+     * @param string                                                                                         $column_value       column value
+     * @param array                                                                                          $row_info           information about row
+     * @param string                                                                                         $field_name         column name
      * @return string generated link
+     * // phpcs:enable
+     *
+     * @phpstan-param array<
+     *              string, array<
+     *                  string, array<
+     *                      string,
+     *                      array{
+     *                          'link_param': string,
+     *                          'link_dependancy_params'?: array<
+     *                                                      int,
+     *                                                      array{'param_info': string, 'column_name': string}
+     *                                                     >,
+     *                          'default_page': string
+     *                      }>
+     *                  >
+     *             > $specialSchemaLinks
      */
     private function getSpecialLinkUrl(
         array $specialSchemaLinks,
