@@ -875,6 +875,62 @@ class TransformationPluginsTest extends AbstractTestCase
                 . 'Feb 01, 2010 at 12:00 AM</dfn>',
             ],
             [
+                new Text_Plain_Dateformat(),
+                [
+                    '1617153941',
+                    [
+                        '0',
+                        '%B %d, %Y at %I:%M %p',
+                        'local',
+                    ],
+                    ((object) ['type' => null]),
+                ],
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
+                . 'Mar 31, 2021 at 01:25 AM</dfn>',
+            ],
+            [
+                new Text_Plain_Dateformat(),
+                [
+                    '1617153941',
+                    [
+                        '0',
+                        '',// Empty uses the "Y-m-d  H:i:s" format
+                        'utc',
+                    ],
+                    ((object) ['type' => null]),
+                ],
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
+                . '2021-03-31  01:25:41</dfn>',
+            ],
+            [
+                new Text_Plain_Dateformat(),
+                [
+                    '1617153941',
+                    [
+                        '0',
+                        '',// Empty uses the "%B %d, %Y at %I:%M %p" format
+                        'local',
+                    ],
+                    ((object) ['type' => null]),
+                ],
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
+                . 'Mar 31, 2021 at 01:25 AM</dfn>',
+            ],
+            [
+                new Text_Plain_Dateformat(),
+                [
+                    '1617153941',
+                    [
+                        '0',
+                        'H:i:s Y-d-m',
+                        'utc',
+                    ],
+                    ((object) ['type' => null]),
+                ],
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
+                . '01:25:41 2021-31-03</dfn>',
+            ],
+            [
                 new Text_Plain_External(),
                 [
                     'PMA_BUFFER',

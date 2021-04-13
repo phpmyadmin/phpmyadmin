@@ -1554,6 +1554,20 @@ class UtilTest extends AbstractTestCase
                 'Asia/Tokyo',
                 'ja',
             ],
+            [
+                1617153941,
+                'H:i:s Y-d-m',
+                'H:i:s Y-d-m',// Not a valid strftime format
+                'Europe/Paris',
+                'fr',
+            ],
+            [
+                1617153941,
+                '',
+                'mer. 31 mars 2021 à 03:25',// No format uses format "%B %d, %Y at %I:%M %p"
+                'Europe/Paris',
+                'fr',
+            ],
         ];
     }
 
