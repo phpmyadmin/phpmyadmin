@@ -111,8 +111,8 @@ class NavigationTest extends AbstractTestCase
         );
         $this->assertStringContainsString(
             '<a class="unhideNavItem ajax" href="' . Url::getFromRoute('/navigation') . '" data-post="'
-            . 'unhideNavItem=1&amp;itemType=table&amp;'
-            . 'itemName=tableName&amp;dbName=db&amp;lang=en">',
+            . 'unhideNavItem=1&itemType=table&'
+            . 'itemName=tableName&dbName=db&lang=en">',
             $html
         );
     }

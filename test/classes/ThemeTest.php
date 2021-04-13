@@ -210,7 +210,7 @@ class ThemeTest extends AbstractTestCase
             $this->object->getPrintPreview()
         );
         $this->assertStringContainsString(
-            'name="" href="index.php?route=/set-theme&amp;set_theme=&amp;server=99&amp;lang=en">',
+            'name="" href="index.php?route=/set-theme&set_theme=&server=99&lang=en">',
             $this->object->getPrintPreview()
         );
         $this->assertStringContainsString(

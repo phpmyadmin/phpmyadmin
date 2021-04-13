@@ -1987,13 +1987,13 @@ class PrivilegesTest extends AbstractTestCase
         $this->assertStringContainsString('<td>A</td>', $actual);
         $this->assertStringContainsString('<td>Z</td>', $actual);
         $this->assertStringContainsString(
-            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=-'
-            . '&amp;lang=en">-</a>',
+            '<a class="ajax" href="index.php?route=/server/privileges&initial=-'
+            . '&lang=en">-</a>',
             $actual
         );
         $this->assertStringContainsString(
-            '<a class="ajax" href="index.php?route=/server/privileges&amp;initial=%22'
-            . '&amp;lang=en">"</a>',
+            '<a class="ajax" href="index.php?route=/server/privileges&initial=%22'
+            . '&lang=en">"</a>',
             $actual
         );
         $this->assertStringContainsString('Show all', $actual);

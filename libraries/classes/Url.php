@@ -151,31 +151,29 @@ class Url
      * // note the missing ?
      * echo 'script.php' . Url::getCommon($params);
      * // produces with cookies enabled:
-     * // script.php?myparam=myvalue&amp;db=mysql&amp;table=rights
+     * // script.php?myparam=myvalue&db=mysql&table=rights
      * // with cookies disabled:
-     * // script.php?server=1&amp;lang=en&amp;myparam=myvalue&amp;db=mysql
-     * // &amp;table=rights
+     * // script.php?server=1&lang=en&myparam=myvalue&db=mysql
+     * // &table=rights
      *
      * // note the missing ?
      * echo 'script.php' . Url::getCommon();
      * // produces with cookies enabled:
      * // script.php
      * // with cookies disabled:
-     * // script.php?server=1&amp;lang=en
+     * // script.php?server=1&lang=en
      * </code>
      *
-     * @param mixed  $params  optional, Contains an associative array with url params
-     * @param string $divider optional character to use instead of '?'
+     * @param array<string,int|string|bool> $params  optional, Contains an associative array with url params
+     * @param string                        $divider optional character to use instead of '?'
      *
      * @return string   string with URL parameters
      *
      * @access public
      */
-    public static function getCommon($params = [], $divider = '?')
+    public static function getCommon(array $params = [], $divider = '?')
     {
-        return htmlspecialchars(
-            self::getCommonRaw($params, $divider)
-        );
+        return self::getCommonRaw($params, $divider);
     }
 
     /**
@@ -188,27 +186,27 @@ class Url
      * // note the missing ?
      * echo 'script.php' . Url::getCommon($params);
      * // produces with cookies enabled:
-     * // script.php?myparam=myvalue&amp;db=mysql&amp;table=rights
+     * // script.php?myparam=myvalue&db=mysql&table=rights
      * // with cookies disabled:
-     * // script.php?server=1&amp;lang=en&amp;myparam=myvalue&amp;db=mysql
-     * // &amp;table=rights
+     * // script.php?server=1&lang=en&myparam=myvalue&db=mysql
+     * // &table=rights
      *
      * // note the missing ?
      * echo 'script.php' . Url::getCommon();
      * // produces with cookies enabled:
      * // script.php
      * // with cookies disabled:
-     * // script.php?server=1&amp;lang=en
+     * // script.php?server=1&lang=en
      * </code>
      *
-     * @param mixed  $params  optional, Contains an associative array with url params
-     * @param string $divider optional character to use instead of '?'
+     * @param array<string|int,int|string|bool> $params  optional, Contains an associative array with url params
+     * @param string                            $divider optional character to use instead of '?'
      *
      * @return string   string with URL parameters
      *
      * @access public
      */
-    public static function getCommonRaw($params = [], $divider = '?')
+    public static function getCommonRaw(array $params = [], $divider = '?')
     {
         global $PMA_Config;
 
@@ -242,7 +240,7 @@ class Url
      * Returns url separator
      *
      * extracted from arg_separator.input as set in php.ini
-     * we do not use arg_separator.output to avoid problems with &amp; and &
+     * we do not use arg_separator.output to avoid problems with & and &
      *
      * @param string $encode whether to encode separator or not,
      *                       currently 'none' or 'html'
