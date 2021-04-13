@@ -4671,13 +4671,13 @@ msgstr ""
 #: libraries/classes/Config/ServerConfigChecks.php:175
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
-"authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
+"authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
 "Kui tunned, et see on vajalik, siis kasuta täiendavaid kaitse sätteid - "
 "%1$shosti autentimise%2$s sätteid ja %3$susaldusväärsete prokside nimekirja"
-"%4%s. Siiski ei pruugi IP-põhine kaitse olla usaldusväärne, kui sinu IP "
+"%4$s. Siiski ei pruugi IP-põhine kaitse olla usaldusväärne, kui sinu IP "
 "kuulub ISP'le, kellega on ühendatud koos sinuga tuhandeid kasutajaid."
 
 #: libraries/classes/Config/ServerConfigChecks.php:200

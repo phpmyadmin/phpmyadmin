@@ -2933,10 +2933,9 @@ class Results
             // Check for the predefined fields need to show as link in schemas
             if (! empty($specialSchemaLinks[$dbLower][$tblLower][$nameLower])) {
                 $linkingUrl = $this->getSpecialLinkUrl(
-                    $specialSchemaLinks,
+                    $specialSchemaLinks[$dbLower][$tblLower][$nameLower],
                     $row[$i],
-                    $rowInfo,
-                    mb_strtolower($meta->orgname)
+                    $rowInfo
                 );
                 $transformationPlugin = new Text_Plain_Link();
 
@@ -3079,50 +3078,44 @@ class Results
     /**
      * Get link for display special schema links
      *
-     * @param array  $specialSchemaLinks special schema links
-     * @param string $columnValue        column value
-     * @param array  $rowInfo            information about row
-     * @param string $fieldName          column name
+     * @param array<string,array<int,array<string,string>>|string> $linkRelations
+     * @param string                                               $columnValue   column value
+     * @param array                                                $rowInfo       information about row
      *
      * @return string generated link
+     *
+     * @phpstan-param array{
+     *                         'link_param': string,
+     *                         'link_dependancy_params'?: array<
+     *                                                      int,
+     *                                                      array{'param_info': string, 'column_name': string}
+     *                                                     >,
+     *                         'default_page': string
+     *                     } $linkRelations
      */
     private function getSpecialLinkUrl(
-        array $specialSchemaLinks,
+        array $linkRelations,
         $columnValue,
-        array $rowInfo,
-        string $fieldName
+        array $rowInfo
     ) {
         $linkingUrlParams = [];
-        $db = mb_strtolower($this->properties['db']);
-        $table = mb_strtolower($this->properties['table']);
-        $linkRelations = $specialSchemaLinks[$db][$table][$fieldName];
 
-        if (! is_array($linkRelations['link_param'])) {
-            $linkingUrlParams[$linkRelations['link_param']] = $columnValue;
-        } else {
-            // Consider only the case of creating link for column field
-            // sql query that needs to be passed as url param
-            $sql = 'SELECT `' . $columnValue . '` FROM `'
-                . $rowInfo[$linkRelations['link_param'][1]] . '`.`'
-                . $rowInfo[$linkRelations['link_param'][2]] . '`';
-            $linkingUrlParams[$linkRelations['link_param'][0]] = $sql;
-        }
+        $linkingUrlParams[$linkRelations['link_param']] = $columnValue;
 
-        $divider = strpos($linkRelations['default_page'] ?? '', '?') ? '&' : '?';
+        $divider = strpos($linkRelations['default_page'], '?') ? '&' : '?';
         if (empty($linkRelations['link_dependancy_params'])) {
             return $linkRelations['default_page']
                 . Url::getCommonRaw($linkingUrlParams, $divider);
         }
 
-        foreach ($linkRelations['link_dependancy_params'] as $newParam) {
-            // If param_info is an array, set the key and value
-            // from that array
-            if (is_array($newParam['param_info'])) {
-                $linkingUrlParams[$newParam['param_info'][0]] = $newParam['param_info'][1];
-                continue;
-            }
+        foreach ($linkRelations['link_dependancy_params'] as $new_param) {
+            $columnName = mb_strtolower($new_param['column_name']);
 
-            $linkingUrlParams[$newParam['param_info']] = $rowInfo[mb_strtolower($newParam['column_name'])];
+            // If there is a value for this column name in the rowInfo provided
+            if (isset($rowInfo[$columnName])) {
+                $urlParameterName = $new_param['param_info'];
+                $linkingUrlParams[$urlParameterName] = $rowInfo[$columnName];
+            }
 
             // Special case 1 - when executing routines, according
             // to the type of the routine, url param changes

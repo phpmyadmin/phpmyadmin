@@ -68,6 +68,12 @@ phpMyAdmin - ChangeLog
 - issue #16786 Fixed browser error when clicking the logo with NavigationLogoLink configuration
 - issue        Fixed a type error when getting the special schema links
 - issue #16789 Fix create PHP code removes ; from SQL query on Structure snapshot
+- issue #16791 Fixed "Undefined index table_schema" on special schema table
+- issue        Fixed "DESCRIBE FILES;" broken links in query results
+- issue #16790 Fixed "Undefined index field_name" PHP error
+- issue #16605 Fixed vertical alignment issue on tables for pmahomme theme
+- issue #16798 Fix ServerConfigChecks: Link 'trusted proxies list' not terminated properly (translation)
+- issue #16805 Fixed shortcut keys not working
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type

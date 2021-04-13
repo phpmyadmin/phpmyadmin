@@ -175,7 +175,7 @@ class ServerConfigChecks
             $sSecurityInfoMsg = Sanitize::sanitizeMessage(sprintf(
                 __(
                     'If you feel this is necessary, use additional protection settings - '
-                    . '%1$shost authentication%2$s settings and %3$strusted proxies list%4%s. '
+                    . '%1$shost authentication%2$s settings and %3$strusted proxies list%4$s. '
                     . 'However, IP-based protection may not be reliable if your IP belongs '
                     . 'to an ISP where thousands of users, including you, are connected to.'
                 ),

@@ -4405,11 +4405,11 @@ msgstr "如果您的数据库服务器支持，您应该使用 SSL 连接。"
 #: libraries/classes/Config/ServerConfigChecks.php:175
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
-"authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
+"authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"如果有必要，您可以使用额外的保护设置 - %1$s主机认证%2$s和%3$s可信代理表%4%s。"
+"如果有必要，您可以使用额外的保护设置 - %1$s主机认证%2$s和%3$s可信代理表%4$s。"
 "但如果您和许多人共用一个 IP 地址，该措施的安全性将下降。"
 
 #: libraries/classes/Config/ServerConfigChecks.php:200

@@ -2,6 +2,7 @@
   th,
   td {
     text-shadow: 0 1px 0 #fff;
+    vertical-align: middle;
   }
 
   th {
@@ -10,7 +11,6 @@
 
   td {
     touch-action: manipulation;
-    vertical-align: middle;
   }
 
   thead th {

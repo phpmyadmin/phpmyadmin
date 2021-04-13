@@ -1110,7 +1110,7 @@ class StructureController extends AbstractController
             'table' => $this->table,
         ]);
         $regenerate = false;
-        $field_cnt = count($_POST['field_name']);
+        $field_cnt = count($_POST['field_name'] ?? []);
         $changes = [];
         $adjust_privileges = [];
         $columns_with_index = $this->dbi
