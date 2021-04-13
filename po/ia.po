@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-13 17:47+0200\n"
-"PO-Revision-Date: 2020-08-11 17:32+0000\n"
+"PO-Revision-Date: 2021-04-14 22:38+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ia/>\n"
+"5-1/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.6-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -938,10 +938,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency"
+#, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "Efficientia del cache de query"
+msgstr "Efficientia del cache de query (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1548,10 +1547,8 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "Il habilita le compression bzip2 per operationes de importation."
 
 #: libraries/classes/Config/Descriptions.php:88
-#, fuzzy
-#| msgid "Enter your siteverify URL for your reCaptcha service."
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr "Inserta tu verifica de sito pro tu servicio de reCaptcha."
+msgstr "Inserta tLe URL per tu API compatibile de reCaptcha v2."
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid ""
@@ -4666,12 +4663,7 @@ msgstr ""
 "Tu deberea usar connexiones SSL si tu servitor de base de datos supporta los."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
-#, fuzzy, php-format
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%1$shost authentication%2$s settings and %3$strusted proxies list%4$s. "
-#| "However, IP-based protection may not be reliable if your IP belongs to an "
-#| "ISP where thousands of users, including you, are connected to."
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
@@ -4679,7 +4671,7 @@ msgid ""
 "thousands of users, including you, are connected to."
 msgstr ""
 "Si tu crede que isto es necessari, usa preferentias additional de protection "
-"- preferentias de %1$sauthentication de ospite%2$s e %%3$slista de proxy "
+"- preferentias de %1$sauthentication de ospite%2$s e %3$slista de proxy "
 "digne de fide%4$s. Totevia, le protection basate sur IP poterea non esser "
 "digne de fide, si tu IP pertine a un ISP ubi milles de usatores, includente "
 "te, es connectite."
@@ -5180,8 +5172,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"Sur le servitor es executante Suhosin. Controla le documentation: "
-"%sdocumentation%s pro possibile problemas."
+"Servitor executante con Suhosin. Tu refere al %sdocumentation%s pro "
+"possibile problemas."
 
 #: libraries/classes/Controllers/HomeController.php:462
 #, php-format
@@ -5481,10 +5473,8 @@ msgstr "Modifica indice"
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:106
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename index"
-msgstr "Renomina in"
+msgstr "Renomina indice"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 #: templates/table/index_form.twig:227
@@ -10359,7 +10349,7 @@ msgid ""
 msgstr ""
 "Tu ha un gruppo de duo o plus columnas que es connectite strictemente e que "
 "omnes es repetente le mesme attributo? Per exemplo un tabella que mantene "
-"datos super libros poterea haber columnas tal como libro_id,autor2,autor2, "
+"datos super libros poterea haber columnas tal como libro_id, autor1, autor2, "
 "autor3 et cetera que forma un gruppo de repetition. In iste caso un nove "
 "tabella (libro_id,autor) deberea esser create."
 
@@ -11716,12 +11706,11 @@ msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr "Converte un adresse de rete Internet ab formato (IPv4/IPv6) a binari"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
-#, fuzzy
-#| msgid "Converts an Internet network address in (IPv4/IPv6) format to long."
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
-msgstr "Converte un adresse de rete Internet ab formato (IPv4/IPv6) a longe."
+msgstr ""
+"Converte un adresse de rete Internet in formato (IPv4/IPv6) a long integer."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -13887,8 +13876,6 @@ msgid "Create version"
 msgstr ""
 
 #: templates/database/central_columns/edit.twig:13
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
 msgstr "A_I"
@@ -15526,10 +15513,8 @@ msgstr "Altere optiones:"
 
 #: templates/indexes.twig:38
 #: templates/table/structure/display_structure.twig:445
-#, fuzzy
-#| msgid "Rename to"
 msgid "Rename"
-msgstr "Renomina in"
+msgstr "Renomina"
 
 #: templates/indexes.twig:44
 #: templates/table/structure/display_structure.twig:451
@@ -16118,10 +16103,8 @@ msgid "Character sets and collations"
 msgstr "Insimules de character e collationes"
 
 #: templates/server/collations/index.twig:32
-#, fuzzy
-#| msgid "Default"
 msgid "(default)"
-msgstr "Predefinite"
+msgstr "(predefinite)"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
@@ -16504,20 +16487,16 @@ msgid ""
 msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Display foreign key relationships"
 msgid "Allows creating foreign key relations."
-msgstr "Monstra relationes de clave externe"
+msgstr "Monstra relationes de clave externe."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
 msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "%s has been disabled for this MySQL server."
 msgid "Not used for this MySQL version."
-msgstr "%s ha essite dishabilitate sur iste servitor MySQL."
+msgstr "Non usate per iste version de MySQL."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -17119,10 +17098,8 @@ msgstr ""
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
-msgstr "per hora"
+msgstr "ø per hora"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -17608,10 +17585,8 @@ msgid "Continue insertion with %s rows"
 msgstr "Continua insertion con %s rangos"
 
 #: templates/table/maintenance/checksum.twig:13
-#, fuzzy
-#| msgid "Check"
 msgid "Checksum"
-msgstr "Verifica"
+msgstr "Checksum"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
@@ -17697,46 +17672,32 @@ msgid "Relation view"
 msgstr "Vista relational"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "Analyze Explain at %s"
 msgid "Analyze partition"
-msgstr "Explication de Analysis a %s"
+msgstr "Analysisa partition"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Check partition"
-msgstr "Subpartition"
+msgstr "Verifica partition"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "Partition"
 msgid "Drop partition"
-msgstr "Partition"
+msgstr "Abandona Partition"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Remove partitionemento"
+msgstr "Optimisa partition"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Subpartition"
+msgstr "Reconstrue partition"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Remove partitionemento"
+msgstr "Repara partition"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Truncate partition"
-msgstr "Subpartition"
+msgstr "Trunca partition"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
