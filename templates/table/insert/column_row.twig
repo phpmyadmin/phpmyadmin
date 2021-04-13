@@ -54,7 +54,7 @@
         </select>
       {% elseif (longtext_double_textarea and 'longtext' in column.pma_type) or 'json' in column.pma_type or 'text' in column.pma_type %}
         {{ backup_field|raw }}
-        <textarea name="fields[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" id="field_{{ id_index }}_3" data-type="{{ data_type }}" dir="{{ text_dir }}" rows="{{ textarea_rows }}" cols="{{ textarea_rows }}"
+        <textarea name="fields[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" id="field_{{ id_index }}_3" data-type="{{ data_type }}" dir="{{ text_dir }}" rows="{{ textarea_rows }}" cols="{{ textarea_cols }}"
           {{- max_length ? ' data-maxlength="' ~  max_length ~ '"' }}{{ column.is_char ? ' class="char charField"' }} onchange="return verificationsAfterFieldChange('{{ column.Field_md5|escape_js_string }}', '{{ row_id|escape_js_string }}', '{{ column.pma_type }}')">
           {#- We need to duplicate the first \n or otherwise we will lose the first newline entered in a VARCHAR or TEXT column -#}
           {{- special_chars starts with "\r\n" ? "\n" }}{{ special_chars|raw -}}
@@ -97,7 +97,7 @@
         {% elseif column.is_blob or (column.len > limit_chars) %}
           {{ backup_field|raw }}
           <input type="hidden" name="fields_type[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" value="hex">
-          <textarea name="fields[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" id="field_{{ id_index }}_3" data-type="HEX" dir="{{ text_dir }}" rows="{{ textarea_rows }}" cols="{{ textarea_rows }}"
+          <textarea name="fields[multi_edit][{{ row_id }}][{{ column.Field_md5 }}]" id="field_{{ id_index }}_3" data-type="HEX" dir="{{ text_dir }}" rows="{{ textarea_rows }}" cols="{{ textarea_cols }}"
             {{- max_length ? ' data-maxlength="' ~  max_length ~ '"' }}{{ column.is_char ? ' class="char charField"' }} onchange="return verificationsAfterFieldChange('{{ column.Field_md5|escape_js_string }}', '{{ row_id|escape_js_string }}', '{{ column.pma_type }}')">
             {#- We need to duplicate the first \n or otherwise we will lose the first newline entered in a VARCHAR or TEXT column -#}
             {{- special_chars starts with "\r\n" ? "\n" }}{{ special_chars|raw -}}

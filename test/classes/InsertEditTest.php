@@ -3047,6 +3047,8 @@ class InsertEditTest extends AbstractTestCase
         $GLOBALS['plugin_scripts'] = [];
         $GLOBALS['cfg']['LongtextDoubleTextarea'] = true;
         $GLOBALS['cfg']['CharEditing'] = true;
+        $GLOBALS['cfg']['TextareaRows'] = 10;
+        $GLOBALS['cfg']['TextareaCols'] = 11;
         $foreigners = ['foreign_keys_data' => []];
         $table_columns = [
             [
@@ -3080,7 +3082,7 @@ class InsertEditTest extends AbstractTestCase
             'db',
             0,
             0,
-            '',
+            'ltr',
             [],
             ['wc']
         );
@@ -3105,7 +3107,8 @@ class InsertEditTest extends AbstractTestCase
             $actual
         );
         $this->assertStringContainsString(
-            '<textarea name="fields[multi_edit][0][098f6bcd4621d373cade4e832627b4f6]"',
+            '<textarea name="fields[multi_edit][0][098f6bcd4621d373cade4e832627b4f6]" id="field_1_3"'
+                . ' data-type="CHAR" dir="ltr" rows="20" cols="22"',
             $actual
         );
     }
