@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-03-06 15:47+0100\n"
+"POT-Creation-Date: 2021-04-13 17:47+0200\n"
 "PO-Revision-Date: 2021-02-10 13:50+0000\n"
 "Last-Translator: Michalis <michalisntovas@yahoo.gr>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/5-1/el/"
@@ -1458,7 +1458,7 @@ msgstr "Αναζήτηση:"
 #: libraries/classes/Database/Routines.php:1027
 #: libraries/classes/Database/Routines.php:1743
 #: libraries/classes/Database/Triggers.php:463
-#: libraries/classes/InsertEdit.php:1978 libraries/classes/InsertEdit.php:2012
+#: libraries/classes/InsertEdit.php:1979 libraries/classes/InsertEdit.php:2013
 #: libraries/classes/Normalization.php:261
 #: libraries/classes/Normalization.php:973 libraries/classes/Tracking.php:332
 #: libraries/classes/Tracking.php:485
@@ -3753,7 +3753,7 @@ msgstr "Παρακολούθηση αλλαγών"
 #: libraries/classes/Config/Descriptions.php:784 libraries/classes/Menu.php:290
 #: libraries/classes/Menu.php:406 libraries/classes/Menu.php:535
 #: libraries/classes/Navigation/Nodes/NodeTable.php:319
-#: libraries/classes/Util.php:1718 libraries/classes/Util.php:2475
+#: libraries/classes/Util.php:1720 libraries/classes/Util.php:2475
 #: libraries/classes/Util.php:2490 libraries/classes/Util.php:2507
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
@@ -3949,7 +3949,7 @@ msgstr "Πλάτος πίνακα πλοήγησης"
 
 #: libraries/classes/Config/Descriptions.php:840
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:620
-#: libraries/classes/Navigation/NavigationTree.php:1472
+#: libraries/classes/Navigation/NavigationTree.php:1474
 msgid "Link with main panel"
 msgstr "Σύνδεσμος με τον βασικό πίνακα"
 
@@ -4406,7 +4406,7 @@ msgstr "Παράβλεψη κλειδωμένων πινάκων"
 
 #: libraries/classes/Config/Descriptions.php:955
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3215
+#: libraries/classes/Display/Results.php:3259
 #: libraries/classes/Html/Generator.php:684
 #: libraries/classes/Html/Generator.php:946
 #: libraries/classes/Server/UserGroups.php:125
@@ -4732,8 +4732,8 @@ msgid "Disabled"
 msgstr "Απενεργοποιημένη"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:303
-#: libraries/classes/Controllers/Database/StructureController.php:1452
-#: libraries/classes/Controllers/Database/StructureController.php:1535
+#: libraries/classes/Controllers/Database/StructureController.php:1453
+#: libraries/classes/Controllers/Database/StructureController.php:1536
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 #: libraries/classes/Controllers/Table/DeleteController.php:56
 #: libraries/classes/Controllers/Table/StructureController.php:481
@@ -4750,7 +4750,7 @@ msgstr "Απενεργοποιημένη"
 #: templates/database/data_dictionary/index.twig:83
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:19
-#: templates/database/structure/empty_form.twig:19 templates/indexes.twig:58
+#: templates/database/structure/empty_form.twig:19 templates/indexes.twig:63
 #: templates/preferences/autoload.twig:11
 #: templates/preferences/manage/error.twig:18
 #: templates/server/privileges/new_user_ajax.twig:20
@@ -4786,7 +4786,7 @@ msgstr "Ναι"
 #: templates/database/data_dictionary/index.twig:83
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:20
-#: templates/database/structure/empty_form.twig:20 templates/indexes.twig:58
+#: templates/database/structure/empty_form.twig:20 templates/indexes.twig:63
 #: templates/preferences/autoload.twig:12
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
@@ -4850,7 +4850,7 @@ msgstr "Προσαρμοσμένο"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:43
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:57
 #: libraries/classes/Navigation/Nodes/NodeTable.php:310
-#: libraries/classes/Util.php:1717 libraries/classes/Util.php:2489
+#: libraries/classes/Util.php:1719 libraries/classes/Util.php:2489
 #: libraries/classes/Util.php:2506 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
@@ -5027,6 +5027,7 @@ msgstr ""
 "υποστηρίζει."
 
 #: libraries/classes/Config/ServerConfigChecks.php:175
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
@@ -5252,15 +5253,15 @@ msgstr ""
 "Αδύνατη η φόρτωση προσθέτων εξαγωγής, για αυτό εξέξτε την εγκατάστασή σας!"
 
 #: libraries/classes/Controllers/Database/ExportController.php:177
-#: libraries/classes/Controllers/Database/StructureController.php:1174
-#: libraries/classes/Controllers/Database/StructureController.php:1215
-#: libraries/classes/Controllers/Database/StructureController.php:1248
-#: libraries/classes/Controllers/Database/StructureController.php:1271
-#: libraries/classes/Controllers/Database/StructureController.php:1294
-#: libraries/classes/Controllers/Database/StructureController.php:1317
-#: libraries/classes/Controllers/Database/StructureController.php:1340
-#: libraries/classes/Controllers/Database/StructureController.php:1370
-#: libraries/classes/Controllers/Database/StructureController.php:1421
+#: libraries/classes/Controllers/Database/StructureController.php:1175
+#: libraries/classes/Controllers/Database/StructureController.php:1216
+#: libraries/classes/Controllers/Database/StructureController.php:1249
+#: libraries/classes/Controllers/Database/StructureController.php:1272
+#: libraries/classes/Controllers/Database/StructureController.php:1295
+#: libraries/classes/Controllers/Database/StructureController.php:1318
+#: libraries/classes/Controllers/Database/StructureController.php:1341
+#: libraries/classes/Controllers/Database/StructureController.php:1371
+#: libraries/classes/Controllers/Database/StructureController.php:1422
 #: libraries/classes/Controllers/Table/MaintenanceController.php:44
 #: libraries/classes/Controllers/Table/MaintenanceController.php:79
 #: libraries/classes/Controllers/Table/MaintenanceController.php:117
@@ -5325,27 +5326,27 @@ msgstr "Άρνηση πρόσβασης!"
 msgid "Favorite List is full!"
 msgstr "Η Λίστα Αγαπημένων είναι πλήρης!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:569
+#: libraries/classes/Controllers/Database/StructureController.php:570
 #: templates/table/operations/index.twig:408
 #: templates/table/operations/view.twig:27
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Η προβολή %s διαγράφτηκε."
 
-#: libraries/classes/Controllers/Database/StructureController.php:570
+#: libraries/classes/Controllers/Database/StructureController.php:571
 #: templates/table/operations/index.twig:408
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Ο πίνακας %s έχει διαγραφεί."
 
-#: libraries/classes/Controllers/Database/StructureController.php:625
+#: libraries/classes/Controllers/Database/StructureController.php:626
 #: templates/table/operations/index.twig:387
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Ο πίνακας %s άδειασε."
 
-#: libraries/classes/Controllers/Database/StructureController.php:795
-#: libraries/classes/Display/Results.php:4432
+#: libraries/classes/Controllers/Database/StructureController.php:796
+#: libraries/classes/Display/Results.php:4476
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5354,21 +5355,21 @@ msgstr ""
 "Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην "
 "%sτεκμηρίωση%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:1033
+#: libraries/classes/Controllers/Database/StructureController.php:1034
 msgid "unknown"
 msgstr "άγνωστο"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1256
-#: libraries/classes/Controllers/Database/StructureController.php:1279
-#: libraries/classes/Controllers/Database/StructureController.php:1302
+#: libraries/classes/Controllers/Database/StructureController.php:1257
+#: libraries/classes/Controllers/Database/StructureController.php:1280
+#: libraries/classes/Controllers/Database/StructureController.php:1303
 msgid "Success!"
 msgstr "Επιτυχία!"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1453
-#: libraries/classes/Controllers/Database/StructureController.php:1536
+#: libraries/classes/Controllers/Database/StructureController.php:1454
+#: libraries/classes/Controllers/Database/StructureController.php:1537
 #: libraries/classes/Controllers/Table/OperationsController.php:318
 #: libraries/classes/Controllers/Table/ReplaceController.php:397
-#: libraries/classes/Core.php:857 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:861 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Χωρίς αλλαγή"
 
@@ -5590,7 +5591,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:663
 #: libraries/classes/Controllers/SqlController.php:371
-#: libraries/classes/Sql.php:1228
+#: libraries/classes/Sql.php:1233
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Ο σελιδοδείκτης %s έχει δημιουργηθεί."
@@ -5799,7 +5800,7 @@ msgid "Save & close"
 msgstr "Αποθήκευση & κλείσιμο"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:95
-#: libraries/classes/InsertEdit.php:1976
+#: libraries/classes/InsertEdit.php:1977
 #: templates/config/form_display/fieldset_bottom.twig:9
 #: templates/preferences/manage/main.twig:114
 #: templates/preferences/manage/main.twig:122
@@ -5864,7 +5865,7 @@ msgid "Please select column(s) for the index."
 msgstr "Επιλέξτε στήλη(ες) για το ευρετήριο."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:114
-#: libraries/classes/InsertEdit.php:1974
+#: libraries/classes/InsertEdit.php:1975
 #: templates/columns_definitions/column_definitions_form.twig:157
 #: templates/table/index_form.twig:233
 #: templates/table/index_rename_form.twig:28
@@ -6139,7 +6140,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Εισάγετε τουλάχιστον μια μεταβλητή στις σειρές!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:201
-#: libraries/classes/Display/Results.php:1315
+#: libraries/classes/Display/Results.php:1321
 #: libraries/classes/Plugins/Export/ExportSql.php:2317
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:96
 #: libraries/config.values.php:111
@@ -6705,7 +6706,7 @@ msgid "Show query box"
 msgstr "Προβολή παραθύρου ερωτήματος"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:390
-#: libraries/classes/Display/Results.php:3286
+#: libraries/classes/Display/Results.php:3330
 #: libraries/classes/Server/UserGroups.php:134
 #: libraries/classes/Tracking.php:258 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:270
@@ -6726,7 +6727,7 @@ msgid "%d is not valid row number."
 msgstr "Ο αριθμός %d δεν είναι έγκυρος αριθμός γραμμών."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
-#: libraries/classes/InsertEdit.php:923
+#: libraries/classes/InsertEdit.php:924
 #: templates/sql/relational_column_dropdown.twig:3
 #: templates/table/search/input_box.twig:27
 msgid "Browse foreign values"
@@ -6909,7 +6910,7 @@ msgid "No dependencies selected!"
 msgstr "Δεν έχετε επιλέξει εξαρτήσεις!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:449
-#: libraries/classes/InsertEdit.php:1887
+#: libraries/classes/InsertEdit.php:1888
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:20
 #: templates/server/variables/index.twig:12
@@ -6998,13 +6999,13 @@ msgstr "Περιεχόμενο δείκτη δεδομένων"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:486
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:661
-#: libraries/classes/ErrorHandler.php:396 libraries/classes/InsertEdit.php:3134
+#: libraries/classes/ErrorHandler.php:402 libraries/classes/InsertEdit.php:3137
 #: templates/table/index_form.twig:157 templates/table/index_form.twig:193
 msgid "Ignore"
 msgstr "Παράληψη"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
-#: libraries/classes/Display/Results.php:3219
+#: libraries/classes/Display/Results.php:3263
 #: libraries/classes/Html/Generator.php:72
 #: templates/display/results/table.twig:214
 #: templates/display/results/table.twig:215
@@ -7288,7 +7289,7 @@ msgid "cancel"
 msgstr "άκυρο"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:586
-#: libraries/classes/Controllers/Server/Status/StatusController.php:220
+#: libraries/classes/Controllers/Server/Status/StatusController.php:225
 msgid "Aborted"
 msgstr "Ακυρωμένες συνδέσεις"
 
@@ -7375,7 +7376,7 @@ msgid "Show hidden navigation tree items."
 msgstr "Προβολή κρυφών αντικειμένων δέντρου πλοήγησης."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:621
-#: libraries/classes/Navigation/NavigationTree.php:1475
+#: libraries/classes/Navigation/NavigationTree.php:1477
 msgid "Unlink from main panel"
 msgstr "Αποσύνδεση από τον βασικό πίνακα"
 
@@ -7459,7 +7460,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Δείτε στο κάτω μέρος αυτού του παραθύρου."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:664
-#: libraries/classes/ErrorHandler.php:400
+#: libraries/classes/ErrorHandler.php:406
 msgid "Ignore All"
 msgstr "Παράληψη Όλων"
 
@@ -7586,7 +7587,7 @@ msgid "Table %s already exists!"
 msgstr "Ο πίνακας %s υπάρχει ήδη!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:721
-#: libraries/classes/InsertEdit.php:337
+#: libraries/classes/InsertEdit.php:338
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:51
 msgid "Hide"
 msgstr "Απόκρυψη"
@@ -7671,8 +7672,8 @@ msgid "Indexes"
 msgstr "Ευρετήρια"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:498
-#: libraries/classes/Controllers/Server/Status/StatusController.php:147
-#: libraries/classes/Controllers/Server/Status/StatusController.php:236
+#: libraries/classes/Controllers/Server/Status/StatusController.php:152
+#: libraries/classes/Controllers/Server/Status/StatusController.php:241
 #: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Σύνολο"
@@ -7725,7 +7726,7 @@ msgid "ID"
 msgstr "Κωδικός"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Server/Privileges.php:2999
+#: libraries/classes/Server/Privileges.php:3002
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Χρήστης"
@@ -7751,19 +7752,19 @@ msgstr "Εξέλιξη"
 msgid "SQL query"
 msgstr "Εντολή SQL"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:109
+#: libraries/classes/Controllers/Server/Status/StatusController.php:114
 msgid "Received"
 msgstr "Ελήφθησαν"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:128
+#: libraries/classes/Controllers/Server/Status/StatusController.php:133
 msgid "Sent"
 msgstr "Εστάλησαν"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:195
+#: libraries/classes/Controllers/Server/Status/StatusController.php:200
 msgid "Max. concurrent connections"
 msgstr "Μέγιστος αριθμός ταυτόχρονων συνδέσεων"
 
-#: libraries/classes/Controllers/Server/Status/StatusController.php:204
+#: libraries/classes/Controllers/Server/Status/StatusController.php:209
 msgid "Failed attempts"
 msgstr "Αποτυχημένες προσπάθειες"
 
@@ -8633,7 +8634,7 @@ msgstr "Ο πίνακας %s υπάρχει ήδη!"
 #: libraries/classes/Controllers/Table/RelationController.php:273
 #: libraries/classes/Controllers/ViewOperationsController.php:84
 #: libraries/classes/Database/Routines.php:1482
-#: libraries/classes/Display/Results.php:4095 libraries/classes/Message.php:174
+#: libraries/classes/Display/Results.php:4139 libraries/classes/Message.php:175
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς."
@@ -8652,14 +8653,14 @@ msgstr "Υπάρχουν πολλές ενώσεις χωρίς ευρετήρι
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
 #: libraries/classes/Database/Routines.php:1503
-#: libraries/classes/Import.php:156 libraries/classes/InsertEdit.php:225
-#: libraries/classes/Sql.php:1033
+#: libraries/classes/Import.php:156 libraries/classes/InsertEdit.php:226
+#: libraries/classes/Sql.php:1038
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 "Η MySQL επέστρεψε ένα άδειο σύνολο αποτελεσμάτων (π.χ. καμμία εγγραφή)."
 
 #: libraries/classes/Controllers/Table/IndexesController.php:219
-#: libraries/classes/Table.php:2249
+#: libraries/classes/Table.php:2250
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Το όνομα του πρωτεύοντος κλειδιού πρέπει να είναι \"PRIMARY\"!"
 
@@ -8686,7 +8687,7 @@ msgstr "Προβολή"
 #: libraries/classes/Controllers/Table/PartitionController.php:200
 #: libraries/classes/Controllers/ViewOperationsController.php:87
 #: libraries/classes/Html/Generator.php:894 libraries/classes/Import.php:137
-#: libraries/classes/InsertEdit.php:1574 libraries/classes/Message.php:194
+#: libraries/classes/InsertEdit.php:1575 libraries/classes/Message.php:195
 #: templates/error/generic.twig:37
 msgid "Error"
 msgstr "Σφάλμα"
@@ -8798,12 +8799,12 @@ msgstr "Δεν έχετε αρκετά δικαιώματα να είσαστε 
 msgid "View name can not be empty!"
 msgstr "Όνομα προβολής δεν μπορεί να είναι άδειο!"
 
-#: libraries/classes/Core.php:358 libraries/classes/ZipExtension.php:60
+#: libraries/classes/Core.php:362 libraries/classes/ZipExtension.php:60
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Η επέκταση %s λείπει. Δείτε τις ρυθμίσεις της PHP."
 
-#: libraries/classes/Core.php:1230
+#: libraries/classes/Core.php:1234
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8813,21 +8814,21 @@ msgstr ""
 "επιλογή είναι ασύμβατη με το phpMyAdmin και ίσως προκαλέσει πρόβλημα με "
 "μερικά δεδομένα!"
 
-#: libraries/classes/Core.php:1247
+#: libraries/classes/Core.php:1251
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Core.php:1259
+#: libraries/classes/Core.php:1263
 msgid "GLOBALS overwrite attempt"
 msgstr "προσπάθεια επανεγγραφής GLOBALS"
 
-#: libraries/classes/Core.php:1269
+#: libraries/classes/Core.php:1273
 msgid "possible exploit"
 msgstr "δυνατή αξιοποίηση"
 
-#: libraries/classes/Core.php:1338
+#: libraries/classes/Core.php:1342
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -8944,9 +8945,9 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:251
 #: libraries/classes/Database/Routines.php:364
 #: libraries/classes/Database/Routines.php:1511
-#: libraries/classes/Database/Triggers.php:131
-#: libraries/classes/Database/Triggers.php:140
-#: libraries/classes/Database/Triggers.php:165
+#: libraries/classes/Database/Triggers.php:130
+#: libraries/classes/Database/Triggers.php:139
+#: libraries/classes/Database/Triggers.php:164
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "Το ακόλουθο ερώτημα έχει αποτύχει: «%s»"
@@ -8959,10 +8960,10 @@ msgstr "Το ακόλουθο ερώτημα έχει αποτύχει: «%s»"
 #: libraries/classes/Database/Routines.php:255
 #: libraries/classes/Database/Routines.php:368
 #: libraries/classes/Database/Routines.php:1515
-#: libraries/classes/Database/Routines.php:1869
-#: libraries/classes/Database/Triggers.php:135
-#: libraries/classes/Database/Triggers.php:144
-#: libraries/classes/Database/Triggers.php:169
+#: libraries/classes/Database/Routines.php:1871
+#: libraries/classes/Database/Triggers.php:134
+#: libraries/classes/Database/Triggers.php:143
+#: libraries/classes/Database/Triggers.php:168
 #: libraries/classes/Database/Triggers.php:551
 #: libraries/classes/Html/Generator.php:966
 msgid "MySQL said: "
@@ -8980,7 +8981,7 @@ msgstr "Το συμβάν %1$s έχει δημιουργηθεί."
 
 #: libraries/classes/Database/Events.php:164
 #: libraries/classes/Database/Routines.php:271
-#: libraries/classes/Database/Triggers.php:186
+#: libraries/classes/Database/Triggers.php:185
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 "Ένα ή περισσότερα σφάλματα έλαβαν χώρα κατά την προώθηση του αιτήματός σας:"
@@ -9026,7 +9027,7 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε το συμβάν διαγραφής."
 
 #: libraries/classes/Database/Events.php:500
-#: libraries/classes/Database/Routines.php:1867
+#: libraries/classes/Database/Routines.php:1869
 #: libraries/classes/Database/Triggers.php:549
 msgid "The backed up query was:"
 msgstr "Το εφεδρικό ερώτημα ήταν:"
@@ -9176,7 +9177,7 @@ msgstr "Όνομα ρουτίνας"
 #: libraries/classes/Database/Routines.php:850
 #: libraries/classes/Database/Routines.php:880
 #: libraries/classes/Database/Routines.php:1656
-#: libraries/classes/InsertEdit.php:355
+#: libraries/classes/InsertEdit.php:356
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:292
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:392
 #: libraries/classes/Plugins/Export/ExportLatex.php:554
@@ -9425,7 +9426,7 @@ msgid "Routine parameters"
 msgstr "Παράμετροι ρουτίνας"
 
 #: libraries/classes/Database/Routines.php:1658
-#: libraries/classes/InsertEdit.php:353
+#: libraries/classes/InsertEdit.php:354
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:29
 #: templates/table/search/index.twig:36
 #: templates/table/zoom_search/index.twig:36
@@ -9433,7 +9434,7 @@ msgid "Function"
 msgstr "Συνάρτηση"
 
 #: libraries/classes/Database/Routines.php:1660
-#: libraries/classes/InsertEdit.php:2006
+#: libraries/classes/InsertEdit.php:2007
 #: templates/database/designer/main.twig:486
 #: templates/database/designer/main.twig:651
 #: templates/database/designer/main.twig:857
@@ -9447,16 +9448,16 @@ msgstr "Συνάρτηση"
 msgid "Value"
 msgstr "Τιμή"
 
-#: libraries/classes/Database/Routines.php:1866
+#: libraries/classes/Database/Routines.php:1868
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Συγνώμη, αποτύχαμε να επαναφέρουμε τη διαγραμμένη ρουτίνα."
 
-#: libraries/classes/Database/Routines.php:1896
+#: libraries/classes/Database/Routines.php:1898
 #, php-format
 msgid "Export of routine %s"
 msgstr "Εξαγωγή της ρουτίνας %s"
 
-#: libraries/classes/Database/Routines.php:1915
+#: libraries/classes/Database/Routines.php:1917
 #, fuzzy, php-format
 #| msgid ""
 #| "No routine with name %1$s found in database %2$s. You might be lacking "
@@ -9494,12 +9495,12 @@ msgstr "την ακριβή φράση ως πλήρες πεδίο"
 msgid "as regular expression"
 msgstr "ως κανονική έκφραση"
 
-#: libraries/classes/Database/Triggers.php:152
+#: libraries/classes/Database/Triggers.php:151
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "Η ενέργεια %1$s έχει αλλαχτεί."
 
-#: libraries/classes/Database/Triggers.php:172
+#: libraries/classes/Database/Triggers.php:171
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "Η ενέργεια %1$s έχει δημιουργηθεί."
@@ -9580,14 +9581,14 @@ msgstr ""
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Ο διακομιστής δεσμεύει για σύνδεση SSL και ενεργοποιείται αυτόματα."
 
-#: libraries/classes/Display/Results.php:906
+#: libraries/classes/Display/Results.php:907
 #: libraries/classes/Html/Generator.php:1222
 #: libraries/classes/Html/Generator.php:1225
 msgctxt "First page"
 msgid "Begin"
 msgstr "Αρχή"
 
-#: libraries/classes/Display/Results.php:913
+#: libraries/classes/Display/Results.php:914
 #: libraries/classes/Html/Generator.php:1223
 #: libraries/classes/Html/Generator.php:1226
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
@@ -9595,7 +9596,7 @@ msgctxt "Previous page"
 msgid "Previous"
 msgstr "Προηγούμενη"
 
-#: libraries/classes/Display/Results.php:941
+#: libraries/classes/Display/Results.php:942
 #: libraries/classes/Html/Generator.php:1255
 #: libraries/classes/Html/Generator.php:1262
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
@@ -9603,25 +9604,25 @@ msgctxt "Next page"
 msgid "Next"
 msgstr "Επόμενη"
 
-#: libraries/classes/Display/Results.php:971
+#: libraries/classes/Display/Results.php:972
 #: libraries/classes/Html/Generator.php:1256
 #: libraries/classes/Html/Generator.php:1263
 msgctxt "Last page"
 msgid "End"
 msgstr "Τέλος"
 
-#: libraries/classes/Display/Results.php:1542
+#: libraries/classes/Display/Results.php:1548
 #: templates/display/results/table.twig:114
 msgid "Partial texts"
 msgstr "Περιληπτικά κείμενα"
 
-#: libraries/classes/Display/Results.php:1546
+#: libraries/classes/Display/Results.php:1552
 #: templates/display/results/table.twig:118
 msgid "Full texts"
 msgstr "Πλήρη κείμενα"
 
-#: libraries/classes/Display/Results.php:1939
-#: libraries/classes/Display/Results.php:1965 libraries/classes/Util.php:3125
+#: libraries/classes/Display/Results.php:1950
+#: libraries/classes/Display/Results.php:1976 libraries/classes/Util.php:3125
 #: libraries/classes/Util.php:3148 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:61
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9634,8 +9635,8 @@ msgstr "Πλήρη κείμενα"
 msgid "Descending"
 msgstr "Φθίνουσα"
 
-#: libraries/classes/Display/Results.php:1947
-#: libraries/classes/Display/Results.php:1957 libraries/classes/Util.php:3117
+#: libraries/classes/Display/Results.php:1958
+#: libraries/classes/Display/Results.php:1968 libraries/classes/Util.php:3117
 #: libraries/classes/Util.php:3140 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:60
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9648,41 +9649,41 @@ msgstr "Φθίνουσα"
 msgid "Ascending"
 msgstr "Αύξουσα"
 
-#: libraries/classes/Display/Results.php:3262
-#: libraries/classes/Display/Results.php:3277
+#: libraries/classes/Display/Results.php:3306
+#: libraries/classes/Display/Results.php:3321
 msgid "The row has been deleted."
 msgstr "Η εγγραφή έχει διαγραφεί."
 
-#: libraries/classes/Display/Results.php:3309
+#: libraries/classes/Display/Results.php:3353
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Τερματισμός"
 
-#: libraries/classes/Display/Results.php:4019
+#: libraries/classes/Display/Results.php:4063
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Ίσως είναι κατά προσέγγιση. Δείτε τις [doc@faq3-11]ΣΑΕ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4444
+#: libraries/classes/Display/Results.php:4488
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Εμφάνιση εγγραφών %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4458
+#: libraries/classes/Display/Results.php:4502
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d σύνολο, %2$d στο ερώτημα"
 
-#: libraries/classes/Display/Results.php:4463
+#: libraries/classes/Display/Results.php:4507
 #, php-format
 msgid "%d total"
 msgstr "%d συνολικά"
 
-#: libraries/classes/Display/Results.php:4475 libraries/classes/Sql.php:1039
+#: libraries/classes/Display/Results.php:4519 libraries/classes/Sql.php:1044
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα."
 
-#: libraries/classes/Display/Results.php:4846
+#: libraries/classes/Display/Results.php:4890
 msgid "Link not found!"
 msgstr "Δεν βρέθηκε η σύνδεση!"
 
@@ -10036,15 +10037,15 @@ msgstr ""
 "Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην "
 "%sΙστοσελίδα του PrimeBase XT%s."
 
-#: libraries/classes/ErrorHandler.php:95
+#: libraries/classes/ErrorHandler.php:96
 msgid "Too many error messages, some are not displayed."
 msgstr "Πολλά μηνύματα σφάλματος, ορισμένα δεν εμφανίζονται."
 
-#: libraries/classes/ErrorHandler.php:385
+#: libraries/classes/ErrorHandler.php:391
 msgid "Report"
 msgstr "Αναφορά"
 
-#: libraries/classes/ErrorHandler.php:390 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:396 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Αυτόματη αποστολή αναφοράς την επόμενη φορά"
 
@@ -10243,7 +10244,7 @@ msgstr "Στατική ανάλυση:"
 msgid "%d errors were found during analysis."
 msgstr "%d σφάλματα βρέθηκαν κατά την ανάλυση."
 
-#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1047
+#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1052
 msgid "[ROLLBACK occurred.]"
 msgstr "[συνέβει ROLLBACK.]"
 
@@ -10311,26 +10312,26 @@ msgstr ""
 "Τα ευρετήρια %1$s και %2$s φαίνεται να είναι ίσα και ένα από αυτά μπορεί να "
 "απομακρυνθεί."
 
-#: libraries/classes/InsertEdit.php:534
+#: libraries/classes/InsertEdit.php:535
 msgid "Binary"
 msgstr "Δυαδικό"
 
-#: libraries/classes/InsertEdit.php:792
+#: libraries/classes/InsertEdit.php:793
 msgid "Because of its length,<br> this column might not be editable."
 msgstr ""
 "Εξαιτίας του μεγέθος του,<br> αυτό το πεδίο ίσως να μη μπορεί να διορθωθεί."
 
-#: libraries/classes/InsertEdit.php:1414
+#: libraries/classes/InsertEdit.php:1415
 msgid "Binary - do not edit"
 msgstr "Δυαδικό - χωρίς δυνατότητα επεξεργασίας"
 
-#: libraries/classes/InsertEdit.php:1575 templates/import.twig:78
+#: libraries/classes/InsertEdit.php:1576 templates/import.twig:78
 #: templates/import.twig:108
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "Ο φάκελος που ορίσατε για την αποθήκευση αρχείων δεν μπόρεσε να βρεθεί."
 
-#: libraries/classes/InsertEdit.php:1580
+#: libraries/classes/InsertEdit.php:1581
 #: templates/database/qbe/ins_del_and_or_cell.twig:24
 #: templates/server/privileges/privileges_table.twig:26
 #: templates/server/privileges/privileges_table.twig:47
@@ -10340,55 +10341,55 @@ msgstr ""
 msgid "Or"
 msgstr "Ενωση"
 
-#: libraries/classes/InsertEdit.php:1581
+#: libraries/classes/InsertEdit.php:1582
 msgid "web server upload directory:"
 msgstr "κατάλογος αποθήκευσης αρχείων διακομιστή:"
 
-#: libraries/classes/InsertEdit.php:1783
+#: libraries/classes/InsertEdit.php:1784
 #: templates/table/search/input_box.twig:37
 msgid "Edit/Insert"
 msgstr "Επεξεργασία/Προσθήκη"
 
-#: libraries/classes/InsertEdit.php:1851
+#: libraries/classes/InsertEdit.php:1852
 msgid "and then"
 msgstr "και μετά"
 
-#: libraries/classes/InsertEdit.php:1890
+#: libraries/classes/InsertEdit.php:1891
 msgid "Insert as new row"
 msgstr "Εισαγωγή ως νέα εγγραφή"
 
-#: libraries/classes/InsertEdit.php:1893
+#: libraries/classes/InsertEdit.php:1894
 msgid "Insert as new row and ignore errors"
 msgstr "Εισαγωγή ως νέα γραμμή και παράβλεψη σφαλμάτων"
 
-#: libraries/classes/InsertEdit.php:1896
+#: libraries/classes/InsertEdit.php:1897
 msgid "Show insert query"
 msgstr "Εμφάνιση ερωτήματος εισαγωγής"
 
-#: libraries/classes/InsertEdit.php:1917
+#: libraries/classes/InsertEdit.php:1918
 msgid "Go back to previous page"
 msgstr "Επιστροφή"
 
-#: libraries/classes/InsertEdit.php:1920
+#: libraries/classes/InsertEdit.php:1921
 msgid "Insert another new row"
 msgstr "Εισαγωγή νέας εγγραφής"
 
-#: libraries/classes/InsertEdit.php:1925
+#: libraries/classes/InsertEdit.php:1926
 msgid "Go back to this page"
 msgstr "Επιστροφή σε αυτή τη σελίδα"
 
-#: libraries/classes/InsertEdit.php:1948
+#: libraries/classes/InsertEdit.php:1949
 msgid "Edit next row"
 msgstr "Επεξεργασία επόμενης γραμμής"
 
-#: libraries/classes/InsertEdit.php:1968
+#: libraries/classes/InsertEdit.php:1969
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Χρήση του πλήκτρου TAB για μετακίνηση από τιμή σε τιμή ή CTRL+βέλη για "
 "μετακίνηση παντού."
 
-#: libraries/classes/InsertEdit.php:1996
+#: libraries/classes/InsertEdit.php:1997
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:33
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:289
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:389
@@ -10420,7 +10421,7 @@ msgstr ""
 msgid "Column"
 msgstr "Στήλη"
 
-#: libraries/classes/InsertEdit.php:2005
+#: libraries/classes/InsertEdit.php:2006
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:295
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:395
 #: libraries/classes/Plugins/Export/ExportLatex.php:555
@@ -10445,11 +10446,11 @@ msgstr "Στήλη"
 msgid "Null"
 msgstr "Κενό"
 
-#: libraries/classes/InsertEdit.php:2401 libraries/classes/Sql.php:1030
+#: libraries/classes/InsertEdit.php:2402 libraries/classes/Sql.php:1035
 msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
-#: libraries/classes/InsertEdit.php:2427 libraries/classes/Sql.php:1008
+#: libraries/classes/InsertEdit.php:2428 libraries/classes/Sql.php:1013
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
@@ -10478,7 +10479,7 @@ msgstr "%1$s (κοντά στο <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:275
 #: libraries/classes/Navigation/Nodes/NodeTable.php:322
-#: libraries/classes/Util.php:1721 libraries/classes/Util.php:2505
+#: libraries/classes/Util.php:1723 libraries/classes/Util.php:2505
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10488,7 +10489,7 @@ msgstr "Περιήγηση"
 
 #: libraries/classes/Menu.php:294 libraries/classes/Menu.php:410
 #: libraries/classes/Navigation/Nodes/NodeTable.php:313
-#: libraries/classes/Util.php:1719 libraries/classes/Util.php:2491
+#: libraries/classes/Util.php:1721 libraries/classes/Util.php:2491
 #: libraries/classes/Util.php:2508 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179
@@ -10498,7 +10499,7 @@ msgstr "Αναζήτηση"
 
 #: libraries/classes/Menu.php:305
 #: libraries/classes/Navigation/Nodes/NodeTable.php:316
-#: libraries/classes/Util.php:1720 libraries/classes/Util.php:2509
+#: libraries/classes/Util.php:1722 libraries/classes/Util.php:2509
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10508,7 +10509,7 @@ msgid "Insert"
 msgstr "Προσθήκη"
 
 #: libraries/classes/Menu.php:332 libraries/classes/Menu.php:450
-#: libraries/classes/Server/Privileges.php:2973 libraries/classes/Util.php:2496
+#: libraries/classes/Server/Privileges.php:2976 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:2512 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -10518,7 +10519,7 @@ msgid "Privileges"
 msgstr "Δικαιώματα"
 
 #: libraries/classes/Menu.php:342 libraries/classes/Menu.php:351
-#: libraries/classes/Menu.php:441 libraries/classes/Util.php:1722
+#: libraries/classes/Menu.php:441 libraries/classes/Util.php:1724
 #: libraries/classes/Util.php:2495 libraries/classes/Util.php:2513
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
@@ -10611,49 +10612,49 @@ msgstr "Μηχανές"
 msgid "Plugins"
 msgstr "Πρόσθετα"
 
-#: libraries/classes/Message.php:254
+#: libraries/classes/Message.php:255
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "Επηρεάστηκε %1$d γραμμή."
 msgstr[1] "Επηρεάστηκαν %1$d γραμμές."
 
-#: libraries/classes/Message.php:275
+#: libraries/classes/Message.php:276
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "Διαγράφτηκε %1$d γραμμή."
 msgstr[1] "Διαγράφτηκαν %1$d γραμμές."
 
-#: libraries/classes/Message.php:296
+#: libraries/classes/Message.php:297
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "Εισήχθηκε %1$d γραμμή."
 msgstr[1] "Εισήχθηκαν %1$d γραμμές."
 
-#: libraries/classes/Navigation/Navigation.php:217
+#: libraries/classes/Navigation/Navigation.php:223
 msgid "Groups:"
 msgstr "Ομάδες:"
 
-#: libraries/classes/Navigation/Navigation.php:218
+#: libraries/classes/Navigation/Navigation.php:224
 msgid "Events:"
 msgstr "Συμβάντα:"
 
-#: libraries/classes/Navigation/Navigation.php:219
+#: libraries/classes/Navigation/Navigation.php:225
 msgid "Functions:"
 msgstr "Συναρτήσεις:"
 
-#: libraries/classes/Navigation/Navigation.php:220
+#: libraries/classes/Navigation/Navigation.php:226
 msgid "Procedures:"
 msgstr "Διαδικασίες:"
 
-#: libraries/classes/Navigation/Navigation.php:221
+#: libraries/classes/Navigation/Navigation.php:227
 #: templates/database/export/index.twig:14
 msgid "Tables:"
 msgstr "Πίνακες:"
 
-#: libraries/classes/Navigation/Navigation.php:222
+#: libraries/classes/Navigation/Navigation.php:228
 msgid "Views:"
 msgstr "Προβολές:"
 
@@ -10679,17 +10680,17 @@ msgid_plural "%s results found"
 msgstr[0] "%s αποτέλεσμα βρέθηκε"
 msgstr[1] "%s αποτελέσματα βρέθηκαν"
 
-#: libraries/classes/Navigation/NavigationTree.php:1404
-#: libraries/classes/Navigation/NavigationTree.php:1439
+#: libraries/classes/Navigation/NavigationTree.php:1406
+#: libraries/classes/Navigation/NavigationTree.php:1441
 msgid "Type to filter these, Enter to search all"
 msgstr "Γράψτε για να φιλτράρετε, Enter για αναζήτηση όλων"
 
-#: libraries/classes/Navigation/NavigationTree.php:1406
-#: libraries/classes/Navigation/NavigationTree.php:1440
+#: libraries/classes/Navigation/NavigationTree.php:1408
+#: libraries/classes/Navigation/NavigationTree.php:1442
 msgid "Clear fast filter"
 msgstr "Εκκαθάριση γρήγορου φίλτρου"
 
-#: libraries/classes/Navigation/NavigationTree.php:1466
+#: libraries/classes/Navigation/NavigationTree.php:1468
 msgid "Collapse all"
 msgstr "Σύμπτηξη όλων"
 
@@ -11148,7 +11149,7 @@ msgstr "Διαγραφή"
 #: templates/database/triggers/list.twig:44
 #: templates/database/triggers/list.twig:45
 #: templates/database/triggers/row.twig:45
-#: templates/database/triggers/row.twig:51 templates/indexes.twig:51
+#: templates/database/triggers/row.twig:51 templates/indexes.twig:56
 #: templates/server/databases/index.twig:304
 #: templates/server/databases/index.twig:305
 #: templates/table/relation/foreign_key_row.twig:26
@@ -12364,7 +12365,7 @@ msgstr "Σφάλμα σύνταξης επεξεργαστή CodeMirror για �
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "Σφάλμα σύνταξης επεξεργαστή CodeMirror για την XML (και την HTML)."
 
-#: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:28
+#: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:29
 msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
@@ -12959,7 +12960,7 @@ msgstr "Επιτρέπει την εκτέλεση αποθηκευμένων ε
 
 #: libraries/classes/Server/Privileges.php:793
 #: libraries/classes/Server/Privileges.php:867
-#: libraries/classes/Server/Privileges.php:3966
+#: libraries/classes/Server/Privileges.php:3969
 msgid "Native MySQL authentication"
 msgstr "Γηγενής πιστοποίηση MySQL"
 
@@ -13052,17 +13053,17 @@ msgstr "Διαγραφή %s"
 msgid "The privileges were reloaded successfully."
 msgstr "Τα δικαιώματα επαναφορτώθηκαν επιτυχώς."
 
-#: libraries/classes/Server/Privileges.php:2706
+#: libraries/classes/Server/Privileges.php:2709
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Ο χρήστης %s υπάρχει ήδη!"
 
-#: libraries/classes/Server/Privileges.php:2990
+#: libraries/classes/Server/Privileges.php:2993
 #, php-format
 msgid "Privileges for %s"
 msgstr "Δικαιώματα για %s"
 
-#: libraries/classes/Server/Privileges.php:3129
+#: libraries/classes/Server/Privileges.php:3132
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -13073,7 +13074,7 @@ msgstr ""
 "φιλοξενίας του λογαριασμού τους επιτρέπει μια σύνδεση από οποιαδήποτε (%) "
 "φιλοξενία."
 
-#: libraries/classes/Server/Privileges.php:3172
+#: libraries/classes/Server/Privileges.php:3175
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -13087,7 +13088,7 @@ msgstr ""
 "αλλαγές χειροκίνητα. Σε αυτήν την περίπτωση, θα πρέπει να %sεπαναφορτώσετε "
 "τα δικαιώματα%s πριν συνεχίσετε."
 
-#: libraries/classes/Server/Privileges.php:3188
+#: libraries/classes/Server/Privileges.php:3191
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -13101,7 +13102,7 @@ msgstr ""
 "αλλαγές χειροκίνητα. Σε αυτήν την περίπτωση, τα δικαιώματα πρέπει να "
 "επαναφορτωθούν αλλά προς το παρόν, δεν έχετε το δικαίωμα RELOAD."
 
-#: libraries/classes/Server/Privileges.php:3524
+#: libraries/classes/Server/Privileges.php:3527
 msgid "You have added a new user."
 msgstr "Προσθέσατε ένα νέο χρήστη."
 
@@ -13221,16 +13222,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Δεν υπάρχει νεότερη σταθερή έκδοση διαθέσιμη"
 
-#: libraries/classes/Sql.php:523
+#: libraries/classes/Sql.php:524
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Χρήση του σελιδοδείκτη «%s» ως προεπιλεγμένο ερώτημα φυλλομετρητή."
 
-#: libraries/classes/Sql.php:1027
+#: libraries/classes/Sql.php:1032
 msgid "Showing as PHP code"
 msgstr "Εμφάνιση ως κώδικά PHP"
 
-#: libraries/classes/Sql.php:1410
+#: libraries/classes/Sql.php:1415
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13240,7 +13241,7 @@ msgstr ""
 "επεξεργασίας πλέγματος, πλαίσια ελέγχου, Επεξεργασίας, Αντιγραφής και "
 "Διαγραφής δεν είναι διαθέσιμα. %s"
 
-#: libraries/classes/Sql.php:1424
+#: libraries/classes/Sql.php:1429
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13355,15 +13356,15 @@ msgstr ""
 "παραμείνουν μετά την ανανέωση της σελίδας. Ελέξτε αν η δομή πίνακα έχει "
 "αλλαχτεί."
 
-#: libraries/classes/Table.php:2260
+#: libraries/classes/Table.php:2261
 msgid "Can't rename index to PRIMARY!"
 msgstr "Η μετατροπή του ευρετηρίου σε PRIMARY δεν είναι εφικτή!"
 
-#: libraries/classes/Table.php:2284
+#: libraries/classes/Table.php:2285
 msgid "No index parts defined!"
 msgstr "Δεν ορίστηκαν τα στοιχεία του ευρετηρίου!"
 
-#: libraries/classes/Table.php:2614
+#: libraries/classes/Table.php:2615
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -13995,12 +13996,12 @@ msgstr "Σφάλμα στο συμπιεσμένο αρχείο ZIP:"
 msgid "No files found inside ZIP archive!"
 msgstr "Δεν βρέθηκαν αρχεία στο συμπιεσμένο αρχείο ZIP!"
 
-#: libraries/common.inc.php:268
+#: libraries/common.inc.php:276
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Πρέπει να αναβαθμίσετε σε %s %s ή νεότερη."
 
-#: libraries/common.inc.php:300
+#: libraries/common.inc.php:308
 msgid "Error: Token mismatch"
 msgstr "Σφάλμα: Το πειστήριο δεν ταιριάζει"
 
@@ -14693,7 +14694,7 @@ msgstr "Συμπιεσμένο"
 msgid "Cardinality"
 msgstr "Μοναδικότητα"
 
-#: templates/database/data_dictionary/index.twig:110 templates/indexes.twig:85
+#: templates/database/data_dictionary/index.twig:110 templates/indexes.twig:90
 #: templates/table/structure/display_structure.twig:497
 msgid "No index defined!"
 msgstr "Δεν ορίστηκε ευρετήριο!"
@@ -16275,12 +16276,19 @@ msgstr ""
 msgid "Other options:"
 msgstr "Άλλες επιλογές:"
 
-#: templates/indexes.twig:39
+#: templates/indexes.twig:38
+#: templates/table/structure/display_structure.twig:445
+#, fuzzy
+#| msgid "Rename to"
+msgid "Rename"
+msgstr "Μετονομασία σε"
+
+#: templates/indexes.twig:44
 #: templates/table/structure/display_structure.twig:451
 msgid "The primary key has been dropped."
 msgstr "Το πρωτεύον κλειδί διεγράφη."
 
-#: templates/indexes.twig:44
+#: templates/indexes.twig:49
 #: templates/table/structure/display_structure.twig:456
 #, php-format
 msgid "Index %s has been dropped."
@@ -17081,6 +17089,14 @@ msgstr "Χωρίς Κωδικό Πρόσβασης"
 msgid "Enter:"
 msgstr "Εισαγωγή:"
 
+#: templates/server/privileges/change_password.twig:28
+#: templates/server/privileges/login_information_fields.twig:54
+#, fuzzy
+#| msgid "Data length"
+msgctxt "Password strength"
+msgid "Strength:"
+msgstr "Μέγεθος δεδομένων"
+
 #: templates/server/privileges/change_password.twig:32
 #: templates/server/privileges/login_information_fields.twig:60
 #: templates/server/replication/master_add_slave_user.twig:62
@@ -17244,13 +17260,6 @@ msgstr "Διατήρηση κωδικού πρόσβασης"
 #| msgid "No Password"
 msgid "No password"
 msgstr "Χωρίς Κωδικό Πρόσβασης"
-
-#: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
-msgctxt "Password strength"
-msgid "Strength:"
-msgstr "Μέγεθος δεδομένων"
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
@@ -18936,12 +18945,6 @@ msgstr "Προσθήκη %s στήλης(ών)"
 #: templates/table/structure/display_structure.twig:385
 msgid "at beginning of table"
 msgstr "στην αρχή του πίνακα"
-
-#: templates/table/structure/display_structure.twig:445
-#, fuzzy
-#| msgid "Rename to"
-msgid "Rename"
-msgstr "Μετονομασία σε"
 
 #: templates/table/structure/display_structure.twig:507
 #, fuzzy, php-format
