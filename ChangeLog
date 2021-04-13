@@ -62,6 +62,7 @@ phpMyAdmin - ChangeLog
 - issue        Fixed "DESCRIBE FILES;" broken links in query results
 - issue #16790 Fixed "Undefined index field_name" PHP error
 - issue #16605 Fixed vertical alignment issue on tables for pmahomme theme
+- issue #16798 Fix ServerConfigChecks: Link 'trusted proxies list' not terminated properly (translation)
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
