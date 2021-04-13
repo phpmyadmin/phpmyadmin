@@ -61,6 +61,7 @@ phpMyAdmin - ChangeLog
 - issue #16791 Fixed "Undefined index table_schema" on special schema table
 - issue        Fixed "DESCRIBE FILES;" broken links in query results
 - issue #16790 Fixed "Undefined index field_name" PHP error
+- issue #16605 Fixed vertical alignment issue on tables for pmahomme theme
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
