@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-13 17:52+0200\n"
-"PO-Revision-Date: 2021-04-11 10:26+0000\n"
+"PO-Revision-Date: 2021-04-14 22:38+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -7988,15 +7988,11 @@ msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "INSERT DELAYED sıralarında yazılmak için bekleyen satır sayısıdır."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:551
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
-"Açık olan tablo sayısıdır. Eğer açık tablolar büyükse, tablo önbellek "
+"Açılmış olan tablo sayısıdır. Eğer açık tablolar büyükse, table_open_cache "
 "değeriniz muhtemelen çok küçüktür."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:555
@@ -9606,10 +9602,8 @@ msgstr ""
 "destek henüz tamamlanmadı ya da yapılandırmanız tarafından etkisizleştirildi."
 
 #: libraries/classes/FlashMessages.php:22
-#, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "SOAP uzantısı bulunamadı"
+msgstr "Oturum bulunamadı."
 
 #: libraries/classes/Footer.php:218 libraries/classes/Footer.php:222
 #: libraries/classes/Footer.php:225
@@ -16108,7 +16102,7 @@ msgstr "Lütfen geçerli bir ONALTILIK girdi değeri girin"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Bu sütun 32 karakterlik bir değer içeremez"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16116,6 +16110,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Bu işlevlerin ikili bir sonuç döndürmesi amaçlanmıştır; tutarsız sonuçlardan "
+"kaçınmak için bunu BINARY, VARBINARY veya BLOB sütununda saklamalısınız."
 
 #: templates/login/form.twig:30
 msgid "Log in"
@@ -18101,10 +18097,8 @@ msgid "Binary"
 msgstr "İkili Değer"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "\"%s\" sütunu için değer"
+msgstr "Bu sütun için NULL değerini kullanın."
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
