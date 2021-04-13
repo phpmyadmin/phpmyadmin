@@ -78,13 +78,13 @@ $(function () {
                 isTable = CommonParams.get('table');
                 isDb = CommonParams.get('db');
                 if (isDb && ! isTable) {
-                    $('.tab .ic_b_props').first().trigger('click');
+                    $('.nav-link .ic_b_props').first().trigger('click');
                 }
             } else if (tableOp === true) {
                 isTable = CommonParams.get('table');
                 isDb = CommonParams.get('db');
                 if (isDb && isTable) {
-                    $('.tab .ic_b_props').first().trigger('click');
+                    $('.nav-link .ic_b_props').first().trigger('click');
                 }
             } else {
                 $('#pma_navigation_settings_icon').trigger('click');
@@ -94,13 +94,13 @@ $(function () {
                 isTable = CommonParams.get('table');
                 isDb = CommonParams.get('db');
                 if (isDb && ! isTable) {
-                    $('.tab .ic_b_search').first().trigger('click');
+                    $('.nav-link .ic_b_search').first().trigger('click');
                 }
             } else if (tableOp === true) {
                 isTable = CommonParams.get('table');
                 isDb = CommonParams.get('db');
                 if (isDb && isTable) {
-                    $('.tab .ic_b_search').first().trigger('click');
+                    $('.nav-link .ic_b_search').first().trigger('click');
                 }
             }
         } else if (e.keyCode === keyT) {
