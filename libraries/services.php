@@ -160,6 +160,7 @@ return [
                 '@dbi',
                 '@relation',
                 '@relation_cleanup',
+                '@server_plugins',
             ],
         ],
         'sql' => [

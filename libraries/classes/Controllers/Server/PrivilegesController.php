@@ -15,6 +15,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -66,7 +67,13 @@ class PrivilegesController extends AbstractController
         $this->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn.js']);
 
         $relationCleanup = new RelationCleanup($this->dbi, $this->relation);
-        $serverPrivileges = new Privileges($this->template, $this->dbi, $this->relation, $relationCleanup);
+        $serverPrivileges = new Privileges(
+            $this->template,
+            $this->dbi,
+            $this->relation,
+            $relationCleanup,
+            new Plugins($this->dbi)
+        );
 
         $databaseController = new DatabaseController(
             $this->response,

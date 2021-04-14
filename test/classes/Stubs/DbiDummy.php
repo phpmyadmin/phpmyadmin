@@ -1820,10 +1820,17 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query'  => 'SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION` '
-                    . 'FROM `information_schema`.`PLUGINS` '
-                    . "WHERE `PLUGIN_TYPE` = 'AUTHENTICATION';",
-                'result' => [],
+                'query'  => 'SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION` FROM `information_schema`.`PLUGINS`'
+                    . ' WHERE `PLUGIN_TYPE` = \'AUTHENTICATION\';',
+                'columns' => ['PLUGIN_NAME', 'PLUGIN_DESCRIPTION'],
+                'result' => [
+                    ['mysql_old_password', 'Old MySQL-4.0 authentication'],
+                    ['mysql_native_password', 'Native MySQL authentication'],
+                    ['sha256_password', 'SHA256 password authentication'],
+                    ['caching_sha2_password', 'Caching sha2 authentication'],
+                    ['auth_socket', 'Unix Socket based authentication'],
+                    ['unknown_auth_plugin', 'Unknown authentication'],
+                ],
             ],
             [
                 'query'  => 'SHOW TABLES FROM `db`;',

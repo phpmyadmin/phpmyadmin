@@ -63,6 +63,9 @@ class Privileges
     /** @var Relation */
     public $relation;
 
+    /** @var Plugins */
+    private $plugins;
+
     /**
      * @param Template          $template        Template object
      * @param DatabaseInterface $dbi             DatabaseInterface object
@@ -73,12 +76,14 @@ class Privileges
         Template $template,
         $dbi,
         Relation $relation,
-        RelationCleanup $relationCleanup
+        RelationCleanup $relationCleanup,
+        Plugins $plugins
     ) {
         $this->template = $template;
         $this->dbi = $dbi;
         $this->relation = $relation;
         $this->relationCleanup = $relationCleanup;
+        $this->plugins = $plugins;
     }
 
     /**
@@ -792,34 +797,6 @@ class Privileges
     }
 
     /**
-     * Gets the currently active authentication plugins
-     *
-     * @return array  array of plugin names and descriptions
-     */
-    public function getActiveAuthPlugins()
-    {
-        $getPluginsQuery = 'SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION`'
-            . ' FROM `information_schema`.`PLUGINS` '
-            . "WHERE `PLUGIN_TYPE` = 'AUTHENTICATION';";
-        $resultset = $this->dbi->query($getPluginsQuery);
-
-        $result = [];
-
-        while ($row = $this->dbi->fetchAssoc($resultset)) {
-            // if description is known, enable its translation
-            if ($row['PLUGIN_NAME'] === 'mysql_native_password') {
-                $row['PLUGIN_DESCRIPTION'] = __('Native MySQL authentication');
-            } elseif ($row['PLUGIN_NAME'] === 'sha256_password') {
-                $row['PLUGIN_DESCRIPTION'] = __('SHA256 password authentication');
-            }
-
-            $result[$row['PLUGIN_NAME']] = $row['PLUGIN_DESCRIPTION'];
-        }
-
-        return $result;
-    }
-
-    /**
      * Displays the fields used by the "new user" form as well as the
      * "change login information / copy user" form.
      *
@@ -884,7 +861,7 @@ class Privileges
 
         $activeAuthPlugins = ['mysql_native_password' => __('Native MySQL authentication')];
         if ($isNew) {
-            $activeAuthPlugins = $this->getActiveAuthPlugins();
+            $activeAuthPlugins = $this->plugins->getAuthentication();
             if (isset($activeAuthPlugins['mysql_old_password'])) {
                 unset($activeAuthPlugins['mysql_old_password']);
             }
@@ -4076,7 +4053,7 @@ class Privileges
         $activeAuthPlugins = ['mysql_native_password' => __('Native MySQL authentication')];
 
         if ($isNew && $hasMoreAuthPlugins) {
-            $activeAuthPlugins = $this->getActiveAuthPlugins();
+            $activeAuthPlugins = $this->plugins->getAuthentication();
             if (isset($activeAuthPlugins['mysql_old_password'])) {
                 unset($activeAuthPlugins['mysql_old_password']);
             }
