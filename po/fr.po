@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-14 19:40-0300\n"
-"PO-Revision-Date: 2021-04-14 22:38+0000\n"
+"PO-Revision-Date: 2021-04-15 00:28+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -12421,16 +12421,12 @@ msgid "Caching sha2 authentication"
 msgstr "Mode d'authentification « config »"
 
 #: libraries/classes/Server/Plugins.php:83
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
-msgstr "Mode d'authentification « cookie »"
+msgstr "Authentification basée sur un socket Unix"
 
 #: libraries/classes/Server/Plugins.php:88
-#, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
-msgstr "Authentification MySQL native"
+msgstr "Ancienne authentification MySQL-4.0"
 
 #: libraries/classes/Server/Privileges.php:256
 msgid "No privileges."
