@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-13 17:52+0200\n"
+"POT-Creation-Date: 2021-04-14 19:40-0300\n"
 "PO-Revision-Date: 2019-04-27 17:19+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1280,7 +1280,7 @@ msgstr "Qidirish"
 
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:325
-#: libraries/classes/Controllers/Server/PrivilegesController.php:332
+#: libraries/classes/Controllers/Server/PrivilegesController.php:339
 #: libraries/classes/Database/Triggers.php:486
 #: libraries/classes/InsertEdit.php:1154 libraries/classes/InsertEdit.php:1189
 #: libraries/classes/Normalization.php:267
@@ -4828,8 +4828,8 @@ msgstr "CHAR maydonidagi qatorlar soni"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:150
 #: libraries/classes/Plugins/Export/ExportOdt.php:197
 #: libraries/classes/Plugins/Export/ExportTexytext.php:134
-#: libraries/classes/Server/Privileges.php:1988
-#: libraries/classes/Server/Privileges.php:1990
+#: libraries/classes/Server/Privileges.php:1965
+#: libraries/classes/Server/Privileges.php:1967
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4860,8 +4860,8 @@ msgstr "Server"
 #: libraries/classes/Config/Descriptions.php:967
 #: libraries/classes/Database/Triggers.php:413
 #: libraries/classes/Plugins/Export/ExportXml.php:535
-#: libraries/classes/Server/Privileges.php:1994
-#: libraries/classes/Server/Privileges.php:1996
+#: libraries/classes/Server/Privileges.php:1971
+#: libraries/classes/Server/Privileges.php:1973
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -5156,7 +5156,7 @@ msgstr "OpenDocument matn"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 #: libraries/classes/Menu.php:302 libraries/classes/Menu.php:422
-#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1659
+#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1636
 #: libraries/classes/Util.php:2116 libraries/classes/Util.php:2131
 #: libraries/classes/Util.php:2148 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -6379,13 +6379,13 @@ msgid "The user name is empty!"
 msgstr "Foydalanuvchi nomi belgilanmagan!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:133
-#: libraries/classes/Server/Privileges.php:1042
+#: libraries/classes/Server/Privileges.php:1019
 #: libraries/classes/UserPassword.php:40
 msgid "The password is empty!"
 msgstr "Parol belgilanmagan!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:134
-#: libraries/classes/Server/Privileges.php:1040
+#: libraries/classes/Server/Privileges.php:1017
 #: libraries/classes/UserPassword.php:44
 msgid "The passwords aren't the same!"
 msgstr "Kiritilgan parollar bir xil emas!"
@@ -8372,24 +8372,24 @@ msgstr "Jami"
 msgid "Overhead"
 msgstr "Fragmentlangan"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:143
+#: libraries/classes/Controllers/Server/PrivilegesController.php:150
 #: libraries/classes/Controllers/Server/UserGroupsController.php:51
 msgid "No Privileges"
 msgstr "Privilegiyalar yo‘q"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:152
+#: libraries/classes/Controllers/Server/PrivilegesController.php:159
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Ushbu sahifaga kirish uchun Sizda yetarli huquq mavjud emas!"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:167
+#: libraries/classes/Controllers/Server/PrivilegesController.php:174
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:425
+#: libraries/classes/Controllers/Server/PrivilegesController.php:432
 #, fuzzy
 #| msgid "View %s has been dropped."
 msgid "User has been added."
@@ -8412,7 +8412,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:153
-#: libraries/classes/Server/Privileges.php:3080
+#: libraries/classes/Server/Privileges.php:3057
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Foydalanuvchi"
@@ -11170,7 +11170,7 @@ msgid "Insert"
 msgstr "Qo‘yish"
 
 #: libraries/classes/Menu.php:324 libraries/classes/Menu.php:446
-#: libraries/classes/Server/Privileges.php:3054 libraries/classes/Util.php:2134
+#: libraries/classes/Server/Privileges.php:3031 libraries/classes/Util.php:2134
 #: libraries/classes/Util.php:2150 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -13591,16 +13591,48 @@ msgstr ""
 msgid "Error while loading the search."
 msgstr "Fayl yuklanayotgan vaqtda noma`lum xatolik yuz berdi."
 
-#: libraries/classes/Server/Privileges.php:251
+#: libraries/classes/Server/Plugins.php:68
+#: libraries/classes/Server/Privileges.php:862
+#: libraries/classes/Server/Privileges.php:4053
+#, fuzzy
+#| msgid "Host authentication order"
+msgid "Native MySQL authentication"
+msgstr "Autentifikatsiya tartibi"
+
+#: libraries/classes/Server/Plugins.php:73
+#, fuzzy
+#| msgid "Host authentication order"
+msgid "SHA256 password authentication"
+msgstr "Autentifikatsiya tartibi"
+
+#: libraries/classes/Server/Plugins.php:78
+#, fuzzy
+#| msgid "Host authentication order"
+msgid "Caching sha2 authentication"
+msgstr "Autentifikatsiya tartibi"
+
+#: libraries/classes/Server/Plugins.php:83
+#, fuzzy
+#| msgid "Host authentication order"
+msgid "Unix Socket based authentication"
+msgstr "Autentifikatsiya tartibi"
+
+#: libraries/classes/Server/Plugins.php:88
+#, fuzzy
+#| msgid "Host authentication order"
+msgid "Old MySQL-4.0 authentication"
+msgstr "Autentifikatsiya tartibi"
+
+#: libraries/classes/Server/Privileges.php:256
 msgid "No privileges."
 msgstr "Privilegiyalar yo‘q."
 
-#: libraries/classes/Server/Privileges.php:262
+#: libraries/classes/Server/Privileges.php:267
 msgid "Includes all privileges except GRANT."
 msgstr "GRANT dan tashqari barcha privilegiyalarni o‘z ichiga oladi."
 
-#: libraries/classes/Server/Privileges.php:284
-#: libraries/classes/Server/Privileges.php:351
+#: libraries/classes/Server/Privileges.php:289
+#: libraries/classes/Server/Privileges.php:356
 #: templates/server/privileges/privileges_table.twig:100
 #: templates/server/privileges/privileges_table.twig:103
 #: templates/server/privileges/privileges_table.twig:299
@@ -13608,7 +13640,7 @@ msgstr "GRANT dan tashqari barcha privilegiyalarni o‘z ichiga oladi."
 msgid "Allows deleting data."
 msgstr "Ma`lumotlarni o‘chirishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:289
+#: libraries/classes/Server/Privileges.php:294
 #: templates/server/privileges/privileges_table.twig:112
 #: templates/server/privileges/privileges_table.twig:115
 #: templates/server/privileges/privileges_table.twig:337
@@ -13616,7 +13648,7 @@ msgstr "Ma`lumotlarni o‘chirishga ruxsat beradi."
 msgid "Allows creating new tables."
 msgstr "Yangi jadvallar tuzishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:294
+#: libraries/classes/Server/Privileges.php:299
 #: templates/server/privileges/privileges_table.twig:124
 #: templates/server/privileges/privileges_table.twig:127
 #: templates/server/privileges/privileges_table.twig:385
@@ -13624,8 +13656,8 @@ msgstr "Yangi jadvallar tuzishga ruxsat beradi."
 msgid "Allows dropping tables."
 msgstr "Jadvallarni o‘chirishga rux`sat beradi."
 
-#: libraries/classes/Server/Privileges.php:299
-#: libraries/classes/Server/Privileges.php:391
+#: libraries/classes/Server/Privileges.php:304
+#: libraries/classes/Server/Privileges.php:396
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:369
@@ -13633,8 +13665,8 @@ msgstr "Jadvallarni o‘chirishga rux`sat beradi."
 msgid "Allows creating and dropping indexes."
 msgstr "Indekslar qo‘shish va ularni o‘chirishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:304
-#: libraries/classes/Server/Privileges.php:396
+#: libraries/classes/Server/Privileges.php:309
+#: libraries/classes/Server/Privileges.php:401
 #: templates/server/privileges/privileges_table.twig:161
 #: templates/server/privileges/privileges_table.twig:164
 #: templates/server/privileges/privileges_table.twig:356
@@ -13642,9 +13674,9 @@ msgstr "Indekslar qo‘shish va ularni o‘chirishga ruxsat beradi."
 msgid "Allows altering the structure of existing tables."
 msgstr "Mavjud jadvallarning tuzilishini o‘zgartirishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:309
-#: libraries/classes/Server/Privileges.php:435
-#: libraries/classes/Server/Privileges.php:451
+#: libraries/classes/Server/Privileges.php:314
+#: libraries/classes/Server/Privileges.php:440
+#: libraries/classes/Server/Privileges.php:456
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:470
@@ -13654,9 +13686,9 @@ msgstr "Mavjud jadvallarning tuzilishini o‘zgartirishga ruxsat beradi."
 msgid "Allows creating new views."
 msgstr "Yangi namoyishlar tuzish(CREATE VIEW)ga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:314
-#: libraries/classes/Server/Privileges.php:456
-#: libraries/classes/Server/Privileges.php:462
+#: libraries/classes/Server/Privileges.php:319
+#: libraries/classes/Server/Privileges.php:461
+#: libraries/classes/Server/Privileges.php:467
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:417
@@ -13665,8 +13697,8 @@ msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 "Namoyish tuzadigan so‘rov(SHOW CREATE VIEW)ni bajarishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:319
-#: libraries/classes/Server/Privileges.php:445
+#: libraries/classes/Server/Privileges.php:324
+#: libraries/classes/Server/Privileges.php:450
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:513
@@ -13678,40 +13710,40 @@ msgstr ""
 "Triggerlar (ma`lum shartlar bajarilganda avtomatik ishga tushadigan "
 "jarayonlar) tuzish va ularni o‘chirishga ruxsat beradi"
 
-#: libraries/classes/Server/Privileges.php:336
+#: libraries/classes/Server/Privileges.php:341
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/privileges_table.twig:263
 msgid "Allows reading data."
 msgstr "Ma`lumotlarni chaqirishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:341
+#: libraries/classes/Server/Privileges.php:346
 #: templates/server/privileges/privileges_table.twig:36
 #: templates/server/privileges/privileges_table.twig:273
 #: templates/server/privileges/privileges_table.twig:276
 msgid "Allows inserting and replacing data."
 msgstr "Ma`lumot qo‘yish va o‘zgartirishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:346
+#: libraries/classes/Server/Privileges.php:351
 #: templates/server/privileges/privileges_table.twig:57
 #: templates/server/privileges/privileges_table.twig:286
 #: templates/server/privileges/privileges_table.twig:289
 msgid "Allows changing data."
 msgstr "Ma`lumotlarni o‘zgartirishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:356
+#: libraries/classes/Server/Privileges.php:361
 #: templates/server/privileges/privileges_table.twig:335
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows creating new databases and tables."
 msgstr "Yangi ma`lumotlar bazalari va jadvallar tuzishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:361
+#: libraries/classes/Server/Privileges.php:366
 #: templates/server/privileges/privileges_table.twig:383
 #: templates/server/privileges/privileges_table.twig:391
 msgid "Allows dropping databases and tables."
 msgstr "Ma`lumotlar bazalarini va jadvallarni o‘chirishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:366
+#: libraries/classes/Server/Privileges.php:371
 #: templates/server/privileges/privileges_table.twig:575
 #: templates/server/privileges/privileges_table.twig:578
 msgid "Allows reloading server settings and flushing the server's caches."
@@ -13719,13 +13751,13 @@ msgstr ""
 "Server sozlanishlarini qayta yuklashga va uning keshlarini tozalashga ruxsat "
 "beradi."
 
-#: libraries/classes/Server/Privileges.php:371
+#: libraries/classes/Server/Privileges.php:376
 #: templates/server/privileges/privileges_table.twig:588
 #: templates/server/privileges/privileges_table.twig:591
 msgid "Allows shutting down the server."
 msgstr "Server ishini yakunlashga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:376
+#: libraries/classes/Server/Privileges.php:381
 #: templates/server/privileges/privileges_table.twig:562
 #: templates/server/privileges/privileges_table.twig:565
 #, fuzzy
@@ -13733,25 +13765,25 @@ msgstr "Server ishini yakunlashga ruxsat beradi."
 msgid "Allows viewing processes of all users."
 msgstr "Barcha foydalanuvchilarning jarayonlarini ko‘rishga ruxsat beradi"
 
-#: libraries/classes/Server/Privileges.php:381
+#: libraries/classes/Server/Privileges.php:386
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows importing data from and exporting data into files."
 msgstr "Ma`lumotlarni fayldan import va faylga eksport qilishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:386
+#: libraries/classes/Server/Privileges.php:391
 #: templates/server/privileges/privileges_table.twig:78
 #: templates/server/privileges/privileges_table.twig:642
 msgid "Has no effect in this MySQL version."
 msgstr "MySQL-serverning ushbu versiyada bunday xususiyat mavjud emas."
 
-#: libraries/classes/Server/Privileges.php:401
+#: libraries/classes/Server/Privileges.php:406
 #: templates/server/privileges/privileges_table.twig:601
 #: templates/server/privileges/privileges_table.twig:604
 msgid "Gives access to the complete list of databases."
 msgstr "Ma`lumotlar bazalarining to‘liq ro‘yxatiga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:407
+#: libraries/classes/Server/Privileges.php:412
 #: templates/server/privileges/privileges_table.twig:548
 #: templates/server/privileges/privileges_table.twig:552
 msgid ""
@@ -13764,26 +13796,26 @@ msgstr ""
 "global o‘zgaruvchilar o‘rnatish yoki boshqa foydalanuvchi jarayonini "
 "o‘chirish)."
 
-#: libraries/classes/Server/Privileges.php:415
+#: libraries/classes/Server/Privileges.php:420
 #: templates/server/privileges/privileges_table.twig:404
 #: templates/server/privileges/privileges_table.twig:407
 msgid "Allows creating temporary tables."
 msgstr "Vaqtinchalik jadvallar tuzishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:420
+#: libraries/classes/Server/Privileges.php:425
 #: templates/server/privileges/privileges_table.twig:629
 #: templates/server/privileges/privileges_table.twig:632
 msgid "Allows locking tables for the current thread."
 msgstr "Joriy oqim uchun jadvalni blokirovku qilishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:425
+#: libraries/classes/Server/Privileges.php:430
 #: templates/server/privileges/privileges_table.twig:670
 #: templates/server/privileges/privileges_table.twig:673
 msgid "Needed for the replication slaves."
 msgstr ""
 "Replikatsiya (zaxira nusxa ko‘chirish) vaqtida tobe serverlar uchun kerak."
 
-#: libraries/classes/Server/Privileges.php:430
+#: libraries/classes/Server/Privileges.php:435
 #: templates/server/privileges/privileges_table.twig:657
 #: templates/server/privileges/privileges_table.twig:660
 msgid "Allows the user to ask where the slaves / masters are."
@@ -13791,7 +13823,7 @@ msgstr ""
 "Bosh va tobe serverlarning joylashishi haqidagi ma`lumotni talab qilishga "
 "ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:440
+#: libraries/classes/Server/Privileges.php:445
 #: templates/server/privileges/privileges_table.twig:500
 #: templates/server/privileges/privileges_table.twig:503
 #, fuzzy
@@ -13800,8 +13832,8 @@ msgid "Allows to set up events for the event scheduler."
 msgstr "Kechiktirilgan hodisalarni sozlashga ruxsat beradi"
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:469
-#: libraries/classes/Server/Privileges.php:476
+#: libraries/classes/Server/Privileges.php:474
+#: libraries/classes/Server/Privileges.php:481
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -13809,19 +13841,19 @@ msgstr "Kechiktirilgan hodisalarni sozlashga ruxsat beradi"
 msgid "Allows deleting historical rows."
 msgstr "Ma`lumotlarni o‘chirishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:481
+#: libraries/classes/Server/Privileges.php:486
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
 msgstr "Saqlanadigan muolajalar tuzishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:486
+#: libraries/classes/Server/Privileges.php:491
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
 msgstr "Saqlanadigan muolajalarni o‘zgartirish va o‘chirishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:491
+#: libraries/classes/Server/Privileges.php:496
 #: templates/server/privileges/privileges_table.twig:683
 #: templates/server/privileges/privileges_table.twig:686
 msgid "Allows creating, dropping and renaming user accounts."
@@ -13829,43 +13861,29 @@ msgstr ""
 "Foydalanuvchilar hisobini qo‘shish, o‘chirish va o‘zgartirishga ruxsat "
 "beradi."
 
-#: libraries/classes/Server/Privileges.php:496
+#: libraries/classes/Server/Privileges.php:501
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
 msgstr "Saqlanadigan muolajalarni bajarishga ruxsat beradi."
 
-#: libraries/classes/Server/Privileges.php:811
-#: libraries/classes/Server/Privileges.php:885
-#: libraries/classes/Server/Privileges.php:4076
-#, fuzzy
-#| msgid "Host authentication order"
-msgid "Native MySQL authentication"
-msgstr "Autentifikatsiya tartibi"
-
-#: libraries/classes/Server/Privileges.php:813
-#, fuzzy
-#| msgid "Host authentication order"
-msgid "SHA256 password authentication"
-msgstr "Autentifikatsiya tartibi"
-
-#: libraries/classes/Server/Privileges.php:1186
+#: libraries/classes/Server/Privileges.php:1163
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "\"%s\" foydalanuvchining paroli muvaffaqiyatli o‘zgartirildi."
 
-#: libraries/classes/Server/Privileges.php:1236
+#: libraries/classes/Server/Privileges.php:1213
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "\"%s\" foydalanuvchining privilegiyalari bekor qilindi."
 
-#: libraries/classes/Server/Privileges.php:1584
+#: libraries/classes/Server/Privileges.php:1561
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1653
+#: libraries/classes/Server/Privileges.php:1630
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -13875,24 +13893,24 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "Privilegiyalarni tahrirlash"
 
-#: libraries/classes/Server/Privileges.php:1656
+#: libraries/classes/Server/Privileges.php:1633
 msgid "Revoke"
 msgstr "Bekor qilish"
 
-#: libraries/classes/Server/Privileges.php:1989
+#: libraries/classes/Server/Privileges.php:1966
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Ma`lumotlar bazasi privilegiyalari"
 
-#: libraries/classes/Server/Privileges.php:1995
+#: libraries/classes/Server/Privileges.php:1972
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Jadval darajasijagi privilegiyalar"
 
-#: libraries/classes/Server/Privileges.php:2000
-#: libraries/classes/Server/Privileges.php:2002
+#: libraries/classes/Server/Privileges.php:1977
+#: libraries/classes/Server/Privileges.php:1979
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -13901,31 +13919,31 @@ msgstr "Jadval darajasijagi privilegiyalar"
 msgid "Routine"
 msgstr "Muolajalar"
 
-#: libraries/classes/Server/Privileges.php:2001
+#: libraries/classes/Server/Privileges.php:1978
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Maydon privilegiyalari"
 
-#: libraries/classes/Server/Privileges.php:2359
+#: libraries/classes/Server/Privileges.php:2336
 msgid "No users selected for deleting!"
 msgstr "O‘chirish lozim bo‘lgan foydalanuvchilar tanlanmagan!"
 
-#: libraries/classes/Server/Privileges.php:2362
+#: libraries/classes/Server/Privileges.php:2339
 msgid "Reloading the privileges"
 msgstr "Privilegiyalar qayta yuklanmoqda"
 
-#: libraries/classes/Server/Privileges.php:2387
+#: libraries/classes/Server/Privileges.php:2364
 msgid "The selected users have been deleted successfully."
 msgstr "Belgilangan foydalanuvchilar muvaffaqiyatli o‘chirildi."
 
-#: libraries/classes/Server/Privileges.php:2467
+#: libraries/classes/Server/Privileges.php:2444
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "\"%s\" uchun privilegiyalar o‘zgartirildi."
 
-#: libraries/classes/Server/Privileges.php:2556
+#: libraries/classes/Server/Privileges.php:2533
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 #, fuzzy
@@ -13933,34 +13951,34 @@ msgstr "\"%s\" uchun privilegiyalar o‘zgartirildi."
 msgid "No user found."
 msgstr "Bironta ham foydalanuvchi topilmadi."
 
-#: libraries/classes/Server/Privileges.php:2643
+#: libraries/classes/Server/Privileges.php:2620
 #, php-format
 msgid "Deleting %s"
 msgstr "\"%s\" o‘chirilmoqda"
 
-#: libraries/classes/Server/Privileges.php:2674
+#: libraries/classes/Server/Privileges.php:2651
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegiyalar muvaffaqiyatli qayta yuklandi."
 
-#: libraries/classes/Server/Privileges.php:2779
+#: libraries/classes/Server/Privileges.php:2756
 #, php-format
 msgid "The user %s already exists!"
 msgstr "\"%s\" nomli foydalanuvchi mavjud!"
 
-#: libraries/classes/Server/Privileges.php:3071
+#: libraries/classes/Server/Privileges.php:3048
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Privilegiyalar"
 
-#: libraries/classes/Server/Privileges.php:3215
+#: libraries/classes/Server/Privileges.php:3192
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3259
+#: libraries/classes/Server/Privileges.php:3236
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13978,7 +13996,7 @@ msgstr ""
 "ma`lumotlar server tomonidan ishlatilayotgan privilegiyalardan farq qilishi "
 "mumkin. Bu holda %sprivilegiyalarni qayta yuklash%s kerak."
 
-#: libraries/classes/Server/Privileges.php:3275
+#: libraries/classes/Server/Privileges.php:3252
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13997,7 +14015,7 @@ msgstr ""
 "ma`lumotlar server tomonidan ishlatilayotgan privilegiyalardan farq qilishi "
 "mumkin. Bu holda %sprivilegiyalarni qayta yuklash%s kerak."
 
-#: libraries/classes/Server/Privileges.php:3623
+#: libraries/classes/Server/Privileges.php:3600
 msgid "You have added a new user."
 msgstr "Siz yangi foydalanuvchi qo‘shdingiz."
 
@@ -21424,11 +21442,6 @@ msgstr "Kuzatish hisoboti"
 
 #~ msgid "SweKey config file"
 #~ msgstr "\"SweKey\" konfiguratsiya fayli"
-
-#, fuzzy
-#~| msgid "Host authentication order"
-#~ msgid "Cookie authentication"
-#~ msgstr "Autentifikatsiya tartibi"
 
 #~ msgid "File %s does not contain any key id"
 #~ msgstr "\"%s\" faylida kalit identifikatori mavjud emas"

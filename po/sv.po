@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-13 17:52+0200\n"
+"POT-Creation-Date: 2021-04-14 19:40-0300\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1401,7 +1401,7 @@ msgstr "Sök:"
 
 #: libraries/classes/BrowseForeigners.php:204
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:325
-#: libraries/classes/Controllers/Server/PrivilegesController.php:332
+#: libraries/classes/Controllers/Server/PrivilegesController.php:339
 #: libraries/classes/Database/Triggers.php:486
 #: libraries/classes/InsertEdit.php:1154 libraries/classes/InsertEdit.php:1189
 #: libraries/classes/Normalization.php:267
@@ -4499,8 +4499,8 @@ msgstr "Textarea rader"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:150
 #: libraries/classes/Plugins/Export/ExportOdt.php:197
 #: libraries/classes/Plugins/Export/ExportTexytext.php:134
-#: libraries/classes/Server/Privileges.php:1988
-#: libraries/classes/Server/Privileges.php:1990
+#: libraries/classes/Server/Privileges.php:1965
+#: libraries/classes/Server/Privileges.php:1967
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4529,8 +4529,8 @@ msgstr "Server"
 #: libraries/classes/Config/Descriptions.php:967
 #: libraries/classes/Database/Triggers.php:413
 #: libraries/classes/Plugins/Export/ExportXml.php:535
-#: libraries/classes/Server/Privileges.php:1994
-#: libraries/classes/Server/Privileges.php:1996
+#: libraries/classes/Server/Privileges.php:1971
+#: libraries/classes/Server/Privileges.php:1973
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4806,7 +4806,7 @@ msgstr "OpenDocument-text"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 #: libraries/classes/Menu.php:302 libraries/classes/Menu.php:422
-#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1659
+#: libraries/classes/Menu.php:560 libraries/classes/Server/Privileges.php:1636
 #: libraries/classes/Util.php:2116 libraries/classes/Util.php:2131
 #: libraries/classes/Util.php:2148 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -5866,13 +5866,13 @@ msgid "The user name is empty!"
 msgstr "Användarnamnet saknas!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:133
-#: libraries/classes/Server/Privileges.php:1042
+#: libraries/classes/Server/Privileges.php:1019
 #: libraries/classes/UserPassword.php:40
 msgid "The password is empty!"
 msgstr "Lösenordet saknas!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:134
-#: libraries/classes/Server/Privileges.php:1040
+#: libraries/classes/Server/Privileges.php:1017
 #: libraries/classes/UserPassword.php:44
 msgid "The passwords aren't the same!"
 msgstr "Lösenorden överensstämmer inte!"
@@ -7647,18 +7647,18 @@ msgstr "Totalt"
 msgid "Overhead"
 msgstr "Outnyttjat"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:143
+#: libraries/classes/Controllers/Server/PrivilegesController.php:150
 #: libraries/classes/Controllers/Server/UserGroupsController.php:51
 msgid "No Privileges"
 msgstr "Inga privilegier"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:152
+#: libraries/classes/Controllers/Server/PrivilegesController.php:159
 #, fuzzy
 #| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Du har inte den nödvändiga behörigheten att skapa en trigger"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:167
+#: libraries/classes/Controllers/Server/PrivilegesController.php:174
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -7666,7 +7666,7 @@ msgstr ""
 "Användarnamn och hostname ändra inte. Om du bara vill ändra lösenordet, bör "
 "'Ändra lösenord' -flik användas."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:425
+#: libraries/classes/Controllers/Server/PrivilegesController.php:432
 msgid "User has been added."
 msgstr "En användare har skapats."
 
@@ -7687,7 +7687,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:153
-#: libraries/classes/Server/Privileges.php:3080
+#: libraries/classes/Server/Privileges.php:3057
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Användare"
@@ -10278,7 +10278,7 @@ msgid "Insert"
 msgstr "Lägg till"
 
 #: libraries/classes/Menu.php:324 libraries/classes/Menu.php:446
-#: libraries/classes/Server/Privileges.php:3054 libraries/classes/Util.php:2134
+#: libraries/classes/Server/Privileges.php:3031 libraries/classes/Util.php:2134
 #: libraries/classes/Util.php:2150 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -12498,16 +12498,44 @@ msgstr "Saknar information för att läsa in sökningen."
 msgid "Error while loading the search."
 msgstr "Fel då sökningen lästes in."
 
-#: libraries/classes/Server/Privileges.php:251
+#: libraries/classes/Server/Plugins.php:68
+#: libraries/classes/Server/Privileges.php:862
+#: libraries/classes/Server/Privileges.php:4053
+msgid "Native MySQL authentication"
+msgstr "MySQL-autentisering"
+
+#: libraries/classes/Server/Plugins.php:73
+msgid "SHA256 password authentication"
+msgstr "SHA256 lösenordsautentisering"
+
+#: libraries/classes/Server/Plugins.php:78
+#, fuzzy
+#| msgid "Config authentication"
+msgid "Caching sha2 authentication"
+msgstr "Config-autentisering"
+
+#: libraries/classes/Server/Plugins.php:83
+#, fuzzy
+#| msgid "Cookie authentication"
+msgid "Unix Socket based authentication"
+msgstr "Cookie-autentisering"
+
+#: libraries/classes/Server/Plugins.php:88
+#, fuzzy
+#| msgid "Native MySQL authentication"
+msgid "Old MySQL-4.0 authentication"
+msgstr "MySQL-autentisering"
+
+#: libraries/classes/Server/Privileges.php:256
 msgid "No privileges."
 msgstr "Inga privilegier."
 
-#: libraries/classes/Server/Privileges.php:262
+#: libraries/classes/Server/Privileges.php:267
 msgid "Includes all privileges except GRANT."
 msgstr "Inkluderar alla privilegier förutom GRANT."
 
-#: libraries/classes/Server/Privileges.php:284
-#: libraries/classes/Server/Privileges.php:351
+#: libraries/classes/Server/Privileges.php:289
+#: libraries/classes/Server/Privileges.php:356
 #: templates/server/privileges/privileges_table.twig:100
 #: templates/server/privileges/privileges_table.twig:103
 #: templates/server/privileges/privileges_table.twig:299
@@ -12515,7 +12543,7 @@ msgstr "Inkluderar alla privilegier förutom GRANT."
 msgid "Allows deleting data."
 msgstr "Tillåter borttagning av data."
 
-#: libraries/classes/Server/Privileges.php:289
+#: libraries/classes/Server/Privileges.php:294
 #: templates/server/privileges/privileges_table.twig:112
 #: templates/server/privileges/privileges_table.twig:115
 #: templates/server/privileges/privileges_table.twig:337
@@ -12523,7 +12551,7 @@ msgstr "Tillåter borttagning av data."
 msgid "Allows creating new tables."
 msgstr "Tillåter skapande av nya tabeller."
 
-#: libraries/classes/Server/Privileges.php:294
+#: libraries/classes/Server/Privileges.php:299
 #: templates/server/privileges/privileges_table.twig:124
 #: templates/server/privileges/privileges_table.twig:127
 #: templates/server/privileges/privileges_table.twig:385
@@ -12531,8 +12559,8 @@ msgstr "Tillåter skapande av nya tabeller."
 msgid "Allows dropping tables."
 msgstr "Tillåter borttagning av tabeller."
 
-#: libraries/classes/Server/Privileges.php:299
-#: libraries/classes/Server/Privileges.php:391
+#: libraries/classes/Server/Privileges.php:304
+#: libraries/classes/Server/Privileges.php:396
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:369
@@ -12540,8 +12568,8 @@ msgstr "Tillåter borttagning av tabeller."
 msgid "Allows creating and dropping indexes."
 msgstr "Tillåter skapande och borttagning av index."
 
-#: libraries/classes/Server/Privileges.php:304
-#: libraries/classes/Server/Privileges.php:396
+#: libraries/classes/Server/Privileges.php:309
+#: libraries/classes/Server/Privileges.php:401
 #: templates/server/privileges/privileges_table.twig:161
 #: templates/server/privileges/privileges_table.twig:164
 #: templates/server/privileges/privileges_table.twig:356
@@ -12549,9 +12577,9 @@ msgstr "Tillåter skapande och borttagning av index."
 msgid "Allows altering the structure of existing tables."
 msgstr "Tillåter ändring av befintliga tabellers struktur."
 
-#: libraries/classes/Server/Privileges.php:309
-#: libraries/classes/Server/Privileges.php:435
-#: libraries/classes/Server/Privileges.php:451
+#: libraries/classes/Server/Privileges.php:314
+#: libraries/classes/Server/Privileges.php:440
+#: libraries/classes/Server/Privileges.php:456
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:470
@@ -12561,9 +12589,9 @@ msgstr "Tillåter ändring av befintliga tabellers struktur."
 msgid "Allows creating new views."
 msgstr "Tillåter skapande av nya vyer."
 
-#: libraries/classes/Server/Privileges.php:314
-#: libraries/classes/Server/Privileges.php:456
-#: libraries/classes/Server/Privileges.php:462
+#: libraries/classes/Server/Privileges.php:319
+#: libraries/classes/Server/Privileges.php:461
+#: libraries/classes/Server/Privileges.php:467
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:417
@@ -12571,8 +12599,8 @@ msgstr "Tillåter skapande av nya vyer."
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Tillåter utförande av SHOW CREATE VIEW-frågor."
 
-#: libraries/classes/Server/Privileges.php:319
-#: libraries/classes/Server/Privileges.php:445
+#: libraries/classes/Server/Privileges.php:324
+#: libraries/classes/Server/Privileges.php:450
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:513
@@ -12580,77 +12608,77 @@ msgstr "Tillåter utförande av SHOW CREATE VIEW-frågor."
 msgid "Allows creating and dropping triggers."
 msgstr "Tillåter skapande och borttagning av triggers."
 
-#: libraries/classes/Server/Privileges.php:336
+#: libraries/classes/Server/Privileges.php:341
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/privileges_table.twig:263
 msgid "Allows reading data."
 msgstr "Tillåter läsning av data."
 
-#: libraries/classes/Server/Privileges.php:341
+#: libraries/classes/Server/Privileges.php:346
 #: templates/server/privileges/privileges_table.twig:36
 #: templates/server/privileges/privileges_table.twig:273
 #: templates/server/privileges/privileges_table.twig:276
 msgid "Allows inserting and replacing data."
 msgstr "Tillåter infogning och ersättning av data."
 
-#: libraries/classes/Server/Privileges.php:346
+#: libraries/classes/Server/Privileges.php:351
 #: templates/server/privileges/privileges_table.twig:57
 #: templates/server/privileges/privileges_table.twig:286
 #: templates/server/privileges/privileges_table.twig:289
 msgid "Allows changing data."
 msgstr "Tillåter ändring av data."
 
-#: libraries/classes/Server/Privileges.php:356
+#: libraries/classes/Server/Privileges.php:361
 #: templates/server/privileges/privileges_table.twig:335
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows creating new databases and tables."
 msgstr "Tillåter skapande av nya databaser och tabeller."
 
-#: libraries/classes/Server/Privileges.php:361
+#: libraries/classes/Server/Privileges.php:366
 #: templates/server/privileges/privileges_table.twig:383
 #: templates/server/privileges/privileges_table.twig:391
 msgid "Allows dropping databases and tables."
 msgstr "Tillåter borttagning av databaser och tabeller."
 
-#: libraries/classes/Server/Privileges.php:366
+#: libraries/classes/Server/Privileges.php:371
 #: templates/server/privileges/privileges_table.twig:575
 #: templates/server/privileges/privileges_table.twig:578
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Tillåter omladdning av serverinställningar och rensning av serverns cache."
 
-#: libraries/classes/Server/Privileges.php:371
+#: libraries/classes/Server/Privileges.php:376
 #: templates/server/privileges/privileges_table.twig:588
 #: templates/server/privileges/privileges_table.twig:591
 msgid "Allows shutting down the server."
 msgstr "Tillåter avstängning av servern."
 
-#: libraries/classes/Server/Privileges.php:376
+#: libraries/classes/Server/Privileges.php:381
 #: templates/server/privileges/privileges_table.twig:562
 #: templates/server/privileges/privileges_table.twig:565
 msgid "Allows viewing processes of all users."
 msgstr "Tillåter visning av processer för alla användare."
 
-#: libraries/classes/Server/Privileges.php:381
+#: libraries/classes/Server/Privileges.php:386
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows importing data from and exporting data into files."
 msgstr "Tillåter import av data från och export av data till filer."
 
-#: libraries/classes/Server/Privileges.php:386
+#: libraries/classes/Server/Privileges.php:391
 #: templates/server/privileges/privileges_table.twig:78
 #: templates/server/privileges/privileges_table.twig:642
 msgid "Has no effect in this MySQL version."
 msgstr "Har ingen effekt i denna version av MySQL."
 
-#: libraries/classes/Server/Privileges.php:401
+#: libraries/classes/Server/Privileges.php:406
 #: templates/server/privileges/privileges_table.twig:601
 #: templates/server/privileges/privileges_table.twig:604
 msgid "Gives access to the complete list of databases."
 msgstr "Ger tillgång till den fullständiga databaslistan."
 
-#: libraries/classes/Server/Privileges.php:407
+#: libraries/classes/Server/Privileges.php:412
 #: templates/server/privileges/privileges_table.twig:548
 #: templates/server/privileges/privileges_table.twig:552
 msgid ""
@@ -12662,39 +12690,39 @@ msgstr ""
 "Nödvändig för de flesta administrativa funktioner, som att sätta globala "
 "variabler eller döda andra användares trådar."
 
-#: libraries/classes/Server/Privileges.php:415
+#: libraries/classes/Server/Privileges.php:420
 #: templates/server/privileges/privileges_table.twig:404
 #: templates/server/privileges/privileges_table.twig:407
 msgid "Allows creating temporary tables."
 msgstr "Tillåter skapande av temporära tabeller."
 
-#: libraries/classes/Server/Privileges.php:420
+#: libraries/classes/Server/Privileges.php:425
 #: templates/server/privileges/privileges_table.twig:629
 #: templates/server/privileges/privileges_table.twig:632
 msgid "Allows locking tables for the current thread."
 msgstr "Tillåter låsning av tabeller för gällande tråd."
 
-#: libraries/classes/Server/Privileges.php:425
+#: libraries/classes/Server/Privileges.php:430
 #: templates/server/privileges/privileges_table.twig:670
 #: templates/server/privileges/privileges_table.twig:673
 msgid "Needed for the replication slaves."
 msgstr "Nödvändigt för replikeringsslavar."
 
-#: libraries/classes/Server/Privileges.php:430
+#: libraries/classes/Server/Privileges.php:435
 #: templates/server/privileges/privileges_table.twig:657
 #: templates/server/privileges/privileges_table.twig:660
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Ger användaren rätt att fråga var slav- / huvudservrarna är."
 
-#: libraries/classes/Server/Privileges.php:440
+#: libraries/classes/Server/Privileges.php:445
 #: templates/server/privileges/privileges_table.twig:500
 #: templates/server/privileges/privileges_table.twig:503
 msgid "Allows to set up events for the event scheduler."
 msgstr "Tillåter skapande av händelser för händelseschemaläggaren."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:469
-#: libraries/classes/Server/Privileges.php:476
+#: libraries/classes/Server/Privileges.php:474
+#: libraries/classes/Server/Privileges.php:481
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -12702,57 +12730,47 @@ msgstr "Tillåter skapande av händelser för händelseschemaläggaren."
 msgid "Allows deleting historical rows."
 msgstr "Tillåter borttagning av data."
 
-#: libraries/classes/Server/Privileges.php:481
+#: libraries/classes/Server/Privileges.php:486
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
 msgstr "Tillåter skapande av lagrade rutiner."
 
-#: libraries/classes/Server/Privileges.php:486
+#: libraries/classes/Server/Privileges.php:491
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
 msgstr "Tillåter ändring och borttagning av lagrade rutiner."
 
-#: libraries/classes/Server/Privileges.php:491
+#: libraries/classes/Server/Privileges.php:496
 #: templates/server/privileges/privileges_table.twig:683
 #: templates/server/privileges/privileges_table.twig:686
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Tillåter skapande, borttagning och omdöpning av användarkonton."
 
-#: libraries/classes/Server/Privileges.php:496
+#: libraries/classes/Server/Privileges.php:501
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
 msgstr "Tillåter utförande av lagrade rutiner."
 
-#: libraries/classes/Server/Privileges.php:811
-#: libraries/classes/Server/Privileges.php:885
-#: libraries/classes/Server/Privileges.php:4076
-msgid "Native MySQL authentication"
-msgstr "MySQL-autentisering"
-
-#: libraries/classes/Server/Privileges.php:813
-msgid "SHA256 password authentication"
-msgstr "SHA256 lösenordsautentisering"
-
-#: libraries/classes/Server/Privileges.php:1186
+#: libraries/classes/Server/Privileges.php:1163
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Lösenordet för %s har ändrats."
 
-#: libraries/classes/Server/Privileges.php:1236
+#: libraries/classes/Server/Privileges.php:1213
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Du har upphävt privilegierna för %s."
 
-#: libraries/classes/Server/Privileges.php:1584
+#: libraries/classes/Server/Privileges.php:1561
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Inte tillräckligt privilegier för att visa användare."
 
-#: libraries/classes/Server/Privileges.php:1653
+#: libraries/classes/Server/Privileges.php:1630
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -12760,24 +12778,24 @@ msgstr "Inte tillräckligt privilegier för att visa användare."
 msgid "Edit privileges"
 msgstr "Redigera behörigheter"
 
-#: libraries/classes/Server/Privileges.php:1656
+#: libraries/classes/Server/Privileges.php:1633
 msgid "Revoke"
 msgstr "Upphäv"
 
-#: libraries/classes/Server/Privileges.php:1989
+#: libraries/classes/Server/Privileges.php:1966
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Databasspecifika privilegier"
 
-#: libraries/classes/Server/Privileges.php:1995
+#: libraries/classes/Server/Privileges.php:1972
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Tabellspecifika privilegier"
 
-#: libraries/classes/Server/Privileges.php:2000
-#: libraries/classes/Server/Privileges.php:2002
+#: libraries/classes/Server/Privileges.php:1977
+#: libraries/classes/Server/Privileges.php:1979
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -12786,56 +12804,56 @@ msgstr "Tabellspecifika privilegier"
 msgid "Routine"
 msgstr "Rutiner"
 
-#: libraries/classes/Server/Privileges.php:2001
+#: libraries/classes/Server/Privileges.php:1978
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Kolumnspecifika privilegier"
 
-#: libraries/classes/Server/Privileges.php:2359
+#: libraries/classes/Server/Privileges.php:2336
 msgid "No users selected for deleting!"
 msgstr "Inga användare valda för borttagning!"
 
-#: libraries/classes/Server/Privileges.php:2362
+#: libraries/classes/Server/Privileges.php:2339
 msgid "Reloading the privileges"
 msgstr "Laddar om privilegierna"
 
-#: libraries/classes/Server/Privileges.php:2387
+#: libraries/classes/Server/Privileges.php:2364
 msgid "The selected users have been deleted successfully."
 msgstr "De valda användarna har tagits bort."
 
-#: libraries/classes/Server/Privileges.php:2467
+#: libraries/classes/Server/Privileges.php:2444
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Du har uppdaterat privilegierna för %s."
 
-#: libraries/classes/Server/Privileges.php:2556
+#: libraries/classes/Server/Privileges.php:2533
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Ingen användare hittades."
 
-#: libraries/classes/Server/Privileges.php:2643
+#: libraries/classes/Server/Privileges.php:2620
 #, php-format
 msgid "Deleting %s"
 msgstr "Tar bort %s"
 
-#: libraries/classes/Server/Privileges.php:2674
+#: libraries/classes/Server/Privileges.php:2651
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegierna har laddats om."
 
-#: libraries/classes/Server/Privileges.php:2779
+#: libraries/classes/Server/Privileges.php:2756
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Användaren %s finns redan!"
 
-#: libraries/classes/Server/Privileges.php:3071
+#: libraries/classes/Server/Privileges.php:3048
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilegier för %s"
 
-#: libraries/classes/Server/Privileges.php:3215
+#: libraries/classes/Server/Privileges.php:3192
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12845,7 +12863,7 @@ msgstr ""
 "tillgängligt. Detta kommer att hindra andra användare från att ansluta om "
 "värddelen av deras konto tillåter anslutning från alla värddatorer (%)."
 
-#: libraries/classes/Server/Privileges.php:3259
+#: libraries/classes/Server/Privileges.php:3236
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12863,7 +12881,7 @@ msgstr ""
 "behörigheter servern använder, om manuella ändringar har gjorts. Är så "
 "fallet bör du %sladda om behörigheterna%s innan du fortsätter."
 
-#: libraries/classes/Server/Privileges.php:3275
+#: libraries/classes/Server/Privileges.php:3252
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12884,7 +12902,7 @@ msgstr ""
 "fallet bör du ladda om behörigheterna innan du fortsätter, du har dock inte "
 "privilegierna för detta."
 
-#: libraries/classes/Server/Privileges.php:3623
+#: libraries/classes/Server/Privileges.php:3600
 msgid "You have added a new user."
 msgstr "Du har lagt till en ny användare."
 
@@ -19704,9 +19722,6 @@ msgstr "Tar dig till målwebbplatsen."
 
 #~ msgid "SweKey config file"
 #~ msgstr "SweKey konfigurationsfil"
-
-#~ msgid "Cookie authentication"
-#~ msgstr "Cookie-autentisering"
 
 #~ msgid "File %s does not contain any key id"
 #~ msgstr "Filen %s innehåller inget nyckelid"
