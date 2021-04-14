@@ -713,14 +713,6 @@ AJAX.registerOnload('sql.js', function () {
         e.preventDefault();
         var $form = $(this).parents('form');
 
-        if (! $(this).is(':checked')) { // already showing all rows
-            Sql.submitShowAllForm();
-        } else {
-            $form.confirm(Messages.strShowAllRowsWarning, $form.attr('action'), function () {
-                Sql.submitShowAllForm();
-            });
-        }
-
         Sql.submitShowAllForm = function () {
             var argsep = CommonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
@@ -728,6 +720,14 @@ AJAX.registerOnload('sql.js', function () {
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         };
+
+        if (! $(this).is(':checked')) { // already showing all rows
+            Sql.submitShowAllForm();
+        } else {
+            $form.confirm(Messages.strShowAllRowsWarning, $form.attr('action'), function () {
+                Sql.submitShowAllForm();
+            });
+        }
     });
 
     $('body').on('keyup', '#sqlqueryform', function () {
