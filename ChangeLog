@@ -64,6 +64,7 @@ phpMyAdmin - ChangeLog
 - issue #16605 Fixed vertical alignment issue on tables for pmahomme theme
 - issue #16798 Fix ServerConfigChecks: Link 'trusted proxies list' not terminated properly (translation)
 - issue #16805 Fixed shortcut keys not working
+- issue #16821 Fix "Show all rows" un-check checkbox creates a JS error if the page was reloaded
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
