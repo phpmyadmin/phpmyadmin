@@ -78,4 +78,23 @@ class PluginsTest extends AbstractTestCase
             'auth_version' => null,
         ], $plugin->toArray());
     }
+
+    public function testGetAuthentication(): void
+    {
+        $this->plugins = new Plugins($GLOBALS['dbi']);
+        $plugins = $this->plugins->getAuthentication();
+        $this->assertIsArray($plugins);
+        $this->assertNotEmpty($plugins);
+        $this->assertEquals(
+            [
+                'mysql_old_password' => __('Old MySQL-4.0 authentication'),
+                'mysql_native_password' => __('Native MySQL authentication'),
+                'sha256_password' => __('SHA256 password authentication'),
+                'caching_sha2_password' => __('Caching sha2 authentication'),
+                'auth_socket' => __('Unix Socket based authentication'),
+                'unknown_auth_plugin' => 'Unknown authentication',
+            ],
+            $plugins
+        );
+    }
 }

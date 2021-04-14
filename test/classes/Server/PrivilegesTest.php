@@ -10,6 +10,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
+use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -56,7 +57,8 @@ class PrivilegesTest extends AbstractTestCase
             new Template(),
             $GLOBALS['dbi'],
             $relation,
-            new RelationCleanup($GLOBALS['dbi'], $relation)
+            new RelationCleanup($GLOBALS['dbi'], $relation),
+            new Plugins($GLOBALS['dbi'])
         );
 
         //$_POST
@@ -799,7 +801,8 @@ class PrivilegesTest extends AbstractTestCase
             new Template(),
             $GLOBALS['dbi'],
             $relation,
-            new RelationCleanup($GLOBALS['dbi'], $relation)
+            new RelationCleanup($GLOBALS['dbi'], $relation),
+            new Plugins($GLOBALS['dbi'])
         );
         $html = $serverPrivileges->getHtmlToDisplayPrivilegesTable();
         $GLOBALS['username'] = 'username';
