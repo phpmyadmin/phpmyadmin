@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-14 19:40-0300\n"
-"PO-Revision-Date: 2021-04-15 00:28+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-04-16 22:27+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -12415,10 +12415,8 @@ msgid "SHA256 password authentication"
 msgstr "Authentification par mot de passe SHA256"
 
 #: libraries/classes/Server/Plugins.php:78
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
-msgstr "Mode d'authentification « config »"
+msgstr "Mise en cache de l'authentification sha2"
 
 #: libraries/classes/Server/Plugins.php:83
 msgid "Unix Socket based authentication"
