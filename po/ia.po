@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-14 19:40-0300\n"
-"PO-Revision-Date: 2021-04-14 22:38+0000\n"
+"PO-Revision-Date: 2021-04-16 22:27+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -11900,22 +11900,16 @@ msgid "SHA256 password authentication"
 msgstr "Authentication de contrasigno SHA256"
 
 #: libraries/classes/Server/Plugins.php:78
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
-msgstr "Authentication via Config"
+msgstr "Ponente in cache Authentication de sha2"
 
 #: libraries/classes/Server/Plugins.php:83
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
-msgstr "Authentication via Cookie"
+msgstr "Authentication basate sur Unix Socket"
 
 #: libraries/classes/Server/Plugins.php:88
-#, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
-msgstr "Authentication de MySQL native"
+msgstr "Authentication de MySQL vetere"
 
 #: libraries/classes/Server/Privileges.php:256
 msgid "No privileges."
