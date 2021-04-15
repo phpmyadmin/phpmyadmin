@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-14 19:40-0300\n"
-"PO-Revision-Date: 2021-04-02 09:26+0000\n"
-"Last-Translator: tiesco donadio <tiiesco@gmail.com>\n"
+"PO-Revision-Date: 2021-04-15 00:28+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -8055,16 +8055,12 @@ msgstr ""
 "O número de linhas esperando para serem escritas na fila de INSERT DELAYED."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:551
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
-"O número de tabelas que foram abertas. Se este número for grande, o valor do "
-"cache de tabelas provavelmente está muito pequeno."
+"O número de tabelas que foram abertas. Se este número for grande, o valor de "
+"seu table_open_cache provavelmente é muito pequeno."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:555
 msgid "The number of files that are open."
@@ -9686,10 +9682,8 @@ msgstr ""
 "configuração."
 
 #: libraries/classes/FlashMessages.php:22
-#, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "Extensão SOAP não encontrada"
+msgstr "Sessão não encontrada."
 
 #: libraries/classes/Footer.php:218 libraries/classes/Footer.php:222
 #: libraries/classes/Footer.php:225
@@ -12346,22 +12340,16 @@ msgid "SHA256 password authentication"
 msgstr "Autenticação com senha SHA256"
 
 #: libraries/classes/Server/Plugins.php:78
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
-msgstr "Configurar autenticação"
+msgstr "Autenticação com sha2 armazenado em cache"
 
 #: libraries/classes/Server/Plugins.php:83
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
-msgstr "Autenticação por cookie"
+msgstr "Autenticação baseada em Socket Unix"
 
 #: libraries/classes/Server/Plugins.php:88
-#, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
-msgstr "Autenticação nativa do MySQL"
+msgstr "Autenticação do antigo MySQL 4.0"
 
 #: libraries/classes/Server/Privileges.php:256
 msgid "No privileges."
@@ -16225,7 +16213,7 @@ msgstr "Por favor, digite um número hexadecimal válido"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Esta coluna não pode conter um valor de 32 caracteres"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16233,6 +16221,9 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Essas funções têm como objetivo retornar um resultado binário. Para evitar "
+"resultados inconsistentes, você deve armazená-lo em uma coluna BINARY, "
+"VARBINARY ou BLOB."
 
 #: templates/login/form.twig:30
 msgid "Log in"
@@ -18229,10 +18220,8 @@ msgid "Binary"
 msgstr "Binário"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "Valores da coluna \"%s\""
+msgstr "Use o valor NULL para esta coluna."
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
