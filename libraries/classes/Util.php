@@ -957,6 +957,9 @@ class Util
         }
 
         $conditionValue = '';
+        $isBinaryString = $meta->type === 'string' && stripos($fieldFlags, 'BINARY') !== false;
+        // 63 is the binary charset, see: https://dev.mysql.com/doc/internals/en/charsets.html
+        $isBlobAndIsBinaryCharset = $meta->type === 'blob' && $meta->charsetnr === 63;
         // timestamp is numeric on some MySQL 4.1
         // for real we use CONCAT above and it should compare to string
         if ($meta->numeric
@@ -964,10 +967,7 @@ class Util
             && ($meta->type !== 'real')
         ) {
             $conditionValue = '= ' . $row;
-        } elseif (($meta->type === 'blob') || ($meta->type === 'string')
-            && stripos($fieldFlags, 'BINARY') !== false
-            && ! empty($row)
-        ) {
+        } elseif ($isBlobAndIsBinaryCharset || (! empty($row) && $isBinaryString)) {
             // hexify only if this is a true not empty BLOB or a BINARY
 
             // do not waste memory building a too big condition
