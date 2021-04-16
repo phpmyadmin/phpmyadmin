@@ -892,13 +892,13 @@
   </file>
   <file src="libraries/classes/Export.php">
     <InvalidReturnStatement occurrences="1">
-      <code>$memory_limit</code>
+      <code>$memoryLimit</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
     <PossiblyInvalidArgument occurrences="1">
-      <code>$db_select</code>
+      <code>$dbSelect</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="2">
       <code>$line</code>

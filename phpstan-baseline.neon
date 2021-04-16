@@ -156,7 +156,7 @@ parameters:
 			path: libraries/classes/Controllers/ExportController.php
 
 		-
-			message: "#^Parameter \\#2 \\$dump_buffer of method PhpMyAdmin\\\\Export\\:\\:closeFile\\(\\) expects string, array\\|bool\\|string given\\.$#"
+			message: "#^Parameter \\#2 \\$dumpBuffer of method PhpMyAdmin\\\\Export\\:\\:closeFile\\(\\) expects string, array\\|bool\\|string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ExportController.php
 
