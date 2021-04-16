@@ -849,7 +849,8 @@ function changeValueFieldType (elem, searchIndex) {
 
     if ('LIKE' === type ||
         'LIKE %...%' === type ||
-        'NOT LIKE' === type
+        'NOT LIKE' === type ||
+        'NOT LIKE %...%' === type
     ) {
         $('#fieldID_' + searchIndex).data('data-skip-validators', true);
         return;
