@@ -75,8 +75,8 @@ class BinlogControllerTest extends AbstractTestCase
             $actual
         );
 
-        $urlNavigation = Url::getFromRoute('/server/binlog') . '" data-post="log=index1&amp;pos=3&amp;'
-            . 'is_full_query=1&amp;server=1&amp';
+        $urlNavigation = Url::getFromRoute('/server/binlog') . '" data-post="log=index1&pos=3&'
+            . 'is_full_query=1&server=1&';
         $this->assertStringContainsString(
             $urlNavigation,
             $actual

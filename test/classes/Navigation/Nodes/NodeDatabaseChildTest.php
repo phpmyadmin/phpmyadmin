@@ -74,8 +74,8 @@ class NodeDatabaseChildTest extends AbstractTestCase
         );
         $this->assertStringContainsString(
             '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
-            . 'hideNavItem=1&amp;itemType=itemType&amp;itemName=child'
-            . '&amp;dbName=parent&amp;lang=en" class="hideNavItem ajax">',
+            . 'hideNavItem=1&itemType=itemType&itemName=child'
+            . '&dbName=parent&lang=en" class="hideNavItem ajax">',
             $html
         );
     }

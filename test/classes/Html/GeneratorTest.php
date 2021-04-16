@@ -52,8 +52,8 @@ class GeneratorTest extends AbstractTestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             )
-            . '&amp;db=' . $database
-            . '&amp;server=99&amp;lang=en" '
+            . '&db=' . $database
+            . '&server=99&lang=en" '
             . 'title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
@@ -66,7 +66,6 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetDbLink(): void
     {
-        global $cfg;
         $GLOBALS['server'] = 99;
         $database = 'test_database';
         $this->assertEquals(
@@ -74,8 +73,8 @@ class GeneratorTest extends AbstractTestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             )
-            . '&amp;db=' . $database
-            . '&amp;server=99&amp;lang=en" title="Jump to database “'
+            . '&db=' . $database
+            . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
             Generator::getDbLink($database)
@@ -87,7 +86,6 @@ class GeneratorTest extends AbstractTestCase
      */
     public function testGetDbLinkWithSpecialChars(): void
     {
-        global $cfg;
         $GLOBALS['server'] = 99;
         $database = 'test&data\'base';
         $this->assertEquals(
@@ -96,9 +94,9 @@ class GeneratorTest extends AbstractTestCase
                 $GLOBALS['cfg']['DefaultTabDatabase'],
                 'database'
             )
-            . '&amp;db='
+            . '&db='
             . htmlspecialchars(urlencode($database))
-            . '&amp;server=99&amp;lang=en" title="Jump to database “'
+            . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
             . htmlspecialchars($database) . '</a>',
             Generator::getDbLink($database)

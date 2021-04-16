@@ -126,7 +126,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 '<input type="hidden" name="fields_prev2ndtest" '
                 . 'value="736f6d657468696e67"><input type="hidden" '
                 . 'name="fields2ndtest" value="736f6d657468696e67">'
-                . '<img src="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en" width="100" '
+                . '<img src="index.php?route=/transformation/wrapper&key=value&lang=en" width="100" '
                 . 'height="100" alt="Image preview here"><br><input type="file" '
                 . 'name="fields_upload2ndtest" accept="image/*" '
                 . 'class="image-upload">',
@@ -781,8 +781,8 @@ class TransformationPluginsTest extends AbstractTestCase
                         'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
-                '<a href="index.php?route=/transformation/wrapper&amp;key=value'
-                . '&amp;ct=application%2Foctet-stream&amp;cn=filename&amp;lang=en" '
+                '<a href="index.php?route=/transformation/wrapper&key=value'
+                . '&ct=application%2Foctet-stream&cn=filename&lang=en" '
                 . 'title="filename" class="disableAjax">filename</a>',
             ],
             [
@@ -796,8 +796,8 @@ class TransformationPluginsTest extends AbstractTestCase
                         'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
-                '<a href="index.php?route=/transformation/wrapper&amp;key=value'
-                . '&amp;ct=application%2Foctet-stream&amp;cn=binary_file.dat&amp;lang=en" '
+                '<a href="index.php?route=/transformation/wrapper&key=value'
+                . '&ct=application%2Foctet-stream&cn=binary_file.dat&lang=en" '
                 . 'title="binary_file.dat" class="disableAjax">binary_file.dat</a>',
             ],
             [
@@ -836,7 +836,7 @@ class TransformationPluginsTest extends AbstractTestCase
                     ],
                 ],
                 '<a class="disableAjax" target="_blank" rel="noopener noreferrer"'
-                . ' href="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en"'
+                . ' href="index.php?route=/transformation/wrapper&key=value&lang=en"'
                 . ' alt="[PMA_IMAGE_LINK]">[BLOB]</a>',
             ],
             [
@@ -878,6 +878,62 @@ class TransformationPluginsTest extends AbstractTestCase
                 ],
                 '<dfn onclick="alert(\'20100201\');" title="20100201">'
                 . 'Feb 01, 2010 at 12:00 AM</dfn>',
+            ],
+            [
+                new Text_Plain_Dateformat(),
+                [
+                    '1617153941',
+                    [
+                        '0',
+                        '%B %d, %Y at %I:%M %p',
+                        'local',
+                    ],
+                    new FieldMetadata(-1, 0, (object) []),
+                ],
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
+                . 'Mar 31, 2021 at 01:25 AM</dfn>',
+            ],
+            [
+                new Text_Plain_Dateformat(),
+                [
+                    '1617153941',
+                    [
+                        '0',
+                        '',// Empty uses the "Y-m-d  H:i:s" format
+                        'utc',
+                    ],
+                    new FieldMetadata(-1, 0, (object) []),
+                ],
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
+                . '2021-03-31  01:25:41</dfn>',
+            ],
+            [
+                new Text_Plain_Dateformat(),
+                [
+                    '1617153941',
+                    [
+                        '0',
+                        '',// Empty uses the "%B %d, %Y at %I:%M %p" format
+                        'local',
+                    ],
+                    new FieldMetadata(-1, 0, (object) []),
+                ],
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
+                . 'Mar 31, 2021 at 01:25 AM</dfn>',
+            ],
+            [
+                new Text_Plain_Dateformat(),
+                [
+                    '1617153941',
+                    [
+                        '0',
+                        'H:i:s Y-d-m',
+                        'utc',
+                    ],
+                    new FieldMetadata(-1, 0, (object) []),
+                ],
+                '<dfn onclick="alert(\'1617153941\');" title="1617153941">'
+                . '01:25:41 2021-31-03</dfn>',
             ],
             [
                 new Text_Plain_External(),
@@ -1180,10 +1236,10 @@ class TransformationPluginsTest extends AbstractTestCase
                         'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
-                '<a href="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en" '
+                '<a href="index.php?route=/transformation/wrapper&key=value&lang=en" '
                 . 'rel="noopener noreferrer" target="_blank"><img src="index.php?route=/transformation/wrapper'
-                . '&amp;key=value&amp;resize=jpeg&amp;newWidth=0&amp;'
-                . 'newHeight=200&amp;lang=en" alt="[PMA_JPEG_Inline]" border="0"></a>',
+                . '&key=value&resize=jpeg&newWidth=0&'
+                . 'newHeight=200&lang=en" alt="[PMA_JPEG_Inline]" border="0"></a>',
             ];
             $result[] = [
                 new Image_PNG_Inline(),
@@ -1196,9 +1252,9 @@ class TransformationPluginsTest extends AbstractTestCase
                         'wrapper_params' => ['key' => 'value'],
                     ],
                 ],
-                '<a href="index.php?route=/transformation/wrapper&amp;key=value&amp;lang=en"'
+                '<a href="index.php?route=/transformation/wrapper&key=value&lang=en"'
                 . ' rel="noopener noreferrer" target="_blank"><img src="index.php?route=/transformation/wrapper'
-                . '&amp;key=value&amp;resize=jpeg&amp;newWidth=0&amp;newHeight=200&amp;lang=en" '
+                . '&key=value&resize=jpeg&newWidth=0&newHeight=200&lang=en" '
                 . 'alt="[PMA_PNG_Inline]" border="0"></a>',
             ];
         }

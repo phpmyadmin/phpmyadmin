@@ -1947,13 +1947,13 @@ class PrivilegesTest extends AbstractTestCase
             $actual
         );
         $this->assertStringContainsString(
-            '<a class="page-link" href="index.php?route=/server/privileges&amp;initial=-'
-            . '&amp;lang=en">-</a>',
+            '<a class="page-link" href="index.php?route=/server/privileges&initial=-'
+            . '&lang=en">-</a>',
             $actual
         );
         $this->assertStringContainsString(
-            '<a class="page-link" href="index.php?route=/server/privileges&amp;initial=%22'
-            . '&amp;lang=en">&quot;</a>',
+            '<a class="page-link" href="index.php?route=/server/privileges&initial=%22'
+            . '&lang=en">&quot;</a>',
             $actual
         );
         $this->assertStringContainsString('Show all', $actual);

@@ -121,8 +121,8 @@ class AdvisorTest extends AbstractTestCase
                     'id' => 'Variable',
                     'name' => 'Variable',
                     'issue' => 'issue',
-                    'recommendation' => 'Recommend <a href="index.php?route=/server/variables&amp;' .
-                    'filter=status_var&amp;lang=en">status_var</a>',
+                    'recommendation' => 'Recommend <a href="index.php?route=/server/variables&' .
+                    'filter=status_var&lang=en">status_var</a>',
                 ],
                 null,
             ],
@@ -290,7 +290,7 @@ class AdvisorTest extends AbstractTestCase
                     'justification' => 'Time: 1.2 per minute',
                     'justification_formula' => 'ADVISOR_bytime(0.02, 2)',
                     'name' => 'Distribution',
-                    'issue' => '<a href="index.php?route=/server/variables&amp;filter=long_query_time&amp;lang=en">'
+                    'issue' => '<a href="index.php?route=/server/variables&filter=long_query_time&lang=en">'
                         . 'long_query_time</a> is set to 10 seconds or more',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F'
                         . 'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>'

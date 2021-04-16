@@ -116,7 +116,7 @@ class GisMultiPoint extends GisGeometry
                 continue;
             }
 
-            imagearc($image, $point[0], $point[1], 7, 7, 0, 360, $color);
+            imagearc($image, (int) $point[0], (int) $point[1], 7, 7, 0, 360, $color);
         }
 
         // print label for each point

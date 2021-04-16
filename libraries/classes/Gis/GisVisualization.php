@@ -725,6 +725,9 @@ class GisVisualization
 
             // Figure out the data type
             $ref_data = $row[$this->settings['spatialColumn']];
+            if (! is_string($ref_data)) {
+                continue;
+            }
             $type_pos = mb_strpos($ref_data, '(');
             if ($type_pos === false) {
                 continue;

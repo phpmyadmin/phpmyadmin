@@ -378,7 +378,7 @@ class InsertEditTest extends AbstractTestCase
             $result
         );
         $this->assertStringContainsString(
-            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=index.php%3Froute%3D%2Fsql',
+            'ShowFunctionFields=1&ShowFieldTypesInDataEditView=1&goto=index.php%3Froute%3D%2Fsql',
             $result
         );
         $this->assertStringContainsString(
@@ -394,7 +394,7 @@ class InsertEditTest extends AbstractTestCase
             $result
         );
         $this->assertStringContainsString(
-            'ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1&amp;goto=index.php%3Froute%3D%2Fsql',
+            'ShowFunctionFields=0&ShowFieldTypesInDataEditView=1&goto=index.php%3Froute%3D%2Fsql',
             $result
         );
         $this->assertStringContainsString(
@@ -410,7 +410,7 @@ class InsertEditTest extends AbstractTestCase
             $result
         );
         $this->assertStringContainsString(
-            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=1&amp;goto=index.php%3Froute%3D%2Fsql',
+            'ShowFunctionFields=1&ShowFieldTypesInDataEditView=1&goto=index.php%3Froute%3D%2Fsql',
             $result
         );
         $this->assertStringContainsString(
@@ -426,7 +426,7 @@ class InsertEditTest extends AbstractTestCase
             $result
         );
         $this->assertStringContainsString(
-            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0&amp;goto=index.php%3Froute%3D%2Fsql',
+            'ShowFunctionFields=1&ShowFieldTypesInDataEditView=0&goto=index.php%3Froute%3D%2Fsql',
             $result
         );
         $this->assertStringContainsString(
@@ -1456,12 +1456,12 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            'ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0',
+            'ShowFunctionFields=1&ShowFieldTypesInDataEditView=0',
             $result
         );
 
         $this->assertStringContainsString(
-            'ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1',
+            'ShowFunctionFields=0&ShowFieldTypesInDataEditView=1',
             $result
         );
     }
@@ -1904,7 +1904,7 @@ class InsertEditTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $this->assertEquals(
-            'index.php?route=/table/change&amp;lang=en',
+            'index.php?route=/table/change&lang=en',
             $this->insertEdit->getErrorUrl([])
         );
 
@@ -2090,10 +2090,10 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            '<a href="index.php?route=/sql&amp;db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
-            . 'sql_signature=' . $sqlSignature . '&amp;'
+            '<a href="index.php?route=/sql&db=information_schema&table=TABLES&pos=0&'
+            . 'sql_signature=' . $sqlSignature . '&'
             . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
-            . '+%60f%60%3D1&amp;lang=en" title="a&gt;">b&lt;</a>',
+            . '+%60f%60%3D1&lang=en" title="a&gt;">b&lt;</a>',
             $result
         );
 
@@ -2101,10 +2101,10 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->insertEdit->getLinkForRelationalDisplayField($map, 'f', '=1', 'a>', 'b<');
 
         $this->assertEquals(
-            '<a href="index.php?route=/sql&amp;db=information_schema&amp;table=TABLES&amp;pos=0&amp;'
-            . 'sql_signature=' . $sqlSignature . '&amp;'
+            '<a href="index.php?route=/sql&db=information_schema&table=TABLES&pos=0&'
+            . 'sql_signature=' . $sqlSignature . '&'
             . 'sql_query=SELECT+%2A+FROM+%60information_schema%60.%60TABLES%60+WHERE'
-            . '+%60f%60%3D1&amp;lang=en" title="b&lt;">a&gt;</a>',
+            . '+%60f%60%3D1&lang=en" title="b&lt;">a&gt;</a>',
             $result
         );
     }
