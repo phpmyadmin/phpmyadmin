@@ -40,28 +40,7 @@ echo 'Updating jquery-mousewheel'
 cp ./node_modules/jquery-mousewheel/jquery.mousewheel.js ./js/vendor/jquery/jquery.mousewheel.js
 echo 'Updating jquery-ui'
 cp ./node_modules/jquery-ui-dist/jquery-ui.min.js ./js/vendor/jquery/jquery-ui.min.js
-echo 'Updating jquery.event.drag'
-cp ./node_modules/jquery.event.drag/jquery.event.drag.js ./js/vendor/jquery/jquery.event.drag-2.2.js
 # https://github.com/devongovett/jquery.event.drag/commit/2db3b7865f31eee6a8145532554f8b02210180bf#diff-ab8497cedd384270de86ee2e9f06530e
-echo 'Patching jquery.event.drag to be jquery init compatible'
-echo '--- js/vendor/jquery/jquery.event.drag-2.2.js 2020-04-18 16:43:43.822208181 +0200
-+++ js/vendor/jquery/jquery.event.drag-2.2.js	2020-04-18 16:44:29.342750892 +0200
-@@ -7,7 +7,7 @@
- // Updated: 2012-05-21
- // REQUIRES: jquery 1.7.x
-
--module.exports = function( $ ){
-+;(function( $ ){
-   // add the jquery instance method
-   $.fn.drag = function( str, arg, opts ){
-   	// figure out the event type
-@@ -397,4 +397,4 @@
-
-   // share the same special event configuration with related events...
-   $special.draginit = $special.dragstart = $special.dragend = drag;
--};
-+})( jQuery );
-' | patch --strip=0
 echo 'Updating jquery-validation'
 cp ./node_modules/jquery-validation/dist/jquery.validate.js ./js/vendor/jquery/jquery.validate.js
 cp ./node_modules/jquery-validation/dist/additional-methods.js ./js/vendor/jquery/additional-methods.js
