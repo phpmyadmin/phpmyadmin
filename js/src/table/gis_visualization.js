@@ -4,7 +4,6 @@
  * @requires    jquery
  * @requires    vendor/jquery/jquery.svg.js
  * @requires    vendor/jquery/jquery.mousewheel.js
- * @requires    vendor/jquery/jquery.event.drag-2.2.js
  */
 
 /* global drawOpenLayers */ // templates/table/gis_visualization/gis_visualization.twig
