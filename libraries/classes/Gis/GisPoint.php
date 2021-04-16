@@ -112,8 +112,8 @@ class GisPoint extends GisGeometry
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
             imagearc(
                 $image,
-                $points_arr[0][0],
-                $points_arr[0][1],
+                (int) $points_arr[0][0],
+                (int) $points_arr[0][1],
                 7,
                 7,
                 0,
