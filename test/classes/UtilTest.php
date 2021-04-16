@@ -2637,142 +2637,142 @@ class UtilTest extends AbstractTestCase
             [
                 'tbl_structure.php', // Support the legacy value
                 'table',
-                'index.php?route=/table/structure&amp;lang=en',
+                'index.php?route=/table/structure&lang=en',
             ],
             [
                 'structure',
                 'table',
-                'index.php?route=/table/structure&amp;lang=en',
+                'index.php?route=/table/structure&lang=en',
             ],
             [
                 'tbl_sql.php', // Support the legacy value
                 'table',
-                'index.php?route=/table/sql&amp;lang=en',
+                'index.php?route=/table/sql&lang=en',
             ],
             [
                 'sql',
                 'table',
-                'index.php?route=/table/sql&amp;lang=en',
+                'index.php?route=/table/sql&lang=en',
             ],
             [
                 'tbl_select.php', // Support the legacy value
                 'table',
-                'index.php?route=/table/search&amp;lang=en',
+                'index.php?route=/table/search&lang=en',
             ],
             [
                 'search',
                 'table',
-                'index.php?route=/table/search&amp;lang=en',
+                'index.php?route=/table/search&lang=en',
             ],
             [
                 'tbl_change.php', // Support the legacy value
                 'table',
-                'index.php?route=/table/change&amp;lang=en',
+                'index.php?route=/table/change&lang=en',
             ],
             [
                 'insert',
                 'table',
-                'index.php?route=/table/change&amp;lang=en',
+                'index.php?route=/table/change&lang=en',
             ],
             [
                 'sql.php', // Support the legacy value
                 'table',
-                'index.php?route=/sql&amp;lang=en',
+                'index.php?route=/sql&lang=en',
             ],
             [
                 'browse',
                 'table',
-                'index.php?route=/sql&amp;lang=en',
+                'index.php?route=/sql&lang=en',
             ],
             [
                 'db_structure.php', // Support the legacy value
                 'database',
-                'index.php?route=/database/structure&amp;lang=en',
+                'index.php?route=/database/structure&lang=en',
             ],
             [
                 'structure',
                 'database',
-                'index.php?route=/database/structure&amp;lang=en',
+                'index.php?route=/database/structure&lang=en',
             ],
             [
                 'db_sql.php', // Support the legacy value
                 'database',
-                'index.php?route=/database/sql&amp;lang=en',
+                'index.php?route=/database/sql&lang=en',
             ],
             [
                 'sql',
                 'database',
-                'index.php?route=/database/sql&amp;lang=en',
+                'index.php?route=/database/sql&lang=en',
             ],
             [
                 'db_search.php', // Support the legacy value
                 'database',
-                'index.php?route=/database/search&amp;lang=en',
+                'index.php?route=/database/search&lang=en',
             ],
             [
                 'search',
                 'database',
-                'index.php?route=/database/search&amp;lang=en',
+                'index.php?route=/database/search&lang=en',
             ],
             [
                 'db_operations.php', // Support the legacy value
                 'database',
-                'index.php?route=/database/operations&amp;lang=en',
+                'index.php?route=/database/operations&lang=en',
             ],
             [
                 'operations',
                 'database',
-                'index.php?route=/database/operations&amp;lang=en',
+                'index.php?route=/database/operations&lang=en',
             ],
             [
                 'index.php', // Support the legacy value
                 'server',
-                'index.php?route=/&amp;lang=en',
+                'index.php?route=/&lang=en',
             ],
             [
                 'welcome',
                 'server',
-                'index.php?route=/&amp;lang=en',
+                'index.php?route=/&lang=en',
             ],
             [
                 'server_databases.php', // Support the legacy value
                 'server',
-                'index.php?route=/server/databases&amp;lang=en',
+                'index.php?route=/server/databases&lang=en',
             ],
             [
                 'databases',
                 'server',
-                'index.php?route=/server/databases&amp;lang=en',
+                'index.php?route=/server/databases&lang=en',
             ],
             [
                 'server_status.php', // Support the legacy value
                 'server',
-                'index.php?route=/server/status&amp;lang=en',
+                'index.php?route=/server/status&lang=en',
             ],
             [
                 'status',
                 'server',
-                'index.php?route=/server/status&amp;lang=en',
+                'index.php?route=/server/status&lang=en',
             ],
             [
                 'server_variables.php', // Support the legacy value
                 'server',
-                'index.php?route=/server/variables&amp;lang=en',
+                'index.php?route=/server/variables&lang=en',
             ],
             [
                 'variables',
                 'server',
-                'index.php?route=/server/variables&amp;lang=en',
+                'index.php?route=/server/variables&lang=en',
             ],
             [
                 'server_privileges.php', // Support the legacy value
                 'server',
-                'index.php?route=/server/privileges&amp;lang=en',
+                'index.php?route=/server/privileges&lang=en',
             ],
             [
                 'privileges',
                 'server',
-                'index.php?route=/server/privileges&amp;lang=en',
+                'index.php?route=/server/privileges&lang=en',
             ],
         ];
     }
