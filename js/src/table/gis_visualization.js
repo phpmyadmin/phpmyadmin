@@ -259,11 +259,15 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
 
     var dragX = 0;
     var dragY = 0;
-
+    $('svg').draggable({
+        helper: function () {
+            return $('<div>');// Give a fake element to be used for dragging display
+        }
+    });
     $(document).on('dragstart', 'svg', function (event, dd) {
         $('#placeholder').addClass('placeholderDrag');
-        dragX = Math.round(dd.offsetX);
-        dragY = Math.round(dd.offsetY);
+        dragX = Math.round(dd.offset.left);
+        dragY = Math.round(dd.offset.top);
     });
 
     $(document).on('mouseup', 'svg', function () {
@@ -271,10 +275,10 @@ AJAX.registerOnload('table/gis_visualization.js', function () {
     });
 
     $(document).on('drag', 'svg', function (event, dd) {
-        var newX = Math.round(dd.offsetX);
+        var newX = Math.round(dd.offset.left);
         x +=  newX - dragX;
         dragX = newX;
-        var newY = Math.round(dd.offsetY);
+        var newY = Math.round(dd.offset.top);
         y +=  newY - dragY;
         dragY = newY;
         zoomAndPan();
