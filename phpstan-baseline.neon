@@ -151,16 +151,6 @@ parameters:
 			path: libraries/classes/Controllers/ExportController.php
 
 		-
-			message: "#^Parameter \\#1 \\(array\\|bool\\|string\\) of echo cannot be converted to string\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/ExportController.php
-
-		-
-			message: "#^Parameter \\#2 \\$dumpBuffer of method PhpMyAdmin\\\\Export\\:\\:closeFile\\(\\) expects string, array\\|bool\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/ExportController.php
-
-		-
 			message: "#^Elseif condition is always false\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/ImportController.php

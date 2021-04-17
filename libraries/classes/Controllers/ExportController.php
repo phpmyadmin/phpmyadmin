@@ -60,8 +60,8 @@ final class ExportController extends AbstractController
         global $compression, $crlf, $asfile, $buffer_needed, $save_on_server, $file_handle, $separate_files;
         global $output_charset_conversion, $output_kanji_conversion, $table, $what, $export_plugin, $single_table;
         global $compression_methods, $onserver, $back_button, $refreshButton, $save_filename, $filename;
-        global $quick_export, $cfg, $tables, $table_select, $aliases, $dump_buffer, $dump_buffer_len;
-        global $time_start, $charset, $remember_template, $mime_type, $num_tables, $dump_buffer_objects;
+        global $quick_export, $cfg, $tables, $table_select, $aliases;
+        global $time_start, $charset, $remember_template, $mime_type, $num_tables;
         global $active_page, $do_relation, $do_comments, $do_mime, $do_dates, $whatStrucOrData, $db_select;
         global $table_structure, $table_data, $lock_tables, $allrows, $limit_to, $limit_from;
 
@@ -367,11 +367,11 @@ final class ExportController extends AbstractController
 
         register_shutdown_function([$this->export, 'shutdown']);
         // Start with empty buffer
-        $dump_buffer = '';
-        $dump_buffer_len = 0;
+        $this->export->dumpBuffer = '';
+        $this->export->dumpBufferLength = 0;
 
-        // Array of dump_buffers - used in separate file exports
-        $dump_buffer_objects = [];
+        // Array of dump buffers - used in separate file exports
+        $this->export->dumpBufferObjects = [];
 
         // We send fake headers to avoid browser timeout when buffering
         $time_start = time();
@@ -478,8 +478,8 @@ final class ExportController extends AbstractController
 
         try {
             // Re - initialize
-            $dump_buffer = '';
-            $dump_buffer_len = 0;
+            $this->export->dumpBuffer = '';
+            $this->export->dumpBufferLength = 0;
 
             // Add possibly some comments to export
             if (! $export_plugin->exportHeader()) {
@@ -676,23 +676,23 @@ final class ExportController extends AbstractController
 
         // Convert the charset if required.
         if ($output_charset_conversion) {
-            $dump_buffer = Encoding::convertString(
+            $this->export->dumpBuffer = Encoding::convertString(
                 'utf-8',
                 $GLOBALS['charset'],
-                $dump_buffer
+                $this->export->dumpBuffer
             );
         }
 
         // Compression needed?
         if ($compression) {
             if (! empty($separate_files)) {
-                $dump_buffer = $this->export->compress(
-                    $dump_buffer_objects,
+                $this->export->dumpBuffer = $this->export->compress(
+                    $this->export->dumpBufferObjects,
                     $compression,
                     $filename
                 );
             } else {
-                $dump_buffer = $this->export->compress($dump_buffer, $compression, $filename);
+                $this->export->dumpBuffer = $this->export->compress($this->export->dumpBuffer, $compression, $filename);
             }
         }
 
@@ -700,7 +700,7 @@ final class ExportController extends AbstractController
         if ($save_on_server) {
             $message = $this->export->closeFile(
                 $file_handle,
-                $dump_buffer,
+                $this->export->dumpBuffer,
                 $save_filename
             );
             $this->export->showPage($export_type);
@@ -708,7 +708,7 @@ final class ExportController extends AbstractController
             return;
         }
 
-        echo $dump_buffer;
+        echo $this->export->dumpBuffer;
     }
 
     public function checkTimeOut(): void

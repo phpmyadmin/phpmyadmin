@@ -55,6 +55,15 @@ class Export
     /** @var DatabaseInterface */
     private $dbi;
 
+    /** @var mixed */
+    public $dumpBuffer = '';
+
+    /** @var int */
+    public $dumpBufferLength = 0;
+
+    /** @var array */
+    public $dumpBufferObjects = [];
+
     /**
      * @param DatabaseInterface $dbi DatabaseInterface instance
      */
@@ -112,7 +121,7 @@ class Export
 
     /**
      * Output handler for all exports, if needed buffering, it stores data into
-     * $dump_buffer, otherwise it prints them out.
+     * $this->dumpBuffer, otherwise it prints them out.
      *
      * @param string $line the insert statement
      *
@@ -120,7 +129,7 @@ class Export
      */
     public function outputHandler(?string $line): bool
     {
-        global $time_start, $dump_buffer, $dump_buffer_len, $save_filename;
+        global $time_start, $save_filename;
 
         // Kanji encoding convert feature
         if ($GLOBALS['output_kanji_conversion']) {
@@ -133,16 +142,16 @@ class Export
 
         // If we have to buffer data, we will perform everything at once at the end
         if ($GLOBALS['buffer_needed']) {
-            $dump_buffer .= $line;
+            $this->dumpBuffer .= $line;
             if ($GLOBALS['onfly_compression']) {
-                $dump_buffer_len += strlen((string) $line);
+                $this->dumpBufferLength += strlen((string) $line);
 
-                if ($dump_buffer_len > $GLOBALS['memory_limit']) {
+                if ($this->dumpBufferLength > $GLOBALS['memory_limit']) {
                     if ($GLOBALS['output_charset_conversion']) {
-                        $dump_buffer = Encoding::convertString(
+                        $this->dumpBuffer = Encoding::convertString(
                             'utf-8',
                             $GLOBALS['charset'],
-                            $dump_buffer
+                            $this->dumpBuffer
                         );
                     }
 
@@ -152,14 +161,14 @@ class Export
                     ) {
                         // as a gzipped file
                         // without the optional parameter level because it bugs
-                        $dump_buffer = gzencode($dump_buffer);
+                        $this->dumpBuffer = gzencode($this->dumpBuffer);
                     }
 
                     if ($GLOBALS['save_on_server']) {
-                        $writeResult = @fwrite($GLOBALS['file_handle'], (string) $dump_buffer);
+                        $writeResult = @fwrite($GLOBALS['file_handle'], (string) $this->dumpBuffer);
                         // Here, use strlen rather than mb_strlen to get the length
                         // in bytes to compare against the number of bytes written.
-                        if ($writeResult != strlen((string) $dump_buffer)) {
+                        if ($writeResult != strlen((string) $this->dumpBuffer)) {
                             $GLOBALS['message'] = Message::error(
                                 __('Insufficient space to save the file %s.')
                             );
@@ -168,11 +177,11 @@ class Export
                             return false;
                         }
                     } else {
-                        echo $dump_buffer;
+                        echo $this->dumpBuffer;
                     }
 
-                    $dump_buffer = '';
-                    $dump_buffer_len = 0;
+                    $this->dumpBuffer = '';
+                    $this->dumpBufferLength = 0;
                 }
             } else {
                 $timeNow = time();
@@ -533,7 +542,7 @@ class Export
     }
 
     /**
-     * Saves the dump_buffer for a particular table in an array
+     * Saves the dump buffer for a particular table in an array
      * Used in separate files export
      *
      * @param string $objectName the name of current object to be stored
@@ -541,19 +550,17 @@ class Export
      */
     public function saveObjectInBuffer(string $objectName, bool $append = false): void
     {
-        global $dump_buffer_objects, $dump_buffer, $dump_buffer_len;
-
-        if (! empty($dump_buffer)) {
-            if ($append && isset($dump_buffer_objects[$objectName])) {
-                $dump_buffer_objects[$objectName] .= $dump_buffer;
+        if (! empty($this->dumpBuffer)) {
+            if ($append && isset($this->dumpBufferObjects[$objectName])) {
+                $this->dumpBufferObjects[$objectName] .= $this->dumpBuffer;
             } else {
-                $dump_buffer_objects[$objectName] = $dump_buffer;
+                $this->dumpBufferObjects[$objectName] = $this->dumpBuffer;
             }
         }
 
         // Re - initialize
-        $dump_buffer = '';
-        $dump_buffer_len = 0;
+        $this->dumpBuffer = '';
+        $this->dumpBufferLength = 0;
     }
 
     /**
