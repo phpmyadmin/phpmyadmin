@@ -298,9 +298,9 @@
       <code>$asfile</code>
     </InvalidArgument>
     <PossiblyInvalidArgument occurrences="3">
-      <code>$dump_buffer</code>
-      <code>$dump_buffer</code>
       <code>$file_handle</code>
+      <code>$this-&gt;export-&gt;dumpBuffer</code>
+      <code>$this-&gt;export-&gt;dumpBuffer</code>
     </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/GisDataEditorController.php">
