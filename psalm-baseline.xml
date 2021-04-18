@@ -611,7 +611,7 @@
       <code>(string) $master</code>
     </RedundantCastGivenDocblockType>
     <RedundantPropertyInitializationCheck occurrences="2">
-      <code>isset($last_where, $this-&gt;formAndOrCols)</code>
+      <code>isset($lastWhere, $this-&gt;formAndOrCols)</code>
       <code>isset($this-&gt;formAndOrRows)</code>
     </RedundantPropertyInitializationCheck>
   </file>
