@@ -136,12 +136,12 @@ parameters:
 			path: libraries/classes/Controllers/Database/OperationsController.php
 
 		-
-			message: "#^Parameter \\#4 \\$formatted_size of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#4 \\$formattedSize of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) expects int, string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Parameter \\#6 \\$formatted_overhead of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) expects int, string given\\.$#"
+			message: "#^Parameter \\#6 \\$formattedOverhead of method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) expects int, string given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
 

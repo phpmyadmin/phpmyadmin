@@ -276,14 +276,14 @@
   </file>
   <file src="libraries/classes/Controllers/Database/StructureController.php">
     <InvalidScalarArgument occurrences="2">
-      <code>$formatted_overhead</code>
-      <code>$formatted_size</code>
+      <code>$formattedOverhead</code>
+      <code>$formattedSize</code>
     </InvalidScalarArgument>
     <PossiblyNullArrayAccess occurrences="6">
-      <code>$formatted_overhead</code>
-      <code>$formatted_size</code>
-      <code>$formatted_size</code>
-      <code>$overhead_unit</code>
+      <code>$formattedOverhead</code>
+      <code>$formattedSize</code>
+      <code>$formattedSize</code>
+      <code>$overheadUnit</code>
       <code>$unit</code>
       <code>$unit</code>
     </PossiblyNullArrayAccess>
