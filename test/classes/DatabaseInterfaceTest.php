@@ -49,7 +49,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
         SessionCache::remove('mysql_cur_user');
 
         $extension = new DbiDummy();
-        /** @var array $value */
         $extension->setResult('SELECT CURRENT_USER();', $value);
 
         $dbi = new DatabaseInterface($extension);

@@ -387,7 +387,6 @@ class Node
      */
     public function getPresence($type = '', $searchClause = '')
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         if (
@@ -508,7 +507,6 @@ class Node
      */
     private function getDatabasesToSearch($searchClause)
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $databases = [];
@@ -538,7 +536,6 @@ class Node
      */
     private function getWhereClause($columnName, $searchClause = '')
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $whereClause = 'WHERE TRUE ';
@@ -646,7 +643,6 @@ class Node
      */
     public function getNavigationHidingData()
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $cfgRelation = $this->relation->getRelationsParam();

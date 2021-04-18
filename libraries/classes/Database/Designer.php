@@ -150,7 +150,6 @@ class Designer
      */
     private function getSideMenuParamsArray()
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $params = [];

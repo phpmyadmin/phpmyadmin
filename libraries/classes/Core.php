@@ -356,7 +356,6 @@ class Core
         bool $fatal = false,
         string $extra = ''
     ): void {
-        /** @var ErrorHandler $errorHandler */
         global $errorHandler;
 
         /* Gettext does not have to be loaded yet here */

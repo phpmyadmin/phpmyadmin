@@ -106,9 +106,10 @@ abstract class AbstractTestCase extends TestCase
     protected function getResponseHtmlResult(): string
     {
         global $containerBuilder;
-        $response = $containerBuilder->get(Response::class);
 
         /** @var Response $response */
+        $response = $containerBuilder->get(Response::class);
+
         return $response->getHTMLResult();
     }
 

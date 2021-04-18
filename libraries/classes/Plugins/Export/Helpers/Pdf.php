@@ -761,7 +761,6 @@ class Pdf extends PdfLib
      */
     public function mysqlReport($query)
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         unset(

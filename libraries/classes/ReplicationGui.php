@@ -509,7 +509,6 @@ class ReplicationGui
      */
     public function handleRequestForSlaveChangeMaster()
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $sr = [

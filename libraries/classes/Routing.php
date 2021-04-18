@@ -86,7 +86,6 @@ class Routing
         );
         $routeDefinitionCallback($routeCollector);
 
-        /** @var RouteCollector $routeCollector */
         $dispatchData = $routeCollector->getData();
         $canWriteCache = self::canWriteCache();
 

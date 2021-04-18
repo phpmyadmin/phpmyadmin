@@ -1253,7 +1253,6 @@ class NavigationTree
                     $icons = [$icons];
                 }
 
-                /** @var array $icons */
                 if (count($icons) > 1) {
                     // Generates: .second double class for NavigationTreeDefaultTabTable2
                     $divClass = 'second double';

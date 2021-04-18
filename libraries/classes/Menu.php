@@ -124,7 +124,6 @@ class Menu
      */
     private function getAllowedTabs($level)
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $cacheKey = 'menu-levels-' . $level;
@@ -244,7 +243,6 @@ class Menu
      */
     private function getTableTabs()
     {
-        /** @var DatabaseInterface $dbi */
         global $route, $dbi;
 
         $isSystemSchema = Utilities::isSystemSchema($this->db);
@@ -378,7 +376,6 @@ class Menu
      */
     private function getDbTabs()
     {
-        /** @var DatabaseInterface $dbi */
         global $route, $dbi;
 
         $isSystemSchema = Utilities::isSystemSchema($this->db);
@@ -502,7 +499,6 @@ class Menu
      */
     private function getServerTabs()
     {
-        /** @var DatabaseInterface $dbi */
         global $route, $dbi;
 
         $isSuperUser = $dbi->isSuperUser();

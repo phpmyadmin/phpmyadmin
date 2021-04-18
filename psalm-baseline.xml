@@ -1223,6 +1223,12 @@
     <PossiblyFalseReference occurrences="1">
       <code>getPresence</code>
     </PossiblyFalseReference>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$icons</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidIterator occurrences="1">
+      <code>$icons</code>
+    </PossiblyInvalidIterator>
     <PossiblyNullArgument occurrences="2">
       <code>$container-&gt;realName</code>
       <code>$table</code>

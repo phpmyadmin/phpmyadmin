@@ -539,7 +539,6 @@ class Tracker
      */
     public static function getVersion($dbname, $tablename, $statement = null)
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $relation = new Relation($dbi);

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
-use PhpMyAdmin\DatabaseInterface;
-
 use function strtolower;
 use function strtoupper;
 use function substr;
@@ -66,7 +64,6 @@ final class ForeignKey
      */
     public static function handleDisableCheckInit(): bool
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $defaultCheckValue = $dbi->getVariable('FOREIGN_KEY_CHECKS') === 'ON';
@@ -90,7 +87,6 @@ final class ForeignKey
      */
     public static function handleDisableCheckCleanup(bool $defaultCheckValue): void
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $dbi->setVariable(

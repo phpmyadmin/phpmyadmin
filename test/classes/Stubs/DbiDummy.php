@@ -434,8 +434,8 @@ class DbiDummy implements DbiExtension
     /**
      * Adds query result for testing
      *
-     * @param string $query  SQL
-     * @param array  $result Expected result
+     * @param string      $query  SQL
+     * @param array|false $result Expected result
      *
      * @return void
      */

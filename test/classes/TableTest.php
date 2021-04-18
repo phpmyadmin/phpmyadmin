@@ -988,7 +988,6 @@ class TableTest extends AbstractTestCase
      */
     public function testIsMergeCase2(): void
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $dbi->getCache()->cacheTableContent(
@@ -1007,7 +1006,6 @@ class TableTest extends AbstractTestCase
      */
     public function testIsMergeCase3(): void
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $dbi->getCache()->cacheTableContent(

@@ -246,7 +246,6 @@ class ExportOdt extends ExportPlugin
         $sqlQuery,
         array $aliases = []
     ) {
-        /** @var DatabaseInterface $dbi */
         global $what, $dbi;
 
         $db_alias = $db;

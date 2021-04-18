@@ -2356,7 +2356,6 @@ class ExportSql extends ExportPlugin
         $sqlQuery,
         array $aliases = []
     ) {
-        /** @var DatabaseInterface $dbi */
         global $current_row, $sql_backquotes, $dbi;
 
         // Do not export data for merge tables
@@ -2416,7 +2415,6 @@ class ExportSql extends ExportPlugin
         }
 
         if ($result == false) {
-            /** @var mixed $result */
             $dbi->freeResult($result);// This makes no sense
 
             return true;
