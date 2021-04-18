@@ -1092,7 +1092,7 @@
   </file>
   <file src="libraries/classes/Import.php">
     <InvalidReturnStatement occurrences="1">
-      <code>$column_number</code>
+      <code>$columnNumber</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>int</code>
@@ -1102,18 +1102,18 @@
     </ParadoxicalCondition>
     <PossiblyFalseOperand occurrences="3">
       <code>$decPos</code>
-      <code>strpos($last_cumulative_size, ',')</code>
-      <code>strpos($last_cumulative_size, ',')</code>
+      <code>strpos($lastCumulativeSize, ',')</code>
+      <code>strpos($lastCumulativeSize, ',')</code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="5">
-      <code>$last_cumulative_size</code>
-      <code>$last_cumulative_size</code>
-      <code>$last_cumulative_size</code>
-      <code>$last_cumulative_size</code>
-      <code>$last_cumulative_size</code>
+      <code>$lastCumulativeSize</code>
+      <code>$lastCumulativeSize</code>
+      <code>$lastCumulativeSize</code>
+      <code>$lastCumulativeSize</code>
+      <code>$lastCumulativeSize</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArrayAccess occurrences="1">
-      <code>$additional_sql[$i]</code>
+      <code>$additionalSql[$i]</code>
     </PossiblyNullArrayAccess>
     <RedundantCast occurrences="4">
       <code>(string) $cell</code>

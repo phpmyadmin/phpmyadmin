@@ -846,12 +846,12 @@ parameters:
 			path: libraries/classes/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$last_cumulative_size of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, int\\|string given\\.$#"
 			count: 3
 			path: libraries/classes/Import.php
 
 		-
-			message: "#^Parameter \\#1 \\$last_cumulative_size of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, int\\|string given\\.$#"
 			count: 2
 			path: libraries/classes/Import.php
 
@@ -2126,12 +2126,12 @@ parameters:
 			path: test/classes/ImportTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$last_cumulative_size of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalPrecision\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: test/classes/ImportTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$last_cumulative_size of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$lastCumulativeSize of method PhpMyAdmin\\\\Import\\:\\:getDecimalScale\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: test/classes/ImportTest.php
 
