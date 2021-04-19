@@ -234,6 +234,7 @@ var designerConfig = {{ designer_config|raw }};
         {# end layer_menu #}
         {% include 'database/designer/database_tables.twig' with {
             'db': db,
+            'text_dir': text_dir,
             'get_db': get_db,
             'has_query': has_query,
             'tab_pos': tab_pos,
