@@ -262,6 +262,8 @@ class Designer
         array $tables_all_keys,
         array $tables_pk_or_unique_keys
     ) {
+        global $text_dir;
+
         $columns_type = [];
         foreach ($designerTables as $designerTable) {
             $table_name = $designerTable->getDbTableString();
@@ -297,6 +299,7 @@ class Designer
 
         return $this->template->render('database/designer/database_tables', [
             'db' => $GLOBALS['db'],
+            'text_dir' => $text_dir,
             'get_db' => $db,
             'has_query' => isset($_REQUEST['query']),
             'tab_pos' => $tab_pos,
@@ -345,6 +348,8 @@ class Designer
         array $tablesAllKeys,
         array $tablesPkOrUniqueKeys
     ): string {
+        global $text_dir;
+
         $cfgRelation = $this->relation->getRelationsParam();
         $columnsType = [];
         foreach ($designerTables as $designerTable) {
@@ -399,6 +404,7 @@ class Designer
 
         return $this->template->render('database/designer/main', [
             'db' => $db,
+            'text_dir' => $text_dir,
             'get_db' => $getDb,
             'designer_config' => json_encode($designerConfig),
             'display_page' => (int) $displayPage,

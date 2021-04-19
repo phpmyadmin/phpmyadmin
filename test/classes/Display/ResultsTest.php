@@ -869,7 +869,7 @@ class ResultsTest extends AbstractTestCase
                 [],
                 0,
                 'binary',
-                'class="disableAjax">[BLOB - 4 B]</a>' . "\n"
+                'class="disableAjax">[BLOB - 4 B]</a>'
                 . '</td>' . "\n",
             ],
             [
@@ -890,8 +890,8 @@ class ResultsTest extends AbstractTestCase
                 [],
                 0,
                 'binary',
-                '<td class="text-start grid_edit  transformed hex">' . "\n"
-                . '    1001' . "\n"
+                '<td class="text-start grid_edit  transformed hex">'
+                . '1001'
                 . '</td>' . "\n",
             ],
             [
@@ -1281,6 +1281,52 @@ class ResultsTest extends AbstractTestCase
             $urlParamsRemove,
             $firstLine,
             'The first line should contain the URL params'
+        );
+    }
+
+    /**
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/16836
+     */
+    public function testBuildValueDisplayNoTrainlingSpaces(): void
+    {
+        $output = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'buildValueDisplay',
+            [
+                'my_class',
+                false,
+                '  special value  ',
+            ]
+        );
+        $this->assertSame('<td class="text-start my_class">  special value  </td>' . "\n", $output);
+        $output = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'buildValueDisplay',
+            [
+                'my_class',
+                false,
+                '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
+            ]
+        );
+        $this->assertSame(
+            '<td class="text-start my_class">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n",
+            $output
+        );
+        $output = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'buildValueDisplay',
+            [
+                'my_class',
+                true,// condition mode
+                '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
+            ]
+        );
+        $this->assertSame(
+            '<td class="text-start my_class condition">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n",
+            $output
         );
     }
 }

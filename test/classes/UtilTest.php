@@ -164,6 +164,63 @@ class UtilTest extends AbstractTestCase
             )
         );
         $this->assertSame(
+            ['= \'value\'', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    'value',// row
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                        'numeric' => false,
+                        'type' => 'blob',
+                        'charsetnr' => 32,// armscii8_general_ci
+                    ]),// field meta
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['= \'value\'', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    'value',// row
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                        'numeric' => false,
+                        'type' => 'blob',
+                        'charsetnr' => 48,// latin1_general_ci
+                    ]),// field meta
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
+            ['= CAST(0x76616c7565 AS BINARY)', ''],
+            $this->callFunction(
+                null,
+                Util::class,
+                'getConditionValue',
+                [
+                    'value',// row
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                        'numeric' => false,
+                        'type' => 'blob',
+                        'charsetnr' => 63,// binary
+                    ]),// field meta
+                    0,// fields count
+                    '',// condition key
+                    '',// condition
+                ]
+            )
+        );
+        $this->assertSame(
             ['= CAST(0x76616c7565 AS BINARY)', ''],
             $this->callFunction(
                 null,

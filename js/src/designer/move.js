@@ -55,6 +55,9 @@ DesignerMove.markUnsaved = function () {
     $('#saved_state').text('*');
 };
 
+var mainDirection = $('html').attr('dir') === 'rtl' ? 'right' : 'left';
+// Will be used to multiply the offsetLeft by -1 if the direction is rtl.
+var directionEffect = mainDirection === 'right' ? -1 : 1;
 var curClick = null;
 var smS           = 0;
 var smAdd         = 10;
@@ -130,13 +133,13 @@ DesignerMove.mouseMove = function (e) {
 
         var $curClick = $(curClick);
 
-        var curX = parseFloat($curClick.attr('data-left') || $curClick.css('left'));
+        var curX = parseFloat($curClick.attr('data-' + mainDirection) || $curClick.css(mainDirection));
         var curY = parseFloat($curClick.attr('data-top') || $curClick.css('top'));
 
-        var newX = curX - deltaX;
+        var newX = curX - directionEffect * deltaX;
         var newY = curY - deltaY;
 
-        $curClick.attr('data-left', newX);
+        $curClick.attr('data-' + mainDirection, newX);
         $curClick.attr('data-top', newY);
 
         if (onGrid) {
@@ -149,14 +152,14 @@ DesignerMove.mouseMove = function (e) {
         } else if (newY < 0) {
             newY = 0;
         }
-        $curClick.css('left', newX + 'px');
+        $curClick.css(mainDirection, newX + 'px');
         $curClick.css('top', newY + 'px');
     } else if (layerMenuCurClick) {
         if (menuMoved) {
             deltaX = -deltaX;
         }
         var $layerMenu = $('#layer_menu');
-        var newWidth = $layerMenu.width() + deltaX;
+        var newWidth = $layerMenu.width() + directionEffect * deltaX;
         if (newWidth < 150) {
             newWidth = 150;
         }
@@ -259,7 +262,7 @@ DesignerMove.resizeOsnTab = function () {
     var maxX = 0;
     var maxY = 0;
     for (var key in jTabs) {
-        var kX = parseInt(document.getElementById(key).style.left, 10) + document.getElementById(key).offsetWidth;
+        var kX = parseInt(document.getElementById(key).style[mainDirection], 10) + document.getElementById(key).offsetWidth;
         var kY = parseInt(document.getElementById(key).style.top, 10) + document.getElementById(key).offsetHeight;
         maxX = maxX < kX ? kX : maxX;
         maxY = maxY < kY ? kY : maxY;
@@ -372,9 +375,9 @@ DesignerMove.reload = function () {
                     var osnTab = document.getElementById('osn_tab');
 
                     DesignerMove.line0(
-                        x1 + osnTab.offsetLeft,
+                        x1 + directionEffect * osnTab.offsetLeft,
                         y1 - osnTab.offsetTop,
-                        x2 + osnTab.offsetLeft,
+                        x2 + directionEffect * osnTab.offsetLeft,
                         y2 - osnTab.offsetTop,
                         DesignerMove.getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
                     );
@@ -1566,9 +1569,9 @@ DesignerMove.canvasClick = function (id, event) {
                     var osnTab = document.getElementById('osn_tab');
                     if (!selected && localX > x1 - 10 && localX < x1 + 10 && localY > y1 - 7 && localY < y1 + 7) {
                         DesignerMove.line0(
-                            x1 + osnTab.offsetLeft,
+                            x1 + directionEffect * osnTab.offsetLeft,
                             y1 - osnTab.offsetTop,
-                            x2 + osnTab.offsetLeft,
+                            x2 + directionEffect * osnTab.offsetLeft,
                             y2 - osnTab.offsetTop,
                             'rgba(255,0,0,1)');
 
@@ -1580,9 +1583,9 @@ DesignerMove.canvasClick = function (id, event) {
                         Key = K;
                     } else {
                         DesignerMove.line0(
-                            x1 + osnTab.offsetLeft,
+                            x1 + directionEffect * osnTab.offsetLeft,
                             y1 - osnTab.offsetTop,
-                            x2 + osnTab.offsetLeft,
+                            x2 + directionEffect * osnTab.offsetLeft,
                             y2 - osnTab.offsetTop,
                             DesignerMove.getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
                         );

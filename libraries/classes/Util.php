@@ -957,6 +957,9 @@ class Util
         }
 
         $conditionValue = '';
+        $isBinaryString = $meta->isType(FieldMetadata::TYPE_STRING) && $meta->isBinary();
+        // 63 is the binary charset, see: https://dev.mysql.com/doc/internals/en/charsets.html
+        $isBlobAndIsBinaryCharset = $meta->isType(FieldMetadata::TYPE_BLOB) && $meta->charsetnr === 63;
         // timestamp is numeric on some MySQL 4.1
         // for real we use CONCAT above and it should compare to string
         // See commit: 049fc7fef7548c2ba603196937c6dcaf9ff9bf00
@@ -967,11 +970,7 @@ class Util
             && $meta->isNotType(FieldMetadata::TYPE_REAL)
         ) {
             $conditionValue = '= ' . $row;
-        } elseif (
-            $meta->isType(FieldMetadata::TYPE_BLOB) || ($meta->isType(FieldMetadata::TYPE_STRING))
-            && $meta->isBinary()
-            && ! empty($row)
-        ) {
+        } elseif ($isBlobAndIsBinaryCharset || (! empty($row) && $isBinaryString)) {
             // hexify only if this is a true not empty BLOB or a BINARY
 
             // do not waste memory building a too big condition

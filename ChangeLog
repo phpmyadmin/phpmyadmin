@@ -80,6 +80,11 @@ phpMyAdmin - ChangeLog
 - issue        Fix not working export to PNG, SVG, PDF on GIS visualization
 - issue        Fix float values type errors on GIS export to PNG, SVG, PDF
 - issue #16792 Fixed URL generation by removing un-needed &amp; escaping for & char
+- issue #16777 Fixed Non-UTF8 Primary Key text value edit row
+- issue #16836 Fixed extra whitespaces in binary edit values causes a JS validation error message
+- issue #15566 Support RTL mode on the Designer
+- issue #16810 Fixed SQL query shown twice on drop column success
+- issue #16404 Fixed JS password generation fails after a new user creation failure
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
