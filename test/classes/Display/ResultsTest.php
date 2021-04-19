@@ -867,7 +867,7 @@ class ResultsTest extends AbstractTestCase
                 [],
                 0,
                 'binary',
-                'class="disableAjax">[BLOB - 4 B]</a>' . "\n"
+                'class="disableAjax">[BLOB - 4 B]</a>'
                 . '</td>' . "\n",
             ],
             [
@@ -888,8 +888,8 @@ class ResultsTest extends AbstractTestCase
                 [],
                 0,
                 'binary',
-                '<td class="left grid_edit  transformed hex">' . "\n"
-                . '    1001' . "\n"
+                '<td class="left grid_edit  transformed hex">'
+                . '1001'
                 . '</td>' . "\n",
             ],
             [
