@@ -75,6 +75,7 @@ phpMyAdmin - ChangeLog
 - issue #15566 Support RTL mode on the Designer
 - issue #16810 Fixed SQL query shown twice on drop column success
 - issue #16404 Fixed JS password generation fails after a new user creation failure
+- issue #16837 Fixed PHP error on execute query "create table event(...)"
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
