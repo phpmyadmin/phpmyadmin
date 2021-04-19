@@ -24,4 +24,25 @@
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
         <severity>4</severity>
     </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingTraversableTypeHintSpecification">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification">
+        <severity>4</severity>
+    </rule>
+    <rule ref="Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps">
+        <severity>4</severity>
+    </rule>
+    <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps">
+        <severity>4</severity>
+    </rule>
 </ruleset>

@@ -3081,9 +3081,6 @@ class Results
      * @param array<string,array<int,array<string,string>>|string> $linkRelations
      * @param string                                               $columnValue   column value
      * @param array                                                $rowInfo       information about row
-     *
-     * @return string generated link
-     *
      * @phpstan-param array{
      *                         'link_param': string,
      *                         'link_dependancy_params'?: array<
@@ -3092,6 +3089,8 @@ class Results
      *                                                     >,
      *                         'default_page': string
      *                     } $linkRelations
+     *
+     * @return string generated link
      */
     private function getSpecialLinkUrl(
         array $linkRelations,

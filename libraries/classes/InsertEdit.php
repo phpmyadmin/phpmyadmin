@@ -2639,6 +2639,7 @@ class InsertEdit
                 if (! isset($column['values'])) {
                     $column['values'] = $this->getColumnEnumValues($column, $extractedColumnspec);
                 }
+
                 foreach ($column['values'] as $enumValue) {
                     if (
                         $data == $enumValue['plain'] || ($data == ''
@@ -2664,12 +2665,15 @@ class InsertEdit
                         [$blobValue, $blobValueUnit] = $blobSize;
                     }
                 }
+
                 if ($isUpload && $column['is_blob']) {
                     [$maxUploadSize] = $this->getMaxUploadSize($column, $biggestMaxFileSize);
                 }
+
                 if (! empty($GLOBALS['cfg']['UploadDir'])) {
                     $selectOptionForUpload = $this->getSelectOptionForUpload($vkey, $column);
                 }
+
                 if (
                     ! $isColumnProtectedBlob
                     && ! ($column['is_blob'] || ($column['len'] > $GLOBALS['cfg']['LimitChars']))

@@ -81,7 +81,7 @@
     },
     "require-dev": {
         "php-webdriver/webdriver": "^1.8",
-        "phpmyadmin/coding-standard": "^2.1.1",
+        "phpmyadmin/coding-standard": "^3.0.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^0.12.79",
         "phpstan/phpstan-phpunit": "^0.12.17",

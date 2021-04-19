@@ -46,7 +46,6 @@ class SpecialSchemaLinks
      * );
      *
      * @return array<string,array<string,array<string,array<string,array<int,array<string,string>>|string>>>>
-     *
      * @phpstan-return array<
      *              string, array<
      *                  string, array<

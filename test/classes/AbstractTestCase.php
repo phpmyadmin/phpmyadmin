@@ -171,10 +171,9 @@ abstract class AbstractTestCase extends TestCase
      * @param string      $className  The class name
      * @param string      $methodName The method name
      * @param array       $params     The parameters for the invocation
+     * @phpstan-param class-string $className
      *
      * @return mixed the output from the protected method.
-     *
-     * @phpstan-param class-string $className
      */
     protected function callFunction($object, string $className, string $methodName, array $params)
     {

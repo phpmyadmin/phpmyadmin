@@ -542,6 +542,7 @@ class Git
         if (! is_file($gitFolder . '/commondir')) {
             return null;
         }
+
         $commonDirContents = @file_get_contents($gitFolder . '/commondir');
         if ($commonDirContents === false) {
             return null;

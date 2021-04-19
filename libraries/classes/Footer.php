@@ -76,7 +76,6 @@ class Footer
 
     /**
      * @return array<string, string>
-     *
      * @psalm-return array{revision: string, revisionUrl: string, branch: string, branchUrl: string}|[]
      */
     private function getGitRevisionInfo(): array
