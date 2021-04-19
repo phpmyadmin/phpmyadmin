@@ -2486,7 +2486,7 @@ $(function () {
         }, 250);
     });
 
-    $(document).on('mouseup', 'span.ajax_notification.dismissable', function () {
+    $(document).on('mouseup', 'span.ajax_notification.dismissable', function (event) {
         if (holdStarter && event.which === 1) {
             clearTimeout(holdStarter);
             Functions.ajaxRemoveMessage($(this));
