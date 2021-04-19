@@ -1296,4 +1296,50 @@ class ResultsTest extends AbstractTestCase
             'The first line should contain the URL params'
         );
     }
+
+    /**
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/16836
+     */
+    public function testBuildValueDisplayNoTrainlingSpaces(): void
+    {
+        $output = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'buildValueDisplay',
+            [
+                'my_class',
+                false,
+                '  special value  ',
+            ]
+        );
+        $this->assertSame('<td class="left my_class">  special value  </td>' . "\n", $output);
+        $output = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'buildValueDisplay',
+            [
+                'my_class',
+                false,
+                '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
+            ]
+        );
+        $this->assertSame(
+            '<td class="left my_class">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n",
+            $output
+        );
+        $output = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'buildValueDisplay',
+            [
+                'my_class',
+                true,// condition mode
+                '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
+            ]
+        );
+        $this->assertSame(
+            '<td class="left my_class condition">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n",
+            $output
+        );
+    }
 }
