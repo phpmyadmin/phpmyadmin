@@ -306,36 +306,9 @@ class HomeController extends AbstractController
 
     private function checkRequirements(): void
     {
-        global $cfg, $server, $lang;
+        global $cfg, $server;
 
-        /**
-         * mbstring is used for handling multibytes inside parser, so it is good
-         * to tell user something might be broken without it, see bug #1063149.
-         */
-        if (! extension_loaded('mbstring')) {
-            trigger_error(
-                __(
-                    'The mbstring PHP extension was not found and you seem to be using'
-                    . ' a multibyte charset. Without the mbstring extension phpMyAdmin'
-                    . ' is unable to split strings correctly and it may result in'
-                    . ' unexpected results.'
-                ),
-                E_USER_WARNING
-            );
-        }
-
-        /**
-         * Missing functionality
-         */
-        if (! extension_loaded('curl') && ! ini_get('allow_url_fopen')) {
-            trigger_error(
-                __(
-                    'The curl extension was not found and allow_url_fopen is '
-                    . 'disabled. Due to this some features such as error reporting '
-                    . 'or version check are disabled.'
-                )
-            );
-        }
+        $this->checkPhpExtensionsRequirements();
 
         if ($cfg['LoginCookieValidityDisableWarning'] == false) {
             /**
@@ -467,6 +440,13 @@ class HomeController extends AbstractController
             );
         }
 
+        $this->checkLanguageStats();
+    }
+
+    private function checkLanguageStats(): void
+    {
+        global $cfg, $lang;
+
         /**
          * Warning about incomplete translations.
          *
@@ -494,6 +474,40 @@ class HomeController extends AbstractController
             . 'better by [a@https://www.phpmyadmin.net/translate/'
             . '@_blank]contributing[/a].',
             E_USER_NOTICE
+        );
+    }
+
+    private function checkPhpExtensionsRequirements(): void
+    {
+        /**
+         * mbstring is used for handling multibytes inside parser, so it is good
+         * to tell user something might be broken without it, see bug #1063149.
+         */
+        if (! extension_loaded('mbstring')) {
+            trigger_error(
+                __(
+                    'The mbstring PHP extension was not found and you seem to be using'
+                    . ' a multibyte charset. Without the mbstring extension phpMyAdmin'
+                    . ' is unable to split strings correctly and it may result in'
+                    . ' unexpected results.'
+                ),
+                E_USER_WARNING
+            );
+        }
+
+        /**
+         * Missing functionality
+         */
+        if (extension_loaded('curl') || ini_get('allow_url_fopen')) {
+            return;
+        }
+
+        trigger_error(
+            __(
+                'The curl extension was not found and allow_url_fopen is '
+                . 'disabled. Due to this some features such as error reporting '
+                . 'or version check are disabled.'
+            )
         );
     }
 }
