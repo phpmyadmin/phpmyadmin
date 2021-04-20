@@ -495,7 +495,7 @@ class Config
          */
         $cfg = array_filter(
             $cfg,
-            static function ($key) {
+            static function (string $key): bool {
                 return strpos($key, '/') === false;
             },
             ARRAY_FILTER_USE_KEY
