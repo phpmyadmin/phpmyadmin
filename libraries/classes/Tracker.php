@@ -537,7 +537,7 @@ class Tracker
      *
      * @static
      */
-    public static function getVersion($dbname, $tablename, $statement = null)
+    public static function getVersion(string $dbname, string $tablename, ?string $statement = null)
     {
         global $dbi;
 
@@ -747,13 +747,13 @@ class Tracker
 
                 if ($options[6] === 'VIEW' || $options[6] === 'TABLE') {
                     $result['identifier'] = 'CREATE ' . $options[6];
-                    $result['tablename']  = $statement->name->table;
+                    $result['tablename']  = $statement->name !== null ? $statement->name->table : null;
                 } elseif ($options[6] === 'DATABASE') {
                     $result['identifier'] = 'CREATE DATABASE';
                     $result['tablename']  = '';
 
                     // In case of CREATE DATABASE, database field of the CreateStatement is the name of the database
-                    $GLOBALS['db']        = $statement->name->database;
+                    $GLOBALS['db']        = $statement->name !== null ? $statement->name->database : null;
                 } elseif (
                     $options[6] === 'INDEX'
                           || $options[6] === 'UNIQUE INDEX'
@@ -877,6 +877,12 @@ class Tracker
 
         // If we found a valid statement
         if (! isset($result['identifier'])) {
+            return;
+        }
+
+        // The table name was not found, see issue: #16837 as an example
+        // Also checks if the value is not null
+        if (! isset($result['tablename'])) {
             return;
         }
 

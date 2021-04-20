@@ -676,12 +676,12 @@ class TrackerTest extends AbstractTestCase
     /**
      * Test for Tracker::parseQuery
      *
-     * @param string $query                  Query to parse
-     * @param string $type                   Expected type
-     * @param string $identifier             Expected identifier
-     * @param string $tablename              Expected tablename
-     * @param string $db                     Expected dbname
-     * @param string $tablename_after_rename Expected name after rename
+     * @param string      $query                  Query to parse
+     * @param string      $type                   Expected type
+     * @param string      $identifier             Expected identifier
+     * @param string|null $tablename              Expected tablename
+     * @param string|null $db                     Expected dbname
+     * @param string|null $tablename_after_rename Expected name after rename
      *
      * @dataProvider parseQueryData
      */
@@ -689,7 +689,7 @@ class TrackerTest extends AbstractTestCase
         string $query,
         string $type,
         string $identifier,
-        string $tablename,
+        ?string $tablename,
         ?string $db = null,
         ?string $tablename_after_rename = null
     ): void {
@@ -734,6 +734,12 @@ class TrackerTest extends AbstractTestCase
      */
     public function parseQueryData(): array
     {
+        // query
+        // type
+        // identifier
+        // table name
+        // db (optional)
+        // table name after rename (optional)
         $query = [];
         /** TODO: Should test fail when USE is in conjunction with * identifiers?
         $query[] = array(
@@ -867,6 +873,22 @@ class TrackerTest extends AbstractTestCase
             'DML',
             'TRUNCATE',
             't1',
+        ];
+        $query[] = [
+            'create table event(' . "\n"
+            . 'eventID varchar(10) not null,' . "\n"
+            . 'b char(30),' . "\n"
+            . 'c varchar(20),' . "\n"
+            . 'd TIME,' . "\n"
+            . 'e Date,' . "\n"
+            . 'f int,' . "\n"
+            . 'g char(70),' . "\n"
+            . 'h char(90),' . "\n"
+            . 'primary key(eventID)' . "\n"
+            . ')' . "\n",
+            'DDL',
+            'CREATE TABLE',
+            null,// switch this to 'event' when sql-parse is fixed
         ];
 
         return $query;

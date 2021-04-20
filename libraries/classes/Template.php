@@ -29,6 +29,7 @@ use Twig\Loader\FilesystemLoader;
 use Twig\RuntimeLoader\ContainerRuntimeLoader;
 use Twig\TemplateWrapper;
 
+use function is_array;
 use function sprintf;
 use function trigger_error;
 
@@ -78,7 +79,7 @@ class Template
 
         $twig->addRuntimeLoader(new ContainerRuntimeLoader($containerBuilder));
 
-        if ($cfg['environment'] === 'development') {
+        if (is_array($cfg) && $cfg['environment'] === 'development') {
             $twig->enableDebug();
             $twig->addExtension(new DebugExtension());
             // This will enable debug for the extension to print lines

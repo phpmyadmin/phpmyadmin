@@ -1103,7 +1103,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         initGrid();
     }
 
-    /* Calculactes the dynamic chart size that depends on the column width */
+    /* Calculates the dynamic chart size that depends on the column width */
     function calculateChartSize () {
         var panelWidth;
         if ($('body').height() > $(window).height()) { // has vertical scroll bar
