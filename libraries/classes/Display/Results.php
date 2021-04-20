@@ -4894,11 +4894,9 @@ class Results
 
         /* Create link to download */
 
-        // in PHP < 5.5, empty() only checks variables
-        $tmpdb = $this->properties['db'];
         if (
             count($urlParams) > 0
-            && (! empty($tmpdb) && ! empty($meta->orgtable))
+            && (! empty($this->properties['db']) && ! empty($meta->orgtable))
         ) {
             $urlParams['where_clause_sign'] = Core::signSqlQuery($urlParams['where_clause']);
             $result = '<a href="'
