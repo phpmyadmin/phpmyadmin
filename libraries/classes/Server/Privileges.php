@@ -1034,7 +1034,7 @@ class Privileges
 
             // Use 'ALTER USER ...' syntax for MySQL 5.7.6+
             if (
-                $serverType === 'MySQL'
+                in_array($serverType, ['MySQL', 'Percona Server'], true)
                 && $serverVersion >= 50706
             ) {
                 if ($authenticationPlugin !== 'mysql_old_password') {
