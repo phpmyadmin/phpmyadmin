@@ -550,7 +550,7 @@ final class ColumnsDefinition
             'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
             'is_virtual_columns_supported' => Compatibility::isVirtualColumnsSupported($dbi->getVersion()),
             'browse_mime' => $cfg['BrowseMIME'] ?? null,
-            'server_type' => Util::getServerType(),
+            'supports_stored_keyword' => Compatibility::supportsStoredKeywordForVirtualColumns($dbi->getVersion()),
             'server_version' => $dbi->getVersion(),
             'max_rows' => intval($cfg['MaxRows']),
             'char_editing' => $cfg['CharEditing'] ?? null,

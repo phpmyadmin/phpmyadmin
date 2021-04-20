@@ -230,4 +230,17 @@ class Compatibility
 
         return false;
     }
+
+    /**
+     * Returns whether the database server supports virtual columns
+     */
+    public static function supportsStoredKeywordForVirtualColumns(int $serverVersion): bool
+    {
+        // @see https://mariadb.com/kb/en/generated-columns/#mysql-compatibility-support
+        if (self::isMariaDb()) {
+            return $serverVersion >= 100201;
+        }
+
+        return false;
+    }
 }

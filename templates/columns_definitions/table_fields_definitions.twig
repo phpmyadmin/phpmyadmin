@@ -95,10 +95,10 @@
         {% endif %}
     </tr>
     {% set options = {'': '', 'VIRTUAL': 'VIRTUAL'} %}
-    {% if server_type == 'MariaDB' and server_version <= 100200 %}
-        {% set options = options|merge({'PERSISTENT': 'PERSISTENT'}) %}
-    {% else %}
+    {% if supports_stored_keyword %}
         {% set options = options|merge({'STORED': 'STORED'}) %}
+    {% else %}
+        {% set options = options|merge({'PERSISTENT': 'PERSISTENT'}) %}
     {% endif %}
     {% for content_row in content_cells %}
         <tr>
