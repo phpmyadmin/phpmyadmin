@@ -15,7 +15,7 @@
     "@babel/preset-env": "^7.13.12",
     "blueimp-md5": "^2.18.0",
     "bootstrap": "4.5.3",
-    "codemirror": "5.60.0",
+    "codemirror": "5.61.0",
     "jquery": "3.5.1",
     "jquery-debounce-throttle": "^1.0.6-rc.0",
     "jquery-fullscreen-plugin": "^1.1.5",
