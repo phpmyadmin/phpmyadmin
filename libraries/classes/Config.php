@@ -8,9 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use function array_filter;
-use function array_flip;
-use function array_intersect_key;
-use function array_keys;
 use function array_merge;
 use function array_replace_recursive;
 use function array_slice;
@@ -63,6 +60,7 @@ use function time;
 use function trigger_error;
 use function trim;
 
+use const ARRAY_FILTER_USE_KEY;
 use const DIRECTORY_SEPARATOR;
 use const E_USER_ERROR;
 use const PHP_OS;
@@ -494,18 +492,14 @@ class Config
          *
          * This could be removed once we consistently handle both values
          * in the functional code as well.
-         *
-         * It could use array_filter(...ARRAY_FILTER_USE_KEY), but it's not
-         * supported on PHP 5.5 and HHVM.
          */
-        $matched_keys = array_filter(
-            array_keys($cfg),
+        $cfg = array_filter(
+            $cfg,
             static function ($key) {
                 return strpos($key, '/') === false;
-            }
+            },
+            ARRAY_FILTER_USE_KEY
         );
-
-        $cfg = array_intersect_key($cfg, array_flip($matched_keys));
 
         $this->settings = array_replace_recursive($this->settings, $cfg);
 
