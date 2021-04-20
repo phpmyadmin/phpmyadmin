@@ -9,6 +9,7 @@ use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Partition;
+use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table;
@@ -547,7 +548,7 @@ final class ColumnsDefinition
             'storage_engines' => $storageEngines,
             'connection' => $_POST['connection'] ?? null,
             'change_column' => $_POST['change_column'] ?? $_GET['change_column'] ?? null,
-            'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
+            'is_virtual_columns_supported' => Compatibility::isVirtualColumnsSupported($dbi->getVersion()),
             'browse_mime' => $cfg['BrowseMIME'] ?? null,
             'server_type' => Util::getServerType(),
             'server_version' => $dbi->getVersion(),

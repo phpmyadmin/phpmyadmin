@@ -206,4 +206,21 @@ class Compatibility
         // or REFERENCES privileges for the parent table.
         return $dbi->getVersion() >= 50622;
     }
+
+    /**
+     * Returns whether the database server supports virtual columns
+     */
+    public static function isVirtualColumnsSupported(int $serverVersion): bool
+    {
+        if (self::isMySqlOrPerconaDb()) {
+            return $serverVersion >= 50705;
+        }
+
+        // @see https://daniel-bartholomew.com/2010/09/30/road-to-mariadb-5-2-virtual-columns/
+        if (self::isMariaDb()) {
+            return $serverVersion >= 50200;
+        }
+
+        return false;
+    }
 }

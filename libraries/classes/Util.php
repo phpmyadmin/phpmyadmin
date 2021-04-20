@@ -2312,22 +2312,6 @@ class Util
     }
 
     /**
-     * Returns whether the database server supports virtual columns
-     *
-     * @return bool
-     */
-    public static function isVirtualColumnsSupported()
-    {
-        global $dbi;
-
-        $serverType = self::getServerType();
-        $serverVersion = $dbi->getVersion();
-
-        return in_array($serverType, ['MySQL', 'Percona Server']) && $serverVersion >= 50705
-             || ($serverType === 'MariaDB' && $serverVersion >= 50200);
-    }
-
-    /**
      * Gets the list of tables in the current db and information about these
      * tables if possible
      *
