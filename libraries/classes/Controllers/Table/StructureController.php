@@ -337,10 +337,6 @@ class StructureController extends AbstractController
             $message = Message::success();
         }
 
-        $this->response->addHTML(
-            Generator::getMessage($message, $sql_query)
-        );
-
         $this->index();
     }
 
