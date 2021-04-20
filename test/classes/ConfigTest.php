@@ -13,6 +13,7 @@ use function array_replace_recursive;
 use function constant;
 use function define;
 use function defined;
+use function file_exists;
 use function file_put_contents;
 use function filemtime;
 use function fileperms;
@@ -113,7 +114,7 @@ class ConfigTest extends AbstractTestCase
 
         // Teardown
         unlink($tmpConfig);
-        $this->assertFileDoesNotExist($tmpConfig);
+        $this->assertFalse(file_exists($tmpConfig));
     }
 
     /**
@@ -163,7 +164,7 @@ class ConfigTest extends AbstractTestCase
 
         // Teardown
         unlink($tmpConfig);
-        $this->assertFileDoesNotExist($tmpConfig);
+        $this->assertFalse(file_exists($tmpConfig));
     }
 
     /**
