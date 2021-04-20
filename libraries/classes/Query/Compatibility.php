@@ -177,6 +177,13 @@ class Compatibility
         return $serverType === 'MariaDB';
     }
 
+    public static function isMySql(): bool
+    {
+        $serverType = Util::getServerType();
+
+        return $serverType === 'MySQL';
+    }
+
     public static function isCompatibleRenameIndex(int $serverVersion): bool
     {
         if (self::isMySqlOrPerconaDb()) {

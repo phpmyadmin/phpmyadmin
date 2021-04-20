@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
@@ -564,10 +565,10 @@ class Table
 
         // if column is virtual, check if server type is Mysql as only Mysql server
         // supports extra column properties
-        $isVirtualColMysql = $virtuality && in_array(Util::getServerType(), ['MySQL', 'Percona Server']);
+        $isVirtualColMysql = $virtuality && Compatibility::isMySqlOrPerconaDb();
         // if column is virtual, check if server type is MariaDB as MariaDB server
         // supports no extra virtual column properties except CHARACTER SET for text column types
-        $isVirtualColMariaDB = $virtuality && Util::getServerType() === 'MariaDB';
+        $isVirtualColMariaDB = $virtuality && Compatibility::isMariaDb();
 
         $matches = preg_match(
             '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
@@ -2789,9 +2790,8 @@ class Table
      */
     public function getColumnGenerationExpression($column = null)
     {
-        $serverType = Util::getServerType();
         if (
-            $serverType === 'MySQL'
+            Compatibility::isMySql()
             && $this->dbi->getVersion() > 50705
             && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {

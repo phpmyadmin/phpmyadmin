@@ -1987,11 +1987,11 @@ class Util
     /**
      * Returns server type for current connection
      *
-     * Known types are: MariaDB, PerconaDB and MySQL (default)
+     * Known types are: MariaDB, Percona Server and MySQL (default)
      *
-     * @return string
+     * @phpstan-return 'MariaDB'|'Percona Server'|'MySQL'
      */
-    public static function getServerType()
+    public static function getServerType(): string
     {
         global $dbi;
 

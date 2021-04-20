@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Server\Privileges;
 
-use function in_array;
 use function strlen;
 
 /**
@@ -70,7 +70,6 @@ class UserPassword
 
         [$username, $hostname] = $dbi->getCurrentUserAndHost();
 
-        $serverType = Util::getServerType();
         $serverVersion = $dbi->getVersion();
 
         if (
@@ -89,7 +88,7 @@ class UserPassword
         $sql_query = 'SET password = '
             . ($password == '' ? '\'\'' : $hashing_function . '(\'***\')');
 
-        $isPerconaOrMySql = in_array($serverType, ['MySQL', 'Percona Server'], true);
+        $isPerconaOrMySql = Compatibility::isMySqlOrPerconaDb();
         if (
             $isPerconaOrMySql && $serverVersion >= 50706
         ) {
@@ -99,7 +98,7 @@ class UserPassword
                 . ($password == '' ? '\'\'' : '\'***\'');
         } elseif (
             ($isPerconaOrMySql && $serverVersion >= 50507)
-            || ($serverType === 'MariaDB' && $serverVersion >= 50200)
+            || (Compatibility::isMariaDb() && $serverVersion >= 50200)
         ) {
             // For MySQL and Percona versions 5.5.7+ and MariaDB versions 5.2+,
             // explicitly set value of `old_passwords` so that
@@ -174,11 +173,10 @@ class UserPassword
 
         $err_url = Url::getFromRoute('/user-password');
 
-        $serverType = Util::getServerType();
         $serverVersion = $dbi->getVersion();
 
         if (
-            in_array($serverType, ['MySQL', 'Percona Server'], true)
+            Compatibility::isMySqlOrPerconaDb()
             && $serverVersion >= 50706
         ) {
             $local_query = 'ALTER USER \'' . $dbi->escapeString($username)
@@ -188,7 +186,7 @@ class UserPassword
                 ? '\'\''
                 : '\'' . $dbi->escapeString($password) . '\'');
         } elseif (
-            $serverType === 'MariaDB'
+            Compatibility::isMariaDb()
             && $serverVersion >= 50200
             && $serverVersion < 100100
             && $orig_auth_plugin !== ''
