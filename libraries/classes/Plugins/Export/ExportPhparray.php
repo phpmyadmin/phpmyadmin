@@ -198,6 +198,8 @@ class ExportPhparray extends ExportPlugin
             $columns[$i] = stripslashes($col_as);
         }
 
+        $tablefixed = $table;
+
         // fix variable names (based on
         // https://www.php.net/manual/en/language.variables.basics.php)
         if (
@@ -218,8 +220,6 @@ class ExportPhparray extends ExportPlugin
             if (preg_match('/^[a-zA-Z_\x7f-\xff]/', $tablefixed) === 0) {
                 $tablefixed = '_' . $tablefixed;
             }
-        } else {
-            $tablefixed = $table;
         }
 
         $buffer = '';
