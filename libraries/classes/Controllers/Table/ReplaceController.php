@@ -210,26 +210,16 @@ final class ReplaceController extends AbstractController
             $query_values = [];
 
             // Map multi-edit keys to single-level arrays, dependent on how we got the fields
-            $multi_edit_columns
-                = $_POST['fields']['multi_edit'][$rownumber] ?? [];
-            $multi_edit_columns_name
-                = $_POST['fields_name']['multi_edit'][$rownumber] ?? [];
-            $multi_edit_columns_prev
-                = $_POST['fields_prev']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_funcs
-                = $_POST['funcs']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_salt
-                = $_POST['salt']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_columns_type
-                = $_POST['fields_type']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_columns_null
-                = $_POST['fields_null']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_columns_null_prev
-                = $_POST['fields_null_prev']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_auto_increment
-                = $_POST['auto_increment']['multi_edit'][$rownumber] ?? null;
-            $multi_edit_virtual
-                = $_POST['virtual']['multi_edit'][$rownumber] ?? null;
+            $multi_edit_columns = $_POST['fields']['multi_edit'][$rownumber] ?? [];
+            $multi_edit_columns_name = $_POST['fields_name']['multi_edit'][$rownumber] ?? [];
+            $multi_edit_columns_prev = $_POST['fields_prev']['multi_edit'][$rownumber] ?? null;
+            $multi_edit_funcs = $_POST['funcs']['multi_edit'][$rownumber] ?? null;
+            $multi_edit_salt = $_POST['salt']['multi_edit'][$rownumber] ?? null;
+            $multi_edit_columns_type = $_POST['fields_type']['multi_edit'][$rownumber] ?? null;
+            $multi_edit_columns_null = $_POST['fields_null']['multi_edit'][$rownumber] ?? null;
+            $multi_edit_columns_null_prev = $_POST['fields_null_prev']['multi_edit'][$rownumber] ?? null;
+            $multi_edit_auto_increment = $_POST['auto_increment']['multi_edit'][$rownumber] ?? null;
+            $multi_edit_virtual = $_POST['virtual']['multi_edit'][$rownumber] ?? null;
 
             // When a select field is nullified, it's not present in $_POST
             // so initialize it; this way, the foreach($multi_edit_columns) will process it

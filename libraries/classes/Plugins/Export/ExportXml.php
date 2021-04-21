@@ -546,8 +546,7 @@ class ExportXml extends ExportPlugin
                     if (
                         ! empty($aliases[$db]['tables'][$table]['columns'][$col_as])
                     ) {
-                        $col_as
-                            = $aliases[$db]['tables'][$table]['columns'][$col_as];
+                        $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                     }
 
                     // If a cell is NULL, still export it to preserve

@@ -218,8 +218,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->object->exportHeader();
         $result = ob_get_clean();
 
-        $expected
-            = '<html xmlns:o="urn:schemas-microsoft-com:office:office"
+        $expected = '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
 
@@ -244,8 +243,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $this->object->exportHeader();
         $result = ob_get_clean();
 
-        $expected
-            = '<html xmlns:o="urn:schemas-microsoft-com:office:office"
+        $expected = '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
 

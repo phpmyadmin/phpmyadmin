@@ -250,12 +250,11 @@ class GisPolygon extends GisGeometry
         ];
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon
-            = mb_substr(
-                $spatial,
-                9,
-                mb_strlen($spatial) - 11
-            );
+        $polygon = mb_substr(
+            $spatial,
+            9,
+            mb_strlen($spatial) - 11
+        );
 
         $row = '<path d="';
 
@@ -325,13 +324,11 @@ class GisPolygon extends GisGeometry
         $row .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon
-            =
-            mb_substr(
-                $spatial,
-                9,
-                mb_strlen($spatial) - 11
-            );
+        $polygon = mb_substr(
+            $spatial,
+            9,
+            mb_strlen($spatial) - 11
+        );
 
         // Separate outer and inner polygons
         $parts = explode('),(', $polygon);
@@ -402,23 +399,19 @@ class GisPolygon extends GisGeometry
                         ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
             }
 
-            $wkt
-                =
-                mb_substr(
-                    $wkt,
-                    0,
-                    mb_strlen($wkt) - 1
-                );
-            $wkt .= '),';
-        }
-
-        $wkt
-            =
-            mb_substr(
+            $wkt = mb_substr(
                 $wkt,
                 0,
                 mb_strlen($wkt) - 1
             );
+            $wkt .= '),';
+        }
+
+        $wkt = mb_substr(
+            $wkt,
+            0,
+            mb_strlen($wkt) - 1
+        );
 
         return $wkt . ')';
     }
@@ -632,13 +625,11 @@ class GisPolygon extends GisGeometry
         }
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon
-            =
-            mb_substr(
-                $wkt,
-                9,
-                mb_strlen($wkt) - 11
-            );
+        $polygon = mb_substr(
+            $wkt,
+            9,
+            mb_strlen($wkt) - 11
+        );
         // Separate each linestring
         $linerings = explode('),(', $polygon);
         $params[$index]['POLYGON']['no_of_lines'] = count($linerings);

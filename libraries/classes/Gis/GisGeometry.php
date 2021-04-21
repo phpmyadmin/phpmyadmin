@@ -393,12 +393,11 @@ abstract class GisGeometry
             $ol_array .= $this->getPointForOpenLayers($point, $srid) . '.getCoordinates(), ';
         }
 
-        $ol_array
-            = mb_substr(
-                $ol_array,
-                0,
-                mb_strlen($ol_array) - 2
-            );
+        $ol_array = mb_substr(
+            $ol_array,
+            0,
+            mb_strlen($ol_array) - 2
+        );
 
         return $ol_array . ')';
     }

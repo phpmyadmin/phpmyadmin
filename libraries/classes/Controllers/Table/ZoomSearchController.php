@@ -227,8 +227,7 @@ class ZoomSearchController extends AbstractController
 
             $this->columnTypes[] = $type;
             $this->columnNullFlags[] = $row['Null'];
-            $this->columnCollations[]
-                = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
+            $this->columnCollations[] = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
                 ? $row['Collation']
                 : '';
         }
@@ -345,8 +344,7 @@ class ZoomSearchController extends AbstractController
         }
 
         $key = array_search($field, $this->columnNames);
-        $search_index
-            = (isset($_POST['it']) && is_numeric($_POST['it'])
+        $search_index = (isset($_POST['it']) && is_numeric($_POST['it'])
             ? intval($_POST['it']) : 0);
 
         $properties = $this->getColumnProperties($search_index, $key);
@@ -402,10 +400,8 @@ class ZoomSearchController extends AbstractController
             $row['where_clause_sign'] = Core::signSqlQuery($uniqueCondition[0]);
 
             $tmpData = [
-                $_POST['criteriaColumnNames'][0] =>
-                    $row[$_POST['criteriaColumnNames'][0]],
-                $_POST['criteriaColumnNames'][1] =>
-                    $row[$_POST['criteriaColumnNames'][1]],
+                $_POST['criteriaColumnNames'][0] => $row[$_POST['criteriaColumnNames'][0]],
+                $_POST['criteriaColumnNames'][1] => $row[$_POST['criteriaColumnNames'][1]],
                 'where_clause' => $uniqueCondition[0],
                 'where_clause_sign' => Core::signSqlQuery($uniqueCondition[0]),
             ];

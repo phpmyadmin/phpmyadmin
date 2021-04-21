@@ -434,8 +434,7 @@ class Events
                     $query .= 'EVERY ' . intval($_POST['item_interval_value']) . ' ';
                     $query .= $_POST['item_interval_field'] . ' ';
                 } else {
-                    $errors[]
-                        = __('You must provide a valid interval value for the event.');
+                    $errors[] = __('You must provide a valid interval value for the event.');
                 }
 
                 if (! empty($_POST['item_starts'])) {
@@ -455,8 +454,7 @@ class Events
                         . $this->dbi->escapeString($_POST['item_execute_at'])
                         . "' ";
                 } else {
-                    $errors[]
-                        = __('You must provide a valid execution time for the event.');
+                    $errors[] = __('You must provide a valid execution time for the event.');
                 }
             }
         } else {

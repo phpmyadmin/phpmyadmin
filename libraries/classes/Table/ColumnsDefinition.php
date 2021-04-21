@@ -250,8 +250,7 @@ final class ColumnsDefinition
                     );
                 }
 
-                $columnMeta['Comment']
-                    = isset($submit_fulltext[$columnNumber])
+                $columnMeta['Comment'] = isset($submit_fulltext[$columnNumber])
                 && ($submit_fulltext[$columnNumber] == $columnNumber)
                     ? 'FULLTEXT' : false;
 
@@ -349,8 +348,7 @@ final class ColumnsDefinition
                     $columnMeta['Type']
                 );
                 if ($extracted_columnspec['type'] === 'bit') {
-                    $columnMeta['Default']
-                        = Util::convertBitDefaultValue($columnMeta['Default']);
+                    $columnMeta['Default'] = Util::convertBitDefaultValue($columnMeta['Default']);
                 }
 
                 $type = $extracted_columnspec['type'];
@@ -388,14 +386,12 @@ final class ColumnsDefinition
             if ($is_backup) {
                 // old column name
                 if (isset($columnMeta['Field'])) {
-                    $form_params['field_orig[' . $columnNumber . ']']
-                        = $columnMeta['Field'];
+                    $form_params['field_orig[' . $columnNumber . ']'] = $columnMeta['Field'];
                     if (
                         isset($columnMeta['column_status'])
                         && ! $columnMeta['column_status']['isEditable']
                     ) {
-                        $form_params['field_name[' . $columnNumber . ']']
-                            = $columnMeta['Field'];
+                        $form_params['field_name[' . $columnNumber . ']'] = $columnMeta['Field'];
                     }
                 } else {
                     $form_params['field_orig[' . $columnNumber . ']'] = '';

@@ -186,8 +186,7 @@ class Utilities
         $dbgInfo = [];
 
         if ($result === false && $errorMessage !== null) {
-            $dbgInfo['error']
-                = '<span class="text-danger">'
+            $dbgInfo['error'] = '<span class="text-danger">'
                 . htmlspecialchars($errorMessage) . '</span>';
         }
 

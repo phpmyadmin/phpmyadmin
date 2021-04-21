@@ -778,8 +778,7 @@ class Operations
             $table_alters[] = 'checksum = ' . $_POST['new_checksum'];
         }
 
-        $_POST['new_transactional']
-            = empty($_POST['new_transactional']) ? '0' : '1';
+        $_POST['new_transactional'] = empty($_POST['new_transactional']) ? '0' : '1';
         if (
             $pma_table->isEngine('ARIA')
             && $_POST['new_transactional'] !== $transactional
@@ -787,8 +786,7 @@ class Operations
             $table_alters[] = 'TRANSACTIONAL = ' . $_POST['new_transactional'];
         }
 
-        $_POST['new_page_checksum']
-            = empty($_POST['new_page_checksum']) ? '0' : '1';
+        $_POST['new_page_checksum'] = empty($_POST['new_page_checksum']) ? '0' : '1';
         if (
             $pma_table->isEngine('ARIA')
             && $_POST['new_page_checksum'] !== $page_checksum
@@ -796,8 +794,7 @@ class Operations
             $table_alters[] = 'PAGE_CHECKSUM = ' . $_POST['new_page_checksum'];
         }
 
-        $_POST['new_delay_key_write']
-            = empty($_POST['new_delay_key_write']) ? '0' : '1';
+        $_POST['new_delay_key_write'] = empty($_POST['new_delay_key_write']) ? '0' : '1';
         if (
             $pma_table->isEngine(['MYISAM', 'ARIA'])
             && $_POST['new_delay_key_write'] !== $delay_key_write

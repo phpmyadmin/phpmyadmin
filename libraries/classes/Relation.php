@@ -2016,8 +2016,7 @@ class Relation
         foreach ($foreigners['foreign_keys_data'] as $one_key) {
             $column_index = array_search($column, $one_key['index_list']);
             if ($column_index !== false) {
-                $foreigner['foreign_field']
-                    = $one_key['ref_index_list'][$column_index];
+                $foreigner['foreign_field'] = $one_key['ref_index_list'][$column_index];
                 $foreigner['foreign_db'] = $one_key['ref_db_name'] ?? $GLOBALS['db'];
                 $foreigner['foreign_table'] = $one_key['ref_table_name'];
                 $foreigner['constraint'] = $one_key['constraint'];
@@ -2168,14 +2167,12 @@ class Relation
         // session from the current configuration storage.
         if ($cfgRelation['favoritework']) {
             $fav_tables = RecentFavoriteTable::getInstance('favorite');
-            $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']]
-                = $fav_tables->getFromDb();
+            $_SESSION['tmpval']['favoriteTables'][$GLOBALS['server']] = $fav_tables->getFromDb();
         }
 
         if ($cfgRelation['recentwork']) {
             $recent_tables = RecentFavoriteTable::getInstance('recent');
-            $_SESSION['tmpval']['recentTables'][$GLOBALS['server']]
-                = $recent_tables->getFromDb();
+            $_SESSION['tmpval']['recentTables'][$GLOBALS['server']] = $recent_tables->getFromDb();
         }
 
         // Reload navi panel to update the recent/favorite lists.

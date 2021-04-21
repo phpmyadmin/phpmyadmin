@@ -229,8 +229,7 @@ class ExportMediawiki extends ExportPlugin
                         if (
                             ! empty($aliases[$db]['tables'][$table]['columns'][$col_as])
                         ) {
-                            $col_as
-                                = $aliases[$db]['tables'][$table]['columns'][$col_as];
+                            $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                         }
 
                         $output .= ' | ' . $col_as . $this->exportCRLF();
@@ -328,8 +327,7 @@ class ExportMediawiki extends ExportPlugin
                     if (
                         ! empty($aliases[$db]['tables'][$table]['columns'][$column])
                     ) {
-                        $column
-                            = $aliases[$db]['tables'][$table]['columns'][$column];
+                        $column = $aliases[$db]['tables'][$table]['columns'][$column];
                     }
 
                     $output .= ' ! ' . $column . '' . $this->exportCRLF();

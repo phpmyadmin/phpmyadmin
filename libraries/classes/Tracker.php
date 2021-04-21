@@ -968,8 +968,7 @@ class Tracker
         //     2. the table / view
         //     3. the statements
         // we want to track
-        $sqlQuery .=
-        " WHERE FIND_IN_SET('" . $result['identifier'] . "',tracking) > 0" .
+        $sqlQuery .= " WHERE FIND_IN_SET('" . $result['identifier'] . "',tracking) > 0" .
         " AND `db_name` = '" . $dbi->escapeString($dbname ?? '') . "' " .
         " AND `table_name` = '"
         . $dbi->escapeString($result['tablename']) . "' " .

@@ -303,8 +303,7 @@ class SavedSearches
             exit;
         }
 
-        $savedSearchesTbl
-            = Util::backquote($this->config['cfgRelation']['db']) . '.'
+        $savedSearchesTbl = Util::backquote($this->config['cfgRelation']['db']) . '.'
             . Util::backquote($this->config['cfgRelation']['savedsearches']);
 
         //If it's an insert.
@@ -393,8 +392,7 @@ class SavedSearches
             exit;
         }
 
-        $savedSearchesTbl
-            = Util::backquote($this->config['cfgRelation']['db']) . '.'
+        $savedSearchesTbl = Util::backquote($this->config['cfgRelation']['db']) . '.'
             . Util::backquote($this->config['cfgRelation']['savedsearches']);
 
         $sqlQuery = 'DELETE FROM ' . $savedSearchesTbl

@@ -179,8 +179,7 @@ class SearchController extends AbstractController
 
             $this->columnTypes[] = $type;
             $this->columnNullFlags[] = $row['Null'];
-            $this->columnCollations[]
-                = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
+            $this->columnCollations[] = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
                 ? $row['Collation']
                 : '';
         }

@@ -466,8 +466,7 @@ class PrivilegesTest extends AbstractTestCase
         $username = 'PMA_username';
         $hostname = 'PMA_hostname';
 
-        [$title, $export]
-            = $this->serverPrivileges->getListForExportUserDefinition($username, $hostname);
+        [$title, $export] = $this->serverPrivileges->getListForExportUserDefinition($username, $hostname);
 
         //validate 1: $export
         $this->assertStringContainsString(
@@ -626,14 +625,13 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['createdb-3'] = true;
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
-        [$message, $sql_query]
-            = $this->serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
-                $dbname,
-                $tablename,
-                $username,
-                $hostname,
-                ''
-            );
+        [$message, $sql_query] = $this->serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
+            $dbname,
+            $tablename,
+            $username,
+            $hostname,
+            ''
+        );
 
         $this->assertEquals(
             "You have revoked the privileges for 'pma_username'@'pma_hostname'.",
@@ -1026,12 +1024,11 @@ class PrivilegesTest extends AbstractTestCase
             $sql_query,,,
             $alter_real_sql_query,
             $alter_sql_query,
-        ]
-            = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser(
-                $username,
-                $hostname,
-                $password
-            );
+        ] = $this->serverPrivileges->getSqlQueriesForDisplayAndAddUser(
+            $username,
+            $hostname,
+            $password
+        );
 
         //validate 1: $create_user_real
         $this->assertEquals(

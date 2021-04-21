@@ -47,8 +47,7 @@ class FileListingTest extends AbstractTestCase
 
         $this->assertFalse($this->fileListing->getFileSelectOptions('nonexistent directory'));
 
-        $expectedHtmlWithoutActive =
-              '  <option value="one.txt">' . "\n"
+        $expectedHtmlWithoutActive = '  <option value="one.txt">' . "\n"
             . '    one.txt' . "\n"
             . '  </option>' . "\n"
             . '  <option value="two.md">' . "\n"
@@ -60,8 +59,7 @@ class FileListingTest extends AbstractTestCase
             $this->fileListing->getFileSelectOptions($fixturesDir)
         );
 
-        $expectedHtmlWithActive =
-              '  <option value="one.txt">' . "\n"
+        $expectedHtmlWithActive = '  <option value="one.txt">' . "\n"
             . '    one.txt' . "\n"
             . '  </option>' . "\n"
             . '  <option value="two.md" selected="selected">' . "\n"
@@ -73,8 +71,7 @@ class FileListingTest extends AbstractTestCase
             $this->fileListing->getFileSelectOptions($fixturesDir, '', 'two.md')
         );
 
-        $expectedFilteredHtml =
-              '  <option value="one.txt">' . "\n"
+        $expectedFilteredHtml = '  <option value="one.txt">' . "\n"
             . '    one.txt' . "\n"
             . '  </option>' . "\n";
 

@@ -647,8 +647,7 @@ class Pdf extends PdfLib
 
         // fun begin
         foreach ($columns as $column) {
-            $extracted_columnspec
-                = Util::extractColumnSpec($column['Type']);
+            $extracted_columnspec = Util::extractColumnSpec($column['Type']);
 
             $type = $extracted_columnspec['print_type'];
             if (empty($type)) {

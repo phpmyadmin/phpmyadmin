@@ -533,8 +533,7 @@ class DatabaseInterface implements DbalInterface
                         }
                     } else {
                         foreach ($each_tables as $table_name => $table_data) {
-                            ${$sort_by}[$table_name]
-                                = strtolower($table_data[$sort_by] ?? '');
+                            ${$sort_by}[$table_name] = strtolower($table_data[$sort_by] ?? '');
                         }
                     }
 
@@ -691,8 +690,7 @@ class DatabaseInterface implements DbalInterface
                 // Compatibility with INFORMATION_SCHEMA output
                 $databases[$database_name]['SCHEMA_NAME']      = $database_name;
 
-                $databases[$database_name]['DEFAULT_COLLATION_NAME']
-                    = $this->getDbCollation($database_name);
+                $databases[$database_name]['DEFAULT_COLLATION_NAME'] = $this->getDbCollation($database_name);
 
                 if (! $force_stats) {
                     continue;
@@ -719,24 +717,18 @@ class DatabaseInterface implements DbalInterface
 
                 while ($row = $this->fetchAssoc($res)) {
                     $databases[$database_name]['SCHEMA_TABLES']++;
-                    $databases[$database_name]['SCHEMA_TABLE_ROWS']
-                        += $row['Rows'];
-                    $databases[$database_name]['SCHEMA_DATA_LENGTH']
-                        += $row['Data_length'];
-                    $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH']
-                        += $row['Max_data_length'];
-                    $databases[$database_name]['SCHEMA_INDEX_LENGTH']
-                        += $row['Index_length'];
+                    $databases[$database_name]['SCHEMA_TABLE_ROWS'] += $row['Rows'];
+                    $databases[$database_name]['SCHEMA_DATA_LENGTH'] += $row['Data_length'];
+                    $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH'] += $row['Max_data_length'];
+                    $databases[$database_name]['SCHEMA_INDEX_LENGTH'] += $row['Index_length'];
 
                     // for InnoDB, this does not contain the number of
                     // overhead bytes but the total free space
                     if ($row['Engine'] !== 'InnoDB') {
-                        $databases[$database_name]['SCHEMA_DATA_FREE']
-                            += $row['Data_free'];
+                        $databases[$database_name]['SCHEMA_DATA_FREE'] += $row['Data_free'];
                     }
 
-                    $databases[$database_name]['SCHEMA_LENGTH']
-                        += $row['Data_length'] + $row['Index_length'];
+                    $databases[$database_name]['SCHEMA_LENGTH'] += $row['Data_length'] + $row['Index_length'];
                 }
 
                 $this->freeResult($res);

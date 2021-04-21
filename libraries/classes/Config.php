@@ -545,8 +545,7 @@ class Config
                 || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime
             ) {
                 $prefs = $userPreferences->load();
-                $_SESSION['cache'][$cache_key]['userprefs']
-                    = $userPreferences->apply($prefs['config_data']);
+                $_SESSION['cache'][$cache_key]['userprefs'] = $userPreferences->apply($prefs['config_data']);
                 $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
                 $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
                 $_SESSION['cache'][$cache_key]['config_mtime'] = $config_mtime;

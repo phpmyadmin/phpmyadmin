@@ -52,12 +52,11 @@ class ServerConfigChecks
         $blowfishSecretSet = false;
         $cookieAuthUsed = false;
 
-        [$cookieAuthUsed, $blowfishSecret, $blowfishSecretSet]
-            = $this->performConfigChecksServers(
-                $cookieAuthUsed,
-                $blowfishSecret,
-                $blowfishSecretSet
-            );
+        [$cookieAuthUsed, $blowfishSecret, $blowfishSecretSet] = $this->performConfigChecksServers(
+            $cookieAuthUsed,
+            $blowfishSecret,
+            $blowfishSecretSet
+        );
 
         $this->performConfigChecksCookieAuthUsed(
             $cookieAuthUsed,
@@ -141,8 +140,7 @@ class ServerConfigChecks
     ) {
         $serverCnt = $this->cfg->getServerCount();
         for ($i = 1; $i <= $serverCnt; $i++) {
-            $cookieAuthServer
-                = ($this->cfg->getValue('Servers/' . $i . '/auth_type') === 'cookie');
+            $cookieAuthServer = ($this->cfg->getValue('Servers/' . $i . '/auth_type') === 'cookie');
             $cookieAuthUsed |= $cookieAuthServer;
             $serverName = $this->performConfigChecksServersGetServerName(
                 $this->cfg->getServerName($i),
@@ -150,12 +148,11 @@ class ServerConfigChecks
             );
             $serverName = htmlspecialchars($serverName);
 
-            [$blowfishSecret, $blowfishSecretSet]
-                = $this->performConfigChecksServersSetBlowfishSecret(
-                    $blowfishSecret,
-                    $cookieAuthServer,
-                    $blowfishSecretSet
-                );
+            [$blowfishSecret, $blowfishSecretSet] = $this->performConfigChecksServersSetBlowfishSecret(
+                $blowfishSecret,
+                $cookieAuthServer,
+                $blowfishSecretSet
+            );
 
             // $cfg['Servers'][$i]['ssl']
             // should be enabled if possible

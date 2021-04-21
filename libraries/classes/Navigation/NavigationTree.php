@@ -1475,10 +1475,8 @@ class NavigationTree
     private function fastFilterHtml(Node $node): string
     {
         $retval = '';
-        $filterDbMin
-            = (int) $GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum'];
-        $filterItemMin
-            = (int) $GLOBALS['cfg']['NavigationTreeDisplayItemFilterMinimum'];
+        $filterDbMin = (int) $GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum'];
+        $filterItemMin = (int) $GLOBALS['cfg']['NavigationTreeDisplayItemFilterMinimum'];
         if (
             $node === $this->tree
             && $this->tree->getPresence() >= $filterDbMin

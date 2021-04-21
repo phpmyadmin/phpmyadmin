@@ -45,8 +45,7 @@ class Cache
                     unset($this->tableCache[$one_database][$table]);
                 }
 
-                $this->tableCache[$one_database]
-                    += $tables[$one_database];
+                $this->tableCache[$one_database] += $tables[$one_database];
             } else {
                 $this->tableCache[$one_database] = $tables[$one_database];
             }

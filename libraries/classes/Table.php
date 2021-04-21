@@ -1964,8 +1964,7 @@ class Table
         $maxRows = $GLOBALS['cfg']['Server']['MaxTableUiprefs'];
         if ($rowsCount > $maxRows) {
             $numRowsToDelete = $rowsCount - $maxRows;
-            $sqlQuery
-                = ' DELETE FROM ' . $table .
+            $sqlQuery = ' DELETE FROM ' . $table .
                 ' ORDER BY last_update ASC' .
                 ' LIMIT ' . $numRowsToDelete;
             $success = $this->dbi->tryQuery(
@@ -2571,8 +2570,7 @@ class Table
                 && ! $emptyFields
             ) {
                 if (isset($existrelForeign[$masterFieldMd5])) {
-                    $constraintName
-                        = $existrelForeign[$masterFieldMd5]['constraint'];
+                    $constraintName = $existrelForeign[$masterFieldMd5]['constraint'];
                     $onDelete = ! empty(
                         $existrelForeign[$masterFieldMd5]['on_delete']
                     )
@@ -2795,8 +2793,7 @@ class Table
             && $this->dbi->getVersion() > 50705
             && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {
-            $sql
-                = "SELECT
+            $sql = "SELECT
                 `COLUMN_NAME` AS `Field`,
                 `GENERATION_EXPRESSION` AS `Expression`
                 FROM

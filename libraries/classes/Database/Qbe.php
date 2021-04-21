@@ -507,8 +507,7 @@ class Qbe
             $selected = '';
             if (isset($_POST['criteriaColumn'][$columnIndex])) {
                 $selected = $_POST['criteriaColumn'][$columnIndex];
-                $this->formColumns[$newColumnCount]
-                    = $_POST['criteriaColumn'][$columnIndex];
+                $this->formColumns[$newColumnCount] = $_POST['criteriaColumn'][$columnIndex];
             }
 
             $htmlOutput .= $this->showColumnSelectCell(
@@ -557,9 +556,7 @@ class Qbe
 
             $tmpAlias = '';
             if (! empty($_POST['criteriaAlias'][$colInd])) {
-                $tmpAlias
-                    = $this->formAliases[$newColumnCount]
-                        = $_POST['criteriaAlias'][$colInd];
+                $tmpAlias = $this->formAliases[$newColumnCount] = $_POST['criteriaAlias'][$colInd];
             }
 
             $htmlOutput .= '<td class="text-center">';
@@ -613,8 +610,7 @@ class Qbe
 
             $selected = '';
             if (isset($_POST['criteriaSort'][$colInd])) {
-                $this->formSorts[$newColumnCount]
-                    = $_POST['criteriaSort'][$colInd];
+                $this->formSorts[$newColumnCount] = $_POST['criteriaSort'][$colInd];
 
                 if ($_POST['criteriaSort'][$colInd] === 'ASC') {
                     $selected = 'ASC';
@@ -669,9 +665,7 @@ class Qbe
 
             $sortOrder = null;
             if (! empty($_POST['criteriaSortOrder'][$colInd])) {
-                $sortOrder
-                    = $this->formSortOrders[$newColumnCount]
-                        = $_POST['criteriaSortOrder'][$colInd];
+                $sortOrder = $this->formSortOrders[$newColumnCount] = $_POST['criteriaSortOrder'][$colInd];
             }
 
             $htmlOutput .= $this->getSortOrderSelectCell(
@@ -717,8 +711,7 @@ class Qbe
 
             if (isset($_POST['criteriaShow'][$columnIndex])) {
                 $checkedOptions = ' checked="checked"';
-                $this->formShows[$newColumnCount]
-                    = $_POST['criteriaShow'][$columnIndex];
+                $this->formShows[$newColumnCount] = $_POST['criteriaShow'][$columnIndex];
             } else {
                 $checkedOptions = '';
             }
@@ -780,8 +773,7 @@ class Qbe
             ) {
                 $this->formCriterions[$newColumnCount] = $tmpCriteria;
             } else {
-                $this->formCriterions[$newColumnCount]
-                    = $this->prevCriteria[$columnIndex];
+                $this->formCriterions[$newColumnCount] = $this->prevCriteria[$columnIndex];
             }
 
             $htmlOutput .= '<td class="text-center">';
@@ -871,8 +863,7 @@ class Qbe
             }
 
             if (isset($this->criteriaAndOrColumn[$columnIndex])) {
-                $this->formAndOrCols[$newColumnCount]
-                    = $this->criteriaAndOrColumn[$columnIndex];
+                $this->formAndOrCols[$newColumnCount] = $this->criteriaAndOrColumn[$columnIndex];
             }
 
             $checkedOptions = [];
@@ -947,8 +938,7 @@ class Qbe
                 . ' style="width: ' . $this->realwidth . '" size="20">';
             $htmlOutput .= '</td>';
             if (! empty(${$or}) && isset(${$or}[$columnIndex])) {
-                $GLOBALS[${'cur' . $or}][$newColumnCount]
-                    = ${$or}[$columnIndex];
+                $GLOBALS[${'cur' . $or}][$newColumnCount] = ${$or}[$columnIndex];
             }
 
             $newColumnCount++;
@@ -995,8 +985,7 @@ class Qbe
             }
 
             if (isset($this->criteriaAndOrRow[$rowIndex])) {
-                $this->formAndOrRows[$newRowCount]
-                    = $this->criteriaAndOrRow[$rowIndex];
+                $this->formAndOrRows[$newRowCount] = $this->criteriaAndOrRow[$rowIndex];
             }
 
             if (
@@ -1287,13 +1276,12 @@ class Qbe
         $uniqueColumns = $indexes['unique'];
         $indexColumns = $indexes['index'];
 
-        [$candidateColumns, $needSort]
-            = $this->getLeftJoinColumnCandidatesBest(
-                $searchTables,
-                $whereClauseColumns,
-                $uniqueColumns,
-                $indexColumns
-            );
+        [$candidateColumns, $needSort] = $this->getLeftJoinColumnCandidatesBest(
+            $searchTables,
+            $whereClauseColumns,
+            $uniqueColumns,
+            $indexColumns
+        );
 
         // If we came up with $unique_columns (very good) or $index_columns (still
         // good) as $candidate_columns we want to check if we have any 'Y' there
@@ -1367,8 +1355,7 @@ class Qbe
             foreach ($foreigners as $key => $foreigner) {
                 if ($key !== 'foreign_keys_data') {
                     if (in_array($foreigner['foreign_table'], $candidateColumns)) {
-                        $foreignTables[$foreigner['foreign_table']]
-                            = $foreigner['foreign_table'];
+                        $foreignTables[$foreigner['foreign_table']] = $foreigner['foreign_table'];
                     }
 
                     continue;
@@ -1379,8 +1366,7 @@ class Qbe
                         continue;
                     }
 
-                    $foreignTables[$oneKey['ref_table_name']]
-                        = $oneKey['ref_table_name'];
+                    $foreignTables[$oneKey['ref_table_name']] = $oneKey['ref_table_name'];
                 }
             }
         }
@@ -1666,20 +1652,17 @@ class Qbe
                     $clauses = [];
                     // There may be multiple column relations
                     foreach ($oneKey['index_list'] as $index => $oneField) {
-                        $clauses[]
-                            = Util::backquote($oneTable) . '.'
+                        $clauses[] = Util::backquote($oneTable) . '.'
                             . Util::backquote($oneField) . ' = '
                             . Util::backquote($oneKey['ref_table_name']) . '.'
                             . Util::backquote($oneKey['ref_index_list'][$index]);
                     }
 
                     // Combine multiple column relations with AND
-                    $relations[$oneTable][$oneKey['ref_table_name']]
-                        = implode(' AND ', $clauses);
+                    $relations[$oneTable][$oneKey['ref_table_name']] = implode(' AND ', $clauses);
                 }
             } else { // Internal relations
-                $relations[$oneTable][$foreigner['foreign_table']]
-                    = Util::backquote($oneTable) . '.'
+                $relations[$oneTable][$foreigner['foreign_table']] = Util::backquote($oneTable) . '.'
                     . Util::backquote((string) $field) . ' = '
                     . Util::backquote($foreigner['foreign_table']) . '.'
                     . Util::backquote($foreigner['foreign_field']);

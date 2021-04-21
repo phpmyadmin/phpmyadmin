@@ -870,10 +870,12 @@ class StructureController extends AbstractController
             $openPos = strpos($stmt->partitionBy, '(');
             $closePos = strrpos($stmt->partitionBy, ')');
 
-            $partitionDetails['partition_by']
-                = trim(substr($stmt->partitionBy, 0, $openPos));
-            $partitionDetails['partition_expr']
-                = trim(substr($stmt->partitionBy, $openPos + 1, $closePos - ($openPos + 1)));
+            $partitionDetails['partition_by'] = trim(substr($stmt->partitionBy, 0, $openPos));
+            $partitionDetails['partition_expr'] = trim(substr(
+                $stmt->partitionBy,
+                $openPos + 1,
+                $closePos - ($openPos + 1)
+            ));
             if (isset($stmt->partitionsNum)) {
                 $count = $stmt->partitionsNum;
             } else {
@@ -891,10 +893,12 @@ class StructureController extends AbstractController
             $openPos = strpos($stmt->subpartitionBy, '(');
             $closePos = strrpos($stmt->subpartitionBy, ')');
 
-            $partitionDetails['subpartition_by']
-                = trim(substr($stmt->subpartitionBy, 0, $openPos));
-            $partitionDetails['subpartition_expr']
-                = trim(substr($stmt->subpartitionBy, $openPos + 1, $closePos - ($openPos + 1)));
+            $partitionDetails['subpartition_by'] = trim(substr($stmt->subpartitionBy, 0, $openPos));
+            $partitionDetails['subpartition_expr'] = trim(substr(
+                $stmt->subpartitionBy,
+                $openPos + 1,
+                $closePos - ($openPos + 1)
+            ));
             if (isset($stmt->subpartitionsNum)) {
                 $count = $stmt->subpartitionsNum;
             } else {
@@ -905,8 +909,7 @@ class StructureController extends AbstractController
         }
 
         // Only LIST and RANGE type parameters allow subpartitioning
-        $partitionDetails['can_have_subpartitions']
-            = $partitionDetails['partition_count'] > 1
+        $partitionDetails['can_have_subpartitions'] = $partitionDetails['partition_count'] > 1
                 && ($partitionDetails['partition_by'] === 'RANGE'
                 || $partitionDetails['partition_by'] === 'RANGE COLUMNS'
                 || $partitionDetails['partition_by'] === 'LIST'
@@ -1160,8 +1163,7 @@ class StructureController extends AbstractController
                 continue;
             }
 
-            $adjust_privileges[$_POST['field_orig'][$i]]
-                = $_POST['field_name'][$i];
+            $adjust_privileges[$_POST['field_orig'][$i]] = $_POST['field_name'][$i];
         }
 
         if (count($changes) > 0 || isset($_POST['preview_sql'])) {
@@ -1543,13 +1545,11 @@ class StructureController extends AbstractController
             }
 
             if ($primary_index && $primary_index->hasColumn($field['Field'])) {
-                $displayed_fields[$rownum]->icon .=
-                    Generator::getImage('b_primary', __('Primary'));
+                $displayed_fields[$rownum]->icon .= Generator::getImage('b_primary', __('Primary'));
             }
 
             if (in_array($field['Field'], $columns_with_index)) {
-                $displayed_fields[$rownum]->icon .=
-                    Generator::getImage('bd_primary', __('Index'));
+                $displayed_fields[$rownum]->icon .= Generator::getImage('bd_primary', __('Index'));
             }
 
             $collation = Charsets::findCollationByName(

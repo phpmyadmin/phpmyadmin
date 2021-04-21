@@ -256,8 +256,7 @@ class Data
             && isset($server_variables['key_buffer_size'])
             && $server_variables['key_buffer_size'] != 0
         ) {
-            $server_status['Key_buffer_fraction_%']
-                = 100
+            $server_status['Key_buffer_fraction_%'] = 100
                 - $server_status['Key_blocks_unused']
                 * $server_variables['key_cache_block_size']
                 / $server_variables['key_buffer_size']
@@ -266,8 +265,7 @@ class Data
             isset($server_status['Key_blocks_used'], $server_variables['key_buffer_size'])
             && $server_variables['key_buffer_size'] != 0
         ) {
-            $server_status['Key_buffer_fraction_%']
-                = $server_status['Key_blocks_used']
+            $server_status['Key_buffer_fraction_%'] = $server_status['Key_blocks_used']
                 * 1024
                 / $server_variables['key_buffer_size'];
         }
@@ -279,8 +277,7 @@ class Data
         ) {
             $key_writes = $server_status['Key_writes'];
             $key_write_requests = $server_status['Key_write_requests'];
-            $server_status['Key_write_ratio_%']
-                = 100 * $key_writes / $key_write_requests;
+            $server_status['Key_write_ratio_%'] = 100 * $key_writes / $key_write_requests;
         }
 
         if (
@@ -289,8 +286,7 @@ class Data
         ) {
             $key_reads = $server_status['Key_reads'];
             $key_read_requests = $server_status['Key_read_requests'];
-            $server_status['Key_read_ratio_%']
-                = 100 * $key_reads / $key_read_requests;
+            $server_status['Key_read_ratio_%'] = 100 * $key_reads / $key_read_requests;
         }
 
         // Threads_cache_hitrate
@@ -298,8 +294,7 @@ class Data
             isset($server_status['Threads_created'], $server_status['Connections'])
             && $server_status['Connections'] > 0
         ) {
-            $server_status['Threads_cache_hitrate_%']
-                = 100 - $server_status['Threads_created']
+            $server_status['Threads_cache_hitrate_%'] = 100 - $server_status['Threads_created']
                 / $server_status['Connections'] * 100;
         }
 

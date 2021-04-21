@@ -515,8 +515,7 @@ class ConfigFile
         $lastServer = $this->getServerCount();
 
         for ($i = $server; $i < $lastServer; $i++) {
-            $_SESSION[$this->id]['Servers'][$i]
-                = $_SESSION[$this->id]['Servers'][$i + 1];
+            $_SESSION[$this->id]['Servers'][$i] = $_SESSION[$this->id]['Servers'][$i + 1];
         }
 
         unset($_SESSION[$this->id]['Servers'][$lastServer]);

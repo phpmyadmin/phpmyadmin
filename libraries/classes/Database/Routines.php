@@ -618,12 +618,11 @@ class Routines
         $retval['item_name'] = $routine['SPECIFIC_NAME'];
         $retval['item_type'] = $routine['ROUTINE_TYPE'];
 
-        $definition
-            = $this->dbi->getDefinition(
-                $db,
-                $routine['ROUTINE_TYPE'],
-                $routine['SPECIFIC_NAME']
-            );
+        $definition = $this->dbi->getDefinition(
+            $db,
+            $routine['ROUTINE_TYPE'],
+            $routine['SPECIFIC_NAME']
+        );
 
         if ($definition === null) {
             return null;

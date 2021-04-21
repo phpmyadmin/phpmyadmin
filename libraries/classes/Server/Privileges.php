@@ -170,8 +170,7 @@ class Privileges
         $usersGrants = explode(',', $row['Table_priv']);
 
         foreach ($avGrants as $currentGrant) {
-            $row[$currentGrant . '_priv']
-                = in_array($currentGrant, $usersGrants) ? 'Y' : 'N';
+            $row[$currentGrant . '_priv'] = in_array($currentGrant, $usersGrants) ? 'Y' : 'N';
         }
 
         unset($row['Table_priv']);
@@ -1023,12 +1022,11 @@ class Privileges
         if ($message === null) {
             $hashingFunction = 'PASSWORD';
             $serverVersion = $this->dbi->getVersion();
-            $authenticationPlugin
-                = ($_POST['authentication_plugin'] ?? $this->getCurrentAuthenticationPlugin(
-                    'change',
-                    $username,
-                    $hostname
-                ));
+            $authenticationPlugin = ($_POST['authentication_plugin'] ?? $this->getCurrentAuthenticationPlugin(
+                'change',
+                $username,
+                $hostname
+            ));
 
             // Use 'ALTER USER ...' syntax for MySQL 5.7.6+
             if (
@@ -1895,8 +1893,7 @@ class Privileges
 
         while ($row = $this->dbi->fetchAssoc($result)) {
             if (isset($dbRights[$row[$dbOrTableName]])) {
-                $dbRights[$row[$dbOrTableName]]
-                    = array_merge($dbRights[$row[$dbOrTableName]], $row);
+                $dbRights[$row[$dbOrTableName]] = array_merge($dbRights[$row[$dbOrTableName]], $row);
             } else {
                 $dbRights[$row[$dbOrTableName]] = $row;
             }
@@ -2309,8 +2306,7 @@ class Privileges
 
         while ($dbRightsRow = $this->dbi->fetchAssoc($dbRightsResult)) {
             $dbRightsRow = array_merge($userDefaults, $dbRightsRow);
-            $dbRights[$dbRightsRow['User']][$dbRightsRow['Host']]
-                = $dbRightsRow;
+            $dbRights[$dbRightsRow['User']][$dbRightsRow['Host']] = $dbRightsRow;
         }
 
         $this->dbi->freeResult($dbRightsResult);
@@ -2821,8 +2817,7 @@ class Privileges
         }
 
         // Copy the user group while copying a user
-        $oldUserGroup =
-            $_POST['old_usergroup'] ?? null;
+        $oldUserGroup = $_POST['old_usergroup'] ?? null;
         $this->setUserGroup($_POST['username'], $oldUserGroup);
 
         if ($createUserReal !== null) {
@@ -3082,15 +3077,11 @@ class Privileges
         $relParams = [];
         $urlParams = ['adduser' => 1];
         if (! empty($db)) {
-            $urlParams['dbname']
-                = $relParams['checkprivsdb']
-                    = $db;
+            $urlParams['dbname'] = $relParams['checkprivsdb'] = $db;
         }
 
         if (! empty($table)) {
-            $urlParams['tablename']
-                = $relParams['checkprivstable']
-                    = $table;
+            $urlParams['tablename'] = $relParams['checkprivstable'] = $table;
         }
 
         return $this->template->render('server/privileges/add_user_fieldset', [
@@ -3493,8 +3484,7 @@ class Privileges
                 count($tmpPrivs2['References']) > 0
                 && ! in_array('REFERENCES', $tmpPrivs1)
             ) {
-                $tmpPrivs1[]
-                    = 'REFERENCES (`' . implode('`, `', $tmpPrivs2['References']) . '`)';
+                $tmpPrivs1[] = 'REFERENCES (`' . implode('`, `', $tmpPrivs2['References']) . '`)';
             }
 
             $queries[] = 'GRANT ' . implode(', ', $tmpPrivs1)
@@ -3582,12 +3572,10 @@ class Privileges
             $error || (! empty($realSqlQuery)
             && ! $this->dbi->tryQuery($realSqlQuery))
         ) {
-            $_POST['createdb-1'] = $_POST['createdb-2']
-                = $_POST['createdb-3'] = null;
+            $_POST['createdb-1'] = $_POST['createdb-2'] = $_POST['createdb-3'] = null;
             $message = Message::rawError((string) $this->dbi->getError());
         } elseif ($alterRealSqlQuery !== '' && ! $this->dbi->tryQuery($alterRealSqlQuery)) {
-            $_POST['createdb-1'] = $_POST['createdb-2']
-                = $_POST['createdb-3'] = null;
+            $_POST['createdb-1'] = $_POST['createdb-2'] = $_POST['createdb-3'] = null;
             $message = Message::rawError((string) $this->dbi->getError());
         } else {
             $sqlQuery .= $alterSqlQuery;

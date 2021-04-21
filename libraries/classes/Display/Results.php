@@ -1062,19 +1062,18 @@ class Results
             $displayParams = $this->properties['display_params'];
 
             if (($displayParts['sort_lnk'] == '1') && ! $isLimitedDisplay) {
-                [$orderLink, $sortedHeaderHtml]
-                    = $this->getOrderLinkAndSortedHeaderHtml(
-                        $fieldsMeta[$i],
-                        $sortExpression,
-                        $sortExpressionNoDirection,
-                        $i,
-                        $unsortedSqlQuery,
-                        $sessionMaxRows,
-                        $comments,
-                        $sortDirection,
-                        $colVisib,
-                        $colVisibCurrent
-                    );
+                [$orderLink, $sortedHeaderHtml] = $this->getOrderLinkAndSortedHeaderHtml(
+                    $fieldsMeta[$i],
+                    $sortExpression,
+                    $sortExpressionNoDirection,
+                    $i,
+                    $unsortedSqlQuery,
+                    $sessionMaxRows,
+                    $comments,
+                    $sortDirection,
+                    $colVisib,
+                    $colVisibCurrent
+                );
 
                 $html .= $sortedHeaderHtml;
 
@@ -1085,14 +1084,13 @@ class Results
                     . '">' . "\n" . $orderLink . $comments . '    </th>' . "\n";
             } else {
                 // Results can't be sorted
-                $html
-                    .= $this->getDraggableClassForNonSortableColumns(
-                        $colVisib,
-                        $colVisibCurrent,
-                        $conditionField,
-                        $fieldsMeta[$i],
-                        $comments
-                    );
+                $html .= $this->getDraggableClassForNonSortableColumns(
+                    $colVisib,
+                    $colVisibCurrent,
+                    $conditionField,
+                    $fieldsMeta[$i],
+                    $comments
+                );
 
                 $displayParams['desc'][] = '    <th '
                     . 'class="draggable'
@@ -1655,15 +1653,14 @@ class Results
 
         // Generates the orderby clause part of the query which is part
         // of URL
-        [$singleSortOrder, $multiSortOrder, $orderImg]
-            = $this->getSingleAndMultiSortUrls(
-                $sortExpression,
-                $sortExpressionNoDirection,
-                $sortTable,
-                $nameToUseInSort,
-                $sortDirection,
-                $fieldsMeta
-            );
+        [$singleSortOrder, $multiSortOrder, $orderImg] = $this->getSingleAndMultiSortUrls(
+            $sortExpression,
+            $sortExpressionNoDirection,
+            $sortTable,
+            $nameToUseInSort,
+            $sortDirection,
+            $fieldsMeta
+        );
 
         if (
             preg_match(
@@ -1767,10 +1764,9 @@ class Results
             $specialIndex = $sortExpressionNoDirection[0] == ''
                 ? 0
                 : count($sortExpressionNoDirection);
-            $sortExpressionNoDirection[$specialIndex]
-                = Util::backquote(
-                    $currentName
-                );
+            $sortExpressionNoDirection[$specialIndex] = Util::backquote(
+                $currentName
+            );
             $isTimeOrDate = $fieldsMeta->isType(FieldMetadata::TYPE_TIME)
                 || $fieldsMeta->isType(FieldMetadata::TYPE_DATE)
                 || $fieldsMeta->isType(FieldMetadata::TYPE_DATETIME)
@@ -1834,12 +1830,11 @@ class Results
                 }
 
                 if ($isInSort) {
-                    [$singleSortOrder, $orderImg]
-                        = $this->getSortingUrlParams(
-                            $sortDirection,
-                            $singleSortOrder,
-                            $index
-                        );
+                    [$singleSortOrder, $orderImg] = $this->getSortingUrlParams(
+                        $sortDirection,
+                        $singleSortOrder,
+                        $index
+                    );
                 } else {
                     $singleSortOrder .= strtoupper($sortDirection[$index]);
                 }
@@ -2266,8 +2261,7 @@ class Results
             //     ... elseif no button, displays empty columns if required
             // (unless coming from Browse mode print view)
 
-            $displayParams['emptyafter']
-                = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+            $displayParams['emptyafter'] = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 1;
 
             $rightColumnHtml .= "\n" . '<td class="print_ignore" ' . $colspan
@@ -3062,11 +3056,9 @@ class Results
             $rowValuesHtml .= $displayParams['data'][$rowNumber][$i];
 
             if (isset($displayParams['rowdata'][$i][$rowNumber])) {
-                $displayParams['rowdata'][$i][$rowNumber]
-                    .= $displayParams['data'][$rowNumber][$i];
+                $displayParams['rowdata'][$i][$rowNumber] .= $displayParams['data'][$rowNumber][$i];
             } else {
-                $displayParams['rowdata'][$i][$rowNumber]
-                    = $displayParams['data'][$rowNumber][$i];
+                $displayParams['rowdata'][$i][$rowNumber] = $displayParams['data'][$rowNumber][$i];
             }
 
             $this->properties['display_params'] = $displayParams;
@@ -4208,11 +4200,10 @@ class Results
         // can the result be sorted?
         if ($displayParts['sort_lnk'] == '1' && $analyzedSqlResults['statement'] !== null) {
             // At this point, $sort_expression is an array
-            [$unsortedSqlQuery, $sortByKeyHtml]
-                = $this->getUnsortedSqlAndSortByKeyDropDown(
-                    $analyzedSqlResults,
-                    $sortExpression
-                );
+            [$unsortedSqlQuery, $sortByKeyHtml] = $this->getUnsortedSqlAndSortByKeyDropDown(
+                $analyzedSqlResults,
+                $sortExpression
+            );
         } else {
             $sortByKeyHtml = $unsortedSqlQuery = '';
         }

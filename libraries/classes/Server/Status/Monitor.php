@@ -115,12 +115,10 @@ class Monitor
                 foreach ($nodeDataPoints as $point_id => $dataPoint) {
                     switch ($dataPoint['type']) {
                         case 'statusvar':
-                            $ret[$chart_id][$node_id][$point_id]['value']
-                            = $statusVarValues[$dataPoint['name']];
+                            $ret[$chart_id][$node_id][$point_id]['value'] = $statusVarValues[$dataPoint['name']];
                             break;
                         case 'servervar':
-                            $ret[$chart_id][$node_id][$point_id]['value']
-                            = $serverVarValues[$dataPoint['name']];
+                            $ret[$chart_id][$node_id][$point_id]['value'] = $serverVarValues[$dataPoint['name']];
                             break;
                     }
                 }
@@ -156,17 +154,16 @@ class Monitor
             foreach ($chartNodes as $nodeId => $nodeDataPoints) {
                 // For each data point in the series (usually just 1)
                 foreach ($nodeDataPoints as $pointId => $dataPoint) {
-                    [$serverVars, $statusVars, $ret[$chartId][$nodeId][$pointId]]
-                        = $this->getJsonForChartingDataSwitch(
-                            $dataPoint['type'],
-                            $dataPoint['name'],
-                            $serverVars,
-                            $statusVars,
-                            $ret[$chartId][$nodeId][$pointId],
-                            $sysinfo,
-                            $cpuload,
-                            $memory
-                        );
+                    [$serverVars, $statusVars, $ret[$chartId][$nodeId][$pointId]] = $this->getJsonForChartingDataSwitch(
+                        $dataPoint['type'],
+                        $dataPoint['name'],
+                        $serverVars,
+                        $statusVars,
+                        $ret[$chartId][$nodeId][$pointId],
+                        $sysinfo,
+                        $cpuload,
+                        $memory
+                    );
                 } /* foreach */
             } /* foreach */
         }
@@ -400,16 +397,14 @@ class Monitor
                     ) {
                         $insertTables[$matches[2]]++;
                         if ($insertTables[$matches[2]] > 1) {
-                            $return['rows'][$insertTablesFirst]['#']
-                                = $insertTables[$matches[2]];
+                            $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
 
                             // Add a ... to the end of this query to indicate that
                             // there's been other queries
                             $temp = $return['rows'][$insertTablesFirst]['argument'];
-                            $return['rows'][$insertTablesFirst]['argument']
-                                .= $this->getSuspensionPoints(
-                                    $temp[strlen($temp) - 1]
-                                );
+                            $return['rows'][$insertTablesFirst]['argument'] .= $this->getSuspensionPoints(
+                                $temp[strlen($temp) - 1]
+                            );
 
                             // Group this value, thus do not add to the result list
                             continue 2;

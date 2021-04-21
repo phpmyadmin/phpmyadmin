@@ -76,12 +76,12 @@ class RecentFavoriteTable
         if (
             ! isset($_SESSION['tmpval'][$this->tableType . 'Tables'][$server_id])
         ) {
-            $_SESSION['tmpval'][$this->tableType . 'Tables'][$server_id]
-                = $this->getPmaTable() ? $this->getFromDb() : [];
+            $_SESSION['tmpval'][$this->tableType . 'Tables'][$server_id] = $this->getPmaTable()
+                ? $this->getFromDb()
+                : [];
         }
 
-        $this->tables
-            =& $_SESSION['tmpval'][$this->tableType . 'Tables'][$server_id];
+        $this->tables =& $_SESSION['tmpval'][$this->tableType . 'Tables'][$server_id];
     }
 
     /**
@@ -120,8 +120,7 @@ class RecentFavoriteTable
         global $dbi;
 
         // Read from phpMyAdmin database, if recent tables is not in session
-        $sql_query
-            = ' SELECT `tables` FROM ' . $this->getPmaTable() .
+        $sql_query = ' SELECT `tables` FROM ' . $this->getPmaTable() .
             " WHERE `username` = '" . $dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
 
         $return = [];
@@ -146,8 +145,7 @@ class RecentFavoriteTable
         global $dbi;
 
         $username = $GLOBALS['cfg']['Server']['user'];
-        $sql_query
-            = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)' .
+        $sql_query = ' REPLACE INTO ' . $this->getPmaTable() . ' (`username`, `tables`)' .
                 " VALUES ('" . $dbi->escapeString($username) . "', '"
                 . $dbi->escapeString(
                     json_encode($this->tables)

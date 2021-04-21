@@ -67,12 +67,11 @@ class GisMultiLineString extends GisGeometry
         $min_max = [];
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $multilinestirng
-            = mb_substr(
-                $spatial,
-                17,
-                mb_strlen($spatial) - 19
-            );
+        $multilinestirng = mb_substr(
+            $spatial,
+            17,
+            mb_strlen($spatial) - 19
+        );
         // Separate each linestring
         $linestirngs = explode('),(', $multilinestirng);
 
@@ -111,12 +110,11 @@ class GisMultiLineString extends GisGeometry
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $multilinestirng
-            = mb_substr(
-                $spatial,
-                17,
-                mb_strlen($spatial) - 19
-            );
+        $multilinestirng = mb_substr(
+            $spatial,
+            17,
+            mb_strlen($spatial) - 19
+        );
         // Separate each linestring
         $linestirngs = explode('),(', $multilinestirng);
 
@@ -188,12 +186,11 @@ class GisMultiLineString extends GisGeometry
         ];
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $multilinestirng
-            = mb_substr(
-                $spatial,
-                17,
-                mb_strlen($spatial) - 19
-            );
+        $multilinestirng = mb_substr(
+            $spatial,
+            17,
+            mb_strlen($spatial) - 19
+        );
         // Separate each linestring
         $linestirngs = explode('),(', $multilinestirng);
 
@@ -253,12 +250,11 @@ class GisMultiLineString extends GisGeometry
         ];
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $multilinestirng
-            = mb_substr(
-                $spatial,
-                17,
-                mb_strlen($spatial) - 19
-            );
+        $multilinestirng = mb_substr(
+            $spatial,
+            17,
+            mb_strlen($spatial) - 19
+        );
         // Separate each linestring
         $linestirngs = explode('),(', $multilinestirng);
 
@@ -320,12 +316,11 @@ class GisMultiLineString extends GisGeometry
         $row .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $multilinestirng
-            = mb_substr(
-                $spatial,
-                17,
-                mb_strlen($spatial) - 19
-            );
+        $multilinestirng = mb_substr(
+            $spatial,
+            17,
+            mb_strlen($spatial) - 19
+        );
         // Separate each linestring
         $linestirngs = explode('),(', $multilinestirng);
 
@@ -373,21 +368,19 @@ class GisMultiLineString extends GisGeometry
                         ? $data_row[$i][$j]['y'] : $empty) . ',';
             }
 
-            $wkt
-                = mb_substr(
-                    $wkt,
-                    0,
-                    mb_strlen($wkt) - 1
-                );
-            $wkt .= '),';
-        }
-
-        $wkt
-            = mb_substr(
+            $wkt = mb_substr(
                 $wkt,
                 0,
                 mb_strlen($wkt) - 1
             );
+            $wkt .= '),';
+        }
+
+        $wkt = mb_substr(
+            $wkt,
+            0,
+            mb_strlen($wkt) - 1
+        );
 
         return $wkt . ')';
     }
@@ -410,21 +403,19 @@ class GisMultiLineString extends GisGeometry
                 $wkt .= $point['x'] . ' ' . $point['y'] . ',';
             }
 
-            $wkt
-                = mb_substr(
-                    $wkt,
-                    0,
-                    mb_strlen($wkt) - 1
-                );
-            $wkt .= '),';
-        }
-
-        $wkt
-            = mb_substr(
+            $wkt = mb_substr(
                 $wkt,
                 0,
                 mb_strlen($wkt) - 1
             );
+            $wkt .= '),';
+        }
+
+        $wkt = mb_substr(
+            $wkt,
+            0,
+            mb_strlen($wkt) - 1
+        );
 
         return $wkt . ')';
     }
@@ -453,12 +444,11 @@ class GisMultiLineString extends GisGeometry
         }
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
-        $multilinestirng
-            = mb_substr(
-                $wkt,
-                17,
-                mb_strlen($wkt) - 19
-            );
+        $multilinestirng = mb_substr(
+            $wkt,
+            17,
+            mb_strlen($wkt) - 19
+        );
         // Separate each linestring
         $linestirngs = explode('),(', $multilinestirng);
         $params[$index]['MULTILINESTRING']['no_of_lines'] = count($linestirngs);

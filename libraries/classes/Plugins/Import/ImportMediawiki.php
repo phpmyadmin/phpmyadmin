@@ -184,10 +184,9 @@ class ImportMediawiki extends ImportPlugin
                             $cur_table_name = $match_table_name[1];
                             $inside_data_comment = true;
 
-                            $inside_structure_comment
-                                = $this->mngInsideStructComm(
-                                    $inside_structure_comment
-                                );
+                            $inside_structure_comment = $this->mngInsideStructComm(
+                                $inside_structure_comment
+                            );
                         } elseif (
                             preg_match(
                                 '/^Table structure for `(.*)`$/',

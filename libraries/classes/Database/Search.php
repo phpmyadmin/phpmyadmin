@@ -139,8 +139,7 @@ class Search
             unset($_POST['submit_search']);
         } else {
             $this->criteriaSearchType = (int) $_POST['criteriaSearchType'];
-            $this->searchTypeDescription
-                = $this->searchTypes[$_POST['criteriaSearchType']];
+            $this->searchTypeDescription = $this->searchTypes[$_POST['criteriaSearchType']];
         }
 
         if (

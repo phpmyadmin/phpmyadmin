@@ -63,12 +63,11 @@ class GisPoint extends GisGeometry
     public function scaleRow($spatial)
     {
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point
-            = mb_substr(
-                $spatial,
-                6,
-                mb_strlen($spatial) - 7
-            );
+        $point = mb_substr(
+            $spatial,
+            6,
+            mb_strlen($spatial) - 7
+        );
 
         return $this->setMinMax($point, []);
     }
@@ -101,12 +100,11 @@ class GisPoint extends GisGeometry
         $color = imagecolorallocate($image, $red, $green, $blue);
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point
-            = mb_substr(
-                $spatial,
-                6,
-                mb_strlen($spatial) - 7
-            );
+        $point = mb_substr(
+            $spatial,
+            6,
+            mb_strlen($spatial) - 7
+        );
         $points_arr = $this->extractPoints($point, $scale_data);
 
         // draw a small circle to mark the point
@@ -171,12 +169,11 @@ class GisPoint extends GisGeometry
         ];
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point
-            = mb_substr(
-                $spatial,
-                6,
-                mb_strlen($spatial) - 7
-            );
+        $point = mb_substr(
+            $spatial,
+            6,
+            mb_strlen($spatial) - 7
+        );
         $points_arr = $this->extractPoints($point, $scale_data);
 
         // draw a small circle to mark the point
@@ -225,12 +222,11 @@ class GisPoint extends GisGeometry
         ];
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point
-            = mb_substr(
-                $spatial,
-                6,
-                mb_strlen($spatial) - 7
-            );
+        $point = mb_substr(
+            $spatial,
+            6,
+            mb_strlen($spatial) - 7
+        );
         $points_arr = $this->extractPoints($point, $scale_data);
 
         $row = '';
@@ -301,12 +297,11 @@ class GisPoint extends GisGeometry
         $result .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point
-            = mb_substr(
-                $spatial,
-                6,
-                mb_strlen($spatial) - 7
-            );
+        $point = mb_substr(
+            $spatial,
+            6,
+            mb_strlen($spatial) - 7
+        );
         $points_arr = $this->extractPoints($point, null);
 
         if ($points_arr[0][0] != '' && $points_arr[0][1] != '') {
@@ -381,12 +376,11 @@ class GisPoint extends GisGeometry
         }
 
         // Trim to remove leading 'POINT(' and trailing ')'
-        $point
-            = mb_substr(
-                $wkt,
-                6,
-                mb_strlen($wkt) - 7
-            );
+        $point = mb_substr(
+            $wkt,
+            6,
+            mb_strlen($wkt) - 7
+        );
         $points_arr = $this->extractPoints($point, null);
 
         $params[$index]['POINT']['x'] = $points_arr[0][0];

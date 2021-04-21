@@ -369,16 +369,14 @@ class Util
                         $group[$groupName] = [];
                         $group[$groupName]['is' . $sep . 'group'] = true;
                         $group[$groupName]['tab' . $sep . 'count'] = 1;
-                        $group[$groupName]['tab' . $sep . 'group']
-                            = $groupNameFull;
+                        $group[$groupName]['tab' . $sep . 'group'] = $groupNameFull;
                     } elseif (! isset($group[$groupName]['is' . $sep . 'group'])) {
                         $table = $group[$groupName];
                         $group[$groupName] = [];
                         $group[$groupName][$groupName] = $table;
                         $group[$groupName]['is' . $sep . 'group'] = true;
                         $group[$groupName]['tab' . $sep . 'count'] = 1;
-                        $group[$groupName]['tab' . $sep . 'group']
-                            = $groupNameFull;
+                        $group[$groupName]['tab' . $sep . 'group'] = $groupNameFull;
                     } else {
                         $group[$groupName]['tab' . $sep . 'count']++;
                     }
@@ -2293,14 +2291,12 @@ class Util
 
             $indexesInfo[$row['Key_name']]['Comment'] = $row['Comment'];
 
-            $indexesData[$row['Key_name']][$row['Seq_in_index']]['Column_name']
-                = $row['Column_name'];
+            $indexesData[$row['Key_name']][$row['Seq_in_index']]['Column_name'] = $row['Column_name'];
             if (! isset($row['Sub_part'])) {
                 continue;
             }
 
-            $indexesData[$row['Key_name']][$row['Seq_in_index']]['Sub_part']
-                = $row['Sub_part'];
+            $indexesData[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
         }
 
         return [

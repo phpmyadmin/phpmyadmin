@@ -160,8 +160,7 @@ class AuthenticationSignon extends AuthenticationPlugin
 
             include $script_name;
 
-            [$this->user, $this->password]
-                = get_login_credentials($GLOBALS['cfg']['Server']['user']);
+            [$this->user, $this->password] = get_login_credentials($GLOBALS['cfg']['Server']['user']);
         } elseif (isset($_COOKIE[$session_name])) { /* Does session exist? */
             /* End current session */
             $old_session = session_name();

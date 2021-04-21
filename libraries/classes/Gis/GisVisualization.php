@@ -316,12 +316,11 @@ class GisVisualization
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
         $extension_start_pos = mb_strlen($file_name) - mb_strlen($ext) - 1;
-        $user_extension
-            = mb_substr(
-                $file_name,
-                $extension_start_pos,
-                mb_strlen($file_name)
-            );
+        $user_extension = mb_substr(
+            $file_name,
+            $extension_start_pos,
+            mb_strlen($file_name)
+        );
         $required_extension = '.' . $ext;
         if (mb_strtolower($user_extension) != $required_extension) {
             $file_name .= $required_extension;

@@ -184,8 +184,7 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         $currentTable['ENGINE'] = 'InnoDB';
-        [$currentTable, , , $sumSize]
-            = $method->invokeArgs($controller, [$currentTable, 10]);
+        [$currentTable, , , $sumSize] = $method->invokeArgs($controller, [$currentTable, 10]);
         $this->assertTrue(
             $currentTable['COUNTED']
         );
@@ -195,8 +194,7 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         $currentTable['ENGINE'] = 'MYISAM';
-        [$currentTable, , , $sumSize]
-            = $method->invokeArgs($controller, [$currentTable, 10]);
+        [$currentTable, , , $sumSize] = $method->invokeArgs($controller, [$currentTable, 10]);
         $this->assertFalse(
             $currentTable['COUNTED']
         );

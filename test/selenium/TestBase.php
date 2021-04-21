@@ -708,8 +708,7 @@ abstract class TestBase extends TestCase
 
     public function takeScrenshot(string $comment): void
     {
-        $screenshotDir =
-            __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
+        $screenshotDir = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
             . '..' . DIRECTORY_SEPARATOR . 'build' . DIRECTORY_SEPARATOR
             . 'selenium';
         if ($this->webDriver === null) {

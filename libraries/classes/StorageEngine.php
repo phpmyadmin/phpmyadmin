@@ -55,8 +55,7 @@ class StorageEngine
     public $title   = 'PMA Dummy Engine Class';
 
     /** @var string engine lang description */
-    public $comment
-        = 'If you read this text inside phpMyAdmin, something went wrong...';
+    public $comment = 'If you read this text inside phpMyAdmin, something went wrong...';
 
     /** @var int engine supported by current server */
     public $support = PMA_ENGINE_SUPPORT_NO;
@@ -327,8 +326,7 @@ class StorageEngine
         $res = $dbi->query($sql_query);
         while ($row = $dbi->fetchAssoc($res)) {
             if (isset($variables[$row['Variable_name']])) {
-                $mysql_vars[$row['Variable_name']]
-                    = $variables[$row['Variable_name']];
+                $mysql_vars[$row['Variable_name']] = $variables[$row['Variable_name']];
             } elseif (
                 ! $like
                 && mb_stripos($row['Variable_name'], $this->engine) !== 0
@@ -346,8 +344,7 @@ class StorageEngine
                 continue;
             }
 
-            $mysql_vars[$row['Variable_name']]['type']
-                = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
+            $mysql_vars[$row['Variable_name']]['type'] = PMA_ENGINE_DETAILS_TYPE_PLAINTEXT;
         }
 
         $dbi->freeResult($res);

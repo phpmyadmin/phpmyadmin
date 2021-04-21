@@ -679,8 +679,7 @@ class Generator
                         $sqlQuery
                     )
                 ) {
-                    $explainParams['sql_query']
-                        = mb_substr($sqlQuery, 8);
+                    $explainParams['sql_query'] = mb_substr($sqlQuery, 8);
                     $explainLink = ' [&nbsp;'
                         . self::linkOrButton(
                             Url::getFromRoute('/import', $explainParams),

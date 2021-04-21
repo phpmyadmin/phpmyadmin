@@ -317,13 +317,11 @@ class InsertEdit
         switch ($which) {
             case 'function':
                 $params['ShowFunctionFields'] = ($isShow ? 0 : 1);
-                $params['ShowFieldTypesInDataEditView']
-                = $GLOBALS['cfg']['ShowFieldTypesInDataEditView'];
+                $params['ShowFieldTypesInDataEditView'] = $GLOBALS['cfg']['ShowFieldTypesInDataEditView'];
                 break;
             case 'type':
                 $params['ShowFieldTypesInDataEditView'] = ($isShow ? 0 : 1);
-                $params['ShowFunctionFields']
-                = $GLOBALS['cfg']['ShowFunctionFields'];
+                $params['ShowFunctionFields'] = $GLOBALS['cfg']['ShowFunctionFields'];
                 break;
         }
 
@@ -408,8 +406,11 @@ class InsertEdit
             ]
         );
 
-        [$column['pma_type'], $column['wrap'], $column['first_timestamp']]
-            = $this->getEnumSetAndTimestampColumns($column, $timestampSeen);
+        [
+            $column['pma_type'],
+            $column['wrap'],
+            $column['first_timestamp'],
+        ] = $this->getEnumSetAndTimestampColumns($column, $timestampSeen);
 
         return $column;
     }
@@ -802,10 +803,9 @@ class InsertEdit
             $thisFieldMaxSize = $maxFieldSizes[$column['pma_type']];
         }
 
-        $htmlOutput
-            = Util::getFormattedMaximumUploadSize(
-                $thisFieldMaxSize
-            ) . "\n";
+        $htmlOutput = Util::getFormattedMaximumUploadSize(
+            $thisFieldMaxSize
+        ) . "\n";
         // do not generate here the MAX_FILE_SIZE, because we should
         // put only one in the form to accommodate the biggest field
         if ($thisFieldMaxSize > $biggestMaxFileSize) {
@@ -1272,8 +1272,7 @@ class InsertEdit
 
             //We need to duplicate the first \n or otherwise we will lose
             //the first newline entered in a VARCHAR or TEXT column
-            $specialCharsEncoded
-                = Util::duplicateFirstNewline($specialChars);
+            $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
 
             $data = $currentRow[$column['Field']];
         }
@@ -1826,12 +1825,11 @@ class InsertEdit
                         continue;
                     }
 
-                    $editedValues[$cellIndex][$columnName]
-                        = $extraData['transformations'][$cellIndex]
-                            = $transformationPlugin->applyTransformation(
-                                $currCellEditedValues[$columnName],
-                                $transformOptions
-                            );
+                    $extraData['transformations'][$cellIndex] = $transformationPlugin->applyTransformation(
+                        $currCellEditedValues[$columnName],
+                        $transformOptions
+                    );
+                    $editedValues[$cellIndex][$columnName] = $extraData['transformations'][$cellIndex];
                 }
             }
         }
@@ -1978,8 +1976,7 @@ class InsertEdit
 
             // field had the null checkbox before the update
             // field no longer has the null checkbox
-            $queryValues[]
-                = Util::backquote($multiEditColumnsName[$key])
+            $queryValues[] = Util::backquote($multiEditColumnsName[$key])
                 . ' = ' . $currentValueAsAnArray;
         } elseif (
             ! (empty($multiEditFuncs[$key])
@@ -1995,8 +1992,7 @@ class InsertEdit
                 empty($multiEditColumnsNullPrev[$key])
                 || empty($multiEditColumnsNull[$key])
             ) {
-                 $queryValues[]
-                     = Util::backquote($multiEditColumnsName[$key])
+                 $queryValues[] = Util::backquote($multiEditColumnsName[$key])
                     . ' = ' . $currentValueAsAnArray;
             }
         }
@@ -2228,8 +2224,7 @@ class InsertEdit
         }
 
         if (isset($_POST['ShowFieldTypesInDataEditView'])) {
-            $GLOBALS['cfg']['ShowFieldTypesInDataEditView']
-                = $_POST['ShowFieldTypesInDataEditView'];
+            $GLOBALS['cfg']['ShowFieldTypesInDataEditView'] = $_POST['ShowFieldTypesInDataEditView'];
         }
 
         if (isset($_POST['after_insert'])) {
@@ -2240,12 +2235,11 @@ class InsertEdit
             // we are editing
             $insertMode = false;
             $whereClauseArray = $this->getWhereClauseArray($whereClause);
-            [$whereClauses, $result, $rows, $foundUniqueKey]
-                = $this->analyzeWhereClauses(
-                    $whereClauseArray,
-                    $table,
-                    $db
-                );
+            [$whereClauses, $result, $rows, $foundUniqueKey] = $this->analyzeWhereClauses(
+                $whereClauseArray,
+                $table,
+                $db
+            );
         } else {
             // we are inserting
             $insertMode = true;

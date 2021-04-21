@@ -364,8 +364,7 @@ class Core
                 'The %s extension is missing. Please check your PHP configuration.'
             );
         } else {
-            $message
-                = 'The %s extension is missing. Please check your PHP configuration.';
+            $message = 'The %s extension is missing. Please check your PHP configuration.';
         }
 
         $doclink = self::getPHPDocLink('book.' . $extension . '.php');

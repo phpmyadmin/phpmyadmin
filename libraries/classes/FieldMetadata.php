@@ -227,26 +227,16 @@ final class FieldMetadata
 
     public function __construct(int $fieldType, int $fieldFlags, object $field)
     {
-            $this->isMultipleKey
-                = (bool) ($fieldFlags & MYSQLI_MULTIPLE_KEY_FLAG);
-            $this->isPrimaryKey
-                = (bool) ($fieldFlags & MYSQLI_PRI_KEY_FLAG);
-            $this->isUniqueKey
-                = (bool) ($fieldFlags & MYSQLI_UNIQUE_KEY_FLAG);
-            $this->isNotNull
-                = (bool) ($fieldFlags & MYSQLI_NOT_NULL_FLAG);
-            $this->isUnsigned
-                = (bool) ($fieldFlags & MYSQLI_UNSIGNED_FLAG);
-            $this->isZerofill
-                = (bool) ($fieldFlags & MYSQLI_ZEROFILL_FLAG);
-            $this->isNumeric
-                = (bool) ($fieldFlags & MYSQLI_NUM_FLAG);
-            $this->isBlob
-                = (bool) ($fieldFlags & MYSQLI_BLOB_FLAG);
-            $this->isEnum
-                = (bool) ($fieldFlags & MYSQLI_ENUM_FLAG);
-            $this->isSet
-                = (bool) ($fieldFlags & MYSQLI_SET_FLAG);
+            $this->isMultipleKey = (bool) ($fieldFlags & MYSQLI_MULTIPLE_KEY_FLAG);
+            $this->isPrimaryKey = (bool) ($fieldFlags & MYSQLI_PRI_KEY_FLAG);
+            $this->isUniqueKey = (bool) ($fieldFlags & MYSQLI_UNIQUE_KEY_FLAG);
+            $this->isNotNull = (bool) ($fieldFlags & MYSQLI_NOT_NULL_FLAG);
+            $this->isUnsigned = (bool) ($fieldFlags & MYSQLI_UNSIGNED_FLAG);
+            $this->isZerofill = (bool) ($fieldFlags & MYSQLI_ZEROFILL_FLAG);
+            $this->isNumeric = (bool) ($fieldFlags & MYSQLI_NUM_FLAG);
+            $this->isBlob = (bool) ($fieldFlags & MYSQLI_BLOB_FLAG);
+            $this->isEnum = (bool) ($fieldFlags & MYSQLI_ENUM_FLAG);
+            $this->isSet = (bool) ($fieldFlags & MYSQLI_SET_FLAG);
 
             /*
                 MYSQLI_PART_KEY_FLAG => 'part_key',

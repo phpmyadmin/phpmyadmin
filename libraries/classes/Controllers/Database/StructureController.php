@@ -132,8 +132,14 @@ class StructureController extends AbstractController
      */
     private function getDatabaseInfo(string $subPart): void
     {
-        [$tables, $numTables, $totalNumTables, , $isShowStats, $dbIsSystemSchema, , , $position]
-            = Util::getDbInfo($this->db, $subPart);
+        [
+            $tables,
+            $numTables,
+            $totalNumTables,,
+            $isShowStats,
+            $dbIsSystemSchema,,,
+            $position,
+        ] = Util::getDbInfo($this->db, $subPart);
 
         $this->tables = $tables;
         $this->numTables = $numTables;
@@ -1023,8 +1029,7 @@ class StructureController extends AbstractController
                 // InnoDB table: Row count is not accurate but data and index sizes are.
                 // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
                 // so it may be unavailable
-                [$currentTable, $formattedSize, $unit, $sumSize]
-                = $this->getValuesForInnodbTable(
+                [$currentTable, $formattedSize, $unit, $sumSize] = $this->getValuesForInnodbTable(
                     $currentTable,
                     $sumSize
                 );
@@ -1122,12 +1127,11 @@ class StructureController extends AbstractController
                 isset($currentTable['Data_free'])
                 && $currentTable['Data_free'] > 0
             ) {
-                [$formattedOverhead, $overheadUnit]
-                    = Util::formatByteDown(
-                        $currentTable['Data_free'],
-                        3,
-                        ($currentTable['Data_free'] > 0 ? 1 : 0)
-                    );
+                [$formattedOverhead, $overheadUnit] = Util::formatByteDown(
+                    $currentTable['Data_free'],
+                    3,
+                    ($currentTable['Data_free'] > 0 ? 1 : 0)
+                );
                 $overheadSize += $currentTable['Data_free'];
             }
         }

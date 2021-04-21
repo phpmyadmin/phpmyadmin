@@ -204,8 +204,7 @@ class VariablesController extends AbstractController
             'Table_locks_waited' => 0,
             'Qcache_lowmem_prunes' => 0,
 
-            'Qcache_free_blocks' =>
-                isset($this->data->status['Qcache_total_blocks'])
+            'Qcache_free_blocks' => isset($this->data->status['Qcache_total_blocks'])
                     ? $this->data->status['Qcache_total_blocks'] / 5
                     : 0,
             'Slow_launch_threads' => 0,

@@ -2966,8 +2966,7 @@ class ExportSql extends ExportPlugin
                 $refTable = $field->references->table->table;
                 // Replacing table.
                 if (! empty($aliases[$oldDatabase]['tables'][$refTable]['alias'])) {
-                    $field->references->table->table
-                        = $aliases[$oldDatabase]['tables'][$refTable]['alias'];
+                    $field->references->table->table = $aliases[$oldDatabase]['tables'][$refTable]['alias'];
                     $field->references->table->expr = '';
                     $flag = true;
                 }
@@ -2978,8 +2977,7 @@ class ExportSql extends ExportPlugin
                         continue;
                     }
 
-                    $field->references->columns[$key]
-                        = $aliases[$oldDatabase]['tables'][$refTable]['columns'][$column];
+                    $field->references->columns[$key] = $aliases[$oldDatabase]['tables'][$refTable]['columns'][$column];
                     $flag = true;
                 }
             }
@@ -2998,8 +2996,7 @@ class ExportSql extends ExportPlugin
             $oldTable = $statement->table->table;
 
             if (! empty($aliases[$oldDatabase]['tables'][$oldTable]['alias'])) {
-                $statement->table->table
-                    = $aliases[$oldDatabase]['tables'][$oldTable]['alias'];
+                $statement->table->table = $aliases[$oldDatabase]['tables'][$oldTable]['alias'];
                 $statement->table->expr = ''; // Force rebuild.
                 $flag = true;
             }

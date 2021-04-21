@@ -619,8 +619,7 @@ class ExportTexytext extends ExportPlugin
             $col_alias = $column['Field'];
         }
 
-        $extracted_columnspec
-            = Util::extractColumnSpec($column['Type']);
+        $extracted_columnspec = Util::extractColumnSpec($column['Type']);
         $type = $extracted_columnspec['print_type'];
         if (empty($type)) {
             $type = '&nbsp;';

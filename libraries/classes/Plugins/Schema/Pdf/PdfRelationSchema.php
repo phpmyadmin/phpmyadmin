@@ -537,8 +537,7 @@ class PdfRelationSchema extends ExportRelationSchema
         $this->diagram->Ln(15);
         $i = 1;
         foreach ($alltables as $table) {
-            $this->diagram->customLinks['doc'][$table]['-']
-                = $this->diagram->AddLink();
+            $this->diagram->customLinks['doc'][$table]['-'] = $this->diagram->AddLink();
             $this->diagram->SetX(10);
             // $this->diagram->Ln(1);
             $this->diagram->Cell(
@@ -567,8 +566,7 @@ class PdfRelationSchema extends ExportRelationSchema
             foreach ($fields as $row) {
                 $this->diagram->SetX(20);
                 $field_name = $row['Field'];
-                $this->diagram->customLinks['doc'][$table][$field_name]
-                    = $this->diagram->AddLink();
+                $this->diagram->customLinks['doc'][$table][$field_name] = $this->diagram->AddLink();
             }
 
             $i++;
@@ -607,8 +605,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 '{' . sprintf('%02d', $z) . '}',
                 $this->diagram->PageNo()
             );
-            $this->diagram->customLinks['RT'][$table]['-']
-                = $this->diagram->AddLink();
+            $this->diagram->customLinks['RT'][$table]['-'] = $this->diagram->AddLink();
             $this->diagram->SetLink(
                 $this->diagram->customLinks['doc'][$table]['-'],
                 -1
@@ -769,8 +766,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $this->diagram->SetFont($this->ff, '');
 
             foreach ($columns as $row) {
-                $extracted_columnspec
-                    = Util::extractColumnSpec($row['Type']);
+                $extracted_columnspec = Util::extractColumnSpec($row['Type']);
                 $type                = $extracted_columnspec['print_type'];
                 $attribute           = $extracted_columnspec['attribute'];
                 if (! isset($row['Default'])) {
@@ -781,8 +777,7 @@ class PdfRelationSchema extends ExportRelationSchema
 
                 $field_name = $row['Field'];
                 // $this->diagram->Ln();
-                $this->diagram->customLinks['RT'][$table][$field_name]
-                    = $this->diagram->AddLink();
+                $this->diagram->customLinks['RT'][$table][$field_name] = $this->diagram->AddLink();
                 $this->diagram->Bookmark($field_name, 1, -1);
                 $this->diagram->SetLink(
                     $this->diagram->customLinks['doc'][$table][$field_name],

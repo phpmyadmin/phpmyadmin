@@ -120,8 +120,7 @@ class Eps
         $this->stringCommands .= '/' . $value . " findfont   % Get the basic font\n";
         $this->stringCommands .= ''
             . $size . ' scalefont            % Scale the font to ' . $size . " points\n";
-        $this->stringCommands
-            .= "setfont                 % Make it the current font\n";
+        $this->stringCommands .= "setfont                 % Make it the current font\n";
     }
 
     /**
