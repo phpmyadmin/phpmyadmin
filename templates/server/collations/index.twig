@@ -1,41 +1,32 @@
 <div class=container-fluid>
-<div class="row">
   <h2>
     {{ get_image('s_asci') }}
     {% trans 'Character sets and collations' %}
   </h2>
-</div>
 
-<div class="table-responsive">
-  <table class="table table-light table-striped table-hover table-sm w-auto">
-    <thead class="table-light">
-      <tr>
-        <th scope="col">{% trans 'Collation' %}</th>
-        <th scope="col">{% trans 'Description' %}</th>
-      </tr>
-    </thead>
-
-    {% for charset in charsets %}
-      <tr>
-        <th colspan="2" class="table-primary">
-          {{ charset.name }}
-          {% if charset.description is not empty %}
-            (<em>{{ charset.description }}</em>)
-          {% endif %}
-        </th>
-      </tr>
-      {% for collation in charset.collations %}
-        <tr{{ collation.is_default ? ' class="table-info"' }}>
-          <td>
-            {{ collation.name }}
-            {% if collation.is_default %}
-              <span class="visually-hidden">{% trans '(default)' %}</span>
-            {% endif %}
-          </td>
-          <td>{{ collation.description }}</td>
-        </tr>
-      {% endfor %}
-    {% endfor %}
-  </table>
-</div>
+  {% for charset in charsets %}
+    <div class="card mb-3">
+      <div class="card-header">
+        <div><strong>{{ charset.name }}</strong></div>
+        <div>{{ charset.description }}</div>
+      </div>
+      <ul class="list-group list-group-flush">
+        {% for collation in charset.collations %}
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <div><strong>{{ collation.name }}</strong></div>
+                <div>{{ collation.description }}</div>
+              </div>
+              <div class="col align-self-center text-end">
+                {% if collation.is_default %}
+                  <span class="badge bg-primary">{% trans 'default' %}</span>
+                {% endif %}
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
 </div>

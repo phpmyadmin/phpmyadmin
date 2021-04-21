@@ -38,42 +38,16 @@ class CollationsControllerTest extends AbstractTestCase
         $controller->index();
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString(
-            '<table class="table table-light table-striped table-hover table-sm w-auto">',
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Collation'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            __('Description'),
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<em>UTF-8 Unicode</em>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'utf8_general_ci',
-            $actual
-        );
-        $this->assertStringContainsString('<span class="visually-hidden">(default)</span>', $actual);
-        $this->assertStringContainsString(
-            '<td>Unicode, case-insensitive</td>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<em>cp1252 West European</em>',
-            $actual
-        );
-        $this->assertStringContainsString(
-            'latin1_swedish_ci',
-            $actual
-        );
-        $this->assertStringContainsString(
-            '<td>Swedish, case-insensitive</td>',
-            $actual
-        );
+        $this->assertStringContainsString('<div><strong>latin1</strong></div>', $actual);
+        $this->assertStringContainsString('<div>cp1252 West European</div>', $actual);
+        $this->assertStringContainsString('<div><strong>latin1_swedish_ci</strong></div>', $actual);
+        $this->assertStringContainsString('<div>Swedish, case-insensitive</div>', $actual);
+        $this->assertStringContainsString('<span class="badge bg-primary">default</span>', $actual);
+        $this->assertStringContainsString('<div><strong>utf8</strong></div>', $actual);
+        $this->assertStringContainsString('<div>UTF-8 Unicode</div>', $actual);
+        $this->assertStringContainsString('<div><strong>utf8_bin</strong></div>', $actual);
+        $this->assertStringContainsString('<div>Unicode, binary</div>', $actual);
+        $this->assertStringContainsString('<div><strong>utf8_general_ci</strong></div>', $actual);
+        $this->assertStringContainsString('<div>Unicode, case-insensitive</div>', $actual);
     }
 }
