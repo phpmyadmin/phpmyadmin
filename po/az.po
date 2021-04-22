@@ -4,35 +4,38 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-13 17:47+0200\n"
-"PO-Revision-Date: 2021-01-22 03:16+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-1/az/>\n"
+"PO-Revision-Date: 2021-04-22 16:03+0000\n"
+"Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
+"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-1/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Bir gündən çox çalışma vaxtı"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Bir gündən az çalışma vaxtı, performans ayarlanması düzgün olmaya bilər."
 
 #: libraries/advisory_rules_generic.php:14
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Daha çox ortalamalara sahib olmaq üçün bu analyazeri çalışdırmadan öncə "
+"serverin bir gündən daha çox işləməsinə icazə verilməsi tövsiyyə edilir"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Çalışma vaxtı %s"
 
 #: libraries/advisory_rules_generic.php:22
 msgid "Questions below 1,000"
@@ -43,12 +46,16 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"1000 sualdan azı bu server üçün çalışdırılmışdır. Tövsiyyələr düzgün olmaya "
+"bilər."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Sorğuların böyük bir hissəsinin çalışdırana qədər uzun bir vaxt üçün "
+"serverin işləməsinə icacə verir."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
@@ -62,7 +69,7 @@ msgstr "Yavaş sorğuların faizi"
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "Sorğuların hamsına nəzərən çox yavaş sorğular var."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:57
@@ -70,11 +77,13 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"{long_query_time} dəyərini artırmaq istəyə bilər və ya yavaş sorğuların "
+"loglarındakı sorğuları optimallaşdıra bilərsiniz"
 
 #: libraries/advisory_rules_generic.php:46
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Yavaş sorğu faizi %%5'in altında olmalıdır, sizin dəyəriniz %%%s."
 
 #: libraries/advisory_rules_generic.php:51
 msgid "Slow query rate"
@@ -84,6 +93,7 @@ msgstr "Yavaş sorğu nisbəti"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Serverin işləmə vaxtı ilə müqayisədə yüksək miqdarda yavaş sorğular var."
 
 #: libraries/advisory_rules_generic.php:60
 #, php-format
@@ -91,6 +101,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Saat başına %s yavaş sorğu nisbətinə sahibsiniz, saat başına %%1'dən daha "
+"azına sahib olmalısınız."
 
 #: libraries/advisory_rules_generic.php:65
 msgid "Long query time"
@@ -101,17 +113,21 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} 10 saniyəyə ya da daha çoxuna ayarlanıb, buna görədə də "
+"yavaş sorğuların loglanması 10 saniyədən daha çox vaxt alır."
 
 #: libraries/advisory_rules_generic.php:73
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Mühitə uyğun olaraq {long_query_time} dəyərinin daha aza ayarlanması "
+"tövsiyyə edilir. Adətən 1-5 saniyə tövsiyyə edilir."
 
 #: libraries/advisory_rules_generic.php:76
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr ""
+msgstr "long_query_time  indilik %ds  ayarlanıb."
 
 #: libraries/advisory_rules_generic.php:81
 #: libraries/advisory_rules_generic.php:94
@@ -133,7 +149,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:90
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries 'OFF'a ayarlanıb"
 
 #: libraries/advisory_rules_generic.php:100
 msgid ""
