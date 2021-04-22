@@ -1,11 +1,14 @@
-.list-group {
-  padding-left: 40px;
-  margin: 1rem 0;
-}
+#maincontainer {
+  .list-group {
+    padding-left: 40px;
+    margin: 1rem 0;
+  }
 
-.list-group-item {
-  display: list-item;
-  border: none;
+  .list-group-item {
+    padding: 0;
+    display: list-item;
+    border: none;
+  }
 }
 
 #li_select_server,
