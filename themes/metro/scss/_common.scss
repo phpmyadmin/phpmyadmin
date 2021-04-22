@@ -19,6 +19,7 @@ body#loginform {
   margin: 0;
   background-color: #666;
 
+  .card-header,
   form#login_form label {
     display: none !important;
   }
@@ -119,6 +120,13 @@ body#loginform {
     display: none;
   }
 
+  .card-body {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .card,
   .pma-fieldset {
     border: none;
     color: $navi-color;

@@ -140,9 +140,9 @@ class HomeController extends AbstractController
             }
         }
 
-        $languageSelector = '';
+        $availableLanguages = [];
         if (empty($cfg['Lang']) && $languageManager->hasChoice()) {
-            $languageSelector = $languageManager->getSelectorDisplay($this->template);
+            $availableLanguages = $languageManager->sortedLanguages();
         }
 
         $databaseServer = [];
@@ -231,6 +231,8 @@ class HomeController extends AbstractController
         $git = new Git($this->config->get('ShowGitRevision') ?? true);
 
         $this->render('home/index', [
+            'db' => $db,
+            'table' => $table,
             'message' => $displayMessage ?? '',
             'partial_logout' => $partialLogout ?? '',
             'is_git_revision' => $git->isGitRevision(),
@@ -242,7 +244,7 @@ class HomeController extends AbstractController
             'server_selection' => $serverSelection ?? '',
             'has_change_password_link' => $cfg['Server']['auth_type'] !== 'config' && $cfg['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
-            'language_selector' => $languageSelector,
+            'available_languages' => $availableLanguages,
             'database_server' => $databaseServer,
             'web_server' => $webServer,
             'show_php_info' => $cfg['ShowPhpInfo'],

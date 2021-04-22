@@ -299,8 +299,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (is_readable($loc)) {
             $this->assertStringContainsString(
-                '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
-                'id="sel-lang">',
+                '<select name="lang" class="form-select autosubmit" lang="en" dir="ltr"'
+                . ' id="languageSelect" aria-labelledby="languageSelectLabel">',
                 $result
             );
         }
@@ -379,8 +379,8 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (is_readable($loc)) {
             $this->assertStringContainsString(
-                '<select name="lang" class="autosubmit" lang="en" dir="ltr" ' .
-                'id="sel-lang">',
+                '<select name="lang" class="form-select autosubmit" lang="en" dir="ltr"'
+                . ' id="languageSelect" aria-labelledby="languageSelectLabel">',
                 $result
             );
         }

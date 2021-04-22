@@ -13,9 +13,32 @@
 
 {{ error_messages|raw }}
 
-{% if has_languages %}
+{% if available_languages is not empty %}
   <div class='hide js-show'>
-    {{ language_selector|raw }}
+    <div class="card">
+      <div class="card-header">
+        <span id="languageSelectLabel">
+          {% trans 'Language' %}
+          {% if 'Language'|trans != 'Language' %}
+            {# For non-English, display "Language" with emphasis because it's not a proper word
+               in the current language; we show it to help people recognize the dialog #}
+            <i lang="en" dir="ltr">(Language)</i>
+          {% endif %}
+        </span>
+      </div>
+      <div class="card-body">
+        <form method="get" action="{{ url('/') }}" class="disableAjax">
+          {{ get_hidden_inputs(form_params) }}
+          <select name="lang" class="form-select autosubmit" lang="en" dir="ltr" id="languageSelect" aria-labelledby="languageSelectLabel">
+            {% for language in available_languages %}
+              <option value="{{ language.getCode()|lower }}"{{ language.isActive() ? ' selected' }}>
+                {{- language.getName()|raw -}}
+              </option>
+            {% endfor %}
+          </select>
+        </form>
+      </div>
+    </div>
   </div>
 {% endif %}
 

@@ -89,10 +89,32 @@
                 {% trans 'Appearance settings' %}
               </div>
               <ul class="list-group list-group-flush">
-                {% if language_selector is not empty %}
+                {% if available_languages is not empty %}
                   <li id="li_select_lang" class="list-group-item">
-                    {{ get_image('s_lang') }}
-                    {{ language_selector|raw }}
+                    <form method="get" action="{{ url('/') }}" class="row row-cols-lg-auto g-3 align-items-center disableAjax">
+                      {{ get_hidden_inputs({'db': db, 'table': table}) }}
+                      <div class="col-12">
+                        <label for="languageSelect" class="col-form-label text-nowrap">
+                          {{ get_image('s_lang') }}
+                          {% trans 'Language' %}
+                          {% if 'Language'|trans != 'Language' %}
+                            {# For non-English, display "Language" with emphasis because it's not a proper word
+                               in the current language; we show it to help people recognize the dialog #}
+                            <i lang="en" dir="ltr">(Language)</i>
+                          {% endif %}
+                          {{ show_docu('faq', 'faq7-2') }}
+                        </label>
+                      </div>
+                      <div class="col-12">
+                        <select name="lang" class="form-select autosubmit" lang="en" dir="ltr" id="languageSelect">
+                          {% for language in available_languages %}
+                            <option value="{{ language.getCode()|lower }}"{{ language.isActive() ? ' selected' }}>
+                              {{- language.getName()|raw -}}
+                            </option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </form>
                   </li>
                 {% endif %}
 

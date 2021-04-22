@@ -15,7 +15,6 @@ use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
@@ -181,11 +180,10 @@ class AuthenticationCookie extends AuthenticationPlugin
             )->getDisplay();
         }
 
-        $language_manager = LanguageManager::getInstance();
-        $languageSelector = '';
-        $hasLanguages = empty($GLOBALS['cfg']['Lang']) && $language_manager->hasChoice();
-        if ($hasLanguages) {
-            $languageSelector = $language_manager->getSelectorDisplay(new Template(), true, false);
+        $languageManager = LanguageManager::getInstance();
+        $availableLanguages = [];
+        if (empty($GLOBALS['cfg']['Lang']) && $languageManager->hasChoice()) {
+            $availableLanguages = $languageManager->sortedLanguages();
         }
 
         $serversOptions = '';
@@ -225,8 +223,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'login_header' => $loginHeader,
             'is_demo' => $GLOBALS['cfg']['DBG']['demo'],
             'error_messages' => $errorMessages,
-            'has_languages' => $hasLanguages,
-            'language_selector' => $languageSelector,
+            'available_languages' => $availableLanguages,
             'is_session_expired' => $session_expired,
             'has_autocomplete' => $hasAutocomplete,
             'session_id' => session_id(),

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Html\MySQLDocumentation;
-
 use function closedir;
 use function count;
 use function explode;
@@ -990,42 +988,5 @@ class LanguageManager
             __('Ignoring unsupported language code.'),
             E_USER_ERROR
         );
-    }
-
-    /**
-     * Returns HTML code for the language selector
-     *
-     * @param Template $template     Template instance
-     * @param bool     $use_fieldset whether to use fieldset for selection
-     * @param bool     $show_doc     whether to show documentation links
-     *
-     * @return string
-     *
-     * @access public
-     */
-    public function getSelectorDisplay(Template $template, $use_fieldset = false, $show_doc = true)
-    {
-        $_form_params = [
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-        ];
-
-        // For non-English, display "Language" with emphasis because it's
-        // not a proper word in the current language; we show it to help
-        // people recognize the dialog
-        $language_title = __('Language')
-            . (__('Language') !== 'Language' ? ' - <em>Language</em>' : '');
-        if ($show_doc) {
-            $language_title .= MySQLDocumentation::showDocumentation('faq', 'faq7-2');
-        }
-
-        $available_languages = $this->sortedLanguages();
-
-        return $template->render('select_lang', [
-            'language_title' => $language_title,
-            'use_fieldset' => $use_fieldset,
-            'available_languages' => $available_languages,
-            '_form_params' => $_form_params,
-        ]);
     }
 }
