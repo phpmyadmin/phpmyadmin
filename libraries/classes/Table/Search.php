@@ -187,6 +187,11 @@ final class Search
                 $criteriaValues = '%' . $criteriaValues . '%';
             }
 
+            if ($func_type === 'NOT LIKE %...%') {
+                $func_type = 'NOT LIKE';
+                $criteriaValues = '%' . $criteriaValues . '%';
+            }
+
             if ($func_type === 'REGEXP ^...$') {
                 $func_type = 'REGEXP';
                 $criteriaValues = '^' . $criteriaValues . '$';
