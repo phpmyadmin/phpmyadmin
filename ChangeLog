@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - issue        Upgrade Symfony components to version 5.2
 - issue        Upgrade to Motranslator 4
 - issue #16005 Improve the performance of the Export logic
+- issue #16829 Add "NOT LIKE %...%" operator to Table search
 
 5.1.1 (not yet released)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
