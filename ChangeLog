@@ -93,6 +93,10 @@ phpMyAdmin - ChangeLog
 - issue        Fixed "data is undefined" JS error
 - issue        Fixed 2 un-translated buttons on central columns edit
 - issue #16810 Fixed SQL query shown twice on central columns actions
+- issue #16771 Fixed PHP array export to work on very large datasets
+- issue #16847 Fixed JSON export nullable binary PHP error
+- issue #16847 Fixed JSON export text fields and binary data
+- issue #14773 Fix exporting a raw query is not working
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type

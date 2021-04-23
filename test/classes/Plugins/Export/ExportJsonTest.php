@@ -199,4 +199,51 @@ class ExportJsonTest extends AbstractTestCase
             'SELECT * FROM `test_db`.`test_table`;'
         ));
     }
+
+    public function testExportComplexData(): void
+    {
+        // normalString binaryField textField blobField
+        $this->expectOutputString(
+            '{"type":"table","name":"test_table_complex","database":"test_db","data":'
+            . "\n[\n"
+            . '{"f1":"\"\'\"><iframe onload=alert(1)>\u0448\u0435\u043b\u043b\u044b",'
+                . '"f2":"0x3078313233343638353766656665",'
+                . '"f3":"My awesome\nText","f4":"0x307861663132333466363863353766656665"},' . "\n"
+            . '{"f1":null,"f2":null,"f3":null,"f4":null},' . "\n"
+            . '{"f1":"","f2":"0x307831","f3":"\u0448\u0435\u043b\u043b\u044b","f4":"0x307832"}' . "\n"
+            . "]\n}\n"
+        );
+
+        $this->assertTrue(
+            $this->object->exportData(
+                'test_db',
+                'test_table_complex',
+                "\n",
+                'example.com',
+                'SELECT * FROM `test_db`.`test_table_complex`;'
+            )
+        );
+    }
+
+    public function testExportRawComplexData(): void
+    {
+        $this->expectOutputString(
+            '{"type":"raw","data":'
+            . "\n[\n"
+            . '{"f1":"\"\'\"><iframe onload=alert(1)>\u0448\u0435\u043b\u043b\u044b",'
+                . '"f2":"0x3078313233343638353766656665",'
+                . '"f3":"My awesome\nText","f4":"0x307861663132333466363863353766656665"},' . "\n"
+            . '{"f1":null,"f2":null,"f3":null,"f4":null},' . "\n"
+            . '{"f1":"","f2":"0x307831","f3":"\u0448\u0435\u043b\u043b\u044b","f4":"0x307832"}' . "\n"
+            . "]\n}\n"
+        );
+
+        $this->assertTrue(
+            $this->object->exportRawQuery(
+                'example.com',
+                'SELECT * FROM `test_db`.`test_table_complex`;',
+                "\n"
+            )
+        );
+    }
 }

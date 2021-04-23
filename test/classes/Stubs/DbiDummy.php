@@ -22,6 +22,7 @@ use function preg_replace;
 use function str_replace;
 use function trim;
 
+use const MYSQLI_TYPE_BLOB;
 use const MYSQLI_TYPE_DATETIME;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
@@ -2402,6 +2403,21 @@ class DbiDummy implements DbiExtension
                     ['1', 'abcd', '2011-01-20 02:00:02'],
                     ['2', 'foo', '2010-01-20 02:00:02'],
                     ['3', 'Abcd', '2012-01-20 02:00:02'],
+                ],
+            ],
+            [
+                'query' => 'SELECT * FROM `test_db`.`test_table_complex`;',
+                'columns' => ['f1', 'f2', 'f3', 'f4'],
+                'result' => [
+                    ['"\'"><iframe onload=alert(1)>шеллы', '0x12346857fefe', "My awesome\nText", '0xaf1234f68c57fefe'],
+                    [null, null, null, null],
+                    ['', '0x1', 'шеллы', '0x2'],
+                ],
+                'metadata' => [
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['charsetnr' => 33]),
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['charsetnr' => 63]),
+                    new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['charsetnr' => 23]),
+                    new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['charsetnr' => 63]),
                 ],
             ],
             [

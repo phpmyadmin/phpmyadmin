@@ -123,8 +123,14 @@ class ExportController extends AbstractController
             return;
         }
 
+        $exportType = 'table';
+        $isReturnBackFromRawExport = isset($_POST['export_type']) && $_POST['export_type'] === 'raw';
+        if (isset($_POST['raw_query']) || $isReturnBackFromRawExport) {
+            $exportType = 'raw';
+        }
+
         $options = $this->export->getOptions(
-            'table',
+            $exportType,
             $db,
             $table,
             $sql_query,
@@ -134,6 +140,7 @@ class ExportController extends AbstractController
         );
 
         $this->render('table/export/index', array_merge($options, [
+            'export_type' => $exportType,
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'message' => $message,
