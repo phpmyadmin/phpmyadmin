@@ -191,7 +191,7 @@ Navigation.loadChildNodes = function (isNode, $expandElem, callback) {
             if (callback && typeof callback === 'function') {
                 callback(data);
             }
-        } else if (data.redirect_flag === '1') {
+        } else if (typeof data !== 'undefined' && data.redirect_flag === '1') {
             if (window.location.href.indexOf('?') === -1) {
                 window.location.href += '?session_expired=1';
             } else {

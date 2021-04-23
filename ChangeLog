@@ -90,6 +90,9 @@ phpMyAdmin - ChangeLog
 - issue        Fixed a JS error on dismiss notification modal
 - issue #16793 Upgrade CodeMirror to 5.61.0 to fix a JS error on scroll in SQL query box
 - issue        Fix password management for Percona Server lacking PASSWORD function
+- issue        Fixed "data is undefined" JS error
+- issue        Fixed 2 un-translated buttons on central columns edit
+- issue #16810 Fixed SQL query shown twice on central columns actions
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
