@@ -109,8 +109,14 @@
       {% if has_captcha %}
         <script src="{{ captcha_api }}?hl={{ lang }}" async defer></script>
         {% if use_captcha_checkbox %}
-          <div class="{{ captcha_req }}" data-sitekey="{{ captcha_key }}"></div>
-          <input class="btn btn-primary" value="{% trans 'Log in' %}" type="submit" id="input_go">
+          <div class="row g-3">
+            <div class="col">
+              <div class="{{ captcha_req }}" data-sitekey="{{ captcha_key }}"></div>
+            </div>
+            <div class="col align-self-center text-end">
+              <input class="btn btn-primary" value="{% trans 'Log in' %}" type="submit" id="input_go">
+            </div>
+          </div>
         {% else %}
           <input class="btn btn-primary {{ captcha_req }}" data-sitekey="{{ captcha_key }}" data-callback="Functions_recaptchaCallback" value="{% trans 'Log in' %}" type="submit" id="input_go">
         {% endif %}
