@@ -2540,9 +2540,6 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SELECT `test_tbl`.`vc` FROM `my_db`.`test_tbl` WHERE `test`.`ser` = 2',
                 'result' => [],
-                'metadata' => [
-                    (object) ['type' => 'string'],
-                ],
             ],
             [
                 'query' => 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC',
