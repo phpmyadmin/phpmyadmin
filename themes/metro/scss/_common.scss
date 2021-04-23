@@ -127,6 +127,7 @@ body#loginform {
   }
 
   .card,
+  .card-footer,
   .pma-fieldset {
     border: none;
     color: $navi-color;
@@ -256,7 +257,7 @@ input {
   }
 
   &:not(.form-control)[type="text"],
-  &[type="password"],
+  &:not(.form-control)[type="password"],
   &:not(.form-control)[type="number"] {
     margin: 6px;
   }
@@ -343,7 +344,7 @@ select {
   background-color: $body-bg;
   max-width: 17em;
 
-  &:not(.form-control) {
+  &:not(.form-select) {
     margin: 5px;
   }
 

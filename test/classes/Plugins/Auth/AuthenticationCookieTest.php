@@ -210,30 +210,30 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->assertStringContainsString(
             '<form method="post" id="login_form" action="index.php?route=/" name="login_form" ' .
-            'class="disableAjax hide login js-show form-horizontal">',
+            'class="disableAjax hide js-show">',
             $result
         );
 
         $this->assertStringContainsString(
-            '<input type="text" name="pma_servername" id="input_servername" ' .
+            '<input type="text" name="pma_servername" id="serverNameInput" ' .
             'value="localhost"',
             $result
         );
 
         $this->assertStringContainsString(
             '<input type="text" name="pma_username" id="input_username" ' .
-            'value="pmauser" size="24" class="textfield" autocomplete="username">',
+            'value="pmauser" class="form-control" autocomplete="username">',
             $result
         );
 
         $this->assertStringContainsString(
             '<input type="password" name="pma_password" id="input_password" ' .
-            'value="" size="24" class="textfield" autocomplete="current-password">',
+            'value="" class="form-control" autocomplete="current-password">',
             $result
         );
 
         $this->assertStringContainsString(
-            '<select name="server" id="select_server" ' .
+            '<select name="server" id="select_server" class="form-select" ' .
             'onchange="document.forms[\'login_form\'].' .
             'elements[\'pma_servername\'].value = \'\'">',
             $result
@@ -307,7 +307,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->assertStringContainsString(
             '<form method="post" id="login_form" action="index.php?route=/" name="login_form"' .
-            ' class="disableAjax hide login js-show form-horizontal" autocomplete="off">',
+            ' class="disableAjax hide js-show" autocomplete="off">',
             $result
         );
 
@@ -324,7 +324,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->assertStringContainsString(
             '<input class="btn btn-primary g-recaptcha" data-sitekey="testpubkey"'
-            . ' data-callback="Functions_recaptchaCallback" value="Go" type="submit" id="input_go">',
+            . ' data-callback="Functions_recaptchaCallback" value="Log in" type="submit" id="input_go">',
             $result
         );
     }
@@ -387,7 +387,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->assertStringContainsString(
             '<form method="post" id="login_form" action="index.php?route=/" name="login_form"' .
-            ' class="disableAjax hide login js-show form-horizontal" autocomplete="off">',
+            ' class="disableAjax hide js-show" autocomplete="off">',
             $result
         );
 
@@ -408,7 +408,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
 
         $this->assertStringContainsString(
-            '<input class="btn btn-primary" value="Go" type="submit" id="input_go">',
+            '<input class="btn btn-primary" value="Log in" type="submit" id="input_go">',
             $result
         );
     }

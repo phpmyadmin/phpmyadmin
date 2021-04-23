@@ -94,7 +94,7 @@ input {
   }
 
   &:not(.form-control)[type=text],
-  &[type=password],
+  &:not(.form-control)[type=password],
   &:not(.form-control)[type=number],
   &[type=date],
   &:not(.form-check-input)[type=checkbox] {
@@ -102,7 +102,7 @@ input {
   }
 }
 
-select:not(.form-control) {
+select:not(.form-select) {
   margin: 6px;
 }
 
@@ -296,7 +296,7 @@ select {
   padding: 3px;
   background: white;
 
-  &:not(.form-control) {
+  &:not(.form-select) {
     margin: 6px;
   }
 
@@ -680,11 +680,7 @@ body#loginform {
   }
 }
 
-#login_form {
-  text-align: left;
-}
-
-#login_form .pma-fieldset.tblFooters {
+#login_form .card-footer {
   text-align: right;
 }
 
@@ -704,21 +700,6 @@ div#modalOverlay {
   width: 100%;
   background: #fff;
   z-index: 900;
-}
-
-form.login {
-  input {
-    &[type=text],
-    &[type=password] {
-      box-sizing: border-box;
-      width: 14em;
-    }
-  }
-
-  select {
-    box-sizing: border-box;
-    width: 14em;
-  }
 }
 
 label.col-3.d-flex.align-items-center {

@@ -494,14 +494,6 @@ body#loginform {
   }
 }
 
-#login_form {
-  text-align: left;
-}
-
-#login_form .pma-fieldset.tblFooters {
-  text-align: right;
-}
-
 div.container.modal_form {
   margin: 0 auto;
   width: 30em;
@@ -518,21 +510,6 @@ div#modalOverlay {
   width: 100%;
   background: #fff;
   z-index: 900;
-}
-
-form.login {
-  input {
-    &[type=text],
-    &[type=password] {
-      box-sizing: border-box;
-      width: 14em;
-    }
-  }
-
-  select {
-    box-sizing: border-box;
-    width: 14em;
-  }
 }
 
 label.col-3.d-flex.align-items-center {
