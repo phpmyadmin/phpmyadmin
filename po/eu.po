@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-24 00:48+0200\n"
+"POT-Creation-Date: 2021-04-24 01:32+0200\n"
 "PO-Revision-Date: 2017-10-18 02:39+0000\n"
 "Last-Translator: iF <info@if-matxikote.eus>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -17021,6 +17021,7 @@ msgstr "Karaktere-multzoak eta ordenamenduak"
 #: templates/server/collations/index.twig:23
 #, fuzzy
 #| msgid "Default"
+msgctxt "The collation is the default one"
 msgid "default"
 msgstr "Lehenetsia"
 

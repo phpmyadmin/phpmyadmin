@@ -16728,6 +16728,7 @@ msgstr "Jeux de caractères et interclassements"
 #: templates/server/collations/index.twig:23
 #, fuzzy
 #| msgid "(default)"
+msgctxt "The collation is the default one"
 msgid "default"
 msgstr "(Valeur par défaut)"
 

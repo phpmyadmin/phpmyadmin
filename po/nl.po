@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-24 00:48+0200\n"
+"POT-Creation-Date: 2021-04-24 01:32+0200\n"
 "PO-Revision-Date: 2021-02-25 23:50+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -16670,6 +16670,7 @@ msgstr "Karaktersets en collaties"
 #: templates/server/collations/index.twig:23
 #, fuzzy
 #| msgid "(default)"
+msgctxt "The collation is the default one"
 msgid "default"
 msgstr "standaardwaarde"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-24 00:48+0200\n"
+"POT-Creation-Date: 2021-04-24 01:32+0200\n"
 "PO-Revision-Date: 2021-04-16 22:27+0000\n"
 "Last-Translator: Alessandro Mandelli <mandelli.alessandro@ngi.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -16932,6 +16932,7 @@ msgstr "Set di caratteri e collations"
 #: templates/server/collations/index.twig:23
 #, fuzzy
 #| msgid "Default"
+msgctxt "The collation is the default one"
 msgid "default"
 msgstr "Predefinito"
 

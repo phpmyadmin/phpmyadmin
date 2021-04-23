@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-24 00:48+0200\n"
+"POT-Creation-Date: 2021-04-24 01:32+0200\n"
 "PO-Revision-Date: 2015-10-15 11:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian (latin) <https://hosted.weblate.org/projects/"
@@ -17758,6 +17758,7 @@ msgstr "Raskładki i supastaŭleńni"
 #: templates/server/collations/index.twig:23
 #, fuzzy
 #| msgid "Default"
+msgctxt "The collation is the default one"
 msgid "default"
 msgstr "Pa zmoŭčańni"
 

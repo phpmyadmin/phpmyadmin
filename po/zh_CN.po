@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-24 00:48+0200\n"
+"POT-Creation-Date: 2021-04-24 01:32+0200\n"
 "PO-Revision-Date: 2021-03-12 07:02+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -15715,6 +15715,7 @@ msgstr "字符集和排序规则"
 #: templates/server/collations/index.twig:23
 #, fuzzy
 #| msgid "(default)"
+msgctxt "The collation is the default one"
 msgid "default"
 msgstr "(默认)"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-24 00:48+0200\n"
+"POT-Creation-Date: 2021-04-24 01:32+0200\n"
 "PO-Revision-Date: 2021-02-10 13:50+0000\n"
 "Last-Translator: Michalis <michalisntovas@yahoo.gr>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -16982,6 +16982,7 @@ msgstr "Σύνολα και συνθέσεις χαρακτήρων"
 #: templates/server/collations/index.twig:23
 #, fuzzy
 #| msgid "Default"
+msgctxt "The collation is the default one"
 msgid "default"
 msgstr "Προεπιλογή"
 

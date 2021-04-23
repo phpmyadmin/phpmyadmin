@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-24 00:48+0200\n"
+"POT-Creation-Date: 2021-04-24 01:32+0200\n"
 "PO-Revision-Date: 2021-03-08 13:16+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -16346,6 +16346,7 @@ msgstr "文字セットと照合順序"
 #: templates/server/collations/index.twig:23
 #, fuzzy
 #| msgid "(default)"
+msgctxt "The collation is the default one"
 msgid "default"
 msgstr "（デフォルト値）"
 
