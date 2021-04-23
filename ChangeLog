@@ -86,6 +86,7 @@ phpMyAdmin - ChangeLog
 - issue #16771 Fixed PHP array export to work on very large datasets
 - issue #16847 Fixed JSON export nullable binary PHP error
 - issue #16847 Fixed JSON export text fields and binary data
+- issue #14773 Fix exporting a raw query is not working
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
