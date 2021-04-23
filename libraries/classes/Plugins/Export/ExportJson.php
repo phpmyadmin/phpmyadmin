@@ -20,7 +20,6 @@ use function bin2hex;
 use function explode;
 use function json_encode;
 use function stripslashes;
-use function strpos;
 
 /**
  * Handles the export for the JSON format
@@ -269,7 +268,18 @@ class ExportJson extends ExportPlugin
             $data = [];
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if ($fieldsMeta[$i]->type === 'geometry' || strpos($fieldsMeta[$i]->type, 'blob') !== false) {
+                // 63 is the binary charset, see: https://dev.mysql.com/doc/internals/en/charsets.html
+                $isBlobAndIsBinaryCharset = $fieldsMeta[$i]->type === 'blob' && $fieldsMeta[$i]->charsetnr === 63;
+                // This can occur for binary fields
+                $isBinaryString = $fieldsMeta[$i]->type === 'string' && $fieldsMeta[$i]->charsetnr === 63;
+                if (
+                    (
+                        $fieldsMeta[$i]->type === 'geometry'
+                        || $isBlobAndIsBinaryCharset
+                        || $isBinaryString
+                    )
+                    && $record[$i] !== null
+                ) {
                     // export GIS and blob types as hex
                     $record[$i] = '0x' . bin2hex($record[$i]);
                 }
