@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-24 01:32+0200\n"
-"PO-Revision-Date: 2021-01-22 02:41+0000\n"
+"PO-Revision-Date: 2021-04-24 09:46+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4347,10 +4347,8 @@ msgid "Public key for reCAPTCHA"
 msgstr "Public key for reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:982
-#, fuzzy
-#| msgid "Public key for reCAPTCHA"
 msgid "Private key for reCAPTCHA"
-msgstr "Public key for reCAPTCHA"
+msgstr "Private key for reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:983
 msgid "URL for reCAPTCHA siteverify"
@@ -6880,10 +6878,8 @@ msgid "Submit"
 msgstr "Submit"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:553
-#, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "Press escape to cancel editing."
+msgstr "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:557
 msgid ""
@@ -7882,16 +7878,12 @@ msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "The number of rows waiting to be written in INSERT DELAYED queues."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:550
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
 "The number of tables that have been opened. If opened tables is big, your "
-"table cache value is probably too small."
+"table_open_cache value is probably too small."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:554
 msgid "The number of files that are open."
@@ -9487,10 +9479,8 @@ msgstr ""
 "for it is not implemented or disabled by your configuration."
 
 #: libraries/classes/FlashMessages.php:22
-#, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "SOAP extension not found"
+msgstr "Session not found."
 
 #: libraries/classes/Footer.php:217 libraries/classes/Footer.php:221
 #: libraries/classes/Footer.php:224
@@ -12059,6 +12049,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"The routing cache could not be written, you need to adjust permissions on "
+"the folder/file \"%s\""
 
 #: libraries/classes/Routing.php:166
 #, php-format
@@ -12105,22 +12097,16 @@ msgid "SHA256 password authentication"
 msgstr "SHA256 password authentication"
 
 #: libraries/classes/Server/Plugins.php:78
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
-msgstr "Config authentication"
+msgstr "Caching sha2 authentication"
 
 #: libraries/classes/Server/Plugins.php:83
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
-msgstr "Cookie authentication"
+msgstr "Unix Socket based authentication"
 
 #: libraries/classes/Server/Plugins.php:88
-#, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
-msgstr "Native MySQL authentication"
+msgstr "Old MySQL-4.0 authentication"
 
 #: libraries/classes/Server/Privileges.php:255
 msgid "No privileges."
@@ -14362,10 +14348,8 @@ msgid "Check all"
 msgstr "Check all"
 
 #: templates/database/events/index.twig:27
-#, fuzzy
-#| msgid "Create event"
 msgid "Create new event"
-msgstr "Create event"
+msgstr "Create new event"
 
 #: templates/database/events/index.twig:36
 msgid "There are no events to display."
@@ -15076,10 +15060,8 @@ msgid "Track table"
 msgstr "Track table"
 
 #: templates/database/triggers/list.twig:27
-#, fuzzy
-#| msgid "Create trigger"
 msgid "Create new trigger"
-msgstr "Create trigger"
+msgstr "Create new trigger"
 
 #: templates/database/triggers/list.twig:36
 msgid "There are no triggers to display."
@@ -15618,20 +15600,17 @@ msgid "License"
 msgstr "Licence"
 
 #: templates/home/index.twig:269
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
-msgstr "phpMyAdmin homepage"
+msgstr "phpMyAdmin Themes"
 
 #: templates/home/index.twig:280
 msgid "Get more themes!"
 msgstr "Get more themes!"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "Schema of the %s database"
+msgstr "Screenshot of the %s theme."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
@@ -15981,7 +15960,7 @@ msgstr "Please enter a valid HEX input"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "This column can not contain a 32 chars value"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -15989,6 +15968,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"These functions are meant to return a binary result; to avoid inconsistent "
+"results you should store it in a BINARY, VARBINARY, or BLOB column."
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
@@ -16375,11 +16356,9 @@ msgid "Character sets and collations"
 msgstr "Character sets and collations"
 
 #: templates/server/collations/index.twig:23
-#, fuzzy
-#| msgid "(default)"
 msgctxt "The collation is the default one"
 msgid "default"
-msgstr "(default)"
+msgstr "default"
 
 #: templates/server/databases/index.twig:3
 msgid "Databases statistics"
@@ -17959,10 +17938,8 @@ msgid "Binary"
 msgstr "Binary"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "Value for the column \"%s\""
+msgstr "Use the NULL value for this column."
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
