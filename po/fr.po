@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-14 19:40-0300\n"
-"PO-Revision-Date: 2021-04-23 23:36+0000\n"
+"PO-Revision-Date: 2021-04-24 09:46+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -16726,8 +16726,6 @@ msgid "Character sets and collations"
 msgstr "Jeux de caractères et interclassements"
 
 #: templates/server/collations/index.twig:23
-#, fuzzy
-#| msgid "(default)"
 msgctxt "The collation is the default one"
 msgid "default"
 msgstr "par défaut"
