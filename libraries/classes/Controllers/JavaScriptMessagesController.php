@@ -342,6 +342,7 @@ final class JavaScriptMessagesController
                 'network connectivity and server status.'
             ),
             'strNoDatabasesSelected' => __('No databases selected.'),
+            'strNoTableSelected' => __('No table selected.'),
             'strNoAccountSelected' => __('No accounts selected.'),
             'strDroppingColumn' => __('Dropping column'),
             'strAddingPrimaryKey' => __('Adding primary key'),

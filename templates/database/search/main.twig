@@ -46,7 +46,7 @@
                     {% trans 'Unselect all' %}
                 </a>
             </p>
-            <select name="criteriaTables[]" multiple>
+            <select id="criteriaTables" name="criteriaTables[]" multiple>
                 {% for each_table in tables_names_only %}
                     <option value="{{ each_table }}"
                             {% if criteria_tables|length > 0 %}
