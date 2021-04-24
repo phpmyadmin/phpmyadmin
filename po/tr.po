@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-24 00:48+0200\n"
-"PO-Revision-Date: 2021-04-23 23:36+0000\n"
+"PO-Revision-Date: 2021-04-24 09:46+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -16518,8 +16518,6 @@ msgid "Character sets and collations"
 msgstr "Karakter grupları ve karşılaştırmalar"
 
 #: templates/server/collations/index.twig:23
-#, fuzzy
-#| msgid "(default)"
 msgctxt "The collation is the default one"
 msgid "default"
 msgstr "varsayılan"
