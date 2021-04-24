@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-24 01:32+0200\n"
-"PO-Revision-Date: 2021-02-25 23:50+0000\n"
+"PO-Revision-Date: 2021-04-24 09:46+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -600,7 +600,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:368
 msgid "key_buffer_size is 0"
-msgstr "key_buffer_size is 0"
+msgstr "variabele key_buffer_size is 0"
 
 #: libraries/advisory_rules_generic.php:373
 #, no-php-format
@@ -4490,9 +4490,7 @@ msgstr "Toon huidige blader query"
 
 #: libraries/classes/Config/Descriptions.php:990
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
-msgstr ""
-"Voer queries uit met de Enter-toets en voeg een nieuwe regel toe met Shift"
-"+Enter"
+msgstr "Voer queries uit met Enter en voeg een nieuwe regel toe met Shift+Enter"
 
 #: libraries/classes/Config/Descriptions.php:991
 #: templates/console/display.twig:168
@@ -8061,16 +8059,12 @@ msgstr ""
 "wachtrijen."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:550
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
-"Het aantal tabellen dat werd geopend. Indien hoog is mogelijk de "
-"tabelcachewaarde te laag."
+"Het aantal tabellen dat werd geopend. Indien geopende tabellen groot zijn, "
+"is mogelijk de table_open_cache waarde te laag."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:554
 msgid "The number of files that are open."
@@ -9707,10 +9701,8 @@ msgstr ""
 "configuratie."
 
 #: libraries/classes/FlashMessages.php:22
-#, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "PHP SOAP-extensie niet gevonden"
+msgstr "Sessie niet gevonden."
 
 #: libraries/classes/Footer.php:217 libraries/classes/Footer.php:221
 #: libraries/classes/Footer.php:224
@@ -12358,22 +12350,16 @@ msgid "SHA256 password authentication"
 msgstr "SHA256 wachtwoord authenticatie"
 
 #: libraries/classes/Server/Plugins.php:78
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
-msgstr "Configuratieauthenticatie"
+msgstr "Caching sha2 authenticatie"
 
 #: libraries/classes/Server/Plugins.php:83
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
-msgstr "Cookie-authenticatie"
+msgstr "Unix Socket gebaseerde authenticatie"
 
 #: libraries/classes/Server/Plugins.php:88
-#, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
-msgstr "MySQL authenticatie"
+msgstr "Oude MySQL-4.0 authenticatie"
 
 #: libraries/classes/Server/Privileges.php:255
 msgid "No privileges."
@@ -16261,7 +16247,7 @@ msgstr "Vul a.u.b.een geldige waarde in HEX in"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Deze kolom kan geen 32-karakter waarde bevatten"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16269,6 +16255,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Deze functies retourneren een binair resultaat; om inconsistente resultaten "
+"te voorkomen moet u deze opslaan in een BINARY, VARBINARY of BLOB kolom."
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
@@ -16668,8 +16656,6 @@ msgid "Character sets and collations"
 msgstr "Karaktersets en collaties"
 
 #: templates/server/collations/index.twig:23
-#, fuzzy
-#| msgid "(default)"
 msgctxt "The collation is the default one"
 msgid "default"
 msgstr "standaardwaarde"
@@ -18284,10 +18270,8 @@ msgid "Binary"
 msgstr "Binair"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "Waarde voor kolom \"%s\""
+msgstr "Gebruik de NULL waarde voor deze kolom."
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
