@@ -15,7 +15,7 @@ $resize-img: '../img/designer/resize.png';
 /* Designer */
 .input_tab {
   background-color: #a6c7e1;
-  color: #000;
+  color: $black;
 }
 
 .content_fullscreen {
@@ -30,8 +30,8 @@ $resize-img: '../img/designer/resize.png';
 }
 
 #canvas {
-  background-color: #fff;
-  color: #000;
+  background-color: $white;
+  color: $black;
 }
 
 canvas.designer {
@@ -45,8 +45,8 @@ canvas.designer {
 }
 
 .designer_tab {
-  background-color: #fff;
-  color: #000;
+  background-color: $white;
+  color: $black;
   border-collapse: collapse;
   border: 1px solid #aaa;
   z-index: 1;
@@ -73,13 +73,13 @@ canvas.designer {
 }
 
 .tab_field {
-  background: #fff;
-  color: #000;
+  background: $white;
+  color: $black;
   cursor: default;
 
   &:hover {
     background-color: #cfc;
-    color: #000;
+    color: $black;
     background-repeat: repeat-x;
     cursor: default;
   }
@@ -87,12 +87,12 @@ canvas.designer {
 
 .tab_field_3 {
   background-color: #ffe6e6;
-  color: #000;
+  color: $black;
   cursor: default;
 
   &:hover {
     background-color: #cfc;
-    color: #000;
+    color: $black;
     background-repeat: repeat-x;
     cursor: default;
   }
@@ -102,7 +102,7 @@ canvas.designer {
   white-space: nowrap;
   position: absolute;
   background-color: #9f9;
-  color: #000;
+  color: $black;
   z-index: 3;
   border: #0c6 solid 1px;
   display: none;
@@ -127,7 +127,7 @@ canvas.designer {
   font-weight: bold;
   margin-left: 2px;
   text-align: left;
-  background: linear-gradient(#fff, #dfe5e7 70%, #fff 70%, #fff 100%);
+  background: linear-gradient($white, #dfe5e7 70%, $white 70%, $white 100%);
   border: #ccc solid 1px;
 
   &:hover {
@@ -160,14 +160,14 @@ canvas.designer {
   padding-right: 2px;
   cursor: default;
   width: 1px;
-  color: #000;
+  color: $black;
   background: linear-gradient(#b8e6fa, #b8e6fa 6%, #cdf5fd 10%, #dbffff 10%, #9bd2f6 50%, #9bd2f6 100%);
 }
 
 .small_tab {
   vertical-align: top;
   background-color: #0064ea;
-  color: #fff;
+  color: $white;
   background-image: url($small-tab-img);
   cursor: default;
   text-align: center;
@@ -179,7 +179,7 @@ canvas.designer {
 
   &:hover {
     vertical-align: top;
-    color: #fff;
+    color: $white;
     background-color: #f96;
     cursor: default;
     padding-left: 2px;
@@ -198,7 +198,7 @@ canvas.designer {
 
   &:hover {
     vertical-align: top;
-    color: #fff;
+    color: $white;
     background-color: #f96;
     cursor: default;
     text-align: center;
@@ -211,8 +211,8 @@ canvas.designer {
 .butt {
   border: #47a solid 1px;
   font-weight: bold;
-  background-color: #fff;
-  color: #000;
+  background-color: $white;
+  color: $black;
   vertical-align: baseline;
 }
 
@@ -226,7 +226,7 @@ canvas.designer {
     padding: 0;
     border: #09c solid 1px;
     background: #fe9;
-    color: #000;
+    color: $black;
     text-decoration: none;
     vertical-align: middle;
     cursor: default;
@@ -273,13 +273,13 @@ canvas.designer {
 
 #osn_tab {
   position: absolute;
-  background-color: #fff;
-  color: #000;
+  background-color: $white;
+  color: $black;
 }
 
 .designer_header {
   background-color: #eaeef0;
-  color: #000;
+  color: $black;
   text-align: center;
   font-weight: bold;
   margin: 0;
@@ -300,7 +300,7 @@ canvas.designer {
     float: left;
     margin: 3px 1px 4px;
     height: 20px;
-    border: 1px dotted #fff;
+    border: 1px dotted $white;
   }
 
   .M_bord {
@@ -327,19 +327,19 @@ a {
   &.M_butt_Selected_down {
     border: 1px solid #c0c0bb;
     background-color: #9f9;
-    color: #000;
+    color: $black;
 
     &:hover {
       border: 1px solid #09c;
       background-color: #fe9;
-      color: #000;
+      color: $black;
     }
   }
 
   &.M_butt:hover {
     border: 1px solid #09c;
     background-color: #fe9;
-    color: #000;
+    color: $black;
   }
 }
 
@@ -394,7 +394,7 @@ a {
     text-decoration: none;
     top: 60px;
     right: 0;
-    color: #fff;
+    color: $white;
     padding: 10px 40px 10px 15px;
     background: #333 url($plus-img) 85% 55% no-repeat;
     border: 1px solid #444;
