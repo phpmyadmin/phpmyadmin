@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-13 17:47+0200\n"
-"PO-Revision-Date: 2021-03-08 13:15+0000\n"
+"PO-Revision-Date: 2021-04-24 09:46+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5.1\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -15939,7 +15939,7 @@ msgstr "有効な 16 進数の値を入力してください"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr "このカラムには32文字の値を入れることはできません"
+msgstr "このカラムに 32 文字の値を入れることはできません"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -15947,8 +15947,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
-"これらの関数はバイナリの結果を返します。一貫性のない結果を避けるために、 "
-"BINARY、 VARBINARY、 BLOB のいずれかのカラムに格納する必要があります。"
+"これらの関数はバイナリの結果を返します。一貫性のない結果にならないよう、この値は BINARY, VARBINARY, BLOB "
+"のいずれかのカラムに格納してください。"
 
 #: templates/login/form.twig:30
 msgid "Log in"
