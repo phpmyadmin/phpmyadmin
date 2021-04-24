@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-24 01:32+0200\n"
-"PO-Revision-Date: 2021-03-08 13:16+0000\n"
+"PO-Revision-Date: 2021-04-24 09:46+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5.1\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7888,16 +7888,10 @@ msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "INSERT DELAYED キューの中で書き込まれるのを待っている行数。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:550
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
-msgstr ""
-"開いているテーブルの数。開いているテーブルが多い場合はおそらくテーブルキャッ"
-"シュの値が小さすぎます。"
+msgstr "開いているテーブルの数。開いているテーブルが多い場合はおそらく table_open_cache の値が小さすぎます。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:554
 msgid "The number of files that are open."
@@ -9489,10 +9483,8 @@ msgstr ""
 "はサポートされていないか設定で無効にされています。"
 
 #: libraries/classes/FlashMessages.php:22
-#, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "SOAP 拡張が見つかりません"
+msgstr "セッションが見つかりません。"
 
 #: libraries/classes/Footer.php:217 libraries/classes/Footer.php:221
 #: libraries/classes/Footer.php:224
@@ -12089,22 +12081,16 @@ msgid "SHA256 password authentication"
 msgstr "SHA256 パスワード認証"
 
 #: libraries/classes/Server/Plugins.php:78
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
-msgstr "Config 認証"
+msgstr "キャッシュ sha2 認証"
 
 #: libraries/classes/Server/Plugins.php:83
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
-msgstr "クッキー認証"
+msgstr "Unix ソケットベースの認証"
 
 #: libraries/classes/Server/Plugins.php:88
-#, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
-msgstr "ネイティブMySQL認証"
+msgstr "旧 MySQL 4.0 認証"
 
 #: libraries/classes/Server/Privileges.php:255
 msgid "No privileges."
@@ -15946,7 +15932,7 @@ msgstr "有効な 16 進数の値を入力してください"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "このカラムに 32 文字の値を入れることはできません"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -15954,6 +15940,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"これらの関数はバイナリの結果を返します。一貫性のない結果にならないよう、この値は BINARY, VARBINARY, BLOB "
+"のいずれかのカラムに格納してください。"
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
@@ -16344,11 +16332,9 @@ msgid "Character sets and collations"
 msgstr "文字セットと照合順序"
 
 #: templates/server/collations/index.twig:23
-#, fuzzy
-#| msgid "(default)"
 msgctxt "The collation is the default one"
 msgid "default"
-msgstr "（デフォルト値）"
+msgstr "デフォルト値"
 
 #: templates/server/databases/index.twig:3
 msgid "Databases statistics"
@@ -17929,10 +17915,8 @@ msgid "Binary"
 msgstr "バイナリ"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "カラム \"%s\" に対しての値"
+msgstr "このカラムには NULL 値を使用してください。"
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
