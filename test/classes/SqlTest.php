@@ -313,7 +313,7 @@ class SqlTest extends AbstractTestCase
 
     /**
      * We can not say all the columns are from the same table if all the columns
-     * are funtion columns (table is '')
+     * are function columns (table is '')
      */
     public function testWithOnlyFunctionColumns(): void
     {
@@ -344,5 +344,222 @@ class SqlTest extends AbstractTestCase
         [$analyzedSqlResults] = ParseAnalyze::sqlQuery($sqlQuery, $db);
 
         return $analyzedSqlResults;
+    }
+
+    public function dataProviderCountQueryResults(): array
+    {
+        // sql query
+        // session tmpval
+        // num rows
+        // result
+        // just browsing
+        return [
+            [
+                'SELECT * FROM company_users WHERE id != 0 LIMIT 0, 10',
+                ['max_rows' => 250],
+                -1,
+                -1,
+            ],
+            [
+                'SELECT * FROM company_users WHERE id != 0',
+                [
+                    'max_rows' => 250,
+                    'pos' => -1,
+                ],
+                -1,
+                -2,
+            ],
+            [
+                'SELECT * FROM company_users WHERE id != 0',
+                [
+                    'max_rows' => 250,
+                    'pos' => -1,
+                ],
+                -1,
+                -2,
+            ],
+            [
+                'SELECT * FROM company_users WHERE id != 0',
+                [
+                    'max_rows' => 250,
+                    'pos' => 250,
+                ],
+                -1,
+                249,
+            ],
+            [
+                'SELECT * FROM company_users WHERE id != 0',
+                [
+                    'max_rows' => 250,
+                    'pos' => 4,
+                ],
+                2,
+                6,
+            ],
+            [
+                'SELECT * FROM company_users WHERE id != 0',
+                [
+                    'max_rows' => 'all',
+                    'pos' => 4,
+                ],
+                2,
+                2,
+            ],
+            [
+                null,
+                [],
+                2,
+                0,
+            ],
+            [
+
+                'SELECT * FROM company_users LIMIT 1,4',
+                [
+                    'max_rows' => 10,
+                    'pos' => 4,
+                ],
+                20,
+                20,
+
+            ],
+            [
+
+                'SELECT * FROM company_users',
+                [
+                    'max_rows' => 10,
+                    'pos' => 4,
+                ],
+                20,
+                4,
+            ],
+            [
+
+                'SELECT * FROM company_users WHERE not_working_count != 0',
+                [
+                    'max_rows' => 10,
+                    'pos' => 4,
+                ],
+                20,
+                0,
+            ],
+            [
+
+                'SELECT * FROM company_users WHERE working_count = 0',
+                [
+                    'max_rows' => 10,
+                    'pos' => 4,
+                ],
+                20,
+                15,
+
+            ],
+            [
+                'UPDATE company_users SET a=1 WHERE working_count = 0',
+                [
+                    'max_rows' => 10,
+                    'pos' => 4,
+                ],
+                20,
+                20,
+            ],
+            [
+                'UPDATE company_users SET a=1 WHERE working_count = 0',
+                [
+                    'max_rows' => 'all',
+                    'pos' => 4,
+                ],
+                20,
+                20,
+            ],
+            [
+                'UPDATE company_users SET a=1 WHERE working_count = 0',
+                ['max_rows' => 15],
+                20,
+                20,
+            ],
+            [
+                'SELECT * FROM company_users WHERE id != 0',
+                [
+                    'max_rows' => 250,
+                    'pos' => 4,
+                ],
+                2,
+                6,
+                true,
+            ],
+            [
+                'SELECT *, (SELECT COUNT(*) FROM tbl1) as c1, (SELECT 1 FROM tbl2) as c2 '
+                . 'FROM company_users WHERE id != 0',
+                [
+                    'max_rows' => 250,
+                    'pos' => 4,
+                ],
+                2,
+                6,
+                true,
+            ],
+            [
+
+                'SELECT * FROM company_users',
+                [
+                    'max_rows' => 10,
+                    'pos' => 4,
+                ],
+                20,
+                18,
+                true,
+            ],
+            [
+                'SELECT *, 1, (SELECT COUNT(*) FROM tbl1) as c1, '
+                . '(SELECT 1 FROM tbl2) as c2 FROM company_users WHERE subquery_case = 0',
+                [
+                    'max_rows' => 10,
+                    'pos' => 4,
+                ],
+                20,
+                42,
+
+            ],
+            [
+                'SELECT ( as c2 FROM company_users WHERE working_count = 0',// Invalid query
+                ['max_rows' => 10],
+                20,
+                20,
+
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider dataProviderCountQueryResults
+     */
+    public function testCountQueryResults(
+        ?string $sqlQuery,
+        array $sessionTmpVal,
+        int $numRows,
+        int $expectedNumRows,
+        bool $justBrowsing = false
+    ): void {
+        if ($justBrowsing) {
+            $GLOBALS['cfg']['Server']['DisableIS'] = true;
+        }
+
+        $_SESSION['tmpval'] = $sessionTmpVal;
+
+        $analyzed_sql_results = $sqlQuery === null ? [] : $this->parseAndAnalyze($sqlQuery);
+
+        $result = $this->callFunction(
+            $this->sql,
+            Sql::class,
+            'countQueryResults',
+            [
+                $numRows,
+                $justBrowsing,
+                'my_dataset',// db
+                'company_users',// table
+                $analyzed_sql_results,
+            ]
+        );
+        $this->assertSame($expectedNumRows, $result);
     }
 }

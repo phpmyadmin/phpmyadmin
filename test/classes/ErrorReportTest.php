@@ -227,6 +227,68 @@ class ErrorReportTest extends AbstractTestCase
         );
     }
 
+    public function testTruncateJsTrace(): void
+    {
+        $context = [
+            '        success: function (response) {',
+            '            Functions.ajaxRemoveMessage($msgbox);',
+            '            if (response.success) {',
+            '                // Get the column min value.',
+            '                var min = response.column_data.min',
+            '                    ? \'(\' + Messages.strColumnMin +',
+            '    this.completion.cm.removeKeyMap(this.keyMap);',
+            '                        \' \' + response.column_data.min + \')\'',
+            '                    : \'\';',
+            '    if (this.completion.options.closeOnUnfocus) {',
+            '      cm.off("blur", this.onBlur);',
+        ];
+
+        $data = [
+            'mode' => 'stack',
+            'name' => 'TypeError',
+            'message' => 'Cannot read property \'removeChild\' of null',
+            'stack' => [
+                [
+                    'url' => 'http://pma.7.3.local/js/vendor/codemirror/addon/hint/show-hint.js?v=4.8.6-dev',
+                    'func' => 'Widget.close',
+                    'line' => 307,
+                    'column' => 29,
+                    'context' => $context,
+                ],
+                [
+                    'func' => 'Object.fireWith [as resolveWith]',
+                    'line' => '2',
+                    'column' => '29039',
+                    'context' => [
+                        '/*! jQuery v3.5.1 | (c) JS Foundation and other contributors | jquery.org/license */',
+                        '!function(e,t){"use strict";"object"==typeof module&&'
+                            . '"object"==typeof module.exports?module.exports=e.document?t',
+                    ],
+                    'url' => 'js/vendor/jquery/jquery.min.js?v=5.1.0-rc2',
+                    'scriptname' => 'js/vendor/jquery/jquery.min.js',
+                ],
+            ],
+            'url' => 'http://pma.7.3.local/index.php?route=/table/sql&db=aaaaa&table=a&server=14',
+        ];
+        $_POST['exception'] = $data;
+
+        $actual = $this->errorReport->getData('js');
+        // Adjust the data
+        unset($data['stack'][0]['url']);
+        $data['stack'][0]['uri'] = 'js/vendor/codemirror/addon/hint/show-hint.js?v=4.8.6-dev';
+        $data['stack'][0]['scriptname'] = 'js/vendor/codemirror/addon/hint/show-hint.js';
+        unset($data['stack'][1]['url']);
+        $data['stack'][1]['uri'] = 'js/vendor/jquery/jquery.min.js?v=5.1.0-rc2';
+        unset($data['url']);
+        $data['uri'] = 'index.php?route=%2Ftable%2Fsql';
+        $data['stack'][1]['context'][0] = '/*! jQuery v3.5.1 | (c) JS Foundation'
+                                        . ' and other contributors | jquery.org/l//...';
+        $data['stack'][1]['context'][1] = '!function(e,t){"use strict";"object"='
+                                        . '=typeof module&&"object"==typeof modul//...';
+
+        $this->assertEquals($data, $actual['exception']);
+    }
+
     /**
      * The urls to be tested for sanitization
      *

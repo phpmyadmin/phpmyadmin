@@ -953,6 +953,11 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                    . ' WHERE TABLE_SCHEMA = \'my_dataset\' AND TABLE_NAME = \'company_users\'',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'my_db\' '
                     . 'AND TABLE_NAME = \'test_tbl\' AND IS_UPDATABLE = \'YES\'',
                 'result' => [],
@@ -1468,7 +1473,7 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query'  => "SHOW FULL TABLES FROM `default` WHERE `Table_type`IN('BASE TABLE', 'SYSTEM VERSIONED')",
+                'query'  => "SHOW FULL TABLES FROM `default` WHERE `Table_type` IN('BASE TABLE', 'SYSTEM VERSIONED')",
                 'result' => [
                     [
                         'test1',
@@ -1482,7 +1487,7 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query'  => 'SHOW FULL TABLES FROM `default` '
-                    . "WHERE `Table_type`NOT IN('BASE TABLE', 'SYSTEM VERSIONED')",
+                    . "WHERE `Table_type` NOT IN('BASE TABLE', 'SYSTEM VERSIONED')",
                 'result' => [],
             ],
             [
@@ -1576,6 +1581,10 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query'  => "SHOW TABLE STATUS FROM `db` WHERE `Name` LIKE 'table%'",
+                'result' => [],
+            ],
+            [
+                'query'  => "SHOW TABLE STATUS FROM `my_dataset` WHERE `Name` LIKE 'company\_users%'",
                 'result' => [],
             ],
             [
@@ -2564,6 +2573,34 @@ class DbiDummy implements DbiExtension
                 'query' => 'SELECT * FROM `mysql`.`user` WHERE `User` = \'username\' AND `Host` = \'hostname\';',
                 'columns' => ['Host', 'User', 'Password'],
                 'result' => [['hostname', 'username', 'password']],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM company_users WHERE not_working_count != 0',
+                'result' => false,
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM company_users',
+                'result' => [
+                    [4],
+                ],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM company_users WHERE working_count = 0',
+                'result' => [
+                    [15],
+                ],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM `my_dataset`.`company_users`',
+                'result' => [
+                    [18],
+                ],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM company_users WHERE subquery_case = 0',
+                'result' => [
+                    [42],
+                ],
             ],
         ];
         /**

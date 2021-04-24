@@ -240,8 +240,16 @@ class DatabaseInterface implements DbalInterface
 
                 syslog(
                     LOG_INFO,
-                    'SQL[' . basename($_SERVER['SCRIPT_NAME']) . ']: '
-                    . sprintf('%0.3f', $time) . '(W:' . $warningsCount . ') > ' . $query
+                    sprintf(
+                        'SQL[%s?route=%s]: %0.3f(W:%s,C:%s,L:0x%02X) > %s',
+                        basename($_SERVER['SCRIPT_NAME']),
+                        Routing::getCurrentRoute(),
+                        $time,
+                        $warningsCount,
+                        $cache_affected_rows ? 'y' : 'n',
+                        $link,
+                        $query
+                    )
                 );
                 closelog();
             }
