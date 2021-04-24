@@ -1,17 +1,7 @@
 @import "../../bootstrap/scss/breadcrumb";
 
 .breadcrumb-navbar {
-  text-shadow: 0 1px 0 #000;
-
-  .breadcrumb-item {
-    + .breadcrumb-comment {
-      padding-left: 0.5rem;
-    }
-
-    a {
-      color: #fff;
-    }
-  }
+  font-weight: bold;
 
   .breadcrumb-comment {
     color: #d6d6d6;
