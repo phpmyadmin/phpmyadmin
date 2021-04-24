@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - issue        Upgrade to Motranslator 4
 - issue #16005 Improve the performance of the Export logic
 - issue #16829 Add "NOT LIKE %...%" operator to Table search
+- issue #16845 Fixed some links not passing through url.php
 
 5.1.1 (not yet released)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
