@@ -803,6 +803,11 @@ class Sql
                 $statement = $analyzed_sql_results['statement'];
                 $token_list = $analyzed_sql_results['parser']->list;
                 $replaces = [
+                    // Replace select by COUNT
+                    [
+                        'SELECT',
+                        'SELECT COUNT(*)',
+                    ],
                     // Remove ORDER BY to decrease unnecessary sorting time
                     [
                         'ORDER BY',
@@ -819,7 +824,10 @@ class Sql
                     $token_list,
                     $replaces
                 );
-                $unlim_num_rows = $this->dbi->numRows($this->dbi->tryQuery($count_query));
+                $unlim_num_rows = $this->dbi->fetchValue($count_query);
+                if ($unlim_num_rows === false) {
+                    $unlim_num_rows = 0;
+                }
             }
         } else {// not $is_select
             $unlim_num_rows = 0;

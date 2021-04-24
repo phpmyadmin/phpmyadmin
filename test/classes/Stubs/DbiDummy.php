@@ -949,6 +949,11 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                    . ' WHERE TABLE_SCHEMA = \'my_dataset\' AND TABLE_NAME = \'company_users\'',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'my_db\' '
                     . 'AND TABLE_NAME = \'test_tbl\' AND IS_UPDATABLE = \'YES\'',
                 'result' => [],
@@ -1572,6 +1577,10 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query'  => "SHOW TABLE STATUS FROM `db` WHERE `Name` LIKE 'table%'",
+                'result' => [],
+            ],
+            [
+                'query'  => "SHOW TABLE STATUS FROM `my_dataset` WHERE `Name` LIKE 'company\_users%'",
                 'result' => [],
             ],
             [
@@ -2393,6 +2402,34 @@ class DbiDummy implements DbiExtension
                 'result' => [],
                 'metadata' => [
                     (object) ['type' => 'string'],
+                ],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM company_users WHERE not_working_count != 0',
+                'result' => false,
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM company_users',
+                'result' => [
+                    [4],
+                ],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM company_users WHERE working_count = 0',
+                'result' => [
+                    [15],
+                ],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM `my_dataset`.`company_users`',
+                'result' => [
+                    [18],
+                ],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM company_users WHERE subquery_case = 0',
+                'result' => [
+                    [42],
                 ],
             ],
         ];
