@@ -2040,13 +2040,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             // start grid-editing
                             startGridEditing(e, this);
                         }
-                    } else {// If it is not a link or it is a double tap then call startGridEditing
-                        // this is a double click, cancel the single click timer
-                        // and make the click count 0
-                        clearTimeout($cell.data('timer'));
-                        $cell.data('clicks', 0);
-                        // start grid-editing
-                        startGridEditing(e, this);
                     }
                 })
                 .on('dblclick', function (e) {
