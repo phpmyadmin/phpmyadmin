@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-13 17:47+0200\n"
+"POT-Creation-Date: 2021-04-25 14:28+0200\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/"
@@ -4532,8 +4532,8 @@ msgstr "Baris textarea"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
-#: libraries/classes/Server/Privileges.php:1945
-#: libraries/classes/Server/Privileges.php:1947
+#: libraries/classes/Server/Privileges.php:1946
+#: libraries/classes/Server/Privileges.php:1948
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4562,8 +4562,8 @@ msgstr "Server"
 #: libraries/classes/Config/Descriptions.php:966
 #: libraries/classes/Database/Triggers.php:398
 #: libraries/classes/Plugins/Export/ExportXml.php:521
-#: libraries/classes/Server/Privileges.php:1951
-#: libraries/classes/Server/Privileges.php:1953
+#: libraries/classes/Server/Privileges.php:1952
+#: libraries/classes/Server/Privileges.php:1954
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4816,9 +4816,9 @@ msgstr "Tidak aktif"
 #: libraries/classes/Controllers/Database/StructureController.php:1536
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 #: libraries/classes/Controllers/Table/DeleteController.php:56
-#: libraries/classes/Controllers/Table/StructureController.php:481
-#: libraries/classes/Controllers/Table/StructureController.php:505
-#: libraries/classes/Controllers/Table/StructureController.php:552
+#: libraries/classes/Controllers/Table/StructureController.php:463
+#: libraries/classes/Controllers/Table/StructureController.php:487
+#: libraries/classes/Controllers/Table/StructureController.php:531
 #: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:524
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:666
 #: libraries/classes/Plugins/Export/ExportLatex.php:639
@@ -4974,7 +4974,7 @@ msgstr "Teks OpenDocument"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 #: libraries/classes/Menu.php:312 libraries/classes/Menu.php:426
-#: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1621
+#: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1622
 #: libraries/classes/Util.php:2478 libraries/classes/Util.php:2493
 #: libraries/classes/Util.php:2510 templates/database/events/index.twig:58
 #: templates/database/events/index.twig:91
@@ -5682,7 +5682,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:663
 #: libraries/classes/Controllers/SqlController.php:371
-#: libraries/classes/Sql.php:1233
+#: libraries/classes/Sql.php:1241
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Markah %s telah dibuat."
@@ -5999,13 +5999,13 @@ msgstr "Nama pengguna kosong!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
 #: libraries/classes/Server/Privileges.php:1024
-#: libraries/classes/UserPassword.php:39
+#: libraries/classes/UserPassword.php:40
 msgid "The password is empty!"
 msgstr "Kata sandi kosong!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 #: libraries/classes/Server/Privileges.php:1022
-#: libraries/classes/UserPassword.php:43
+#: libraries/classes/UserPassword.php:44
 msgid "The passwords aren't the same!"
 msgstr "Kata sandi tidak sama!"
 
@@ -6239,7 +6239,7 @@ msgstr "Harap tambahkan paling tidak satu variabel ke dalam seri!"
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:590 templates/export.twig:355
+#: templates/database/designer/main.twig:591 templates/export.twig:355
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
@@ -6605,13 +6605,14 @@ msgid "No parameters found!"
 msgstr "Tidak ada parameter ditemukan!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
-#: templates/database/designer/main.twig:341
-#: templates/database/designer/main.twig:392
-#: templates/database/designer/main.twig:670
-#: templates/database/designer/main.twig:736
-#: templates/database/designer/main.twig:875
-#: templates/database/designer/main.twig:960
-#: templates/database/designer/main.twig:1065
+#: templates/database/central_columns/main.twig:271
+#: templates/database/designer/main.twig:342
+#: templates/database/designer/main.twig:393
+#: templates/database/designer/main.twig:671
+#: templates/database/designer/main.twig:737
+#: templates/database/designer/main.twig:876
+#: templates/database/designer/main.twig:961
+#: templates/database/designer/main.twig:1066
 #: templates/server/variables/index.twig:15
 msgid "Cancel"
 msgstr "Batal"
@@ -6679,12 +6680,12 @@ msgid "Adding primary key"
 msgstr "Menambahkan kunci primer"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:346
-#: templates/console/display.twig:129 templates/database/designer/main.twig:339
-#: templates/database/designer/main.twig:668
-#: templates/database/designer/main.twig:732
-#: templates/database/designer/main.twig:871
-#: templates/database/designer/main.twig:956
-#: templates/database/designer/main.twig:1063
+#: templates/console/display.twig:129 templates/database/designer/main.twig:340
+#: templates/database/designer/main.twig:669
+#: templates/database/designer/main.twig:733
+#: templates/database/designer/main.twig:872
+#: templates/database/designer/main.twig:957
+#: templates/database/designer/main.twig:1064
 msgid "OK"
 msgstr "Oke"
 
@@ -6795,7 +6796,7 @@ msgstr "Tampilkan kotak kueri"
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:385
 #: templates/database/central_columns/main.twig:386
-#: templates/database/designer/main.twig:390
+#: templates/database/designer/main.twig:391
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:218
@@ -6997,6 +6998,7 @@ msgstr "Dependensi belum dipilih!"
 #: libraries/classes/InsertEdit.php:1888
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:20
+#: templates/database/central_columns/main.twig:274
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/table/relation/common_form.twig:222
@@ -7796,7 +7798,7 @@ msgstr ""
 "Username dan hostname tidak berubah. Jika Anda hanya ingin mengubah "
 "password, tab 'Ganti password' harus digunakan."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:416
+#: libraries/classes/Controllers/Server/PrivilegesController.php:417
 msgid "User has been added."
 msgstr "Pengguna %s telah ditambahkan."
 
@@ -7818,7 +7820,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Server/Privileges.php:3002
+#: libraries/classes/Server/Privileges.php:3001
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Pengguna"
@@ -8707,15 +8709,15 @@ msgstr "Bookmark tidak dibuat!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:246
-#: libraries/classes/Controllers/Table/StructureController.php:1019
-#: libraries/classes/Controllers/Table/StructureController.php:1246
+#: libraries/classes/Controllers/Table/StructureController.php:995
+#: libraries/classes/Controllers/Table/StructureController.php:1222
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabel %1$s berhasil diubah."
 
 #: libraries/classes/Controllers/Table/ChangeController.php:304
 #: libraries/classes/Controllers/Table/DeleteController.php:121
-#: libraries/classes/Controllers/Table/ExportController.php:145
+#: libraries/classes/Controllers/Table/ExportController.php:152
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No row selected."
@@ -8782,7 +8784,7 @@ msgstr "Terlalu banyak join tanpa indeks."
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
 #: libraries/classes/Database/Routines.php:1503
 #: libraries/classes/Import.php:156 libraries/classes/InsertEdit.php:226
-#: libraries/classes/Sql.php:1038
+#: libraries/classes/Sql.php:1046
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL memberikan hasil kosong (atau nol baris)."
 
@@ -8835,40 +8837,40 @@ msgstr "Baris: %1$s, Kolom: %2$s, Kesalahan: %3$s"
 #: libraries/classes/Controllers/Table/StructureController.php:210
 #: libraries/classes/Controllers/Table/StructureController.php:233
 #: libraries/classes/Controllers/Table/StructureController.php:249
-#: libraries/classes/Controllers/Table/StructureController.php:282
-#: libraries/classes/Controllers/Table/StructureController.php:316
-#: libraries/classes/Controllers/Table/StructureController.php:355
-#: libraries/classes/Controllers/Table/StructureController.php:394
-#: libraries/classes/Controllers/Table/StructureController.php:433
-#: libraries/classes/Controllers/Table/StructureController.php:473
-#: libraries/classes/Controllers/Table/StructureController.php:545
-#: libraries/classes/Controllers/Table/StructureController.php:589
+#: libraries/classes/Controllers/Table/StructureController.php:279
+#: libraries/classes/Controllers/Table/StructureController.php:310
+#: libraries/classes/Controllers/Table/StructureController.php:346
+#: libraries/classes/Controllers/Table/StructureController.php:382
+#: libraries/classes/Controllers/Table/StructureController.php:418
+#: libraries/classes/Controllers/Table/StructureController.php:455
+#: libraries/classes/Controllers/Table/StructureController.php:524
+#: libraries/classes/Controllers/Table/StructureController.php:565
 msgid "No column selected."
 msgstr "Tidak ada kolom yang dipilih."
 
-#: libraries/classes/Controllers/Table/StructureController.php:733
+#: libraries/classes/Controllers/Table/StructureController.php:709
 msgid "The columns have been moved successfully."
 msgstr "Kolom sukses dipindah."
 
-#: libraries/classes/Controllers/Table/StructureController.php:770
+#: libraries/classes/Controllers/Table/StructureController.php:746
 #, fuzzy, php-format
 #| msgid "Failed to get real row count."
 msgid "Failed to get description of column %s!"
 msgstr "Gagal mengambil jumlah baris sebenarnya."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1011
-#: libraries/classes/Controllers/Table/StructureController.php:1297
+#: libraries/classes/Controllers/Table/StructureController.php:987
+#: libraries/classes/Controllers/Table/StructureController.php:1273
 #: libraries/classes/Tracking.php:774
 msgid "Query error"
 msgstr "Galat kueri"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1240
+#: libraries/classes/Controllers/Table/StructureController.php:1216
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabel %1$s berhasil diubah. Hak telah disesuaikan."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1524
+#: libraries/classes/Controllers/Table/StructureController.php:1500
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -8878,7 +8880,7 @@ msgstr "Tabel %1$s berhasil diubah. Hak telah disesuaikan."
 msgid "Primary"
 msgstr "Utama"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1529
+#: libraries/classes/Controllers/Table/StructureController.php:1505
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8890,7 +8892,7 @@ msgstr "Utama"
 msgid "Index"
 msgstr "Indeks"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1781
+#: libraries/classes/Controllers/Table/StructureController.php:1757
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -9211,7 +9213,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Tidak ada event dengan nama %1$s ditemukan dalam basis data %2$s."
 
-#: libraries/classes/DatabaseInterface.php:1100
+#: libraries/classes/DatabaseInterface.php:1108
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -9228,20 +9230,20 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin saat ini menggunakan zona waktu semula "
 "dari server database."
 
-#: libraries/classes/DatabaseInterface.php:1147
+#: libraries/classes/DatabaseInterface.php:1155
 msgid "Failed to set configured collation connection!"
 msgstr "Gagal untuk menyetel pemeriksaan koneksi yang telah terkonfigurasi!"
 
-#: libraries/classes/DatabaseInterface.php:1934
+#: libraries/classes/DatabaseInterface.php:1942
 msgid "Missing connection parameters!"
 msgstr "Parameter koneksi hilang!"
 
-#: libraries/classes/DatabaseInterface.php:1963
+#: libraries/classes/DatabaseInterface.php:1971
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Koneksi untuk controluser yang di definisikan di konfigurasi Anda gagal."
 
-#: libraries/classes/DatabaseInterface.php:2463
+#: libraries/classes/DatabaseInterface.php:2471
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Lihat %sdokumentasi kami%s untuk informasi lebih lanjut."
@@ -9417,7 +9419,7 @@ msgstr "Panjang/Nilai"
 #: libraries/classes/Plugins/Export/ExportCsv.php:47
 #: libraries/classes/Plugins/Export/ExportExcel.php:34
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:47
-#: libraries/classes/Plugins/Export/ExportJson.php:74
+#: libraries/classes/Plugins/Export/ExportJson.php:73
 #: libraries/classes/Plugins/Export/ExportLatex.php:72
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:46
 #: libraries/classes/Plugins/Export/ExportOds.php:52
@@ -9599,10 +9601,10 @@ msgstr "Fungsi"
 
 #: libraries/classes/Database/Routines.php:1660
 #: libraries/classes/InsertEdit.php:2007
-#: templates/database/designer/main.twig:486
-#: templates/database/designer/main.twig:651
-#: templates/database/designer/main.twig:857
-#: templates/database/designer/main.twig:1050
+#: templates/database/designer/main.twig:487
+#: templates/database/designer/main.twig:652
+#: templates/database/designer/main.twig:858
+#: templates/database/designer/main.twig:1051
 #: templates/server/replication/status_table.twig:17
 #: templates/server/status/variables/index.twig:73
 #: templates/server/variables/index.twig:32
@@ -9849,7 +9851,7 @@ msgstr "total %1$d, %2$d dalam kueri"
 msgid "%d total"
 msgstr "total %d"
 
-#: libraries/classes/Display/Results.php:4519 libraries/classes/Sql.php:1044
+#: libraries/classes/Display/Results.php:4519 libraries/classes/Sql.php:1052
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Pencarian dilakukan dalam %01.4f detik."
@@ -10331,7 +10333,7 @@ msgstr "Informasi Git hilang!"
 msgid "Open new phpMyAdmin window"
 msgstr "Buka jendela phpMyAdmin baru"
 
-#: libraries/classes/Header.php:368
+#: libraries/classes/Header.php:367
 msgid "Print view"
 msgstr "Tampilan cetak"
 
@@ -10408,7 +10410,7 @@ msgstr "Data statis:"
 msgid "%d errors were found during analysis."
 msgstr "%d kesalahan ditemukan dalam analisis."
 
-#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1052
+#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1060
 msgid "[ROLLBACK occurred.]"
 msgstr "[Terjadi ROLLBACK.]"
 
@@ -10615,11 +10617,11 @@ msgstr "Kolom"
 msgid "Null"
 msgstr "Tak Ternilai"
 
-#: libraries/classes/InsertEdit.php:2402 libraries/classes/Sql.php:1035
+#: libraries/classes/InsertEdit.php:2402 libraries/classes/Sql.php:1043
 msgid "Showing SQL query"
 msgstr "Menampilkan kueri SQL"
 
-#: libraries/classes/InsertEdit.php:2428 libraries/classes/Sql.php:1013
+#: libraries/classes/InsertEdit.php:2428 libraries/classes/Sql.php:1021
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Nomor baris baru: %1$d"
@@ -10677,7 +10679,7 @@ msgid "Insert"
 msgstr "Tambahkan"
 
 #: libraries/classes/Menu.php:332 libraries/classes/Menu.php:450
-#: libraries/classes/Server/Privileges.php:2976 libraries/classes/Util.php:2496
+#: libraries/classes/Server/Privileges.php:2975 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:2512 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -11652,12 +11654,12 @@ msgstr "Struktur untuk view"
 msgid "Stand-in structure for view"
 msgstr "Stand-in struktur untuk tampilan"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:91
+#: libraries/classes/Plugins/Export/ExportJson.php:90
 #, fuzzy
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr "Keluaran JSON cukup-print (Gunakan format terbaca-manusia)"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:97
+#: libraries/classes/Plugins/Export/ExportJson.php:96
 msgid "Output unicode characters unescaped"
 msgstr "Karakter unicode output tidak terpengaruh"
 
@@ -12829,11 +12831,11 @@ msgstr "Ingat urutan tabel"
 msgid "Saving export templates"
 msgstr "Jenis ekspor invalid"
 
-#: libraries/classes/Relation.php:1845
+#: libraries/classes/Relation.php:1835
 msgid "no description"
 msgstr "tidak ada deskripsi"
 
-#: libraries/classes/Relation.php:2045
+#: libraries/classes/Relation.php:2035
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
@@ -12843,7 +12845,7 @@ msgstr ""
 "database bernama 'phpmyadmin'. Anda bisa ke tab 'Operasi' database untuk "
 "mengatur penyimpanan konfigurasi phpMyAdmin disana."
 
-#: libraries/classes/Relation.php:2167
+#: libraries/classes/Relation.php:2157
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
@@ -12851,14 +12853,14 @@ msgid ""
 "configuration storage there."
 msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
 
-#: libraries/classes/Relation.php:2175
+#: libraries/classes/Relation.php:2165
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
 
-#: libraries/classes/Relation.php:2183
+#: libraries/classes/Relation.php:2173
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
@@ -13209,7 +13211,7 @@ msgstr "Mengizinkan eksekusi routine tersimpan."
 
 #: libraries/classes/Server/Privileges.php:793
 #: libraries/classes/Server/Privileges.php:867
-#: libraries/classes/Server/Privileges.php:3969
+#: libraries/classes/Server/Privileges.php:3968
 msgid "Native MySQL authentication"
 msgstr "Autentikasi asli MySQL"
 
@@ -13217,24 +13219,24 @@ msgstr "Autentikasi asli MySQL"
 msgid "SHA256 password authentication"
 msgstr "Autentikasi kata sandi SHA256"
 
-#: libraries/classes/Server/Privileges.php:1163
+#: libraries/classes/Server/Privileges.php:1164
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Sukses mengubah Kata Sandi untuk %s ."
 
-#: libraries/classes/Server/Privileges.php:1212
+#: libraries/classes/Server/Privileges.php:1213
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Anda telah mencabut hak akses untuk %s."
 
-#: libraries/classes/Server/Privileges.php:1548
+#: libraries/classes/Server/Privileges.php:1549
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 #, fuzzy
 msgid "Not enough privilege to view users."
 msgstr "Hak akses tidak cukup untuk melihat pengguna."
 
-#: libraries/classes/Server/Privileges.php:1615
+#: libraries/classes/Server/Privileges.php:1616
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -13244,66 +13246,66 @@ msgstr "Hak akses tidak cukup untuk melihat pengguna."
 msgid "Edit privileges"
 msgstr "Edit Hak Akses"
 
-#: libraries/classes/Server/Privileges.php:1618
+#: libraries/classes/Server/Privileges.php:1619
 msgid "Revoke"
 msgstr "Cabut"
 
-#: libraries/classes/Server/Privileges.php:1946
+#: libraries/classes/Server/Privileges.php:1947
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Hak akses khusus basis data"
 
-#: libraries/classes/Server/Privileges.php:1952
+#: libraries/classes/Server/Privileges.php:1953
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Hak akses khusus tabel"
 
-#: libraries/classes/Server/Privileges.php:1957
-#: libraries/classes/Server/Privileges.php:1959
+#: libraries/classes/Server/Privileges.php:1958
+#: libraries/classes/Server/Privileges.php:1960
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "Rutinitas"
 
-#: libraries/classes/Server/Privileges.php:1958
+#: libraries/classes/Server/Privileges.php:1959
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Hak akses khusus kolom"
 
-#: libraries/classes/Server/Privileges.php:2306
+#: libraries/classes/Server/Privileges.php:2307
 msgid "No users selected for deleting!"
 msgstr "Tidak ada pengguna yang dipilih untuk dihapus!"
 
-#: libraries/classes/Server/Privileges.php:2309
+#: libraries/classes/Server/Privileges.php:2310
 msgid "Reloading the privileges"
 msgstr "Memuat hak akses"
 
-#: libraries/classes/Server/Privileges.php:2332
+#: libraries/classes/Server/Privileges.php:2333
 msgid "The selected users have been deleted successfully."
 msgstr "Sukses menghapus pengguna yang dipilih."
 
-#: libraries/classes/Server/Privileges.php:2409
+#: libraries/classes/Server/Privileges.php:2410
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Anda telah memperbarui hak akses untuk %s."
 
-#: libraries/classes/Server/Privileges.php:2496
+#: libraries/classes/Server/Privileges.php:2497
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Pengguna tidak ditemukan."
 
-#: libraries/classes/Server/Privileges.php:2577
+#: libraries/classes/Server/Privileges.php:2578
 #, php-format
 msgid "Deleting %s"
 msgstr "Menghapus %s"
 
-#: libraries/classes/Server/Privileges.php:2608
+#: libraries/classes/Server/Privileges.php:2609
 msgid "The privileges were reloaded successfully."
 msgstr "Hak akses berhasil dimuat ulang."
 
@@ -13312,12 +13314,12 @@ msgstr "Hak akses berhasil dimuat ulang."
 msgid "The user %s already exists!"
 msgstr "Pengguna %s telah terdaftar!"
 
-#: libraries/classes/Server/Privileges.php:2993
+#: libraries/classes/Server/Privileges.php:2992
 #, php-format
 msgid "Privileges for %s"
 msgstr "Hak akses untuk %s"
 
-#: libraries/classes/Server/Privileges.php:3132
+#: libraries/classes/Server/Privileges.php:3131
 #, fuzzy
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
@@ -13329,7 +13331,7 @@ msgstr ""
 "jika bagian host dari account mereka memungkinkan koneksi dari setiap (%) "
 "host."
 
-#: libraries/classes/Server/Privileges.php:3175
+#: libraries/classes/Server/Privileges.php:3174
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13348,7 +13350,7 @@ msgstr ""
 "diubah secara manual. Disarankan untuk %sme-reload profil pengguna%s sebelum "
 "melanjut."
 
-#: libraries/classes/Server/Privileges.php:3191
+#: libraries/classes/Server/Privileges.php:3190
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13368,7 +13370,7 @@ msgstr ""
 "diubah secara manual. Disarankan untuk %sme-reload profil pengguna%s sebelum "
 "melanjut."
 
-#: libraries/classes/Server/Privileges.php:3527
+#: libraries/classes/Server/Privileges.php:3526
 msgid "You have added a new user."
 msgstr "Pengguna baru telah ditambahkan."
 
@@ -13501,11 +13503,11 @@ msgstr "Tidak ada versi stabil baru yang tersedia"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Menggunakan markah \"%s\" sebagai kueri penjelajahan bawaan."
 
-#: libraries/classes/Sql.php:1032
+#: libraries/classes/Sql.php:1040
 msgid "Showing as PHP code"
 msgstr "Tampilkan sebagai kode PHP"
 
-#: libraries/classes/Sql.php:1415
+#: libraries/classes/Sql.php:1423
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -13518,7 +13520,7 @@ msgstr ""
 "grid, kotak centang, Edit, Copy dan Delete link mungkin tidak bekerja "
 "setelah disimpan."
 
-#: libraries/classes/Sql.php:1429
+#: libraries/classes/Sql.php:1437
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -13648,7 +13650,7 @@ msgstr "Bagian indeks belum diberi definisin!"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Kesalahan membuat kunci asing pada %1$s (periksa tipe data)"
 
-#: libraries/classes/Template.php:108
+#: libraries/classes/Template.php:111
 #, fuzzy, php-format
 #| msgid "Error while loading the search."
 msgid "Error while working with template cache: %s"
@@ -14119,11 +14121,11 @@ msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Spasial"
 
-#: libraries/classes/UserPassword.php:35
+#: libraries/classes/UserPassword.php:36
 msgid "The profile has been updated."
 msgstr "Profil telah diperbarui."
 
-#: libraries/classes/UserPassword.php:47
+#: libraries/classes/UserPassword.php:48
 msgid "Password is too long!"
 msgstr "Kata sandi terlalu panjang !"
 
@@ -15146,7 +15148,7 @@ msgstr "Pilih halaman"
 
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
-#: templates/database/designer/main.twig:273
+#: templates/database/designer/main.twig:274
 #, fuzzy
 #| msgid "Create relation"
 msgid "Create relationship"
@@ -15234,60 +15236,60 @@ msgstr "Tampilkan/Sembunyikan Tabel tanpa relasi"
 msgid "Number of tables:"
 msgstr "Jumlah tabel"
 
-#: templates/database/designer/main.twig:383
+#: templates/database/designer/main.twig:384
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "Hapus relasi"
 
-#: templates/database/designer/main.twig:447
-#: templates/database/designer/main.twig:612
+#: templates/database/designer/main.twig:448
+#: templates/database/designer/main.twig:613
 #, fuzzy
 #| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "Operator relasi"
 
-#: templates/database/designer/main.twig:476
-#: templates/database/designer/main.twig:641
-#: templates/database/designer/main.twig:847
-#: templates/database/designer/main.twig:1040
+#: templates/database/designer/main.twig:477
+#: templates/database/designer/main.twig:642
+#: templates/database/designer/main.twig:848
+#: templates/database/designer/main.twig:1041
 msgid "Except"
 msgstr "Kecuali"
 
-#: templates/database/designer/main.twig:488
-#: templates/database/designer/main.twig:653
-#: templates/database/designer/main.twig:859
-#: templates/database/designer/main.twig:1052
+#: templates/database/designer/main.twig:489
+#: templates/database/designer/main.twig:654
+#: templates/database/designer/main.twig:860
+#: templates/database/designer/main.twig:1053
 msgid "subquery"
 msgstr "subkueri"
 
-#: templates/database/designer/main.twig:497
-#: templates/database/designer/main.twig:713
+#: templates/database/designer/main.twig:498
+#: templates/database/designer/main.twig:714
 msgid "Rename to"
 msgstr "Ubah nama menjadi"
 
-#: templates/database/designer/main.twig:503
-#: templates/database/designer/main.twig:721
+#: templates/database/designer/main.twig:504
+#: templates/database/designer/main.twig:722
 msgid "New name"
 msgstr "Nama baru"
 
-#: templates/database/designer/main.twig:512
-#: templates/database/designer/main.twig:918
+#: templates/database/designer/main.twig:513
+#: templates/database/designer/main.twig:919
 msgid "Aggregate"
 msgstr "Agregasi"
 
-#: templates/database/designer/main.twig:518
-#: templates/database/designer/main.twig:582
-#: templates/database/designer/main.twig:787
-#: templates/database/designer/main.twig:818
-#: templates/database/designer/main.twig:926
-#: templates/database/designer/main.twig:1011
+#: templates/database/designer/main.twig:519
+#: templates/database/designer/main.twig:583
+#: templates/database/designer/main.twig:788
+#: templates/database/designer/main.twig:819
+#: templates/database/designer/main.twig:927
+#: templates/database/designer/main.twig:1012
 #: templates/table/search/index.twig:41
 #: templates/table/zoom_search/index.twig:41
 msgid "Operator"
 msgstr "Operator"
 
-#: templates/database/designer/main.twig:1092
+#: templates/database/designer/main.twig:1093
 msgid "Active options"
 msgstr "Opsi aktif"
 
@@ -15424,7 +15426,7 @@ msgid ""
 msgstr ", @DATABASE@ akan menjadi nama basis data"
 
 #. l10n: A query that the user has written freely
-#: templates/database/export/index.twig:5
+#: templates/database/export/index.twig:5 templates/table/export/index.twig:8
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Exporting a raw query"
@@ -19012,7 +19014,7 @@ msgstr "Nilai Kolom:"
 msgid "Save chart as image"
 msgstr "Simpan grafik sebagai gambar"
 
-#: templates/table/export/index.twig:8
+#: templates/table/export/index.twig:15
 #, fuzzy
 #| msgid ", @DATABASE@ will become the database name"
 msgid ""
@@ -19020,7 +19022,7 @@ msgid ""
 "name and @TABLE@ will become the table name."
 msgstr ", @DATABASE@ akan menjadi nama basis data"
 
-#: templates/table/export/index.twig:5
+#: templates/table/export/index.twig:10
 #, php-format
 msgid "Exporting rows from \"%s\" table"
 msgstr "Mengekspor baris dari tabel \"%s\""

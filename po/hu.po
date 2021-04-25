@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-13 17:47+0200\n"
+"POT-Creation-Date: 2021-04-25 14:28+0200\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
@@ -4436,8 +4436,8 @@ msgstr "Szövegdoboz sorai"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
-#: libraries/classes/Server/Privileges.php:1945
-#: libraries/classes/Server/Privileges.php:1947
+#: libraries/classes/Server/Privileges.php:1946
+#: libraries/classes/Server/Privileges.php:1948
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4466,8 +4466,8 @@ msgstr "Kiszolgáló"
 #: libraries/classes/Config/Descriptions.php:966
 #: libraries/classes/Database/Triggers.php:398
 #: libraries/classes/Plugins/Export/ExportXml.php:521
-#: libraries/classes/Server/Privileges.php:1951
-#: libraries/classes/Server/Privileges.php:1953
+#: libraries/classes/Server/Privileges.php:1952
+#: libraries/classes/Server/Privileges.php:1954
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4710,9 +4710,9 @@ msgstr "Letiltott"
 #: libraries/classes/Controllers/Database/StructureController.php:1536
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 #: libraries/classes/Controllers/Table/DeleteController.php:56
-#: libraries/classes/Controllers/Table/StructureController.php:481
-#: libraries/classes/Controllers/Table/StructureController.php:505
-#: libraries/classes/Controllers/Table/StructureController.php:552
+#: libraries/classes/Controllers/Table/StructureController.php:463
+#: libraries/classes/Controllers/Table/StructureController.php:487
+#: libraries/classes/Controllers/Table/StructureController.php:531
 #: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:524
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:666
 #: libraries/classes/Plugins/Export/ExportLatex.php:639
@@ -4868,7 +4868,7 @@ msgstr "Open Document szöveges dokumentum"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 #: libraries/classes/Menu.php:312 libraries/classes/Menu.php:426
-#: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1621
+#: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1622
 #: libraries/classes/Util.php:2478 libraries/classes/Util.php:2493
 #: libraries/classes/Util.php:2510 templates/database/events/index.twig:58
 #: templates/database/events/index.twig:91
@@ -5577,7 +5577,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:663
 #: libraries/classes/Controllers/SqlController.php:371
-#: libraries/classes/Sql.php:1233
+#: libraries/classes/Sql.php:1241
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "A(z) %s könyvjelző létrejött."
@@ -5894,13 +5894,13 @@ msgstr "Üres a felhasználónév!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
 #: libraries/classes/Server/Privileges.php:1024
-#: libraries/classes/UserPassword.php:39
+#: libraries/classes/UserPassword.php:40
 msgid "The password is empty!"
 msgstr "Üres a jelszó mező!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 #: libraries/classes/Server/Privileges.php:1022
-#: libraries/classes/UserPassword.php:43
+#: libraries/classes/UserPassword.php:44
 msgid "The passwords aren't the same!"
 msgstr "Nem egyeznek a jelszavak!"
 
@@ -6134,7 +6134,7 @@ msgstr "Legalább egy változót adjon meg a sorozathoz!"
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:590 templates/export.twig:355
+#: templates/database/designer/main.twig:591 templates/export.twig:355
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
@@ -6506,13 +6506,14 @@ msgid "No parameters found!"
 msgstr "Nincs paraméter megadva!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
-#: templates/database/designer/main.twig:341
-#: templates/database/designer/main.twig:392
-#: templates/database/designer/main.twig:670
-#: templates/database/designer/main.twig:736
-#: templates/database/designer/main.twig:875
-#: templates/database/designer/main.twig:960
-#: templates/database/designer/main.twig:1065
+#: templates/database/central_columns/main.twig:271
+#: templates/database/designer/main.twig:342
+#: templates/database/designer/main.twig:393
+#: templates/database/designer/main.twig:671
+#: templates/database/designer/main.twig:737
+#: templates/database/designer/main.twig:876
+#: templates/database/designer/main.twig:961
+#: templates/database/designer/main.twig:1066
 #: templates/server/variables/index.twig:15
 msgid "Cancel"
 msgstr "Mégse"
@@ -6580,12 +6581,12 @@ msgid "Adding primary key"
 msgstr "Elsődleges kulcs hozzáadása"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:346
-#: templates/console/display.twig:129 templates/database/designer/main.twig:339
-#: templates/database/designer/main.twig:668
-#: templates/database/designer/main.twig:732
-#: templates/database/designer/main.twig:871
-#: templates/database/designer/main.twig:956
-#: templates/database/designer/main.twig:1063
+#: templates/console/display.twig:129 templates/database/designer/main.twig:340
+#: templates/database/designer/main.twig:669
+#: templates/database/designer/main.twig:733
+#: templates/database/designer/main.twig:872
+#: templates/database/designer/main.twig:957
+#: templates/database/designer/main.twig:1064
 msgid "OK"
 msgstr "OK"
 
@@ -6695,7 +6696,7 @@ msgstr "Lekérdezési doboz megjelenítése"
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:385
 #: templates/database/central_columns/main.twig:386
-#: templates/database/designer/main.twig:390
+#: templates/database/designer/main.twig:391
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:218
@@ -6898,6 +6899,7 @@ msgstr "Nincsenek függőségek kiválasztva!"
 #: libraries/classes/InsertEdit.php:1888
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:20
+#: templates/database/central_columns/main.twig:274
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/table/relation/common_form.twig:222
@@ -7689,7 +7691,7 @@ msgstr ""
 "A felhasználónév és a kiszolgálónév nem változott. Ha csak a jelszót "
 "szeretné megváltoztatni, akkor használja a „Jelszócsere” lapot."
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:416
+#: libraries/classes/Controllers/Server/PrivilegesController.php:417
 msgid "User has been added."
 msgstr "A felhasználó hozzáadása megtörtént."
 
@@ -7711,7 +7713,7 @@ msgid "ID"
 msgstr "Azonosító"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Server/Privileges.php:3002
+#: libraries/classes/Server/Privileges.php:3001
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Felhasználó"
@@ -8533,15 +8535,15 @@ msgstr "A könyvjelző nem jött létre!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:246
-#: libraries/classes/Controllers/Table/StructureController.php:1019
-#: libraries/classes/Controllers/Table/StructureController.php:1246
+#: libraries/classes/Controllers/Table/StructureController.php:995
+#: libraries/classes/Controllers/Table/StructureController.php:1222
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "A(z) %1$s tábla módosítása sikerült."
 
 #: libraries/classes/Controllers/Table/ChangeController.php:304
 #: libraries/classes/Controllers/Table/DeleteController.php:121
-#: libraries/classes/Controllers/Table/ExportController.php:145
+#: libraries/classes/Controllers/Table/ExportController.php:152
 msgid "No row selected."
 msgstr "Nincs sor kijelölve."
 
@@ -8606,7 +8608,7 @@ msgstr "Túl sok kapcsolat van indexek nélkül."
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
 #: libraries/classes/Database/Routines.php:1503
 #: libraries/classes/Import.php:156 libraries/classes/InsertEdit.php:226
-#: libraries/classes/Sql.php:1038
+#: libraries/classes/Sql.php:1046
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "A MySQL üres eredményhalmazt adott vissza (pl. nulla sorok)."
 
@@ -8659,33 +8661,33 @@ msgstr "Sor: %1$s, oszlop: %2$s, hiba: %3$s"
 #: libraries/classes/Controllers/Table/StructureController.php:210
 #: libraries/classes/Controllers/Table/StructureController.php:233
 #: libraries/classes/Controllers/Table/StructureController.php:249
-#: libraries/classes/Controllers/Table/StructureController.php:282
-#: libraries/classes/Controllers/Table/StructureController.php:316
-#: libraries/classes/Controllers/Table/StructureController.php:355
-#: libraries/classes/Controllers/Table/StructureController.php:394
-#: libraries/classes/Controllers/Table/StructureController.php:433
-#: libraries/classes/Controllers/Table/StructureController.php:473
-#: libraries/classes/Controllers/Table/StructureController.php:545
-#: libraries/classes/Controllers/Table/StructureController.php:589
+#: libraries/classes/Controllers/Table/StructureController.php:279
+#: libraries/classes/Controllers/Table/StructureController.php:310
+#: libraries/classes/Controllers/Table/StructureController.php:346
+#: libraries/classes/Controllers/Table/StructureController.php:382
+#: libraries/classes/Controllers/Table/StructureController.php:418
+#: libraries/classes/Controllers/Table/StructureController.php:455
+#: libraries/classes/Controllers/Table/StructureController.php:524
+#: libraries/classes/Controllers/Table/StructureController.php:565
 msgid "No column selected."
 msgstr "Nem jelölt ki sort."
 
-#: libraries/classes/Controllers/Table/StructureController.php:733
+#: libraries/classes/Controllers/Table/StructureController.php:709
 msgid "The columns have been moved successfully."
 msgstr "Az oszlop mozgatása sikeresen megtörtént."
 
-#: libraries/classes/Controllers/Table/StructureController.php:770
+#: libraries/classes/Controllers/Table/StructureController.php:746
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "At %s oszlop leírását nem tudtam lekérni!"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1011
-#: libraries/classes/Controllers/Table/StructureController.php:1297
+#: libraries/classes/Controllers/Table/StructureController.php:987
+#: libraries/classes/Controllers/Table/StructureController.php:1273
 #: libraries/classes/Tracking.php:774
 msgid "Query error"
 msgstr "Lekérdezési hiba"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1240
+#: libraries/classes/Controllers/Table/StructureController.php:1216
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -8693,7 +8695,7 @@ msgstr ""
 "A(z) %1$s tábla sikeresen módosítva lett. A jogosultságok módosítása "
 "megtörtént."
 
-#: libraries/classes/Controllers/Table/StructureController.php:1524
+#: libraries/classes/Controllers/Table/StructureController.php:1500
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -8703,7 +8705,7 @@ msgstr ""
 msgid "Primary"
 msgstr "Elsődleges"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1529
+#: libraries/classes/Controllers/Table/StructureController.php:1505
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -8715,7 +8717,7 @@ msgstr "Elsődleges"
 msgid "Index"
 msgstr "Index"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1781
+#: libraries/classes/Controllers/Table/StructureController.php:1757
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -9006,7 +9008,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Nem található %1$s nevű esemény a(z) %2$s adatbázisban."
 
-#: libraries/classes/DatabaseInterface.php:1100
+#: libraries/classes/DatabaseInterface.php:1108
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -9023,21 +9025,21 @@ msgstr ""
 "beállításait. A phpMyAdmin jelenleg az adatbázis-kiszolgáló alapértelmezett "
 "időzónáját használja."
 
-#: libraries/classes/DatabaseInterface.php:1147
+#: libraries/classes/DatabaseInterface.php:1155
 msgid "Failed to set configured collation connection!"
 msgstr "Nem sikerült beállítani a beállított egyeztetés kapcsolatot!"
 
-#: libraries/classes/DatabaseInterface.php:1934
+#: libraries/classes/DatabaseInterface.php:1942
 msgid "Missing connection parameters!"
 msgstr "Hiányzó kapcsolat paraméterek!"
 
-#: libraries/classes/DatabaseInterface.php:1963
+#: libraries/classes/DatabaseInterface.php:1971
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "A konfigurációban meghatározott kapcsolat a kontrollfelhasználó számára nem "
 "sikerült."
 
-#: libraries/classes/DatabaseInterface.php:2463
+#: libraries/classes/DatabaseInterface.php:2471
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "További információkért nézze meg a %sdokumentációnkat%s."
@@ -9208,7 +9210,7 @@ msgstr "Hossz/Értékek"
 #: libraries/classes/Plugins/Export/ExportCsv.php:47
 #: libraries/classes/Plugins/Export/ExportExcel.php:34
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:47
-#: libraries/classes/Plugins/Export/ExportJson.php:74
+#: libraries/classes/Plugins/Export/ExportJson.php:73
 #: libraries/classes/Plugins/Export/ExportLatex.php:72
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:46
 #: libraries/classes/Plugins/Export/ExportOds.php:52
@@ -9386,10 +9388,10 @@ msgstr "Függvény"
 
 #: libraries/classes/Database/Routines.php:1660
 #: libraries/classes/InsertEdit.php:2007
-#: templates/database/designer/main.twig:486
-#: templates/database/designer/main.twig:651
-#: templates/database/designer/main.twig:857
-#: templates/database/designer/main.twig:1050
+#: templates/database/designer/main.twig:487
+#: templates/database/designer/main.twig:652
+#: templates/database/designer/main.twig:858
+#: templates/database/designer/main.twig:1051
 #: templates/server/replication/status_table.twig:17
 #: templates/server/status/variables/index.twig:73
 #: templates/server/variables/index.twig:32
@@ -9622,7 +9624,7 @@ msgstr "%1$d összesen, %2$d a lekérdezésben"
 msgid "%d total"
 msgstr "összesen %d"
 
-#: libraries/classes/Display/Results.php:4519 libraries/classes/Sql.php:1044
+#: libraries/classes/Display/Results.php:4519 libraries/classes/Sql.php:1052
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "A lekérdezés %01.4f másodpercig tartott."
@@ -10105,7 +10107,7 @@ msgstr "Git információ hiányzik!"
 msgid "Open new phpMyAdmin window"
 msgstr "Új phpMyAdmin ablak nyitása"
 
-#: libraries/classes/Header.php:368
+#: libraries/classes/Header.php:367
 msgid "Print view"
 msgstr "Nyomtatási nézet"
 
@@ -10181,7 +10183,7 @@ msgstr "Statikus elemzés:"
 msgid "%d errors were found during analysis."
 msgstr "%d hibát találtunk az elemzés során."
 
-#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1052
+#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1060
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK történt.]"
 
@@ -10385,11 +10387,11 @@ msgstr "Oszlop"
 msgid "Null"
 msgstr "Nulla"
 
-#: libraries/classes/InsertEdit.php:2402 libraries/classes/Sql.php:1035
+#: libraries/classes/InsertEdit.php:2402 libraries/classes/Sql.php:1043
 msgid "Showing SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
-#: libraries/classes/InsertEdit.php:2428 libraries/classes/Sql.php:1013
+#: libraries/classes/InsertEdit.php:2428 libraries/classes/Sql.php:1021
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "A beszúrt sor azonosítószáma: %1$d"
@@ -10448,7 +10450,7 @@ msgid "Insert"
 msgstr "Beszúrás"
 
 #: libraries/classes/Menu.php:332 libraries/classes/Menu.php:450
-#: libraries/classes/Server/Privileges.php:2976 libraries/classes/Util.php:2496
+#: libraries/classes/Server/Privileges.php:2975 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:2512 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -11392,12 +11394,12 @@ msgstr "Nézet szerkezete"
 msgid "Stand-in structure for view"
 msgstr "A nézet helyettes szerkezete"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:91
+#: libraries/classes/Plugins/Export/ExportJson.php:90
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
 "Szépen formázott JSON kiírása (ember által olvasható formázásnál használható)"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:97
+#: libraries/classes/Plugins/Export/ExportJson.php:96
 msgid "Output unicode characters unescaped"
 msgstr ""
 
@@ -12531,11 +12533,11 @@ msgstr "Emlékezzen a tervező beállításaira"
 msgid "Saving export templates"
 msgstr "Exportsablonok mentése"
 
-#: libraries/classes/Relation.php:1845
+#: libraries/classes/Relation.php:1835
 msgid "no description"
 msgstr "nincs leírás"
 
-#: libraries/classes/Relation.php:2045
+#: libraries/classes/Relation.php:2035
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
@@ -12545,7 +12547,7 @@ msgstr ""
 "adatbázis létrehozásához. El kellene mennie bármelyik adatbázis „Műveletek” "
 "lapjára, hogy ott beállítsa a phpMyAdmin beállítástárolóját."
 
-#: libraries/classes/Relation.php:2167
+#: libraries/classes/Relation.php:2157
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
@@ -12554,13 +12556,13 @@ msgstr ""
 "%sHozzon létre%s egy „phpmyadmin” nevű adatbázist, és állítsa be ott a "
 "phpMyAdmin beállítástárolóját."
 
-#: libraries/classes/Relation.php:2175
+#: libraries/classes/Relation.php:2165
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "A phpMyAdmin beállítástároló %slétrehozása%s a jelenlegi adatbázisban."
 
-#: libraries/classes/Relation.php:2183
+#: libraries/classes/Relation.php:2173
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "Hiányzó phpMyAdmin beállítástároló táblák %slétrehozása%s."
@@ -12905,7 +12907,7 @@ msgstr "Engedélyezi a tárolt eljárások végrehajtását."
 
 #: libraries/classes/Server/Privileges.php:793
 #: libraries/classes/Server/Privileges.php:867
-#: libraries/classes/Server/Privileges.php:3969
+#: libraries/classes/Server/Privileges.php:3968
 msgid "Native MySQL authentication"
 msgstr "Natív MySQL hitelesítés"
 
@@ -12913,23 +12915,23 @@ msgstr "Natív MySQL hitelesítés"
 msgid "SHA256 password authentication"
 msgstr "SHA256 jelszavas hitelesítés"
 
-#: libraries/classes/Server/Privileges.php:1163
+#: libraries/classes/Server/Privileges.php:1164
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s jelszavának megváltoztatása sikerült."
 
-#: libraries/classes/Server/Privileges.php:1212
+#: libraries/classes/Server/Privileges.php:1213
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s jogainak visszavonása megtörtént."
 
-#: libraries/classes/Server/Privileges.php:1548
+#: libraries/classes/Server/Privileges.php:1549
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "Nincs elegendő jogosultság a felhasználók megtekintéséhez."
 
-#: libraries/classes/Server/Privileges.php:1615
+#: libraries/classes/Server/Privileges.php:1616
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -12937,64 +12939,64 @@ msgstr "Nincs elegendő jogosultság a felhasználók megtekintéséhez."
 msgid "Edit privileges"
 msgstr "Jogosultságok szerkesztése"
 
-#: libraries/classes/Server/Privileges.php:1618
+#: libraries/classes/Server/Privileges.php:1619
 msgid "Revoke"
 msgstr "Visszavonás"
 
-#: libraries/classes/Server/Privileges.php:1946
+#: libraries/classes/Server/Privileges.php:1947
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Adatbázis-specifikus jogok"
 
-#: libraries/classes/Server/Privileges.php:1952
+#: libraries/classes/Server/Privileges.php:1953
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Táblaspecifikus jogok"
 
-#: libraries/classes/Server/Privileges.php:1957
-#: libraries/classes/Server/Privileges.php:1959
+#: libraries/classes/Server/Privileges.php:1958
+#: libraries/classes/Server/Privileges.php:1960
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "Eljárás"
 
-#: libraries/classes/Server/Privileges.php:1958
+#: libraries/classes/Server/Privileges.php:1959
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "Eljárásra jellemző jogosultságok"
 
-#: libraries/classes/Server/Privileges.php:2306
+#: libraries/classes/Server/Privileges.php:2307
 msgid "No users selected for deleting!"
 msgstr "Nincs törlésre kijelölt felhasználó!"
 
-#: libraries/classes/Server/Privileges.php:2309
+#: libraries/classes/Server/Privileges.php:2310
 msgid "Reloading the privileges"
 msgstr "A jogok újratöltése"
 
-#: libraries/classes/Server/Privileges.php:2332
+#: libraries/classes/Server/Privileges.php:2333
 msgid "The selected users have been deleted successfully."
 msgstr "A kiválasztott felhasználók törlése sikerült."
 
-#: libraries/classes/Server/Privileges.php:2409
+#: libraries/classes/Server/Privileges.php:2410
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Ön frissítette %s jogait."
 
-#: libraries/classes/Server/Privileges.php:2496
+#: libraries/classes/Server/Privileges.php:2497
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "Nem található felhasználó."
 
-#: libraries/classes/Server/Privileges.php:2577
+#: libraries/classes/Server/Privileges.php:2578
 #, php-format
 msgid "Deleting %s"
 msgstr "%s törlése"
 
-#: libraries/classes/Server/Privileges.php:2608
+#: libraries/classes/Server/Privileges.php:2609
 msgid "The privileges were reloaded successfully."
 msgstr "A jogok újratöltése sikerült."
 
@@ -13003,12 +13005,12 @@ msgstr "A jogok újratöltése sikerült."
 msgid "The user %s already exists!"
 msgstr "%s felhasználó már létezik!"
 
-#: libraries/classes/Server/Privileges.php:2993
+#: libraries/classes/Server/Privileges.php:2992
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s jogosultságai"
 
-#: libraries/classes/Server/Privileges.php:3132
+#: libraries/classes/Server/Privileges.php:3131
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -13019,7 +13021,7 @@ msgstr ""
 "kapcsolódását, ha a fiókjuk gép része lehetővé tesz egy kapcsolatot bármely "
 "(%) gépről."
 
-#: libraries/classes/Server/Privileges.php:3175
+#: libraries/classes/Server/Privileges.php:3174
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -13032,7 +13034,7 @@ msgstr ""
 "használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben "
 "%stöltse be újra a jogokat%s a folytatás előtt."
 
-#: libraries/classes/Server/Privileges.php:3191
+#: libraries/classes/Server/Privileges.php:3190
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -13045,7 +13047,7 @@ msgstr ""
 "által használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben a "
 "jogokat újra kell tölteni, de jelenleg nincs RELOAD joga."
 
-#: libraries/classes/Server/Privileges.php:3527
+#: libraries/classes/Server/Privileges.php:3526
 msgid "You have added a new user."
 msgstr "Az új felhasználó hozzáadása megtörtént."
 
@@ -13171,11 +13173,11 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 "A(z) „%s” könyvjelző használata alapértelmezett tallózás lekérdezésként."
 
-#: libraries/classes/Sql.php:1032
+#: libraries/classes/Sql.php:1040
 msgid "Showing as PHP code"
 msgstr "Megjelenítés PHP kódként"
 
-#: libraries/classes/Sql.php:1415
+#: libraries/classes/Sql.php:1423
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13184,7 +13186,7 @@ msgstr ""
 "A jelenlegi kijelölés nem tartalmaz egyedi oszlopot. A Rács szerkesztése, "
 "jelölőnégyzet, Szerkesztés, Másolás és Törlés funkciók nem érhetők el. %s"
 
-#: libraries/classes/Sql.php:1429
+#: libraries/classes/Sql.php:1437
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -13311,7 +13313,7 @@ msgstr ""
 "Hiba történt az idegen kulcs %1$s táblán történő létrehozásakor (ellenőrizze "
 "az adattípusokat)"
 
-#: libraries/classes/Template.php:108
+#: libraries/classes/Template.php:111
 #, fuzzy, php-format
 #| msgid "Error while loading the search."
 msgid "Error while working with template cache: %s"
@@ -13768,11 +13770,11 @@ msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Térbeli"
 
-#: libraries/classes/UserPassword.php:35
+#: libraries/classes/UserPassword.php:36
 msgid "The profile has been updated."
 msgstr "A profil frissítése megtörtént."
 
-#: libraries/classes/UserPassword.php:47
+#: libraries/classes/UserPassword.php:48
 msgid "Password is too long!"
 msgstr "A jelszó túl hosszú!"
 
@@ -14694,7 +14696,7 @@ msgstr "Oldalak törlése"
 
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
-#: templates/database/designer/main.twig:273
+#: templates/database/designer/main.twig:274
 msgid "Create relationship"
 msgstr "Kapcsolat létrehozása"
 
@@ -14772,56 +14774,56 @@ msgstr "A kapcsolat nélküli táblák megjelenítése/elrejtése"
 msgid "Number of tables:"
 msgstr "Táblák száma:"
 
-#: templates/database/designer/main.twig:383
+#: templates/database/designer/main.twig:384
 msgid "Delete relationship"
 msgstr "Kapcsolat törlése"
 
-#: templates/database/designer/main.twig:447
-#: templates/database/designer/main.twig:612
+#: templates/database/designer/main.twig:448
+#: templates/database/designer/main.twig:613
 msgid "Relationship operator"
 msgstr "Kapcsolat operátor"
 
-#: templates/database/designer/main.twig:476
-#: templates/database/designer/main.twig:641
-#: templates/database/designer/main.twig:847
-#: templates/database/designer/main.twig:1040
+#: templates/database/designer/main.twig:477
+#: templates/database/designer/main.twig:642
+#: templates/database/designer/main.twig:848
+#: templates/database/designer/main.twig:1041
 msgid "Except"
 msgstr "kivéve"
 
-#: templates/database/designer/main.twig:488
-#: templates/database/designer/main.twig:653
-#: templates/database/designer/main.twig:859
-#: templates/database/designer/main.twig:1052
+#: templates/database/designer/main.twig:489
+#: templates/database/designer/main.twig:654
+#: templates/database/designer/main.twig:860
+#: templates/database/designer/main.twig:1053
 msgid "subquery"
 msgstr "allekérdezés"
 
-#: templates/database/designer/main.twig:497
-#: templates/database/designer/main.twig:713
+#: templates/database/designer/main.twig:498
+#: templates/database/designer/main.twig:714
 msgid "Rename to"
 msgstr "Átnevezés"
 
-#: templates/database/designer/main.twig:503
-#: templates/database/designer/main.twig:721
+#: templates/database/designer/main.twig:504
+#: templates/database/designer/main.twig:722
 msgid "New name"
 msgstr "Új név"
 
-#: templates/database/designer/main.twig:512
-#: templates/database/designer/main.twig:918
+#: templates/database/designer/main.twig:513
+#: templates/database/designer/main.twig:919
 msgid "Aggregate"
 msgstr "Összegzés"
 
-#: templates/database/designer/main.twig:518
-#: templates/database/designer/main.twig:582
-#: templates/database/designer/main.twig:787
-#: templates/database/designer/main.twig:818
-#: templates/database/designer/main.twig:926
-#: templates/database/designer/main.twig:1011
+#: templates/database/designer/main.twig:519
+#: templates/database/designer/main.twig:583
+#: templates/database/designer/main.twig:788
+#: templates/database/designer/main.twig:819
+#: templates/database/designer/main.twig:927
+#: templates/database/designer/main.twig:1012
 #: templates/table/search/index.twig:41
 #: templates/table/zoom_search/index.twig:41
 msgid "Operator"
 msgstr "Operátor"
 
-#: templates/database/designer/main.twig:1092
+#: templates/database/designer/main.twig:1093
 msgid "Active options"
 msgstr "Aktív beállítások"
 
@@ -14953,7 +14955,7 @@ msgid ""
 msgstr ", @DATABASE@ lesz az adatbázis neve"
 
 #. l10n: A query that the user has written freely
-#: templates/database/export/index.twig:5
+#: templates/database/export/index.twig:5 templates/table/export/index.twig:8
 #, fuzzy
 #| msgid "Showing SQL query"
 msgid "Exporting a raw query"
@@ -18424,7 +18426,7 @@ msgstr "Érték oszlopa:"
 msgid "Save chart as image"
 msgstr "Diagram mentése képként"
 
-#: templates/table/export/index.twig:8
+#: templates/table/export/index.twig:15
 #, fuzzy
 #| msgid ", @DATABASE@ will become the database name"
 msgid ""
@@ -18432,7 +18434,7 @@ msgid ""
 "name and @TABLE@ will become the table name."
 msgstr ", @DATABASE@ lesz az adatbázis neve"
 
-#: templates/table/export/index.twig:5
+#: templates/table/export/index.twig:10
 #, php-format
 msgid "Exporting rows from \"%s\" table"
 msgstr "Sorok exportálása a \"%s\" táblából"

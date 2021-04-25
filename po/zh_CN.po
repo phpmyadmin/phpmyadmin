@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-13 17:47+0200\n"
+"POT-Creation-Date: 2021-04-25 14:28+0200\n"
 "PO-Revision-Date: 2021-03-11 19:02+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -3993,8 +3993,8 @@ msgstr "文本框行"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
-#: libraries/classes/Server/Privileges.php:1945
-#: libraries/classes/Server/Privileges.php:1947
+#: libraries/classes/Server/Privileges.php:1946
+#: libraries/classes/Server/Privileges.php:1948
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4023,8 +4023,8 @@ msgstr "服务器"
 #: libraries/classes/Config/Descriptions.php:966
 #: libraries/classes/Database/Triggers.php:398
 #: libraries/classes/Plugins/Export/ExportXml.php:521
-#: libraries/classes/Server/Privileges.php:1951
-#: libraries/classes/Server/Privileges.php:1953
+#: libraries/classes/Server/Privileges.php:1952
+#: libraries/classes/Server/Privileges.php:1954
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4254,9 +4254,9 @@ msgstr "已禁用"
 #: libraries/classes/Controllers/Database/StructureController.php:1536
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:499
 #: libraries/classes/Controllers/Table/DeleteController.php:56
-#: libraries/classes/Controllers/Table/StructureController.php:481
-#: libraries/classes/Controllers/Table/StructureController.php:505
-#: libraries/classes/Controllers/Table/StructureController.php:552
+#: libraries/classes/Controllers/Table/StructureController.php:463
+#: libraries/classes/Controllers/Table/StructureController.php:487
+#: libraries/classes/Controllers/Table/StructureController.php:531
 #: libraries/classes/IndexColumn.php:135 libraries/classes/Index.php:524
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:666
 #: libraries/classes/Plugins/Export/ExportLatex.php:639
@@ -4412,7 +4412,7 @@ msgstr "OpenOffice 文档"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 #: libraries/classes/Menu.php:312 libraries/classes/Menu.php:426
-#: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1621
+#: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1622
 #: libraries/classes/Util.php:2478 libraries/classes/Util.php:2493
 #: libraries/classes/Util.php:2510 templates/database/events/index.twig:58
 #: templates/database/events/index.twig:91
@@ -5030,7 +5030,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:663
 #: libraries/classes/Controllers/SqlController.php:371
-#: libraries/classes/Sql.php:1233
+#: libraries/classes/Sql.php:1241
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已创建书签 %s。"
@@ -5327,13 +5327,13 @@ msgstr "用户名不能为空！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
 #: libraries/classes/Server/Privileges.php:1024
-#: libraries/classes/UserPassword.php:39
+#: libraries/classes/UserPassword.php:40
 msgid "The password is empty!"
 msgstr "密码不能为空！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
 #: libraries/classes/Server/Privileges.php:1022
-#: libraries/classes/UserPassword.php:43
+#: libraries/classes/UserPassword.php:44
 msgid "The passwords aren't the same!"
 msgstr "两次密码不一致！"
 
@@ -5565,7 +5565,7 @@ msgstr "请至少添加一个数据！"
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:590 templates/export.twig:355
+#: templates/database/designer/main.twig:591 templates/export.twig:355
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
@@ -5915,13 +5915,14 @@ msgid "No parameters found!"
 msgstr "未找到参数！"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
-#: templates/database/designer/main.twig:341
-#: templates/database/designer/main.twig:392
-#: templates/database/designer/main.twig:670
-#: templates/database/designer/main.twig:736
-#: templates/database/designer/main.twig:875
-#: templates/database/designer/main.twig:960
-#: templates/database/designer/main.twig:1065
+#: templates/database/central_columns/main.twig:271
+#: templates/database/designer/main.twig:342
+#: templates/database/designer/main.twig:393
+#: templates/database/designer/main.twig:671
+#: templates/database/designer/main.twig:737
+#: templates/database/designer/main.twig:876
+#: templates/database/designer/main.twig:961
+#: templates/database/designer/main.twig:1066
 #: templates/server/variables/index.twig:15
 msgid "Cancel"
 msgstr "取消"
@@ -5987,12 +5988,12 @@ msgid "Adding primary key"
 msgstr "正在添加主键"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:346
-#: templates/console/display.twig:129 templates/database/designer/main.twig:339
-#: templates/database/designer/main.twig:668
-#: templates/database/designer/main.twig:732
-#: templates/database/designer/main.twig:871
-#: templates/database/designer/main.twig:956
-#: templates/database/designer/main.twig:1063
+#: templates/console/display.twig:129 templates/database/designer/main.twig:340
+#: templates/database/designer/main.twig:669
+#: templates/database/designer/main.twig:733
+#: templates/database/designer/main.twig:872
+#: templates/database/designer/main.twig:957
+#: templates/database/designer/main.twig:1064
 msgid "OK"
 msgstr "确定"
 
@@ -6099,7 +6100,7 @@ msgstr "显示查询框"
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:385
 #: templates/database/central_columns/main.twig:386
-#: templates/database/designer/main.twig:390
+#: templates/database/designer/main.twig:391
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:218
@@ -6288,6 +6289,7 @@ msgstr "没有已选择的依赖！"
 #: libraries/classes/InsertEdit.php:1888
 #: templates/columns_definitions/column_definitions_form.twig:160
 #: templates/database/central_columns/edit.twig:20
+#: templates/database/central_columns/main.twig:274
 #: templates/server/variables/index.twig:12
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/table/relation/common_form.twig:222
@@ -7036,7 +7038,7 @@ msgid ""
 "password, 'Change password' tab should be used."
 msgstr "用户名和主机名不会更改。如果您只想更改密码，则应使用“更改密码”选项卡。"
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:416
+#: libraries/classes/Controllers/Server/PrivilegesController.php:417
 msgid "User has been added."
 msgstr "用户已添加。"
 
@@ -7056,7 +7058,7 @@ msgid "ID"
 msgstr "ID"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Server/Privileges.php:3002
+#: libraries/classes/Server/Privileges.php:3001
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "用户"
@@ -7801,15 +7803,15 @@ msgstr "未创建书签！"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:246
-#: libraries/classes/Controllers/Table/StructureController.php:1019
-#: libraries/classes/Controllers/Table/StructureController.php:1246
+#: libraries/classes/Controllers/Table/StructureController.php:995
+#: libraries/classes/Controllers/Table/StructureController.php:1222
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "已成功修改表 %1$s。"
 
 #: libraries/classes/Controllers/Table/ChangeController.php:304
 #: libraries/classes/Controllers/Table/DeleteController.php:121
-#: libraries/classes/Controllers/Table/ExportController.php:145
+#: libraries/classes/Controllers/Table/ExportController.php:152
 msgid "No row selected."
 msgstr "没有选中任何行。"
 
@@ -7872,7 +7874,7 @@ msgstr "您的请求有问题。"
 #: libraries/classes/Controllers/Table/GetFieldController.php:84
 #: libraries/classes/Database/Routines.php:1503
 #: libraries/classes/Import.php:156 libraries/classes/InsertEdit.php:226
-#: libraries/classes/Sql.php:1038
+#: libraries/classes/Sql.php:1046
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 返回的查询结果为空 (即零行)。"
 
@@ -7925,39 +7927,39 @@ msgstr "行：%1$s，列：%2$s，错误：%3$s"
 #: libraries/classes/Controllers/Table/StructureController.php:210
 #: libraries/classes/Controllers/Table/StructureController.php:233
 #: libraries/classes/Controllers/Table/StructureController.php:249
-#: libraries/classes/Controllers/Table/StructureController.php:282
-#: libraries/classes/Controllers/Table/StructureController.php:316
-#: libraries/classes/Controllers/Table/StructureController.php:355
-#: libraries/classes/Controllers/Table/StructureController.php:394
-#: libraries/classes/Controllers/Table/StructureController.php:433
-#: libraries/classes/Controllers/Table/StructureController.php:473
-#: libraries/classes/Controllers/Table/StructureController.php:545
-#: libraries/classes/Controllers/Table/StructureController.php:589
+#: libraries/classes/Controllers/Table/StructureController.php:279
+#: libraries/classes/Controllers/Table/StructureController.php:310
+#: libraries/classes/Controllers/Table/StructureController.php:346
+#: libraries/classes/Controllers/Table/StructureController.php:382
+#: libraries/classes/Controllers/Table/StructureController.php:418
+#: libraries/classes/Controllers/Table/StructureController.php:455
+#: libraries/classes/Controllers/Table/StructureController.php:524
+#: libraries/classes/Controllers/Table/StructureController.php:565
 msgid "No column selected."
 msgstr "没有选中任何列。"
 
-#: libraries/classes/Controllers/Table/StructureController.php:733
+#: libraries/classes/Controllers/Table/StructureController.php:709
 msgid "The columns have been moved successfully."
 msgstr "已成功移动字段。"
 
-#: libraries/classes/Controllers/Table/StructureController.php:770
+#: libraries/classes/Controllers/Table/StructureController.php:746
 #, php-format
 msgid "Failed to get description of column %s!"
 msgstr "读取表 %s 的时候出现错误！"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1011
-#: libraries/classes/Controllers/Table/StructureController.php:1297
+#: libraries/classes/Controllers/Table/StructureController.php:987
+#: libraries/classes/Controllers/Table/StructureController.php:1273
 #: libraries/classes/Tracking.php:774
 msgid "Query error"
 msgstr "查询错误"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1240
+#: libraries/classes/Controllers/Table/StructureController.php:1216
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "已成功修改表 %1$s。已调整权限。"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1524
+#: libraries/classes/Controllers/Table/StructureController.php:1500
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -7967,7 +7969,7 @@ msgstr "已成功修改表 %1$s。已调整权限。"
 msgid "Primary"
 msgstr "主键"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1529
+#: libraries/classes/Controllers/Table/StructureController.php:1505
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:29
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
@@ -7979,7 +7981,7 @@ msgstr "主键"
 msgid "Index"
 msgstr "索引"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1781
+#: libraries/classes/Controllers/Table/StructureController.php:1757
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
@@ -8257,7 +8259,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "处理请求时出错：在数据库 %2$s 中找不到名为 %1$s 的事件。"
 
-#: libraries/classes/DatabaseInterface.php:1100
+#: libraries/classes/DatabaseInterface.php:1108
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -8267,19 +8269,19 @@ msgstr ""
 "无法为服务器 %2$d 设置时区 “%1$s” 。请检查您的配置中 [em]$cfg['Servers']"
 "[%3$d]['SessionTimeZone'][/em] 字段。服务器当前使用默认时区。"
 
-#: libraries/classes/DatabaseInterface.php:1147
+#: libraries/classes/DatabaseInterface.php:1155
 msgid "Failed to set configured collation connection!"
 msgstr "无法设置配置的整理连接！"
 
-#: libraries/classes/DatabaseInterface.php:1934
+#: libraries/classes/DatabaseInterface.php:1942
 msgid "Missing connection parameters!"
 msgstr "缺少连接参数！"
 
-#: libraries/classes/DatabaseInterface.php:1963
+#: libraries/classes/DatabaseInterface.php:1971
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "使用配置文件中定义的控制用户连接失败。"
 
-#: libraries/classes/DatabaseInterface.php:2463
+#: libraries/classes/DatabaseInterface.php:2471
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "详情请查看%s我们的文档%s。"
@@ -8449,7 +8451,7 @@ msgstr "长度/值"
 #: libraries/classes/Plugins/Export/ExportCsv.php:47
 #: libraries/classes/Plugins/Export/ExportExcel.php:34
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:47
-#: libraries/classes/Plugins/Export/ExportJson.php:74
+#: libraries/classes/Plugins/Export/ExportJson.php:73
 #: libraries/classes/Plugins/Export/ExportLatex.php:72
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:46
 #: libraries/classes/Plugins/Export/ExportOds.php:52
@@ -8622,10 +8624,10 @@ msgstr "函数"
 
 #: libraries/classes/Database/Routines.php:1660
 #: libraries/classes/InsertEdit.php:2007
-#: templates/database/designer/main.twig:486
-#: templates/database/designer/main.twig:651
-#: templates/database/designer/main.twig:857
-#: templates/database/designer/main.twig:1050
+#: templates/database/designer/main.twig:487
+#: templates/database/designer/main.twig:652
+#: templates/database/designer/main.twig:858
+#: templates/database/designer/main.twig:1051
 #: templates/server/replication/status_table.twig:17
 #: templates/server/status/variables/index.twig:73
 #: templates/server/variables/index.twig:32
@@ -8859,7 +8861,7 @@ msgstr "总数为 %1$d，查询包含 %2$d"
 msgid "%d total"
 msgstr "共 %d 行"
 
-#: libraries/classes/Display/Results.php:4519 libraries/classes/Sql.php:1044
+#: libraries/classes/Display/Results.php:4519 libraries/classes/Sql.php:1052
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查询花费 %01.4f 秒。"
@@ -9304,7 +9306,7 @@ msgstr "缺少 Git 信息！"
 msgid "Open new phpMyAdmin window"
 msgstr "打开新的 phpMyAdmin 窗口"
 
-#: libraries/classes/Header.php:368
+#: libraries/classes/Header.php:367
 msgid "Print view"
 msgstr "打印预览"
 
@@ -9380,7 +9382,7 @@ msgstr "静态分析："
 msgid "%d errors were found during analysis."
 msgstr "分析时发现%d个错误。"
 
-#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1052
+#: libraries/classes/Import.php:321 libraries/classes/Sql.php:1060
 msgid "[ROLLBACK occurred.]"
 msgstr "[发生 ROLLBACK.]"
 
@@ -9576,11 +9578,11 @@ msgstr "字段"
 msgid "Null"
 msgstr "空"
 
-#: libraries/classes/InsertEdit.php:2402 libraries/classes/Sql.php:1035
+#: libraries/classes/InsertEdit.php:2402 libraries/classes/Sql.php:1043
 msgid "Showing SQL query"
 msgstr "显示 SQL 查询"
 
-#: libraries/classes/InsertEdit.php:2428 libraries/classes/Sql.php:1013
+#: libraries/classes/InsertEdit.php:2428 libraries/classes/Sql.php:1021
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "插入的行 id: %1$d"
@@ -9637,7 +9639,7 @@ msgid "Insert"
 msgstr "插入"
 
 #: libraries/classes/Menu.php:332 libraries/classes/Menu.php:450
-#: libraries/classes/Server/Privileges.php:2976 libraries/classes/Util.php:2496
+#: libraries/classes/Server/Privileges.php:2975 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:2512 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -10528,11 +10530,11 @@ msgstr "视图结构"
 msgid "Stand-in structure for view"
 msgstr "替换视图以便查看"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:91
+#: libraries/classes/Plugins/Export/ExportJson.php:90
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr "输出格式化后的JSON（使用人类可读的格式）"
 
-#: libraries/classes/Plugins/Export/ExportJson.php:97
+#: libraries/classes/Plugins/Export/ExportJson.php:96
 msgid "Output unicode characters unescaped"
 msgstr "输出unicode字符未转义"
 
@@ -11578,11 +11580,11 @@ msgstr "记住设计器设置"
 msgid "Saving export templates"
 msgstr "保存导出模板"
 
-#: libraries/classes/Relation.php:1845
+#: libraries/classes/Relation.php:1835
 msgid "no description"
 msgstr "无说明"
 
-#: libraries/classes/Relation.php:2045
+#: libraries/classes/Relation.php:2035
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
@@ -11591,20 +11593,20 @@ msgstr ""
 "您没有权限建立名为“phpmyadmin”的数据库。您可能需要到任一数据库的“操作”页面设"
 "置 phpMyAdmin的储存位置 。"
 
-#: libraries/classes/Relation.php:2167
+#: libraries/classes/Relation.php:2157
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr "%s创建%s一个名为'phpmyadmin'的数据库，并在那里设置phpMyAdmin配置存储。"
 
-#: libraries/classes/Relation.php:2175
+#: libraries/classes/Relation.php:2165
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "在当前数据库%s创建%sphpMyAdmin配置存储。"
 
-#: libraries/classes/Relation.php:2183
+#: libraries/classes/Relation.php:2173
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "%s创建%s缺失的 phpMyAdmin 配置存储表。"
@@ -11939,7 +11941,7 @@ msgstr "允许运行存储过程。"
 
 #: libraries/classes/Server/Privileges.php:793
 #: libraries/classes/Server/Privileges.php:867
-#: libraries/classes/Server/Privileges.php:3969
+#: libraries/classes/Server/Privileges.php:3968
 msgid "Native MySQL authentication"
 msgstr "MySQL自带身份验证"
 
@@ -11947,23 +11949,23 @@ msgstr "MySQL自带身份验证"
 msgid "SHA256 password authentication"
 msgstr "SHA256密码验证"
 
-#: libraries/classes/Server/Privileges.php:1163
+#: libraries/classes/Server/Privileges.php:1164
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s 的密码已修改。"
 
-#: libraries/classes/Server/Privileges.php:1212
+#: libraries/classes/Server/Privileges.php:1213
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "您已撤销 %s 的权限。"
 
-#: libraries/classes/Server/Privileges.php:1548
+#: libraries/classes/Server/Privileges.php:1549
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr "没有足够的权限来查看用户。"
 
-#: libraries/classes/Server/Privileges.php:1615
+#: libraries/classes/Server/Privileges.php:1616
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -11971,64 +11973,64 @@ msgstr "没有足够的权限来查看用户。"
 msgid "Edit privileges"
 msgstr "修改权限"
 
-#: libraries/classes/Server/Privileges.php:1618
+#: libraries/classes/Server/Privileges.php:1619
 msgid "Revoke"
 msgstr "撤销"
 
-#: libraries/classes/Server/Privileges.php:1946
+#: libraries/classes/Server/Privileges.php:1947
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "按数据库指定权限"
 
-#: libraries/classes/Server/Privileges.php:1952
+#: libraries/classes/Server/Privileges.php:1953
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "按表指定权限"
 
-#: libraries/classes/Server/Privileges.php:1957
-#: libraries/classes/Server/Privileges.php:1959
+#: libraries/classes/Server/Privileges.php:1958
+#: libraries/classes/Server/Privileges.php:1960
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
 msgstr "例程"
 
-#: libraries/classes/Server/Privileges.php:1958
+#: libraries/classes/Server/Privileges.php:1959
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
 msgstr "按例程指定权限"
 
-#: libraries/classes/Server/Privileges.php:2306
+#: libraries/classes/Server/Privileges.php:2307
 msgid "No users selected for deleting!"
 msgstr "没有选择要删除的用户！"
 
-#: libraries/classes/Server/Privileges.php:2309
+#: libraries/classes/Server/Privileges.php:2310
 msgid "Reloading the privileges"
 msgstr "重新载入权限"
 
-#: libraries/classes/Server/Privileges.php:2332
+#: libraries/classes/Server/Privileges.php:2333
 msgid "The selected users have been deleted successfully."
 msgstr "已成功删除选中的用户。"
 
-#: libraries/classes/Server/Privileges.php:2409
+#: libraries/classes/Server/Privileges.php:2410
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "您已更新了 %s 的权限。"
 
-#: libraries/classes/Server/Privileges.php:2496
+#: libraries/classes/Server/Privileges.php:2497
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "未找到用户。"
 
-#: libraries/classes/Server/Privileges.php:2577
+#: libraries/classes/Server/Privileges.php:2578
 #, php-format
 msgid "Deleting %s"
 msgstr "正在删除 %s"
 
-#: libraries/classes/Server/Privileges.php:2608
+#: libraries/classes/Server/Privileges.php:2609
 msgid "The privileges were reloaded successfully."
 msgstr "已成功重新载入权限。"
 
@@ -12037,12 +12039,12 @@ msgstr "已成功重新载入权限。"
 msgid "The user %s already exists!"
 msgstr "用户 %s 己存在！"
 
-#: libraries/classes/Server/Privileges.php:2993
+#: libraries/classes/Server/Privileges.php:2992
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s 的权限"
 
-#: libraries/classes/Server/Privileges.php:3132
+#: libraries/classes/Server/Privileges.php:3131
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -12051,7 +12053,7 @@ msgstr ""
 "存在允许来自localhost的任何用户连接的用户帐户。如果其帐户的主机部分允许来自任"
 "何（％）主机的连接，这将阻止其他用户连接。"
 
-#: libraries/classes/Server/Privileges.php:3175
+#: libraries/classes/Server/Privileges.php:3174
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -12063,7 +12065,7 @@ msgstr ""
 "将可能与服务器使用的用户权限有异。在这种情况下，您应在继续前%s重新载入权"
 "限%s。"
 
-#: libraries/classes/Server/Privileges.php:3191
+#: libraries/classes/Server/Privileges.php:3190
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12075,7 +12077,7 @@ msgstr ""
 "内容将可能与服务器使用的用户权限有异。在这种情况下，应当重新载入权限表，但您"
 "没有RELOAD权限。"
 
-#: libraries/classes/Server/Privileges.php:3527
+#: libraries/classes/Server/Privileges.php:3526
 msgid "You have added a new user."
 msgstr "您已添加了一个新用户。"
 
@@ -12198,11 +12200,11 @@ msgstr "没有新的稳定版本可用"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "使用书签 \"%s\" 作为默认的查询。"
 
-#: libraries/classes/Sql.php:1032
+#: libraries/classes/Sql.php:1040
 msgid "Showing as PHP code"
 msgstr "显示为 PHP 代码"
 
-#: libraries/classes/Sql.php:1415
+#: libraries/classes/Sql.php:1423
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -12211,7 +12213,7 @@ msgstr ""
 "当前所选内容没有包含唯一字段。单元格编辑、复选框、编辑、复制和删除无法正常使"
 "用。%s"
 
-#: libraries/classes/Sql.php:1429
+#: libraries/classes/Sql.php:1437
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -12331,7 +12333,7 @@ msgstr "没有定义的索引部分！"
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "在 %1$s 创建外键时发生错误 (检查数据类型)"
 
-#: libraries/classes/Template.php:108
+#: libraries/classes/Template.php:111
 #, php-format
 msgid "Error while working with template cache: %s"
 msgstr "使用模板缓存时出错：%s"
@@ -12763,11 +12765,11 @@ msgctxt "spatial types"
 msgid "Spatial"
 msgstr "空间"
 
-#: libraries/classes/UserPassword.php:35
+#: libraries/classes/UserPassword.php:36
 msgid "The profile has been updated."
 msgstr "配置文件己更新。"
 
-#: libraries/classes/UserPassword.php:47
+#: libraries/classes/UserPassword.php:48
 msgid "Password is too long!"
 msgstr "密码太长！"
 
@@ -13664,7 +13666,7 @@ msgstr "删除页"
 
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
-#: templates/database/designer/main.twig:273
+#: templates/database/designer/main.twig:274
 msgid "Create relationship"
 msgstr "创建关系"
 
@@ -13740,56 +13742,56 @@ msgstr "隐藏/显示没有关联的表"
 msgid "Number of tables:"
 msgstr "数据表数量："
 
-#: templates/database/designer/main.twig:383
+#: templates/database/designer/main.twig:384
 msgid "Delete relationship"
 msgstr "删除关系"
 
-#: templates/database/designer/main.twig:447
-#: templates/database/designer/main.twig:612
+#: templates/database/designer/main.twig:448
+#: templates/database/designer/main.twig:613
 msgid "Relationship operator"
 msgstr "关系运算符"
 
-#: templates/database/designer/main.twig:476
-#: templates/database/designer/main.twig:641
-#: templates/database/designer/main.twig:847
-#: templates/database/designer/main.twig:1040
+#: templates/database/designer/main.twig:477
+#: templates/database/designer/main.twig:642
+#: templates/database/designer/main.twig:848
+#: templates/database/designer/main.twig:1041
 msgid "Except"
 msgstr "EXCEPT"
 
-#: templates/database/designer/main.twig:488
-#: templates/database/designer/main.twig:653
-#: templates/database/designer/main.twig:859
-#: templates/database/designer/main.twig:1052
+#: templates/database/designer/main.twig:489
+#: templates/database/designer/main.twig:654
+#: templates/database/designer/main.twig:860
+#: templates/database/designer/main.twig:1053
 msgid "subquery"
 msgstr "子查询"
 
-#: templates/database/designer/main.twig:497
-#: templates/database/designer/main.twig:713
+#: templates/database/designer/main.twig:498
+#: templates/database/designer/main.twig:714
 msgid "Rename to"
 msgstr "改名为"
 
-#: templates/database/designer/main.twig:503
-#: templates/database/designer/main.twig:721
+#: templates/database/designer/main.twig:504
+#: templates/database/designer/main.twig:722
 msgid "New name"
 msgstr "新名称"
 
-#: templates/database/designer/main.twig:512
-#: templates/database/designer/main.twig:918
+#: templates/database/designer/main.twig:513
+#: templates/database/designer/main.twig:919
 msgid "Aggregate"
 msgstr "聚合"
 
-#: templates/database/designer/main.twig:518
-#: templates/database/designer/main.twig:582
-#: templates/database/designer/main.twig:787
-#: templates/database/designer/main.twig:818
-#: templates/database/designer/main.twig:926
-#: templates/database/designer/main.twig:1011
+#: templates/database/designer/main.twig:519
+#: templates/database/designer/main.twig:583
+#: templates/database/designer/main.twig:788
+#: templates/database/designer/main.twig:819
+#: templates/database/designer/main.twig:927
+#: templates/database/designer/main.twig:1012
 #: templates/table/search/index.twig:41
 #: templates/table/zoom_search/index.twig:41
 msgid "Operator"
 msgstr "运算符"
 
-#: templates/database/designer/main.twig:1092
+#: templates/database/designer/main.twig:1093
 msgid "Active options"
 msgstr "当前选项"
 
@@ -13919,7 +13921,7 @@ msgid ""
 msgstr "@SERVER@将变成服务器名称，@DATABASE@ 将变成数据库名。"
 
 #. l10n: A query that the user has written freely
-#: templates/database/export/index.twig:5
+#: templates/database/export/index.twig:5 templates/table/export/index.twig:8
 msgid "Exporting a raw query"
 msgstr "导出原始查询"
 
@@ -17086,14 +17088,14 @@ msgstr "数据值字段："
 msgid "Save chart as image"
 msgstr "将图表另存为图像"
 
-#: templates/table/export/index.twig:8
+#: templates/table/export/index.twig:15
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
 msgstr ""
 "@SERVER@ 将变成服务器名，@DATABASE@ 将变成数据库名，@TABLE@ 将变成表名。"
 
-#: templates/table/export/index.twig:5
+#: templates/table/export/index.twig:10
 #, php-format
 msgid "Exporting rows from \"%s\" table"
 msgstr "正在导出数据表“%s”中的记录"
