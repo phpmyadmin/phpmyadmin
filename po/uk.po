@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-25 14:28+0200\n"
-"PO-Revision-Date: 2021-01-22 17:26+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-04-26 22:32+0000\n"
+"Last-Translator: Tymofij Lytvynenko <till.svit@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "uk/>\n"
 "Language: uk\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -288,12 +288,6 @@ msgid "Suboptimal caching method."
 msgstr "Субоптимальний метод кешування."
 
 #: libraries/advisory_rules_generic.php:192
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
@@ -555,15 +549,6 @@ msgid "Temp disk rate"
 msgstr "Співвідношення тимчасових таблиць на диску"
 
 #: libraries/advisory_rules_generic.php:345
-#, fuzzy
-#| msgid ""
-#| "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#| "some temporary tables are always being written to disk, independent of "
-#| "the value of these variables. To eliminate these you will have to rewrite "
-#| "your queries to avoid those conditions (Within a temporary table: "
-#| "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#| "bytes) as mentioned in the <a href=\"https://dev.mysql.com/doc/refman/5.5/"
-#| "en/internal-temporary-tables.html\">MySQL Documentation</a>"
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -577,8 +562,8 @@ msgstr ""
 "Однак деякі тимчасові таблиці завжди записуються на диск, незалежно від "
 "значення цих змінних. Щоб усунути це потрібно переписати запити таким чином, "
 "щоб уникнути умов (У тимчасовій таблиці: наявність стовпчика BLOB або TEXT "
-"або стовпчика розміром понад 512 байт) згаданих у <a href=\"https://dev."
-"mysql.com/doc/refman/5.5/en/internal-temporary-tables.html\">Документації "
+"або стовпчика розміром понад 512 байт) згаданих у <a href=\"https://dev.mysql"
+".com/doc/refman/8.0/en/internal-temporary-tables.html\">Документації "
 "MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:354
@@ -612,10 +597,9 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size дорівнює 0"
 
 #: libraries/advisory_rules_generic.php:373
-#, fuzzy, no-php-format
-#| msgid "Max %% MyISAM key buffer ever used"
+#, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr "Максимальний %% буфера ключів MyISAM, що коли-небудь використовувався"
+msgstr "Максимальний % буфера ключів MyISAM, що коли-небудь використовувався"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
