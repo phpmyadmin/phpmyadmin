@@ -1722,7 +1722,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         '        <label for="filterQueryText">' + Messages.strFilterByWordRegexp + '</label>' +
                         '        <input name="filterQueryText" type="text" id="filter_query_text">' +
                         '    </div>' +
-                        ((logData.numRows > 250) ? ' <div class="formelement"><button name="startFilterQueryText" id="startFilterQueryText">' + Messages.strFilter + '</button></div>' : '') +
+                        ((logData.numRows > 250) ? ' <div class="formelement"><button class="btn btn-secondary" name="startFilterQueryText" id="startFilterQueryText">' + Messages.strFilter + '</button></div>' : '') +
                         '    <div class="formelement">' +
                         '       <input type="checkbox" id="noWHEREData" name="noWHEREData" value="1"> ' +
                         '       <label for="noWHEREData"> ' + Messages.strIgnoreWhereAndGroup + '</label>' +
