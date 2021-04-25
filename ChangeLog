@@ -88,6 +88,7 @@ phpMyAdmin - ChangeLog
 - issue #16847 Fixed JSON export text fields and binary data
 - issue #14773 Fix exporting a raw query is not working
 - issue #16734 Fixed memory limit reached, use SQL COUNT(*) instead of fetch and count results
+- issue #16723 Fixed option to perform ALTER ONLINE is not available on edit of an existing column
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
