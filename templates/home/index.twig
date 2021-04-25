@@ -154,9 +154,11 @@
             </div>
             <ul class="list-group list-group-flush">
               {% if web_server is not empty %}
+                {% if web_server.software is not null %}
                 <li class="list-group-item">
                   {{ web_server.software }}
                 </li>
+                {% endif %}
                 <li class="list-group-item" id="li_mysql_client_version">
                   {% trans 'Database client version:' %}
                   {{ web_server.database }}

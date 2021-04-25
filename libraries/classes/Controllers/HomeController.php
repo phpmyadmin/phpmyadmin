@@ -174,7 +174,7 @@ class HomeController extends AbstractController
 
         $webServer = [];
         if ($cfg['ShowServerInfo']) {
-            $webServer['software'] = $_SERVER['SERVER_SOFTWARE'];
+            $webServer['software'] = $_SERVER['SERVER_SOFTWARE'] ?? null;
 
             if ($server > 0) {
                 $clientVersion = $this->dbi->getClientInfo();
