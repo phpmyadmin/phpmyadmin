@@ -76,9 +76,9 @@
             {% if menus_work and user_group_count > 0 %}
               <td class="text-center">
                 {% if host.user is not empty %}
-                  <a class="edit_user_group_anchor ajax" href="{{ url('/server/privileges', {'username': host.user}) }}">
+                  <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#editUserGroupModal" data-username="{{ host.user }}">
                     {{ get_icon('b_usrlist', 'Edit user group'|trans) }}
-                  </a>
+                  </button>
                 {% endif %}
               </td>
             {% endif %}
@@ -144,3 +144,23 @@
     </div>
   </div>
 </form>
+
+<div class="modal fade" id="editUserGroupModal" tabindex="-1" aria-labelledby="editUserGroupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editUserGroupModalLabel">{% trans 'Edit user group' %}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+      </div>
+      <div class="modal-body">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">{% trans 'Loading…' %}</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Close' %}</button>
+        <button type="button" class="btn btn-primary" id="editUserGroupModalSaveButton">{% trans 'Save changes' %}</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -31,6 +31,58 @@ function checkAddUser (theForm) {
     return Functions.checkPassword($(theForm));
 }
 
+function editUserGroup (event) {
+    const editUserGroupModal = document.getElementById('editUserGroupModal');
+    const button = event.relatedTarget;
+    const username = button.getAttribute('data-username');
+
+    $.get(
+        'index.php?route=/server/privileges',
+        {
+            'username': username,
+            'ajax_request': true,
+            'edit_user_group_dialog': true,
+            'server': CommonParams.get('server')
+        },
+        data => {
+            if (typeof data === 'undefined' || data.success !== true) {
+                Functions.ajaxShowMessage(data.error, false, 'error');
+
+                return;
+            }
+
+            const modal = bootstrap.Modal.getInstance(editUserGroupModal);
+            const modalBody = editUserGroupModal.querySelector('.modal-body');
+            const saveButton = editUserGroupModal.querySelector('#editUserGroupModalSaveButton');
+
+            modalBody.innerHTML = data.message;
+
+            saveButton.addEventListener('click', () => {
+                const form = $(editUserGroupModal.querySelector('#changeUserGroupForm'));
+
+                $.post(
+                    'index.php?route=/server/privileges',
+                    form.serialize() + CommonParams.get('arg_separator') + 'ajax_request=1',
+                    data => {
+                        if (typeof data === 'undefined' || data.success !== true) {
+                            Functions.ajaxShowMessage(data.error, false, 'error');
+
+                            return;
+                        }
+
+                        const userGroup = form.serializeArray().find(el => el.name === 'userGroup').value;
+                        // button -> td -> tr -> td.usrGroup
+                        const userGroupTableCell = button.parentElement.parentElement.querySelector('.usrGroup');
+                        userGroupTableCell.textContent = userGroup;
+                    }
+                );
+
+                modal.hide();
+            });
+        }
+    );
+}
+
 /**
  * AJAX scripts for /server/privileges page.
  *
@@ -53,7 +105,12 @@ function checkAddUser (theForm) {
 AJAX.registerTeardown('server/privileges.js', function () {
     $('#fieldset_add_user_login').off('change', 'input[name=\'username\']');
     $(document).off('click', '#deleteUserCard .btn.ajax');
-    $(document).off('click', 'a.edit_user_group_anchor.ajax');
+
+    const editUserGroupModal = document.getElementById('editUserGroupModal');
+    if (editUserGroupModal) {
+        editUserGroupModal.removeEventListener('show.bs.modal', editUserGroup);
+    }
+
     $(document).off('click', 'button.mult_submit[value=export]');
     $(document).off('click', 'a.export_user_anchor.ajax');
     $('#dropUsersDbCheckbox').off('click');
@@ -195,73 +252,10 @@ AJAX.registerOnload('server/privileges.js', function () {
         });
     }); // end Revoke User
 
-    $(document).on('click', 'a.edit_user_group_anchor.ajax', function (event) {
-        event.preventDefault();
-        $(this).parents('tr').addClass('current_row');
-        var $msg = Functions.ajaxShowMessage();
-        $.get(
-            $(this).attr('href'),
-            {
-                'ajax_request': true,
-                'edit_user_group_dialog': true
-            },
-            function (data) {
-                if (typeof data !== 'undefined' && data.success === true) {
-                    Functions.ajaxRemoveMessage($msg);
-                    var buttonOptions = {};
-                    buttonOptions[Messages.strGo] = function () {
-                        var usrGroup = $('#changeUserGroupDialog')
-                            .find('select[name="userGroup"]')
-                            .val();
-                        var $message = Functions.ajaxShowMessage();
-                        var argsep = CommonParams.get('arg_separator');
-                        $.post(
-                            'index.php?route=/server/privileges',
-                            $('#changeUserGroupDialog').find('form').serialize() + argsep + 'ajax_request=1',
-                            function (data) {
-                                Functions.ajaxRemoveMessage($message);
-                                if (typeof data !== 'undefined' && data.success === true) {
-                                    $('#usersForm')
-                                        .find('.current_row')
-                                        .removeClass('current_row')
-                                        .find('.usrGroup')
-                                        .text(usrGroup);
-                                } else {
-                                    Functions.ajaxShowMessage(data.error, false);
-                                    $('#usersForm')
-                                        .find('.current_row')
-                                        .removeClass('current_row');
-                                }
-                            }
-                        );
-                        $(this).dialog('close');
-                    };
-                    buttonOptions[Messages.strClose] = function () {
-                        $(this).dialog('close');
-                    };
-                    var $dialog = $('<div></div>')
-                        .attr('id', 'changeUserGroupDialog')
-                        .append(data.message)
-                        .dialog({
-                            width: 500,
-                            minWidth: 300,
-                            modal: true,
-                            buttons: buttonOptions,
-                            title: $('legend', $(data.message)).text(),
-                            close: function () {
-                                $(this).remove();
-                            }
-                        });
-                    $dialog.find('legend').remove();
-                } else {
-                    Functions.ajaxShowMessage(data.error, false);
-                    $('#usersForm')
-                        .find('.current_row')
-                        .removeClass('current_row');
-                }
-            }
-        );
-    });
+    const editUserGroupModal = document.getElementById('editUserGroupModal');
+    if (editUserGroupModal) {
+        editUserGroupModal.addEventListener('show.bs.modal', editUserGroup);
+    }
 
     /**
      * AJAX handler for 'Export Privileges'
