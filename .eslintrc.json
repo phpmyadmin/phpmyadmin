@@ -12,6 +12,7 @@
     },
     "globals": {
         "AJAX": "readonly",
+        "bootstrap": "readonly",
         "CodeMirror": "readonly",
         "CommonActions": "readonly",
         "CommonParams": "readonly",
