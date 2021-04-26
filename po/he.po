@@ -2321,10 +2321,10 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"הצגת קישור אל הפלט של [a@https://php.net/manual/function.phpinfo."
+"הצגת קישור אל הפלט של [a@https://www.php.net/manual/en/function.phpinfo."
 "php]phpinfo()‎[/a]."
 
 #: libraries/classes/Config/Descriptions.php:510
@@ -4847,12 +4847,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"פרמטר ה־PHP שלך [a@https://secure.php.net/manual/en/session.configuration."
+"פרמטר ה־PHP שלך [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] נמוך מתוקף "
 "העוגייה שמוגדר ב־phpMyAdmin, עקב כך, הכניסה שלך צפויה לפוג מוקדם ממה שמוגדר "
 "ב־phpMyAdmin."
@@ -19371,7 +19371,7 @@ msgstr "מתבצעת העברה לאתר היעד."
 #~ msgstr "מבוטל"
 
 #~ msgid ""
-#~ "Cannot load [a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/"
+#~ "Cannot load [a@https://www.php.net/%1$s@Documentation][em]%1$s[/em][/"
 #~ "a] extension. Please check your PHP configuration."
 #~ msgstr "התוספת %s לא נטענה בהצלחה,<br />אנא בדוק את הגדרות ה- PHP שלך."
 
@@ -19475,7 +19475,7 @@ msgstr "מתבצעת העברה לאתר היעד."
 #~ msgstr "הטבלה \"%s\" לא קיימת!"
 
 #~ msgid ""
-#~ "Cannot load [a@https://secure.php.net/%1@Documentation][em]%1[/em][/a] "
+#~ "Cannot load [a@https://www.php.net/%1@Documentation][em]%1[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr "התוספת %s לא נטענה בהצלחה,<br />אנא בדוק את הגדרות ה- PHP שלך."
 

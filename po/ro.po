@@ -2714,10 +2714,10 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Arată o legătură la ieșirea [a@https://php.net/manual/function.phpinfo."
+"Arată o legătură la ieșirea [a@https://www.php.net/manual/ro/function.phpinfo."
 "php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:510
@@ -5380,12 +5380,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parametrul tău PHP [a@https://secure.php.net/manual/en/session.configuration."
+"Parametrul tău PHP [a@https://www.php.net/manual/ro/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] este mai "
 "mic decât valabilitatea cookie-urilor configurată în phpMyAdmin, de aceea "
 "autentificarea ta ar putea expira mai devreme decât este configurată în "
@@ -21021,7 +21021,7 @@ msgstr "Te duc la situl de destinație."
 #~ msgstr "Dezactivat"
 
 #~ msgid ""
-#~ "Cannot load [a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/"
+#~ "Cannot load [a@https://www.php.net/%1$s@Documentation][em]%1$s[/em][/"
 #~ "a] extension. Please check your PHP configuration."
 #~ msgstr ""
 #~ "nu se poate încărca extensia %s,<br />vă rugăm să verificați configurația "

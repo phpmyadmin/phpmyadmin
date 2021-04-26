@@ -2788,7 +2788,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
 
@@ -5618,13 +5618,13 @@ msgstr ""
 #: libraries/classes/Controllers/HomeController.php:353
 #, fuzzy
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"आपका PHP पैरामीटर [a https: //secure.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank] 1session.gc_maxlifetime [/ a] 2 कुकी "
+"आपका PHP पैरामीटर [a@https://www.php.net/manual/en/session.configuration."
+"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 2 कुकी "
 "की वैधता की तुलना में कम है PhpMyAdmin में, इस वजह से, आपका लॉगिन phpMyAdmin में "
 "कॉन्फ़िगर की तुलना में जल्दी समाप्त हो सकता है।"
 

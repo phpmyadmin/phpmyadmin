@@ -2736,10 +2736,10 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Pokazuje odnośnik do [a@https://secure.php.net/manual/function.phpinfo."
+"Pokazuje odnośnik do [a@https://www.php.net/manual/en/function.phpinfo."
 "php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:510
@@ -5382,12 +5382,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parametr PHP [a@https://secure.php.net/manual/en/session.configuration."
+"Parametr PHP [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] ma mniejszą "
 "wartość niż czas przechowywania ciasteczka skonfigurowany w phpMyAdmin. Z "
 "tego powodu sesja wygaśnie wcześniej niż jest to skonfigurowane w phpMyAdmin."

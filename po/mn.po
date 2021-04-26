@@ -2544,7 +2544,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
 
@@ -5295,7 +5295,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
@@ -21060,7 +21060,7 @@ msgstr "Хөөлтын илтгэл"
 #~ msgstr "Хаагдсан"
 
 #~ msgid ""
-#~ "Cannot load [a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/"
+#~ "Cannot load [a@https://www.php.net/%1$s@Documentation][em]%1$s[/em][/"
 #~ "a] extension. Please check your PHP configuration."
 #~ msgstr "%s өргөтгөлийг дуудаж чадсангүй,<br />PHP-ийн тохиргоог үз"
 
@@ -21146,7 +21146,7 @@ msgstr "Хөөлтын илтгэл"
 #~ msgstr "%1$s сервэрийн хост буруу. Өөрийн тохиргоогоо нягтална уу."
 
 #~ msgid ""
-#~ "Cannot load [a@https://secure.php.net/%1@Documentation][em]%1[/em][/a] "
+#~ "Cannot load [a@https://www.php.net/%1@Documentation][em]%1[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr "%s өргөтгөлийг дуудаж чадсангүй,<br />PHP-ийн тохиргоог үз"
 

@@ -2712,10 +2712,10 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"[a@https://php.net/manual/function.phpinfo.php]phpinfo ()[/a] shyǵarýyna "
+"[a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo ()[/a] shyǵarýyna "
 "úshin siltemeni kórsetedi."
 
 #: libraries/classes/Config/Descriptions.php:510
@@ -5352,12 +5352,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP-parametrińiz [a@https: //secure.php.net/manual/en/session.configuration."
+"PHP-parametrińiz [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank] session.gc_maxlifetime[/a] phpMyAdmin "
 "ishinde teńshelgen cookie-faıldyń jaramdylyǵynan góri tómen, sondyqtan "
 "seansyńyz phpMyAdmin ishindegi teńshelgenine qaraǵanda erte aıaqtalýy múmkin."

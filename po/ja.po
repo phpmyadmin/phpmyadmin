@@ -2637,10 +2637,10 @@ msgstr "編集／挿入モードでデータ型項目を表示するかどうか
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"[a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] の結果へのリンク"
+"[a@https://www.php.net/manual/ja/function.phpinfo.php]phpinfo()[/a] の結果へのリンク"
 "を表示します。"
 
 #: libraries/classes/Config/Descriptions.php:510
@@ -5238,12 +5238,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"お使いの PHP のパラメータ [a@https://secure.php.net/manual/ja/session."
+"お使いの PHP のパラメータ [a@https://www.php.net/manual/ja/session."
 "configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/"
 "a] が、phpMyAdmin に設定されているクッキーの有効期間より短くなっています。こ"
 "のため、phpMyAdmin に設定されているよりも早くログインの期限が切れるかもしれま"
@@ -20756,10 +20756,10 @@ msgstr "ターゲットサイトにアクセスします。"
 #~ msgstr "無効"
 
 #~ msgid ""
-#~ "Cannot load [a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/"
+#~ "Cannot load [a@https://www.php.net/%1$s@Documentation][em]%1$s[/em][/"
 #~ "a] extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "[a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロー"
+#~ "[a@https://www.php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロー"
 #~ "ドできません。PHP の設定を確認してください"
 
 #~ msgid ""
@@ -20866,10 +20866,10 @@ msgstr "ターゲットサイトにアクセスします。"
 #~ msgstr "テーブルを %1$s から %2$s にリネームするときにエラーが発生しました"
 
 #~ msgid ""
-#~ "Cannot load [a@https://secure.php.net/%1@Documentation][em]%1[/em][/a] "
+#~ "Cannot load [a@https://www.php.net/%1@Documentation][em]%1[/em][/a] "
 #~ "extension. Please check your PHP configuration."
 #~ msgstr ""
-#~ "[a@https://secure.php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロー"
+#~ "[a@https://www.php.net/%1$s@Documentation][em]%1$s[/em][/a] 拡張をロー"
 #~ "ドできません。PHP の設定を確認してください"
 
 #~ msgid "(or the local MySQL server"
