@@ -31,55 +31,63 @@ function checkAddUser (theForm) {
     return Functions.checkPassword($(theForm));
 }
 
-function editUserGroup (event) {
-    const editUserGroupModal = document.getElementById('editUserGroupModal');
-    const button = event.relatedTarget;
-    const username = button.getAttribute('data-username');
+/**
+ * @implements EventListener
+ */
+const EditUserGroup = {
+    /**
+     * @param {MouseEvent} event
+     */
+    handleEvent: function (event) {
+        const editUserGroupModal = document.getElementById('editUserGroupModal');
+        const button = event.relatedTarget;
+        const username = button.getAttribute('data-username');
 
-    $.get(
-        'index.php?route=/server/user-groups/edit-form',
-        {
-            'username': username,
-            'server': CommonParams.get('server')
-        },
-        data => {
-            if (typeof data === 'undefined' || data.success !== true) {
-                Functions.ajaxShowMessage(data.error, false, 'error');
+        $.get(
+            'index.php?route=/server/user-groups/edit-form',
+            {
+                'username': username,
+                'server': CommonParams.get('server')
+            },
+            data => {
+                if (typeof data === 'undefined' || data.success !== true) {
+                    Functions.ajaxShowMessage(data.error, false, 'error');
 
-                return;
-            }
+                    return;
+                }
 
-            const modal = bootstrap.Modal.getInstance(editUserGroupModal);
-            const modalBody = editUserGroupModal.querySelector('.modal-body');
-            const saveButton = editUserGroupModal.querySelector('#editUserGroupModalSaveButton');
+                const modal = bootstrap.Modal.getInstance(editUserGroupModal);
+                const modalBody = editUserGroupModal.querySelector('.modal-body');
+                const saveButton = editUserGroupModal.querySelector('#editUserGroupModalSaveButton');
 
-            modalBody.innerHTML = data.message;
+                modalBody.innerHTML = data.message;
 
-            saveButton.addEventListener('click', () => {
-                const form = $(editUserGroupModal.querySelector('#changeUserGroupForm'));
+                saveButton.addEventListener('click', () => {
+                    const form = $(editUserGroupModal.querySelector('#changeUserGroupForm'));
 
-                $.post(
-                    'index.php?route=/server/privileges',
-                    form.serialize() + CommonParams.get('arg_separator') + 'ajax_request=1',
-                    data => {
-                        if (typeof data === 'undefined' || data.success !== true) {
-                            Functions.ajaxShowMessage(data.error, false, 'error');
+                    $.post(
+                        'index.php?route=/server/privileges',
+                        form.serialize() + CommonParams.get('arg_separator') + 'ajax_request=1',
+                        data => {
+                            if (typeof data === 'undefined' || data.success !== true) {
+                                Functions.ajaxShowMessage(data.error, false, 'error');
 
-                            return;
+                                return;
+                            }
+
+                            const userGroup = form.serializeArray().find(el => el.name === 'userGroup').value;
+                            // button -> td -> tr -> td.usrGroup
+                            const userGroupTableCell = button.parentElement.parentElement.querySelector('.usrGroup');
+                            userGroupTableCell.textContent = userGroup;
                         }
+                    );
 
-                        const userGroup = form.serializeArray().find(el => el.name === 'userGroup').value;
-                        // button -> td -> tr -> td.usrGroup
-                        const userGroupTableCell = button.parentElement.parentElement.querySelector('.usrGroup');
-                        userGroupTableCell.textContent = userGroup;
-                    }
-                );
-
-                modal.hide();
-            });
-        }
-    );
-}
+                    modal.hide();
+                });
+            }
+        );
+    }
+};
 
 /**
  * AJAX scripts for /server/privileges page.
@@ -106,7 +114,7 @@ AJAX.registerTeardown('server/privileges.js', function () {
 
     const editUserGroupModal = document.getElementById('editUserGroupModal');
     if (editUserGroupModal) {
-        editUserGroupModal.removeEventListener('show.bs.modal', editUserGroup);
+        editUserGroupModal.removeEventListener('show.bs.modal', EditUserGroup);
     }
 
     $(document).off('click', 'button.mult_submit[value=export]');
@@ -252,7 +260,7 @@ AJAX.registerOnload('server/privileges.js', function () {
 
     const editUserGroupModal = document.getElementById('editUserGroupModal');
     if (editUserGroupModal) {
-        editUserGroupModal.addEventListener('show.bs.modal', editUserGroup);
+        editUserGroupModal.addEventListener('show.bs.modal', EditUserGroup);
     }
 
     /**
