@@ -206,11 +206,6 @@ parameters:
 			path: libraries/classes/Controllers/Server/CollationsController.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/PrivilegesController.php
-
-		-
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|null given\\.$#"
 			count: 7
 			path: libraries/classes/Controllers/Server/Status/StatusController.php
@@ -1116,29 +1111,9 @@ parameters:
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportCsv.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportHtmlword.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportJson\\:\\:encode\\(\\) should return string but returns string\\|false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportJson.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportOds.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportOdt.php
 
 		-
 			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj supplied for foreach, only iterables are supported\\.$#"
@@ -1176,29 +1151,9 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportSql.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportSql.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportTexytext.php
-
-		-
 			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportXml.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between mixed and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Export/ExportYaml.php
 
 		-
 			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
@@ -1967,11 +1922,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#6 \\$dbname of method PhpMyAdmin\\\\Server\\\\Privileges\\:\\:addUserAndCreateDatabase\\(\\) expects string, array\\|string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between string and null will always evaluate to false\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
 
