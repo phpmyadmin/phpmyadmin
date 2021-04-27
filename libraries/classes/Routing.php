@@ -72,6 +72,7 @@ class Routing
         // If skip cache is enabled, do not try to read the file
         // If no cache skipping then read it and use it
         if (! $skipCache && file_exists(self::ROUTES_CACHE_FILE)) {
+            /** @psalm-suppress MissingFile */
             $dispatchData = require self::ROUTES_CACHE_FILE;
             if (! is_array($dispatchData)) {
                 throw new RuntimeException('Invalid cache file "' . self::ROUTES_CACHE_FILE . '"');
