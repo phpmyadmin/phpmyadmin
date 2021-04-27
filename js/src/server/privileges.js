@@ -37,11 +37,9 @@ function editUserGroup (event) {
     const username = button.getAttribute('data-username');
 
     $.get(
-        'index.php?route=/server/privileges',
+        'index.php?route=/server/user-groups/edit-form',
         {
             'username': username,
-            'ajax_request': true,
-            'edit_user_group_dialog': true,
             'server': CommonParams.get('server')
         },
         data => {

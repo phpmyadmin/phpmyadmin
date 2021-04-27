@@ -338,7 +338,6 @@ class PrivilegesController extends AbstractController
                     || $_GET['initial'] === '')
                 || (isset($_POST['delete']) && $_POST['delete'] === __('Go')))
             && ! isset($_GET['showall'])
-            && ! isset($_GET['edit_user_group_dialog'])
         ) {
             $extra_data = $serverPrivileges->getExtraDataForAjaxBehavior(
                 ($password ?? ''),
@@ -381,18 +380,6 @@ class PrivilegesController extends AbstractController
         } elseif (! empty($GLOBALS['message'])) {
             $this->response->addHTML(Generator::getMessage($GLOBALS['message']));
             unset($GLOBALS['message']);
-        }
-
-        if (! empty($_GET['edit_user_group_dialog']) && $cfgRelation['menuswork']) {
-            $dialog = $serverPrivileges->getHtmlToChooseUserGroup($username ?? null);
-
-            if ($this->response->isAjax()) {
-                $this->response->addJSON('message', $dialog);
-
-                return;
-            }
-
-            $this->response->addHTML($dialog);
         }
 
         // export user definition

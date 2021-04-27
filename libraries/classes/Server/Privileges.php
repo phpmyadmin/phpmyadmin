@@ -537,52 +537,6 @@ class Privileges
     }
 
     /**
-     * Displays a dropdown to select the user group
-     * with menu items configured to each of them.
-     *
-     * @param string $username username
-     *
-     * @return string html to select the user group
-     */
-    public function getHtmlToChooseUserGroup($username)
-    {
-        $cfgRelation = $this->relation->getRelationsParam();
-        $groupTable = Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['usergroups']);
-        $userTable = Util::backquote($cfgRelation['db'])
-            . '.' . Util::backquote($cfgRelation['users']);
-
-        $userGroup = '';
-        if (isset($GLOBALS['username'])) {
-            $sqlQuery = 'SELECT `usergroup` FROM ' . $userTable
-                . " WHERE `username` = '" . $this->dbi->escapeString($username) . "'";
-            $userGroup = $this->dbi->fetchValue(
-                $sqlQuery,
-                0,
-                0,
-                DatabaseInterface::CONNECT_CONTROL
-            );
-        }
-
-        $allUserGroups = [];
-        $sqlQuery = 'SELECT DISTINCT `usergroup` FROM ' . $groupTable;
-        $result = $this->relation->queryAsControlUser($sqlQuery, false);
-        if ($result) {
-            while ($row = $this->dbi->fetchRow($result)) {
-                $allUserGroups[$row[0]] = $row[0];
-            }
-        }
-
-        $this->dbi->freeResult($result);
-
-        return $this->template->render('server/privileges/choose_user_group', [
-            'all_user_groups' => $allUserGroups,
-            'user_group' => $userGroup,
-            'params' => ['username' => $username],
-        ]);
-    }
-
-    /**
      * Sets the user group from request values
      *
      * @param string $username  username

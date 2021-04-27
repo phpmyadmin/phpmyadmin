@@ -247,7 +247,10 @@ return static function (RouteCollector $routes): void {
             $routes->get('/queries', [QueriesController::class, 'index']);
             $routes->addRoute(['GET', 'POST'], '/variables', [StatusVariables::class, 'index']);
         });
-        $routes->addRoute(['GET', 'POST'], '/user-groups', [UserGroupsController::class, 'index']);
+        $routes->addGroup('/user-groups', static function (RouteCollector $routes): void {
+            $routes->addRoute(['GET', 'POST'], '', [UserGroupsController::class, 'index']);
+            $routes->get('/edit-form', [UserGroupsController::class, 'editUserGroupModalForm']);
+        });
         $routes->addGroup('/variables', static function (RouteCollector $routes): void {
             $routes->get('', [VariablesController::class, 'index']);
             $routes->get('/get/{name}', [VariablesController::class, 'getValue']);

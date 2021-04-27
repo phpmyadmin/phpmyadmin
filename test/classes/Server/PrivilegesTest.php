@@ -319,32 +319,6 @@ class PrivilegesTest extends AbstractTestCase
     }
 
     /**
-     * Test for getHtmlToChooseUserGroup
-     */
-    public function testGetHtmlToChooseUserGroup(): void
-    {
-        $username = 'pma_username';
-
-        $html = $this->serverPrivileges->getHtmlToChooseUserGroup($username);
-        $this->assertStringContainsString(
-            '<form class="ajax" id="changeUserGroupForm"',
-            $html
-        );
-        //Url::getHiddenInputs
-        $params = ['username' => $username];
-        $html_output = Url::getHiddenInputs($params);
-        $this->assertStringContainsString(
-            $html_output,
-            $html
-        );
-        //__('User group')
-        $this->assertStringContainsString(
-            __('User group'),
-            $html
-        );
-    }
-
-    /**
      * Test for getSqlQueryForDisplayPrivTable
      */
     public function testGetSqlQueryForDisplayPrivTable(): void
