@@ -113,6 +113,16 @@ abstract class AbstractTestCase extends TestCase
         return $response->getHTMLResult();
     }
 
+    protected function getResponseJsonResult(): array
+    {
+        global $containerBuilder;
+
+        /** @var Response $response */
+        $response = $containerBuilder->get(Response::class);
+
+        return $response->getJSONResult();
+    }
+
     protected function setGlobalDbi(): void
     {
         global $dbi;

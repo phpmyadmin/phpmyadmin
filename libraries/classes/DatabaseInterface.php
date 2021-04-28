@@ -41,7 +41,6 @@ use function mb_strtolower;
 use function microtime;
 use function openlog;
 use function reset;
-use function rtrim;
 use function sprintf;
 use function stripos;
 use function strlen;
@@ -303,36 +302,6 @@ class DatabaseInterface implements DbalInterface
         }
 
         return $tables;
-    }
-
-    /**
-     * returns
-     *
-     * @param string $database name of database
-     * @param array  $tables   list of tables to search for for relations
-     * @param int    $link     mysql link resource|object
-     *
-     * @return array           array of found foreign keys
-     */
-    public function getForeignKeyConstrains(string $database, array $tables, $link = self::CONNECT_USER): array
-    {
-        $tablesListForQuery = '';
-        foreach ($tables as $table) {
-            $tablesListForQuery .= "'" . $this->escapeString($table) . "',";
-        }
-
-        $tablesListForQuery = rtrim($tablesListForQuery, ',');
-
-        return $this->fetchResult(
-            QueryGenerator::getInformationSchemaForeignKeyConstraintsRequest(
-                $this->escapeString($database),
-                $tablesListForQuery
-            ),
-            null,
-            null,
-            $link,
-            self::QUERY_STORE
-        );
     }
 
     /**

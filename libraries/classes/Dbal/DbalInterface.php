@@ -70,21 +70,6 @@ interface DbalInterface
     public function getTables(string $database, $link = DatabaseInterface::CONNECT_USER): array;
 
     /**
-     * returns
-     *
-     * @param string $database name of database
-     * @param array  $tables   list of tables to search for for relations
-     * @param int    $link     mysql link resource|object
-     *
-     * @return array           array of found foreign keys
-     */
-    public function getForeignKeyConstrains(
-        string $database,
-        array $tables,
-        $link = DatabaseInterface::CONNECT_USER
-    ): array;
-
-    /**
      * returns array of all tables in given db or dbs
      * this function expects unquoted names:
      * RIGHT: my_database
