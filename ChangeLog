@@ -106,6 +106,7 @@ phpMyAdmin - ChangeLog
 - issue #16420 Fixed single clicking on row starts editing even if GridEditing is set to double-click
 - issue #16854 Fixed "Undefined index: SERVER_SOFTWARE" on very minimal PHP FPM setups
 - issue #16863 Fixed replication setting up a replica is not working
+- issue #16382 Remove apc upload progress method (all upload progress code was removed from the PHP extension)
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
