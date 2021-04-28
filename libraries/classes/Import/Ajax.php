@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Import;
 
 use PhpMyAdmin\Core;
 
-use function extension_loaded;
 use function function_exists;
 use function ini_get;
 use function json_encode;
@@ -45,7 +44,6 @@ final class Ajax
             // in PHP 5.4 session-based upload progress was problematic, see closed bug 3964
             //"session",
             'progress',
-            'apc',
             'noplugin',
         ];
 
@@ -67,24 +65,6 @@ final class Ajax
             $upload_id,
             $plugins,
         ];
-    }
-
-    /**
-     * Checks if APC bar extension is available and configured correctly.
-     *
-     * @return bool true if APC extension is available and if rfc1867 is enabled,
-     * false if it is not
-     */
-    public static function apcCheck()
-    {
-        if (
-            ! extension_loaded('apc')
-            || ! function_exists('apc_fetch')
-        ) {
-            return false;
-        }
-
-        return ini_get('apc.enabled') && ini_get('apc.rfc1867');
     }
 
     /**
