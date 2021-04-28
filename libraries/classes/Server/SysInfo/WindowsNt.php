@@ -34,11 +34,13 @@ class WindowsNt extends Base
     {
         if (! class_exists('COM')) {
             $this->wmi = null;
-        } else {
-            // initialize the wmi object
-            $objLocator = new COM('WbemScripting.SWbemLocator');
-            $this->wmi = $objLocator->ConnectServer();
+
+            return;
         }
+
+        // initialize the wmi object
+        $objLocator = new COM('WbemScripting.SWbemLocator');
+        $this->wmi = $objLocator->ConnectServer();
     }
 
     /**

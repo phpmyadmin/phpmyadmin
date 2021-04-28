@@ -78,10 +78,10 @@ class Dia extends XMLWriter
         $rightMargin,
         $orientation
     ) {
+        $isPortrait = 'false';
+
         if ($orientation === 'P') {
             $isPortrait = 'true';
-        } else {
-            $isPortrait = 'false';
         }
 
         $this->startElement('dia:diagram');

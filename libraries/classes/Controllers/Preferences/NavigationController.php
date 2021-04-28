@@ -115,8 +115,10 @@ class NavigationController extends AbstractController
 
         if ($this->response->isAjax()) {
             $this->response->addJSON('disableNaviSettings', true);
-        } else {
-            define('PMA_DISABLE_NAVI_SETTINGS', true);
+
+            return;
         }
+
+        define('PMA_DISABLE_NAVI_SETTINGS', true);
     }
 }

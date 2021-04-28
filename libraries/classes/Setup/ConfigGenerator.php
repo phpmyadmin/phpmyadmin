@@ -99,18 +99,18 @@ class ConfigGenerator
                 . var_export($var_value, true) . ';' . $crlf;
         }
 
-        $ret = '';
         if (self::isZeroBasedArray($var_value)) {
-            $ret = "\$cfg['" . $var_name . "'] = "
+            return "\$cfg['" . $var_name . "'] = "
                 . self::exportZeroBasedArray($var_value, $crlf)
                 . ';' . $crlf;
-        } else {
-            // string keys: $cfg[key][subkey] = value
-            foreach ($var_value as $k => $v) {
-                $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
-                $ret .= "\$cfg['" . $var_name . "']['" . $k . "'] = "
-                    . var_export($v, true) . ';' . $crlf;
-            }
+        }
+
+        $ret = '';
+        // string keys: $cfg[key][subkey] = value
+        foreach ($var_value as $k => $v) {
+            $k = preg_replace('/[^A-Za-z0-9_]/', '_', $k);
+            $ret .= "\$cfg['" . $var_name . "']['" . $k . "'] = "
+                . var_export($v, true) . ';' . $crlf;
         }
 
         return $ret;
@@ -152,13 +152,13 @@ class ConfigGenerator
         $ret = 'array(';
         if (count($retv) <= 4) {
             // up to 4 values - one line
-            $ret .= implode(', ', $retv);
-        } else {
-            // more than 4 values - value per line
-            $imax = count($retv);
-            for ($i = 0; $i < $imax; $i++) {
-                $ret .= ($i > 0 ? ',' : '') . $crlf . '    ' . $retv[$i];
-            }
+            return $ret . implode(', ', $retv) . ')';
+        }
+
+        // more than 4 values - value per line
+        $imax = count($retv);
+        for ($i = 0; $i < $imax; $i++) {
+            $ret .= ($i > 0 ? ',' : '') . $crlf . '    ' . $retv[$i];
         }
 
         return $ret . ')';

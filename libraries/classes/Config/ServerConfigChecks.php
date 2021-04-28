@@ -348,14 +348,12 @@ class ServerConfigChecks
      * @param bool   $cookieAuthUsed    Cookie auth is used
      * @param bool   $blowfishSecretSet Blowfish secret set
      * @param string $blowfishSecret    Blowfish secret
-     *
-     * @return void
      */
     protected function performConfigChecksCookieAuthUsed(
         $cookieAuthUsed,
         $blowfishSecretSet,
         $blowfishSecret
-    ) {
+    ): void {
         // $cfg['blowfish_secret']
         // it's required for 'cookie' authentication
         if (! $cookieAuthUsed) {
@@ -375,38 +373,42 @@ class ServerConfigChecks
                     . 'remember it.'
                 ))
             );
-        } else {
-            $blowfishWarnings = [];
-            // check length
-            if (strlen($blowfishSecret) < 32) {
-                // too short key
-                $blowfishWarnings[] = __(
-                    'Key is too short, it should have at least 32 characters.'
-                );
-            }
 
-            // check used characters
-            $hasDigits = (bool) preg_match('/\d/', $blowfishSecret);
-            $hasChars = (bool) preg_match('/\S/', $blowfishSecret);
-            $hasNonword = (bool) preg_match('/\W/', $blowfishSecret);
-            if (! $hasDigits || ! $hasChars || ! $hasNonword) {
-                $blowfishWarnings[] = Sanitize::sanitizeMessage(
-                    __(
-                        'Key should contain letters, numbers [em]and[/em] '
-                        . 'special characters.'
-                    )
-                );
-            }
-
-            if (! empty($blowfishWarnings)) {
-                SetupIndex::messagesSet(
-                    'error',
-                    'blowfish_warnings' . count($blowfishWarnings),
-                    Descriptions::get('blowfish_secret'),
-                    implode('<br>', $blowfishWarnings)
-                );
-            }
+            return;
         }
+
+        $blowfishWarnings = [];
+        // check length
+        if (strlen($blowfishSecret) < 32) {
+            // too short key
+            $blowfishWarnings[] = __(
+                'Key is too short, it should have at least 32 characters.'
+            );
+        }
+
+        // check used characters
+        $hasDigits = (bool) preg_match('/\d/', $blowfishSecret);
+        $hasChars = (bool) preg_match('/\S/', $blowfishSecret);
+        $hasNonword = (bool) preg_match('/\W/', $blowfishSecret);
+        if (! $hasDigits || ! $hasChars || ! $hasNonword) {
+            $blowfishWarnings[] = Sanitize::sanitizeMessage(
+                __(
+                    'Key should contain letters, numbers [em]and[/em] '
+                    . 'special characters.'
+                )
+            );
+        }
+
+        if (empty($blowfishWarnings)) {
+            return;
+        }
+
+        SetupIndex::messagesSet(
+            'error',
+            'blowfish_warnings' . count($blowfishWarnings),
+            Descriptions::get('blowfish_secret'),
+            implode('<br>', $blowfishWarnings)
+        );
     }
 
     /**

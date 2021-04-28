@@ -70,10 +70,10 @@ class UploadProgress implements UploadInterface
         }
 
         if ($status) {
+            $ret['finished'] = false;
+
             if ($status['bytes_uploaded'] == $status['bytes_total']) {
                 $ret['finished'] = true;
-            } else {
-                $ret['finished'] = false;
             }
 
             $ret['total'] = $status['bytes_total'];

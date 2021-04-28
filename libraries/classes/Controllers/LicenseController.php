@@ -26,15 +26,17 @@ class LicenseController extends AbstractController
         // Check if the file is available, some distributions remove these.
         if (@is_readable($filename)) {
             readfile($filename);
-        } else {
-            printf(
-                __(
-                    'The %s file is not available on this system, please visit ' .
-                    '%s for more information.'
-                ),
-                $filename,
-                'https://www.phpmyadmin.net/'
-            );
+
+            return;
         }
+
+        printf(
+            __(
+                'The %s file is not available on this system, please visit ' .
+                '%s for more information.'
+            ),
+            $filename,
+            'https://www.phpmyadmin.net/'
+        );
     }
 }
