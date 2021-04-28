@@ -369,8 +369,10 @@ class CheckUserPrivileges
             $GLOBALS['col_priv'] = true;
             $GLOBALS['table_priv'] = true;
             $GLOBALS['proc_priv'] = true;
-        } else {
-            $this->analyseShowGrant();
+
+            return;
         }
+
+        $this->analyseShowGrant();
     }
 }

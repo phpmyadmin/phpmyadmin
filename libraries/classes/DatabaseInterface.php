@@ -1128,14 +1128,17 @@ class DatabaseInterface implements DbalInterface
             self::CONNECT_USER,
             self::QUERY_STORE
         );
+
         if ($result === false) {
             trigger_error(
                 __('Failed to set configured collation connection!'),
                 E_USER_WARNING
             );
-        } else {
-            $GLOBALS['collation_connection'] = $collation;
+
+            return;
         }
+
+        $GLOBALS['collation_connection'] = $collation;
     }
 
     /**

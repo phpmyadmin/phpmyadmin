@@ -248,9 +248,11 @@ class Encoding
         $parts = explode(',', self::$kanjiEncodings);
         if ($parts[1] === 'EUC-JP') {
             self::$kanjiEncodings = 'ASCII,SJIS,EUC-JP,JIS';
-        } else {
-            self::$kanjiEncodings = 'ASCII,EUC-JP,SJIS,JIS';
+
+            return;
         }
+
+        self::$kanjiEncodings = 'ASCII,EUC-JP,SJIS,JIS';
     }
 
     /**
@@ -279,12 +281,10 @@ class Encoding
         }
 
         if ($string_encoding != $enc && $enc != '') {
-            $dist = mb_convert_encoding($str, $enc, $string_encoding);
-        } else {
-            $dist = $str;
+            return mb_convert_encoding($str, $enc, $string_encoding);
         }
 
-        return $dist;
+        return $str;
     }
 
     /**

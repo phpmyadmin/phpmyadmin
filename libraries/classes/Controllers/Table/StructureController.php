@@ -702,20 +702,24 @@ class StructureController extends AbstractController
                 'sql_data',
                 $this->template->render('preview_sql', ['query_data' => $sql_query])
             );
-        } else { // move column
-            $this->dbi->tryQuery($sql_query);
-            $tmp_error = $this->dbi->getError();
-            if (is_string($tmp_error)) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error($tmp_error));
-            } else {
-                $message = Message::success(
-                    __('The columns have been moved successfully.')
-                );
-                $this->response->addJSON('message', $message);
-                $this->response->addJSON('columns', $column_names);
-            }
+
+            return;
         }
+
+        $this->dbi->tryQuery($sql_query);
+        $tmp_error = $this->dbi->getError();
+        if (is_string($tmp_error)) {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', Message::error($tmp_error));
+
+            return;
+        }
+
+        $message = Message::success(
+            __('The columns have been moved successfully.')
+        );
+        $this->response->addJSON('message', $message);
+        $this->response->addJSON('columns', $column_names);
     }
 
     /**
@@ -848,11 +852,8 @@ class StructureController extends AbstractController
                 $openPos + 1,
                 $closePos - ($openPos + 1)
             ));
-            if (isset($stmt->partitionsNum)) {
-                $count = $stmt->partitionsNum;
-            } else {
-                $count = count($stmt->partitions);
-            }
+
+            $count = $stmt->partitionsNum ?? count($stmt->partitions);
 
             $partitionDetails['partition_count'] = $count;
         }
@@ -871,11 +872,8 @@ class StructureController extends AbstractController
                 $openPos + 1,
                 $closePos - ($openPos + 1)
             ));
-            if (isset($stmt->subpartitionsNum)) {
-                $count = $stmt->subpartitionsNum;
-            } else {
-                $count = count($stmt->partitions[0]->subpartitions);
-            }
+
+            $count = $stmt->subpartitionsNum ?? count($stmt->partitions[0]->subpartitions);
 
             $partitionDetails['subpartition_count'] = $count;
         }
@@ -1661,6 +1659,9 @@ class StructureController extends AbstractController
             $max_digits,
             $decimals
         );
+
+        $avg_size = '';
+        $avg_unit = '';
         if ($table_info_num_rows > 0) {
             [$avg_size, $avg_unit] = Util::formatByteDown(
                 ($showtable['Data_length']
@@ -1669,8 +1670,6 @@ class StructureController extends AbstractController
                 6,
                 1
             );
-        } else {
-            $avg_size = $avg_unit = '';
         }
 
         /** @var Innodb $innodbEnginePlugin */

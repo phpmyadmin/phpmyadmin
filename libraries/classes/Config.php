@@ -193,10 +193,9 @@ class Config
      */
     public function checkClient(): void
     {
+        $HTTP_USER_AGENT = '';
         if (Core::getenv('HTTP_USER_AGENT')) {
             $HTTP_USER_AGENT = Core::getenv('HTTP_USER_AGENT');
-        } else {
-            $HTTP_USER_AGENT = '';
         }
 
         // 1. Platform
@@ -334,12 +333,12 @@ class Config
             $gd_nfo = gd_info();
             if (mb_strstr($gd_nfo['GD Version'], '2.')) {
                 $this->set('PMA_IS_GD2', 1);
-            } else {
-                $this->set('PMA_IS_GD2', 0);
+
+                return;
             }
-        } else {
-            $this->set('PMA_IS_GD2', 0);
         }
+
+        $this->set('PMA_IS_GD2', 0);
     }
 
     /**
@@ -355,9 +354,11 @@ class Config
             && stripos(Core::getenv('SERVER_SOFTWARE'), 'IIS') !== false
         ) {
             $this->set('PMA_IS_IIS', 1);
-        } else {
-            $this->set('PMA_IS_IIS', 0);
+
+            return;
         }
+
+        $this->set('PMA_IS_IIS', 0);
     }
 
     /**
@@ -1378,35 +1379,37 @@ class Config
         if (! isset($this->settings['Servers']) || count($this->settings['Servers']) === 0) {
             // No server => create one with defaults
             $this->settings['Servers'] = [1 => $this->defaultServer];
-        } else {
-            // We have server(s) => apply default configuration
-            $new_servers = [];
 
-            foreach ($this->settings['Servers'] as $server_index => $each_server) {
-                // Detect wrong configuration
-                if (! is_int($server_index) || $server_index < 1) {
-                    trigger_error(
-                        sprintf(__('Invalid server index: %s'), $server_index),
-                        E_USER_ERROR
-                    );
-                }
+            return;
+        }
 
-                $each_server = array_merge($this->defaultServer, $each_server);
+        // We have server(s) => apply default configuration
+        $new_servers = [];
 
-                // Final solution to bug #582890
-                // If we are using a socket connection
-                // and there is nothing in the verbose server name
-                // or the host field, then generate a name for the server
-                // in the form of "Server 2", localized of course!
-                if (empty($each_server['host']) && empty($each_server['verbose'])) {
-                    $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
-                }
-
-                $new_servers[$server_index] = $each_server;
+        foreach ($this->settings['Servers'] as $server_index => $each_server) {
+            // Detect wrong configuration
+            if (! is_int($server_index) || $server_index < 1) {
+                trigger_error(
+                    sprintf(__('Invalid server index: %s'), $server_index),
+                    E_USER_ERROR
+                );
             }
 
-            $this->settings['Servers'] = $new_servers;
+            $each_server = array_merge($this->defaultServer, $each_server);
+
+            // Final solution to bug #582890
+            // If we are using a socket connection
+            // and there is nothing in the verbose server name
+            // or the host field, then generate a name for the server
+            // in the form of "Server 2", localized of course!
+            if (empty($each_server['host']) && empty($each_server['verbose'])) {
+                $each_server['verbose'] = sprintf(__('Server %d'), $server_index);
+            }
+
+            $new_servers[$server_index] = $each_server;
         }
+
+        $this->settings['Servers'] = $new_servers;
     }
 
     /**

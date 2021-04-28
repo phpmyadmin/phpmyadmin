@@ -570,9 +570,11 @@ class Core
         // but we need it when coming from the cookie login panel)
         if ($GLOBALS['config']->get('PMA_IS_IIS') && $use_refresh) {
             $response->header('Refresh: 0; ' . $uri);
-        } else {
-            $response->header('Location: ' . $uri);
+
+            return;
         }
+
+        $response->header('Location: ' . $uri);
     }
 
     /**
@@ -780,12 +782,10 @@ class Core
         $query = http_build_query(['url' => $vars['url']]);
 
         if ($GLOBALS['config'] !== null && $GLOBALS['config']->get('is_setup')) {
-            $url = '../url.php?' . $query;
-        } else {
-            $url = './url.php?' . $query;
+            return '../url.php?' . $query;
         }
 
-        return $url;
+        return './url.php?' . $query;
     }
 
     /**
@@ -1408,13 +1408,15 @@ class Core
             // Returning page.
             $back = $_REQUEST['back'];
             $container->setParameter('back', $back);
-        } else {
-            if ($config->issetCookie('back')) {
-                $config->removeCookie('back');
-            }
 
-            unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
+            return;
         }
+
+        if ($config->issetCookie('back')) {
+            $config->removeCookie('back');
+        }
+
+        unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
     }
 
     public static function connectToDatabaseServer(DatabaseInterface $dbi, AuthenticationPlugin $auth): void

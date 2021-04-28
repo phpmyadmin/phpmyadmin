@@ -138,14 +138,15 @@ class CreateAddField
                 $sqlSuffix .= ' AFTER '
                         . Util::backquote($_POST['after_field']);
             }
-        } else {
-            $sqlSuffix .= ' AFTER '
-                    . Util::backquote(
-                        $_POST['field_name'][$previousField]
-                    );
+
+            return $sqlSuffix;
         }
 
-        return $sqlSuffix;
+        return $sqlSuffix
+                . ' AFTER '
+                . Util::backquote(
+                    $_POST['field_name'][$previousField]
+                );
     }
 
     /**
