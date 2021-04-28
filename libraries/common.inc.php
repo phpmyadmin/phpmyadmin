@@ -304,9 +304,7 @@ if (! empty($cfg['Server'])) {
 
 $response = Response::getInstance();
 
-Profiling::check($dbi, $response);
-
-/*
+/**
  * There is no point in even attempting to process
  * an ajax request if there is a token mismatch
  */
@@ -318,6 +316,8 @@ if ($response->isAjax() && $_SERVER['REQUEST_METHOD'] === 'POST' && $token_misma
     );
     exit;
 }
+
+Profiling::check($dbi, $response);
 
 $containerBuilder->set('response', Response::getInstance());
 
