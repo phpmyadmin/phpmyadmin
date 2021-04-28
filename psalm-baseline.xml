@@ -2248,6 +2248,12 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Replication.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$output</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>array{'File'?: string, 'Position'?: string}</code>
+    </MoreSpecificReturnType>
     <PossiblyNullArgument occurrences="1">
       <code>$host</code>
     </PossiblyNullArgument>

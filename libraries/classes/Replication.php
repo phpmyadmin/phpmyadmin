@@ -45,7 +45,7 @@ class Replication
      *
      * @return mixed|int output of DatabaseInterface::tryQuery
      */
-    public function slaveControl(string $action, ?string $control, $link = null)
+    public function slaveControl(string $action, ?string $control, int $link)
     {
         global $dbi;
 
@@ -74,7 +74,7 @@ class Replication
      *                         array should contain fields File and Position
      * @param bool   $stop     shall we stop slave?
      * @param bool   $start    shall we start slave?
-     * @param mixed  $link     mysql link
+     * @param int    $link     mysql link
      *
      * @return string output of CHANGE MASTER mysql command
      */
@@ -84,9 +84,9 @@ class Replication
         $host,
         $port,
         array $pos,
-        $stop = true,
-        $start = true,
-        $link = null
+        bool $stop,
+        bool $start,
+        int $link
     ) {
         global $dbi;
 
@@ -147,12 +147,13 @@ class Replication
     /**
      * Fetches position and file of current binary log on master
      *
-     * @param mixed $link mysql link
+     * @param int $link mysql link
      *
      * @return array an array containing File and Position in MySQL replication
      * on master server, useful for slaveChangeMaster()
+     * @phpstan-return array{'File'?: string, 'Position'?: string}
      */
-    public function slaveBinLogMaster($link = null)
+    public function slaveBinLogMaster(int $link): array
     {
         global $dbi;
 

@@ -542,7 +542,7 @@ class ReplicationGui
             );
         } else {
             // Read the current master position
-            $position = $this->replication->slaveBinLogMaster($linkToMaster);
+            $position = $this->replication->slaveBinLogMaster(DatabaseInterface::CONNECT_AUXILIARY);
 
             if (empty($position)) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
@@ -561,7 +561,8 @@ class ReplicationGui
                         $sr['port'],
                         $position,
                         true,
-                        false
+                        false,
+                        DatabaseInterface::CONNECT_USER
                     )
                 ) {
                     $_SESSION['replication']['sr_action_status'] = 'error';
