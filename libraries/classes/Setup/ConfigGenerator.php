@@ -149,10 +149,10 @@ class ConfigGenerator
             $retv[] = var_export($v, true);
         }
 
-        $ret = 'array(';
+        $ret = '[';
         if (count($retv) <= 4) {
             // up to 4 values - one line
-            return $ret . implode(', ', $retv) . ')';
+            return $ret . implode(', ', $retv) . ']';
         }
 
         // more than 4 values - value per line
@@ -161,7 +161,7 @@ class ConfigGenerator
             $ret .= ($i > 0 ? ',' : '') . $crlf . '    ' . $retv[$i];
         }
 
-        return $ret . ')';
+        return $ret . ']';
     }
 
     /**

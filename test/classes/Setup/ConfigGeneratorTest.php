@@ -97,7 +97,7 @@ class ConfigGeneratorTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            '$cfg[\'var_name\'] = array(1, 2, 3);' . "\n",
+            '$cfg[\'var_name\'] = [1, 2, 3];' . "\n",
             $method->invoke(
                 null,
                 'var_name',
@@ -193,7 +193,7 @@ class ConfigGeneratorTest extends AbstractTestCase
         $result = $method->invoke(null, $arr, "\n");
 
         $this->assertEquals(
-            'array(1, 2, 3, 4)',
+            '[1, 2, 3, 4]',
             $result
         );
 
@@ -209,13 +209,13 @@ class ConfigGeneratorTest extends AbstractTestCase
         $result = $method->invoke(null, $arr, "\n");
 
         $this->assertEquals(
-            'array(' . "\n" .
+            '[' . "\n" .
             '    1,' . "\n" .
             '    2,' . "\n" .
             '    3,' . "\n" .
             '    4,' . "\n" .
             '    7,' . "\n" .
-            '    \'foo\')',
+            '    \'foo\']',
             $result
         );
     }
