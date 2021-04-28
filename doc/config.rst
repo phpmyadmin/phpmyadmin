@@ -673,7 +673,7 @@ Server connection settings
 
     .. code-block:: php
 
-        $cfg['Servers'][$i]['only_db'] = array('db1', 'db2');
+        $cfg['Servers'][$i]['only_db'] = ['db1', 'db2'];
 
     .. versionchanged:: 4.0.0
         Previous versions permitted to specify the display order of
@@ -1383,19 +1383,19 @@ Server connection settings
     .. code-block:: none
 
         $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
-        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow bob from all');
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = ['allow bob from all'];
         // Allow only 'bob' to connect from any host
 
         $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
-        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow mary from 192.168.100.[50-100]');
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = ['allow mary from 192.168.100.[50-100]'];
         // Allow only 'mary' to connect from host 192.168.100.50 through 192.168.100.100
 
         $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
-        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow % from 192.168.[5-6].10');
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = ['allow % from 192.168.[5-6].10'];
         // Allow any user to connect from host 192.168.5.10 or 192.168.6.10
 
         $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
-        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow root from 192.168.5.50','allow % from 192.168.6.10');
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = ['allow root from 192.168.5.50','allow % from 192.168.6.10'];
         // Allow any user to connect from 192.168.6.10, and additionally allow root to connect from 192.168.5.50
 
 .. config:option:: $cfg['Servers'][$i]['DisableIS']
@@ -2815,7 +2815,7 @@ Web server settings
 
     .. code-block:: php
 
-        $cfg['TrustedProxies'] = array('1.2.3.4' => 'HTTP_X_FORWARDED_FOR');
+        $cfg['TrustedProxies'] = ['1.2.3.4' => 'HTTP_X_FORWARDED_FOR'];
 
     The :config:option:`$cfg['Servers'][$i]['AllowDeny']['rules']` directive uses the
     client's IP address as usual.
@@ -3549,7 +3549,7 @@ Developer
 .. config:option:: $cfg['DBG']
 
     :type: array
-    :default: array(...)
+    :default: []
 
 .. config:option:: $cfg['DBG']['sql']
 

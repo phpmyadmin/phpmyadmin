@@ -1175,13 +1175,13 @@ network :term:`IP` blocks.
 
     //block root from logging in except from the private networks
     $cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';
-    $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
+    $cfg['Servers'][$i]['AllowDeny']['rules'] = [
         'deny root from all',
         'allow root from localhost',
         'allow root from 10.0.0.0/8',
         'allow root from 192.168.0.0/16',
         'allow root from 172.16.0.0/12',
-    );
+    ];
 
 .. _faq4_7:
 
