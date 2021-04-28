@@ -461,6 +461,8 @@ class Privileges
                 __('Allows deleting historical rows.'),
             ],
             [
+                // This was finally removed in the following MariaDB versions
+                // @see https://jira.mariadb.org/browse/MDEV-20382
                 'Delete versioning rows_priv',
                 'DELETE HISTORY',
                 // phpcs:ignore Generic.Files.LineLength.TooLong
@@ -1925,7 +1927,7 @@ class Privileges
     }
 
     /**
-     * Get a HTML table for display user's tabel specific or database specific rights
+     * Get a HTML table for display user's table specific or database specific rights
      *
      * @param string $username username
      * @param string $hostname host name
@@ -3614,7 +3616,7 @@ class Privileges
      * Check if MariaDB's 'simple_password_check'
      * OR 'cracklib_password_check' is ACTIVE
      *
-     * @return bool if atleast one of the plugins is ACTIVE
+     * @return bool if at least one of the plugins is ACTIVE
      */
     public function checkIfMariaDBPwdCheckPluginActive()
     {
