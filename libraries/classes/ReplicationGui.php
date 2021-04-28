@@ -47,7 +47,7 @@ class ReplicationGui
      *
      * @return string HTML code
      */
-    public function getHtmlForErrorMessage()
+    public function getHtmlForErrorMessage(): string
     {
         $html = '';
         if (isset($_SESSION['replication']['sr_action_status'], $_SESSION['replication']['sr_action_info'])) {
@@ -70,7 +70,7 @@ class ReplicationGui
      *
      * @return string HTML code
      */
-    public function getHtmlForMasterReplication()
+    public function getHtmlForMasterReplication(): string
     {
         global $dbi;
 
@@ -102,7 +102,7 @@ class ReplicationGui
      *
      * @return string HTML code
      */
-    public function getHtmlForMasterConfiguration()
+    public function getHtmlForMasterConfiguration(): string
     {
         $databaseMultibox = $this->getHtmlForReplicationDbMultibox();
 
@@ -123,7 +123,7 @@ class ReplicationGui
     public function getHtmlForSlaveConfiguration(
         $serverSlaveStatus,
         array $serverSlaveReplication
-    ) {
+    ): string {
         global $dbi;
 
         $serverSlaveMultiReplication = $dbi->fetchResult(
@@ -207,7 +207,7 @@ class ReplicationGui
      *
      * @return string HTML code
      */
-    public function getHtmlForReplicationDbMultibox()
+    public function getHtmlForReplicationDbMultibox(): string
     {
         $databases = [];
         foreach ($GLOBALS['dblist']->databases as $database) {
@@ -228,7 +228,7 @@ class ReplicationGui
      *
      * @return string HTML code
      */
-    public function getHtmlForReplicationChangeMaster($submitName)
+    public function getHtmlForReplicationChangeMaster($submitName): string
     {
         [
             $usernameLength,
@@ -334,9 +334,9 @@ class ReplicationGui
     /**
      * get the correct username and hostname lengths for this MySQL server
      *
-     * @return array   username length, hostname length
+     * @return array<int,int> username length, hostname length
      */
-    public function getUsernameHostnameLength()
+    public function getUsernameHostnameLength(): array
     {
         global $dbi;
 
@@ -370,7 +370,7 @@ class ReplicationGui
      *
      * @return string HTML code
      */
-    public function getHtmlForReplicationMasterAddSlaveUser()
+    public function getHtmlForReplicationMasterAddSlaveUser(): string
     {
         global $dbi;
 
@@ -433,10 +433,8 @@ class ReplicationGui
 
     /**
      * handle control requests
-     *
-     * @return void
      */
-    public function handleControlRequest()
+    public function handleControlRequest(): void
     {
         if (! isset($_POST['sr_take_action'])) {
             return;
@@ -504,10 +502,8 @@ class ReplicationGui
 
     /**
      * handle control requests for Slave Change Master
-     *
-     * @return bool
      */
-    public function handleRequestForSlaveChangeMaster()
+    public function handleRequestForSlaveChangeMaster(): bool
     {
         global $dbi;
 
@@ -582,10 +578,8 @@ class ReplicationGui
 
     /**
      * handle control requests for Slave Server Control
-     *
-     * @return bool
      */
-    public function handleRequestForSlaveServerControl()
+    public function handleRequestForSlaveServerControl(): bool
     {
         global $dbi;
 
@@ -616,10 +610,8 @@ class ReplicationGui
 
     /**
      * handle control requests for Slave Skip Error
-     *
-     * @return bool
      */
-    public function handleRequestForSlaveSkipError()
+    public function handleRequestForSlaveSkipError(): bool
     {
         global $dbi;
 
