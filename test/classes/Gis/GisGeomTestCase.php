@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
+use PhpMyAdmin\Gis\GisGeometry;
+use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Tests\AbstractTestCase;
 
 use function imagesx;
@@ -16,7 +18,7 @@ use function imagesx;
  */
 abstract class GisGeomTestCase extends AbstractTestCase
 {
-    /** @var object */
+    /** @var GisGeometry */
     protected $object;
 
     /**
@@ -35,12 +37,16 @@ abstract class GisGeomTestCase extends AbstractTestCase
                 $params,
                 $this->object->generateParams($wkt)
             );
-        } else {
-            $this->assertEquals(
-                $params,
-                $this->object->generateParams($wkt, $index)
-            );
+
+            return;
         }
+
+        /** @var GisPolygon $obj or another GisGeometry that supports this definition */
+        $obj = $this->object;
+        $this->assertEquals(
+            $params,
+            $obj->generateParams($wkt, $index)
+        );
     }
 
     /**

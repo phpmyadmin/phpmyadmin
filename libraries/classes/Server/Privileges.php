@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server;
 
+use mysqli_stmt;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
@@ -1452,6 +1453,7 @@ class Privileges
                 NOT (`Table_priv` = \'\' AND Column_priv = \'\')
             ORDER BY `User` ASC, `Host` ASC, `Db` ASC, `Table_priv` ASC;
         ';
+        /** @var mysqli_stmt|false $statement */
         $statement = $this->dbi->prepare($query);
         if (
             $statement === false

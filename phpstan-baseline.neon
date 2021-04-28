@@ -1736,26 +1736,6 @@ parameters:
 			path: libraries/classes/SavedSearches.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:bind_param\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:close\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:execute\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:get_result\\(\\)\\.$#"
-			count: 1
-			path: libraries/classes/Server/Privileges.php
-
-		-
 			message: "#^Offset '@@old_passwords' does not exist on array\\|null\\.$#"
 			count: 1
 			path: libraries/classes/Server/Privileges.php
@@ -2056,16 +2036,6 @@ parameters:
 			path: test/classes/Dbal/DbiMysqliTest.php
 
 		-
-			message: "#^Call to an undefined method object\\:\\:generateParams\\(\\)\\.$#"
-			count: 2
-			path: test/classes/Gis/GisGeomTestCase.php
-
-		-
-			message: "#^Call to an undefined method object\\:\\:scaleRow\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Gis/GisGeomTestCase.php
-
-		-
 			message: "#^Parameter \\#3 \\$empty of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:generateWkt\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryCollectionTest.php
@@ -2144,21 +2114,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$property of method PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyGroup\\:\\:removeProperty\\(\\) expects PhpMyAdmin\\\\Properties\\\\Options\\\\OptionsPropertyItem, string given\\.$#"
 			count: 1
 			path: test/classes/Properties/Options/OptionsPropertyGroupTest.php
-
-		-
-			message: "#^Binary operation \"\\-\" between object and 1000 results in an error\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Comparison operation \"\\>\\=\" between object and 1000 results in an error\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
-
-		-
-			message: "#^Invalid array key type object\\.$#"
-			count: 1
-			path: test/classes/Stubs/DbiDummy.php
 
 		-
 			message: "#^Parameter \\#1 \\$transformationData of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects object, array given\\.$#"

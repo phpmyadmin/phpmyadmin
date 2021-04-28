@@ -18,6 +18,7 @@ use function addslashes;
 use function count;
 use function is_array;
 use function is_bool;
+use function is_int;
 use function preg_replace;
 use function str_replace;
 use function trim;
@@ -462,12 +463,17 @@ class DbiDummy implements DbiExtension
     /**
      * Return query data for ID
      *
-     * @param object $result result set identifier
+     * @param object|int $result result set identifier
      *
      * @return array
      */
-    private function &getQueryData($result)
+    private function &getQueryData($result): array
     {
+        if (! is_int($result)) {
+            // This never happens
+            return [];
+        }
+
         if ($result >= self::OFFSET_GLOBAL) {
             return $GLOBALS['dummy_queries'][$result - self::OFFSET_GLOBAL];
         }

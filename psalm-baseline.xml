@@ -2263,11 +2263,6 @@
       <code>mb_strrpos($currentUser, '@')</code>
     </PossiblyFalseOperand>
   </file>
-  <file src="libraries/classes/Routing.php">
-    <UnresolvableInclude occurrences="1">
-      <code>require self::ROUTES_CACHE_FILE</code>
-    </UnresolvableInclude>
-  </file>
   <file src="libraries/classes/Sanitize.php">
     <RedundantCast occurrences="4">
       <code>(array) $_COOKIE</code>
