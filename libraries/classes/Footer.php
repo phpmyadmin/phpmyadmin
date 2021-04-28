@@ -172,7 +172,7 @@ class Footer
             $params['viewing_mode'] = $_GET['viewing_mode'];
         }
 
-        /*
+        /**
          * @todo    coming from /server/privileges, here $db is not set,
          *          add the following condition below when that is fixed
          *          && $_GET['checkprivsdb'] == $db
@@ -183,7 +183,7 @@ class Footer
             $params['checkprivsdb'] = $_GET['checkprivsdb'];
         }
 
-        /*
+        /**
          * @todo    coming from /server/privileges, here $table is not set,
          *          add the following condition below when that is fixed
          *          && $_REQUEST['checkprivstable'] == $table

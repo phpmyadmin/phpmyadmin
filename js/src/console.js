@@ -1526,7 +1526,7 @@ var ConsoleDebug = {
     }
 };
 
-/** s
+/**
  * Executed on page load
  */
 $(function () {

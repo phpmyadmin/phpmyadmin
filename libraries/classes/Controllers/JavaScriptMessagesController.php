@@ -409,7 +409,7 @@ final class JavaScriptMessagesController
             ),
             'seeMore' => __('See more'),
 
-            /** For normalization */
+            /* For normalization */
             'strAddPrimaryKey' => __('Add primary key'),
             'strPrimaryKeyAdded' => __('Primary key added.'),
             'strToNextStep' => __('Taking you to next step…'),
@@ -581,7 +581,7 @@ final class JavaScriptMessagesController
             ),
             'strOriginalLength' => __('Original length'),
 
-            /** Drag & Drop sql import messages */
+            /* Drag & Drop sql import messages */
             'dropImportMessageCancel' => __('cancel'),
             'dropImportMessageAborted' => __('Aborted'),
             'dropImportMessageFailed' => __('Failed'),

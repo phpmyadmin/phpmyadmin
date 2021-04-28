@@ -602,7 +602,8 @@ class GisPolygon extends GisGeometry
         }
     }
 
-    /** Generate parameters for the GIS data editor from the value of the GIS column.
+    /**
+     * Generate parameters for the GIS data editor from the value of the GIS column.
      *
      * @param string $value Value of the GIS column
      * @param int    $index Index of the geometry

@@ -741,7 +741,7 @@ class TrackerTest extends AbstractTestCase
         // db (optional)
         // table name after rename (optional)
         $query = [];
-        /** TODO: Should test fail when USE is in conjunction with * identifiers?
+        /* TODO: Should test fail when USE is in conjunction with * identifiers?
         $query[] = array(
             " - USE db1;\n- CREATE VIEW db1.v AS SELECT * FROM t;",
             "DDL",

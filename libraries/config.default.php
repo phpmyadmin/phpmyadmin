@@ -618,7 +618,7 @@ $cfg['Servers'][$i]['tracking_add_drop_database'] = true;
  */
 $cfg['ServerDefault'] = 1;
 
-/*
+/**
  * Other core phpMyAdmin settings
  */
 
@@ -1172,7 +1172,8 @@ $cfg['ShowCreateDb'] = true;
  * Database structure
  */
 
-/** show charset column in database structure (true|false)?
+/**
+ * show charset column in database structure (true|false)?
  *
  * @global boolean $cfg['ShowDbStructureCharset']
  */
