@@ -80,7 +80,6 @@ final class Ajax
         if (
             ! extension_loaded('apc')
             || ! function_exists('apc_fetch')
-            || ! function_exists('getallheaders')
         ) {
             return false;
         }
@@ -97,8 +96,7 @@ final class Ajax
      */
     public static function progressCheck(): bool
     {
-        return function_exists('uploadprogress_get_info')
-            && function_exists('getallheaders');
+        return function_exists('uploadprogress_get_info');
     }
 
     /**
