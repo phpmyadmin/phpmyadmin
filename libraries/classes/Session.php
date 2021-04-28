@@ -147,11 +147,9 @@ class Session
                 // Ignore errors as this might have been destroyed in other
                 // request meanwhile
                 @session_destroy();
-            } elseif (function_exists('session_abort')) {
-                // PHP 5.6 and newer
-                session_abort();
             } else {
-                session_write_close();
+                // do not use session_write_close, see issue #13392
+                session_abort();
             }
         }
 
