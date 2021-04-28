@@ -109,7 +109,7 @@ class AuthenticationConfigTest extends AbstractTestCase
 
         $this->assertStringContainsString(
             '<a href="index.php?route=/&server=0&lang=en" '
-            . 'class="btn button mt-1 disableAjax">Retry to connect</a>',
+            . 'class="btn btn-primary mt-1 mb-1 disableAjax">Retry to connect</a>',
             $html
         );
     }
