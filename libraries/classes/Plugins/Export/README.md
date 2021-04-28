@@ -9,31 +9,26 @@ some plugins for your use, you can directly use texts in plugin.
 <?php
 /**
  * [Name] export plugin for phpMyAdmin
- *
- * @package    PhpMyAdmin-Export
- * @subpackage [Name]
  */
 
 declare(strict_types=1);
 
 /**
  * Handles the export for the [Name] format
- *
- * @package PhpMyAdmin-Export
  */
 class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
 {
     /**
      * optional - declare variables and descriptions
      *
-     * @var type
+     * @var VariableType
      */
     private $myOptionalVariable;
 
     /**
      * optional - declare global variables and descriptions
      *
-     * @var type
+     * @var VariableType
      */
     private $globalVariableName;
 
@@ -46,13 +41,14 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
     }
 
     // optional - declare global variables and use getters later
+
     /**
      * Initialize the local variables that are used specific for export SQL
      *
-     * @global type $global_variable_name
-     * [..]
-     *
      * @return void
+     *
+     * @global VariableType $global_variable_name
+     * [..]
      */
     protected function initSpecificVariables()
     {
@@ -77,12 +73,12 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup(
-            "Format Specific Options"
+            'Format Specific Options'
         );
 
         // general options main group
         $generalOptions = new PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup(
-            "general_opts"
+            'general_opts'
         );
 
         // optional :
@@ -94,14 +90,14 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
         // len  - maximal size of input
         // values - possible values of the item
         $leaf = new PhpMyAdmin\Properties\Options\Items\RadioPropertyItem(
-            "structure_or_data"
+            'structure_or_data'
         );
         $leaf->setValues(
-            array(
+            [
                 'structure' => __('structure'),
                 'data' => __('data'),
-                'structure_and_data' => __('structure and data')
-            )
+                'structure_and_data' => __('structure and data'),
+            ]
         );
         $generalOptions->addProperty($leaf);
 
@@ -118,7 +114,7 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportHeader ()
+    public function exportHeader()
     {
         // implementation
         return true;
@@ -129,7 +125,7 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportFooter ()
+    public function exportFooter()
     {
         // implementation
         return true;
@@ -138,12 +134,12 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db, $db_alias = '')
+    public function exportDBHeader($db, $dbAlias = '')
     {
         // implementation
         return true;
@@ -156,7 +152,7 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBFooter ($db)
+    public function exportDBFooter($db)
     {
         // implementation
         return true;
@@ -165,12 +161,13 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db         Database name
+     * @param string $exportType 'server', 'database', 'table'
+     * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $db_alias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = '')
     {
         // implementation
         return true;
@@ -179,17 +176,22 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
     /**
      * Outputs the content of a table in [Name] format
      *
-     * @param string $db        database name
-     * @param string $table     table name
-     * @param string $crlf      the end of line sequence
-     * @param string $error_url the url to go back in case of error
-     * @param string $sql_query SQL query for obtaining data
-     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $db       database name
+     * @param string $table    table name
+     * @param string $crlf     the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery SQL query for obtaining data
+     * @param array  $aliases  Aliases of db/table/columns
      *
-     * @return bool Whether it succeeded
+     * @return bool             Whether it succeeded
      */
     public function exportData(
-        $db, $table, $crlf, $error_url, $sql_query, $aliases = array()
+        $db,
+        $table,
+        $crlf,
+        $errorUrl,
+        $sqlQuery,
+        array $aliases = []
     ) {
         // implementation;
         return true;
@@ -210,47 +212,34 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
     // optional:
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
-
     /**
      * Getter description
-     *
-     * @return type
      */
-    private function _getMyOptionalVariable()
+    private function getMyOptionalVariable(): VariableType
     {
         return $this->myOptionalVariable;
     }
 
     /**
      * Setter description
-     *
-     * @param type $my_optional_variable description
-     *
-     * @return void
      */
-    private function _setMyOptionalVariable($my_optional_variable)
+    private function setMyOptionalVariable(VariableType $my_optional_variable): void
     {
         $this->myOptionalVariable = $my_optional_variable;
     }
 
     /**
      * Getter description
-     *
-     * @return type
      */
-    private function _getGlobalVariableName()
+    private function getGlobalVariableName(): VariableType
     {
         return $this->globalVariableName;
     }
 
     /**
      * Setter description
-     *
-     * @param type $global_variable_name description
-     *
-     * @return void
      */
-    private function _setGlobalVariableName($global_variable_name)
+    private function setGlobalVariableName(VariableType $global_variable_name): void
     {
         $this->globalVariableName = $global_variable_name;
     }
