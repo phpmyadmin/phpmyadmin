@@ -251,8 +251,7 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Database/MultiTableQueryController.php">
-    <PossiblyNullArgument occurrences="2">
-      <code>$params['db']</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$params['db']</code>
     </PossiblyNullArgument>
   </file>

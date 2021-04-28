@@ -83,7 +83,7 @@ class Footer
         $info = [];
 
         if (@file_exists(ROOT_PATH . 'revision-info.php')) {
-            /** @psalm-suppress MissingFile */
+            /** @psalm-suppress MissingFile,UnresolvableInclude */
             $info = include ROOT_PATH . 'revision-info.php';
         }
 
