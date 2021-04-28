@@ -59,8 +59,8 @@ class MultiTableQueryController extends AbstractController
     public function table(): void
     {
         $params = [
-            'tables' => $_GET['tables'],
-            'db' => $_GET['db'] ?? null,
+            'tables' => $_GET['tables'] ?? [],
+            'db' => $_GET['db'] ?? '',
         ];
 
         $tablesListForQuery = '';
