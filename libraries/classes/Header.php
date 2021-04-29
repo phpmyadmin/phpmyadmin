@@ -396,8 +396,14 @@ class Header
         $this->sendHttpHeaders();
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-        $themePath = $theme instanceof Theme ? $theme->getPath() : '';
+        $themePath = '';
+        $themeColorScheme = 'main';
         $version = self::getVersionParameter();
+
+        if ($theme instanceof Theme) {
+            $themePath = $theme->getPath();
+            $themeColorScheme = $theme->getColorScheme();
+        }
 
         // The user preferences have been merged at this point
         // so we can conditionally add CodeMirror
@@ -454,6 +460,7 @@ class Header
             'is_print_view' => $this->isPrintView,
             'base_dir' => $baseDir,
             'theme_path' => $themePath,
+            'theme_color_scheme' => $themeColorScheme,
             'version' => $version,
             'text_dir' => $GLOBALS['text_dir'],
             'server' => $GLOBALS['server'] ?? null,

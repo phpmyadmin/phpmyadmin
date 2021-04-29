@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_key_exists;
+use function count;
 use function file_exists;
 use function file_get_contents;
 use function filemtime;
@@ -94,6 +96,15 @@ class Theme
         'icons',
     ];
 
+    /** @var bool */
+    private $hasColorSchemes = false;
+
+    /** @var array<string, string> */
+    private $colorSchemes = [];
+
+    /** @var string */
+    private $colorScheme = 'main';
+
     /**
      * Loads theme information
      *
@@ -150,6 +161,15 @@ class Theme
 
         $this->setVersion($data['version']);
         $this->setName($data['name']);
+
+        $this->hasColorSchemes = isset($data['schemes'])
+            && is_array($data['schemes'])
+            && array_key_exists('main', $data['schemes'])
+            && count($data['schemes']) > 1;
+
+        if ($this->hasColorSchemes) {
+            $this->colorSchemes = $data['schemes'];
+        }
 
         return true;
     }
@@ -387,5 +407,38 @@ class Theme
         }
 
         return './themes/' . ThemeManager::FALLBACK_THEME . '/img/' . $file;
+    }
+
+    public function hasColorSchemes(): bool
+    {
+        return $this->hasColorSchemes;
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function getColorSchemes(): array
+    {
+        return $this->colorSchemes;
+    }
+
+    public function getColorScheme(): string
+    {
+        if ($this->hasColorSchemes) {
+            return $this->colorScheme;
+        }
+
+        return 'main';
+    }
+
+    public function setColorScheme(string $colorScheme): void
+    {
+        if (array_key_exists($colorScheme, $this->colorSchemes)) {
+            $this->colorScheme = $colorScheme;
+
+            return;
+        }
+
+        $this->colorScheme = 'main';
     }
 }

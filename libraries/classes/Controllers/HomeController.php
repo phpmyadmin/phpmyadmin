@@ -252,8 +252,11 @@ class HomeController extends AbstractController
             'phpmyadmin_version' => Version::VERSION,
             'phpmyadmin_major_version' => Version::SERIES,
             'config_storage_message' => $configStorageMessage ?? '',
-            'has_theme_manager' => $cfg['ThemeManager'],
-            'themes' => $this->themeManager->getThemesArray(),
+            'themes' => [
+                'has_theme_manager' => $cfg['ThemeManager'],
+                'themes' => $this->themeManager->getThemesArray(),
+                'active' => $this->themeManager->getActiveTheme(),
+            ],
         ]);
     }
 

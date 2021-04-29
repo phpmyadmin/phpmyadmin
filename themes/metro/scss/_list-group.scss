@@ -29,8 +29,3 @@
     }
   }
 }
-
-#li_select_theme::after {
-  content: "Scheme: #{$color-scheme}";
-  margin-left: 10px;
-}

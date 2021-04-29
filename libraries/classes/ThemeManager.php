@@ -149,6 +149,10 @@ class ThemeManager
         $this->activeTheme = $theme;
         $this->theme = $this->themes[$theme];
 
+        if (isset($_SESSION['theme_color_scheme'])) {
+            $this->theme->setColorScheme($_SESSION['theme_color_scheme']);
+        }
+
         // need to set later
         //$this->setThemeCookie();
 
@@ -293,5 +297,19 @@ class ThemeManager
     public static function getThemesDir(): string
     {
         return './themes' . DIRECTORY_SEPARATOR;
+    }
+
+    public function getActiveTheme(): ?Theme
+    {
+        return $this->theme;
+    }
+
+    public function setActiveColorScheme(string $colorScheme): void
+    {
+        if (! isset($this->theme)) {
+            return;
+        }
+
+        $this->theme->setColorScheme($colorScheme);
     }
 }

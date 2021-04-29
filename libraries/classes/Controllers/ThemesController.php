@@ -42,6 +42,10 @@ class ThemesController extends AbstractController
             return;
         }
 
+        if (isset($_POST['theme_color_scheme'])) {
+            $_SESSION['theme_color_scheme'] = $_POST['theme_color_scheme'];
+        }
+
         $this->themeManager->setActiveTheme($_POST['set_theme']);
         $this->themeManager->setThemeCookie();
 

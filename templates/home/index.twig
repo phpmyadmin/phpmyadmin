@@ -118,18 +118,31 @@
                   </li>
                 {% endif %}
 
-                {% if has_theme_manager %}
+                {% if themes.has_theme_manager %}
                   <li id="li_select_theme" class="list-group-item">
-                    <form method="post" action="{{ url('/themes/set') }}" class="disableAjax">
+                    <form method="post" action="{{ url('/themes/set') }}" class="row align-items-center disableAjax">
                       {{ get_hidden_inputs() }}
-                      <a href="#" data-bs-toggle="modal" data-bs-target="#themesModal" role="button">
-                        {{- get_icon('s_theme', 'Theme:'|trans) -}}
-                      </a>
-                      <select name="set_theme" lang="en" dir="ltr" class="autosubmit" aria-label="{% trans 'Theme' %}">
-                        {% for theme in themes %}
-                          <option value="{{ theme.id }}"{{ theme.is_active ? ' selected' }}>{{ theme.name }}</option>
-                        {% endfor %}
-                      </select>
+                      <div class="col-auto">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#themesModal" role="button">
+                          {{- get_icon('s_theme', 'Theme:'|trans) -}}
+                        </a>
+                      </div>
+                      <div class="col-auto">
+                        <select name="set_theme" lang="en" dir="ltr" class="form-select autosubmit" aria-label="{% trans 'Theme' %}">
+                          {% for theme in themes.themes %}
+                            <option value="{{ theme.id }}"{{ theme.is_active ? ' selected' }}>{{ theme.name }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                      {% if themes.active.hasColorSchemes() %}
+                        <div class="col-auto">
+                          <select class="form-select autosubmit" name="theme_color_scheme" aria-label="{% trans 'Color scheme' %}">
+                            {% for key, name in themes.active.getColorSchemes() %}
+                              <option value="{{ key }}"{{ key == themes.active.getColorScheme() ? ' selected' }}>{{ name }}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                      {% endif %}
                     </form>
                   </li>
                 {% endif %}
@@ -263,7 +276,7 @@
     </div>
   </div>
 
-{% if has_theme_manager %}
+{% if themes.has_theme_manager %}
   <div class="modal fade" id="themesModal" tabindex="-1" aria-labelledby="themesModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
