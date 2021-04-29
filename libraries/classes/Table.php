@@ -2734,8 +2734,7 @@ class Table
      */
     public function getColumnGenerationExpression($column = null)
     {
-        $serverType = Util::getServerType();
-        if ($serverType === 'MySQL'
+        if (in_array(Util::getServerType(), ['MySQL', 'Percona Server'])
             && $this->dbi->getVersion() > 50705
             && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {
