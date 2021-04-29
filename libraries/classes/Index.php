@@ -208,7 +208,7 @@ class Index
      * @param string $table  table
      * @param string $schema schema
      *
-     * @return mixed primary index or false if no one exists
+     * @return Index|false primary index or false if no one exists
      */
     public static function getPrimary($table, $schema)
     {

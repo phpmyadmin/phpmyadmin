@@ -405,16 +405,16 @@ class NormalizationTest extends AbstractTestCase
     public function testCreateNewTablesFor3NF(): void
     {
         $db = 'PMA_db';
-        $cols = new stdClass();
-        $cols->pk = 'id';
-        $cols->nonpk = 'col1, col2';
-        $cols1 = new stdClass();
-        $cols1->pk = 'col2';
-        $cols1->nonpk = 'col3, col4';
         $newTables = [
             'PMA_table' => [
-                'PMA_table' => $cols,
-                'table1' => $cols1,
+                'PMA_table' => [
+                    'pk' => 'id',
+                    'nonpk' => 'col1, col2',
+                ],
+                'table1' => [
+                    'pk' => 'col2',
+                    'nonpk' => 'col3, col4',
+                ],
             ],
         ];
         $result = $this->normalization->createNewTablesFor3NF(

@@ -1279,8 +1279,7 @@
     </PossiblyInvalidPropertyFetch>
   </file>
   <file src="libraries/classes/Normalization.php">
-    <RedundantCast occurrences="2">
-      <code>(array) $newTables</code>
+    <RedundantCast occurrences="1">
       <code>(array) $partialDependencies</code>
     </RedundantCast>
   </file>

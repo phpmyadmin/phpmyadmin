@@ -2789,7 +2789,7 @@ class Table
     public function getColumnGenerationExpression($column = null)
     {
         if (
-            Compatibility::isMySql()
+            Compatibility::isMySqlOrPerconaDb()
             && $this->dbi->getVersion() > 50705
             && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {

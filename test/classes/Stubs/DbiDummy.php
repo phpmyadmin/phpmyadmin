@@ -2608,6 +2608,44 @@ class DbiDummy implements DbiExtension
                     [42],
                 ],
             ],
+            [
+                'query' => 'CREATE TABLE `event` SELECT DISTINCT `eventID`, `Start_time`,'
+                . ' `DateOfEvent`, `NumberOfGuests`, `NameOfVenue`, `LocationOfVenue` FROM `test_tbl`;',
+                'result' => [],
+            ],
+            [
+                'query' => 'ALTER TABLE `event` ADD PRIMARY KEY(`eventID`);',
+                'result' => [],
+            ],
+            [
+                'query' => 'CREATE TABLE `table2` SELECT DISTINCT `Start_time`,'
+                            . ' `TypeOfEvent`, `period` FROM `test_tbl`;',
+                'result' => [],
+            ],
+            [
+                'query' => 'ALTER TABLE `table2` ADD PRIMARY KEY(`Start_time`);',
+                'result' => [],
+            ],
+            [
+                'query' => 'DROP TABLE `test_tbl`',
+                'result' => [],
+            ],
+            [
+                'query' => 'CREATE TABLE `batch_log2` SELECT DISTINCT `ID`, `task` FROM `test_tbl`;',
+                'result' => [],
+            ],
+            [
+                'query' => 'ALTER TABLE `batch_log2` ADD PRIMARY KEY(`ID`, `task`);',
+                'result' => [],
+            ],
+            [
+                'query' => 'CREATE TABLE `table2` SELECT DISTINCT `task`, `timestamp` FROM `test_tbl`;',
+                'result' => [],
+            ],
+            [
+                'query' => 'ALTER TABLE `table2` ADD PRIMARY KEY(`task`);',
+                'result' => [],
+            ],
         ];
         /**
          * Current database.

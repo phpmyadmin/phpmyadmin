@@ -107,7 +107,10 @@ phpMyAdmin - ChangeLog
 - issue #16420 Fixed single clicking on row starts editing even if GridEditing is set to double-click
 - issue #16854 Fixed "Undefined index: SERVER_SOFTWARE" on very minimal PHP FPM setups
 - issue #16863 Fixed replication setting up a replica is not working
-- issue #16843 Fixes vertical alignment in Metro and pmahomme themes on user accounts overview
+- issue #16843 Fixed vertical alignment in Metro and pmahomme themes on user accounts overview
+- issue        Fixed "phpMyAdmin configuration storage" link on settings page warning
+- issue #16871 Fixed PHP and JS errors on normalization steps
+- issue        Fixed CSS missing classes on normalization buttons
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
