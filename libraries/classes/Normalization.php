@@ -695,7 +695,7 @@ class Normalization
         $headText = '<h3>' .
             __('The third step of normalization is complete.')
             . '</h3>';
-        if (count((array) $newTables) === 0) {
+        if (count($newTables) === 0) {
             return [
                 'legendText' => __('End of step'),
                 'headText' => $headText,
@@ -709,11 +709,11 @@ class Normalization
                 if ($table != $originalTable) {
                     $quotedPk = implode(
                         ', ',
-                        Util::backquote(explode(', ', $cols->pk))
+                        Util::backquote(explode(', ', $cols['pk']))
                     );
                     $quotedNonpk = implode(
                         ', ',
-                        Util::backquote(explode(', ', $cols->nonpk))
+                        Util::backquote(explode(', ', $cols['nonpk']))
                     );
                     $queries[] = 'CREATE TABLE ' . Util::backquote($table)
                         . ' SELECT DISTINCT ' . $quotedPk
@@ -731,8 +731,8 @@ class Normalization
                     $originalTable
                 );
                 $colPresent = array_merge(
-                    explode(', ', $dropCols->pk),
-                    explode(', ', $dropCols->nonpk)
+                    explode(', ', $dropCols['pk']),
+                    explode(', ', $dropCols['nonpk'])
                 );
                 $query = 'ALTER TABLE ' . Util::backquote($originalTable);
                 foreach ($columns as $col) {

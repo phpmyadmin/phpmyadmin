@@ -90,7 +90,7 @@ class NormalizationController extends AbstractController
 
         if (isset($_POST['getNewTables3NF'])) {
             $dependencies = json_decode($_POST['pd']);
-            $tables = json_decode($_POST['tables']);
+            $tables = json_decode($_POST['tables'], true);
             $newTables = $this->normalization->getHtmlForNewTables3NF($dependencies, $tables, $db);
             $this->response->disable();
             Core::headerJSON();
@@ -114,7 +114,7 @@ class NormalizationController extends AbstractController
             return;
         }
         if (isset($_POST['createNewTables3NF'])) {
-            $newtables = json_decode($_POST['newTables']);
+            $newtables = json_decode($_POST['newTables'], true);
             $res = $this->normalization->createNewTablesFor3NF($newtables, $db);
             $this->response->addJSON($res);
 
