@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - issue #16005 Improve the performance of the Export logic
 - issue #16829 Add "NOT LIKE %...%" operator to Table search
 - issue #16845 Fixed some links not passing through url.php
+- issue #16382 Remove apc upload progress method (all upload progress code was removed from the PHP extension)
 
 5.1.1 (not yet released)
 - issue #13325 Fixed created procedure shows up in triggers and events and vice-versa
@@ -106,7 +107,7 @@ phpMyAdmin - ChangeLog
 - issue #16420 Fixed single clicking on row starts editing even if GridEditing is set to double-click
 - issue #16854 Fixed "Undefined index: SERVER_SOFTWARE" on very minimal PHP FPM setups
 - issue #16863 Fixed replication setting up a replica is not working
-- issue #16382 Remove apc upload progress method (all upload progress code was removed from the PHP extension)
+- issue #16843 Fixes vertical alignment in Metro and pmahomme themes on user accounts overview
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type
