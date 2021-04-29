@@ -91,7 +91,7 @@ class NormalizationControllerTest extends AbstractTestCase
                     ],
                 ],
                 'success' => true,
-            ],
+            ]
         );
         $this->expectOutputString($data);
     }
@@ -147,7 +147,7 @@ class NormalizationControllerTest extends AbstractTestCase
                 'headText' => '<h3>The second step of normalization is complete for table \'test_tbl\'.</h3>',
                 'queryError' => false,
                 'extra' => '',
-            ],
+            ]
         );
     }
 
@@ -182,7 +182,7 @@ class NormalizationControllerTest extends AbstractTestCase
                 'headText' => '<h3>The third step of normalization is complete.</h3>',
                 'queryError' => false,
                 'extra' => '',
-            ],
+            ]
         );
     }
 }
