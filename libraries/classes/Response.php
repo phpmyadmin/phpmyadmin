@@ -48,7 +48,7 @@ class Response
      * @access private
      * @var Header
      */
-    private $header;
+    protected $header;
     /**
      * HTML data to be used in the response
      *
@@ -70,14 +70,14 @@ class Response
      * @access private
      * @var Footer
      */
-    private $footer;
+    protected $footer;
     /**
      * Whether we are servicing an ajax request.
      *
      * @access private
      * @var bool
      */
-    private $isAjax;
+    protected $isAjax;
     /**
      * Whether response object is disabled
      *
@@ -92,7 +92,7 @@ class Response
      * @access private
      * @var bool
      */
-    private $isSuccess;
+    protected $isSuccess;
 
     /**
      * @see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
