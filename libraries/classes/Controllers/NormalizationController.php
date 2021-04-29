@@ -81,7 +81,7 @@ class NormalizationController extends AbstractController
         }
 
         if (isset($_POST['getNewTables2NF'])) {
-            $partialDependencies = json_decode($_POST['pd']);
+            $partialDependencies = json_decode($_POST['pd'], true);
             $html = $this->normalization->getHtmlForNewTables2NF($partialDependencies, $table);
             echo $html;
 
@@ -106,7 +106,7 @@ class NormalizationController extends AbstractController
             $normalForm = $_POST['normalizeTo'];
         }
         if (isset($_POST['createNewTables2NF'])) {
-            $partialDependencies = json_decode($_POST['pd']);
+            $partialDependencies = json_decode($_POST['pd'], true);
             $tablesName = json_decode($_POST['newTablesName']);
             $res = $this->normalization->createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
             $this->response->addJSON($res);

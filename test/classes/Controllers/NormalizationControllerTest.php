@@ -96,6 +96,61 @@ class NormalizationControllerTest extends AbstractTestCase
         $this->expectOutputString($data);
     }
 
+    public function testGetNewTables2NF(): void
+    {
+        global $containerBuilder;
+
+        $_POST['getNewTables2NF'] = 1;
+        $_POST['pd'] = json_encode([
+            'ID, task' => [],
+            'task' => ['timestamp'],
+        ]);
+
+        $GLOBALS['goto'] = 'index.php?route=/sql';
+        $containerBuilder->setParameter('db', $GLOBALS['db']);
+        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        /** @var NormalizationController $normalizationController */
+        $normalizationController = $containerBuilder->get(NormalizationController::class);
+        $normalizationController->index();
+        $this->expectOutputString(
+            '<p><b>In order to put the original table \'test_tbl\' into Second normal'
+            . ' form we need to create the following tables:</b></p><p><input type="text" '
+            . 'name="ID, task" value="test_tbl">( <u>ID, task</u> )<p><input type="text" name="task"'
+            . ' value="table2">( <u>task</u>, timestamp )'
+        );
+    }
+
+    public function testCreateNewTables2NF(): void
+    {
+        global $containerBuilder;
+
+        $_POST['createNewTables2NF'] = 1;
+        $_POST['pd'] = json_encode([
+            'ID, task' => [],
+            'task' => ['timestamp'],
+        ]);
+        $_POST['newTablesName'] = json_encode([
+            'ID, task' => 'batch_log2',
+            'task' => 'table2',
+        ]);
+
+        $GLOBALS['goto'] = 'index.php?route=/sql';
+        $containerBuilder->setParameter('db', $GLOBALS['db']);
+        $containerBuilder->setParameter('table', $GLOBALS['table']);
+        /** @var NormalizationController $normalizationController */
+        $normalizationController = $containerBuilder->get(NormalizationController::class);
+        $normalizationController->index();
+        $this->assertSame(
+            $this->getResponseJsonResult(),
+            [
+                'legendText' => 'End of step',
+                'headText' => '<h3>The second step of normalization is complete for table \'test_tbl\'.</h3>',
+                'queryError' => false,
+                'extra' => '',
+            ],
+        );
+    }
+
     public function testCreateNewTables3NF(): void
     {
         global $containerBuilder;
