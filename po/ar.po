@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-01-22 03:17+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-05-01 18:32+0000\n"
+"Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-0/ar/"
 ">\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: ajax.php:35 ajax.php:73 export.php:214 libraries/classes/Export.php:1219
 msgid "Bad type!"
@@ -3508,10 +3508,9 @@ msgstr "وقت التنفيذ الأقصى"
 
 #: libraries/classes/Config/Descriptions.php:186
 #: templates/display/export/options_output.twig:17
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Use %s statement"
-msgstr "أوامر"
+msgstr "استخدم البيان %s"
 
 #: libraries/classes/Config/Descriptions.php:189
 msgid "Save as file"
@@ -16892,10 +16891,8 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:56
-#, fuzzy
-#| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "العمليات"
+msgstr "الأسئلة تحت 1,000"
 
 #: libraries/advisory_rules_generic.txt:59
 msgid ""
