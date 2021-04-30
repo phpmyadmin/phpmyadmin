@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-24 01:32+0200\n"
-"PO-Revision-Date: 2021-01-22 01:10+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2021-05-01 18:32+0000\n"
+"Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ar/>\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -36,10 +36,8 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:22
-#, fuzzy
-#| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "العمليات"
+msgstr "الأسئلة تحت 1,000"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
