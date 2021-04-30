@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-04-24 00:39+0000\n"
+"PO-Revision-Date: 2021-05-01 18:32+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/ar/"
 ">\n"
@@ -3207,10 +3207,8 @@ msgid "Collation"
 msgstr "التجميع"
 
 #: libraries/classes/CentralColumns.php:753
-#, fuzzy
-#| msgid "Attributes"
 msgid "Attribute"
-msgstr "الخواص"
+msgstr "الخاصية"
 
 #: libraries/classes/CentralColumns.php:757
 #: libraries/classes/CentralColumns.php:1429
@@ -3904,10 +3902,9 @@ msgstr "وقت التنفيذ الأقصى"
 
 #: libraries/classes/Config/Descriptions.php:251
 #: templates/display/export/options_output.twig:17
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Use %s statement"
-msgstr "أوامر"
+msgstr "استخدم البيان %s"
 
 #: libraries/classes/Config/Descriptions.php:254
 msgid "Save as file"
@@ -16673,10 +16670,8 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:56
-#, fuzzy
-#| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "العمليات"
+msgstr "الأسئلة تحت 1,000"
 
 #: libraries/advisory_rules_generic.txt:59
 msgid ""
