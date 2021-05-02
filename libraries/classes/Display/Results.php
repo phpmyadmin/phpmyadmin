@@ -3803,6 +3803,7 @@ class Results
 
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
         // (unless it's a link-type transformation or binary)
+        $originalDataForWhereClause = $column;
         $displayedColumn = $column;
         if (
             ! (is_object($transformationPlugin)
@@ -3811,7 +3812,7 @@ class Results
         ) {
             [
                 $isFieldTruncated,
-                $displayedColumn,
+                $column,
                 $originalLength,
             ] = $this->getPartialText($column);
         }
@@ -3887,7 +3888,7 @@ class Results
         $nowrap = $meta->isDateTimeType() || $boolNoWrap ? 'text-nowrap' : 'pre_wrap';
 
         $whereComparison = ' = \''
-            . $dbi->escapeString($column)
+            . $dbi->escapeString($originalDataForWhereClause)
             . '\'';
 
         return $this->getRowData(
