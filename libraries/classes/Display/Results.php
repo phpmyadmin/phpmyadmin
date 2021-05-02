@@ -3755,6 +3755,7 @@ class Results
 
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
         // (unless it's a link-type transformation or binary)
+        $originalDataForWhereClause = $column;
         $displayedColumn = $column;
         if (! (is_object($transformation_plugin)
             && strpos($transformation_plugin->getName(), 'Link') !== false)
@@ -3762,7 +3763,7 @@ class Results
         ) {
             [
                 $is_field_truncated,
-                $displayedColumn,
+                $column,
                 $original_length,
             ] = $this->getPartialText($column);
         }
@@ -3836,7 +3837,7 @@ class Results
             || $bool_nowrap ? 'nowrap' : 'pre_wrap';
 
         $where_comparison = ' = \''
-            . $dbi->escapeString($column)
+            . $dbi->escapeString($originalDataForWhereClause)
             . '\'';
 
         return $this->getRowData(
