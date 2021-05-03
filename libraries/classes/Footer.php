@@ -11,7 +11,6 @@ use Traversable;
 
 use function basename;
 use function file_exists;
-use function htmlspecialchars;
 use function in_array;
 use function is_array;
 use function is_object;
@@ -206,32 +205,6 @@ class Footer
 
     /**
      * Renders the link to open a new page
-     *
-     * @param string $url The url of the page
-     */
-    private function getSelfLink(string $url): string
-    {
-        $retval  = '';
-        $retval .= '<div id="selflink" class="print_ignore">';
-        $retval .= '<a href="' . htmlspecialchars($url) . '"'
-            . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank" rel="noopener noreferrer">';
-        if (Util::showIcons('TabsMode')) {
-            $retval .= Html\Generator::getImage(
-                'window-new',
-                __('Open new phpMyAdmin window')
-            );
-        } else {
-            $retval .=  __('Open new phpMyAdmin window');
-        }
-
-        $retval .= '</a>';
-        $retval .= '</div>';
-
-        return $retval;
-    }
-
-    /**
-     * Renders the link to open a new page
      */
     public function getErrorMessages(): string
     {
@@ -320,7 +293,6 @@ class Footer
             if (! $this->isAjax && ! $this->isMinimal) {
                 if (Core::getenv('SCRIPT_NAME')) {
                     $url = $this->getSelfUrl();
-                    $selfLink = $this->getSelfLink($url);
                 }
 
                 $this->scripts->addCode('var debugSQLInfo = ' . $this->getDebugMessage() . ';');
@@ -337,7 +309,7 @@ class Footer
             return $this->template->render('footer', [
                 'is_ajax' => $this->isAjax,
                 'is_minimal' => $this->isMinimal,
-                'self_link' => $selfLink ?? '',
+                'self_url' => $url ?? null,
                 'error_messages' => $errorMessages ?? '',
                 'scripts' => $scripts ?? '',
                 'is_demo' => $GLOBALS['cfg']['DBG']['demo'],

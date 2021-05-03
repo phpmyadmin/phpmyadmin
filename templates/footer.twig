@@ -2,7 +2,17 @@
   </div>
 {% endif %}
 {% if not is_ajax and not is_minimal %}
-  {{ self_link|raw }}
+  {% if self_url is not empty %}
+    <div id="selflink" class="print_ignore">
+      <a href="{{ self_url }}" title="{% trans 'Open new phpMyAdmin window' %}" target="_blank" rel="noopener noreferrer">
+        {% if show_icons('TabsMode') %}
+          {{ get_image('window-new', 'Open new phpMyAdmin window'|trans) }}
+        {% else %}
+          {% trans 'Open new phpMyAdmin window' %}
+        {% endif %}
+      </a>
+    </div>
+  {% endif %}
 
   <div class="clearfloat" id="pma_errors">
     {{ error_messages|raw }}
