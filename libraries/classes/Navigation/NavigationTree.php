@@ -59,6 +59,8 @@ use const E_USER_WARNING;
  */
 class NavigationTree
 {
+    private const SPECIAL_NODE_NAMES = ['tables', 'views', 'functions', 'procedures', 'events'];
+
     /** @var Node Reference to the root node of the tree */
     private $tree;
     /**
@@ -1474,63 +1476,40 @@ class NavigationTree
      */
     private function fastFilterHtml(Node $node): string
     {
-        $retval = '';
         $filterDbMin = (int) $GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum'];
         $filterItemMin = (int) $GLOBALS['cfg']['NavigationTreeDisplayItemFilterMinimum'];
-        if (
-            $node === $this->tree
-            && $this->tree->getPresence() >= $filterDbMin
-        ) {
+        $urlParams = [];
+
+        $isRootNode = $node === $this->tree && $this->tree->getPresence() >= $filterDbMin;
+        if ($isRootNode) {
             $urlParams = ['pos' => 0];
-            $retval .= '<li class="fast_filter db_fast_filter">';
-            $retval .= '<form class="ajax fast_filter">';
-            $retval .= Url::getHiddenInputs($urlParams);
-            $retval .= '<input class="searchClause" type="text"';
-            $retval .= ' name="searchClause" accesskey="q"';
-            $retval .= " placeholder='"
-                . __('Type to filter these, Enter to search all');
-            $retval .= "'>";
-            $retval .= '<span title="' . __('Clear fast filter') . '">X</span>';
-            $retval .= '</form>';
-            $retval .= '</li>';
+        } else {
+            $nodeIsContainer = $node->type === Node::CONTAINER;
 
-            return $retval;
+            $nodeIsSpecial = in_array($node->realName, self::SPECIAL_NODE_NAMES, true);
+
+            /** @var Node $realParent */
+            $realParent = $node->realParent();
+            if (
+                ($nodeIsContainer && $nodeIsSpecial)
+                && method_exists($realParent, 'getPresence')
+                && $realParent->getPresence($node->realName) >= $filterItemMin
+            ) {
+                $paths = $node->getPaths();
+                $urlParams = [
+                    'pos'        => $this->pos,
+                    'aPath'      => $paths['aPath'],
+                    'vPath'      => $paths['vPath'],
+                    'pos2_name'  => $node->realName,
+                    'pos2_value' => 0,
+                ];
+            }
         }
 
-        $nodeIsContainer = $node->type === Node::CONTAINER;
-        $nodeIsSpecial = $node->realName === 'tables'
-                            || $node->realName === 'views'
-                            || $node->realName === 'functions'
-                            || $node->realName === 'procedures'
-                            || $node->realName === 'events';
-        /** @var Node $realParent */
-        $realParent = $node->realParent();
-        if (
-            ($nodeIsContainer && $nodeIsSpecial)
-            && method_exists($realParent, 'getPresence')
-            && $realParent->getPresence($node->realName) >= $filterItemMin
-        ) {
-            $paths = $node->getPaths();
-            $urlParams = [
-                'pos'        => $this->pos,
-                'aPath'      => $paths['aPath'],
-                'vPath'      => $paths['vPath'],
-                'pos2_name'  => $node->realName,
-                'pos2_value' => 0,
-            ];
-            $retval .= "<li class='fast_filter'>";
-            $retval .= "<form class='ajax fast_filter'>";
-            $retval .= Url::getHiddenFields($urlParams);
-            $retval .= "<input class='searchClause' type='text'";
-            $retval .= " name='searchClause2'";
-            $retval .= " placeholder='"
-                . __('Type to filter these, Enter to search all') . "'>";
-            $retval .= "<span title='" . __('Clear fast filter') . "'>X</span>";
-            $retval .= '</form>';
-            $retval .= '</li>';
-        }
-
-        return $retval;
+        return $this->template->render('navigation/tree/fast_filter', [
+            'url_params' => $urlParams,
+            'is_root_node' => $isRootNode,
+        ]);
     }
 
     /**

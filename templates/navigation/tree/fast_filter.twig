@@ -1,0 +1,15 @@
+{% if url_params %}
+    <li class="fast_filter{% if is_root_node %} db_fast_filter{% endif %}">
+        <form class="ajax fast_filter">
+            {{ get_hidden_inputs(url_params) }}
+            <input
+                class="searchClause"
+                type="text"
+                name="{{ is_root_node ? 'searchClause' : 'searchClause2' }}"
+                accesskey="q"
+                placeholder="{% trans 'Type to filter these, Enter to search all' %}"
+            >
+            <span title="{% trans 'Clear fast filter' %}">X</span>
+        </form>
+    </li>
+{% endif %}
