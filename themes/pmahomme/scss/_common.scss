@@ -3633,6 +3633,10 @@ body .ui-dialog {
     overflow-x: auto;
   }
 
+  .sticky {
+    top: 0;
+  }
+
   body#loginform div.container {
     width: 100%;
   }
