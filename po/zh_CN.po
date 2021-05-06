@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-24 01:32+0200\n"
-"PO-Revision-Date: 2021-03-12 07:02+0000\n"
-"Last-Translator: popcorner <memoword@163.com>\n"
+"PO-Revision-Date: 2021-05-06 22:36+0000\n"
+"Last-Translator: Ganlv <ganlvtech@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -6543,10 +6543,8 @@ msgid "Submit"
 msgstr "提交"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:553
-#, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "按 Esc 键取消编辑。"
+msgstr "按 Esc 键取消编辑。<br>- 使用 Shift+Enter 进行换行。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:557
 msgid ""
@@ -7489,14 +7487,10 @@ msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "等待写入延迟插入队列的行数。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:550
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
-msgstr "已经打开的表个数。如果该值很大，则说明表缓冲大小可能设置过小。"
+msgstr "已经打开的表个数。如果打开的表很大，则说明table_open_cache的值可能设置过小。"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:554
 msgid "The number of files that are open."
@@ -9025,7 +9019,7 @@ msgstr ""
 #, fuzzy
 #| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "未找到 SOAP 扩展"
+msgstr "会话不存在。"
 
 #: libraries/classes/Footer.php:217 libraries/classes/Footer.php:221
 #: libraries/classes/Footer.php:224
@@ -11547,19 +11541,15 @@ msgstr "SHA256密码验证"
 #, fuzzy
 #| msgid "Config authentication"
 msgid "Caching sha2 authentication"
-msgstr "Config 认证"
+msgstr "服务器缓存的sha2密码认证"
 
 #: libraries/classes/Server/Plugins.php:83
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
-msgstr "Cookie 认证"
+msgstr "基于 Unix Socket 认证"
 
 #: libraries/classes/Server/Plugins.php:88
-#, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
-msgstr "MySQL自带身份验证"
+msgstr "旧的 MySQL-4.0 的身份验证"
 
 #: libraries/classes/Server/Privileges.php:255
 msgid "No privileges."
@@ -14983,20 +14973,17 @@ msgid "License"
 msgstr "授权"
 
 #: templates/home/index.twig:269
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
-msgstr "phpMyAdmin 主页 (外链，英文)"
+msgstr "phpMyAdmin 主题"
 
 #: templates/home/index.twig:280
 msgid "Get more themes!"
 msgstr "获得更多主题！"
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
-msgstr "数据库 %s 的大纲"
+msgstr "%s主题的屏幕截图。"
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
@@ -15340,15 +15327,16 @@ msgstr "请输入一个有效的HEX值"
 
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
+#, fuzzy
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "这个字段不足以容纳一个 32 字符长度的值"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
-msgstr ""
+msgstr "这些函数是要返回二进制结果的。为避免结果不一致，您应将其存储在BINARY，VARBINARY或BLOB字段中。"
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
@@ -15713,11 +15701,9 @@ msgid "Character sets and collations"
 msgstr "字符集和排序规则"
 
 #: templates/server/collations/index.twig:23
-#, fuzzy
-#| msgid "(default)"
 msgctxt "The collation is the default one"
 msgid "default"
-msgstr "(默认)"
+msgstr "默认"
 
 #: templates/server/databases/index.twig:3
 msgid "Databases statistics"
@@ -17247,10 +17233,8 @@ msgid "Binary"
 msgstr "二进制"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "字段“%s”的值"
+msgstr "该字段使用 NULL。"
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
