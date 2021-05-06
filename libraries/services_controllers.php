@@ -644,6 +644,15 @@ return [
                 '$dbi' => '@dbi',
             ],
         ],
+        PhpMyAdmin\Controllers\Table\DropColumnConfirmationController::class => [
+            'class' => PhpMyAdmin\Controllers\Table\DropColumnConfirmationController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+            ],
+        ],
         PhpMyAdmin\Controllers\Table\ExportController::class => [
             'class' => PhpMyAdmin\Controllers\Table\ExportController::class,
             'arguments' => [

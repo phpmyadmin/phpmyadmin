@@ -552,34 +552,6 @@ class StructureController extends AbstractController
         $this->index();
     }
 
-    public function dropConfirm(): void
-    {
-        global $db, $table, $urlParams, $errorUrl, $cfg;
-
-        $selected = $_POST['selected_fld'] ?? null;
-
-        if (empty($selected)) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', __('No column selected.'));
-
-            return;
-        }
-
-        Util::checkParameters(['db', 'table']);
-
-        $urlParams = ['db' => $db, 'table' => $table];
-        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $errorUrl .= Url::getCommon($urlParams, '&');
-
-        DbTableExists::check();
-
-        $this->render('table/structure/drop_confirm', [
-            'db' => $db,
-            'table' => $table,
-            'fields' => $selected,
-        ]);
-    }
-
     /**
      * Moves columns in the table's structure based on $_REQUEST
      */
