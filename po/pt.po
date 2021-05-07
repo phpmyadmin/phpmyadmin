@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-04-24 01:32+0200\n"
-"PO-Revision-Date: 2021-03-29 10:48+0000\n"
+"PO-Revision-Date: 2021-05-08 21:33+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.6-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3215,7 +3215,7 @@ msgstr "Use a instrução %s"
 
 #: libraries/classes/Config/Descriptions.php:666
 msgid "Save as file"
-msgstr "envia"
+msgstr "Gravar como ficheiro"
 
 #: libraries/classes/Config/Descriptions.php:667
 #: libraries/classes/Config/Descriptions.php:802
