@@ -176,12 +176,11 @@ class StructureController extends AbstractController
         // If there are no tables, the user is redirected to the last page
         // having any.
         if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
-            $uri = './index.php?route=/database/structure' . Url::getCommonRaw([
+            $this->redirect('/database/structure', [
                 'db' => $this->db,
                 'pos' => max(0, $this->totalNumTables - $cfg['MaxTableList']),
                 'reload' => 1,
-            ], '&');
-            Core::sendHeaderLocation($uri);
+            ]);
         }
 
         $this->replicationInfo->load($_POST['master_connection'] ?? null);
@@ -1565,8 +1564,7 @@ class StructureController extends AbstractController
 
         if ($multBtn !== __('Yes')) {
             $this->flash->addMessage('success', __('No change'));
-
-            Core::sendHeaderLocation('./index.php?route=/database/structure' . Url::getCommonRaw(['db' => $db], '&'));
+            $this->redirect('/database/structure', ['db' => $db]);
 
             return;
         }

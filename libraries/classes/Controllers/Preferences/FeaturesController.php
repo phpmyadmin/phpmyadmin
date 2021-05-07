@@ -8,7 +8,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\FeaturesForm;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -58,7 +57,7 @@ class FeaturesController extends AbstractController
         if (isset($_POST['revert'])) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            Core::sendHeaderLocation('./index.php?route=/preferences/features');
+            $this->redirect('/preferences/features');
 
             return;
         }

@@ -565,11 +565,7 @@ class StructureController extends AbstractController
         }
 
         $this->flash->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
-
-        Core::sendHeaderLocation('./index.php?route=/table/structure' . Url::getCommonRaw([
-            'db' => $db,
-            'table' => $table,
-        ], '&'));
+        $this->redirect('/table/structure', ['db' => $db, 'table' => $table]);
     }
 
     /**
