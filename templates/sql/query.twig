@@ -17,8 +17,7 @@
           <div class="row">
             <div class="col">
               <div class="mb-3">
-                <textarea class="form-control" tabindex="100" name="sql_query" id="sqlquery" cols="{{ textarea_cols }}" rows="{{ textarea_rows }}"
-                  {{- textarea_auto_select ? ' onclick="Functions.selectContent(this, sqlBoxLocked, true);"' }} aria-label="{% trans 'SQL query' %}">
+                <textarea class="form-control" tabindex="100" name="sql_query" id="sqlquery" cols="{{ textarea_cols }}" rows="{{ textarea_rows }}" data-textarea-auto-select="{{ textarea_auto_select ? "true" : "false"}}" aria-label="{% trans 'SQL query' %}">
                   {{- query -}}
                 </textarea>
               </div>
