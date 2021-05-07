@@ -53,7 +53,7 @@
   },
   "resolutions": {
     "kind-of": "^6.0.3",
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.21"
   },
   "scripts": {
     "postinstall": "yarn run build",
