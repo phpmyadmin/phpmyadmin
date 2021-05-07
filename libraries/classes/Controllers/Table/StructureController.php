@@ -517,57 +517,6 @@ class StructureController extends AbstractController
         $this->index();
     }
 
-    public function drop(): void
-    {
-        global $db, $table, $message, $sql_query;
-
-        $selected = $_POST['selected'] ?? [];
-
-        if (empty($selected)) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', __('No column selected.'));
-
-            return;
-        }
-
-        $sql_query = '';
-
-        $selectedCount = count($selected);
-        if (($_POST['mult_btn'] ?? '') === __('Yes')) {
-            $i = 1;
-            $sql_query = 'ALTER TABLE ' . Util::backquote($table);
-
-            foreach ($selected as $field) {
-                $this->relationCleanup->column($db, $table, $field);
-                $sql_query .= ' DROP ' . Util::backquote($field);
-                $sql_query .= $i++ === $selectedCount ? ';' : ',';
-            }
-
-            $this->dbi->selectDb($db);
-            $result = $this->dbi->tryQuery($sql_query);
-
-            if (! $result) {
-                $message = Message::error((string) $this->dbi->getError());
-            }
-        } else {
-            $message = Message::success(__('No change'));
-        }
-
-        if (empty($message)) {
-            $message = Message::success(
-                _ngettext(
-                    '%1$d column has been dropped successfully.',
-                    '%1$d columns have been dropped successfully.',
-                    $selectedCount
-                )
-            );
-            $message->addParam($selectedCount);
-        }
-
-        $this->flash->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
-        $this->redirect('/table/structure', ['db' => $db, 'table' => $table]);
-    }
-
     /**
      * Moves columns in the table's structure based on $_REQUEST
      */

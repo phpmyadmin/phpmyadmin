@@ -653,6 +653,18 @@ return [
                 '$table' => '%table%',
             ],
         ],
+        PhpMyAdmin\Controllers\Table\DropColumnController::class => [
+            'class' => PhpMyAdmin\Controllers\Table\DropColumnController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$template' => '@template',
+                '$db' => '%db%',
+                '$table' => '%table%',
+                '$dbi' => '@dbi',
+                '$flash' => '@flash',
+                '$relationCleanup' => '@relation_cleanup',
+            ],
+        ],
         PhpMyAdmin\Controllers\Table\ExportController::class => [
             'class' => PhpMyAdmin\Controllers\Table\ExportController::class,
             'arguments' => [
