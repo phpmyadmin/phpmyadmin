@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Table;
@@ -110,7 +111,8 @@ class StructureControllerTest extends AbstractTestCase
             new Transformations(),
             new CreateAddField($GLOBALS['dbi']),
             new RelationCleanup($GLOBALS['dbi'], $relation),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            new FlashMessages()
         );
 
         // No primary key in db.table2
@@ -161,7 +163,8 @@ class StructureControllerTest extends AbstractTestCase
             new Transformations(),
             new CreateAddField($GLOBALS['dbi']),
             new RelationCleanup($GLOBALS['dbi'], $relation),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            new FlashMessages()
         );
 
         // With db.table, it has a primary key `column`
@@ -190,7 +193,8 @@ class StructureControllerTest extends AbstractTestCase
             new Transformations(),
             new CreateAddField($GLOBALS['dbi']),
             new RelationCleanup($GLOBALS['dbi'], $relation),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            new FlashMessages()
         );
 
         $this->assertFalse(
@@ -223,7 +227,8 @@ class StructureControllerTest extends AbstractTestCase
             new Transformations(),
             new CreateAddField($GLOBALS['dbi']),
             new RelationCleanup($GLOBALS['dbi'], $relation),
-            $GLOBALS['dbi']
+            $GLOBALS['dbi'],
+            new FlashMessages()
         );
 
         $method->invokeArgs($ctrl, [null]);

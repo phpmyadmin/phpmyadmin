@@ -824,6 +824,7 @@ return [
                 '$createAddField' => '@create_add_field',
                 '$relationCleanup' => '@relation_cleanup',
                 '$dbi' => '@dbi',
+                '$flash' => '@flash',
             ],
         ],
         PhpMyAdmin\Controllers\Table\TrackingController::class => [

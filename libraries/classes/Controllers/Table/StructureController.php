@@ -14,6 +14,7 @@ use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Engines\Innodb;
+use PhpMyAdmin\FlashMessages;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
@@ -81,6 +82,9 @@ class StructureController extends AbstractController
     /** @var DatabaseInterface */
     private $dbi;
 
+    /** @var FlashMessages */
+    private $flash;
+
     /**
      * @param Response          $response
      * @param string            $db       Database name
@@ -96,7 +100,8 @@ class StructureController extends AbstractController
         Transformations $transformations,
         CreateAddField $createAddField,
         RelationCleanup $relationCleanup,
-        $dbi
+        $dbi,
+        FlashMessages $flash
     ) {
         parent::__construct($response, $template, $db, $table);
         $this->createAddField = $createAddField;
@@ -104,6 +109,7 @@ class StructureController extends AbstractController
         $this->transformations = $transformations;
         $this->relationCleanup = $relationCleanup;
         $this->dbi = $dbi;
+        $this->flash = $flash;
 
         $this->tableObj = $this->dbi->getTable($this->db, $this->table);
     }
@@ -526,9 +532,9 @@ class StructureController extends AbstractController
 
         $sql_query = '';
 
+        $selectedCount = count($selected);
         if (($_POST['mult_btn'] ?? '') === __('Yes')) {
             $i = 1;
-            $selectedCount = count($selected);
             $sql_query = 'ALTER TABLE ' . Util::backquote($table);
 
             foreach ($selected as $field) {
@@ -543,13 +549,27 @@ class StructureController extends AbstractController
             if (! $result) {
                 $message = Message::error((string) $this->dbi->getError());
             }
+        } else {
+            $message = Message::success(__('No change'));
         }
 
         if (empty($message)) {
-            $message = Message::success();
+            $message = Message::success(
+                _ngettext(
+                    '%1$d column has been dropped successfully.',
+                    '%1$d columns have been dropped successfully.',
+                    $selectedCount
+                )
+            );
+            $message->addParam($selectedCount);
         }
 
-        $this->index();
+        $this->flash->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
+
+        Core::sendHeaderLocation('./index.php?route=/table/structure' . Url::getCommonRaw([
+            'db' => $db,
+            'table' => $table,
+        ], '&'));
     }
 
     /**

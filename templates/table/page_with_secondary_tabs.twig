@@ -14,6 +14,14 @@
   </ul>
 {% endif %}
 
+{% for flash_key, flash_messages in flash() %}
+  {% for flash_message in flash_messages %}
+    <div class="alert alert-{{ flash_key }}" role="alert">
+      {{ flash_message }}
+    </div>
+  {% endfor %}
+{% endfor %}
+
 <div id="structure_content">
   {% block content %}{% endblock %}
 </div>
