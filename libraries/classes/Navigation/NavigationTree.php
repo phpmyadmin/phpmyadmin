@@ -1079,23 +1079,21 @@ class NavigationTree
      */
     private function getPaginationParamsHtml(Node $node): string
     {
-        $retval = '';
+        $renderDetails = ['position' => 0];
         $paths = $node->getPaths();
         if (isset($paths['aPath_clean'][2])) {
-            $retval .= '<span class="hide pos2_nav"';
-            $retval .= ' data-name="' . $paths['aPath_clean'][2] . '"';
-            $retval .= ' data-value="' . htmlspecialchars((string) $node->pos2) . '"';
-            $retval .= '"></span>';
+            $renderDetails['position'] = 'pos2_nav';
+            $renderDetails['data_name'] = $paths['aPath_clean'][2];
+            $renderDetails['data_value'] = (string) $node->pos2;
         }
 
         if (isset($paths['aPath_clean'][4])) {
-            $retval .= '<span class="hide pos3_nav"';
-            $retval .= ' data-name="' . $paths['aPath_clean'][4] . '"';
-            $retval .= ' data-value="' . htmlspecialchars((string) $node->pos3) . '"';
-            $retval .= '"></span>';
+            $renderDetails['position'] = 'pos3_nav';
+            $renderDetails['data_name'] = $paths['aPath_clean'][4];
+            $renderDetails['data_value'] = (string) $node->pos3;
         }
 
-        return $retval;
+        return $this->template->render('navigation/tree/pagination_params', $renderDetails);
     }
 
     /**
@@ -1524,10 +1522,7 @@ class NavigationTree
         $showIcon = true;
         $showText = false;
 
-        $retval = '<!-- CONTROLS START -->';
-        $retval .= '<li id="navigation_controls_outer">';
-        $retval .= '<div id="navigation_controls">';
-        $retval .= Generator::getNavigationLink(
+        $collapseAll = Generator::getNavigationLink(
             '#',
             $showText,
             __('Collapse all'),
@@ -1542,7 +1537,7 @@ class NavigationTree
             $title = __('Unlink from main panel');
         }
 
-        $retval .= Generator::getNavigationLink(
+        $unlink = Generator::getNavigationLink(
             '#',
             $showText,
             $title,
@@ -1550,11 +1545,11 @@ class NavigationTree
             $syncImage,
             'pma_navigation_sync'
         );
-        $retval .= '</div>';
-        $retval .= '</li>';
-        $retval .= '<!-- CONTROLS ENDS -->';
 
-        return $retval;
+        return $this->template->render('navigation/tree/controls', [
+            'collapse_all' => $collapseAll,
+            'unlink' => $unlink,
+        ]);
     }
 
     /**
@@ -1650,20 +1645,15 @@ class NavigationTree
      */
     private function quickWarp(): string
     {
-        $retval = '<div class="pma_quick_warp">';
+        $renderDetails = [];
         if ($GLOBALS['cfg']['NumRecentTables'] > 0) {
-            $retval .= RecentFavoriteTable::getInstance('recent')
-                ->getHtml();
+            $renderDetails['recent'] = RecentFavoriteTable::getInstance('recent')->getHtml();
         }
 
         if ($GLOBALS['cfg']['NumFavoriteTables'] > 0) {
-            $retval .= RecentFavoriteTable::getInstance('favorite')
-                ->getHtml();
+            $renderDetails['favorite'] = RecentFavoriteTable::getInstance('favorite')->getHtml();
         }
 
-        $retval .= '<div class="clearfloat"></div>';
-        $retval .= '</div>';
-
-        return $retval;
+        return $this->template->render('navigation/tree/quick_warp', $renderDetails);
     }
 }
