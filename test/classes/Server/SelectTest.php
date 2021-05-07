@@ -38,17 +38,6 @@ class SelectTest extends AbstractTestCase
 
         $GLOBALS['table'] = 'table';
 
-        //$_SESSION
-    }
-
-    /**
-     * Test for Select::render
-     */
-    public function testRender(): void
-    {
-        $not_only_options = false;
-        $omit_fieldset = false;
-
         $GLOBALS['cfg']['DefaultTabServer'] = 'welcome';
 
         $GLOBALS['cfg']['Servers'] = [
@@ -67,10 +56,48 @@ class SelectTest extends AbstractTestCase
                 'auth_type' => 'config',
             ],
         ];
+        //$_SESSION
+    }
 
-        //$not_only_options=false & $omit_fieldset=false
+    /**
+     * Test for Select::render
+     *
+     * @dataProvider renderDataProvider
+     */
+    public function testRender(bool $not_only_options, bool $omit_fieldset): void
+    {
+        if ($not_only_options) {
+            $GLOBALS['cfg']['DisplayServersList'] = null;
+        }
+
         $html = Select::render($not_only_options, $omit_fieldset);
         $server = $GLOBALS['cfg']['Servers']['0'];
+
+        if ($not_only_options) {
+            if (! $omit_fieldset) {
+                $this->assertStringContainsString(
+                    '</fieldset>',
+                    $html
+                );
+            }
+
+            $this->assertStringContainsString(
+                Util::getScriptNameForOption(
+                    $GLOBALS['cfg']['DefaultTabServer'],
+                    'server'
+                ),
+                $html
+            );
+
+            $this->assertStringContainsString(
+                __('Current server:'),
+                $html
+            );
+            $this->assertStringContainsString(
+                '(' . __('Servers') . ')',
+                $html
+            );
+        }
 
         //server items
         $this->assertStringContainsString(
@@ -89,50 +116,23 @@ class SelectTest extends AbstractTestCase
             $server['user'],
             $html
         );
+    }
 
-        $not_only_options = true;
-        $omit_fieldset = true;
-        $GLOBALS['cfg']['DisplayServersList'] = null;
-
-        //$not_only_options=true & $omit_fieldset=true
-        $html = Select::render($not_only_options, $omit_fieldset);
-
-        //$GLOBALS['cfg']['DefaultTabServer']
-        $this->assertStringContainsString(
-            Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabServer'],
-                'server'
-            ),
-            $html
-        );
-
-        //labels
-        $this->assertStringContainsString(
-            __('Current server:'),
-            $html
-        );
-        $this->assertStringContainsString(
-            '(' . __('Servers') . ')',
-            $html
-        );
-
-        //server items
-        $server = $GLOBALS['cfg']['Servers']['0'];
-        $this->assertStringContainsString(
-            $server['host'],
-            $html
-        );
-        $this->assertStringContainsString(
-            $server['port'],
-            $html
-        );
-        $this->assertStringContainsString(
-            $server['only_db'],
-            $html
-        );
-        $this->assertStringContainsString(
-            $server['user'],
-            $html
-        );
+    public function renderDataProvider(): array
+    {
+        return [
+            'only options, don\'t omit fieldset' => [
+                false,
+                false,
+            ],
+            'not only options, omits fieldset' => [
+                true,
+                true,
+            ],
+            'not only options, don\'t omit fieldset' => [
+                true,
+                false,
+            ],
+        ];
     }
 }
