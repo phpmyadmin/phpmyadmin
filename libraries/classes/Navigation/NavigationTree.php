@@ -869,10 +869,7 @@ class NavigationTree
             );
             $groups[$key]->separator = $node->separator;
             $groups[$key]->separatorDepth = $node->separatorDepth - 1;
-            $groups[$key]->icon = Generator::getImage(
-                'b_group',
-                __('Groups')
-            );
+            $groups[$key]->icon = ['image' => 'b_group', 'title' => __('Groups')];
             $groups[$key]->pos2 = $node->pos2;
             $groups[$key]->pos3 = $node->pos3;
             if (
@@ -1246,16 +1243,15 @@ class NavigationTree
             $icons = [];
             if (isset($node->links['icon']) && ! empty($node->links['icon'])) {
                 $iconLinks = $node->links['icon'];
-                /** @var array|string $icons */
-                $icons = $node->icon;
                 if (! is_array($iconLinks)) {
                     $iconLinks = [$iconLinks];
-                    $icons = [$icons];
                 }
 
-                if (count($icons) > 1) {
+                $icons[] = $node->icon;
+                if (isset($node->secondIcon)) {
                     // Generates: .second double class for NavigationTreeDefaultTabTable2
                     $divClass = 'second double';
+                    $icons[] = $node->secondIcon;
                 }
             }
 
@@ -1270,14 +1266,15 @@ class NavigationTree
                 foreach ($icons as $key => $icon) {
                     $link = vsprintf($iconLinks[$key], $args);
                     if ($linkClass != '') {
-                        $retval .= "<a class='" . $linkClass . "' href='" . $link . "'>";
-                        $retval .= '' . $icon . '</a>';
+                        $retval .= '<a class="' . $linkClass . '" href="' . $link . '">';
+                        $retval .= Generator::getImage($icon['image'], $icon['title']) . '</a>';
                     } else {
-                        $retval .= "<a href='" . $link . "'>" . $icon . '</a>';
+                        $retval .= '<a href="' . $link . '">';
+                        $retval .= Generator::getImage($icon['image'], $icon['title']) . '</a>';
                     }
                 }
             } else {
-                $retval .= '<u>' . $node->icon . '</u>';
+                $retval .= '<u>' . Generator::getImage($node->icon['image'], $node->icon['title']) . '</u>';
             }
 
             $retval .= '</div>';

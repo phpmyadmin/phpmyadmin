@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\CheckUserPrivileges;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
 
@@ -43,7 +42,7 @@ class NodeDatabaseContainer extends Node
             $newLabel,
             'new_database italics'
         );
-        $new->icon = Generator::getImage('b_newdb', '');
+        $new->icon = ['image' => 'b_newdb', 'title' => $newLabel];
         $new->links = [
             'text' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
             'icon' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),

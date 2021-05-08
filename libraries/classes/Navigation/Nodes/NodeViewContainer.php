@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
 
@@ -22,7 +21,7 @@ class NodeViewContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Views'), Node::CONTAINER);
-        $this->icon = Generator::getImage('b_views', __('Views'));
+        $this->icon = ['image' => 'b_views', 'title' => __('Views')];
         $this->links = [
             'text' => Url::getFromRoute('/database/structure', [
                 'server' => $GLOBALS['server'],
@@ -41,7 +40,7 @@ class NodeViewContainer extends NodeDatabaseChildContainer
             $newLabel,
             'new_view italics'
         );
-        $new->icon = Generator::getImage('b_view_add', $newLabel);
+        $new->icon = ['image' => 'b_view_add', 'title' => $newLabel];
         $new->links = [
             'text' => Url::getFromRoute('/view/create', [
                 'server' => $GLOBALS['server'],

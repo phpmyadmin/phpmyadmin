@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
 
@@ -22,7 +21,7 @@ class NodeIndexContainer extends Node
     public function __construct()
     {
         parent::__construct(__('Indexes'), Node::CONTAINER);
-        $this->icon = Generator::getImage('b_index', __('Indexes'));
+        $this->icon = ['image' => 'b_index', 'title' => __('Indexes')];
         $this->links = [
             'text' => Url::getFromRoute('/table/structure', [
                 'server' => $GLOBALS['server'],
@@ -38,7 +37,7 @@ class NodeIndexContainer extends Node
             $newLabel,
             'new_index italics'
         );
-        $new->icon = Generator::getImage('b_index_add', $newLabel);
+        $new->icon = ['image' => 'b_index_add', 'title' => $newLabel];
         $new->links = [
             'text' => Url::getFromRoute('/table/indexes', [
                 'server' => $GLOBALS['server'],

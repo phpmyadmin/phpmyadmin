@@ -76,8 +76,15 @@ class Node
      *          Only relevant if the node is of type CONTAINER
      */
     public $separatorDepth = 1;
-    /** @var mixed An IMG tag, used when rendering the node*/
-    public $icon;
+
+    /**
+     * For the IMG tag, used when rendering the node.
+     *
+     * @var array<string, string>
+     * @psalm-var array{image: string, title: string}
+     */
+    public $icon = ['image' => '', 'title' => ''];
+
     /**
      * @var array An array of A tags, used when rendering the node
      *            The indexes in the array may be 'icon' and 'text'

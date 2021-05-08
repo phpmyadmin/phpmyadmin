@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 
 /**
@@ -26,7 +25,7 @@ class NodeTrigger extends Node
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = Generator::getImage('b_triggers');
+        $this->icon = ['image' => 'b_triggers', 'title' => __('Trigger')];
         $this->links = [
             'text' => Url::getFromRoute('/database/triggers', [
                 'server' => $GLOBALS['server'],
