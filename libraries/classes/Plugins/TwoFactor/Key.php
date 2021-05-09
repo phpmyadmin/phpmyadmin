@@ -17,6 +17,7 @@ use Throwable;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+
 use function json_decode;
 use function json_encode;
 
@@ -77,12 +78,14 @@ class Key extends TwoFactorPlugin
         if (! isset($_POST['u2f_authentication_response'], $_SESSION['authenticationRequest'])) {
             return false;
         }
+
         $this->provided = true;
         try {
             $response = json_decode($_POST['u2f_authentication_response']);
             if ($response === null) {
                 return false;
             }
+
             $auth = U2FServer::authenticate(
                 $_SESSION['authenticationRequest'],
                 $this->getRegistrations(),
@@ -128,7 +131,7 @@ class Key extends TwoFactorPlugin
 
         return $this->template->render('login/twofactor/key', [
             'request' => json_encode($request),
-            'is_https' => $GLOBALS['PMA_Config']->isHttps(),
+            'is_https' => $GLOBALS['config']->isHttps(),
         ]);
     }
 
@@ -156,7 +159,7 @@ class Key extends TwoFactorPlugin
         return $this->template->render('login/twofactor/key_configure', [
             'request' => json_encode($registrationData['request']),
             'signatures' => json_encode($registrationData['signatures']),
-            'is_https' => $GLOBALS['PMA_Config']->isHttps(),
+            'is_https' => $GLOBALS['config']->isHttps(),
         ]);
     }
 
@@ -171,12 +174,14 @@ class Key extends TwoFactorPlugin
         if (! isset($_POST['u2f_registration_response'], $_SESSION['registrationRequest'])) {
             return false;
         }
+
         $this->provided = true;
         try {
             $response = json_decode($_POST['u2f_registration_response']);
             if ($response === null) {
                 return false;
             }
+
             $registration = U2FServer::register(
                 $_SESSION['registrationRequest'],
                 $response

@@ -11,6 +11,7 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
+
 use function count;
 use function explode;
 use function mb_strlen;
@@ -156,7 +157,8 @@ class ImportMediawiki extends ImportPlugin
 
                 if ($inside_comment) {
                     // Check end of comment
-                    if (! strcmp(mb_substr($cur_buffer_line, 0, 4), '-->')
+                    if (
+                        ! strcmp(mb_substr($cur_buffer_line, 0, 4), '-->')
                     ) {
                         // Only data comments are closed. The structure comments
                         // will be closed when a data comment begins (in order to
@@ -172,29 +174,31 @@ class ImportMediawiki extends ImportPlugin
                     } else {
                         // Check table name
                         $match_table_name = [];
-                        if (preg_match(
-                            '/^Table data for `(.*)`$/',
-                            $cur_buffer_line,
-                            $match_table_name
-                        )
+                        if (
+                            preg_match(
+                                '/^Table data for `(.*)`$/',
+                                $cur_buffer_line,
+                                $match_table_name
+                            )
                         ) {
                             $cur_table_name = $match_table_name[1];
                             $inside_data_comment = true;
 
-                            $inside_structure_comment
-                                = $this->mngInsideStructComm(
-                                    $inside_structure_comment
-                                );
-                        } elseif (preg_match(
-                            '/^Table structure for `(.*)`$/',
-                            $cur_buffer_line,
-                            $match_table_name
-                        )
+                            $inside_structure_comment = $this->mngInsideStructComm(
+                                $inside_structure_comment
+                            );
+                        } elseif (
+                            preg_match(
+                                '/^Table structure for `(.*)`$/',
+                                $cur_buffer_line,
+                                $match_table_name
+                            )
                         ) {
                             // The structure comments will be ignored
                             $inside_structure_comment = true;
                         }
                     }
+
                     continue;
                 }
 
@@ -215,7 +219,8 @@ class ImportMediawiki extends ImportPlugin
                     $in_table_header = false;
                     // End processing because the current line does not
                     // contain any column information
-                } elseif (mb_substr($cur_buffer_line, 0, 2) === '|-'
+                } elseif (
+                    mb_substr($cur_buffer_line, 0, 2) === '|-'
                     || mb_substr($cur_buffer_line, 0, 2) === '|+'
                     || mb_substr($cur_buffer_line, 0, 2) === '|}'
                 ) {
@@ -473,6 +478,7 @@ class ImportMediawiki extends ImportPlugin
                 if ($partial_separator && $inside_attribute) {
                     $cleaned .= '|';
                 }
+
                 // If the char is different from "|", no separator can be formed
                 $partial_separator = false;
 

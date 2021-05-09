@@ -27,10 +27,10 @@ jobs:
         if: "!contains(github.event.head_commit.message, '[ci skip]')"
         steps:
             - uses: actions/checkout@v2
-            - name: Use php 7.1
+            - name: Use php 7.2
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: 7.1
+                  php-version: 7.2
                   extensions: mbstring, iconv, mysqli, zip, gd
                   tools: composer:v2
             - name: Cache module

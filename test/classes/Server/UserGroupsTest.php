@@ -8,6 +8,8 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Version;
+
 use function htmlspecialchars;
 
 class UserGroupsTest extends AbstractTestCase
@@ -18,13 +20,13 @@ class UserGroupsTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['ActionLinksMode'] = 'both';
+        $GLOBALS['config']->enableBc();
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
 
         $GLOBALS['server'] = 1;
         $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups',
@@ -73,69 +75,14 @@ class UserGroupsTest extends AbstractTestCase
      */
     public function testGetHtmlForUserGroupsTableWithUserGroups(): void
     {
-        $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups`'
-            . ' ORDER BY `usergroup` ASC';
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->once())
-            ->method('tryQuery')
-            ->with($expectedQuery)
-            ->will($this->returnValue(true));
-        $dbi->expects($this->once())
-            ->method('numRows')
-            ->withAnyParameters()
-            ->will($this->returnValue(1));
-        $dbi->expects($this->at(2))
-            ->method('fetchAssoc')
-            ->withAnyParameters()
-            ->will(
-                $this->returnValue(
-                    [
-                        'usergroup' => 'usergroup',
-                        'tab' => 'server_sql',
-                        'allowed' => 'Y',
-                    ]
-                )
-            );
-        $dbi->expects($this->at(3))
-            ->method('fetchAssoc')
-            ->withAnyParameters()
-            ->will($this->returnValue(null));
-        $dbi->expects($this->once())
-            ->method('freeResult');
-        $GLOBALS['dbi'] = $dbi;
-
         $html = UserGroups::getHtmlForUserGroupsTable();
-        $this->assertStringContainsString(
-            '<td>usergroup</td>',
-            $html
-        );
-        $url_tag = '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
-            . Url::getCommon(
-                [
-                    'viewUsers' => 1,
-                    'userGroup' => htmlspecialchars('usergroup'),
-                ],
-                ''
-            );
-        $this->assertStringContainsString(
-            $url_tag,
-            $html
-        );
-        $url_tag = '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
-            . Url::getCommon(
-                [
-                    'editUserGroup' => 1,
-                    'userGroup' => htmlspecialchars('usergroup'),
-                ],
-                ''
-            );
-        $this->assertStringContainsString(
-            $url_tag,
-            $html
-        );
+        $this->assertStringContainsString('<td>usergroup</td>', $html);
+        $urlTag = '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
+            . Url::getCommon(['viewUsers' => 1, 'userGroup' => htmlspecialchars('usergroup')], '');
+        $this->assertStringContainsString($urlTag, $html);
+        $urlTag = '<a class="" href="' . Url::getFromRoute('/server/user-groups') . '" data-post="'
+            . Url::getCommon(['editUserGroup' => 1, 'userGroup' => htmlspecialchars('usergroup')], '');
+        $this->assertStringContainsString($urlTag, $html);
         $this->assertStringContainsString(
             '<button type="button" class="btn btn-link" data-bs-toggle="modal"'
             . ' data-bs-target="#deleteUserGroupModal" data-user-group="usergroup">',
@@ -148,20 +95,15 @@ class UserGroupsTest extends AbstractTestCase
      */
     public function testDeleteUserGroup(): void
     {
-        $userDelQuery = 'DELETE FROM `pmadb`.`users`'
-            . " WHERE `usergroup`='ug'";
-        $userGrpDelQuery = 'DELETE FROM `pmadb`.`usergroups`'
-            . " WHERE `usergroup`='ug'";
+        $userDelQuery = 'DELETE FROM `pmadb`.`users` WHERE `usergroup`=\'ug\'';
+        $userGrpDelQuery = 'DELETE FROM `pmadb`.`usergroups` WHERE `usergroup`=\'ug\'';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->at(1))
+        $dbi->expects($this->exactly(2))
             ->method('query')
-            ->with($userDelQuery);
-        $dbi->expects($this->at(3))
-            ->method('query')
-            ->with($userGrpDelQuery);
+            ->withConsecutive([$this->equalTo($userDelQuery)], [$this->equalTo($userGrpDelQuery)]);
         $dbi->expects($this->any())
             ->method('escapeString')
             ->will($this->returnArgument(0));

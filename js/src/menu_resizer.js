@@ -167,7 +167,13 @@
         }
     };
 
-    /** Extend jQuery */
+    /**
+     * Extend jQuery
+     *
+     * @param {string} method
+     *
+     * @return {any}
+     */
     $.fn.menuResizer = function (method) {
         if (methods[method]) {
             return methods[method].call(this);

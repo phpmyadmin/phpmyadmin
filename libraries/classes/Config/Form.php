@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
-use const E_USER_ERROR;
 use function array_combine;
 use function array_shift;
 use function array_walk;
@@ -23,6 +22,8 @@ use function mb_strrpos;
 use function mb_substr;
 use function str_replace;
 use function trigger_error;
+
+use const E_USER_ERROR;
 
 /**
  * Base class for forms, loads default configuration options, checks allowed
@@ -133,11 +134,13 @@ class Form
 
             return [];
         }
+
         if (! is_array($value)) {
             trigger_error($optionPath . ' - not a static value list', E_USER_ERROR);
 
             return [];
         }
+
         // convert array('#', 'a', 'b') to array('a', 'b')
         if (isset($value[0]) && $value[0] === '#') {
             // remove first element ('#')
@@ -155,8 +158,10 @@ class Form
                 $hasStringKeys = true;
                 break;
             }
+
             $keys[] = is_bool($value[$i]) ? (int) $value[$i] : $value[$i];
         }
+
         if (! $hasStringKeys) {
             $value = array_combine($keys, $value);
         }
@@ -194,10 +199,12 @@ class Form
             $this->default[$prefix . $key] = $value;
             $value = $key;
         }
+
         // add unique id to group ends
         if ($value === ':group:end') {
             $value .= ':' . self::$groupCounter++;
         }
+
         $this->fields[] = $prefix . $value;
     }
 
@@ -255,12 +262,14 @@ class Form
                 $this->fieldsTypes[$name] = 'group';
                 continue;
             }
+
             $v = $cf->getDbEntry($path);
             if ($v !== null) {
                 $type = is_array($v) ? 'select' : $v;
             } else {
                 $type = gettype($cf->getDefault($path));
             }
+
             $this->fieldsTypes[$name] = $type;
         }
     }

@@ -10,6 +10,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function htmlspecialchars;
 use function in_array;
 use function sprintf;
@@ -43,7 +44,7 @@ class DesignerController extends AbstractController
         global $db, $script_display_field, $tab_column, $tables_all_keys, $tables_pk_or_unique_keys;
         global $success, $page, $message, $display_page, $selected_page, $tab_pos, $fullTableNames, $script_tables;
         global $script_contr, $params, $tables, $num_tables, $total_num_tables, $sub_part;
-        global $tooltip_truename, $tooltip_aliasname, $pos, $classes_side_menu, $cfg, $err_url;
+        global $tooltip_truename, $tooltip_aliasname, $pos, $classes_side_menu, $cfg, $errorUrl;
 
         if (isset($_POST['dialog'])) {
             if ($_POST['dialog'] === 'edit') {
@@ -107,6 +108,7 @@ class DesignerController extends AbstractController
                     $page = $this->designerCommon->createNewPage($_POST['selected_value'], $_POST['db']);
                     $this->response->addJSON('id', $page);
                 }
+
                 $success = $this->designerCommon->saveTablePositions($page);
                 $this->response->setRequestStatus($success);
             } elseif ($_POST['operation'] === 'setDisplayField') {
@@ -153,8 +155,8 @@ class DesignerController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;
@@ -174,9 +176,11 @@ class DesignerController extends AbstractController
         } else {
             $display_page = $this->designerCommon->getLoadingPage($_GET['db']);
         }
+
         if ($display_page != -1) {
             $selected_page = $this->designerCommon->getPageName($display_page);
         }
+
         $tab_pos = $this->designerCommon->getTablePositions($display_page);
 
         $fullTableNames = [];
@@ -214,7 +218,6 @@ class DesignerController extends AbstractController
         $header->setBodyId('designer_body');
 
         $this->addScriptFiles([
-            'vendor/jquery/jquery.fullscreen.js',
             'designer/database.js',
             'designer/objects.js',
             'designer/page.js',

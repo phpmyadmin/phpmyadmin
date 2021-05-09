@@ -12,6 +12,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
 use function array_sum;
 use function arsort;
 use function count;
@@ -35,9 +36,9 @@ class QueriesController extends AbstractController
 
     public function index(): void
     {
-        global $err_url;
+        global $errorUrl;
 
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

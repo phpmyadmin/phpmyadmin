@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Util;
+
 use function array_sum;
 use function count;
 use function implode;
@@ -114,12 +115,10 @@ class Monitor
                 foreach ($nodeDataPoints as $point_id => $dataPoint) {
                     switch ($dataPoint['type']) {
                         case 'statusvar':
-                            $ret[$chart_id][$node_id][$point_id]['value']
-                            = $statusVarValues[$dataPoint['name']];
+                            $ret[$chart_id][$node_id][$point_id]['value'] = $statusVarValues[$dataPoint['name']];
                             break;
                         case 'servervar':
-                            $ret[$chart_id][$node_id][$point_id]['value']
-                            = $serverVarValues[$dataPoint['name']];
+                            $ret[$chart_id][$node_id][$point_id]['value'] = $serverVarValues[$dataPoint['name']];
                             break;
                     }
                 }
@@ -155,17 +154,16 @@ class Monitor
             foreach ($chartNodes as $nodeId => $nodeDataPoints) {
                 // For each data point in the series (usually just 1)
                 foreach ($nodeDataPoints as $pointId => $dataPoint) {
-                    [$serverVars, $statusVars, $ret[$chartId][$nodeId][$pointId]]
-                        = $this->getJsonForChartingDataSwitch(
-                            $dataPoint['type'],
-                            $dataPoint['name'],
-                            $serverVars,
-                            $statusVars,
-                            $ret[$chartId][$nodeId][$pointId],
-                            $sysinfo,
-                            $cpuload,
-                            $memory
-                        );
+                    [$serverVars, $statusVars, $ret[$chartId][$nodeId][$pointId]] = $this->getJsonForChartingDataSwitch(
+                        $dataPoint['type'],
+                        $dataPoint['name'],
+                        $serverVars,
+                        $statusVars,
+                        $ret[$chartId][$nodeId][$pointId],
+                        $sysinfo,
+                        $cpuload,
+                        $memory
+                    );
                 } /* foreach */
             } /* foreach */
         }
@@ -201,22 +199,23 @@ class Monitor
         $cpuload,
         $memory
     ) {
+        /**
+         * We only collect the status and server variables here to read them all in one query,
+         * and only afterwards assign them. Also do some allow list filtering on the names
+         */
         switch ($type) {
-        /* We only collect the status and server variables here to
-         * read them all in one query,
-         * and only afterwards assign them.
-         * Also do some allow list filtering on the names
-        */
             case 'servervar':
                 if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
                     $serverVars[] = $pName;
                 }
+
                 break;
 
             case 'statusvar':
                 if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
                     $statusVars[] = $pName;
                 }
+
                 break;
 
             case 'proc':
@@ -228,6 +227,7 @@ class Monitor
                 if (! $sysinfo) {
                     $sysinfo = SysInfo::get();
                 }
+
                 if (! $cpuload) {
                     $cpuload = $sysinfo->loadavg();
                 }
@@ -245,6 +245,7 @@ class Monitor
                 if (! $sysinfo) {
                     $sysinfo = SysInfo::get();
                 }
+
                 if (! $memory) {
                     $memory = $sysinfo->memory();
                 }
@@ -312,6 +313,7 @@ class Monitor
                         $row['sql_text'] = mb_substr($row['sql_text'], 0, 200)
                             . '... [' . $implodeSqlText . ']';
                     }
+
                     break;
                 default:
                     break;
@@ -320,6 +322,7 @@ class Monitor
             if (! isset($return['sum'][$type])) {
                 $return['sum'][$type] = 0;
             }
+
             $return['sum'][$type] += $row['#'];
             $return['rows'][] = $row;
         }
@@ -378,31 +381,30 @@ class Monitor
             if (! isset($return['sum'][$type])) {
                 $return['sum'][$type] = 0;
             }
+
             $return['sum'][$type] += $row['#'];
 
             switch ($type) {
             /** @noinspection PhpMissingBreakStatementInspection */
                 case 'insert':
                     // Group inserts if selected
-                    if ($removeVariables
-                    && preg_match(
-                        '/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',
-                        $row['argument'],
-                        $matches
-                    )
+                    if (
+                        $removeVariables && preg_match(
+                            '/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',
+                            $row['argument'],
+                            $matches
+                        )
                     ) {
                         $insertTables[$matches[2]]++;
                         if ($insertTables[$matches[2]] > 1) {
-                            $return['rows'][$insertTablesFirst]['#']
-                                = $insertTables[$matches[2]];
+                            $return['rows'][$insertTablesFirst]['#'] = $insertTables[$matches[2]];
 
                             // Add a ... to the end of this query to indicate that
                             // there's been other queries
                             $temp = $return['rows'][$insertTablesFirst]['argument'];
-                            $return['rows'][$insertTablesFirst]['argument']
-                                .= $this->getSuspensionPoints(
-                                    $temp[strlen($temp) - 1]
-                                );
+                            $return['rows'][$insertTablesFirst]['argument'] .= $this->getSuspensionPoints(
+                                $temp[strlen($temp) - 1]
+                            );
 
                             // Group this value, thus do not add to the result list
                             continue 2;
@@ -411,6 +413,7 @@ class Monitor
                         $insertTablesFirst = $i;
                         $insertTables[$matches[2]] += $row['#'] - 1;
                     }
+
                     // No break here
 
                 case 'update':
@@ -429,6 +432,7 @@ class Monitor
                         )
                             . ']';
                     }
+
                     break;
 
                 default:
@@ -549,6 +553,7 @@ class Monitor
             while ($row = $this->dbi->fetchAssoc($result)) {
                 $return['profiling'][] = $row;
             }
+
             $this->dbi->freeResult($result);
         }
 

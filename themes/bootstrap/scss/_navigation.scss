@@ -1,6 +1,6 @@
 // Navigation styles for the pmahomme theme
 #pma_navigation {
-  width: $navi-width;
+  width: $navigation-width;
   position: fixed;
   top: 0;
   left: 0;
@@ -106,7 +106,7 @@
   margin-left: 0.75em;
 
   select {
-    background: linear-gradient(#fff, #f1f1f1, #fff);
+    background: linear-gradient($white, #f1f1f1, $white);
     -webkit-border-radius: 2px;
     border-radius: 2px;
     border: 1px solid #bbb;
@@ -142,7 +142,7 @@
   position: relative;
 
   a {
-    color: $navi-color;
+    color: $black;
     padding-left: 0;
 
     &:hover {
@@ -166,8 +166,8 @@
 
     &.activePointer,
     &.selected {
-      color: $navi-pointer-color;
-      background-color: $navi-pointer-background;
+      color: $black;
+      background-color: #ddd;
     }
 
     .dbItemControls {
@@ -391,12 +391,12 @@ li.fast_filter {
   font-weight: bold;
   position: fixed;
   top: 0;
-  left: $navi-width;
+  left: $navigation-width;
   text-align: center;
   cursor: pointer;
   z-index: 800;
-  text-shadow: 0 1px 0 #fff;
-  filter: dropshadow(color = #fff, offx = 0, offy = 1);
+  text-shadow: 0 1px 0 $white;
+  filter: dropshadow(color = $white, offx = 0, offy = 1);
   border: 1px solid rgba($black, 0.125);
 }
 
@@ -413,7 +413,7 @@ li.fast_filter {
 
     &:hover {
       .drop_button {
-        background: #fff;
+        background: $white;
       }
 
       ul {
@@ -428,7 +428,7 @@ li.fast_filter {
       overflow: hidden;
       overflow-y: auto;
       list-style: none;
-      background: #fff;
+      background: $white;
       border: 1px solid #ddd;
       border-radius: 0.3em;
       border-top-right-radius: 0;

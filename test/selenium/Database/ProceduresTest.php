@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+
 use function sleep;
 use function str_replace;
 
@@ -98,6 +99,7 @@ class ProceduresTest extends TestBase
                 $this->getSqlMode()
             );
         }
+
         parent::tearDown();
     }
 
@@ -124,7 +126,7 @@ class ProceduresTest extends TestBase
         $this->waitForElement('partialLinkText', 'Routines')->click();
         $this->waitAjax();
 
-        $this->waitForElement('partialLinkText', 'Add routine')->click();
+        $this->waitForElement('partialLinkText', 'Create new routine')->click();
 
         $this->waitForElement('className', 'rte_form');
 
@@ -185,8 +187,8 @@ class ProceduresTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'Routines')]"
+            'id',
+            'checkAllCheckbox'
         );
 
         $this->byPartialLinkText('Edit')->click();
@@ -217,8 +219,8 @@ class ProceduresTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'Routines')]"
+            'id',
+            'checkAllCheckbox'
         );
 
         $this->byPartialLinkText('Drop')->click();
@@ -255,6 +257,8 @@ class ProceduresTest extends TestBase
             'cssSelector',
             'span#PMA_slidingMessage table tbody'
         );
+        $this->waitUntilElementIsVisible('cssSelector', 'span#PMA_slidingMessage', 30);
+        sleep(2);// Give more chances to the JS effect to finish
         $head = $this->byCssSelector('span#PMA_slidingMessage table tbody')->getText();
         $this->assertEquals("outp\n" . $length, $head);
     }

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
+
 use function array_shift;
 use function implode;
 
@@ -113,6 +114,7 @@ class FormDisplayTemplate
         if ($headerText === '') {
             return '';
         }
+
         $colspan = $this->config->get('is_setup') ? 3 : 2;
 
         return $this->template->render('config/form_display/group_header', [
@@ -146,6 +148,7 @@ class FormDisplayTemplate
             foreach ($validator as $arg) {
                 $vArgs[] = Sanitize::escapeJsString($arg);
             }
+
             $vArgs = $vArgs ? ", ['" . implode("', '", $vArgs) . "']" : '';
             $jsArray[] = "registerFieldValidator('" . $fieldId . "', '" . $vName . "', true" . $vArgs . ')';
         }

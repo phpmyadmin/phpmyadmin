@@ -7,6 +7,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function defined;
+use function headers_sent;
+use function http_response_code;
+use function is_array;
+use function json_encode;
+use function json_last_error;
+use function mb_strlen;
+use function register_shutdown_function;
+use function strlen;
+
 use const JSON_ERROR_CTRL_CHAR;
 use const JSON_ERROR_DEPTH;
 use const JSON_ERROR_INF_OR_NAN;
@@ -17,17 +27,6 @@ use const JSON_ERROR_SYNTAX;
 use const JSON_ERROR_UNSUPPORTED_TYPE;
 use const JSON_ERROR_UTF8;
 use const PHP_SAPI;
-use function defined;
-use function explode;
-use function headers_sent;
-use function http_response_code;
-use function in_array;
-use function is_array;
-use function json_encode;
-use function json_last_error;
-use function mb_strlen;
-use function register_shutdown_function;
-use function strlen;
 
 /**
  * Singleton class used to manage the rendering of pages in PMA
@@ -48,7 +47,7 @@ class Response
      * @access private
      * @var Header
      */
-    private $header;
+    protected $header;
     /**
      * HTML data to be used in the response
      *
@@ -70,14 +69,14 @@ class Response
      * @access private
      * @var Footer
      */
-    private $footer;
+    protected $footer;
     /**
      * Whether we are servicing an ajax request.
      *
      * @access private
      * @var bool
      */
-    private $isAjax;
+    protected $isAjax;
     /**
      * Whether response object is disabled
      *
@@ -92,7 +91,7 @@ class Response
      * @access private
      * @var bool
      */
-    private $isSuccess;
+    protected $isSuccess;
 
     /**
      * @see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
@@ -181,6 +180,7 @@ class Response
             $buffer->start();
             register_shutdown_function([$this, 'response']);
         }
+
         $this->header = new Header();
         $this->HTML   = '';
         $this->JSON   = [];
@@ -274,12 +274,9 @@ class Response
     /**
      * Add HTML code to the response
      *
-     * @param string $content A string to be appended to
-     *                        the current output buffer
-     *
-     * @return void
+     * @param string|Message|array<int, string|Message> $content A string to be appended to the current output buffer
      */
-    public function addHTML($content)
+    public function addHTML($content): void
     {
         if (is_array($content)) {
             foreach ($content as $msg) {
@@ -295,25 +292,20 @@ class Response
     /**
      * Add JSON code to the response
      *
-     * @param mixed $json  Either a key (string) or an
-     *                     array or key-value pairs
-     * @param mixed $value Null, if passing an array in $json otherwise
-     *                     it's a string value to the key
-     *
-     * @return void
+     * @param string|int|array $json  Either a key (string) or an array or key-value pairs
+     * @param mixed|null       $value Null, if passing an array in $json otherwise
+     *                                it's a string value to the key
      */
-    public function addJSON($json, $value = null)
+    public function addJSON($json, $value = null): void
     {
         if (is_array($json)) {
             foreach ($json as $key => $value) {
                 $this->addJSON($key, $value);
             }
+        } elseif ($value instanceof Message) {
+            $this->JSON[$json] = $value->getDisplay();
         } else {
-            if ($value instanceof Message) {
-                $this->JSON[$json] = $value->getDisplay();
-            } else {
-                $this->JSON[$json] = $value;
-            }
+            $this->JSON[$json] = $value;
         }
     }
 
@@ -381,20 +373,7 @@ class Response
             }
 
             if (isset($dbi)) {
-                $menuHash = $this->getHeader()->getMenu()->getHash();
-                $this->addJSON('menuHash', $menuHash);
-                $hashes = [];
-                if (isset($_REQUEST['menuHashes'])) {
-                    $hashes = explode('-', $_REQUEST['menuHashes']);
-                }
-                if (! in_array($menuHash, $hashes)) {
-                    $this->addJSON(
-                        'menu',
-                        $this->getHeader()
-                            ->getMenu()
-                            ->getDisplay()
-                    );
-                }
+                $this->addJSON('menu', $this->getHeader()->getMenu()->getDisplay());
             }
 
             $this->addJSON('scripts', $this->getHeader()->getScripts()->getFiles());
@@ -402,7 +381,8 @@ class Response
             $this->addJSON('displayMessage', $this->getHeader()->getMessage());
 
             $debug = $this->footer->getDebugMessage();
-            if (empty($_REQUEST['no_debug'])
+            if (
+                empty($_REQUEST['no_debug'])
                 && strlen($debug) > 0
             ) {
                 $this->addJSON('debug', $debug);
@@ -412,7 +392,8 @@ class Response
             if (strlen($errors) > 0) {
                 $this->addJSON('errors', $errors);
             }
-            $promptPhpErrors = $GLOBALS['error_handler']->hasErrorsForPrompt();
+
+            $promptPhpErrors = $GLOBALS['errorHandler']->hasErrorsForPrompt();
             $this->addJSON('promptPhpErrors', $promptPhpErrors);
 
             if (empty($GLOBALS['error_message'])) {
@@ -420,11 +401,13 @@ class Response
                 // (this is for the bottom console)
                 $query = '';
                 $maxChars = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
-                if (isset($GLOBALS['sql_query'])
+                if (
+                    isset($GLOBALS['sql_query'])
                     && mb_strlen($GLOBALS['sql_query']) < $maxChars
                 ) {
                     $query = $GLOBALS['sql_query'];
                 }
+
                 $this->addJSON(
                     'reloadQuerywindow',
                     [
@@ -436,9 +419,11 @@ class Response
                 if (! empty($GLOBALS['focus_querywindow'])) {
                     $this->addJSON('_focusQuerywindow', $query);
                 }
+
                 if (! empty($GLOBALS['reload'])) {
                     $this->addJSON('reloadNavigation', 1);
                 }
+
                 $this->addJSON('params', $this->getHeader()->getJsParams());
             }
         }
@@ -481,6 +466,7 @@ class Response
                     $error = 'Unknown error';
                     break;
             }
+
             echo json_encode([
                 'success' => false,
                 'error' => 'JSON encoding failed: ' . $error,
@@ -501,11 +487,13 @@ class Response
         if (empty($this->HTML)) {
             $this->HTML = $buffer->getContents();
         }
+
         if ($this->isAjax()) {
             $this->ajaxResponse();
         } else {
             $this->htmlResponse();
         }
+
         $buffer->flush();
         exit;
     }
@@ -559,6 +547,7 @@ class Response
         } else {
             $header .= 'Web server is down';
         }
+
         if (PHP_SAPI === 'cgi-fcgi') {
             return;
         }

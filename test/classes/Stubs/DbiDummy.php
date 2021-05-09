@@ -12,13 +12,21 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Dbal\DbiExtension;
+use PhpMyAdmin\FieldMetadata;
+
 use function addslashes;
 use function count;
 use function is_array;
 use function is_bool;
+use function is_int;
 use function preg_replace;
 use function str_replace;
 use function trim;
+
+use const MYSQLI_TYPE_BLOB;
+use const MYSQLI_TYPE_DATETIME;
+use const MYSQLI_TYPE_DECIMAL;
+use const MYSQLI_TYPE_STRING;
 
 /**
  * Fake database driver for testing purposes
@@ -95,6 +103,7 @@ class DbiDummy implements DbiExtension
 
             return $i;
         }
+
         for ($i = 0, $nb = count($GLOBALS['dummy_queries']); $i < $nb; $i++) {
             if ($GLOBALS['dummy_queries'][$i]['query'] != $query) {
                 continue;
@@ -107,6 +116,7 @@ class DbiDummy implements DbiExtension
 
             return $i + self::OFFSET_GLOBAL;
         }
+
         echo 'Not supported query: ' . $query . "\n";
 
         return false;
@@ -136,6 +146,7 @@ class DbiDummy implements DbiExtension
         if ($query_data['pos'] >= count((array) $query_data['result'])) {
             return null;
         }
+
         $ret = $query_data['result'][$query_data['pos']];
         $query_data['pos'] += 1;
 
@@ -151,7 +162,8 @@ class DbiDummy implements DbiExtension
     {
         $query_data = &$this->getQueryData($result);
         $data = $this->fetchAny($result);
-        if (! is_array($data)
+        if (
+            ! is_array($data)
             || ! isset($query_data['columns'])
         ) {
             return $data;
@@ -209,6 +221,7 @@ class DbiDummy implements DbiExtension
         if ($offset > count($query_data['result'])) {
             return false;
         }
+
         $query_data['pos'] = $offset;
 
         return true;
@@ -347,11 +360,16 @@ class DbiDummy implements DbiExtension
      *
      * @param object $result result set identifier
      *
-     * @return array meta info for fields in $result
+     * @return FieldMetadata[]|null meta info for fields in $result
      */
-    public function getFieldsMeta($result)
+    public function getFieldsMeta($result): ?array
     {
-        return [];
+        $query_data = &$this->getQueryData($result);
+        if (! isset($query_data['metadata'])) {
+            return [];
+        }
+
+        return $query_data['metadata'];
     }
 
     /**
@@ -394,20 +412,12 @@ class DbiDummy implements DbiExtension
      */
     public function fieldName($result, $i)
     {
-        return '';
-    }
+        $query_data = &$this->getQueryData($result);
+        if (! isset($query_data['columns'])) {
+            return '';
+        }
 
-    /**
-     * returns concatenated string of human readable field flags
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string field flags
-     */
-    public function fieldFlags($result, $i)
-    {
-        return '';
+        return $query_data['columns'][$i];
     }
 
     /**
@@ -426,8 +436,8 @@ class DbiDummy implements DbiExtension
     /**
      * Adds query result for testing
      *
-     * @param string $query  SQL
-     * @param array  $result Expected result
+     * @param string      $query  SQL
+     * @param array|false $result Expected result
      *
      * @return void
      */
@@ -453,12 +463,17 @@ class DbiDummy implements DbiExtension
     /**
      * Return query data for ID
      *
-     * @param object $result result set identifier
+     * @param object|int $result result set identifier
      *
      * @return array
      */
-    private function &getQueryData($result)
+    private function &getQueryData($result): array
     {
+        if (! is_int($result)) {
+            // This never happens
+            return [];
+        }
+
         if ($result >= self::OFFSET_GLOBAL) {
             return $GLOBALS['dummy_queries'][$result - self::OFFSET_GLOBAL];
         }
@@ -901,8 +916,56 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
+                'query'   => 'SELECT `column_name`, `mimetype`, `transformation`,'
+                    . ' `transformation_options`, `input_transformation`,'
+                    . ' `input_transformation_options`'
+                    . ' FROM `information_schema`.`column_info`'
+                    . ' WHERE `db_name` = \'my_db\' AND `table_name` = \'test_tbl\''
+                    . ' AND ( `mimetype` != \'\' OR `transformation` != \'\''
+                    . ' OR `transformation_options` != \'\''
+                    . ' OR `input_transformation` != \'\''
+                    . ' OR `input_transformation_options` != \'\')',
+                'columns' => [
+                    'column_name',
+                    'mimetype',
+                    'transformation',
+                    'transformation_options',
+                    'input_transformation',
+                    'input_transformation_options',
+                ],
+                'result'  => [
+                    [
+                        'vc',
+                        '',
+                        'output/text_plain_json.php',
+                        '',
+                        'Input/Text_Plain_JsonEditor.php',
+                        '',
+                    ],
+                    [
+                        'vc',
+                        '',
+                        'output/text_plain_formatted.php',
+                        '',
+                        'Text_Plain_Substring.php',
+                        '1',
+                    ],
+                ],
+            ],
+            [
                 'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
                     . ' WHERE TABLE_SCHEMA = \'pma_test\' AND TABLE_NAME = \'table1\'',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                    . ' WHERE TABLE_SCHEMA = \'my_dataset\' AND TABLE_NAME = \'company_users\'',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                    . ' WHERE TABLE_SCHEMA = \'my_db\' '
+                    . 'AND TABLE_NAME = \'test_tbl\' AND IS_UPDATABLE = \'YES\'',
                 'result' => [],
             ],
             [
@@ -1116,6 +1179,69 @@ class DbiDummy implements DbiExtension
                         'NULL',
                     ],
                 ],
+            ],
+            [
+                'query'   => 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`,'
+                    . ' `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`,'
+                    . ' `ENGINE` AS `Type`, `VERSION` AS `Version`,'
+                    . ' `ROW_FORMAT` AS `Row_format`, `TABLE_ROWS` AS `Rows`,'
+                    . ' `AVG_ROW_LENGTH` AS `Avg_row_length`,'
+                    . ' `DATA_LENGTH` AS `Data_length`,'
+                    . ' `MAX_DATA_LENGTH` AS `Max_data_length`,'
+                    . ' `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`,'
+                    . ' `AUTO_INCREMENT` AS `Auto_increment`,'
+                    . ' `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`,'
+                    . ' `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`,'
+                    . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
+                    . ' `TABLE_COMMENT` AS `Comment`'
+                    . ' FROM `information_schema`.`TABLES` t'
+                    . ' WHERE `TABLE_SCHEMA` IN (\'my_db\')'
+                    . ' AND t.`TABLE_NAME` = \'test_tbl\' ORDER BY Name ASC',
+                'columns' => [
+                    'TABLE_CATALOG',
+                    'TABLE_SCHEMA',
+                    'TABLE_NAME',
+                    'TABLE_TYPE',
+                    'ENGINE',
+                    'VERSION',
+                    'ROW_FORMAT',
+                    'TABLE_ROWS',
+                    'AVG_ROW_LENGTH',
+                    'DATA_LENGTH',
+                    'MAX_DATA_LENGTH',
+                    'INDEX_LENGTH',
+                    'DATA_FREE',
+                    'AUTO_INCREMENT',
+                    'CREATE_TIME',
+                    'UPDATE_TIME',
+                    'CHECK_TIME',
+                    'TABLE_COLLATION',
+                    'CHECKSUM',
+                    'CREATE_OPTIONS',
+                    'TABLE_COMMENT',
+                    'Db',
+                    'Name',
+                    'TABLE_TYPE',
+                    'Engine',
+                    'Type',
+                    'Version',
+                    'Row_format',
+                    'Rows',
+                    'Avg_row_length',
+                    'Data_length',
+                    'Max_data_length',
+                    'Index_length',
+                    'Data_free',
+                    'Auto_increment',
+                    'Create_time',
+                    'Update_time',
+                    'Check_time',
+                    'Collation',
+                    'Checksum',
+                    'Create_options',
+                    'Comment',
+                ],
+                'result'  => [],
             ],
             [
                 'query'  => 'SELECT COUNT(*) FROM `pma_test`.`table1`',
@@ -1353,7 +1479,7 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query'  => "SHOW FULL TABLES FROM `default` WHERE `Table_type`IN('BASE TABLE', 'SYSTEM VERSIONED')",
+                'query'  => "SHOW FULL TABLES FROM `default` WHERE `Table_type` IN('BASE TABLE', 'SYSTEM VERSIONED')",
                 'result' => [
                     [
                         'test1',
@@ -1367,7 +1493,7 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query'  => 'SHOW FULL TABLES FROM `default` '
-                    . "WHERE `Table_type`NOT IN('BASE TABLE', 'SYSTEM VERSIONED')",
+                    . "WHERE `Table_type` NOT IN('BASE TABLE', 'SYSTEM VERSIONED')",
                 'result' => [],
             ],
             [
@@ -1461,6 +1587,10 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query'  => "SHOW TABLE STATUS FROM `db` WHERE `Name` LIKE 'table%'",
+                'result' => [],
+            ],
+            [
+                'query'  => "SHOW TABLE STATUS FROM `my_dataset` WHERE `Name` LIKE 'company\_users%'",
                 'result' => [],
             ],
             [
@@ -1706,10 +1836,17 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query'  => 'SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION` '
-                    . 'FROM `information_schema`.`PLUGINS` '
-                    . "WHERE `PLUGIN_TYPE` = 'AUTHENTICATION';",
-                'result' => [],
+                'query'  => 'SELECT `PLUGIN_NAME`, `PLUGIN_DESCRIPTION` FROM `information_schema`.`PLUGINS`'
+                    . ' WHERE `PLUGIN_TYPE` = \'AUTHENTICATION\';',
+                'columns' => ['PLUGIN_NAME', 'PLUGIN_DESCRIPTION'],
+                'result' => [
+                    ['mysql_old_password', 'Old MySQL-4.0 authentication'],
+                    ['mysql_native_password', 'Native MySQL authentication'],
+                    ['sha256_password', 'SHA256 password authentication'],
+                    ['caching_sha2_password', 'Caching sha2 authentication'],
+                    ['auth_socket', 'Unix Socket based authentication'],
+                    ['unknown_auth_plugin', 'Unknown authentication'],
+                ],
             ],
             [
                 'query'  => 'SHOW TABLES FROM `db`;',
@@ -1803,6 +1940,10 @@ class DbiDummy implements DbiExtension
                 'result' => [
                     ['Table_priv' => 'Select,Insert,Update,References,Create View,Show view'],
                 ],
+            ],
+            [
+                'query' => 'SHOW COLUMNS FROM `my_db`.`test_tbl`',
+                'result' => [],
             ],
             [
                 'query' => 'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
@@ -1999,6 +2140,10 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
+                'query' => 'SHOW INDEXES FROM `my_db`.`test_tbl`',
+                'result' => [],
+            ],
+            [
                 'query' => 'SELECT USER();',
                 'result' => [],
             ],
@@ -2191,6 +2336,315 @@ class DbiDummy implements DbiExtension
                         1,
                     ],
                 ],
+            ],
+            [
+                'query' => 'SHOW CREATE TABLE `test_db`.`test_table`',
+                'columns' => ['Table', 'Create Table'],
+                'result' => [['test_table', 'CREATE TABLE `test_table`']],
+            ],
+            [
+                'query' => 'SHOW COLUMNS FROM `test_db`.`test_table`',
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'result' => [
+                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
+                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
+                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
+                ],
+            ],
+            [
+                'query' => 'SHOW FULL COLUMNS FROM `test_db`.`test_table`',
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'result' => [
+                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
+                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
+                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
+                ],
+            ],
+            [
+                'query' => 'DESC `test_db`.`test_table`',
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'result' => [
+                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
+                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
+                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
+                ],
+            ],
+            [
+                'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'test\_table%\'',
+                'columns' => ['Name', 'Engine', 'Rows'],
+                'result' => [['test_table', 'InnoDB', '3']],
+            ],
+            [
+                'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE Name = \'test_table\'',
+                'columns' => ['Name', 'Engine', 'Rows'],
+                'result' => [['test_table', 'InnoDB', '3']],
+            ],
+            [
+                'query' => 'SHOW INDEXES FROM `test_db`.`test_table`',
+                'columns' => ['Table', 'Non_unique', 'Key_name', 'Column_name'],
+                'result' => [['test_table', '0', 'PRIMARY', 'id']],
+            ],
+            [
+                'query' => 'SHOW INDEX FROM `test_table`;',
+                'columns' => ['Table', 'Non_unique', 'Key_name', 'Column_name'],
+                'result' => [['test_table', '0', 'PRIMARY', 'id']],
+            ],
+            [
+                'query' => 'SHOW TRIGGERS FROM `test_db` LIKE \'test_table\';',
+                'columns' => ['Trigger', 'Event', 'Table', 'Statement', 'Timing', 'Definer'],
+                'result' => [['test_trigger', 'INSERT', 'test_table', 'BEGIN END', 'AFTER', 'definer@localhost']],
+            ],
+            [
+                'query' => 'SELECT * FROM `test_db`.`test_table_yaml`;',
+                'columns' => ['id', 'name', 'datetimefield', 'textfield'],
+                'metadata' => [
+                    new FieldMetadata(MYSQLI_TYPE_DECIMAL, 0, (object) []),
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),
+                    new FieldMetadata(MYSQLI_TYPE_DATETIME, 0, (object) []),
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),
+                ],
+                'result' => [
+                    ['1', 'abcd', '2011-01-20 02:00:02', null],
+                    ['2', 'foo', '2010-01-20 02:00:02', null],
+                    ['3', 'Abcd', '2012-01-20 02:00:02', null],
+                    ['4', 'Abcd', '2012-01-20 02:00:02', '123'],
+                    ['5', 'Abcd', '2012-01-20 02:00:02', '+30.2103210000'],
+                ],
+            ],
+            [
+                'query' => 'SELECT * FROM `test_db`.`test_table`;',
+                'columns' => ['id', 'name', 'datetimefield'],
+                'result' => [
+                    ['1', 'abcd', '2011-01-20 02:00:02'],
+                    ['2', 'foo', '2010-01-20 02:00:02'],
+                    ['3', 'Abcd', '2012-01-20 02:00:02'],
+                ],
+            ],
+            [
+                'query' => 'SELECT * FROM `test_db`.`test_table_complex`;',
+                'columns' => ['f1', 'f2', 'f3', 'f4'],
+                'result' => [
+                    ['"\'"><iframe onload=alert(1)>шеллы', '0x12346857fefe', "My awesome\nText", '0xaf1234f68c57fefe'],
+                    [null, null, null, null],
+                    ['', '0x1', 'шеллы', '0x2'],
+                ],
+                'metadata' => [
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['charsetnr' => 33]),
+                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['charsetnr' => 63]),
+                    new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['charsetnr' => 23]),
+                    new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['charsetnr' => 63]),
+                ],
+            ],
+            [
+                'query' => 'SHOW PROCEDURE STATUS;',
+                'columns' => ['Db', 'Name', 'Type'],
+                'result' => [
+                    ['test_db', 'test_proc1', 'PROCEDURE'],
+                    ['test_db', 'test_proc2', 'PROCEDURE'],
+                ],
+            ],
+            [
+                'query' => 'SHOW FUNCTION STATUS;',
+                'columns' => ['Db', 'Name', 'Type'],
+                'result' => [['test_db', 'test_func', 'FUNCTION']],
+            ],
+            [
+                'query' => 'SHOW CREATE PROCEDURE `test_db`.`test_proc1`',
+                'columns' => ['Procedure', 'Create Procedure'],
+                'result' => [['test_proc1', 'CREATE PROCEDURE `test_proc1` (p INT) BEGIN END']],
+            ],
+            [
+                'query' => 'SHOW CREATE PROCEDURE `test_db`.`test_proc2`',
+                'columns' => ['Procedure', 'Create Procedure'],
+                'result' => [['test_proc2', 'CREATE PROCEDURE `test_proc2` (p INT) BEGIN END']],
+            ],
+            [
+                'query' => 'SHOW CREATE FUNCTION `test_db`.`test_func`',
+                'columns' => ['Function', 'Create Function'],
+                'result' => [['test_func', 'CREATE FUNCTION `test_func` (p INT) RETURNS int(11) BEGIN END']],
+            ],
+            [
+                'query'  => 'USE `test_db`',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SET SQL_QUOTE_SHOW_CREATE = 0',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SET SQL_QUOTE_SHOW_CREATE = 1',
+                'result' => [],
+            ],
+            [
+                'query' => 'UPDATE `test_tbl` SET `vc` = \'…zff s sf\' WHERE `test`.`ser` = 2',
+                'result' => [],
+            ],
+            [
+                'query' => 'UPDATE `test_tbl` SET `vc` = \'…ss s s\' WHERE `test`.`ser` = 1',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT LAST_INSERT_ID();',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW WARNINGS',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT * FROM `information_schema`.`bookmark` WHERE dbase = \'my_db\''
+                . ' AND (user = \'user\') AND `label` = \'test_tbl\' LIMIT 1',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT `prefs` FROM `information_schema`.`table_uiprefs` WHERE `username` = \'user\''
+                . ' AND `db_name` = \'my_db\' AND `table_name` = \'test_tbl\'',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT DATABASE()',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT * FROM `test_tbl` LIMIT 0, 25',
+                'columns' => ['vc', 'text', 'ser'],
+                'result' => [
+                    [
+                        'sss s s  ',
+                        '…z',
+                        1,
+                    ],
+                    [
+                        'zzff s sf',
+                        '…zff',
+                        2,
+                    ],
+                ],
+            ],
+            [
+                'query' => 'SELECT @@have_profiling',
+                'result' => [],
+            ],
+            [
+                'query'  => 'SELECT TABLE_NAME FROM information_schema.VIEWS'
+                    . ' WHERE TABLE_SCHEMA = \'my_db\' AND TABLE_NAME = \'test_tbl\'',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW FULL COLUMNS FROM `my_db`.`test_tbl`',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW TABLE STATUS FROM `my_db` WHERE `Name` LIKE \'test\_tbl%\'',
+                'result' => [],
+            ],
+            [
+                'query' => 'SHOW CREATE TABLE `my_db`.`test_tbl`',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM `my_db`.`test_tbl`',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT `master_field`, `foreign_db`, `foreign_table`, `foreign_field`'
+                . ' FROM `information_schema`.`relation`'
+                . ' WHERE `master_db` = \'my_db\' AND `master_table` = \'test_tbl\'',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT `test_tbl`.`vc` FROM `my_db`.`test_tbl` WHERE `test`.`ser` = 2',
+                'result' => [],
+            ],
+            [
+                'query' => 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC',
+                'columns' => ['usergroup', 'tab', 'allowed'],
+                'result' => [['usergroup', 'server_sql', 'Y']],
+            ],
+            [
+                'query' => 'DESCRIBE `test_table`',
+                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'result' => [
+                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
+                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
+                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
+                ],
+            ],
+            [
+                'query' => 'SELECT * FROM `test_table` WHERE `id` = 4;',
+                'columns' => ['id', 'name', 'datetimefield'],
+                'result' => [['4', '101', '2013-01-20 02:00:02']],
+            ],
+            [
+                'query' => 'SELECT * FROM `mysql`.`user` WHERE `User` = \'username\' AND `Host` = \'hostname\';',
+                'columns' => ['Host', 'User', 'Password'],
+                'result' => [['hostname', 'username', 'password']],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM company_users WHERE not_working_count != 0',
+                'result' => false,
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM company_users',
+                'result' => [
+                    [4],
+                ],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM company_users WHERE working_count = 0',
+                'result' => [
+                    [15],
+                ],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM `my_dataset`.`company_users`',
+                'result' => [
+                    [18],
+                ],
+            ],
+            [
+                'query' => 'SELECT COUNT(*) FROM company_users WHERE subquery_case = 0',
+                'result' => [
+                    [42],
+                ],
+            ],
+            [
+                'query' => 'CREATE TABLE `event` SELECT DISTINCT `eventID`, `Start_time`,'
+                . ' `DateOfEvent`, `NumberOfGuests`, `NameOfVenue`, `LocationOfVenue` FROM `test_tbl`;',
+                'result' => [],
+            ],
+            [
+                'query' => 'ALTER TABLE `event` ADD PRIMARY KEY(`eventID`);',
+                'result' => [],
+            ],
+            [
+                'query' => 'CREATE TABLE `table2` SELECT DISTINCT `Start_time`,'
+                            . ' `TypeOfEvent`, `period` FROM `test_tbl`;',
+                'result' => [],
+            ],
+            [
+                'query' => 'ALTER TABLE `table2` ADD PRIMARY KEY(`Start_time`);',
+                'result' => [],
+            ],
+            [
+                'query' => 'DROP TABLE `test_tbl`',
+                'result' => [],
+            ],
+            [
+                'query' => 'CREATE TABLE `batch_log2` SELECT DISTINCT `ID`, `task` FROM `test_tbl`;',
+                'result' => [],
+            ],
+            [
+                'query' => 'ALTER TABLE `batch_log2` ADD PRIMARY KEY(`ID`, `task`);',
+                'result' => [],
+            ],
+            [
+                'query' => 'CREATE TABLE `table2` SELECT DISTINCT `task`, `timestamp` FROM `test_tbl`;',
+                'result' => [],
+            ],
+            [
+                'query' => 'ALTER TABLE `table2` ADD PRIMARY KEY(`task`);',
+                'result' => [],
             ],
         ];
         /**

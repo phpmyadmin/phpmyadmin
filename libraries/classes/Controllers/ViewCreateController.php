@@ -16,6 +16,7 @@ use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_merge;
 use function explode;
 use function htmlspecialchars;
@@ -45,21 +46,21 @@ class ViewCreateController extends AbstractController
 
     public function index(): void
     {
-        global $text_dir, $url_params, $view_algorithm_options, $view_with_options, $view_security_options;
+        global $text_dir, $urlParams, $view_algorithm_options, $view_with_options, $view_security_options;
         global $message, $sep, $sql_query, $arr, $view_columns, $column_map, $systemDb, $pma_transformation_data;
-        global $containerBuilder, $new_transformations_sql, $view, $item, $parts, $db, $cfg, $err_url;
+        global $containerBuilder, $new_transformations_sql, $view, $item, $parts, $db, $cfg, $errorUrl;
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;
         }
 
-        $url_params['goto'] = Url::getFromRoute('/table/structure');
-        $url_params['back'] = Url::getFromRoute('/view/create');
+        $urlParams['goto'] = Url::getFromRoute('/table/structure');
+        $urlParams['back'] = Url::getFromRoute('/view/create');
 
         $view_algorithm_options = [
             'UNDEFINED',
@@ -78,7 +79,8 @@ class ViewCreateController extends AbstractController
         ];
 
         // View name is a compulsory field
-        if (isset($_POST['view']['name'])
+        if (
+            isset($_POST['view']['name'])
             && empty($_POST['view']['name'])
         ) {
             $message = Message::error(__('View name can not be empty!'));
@@ -121,7 +123,8 @@ class ViewCreateController extends AbstractController
                 }
             }
 
-            if (isset($_POST['view']['sql_security'])
+            if (
+                isset($_POST['view']['sql_security'])
                 && in_array($_POST['view']['sql_security'], $view_security_options)
             ) {
                 $sql_query .= $sep . ' SQL SECURITY '
@@ -193,6 +196,7 @@ class ViewCreateController extends AbstractController
                     $this->dbi->tryQuery($new_transformations_sql);
                 }
             }
+
             unset($pma_transformation_data);
 
             if (! isset($_POST['ajax_dialog'])) {
@@ -272,13 +276,13 @@ class ViewCreateController extends AbstractController
             $view = array_merge($view, $_POST['view']);
         }
 
-        $url_params['db'] = $db;
-        $url_params['reload'] = 1;
+        $urlParams['db'] = $db;
+        $urlParams['reload'] = 1;
 
         echo $this->template->render('view_create', [
             'ajax_dialog' => isset($_POST['ajax_dialog']),
             'text_dir' => $text_dir,
-            'url_params' => $url_params,
+            'url_params' => $urlParams,
             'view' => $view,
             'view_algorithm_options' => $view_algorithm_options,
             'view_with_options' => $view_with_options,

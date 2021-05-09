@@ -11,6 +11,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function in_array;
 use function strlen;
 
@@ -37,7 +38,7 @@ class TriggersController extends AbstractController
     {
         global $db, $table, $tables, $num_tables, $total_num_tables, $sub_part;
         global $tooltip_truename, $tooltip_aliasname, $pos;
-        global $errors, $url_params, $err_url, $cfg;
+        global $errors, $urlParams, $errorUrl, $cfg;
 
         $this->addScriptFiles(['database/triggers.js']);
 
@@ -48,9 +49,9 @@ class TriggersController extends AbstractController
             if (! empty($table) && in_array($table, $this->dbi->getTables($db))) {
                 Util::checkParameters(['db', 'table']);
 
-                $url_params = ['db' => $db, 'table' => $table];
-                $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-                $err_url .= Url::getCommon($url_params, '&');
+                $urlParams = ['db' => $db, 'table' => $table];
+                $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+                $errorUrl .= Url::getCommon($urlParams, '&');
 
                 DbTableExists::check();
             } else {
@@ -58,8 +59,8 @@ class TriggersController extends AbstractController
 
                 Util::checkParameters(['db']);
 
-                $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-                $err_url .= Url::getCommon(['db' => $db], '&');
+                $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+                $errorUrl .= Url::getCommon(['db' => $db], '&');
 
                 if (! $this->hasDatabase()) {
                     return;

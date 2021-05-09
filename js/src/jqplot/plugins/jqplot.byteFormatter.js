@@ -32,6 +32,10 @@
     /**
      * The index indicates what unit the incoming data will be in.
      * 0 for bytes, 1 for kilobytes and so on...
+     *
+     * @param index
+     *
+     * @return {String}
      */
     $.jqplot.byteFormatter = function (index) {
         var i = index || 0;

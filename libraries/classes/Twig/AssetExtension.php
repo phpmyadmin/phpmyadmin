@@ -22,12 +22,12 @@ final class AssetExtension extends AbstractExtension
 
     public function getImagePath(?string $filename = null, ?string $fallback = null): string
     {
-        global $PMA_Theme;
+        global $theme;
 
-        if (! $PMA_Theme instanceof Theme) {
+        if (! $theme instanceof Theme) {
             return '';
         }
 
-        return $PMA_Theme->getImgPath($filename, $fallback);
+        return $theme->getImgPath($filename, $fallback);
     }
 }

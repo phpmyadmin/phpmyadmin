@@ -12,6 +12,7 @@ use PhpMyAdmin\Font;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
+
 use function array_flip;
 use function array_keys;
 use function array_merge;
@@ -150,6 +151,7 @@ abstract class TableStats
                     array_flip(array_keys($index->getColumns()))
                 );
             }
+
             $this->fields = array_keys($all_columns);
         } else {
             while ($row = $dbi->fetchRow($result)) {

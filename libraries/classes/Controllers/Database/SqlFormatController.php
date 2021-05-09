@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\SqlParser\Utils\Formatter;
+
 use function strlen;
 
 /**

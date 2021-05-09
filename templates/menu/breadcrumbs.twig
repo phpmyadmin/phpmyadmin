@@ -1,9 +1,9 @@
 <div id="floating_menubar"></div>
 <nav id="server-breadcrumb" aria-label="breadcrumb">
-  <ol class="breadcrumb">
+  <ol class="breadcrumb breadcrumb-navbar">
     <li class="breadcrumb-item">
       {{ show_icons('TabsMode') ? get_image('s_host') }}
-      <a href="{{ server.url }}">
+      <a href="{{ url(server.url) }}" data-raw-text="{{ server.name }}">
         {% if show_text('TabsMode') %}{% trans 'Server:' %}{% endif %}
         {{ server.name }}
       </a>
@@ -12,7 +12,7 @@
     {% if database is not empty %}
       <li class="breadcrumb-item">
         {{ show_icons('TabsMode') ? get_image('s_db') }}
-        <a href="{{ database.url }}{{ get_common({'db': database.name}, '&') }}">
+        <a href="{{ url(database.url, {'db': database.name}) }}" data-raw-text="{{ database.name }}">
           {% if show_text('TabsMode') %}{% trans 'Database:' %}{% endif %}
           {{ database.name }}
         </a>
@@ -21,7 +21,7 @@
       {% if table is not empty %}
         <li class="breadcrumb-item">
           {{ show_icons('TabsMode') ? get_image(table.is_view ? 'b_views' : 's_tbl') }}
-          <a href="{{ table.url }}{{ get_common({'db': database.name, 'table': table.name}, '&') }}">
+          <a href="{{ url(table.url, {'db': database.name, 'table': table.name}) }}" data-raw-text="{{ table.name }}">
             {% if show_text('TabsMode') %}
               {% if table.is_view %}
                 {% trans 'View:' %}

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Engines;
 
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Util;
+
 use function htmlspecialchars;
 use function implode;
 
@@ -107,6 +108,7 @@ class Innodb extends StorageEngine
         if ($this->support < PMA_ENGINE_SUPPORT_YES) {
             return [];
         }
+
         $pages = [];
         $pages['Bufferpool'] = __('Buffer Pool');
         $pages['Status'] = __('InnoDB Status');

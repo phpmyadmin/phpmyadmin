@@ -11,6 +11,7 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function implode;
 
 /**
@@ -38,9 +39,9 @@ class StatusController extends AbstractController
 
     public function index(): void
     {
-        global $err_url;
+        global $errorUrl;
 
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -54,15 +55,22 @@ class StatusController extends AbstractController
         $connections = [];
         $replication = '';
         if ($this->data->dataLoaded) {
-            $networkTraffic = implode(
-                ' ',
-                Util::formatByteDown(
-                    $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
-                    3,
-                    1
-                )
-            );
-            $uptime = Util::timespanFormat($this->data->status['Uptime']);
+            // In some case the data was reported not to exist, check it for all keys
+            if (isset($this->data->status['Bytes_received'], $this->data->status['Bytes_sent'])) {
+                $networkTraffic = implode(
+                    ' ',
+                    Util::formatByteDown(
+                        $this->data->status['Bytes_received'] + $this->data->status['Bytes_sent'],
+                        3,
+                        1
+                    )
+                );
+            }
+
+            if (isset($this->data->status['Uptime'])) {
+                $uptime = Util::timespanFormat($this->data->status['Uptime']);
+            }
+
             $startTime = Util::localisedDate($this->getStartTime());
 
             $traffic = $this->getTrafficInfo();
@@ -72,6 +80,7 @@ class StatusController extends AbstractController
             if ($primaryInfo['status']) {
                 $replication .= $this->replicationGui->getHtmlForReplicationStatusTable('master');
             }
+
             if ($replicaInfo['status']) {
                 $replication .= $this->replicationGui->getHtmlForReplicationStatusTable('slave');
             }

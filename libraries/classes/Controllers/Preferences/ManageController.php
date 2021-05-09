@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Controllers\AbstractController;
@@ -16,9 +17,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\UserPreferences;
 use PhpMyAdmin\Util;
-use const JSON_PRETTY_PRINT;
-use const PHP_URL_PATH;
-use const UPLOAD_ERR_OK;
+
 use function array_merge;
 use function define;
 use function file_exists;
@@ -33,6 +32,10 @@ use function str_replace;
 use function urlencode;
 use function var_export;
 
+use const JSON_PRETTY_PRINT;
+use const PHP_URL_PATH;
+use const UPLOAD_ERR_OK;
+
 /**
  * User preferences management page.
  */
@@ -44,6 +47,9 @@ class ManageController extends AbstractController
     /** @var Relation */
     private $relation;
 
+    /** @var Config */
+    private $config;
+
     /**
      * @param Response $response
      */
@@ -51,19 +57,21 @@ class ManageController extends AbstractController
         $response,
         Template $template,
         UserPreferences $userPreferences,
-        Relation $relation
+        Relation $relation,
+        Config $config
     ) {
         parent::__construct($response, $template);
         $this->userPreferences = $userPreferences;
         $this->relation = $relation;
+        $this->config = $config;
     }
 
     public function index(): void
     {
-        global $cf, $error, $filename, $json, $PMA_Config, $lang, $max_upload_size;
-        global $new_config, $config, $return_url, $form_display, $all_ok, $params, $query, $route;
+        global $cf, $error, $filename, $json, $lang, $max_upload_size;
+        global $new_config, $return_url, $form_display, $all_ok, $params, $query, $route;
 
-        $cf = new ConfigFile($PMA_Config->baseSettings);
+        $cf = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($cf);
 
         $error = '';
@@ -105,7 +113,8 @@ class ManageController extends AbstractController
         if (isset($_POST['submit_import'])) {
             // load from JSON file
             $json = '';
-            if (isset($_POST['import_type'], $_FILES['import_file'])
+            if (
+                isset($_POST['import_type'], $_FILES['import_file'])
                 && $_POST['import_type'] === 'text_file'
                 && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
                 && is_uploaded_file($_FILES['import_file']['tmp_name'])
@@ -126,9 +135,9 @@ class ManageController extends AbstractController
             // hide header message
             $_SESSION['userprefs_autoload'] = true;
 
-            $config = json_decode($json, true);
+            $configuration = json_decode($json, true);
             $return_url = $_POST['return_url'] ?? null;
-            if (! is_array($config)) {
+            if (! is_array($configuration)) {
                 if (! isset($error)) {
                     $error = __('Could not import configuration');
                 }
@@ -140,11 +149,13 @@ class ManageController extends AbstractController
                 if (! empty($_POST['import_merge'])) {
                     $new_config = array_merge($new_config, $cf->getConfigArray());
                 }
-                $new_config = array_merge($new_config, $config);
+
+                $new_config = array_merge($new_config, $configuration);
                 $_POST_bak = $_POST;
                 foreach ($new_config as $k => $v) {
                     $_POST[str_replace('/', '-', (string) $k)] = $v;
                 }
+
                 $cf->resetConfigData();
                 $all_ok = $form_display->process(true, false);
                 $all_ok = $all_ok && ! $form_display->hasErrors();
@@ -154,6 +165,7 @@ class ManageController extends AbstractController
                     $form_display->fixErrors();
                     $all_ok = true;
                 }
+
                 if (! $all_ok) {
                     // mimic original form and post json in a hidden field
                     $cfgRelation = $this->relation->getRelationsParam();
@@ -177,17 +189,20 @@ class ManageController extends AbstractController
                 // check for ThemeDefault
                 $params = [];
                 $tmanager = ThemeManager::getInstance();
-                if (isset($config['ThemeDefault'])
-                    && $tmanager->theme->getId() != $config['ThemeDefault']
-                    && $tmanager->checkTheme($config['ThemeDefault'])
+                if (
+                    isset($configuration['ThemeDefault'])
+                    && $tmanager->theme->getId() != $configuration['ThemeDefault']
+                    && $tmanager->checkTheme($configuration['ThemeDefault'])
                 ) {
-                    $tmanager->setActiveTheme($config['ThemeDefault']);
+                    $tmanager->setActiveTheme($configuration['ThemeDefault']);
                     $tmanager->setThemeCookie();
                 }
-                if (isset($config['lang'])
-                    && $config['lang'] != $lang
+
+                if (
+                    isset($configuration['lang'])
+                    && $configuration['lang'] != $lang
                 ) {
-                    $params['lang'] = $config['lang'];
+                    $params['lang'] = $configuration['lang'];
                 }
 
                 // save settings
@@ -203,13 +218,15 @@ class ManageController extends AbstractController
                             if ($k === 'token') {
                                 continue;
                             }
+
                             $params[$k] = mb_substr($q, $pos + 1);
                         }
                     } else {
                         $return_url = 'index.php?route=/preferences/manage';
                     }
+
                     // reload config
-                    $PMA_Config->loadUserPreferences();
+                    $this->config->loadUserPreferences();
                     $this->userPreferences->redirect($return_url ?? '', $params);
 
                     return;
@@ -221,8 +238,8 @@ class ManageController extends AbstractController
             $result = $this->userPreferences->save([]);
             if ($result === true) {
                 $params = [];
-                $PMA_Config->removeCookie('pma_collaction_connection');
-                $PMA_Config->removeCookie('pma_lang');
+                $this->config->removeCookie('pma_collaction_connection');
+                $this->config->removeCookie('pma_lang');
                 $this->userPreferences->redirect('index.php?route=/preferences/manage', $params);
 
                 return;
@@ -247,6 +264,7 @@ class ManageController extends AbstractController
             if (! $error instanceof Message) {
                 $error = Message::error($error);
             }
+
             $error->getDisplay();
         }
 

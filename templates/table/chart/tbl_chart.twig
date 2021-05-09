@@ -69,8 +69,8 @@
                 </label>
                 <select name="chartSeries" id="select_chartSeries" multiple="multiple">
                     {% for idx, key in keys %}
-                        {% if fields_meta[idx].type in numeric_types %}
-                            {% if idx == xaxis and numeric_column_count > 1 %}
+                        {% if fields_meta[idx].isNumericType() %}
+                            {% if idx == xaxis and table_has_a_numeric_column %}
                                 <option value="{{ idx }}">{{ key }}</option>
                             {% else %}
                                 <option value="{{ idx }}" selected="selected">{{ key }}</option>
@@ -79,15 +79,14 @@
                     {% endfor %}
                 </select>
                 <input type="hidden" name="dateTimeCols" value="
-                    {% set date_time_types = ['date', 'datetime', 'timestamp'] %}
                     {% for idx, key in keys %}
-                        {% if fields_meta[idx].type in date_time_types %}
+                        {% if fields_meta[idx].isDateTimeType() %}
                             {{ idx ~ ' ' }}
                         {% endif %}
                     {% endfor %}">
                 <input type="hidden" name="numericCols" value="
                     {% for idx, key in keys %}
-                        {% if fields_meta[idx].type in numeric_types %}
+                        {% if fields_meta[idx].isNumericType() %}
                             {{ idx ~ ' ' }}
                         {% endif %}
                     {% endfor %}">
@@ -129,7 +128,7 @@
                 <select name="chartValueColumn" id="select_valueColumn" disabled>
                     {% set selected = false %}
                     {% for idx, key in keys %}
-                        {% if fields_meta[idx].type in numeric_types %}
+                        {% if fields_meta[idx].isNumericType() %}
                             {% if not selected and idx != xaxis and idx != series_column %}
                                 <option value="{{ idx }}" selected="selected">{{ key }}</option>
                                 {% set selected = true %}

@@ -40,7 +40,7 @@
           </div>
         </td>
         <td class="navigation_goto">
-          <form action="{{ url('/sql') }}" method="post" id="maxRowsForm">
+          <form action="{{ url('/sql') }}" method="post" class="maxRowsForm">
             {{ get_hidden_fields(navigation.hidden_fields|merge({
               'pos': navigation.pos,
               'unlim_num_rows': unlim_num_rows
@@ -185,7 +185,7 @@
 {% endif %}
 
   <div class="table-responsive-md">
-    <table class="table table-light table-striped table-hover table-sm table_results data ajax" data-uniqueId="{{ unique_id }}">
+    <table class="table table-light table-striped table-hover table-sm table_results data ajax w-auto" data-uniqueId="{{ unique_id }}">
 
       {{ headers.button|raw }}
       {{ headers.table_headers_for_columns|raw }}

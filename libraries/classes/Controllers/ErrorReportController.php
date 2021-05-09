@@ -13,6 +13,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPreferences;
+
 use function count;
 use function in_array;
 use function is_string;
@@ -48,13 +49,15 @@ class ErrorReportController extends AbstractController
     {
         global $cfg;
 
-        if (! isset($_POST['exception_type'])
+        if (
+            ! isset($_POST['exception_type'])
             || ! in_array($_POST['exception_type'], ['js', 'php'])
         ) {
             return;
         }
 
-        if (isset($_POST['send_error_report'])
+        if (
+            isset($_POST['send_error_report'])
             && ($_POST['send_error_report'] == true
                 || $_POST['send_error_report'] == '1')
         ) {
@@ -65,7 +68,8 @@ class ErrorReportController extends AbstractController
                  * If reporting is done in some time interval,
                  *  just clear them & clear json data too.
                  */
-                if (isset($_SESSION['prev_error_subm_time'], $_SESSION['error_subm_count'])
+                if (
+                    isset($_SESSION['prev_error_subm_time'], $_SESSION['error_subm_count'])
                     && $_SESSION['error_subm_count'] >= 3
                     && ($_SESSION['prev_error_subm_time'] - time()) <= 3000
                 ) {
@@ -79,6 +83,7 @@ class ErrorReportController extends AbstractController
                         : 0;
                 }
             }
+
             $reportData = $this->errorReport->getData($_POST['exception_type']);
             // report if and only if there were 'actual' errors.
             if (count($reportData) > 0) {
@@ -93,7 +98,8 @@ class ErrorReportController extends AbstractController
 
                 /* Message to show to the user */
                 if ($success) {
-                    if ((isset($_POST['automatic'])
+                    if (
+                        (isset($_POST['automatic'])
                             && $_POST['automatic'] === 'true')
                         || $cfg['SendErrorReports'] === 'always'
                     ) {
@@ -115,6 +121,7 @@ class ErrorReportController extends AbstractController
                         . 'problems please submit a bug report manually.'
                     );
                 }
+
                 $msg .= ' ' . __('You may want to refresh the page.');
 
                 /* Create message object */
@@ -144,7 +151,8 @@ class ErrorReportController extends AbstractController
                 }
 
                 /* Persist always send settings */
-                if (isset($_POST['always_send'])
+                if (
+                    isset($_POST['always_send'])
                     && $_POST['always_send'] === 'true'
                 ) {
                     $userPreferences = new UserPreferences();
@@ -154,6 +162,7 @@ class ErrorReportController extends AbstractController
         } elseif (! empty($_POST['get_settings'])) {
             $this->response->addJSON('report_setting', $cfg['SendErrorReports']);
         } elseif ($_POST['exception_type'] === 'js') {
+            $this->response->addJSON('report_modal', $this->errorReport->getEmptyModal());
             $this->response->addHTML($this->errorReport->getForm());
         } else {
             // clear previous errors & save new ones.

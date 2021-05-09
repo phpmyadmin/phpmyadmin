@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 
 /**
@@ -26,7 +25,7 @@ class NodeEvent extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = Generator::getImage('b_events');
+        $this->icon = ['image' => 'b_events', 'title' => __('Event')];
         $this->links = [
             'text' => Url::getFromRoute('/database/events', [
                 'server' => $GLOBALS['server'],

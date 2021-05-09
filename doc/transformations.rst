@@ -5,7 +5,7 @@ Transformations
 
 .. note::
 
-    You need to have configured the :ref:`linked-tables` for using transformations
+    You need to have configured the :ref:`linked-tables` to use the transformations
     feature.
 
 .. _transformationsintro:
@@ -13,16 +13,19 @@ Transformations
 Introduction
 ++++++++++++
 
-To enable transformations, you have to setup the ``column_info``
+To enable transformations, you have to set up the ``column_info``
 table and the proper directives. Please see the :ref:`config` on how to do so.
 
+phpMyAdmin has two different types of transformations: browser display
+transformations, which affect only how the data is shown when browsing
+through phpMyAdmin; and input transformations, which affect a value
+prior to being inserted through phpMyAdmin.
 You can apply different transformations to the contents of each
-column. The transformation will take the content of each column and
-transform it with certain rules defined in the selected
-transformation.
+column. Each transformation has options to define how it will affect the
+stored data.
 
-Say you have a column 'filename' which contains a filename. Normally
-you would see in phpMyAdmin only this filename. Using transformations
+Say you have a column ``filename`` which contains a filename. Normally
+you would see in phpMyAdmin only this filename. Using display transformations
 you can transform that filename into a HTML link, so you can click
 inside of the phpMyAdmin structure on the column's link and will see
 the file displayed in a new browser window. Using transformation
@@ -30,8 +33,11 @@ options you can also specify strings to append/prepend to a string or
 the format you want the output stored in.
 
 For a general overview of all available transformations and their
-options, you can consult your *<www.your-host.com>/<your-install-
-dir>/transformation\_overview.php* installation.
+options, you can either go to the ``Change`` link for an existing column
+or from the dialog to create a new column, in either case there is a link
+on that column structure page for "Browser display transformation" and
+"Input transformation" which will show more information about each
+transformation that is available on your system.
 
 For a tutorial on how to effectively use transformations, see our
 `Link section <https://www.phpmyadmin.net/docs/>`_ on the
@@ -42,16 +48,16 @@ official phpMyAdmin homepage.
 Usage
 +++++
 
-Go to your *tbl\_structure.php* page (i.e. reached through clicking on
-the 'Structure' link for a table). There click on "Change" (or change
-icon) and there you will see three new fields at the end of the line.
+Go to the table structure page (reached by clicking on
+the 'Structure' link for a table). There click on "Change" (or the change
+icon) and there you will see the five transformation--related fields at the end of the line.
 They are called ':term:`Media type`', 'Browser transformation' and
 'Transformation options'.
 
 * The field ':term:`Media type`' is a drop-down field. Select the :term:`Media type` that
-  corresponds to the column's contents. Please note that transformations
-  are inactive as long as no :term:`Media type` is selected.
-* The field 'Browser transformation' is a drop-down field. You can
+  corresponds to the column's contents. Please note that many transformations
+  are inactive until a :term:`Media type` is selected.
+* The field 'Browser display transformation' is a drop-down field. You can
   choose from a hopefully growing amount of pre-defined transformations.
   See below for information on how to build your own transformation.
   There are global transformations and mimetype-bound transformations.
@@ -64,7 +70,7 @@ They are called ':term:`Media type`', 'Browser transformation' and
   transformations on mimetypes for which the function was not defined
   for. There is no security check for you selected the right
   transformation, so take care of what the output will be like.
-* The field 'Transformation options' is a free-type textfield. You have
+* The field 'Browser display transformation options' is a free-type textfield. You have
   to enter transform-function specific options here. Usually the
   transforms can operate with default options, but it is generally a
   good idea to look up the overview to see which options are necessary.
@@ -80,7 +86,16 @@ They are called ':term:`Media type`', 'Browser transformation' and
   set, enter "'first parameter','second parameter','charset=us-ascii'".
   You can, however use the defaults for the parameters: "'','','charset
   =us-ascii'". The default options can be configured using
-  :config:option:`$cfg['DefaultTransformations']`
+  :config:option:`$cfg['DefaultTransformations']`.
+* 'Input transformation' is another drop-down menu that corresponds exactly
+  with the instructions above for "Browser display transformation" except
+  these these affect the data before insertion in to the database. These are
+  most commonly used to either provide a specialized editor (for example, using
+  the phpMyAdmin SQL editor interface) or selector (such as for uploading an image).
+  It's also possible to manipulate the data such as converting an IPv4 address to binary
+  or parsing it through a regular expression.
+* Finally, 'Input transformation options' is the equivalent of the "Browser display
+  transformation options" section above and is where optional and required parameters are entered.
 
 .. _transformationsfiles:
 
@@ -88,19 +103,19 @@ File structure
 ++++++++++++++
 
 All specific transformations for mimetypes are defined through class
-files in the directory 'libraries/classes/Plugins/Transformations/'. Each of
+files in the directory :file:`libraries/classes/Plugins/Transformations/`. Each of
 them extends a certain transformation abstract class declared in
-libraries/classes/Plugins/Transformations/Abs.
+:file:`libraries/classes/Plugins/Transformations/Abs`.
 
-They are stored in files to ease up customization and easy adding of
-new transformations.
+They are stored in files to ease customization and to allow easy adding of
+new or custom transformations.
 
-Because the user cannot enter own mimetypes, it is kept sure that
-transformations always work. It makes no sense to apply a
+Because the user cannot enter their own mimetypes, it is kept certain that
+the transformations will always work. It makes no sense to apply a
 transformation to a mimetype the transform-function doesn't know to
 handle.
 
-There is a file called ':file:`libraries/classes/Plugins/Transformations.php`' that provides some
+There is a file called :file:`libraries/classes/Plugins/Transformations.php` that provides some
 basic functions which can be included by any other transform function.
 
 The file name convention is ``[Mimetype]_[Subtype]_[Transformation

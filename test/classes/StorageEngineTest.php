@@ -111,7 +111,6 @@ class StorageEngineTest extends AbstractTestCase
      *
      * @param string $expectedClass Class that should be selected
      * @param string $engineName    Engine name
-     *
      * @psalm-param class-string $expectedClass
      *
      * @dataProvider providerGetEngine

@@ -24,6 +24,8 @@ function changePluginOpts () {
 /**
  * Toggles the hiding and showing of each plugin's options and sets the selected value
  * in the plugin dropdown list according to the format of the selected file
+ *
+ * @param {string} fname
  */
 function matchFile (fname) {
     var fnameArray = fname.toLowerCase().split('.');

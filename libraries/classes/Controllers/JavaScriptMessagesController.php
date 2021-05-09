@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Theme;
+
 use function json_encode;
 
 /**
@@ -27,9 +28,9 @@ final class JavaScriptMessagesController
 
     private function setMessages(): void
     {
-        global $cfg, $PMA_Theme;
+        global $cfg, $theme;
 
-        $ajaxClockSmallGifPath = $PMA_Theme instanceof Theme ? $PMA_Theme->getImgPath('ajax_clock_small.gif') : '';
+        $ajaxClockSmallGifPath = $theme instanceof Theme ? $theme->getImgPath('ajax_clock_small.gif') : '';
 
         $this->messages = [
             /* For confirmations */
@@ -341,6 +342,7 @@ final class JavaScriptMessagesController
                 'network connectivity and server status.'
             ),
             'strNoDatabasesSelected' => __('No databases selected.'),
+            'strNoTableSelected' => __('No table selected.'),
             'strNoAccountSelected' => __('No accounts selected.'),
             'strDroppingColumn' => __('Dropping column'),
             'strAddingPrimaryKey' => __('Adding primary key'),
@@ -407,7 +409,7 @@ final class JavaScriptMessagesController
             ),
             'seeMore' => __('See more'),
 
-            /** For normalization */
+            /* For normalization */
             'strAddPrimaryKey' => __('Add primary key'),
             'strPrimaryKeyAdded' => __('Primary key added.'),
             'strToNextStep' => __('Taking you to next step…'),
@@ -579,7 +581,7 @@ final class JavaScriptMessagesController
             ),
             'strOriginalLength' => __('Original length'),
 
-            /** Drag & Drop sql import messages */
+            /* Drag & Drop sql import messages */
             'dropImportMessageCancel' => __('cancel'),
             'dropImportMessageAborted' => __('Aborted'),
             'dropImportMessageFailed' => __('Failed'),
@@ -617,9 +619,6 @@ final class JavaScriptMessagesController
             'strUnhideNavItem' => __('Show hidden navigation tree items.'),
             'linkWithMain' => __('Link with main panel'),
             'unlinkWithMain' => __('Unlink from main panel'),
-
-            /* microhistory */
-            'strInvalidPage' => __('The requested page was not found in the history, it may have expired.'),
 
             /* update */
             'strNewerVersion' => __(

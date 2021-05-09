@@ -55,6 +55,7 @@ return [
                 '@http_request',
                 '@relation',
                 '@template',
+                '@config',
             ],
         ],
         'events' => [
@@ -82,6 +83,9 @@ return [
         ],
         'expression_language' => [
             'class' => Symfony\Component\ExpressionLanguage\ExpressionLanguage::class,
+        ],
+        'flash' => [
+            'class' => PhpMyAdmin\FlashMessages::class,
         ],
         'http_request' => [
             'class' => PhpMyAdmin\Utils\HttpRequest::class,
@@ -156,6 +160,7 @@ return [
                 '@dbi',
                 '@relation',
                 '@relation_cleanup',
+                '@server_plugins',
             ],
         ],
         'sql' => [
@@ -213,7 +218,8 @@ return [
         'user_preferences' => [
             'class' => PhpMyAdmin\UserPreferences::class,
         ],
-        PhpMyAdmin\Response::class => 'response',
         PhpMyAdmin\DatabaseInterface::class => 'dbi',
+        PhpMyAdmin\FlashMessages::class => 'flash',
+        PhpMyAdmin\Response::class => 'response',
     ],
 ];

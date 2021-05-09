@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Utils;
 
 use PhpMyAdmin\Util;
+
 use function bin2hex;
 use function hex2bin;
 use function inet_ntop;
@@ -29,10 +30,10 @@ class FormatConverter
      *
      * @return false|string
      */
-    public static function binaryToIp($buffer)
+    public static function binaryToIp($buffer, bool $isBinary)
     {
         if (strpos($buffer, '0x') !== 0) {
-            return $buffer;
+            return $isBinary ? bin2hex($buffer) : $buffer;
         }
 
         $ipHex = substr($buffer, 2);

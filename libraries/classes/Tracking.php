@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
-use const SORT_ASC;
+
 use function array_key_exists;
 use function array_merge;
 use function array_multisort;
@@ -26,6 +26,8 @@ use function rtrim;
 use function sprintf;
 use function strlen;
 use function strtotime;
+
+use const SORT_ASC;
 
 /**
  * PhpMyAdmin\Tracking class
@@ -74,7 +76,8 @@ class Tracking
         foreach ($data as $entry) {
             $timestamp = strtotime($entry['date']);
             $filtered_user = in_array($entry['username'], $filter_users);
-            if ($timestamp >= $filter_ts_from
+            if (
+                $timestamp >= $filter_ts_from
                 && $timestamp <= $filter_ts_to
                 && (in_array('*', $filter_users) || $filtered_user)
             ) {
@@ -85,6 +88,7 @@ class Tracking
                     'statement' => $entry['statement'],
                 ];
             }
+
             $id++;
         }
 
@@ -137,12 +141,14 @@ class Tracking
             );
             $selectableTablesEntries[] = $entry;
         }
+
         $selectableTablesNumRows = $dbi->numRows($selectableTablesSqlResult);
 
         $versionSqlResult = $this->getListOfVersionsOfTable();
         if ($lastVersion === null && $versionSqlResult !== false) {
             $lastVersion = $this->getTableLastVersionNumber($versionSqlResult);
         }
+
         $dbi->dataSeek($versionSqlResult, 0);
         $versions = [];
         while ($version = $dbi->fetchArray($versionSqlResult)) {
@@ -251,6 +257,7 @@ class Tracking
                 __('Delete tracking data row from report')
             );
         }
+
         if (Util::showText('ActionLinksMode')) {
             $drop_image_or_text .= __('Delete');
         }
@@ -417,6 +424,7 @@ class Tracking
                 $drop_image_or_text
             );
         }
+
         $html .= '</form>';
 
         return $html;
@@ -598,7 +606,8 @@ class Tracking
         $entries = [];
         foreach ($data[$whichLog] as $entry) {
             $timestamp = strtotime($entry['date']);
-            if ($timestamp >= $filterTsFrom
+            if (
+                $timestamp >= $filterTsFrom
                 && $timestamp <= $filterTsTo
                 && (in_array('*', $filterUsers)
                 || in_array($entry['username'], $filterUsers))
@@ -613,6 +622,7 @@ class Tracking
                 $entry['line_number'] = $lineNumber;
                 $entries[] = $entry;
             }
+
             $lineNumber++;
         }
 
@@ -648,11 +658,13 @@ class Tracking
         // Get first DROP TABLE/VIEW and CREATE TABLE/VIEW statements
         $drop_create_statements = $data['ddlog'][0]['statement'];
 
-        if (mb_strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
+        if (
+            mb_strstr($data['ddlog'][0]['statement'], 'DROP TABLE')
             || mb_strstr($data['ddlog'][0]['statement'], 'DROP VIEW')
         ) {
             $drop_create_statements .= $data['ddlog'][1]['statement'];
         }
+
         // Print SQL code
         $html .= Generator::getMessage(
             sprintf(
@@ -670,6 +682,7 @@ class Tracking
                 'INDEXES' => [],
             ];
         }
+
         $columns = $temp['COLUMNS'];
         $indexes = $temp['INDEXES'];
         $html .= $this->getHtmlForColumns($columns);
@@ -677,6 +690,7 @@ class Tracking
         if (count($indexes) > 0) {
             $html .= $this->getHtmlForIndexes($indexes);
         }
+
         $html .= '<br><hr><br>';
 
         return $html;
@@ -770,6 +784,7 @@ class Tracking
             } else {
                 $msg = Message::rawError(__('Query error'));
             }
+
             $html .= $msg->getDisplay();
         }
 
@@ -801,6 +816,7 @@ class Tracking
         foreach ($entries as $entry) {
             $new_query .= $entry['statement'];
         }
+
         $msg = Message::success(
             __('SQL statements exported. Please copy the dump or execute it.')
         );
@@ -859,6 +875,7 @@ class Tracking
         foreach ($entries as $entry) {
             $dump .= $entry['statement'];
         }
+
         $filename = 'log_' . $table . '.sql';
         Response::getInstance()->disable();
         Core::downloadHeader(
@@ -888,6 +905,7 @@ class Tracking
             $method = 'deactivateTracking';
             $message = __('Tracking for %1$s was deactivated at version %2$s.');
         }
+
         $status = Tracker::$method(
             $GLOBALS['db'],
             $GLOBALS['table'],
@@ -921,42 +939,55 @@ class Tracking
         if (isset($_POST['alter_table']) && $_POST['alter_table'] == true) {
             $tracking_set .= 'ALTER TABLE,';
         }
+
         if (isset($_POST['rename_table']) && $_POST['rename_table'] == true) {
             $tracking_set .= 'RENAME TABLE,';
         }
+
         if (isset($_POST['create_table']) && $_POST['create_table'] == true) {
             $tracking_set .= 'CREATE TABLE,';
         }
+
         if (isset($_POST['drop_table']) && $_POST['drop_table'] == true) {
             $tracking_set .= 'DROP TABLE,';
         }
+
         if (isset($_POST['alter_view']) && $_POST['alter_view'] == true) {
             $tracking_set .= 'ALTER VIEW,';
         }
+
         if (isset($_POST['create_view']) && $_POST['create_view'] == true) {
             $tracking_set .= 'CREATE VIEW,';
         }
+
         if (isset($_POST['drop_view']) && $_POST['drop_view'] == true) {
             $tracking_set .= 'DROP VIEW,';
         }
+
         if (isset($_POST['create_index']) && $_POST['create_index'] == true) {
             $tracking_set .= 'CREATE INDEX,';
         }
+
         if (isset($_POST['drop_index']) && $_POST['drop_index'] == true) {
             $tracking_set .= 'DROP INDEX,';
         }
+
         if (isset($_POST['insert']) && $_POST['insert'] == true) {
             $tracking_set .= 'INSERT,';
         }
+
         if (isset($_POST['update']) && $_POST['update'] == true) {
             $tracking_set .= 'UPDATE,';
         }
+
         if (isset($_POST['delete']) && $_POST['delete'] == true) {
             $tracking_set .= 'DELETE,';
         }
+
         if (isset($_POST['truncate']) && $_POST['truncate'] == true) {
             $tracking_set .= 'TRUNCATE,';
         }
+
         $tracking_set = rtrim($tracking_set, ',');
 
         return $tracking_set;
@@ -1062,7 +1093,8 @@ class Tracking
     {
         $entries = [];
         // Filtering data definition statements
-        if ($_POST['logtype'] === 'schema'
+        if (
+            $_POST['logtype'] === 'schema'
             || $_POST['logtype'] === 'schema_and_data'
         ) {
             $entries = array_merge(
@@ -1077,7 +1109,8 @@ class Tracking
         }
 
         // Filtering data manipulation statements
-        if ($_POST['logtype'] === 'data'
+        if (
+            $_POST['logtype'] === 'data'
             || $_POST['logtype'] === 'schema_and_data'
         ) {
             $entries = array_merge(
@@ -1193,7 +1226,8 @@ class Tracking
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
         foreach ($table_list as $key => $value) {
-            if (is_array($value) && array_key_exists('is' . $sep . 'group', $value)
+            if (
+                is_array($value) && array_key_exists('is' . $sep . 'group', $value)
                 && $value['is' . $sep . 'group']
             ) {
                 // Recursion step

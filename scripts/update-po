@@ -13,7 +13,7 @@ set -e
 
 # Generate Twig template cache in clean dir
 rm -rf twig-templates/
-php scripts/console cache:warmup --twig
+php scripts/console cache:warmup --twig-po --env development
 
 # Update pot (template), ensure that advisor is at the end
 LOCS=`ls po/*.po | sed 's@.*/\(.*\)\.po@\1@'`
@@ -43,7 +43,12 @@ php scripts/fix-po-twig
 # Remote twig templates
 rm -rf twig-templates/
 
-ver=`sed -n "/PMA_VERSION', '/ s/.*PMA_VERSION', '\(.*\)'.*/\1/p" libraries/classes/Config.php`
+# Keep in sync with create-release.sh
+fetchReleaseFromFile() {
+    php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;"
+}
+
+ver="$(fetchReleaseFromFile)"
 
 sed -i.~ '
     s/SOME DESCRIPTIVE TITLE/phpMyAdmin translation/;

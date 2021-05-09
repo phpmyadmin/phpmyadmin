@@ -288,7 +288,8 @@ class SavedSearches
             exit;
         }
 
-        if ($this->getUsername() == null
+        if (
+            $this->getUsername() == null
             || $this->getDbname() == null
             || $this->getSearchName() == null
             || $this->getCriterias() == null
@@ -302,8 +303,7 @@ class SavedSearches
             exit;
         }
 
-        $savedSearchesTbl
-            = Util::backquote($this->config['cfgRelation']['db']) . '.'
+        $savedSearchesTbl = Util::backquote($this->config['cfgRelation']['db']) . '.'
             . Util::backquote($this->config['cfgRelation']['savedsearches']);
 
         //If it's an insert.
@@ -392,8 +392,7 @@ class SavedSearches
             exit;
         }
 
-        $savedSearchesTbl
-            = Util::backquote($this->config['cfgRelation']['db']) . '.'
+        $savedSearchesTbl = Util::backquote($this->config['cfgRelation']['db']) . '.'
             . Util::backquote($this->config['cfgRelation']['savedsearches']);
 
         $sqlQuery = 'DELETE FROM ' . $savedSearchesTbl
@@ -458,7 +457,8 @@ class SavedSearches
     {
         global $dbi;
 
-        if ($this->getUsername() == null
+        if (
+            $this->getUsername() == null
             || $this->getDbname() == null
         ) {
             return [];

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Schema\Pdf;
 use PhpMyAdmin\Pdf as PdfLib;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\TableStats;
+
 use function count;
 use function in_array;
 use function max;
@@ -131,6 +132,7 @@ class TableStatsPdf extends TableStats
         foreach ($this->fields as $field) {
             $this->width = max($this->width, $this->diagram->GetStringWidth($field));
         }
+
         $this->width += $this->diagram->GetStringWidth('      ');
         $this->diagram->SetFont($this->ff, 'B', $fontSize);
         /*
@@ -140,6 +142,7 @@ class TableStatsPdf extends TableStats
         while ($this->width < $this->diagram->GetStringWidth($this->getTitle())) {
             $this->width += 5;
         }
+
         $this->diagram->SetFont($this->ff, '', $fontSize);
     }
 
@@ -176,6 +179,7 @@ class TableStatsPdf extends TableStats
             $this->diagram->SetTextColor(200);
             $this->diagram->SetFillColor(0, 0, 128);
         }
+
         if ($withDoc) {
             $this->diagram->SetLink(
                 $this->diagram->customLinks['RT'][$this->tableName]['-'],
@@ -205,10 +209,12 @@ class TableStatsPdf extends TableStats
                 if (in_array($field, $this->primary)) {
                     $this->diagram->SetFillColor(215, 121, 123);
                 }
+
                 if ($field == $this->displayfield) {
                     $this->diagram->SetFillColor(142, 159, 224);
                 }
             }
+
             if ($withDoc) {
                 $this->diagram->SetLink(
                     $this->diagram->customLinks['RT'][$this->tableName][$field],

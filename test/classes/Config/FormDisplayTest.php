@@ -11,6 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
+
 use function function_exists;
 use function gettype;
 
@@ -25,7 +26,6 @@ class FormDisplayTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         parent::loadDefaultConfig();
         parent::setGlobalConfig();
@@ -107,7 +107,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $this->object = $this->getMockBuilder(FormDisplay::class)
             ->disableOriginalConstructor()
-            ->setMethods(['save'])
+            ->onlyMethods(['save'])
             ->getMock();
 
         $attrForms = new ReflectionProperty(FormDisplay::class, 'forms');
@@ -403,11 +403,13 @@ class FormDisplayTest extends AbstractTestCase
             $expect['values']['iconv'] .= ' (unavailable)';
             $expect['comment'] = '"iconv" requires iconv extension';
         }
+
         if (! function_exists('recode_string')) {
             $expect['values']['recode'] .= ' (unavailable)';
             $expect['comment'] .= ($expect['comment'] ? ', ' : '') .
                 '"recode" requires recode extension';
         }
+
         $expect['comment_warning'] = 1;
 
         $this->assertEquals(
@@ -429,6 +431,7 @@ class FormDisplayTest extends AbstractTestCase
             $comment = 'Compressed import will not work due to missing function ' .
                 'zip_open.';
         }
+
         if (! function_exists('gzcompress')) {
             $comment .= ($comment ? '; ' : '') . 'Compressed export will not work ' .
             'due to missing function gzcompress.';
@@ -456,6 +459,7 @@ class FormDisplayTest extends AbstractTestCase
             $comment = 'Compressed import will not work due to missing function ' .
                 'gzopen.';
         }
+
         if (! function_exists('gzencode')) {
             $comment .= ($comment ? '; ' : '') . 'Compressed export will not work ' .
             'due to missing function gzencode.';
@@ -483,6 +487,7 @@ class FormDisplayTest extends AbstractTestCase
             $comment = 'Compressed import will not work due to missing function ' .
                 'bzopen.';
         }
+
         if (! function_exists('bzcompress')) {
             $comment .= ($comment ? '; ' : '') . 'Compressed export will not work ' .
             'due to missing function bzcompress.';
@@ -497,7 +502,7 @@ class FormDisplayTest extends AbstractTestCase
             $opts['comment_warning']
         );
 
-        $GLOBALS['PMA_Config']->set('is_setup', false);
+        $GLOBALS['config']->set('is_setup', false);
 
         $GLOBALS['cfg']['MaxDbList'] = 10;
         $GLOBALS['cfg']['MaxTableList'] = 10;

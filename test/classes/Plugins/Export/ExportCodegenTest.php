@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportCodegen;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -15,6 +14,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
+
 use function ob_get_clean;
 use function ob_start;
 
@@ -199,52 +199,45 @@ class ExportCodegenTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $GLOBALS['dbi'] = $dbi;
 
         ob_start();
         $this->object->exportData(
-            'testDB',
-            'testTable',
+            'test_db',
+            'test_table',
             "\n",
-            'example.com',
-            'test'
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
         );
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            '<?xml version="1.0" encoding="utf-8" ?>',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<class name="TestTable" table="TestTable">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '</class>',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '</hibernate-mapping>',
+        $this->assertEquals(
+            '<?xml version="1.0" encoding="utf-8" ?>' . "\n"
+            . '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Test_db" assembly="Test_db">' . "\n"
+            . '    <class name="Test_table" table="Test_table">' . "\n"
+            . '        <id name="Id" type="Int32" unsaved-value="0">' . "\n"
+            . '            <column name="id" sql-type="int" not-null="true" unique="true" index="PRIMARY"/>' . "\n"
+            . '            <generator class="native" />' . "\n"
+            . '        </id>' . "\n"
+            . '        <property name="Name" type="String">' . "\n"
+            . '            <column name="name" sql-type="varchar" not-null="true" />' . "\n"
+            . '        </property>' . "\n"
+            . '        <property name="Datetimefield" type="DateTime">' . "\n"
+            . '            <column name="datetimefield" sql-type="datetime" not-null="true" />' . "\n"
+            . '        </property>' . "\n"
+            . '    </class>' . "\n"
+            . '</hibernate-mapping>',
             $result
         );
 
         $GLOBALS['codegen_format'] = 4;
 
         $this->object->exportData(
-            'testDB',
-            'testTable',
+            'test_db',
+            'test_table',
             "\n",
-            'example.com',
-            'test'
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
         );
 
         $this->expectOutputString(
@@ -272,59 +265,52 @@ class ExportCodegenTest extends AbstractTestCase
 
     public function testHandleNHibernateCSBody(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('DESC `db`.`table`')
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->at(1))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(['a', 'b', 'c', false, 'e', 'f']));
-
-        $dbi->expects($this->at(2))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
-
-        $GLOBALS['dbi'] = $dbi;
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateCSBody');
         $method->setAccessible(true);
-        $result = $method->invoke($this->object, 'db', 'table', "\n");
+        $result = $method->invoke($this->object, 'test_db', 'test_table', "\n");
 
         $this->assertEquals(
-            "using System;\n" .
-            "using System.Collections;\n" .
-            "using System.Collections.Generic;\n" .
-            "using System.Text;\n" .
-            "namespace Db\n" .
-            "{\n" .
-            "    #region Table\n" .
-            "    public class Table\n" .
-            "    {\n" .
-            "        #region Member Variables\n" .
-            "        protected unknown _a;\n" .
-            "        #endregion\n" .
-            "        #region Constructors\n" .
-            "        public Table() { }\n" .
-            "        public Table(unknown a)\n" .
-            "        {\n" .
-            "            this._a=a;\n" .
-            "        }\n" .
-            "        #endregion\n" .
-            "        #region Public Properties\n" .
-            "        public virtual unknown A\n" .
-            "        {\n" .
-            "            get {return _a;}\n" .
-            "            set {_a=value;}\n" .
-            "        }\n" .
-            "        #endregion\n" .
-            "    }\n" .
-            "    #endregion\n" .
+            'using System;' . "\n" .
+            'using System.Collections;' . "\n" .
+            'using System.Collections.Generic;' . "\n" .
+            'using System.Text;' . "\n" .
+            'namespace Test_db' . "\n" .
+            '{' . "\n" .
+            '    #region Test_table' . "\n" .
+            '    public class Test_table' . "\n" .
+            '    {' . "\n" .
+            '        #region Member Variables' . "\n" .
+            '        protected int _id;' . "\n" .
+            '        protected string _name;' . "\n" .
+            '        protected DateTime _datetimefield;' . "\n" .
+            '        #endregion' . "\n" .
+            '        #region Constructors' . "\n" .
+            '        public Test_table() { }' . "\n" .
+            '        public Test_table(string name, DateTime datetimefield)' . "\n" .
+            '        {' . "\n" .
+            '            this._name=name;' . "\n" .
+            '            this._datetimefield=datetimefield;' . "\n" .
+            '        }' . "\n" .
+            '        #endregion' . "\n" .
+            '        #region Public Properties' . "\n" .
+            '        public virtual int Id' . "\n" .
+            '        {' . "\n" .
+            '            get {return _id;}' . "\n" .
+            '            set {_id=value;}' . "\n" .
+            '        }' . "\n" .
+            '        public virtual string Name' . "\n" .
+            '        {' . "\n" .
+            '            get {return _name;}' . "\n" .
+            '            set {_name=value;}' . "\n" .
+            '        }' . "\n" .
+            '        public virtual DateTime Datetimefield' . "\n" .
+            '        {' . "\n" .
+            '            get {return _datetimefield;}' . "\n" .
+            '            set {_datetimefield=value;}' . "\n" .
+            '        }' . "\n" .
+            '        #endregion' . "\n" .
+            '    }' . "\n" .
+            '    #endregion' . "\n" .
             '}',
             $result
         );
@@ -332,48 +318,24 @@ class ExportCodegenTest extends AbstractTestCase
 
     public function testHandleNHibernateXMLBody(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('DESC `db`.`table`')
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->at(1))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(['a', 'b', 'c', false, 'e', 'f']));
-
-        $dbi->expects($this->at(2))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(['g', 'h', 'i', 'PRI', 'j', 'k']));
-
-        $dbi->expects($this->at(3))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
-
-        $GLOBALS['dbi'] = $dbi;
         $method = new ReflectionMethod(ExportCodegen::class, 'handleNHibernateXMLBody');
         $method->setAccessible(true);
-        $result = $method->invoke($this->object, 'db', 'table', "\n");
+        $result = $method->invoke($this->object, 'test_db', 'test_table', "\n");
 
         $this->assertEquals(
             '<?xml version="1.0" encoding="utf-8" ?>' . "\n" .
-            '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Db" ' .
-            'assembly="Db">' . "\n" .
-            '    <class name="Table" table="Table">' . "\n" .
-            '        <property name="A" type="Unknown">' . "\n" .
-            '            <column name="a" sql-type="b" not-null="false" />' . "\n" .
-            '        </property>' . "\n" .
-            '        <id name="G" type="Unknown" unsaved-value="0">' . "\n" .
-            '            <column name="g" sql-type="h" not-null="false" ' .
-            'unique="true" index="PRIMARY"/>' . "\n" .
+            '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Test_db" assembly="Test_db">' . "\n" .
+            '    <class name="Test_table" table="Test_table">' . "\n" .
+            '        <id name="Id" type="Int32" unsaved-value="0">' . "\n" .
+            '            <column name="id" sql-type="int" not-null="true" unique="true" index="PRIMARY"/>' . "\n" .
             '            <generator class="native" />' . "\n" .
             '        </id>' . "\n" .
+            '        <property name="Name" type="String">' . "\n" .
+            '            <column name="name" sql-type="varchar" not-null="true" />' . "\n" .
+            '        </property>' . "\n" .
+            '        <property name="Datetimefield" type="DateTime">' . "\n" .
+            '            <column name="datetimefield" sql-type="datetime" not-null="true" />' . "\n" .
+            '        </property>' . "\n" .
             '    </class>' . "\n" .
             '</hibernate-mapping>',
             $result

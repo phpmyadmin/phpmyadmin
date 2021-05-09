@@ -10,6 +10,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Url;
+
 use function htmlspecialchars;
 
 class ProcessesControllerTest extends AbstractTestCase
@@ -22,7 +23,7 @@ class ProcessesControllerTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['text_dir'] = 'ltr';
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         parent::setTheme();
 
         $GLOBALS['server'] = 1;
@@ -80,7 +81,7 @@ class ProcessesControllerTest extends AbstractTestCase
         );
 
         $this->assertStringContainsString(
-            '<table id="tableprocesslist" class="table table-light table-striped table-hover sortable">',
+            '<table id="tableprocesslist" class="table table-light table-striped table-hover sortable w-auto">',
             $html
         );
         $this->assertStringContainsString(

@@ -1,4 +1,4 @@
-<form action="{{ url('/table/structure/drop') }}" method="post">
+<form action="{{ url('/table/structure/drop') }}" method="post" class="disableAjax">
   {{ get_hidden_inputs({'db': db, 'table': table, 'selected': fields}) }}
 
   <fieldset class="pma-fieldset confirmation">

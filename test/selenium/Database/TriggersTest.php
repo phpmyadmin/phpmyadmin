@@ -72,7 +72,7 @@ class TriggersTest extends TestBase
         $this->waitForElement('partialLinkText', 'Triggers')->click();
         $this->waitAjax();
 
-        $this->waitForElement('partialLinkText', 'Add trigger')->click();
+        $this->waitForElement('partialLinkText', 'Create new trigger')->click();
         $this->waitAjax();
 
         $this->waitForElement('className', 'rte_form');
@@ -149,8 +149,8 @@ class TriggersTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'Triggers')]"
+            'id',
+            'checkAllCheckbox'
         );
 
         $this->byPartialLinkText('Edit')->click();
@@ -196,8 +196,8 @@ class TriggersTest extends TestBase
         $ele->click();
 
         $this->waitForElement(
-            'xpath',
-            "//legend[contains(., 'Triggers')]"
+            'id',
+            'checkAllCheckbox'
         );
 
         $this->byPartialLinkText('Drop')->click();
@@ -225,7 +225,7 @@ class TriggersTest extends TestBase
         $this->dbQuery(
             'SHOW TRIGGERS FROM `' . $this->databaseName . '`;',
             function (): void {
-                $this->assertfalse($this->isElementPresent('className', 'table_results'));
+                $this->assertFalse($this->isElementPresent('className', 'table_results'));
             }
         );
     }

@@ -8,6 +8,7 @@ use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Version;
 use PHPUnit\Framework\MockObject\MockObject;
 
 class NodeDatabaseChildTest extends AbstractTestCase
@@ -27,13 +28,12 @@ class NodeDatabaseChildTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         parent::setLanguage();
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $_SESSION['relation'][1]['PMA_VERSION'] = PMA_VERSION;
+        $_SESSION['relation'][1]['version'] = Version::VERSION;
         $_SESSION['relation'][1]['navwork'] = true;
         $this->object = $this->getMockForAbstractClass(
             NodeDatabaseChild::class,
@@ -74,8 +74,8 @@ class NodeDatabaseChildTest extends AbstractTestCase
         );
         $this->assertStringContainsString(
             '<a href="' . Url::getFromRoute('/navigation') . '" data-post="'
-            . 'hideNavItem=1&amp;itemType=itemType&amp;itemName=child'
-            . '&amp;dbName=parent&amp;lang=en" class="hideNavItem ajax">',
+            . 'hideNavItem=1&itemType=itemType&itemName=child'
+            . '&dbName=parent&lang=en" class="hideNavItem ajax">',
             $html
         );
     }

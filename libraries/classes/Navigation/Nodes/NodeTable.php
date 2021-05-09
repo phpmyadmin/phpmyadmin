@@ -7,9 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function in_array;
 use function intval;
 use function strpos;
@@ -19,8 +19,13 @@ use function strpos;
  */
 class NodeTable extends NodeDatabaseChild
 {
-    /** @var array IMG tags, used when rendering the node */
-    public $icon;
+    /**
+     * For the second IMG tag, used when rendering the node.
+     *
+     * @var array<string, string>|null
+     * @psalm-var array{image: string, title: string}|null
+     */
+    public $secondIcon;
 
     /**
      * Initialises the class
@@ -33,18 +38,15 @@ class NodeTable extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = [];
-        $this->addIcon(
-            Util::getScriptNameForOption(
-                $GLOBALS['cfg']['NavigationTreeDefaultTabTable'],
-                'table'
-            )
+        $icon = $this->addIcon(
+            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table')
         );
-        $this->addIcon(
-            Util::getScriptNameForOption(
-                $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'],
-                'table'
-            )
+        if ($icon !== null) {
+            $this->icon = $icon;
+        }
+
+        $this->secondIcon = $this->addIcon(
+            Util::getScriptNameForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table')
         );
         $title = (string) Util::getTitleForTarget(
             $GLOBALS['cfg']['DefaultTabTable']
@@ -117,6 +119,7 @@ class NodeTable extends NodeDatabaseChild
                         $dbi->tryQuery($query)
                     );
                 }
+
                 break;
             case 'indexes':
                 $db = Util::backquote($db);
@@ -145,6 +148,7 @@ class NodeTable extends NodeDatabaseChild
                         $dbi->tryQuery($query)
                     );
                 }
+
                 break;
             default:
                 break;
@@ -217,6 +221,7 @@ class NodeTable extends NodeDatabaseChild
                         $count++;
                     }
                 }
+
                 break;
             case 'indexes':
                 $db = Util::backquote($db);
@@ -232,12 +237,15 @@ class NodeTable extends NodeDatabaseChild
                     if (in_array($arr['Key_name'], $retval)) {
                         continue;
                     }
+
                     if ($pos <= 0 && $count < $maxItems) {
                         $retval[] = $arr['Key_name'];
                         $count++;
                     }
+
                     $pos--;
                 }
+
                 break;
             case 'triggers':
                 if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -274,6 +282,7 @@ class NodeTable extends NodeDatabaseChild
                         $count++;
                     }
                 }
+
                 break;
             default:
                 break;
@@ -297,30 +306,32 @@ class NodeTable extends NodeDatabaseChild
      *
      * @param string $page Page name to redirect
      *
-     * @return void
+     * @return array<string, string>|null
+     * @psalm-return array{image: string, title: string}|null
      */
-    private function addIcon($page)
+    private function addIcon(string $page): ?array
     {
         if (empty($page)) {
-            return;
+            return null;
         }
 
         switch ($page) {
             case Url::getFromRoute('/table/structure'):
-                $this->icon[] = Generator::getImage('b_props', __('Structure'));
-                break;
+                return ['image' => 'b_props', 'title' => __('Structure')];
+
             case Url::getFromRoute('/table/search'):
-                $this->icon[] = Generator::getImage('b_search', __('Search'));
-                break;
+                return ['image' => 'b_search', 'title' => __('Search')];
+
             case Url::getFromRoute('/table/change'):
-                $this->icon[] = Generator::getImage('b_insrow', __('Insert'));
-                break;
+                return ['image' => 'b_insrow', 'title' => __('Insert')];
+
             case Url::getFromRoute('/table/sql'):
-                $this->icon[] = Generator::getImage('b_sql', __('SQL'));
-                break;
+                return ['image' => 'b_sql', 'title' => __('SQL')];
+
             case Url::getFromRoute('/sql'):
-                $this->icon[] = Generator::getImage('b_browse', __('Browse'));
-                break;
+                return ['image' => 'b_browse', 'title' => __('Browse')];
         }
+
+        return null;
     }
 }

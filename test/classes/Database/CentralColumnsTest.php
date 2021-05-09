@@ -6,9 +6,10 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
+use PhpMyAdmin\Version;
+
 use function array_slice;
 
 class CentralColumnsTest extends AbstractTestCase
@@ -88,7 +89,6 @@ class CentralColumnsTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
-        parent::defineVersionConstants();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -102,7 +102,7 @@ class CentralColumnsTest extends AbstractTestCase
         //$_SESSION
         $GLOBALS['server'] = 1;
         $_SESSION['relation'][1] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'centralcolumnswork' => true,
             'relwork' => 1,
             'db' => 'phpmyadmin',
@@ -229,66 +229,6 @@ class CentralColumnsTest extends AbstractTestCase
 
         $this->assertTrue(
             $this->centralColumns->syncUniqueColumns(
-                ['PMA_table']
-            )
-        );
-    }
-
-    /**
-     * Test for deleteColumnsFromList
-     */
-    public function testDeleteColumnsFromList(): void
-    {
-        $_POST['db'] = 'PMA_db';
-        $_POST['table'] = 'PMA_table';
-
-        // when column exists in the central column list
-        $GLOBALS['dbi']->expects($this->at(4))
-            ->method('fetchResult')
-            ->with(
-                'SELECT col_name FROM `pma_central_columns` '
-                . "WHERE db_name = 'PMA_db' AND col_name IN ('col1');",
-                null,
-                null,
-                DatabaseInterface::CONNECT_CONTROL
-            )
-            ->will(
-                $this->returnValue(['col1'])
-            );
-
-        $GLOBALS['dbi']->expects($this->at(7))
-            ->method('tryQuery')
-            ->with(
-                'DELETE FROM `pma_central_columns` '
-                . "WHERE db_name = 'PMA_db' AND col_name IN ('col1');",
-                DatabaseInterface::CONNECT_CONTROL
-            )
-            ->will(
-                $this->returnValue(['col1'])
-            );
-
-        $this->assertTrue(
-            $this->centralColumns->deleteColumnsFromList(
-                $_POST['db'],
-                ['col1'],
-                false
-            )
-        );
-
-        // when column does not exist in the central column list
-        $this->assertInstanceOf(
-            Message::class,
-            $this->centralColumns->deleteColumnsFromList(
-                $_POST['db'],
-                ['column1'],
-                false
-            )
-        );
-
-        $this->assertInstanceOf(
-            Message::class,
-            $this->centralColumns->deleteColumnsFromList(
-                $_POST['db'],
                 ['PMA_table']
             )
         );

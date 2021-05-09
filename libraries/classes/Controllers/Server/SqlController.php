@@ -36,7 +36,7 @@ class SqlController extends AbstractController
 
     public function index(): void
     {
-        global $err_url;
+        global $errorUrl;
 
         $this->addScriptFiles([
             'makegrid.js',
@@ -48,7 +48,7 @@ class SqlController extends AbstractController
         $pageSettings = new PageSettings('Sql');
         $this->response->addHTML($pageSettings->getErrorHTML());
         $this->response->addHTML($pageSettings->getHTML());
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

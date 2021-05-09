@@ -10,16 +10,16 @@
 /* global Stickyfill */
 /* global isStorageSupported */ // js/config.js
 /* global codeMirrorEditor */ // js/functions.js
-/* global MicroHistory */ // js/microhistory.js
 /* global makeGrid */ // js/makegrid.js
+/* global sqlBoxLocked */ // js/functions.js
 
 var Sql = {};
 
 /**
  * decode a string URL_encoded
  *
- * @param string str
- * @return string the URL-decoded string
+ * @param {string} str
+ * @return {string} the URL-decoded string
  */
 Sql.urlDecode = function (str) {
     if (typeof str !== 'undefined') {
@@ -30,8 +30,8 @@ Sql.urlDecode = function (str) {
 /**
  * encode a string URL_decoded
  *
- * @param string str
- * @return string the URL-encoded string
+ * @param {string} str
+ * @return {string} the URL-encoded string
  */
 Sql.urlEncode = function (str) {
     if (typeof str !== 'undefined') {
@@ -42,8 +42,8 @@ Sql.urlEncode = function (str) {
 /**
  * Saves SQL query in local storage or cookie
  *
- * @param string SQL query
- * @return void
+ * @param {string} query SQL query
+ * @return {void}
  */
 Sql.autoSave = function (query) {
     if (query) {
@@ -59,10 +59,10 @@ Sql.autoSave = function (query) {
 /**
  * Saves SQL query in local storage or cookie
  *
- * @param string database name
- * @param string table name
- * @param string SQL query
- * @return void
+ * @param {string} db database name
+ * @param {string} table table name
+ * @param {string} query SQL query
+ * @return {void}
  */
 Sql.showThisQuery = function (db, table, query) {
     var showThisQueryObject = {
@@ -111,8 +111,8 @@ Sql.setShowThisQuery = function () {
 /**
  * Saves SQL query with sort in local storage or cookie
  *
- * @param {String} query SQL query
- * @return void
+ * @param {string} query SQL query
+ * @return {void}
  */
 Sql.autoSaveWithSort = function (query) {
     if (query) {
@@ -127,7 +127,7 @@ Sql.autoSaveWithSort = function (query) {
 /**
  * Clear saved SQL query with sort in local storage or cookie
  *
- * @return void
+ * @return {void}
  */
 Sql.clearAutoSavedSort = function () {
     if (isStorageSupported('localStorage')) {
@@ -143,6 +143,8 @@ Sql.clearAutoSavedSort = function () {
  *
  * @param $tableResults enclosing results table
  * @param $thisField    jQuery object that points to the current field's tr
+ *
+ * @return {string}
  */
 Sql.getFieldName = function ($tableResults, $thisField) {
     var thisFieldIndex = $thisField.index();
@@ -212,7 +214,8 @@ AJAX.registerTeardown('sql.js', function () {
     $('body').off('click', '#simulate_dml');
     $('body').off('keyup', '#sqlqueryform');
     $('body').off('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]');
-    $(document).off('submit', '#maxRowsForm');
+    $(document).off('submit', '.maxRowsForm');
+    $(document).off('click', '#view_as');
 });
 
 /**
@@ -356,7 +359,7 @@ AJAX.registerOnload('sql.js', function () {
         textArea.value = '';
 
         $('#server-breadcrumb a').each(function () {
-            textArea.value += $(this).text().split(':')[1].trim() + '/';
+            textArea.value += $(this).data('raw-text') + '/';
         });
         textArea.value += '\t\t' + window.location.href;
         textArea.value += '\n';
@@ -587,21 +590,12 @@ AJAX.registerOnload('sql.js', function () {
                 Functions.highlightSql($sqlqueryresultsouter);
 
                 if (data.menu) {
-                    if (history && history.pushState) {
-                        history.replaceState({
-                            menu : data.menu
-                        },
-                        null
-                        );
-                        AJAX.handleMenu.replace(data.menu);
-                    } else {
-                        MicroHistory.menus.replace(data.menu);
-                        MicroHistory.menus.add(data.menuHash, data.menu);
-                    }
-                } else if (data.menuHash) {
-                    if (! (history && history.pushState)) {
-                        MicroHistory.menus.replace(MicroHistory.menus.get(data.menuHash));
-                    }
+                    history.replaceState({
+                        menu : data.menu
+                    },
+                    null
+                    );
+                    AJAX.handleMenu.replace(data.menu);
                 }
 
                 if (data.params) {
@@ -713,14 +707,6 @@ AJAX.registerOnload('sql.js', function () {
         e.preventDefault();
         var $form = $(this).parents('form');
 
-        if (! $(this).is(':checked')) { // already showing all rows
-            Sql.submitShowAllForm();
-        } else {
-            $form.confirm(Messages.strShowAllRowsWarning, $form.attr('action'), function () {
-                Sql.submitShowAllForm();
-            });
-        }
-
         Sql.submitShowAllForm = function () {
             var argsep = CommonParams.get('arg_separator');
             var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
@@ -728,6 +714,14 @@ AJAX.registerOnload('sql.js', function () {
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         };
+
+        if (! $(this).is(':checked')) { // already showing all rows
+            Sql.submitShowAllForm();
+        } else {
+            $form.confirm(Messages.strShowAllRowsWarning, $form.attr('action'), function () {
+                Sql.submitShowAllForm();
+            });
+        }
     });
 
     $('body').on('keyup', '#sqlqueryform', function () {
@@ -846,7 +840,7 @@ AJAX.registerOnload('sql.js', function () {
         $.post(url, submitData, AJAX.responseHandler);
     });
 
-    $(document).on('submit', '#maxRowsForm', function () {
+    $(document).on('submit', '.maxRowsForm', function () {
         var unlimNumRows = $(this).find('input[name="unlim_num_rows"]').val();
 
         var maxRowsCheck = Functions.checkFormElementInRange(
@@ -869,11 +863,19 @@ AJAX.registerOnload('sql.js', function () {
     $('#insertBtn').on('click', function () {
         Functions.insertValueQuery();
     });
+
+    $('#view_as').on('click', function () {
+        Functions.selectContent(this, sqlBoxLocked, true);
+    });
 }); // end $()
 
 /**
  * Starting from some th, change the class of all td under it.
  * If isAddClass is specified, it will be used to determine whether to add or remove the class.
+ *
+ * @param $thisTh
+ * @param {string} newClass
+ * @param isAddClass
  */
 Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
     // index 0 is the th containing the big T
@@ -898,7 +900,7 @@ Sql.changeClassForColumn = function ($thisTh, newClass, isAddClass) {
 /**
  * Handles browse foreign values modal dialog
  *
- * @param object $this_a reference to the browse foreign value link
+ * @param {object} $thisA reference to the browse foreign value link
  */
 Sql.browseForeignDialog = function ($thisA) {
     var formId = '#browse_foreign_form';

@@ -18,9 +18,8 @@ class VariablesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setGlobalConfig();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         parent::setTheme();
 
         $GLOBALS['text_dir'] = 'ltr';

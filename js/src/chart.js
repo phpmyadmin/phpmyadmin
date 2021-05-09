@@ -462,7 +462,11 @@ JQPlotTimelineChart.prototype.prepareData = function (dataTable) {
                 retRow = [];
                 retData[j - 1] = retRow;
             }
-            if (d !== null) {
+            // See https://github.com/phpmyadmin/phpmyadmin/issues/14395 for the block
+            if (d !== null && typeof d === 'object') {
+                retRow.push([d.getTime(), row[j]]);
+            } else if (typeof d === 'string') {
+                d = new Date(d);
                 retRow.push([d.getTime(), row[j]]);
             }
         }

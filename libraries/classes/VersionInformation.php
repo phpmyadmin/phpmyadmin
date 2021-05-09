@@ -9,7 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
 use stdClass;
-use const PHP_VERSION;
+
 use function count;
 use function explode;
 use function intval;
@@ -22,6 +22,8 @@ use function strpos;
 use function substr;
 use function time;
 use function version_compare;
+
+use const PHP_VERSION;
 
 /**
  * Responsible for retrieving version information and notifying about latest version
@@ -41,7 +43,8 @@ class VersionInformation
 
         // Get response text from phpmyadmin.net or from the session
         // Update cache every 6 hours
-        if (isset($_SESSION['cache']['version_check'])
+        if (
+            isset($_SESSION['cache']['version_check'])
             && time() < $_SESSION['cache']['version_check']['timestamp'] + 3600 * 6
         ) {
             $save = false;
@@ -52,12 +55,14 @@ class VersionInformation
             $httpRequest = new HttpRequest();
             $response = $httpRequest->create($file, 'GET');
         }
+
         $response = $response ?: '{}';
         /* Parse response */
         $data = json_decode($response);
 
         /* Basic sanity checking */
-        if (! is_object($data)
+        if (
+            ! is_object($data)
             || empty($data->version)
             || empty($data->releases)
             || empty($data->date)
@@ -90,6 +95,7 @@ class VersionInformation
         } else {
             $suffix = '';
         }
+
         $parts = explode('.', $parts[0]);
 
         $result = 0;
@@ -116,6 +122,7 @@ class VersionInformation
                 $suffix = $matches[1];
                 $result += intval($matches[2]);
             }
+
             switch ($suffix) {
                 case 'pl':
                     $result += 60;
@@ -172,6 +179,7 @@ class VersionInformation
                     }
                 }
             }
+
             // To compare the current release with the previous latest release or no release is set
             if ($latestRelease !== null && ! version_compare($latestRelease['version'], $release->version, '<')) {
                 continue;

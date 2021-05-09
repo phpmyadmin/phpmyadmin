@@ -6,8 +6,11 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Database\MultiTableQuery;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+
+use function rtrim;
 
 /**
  * Handles database multi-table querying
@@ -31,7 +34,6 @@ class MultiTableQueryController extends AbstractController
     public function index(): void
     {
         $this->addScriptFiles([
-            'vendor/jquery/jquery.md5.js',
             'database/multi_table_query.js',
             'database/query_generator.js',
         ]);
@@ -57,12 +59,26 @@ class MultiTableQueryController extends AbstractController
     public function table(): void
     {
         $params = [
-            'tables' => $_GET['tables'],
-            'db' => $_GET['db'] ?? null,
+            'tables' => $_GET['tables'] ?? [],
+            'db' => $_GET['db'] ?? '',
         ];
-        $constrains = $this->dbi->getForeignKeyConstrains(
-            $params['db'],
-            $params['tables']
+
+        $tablesListForQuery = '';
+        foreach ($params['tables'] as $table) {
+            $tablesListForQuery .= "'" . $this->dbi->escapeString($table) . "',";
+        }
+
+        $tablesListForQuery = rtrim($tablesListForQuery, ',');
+
+        $constrains = $this->dbi->fetchResult(
+            QueryGenerator::getInformationSchemaForeignKeyConstraintsRequest(
+                $this->dbi->escapeString($params['db']),
+                $tablesListForQuery
+            ),
+            null,
+            null,
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
         );
         $this->response->addJSON(['foreignKeyConstrains' => $constrains]);
     }

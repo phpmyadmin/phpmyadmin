@@ -18,7 +18,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use const PHP_URL_HOST;
+
 use function count;
 use function defined;
 use function file_exists;
@@ -26,6 +26,8 @@ use function is_bool;
 use function parse_url;
 use function strpos;
 use function trim;
+
+use const PHP_URL_HOST;
 
 /**
  * The navigation panel - displays server, db and table selection tree
@@ -82,6 +84,7 @@ class Navigation
             if (! Sanitize::checkLink($logo['link'], true)) {
                 $logo['link'] = 'index.php';
             }
+
             if ($cfg['NavigationLogoLinkWindow'] === 'main') {
                 if (empty(parse_url($logo['link'], PHP_URL_HOST))) {
                     $hasStartChar = strpos($logo['link'], '?');
@@ -89,8 +92,13 @@ class Navigation
                         [],
                         is_bool($hasStartChar) ? '?' : Url::getArgSeparator()
                     );
+                    // Internal link detected
+                    $logo['attributes'] = '';
+                } else {
+                    // External links having a domain name should not be considered
+                    // to be links that can use our internal ajax loading
+                    $logo['attributes'] = ' class="disableAjax"';
                 }
-                $logo['attributes'] = '';
             }
 
             if ($cfg['NavigationDisplayServers'] && count($cfg['Servers']) > 1) {
@@ -103,7 +111,9 @@ class Navigation
                 $navigationSettings = $pageSettings->getHTML();
             }
         }
-        if (! $response->isAjax()
+
+        if (
+            ! $response->isAjax()
             || ! empty($_POST['full'])
             || ! empty($_POST['reload'])
         ) {
@@ -121,6 +131,7 @@ class Navigation
         return $this->template->render('navigation/main', [
             'is_ajax' => $response->isAjax(),
             'logo' => $logo,
+            'config_navigation_width' => $cfg['NavigationWidth'],
             'is_synced' => $cfg['NavigationLinkWithMainPanel'],
             'is_highlighted' => $cfg['NavigationTreePointerEnable'],
             'is_autoexpanded' => $cfg['NavigationTreeAutoexpandSingleDb'],
@@ -256,9 +267,11 @@ class Navigation
                 if (! isset($hidden[$type])) {
                     $hidden[$type] = [];
                 }
+
                 $hidden[$type][] = $row['item_name'];
             }
         }
+
         $this->dbi->freeResult($result);
 
         return $hidden;
@@ -269,15 +282,15 @@ class Navigation
      */
     private function getLogoSource(): string
     {
-        global $PMA_Theme;
+        global $theme;
 
-        if ($PMA_Theme instanceof Theme) {
-            if (@file_exists($PMA_Theme->getFsPath() . 'img/logo_left.png')) {
-                return $PMA_Theme->getPath() . '/img/logo_left.png';
+        if ($theme instanceof Theme) {
+            if (@file_exists($theme->getFsPath() . 'img/logo_left.png')) {
+                return $theme->getPath() . '/img/logo_left.png';
             }
 
-            if (@file_exists($PMA_Theme->getFsPath() . 'img/pma_logo2.png')) {
-                return $PMA_Theme->getPath() . '/img/pma_logo2.png';
+            if (@file_exists($theme->getFsPath() . 'img/pma_logo2.png')) {
+                return $theme->getPath() . '/img/pma_logo2.png';
             }
         }
 

@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 
 /**
@@ -26,7 +25,7 @@ class NodeView extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = Generator::getImage('b_props', __('View'));
+        $this->icon = ['image' => 'b_props', 'title' => __('View')];
         $this->links = [
             'text' => Url::getFromRoute('/sql')
                 . '&amp;server=' . $GLOBALS['server']

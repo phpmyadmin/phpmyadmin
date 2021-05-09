@@ -2,7 +2,17 @@
   </div>
 {% endif %}
 {% if not is_ajax and not is_minimal %}
-  {{ self_link|raw }}
+  {% if self_url is not empty %}
+    <div id="selflink" class="print_ignore">
+      <a href="{{ self_url }}" title="{% trans 'Open new phpMyAdmin window' %}" target="_blank" rel="noopener noreferrer">
+        {% if show_icons('TabsMode') %}
+          {{ get_image('window-new', 'Open new phpMyAdmin window'|trans) }}
+        {% else %}
+          {% trans 'Open new phpMyAdmin window' %}
+        {% endif %}
+      </a>
+    </div>
+  {% endif %}
 
   <div class="clearfloat" id="pma_errors">
     {{ error_messages|raw }}
@@ -12,25 +22,20 @@
 
   {% if is_demo %}
     <div id="pma_demo">
-      {{ demo_message|raw }}
-    </div>
-  {% endif %}
-
-  {% if has_error_report_modal %}
-    <div class="modal fade" id="errorReportModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="errorReportModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="errorReportModalLabel">{% trans 'Submit error report' %}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Cancel' %}"></button>
-          </div>
-          <div class="modal-body"></div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Cancel' %}</button>
-            <button type="button" class="btn btn-primary" id="errorReportModalConfirm">{% trans 'Send error report' %}</button>
-          </div>
-        </div>
-      </div>
+      {% apply notice %}
+        <a href="{{ url('/') }}">{% trans 'phpMyAdmin Demo Server' %}:</a>
+        {% if git_revision_info is not empty %}
+          {% set revision_info -%}
+            <a target="_blank" rel="noopener noreferrer" href="{{ git_revision_info.revisionUrl|link }}">{{ git_revision_info.revision }}</a>
+          {%- endset %}
+          {% set branch_info -%}
+            <a target="_blank" rel="noopener noreferrer" href="{{ git_revision_info.branchUrl|link }}">{{ git_revision_info.branch }}</a>
+          {%- endset %}
+          {{ 'Currently running Git revision %1$s from the %2$s branch.'|trans|format(revision_info, branch_info)|raw }}
+        {% else %}
+          {% trans 'Git information missing!' %}
+        {% endif %}
+      {% endapply %}
     </div>
   {% endif %}
 

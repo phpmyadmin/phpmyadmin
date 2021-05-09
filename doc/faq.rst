@@ -436,6 +436,7 @@ PHP 7.2 is supported since 4.7.4.
 HHVM is supported up to phpMyAdmin 4.8.
 
 Since release 5.0, phpMyAdmin supports only PHP 7.1 and newer.
+Since release 5.2, phpMyAdmin supports only PHP 7.2 and newer.
 
 .. _faq1_32:
 
@@ -1174,13 +1175,13 @@ network :term:`IP` blocks.
 
     //block root from logging in except from the private networks
     $cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';
-    $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
+    $cfg['Servers'][$i]['AllowDeny']['rules'] = [
         'deny root from all',
         'allow root from localhost',
         'allow root from 10.0.0.0/8',
         'allow root from 192.168.0.0/16',
         'allow root from 172.16.0.0/12',
-    );
+    ];
 
 .. _faq4_7:
 

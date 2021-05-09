@@ -1103,7 +1103,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         initGrid();
     }
 
-    /* Calculactes the dynamic chart size that depends on the column width */
+    /* Calculates the dynamic chart size that depends on the column width */
     function calculateChartSize () {
         var panelWidth;
         if ($('body').height() > $(window).height()) { // has vertical scroll bar
@@ -1720,9 +1720,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         '    <legend>' + Messages.strFiltersForLogTable + '</legend>' +
                         '    <div class="formelement">' +
                         '        <label for="filterQueryText">' + Messages.strFilterByWordRegexp + '</label>' +
-                        '        <input name="filterQueryText" type="text" id="filter_query_text">' +
+                        '        <input name="filterQueryText" type="text" id="filterQueryText">' +
                         '    </div>' +
-                        ((logData.numRows > 250) ? ' <div class="formelement"><button name="startFilterQueryText" id="startFilterQueryText">' + Messages.strFilter + '</button></div>' : '') +
+                        ((logData.numRows > 250) ? ' <div class="formelement"><button class="btn btn-secondary" name="startFilterQueryText" id="startFilterQueryText">' + Messages.strFilter + '</button></div>' : '') +
                         '    <div class="formelement">' +
                         '       <input type="checkbox" id="noWHEREData" name="noWHEREData" value="1"> ' +
                         '       <label for="noWHEREData"> ' + Messages.strIgnoreWhereAndGroup + '</label>' +
@@ -1754,7 +1754,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
          * log table filters which are the filter by name and grouping
          * with ignoring data in WHERE clauses
          *
-         * @param boolean Should be true when the users enabled or disabled
+         * @param {boolean} varFilterChange Should be true when the users enabled or disabled
          *                to group queries ignoring data in WHERE clauses
         */
         function filterQueries (varFilterChange) {

@@ -7,13 +7,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use const PREG_SET_ORDER;
 use function count;
 use function is_array;
 use function preg_match_all;
 use function preg_replace;
 use function str_replace;
 use function strlen;
+
+use const PREG_SET_ORDER;
 
 /**
  * Handles bookmarking SQL queries
@@ -192,6 +193,7 @@ class Bookmark
             if (! empty($variables[$i])) {
                 $var = $this->dbi->escapeString($variables[$i]);
             }
+
             $query = str_replace('[VARIABLE' . $i . ']', $var, $query);
             // backward compatibility
             if ($i != 1) {
@@ -209,7 +211,7 @@ class Bookmark
      *
      * @param string $user Current user
      *
-     * @return array|bool the bookmark parameters for the current user
+     * @return array|false the bookmark parameters for the current user
      *
      * @access public
      */
@@ -226,16 +228,14 @@ class Bookmark
         $relation = new Relation($dbi);
         $cfgRelation = $relation->getRelationsParam();
         if ($cfgRelation['bookmarkwork']) {
-            $cfgBookmark = [
+            return [
                 'user'  => $user,
                 'db'    => $cfgRelation['db'],
                 'table' => $cfgRelation['bookmark'],
             ];
-        } else {
-            $cfgBookmark = false;
         }
 
-        return $cfgBookmark;
+        return false;
     }
 
     /**
@@ -256,7 +256,8 @@ class Bookmark
         array $bkm_fields,
         bool $all_users = false
     ) {
-        if (! (isset($bkm_fields['bkm_sql_query'], $bkm_fields['bkm_label'])
+        if (
+            ! (isset($bkm_fields['bkm_sql_query'], $bkm_fields['bkm_label'])
             && strlen($bkm_fields['bkm_sql_query']) > 0
             && strlen($bkm_fields['bkm_label']) > 0)
         ) {
@@ -320,6 +321,7 @@ class Bookmark
         if ($db !== false) {
             $query .= " AND dbase = '" . $dbi->escapeString($db) . "'";
         }
+
         $query .= ' ORDER BY label ASC';
 
         $result = $dbi->fetchResult(
@@ -381,8 +383,10 @@ class Bookmark
             if (! $exact_user_match) {
                 $query .= " OR user = ''";
             }
+
             $query .= ')';
         }
+
         $query .= ' AND ' . Util::backquote($id_field)
             . " = '" . $dbi->escapeString((string) $id) . "' LIMIT 1";
 

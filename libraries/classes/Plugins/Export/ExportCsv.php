@@ -15,6 +15,7 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+
 use function mb_strtolower;
 use function mb_substr;
 use function preg_replace;
@@ -115,6 +116,7 @@ class ExportCsv extends ExportPlugin
         if ($what === 'csv') {
             $GLOBALS['csv_columns'] = 'yes';
         }
+
         // Here we just prepare some values for export
         if ($what === 'excel') {
             $csv_terminated = "\015\012";
@@ -130,13 +132,15 @@ class ExportCsv extends ExportPlugin
                     $csv_separator = ',';
                     break;
             }
+
             $csv_enclosed = '"';
             $csv_escaped = '"';
             if (isset($GLOBALS['excel_columns'])) {
                 $GLOBALS['csv_columns'] = 'yes';
             }
         } else {
-            if (empty($csv_terminated)
+            if (
+                empty($csv_terminated)
                 || mb_strtolower($csv_terminated) === 'auto'
             ) {
                 $csv_terminated = $GLOBALS['crlf'];
@@ -155,6 +159,7 @@ class ExportCsv extends ExportPlugin
                     $csv_terminated
                 );
             }
+
             $csv_separator = str_replace('\\t', "\011", $csv_separator);
         }
 
@@ -174,12 +179,12 @@ class ExportCsv extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db       Database name
-     * @param string $db_alias Alias of db
+     * @param string $db      Database name
+     * @param string $dbAlias Alias of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader($db, $dbAlias = '')
     {
         return true;
     }
@@ -199,13 +204,13 @@ class ExportCsv extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db         Database name
+     * @param string $exportType 'server', 'database', 'table'
+     * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = '')
     {
         return true;
     }
@@ -213,12 +218,12 @@ class ExportCsv extends ExportPlugin
     /**
      * Outputs the content of a table in CSV format
      *
-     * @param string $db        database name
-     * @param string $table     table name
-     * @param string $crlf      the end of line sequence
-     * @param string $error_url the url to go back in case of error
-     * @param string $sql_query SQL query for obtaining data
-     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $db       database name
+     * @param string $table    table name
+     * @param string $crlf     the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery SQL query for obtaining data
+     * @param array  $aliases  Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -226,8 +231,8 @@ class ExportCsv extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $sql_query,
+        $errorUrl,
+        $sqlQuery,
         array $aliases = []
     ) {
         global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped, $dbi;
@@ -238,7 +243,7 @@ class ExportCsv extends ExportPlugin
 
         // Gets the data from the database
         $result = $dbi->query(
-            $sql_query,
+            $sqlQuery,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
@@ -252,6 +257,7 @@ class ExportCsv extends ExportPlugin
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
+
                 $col_as = stripslashes($col_as);
                 if ($csv_enclosed == '') {
                     $schema_insert .= $col_as;
@@ -264,8 +270,10 @@ class ExportCsv extends ExportPlugin
                         )
                         . $csv_enclosed;
                 }
+
                 $schema_insert .= $csv_separator;
             }
+
             $schema_insert = trim(mb_substr($schema_insert, 0, -1));
             if (! $this->export->outputHandler($schema_insert . $csv_terminated)) {
                 return false;
@@ -283,8 +291,10 @@ class ExportCsv extends ExportPlugin
                     if ($what === 'excel') {
                         $row[$j] = preg_replace("/\015(\012)?/", "\012", $row[$j]);
                     }
+
                     // remove CRLF characters within field
-                    if (isset($GLOBALS[$what . '_removeCRLF'])
+                    if (
+                        isset($GLOBALS[$what . '_removeCRLF'])
                         && $GLOBALS[$what . '_removeCRLF']
                     ) {
                         $row[$j] = str_replace(
@@ -296,6 +306,7 @@ class ExportCsv extends ExportPlugin
                             $row[$j]
                         );
                     }
+
                     if ($csv_enclosed == '') {
                         $schema_insert .= $row[$j];
                     } else {
@@ -326,6 +337,7 @@ class ExportCsv extends ExportPlugin
                 } else {
                     $schema_insert .= '';
                 }
+
                 if ($j >= $fields_cnt - 1) {
                     continue;
                 }
@@ -337,6 +349,7 @@ class ExportCsv extends ExportPlugin
                 return false;
             }
         }
+
         $dbi->freeResult($result);
 
         return true;
@@ -345,14 +358,14 @@ class ExportCsv extends ExportPlugin
     /**
      * Outputs result of raw query in CSV format
      *
-     * @param string $err_url   the url to go back in case of error
-     * @param string $sql_query the rawquery to output
-     * @param string $crlf      the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery the rawquery to output
+     * @param string $crlf     the end of line sequence
      *
      * @return bool if succeeded
      */
-    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
     {
-        return $this->exportData('', '', $crlf, $err_url, $sql_query);
+        return $this->exportData('', '', $crlf, $errorUrl, $sqlQuery);
     }
 }

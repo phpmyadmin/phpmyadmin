@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\JavaScriptMessagesController;
 use PHPUnit\Framework\TestCase;
+
 use function json_decode;
 use function ob_end_clean;
 use function ob_get_contents;

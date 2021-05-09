@@ -23,7 +23,6 @@ class TableTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::loadDefaultConfig();
 
         /**
@@ -649,6 +648,84 @@ class TableTest extends AbstractTestCase
             $query
         );
 
+        $type = 'TIMESTAMP';
+        $length = '';
+        $extra = '';
+        $default_type = 'USER_DEFINED';
+        $default_value = '\'0000-00-00 00:00:00\'';
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            $extra,
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to
+        );
+        $this->assertEquals(
+            '`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00\' '
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
+        $type = 'TIMESTAMP';
+        $length = '';
+        $extra = '';
+        $default_type = 'USER_DEFINED';
+        $default_value = '\'0000-00-00 00:00:00.0\'';
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            $extra,
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to
+        );
+        $this->assertEquals(
+            '`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00.0\' '
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
+        $type = 'TIMESTAMP';
+        $length = '';
+        $extra = '';
+        $default_type = 'USER_DEFINED';
+        $default_value = '\'0000-00-00 00:00:00.000000\'';
+        $query = Table::generateFieldSpec(
+            $name,
+            $type,
+            $length,
+            $attribute,
+            $collation,
+            $null,
+            $default_type,
+            $default_value,
+            $extra,
+            $comment,
+            $virtuality,
+            $expression,
+            $move_to
+        );
+        $this->assertEquals(
+            '`PMA_name` TIMESTAMP PMA_attribute NULL DEFAULT \'0000-00-00 00:00:00.000000\' '
+            . "COMMENT 'PMA_comment' FIRST",
+            $query
+        );
+
         //$default_type is NONE
         $type = 'BOOLEAN';
         $default_type = 'NONE';
@@ -911,7 +988,6 @@ class TableTest extends AbstractTestCase
      */
     public function testIsMergeCase2(): void
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $dbi->getCache()->cacheTableContent(
@@ -930,7 +1006,6 @@ class TableTest extends AbstractTestCase
      */
     public function testIsMergeCase3(): void
     {
-        /** @var DatabaseInterface $dbi */
         global $dbi;
 
         $dbi->getCache()->cacheTableContent(
@@ -1121,7 +1196,7 @@ class TableTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with('v1')
-            ->will($this->returnValue('movecols'));
+            ->will($this->returnValue(['aNonValidExampleToRefactor']));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1129,7 +1204,7 @@ class TableTest extends AbstractTestCase
 
         $this->assertEquals(
             $tableObj->getColumnsMeta(),
-            'movecols'
+            ['aNonValidExampleToRefactor']
         );
     }
 
@@ -1205,6 +1280,27 @@ class TableTest extends AbstractTestCase
         $error = false;
 
         $_POST['old_index'] = 'PRIMARY';
+
+        $table = new Table($table, $db);
+        $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
+
+        $this->assertEquals(
+            'ALTER TABLE `pma_db`.`pma_table` DROP PRIMARY KEY, ADD UNIQUE ;',
+            $sql
+        );
+    }
+
+    /**
+     * Tests for getSqlQueryForIndexCreateOrEdit() method.
+     */
+    public function testGetSqlQueryForIndexCreateOrEditSecondFormat(): void
+    {
+        $db = 'pma_db';
+        $table = 'pma_table';
+        $index = new Index();
+        $error = false;
+
+        $_POST['old_index']['Key_name'] = 'PRIMARY';
 
         $table = new Table($table, $db);
         $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);

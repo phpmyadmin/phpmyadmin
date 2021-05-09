@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Preferences;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\SqlForm;
 use PhpMyAdmin\Controllers\AbstractController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
+
 use function define;
 use function ltrim;
 
@@ -25,6 +26,9 @@ class SqlController extends AbstractController
     /** @var Relation */
     private $relation;
 
+    /** @var Config */
+    private $config;
+
     /**
      * @param Response $response
      */
@@ -32,19 +36,20 @@ class SqlController extends AbstractController
         $response,
         Template $template,
         UserPreferences $userPreferences,
-        Relation $relation
+        Relation $relation,
+        Config $config
     ) {
         parent::__construct($response, $template);
         $this->userPreferences = $userPreferences;
         $this->relation = $relation;
+        $this->config = $config;
     }
 
     public function index(): void
     {
-        global $cfg, $cf, $error, $tabHash, $hash;
-        global $server, $PMA_Config, $route;
+        global $cfg, $cf, $error, $tabHash, $hash, $server, $route;
 
-        $cf = new ConfigFile($PMA_Config->baseSettings);
+        $cf = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($cf);
 
         $formDisplay = new SqlForm($cf, 1);
@@ -52,7 +57,7 @@ class SqlController extends AbstractController
         if (isset($_POST['revert'])) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
-            Core::sendHeaderLocation('./index.php?route=/preferences/sql');
+            $this->redirect('/preferences/sql');
 
             return;
         }
@@ -67,7 +72,7 @@ class SqlController extends AbstractController
             $twoFactor->save();
             if ($result === true) {
                 // reload config
-                $PMA_Config->loadUserPreferences();
+                $this->config->loadUserPreferences();
                 $tabHash = $_POST['tab_hash'] ?? null;
                 $hash = ltrim($tabHash, '#');
                 $this->userPreferences->redirect(

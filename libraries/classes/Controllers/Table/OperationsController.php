@@ -13,6 +13,7 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Partition;
+use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
@@ -20,6 +21,7 @@ use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function count;
 use function implode;
 use function mb_strstr;
@@ -27,6 +29,7 @@ use function mb_strtolower;
 use function mb_strtoupper;
 use function preg_replace;
 use function strlen;
+use function urldecode;
 
 class OperationsController extends AbstractController
 {
@@ -67,11 +70,11 @@ class OperationsController extends AbstractController
 
     public function index(): void
     {
-        global $url_params, $reread_info, $tbl_is_view, $tbl_storage_engine;
+        global $urlParams, $reread_info, $tbl_is_view, $tbl_storage_engine;
         global $show_comment, $tbl_collation, $table_info_num_rows, $row_format, $auto_increment, $create_options;
         global $table_alters, $warning_messages, $lowerCaseNames, $db, $table, $reload, $result;
         global $new_tbl_storage_engine, $sql_query, $message_to_show, $columns, $hideOrderTable, $indexes;
-        global $notNull, $comment, $err_url, $cfg;
+        global $notNull, $comment, $errorUrl, $cfg;
 
         $this->checkUserPrivileges->getPrivileges();
 
@@ -89,13 +92,13 @@ class OperationsController extends AbstractController
         Util::checkParameters(['db', 'table']);
 
         $isSystemSchema = Utilities::isSystemSchema($db);
-        $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $urlParams = ['db' => $db, 'table' => $table];
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check();
 
-        $url_params['goto'] = $url_params['back'] = Url::getFromRoute('/table/operations');
+        $urlParams['goto'] = $urlParams['back'] = Url::getFromRoute('/table/operations');
 
         /**
          * Gets relation settings
@@ -117,6 +120,7 @@ class OperationsController extends AbstractController
             $tbl_storage_engine = $pma_table->getStorageEngine();
             $show_comment = $pma_table->getComment();
         }
+
         $tbl_collation = $pma_table->getCollation();
         $table_info_num_rows = $pma_table->getNumRows();
         $row_format = $pma_table->getRowFormat();
@@ -180,12 +184,14 @@ class OperationsController extends AbstractController
                         $_POST['new_name']
                     );
                 }
+
                 // Get original names before rename operation
                 $oldTable = $pma_table->getName();
                 $oldDb = $pma_table->getDbName();
 
                 if ($pma_table->rename($_POST['new_name'])) {
-                    if (isset($_POST['adjust_privileges'])
+                    if (
+                        isset($_POST['adjust_privileges'])
                         && ! empty($_POST['adjust_privileges'])
                     ) {
                         $this->operations->adjustPrivilegesRenameOrMoveTable(
@@ -219,7 +225,8 @@ class OperationsController extends AbstractController
                 }
             }
 
-            if (! empty($_POST['new_tbl_storage_engine'])
+            if (
+                ! empty($_POST['new_tbl_storage_engine'])
                 && mb_strtoupper($_POST['new_tbl_storage_engine']) !== $tbl_storage_engine
             ) {
                 $new_tbl_storage_engine = mb_strtoupper($_POST['new_tbl_storage_engine']);
@@ -259,7 +266,8 @@ class OperationsController extends AbstractController
                 $warning_messages = $this->operations->getWarningMessagesArray();
             }
 
-            if (isset($_POST['tbl_collation'], $_POST['change_all_collations'])
+            if (
+                isset($_POST['tbl_collation'], $_POST['change_all_collations'])
                 && ! empty($_POST['tbl_collation'])
                 && ! empty($_POST['change_all_collations'])
             ) {
@@ -282,20 +290,32 @@ class OperationsController extends AbstractController
                 }
             }
         }
+
         /**
          * Reordering the table has been requested by the user
          */
         if (isset($_POST['submitorderby']) && ! empty($_POST['order_field'])) {
-            [$sql_query, $result] = $this->operations->getQueryAndResultForReorderingTable();
+            $sql_query = QueryGenerator::getQueryForReorderingTable(
+                $table,
+                urldecode($_POST['order_field']),
+                $_POST['order_order'] ?? null
+            );
+            $result = $this->dbi->query($sql_query);
         }
 
         /**
          * A partition operation has been requested by the user
          */
-        if (isset($_POST['submit_partition'])
+        if (
+            isset($_POST['submit_partition'])
             && ! empty($_POST['partition_operation'])
         ) {
-            [$sql_query, $result] = $this->operations->getQueryAndResultForPartition();
+            $sql_query = QueryGenerator::getQueryForPartitioningTable(
+                $table,
+                $_POST['partition_operation'],
+                $_POST['partition_name']
+            );
+            $result = $this->dbi->query($sql_query);
         }
 
         if ($reread_info) {
@@ -313,12 +333,14 @@ class OperationsController extends AbstractController
                 $tbl_storage_engine = $pma_table->getStorageEngine();
                 $show_comment = $pma_table->getComment();
             }
+
             $tbl_collation = $pma_table->getCollation();
             $table_info_num_rows = $pma_table->getNumRows();
             $row_format = $pma_table->getRowFormat();
             $auto_increment = $pma_table->getAutoIncrement();
             $create_options = $pma_table->getCreateOptions();
         }
+
         unset($reread_info);
 
         if (isset($result) && empty($message_to_show)) {
@@ -365,6 +387,7 @@ class OperationsController extends AbstractController
 
                     return;
                 }
+
                 unset($warning_messages);
             }
 
@@ -377,10 +400,11 @@ class OperationsController extends AbstractController
                     Generator::getMessage($_message, $sql_query)
                 );
             }
+
             unset($_message);
         }
 
-        $url_params['goto'] = $url_params['back'] = Url::getFromRoute('/table/operations');
+        $urlParams['goto'] = $urlParams['back'] = Url::getFromRoute('/table/operations');
 
         $columns = $this->dbi->getColumns($db, $table);
 
@@ -407,6 +431,7 @@ class OperationsController extends AbstractController
                         break;
                     }
                 }
+
                 if ($notNull) {
                     $hideOrderTable = true;
                     break;
@@ -463,14 +488,14 @@ class OperationsController extends AbstractController
         }
 
         $foreigners = $this->operations->getForeignersForReferentialIntegrityCheck(
-            $url_params,
+            $urlParams,
             (bool) $cfgRelation['relwork']
         );
 
         $this->render('table/operations/index', [
             'db' => $db,
             'table' => $table,
-            'url_params' => $url_params,
+            'url_params' => $urlParams,
             'columns' => $columns,
             'hide_order_table' => $hideOrderTable,
             'table_comment' => $comment,

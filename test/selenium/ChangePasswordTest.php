@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\AssertionFailedError;
+
 use function array_push;
 use function trim;
 
@@ -53,18 +54,21 @@ class ChangePasswordTest extends TestBase
         } catch (AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
+
         try {
             $ele = $this->waitForElement('name', 'pma_pw2');
             $this->assertEquals('', $ele->getAttribute('value'));
         } catch (AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
+
         try {
             $ele = $this->waitForElement('name', 'generated_pw');
             $this->assertEquals('', $ele->getAttribute('value'));
         } catch (AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->toString());
         }
+
         $this->byId('button_generate_password')->click();
         $this->assertNotEquals('', $this->byName('pma_pw')->getAttribute('value'));
         $this->assertNotEquals('', $this->byName('pma_pw2')->getAttribute('value'));

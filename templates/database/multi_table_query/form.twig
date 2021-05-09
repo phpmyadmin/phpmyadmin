@@ -31,8 +31,8 @@
             <fieldset class="pma-fieldset column_details query-form__fieldset--inline">
                 <select class="tableNameSelect query-form__select--inline">
                     <option value="">{% trans 'select table' %}</option>
-                    {% for table in tables|keys %}
-                        <option value="{{ table }}">{{ table }}</option>
+                    {% for keyTableName, table in tables %}
+                      <option data-hash="{{ table.hash }}" value="{{ keyTableName }}">{{ keyTableName }}</option>
                     {% endfor %}
                 </select>
                 <span>.</span>
@@ -93,6 +93,7 @@
                                     <option value="LIKE">LIKE</option>
                                     <option value="LIKE %...%">LIKE %...%</option>
                                     <option value="NOT LIKE">NOT LIKE</option>
+                                    <option value="NOT LIKE %...%">NOT LIKE %...%</option>
                                     <option value="IN (...)">IN (...)</option>
                                     <option value="NOT IN (...)">NOT IN (...)</option>
                                     <option value="BETWEEN">BETWEEN</option>
@@ -117,8 +118,8 @@
                             <td>
                                 <select  class="tableNameSelect">
                                     <option value="">{% trans 'select table' %}</option>
-                                    {% for table in tables|keys %}
-                                        <option value="{{ table }}">{{ table }}</option>
+                                    {% for keyTableName, table in tables %}
+                                        <option data-hash="{{ table.hash }}" value="{{ keyTableName }}">{{ keyTableName }}</option>
                                     {% endfor %}
                                 </select><span>.</span>
                             </td>

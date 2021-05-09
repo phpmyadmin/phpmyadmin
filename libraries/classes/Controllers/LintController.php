@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Linter;
+
 use function json_encode;
 
 /**

@@ -12,7 +12,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use const ENT_QUOTES;
+
 use function count;
 use function explode;
 use function htmlentities;
@@ -22,6 +22,8 @@ use function mb_strpos;
 use function mb_strtoupper;
 use function sprintf;
 use function trim;
+
+use const ENT_QUOTES;
 
 /**
  * Functions for trigger management.
@@ -71,8 +73,7 @@ class Triggers
         $this->export();
 
         $items = $this->dbi->getTriggers($db, $table);
-        $hasDropPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db);
-        $hasEditPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db, $table);
+        $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db, $table);
         $isAjax = $this->response->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
@@ -81,8 +82,8 @@ class Triggers
                 'db' => $db,
                 'table' => $table,
                 'trigger' => $item,
-                'has_drop_privilege' => $hasDropPrivilege,
-                'has_edit_privilege' => $hasEditPrivilege,
+                'has_drop_privilege' => $hasTriggerPrivilege,
+                'has_edit_privilege' => $hasTriggerPrivilege,
                 'row_class' => $isAjax ? 'ajaxInsert hide' : '',
             ]);
         }
@@ -92,7 +93,7 @@ class Triggers
             'table' => $table,
             'items' => $items,
             'rows' => $rows,
-            'has_privilege' => Util::currentUserHasPrivilege('TRIGGER', $db, $table),
+            'has_privilege' => $hasTriggerPrivilege,
         ]);
     }
 
@@ -105,7 +106,8 @@ class Triggers
     {
         global $db, $errors, $message, $table;
 
-        if (! empty($_POST['editor_process_add'])
+        if (
+            ! empty($_POST['editor_process_add'])
             || ! empty($_POST['editor_process_edit'])
         ) {
             $sql_query = '';
@@ -186,6 +188,7 @@ class Triggers
                 foreach ($errors as $string) {
                     $message->addHtml('<li>' . $string . '</li>');
                 }
+
                 $message->addHtml('</ul>');
             }
 
@@ -202,19 +205,22 @@ class Triggers
 
                         $trigger = $value;
                     }
+
                     $insert = false;
-                    if (empty($table)
+                    if (
+                        empty($table)
                         || ($trigger !== false && $table == $trigger['table'])
                     ) {
                         $insert = true;
+                        $hasTriggerPrivilege = Util::currentUserHasPrivilege('TRIGGER', $db, $table);
                         $this->response->addJSON(
                             'new_row',
                             $this->template->render('database/triggers/row', [
                                 'db' => $db,
                                 'table' => $table,
                                 'trigger' => $trigger,
-                                'has_drop_privilege' => Util::currentUserHasPrivilege('TRIGGER', $db),
-                                'has_edit_privilege' => Util::currentUserHasPrivilege('TRIGGER', $db, $table),
+                                'has_drop_privilege' => $hasTriggerPrivilege,
+                                'has_edit_privilege' => $hasTriggerPrivilege,
                                 'row_class' => '',
                             ])
                         );
@@ -227,12 +233,15 @@ class Triggers
                             )
                         );
                     }
+
                     $this->response->addJSON('insert', $insert);
                     $this->response->addJSON('message', $output);
                 } else {
                     $this->response->addJSON('message', $message);
                     $this->response->setRequestStatus(false);
                 }
+
+                $this->response->addJSON('tableType', 'triggers');
                 exit;
             }
         }
@@ -240,7 +249,8 @@ class Triggers
         /**
          * Display a form used to add/edit a trigger, if necessary
          */
-        if (! count($errors)
+        if (
+            ! count($errors)
             && (! empty($_POST['editor_process_add'])
             || ! empty($_POST['editor_process_edit'])
             || (empty($_REQUEST['add_item'])
@@ -259,7 +269,8 @@ class Triggers
             $mode = 'add';
         } elseif (! empty($_REQUEST['edit_item'])) {
             $title = __('Edit trigger');
-            if (! empty($_REQUEST['item_name'])
+            if (
+                ! empty($_REQUEST['item_name'])
                 && empty($_POST['editor_process_edit'])
             ) {
                 $item = $this->getDataFromName($_REQUEST['item_name']);
@@ -269,8 +280,10 @@ class Triggers
             } else {
                 $item = $this->getDataFromRequest();
             }
+
             $mode = 'edit';
         }
+
         $this->sendEditor($mode, $item, $title, $db);
     }
 
@@ -319,6 +332,7 @@ class Triggers
 
             $temp = $value;
         }
+
         if (empty($temp)) {
             return null;
         }
@@ -362,11 +376,13 @@ class Triggers
         foreach ($need_escape as $key => $index) {
             $item[$index] = htmlentities($item[$index], ENT_QUOTES, 'UTF-8');
         }
+
         $original_data = '';
         if ($mode === 'edit') {
             $original_data = "<input name='item_original_name' "
                            . "type='hidden' value='" . $item['item_original_name'] . "'>\n";
         }
+
         $query  = 'SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ';
         $query .= "WHERE `TABLE_SCHEMA`='" . $this->dbi->escapeString($db) . "' ";
         $query .= "AND `TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
@@ -385,6 +401,7 @@ class Triggers
         if ($mode !== 'edit') {
             $retval .= MySQLDocumentation::show('CREATE_TRIGGER');
         }
+
         $retval .= '</legend>' . "\n";
         $retval .= "<table class='rte_table table table-borderless table-sm'>\n";
         $retval .= "<tr>\n";
@@ -403,10 +420,12 @@ class Triggers
             } elseif ($mode === 'edit' && $value == $item['item_table']) {
                 $selected = " selected='selected'";
             }
+
             $retval .= '<option' . $selected . '>';
             $retval .= htmlspecialchars($value);
             $retval .= "</option>\n";
         }
+
         $retval .= "        </select>\n";
         $retval .= "    </td>\n";
         $retval .= "</tr>\n";
@@ -415,13 +434,16 @@ class Triggers
         $retval .= "    <td><select name='item_timing'>\n";
         foreach ($this->time as $key => $value) {
             $selected = '';
-            if (! empty($item['item_action_timing'])
+            if (
+                ! empty($item['item_action_timing'])
                 && $item['item_action_timing'] == $value
             ) {
                 $selected = " selected='selected'";
             }
+
             $retval .= '<option' . $selected . '>' . $value . '</option>';
         }
+
         $retval .= "    </select></td>\n";
         $retval .= "</tr>\n";
         $retval .= "<tr>\n";
@@ -429,13 +451,16 @@ class Triggers
         $retval .= "    <td><select name='item_event'>\n";
         foreach ($this->event as $key => $value) {
             $selected = '';
-            if (! empty($item['item_event_manipulation'])
+            if (
+                ! empty($item['item_event_manipulation'])
                 && $item['item_event_manipulation'] == $value
             ) {
                 $selected = " selected='selected'";
             }
+
             $retval .= '<option' . $selected . '>' . $value . '</option>';
         }
+
         $retval .= "    </select></td>\n";
         $retval .= "</tr>\n";
         $retval .= "<tr>\n";
@@ -461,6 +486,7 @@ class Triggers
             $retval .= "           value='" . __('Go') . "'>\n";
             $retval .= "</fieldset>\n";
         }
+
         $retval .= "</form>\n\n";
         $retval .= '<!-- END ' . $modeToUpper . " TRIGGER FORM -->\n\n";
 
@@ -478,7 +504,8 @@ class Triggers
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
-            if (mb_strpos($_POST['item_definer'], '@') !== false
+            if (
+                mb_strpos($_POST['item_definer'], '@') !== false
             ) {
                 $arr = explode('@', $_POST['item_definer']);
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
@@ -487,34 +514,42 @@ class Triggers
                 $errors[] = __('The definer must be in the "username@hostname" format!');
             }
         }
+
         $query .= 'TRIGGER ';
         if (! empty($_POST['item_name'])) {
             $query .= Util::backquote($_POST['item_name']) . ' ';
         } else {
             $errors[] = __('You must provide a trigger name!');
         }
-        if (! empty($_POST['item_timing'])
+
+        if (
+            ! empty($_POST['item_timing'])
             && in_array($_POST['item_timing'], $this->time)
         ) {
             $query .= $_POST['item_timing'] . ' ';
         } else {
             $errors[] = __('You must provide a valid timing for the trigger!');
         }
-        if (! empty($_POST['item_event'])
+
+        if (
+            ! empty($_POST['item_event'])
             && in_array($_POST['item_event'], $this->event)
         ) {
             $query .= $_POST['item_event'] . ' ';
         } else {
             $errors[] = __('You must provide a valid event for the trigger!');
         }
+
         $query .= 'ON ';
-        if (! empty($_POST['item_table'])
+        if (
+            ! empty($_POST['item_table'])
             && in_array($_POST['item_table'], $this->dbi->getTables($db))
         ) {
             $query .= Util::backquote($_POST['item_table']);
         } else {
             $errors[] = __('You must provide a valid table name!');
         }
+
         $query .= ' FOR EACH ROW ';
         if (! empty($_POST['item_definition'])) {
             $query .= $_POST['item_definition'];
@@ -572,6 +607,7 @@ class Triggers
                 echo "\n\n<h2>" . $title . "</h2>\n\n" . $editor;
                 unset($_POST);
             }
+
             exit;
         }
 

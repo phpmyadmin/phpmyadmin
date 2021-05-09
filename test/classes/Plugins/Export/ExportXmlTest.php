@@ -15,6 +15,7 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;
@@ -33,7 +34,7 @@ class ExportXmlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
@@ -44,6 +45,7 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['relation'] = true;
         $GLOBALS['db'] = 'db';
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $this->object = new ExportXml();
     }
 
@@ -455,96 +457,36 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['asfile'] = true;
         $GLOBALS['output_charset_conversion'] = false;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $_table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $_table->expects($this->once())
-            ->method('isMerge')
-            ->will($this->returnValue(false));
-
-        $dbi->expects($this->any())
-            ->method('getTable')
-            ->will($this->returnValue($_table));
-
-        $dbi->expects($this->once())
-            ->method('getTable')
-            ->will($this->returnValue($_table));
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(3));
-
-        $dbi->expects($this->at(3))
-            ->method('fieldName')
-            ->will($this->returnValue('fName1'));
-
-        $dbi->expects($this->at(4))
-            ->method('fieldName')
-            ->will($this->returnValue('fNa"me2'));
-
-        $dbi->expects($this->at(5))
-            ->method('fieldName')
-            ->will($this->returnValue('fNa\\me3'));
-
-        $dbi->expects($this->at(6))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue([null, '<a>']));
-
-        $GLOBALS['dbi'] = $dbi;
-
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db',
-                'ta<ble',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
-                'SELECT'
+                'localhost',
+                'SELECT * FROM `test_db`.`test_table`;'
             )
         );
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            '<!-- Table ta&lt;ble -->',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<table name="ta&lt;ble">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<column name="fName1">NULL</column>',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<column name="fNa&quot;me2">&lt;a&gt;' .
-            '</column>',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<column name="fName3">NULL</column>',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '</table>',
+        $this->assertEquals(
+            '        <!-- Table test_table -->' . "\n"
+            . '        <table name="test_table">' . "\n"
+            . '            <column name="id">1</column>' . "\n"
+            . '            <column name="name">abcd</column>' . "\n"
+            . '            <column name="datetimefield">2011-01-20 02:00:02</column>' . "\n"
+            . '        </table>' . "\n"
+            . '        <table name="test_table">' . "\n"
+            . '            <column name="id">2</column>' . "\n"
+            . '            <column name="name">foo</column>' . "\n"
+            . '            <column name="datetimefield">2010-01-20 02:00:02</column>' . "\n"
+            . '        </table>' . "\n"
+            . '        <table name="test_table">' . "\n"
+            . '            <column name="id">3</column>' . "\n"
+            . '            <column name="name">Abcd</column>' . "\n"
+            . '            <column name="datetimefield">2012-01-20 02:00:02</column>' . "\n"
+            . '        </table>' . "\n",
             $result
         );
     }

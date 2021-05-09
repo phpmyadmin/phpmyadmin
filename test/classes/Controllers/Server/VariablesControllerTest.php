@@ -14,6 +14,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use ReflectionProperty;
+
 use function htmlspecialchars;
 use function str_replace;
 
@@ -22,11 +23,10 @@ class VariablesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setGlobalConfig();
         parent::setLanguage();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
 
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['server'] = 1;
@@ -270,6 +270,39 @@ class VariablesControllerTest extends AbstractTestCase
         );
         $this->assertEquals(
             'value',
+            $formattedValue
+        );
+        $this->assertFalse($isHtmlFormatted);
+    }
+
+    /**
+     * Test for formatVariable() using VoidProvider
+     */
+    public function testFormatVariableVoidProvider(): void
+    {
+        $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
+        $response->setAccessible(true);
+        $response->setValue(new ServerVariablesVoidProvider());
+
+        $controller = new VariablesController(Response::getInstance(), new Template(), $GLOBALS['dbi']);
+
+        $nameForValueByte = 'wsrep_replicated_bytes';
+
+        //name is_numeric and the value type is byte
+        $args = [
+            $nameForValueByte,
+            '3',
+        ];
+
+        [$formattedValue, $isHtmlFormatted] = $this->callFunction(
+            $controller,
+            VariablesController::class,
+            'formatVariable',
+            $args
+        );
+
+        $this->assertEquals(
+            '3',
             $formattedValue
         );
         $this->assertFalse($isHtmlFormatted);

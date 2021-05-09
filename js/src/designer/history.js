@@ -60,8 +60,8 @@ DesignerHistory.detail = function (index) {
  * This function is called whenever changes are made in historyArray[]
  *
  *
- * @param {int}  init starting index of unsorted array
- * @param {int} finit   last index of unsorted array
+ * @param {number} init starting index of unsorted array
+ * @param {number} finit last index of unsorted array
  *
 **/
 
@@ -132,7 +132,7 @@ DesignerHistory.display = function (init, finit) {
  * To change And/Or relation in history tab
  *
  *
- * @param {int} index of historyArray where change is to be made
+ * @param {number} index index of historyArray where change is to be made
  *
 **/
 
@@ -171,7 +171,7 @@ DesignerHistory.historyDelete = function (index) {
 /**
  * To show where,rename,aggregate,having forms to edit a object
  *
- * @param{int} index index of historyArray where change is to be made
+ * @param {number} index index of historyArray where change is to be made
  *
 **/
 
@@ -484,8 +484,10 @@ DesignerHistory.found = function (arrayName, value) {
 /**
  * This function concatenates two array
  *
- * @params add array elements of which are pushed in
- * @params arr array in which elements are added
+ * @param {object} add array elements of which are pushed in
+ * @param {obj[]} arr array in which elements are added
+ *
+ * @return {obj[]}
  */
 DesignerHistory.addArray = function (add, arr) {
     var addLength = add.length;
@@ -498,8 +500,10 @@ DesignerHistory.addArray = function (add, arr) {
 /**
  * This function removes all elements present in one array from the other.
  *
- * @params rem array from which each element is removed from other array.
- * @params arr array from which elements are removed.
+ * @param {object} rem array from which each element is removed from other array.
+ * @param {obj[]} arr array from which elements are removed.
+ *
+ * @return {obj[]}
  *
  */
 DesignerHistory.removeArray = function (rem, arr) {
@@ -646,7 +650,7 @@ DesignerHistory.checkRename = function (idThis) {
   * This function builds from clause of query
   * makes automatic joins.
   *
-  *
+  * @return {string}
   */
 DesignerHistory.queryFrom = function () {
     var i;

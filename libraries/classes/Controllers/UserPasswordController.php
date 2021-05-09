@@ -46,6 +46,7 @@ class UserPasswordController extends AbstractController
         if (! $cfg['ShowChgPassword']) {
             $cfg['ShowChgPassword'] = $this->dbi->selectDb('mysql');
         }
+
         if ($cfg['Server']['auth_type'] === 'config' || ! $cfg['ShowChgPassword']) {
             $this->response->addHTML(Message::error(
                 __('You don\'t have sufficient privileges to be here right now!')
@@ -64,6 +65,7 @@ class UserPasswordController extends AbstractController
             } else {
                 $password = $_POST['pma_pw'];
             }
+
             $change_password_message = $this->userPassword->setChangePasswordMsg();
             $msg = $change_password_message['msg'];
 

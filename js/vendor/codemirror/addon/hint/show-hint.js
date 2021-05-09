@@ -293,6 +293,7 @@
       }
     }
     var overlapX = box.right - winW;
+    if (scrolls) overlapX += cm.display.nativeBarWidth;
     if (overlapX > 0) {
       if (box.right - box.left > winW) {
         hints.style.width = (winW - 5) + "px";
@@ -321,6 +322,7 @@
 
     cm.on("scroll", this.onScroll = function() {
       var curScroll = cm.getScrollInfo(), editor = cm.getWrapperElement().getBoundingClientRect();
+      if (!startScroll) startScroll = cm.getScrollInfo();
       var newTop = top + startScroll.top - curScroll.top;
       var point = newTop - (parentWindow.pageYOffset || (ownerDocument.documentElement || ownerDocument.body).scrollTop);
       if (!below) point += hints.offsetHeight;
@@ -360,7 +362,7 @@
     close: function() {
       if (this.completion.widget != this) return;
       this.completion.widget = null;
-      this.hints.parentNode.removeChild(this.hints);
+      if (this.hints.parentNode) this.hints.parentNode.removeChild(this.hints);
       this.completion.cm.removeKeyMap(this.keyMap);
 
       var cm = this.completion.cm;

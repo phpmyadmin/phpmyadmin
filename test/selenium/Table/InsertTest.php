@@ -48,6 +48,7 @@ class InsertTest extends TestBase
             /* TODO: this should be fixed, but the cause is unclear to me */
             $this->markTestIncomplete('Fails with Safari');
         }
+
         $this->waitAjax();
         $this->expandMore();
 
@@ -57,14 +58,14 @@ class InsertTest extends TestBase
 
         // shorter date to prevent error,
         // automatically gets appended with 00:00:00
-        $this->byId('field_3_3')->click()->sendKeys('2011-01-2');
+        $this->byId('field_3_3')->click()->clear()->sendKeys('2011-01-2');
 
         $this->byId('field_1_3')->sendKeys('1');
         $this->byId('field_2_3')->sendKeys('abcd');
 
         // shorter date to prevent error,
         // automatically gets appended with 00:00:00
-        $this->byId('field_6_3')->click()->sendKeys('2012-01-2');
+        $this->byId('field_6_3')->click()->clear()->sendKeys('2012-01-2');
 
         $this->byId('field_5_3')->sendKeys('foo');
 
@@ -82,7 +83,7 @@ class InsertTest extends TestBase
 
         // shorter date to prevent error,
         // automatically gets appended with 00:00:00
-        $this->byId('field_3_3')->click()->sendKeys('2013-01-2');
+        $this->byId('field_3_3')->click()->clear()->sendKeys('2013-01-2');
 
         $this->byId('field_2_3')->sendKeys('Abcd');
 

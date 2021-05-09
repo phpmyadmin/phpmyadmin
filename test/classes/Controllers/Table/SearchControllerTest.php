@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
@@ -17,7 +18,10 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Types;
 use stdClass;
+
 use function hash;
+
+use const MYSQLI_TYPE_LONG;
 
 /**
  * Tests for PMA_TableSearch
@@ -38,7 +42,6 @@ class SearchControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::loadDefaultConfig();
         parent::setTheme();
 
@@ -135,15 +138,16 @@ class SearchControllerTest extends AbstractTestCase
     public function testGetDataRowAction(): void
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
+
         $meta_one = new stdClass();
-        $meta_one->type = 'int';
         $meta_one->length = 11;
+
         $meta_two = new stdClass();
         $meta_two->length = 11;
-        $meta_two->type = 'int';
+
         $fields_meta = [
-            $meta_one,
-            $meta_two,
+            new FieldMetadata(MYSQLI_TYPE_LONG, 0, $meta_one),
+            new FieldMetadata(MYSQLI_TYPE_LONG, 0, $meta_two),
         ];
         $GLOBALS['dbi']->expects($this->any())->method('getFieldsMeta')
             ->will($this->returnValue($fields_meta));

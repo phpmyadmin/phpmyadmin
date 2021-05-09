@@ -20,3 +20,10 @@ parameters:
         - tmp/*
         - twig-templates/*
         - vendor/*
+    dynamicConstantNames:
+        - PMA_IS_WINDOWS
+        - PMA_USR_BROWSER_AGENT
+        - PMA_USR_BROWSER_VER
+        - PMA_USR_OS
+        - ROOT_PATH
+        - VERSION_SUFFIX

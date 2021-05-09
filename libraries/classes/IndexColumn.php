@@ -68,18 +68,23 @@ class IndexColumn
         if (isset($params['Column_name'])) {
             $this->name = $params['Column_name'];
         }
+
         if (isset($params['Seq_in_index'])) {
             $this->seqInIndex = $params['Seq_in_index'];
         }
+
         if (isset($params['Collation'])) {
             $this->collation = $params['Collation'];
         }
+
         if (isset($params['Cardinality'])) {
             $this->cardinality = $params['Cardinality'];
         }
+
         if (isset($params['Sub_part'])) {
             $this->subPart = $params['Sub_part'];
         }
+
         if (! isset($params['Null'])) {
             return;
         }

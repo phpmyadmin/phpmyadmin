@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Plugins\Schema;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function htmlspecialchars;
 use function rawurldecode;
 
@@ -299,6 +300,7 @@ class ExportRelationSchema
         if (! empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
         }
+
         echo '<p>' , "\n";
         echo '    ' , $error_message , "\n";
         echo '</p>' , "\n";

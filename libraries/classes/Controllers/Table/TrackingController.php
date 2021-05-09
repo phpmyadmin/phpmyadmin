@@ -12,6 +12,7 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_map;
 use function define;
 use function explode;
@@ -42,7 +43,7 @@ final class TrackingController extends AbstractController
 
     public function index(): void
     {
-        global $text_dir, $url_params, $msg, $err_url;
+        global $text_dir, $urlParams, $msg, $errorUrl;
         global $data, $entries, $filter_ts_from, $filter_ts_to, $filter_users, $selection_schema;
         global $selection_data, $selection_both, $sql_result, $db, $table, $cfg;
 
@@ -52,14 +53,15 @@ final class TrackingController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $urlParams = ['db' => $db, 'table' => $table];
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check();
 
         $activeMessage = '';
-        if (Tracker::isActive()
+        if (
+            Tracker::isActive()
             && Tracker::isTracked($GLOBALS['db'], $GLOBALS['table'])
             && ! (isset($_POST['toggle_activation'])
                 && $_POST['toggle_activation'] === 'deactivate_now')
@@ -75,8 +77,8 @@ final class TrackingController extends AbstractController
             $activeMessage = $msg->getDisplay();
         }
 
-        $url_params['goto'] = Url::getFromRoute('/table/tracking');
-        $url_params['back'] = Url::getFromRoute('/table/tracking');
+        $urlParams['goto'] = Url::getFromRoute('/table/tracking');
+        $urlParams['back'] = Url::getFromRoute('/table/tracking');
 
         $data = [];
         $entries = [];
@@ -98,6 +100,7 @@ final class TrackingController extends AbstractController
             if (! isset($_POST['logtype'])) {
                 $_POST['logtype'] = 'schema_and_data';
             }
+
             if ($_POST['logtype'] === 'schema') {
                 $selection_schema = true;
             } elseif ($_POST['logtype'] === 'data') {
@@ -105,15 +108,19 @@ final class TrackingController extends AbstractController
             } else {
                 $selection_both   = true;
             }
+
             if (! isset($_POST['date_from'])) {
                 $_POST['date_from'] = $data['date_from'];
             }
+
             if (! isset($_POST['date_to'])) {
                 $_POST['date_to'] = $data['date_to'];
             }
+
             if (! isset($_POST['users'])) {
                 $_POST['users'] = '*';
             }
+
             $filter_ts_from = strtotime($_POST['date_from']);
             $filter_ts_to = strtotime($_POST['date_to']);
             $filter_users = array_map('trim', explode(',', $_POST['users']));
@@ -130,7 +137,8 @@ final class TrackingController extends AbstractController
         }
 
         // Export as file download
-        if (isset($_POST['report_export'])
+        if (
+            isset($_POST['report_export'])
             && $_POST['export_type'] === 'sqldumpfile'
         ) {
             $this->tracking->exportAsFileDownload($entries);
@@ -143,6 +151,7 @@ final class TrackingController extends AbstractController
                     foreach ($_POST['selected_versions'] as $version) {
                         $this->tracking->deleteTrackingVersion($version);
                     }
+
                     $actionMessage = Message::success(
                         __('Tracking versions deleted successfully.')
                     )->getDisplay();
@@ -165,14 +174,16 @@ final class TrackingController extends AbstractController
         }
 
         $deactivateTracking = '';
-        if (isset($_POST['toggle_activation'])
+        if (
+            isset($_POST['toggle_activation'])
             && $_POST['toggle_activation'] === 'deactivate_now'
         ) {
             $deactivateTracking = $this->tracking->changeTracking('deactivate');
         }
 
         $activateTracking = '';
-        if (isset($_POST['toggle_activation'])
+        if (
+            isset($_POST['toggle_activation'])
             && $_POST['toggle_activation'] === 'activate_now'
         ) {
             $activateTracking = $this->tracking->changeTracking('activate');
@@ -193,11 +204,12 @@ final class TrackingController extends AbstractController
 
         $schemaSnapshot = '';
         if (isset($_POST['snapshot'])) {
-            $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot($url_params);
+            $schemaSnapshot = $this->tracking->getHtmlForSchemaSnapshot($urlParams);
         }
 
         $trackingReportRows = '';
-        if (isset($_POST['report'])
+        if (
+            isset($_POST['report'])
             && (isset($_POST['delete_ddlog']) || isset($_POST['delete_dmlog']))
         ) {
             $trackingReportRows = $this->tracking->deleteTrackingReportRows($data);
@@ -207,7 +219,7 @@ final class TrackingController extends AbstractController
         if (isset($_POST['report']) || isset($_POST['report_export'])) {
             $trackingReport = $this->tracking->getHtmlForTrackingReport(
                 $data,
-                $url_params,
+                $urlParams,
                 $selection_schema,
                 $selection_data,
                 $selection_both,
@@ -218,7 +230,7 @@ final class TrackingController extends AbstractController
         }
 
         $main = $this->tracking->getHtmlForMainPage(
-            $url_params,
+            $urlParams,
             $text_dir
         );
 

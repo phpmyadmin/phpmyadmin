@@ -46,13 +46,10 @@ use PhpMyAdmin\Session;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Tracker;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
-global $containerBuilder, $error_handler, $PMA_Config, $server, $dbi;
-global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $PMA_Theme;
-global $url_params, $goto, $back, $db, $table, $sql_query, $token_mismatch;
+global $containerBuilder, $errorHandler, $config, $server, $dbi;
+global $lang, $cfg, $isConfigLoading, $auth_plugin, $route, $theme;
+global $urlParams, $goto, $back, $db, $table, $sql_query, $token_mismatch;
 
 /**
  * block attempts to directly run this script
@@ -65,9 +62,9 @@ if (getcwd() == __DIR__) {
  * Minimum PHP version; can't call Core::fatalError() which uses a
  * PHP 5 function, so cannot easily localize this message.
  */
-if (PHP_VERSION_ID < 70103) {
+if (PHP_VERSION_ID < 70205) {
     die(
-        '<p>PHP 7.1.3+ is required.</p>'
+        '<p>PHP 7.2.5+ is required.</p>'
         . '<p>Currently installed version is: ' . PHP_VERSION . '</p>'
     );
 }
@@ -95,7 +92,21 @@ if (! @is_readable(AUTOLOAD_FILE)) {
         . 'install library files</a>.</p>'
     );
 }
+
 require_once AUTOLOAD_FILE;
+
+/**
+ * (TCPDF workaround)
+ * Avoid referring to nonexistent files (causes warnings when open_basedir is used)
+ * This is defined to avoid the tcpdf code to search for a directory outside of open_basedir
+ * See: https://github.com/phpmyadmin/phpmyadmin/issues/16709
+ * This value if not used but is usefull, no header logic is used for PDF exports
+ */
+if (! defined('K_PATH_IMAGES')) {
+    // phpcs:disable PSR1.Files.SideEffects
+    define('K_PATH_IMAGES', ROOT_PATH);
+    // phpcs:enable
+}
 
 $route = Routing::getCurrentRoute();
 
@@ -105,17 +116,15 @@ if ($route === '/import-status') {
     // phpcs:enable
 }
 
-$containerBuilder = new ContainerBuilder();
-$loader = new PhpFileLoader($containerBuilder, new FileLocator(__DIR__));
-$loader->load('services_loader.php');
+$containerBuilder = Core::getContainerBuilder();
 
 /**
  * Load gettext functions.
  */
 Loader::loadFunctions();
 
-/** @var ErrorHandler $error_handler */
-$error_handler = $containerBuilder->get('error_handler');
+/** @var ErrorHandler $errorHandler */
+$errorHandler = $containerBuilder->get('error_handler');
 
 /**
  * Warning about missing PHP extensions.
@@ -140,9 +149,9 @@ $isConfigLoading = false;
  * Force reading of config file, because we removed sensitive values
  * in the previous iteration.
  *
- * @var Config $PMA_Config
+ * @var Config $config
  */
-$PMA_Config = $containerBuilder->get('config');
+$config = $containerBuilder->get('config');
 
 register_shutdown_function([Config::class, 'fatalErrorHandler']);
 
@@ -150,7 +159,7 @@ register_shutdown_function([Config::class, 'fatalErrorHandler']);
  * include session handling after the globals, to prevent overwriting
  */
 if (! defined('PMA_NO_SESSION')) {
-    Session::setUp($PMA_Config, $error_handler);
+    Session::setUp($config, $errorHandler);
 }
 
 /**
@@ -160,12 +169,12 @@ if (! defined('PMA_NO_SESSION')) {
 /**
  * holds parameters to be passed to next page
  *
- * @global array $url_params
+ * @global array $urlParams
  */
-$url_params = [];
-$containerBuilder->setParameter('url_params', $url_params);
+$urlParams = [];
+$containerBuilder->setParameter('url_params', $urlParams);
 
-Core::setGotoAndBackGlobals($containerBuilder, $PMA_Config);
+Core::setGotoAndBackGlobals($containerBuilder, $config);
 
 Core::checkTokenRequestParam();
 
@@ -180,6 +189,7 @@ $sql_query = '';
 if (Core::isValid($_POST['sql_query'])) {
     $sql_query = $_POST['sql_query'];
 }
+
 $containerBuilder->setParameter('sql_query', $sql_query);
 
 //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
@@ -198,8 +208,8 @@ $language->activate();
  * check for errors occurred while loading configuration
  * this check is done here after loading language files to present errors in locale
  */
-$PMA_Config->checkPermissions();
-$PMA_Config->checkErrors();
+$config->checkPermissions();
+$config->checkErrors();
 
 /* Check server configuration */
 Core::checkConfiguration();
@@ -209,114 +219,116 @@ Core::checkRequest();
 
 /* setup servers                                       LABEL_setup_servers    */
 
-$PMA_Config->checkServers();
+$config->checkServers();
 
 /**
  * current server
  *
  * @global integer $server
  */
-$server = $PMA_Config->selectServer();
-$url_params['server'] = $server;
+$server = $config->selectServer();
+$urlParams['server'] = $server;
 $containerBuilder->setParameter('server', $server);
-$containerBuilder->setParameter('url_params', $url_params);
+$containerBuilder->setParameter('url_params', $urlParams);
 
 /**
  * BC - enable backward compatibility
  * exports all configuration settings into globals ($cfg global)
  */
-$PMA_Config->enableBc();
+$config->enableBc();
 
 /* setup themes                                          LABEL_theme_setup    */
 
-$PMA_Theme = ThemeManager::initializeTheme();
+$theme = ThemeManager::initializeTheme();
 
 /** @var DatabaseInterface $dbi */
 $dbi = null;
 
-if (! defined('PMA_MINIMUM_COMMON')) {
-    /**
-     * save some settings in cookies
-     *
-     * @todo should be done in PhpMyAdmin\Config
-     */
-    $PMA_Config->setCookie('pma_lang', (string) $lang);
+if (defined('PMA_MINIMUM_COMMON')) {
+    $config->loadUserPreferences();
+    $containerBuilder->set('theme_manager', ThemeManager::getInstance());
+    Tracker::enable();
 
-    ThemeManager::getInstance()->setThemeCookie();
-
-    $dbi = DatabaseInterface::load();
-    $containerBuilder->set(DatabaseInterface::class, $dbi);
-    $containerBuilder->setAlias('dbi', DatabaseInterface::class);
-
-    if (! empty($cfg['Server'])) {
-        $PMA_Config->getLoginCookieValidityFromCache($server);
-
-        $auth_plugin = Plugins::getAuthPlugin();
-        $auth_plugin->authenticate();
-
-        Core::connectToDatabaseServer($dbi, $auth_plugin);
-
-        $auth_plugin->rememberCredentials();
-
-        $auth_plugin->checkTwoFactor();
-
-        /* Log success */
-        Logging::logUser($cfg['Server']['user']);
-
-        if ($dbi->getVersion() < $cfg['MysqlMinVersion']['internal']) {
-            Core::fatalError(
-                __('You should upgrade to %s %s or later.'),
-                [
-                    'MySQL',
-                    $cfg['MysqlMinVersion']['human'],
-                ]
-            );
-        }
-
-        // Sets the default delimiter (if specified).
-        if (! empty($_REQUEST['sql_delimiter'])) {
-            Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
-        }
-
-        // TODO: Set SQL modes too.
-    } else { // end server connecting
-        $response = Response::getInstance();
-        $response->getHeader()->disableMenuAndConsole();
-        $response->getFooter()->setMinimal();
-    }
-
-    $response = Response::getInstance();
-
-    Profiling::check($dbi, $response);
-
-    /*
-     * There is no point in even attempting to process
-     * an ajax request if there is a token mismatch
-     */
-    if ($response->isAjax() && $_SERVER['REQUEST_METHOD'] === 'POST' && $token_mismatch) {
-        $response->setRequestStatus(false);
-        $response->addJSON(
-            'message',
-            Message::error(__('Error: Token mismatch'))
-        );
-        exit;
-    }
-
-    $containerBuilder->set('response', Response::getInstance());
+    return;
 }
 
+/**
+ * save some settings in cookies
+ *
+ * @todo should be done in PhpMyAdmin\Config
+ */
+$config->setCookie('pma_lang', (string) $lang);
+
+ThemeManager::getInstance()->setThemeCookie();
+
+$dbi = DatabaseInterface::load();
+$containerBuilder->set(DatabaseInterface::class, $dbi);
+$containerBuilder->setAlias('dbi', DatabaseInterface::class);
+
+if (! empty($cfg['Server'])) {
+    $config->getLoginCookieValidityFromCache($server);
+
+    $auth_plugin = Plugins::getAuthPlugin();
+    $auth_plugin->authenticate();
+
+    Core::connectToDatabaseServer($dbi, $auth_plugin);
+
+    $auth_plugin->rememberCredentials();
+
+    $auth_plugin->checkTwoFactor();
+
+    /* Log success */
+    Logging::logUser($cfg['Server']['user']);
+
+    if ($dbi->getVersion() < $cfg['MysqlMinVersion']['internal']) {
+        Core::fatalError(
+            __('You should upgrade to %s %s or later.'),
+            [
+                'MySQL',
+                $cfg['MysqlMinVersion']['human'],
+            ]
+        );
+    }
+
+    // Sets the default delimiter (if specified).
+    if (! empty($_REQUEST['sql_delimiter'])) {
+        Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
+    }
+
+    // TODO: Set SQL modes too.
+} else { // end server connecting
+    $response = Response::getInstance();
+    $response->getHeader()->disableMenuAndConsole();
+    $response->getFooter()->setMinimal();
+}
+
+$response = Response::getInstance();
+
+/**
+ * There is no point in even attempting to process
+ * an ajax request if there is a token mismatch
+ */
+if ($response->isAjax() && $_SERVER['REQUEST_METHOD'] === 'POST' && $token_mismatch) {
+    $response->setRequestStatus(false);
+    $response->addJSON(
+        'message',
+        Message::error(__('Error: Token mismatch'))
+    );
+    exit;
+}
+
+Profiling::check($dbi, $response);
+
+$containerBuilder->set('response', Response::getInstance());
+
 // load user preferences
-$PMA_Config->loadUserPreferences();
+$config->loadUserPreferences();
 
 $containerBuilder->set('theme_manager', ThemeManager::getInstance());
 
 /* Tell tracker that it can actually work */
 Tracker::enable();
 
-if (! defined('PMA_MINIMUM_COMMON')
-    && ! empty($server)
-    && isset($cfg['ZeroConf'])
-    && $cfg['ZeroConf'] == true
-) {
+if (! empty($server) && isset($cfg['ZeroConf']) && $cfg['ZeroConf'] === true) {
     $dbi->postConnectControl();
 }

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Database;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+
 use function array_intersect;
 use function array_key_exists;
 use function count;
@@ -126,7 +127,8 @@ class Search
     {
         $this->tablesNamesOnly = $this->dbi->getTables($this->db);
 
-        if (empty($_POST['criteriaSearchType'])
+        if (
+            empty($_POST['criteriaSearchType'])
             || ! is_string($_POST['criteriaSearchType'])
             || ! array_key_exists(
                 $_POST['criteriaSearchType'],
@@ -137,11 +139,11 @@ class Search
             unset($_POST['submit_search']);
         } else {
             $this->criteriaSearchType = (int) $_POST['criteriaSearchType'];
-            $this->searchTypeDescription
-                = $this->searchTypes[$_POST['criteriaSearchType']];
+            $this->searchTypeDescription = $this->searchTypes[$_POST['criteriaSearchType']];
         }
 
-        if (empty($_POST['criteriaSearchString'])
+        if (
+            empty($_POST['criteriaSearchString'])
             || ! is_string($_POST['criteriaSearchString'])
         ) {
             $this->criteriaSearchString = '';
@@ -151,7 +153,8 @@ class Search
         }
 
         $this->criteriaTables = [];
-        if (empty($_POST['criteriaTables'])
+        if (
+            empty($_POST['criteriaTables'])
             || ! is_array($_POST['criteriaTables'])
         ) {
             unset($_POST['submit_search']);
@@ -162,7 +165,8 @@ class Search
             );
         }
 
-        if (empty($_POST['criteriaColumnName'])
+        if (
+            empty($_POST['criteriaColumnName'])
             || ! is_string($_POST['criteriaColumnName'])
         ) {
             unset($this->criteriaColumnName);
@@ -244,10 +248,12 @@ class Search
             if (strlen($search_word) === 0) {
                 continue;
             }
+
             $likeClausesPerColumn = [];
             // for each column in the table
             foreach ($allColumns as $column) {
-                if (isset($this->criteriaColumnName)
+                if (
+                    isset($this->criteriaColumnName)
                     && strlen($this->criteriaColumnName) !== 0
                     && $column['Field'] != $this->criteriaColumnName
                 ) {
@@ -261,12 +267,14 @@ class Search
                     . $automatic_wildcard . $search_word . $automatic_wildcard
                     . "'";
             }
+
             if (count($likeClausesPerColumn) <= 0) {
                 continue;
             }
 
             $likeClauses[] = implode(' OR ', $likeClausesPerColumn);
         }
+
         // Use 'OR' if 'at least one word' is to be searched, else use 'AND'
         $implode_str  = ($this->criteriaSearchType == 1 ? ' OR ' : ' AND ');
         if (empty($likeClauses)) {

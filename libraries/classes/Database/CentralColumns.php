@@ -12,6 +12,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+
 use function array_unique;
 use function bin2hex;
 use function ceil;
@@ -132,6 +133,7 @@ class CentralColumns
         if (! is_array($cfgCentralColumns)) {
             return [];
         }
+
         $pmadb = $cfgCentralColumns['db'];
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
@@ -144,6 +146,7 @@ class CentralColumns
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' '
                 . 'LIMIT ' . $from . ', ' . $num . ';';
         }
+
         $has_list = (array) $this->dbi->fetchResult(
             $query,
             null,
@@ -168,6 +171,7 @@ class CentralColumns
         if (! is_array($cfgCentralColumns)) {
             return 0;
         }
+
         $pmadb = $cfgCentralColumns['db'];
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
@@ -206,6 +210,7 @@ class CentralColumns
         if (! is_array($cfgCentralColumns)) {
             return [];
         }
+
         $pmadb = $cfgCentralColumns['db'];
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
@@ -261,9 +266,11 @@ class CentralColumns
             $type = $extracted_columnspec['type'];
             $length = $extracted_columnspec['spec_in_brackets'];
         }
+
         if (isset($def['Attribute'])) {
             $attribute = $def['Attribute'];
         }
+
         $collation = $def['Collation'] ?? '';
         $isNull = $def['Null'] === 'NO' ? '0' : '1';
         $extra = $def['Extra'] ?? '';
@@ -305,6 +312,7 @@ class CentralColumns
                 __('The configuration storage is not ready for the central list of columns feature.')
             );
         }
+
         $db = $_POST['db'];
         $pmadb = $cfgCentralColumns['db'];
         $central_list_table = $cfgCentralColumns['table'];
@@ -347,9 +355,11 @@ class CentralColumns
             if ($table === null) {
                 $table = $_POST['table'];
             }
+
             foreach ($field_select as $column) {
                 $cols .= "'" . $this->dbi->escapeString($column) . "',";
             }
+
             $has_list = $this->findExistingColNames($db, trim($cols, ','));
             foreach ($field_select as $column) {
                 if (! in_array($column, $has_list)) {
@@ -371,6 +381,7 @@ class CentralColumns
                 }
             }
         }
+
         if (! empty($existingCols)) {
             $existingCols = implode(',', array_unique($existingCols));
             $message = Message::notice(
@@ -388,6 +399,7 @@ class CentralColumns
                 )
             );
         }
+
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         if (! empty($insQuery)) {
             foreach ($insQuery as $query) {
@@ -429,6 +441,7 @@ class CentralColumns
                 __('The configuration storage is not ready for the central list of columns feature.')
             );
         }
+
         $pmadb = $cfgCentralColumns['db'];
         $central_list_table = $cfgCentralColumns['table'];
         $this->dbi->selectDb($database);
@@ -446,6 +459,7 @@ class CentralColumns
                     $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
                 }
             }
+
             $cols = trim($cols, ',');
             $has_list = $this->findExistingColNames($database, $cols);
             foreach ($field_select as $table) {
@@ -462,6 +476,7 @@ class CentralColumns
             foreach ($field_select as $col_select) {
                 $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
             }
+
             $cols = trim($cols, ',');
             $has_list = $this->findExistingColNames($database, $cols);
             foreach ($field_select as $column) {
@@ -472,6 +487,7 @@ class CentralColumns
                 $colNotExist[] = "'" . $column . "'";
             }
         }
+
         if (! empty($colNotExist)) {
             $colNotExist = implode(',', array_unique($colNotExist));
             $message = Message::notice(
@@ -484,6 +500,7 @@ class CentralColumns
                 )
             );
         }
+
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
 
         $query = 'DELETE FROM ' . Util::backquote($central_list_table) . ' '
@@ -547,7 +564,8 @@ class CentralColumns
 
                 $query .= ' ' . $column['col_extra'];
                 if ($column['col_default']) {
-                    if ($column['col_default'] !== 'CURRENT_TIMESTAMP'
+                    if (
+                        $column['col_default'] !== 'CURRENT_TIMESTAMP'
                         && $column['col_default'] !== 'current_timestamp()'
                     ) {
                         $query .= ' DEFAULT \'' . $this->dbi->escapeString(
@@ -559,8 +577,10 @@ class CentralColumns
                         );
                     }
                 }
+
                 $query .= ',';
             }
+
             $query = trim($query, ' ,') . ';';
             if ($this->dbi->tryQuery($query)) {
                 continue;
@@ -571,10 +591,7 @@ class CentralColumns
                     (string) $this->dbi->getError()
                 );
             } else {
-                $message->addText(
-                    $this->dbi->getError(),
-                    '<br>'
-                );
+                $message->addText((string) $this->dbi->getError(), '<br>');
             }
         }
 
@@ -601,6 +618,7 @@ class CentralColumns
         if (empty($cfgCentralColumns)) {
             return [];
         }
+
         $this->dbi->selectDb($db);
         $fields = (array) $this->dbi->getColumnNames(
             $db,
@@ -610,6 +628,7 @@ class CentralColumns
         foreach ($fields as $col_select) {
             $cols .= '\'' . $this->dbi->escapeString((string) $col_select) . '\',';
         }
+
         $cols = trim($cols, ',');
         $has_list = $this->findExistingColNames($db, $cols, $allFields);
         if (! empty($has_list)) {
@@ -653,6 +672,7 @@ class CentralColumns
                 __('The configuration storage is not ready for the central list of columns feature.')
             );
         }
+
         $centralTable = $cfgCentralColumns['table'];
         $this->dbi->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
         if ($orig_col_name == '') {
@@ -661,6 +681,7 @@ class CentralColumns
             if ($col_length) {
                 $def['Type'] .= '(' . $col_length . ')';
             }
+
             $def['Collation'] = $collation;
             $def['Null'] = $col_isNull ? __('YES') : __('NO');
             $def['Extra'] = $col_extra;
@@ -681,6 +702,7 @@ class CentralColumns
                 . 'AND col_name = \'' . $this->dbi->escapeString($orig_col_name)
                 . '\'';
         }
+
         if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             return Message::error(
                 (string) $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
@@ -802,6 +824,7 @@ class CentralColumns
         if (! is_array($cfgCentralColumns)) {
             return [];
         }
+
         $centralTable = $cfgCentralColumns['table'];
         if (empty($table) || $table == '') {
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
@@ -816,14 +839,17 @@ class CentralColumns
             foreach ($columns as $col_select) {
                 $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
             }
+
             $cols = trim($cols, ',');
             $query = 'SELECT * FROM ' . Util::backquote($centralTable) . ' '
                 . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\'';
             if ($cols) {
                 $query .= ' AND col_name NOT IN (' . $cols . ')';
             }
+
             $query .= ';';
         }
+
         $this->dbi->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
         $columns_list = (array) $this->dbi->fetchResult(
             $query,
@@ -882,6 +908,7 @@ class CentralColumns
         foreach ($selected_fld as $key) {
             $selected_fld_safe[] = $this->dbi->escapeString($key);
         }
+
         $columns_list = implode("','", $selected_fld_safe);
         $columns_list = "'" . $columns_list . "'";
         $list_detail_cols = $this->findExistingColNames($selected_db, $columns_list, true);
@@ -915,6 +942,7 @@ class CentralColumns
         if (! is_array($cfgCentralColumns)) {
             return 0;
         }
+
         $pmadb = $cfgCentralColumns['db'];
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         $central_list_table = $cfgCentralColumns['table'];
@@ -1004,6 +1032,7 @@ class CentralColumns
                 $rows_meta[$row_num]['DefaultType'] = 'USER_DEFINED';
                 $rows_meta[$row_num]['DefaultValue'] = $row['col_default'];
             }
+
             $types_upper[$row_num] = mb_strtoupper((string) $row['col_type']);
 
             // For a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default value
@@ -1034,6 +1063,7 @@ class CentralColumns
                     'description' => $collation->getDescription(),
                 ];
             }
+
             $charsetsList[] = [
                 'name' => $charset->getName(),
                 'description' => $charset->getDescription(),

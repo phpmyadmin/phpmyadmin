@@ -462,12 +462,6 @@ div.tools a {
   }
 }
 
-/* forbidden, no privilegs */
-.noPrivileges {
-  color: #f00;
-  font-weight: bold;
-}
-
 /* disabled text */
 
 .disabled {
@@ -567,16 +561,7 @@ div#modalOverlay {
   z-index: 900;
 }
 
-div#userPermissionModal {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0;
-  z-index: 1000;
-}
-
-form.login label {
+#login_form label {
   width: 10em;
   font-weight: bolder;
 }
@@ -693,7 +678,7 @@ div#tablestatistics table {
   top: 0;
   right: 0;
   z-index: 99;
-  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+  padding: $breadcrumb-navbar-padding-y $breadcrumb-padding-x;
 }
 
 #page_settings_icon {
@@ -806,11 +791,6 @@ h3#serverstatusqueries span {
   display: inline;
 }
 
-.buttonlinks {
-  float: right;
-  white-space: nowrap;
-}
-
 .pma-fieldset#tableFilter {
   padding: 0.1em 1em;
 }
@@ -910,16 +890,6 @@ div#logTable {
   padding-left: 7px;
 }
 
-#sectionlinks {
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ccc;
-
-  a {
-    margin-right: 7px;
-  }
-}
-
 /* profiling */
 div#profilingchart {
   width: 850px;
@@ -987,17 +957,6 @@ textarea {
   background: #fff;
 }
 
-/* end main page */
-
-/* iconic view for ul items */
-
-li.no_bullets {
-  list-style-type: none !important;
-  margin-left: -25px !important;
-}
-
-/* end iconic view for ul items */
-
 #body_browse_foreigners {
   background: $navi-background;
   margin: 0.5em 0.5em 0 0.5em;
@@ -1053,6 +1012,7 @@ kbd {
 }
 
 code {
+  font-size: 1em;
   color: $main-color;
 
   &.php {
@@ -1968,7 +1928,7 @@ input#auto_increment_opt {
 }
 
 .cDrop {
-  left: 0;
+  right: 0;
   position: absolute;
   top: 0;
 }
@@ -1977,9 +1937,7 @@ input#auto_increment_opt {
   background: url("../img/col_drop.png");
   cursor: pointer;
   height: 16px;
-  margin-left: 0.5em;
   margin-top: 0.3em;
-  position: absolute;
   width: 16px;
 
   &:hover {
@@ -1995,6 +1953,8 @@ input#auto_increment_opt {
   background: #eee;
   border: solid 1px #999;
   position: absolute;
+  margin-left: 75%;
+  right: 0;
 
   .lDiv div {
     padding: 0.2em 0.5em 0.2em 0.2em;
@@ -3047,6 +3007,10 @@ body {
     overflow-x: auto;
   }
 
+  .sticky {
+    top: 0;
+  }
+
   body#loginform div.container {
     width: 100%;
   }
@@ -3120,7 +3084,7 @@ body {
   pointer-events: none;
 }
 
-#filter_query_text {
+#filterQueryText {
   vertical-align: baseline;
 }
 

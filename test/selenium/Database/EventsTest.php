@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+
 use function date;
 use function sleep;
 use function strtotime;
@@ -84,7 +85,7 @@ class EventsTest extends TestBase
         $this->waitForElement('partialLinkText', 'Events')->click();
         $this->waitAjax();
 
-        $this->waitForElement('partialLinkText', 'Add event')->click();
+        $this->waitForElement('partialLinkText', 'Create new event')->click();
         $this->waitAjax();
 
         $this->waitForElement('className', 'rte_form');
@@ -175,7 +176,7 @@ class EventsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            "//legend[contains(., 'Events')]"
+            '//div[contains(., "Event scheduler status")]'
         );
 
         $this->byPartialLinkText('Edit')->click();
@@ -217,7 +218,7 @@ class EventsTest extends TestBase
 
         $this->waitForElement(
             'xpath',
-            '//legend[contains(., "Events")]'
+            '//div[contains(., "Event scheduler status")]'
         );
 
         $this->byPartialLinkText('Drop')->click();

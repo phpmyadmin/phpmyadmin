@@ -11,20 +11,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
 
+use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Message;
+
 use function is_array;
 
 class Response extends \PhpMyAdmin\Response
 {
-    /**
-     * PhpMyAdmin\Header instance
-     *
-     * @access private
-     * @var Header
-     */
-    protected $header;
-
     /**
      * HTML data to be used in the response
      *
@@ -43,23 +37,6 @@ class Response extends \PhpMyAdmin\Response
     protected $json;
 
     /**
-     * Whether there were any errors during the processing of the request
-     * Only used for ajax responses
-     *
-     * @access private
-     * @var bool
-     */
-    protected $isSuccess;
-
-    /**
-     * Whether we are servicing an ajax request.
-     *
-     * @access private
-     * @var bool
-     */
-    private $isAjax;
-
-    /**
      * Creates a new class instance
      */
     public function __construct()
@@ -71,17 +48,15 @@ class Response extends \PhpMyAdmin\Response
 
         $GLOBALS['lang'] = 'en';
         $this->header = new Header();
+        $this->footer = new Footer();
     }
 
     /**
      * Add HTML code to the response stub
      *
-     * @param string $content A string to be appended to
-     *                        the current output buffer
-     *
-     * @return void
+     * @param string|Message|array<int, string|Message> $content
      */
-    public function addHTML($content)
+    public function addHTML($content): void
     {
         if (is_array($content)) {
             foreach ($content as $msg) {
@@ -97,25 +72,20 @@ class Response extends \PhpMyAdmin\Response
     /**
      * Add JSON code to the response stub
      *
-     * @param mixed $json  Either a key (string) or an
-     *                     array or key-value pairs
-     * @param mixed $value Null, if passing an array in $json otherwise
-     *                     it's a string value to the key
-     *
-     * @return void
+     * @param array-key|array<array-key, mixed> $json  Either a key (string) or an array or key-value pairs
+     * @param mixed|null                        $value Null, if passing an array in $json otherwise
+     *                                                 it's a string value to the key
      */
-    public function addJSON($json, $value = null)
+    public function addJSON($json, $value = null): void
     {
         if (is_array($json)) {
             foreach ($json as $key => $value) {
                 $this->addJSON($key, $value);
             }
+        } elseif ($value instanceof Message) {
+            $this->json[$json] = $value->getDisplay();
         } else {
-            if ($value instanceof Message) {
-                $this->json[$json] = $value->getDisplay();
-            } else {
-                $this->json[$json] = $value;
-            }
+            $this->json[$json] = $value;
         }
     }
 

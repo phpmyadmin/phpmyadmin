@@ -25,7 +25,7 @@ class EventsTest extends AbstractTestCase
         parent::setLanguage();
         parent::setTheme();
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -57,6 +57,7 @@ class EventsTest extends AbstractTestCase
 
             $_POST[$key] = $value;
         }
+
         $this->assertEquals($out, $this->events->getDataFromRequest());
     }
 

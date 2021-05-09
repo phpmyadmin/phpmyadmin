@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Gis;
 
 use TCPDF;
+
 use function array_merge;
 use function array_push;
 use function array_slice;
@@ -249,12 +250,11 @@ class GisPolygon extends GisGeometry
         ];
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon
-            = mb_substr(
-                $spatial,
-                9,
-                mb_strlen($spatial) - 11
-            );
+        $polygon = mb_substr(
+            $spatial,
+            9,
+            mb_strlen($spatial) - 11
+        );
 
         $row = '<path d="';
 
@@ -278,6 +278,7 @@ class GisPolygon extends GisGeometry
         foreach ($polygon_options as $option => $val) {
             $row .= ' ' . $option . '="' . trim((string) $val) . '"';
         }
+
         $row .= '/>';
 
         return $row;
@@ -313,21 +314,21 @@ class GisPolygon extends GisGeometry
             $text_style = ['text' => $label];
             $row .= ',text: new ol.style.Text(' . json_encode($text_style) . ')';
         }
+
         $row .= '});';
 
         if ($srid == 0) {
             $srid = 4326;
         }
+
         $row .= $this->getBoundsForOl($srid, $scale_data);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon
-            =
-            mb_substr(
-                $spatial,
-                9,
-                mb_strlen($spatial) - 11
-            );
+        $polygon = mb_substr(
+            $spatial,
+            9,
+            mb_strlen($spatial) - 11
+        );
 
         // Separate outer and inner polygons
         $parts = explode('),(', $polygon);
@@ -357,6 +358,7 @@ class GisPolygon extends GisGeometry
         foreach ($other_points as $point) {
             $row .= ' L ' . $point[0] . ', ' . $point[1];
         }
+
         $row .= ' Z ';
 
         return $row;
@@ -386,6 +388,7 @@ class GisPolygon extends GisGeometry
             if ($no_of_points < 4) {
                 $no_of_points = 4;
             }
+
             $wkt .= '(';
             for ($j = 0; $j < $no_of_points; $j++) {
                 $wkt .= (isset($gis_data[$index]['POLYGON'][$i][$j]['x'])
@@ -395,22 +398,20 @@ class GisPolygon extends GisGeometry
                         && trim((string) $gis_data[$index]['POLYGON'][$i][$j]['y']) != ''
                         ? $gis_data[$index]['POLYGON'][$i][$j]['y'] : $empty) . ',';
             }
-            $wkt
-                =
-                mb_substr(
-                    $wkt,
-                    0,
-                    mb_strlen($wkt) - 1
-                );
-            $wkt .= '),';
-        }
-        $wkt
-            =
-            mb_substr(
+
+            $wkt = mb_substr(
                 $wkt,
                 0,
                 mb_strlen($wkt) - 1
             );
+            $wkt .= '),';
+        }
+
+        $wkt = mb_substr(
+            $wkt,
+            0,
+            mb_strlen($wkt) - 1
+        );
 
         return $wkt . ')';
     }
@@ -431,7 +432,8 @@ class GisPolygon extends GisGeometry
 
         // If the last point is same as the first point ignore it
         $last = count($ring) - 1;
-        if (($ring[0]['x'] == $ring[$last]['x'])
+        if (
+            ($ring[0]['x'] == $ring[$last]['x'])
             && ($ring[0]['y'] == $ring[$last]['y'])
         ) {
             $no_of_points--;
@@ -447,6 +449,7 @@ class GisPolygon extends GisGeometry
             $area += $ring[$i]['x'] * $ring[$j]['y'];
             $area -= $ring[$i]['y'] * $ring[$j]['x'];
         }
+
         $area /= 2.0;
 
         return $area;
@@ -485,7 +488,8 @@ class GisPolygon extends GisGeometry
     {
         // If first point is repeated at the end remove it
         $last = count($polygon) - 1;
-        if (($polygon[0]['x'] == $polygon[$last]['x'])
+        if (
+            ($polygon[0]['x'] == $polygon[$last]['x'])
             && ($polygon[0]['y'] == $polygon[$last]['y'])
         ) {
             $polygon = array_slice($polygon, 0, $last);
@@ -598,7 +602,8 @@ class GisPolygon extends GisGeometry
         }
     }
 
-    /** Generate parameters for the GIS data editor from the value of the GIS column.
+    /**
+     * Generate parameters for the GIS data editor from the value of the GIS column.
      *
      * @param string $value Value of the GIS column
      * @param int    $index Index of the geometry
@@ -621,13 +626,11 @@ class GisPolygon extends GisGeometry
         }
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
-        $polygon
-            =
-            mb_substr(
-                $wkt,
-                9,
-                mb_strlen($wkt) - 11
-            );
+        $polygon = mb_substr(
+            $wkt,
+            9,
+            mb_strlen($wkt) - 11
+        );
         // Separate each linestring
         $linerings = explode('),(', $polygon);
         $params[$index]['POLYGON']['no_of_lines'] = count($linerings);
@@ -641,6 +644,7 @@ class GisPolygon extends GisGeometry
                 $params[$index]['POLYGON'][$j][$i]['x'] = $points_arr[$i][0];
                 $params[$index]['POLYGON'][$j][$i]['y'] = $points_arr[$i][1];
             }
+
             $j++;
         }
 

@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
 
@@ -22,7 +21,7 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
     public function __construct()
     {
         parent::__construct(__('Functions'), Node::CONTAINER);
-        $this->icon = Generator::getImage('b_routines', __('Functions'));
+        $this->icon = ['image' => 'b_routines', 'title' => __('Functions')];
         $this->links = [
             'text' => Url::getFromRoute('/database/routines', [
                 'server' => $GLOBALS['server'],
@@ -40,7 +39,7 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
             $newLabel,
             'new_function italics'
         );
-        $new->icon = Generator::getImage('b_routine_add', $newLabel);
+        $new->icon = ['image' => 'b_routine_add', 'title' => $newLabel];
         $new->links = [
             'text' => Url::getFromRoute('/database/routines', [
                 'server' => $GLOBALS['server'],

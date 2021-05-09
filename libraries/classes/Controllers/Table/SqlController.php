@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function htmlspecialchars;
 
 /**
@@ -34,7 +35,7 @@ final class SqlController extends AbstractController
 
     public function index(): void
     {
-        global $err_url, $goto, $back, $db, $table, $cfg;
+        global $errorUrl, $goto, $back, $db, $table, $cfg;
 
         $this->addScriptFiles([
             'makegrid.js',
@@ -50,8 +51,8 @@ final class SqlController extends AbstractController
         Util::checkParameters(['db', 'table']);
 
         $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($url_params, '&');
 
         DbTableExists::check();
 

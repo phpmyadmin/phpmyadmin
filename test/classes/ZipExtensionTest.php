@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ZipExtension;
 use ZipArchive;
+
 use function fclose;
 use function fopen;
 use function fwrite;

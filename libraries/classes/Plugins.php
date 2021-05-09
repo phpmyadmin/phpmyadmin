@@ -25,6 +25,7 @@ use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
+
 use function array_pop;
 use function class_exists;
 use function count;
@@ -154,7 +155,8 @@ class Plugins
             // (for example ._csv.php) so the following regexp
             // matches a file which does not start with a dot but ends
             // with ".php"
-            if (! is_file($plugins_dir . $file)
+            if (
+                ! is_file($plugins_dir . $file)
                 || ! preg_match(
                     '@^' . $class_type . '([^\.]+)\.php$@i',
                     $file,
@@ -224,7 +226,8 @@ class Plugins
     public static function checkboxCheck($section, $opt)
     {
         // If the form is being repopulated using $_GET data, that is priority
-        if (isset($_GET[$opt])
+        if (
+            isset($_GET[$opt])
             || ! isset($_GET['repopulate'])
             && ((! empty($GLOBALS['timeout_passed']) && isset($_REQUEST[$opt]))
             || ! empty($GLOBALS['cfg'][$section][$opt]))
@@ -261,11 +264,13 @@ class Plugins
 
         $matches = [];
         /* Possibly replace localised texts */
-        if (! preg_match_all(
-            '/(str[A-Z][A-Za-z0-9]*)/',
-            (string) $GLOBALS['cfg'][$section][$opt],
-            $matches
-        )) {
+        if (
+            ! preg_match_all(
+                '/(str[A-Z][A-Za-z0-9]*)/',
+                (string) $GLOBALS['cfg'][$section][$opt],
+                $matches
+            )
+        ) {
             return htmlspecialchars((string) $GLOBALS['cfg'][$section][$opt]);
         }
 
@@ -298,6 +303,7 @@ class Plugins
         if (! isset($cfgname)) {
             $cfgname = $name;
         }
+
         $ret = '<select id="plugins" name="' . $name . '">';
         $default = self::getDefault($section, $cfgname);
         $hidden = null;
@@ -313,7 +319,8 @@ class Plugins
             );
             $ret .= '<option';
              // If the form is being repopulated using $_GET data, that is priority
-            if (isset($_GET[$name])
+            if (
+                isset($_GET[$name])
                 && $plugin_name == $_GET[$name]
                 || ! isset($_GET[$name])
                 && $plugin_name == $default
@@ -327,6 +334,7 @@ class Plugins
             if ($properties != null) {
                 $text = $properties->getText();
             }
+
             $ret .= ' value="' . $plugin_name . '">'
                . self::getString($text)
                . '</option>' . "\n";
@@ -336,15 +344,18 @@ class Plugins
                 . '" value="';
             /** @var ExportPluginProperties|SchemaPluginProperties $properties */
             $properties = $plugin->getProperties();
-            if (! strcmp($section, 'Import')
+            if (
+                ! strcmp($section, 'Import')
                 || ($properties != null && $properties->getForceFile() != null)
             ) {
                 $hidden .= 'true';
             } else {
                 $hidden .= 'false';
             }
+
             $hidden .= '">' . "\n";
         }
+
         $ret .= '</select>' . "\n" . $hidden;
 
         return $ret;
@@ -386,6 +397,7 @@ class Plugins
                 if ($text != null) {
                     $ret .= '<h4>' . self::getString($text) . '</h4>';
                 }
+
                 $ret .= '<ul>';
             }
         }
@@ -474,7 +486,8 @@ class Plugins
 
         // Close the list element after $doc link is displayed
         if ($property_class !== null) {
-            if ($property_class == BoolPropertyItem::class
+            if (
+                $property_class == BoolPropertyItem::class
                 || $property_class == MessageOnlyPropertyItem::class
                 || $property_class == SelectPropertyItem::class
                 || $property_class == TextPropertyItem::class
@@ -526,6 +539,7 @@ class Plugins
                         . '\').checked)) '
                         . 'return false; else return true;"';
                 }
+
                 $ret .= '>';
                 $ret .= '<label for="checkbox_' . $plugin_name . '_'
                 . $propertyItem->getName() . '">'
@@ -566,10 +580,12 @@ class Plugins
                     if ($key == $default) {
                         $ret .= ' checked="checked"';
                     }
+
                     $ret .= '><label for="radio_' . $plugin_name . '_'
                     . $pitem->getName() . '_' . $key . '">'
                     . self::getString($val) . '</label></li>';
                 }
+
                 break;
             case SelectPropertyItem::class:
                 /**
@@ -593,6 +609,7 @@ class Plugins
                     if ($key == $default) {
                         $ret .= ' selected="selected"';
                     }
+
                     $ret .= '>' . self::getString($val) . '</option>';
                 }
 
@@ -704,6 +721,7 @@ class Plugins
             if ($no_options) {
                 $ret .= '<p>' . __('This format has no options') . '</p>';
             }
+
             $ret .= '</div>';
         }
 

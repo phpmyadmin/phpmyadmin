@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+
 use function ob_get_clean;
 use function ob_start;
 use function phpversion;
@@ -26,11 +27,10 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setGlobalConfig();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -238,7 +238,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -260,7 +260,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -281,7 +281,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -306,7 +306,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -316,7 +316,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('getError')
             ->will($this->returnValue('error<123>'));
 
@@ -338,7 +338,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()
-            ->setMethods(['showLoginForm'])
+            ->onlyMethods(['showLoginForm'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -348,7 +348,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects($this->at(0))
+        $dbi->expects($this->once())
             ->method('getError')
             ->will($this->returnValue(null));
 
@@ -366,7 +366,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
     {
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
         ->disableOriginalConstructor()
-        ->setMethods(['setCookieParams'])
+        ->onlyMethods(['setCookieParams'])
         ->getMock();
 
         $this->object->setCookieParams([]);

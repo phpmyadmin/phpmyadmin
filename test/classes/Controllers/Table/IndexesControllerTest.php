@@ -16,6 +16,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Url;
+
 use function sprintf;
 
 class IndexesControllerTest extends AbstractTestCase
@@ -28,7 +29,6 @@ class IndexesControllerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::loadDefaultConfig();
         parent::setTheme();
 
@@ -42,7 +42,7 @@ class IndexesControllerTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
-        $GLOBALS['url_params'] = [
+        $GLOBALS['urlParams'] = [
             'db' => 'db',
             'server' => 1,
         ];

@@ -13,6 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Transformations;
 use stdClass;
+
 use function sprintf;
 
 class DatabasesControllerTest extends AbstractTestCase
@@ -22,7 +23,7 @@ class DatabasesControllerTest extends AbstractTestCase
         parent::setUp();
         parent::setGlobalConfig();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'pma_test';
@@ -112,7 +113,6 @@ class DatabasesControllerTest extends AbstractTestCase
 
     public function testCreateDatabaseAction(): void
     {
-        parent::defineVersionConstants();
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();

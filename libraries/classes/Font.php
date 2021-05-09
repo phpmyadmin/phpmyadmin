@@ -193,7 +193,8 @@ class Font
         int $fontSize,
         ?array $charLists = null
     ): int {
-        if (! isset($charLists[0]['chars'], $charLists[0]['modifier']) || empty($charLists)
+        if (
+            ! isset($charLists[0]['chars'], $charLists[0]['modifier']) || empty($charLists)
             || ! is_array($charLists[0]['chars'])
         ) {
             $charLists = $this->getCharLists();
@@ -239,6 +240,7 @@ class Font
                 $modifier = 1.23;
                 break;
         }
+
         $textWidth = $count * $fontSize;
 
         return (int) ceil($textWidth * $modifier);

@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\Navigation;
+
 use function defined;
 use function gmdate;
 use function header;
@@ -145,7 +146,8 @@ class Header
         // offer to load exported settings from localStorage
         // (detection will be done in JavaScript)
         $this->userprefsOfferImport = false;
-        if ($GLOBALS['PMA_Config']->get('user_preferences') === 'session'
+        if (
+            $GLOBALS['config']->get('user_preferences') === 'session'
             && ! isset($_SESSION['userprefs_autoload'])
         ) {
             $this->userprefsOfferImport = true;
@@ -165,14 +167,13 @@ class Header
         $this->scripts->addFile('vendor/sprintf.js');
         $this->scripts->addFile('ajax.js');
         $this->scripts->addFile('keyhandler.js');
-        $this->scripts->addFile('vendor/bootstrap/bootstrap.bundle.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui.min.js');
+        $this->scripts->addFile('name-conflict-fixes.js');
+        $this->scripts->addFile('vendor/bootstrap/bootstrap.bundle.min.js');
         $this->scripts->addFile('vendor/js.cookie.js');
         $this->scripts->addFile('vendor/jquery/jquery.mousewheel.js');
-        $this->scripts->addFile('vendor/jquery/jquery.event.drag-2.2.js');
         $this->scripts->addFile('vendor/jquery/jquery.validate.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
-        $this->scripts->addFile('vendor/jquery/jquery.ba-hashchange-2.0.js');
         $this->scripts->addFile('vendor/jquery/jquery.debounce-1.0.6.js');
         $this->scripts->addFile('menu_resizer.js');
 
@@ -201,9 +202,11 @@ class Header
         if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
             $this->scripts->addFile('drag_drop_import.js');
         }
-        if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {
+
+        if (! $GLOBALS['config']->get('DisableShortcutKeys')) {
             $this->scripts->addFile('shortcuts_handler.js');
         }
+
         $this->scripts->addCode($this->getJsParamsCode());
     }
 
@@ -248,10 +251,10 @@ class Header
             'LoginCookieValidity' => $GLOBALS['cfg']['LoginCookieValidity'],
             'session_gc_maxlifetime' => (int) ini_get('session.gc_maxlifetime'),
             'logged_in' => isset($dbi) ? $dbi->isConnected() : false,
-            'is_https' => $GLOBALS['PMA_Config']->isHttps(),
-            'rootPath' => $GLOBALS['PMA_Config']->getRootPath(),
+            'is_https' => $GLOBALS['config']->isHttps(),
+            'rootPath' => $GLOBALS['config']->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
         ];
         if (isset($GLOBALS['cfg']['Server'], $GLOBALS['cfg']['Server']['auth_type'])) {
             $params['auth_type'] = $GLOBALS['cfg']['Server']['auth_type'];
@@ -364,7 +367,7 @@ class Header
     public function enablePrintView(): void
     {
         $this->disableMenuAndConsole();
-        $this->setTitle(__('Print view') . ' - phpMyAdmin ' . PMA_VERSION);
+        $this->setTitle(__('Print view') . ' - phpMyAdmin ' . Version::VERSION);
         $this->isPrintView = true;
     }
 
@@ -375,7 +378,7 @@ class Header
      */
     public function getDisplay(): string
     {
-        global $db, $table, $PMA_Theme, $dbi;
+        global $db, $table, $theme, $dbi;
 
         if ($this->headerIsSent || ! $this->isEnabled) {
             return '';
@@ -393,8 +396,7 @@ class Header
         $this->sendHttpHeaders();
 
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
-        $uniqueValue = $GLOBALS['PMA_Config']->getThemeUniqueValue();
-        $themePath = $PMA_Theme instanceof Theme ? $PMA_Theme->getPath() : '';
+        $themePath = $theme instanceof Theme ? $theme->getPath() : '';
         $version = self::getVersionParameter();
 
         // The user preferences have been merged at this point
@@ -451,7 +453,6 @@ class Header
             'allow_third_party_framing' => $GLOBALS['cfg']['AllowThirdPartyFraming'],
             'is_print_view' => $this->isPrintView,
             'base_dir' => $baseDir,
-            'unique_value' => $uniqueValue,
             'theme_path' => $themePath,
             'version' => $version,
             'text_dir' => $GLOBALS['text_dir'],
@@ -486,13 +487,15 @@ class Header
         } elseif (! empty($_REQUEST['message'])) {
             $message = $_REQUEST['message'];
         }
+
         if (! empty($message)) {
             if (isset($GLOBALS['buffer_message'])) {
-                $buffer_message = $GLOBALS['buffer_message'];
+                $bufferMessage = $GLOBALS['buffer_message'];
             }
+
             $retval .= Generator::getMessage($message);
-            if (isset($buffer_message)) {
-                $GLOBALS['buffer_message'] = $buffer_message;
+            if (isset($bufferMessage)) {
+                $GLOBALS['buffer_message'] = $bufferMessage;
             }
         }
 
@@ -523,6 +526,7 @@ class Header
                 'X-Frame-Options: DENY'
             );
         }
+
         header(
             'Referrer-Policy: no-referrer'
         );
@@ -558,6 +562,7 @@ class Header
             // Define the charset to be used
             header('Content-Type: text/html; charset=utf-8');
         }
+
         $this->headerIsSent = true;
     }
 
@@ -570,16 +575,17 @@ class Header
         if (strlen($this->title) == 0) {
             if ($GLOBALS['server'] > 0) {
                 if (strlen($GLOBALS['table'])) {
-                    $temp_title = $GLOBALS['cfg']['TitleTable'];
+                    $tempTitle = $GLOBALS['cfg']['TitleTable'];
                 } elseif (strlen($GLOBALS['db'])) {
-                    $temp_title = $GLOBALS['cfg']['TitleDatabase'];
+                    $tempTitle = $GLOBALS['cfg']['TitleDatabase'];
                 } elseif (strlen($GLOBALS['cfg']['Server']['host'])) {
-                    $temp_title = $GLOBALS['cfg']['TitleServer'];
+                    $tempTitle = $GLOBALS['cfg']['TitleServer'];
                 } else {
-                    $temp_title = $GLOBALS['cfg']['TitleDefault'];
+                    $tempTitle = $GLOBALS['cfg']['TitleDefault'];
                 }
+
                 $this->title = htmlspecialchars(
-                    Util::expandUserString($temp_title)
+                    Util::expandUserString($tempTitle)
                 );
             } else {
                 $this->title = 'phpMyAdmin';
@@ -602,7 +608,8 @@ class Header
         $captchaUrl = '';
         $cspAllow = $cfg['CSPAllow'];
 
-        if (! empty($cfg['CaptchaApi'])
+        if (
+            ! empty($cfg['CaptchaApi'])
             && ! empty($cfg['CaptchaRequestParam'])
             && ! empty($cfg['CaptchaResponseParam'])
             && ! empty($cfg['CaptchaLoginPrivateKey'])
@@ -671,18 +678,19 @@ class Header
     private function addRecentTable(string $db, string $table): string
     {
         $retval = '';
-        if ($this->menuEnabled
+        if (
+            $this->menuEnabled
             && strlen($table) > 0
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
-            $tmp_result = RecentFavoriteTable::getInstance('recent')->add(
+            $tmpResult = RecentFavoriteTable::getInstance('recent')->add(
                 $db,
                 $table
             );
-            if ($tmp_result === true) {
+            if ($tmpResult === true) {
                 $retval = RecentFavoriteTable::getHtmlUpdateRecentTables();
             } else {
-                $error  = $tmp_result;
+                $error  = $tmpResult;
                 $retval = $error->getDisplay();
             }
         }
@@ -698,7 +706,7 @@ class Header
      */
     public static function getVersionParameter(): string
     {
-        return 'v=' . urlencode(PMA_VERSION);
+        return 'v=' . urlencode(Version::VERSION);
     }
 
     private function getVariablesForJavaScript(): string

@@ -38,10 +38,12 @@ class Linux extends Base
         if ($buf === false) {
             $buf = '';
         }
+
         $pos = mb_strpos($buf, "\n");
         if ($pos === false) {
             $pos = 0;
         }
+
         $nums = preg_split(
             '/\s+/',
             mb_substr(
@@ -89,6 +91,7 @@ class Linux extends Base
             $matches
         );
 
+        /** @var array<string, int>|false $mem */
         $mem = array_combine($matches[1], $matches[2]);
         if ($mem === false) {
             return [];
@@ -110,7 +113,6 @@ class Linux extends Base
             $mem[$idx] = intval($value);
         }
 
-        /** @var array<string, int> $mem */
         $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
         $mem['SwapUsed'] = $mem['SwapTotal'] - $mem['SwapFree'] - $mem['SwapCached'];
 

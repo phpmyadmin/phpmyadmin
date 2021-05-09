@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\VersionInformation;
+
 use function json_encode;
 
 /**
@@ -41,6 +42,7 @@ class VersionCheckController extends AbstractController
             $version = $latestCompatible['version'];
             $date = $latestCompatible['date'];
         }
+
         echo json_encode([
             'version' => ! empty($version) ? $version : '',
             'date' => ! empty($date) ? $date : '',

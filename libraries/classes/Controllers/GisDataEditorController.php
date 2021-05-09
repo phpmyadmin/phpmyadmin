@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Controllers;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisVisualization;
+
 use function array_merge;
 use function in_array;
 use function intval;
@@ -55,6 +56,7 @@ class GisDataEditorController extends AbstractController
             if (isset($_POST['type']) && $_POST['type'] != '') {
                 $gis_data['gis_type'] = mb_strtoupper($_POST['type']);
             }
+
             if (isset($_POST['value']) && trim($_POST['value']) != '') {
                 $start = substr($_POST['value'], 0, 1) == "'" ? 1 : 0;
                 $gis_data['gis_type'] = mb_substr(
@@ -63,12 +65,15 @@ class GisDataEditorController extends AbstractController
                     mb_strpos($_POST['value'], '(') - $start
                 );
             }
-            if (! isset($gis_data['gis_type'])
+
+            if (
+                ! isset($gis_data['gis_type'])
                 || (! in_array($gis_data['gis_type'], $gis_types))
             ) {
                 $gis_data['gis_type'] = $gis_types[0];
             }
         }
+
         $geom_type = $gis_data['gis_type'];
 
         // Generate parameters from value passed.

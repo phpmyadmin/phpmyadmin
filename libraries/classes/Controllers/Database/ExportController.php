@@ -13,6 +13,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_merge;
 use function is_array;
 
@@ -37,9 +38,9 @@ final class ExportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $sub_part, $url_params, $sql_query;
+        global $db, $table, $sub_part, $urlParams, $sql_query;
         global $tables, $num_tables, $total_num_tables, $tooltip_truename;
-        global $tooltip_aliasname, $pos, $table_select, $unlim_num_rows, $cfg, $err_url;
+        global $tooltip_aliasname, $pos, $table_select, $unlim_num_rows, $cfg, $errorUrl;
 
         $pageSettings = new PageSettings('Export');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
@@ -53,14 +54,14 @@ final class ExportController extends AbstractController
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;
         }
 
-        $url_params['goto'] = Url::getFromRoute('/database/export');
+        $urlParams['goto'] = Url::getFromRoute('/database/export');
 
         [
             $tables,
@@ -101,6 +102,7 @@ final class ExportController extends AbstractController
             } else {
                 $is_checked = true;
             }
+
             if (isset($_POST['table_structure']) && is_array($_POST['table_structure'])) {
                 $structure_checked = $this->export->getCheckedClause(
                     $each_table['Name'],
@@ -109,6 +111,7 @@ final class ExportController extends AbstractController
             } else {
                 $structure_checked = $is_checked;
             }
+
             if (isset($_POST['table_data']) && is_array($_POST['table_data'])) {
                 $data_checked = $this->export->getCheckedClause(
                     $each_table['Name'],
@@ -129,6 +132,7 @@ final class ExportController extends AbstractController
         if (! isset($sql_query)) {
             $sql_query = '';
         }
+
         if (! isset($unlim_num_rows)) {
             $unlim_num_rows = 0;
         }
@@ -140,7 +144,7 @@ final class ExportController extends AbstractController
             $export_type = 'database';
         }
 
-        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? null;
+        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? $GLOBALS['single_table'] ?? null;
 
         $exportList = Plugins::getExport($export_type, isset($GLOBALS['single_table']));
 

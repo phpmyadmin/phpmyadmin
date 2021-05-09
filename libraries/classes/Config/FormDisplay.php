@@ -18,7 +18,7 @@ use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
-use const E_USER_WARNING;
+
 use function array_flip;
 use function array_keys;
 use function array_search;
@@ -37,6 +37,8 @@ use function sprintf;
 use function str_replace;
 use function trigger_error;
 use function trim;
+
+use const E_USER_WARNING;
 
 /**
  * Form management class, displays and processes forms
@@ -110,7 +112,7 @@ class FormDisplay
      */
     public function __construct(ConfigFile $cf)
     {
-        $this->formDisplayTemplate = new FormDisplayTemplate($GLOBALS['PMA_Config']);
+        $this->formDisplayTemplate = new FormDisplayTemplate($GLOBALS['config']);
         $this->configFile = $cf;
         // initialize validators
         Validator::getValidators($this->configFile);
@@ -218,9 +220,11 @@ class FormDisplay
                     // form error, fix path
                     $workPath = $path;
                 }
+
                 $this->errors[$workPath] = $errorList;
             }
         }
+
         $this->isValidated = true;
     }
 
@@ -265,6 +269,7 @@ class FormDisplay
                 break;
             }
         }
+
         if (! $isNewServer) {
             $this->validate();
         }
@@ -417,6 +422,7 @@ class FormDisplay
                 }
 
                 return $htmlOutput;
+
             case 'NULL':
                 trigger_error('Field ' . $systemPath . ' has no type', E_USER_WARNING);
 
@@ -424,7 +430,8 @@ class FormDisplay
         }
 
         // detect password fields
-        if ($type === 'text'
+        if (
+            $type === 'text'
             && (mb_substr($translatedPath, -9) === '-password'
                || mb_substr($translatedPath, -4) === 'pass'
                || mb_substr($translatedPath, -4) === 'Pass')
@@ -442,6 +449,7 @@ class FormDisplay
                 $v = $ip . ': ' . $v;
             }
         }
+
         $this->setComments($systemPath, $opts);
 
         // send default value to form's JS
@@ -467,10 +475,12 @@ class FormDisplay
                 if (isset($val['wrapper_params'])) {
                     unset($val['wrapper_params']);
                 }
+
                 $jsLine .= '\'' . Sanitize::escapeJsString(implode("\n", $val))
                 . '\'';
                 break;
         }
+
         $jsDefault[] = $jsLine;
 
         return $this->formDisplayTemplate->displayInput(
@@ -504,6 +514,7 @@ class FormDisplay
             } else {
                 $name = Descriptions::get('Form_' . $systemPath);
             }
+
             $htmlOutput .= $this->formDisplayTemplate->displayErrors($name, $errorList);
         }
 
@@ -527,6 +538,7 @@ class FormDisplay
             if (! isset($this->systemPaths[$workPath])) {
                 continue;
             }
+
             $canonicalPath = $this->systemPaths[$workPath];
             $cf->set($workPath, $cf->getDefault($canonicalPath));
         }
@@ -547,7 +559,8 @@ class FormDisplay
             // equality comparison only if both values are numeric or not numeric
             // (allows to skip 0 == 'string' equalling to true)
             // or identity (for string-string)
-            if (! (($vk == $value && ! (is_numeric($valueCmp) xor is_numeric($vk)))
+            if (
+                ! (($vk == $value && ! (is_numeric($valueCmp) xor is_numeric($vk)))
                 || $vk === $value)
             ) {
                 continue;
@@ -581,7 +594,7 @@ class FormDisplay
 
         $values = [];
         $toSave = [];
-        $isSetupScript = $GLOBALS['PMA_Config']->get('is_setup');
+        $isSetupScript = $GLOBALS['config']->get('is_setup');
         if ($isSetupScript) {
             $this->loadUserprefsInfo();
         }
@@ -625,10 +638,12 @@ class FormDisplay
                 }
 
                 // user preferences allow/disallow
-                if ($isSetupScript
+                if (
+                    $isSetupScript
                     && isset($this->userprefsKeys[$systemPath])
                 ) {
-                    if (isset($this->userprefsDisallow[$systemPath], $_POST[$key . '-userprefs-allow'])
+                    if (
+                        isset($this->userprefsDisallow[$systemPath], $_POST[$key . '-userprefs-allow'])
                     ) {
                         unset($this->userprefsDisallow[$systemPath]);
                     } elseif (! isset($_POST[$key . '-userprefs-allow'])) {
@@ -650,6 +665,7 @@ class FormDisplay
                             // phpcs:ignore Generic.PHP.ForbiddenFunctions
                             settype($_POST[$key], $type);
                         }
+
                         break;
                     case 'select':
                         $successfullyValidated = $this->validateSelect(
@@ -662,6 +678,7 @@ class FormDisplay
                             // "continue" for the $form->fields foreach-loop
                             continue 2;
                         }
+
                         break;
                     case 'string':
                     case 'short_string':
@@ -686,6 +703,7 @@ class FormDisplay
                         $workPath
                     );
                 }
+
                 $toSave[$workPath] = $systemPath;
             }
         }
@@ -720,10 +738,13 @@ class FormDisplay
                         $i++;
                     }
                 }
+
                 $values[$path] = $proxies;
             }
+
             $this->configFile->set($workPath, $values[$path], $path);
         }
+
         if ($isSetupScript) {
             $this->configFile->set(
                 'UserprefsDisallow',
@@ -793,7 +814,7 @@ class FormDisplay
 
         $this->userprefsKeys = array_flip(UserFormList::getFields());
         // read real config for user preferences display
-        $userPrefsDisallow = $GLOBALS['PMA_Config']->get('is_setup')
+        $userPrefsDisallow = $GLOBALS['config']->get('is_setup')
             ? $this->configFile->get('UserprefsDisallow', [])
             : $GLOBALS['cfg']['UserprefsDisallow'];
         $this->userprefsDisallow = array_flip($userPrefsDisallow ?? []);
@@ -820,6 +841,7 @@ class FormDisplay
                     'iconv'
                 );
             }
+
             if (! function_exists('recode_string')) {
                 $opts['values']['recode'] .= ' (' . __('unavailable') . ')';
                 $comment .= ($comment ? ', ' : '') . sprintf(
@@ -828,12 +850,15 @@ class FormDisplay
                     'recode'
                 );
             }
+
             /* mbstring is always there thanks to polyfill */
             $opts['comment'] = $comment;
             $opts['comment_warning'] = true;
         }
+
         // ZipDump, GZipDump, BZipDump - check function availability
-        if ($systemPath === 'ZipDump'
+        if (
+            $systemPath === 'ZipDump'
             || $systemPath === 'GZipDump'
             || $systemPath === 'BZipDump'
         ) {
@@ -860,6 +885,7 @@ class FormDisplay
                     $funcs[$systemPath][0]
                 );
             }
+
             if (! function_exists($funcs[$systemPath][1])) {
                 $comment .= ($comment ? '; ' : '') . sprintf(
                     __(
@@ -868,14 +894,17 @@ class FormDisplay
                     $funcs[$systemPath][1]
                 );
             }
+
             $opts['comment'] = $comment;
             $opts['comment_warning'] = true;
         }
-        if ($GLOBALS['PMA_Config']->get('is_setup')) {
+
+        if ($GLOBALS['config']->get('is_setup')) {
             return;
         }
 
-        if ($systemPath !== 'MaxDbList' && $systemPath !== 'MaxTableList'
+        if (
+            $systemPath !== 'MaxDbList' && $systemPath !== 'MaxTableList'
             && $systemPath !== 'QueryHistoryMax'
         ) {
             return;

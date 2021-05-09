@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Config\Forms;
 
 use PhpMyAdmin\Config\ConfigFile;
+
 use function array_merge;
 use function in_array;
 

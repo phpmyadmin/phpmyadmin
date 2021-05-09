@@ -10,6 +10,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
 use function array_keys;
 use function ksort;
 use function mb_strtolower;
@@ -39,9 +40,9 @@ class PluginsController extends AbstractController
 
     public function index(): void
     {
-        global $err_url;
+        global $errorUrl;
 
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -54,6 +55,7 @@ class PluginsController extends AbstractController
         foreach ($serverPlugins as $plugin) {
             $plugins[$plugin->getType()][] = $plugin->toArray();
         }
+
         ksort($plugins);
 
         $cleanTypes = [];

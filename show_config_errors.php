@@ -18,7 +18,8 @@ header(
     'Cache-Control: no-store, no-cache, must-revalidate,'
     . '  pre-check=0, post-check=0, max-age=0'
 );
-if (isset($_SERVER['HTTP_USER_AGENT'])
+if (
+    isset($_SERVER['HTTP_USER_AGENT'])
     && stripos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false
 ) {
     /* FIXME: Why is this special case for IE needed? */
@@ -30,6 +31,7 @@ if (isset($_SERVER['HTTP_USER_AGENT'])
     // (added this header for Safari but should not harm other browsers)
     header('Last-Modified: ' . gmdate(DATE_RFC1123));
 }
+
 header('Content-Type: text/html; charset=utf-8');
 
 // phpcs:disable PSR1.Files.SideEffects

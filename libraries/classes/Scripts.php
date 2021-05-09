@@ -63,9 +63,9 @@ class Scripts
             return;
         }
 
-        $has_onload = $this->hasOnloadEvent($filename);
+        $hasOnload = $this->hasOnloadEvent($filename);
         $this->files[$hash] = [
-            'has_onload' => $has_onload,
+            'has_onload' => $hasOnload,
             'filename' => $filename,
             'params' => $params,
         ];
@@ -95,7 +95,8 @@ class Scripts
      */
     private function hasOnloadEvent($filename)
     {
-        if (strpos($filename, 'jquery') !== false
+        if (
+            strpos($filename, 'jquery') !== false
             || strpos($filename, 'codemirror') !== false
             || strpos($filename, 'messages.php') !== false
             || strpos($filename, 'ajax.js') !== false
@@ -133,6 +134,7 @@ class Scripts
             if (strpos($file['filename'], '?') !== false) {
                 continue;
             }
+
             $retval[] = [
                 'name' => $file['filename'],
                 'fire' => $file['has_onload'],
@@ -154,7 +156,7 @@ class Scripts
         return $this->template->render('scripts', [
             'base_dir' => $baseDir,
             'files' => $this->files,
-            'version' => PMA_VERSION,
+            'version' => Version::VERSION,
             'code' => $this->code,
         ]);
     }

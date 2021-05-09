@@ -20,7 +20,7 @@ use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\ZipExtension;
 use ZipArchive;
-use const LOCK_EX;
+
 use function count;
 use function extension_loaded;
 use function file_exists;
@@ -33,6 +33,8 @@ use function strlen;
 use function substr;
 use function trim;
 use function unlink;
+
+use const LOCK_EX;
 
 /**
  * Handles the import for ESRI Shape files
@@ -95,7 +97,8 @@ class ImportShp extends ImportPlugin
         $shp = new ShapeFileImport(1);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
-        if ($compression === 'application/zip'
+        if (
+            $compression === 'application/zip'
             && $this->zipExtension->getNumberOfFiles($import_file) > 1
         ) {
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
@@ -111,7 +114,7 @@ class ImportShp extends ImportPlugin
         $temp_dbf_file = false;
         // We need dbase extension to handle .dbf file
         if (extension_loaded('dbase')) {
-            $temp = $GLOBALS['PMA_Config']->getTempDir('shp');
+            $temp = $GLOBALS['config']->getTempDir('shp');
             // If we can extract the zip archive to 'TempDir'
             // and use the files in it for import
             if ($compression === 'application/zip' && $temp !== null) {
@@ -148,7 +151,8 @@ class ImportShp extends ImportPlugin
                         }
                     }
                 }
-            } elseif (! empty($local_import_file)
+            } elseif (
+                ! empty($local_import_file)
                 && ! empty($GLOBALS['cfg']['UploadDir'])
                 && $compression === 'none'
             ) {
@@ -169,7 +173,8 @@ class ImportShp extends ImportPlugin
         $shp->loadFromFile('');
 
         // Delete the .dbf file extracted to 'TempDir'
-        if ($temp_dbf_file
+        if (
+            $temp_dbf_file
             && isset($dbf_file_path)
             && @file_exists($dbf_file_path)
         ) {
@@ -250,6 +255,7 @@ class ImportShp extends ImportPlugin
                         $tempRow[] = $cell;
                     }
                 }
+
                 $rows[] = $tempRow;
             }
         }
@@ -271,6 +277,7 @@ class ImportShp extends ImportPlugin
             if ($dbfHeader === null) {
                 continue;
             }
+
             $col_names[] = $dbfHeader[$n][0];
         }
 
@@ -281,6 +288,7 @@ class ImportShp extends ImportPlugin
         } else {
             $table_name = 'TBL_NAME';
         }
+
         $tables = [
             [
                 $table_name,
@@ -343,6 +351,7 @@ class ImportShp extends ImportPlugin
                 $buffer .= $import->getNextChunk($importHandle);
             }
         }
+
         $result = substr($buffer, 0, $length);
         $buffer = substr($buffer, $length);
 

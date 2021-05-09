@@ -7,9 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Utils\FormatConverter;
-use stdClass;
+
 use function htmlspecialchars;
 use function inet_ntop;
 use function pack;
@@ -36,15 +37,15 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string        $buffer  text to be transformed. a binary string containing
-     *                               an IP address, as returned from MySQL's INET6_ATON
-     *                               function
-     * @param array         $options transformation options
-     * @param stdClass|null $meta    meta information
+     * @param string             $buffer  text to be transformed. a binary string containing
+     *                                    an IP address, as returned from MySQL's INET6_ATON
+     *                                    function
+     * @param array              $options transformation options
+     * @param FieldMetadata|null $meta    meta information
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
+    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
     {
         return FormatConverter::ipToBinary($buffer);
     }
@@ -86,9 +87,11 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
                     $val = $ip;
                 }
             }
+
             $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
                 . '" value="' . htmlspecialchars($val) . '">';
         }
+
         $class = 'transform_IPToBin';
 
         return $html . '<input type="text" name="fields' . $column_name_appendix . '"'

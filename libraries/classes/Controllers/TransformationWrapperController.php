@@ -12,6 +12,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
+
 use function define;
 use function htmlspecialchars;
 use function imagecopyresampled;
@@ -184,6 +185,7 @@ class TransformationWrapperController extends AbstractController
             if ($srcImage === false) {
                 return;
             }
+
             $srcWidth = imagesx($srcImage);
             $srcHeight = imagesy($srcImage);
 
@@ -228,11 +230,14 @@ class TransformationWrapperController extends AbstractController
                 if ($_REQUEST['resize'] === 'jpeg') {
                     imagejpeg($destImage, null, 75);
                 }
+
                 if ($_REQUEST['resize'] === 'png') {
                     imagepng($destImage);
                 }
+
                 imagedestroy($destImage);
             }
+
             imagedestroy($srcImage);
         }
     }

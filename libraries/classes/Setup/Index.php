@@ -8,7 +8,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Version;
 use PhpMyAdmin\VersionInformation;
+
 use function htmlspecialchars;
 use function is_array;
 use function sprintf;
@@ -81,6 +83,7 @@ class Index
 
                 $remove_ids[] = $id;
             }
+
             foreach ($remove_ids as $id) {
                 unset($messages[$id]);
             }
@@ -160,9 +163,7 @@ class Index
             return;
         }
 
-        $version_local = $versionInformation->versionToInt(
-            $GLOBALS['PMA_Config']->get('PMA_VERSION')
-        );
+        $version_local = $versionInformation->versionToInt(Version::VERSION);
         if ($version_local === false) {
             self::messagesSet(
                 'error',

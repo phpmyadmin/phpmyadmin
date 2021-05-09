@@ -212,6 +212,7 @@ $dropdown-border-radius: 0;
 
 $input-border-radius: 0;
 $form-check-input-margin-y: 0;
+$label-margin-bottom: 0;
 
 // Navs
 
@@ -256,12 +257,12 @@ $accordion-button-active-bg: $button-background;
 
 // Breadcrumbs
 
-$breadcrumb-padding-y: 0.89rem;
-$breadcrumb-margin-bottom: 0;
-$breadcrumb-bg: $navi-background;
+$breadcrumb-navbar-padding-y: 0.89rem;
+$breadcrumb-navbar-padding-x: 2rem;
+$breadcrumb-navbar-margin-bottom: 0;
+$breadcrumb-navbar-bg: $navi-background;
 $breadcrumb-divider-color: $button-color;
 $breadcrumb-divider: none;
-$breadcrumb-border-radius: 0;
 
 // Alert
 
@@ -272,7 +273,6 @@ $alert-border-width: 0;
 // List group
 
 $list-group-bg: inherit;
-$list-group-item-padding-y: 0;
 
 // Modals
 

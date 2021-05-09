@@ -6,6 +6,7 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -40,14 +41,17 @@ if (! defined('PHPMYADMIN')) {
     define('PHPMYADMIN', 1);
     define('TESTSUITE', 1);
 }
+
 // phpcs:enable
 
 require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 Loader::loadFunctions();
 
-$GLOBALS['PMA_Config'] = new Config();
-$GLOBALS['PMA_Config']->set('environment', 'development');
+$GLOBALS['containerBuilder'] = Core::getContainerBuilder();
+
+$GLOBALS['config'] = new Config();
+$GLOBALS['config']->set('environment', 'development');
 $GLOBALS['cfg']['environment'] = 'development';
 
 /* Load Database interface */

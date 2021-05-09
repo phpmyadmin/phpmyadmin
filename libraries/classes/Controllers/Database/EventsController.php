@@ -10,6 +10,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function strlen;
 
 final class EventsController extends AbstractController
@@ -35,15 +36,15 @@ final class EventsController extends AbstractController
     public function index(): void
     {
         global $db, $tables, $num_tables, $total_num_tables, $sub_part, $errors, $text_dir;
-        global $tooltip_truename, $tooltip_aliasname, $pos, $cfg, $err_url;
+        global $tooltip_truename, $tooltip_aliasname, $pos, $cfg, $errorUrl;
 
         $this->addScriptFiles(['database/events.js']);
 
         if (! $this->response->isAjax()) {
             Util::checkParameters(['db']);
 
-            $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-            $err_url .= Url::getCommon(['db' => $db], '&');
+            $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+            $errorUrl .= Url::getCommon(['db' => $db], '&');
 
             if (! $this->hasDatabase()) {
                 return;

@@ -30,7 +30,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         parent::setUp();
         parent::loadDefaultConfig();
-        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $extension = new DbiDummy();
         $this->dbi = new DatabaseInterface($extension);
@@ -50,7 +49,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
         SessionCache::remove('mysql_cur_user');
 
         $extension = new DbiDummy();
-        /** @var array $value */
         $extension->setResult('SELECT CURRENT_USER();', $value);
 
         $dbi = new DatabaseInterface($extension);
@@ -400,20 +398,5 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $GLOBALS['charset_connection'] = 'utf8';
         $dbi->setCollation('utf8_czech_ci');
         $dbi->setCollation('utf8mb4_bin_ci');
-    }
-
-    /**
-     * Tests for DBI::getForeignKeyConstrains() method.
-     */
-    public function testGetForeignKeyConstrains(): void
-    {
-        $this->assertEquals([
-            [
-                'TABLE_NAME' => 'table2',
-                'COLUMN_NAME' => 'idtable2',
-                'REFERENCED_TABLE_NAME' => 'table1',
-                'REFERENCED_COLUMN_NAME' => 'idtable1',
-            ],
-        ], $this->dbi->getForeignKeyConstrains('test', ['table1', 'table2']));
     }
 }

@@ -19,13 +19,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Utils\SessionCache;
-use const E_USER_WARNING;
-use const LOG_INFO;
-use const LOG_NDELAY;
-use const LOG_PID;
-use const LOG_USER;
-use const SORT_ASC;
-use const SORT_DESC;
+
 use function array_diff;
 use function array_keys;
 use function array_map;
@@ -47,7 +41,6 @@ use function mb_strtolower;
 use function microtime;
 use function openlog;
 use function reset;
-use function rtrim;
 use function sprintf;
 use function stripos;
 use function strlen;
@@ -61,6 +54,14 @@ use function trigger_error;
 use function uasort;
 use function uksort;
 use function usort;
+
+use const E_USER_WARNING;
+use const LOG_INFO;
+use const LOG_NDELAY;
+use const LOG_PID;
+use const LOG_USER;
+use const SORT_ASC;
+use const SORT_DESC;
 
 /**
  * Main interface for database interactions
@@ -146,6 +147,7 @@ class DatabaseInterface implements DbalInterface
             $this->links[self::CONNECT_USER] = 1;
             $this->links[self::CONNECT_CONTROL] = 2;
         }
+
         $this->currentUser = [];
         $this->cache = new Cache();
         $this->types = new Types($this);
@@ -237,8 +239,16 @@ class DatabaseInterface implements DbalInterface
 
                 syslog(
                     LOG_INFO,
-                    'SQL[' . basename($_SERVER['SCRIPT_NAME']) . ']: '
-                    . sprintf('%0.3f', $time) . '(W:' . $warningsCount . ') > ' . $query
+                    sprintf(
+                        'SQL[%s?route=%s]: %0.3f(W:%s,C:%s,L:0x%02X) > %s',
+                        basename($_SERVER['SCRIPT_NAME']),
+                        Routing::getCurrentRoute(),
+                        $time,
+                        $warningsCount,
+                        $cache_affected_rows ? 'y' : 'n',
+                        $link,
+                        $query
+                    )
                 );
                 closelog();
             }
@@ -292,35 +302,6 @@ class DatabaseInterface implements DbalInterface
         }
 
         return $tables;
-    }
-
-    /**
-     * returns
-     *
-     * @param string $database name of database
-     * @param array  $tables   list of tables to search for for relations
-     * @param int    $link     mysql link resource|object
-     *
-     * @return array           array of found foreign keys
-     */
-    public function getForeignKeyConstrains(string $database, array $tables, $link = self::CONNECT_USER): array
-    {
-        $tablesListForQuery = '';
-        foreach ($tables as $table) {
-            $tablesListForQuery .= "'" . $this->escapeString($table) . "',";
-        }
-        $tablesListForQuery = rtrim($tablesListForQuery, ',');
-
-        return $this->fetchResult(
-            QueryGenerator::getInformationSchemaForeignKeyConstraintsRequest(
-                $this->escapeString($database),
-                $tablesListForQuery
-            ),
-            null,
-            null,
-            $link,
-            self::QUERY_STORE
-        );
     }
 
     /**
@@ -425,6 +406,7 @@ class DatabaseInterface implements DbalInterface
                     if ($sort_order === 'DESC') {
                         $one_database_tables = array_reverse($one_database_tables);
                     }
+
                     $tables[$one_database_name] = $one_database_tables;
                 }
             } elseif ($sort_by === 'Data_length') {
@@ -447,6 +429,7 @@ class DatabaseInterface implements DbalInterface
                     if ($sort_order === 'DESC') {
                         $one_database_tables = array_reverse($one_database_tables);
                     }
+
                     $tables[$one_database_name] = $one_database_tables;
                 }
             }
@@ -483,12 +466,15 @@ class DatabaseInterface implements DbalInterface
                                 )
                                 . "%'";
                         }
+
                         $needAnd = true;
                     }
+
                     if (! empty($table_type)) {
                         if ($needAnd) {
                             $sql .= ' AND';
                         }
+
                         if ($table_type === 'view') {
                             $sql .= " `Comment` = 'VIEW'";
                         } elseif ($table_type === 'table') {
@@ -524,8 +510,7 @@ class DatabaseInterface implements DbalInterface
                         }
                     } else {
                         foreach ($each_tables as $table_name => $table_data) {
-                            ${$sort_by}[$table_name]
-                                = strtolower($table_data[$sort_by] ?? '');
+                            ${$sort_by}[$table_name] = strtolower($table_data[$sort_by] ?? '');
                         }
                     }
 
@@ -682,8 +667,7 @@ class DatabaseInterface implements DbalInterface
                 // Compatibility with INFORMATION_SCHEMA output
                 $databases[$database_name]['SCHEMA_NAME']      = $database_name;
 
-                $databases[$database_name]['DEFAULT_COLLATION_NAME']
-                    = $this->getDbCollation($database_name);
+                $databases[$database_name]['DEFAULT_COLLATION_NAME'] = $this->getDbCollation($database_name);
 
                 if (! $force_stats) {
                     continue;
@@ -710,24 +694,20 @@ class DatabaseInterface implements DbalInterface
 
                 while ($row = $this->fetchAssoc($res)) {
                     $databases[$database_name]['SCHEMA_TABLES']++;
-                    $databases[$database_name]['SCHEMA_TABLE_ROWS']
-                        += $row['Rows'];
-                    $databases[$database_name]['SCHEMA_DATA_LENGTH']
-                        += $row['Data_length'];
-                    $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH']
-                        += $row['Max_data_length'];
-                    $databases[$database_name]['SCHEMA_INDEX_LENGTH']
-                        += $row['Index_length'];
+                    $databases[$database_name]['SCHEMA_TABLE_ROWS'] += $row['Rows'];
+                    $databases[$database_name]['SCHEMA_DATA_LENGTH'] += $row['Data_length'];
+                    $databases[$database_name]['SCHEMA_MAX_DATA_LENGTH'] += $row['Max_data_length'];
+                    $databases[$database_name]['SCHEMA_INDEX_LENGTH'] += $row['Index_length'];
 
                     // for InnoDB, this does not contain the number of
                     // overhead bytes but the total free space
                     if ($row['Engine'] !== 'InnoDB') {
-                        $databases[$database_name]['SCHEMA_DATA_FREE']
-                            += $row['Data_free'];
+                        $databases[$database_name]['SCHEMA_DATA_FREE'] += $row['Data_free'];
                     }
-                    $databases[$database_name]['SCHEMA_LENGTH']
-                        += $row['Data_length'] + $row['Index_length'];
+
+                    $databases[$database_name]['SCHEMA_LENGTH'] += $row['Data_length'] + $row['Index_length'];
                 }
+
                 $this->freeResult($res);
                 unset($res);
             }
@@ -772,6 +752,7 @@ class DatabaseInterface implements DbalInterface
             return [];
         }
 
+        /** @var FieldMetadata[] $meta */
         $meta = $this->getFieldsMeta(
             $result
         );
@@ -853,6 +834,7 @@ class DatabaseInterface implements DbalInterface
 
             return $columns;
         }
+
         $sql = 'SHOW FULL COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table);
         if ($column !== null) {
@@ -899,6 +881,7 @@ class DatabaseInterface implements DbalInterface
         if (! is_array($fields) || count($fields) === 0) {
             return [];
         }
+
         // Check if column is a part of multiple-column index and set its 'Key'.
         $indexes = Index::getFromTable($table, $database);
         foreach ($fields as $field => $field_data) {
@@ -1057,6 +1040,7 @@ class DatabaseInterface implements DbalInterface
             if (stripos($this->versionString, 'mariadb') !== false) {
                 $this->isMariaDb = true;
             }
+
             if (stripos($this->versionComment, 'percona') !== false) {
                 $this->isPercona = true;
             }
@@ -1069,6 +1053,7 @@ class DatabaseInterface implements DbalInterface
             $default_charset = 'utf8';
             $default_collation = 'utf8_general_ci';
         }
+
         $GLOBALS['collation_connection'] = $default_collation;
         $GLOBALS['charset_connection'] = $default_charset;
         $this->query(
@@ -1135,6 +1120,7 @@ class DatabaseInterface implements DbalInterface
         if ($charset === 'utf8' && strncmp('utf8mb4_', $collation, 8) == 0) {
             $collation = 'utf8_' . substr($collation, 8);
         }
+
         $result = $this->tryQuery(
             "SET collation_connection = '"
             . $this->escapeString($collation, self::CONNECT_USER)
@@ -1142,14 +1128,17 @@ class DatabaseInterface implements DbalInterface
             self::CONNECT_USER,
             self::QUERY_STORE
         );
+
         if ($result === false) {
             trigger_error(
                 __('Failed to set configured collation connection!'),
                 E_USER_WARNING
             );
-        } else {
-            $GLOBALS['collation_connection'] = $collation;
+
+            return;
         }
+
+        $GLOBALS['collation_connection'] = $collation;
     }
 
     /**
@@ -1166,6 +1155,7 @@ class DatabaseInterface implements DbalInterface
                 $this->relation->fixPmaTables($GLOBALS['db'], false);
             }
         }
+
         $cfgRelation = $this->relation->getRelationsParam();
         if (! empty($cfgRelation['db']) || ! isset($GLOBALS['dblist'])) {
             return;
@@ -1251,8 +1241,10 @@ class DatabaseInterface implements DbalInterface
                 $row = $this->fetchRow($result);
                 continue;
             }
+
             $row = $this->fetchAssoc($result);
         }
+
         $this->freeResult($result);
 
         // return requested field
@@ -1427,8 +1419,10 @@ class DatabaseInterface implements DbalInterface
                         if (! isset($result_target[$row[$key_index]])) {
                             $result_target[$row[$key_index]] = [];
                         }
+
                         $result_target =& $result_target[$row[$key_index]];
                     }
+
                     $result_target = $this->fetchValueOrValueByIndex($row, $value);
                 }
             } else {
@@ -1574,11 +1568,13 @@ class DatabaseInterface implements DbalInterface
                     $query .= " AND `Name` = '"
                         . $this->escapeString($name) . "'";
                 }
+
                 $result = $this->fetchResult($query);
                 if (! empty($result)) {
                     $routines = array_merge($routines, $result);
                 }
             }
+
             if ($which === 'PROCEDURE' || $which == null) {
                 $query = 'SHOW PROCEDURE STATUS'
                     . " WHERE `Db` = '" . $this->escapeString($db) . "'";
@@ -1586,6 +1582,7 @@ class DatabaseInterface implements DbalInterface
                     $query .= " AND `Name` = '"
                         . $this->escapeString($name) . "'";
                 }
+
                 $result = $this->fetchResult($query);
                 if (! empty($result)) {
                     $routines = array_merge($routines, $result);
@@ -1609,6 +1606,7 @@ class DatabaseInterface implements DbalInterface
         foreach ($ret as $value) {
             $name[] = $value['name'];
         }
+
         array_multisort($name, SORT_ASC, $ret);
 
         return $ret;
@@ -1632,7 +1630,7 @@ class DatabaseInterface implements DbalInterface
         } else {
             $query = 'SHOW EVENTS FROM ' . Util::backquote($db);
             if (! empty($name)) {
-                $query .= " AND `Name` = '"
+                $query .= " WHERE `Name` = '"
                     . $this->escapeString($name) . "'";
             }
         }
@@ -1653,6 +1651,7 @@ class DatabaseInterface implements DbalInterface
         foreach ($result as $value) {
             $name[] = $value['name'];
         }
+
         array_multisort($name, SORT_ASC, $result);
 
         return $result;
@@ -1693,6 +1692,7 @@ class DatabaseInterface implements DbalInterface
                 $trigger['ACTION_STATEMENT'] = $trigger['Statement'];
                 $trigger['DEFINER'] = $trigger['Definer'];
             }
+
             $one_result = [];
             $one_result['name'] = $trigger['TRIGGER_NAME'];
             $one_result['table'] = $trigger['EVENT_OBJECT_TABLE'];
@@ -1724,6 +1724,7 @@ class DatabaseInterface implements DbalInterface
         foreach ($result as $value) {
             $name[] = $value['name'];
         }
+
         array_multisort($name, SORT_ASC, $result);
 
         return $result;
@@ -1739,6 +1740,7 @@ class DatabaseInterface implements DbalInterface
         if (SessionCache::has('mysql_cur_user')) {
             return SessionCache::get('mysql_cur_user');
         }
+
         $user = $this->fetchValue('SELECT CURRENT_USER();');
         if ($user !== false) {
             SessionCache::set('mysql_cur_user', $user);
@@ -1837,7 +1839,8 @@ class DatabaseInterface implements DbalInterface
             $grants = $this->getCurrentUserGrants();
 
             foreach ($grants as $grant) {
-                if (strpos($grant, 'ALL PRIVILEGES ON *.*') !== false
+                if (
+                    strpos($grant, 'ALL PRIVILEGES ON *.*') !== false
                     || strpos($grant, 'CREATE USER') !== false
                 ) {
                     $hasCreatePrivilege = true;
@@ -1939,13 +1942,13 @@ class DatabaseInterface implements DbalInterface
         }
 
         // Do not show location and backtrace for connection errors
-        $GLOBALS['error_handler']->setHideLocation(true);
+        $GLOBALS['errorHandler']->setHideLocation(true);
         $result = $this->extension->connect(
             $user,
             $password,
             $server
         );
-        $GLOBALS['error_handler']->setHideLocation(false);
+        $GLOBALS['errorHandler']->setHideLocation(false);
 
         if ($result) {
             $this->links[$target] = $result;
@@ -2219,13 +2222,13 @@ class DatabaseInterface implements DbalInterface
      *
      * @param object $result result set identifier
      *
-     * @return mixed meta info for fields in $result
+     * @return FieldMetadata[]|null meta info for fields in $result
      */
-    public function getFieldsMeta($result)
+    public function getFieldsMeta($result): ?array
     {
         $result = $this->extension->getFieldsMeta($result);
 
-        if ($this->getLowerCaseNames() === '2') {
+        if ($result !== null && $this->getLowerCaseNames() === '2') {
             /**
              * Fixup orgtable for lower_case_table_names = 2
              *
@@ -2234,7 +2237,8 @@ class DatabaseInterface implements DbalInterface
              * match existing strings
              */
             foreach ($result as $value) {
-                if (strlen($value->orgtable) === 0 ||
+                if (
+                    strlen($value->orgtable) === 0 ||
                         mb_strtolower($value->orgtable) !== mb_strtolower($value->table)
                 ) {
                     continue;
@@ -2286,19 +2290,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * returns concatenated string of human readable field flags
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string field flags
-     */
-    public function fieldFlags($result, $i): string
-    {
-        return $this->extension->fieldFlags($result, $i);
-    }
-
-    /**
      * returns properly escaped string for use in MySQL queries
      *
      * @param string $str  string to be escaped
@@ -2323,6 +2314,7 @@ class DatabaseInterface implements DbalInterface
         if (SessionCache::has('is_amazon_rds')) {
             return SessionCache::get('is_amazon_rds');
         }
+
         $sql = 'SELECT @@basedir';
         $result = $this->fetchValue($sql);
         $rds = (substr($result, 0, 10) === '/rdsdbbin/');

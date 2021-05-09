@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\LanguageManager;
+
 use function count;
 use function is_readable;
 use function strtolower;
@@ -24,6 +25,7 @@ class LanguageTest extends AbstractTestCase
         if (! is_readable($loc)) {
             $this->markTestSkipped('Missing compiled locales.');
         }
+
         $this->manager = new LanguageManager();
     }
 
@@ -39,13 +41,13 @@ class LanguageTest extends AbstractTestCase
      */
     public function testAvailable(): void
     {
-        $GLOBALS['PMA_Config']->set('FilterLanguages', 'cs|en$');
+        $GLOBALS['config']->set('FilterLanguages', 'cs|en$');
 
         $langs = $this->manager->availableLocales();
 
         $this->assertCount(2, $langs);
         $this->assertContains('cs', $langs);
-        $GLOBALS['PMA_Config']->set('FilterLanguages', '');
+        $GLOBALS['config']->set('FilterLanguages', '');
     }
 
     /**
@@ -53,7 +55,7 @@ class LanguageTest extends AbstractTestCase
      */
     public function testAllAvailable(): void
     {
-        $GLOBALS['PMA_Config']->set('FilterLanguages', '');
+        $GLOBALS['config']->set('FilterLanguages', '');
 
         $langs = $this->manager->availableLocales();
 
@@ -95,7 +97,7 @@ class LanguageTest extends AbstractTestCase
      */
     public function testMySQLLocale(): void
     {
-        $GLOBALS['PMA_Config']->set('FilterLanguages', '');
+        $GLOBALS['config']->set('FilterLanguages', '');
         $czech = $this->manager->getLanguage('cs');
         $this->assertNotFalse($czech);
         $this->assertEquals('cs_CZ', $czech->getMySQLLocale());
@@ -119,7 +121,7 @@ class LanguageTest extends AbstractTestCase
      */
     public function testGet(): void
     {
-        $GLOBALS['PMA_Config']->set('FilterLanguages', '');
+        $GLOBALS['config']->set('FilterLanguages', '');
         $lang = $this->manager->getLanguage('cs');
         $this->assertNotEquals(false, $lang);
         $this->assertEquals('Czech', $lang->getEnglishName());
@@ -152,27 +154,27 @@ class LanguageTest extends AbstractTestCase
         string $default,
         string $expect
     ): void {
-        $GLOBALS['PMA_Config']->set('FilterLanguages', '');
-        $GLOBALS['PMA_Config']->set('Lang', $lang);
-        $GLOBALS['PMA_Config']->set('is_https', false);
+        $GLOBALS['config']->set('FilterLanguages', '');
+        $GLOBALS['config']->set('Lang', $lang);
+        $GLOBALS['config']->set('is_https', false);
         $_POST['lang'] = $post;
         $_GET['lang'] = $get;
         $_COOKIE['pma_lang'] = $cookie;
         $_SERVER['HTTP_ACCEPT_LANGUAGE'] = $accept;
         $_SERVER['HTTP_USER_AGENT'] = $agent;
-        $GLOBALS['PMA_Config']->set('DefaultLang', $default);
+        $GLOBALS['config']->set('DefaultLang', $default);
 
         $lang = $this->manager->selectLanguage();
 
         $this->assertEquals($expect, $lang->getEnglishName());
 
-        $GLOBALS['PMA_Config']->set('Lang', '');
+        $GLOBALS['config']->set('Lang', '');
         $_POST['lang'] = '';
         $_GET['lang'] = '';
         $_COOKIE['pma_lang'] = '';
         $_SERVER['HTTP_ACCEPT_LANGUAGE'] = '';
         $_SERVER['HTTP_USER_AGENT'] = '';
-        $GLOBALS['PMA_Config']->set('DefaultLang', 'en');
+        $GLOBALS['config']->set('DefaultLang', 'en');
     }
 
     /**
@@ -286,7 +288,7 @@ class LanguageTest extends AbstractTestCase
      */
     public function testGettext(string $locale): void
     {
-        $GLOBALS['PMA_Config']->set('FilterLanguages', '');
+        $GLOBALS['config']->set('FilterLanguages', '');
         /* We should be able to set the language */
         $this->manager->getLanguage($locale)->activate();
 

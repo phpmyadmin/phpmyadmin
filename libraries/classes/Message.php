@@ -14,6 +14,8 @@ use function md5;
 use function sprintf;
 use function strlen;
 
+use const ENT_COMPAT;
+
 /**
  * a single message
  *
@@ -420,6 +422,7 @@ class Message
         if ($sanitize) {
             $message = self::sanitize($message);
         }
+
         $this->message = $message;
     }
 
@@ -434,6 +437,7 @@ class Message
         if ($sanitize) {
             $string = self::sanitize($string);
         }
+
         $this->string = $string;
     }
 
@@ -462,7 +466,7 @@ class Message
         if ($param instanceof self || is_float($param) || is_int($param)) {
             $this->params[] = $param;
         } else {
-            $this->params[] = htmlspecialchars((string) $param);
+            $this->params[] = htmlspecialchars((string) $param, ENT_COMPAT);
         }
     }
 
@@ -518,6 +522,7 @@ class Message
         if (! empty($separator)) {
             $this->addedMessages[] = $separator;
         }
+
         $this->addedMessages[] = $message;
     }
 
@@ -565,6 +570,7 @@ class Message
         if ($sanitize) {
             $params = self::sanitize($params);
         }
+
         $this->params = $params;
     }
 
@@ -683,6 +689,7 @@ class Message
         if ($this->isDisplayed()) {
             $message = $this->getMessageWithIcon($message);
         }
+
         if (count($this->getParams()) > 0) {
             $message = self::format($message, $this->getParams());
         }
@@ -793,6 +800,7 @@ class Message
         } else {
             $image = 's_notice';
         }
+
         $message = self::notice(Html\Generator::getImage($image)) . ' ' . $message;
 
         return $message;

@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\UtfString;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
+
 use function defined;
 use function htmlspecialchars;
 use function mb_strlen;
@@ -31,7 +32,8 @@ class Linter
      */
     public static function getLines($str)
     {
-        if ((! ($str instanceof UtfString))
+        if (
+            (! ($str instanceof UtfString))
             && defined('USE_UTF_STRINGS')
             && USE_UTF_STRINGS
         ) {
@@ -83,6 +85,7 @@ class Linter
             if ($lineStart > $pos) {
                 break;
             }
+
             $line = $lineNo;
         }
 

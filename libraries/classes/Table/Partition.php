@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
+
 use function sprintf;
 
 final class Partition

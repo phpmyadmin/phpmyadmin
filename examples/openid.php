@@ -94,6 +94,7 @@ $base = 'http';
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
     $base .= 's';
 }
+
 $base .= '://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'];
 
 $realm = $base . '/';
@@ -101,6 +102,7 @@ $returnTo = $base . dirname($_SERVER['PHP_SELF']);
 if ($returnTo[strlen($returnTo) - 1] !== '/') {
     $returnTo .= '/';
 }
+
 $returnTo .= 'openid.php';
 
 /* Display form */
@@ -115,12 +117,11 @@ OpenID: <input type="text" name="identifier"><br>
 }
 
 /* Grab identifier */
+$identifier = null;
 if (isset($_POST['identifier']) && is_string($_POST['identifier'])) {
     $identifier = $_POST['identifier'];
 } elseif (isset($_SESSION['identifier']) && is_string($_SESSION['identifier'])) {
     $identifier = $_SESSION['identifier'];
-} else {
-    $identifier = null;
 }
 
 /* Create OpenID object */
@@ -148,7 +149,7 @@ if (isset($_POST['start'])) {
 if (! count($_POST)) {
     [, $queryString] = explode('?', $_SERVER['REQUEST_URI']);
 } else {
-    // I hate php sometimes
+    // Fetch the raw query body
     $queryString = file_get_contents('php://input');
 }
 

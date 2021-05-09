@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Dbal;
 
 use mysqli_result;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Table;
 
@@ -67,21 +68,6 @@ interface DbalInterface
      * @return array   tables names
      */
     public function getTables(string $database, $link = DatabaseInterface::CONNECT_USER): array;
-
-    /**
-     * returns
-     *
-     * @param string $database name of database
-     * @param array  $tables   list of tables to search for for relations
-     * @param int    $link     mysql link resource|object
-     *
-     * @return array           array of found foreign keys
-     */
-    public function getForeignKeyConstrains(
-        string $database,
-        array $tables,
-        $link = DatabaseInterface::CONNECT_USER
-    ): array;
 
     /**
      * returns array of all tables in given db or dbs
@@ -670,9 +656,9 @@ interface DbalInterface
      *
      * @param object $result result set identifier
      *
-     * @return mixed meta info for fields in $result
+     * @return FieldMetadata[]|null meta info for fields in $result
      */
-    public function getFieldsMeta($result);
+    public function getFieldsMeta($result): ?array;
 
     /**
      * return number of fields in given $result
@@ -702,16 +688,6 @@ interface DbalInterface
      * @return string name of $i. field in $result
      */
     public function fieldName($result, int $i): string;
-
-    /**
-     * returns concatenated string of human readable field flags
-     *
-     * @param object $result result set identifier
-     * @param int    $i      field
-     *
-     * @return string field flags
-     */
-    public function fieldFlags($result, $i): string;
 
     /**
      * returns properly escaped string for use in MySQL queries

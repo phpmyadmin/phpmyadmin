@@ -13,6 +13,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
 use function in_array;
 use function is_numeric;
 use function mb_strpos;
@@ -35,7 +36,7 @@ class VariablesController extends AbstractController
 
     public function index(): void
     {
-        global $err_url;
+        global $errorUrl;
 
         $params = [
             'flush' => $_POST['flush'] ?? null,
@@ -44,7 +45,7 @@ class VariablesController extends AbstractController
             'filterCategory' => $_POST['filterCategory'] ?? null,
             'dontFormat' => $_POST['dontFormat'] ?? null,
         ];
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -72,7 +73,8 @@ class VariablesController extends AbstractController
                     'name' => $sectionName,
                     'is_selected' => false,
                 ];
-                if (empty($params['filterCategory'])
+                if (
+                    empty($params['filterCategory'])
                     || $params['filterCategory'] !== $sectionId
                 ) {
                     continue;
@@ -202,8 +204,7 @@ class VariablesController extends AbstractController
             'Table_locks_waited' => 0,
             'Qcache_lowmem_prunes' => 0,
 
-            'Qcache_free_blocks' =>
-                isset($this->data->status['Qcache_total_blocks'])
+            'Qcache_free_blocks' => isset($this->data->status['Qcache_total_blocks'])
                     ? $this->data->status['Qcache_total_blocks'] / 5
                     : 0,
             'Slow_launch_threads' => 0,
@@ -547,7 +548,7 @@ class VariablesController extends AbstractController
             ),
             'Opened_tables' => __(
                 'The number of tables that have been opened. If opened tables is'
-                . ' big, your table cache value is probably too small.'
+                . ' big, your table_open_cache value is probably too small.'
             ),
             'Open_files' => __(
                 'The number of files that are open.'

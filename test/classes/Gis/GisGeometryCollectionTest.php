@@ -7,10 +7,12 @@ namespace PhpMyAdmin\Tests\Gis;
 use PhpMyAdmin\Gis\GisGeometryCollection;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use TCPDF;
+
 use function function_exists;
 use function imagecreatetruecolor;
 use function imagesx;
 use function imagesy;
+use function method_exists;
 use function preg_match;
 
 class GisGeometryCollectionTest extends AbstractTestCase
@@ -307,16 +309,18 @@ class GisGeometryCollectionTest extends AbstractTestCase
             $scaleData
         );
         $this->assertEquals(1, preg_match($output, $string));
-        // assertMatchesRegularExpression added in 9.1
-        $this->assertRegExp(
-            $output,
-            $this->object->prepareRowAsSvg(
-                $spatial,
-                $label,
-                $lineColor,
-                $scaleData
-            )
-        );
+
+        if (method_exists($this, 'assertMatchesRegularExpression')) {
+            $this->assertMatchesRegularExpression(
+                $output,
+                $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData)
+            );
+        } else {
+            $this->assertRegExp(
+                $output,
+                $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData)
+            );
+        }
     }
 
     /**

@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Url;
 
@@ -22,7 +21,7 @@ class NodeColumnContainer extends Node
     public function __construct()
     {
         parent::__construct(__('Columns'), Node::CONTAINER);
-        $this->icon = Generator::getImage('pause', __('Columns'));
+        $this->icon = ['image' => 'pause', 'title' => __('Columns')];
         $this->links = [
             'text' => Url::getFromRoute('/table/structure', [
                 'server' => $GLOBALS['server'],
@@ -38,7 +37,7 @@ class NodeColumnContainer extends Node
             $newLabel,
             'new_column italics'
         );
-        $new->icon = Generator::getImage('b_column_add', $newLabel);
+        $new->icon = ['image' => 'b_column_add', 'title' => $newLabel];
         $new->links = [
             'text' => Url::getFromRoute('/table/add-field', [
                 'server' => $GLOBALS['server'],

@@ -23,13 +23,7 @@ use Facebook\WebDriver\WebDriverSelect;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Throwable;
-use const CURLOPT_CUSTOMREQUEST;
-use const CURLOPT_HTTPHEADER;
-use const CURLOPT_POSTFIELDS;
-use const CURLOPT_RETURNTRANSFER;
-use const CURLOPT_URL;
-use const CURLOPT_USERPWD;
-use const PHP_EOL;
+
 use function curl_close;
 use function curl_errno;
 use function curl_error;
@@ -38,6 +32,7 @@ use function curl_init;
 use function curl_setopt;
 use function current;
 use function end;
+use function file_put_contents;
 use function getenv;
 use function is_bool;
 use function is_string;
@@ -52,13 +47,20 @@ use function sha1;
 use function sprintf;
 use function strlen;
 use function substr;
+use function time;
 use function trim;
 use function usleep;
+
+use const CURLOPT_CUSTOMREQUEST;
+use const CURLOPT_HTTPHEADER;
+use const CURLOPT_POSTFIELDS;
+use const CURLOPT_RETURNTRANSFER;
+use const CURLOPT_URL;
+use const CURLOPT_USERPWD;
 use const DIRECTORY_SEPARATOR;
-use function time;
-use function file_put_contents;
 use const JSON_PRETTY_PRINT;
 use const JSON_UNESCAPED_SLASHES;
+use const PHP_EOL;
 
 /**
  * Base class for Selenium tests.
@@ -100,6 +102,13 @@ abstract class TestBase extends TestCase
      * @var bool
      */
     protected static $createDatabase = true;
+
+    /**
+     * Did the test create the phpMyAdmin storage database ?
+     *
+     * @var bool
+     */
+    private $hadStorageDatabaseInstall = false;
 
     /**
      * Configures the selenium and database link.
@@ -266,6 +275,7 @@ abstract class TestBase extends TestCase
         if ($suiteUrl === false) {
             $suiteUrl = '';
         }
+
         if (substr($suiteUrl, -1) === '/') {
             $url = $suiteUrl . $url;
         } else {
@@ -373,6 +383,7 @@ abstract class TestBase extends TestCase
                 }
 
                 return $capabilities;
+
             case 'safari':
                 $capabilities = DesiredCapabilities::safari();
                 if ($this->hasCIConfig() && $this->hasBrowserstackConfig()) {
@@ -391,6 +402,7 @@ abstract class TestBase extends TestCase
                 }
 
                 return $capabilities;
+
             case 'edge':
                 $capabilities = DesiredCapabilities::microsoftEdge();
                 if ($this->hasCIConfig() && $this->hasBrowserstackConfig()) {
@@ -433,22 +445,47 @@ abstract class TestBase extends TestCase
     }
 
     /**
+     * Use the fix relation button to install phpMyAdmin storage
+     */
+    protected function fixUpPhpMyAdminStorage(): bool
+    {
+        $this->navigateTo('index.php?route=/check-relations');
+
+        $fixTextSelector = '//div[@class="alert alert-primary" and contains(., "Create a database named")]/a';
+        if ($this->isElementPresent('xpath', $fixTextSelector)) {
+            $this->byXPath($fixTextSelector)->click();
+            $this->waitAjax();
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Skips test if pmadb is not configured.
      */
     protected function skipIfNotPMADB(): void
     {
         $this->navigateTo('index.php?route=/check-relations');
         $pageContent = $this->waitForElement('id', 'page_content');
-        if (! preg_match(
-            '/Configuration of pmadb… not OK/i',
-            $pageContent->getText()
-        )) {
+        if (
+            ! preg_match(
+                '/Configuration of pmadb… not OK/i',
+                $pageContent->getText()
+            )
+        ) {
             return;
         }
 
-        $this->markTestSkipped(
-            'The phpMyAdmin configuration storage is not working.'
-        );
+        if (! $this->fixUpPhpMyAdminStorage()) {
+            $this->markTestSkipped(
+                'The phpMyAdmin configuration storage is not working.'
+            );
+        }
+
+        // If it failed the code already has exited with markTestSkipped
+        $this->hadStorageDatabaseInstall = true;
     }
 
     /**
@@ -463,14 +500,18 @@ abstract class TestBase extends TestCase
         if ($username === '') {
             $username = $this->getTestSuiteUserLogin();
         }
+
         if ($password === '') {
             $password = $this->getTestSuiteUserPassword();
         }
+
         $this->navigateTo('');
         /* Wait while page */
-        while ($this->webDriver->executeScript(
-            'return document.readyState !== "complete";'
-        )) {
+        while (
+            $this->webDriver->executeScript(
+                'return document.readyState !== "complete";'
+            )
+        ) {
             usleep(5000);
         }
 
@@ -480,8 +521,8 @@ abstract class TestBase extends TestCase
         }
 
         // Select English if the Language selector is available
-        if ($this->isElementPresent('id', 'sel-lang')) {
-            $this->selectByLabel($this->byId('sel-lang'), 'English');
+        if ($this->isElementPresent('id', 'languageSelect')) {
+            $this->selectByLabel($this->byId('languageSelect'), 'English');
         }
 
         // Clear the input for Microsoft Edge (remembers the username)
@@ -638,6 +679,7 @@ abstract class TestBase extends TestCase
 
                 return false;
             }
+
             $this->byXPath('//*[contains(@class,"nav-item") and contains(., "SQL")]')->click();
             $this->waitAjax();
             $this->typeInTextArea($query);
@@ -645,6 +687,7 @@ abstract class TestBase extends TestCase
             if ($afterSubmit !== null) {
                 $afterSubmit->call($this);
             }
+
             $this->waitAjax();
             $this->waitForElement('className', 'result_query');
             // If present then
@@ -665,13 +708,13 @@ abstract class TestBase extends TestCase
 
     public function takeScrenshot(string $comment): void
     {
-        $screenshotDir =
-            __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
+        $screenshotDir = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
             . '..' . DIRECTORY_SEPARATOR . 'build' . DIRECTORY_SEPARATOR
             . 'selenium';
         if ($this->webDriver === null) {
             return;
         }
+
         $key = time();
 
         // This call will also create the file path
@@ -771,6 +814,7 @@ abstract class TestBase extends TestCase
             if (! $this->isElementPresent($func, $arg)) {
                 return;
             }
+
             usleep(5000);
         }
     }
@@ -940,6 +984,7 @@ abstract class TestBase extends TestCase
         if ($this->isElementPresent('cssSelector', 'li.nav-item.dropdown.d-none')) {
             return;
         }
+
         // Not found, searching for another alternative
         try {
             $ele = $this->waitForElement('cssSelector', 'li.dropdown > a');
@@ -1128,9 +1173,15 @@ abstract class TestBase extends TestCase
         if (static::$createDatabase) {
             $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->databaseName . '`;');
         }
+
+        if ($this->hadStorageDatabaseInstall) {
+            $this->dbQuery('DROP DATABASE IF EXISTS `phpmyadmin`;');
+        }
+
         if (! $this->hasFailed()) {
             $this->markTestAs('passed', '');
         }
+
         $this->sqlWindowHandle = null;
         $this->webDriver->quit();
     }
@@ -1179,6 +1230,7 @@ abstract class TestBase extends TestCase
         if ($ch !== false && curl_errno($ch)) {
             echo 'Error: ' . curl_error($ch) . PHP_EOL;
         }
+
         curl_close($ch);
     }
 
@@ -1207,13 +1259,16 @@ abstract class TestBase extends TestCase
 
             return;
         }
+
         $proj = json_decode($result);
         if (isset($proj->automation_session)) {
             echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
         }
+
         if ($ch !== false && curl_errno($ch)) {
             echo 'Error: ' . curl_error($ch) . PHP_EOL;
         }
+
         curl_close($ch);
     }
 
@@ -1230,6 +1285,7 @@ abstract class TestBase extends TestCase
         if ($this->webDriver !== null) {
             $this->webDriver->quit();
         }
+
         $this->sqlWindowHandle = null;
 
         $this->getErrorVideoUrl();

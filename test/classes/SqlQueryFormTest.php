@@ -11,6 +11,8 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Version;
+
 use function htmlspecialchars;
 
 /**
@@ -29,7 +31,6 @@ class SqlQueryFormTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setLanguage();
         $this->sqlQueryForm = new SqlQueryForm(new Template());
 
@@ -57,7 +58,7 @@ class SqlQueryFormTest extends AbstractTestCase
 
         //_SESSION
         $_SESSION['relation'][0] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'table_coords' => 'table_name',
             'displaywork' => 'displaywork',
             'db' => 'information_schema',

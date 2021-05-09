@@ -17,6 +17,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\Gis;
+
 use function in_array;
 use function intval;
 use function mb_strtolower;
@@ -139,7 +141,7 @@ class SearchController extends AbstractController
             true
         );
         // Get details about the geometry functions
-        $geom_types = Util::getGISDatatypes();
+        $geom_types = Gis::getDataTypes();
 
         foreach ($columns as $row) {
             // set column name
@@ -152,8 +154,10 @@ class SearchController extends AbstractController
             if (in_array($type, $geom_types)) {
                 $this->geomColumnFlag = true;
             }
+
             // reformat mysql query output
-            if (strncasecmp($type, 'set', 3) == 0
+            if (
+                strncasecmp($type, 'set', 3) == 0
                 || strncasecmp($type, 'enum', 4) == 0
             ) {
                 $type = str_replace(',', ', ', $type);
@@ -163,17 +167,19 @@ class SearchController extends AbstractController
                 if (! preg_match('@BINARY[\(]@i', $type)) {
                     $type = str_ireplace('BINARY', '', $type);
                 }
+
                 $type = str_ireplace('ZEROFILL', '', $type);
                 $type = str_ireplace('UNSIGNED', '', $type);
                 $type = mb_strtolower($type);
             }
+
             if (empty($type)) {
                 $type = '&nbsp;';
             }
+
             $this->columnTypes[] = $type;
             $this->columnNullFlags[] = $row['Null'];
-            $this->columnCollations[]
-                = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
+            $this->columnCollations[] = ! empty($row['Collation']) && $row['Collation'] !== 'NULL'
                 ? $row['Collation']
                 : '';
         }
@@ -187,13 +193,13 @@ class SearchController extends AbstractController
      */
     public function index(): void
     {
-        global $db, $table, $url_params, $cfg, $err_url;
+        global $db, $table, $urlParams, $cfg, $errorUrl;
 
         Util::checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $urlParams = ['db' => $db, 'table' => $table];
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check();
 
@@ -216,7 +222,8 @@ class SearchController extends AbstractController
         /**
          * No selection criteria received -> display the selection form
          */
-        if (! isset($_POST['columnsToDisplay'])
+        if (
+            ! isset($_POST['columnsToDisplay'])
             && ! isset($_POST['displayAllColumns'])
         ) {
             $this->displaySelectionFormAction();
@@ -249,16 +256,19 @@ class SearchController extends AbstractController
             // for bit fields we need to convert them to printable form
             $i = 0;
             foreach ($row as $col => $val) {
-                if ($fields_meta[$i]->type === 'bit') {
+                if (isset($fields_meta[$i]) && $fields_meta[$i]->isMappedTypeBit) {
                     $row[$col] = Util::printableBitValue(
                         (int) $val,
                         (int) $fields_meta[$i]->length
                     );
                 }
+
                 $i++;
             }
+
             $extra_data['row_info'] = $row;
         }
+
         $this->response->addJSON($extra_data);
     }
 
@@ -409,8 +419,8 @@ class SearchController extends AbstractController
                             . 'data-max="' . $minMaxValues[1] . '"';
         }
 
-        $htmlAttributes .= ' onchange="return '
-                        . 'verifyAfterSearchFieldChange(' . $column_index . ', \'#tbl_search_form\')"';
+        $htmlAttributes .= ' onfocus="return '
+                        . 'verifyAfterSearchFieldChange(' . $search_index . ', \'#tbl_search_form\')"';
 
         $value = $this->template->render('table/search/input_box', [
             'str' => '',

@@ -9,12 +9,14 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
-use const SORT_STRING;
+
 use function array_keys;
 use function count;
 use function explode;
 use function is_string;
 use function ksort;
+
+use const SORT_STRING;
 
 /**
  * Class used to manage MySQL charsets
@@ -87,12 +89,14 @@ class Charsets
                 . ' `MAXLEN` AS `Maxlen`'
                 . ' FROM `information_schema`.`CHARACTER_SETS`';
         }
+
         $res = $dbi->query($sql);
 
         self::$charsets = [];
         while ($row = $dbi->fetchAssoc($res)) {
             self::$charsets[$row['Charset']] = Charset::fromServer($row);
         }
+
         $dbi->freeResult($res);
 
         ksort(self::$charsets, SORT_STRING);
@@ -122,12 +126,14 @@ class Charsets
                 . ' `SORTLEN` AS `Sortlen`'
                 . ' FROM `information_schema`.`COLLATIONS`';
         }
+
         $res = $dbi->query($sql);
 
         self::$collations = [];
         while ($row = $dbi->fetchAssoc($res)) {
             self::$collations[$row['Charset']][$row['Collation']] = Collation::fromServer($row);
         }
+
         $dbi->freeResult($res);
 
         foreach (array_keys(self::$collations) as $charset) {
@@ -146,11 +152,13 @@ class Charsets
         if (self::$serverCharset !== null) {
             return self::$serverCharset;
         }
+
         self::loadCharsets($dbi, $disableIs);
         $serverCharset = $dbi->getVariable('character_set_server');
         if (! is_string($serverCharset)) {// MySQL 5.7.8 fallback, issue #15614
             $serverCharset = $dbi->fetchValue('SELECT @@character_set_server;');
         }
+
         self::$serverCharset = self::$charsets[$serverCharset];
 
         return self::$serverCharset;
@@ -197,6 +205,7 @@ class Charsets
         if ($pieces === false || ! isset($pieces[0])) {
             return null;
         }
+
         $charset = $pieces[0];
         $collations = self::getCollations($dbi, $disableIs);
 

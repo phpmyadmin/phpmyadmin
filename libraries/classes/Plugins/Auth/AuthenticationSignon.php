@@ -10,7 +10,7 @@ namespace PhpMyAdmin\Plugins\Auth;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Util;
-use const PHP_VERSION;
+
 use function array_merge;
 use function defined;
 use function file_exists;
@@ -22,6 +22,8 @@ use function session_set_cookie_params;
 use function session_start;
 use function session_write_close;
 use function version_compare;
+
+use const PHP_VERSION;
 
 /**
  * Handles the SignOn authentication method
@@ -66,12 +68,16 @@ class AuthenticationSignon extends AuthenticationPlugin
             switch ($key) {
                 case 'lifetime':
                     return 0;
+
                 case 'path':
                     return '/';
+
                 case 'domain':
                     return '';
+
                 case 'secure':
                     return false;
+
                 case 'httponly':
                     return false;
             }
@@ -87,7 +93,8 @@ class AuthenticationSignon extends AuthenticationPlugin
             $sessionCookieParams[$key] = $defaultCookieParams($key);
         }
 
-        if (isset($sessionCookieParams['samesite'])
+        if (
+            isset($sessionCookieParams['samesite'])
             && ! in_array($sessionCookieParams['samesite'], ['Lax', 'Strict'])
         ) {
                 // Not a valid value for samesite
@@ -95,6 +102,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         }
 
         if (version_compare(PHP_VERSION, '7.3.0', '>=')) {
+            /** @psalm-suppress InvalidArgument */
             session_set_cookie_params($sessionCookieParams);
         } else {
             session_set_cookie_params(
@@ -116,7 +124,8 @@ class AuthenticationSignon extends AuthenticationPlugin
     {
         /* Check if we're using same signon server */
         $signon_url = $GLOBALS['cfg']['Server']['SignonURL'];
-        if (isset($_SESSION['LAST_SIGNON_URL'])
+        if (
+            isset($_SESSION['LAST_SIGNON_URL'])
             && $_SESSION['LAST_SIGNON_URL'] != $signon_url
         ) {
             return false;
@@ -148,10 +157,10 @@ class AuthenticationSignon extends AuthenticationPlugin
                     . ' ' . $script_name
                 );
             }
+
             include $script_name;
 
-            [$this->user, $this->password]
-                = get_login_credentials($GLOBALS['cfg']['Server']['user']);
+            [$this->user, $this->password] = get_login_credentials($GLOBALS['cfg']['Server']['user']);
         } elseif (isset($_COOKIE[$session_name])) { /* Does session exist? */
             /* End current session */
             $old_session = session_name();
@@ -160,6 +169,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             if (! defined('TESTSUITE')) {
                 session_write_close();
             }
+
             /* Load single signon session */
             if (! defined('TESTSUITE')) {
                 $this->setCookieParams();
@@ -175,9 +185,11 @@ class AuthenticationSignon extends AuthenticationPlugin
             if (isset($_SESSION['PMA_single_signon_user'])) {
                 $this->user = $_SESSION['PMA_single_signon_user'];
             }
+
             if (isset($_SESSION['PMA_single_signon_password'])) {
                 $this->password = $_SESSION['PMA_single_signon_password'];
             }
+
             if (isset($_SESSION['PMA_single_signon_host'])) {
                 $single_signon_host = $_SESSION['PMA_single_signon_host'];
             }
@@ -212,9 +224,11 @@ class AuthenticationSignon extends AuthenticationPlugin
                 if ($old_session !== null) {
                     session_name($old_session);
                 }
+
                 if (! empty($old_id)) {
                     session_id($old_id);
                 }
+
                 session_start();
             }
 
@@ -284,6 +298,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             /* Set error message */
             $_SESSION['PMA_single_signon_error_message'] = $this->getErrorMessage($failure);
         }
+
         $this->showLoginForm();
     }
 

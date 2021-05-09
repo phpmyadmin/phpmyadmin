@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SystemDatabase;
+use PhpMyAdmin\Version;
 
 /**
  * Tests for libraries/SystemDatabase.php
@@ -30,7 +31,6 @@ class SystemDatabaseTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         /**
          * SET these to avoid undefine d index error
          */
@@ -47,7 +47,7 @@ class SystemDatabaseTest extends AbstractTestCase
 
         //_SESSION
         $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'table_coords' => 'table_name',
             'displaywork' => 'displaywork',
             'db' => 'information_schema',

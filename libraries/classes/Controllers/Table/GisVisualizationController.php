@@ -12,6 +12,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_merge;
 
 /**
@@ -39,12 +40,12 @@ final class GisVisualizationController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $url_params, $db, $err_url;
+        global $cfg, $urlParams, $db, $errorUrl;
 
         Util::checkParameters(['db']);
 
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-        $err_url .= Url::getCommon(['db' => $db], '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => $db], '&');
 
         if (! $this->hasDatabase()) {
             return;
@@ -73,13 +74,13 @@ final class GisVisualizationController extends AbstractController
         // Execute the query and return the result
         $result = $this->dbi->tryQuery($sqlQuery);
         // Get the meta data of results
-        $meta = $this->dbi->getFieldsMeta($result);
+        $meta = $this->dbi->getFieldsMeta($result) ?? [];
 
         // Find the candidate fields for label column and spatial column
         $labelCandidates = [];
         $spatialCandidates = [];
         foreach ($meta as $column_meta) {
-            if ($column_meta->type === 'geometry') {
+            if ($column_meta->isMappedTypeGeometry) {
                 $spatialCandidates[] = $column_meta->name;
             } else {
                 $labelCandidates[] = $column_meta->name;
@@ -96,7 +97,8 @@ final class GisVisualizationController extends AbstractController
         $visualizationSettings['mysqlVersion'] = $this->dbi->getVersion();
         $visualizationSettings['isMariaDB'] = $this->dbi->isMariaDB();
 
-        if (! isset($visualizationSettings['labelColumn'])
+        if (
+            ! isset($visualizationSettings['labelColumn'])
             && isset($labelCandidates[0])
         ) {
             $visualizationSettings['labelColumn'] = '';
@@ -118,6 +120,7 @@ final class GisVisualizationController extends AbstractController
                 $rows = $GLOBALS['cfg']['MaxRows'];
             }
         }
+
         $this->visualization = GisVisualization::get(
             $sqlQuery,
             $visualizationSettings,
@@ -160,14 +163,15 @@ final class GisVisualizationController extends AbstractController
         /**
          * Displays the page
          */
-        $url_params['goto'] = Util::getScriptNameForOption(
+        $urlParams['goto'] = Util::getScriptNameForOption(
             $cfg['DefaultTabDatabase'],
             'database'
         );
-        $url_params['back'] = Url::getFromRoute('/sql');
-        $url_params['sql_query'] = $sqlQuery;
+        $urlParams['back'] = Url::getFromRoute('/sql');
+        $urlParams['sql_query'] = $sqlQuery;
+        $urlParams['sql_signature'] = Core::signSqlQuery($sqlQuery);
         $downloadUrl = Url::getFromRoute('/table/gis-visualization', array_merge(
-            $url_params,
+            $urlParams,
             [
                 'saveToFile' => true,
                 'session_max_rows' => $rows,
@@ -175,7 +179,7 @@ final class GisVisualizationController extends AbstractController
             ]
         ));
         $html = $this->template->render('table/gis_visualization/gis_visualization', [
-            'url_params' => $url_params,
+            'url_params' => $urlParams,
             'download_url' => $downloadUrl,
             'label_candidates' => $labelCandidates,
             'spatial_candidates' => $spatialCandidates,

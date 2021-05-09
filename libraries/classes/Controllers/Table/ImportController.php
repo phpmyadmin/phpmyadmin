@@ -19,6 +19,8 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
+
 use function intval;
 
 final class ImportController extends AbstractController
@@ -40,7 +42,7 @@ final class ImportController extends AbstractController
 
     public function index(): void
     {
-        global $db, $max_upload_size, $table, $url_params, $SESSION_KEY, $cfg, $err_url;
+        global $db, $max_upload_size, $table, $urlParams, $SESSION_KEY, $cfg, $errorUrl;
 
         $pageSettings = new PageSettings('Import');
         $pageSettingsErrorHtml = $pageSettings->getErrorHTML();
@@ -50,14 +52,14 @@ final class ImportController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $urlParams = ['db' => $db, 'table' => $table];
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check();
 
-        $url_params['goto'] = Url::getFromRoute('/table/import');
-        $url_params['back'] = Url::getFromRoute('/table/import');
+        $urlParams['goto'] = Url::getFromRoute('/table/import');
+        $urlParams['back'] = Url::getFromRoute('/table/import');
 
         [$SESSION_KEY, $uploadId] = Ajax::uploadProgressSetup();
 
@@ -120,7 +122,7 @@ final class ImportController extends AbstractController
             'offset' => $offset,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'charsets' => $charsets,
-            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+            'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
             'user_upload_dir' => Util::userDir($cfg['UploadDir'] ?? ''),
             'local_files' => Import::getLocalFiles($importList),
         ]);

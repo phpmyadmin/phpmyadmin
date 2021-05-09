@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Navigation\Nodes;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function in_array;
 use function intval;
 use function strpos;
@@ -38,10 +39,7 @@ class NodeDatabase extends Node
     public function __construct($name, $type = Node::OBJECT, $isGroup = false)
     {
         parent::__construct($name, $type, $isGroup);
-        $this->icon = Generator::getImage(
-            's_db',
-            __('Database operations')
-        );
+        $this->icon = ['image' => 's_db', 'title' => __('Database operations')];
 
         $scriptName = Util::getScriptNameForOption(
             $GLOBALS['cfg']['DefaultTabDatabase'],
@@ -126,7 +124,7 @@ class NodeDatabase extends Node
             $query  = 'SELECT COUNT(*) ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
             $query .= "WHERE `TABLE_SCHEMA`='" . $db . "' ";
-            $query .= 'AND `TABLE_TYPE`' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
+            $query .= 'AND `TABLE_TYPE` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
                 $query .= 'AND ' . $this->getWhereClauseForSearch(
                     $searchClause,
@@ -134,11 +132,12 @@ class NodeDatabase extends Node
                     'TABLE_NAME'
                 );
             }
+
             $retval = (int) $dbi->fetchValue($query);
         } else {
             $query = 'SHOW FULL TABLES FROM ';
             $query .= Util::backquote($db);
-            $query .= ' WHERE `Table_type`' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
+            $query .= ' WHERE `Table_type` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
                 $query .= 'AND ' . $this->getWhereClauseForSearch(
                     $searchClause,
@@ -146,6 +145,7 @@ class NodeDatabase extends Node
                     'Tables_in_' . $db
                 );
             }
+
             $retval = $dbi->numRows(
                 $dbi->tryQuery($query)
             );
@@ -221,6 +221,7 @@ class NodeDatabase extends Node
                     'ROUTINE_NAME'
                 );
             }
+
             $retval = (int) $dbi->fetchValue($query);
         } else {
             $db = $dbi->escapeString($db);
@@ -232,6 +233,7 @@ class NodeDatabase extends Node
                     'Name'
                 );
             }
+
             $retval = $dbi->numRows(
                 $dbi->tryQuery($query)
             );
@@ -269,6 +271,7 @@ class NodeDatabase extends Node
                     'ROUTINE_NAME'
                 );
             }
+
             $retval = (int) $dbi->fetchValue($query);
         } else {
             $db = $dbi->escapeString($db);
@@ -280,6 +283,7 @@ class NodeDatabase extends Node
                     'Name'
                 );
             }
+
             $retval = $dbi->numRows(
                 $dbi->tryQuery($query)
             );
@@ -316,6 +320,7 @@ class NodeDatabase extends Node
                     'EVENT_NAME'
                 );
             }
+
             $retval = (int) $dbi->fetchValue($query);
         } else {
             $db = Util::backquote($db);
@@ -327,6 +332,7 @@ class NodeDatabase extends Node
                     'Name'
                 );
             }
+
             $retval = $dbi->numRows(
                 $dbi->tryQuery($query)
             );
@@ -433,6 +439,7 @@ class NodeDatabase extends Node
         if (! $cfgRelation['navwork']) {
             return [];
         }
+
         $navTable = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['navigationhiding']);
         $sqlQuery = 'SELECT `item_name` FROM ' . $navTable
@@ -447,6 +454,7 @@ class NodeDatabase extends Node
                 $hiddenItems[] = $row[0];
             }
         }
+
         $dbi->freeResult($result);
 
         return $hiddenItems;
@@ -470,6 +478,7 @@ class NodeDatabase extends Node
         } else {
             $condition = 'NOT IN';
         }
+
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $retval   = [];
         $db       = $this->realName;
@@ -478,19 +487,20 @@ class NodeDatabase extends Node
             $query  = 'SELECT `TABLE_NAME` AS `name` ';
             $query .= 'FROM `INFORMATION_SCHEMA`.`TABLES` ';
             $query .= "WHERE `TABLE_SCHEMA`='" . $escdDb . "' ";
-            $query .= 'AND `TABLE_TYPE`' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
+            $query .= 'AND `TABLE_TYPE` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
                 $query .= "AND `TABLE_NAME` LIKE '%";
                 $query .= $dbi->escapeString($searchClause);
                 $query .= "%'";
             }
+
             $query .= 'ORDER BY `TABLE_NAME` ASC ';
             $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
             $retval = $dbi->fetchResult($query);
         } else {
             $query = ' SHOW FULL TABLES FROM ';
             $query .= Util::backquote($db);
-            $query .= ' WHERE `Table_type`' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
+            $query .= ' WHERE `Table_type` ' . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
                 $query .= 'AND ' . Util::backquote(
                     'Tables_in_' . $db
@@ -500,6 +510,7 @@ class NodeDatabase extends Node
                 );
                 $query .= "%'";
             }
+
             $handle = $dbi->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
@@ -573,6 +584,7 @@ class NodeDatabase extends Node
                 $query .= $dbi->escapeString($searchClause);
                 $query .= "%'";
             }
+
             $query .= 'ORDER BY `ROUTINE_NAME` ASC ';
             $query .= 'LIMIT ' . intval($pos) . ', ' . $maxItems;
             $retval = $dbi->fetchResult($query);
@@ -584,6 +596,7 @@ class NodeDatabase extends Node
                 $query .= $dbi->escapeString($searchClause);
                 $query .= "%'";
             }
+
             $handle = $dbi->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;
@@ -655,6 +668,7 @@ class NodeDatabase extends Node
                 $query .= $dbi->escapeString($searchClause);
                 $query .= "%'";
             }
+
             $query .= 'ORDER BY `EVENT_NAME` ASC ';
             $query .= 'LIMIT ' . intval($pos) . ', ' . $maxItems;
             $retval = $dbi->fetchResult($query);
@@ -666,6 +680,7 @@ class NodeDatabase extends Node
                 $query .= $dbi->escapeString($searchClause);
                 $query .= "%'";
             }
+
             $handle = $dbi->tryQuery($query);
             if ($handle !== false) {
                 $count = 0;

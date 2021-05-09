@@ -77,4 +77,84 @@ class GeneratorTest extends AbstractTestCase
             )
         );
     }
+
+    public function testGetQueryForReorderingTable(): void
+    {
+        $this->assertEquals(
+            'ALTER TABLE `mytable` ORDER BY `myOrderField` ASC;',
+            Generator::getQueryForReorderingTable(
+                'mytable',
+                'myOrderField',
+                ''
+            )
+        );
+        $this->assertEquals(
+            'ALTER TABLE `mytable` ORDER BY `myOrderField` ASC;',
+            Generator::getQueryForReorderingTable(
+                'mytable',
+                'myOrderField',
+                'S'
+            )
+        );
+        $this->assertEquals(
+            'ALTER TABLE `mytable` ORDER BY `myOrderField` ASC;',
+            Generator::getQueryForReorderingTable(
+                'mytable',
+                'myOrderField',
+                'DESC'
+            )
+        );
+        $this->assertEquals(
+            'ALTER TABLE `mytable` ORDER BY `myOrderField` DESC;',
+            Generator::getQueryForReorderingTable(
+                'mytable',
+                'myOrderField',
+                'desc'
+            )
+        );
+        $this->assertEquals(
+            'ALTER TABLE `mytable` ORDER BY `myOrderField` ASC;',
+            Generator::getQueryForReorderingTable(
+                'mytable',
+                'myOrderField',
+                null
+            )
+        );
+    }
+
+    public function testGetQueryForPartitioningTable(): void
+    {
+        $this->assertEquals(
+            'ALTER TABLE `mytable`  PARTITION ;',
+            Generator::getQueryForPartitioningTable(
+                'mytable',
+                '',
+                []
+            )
+        );
+        $this->assertEquals(
+            'ALTER TABLE `mytable`  PARTITION p1;',
+            Generator::getQueryForPartitioningTable(
+                'mytable',
+                '',
+                ['p1']
+            )
+        );
+        $this->assertEquals(
+            'ALTER TABLE `mytable`  PARTITION p1, p2;',
+            Generator::getQueryForPartitioningTable(
+                'mytable',
+                '',
+                ['p1', 'p2']
+            )
+        );
+        $this->assertEquals(
+            'ALTER TABLE `mytable` COALESCE PARTITION 2',
+            Generator::getQueryForPartitioningTable(
+                'mytable',
+                'COALESCE',
+                ['p1', 'p2']
+            )
+        );
+    }
 }

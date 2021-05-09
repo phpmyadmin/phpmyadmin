@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Schema\Dia;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
 use XMLWriter;
+
 use function ob_end_clean;
 use function ob_get_clean;
 use function strlen;
@@ -77,11 +78,12 @@ class Dia extends XMLWriter
         $rightMargin,
         $orientation
     ) {
+        $isPortrait = 'false';
+
         if ($orientation === 'P') {
             $isPortrait = 'true';
-        } else {
-            $isPortrait = 'false';
         }
+
         $this->startElement('dia:diagram');
         $this->writeAttribute('xmlns:dia', 'http://www.lysator.liu.se/~alla/dia/');
         $this->startElement('dia:diagramdata');
@@ -186,6 +188,7 @@ class Dia extends XMLWriter
         if (ob_get_clean()) {
             ob_end_clean();
         }
+
         $output = $this->flush();
         Response::getInstance()->disable();
         Core::downloadHeader(

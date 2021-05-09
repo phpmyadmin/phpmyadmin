@@ -7,11 +7,11 @@
   {% if indexes is not empty %}
     {{ indexes_duplicates|raw }}
 
-    <div class="responsivetable jsresponsive">
-      <table class="pma-table" id="table_index">
-        <thead>
-          <tr>
-            <th colspan="2" class="print_ignore">{% trans 'Action' %}</th>
+    <div class="table-responsive jsresponsive">
+      <table class="table table-light table-striped table-hover table-sm w-auto" id="table_index">
+        <thead class="table-light">
+        <tr>
+            <th colspan="3" class="print_ignore">{% trans 'Action' %}</th>
             <th>{% trans 'Keyname' %}</th>
             <th>{% trans 'Type' %}</th>
             <th>{% trans 'Unique' %}</th>
@@ -31,6 +31,11 @@
               <td rowspan="{{ columns_count }}" class="edit_index print_ignore ajax">
                 <a class="ajax" href="{{ url('/table/indexes') }}" data-post="{{ get_common(url_params|merge({'index': index.getName()}), '') }}">
                   {{ get_icon('b_edit', 'Edit'|trans) }}
+                </a>
+              </td>
+              <td rowspan="{{ columns_count }}" class="rename_index print_ignore ajax" >
+                <a class="ajax" href="{{ url('/table/indexes/rename') }}" data-post="{{ get_common(url_params|merge({'index': index.getName()}), '') }}">
+                  {{ get_icon('b_rename', 'Rename'|trans) }}
                 </a>
               </td>
               <td rowspan="{{ columns_count }}" class="print_ignore">

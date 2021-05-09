@@ -20,6 +20,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_key_exists;
 use function array_keys;
 use function array_search;
@@ -86,7 +87,7 @@ class DatabasesController extends AbstractController
     public function index(): void
     {
         global $cfg, $server, $dblist, $is_create_db_priv;
-        global $db_to_create, $text_dir, $err_url;
+        global $db_to_create, $text_dir, $errorUrl;
 
         $params = [
             'statistics' => $_REQUEST['statistics'] ?? null,
@@ -96,7 +97,7 @@ class DatabasesController extends AbstractController
         ];
 
         $this->addScriptFiles(['server/databases.js']);
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -153,6 +154,7 @@ class DatabasesController extends AbstractController
                         'is_selected' => $serverCollation === $collation->getName(),
                     ];
                 }
+
                 $charsetsList[] = [
                     'name' => $charset->getName(),
                     'description' => $charset->getDescription(),
@@ -219,13 +221,15 @@ class DatabasesController extends AbstractController
                 $this->dbi,
                 $cfg['Server']['DisableIS']
             );
-            if (array_key_exists($databaseCharset, $charsets)
+            if (
+                array_key_exists($databaseCharset, $charsets)
                 && array_key_exists($params['db_collation'], $collations[$databaseCharset])
             ) {
                 $sqlQuery .= ' DEFAULT'
                     . Util::getCharsetQueryPart($params['db_collation']);
             }
         }
+
         $sqlQuery .= ';';
 
         $result = $this->dbi->tryQuery($sqlQuery);
@@ -267,7 +271,7 @@ class DatabasesController extends AbstractController
      */
     public function destroy(): void
     {
-        global $selected, $err_url, $cfg, $dblist, $reload;
+        global $selected, $errorUrl, $cfg, $dblist, $reload;
 
         $params = [
             'drop_selected_dbs' => $_POST['drop_selected_dbs'] ?? null,
@@ -276,7 +280,8 @@ class DatabasesController extends AbstractController
         /** @var Message|int $message */
         $message = -1;
 
-        if (! isset($params['drop_selected_dbs'])
+        if (
+            ! isset($params['drop_selected_dbs'])
             || ! $this->response->isAjax()
             || (! $this->dbi->isSuperUser() && ! $cfg['AllowUserDropDatabase'])
         ) {
@@ -297,7 +302,7 @@ class DatabasesController extends AbstractController
             return;
         }
 
-        $err_url = Url::getFromRoute('/server/databases');
+        $errorUrl = Url::getFromRoute('/server/databases');
         $selected = $_POST['selected_dbs'];
         $rebuildDatabaseList = false;
         $sqlQuery = '';
@@ -366,7 +371,8 @@ class DatabasesController extends AbstractController
         }
 
         $this->sortOrder = 'asc';
-        if (! isset($sortOrder)
+        if (
+            ! isset($sortOrder)
             || mb_strtolower($sortOrder) !== 'desc'
         ) {
             return;

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Query;
 
 use PhpMyAdmin\Error;
 use PhpMyAdmin\Url;
+
 use function array_slice;
 use function debug_backtrace;
 use function explode;
@@ -141,7 +142,8 @@ class Utilities
         global $cfg;
 
         /* No sorting when key is not present */
-        if (! isset($a[$sortBy], $b[$sortBy])
+        if (
+            ! isset($a[$sortBy], $b[$sortBy])
         ) {
             return 0;
         }
@@ -184,10 +186,10 @@ class Utilities
         $dbgInfo = [];
 
         if ($result === false && $errorMessage !== null) {
-            $dbgInfo['error']
-                = '<span class="text-danger">'
+            $dbgInfo['error'] = '<span class="text-danger">'
                 . htmlspecialchars($errorMessage) . '</span>';
         }
+
         $dbgInfo['query'] = htmlspecialchars($query);
         $dbgInfo['time'] = $time;
         // Get and slightly format backtrace, this is used

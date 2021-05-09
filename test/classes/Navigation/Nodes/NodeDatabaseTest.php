@@ -16,7 +16,6 @@ class NodeDatabaseTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';

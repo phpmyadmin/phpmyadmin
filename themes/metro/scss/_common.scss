@@ -19,6 +19,7 @@ body#loginform {
   margin: 0;
   background-color: #666;
 
+  .card-header,
   form#login_form label {
     display: none !important;
   }
@@ -119,6 +120,14 @@ body#loginform {
     display: none;
   }
 
+  .card-body {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .card,
+  .card-footer,
   .pma-fieldset {
     border: none;
     color: $navi-color;
@@ -248,7 +257,7 @@ input {
   }
 
   &:not(.form-control)[type="text"],
-  &[type="password"],
+  &:not(.form-control)[type="password"],
   &:not(.form-control)[type="number"] {
     margin: 6px;
   }
@@ -335,7 +344,7 @@ select {
   background-color: $body-bg;
   max-width: 17em;
 
-  &:not(.form-control) {
+  &:not(.form-select) {
     margin: 5px;
   }
 
@@ -695,12 +704,6 @@ div.tools,
   }
 }
 
-/* forbidden, no privileges */
-.noPrivileges {
-  color: #f00;
-  font-weight: bold;
-}
-
 /* disabled text */
 .disabled {
   color: #666;
@@ -803,7 +806,7 @@ div#tablestatistics table {
   top: 0;
   right: 0;
   z-index: 99;
-  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+  padding: $breadcrumb-navbar-padding-y $breadcrumb-padding-x;
 }
 
 #page_settings_icon {
@@ -930,11 +933,6 @@ div#tablestatistics table {
 h3#serverstatusqueries span {
   font-size: 60%;
   display: inline;
-}
-
-.buttonlinks {
-  float: right;
-  white-space: nowrap;
 }
 
 /* Also used for the variables page */
@@ -1104,39 +1102,6 @@ div#profilingchart {
   font-size: 1.7em;
 }
 
-#sectionlinks {
-  padding: 16px;
-  background: #f3f3f3;
-  border: 1px solid #aaa;
-
-  a {
-    font-size: 0.88em;
-    font-weight: bold;
-    line-height: 35px;
-    margin-left: 7px;
-    border: 1px solid #aaa;
-    padding: 5px 10px;
-    color: #111;
-    text-decoration: none;
-    background: #ddd;
-    white-space: nowrap;
-  }
-}
-
-.buttonlinks a,
-a.button {
-  font-size: 0.88em;
-  font-weight: bold;
-  line-height: 35px;
-  margin-left: 7px;
-  border: 1px solid #aaa;
-  padding: 5px 10px;
-  color: #111;
-  text-decoration: none;
-  background: #ddd;
-  white-space: nowrap;
-}
-
 textarea {
   &#sqlquery {
     width: 100%;
@@ -1191,28 +1156,9 @@ li {
     display: none;
   }
 
-  &.no_bullets {
-    list-style-type: none !important;
-  }
-
   &#li_mysql_client_version {
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  &#li_create_database {
-    background-color: #f6f6f6;
-    padding: 10px;
-    border: 1px solid $border-color;
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  &#li_switch_dbstats {
-    background-color: #f6f6f6;
-    padding: 10px;
-    border: 1px solid $border-color;
-    display: block;
   }
 }
 
@@ -1288,6 +1234,7 @@ kbd {
 }
 
 code {
+  font-size: 1em;
   color: $main-color;
 
   &.php {
@@ -2212,7 +2159,7 @@ form.append_fields_form .tblFooters {
 }
 
 .cDrop {
-  left: 0;
+  right: 0;
   position: absolute;
   top: 0;
 }
@@ -2221,9 +2168,7 @@ form.append_fields_form .tblFooters {
   background: url("../img/col_drop.png");
   cursor: pointer;
   height: 16px;
-  margin-left: 0.3em;
   margin-top: 0.3em;
-  position: absolute;
   width: 16px;
 
   &:hover {
@@ -2239,6 +2184,8 @@ form.append_fields_form .tblFooters {
   background: #fff;
   border: solid 1px #ccc;
   position: absolute;
+  margin-left: 75%;
+  right: 0;
 
   .lDiv div {
     padding: 0.2em 0.5em 0.2em;
@@ -3275,7 +3222,7 @@ body {
   pointer-events: none;
 }
 
-#filter_query_text {
+#filterQueryText {
   vertical-align: baseline;
 }
 
@@ -3325,5 +3272,11 @@ body {
   .pma-fieldset.tblFooters,
   .tblFooters {
     text-align: left;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sticky {
+    top: 0;
   }
 }

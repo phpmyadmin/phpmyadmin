@@ -38,8 +38,8 @@ class ViewOperationsController extends AbstractController
 
     public function index(): void
     {
-        global $sql_query, $url_params, $reload, $result, $warning_messages;
-        global $db, $table, $cfg, $err_url;
+        global $sql_query, $urlParams, $reload, $result, $warning_messages;
+        global $db, $table, $cfg, $errorUrl;
 
         $tableObject = $this->dbi->getTable($db, $table);
 
@@ -47,13 +47,13 @@ class ViewOperationsController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $urlParams = ['db' => $db, 'table' => $table];
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check();
 
-        $url_params['goto'] = $url_params['back'] = Url::getFromRoute('/view/operations');
+        $urlParams['goto'] = $urlParams['back'] = Url::getFromRoute('/view/operations');
 
         $message = new Message();
         $type = 'success';
@@ -86,13 +86,16 @@ class ViewOperationsController extends AbstractController
                 } else {
                     $message->addText(__('Error'));
                 }
+
                 // $result should exist, regardless of $_message
                 $type = $result ? 'success' : 'error';
             }
+
             if (! empty($warning_messages)) {
                 $message->addMessagesString($warning_messages);
                 $message->isError(true);
             }
+
             $this->response->addHTML(Generator::getMessage(
                 $message,
                 $sql_query,
@@ -103,7 +106,7 @@ class ViewOperationsController extends AbstractController
         $this->render('table/operations/view', [
             'db' => $db,
             'table' => $table,
-            'url_params' => $url_params,
+            'url_params' => $urlParams,
         ]);
     }
 }

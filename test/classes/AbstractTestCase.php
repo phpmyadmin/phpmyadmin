@@ -5,21 +5,19 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\Response;
 use PhpMyAdmin\Theme;
+use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
-use const PHP_SAPI;
-use function define;
-use function defined;
-use function getenv;
+
 use function in_array;
-use function is_array;
-use function parse_url;
 
 /**
  * Abstract class to hold some usefull methods used in tests
@@ -51,8 +49,10 @@ abstract class AbstractTestCase extends TestCase
             if (in_array($key, $this->globalsAllowList)) {
                 continue;
             }
+
             unset($GLOBALS[$key]);
         }
+
         $_GET = [];
         $_POST = [];
         $_SERVER = [
@@ -79,6 +79,50 @@ abstract class AbstractTestCase extends TestCase
         require ROOT_PATH . 'libraries/config.default.php';
     }
 
+    protected function loadContainerBuilder(): void
+    {
+        global $containerBuilder;
+
+        $containerBuilder = Core::getContainerBuilder();
+    }
+
+    protected function loadDbiIntoContainerBuilder(): void
+    {
+        global $containerBuilder, $dbi;
+
+        $containerBuilder->set(DatabaseInterface::class, $dbi);
+        $containerBuilder->setAlias('dbi', DatabaseInterface::class);
+    }
+
+    protected function loadResponseIntoContainerBuilder(): void
+    {
+        global $containerBuilder;
+
+        $response = new Response();
+        $containerBuilder->set(Response::class, $response);
+        $containerBuilder->setAlias('response', Response::class);
+    }
+
+    protected function getResponseHtmlResult(): string
+    {
+        global $containerBuilder;
+
+        /** @var Response $response */
+        $response = $containerBuilder->get(Response::class);
+
+        return $response->getHTMLResult();
+    }
+
+    protected function getResponseJsonResult(): array
+    {
+        global $containerBuilder;
+
+        /** @var Response $response */
+        $response = $containerBuilder->get(Response::class);
+
+        return $response->getJSONResult();
+    }
+
     protected function setGlobalDbi(): void
     {
         global $dbi;
@@ -87,15 +131,15 @@ abstract class AbstractTestCase extends TestCase
 
     protected function setGlobalConfig(): void
     {
-        global $PMA_Config;
-        $PMA_Config = new Config();
-        $PMA_Config->set('environment', 'development');
+        global $config;
+        $config = new Config();
+        $config->set('environment', 'development');
     }
 
     protected function setTheme(): void
     {
-        global $PMA_Theme;
-        $PMA_Theme = Theme::load('pmahomme');
+        global $theme;
+        $theme = Theme::load('pmahomme');
     }
 
     protected function setLanguage(string $code = 'en'): void
@@ -112,38 +156,7 @@ abstract class AbstractTestCase extends TestCase
 
     protected function setProxySettings(): void
     {
-        $httpProxy = getenv('http_proxy');
-        $urlInfo = parse_url((string) $httpProxy);
-        if (PHP_SAPI === 'cli' && is_array($urlInfo)) {
-            $proxyUrl = ($urlInfo['host'] ?? '')
-                . (isset($urlInfo['port']) ? ':' . $urlInfo['port'] : '');
-            $proxyUser = $urlInfo['user'] ?? '';
-            $proxyPass = $urlInfo['pass'] ?? '';
-
-            $GLOBALS['cfg']['ProxyUrl'] = $proxyUrl;
-            $GLOBALS['cfg']['ProxyUser'] = $proxyUser;
-            $GLOBALS['cfg']['ProxyPass'] = $proxyPass;
-        }
-
-        // phpcs:disable PSR1.Files.SideEffects
-        if (! defined('PROXY_URL')) {
-            define('PROXY_URL', $proxyUrl ?? '');
-            define('PROXY_USER', $proxyUser ?? '');
-            define('PROXY_PASS', $proxyPass ?? '');
-        }
-        // phpcs:enable
-    }
-
-    protected function defineVersionConstants(): void
-    {
-        global $PMA_Config;
-        // Initialize PMA_VERSION variable
-        // phpcs:disable PSR1.Files.SideEffects
-        if (! defined('PMA_VERSION')) {
-            define('PMA_VERSION', $PMA_Config->get('PMA_VERSION'));
-            define('PMA_MAJOR_VERSION', $PMA_Config->get('PMA_MAJOR_VERSION'));
-        }
-        // phpcs:enable
+        HttpRequest::setProxySettingsFromEnv();
     }
 
     /**
@@ -156,6 +169,7 @@ abstract class AbstractTestCase extends TestCase
             if (in_array($key, $this->globalsAllowList)) {
                 continue;
             }
+
             unset($GLOBALS[$key]);
         }
     }
@@ -167,10 +181,9 @@ abstract class AbstractTestCase extends TestCase
      * @param string      $className  The class name
      * @param string      $methodName The method name
      * @param array       $params     The parameters for the invocation
+     * @phpstan-param class-string $className
      *
      * @return mixed the output from the protected method.
-     *
-     * @phpstan-param class-string $className
      */
     protected function callFunction($object, string $className, string $methodName, array $params)
     {

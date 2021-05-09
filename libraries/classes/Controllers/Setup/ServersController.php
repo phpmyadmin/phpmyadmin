@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Setup;
 use PhpMyAdmin\Config\Forms\Setup\ServersForm;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\FormProcessing;
+
 use function ob_get_clean;
 use function ob_start;
 

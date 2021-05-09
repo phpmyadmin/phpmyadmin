@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\Gis;
+
 use function count;
 use function explode;
 use function implode;
@@ -81,7 +83,8 @@ final class Search
      */
     private function generateWhereClause(): string
     {
-        if (isset($_POST['customWhereClause'])
+        if (
+            isset($_POST['customWhereClause'])
             && trim($_POST['customWhereClause']) != ''
         ) {
             return ' WHERE ' . $_POST['customWhereClause'];
@@ -89,7 +92,8 @@ final class Search
 
         // If there are no search criteria set or no unary criteria operators,
         // return
-        if (! isset($_POST['criteriaValues'])
+        if (
+            ! isset($_POST['criteriaValues'])
             && ! isset($_POST['criteriaColumnOperators'])
             && ! isset($_POST['geom_func'])
         ) {
@@ -168,7 +172,8 @@ final class Search
             // (like INT), for a LIKE we always quote the value. MySQL converts
             // strings to numbers and numbers to strings as necessary
             // during the comparison
-            if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types)
+            if (
+                preg_match('@char|binary|blob|text|set|date|time|year@i', $types)
                 || mb_strpos(' ' . $func_type, 'LIKE')
             ) {
                 $quot = '\'';
@@ -181,12 +186,19 @@ final class Search
                 $func_type = 'LIKE';
                 $criteriaValues = '%' . $criteriaValues . '%';
             }
+
+            if ($func_type === 'NOT LIKE %...%') {
+                $func_type = 'NOT LIKE';
+                $criteriaValues = '%' . $criteriaValues . '%';
+            }
+
             if ($func_type === 'REGEXP ^...$') {
                 $func_type = 'REGEXP';
                 $criteriaValues = '^' . $criteriaValues . '$';
             }
 
-            if ($func_type !== 'IN (...)'
+            if (
+                $func_type !== 'IN (...)'
                 && $func_type !== 'NOT IN (...)'
                 && $func_type !== 'BETWEEN'
                 && $func_type !== 'NOT BETWEEN'
@@ -194,6 +206,7 @@ final class Search
                 return $backquoted_name . ' ' . $func_type . ' ' . $quot
                     . $this->dbi->escapeString($criteriaValues) . $quot;
             }
+
             $func_type = str_replace(' (...)', '', $func_type);
 
             //Don't explode if this is already an array
@@ -203,6 +216,7 @@ final class Search
             } else {
                 $values = explode(',', $criteriaValues);
             }
+
             // quote values one by one
             $emptyKey = false;
             foreach ($values as $key => &$value) {
@@ -211,6 +225,7 @@ final class Search
                     $value = 'NULL';
                     continue;
                 }
+
                 $value = $quot . $this->dbi->escapeString(trim($value))
                     . $quot;
             }
@@ -223,14 +238,17 @@ final class Search
                 if ($emptyKey !== false) {
                     unset($values[$emptyKey]);
                 }
+
                 $wheres = [];
                 if (! empty($values)) {
                     $wheres[] = $backquoted_name . ' ' . $func_type
                         . ' (' . implode(',', $values) . ')';
                 }
+
                 if ($emptyKey !== false) {
                     $wheres[] = $backquoted_name . ' IS NULL';
                 }
+
                 $where = implode(' OR ', $wheres);
                 if (1 < count($wheres)) {
                     $where = '(' . $where . ')';
@@ -268,7 +286,7 @@ final class Search
         $where = '';
 
         // Get details about the geometry functions
-        $geom_funcs = Util::getGISFunctions($types, true, false);
+        $geom_funcs = Gis::getFunctions($types, true, false);
 
         // If the function takes multiple parameters
         if (strpos($func_type, 'IS NULL') !== false || strpos($func_type, 'IS NOT NULL') !== false) {
@@ -277,7 +295,7 @@ final class Search
 
         if ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
-            $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
+            $gis_data = Gis::createData($criteriaValues, $this->dbi->getVersion());
 
             return $geom_func . '(' . Util::backquote($names)
                 . ', ' . $gis_data . ')';
@@ -289,15 +307,17 @@ final class Search
             . '(' . Util::backquote($names) . ')';
 
         // If the where clause is something like 'IsEmpty(`spatial_col_name`)'
-        if (isset($geom_unary_functions[$geom_func])
+        if (
+            isset($geom_unary_functions[$geom_func])
             && trim($criteriaValues) == ''
         ) {
             $where = $geom_function_applied;
-        } elseif (in_array($type, Util::getGISDatatypes())
+        } elseif (
+            in_array($type, Gis::getDataTypes())
             && ! empty($criteriaValues)
         ) {
             // create gis data from the criteria input
-            $gis_data = Util::createGISData($criteriaValues, $this->dbi->getVersion());
+            $gis_data = Gis::createData($criteriaValues, $this->dbi->getVersion());
             $where = $geom_function_applied . ' ' . $func_type . ' ' . $gis_data;
         } elseif (strlen($criteriaValues) > 0) {
             $where = $geom_function_applied . ' '
@@ -320,6 +340,7 @@ final class Search
         if (! is_array($criteriaValues)) {
             $criteriaValues = explode(',', $criteriaValues);
         }
+
         $enum_selected_count = count($criteriaValues);
         if ($func_type === '=' && $enum_selected_count > 1) {
             $func_type    = 'IN';
@@ -333,6 +354,7 @@ final class Search
             $parens_open  = '';
             $parens_close = '';
         }
+
         $enum_where = '\''
             . $this->dbi->escapeString($criteriaValues[0]) . '\'';
         for ($e = 1; $e < $enum_selected_count; $e++) {

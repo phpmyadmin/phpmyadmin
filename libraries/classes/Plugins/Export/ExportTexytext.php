@@ -16,6 +16,7 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+
 use function htmlspecialchars;
 use function in_array;
 use function str_replace;
@@ -118,19 +119,19 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db       Database name
-     * @param string $db_alias Alias of db
+     * @param string $db      Database name
+     * @param string $dbAlias Alias of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader($db, $dbAlias = '')
     {
-        if (empty($db_alias)) {
-            $db_alias = $db;
+        if (empty($dbAlias)) {
+            $dbAlias = $db;
         }
 
         return $this->export->outputHandler(
-            '===' . __('Database') . ' ' . $db_alias . "\n\n"
+            '===' . __('Database') . ' ' . $dbAlias . "\n\n"
         );
     }
 
@@ -149,13 +150,13 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db         Database name
+     * @param string $exportType 'server', 'database', 'table'
+     * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = '')
     {
         return true;
     }
@@ -163,12 +164,12 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs the content of a table in NHibernate format
      *
-     * @param string $db        database name
-     * @param string $table     table name
-     * @param string $crlf      the end of line sequence
-     * @param string $error_url the url to go back in case of error
-     * @param string $sql_query SQL query for obtaining data
-     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $db       database name
+     * @param string $table    table name
+     * @param string $crlf     the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery SQL query for obtaining data
+     * @param array  $aliases  Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -176,8 +177,8 @@ class ExportTexytext extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $sql_query,
+        $errorUrl,
+        $sqlQuery,
         array $aliases = []
     ) {
         global $what, $dbi;
@@ -186,18 +187,19 @@ class ExportTexytext extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        if (! $this->export->outputHandler(
-            $table_alias != ''
+        if (
+            ! $this->export->outputHandler(
+                $table_alias != ''
                 ? '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n"
                 : '==' . __('Dumping data for query result') . "\n\n"
-        )
+            )
         ) {
             return false;
         }
 
         // Gets the data from the database
         $result = $dbi->query(
-            $sql_query,
+            $sqlQuery,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
@@ -211,9 +213,11 @@ class ExportTexytext extends ExportPlugin
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
+
                 $text_output .= '|'
                     . htmlspecialchars(stripslashes($col_as));
             }
+
             $text_output .= "\n|------\n";
             if (! $this->export->outputHandler($text_output)) {
                 return false;
@@ -231,6 +235,7 @@ class ExportTexytext extends ExportPlugin
                 } else {
                     $value = ' ';
                 }
+
                 $text_output .= '|'
                     . str_replace(
                         '|',
@@ -238,11 +243,13 @@ class ExportTexytext extends ExportPlugin
                         htmlspecialchars($value)
                     );
             }
+
             $text_output .= "\n";
             if (! $this->export->outputHandler($text_output)) {
                 return false;
             }
         }
+
         $dbi->freeResult($result);
 
         return true;
@@ -251,15 +258,15 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs result raw query in TexyText format
      *
-     * @param string $err_url   the url to go back in case of error
-     * @param string $sql_query the rawquery to output
-     * @param string $crlf      the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery the rawquery to output
+     * @param string $crlf     the end of line sequence
      *
      * @return bool if succeeded
      */
-    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
     {
-        return $this->exportData('', '', $crlf, $err_url, $sql_query);
+        return $this->exportData('', '', $crlf, $errorUrl, $sqlQuery);
     }
 
     /**
@@ -313,6 +320,7 @@ class ExportTexytext extends ExportPlugin
             if (! empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$view]['columns'][$col_as];
             }
+
             $text_output .= $this->formatOneColumnDefinition(
                 $column,
                 $unique_keys,
@@ -401,14 +409,17 @@ class ExportTexytext extends ExportPlugin
         if ($do_relation && $have_rel) {
             $text_output .= '|' . __('Links to');
         }
+
         if ($do_comments) {
             $text_output .= '|' . __('Comments');
             $comments = $this->relation->getComments($db, $table);
         }
+
         if ($do_mime && $cfgRelation['mimework']) {
             $text_output .= '|' . __('Media type');
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
+
         $text_output .= "\n|------\n";
 
         $columns = $dbi->getColumns($db, $table);
@@ -417,6 +428,7 @@ class ExportTexytext extends ExportPlugin
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
+
             $text_output .= $this->formatOneColumnDefinition(
                 $column,
                 $unique_keys,
@@ -433,12 +445,14 @@ class ExportTexytext extends ExportPlugin
                     )
                 );
             }
+
             if ($do_comments && $cfgRelation['commwork']) {
                 $text_output .= '|'
                     . (isset($comments[$field_name])
                         ? htmlspecialchars($comments[$field_name])
                         : '');
             }
+
             if ($do_mime && $cfgRelation['mimework']) {
                 $text_output .= '|'
                     . (isset($mime_map[$field_name])
@@ -497,10 +511,10 @@ class ExportTexytext extends ExportPlugin
      * @param string $db          database name
      * @param string $table       table name
      * @param string $crlf        the end of line sequence
-     * @param string $error_url   the url to go back in case of error
-     * @param string $export_mode 'create_table', 'triggers', 'create_view',
-     *                            'stand_in'
-     * @param string $export_type 'server', 'database', 'table'
+     * @param string $errorUrl    the url to go back in case of error
+     * @param string $exportMode  'create_table', 'triggers', 'create_view',
+     *                             'stand_in'
+     * @param string $exportType  'server', 'database', 'table'
      * @param bool   $do_relation whether to include relation comments
      * @param bool   $do_comments whether to include the pmadb-style column
      *                            comments as comments in the structure;
@@ -518,9 +532,9 @@ class ExportTexytext extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $export_mode,
-        $export_type,
+        $errorUrl,
+        $exportMode,
+        $exportType,
         $do_relation = false,
         $do_comments = false,
         $do_mime = false,
@@ -534,7 +548,7 @@ class ExportTexytext extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
         $dump = '';
 
-        switch ($export_mode) {
+        switch ($exportMode) {
             case 'create_table':
                 $dump .= '== ' . __('Table structure for table') . ' '
                 . $table_alias . "\n\n";
@@ -542,7 +556,7 @@ class ExportTexytext extends ExportPlugin
                     $db,
                     $table,
                     $crlf,
-                    $error_url,
+                    $errorUrl,
                     $do_relation,
                     $do_comments,
                     $do_mime,
@@ -559,6 +573,7 @@ class ExportTexytext extends ExportPlugin
                     $dump .= '== ' . __('Triggers') . ' ' . $table_alias . "\n\n";
                     $dump .= $this->getTriggers($db, $table);
                 }
+
                 break;
             case 'create_view':
                 $dump .= '== ' . __('Structure for view') . ' ' . $table_alias . "\n\n";
@@ -566,7 +581,7 @@ class ExportTexytext extends ExportPlugin
                     $db,
                     $table,
                     $crlf,
-                    $error_url,
+                    $errorUrl,
                     $do_relation,
                     $do_comments,
                     $do_mime,
@@ -603,8 +618,8 @@ class ExportTexytext extends ExportPlugin
         if (empty($col_alias)) {
             $col_alias = $column['Field'];
         }
-        $extracted_columnspec
-            = Util::extractColumnSpec($column['Type']);
+
+        $extracted_columnspec = Util::extractColumnSpec($column['Type']);
         $type = $extracted_columnspec['print_type'];
         if (empty($type)) {
             $type = '&nbsp;';
@@ -622,10 +637,12 @@ class ExportTexytext extends ExportPlugin
             $fmt_pre = '**' . $fmt_pre;
             $fmt_post .= '**';
         }
+
         if ($column['Key'] === 'PRI') {
             $fmt_pre = '//' . $fmt_pre;
             $fmt_post .= '//';
         }
+
         $definition = '|'
             . $fmt_pre . htmlspecialchars($col_alias) . $fmt_post;
         $definition .= '|' . htmlspecialchars($type);

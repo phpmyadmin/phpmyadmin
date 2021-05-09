@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
@@ -17,6 +18,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function intval;
 use function is_array;
 use function min;
@@ -64,7 +66,7 @@ class AddFieldController extends AbstractController
 
     public function index(): void
     {
-        global $err_url, $message, $action, $active_page, $sql_query;
+        global $errorUrl, $message, $action, $active_page, $sql_query;
         global $num_fields, $regenerate, $result, $db, $table;
 
         $this->addScriptFiles(['table/structure.js']);
@@ -77,7 +79,7 @@ class AddFieldController extends AbstractController
         /**
          * Defines the url to return to in case of error in a sql statement
          */
-        $err_url = Url::getFromRoute('/table/sql', [
+        $errorUrl = Url::getFromRoute('/table/sql', [
             'db' => $db,
             'table' => $table,
         ]);
@@ -87,9 +89,11 @@ class AddFieldController extends AbstractController
             if (isset($_POST['orig_after_field'])) {
                 $_POST['after_field'] = $_POST['orig_after_field'];
             }
+
             if (isset($_POST['orig_field_where'])) {
                 $_POST['field_where'] = $_POST['orig_field_where'];
             }
+
             $num_fields = min(
                 intval($_POST['orig_num_fields']) + intval($_POST['added_fields']),
                 4096
@@ -108,14 +112,23 @@ class AddFieldController extends AbstractController
 
             $createAddField = new CreateAddField($this->dbi);
 
-            [$result, $sql_query] = $createAddField->tryColumnCreationQuery($db, $table, $err_url);
+            $sqlQuery = $createAddField->getColumnCreationQuery($table);
+
+            // If there is a request for SQL previewing.
+            if (isset($_POST['preview_sql'])) {
+                Core::previewSQL($sqlQuery);
+
+                return;
+            }
+
+            [$result, $sql_query] = $createAddField->tryColumnCreationQuery($db, $sqlQuery, $errorUrl);
 
             if ($result !== true) {
                 $error_message_html = Generator::mysqlDie(
                     '',
                     '',
                     false,
-                    $err_url,
+                    $errorUrl,
                     false
                 );
                 $this->response->addHTML($error_message_html ?? '');
@@ -125,12 +138,14 @@ class AddFieldController extends AbstractController
             }
 
             // Update comment table for mime types [MIME]
-            if (isset($_POST['field_mimetype'])
+            if (
+                isset($_POST['field_mimetype'])
                 && is_array($_POST['field_mimetype'])
                 && $cfg['BrowseMIME']
             ) {
                 foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
-                    if (! isset($_POST['field_name'][$fieldindex])
+                    if (
+                        ! isset($_POST['field_name'][$fieldindex])
                         || strlen($_POST['field_name'][$fieldindex]) <= 0
                     ) {
                         continue;
@@ -163,8 +178,8 @@ class AddFieldController extends AbstractController
         }
 
         $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($url_params, '&');
 
         DbTableExists::check();
 

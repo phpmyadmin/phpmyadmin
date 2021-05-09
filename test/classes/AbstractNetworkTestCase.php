@@ -11,6 +11,7 @@ use PhpMyAdmin\Response;
 use PHPUnit\Framework\Constraint\StringContains;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
+
 use function array_slice;
 use function call_user_func_array;
 use function count;
@@ -42,7 +43,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
     {
         $mockResponse = $this->getMockBuilder(Response::class)
             ->disableOriginalConstructor()
-            ->setMethods([
+            ->onlyMethods([
                 'header',
                 'headersSent',
                 'disable',

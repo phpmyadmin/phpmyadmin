@@ -26,7 +26,7 @@ AJAX.registerOnload('designer/move.js', function () {
 
     $content.css({ 'margin-left': '3px' });
     $(document).on('fullscreenchange', function () {
-        if (!$.fn.fullScreen() || !$content.fullScreen()) {
+        if (! document.fullscreenElement) {
             $content.removeClass('content_fullscreen')
                 .css({ 'width': 'auto', 'height': 'auto' });
             $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
@@ -55,6 +55,9 @@ DesignerMove.markUnsaved = function () {
     $('#saved_state').text('*');
 };
 
+var mainDirection = $('html').attr('dir') === 'rtl' ? 'right' : 'left';
+// Will be used to multiply the offsetLeft by -1 if the direction is rtl.
+var directionEffect = mainDirection === 'right' ? -1 : 1;
 var curClick = null;
 var smS           = 0;
 var smAdd         = 10;
@@ -130,13 +133,13 @@ DesignerMove.mouseMove = function (e) {
 
         var $curClick = $(curClick);
 
-        var curX = parseFloat($curClick.attr('data-left') || $curClick.css('left'));
+        var curX = parseFloat($curClick.attr('data-' + mainDirection) || $curClick.css(mainDirection));
         var curY = parseFloat($curClick.attr('data-top') || $curClick.css('top'));
 
-        var newX = curX - deltaX;
+        var newX = curX - directionEffect * deltaX;
         var newY = curY - deltaY;
 
-        $curClick.attr('data-left', newX);
+        $curClick.attr('data-' + mainDirection, newX);
         $curClick.attr('data-top', newY);
 
         if (onGrid) {
@@ -149,14 +152,14 @@ DesignerMove.mouseMove = function (e) {
         } else if (newY < 0) {
             newY = 0;
         }
-        $curClick.css('left', newX + 'px');
+        $curClick.css(mainDirection, newX + 'px');
         $curClick.css('top', newY + 'px');
     } else if (layerMenuCurClick) {
         if (menuMoved) {
             deltaX = -deltaX;
         }
         var $layerMenu = $('#layer_menu');
-        var newWidth = $layerMenu.width() + deltaX;
+        var newWidth = $layerMenu.width() + directionEffect * deltaX;
         if (newWidth < 150) {
             newWidth = 150;
         }
@@ -259,7 +262,7 @@ DesignerMove.resizeOsnTab = function () {
     var maxX = 0;
     var maxY = 0;
     for (var key in jTabs) {
-        var kX = parseInt(document.getElementById(key).style.left, 10) + document.getElementById(key).offsetWidth;
+        var kX = parseInt(document.getElementById(key).style[mainDirection], 10) + document.getElementById(key).offsetWidth;
         var kY = parseInt(document.getElementById(key).style.top, 10) + document.getElementById(key).offsetHeight;
         maxX = maxX < kX ? kX : maxX;
         maxY = maxY < kY ? kY : maxY;
@@ -372,9 +375,9 @@ DesignerMove.reload = function () {
                     var osnTab = document.getElementById('osn_tab');
 
                     DesignerMove.line0(
-                        x1 + osnTab.offsetLeft,
+                        x1 + directionEffect * osnTab.offsetLeft,
                         y1 - osnTab.offsetTop,
-                        x2 + osnTab.offsetLeft,
+                        x2 + directionEffect * osnTab.offsetLeft,
                         y2 - osnTab.offsetTop,
                         DesignerMove.getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
                     );
@@ -386,6 +389,11 @@ DesignerMove.reload = function () {
 
 /**
  * draws a line from x1:y1 to x2:y2 with color
+ * @param x1
+ * @param y1
+ * @param x2
+ * @param y2
+ * @param colorLine
  */
 DesignerMove.line = function (x1, y1, x2, y2, colorLine) {
     var canvas = document.getElementById('canvas');
@@ -400,6 +408,11 @@ DesignerMove.line = function (x1, y1, x2, y2, colorLine) {
 
 /**
  * draws a relation/constraint line, whether angular or not
+ * @param x1
+ * @param y1
+ * @param x2
+ * @param y2
+ * @param colorLine
  */
 DesignerMove.line0 = function (x1, y1, x2, y2, colorLine) {
     if (! showRelationLines) {
@@ -417,6 +430,11 @@ DesignerMove.line0 = function (x1, y1, x2, y2, colorLine) {
 
 /**
  * draws a angular relation/constraint line
+ * @param x1
+ * @param y1
+ * @param x2
+ * @param y2
+ * @param colorLine
  */
 DesignerMove.line2 = function (x1, y1, x2, y2, colorLine) {
     var x1Local = x1;
@@ -443,6 +461,11 @@ DesignerMove.line2 = function (x1, y1, x2, y2, colorLine) {
 
 /**
  * draws a relation/constraint line
+ * @param x1
+ * @param y1
+ * @param x2
+ * @param y2
+ * @param colorLine
  */
 DesignerMove.line3 = function (x1, y1, x2, y2, colorLine) {
     var x1Local = x1;
@@ -511,7 +534,9 @@ DesignerMove.toggleFullscreen = function () {
     var $img = $('#toggleFullscreen').find('img');
     var $span = $img.siblings('span');
     var $content = $('#page_content');
-    if (! $content.fullScreen()) {
+    const pageContent = document.getElementById('page_content');
+
+    if (! document.fullscreenElement) {
         $img.attr('src', $img.data('exit'))
             .attr('title', $span.data('exit'));
         $span.text($span.data('exit'));
@@ -521,7 +546,7 @@ DesignerMove.toggleFullscreen = function () {
 
         $('#osn_tab').css({ 'width': screen.width + 'px', 'height': screen.height });
         valueSent = 'on';
-        $content.fullScreen(true);
+        pageContent.requestFullscreen();
     } else {
         $img.attr('src', $img.data('enter'))
             .attr('title', $span.data('enter'));
@@ -529,7 +554,7 @@ DesignerMove.toggleFullscreen = function () {
         $content.removeClass('content_fullscreen')
             .css({ 'width': 'auto', 'height': 'auto' });
         $('#osn_tab').css({ 'width': 'auto', 'height': 'auto' });
-        $content.fullScreen(false);
+        document.exitFullscreen();
         valueSent = 'off';
     }
     DesignerMove.saveValueInConfig('full_screen', valueSent);
@@ -1544,9 +1569,9 @@ DesignerMove.canvasClick = function (id, event) {
                     var osnTab = document.getElementById('osn_tab');
                     if (!selected && localX > x1 - 10 && localX < x1 + 10 && localY > y1 - 7 && localY < y1 + 7) {
                         DesignerMove.line0(
-                            x1 + osnTab.offsetLeft,
+                            x1 + directionEffect * osnTab.offsetLeft,
                             y1 - osnTab.offsetTop,
-                            x2 + osnTab.offsetLeft,
+                            x2 + directionEffect * osnTab.offsetLeft,
                             y2 - osnTab.offsetTop,
                             'rgba(255,0,0,1)');
 
@@ -1558,9 +1583,9 @@ DesignerMove.canvasClick = function (id, event) {
                         Key = K;
                     } else {
                         DesignerMove.line0(
-                            x1 + osnTab.offsetLeft,
+                            x1 + directionEffect * osnTab.offsetLeft,
                             y1 - osnTab.offsetTop,
-                            x2 + osnTab.offsetLeft,
+                            x2 + directionEffect * osnTab.offsetLeft,
                             y2 - osnTab.offsetTop,
                             DesignerMove.getColorByTarget(contr[K][key][key2][key3][0] + '.' + contr[K][key][key2][key3][1])
                         );
@@ -1901,6 +1926,10 @@ DesignerMove.tableOnOver = function (idThis, val, buil) {
 /**
  * This function stores selected column information in selectField[]
  * In case column is checked it add else it deletes
+ *
+ * @param {string} tableName
+ * @param {string} colName
+ * @param {string} checkboxId
  */
 DesignerMove.storeColumn = function (tableName, colName, checkboxId) {
     var i;
@@ -1929,6 +1958,11 @@ DesignerMove.storeColumn = function (tableName, colName, checkboxId) {
  * This function builds object and adds them to historyArray
  * first it does a few checks on each object, then makes an object(where,rename,groupby,aggregate,orderby)
  * then a new history object is made and finally all these history objects are added to historyArray[]
+ *
+ * @param {string} dbName
+ * @param {string} tableName
+ * @param {string} colName
+ * @param {string} dbTableNameUrl
  */
 DesignerMove.addObject = function (dbName, tableName, colName, dbTableNameUrl) {
     var p;
@@ -2007,6 +2041,8 @@ DesignerMove.enablePageContentEvents = function () {
 /**
  * This function enables the events on table items.
  * It helps to enable them on page loading and when a table is added on the fly.
+ * @param {number} index
+ * @param {object} element
  */
 DesignerMove.enableTableEvents = function (index, element) {
     $(element).on('click', '.select_all_1', function () {

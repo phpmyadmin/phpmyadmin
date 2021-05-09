@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use const DIRECTORY_SEPARATOR;
-use const E_USER_ERROR;
-use const E_USER_WARNING;
 use function array_key_exists;
 use function closedir;
 use function htmlspecialchars;
@@ -16,6 +13,10 @@ use function opendir;
 use function readdir;
 use function sprintf;
 use function trigger_error;
+
+use const DIRECTORY_SEPARATOR;
+use const E_USER_ERROR;
+use const E_USER_WARNING;
 
 /**
  * phpMyAdmin theme manager
@@ -66,7 +67,7 @@ class ThemeManager
 
         $this->theme = new Theme();
 
-        $config_theme_exists = true;
+        $configThemeExists = true;
 
         if (! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
             trigger_error(
@@ -76,18 +77,18 @@ class ThemeManager
                 ),
                 E_USER_ERROR
             );
-            $config_theme_exists = false;
+            $configThemeExists = false;
         } else {
             $this->themeDefault = $GLOBALS['cfg']['ThemeDefault'];
         }
 
         // check if user have a theme cookie
-        $cookie_theme = $this->getThemeCookie();
-        if ($cookie_theme && $this->setActiveTheme($cookie_theme)) {
+        $cookieTheme = $this->getThemeCookie();
+        if ($cookieTheme && $this->setActiveTheme($cookieTheme)) {
             return;
         }
 
-        if ($config_theme_exists) {
+        if ($configThemeExists) {
             // otherwise use default theme
             $this->setActiveTheme($this->themeDefault);
         } else {
@@ -113,13 +114,13 @@ class ThemeManager
     /**
      * sets if there are different themes per server
      *
-     * @param bool $per_server Whether to enable per server flag
+     * @param bool $perServer Whether to enable per server flag
      *
      * @access public
      */
-    public function setThemePerServer($per_server): void
+    public function setThemePerServer($perServer): void
     {
-        $this->perServer = (bool) $per_server;
+        $this->perServer = (bool) $perServer;
     }
 
     /**
@@ -180,11 +181,11 @@ class ThemeManager
      */
     public function getThemeCookie()
     {
-        global $PMA_Config;
+        global $config;
 
         $name = $this->getThemeCookieName();
-        if ($PMA_Config->issetCookie($name)) {
-            return $PMA_Config->getCookie($name);
+        if ($config->issetCookie($name)) {
+            return $config->getCookie($name);
         }
 
         return false;
@@ -200,14 +201,14 @@ class ThemeManager
     public function setThemeCookie(): bool
     {
         $themeId = $this->theme !== null ? (string) $this->theme->id : '';
-        $GLOBALS['PMA_Config']->setCookie(
+        $GLOBALS['config']->setCookie(
             $this->getThemeCookieName(),
             $themeId,
             $this->themeDefault
         );
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php
-        $GLOBALS['PMA_Config']->set('theme-update', $themeId);
+        $GLOBALS['config']->set('theme-update', $themeId);
 
         return true;
     }
@@ -227,9 +228,11 @@ class ThemeManager
             if ($dir === '.' || $dir === '..' || ! @is_dir(ROOT_PATH . 'themes/' . $dir . '/')) {
                 continue;
             }
+
             if (array_key_exists($dir, $this->themes)) {
                 continue;
             }
+
             $newTheme = Theme::load($dir);
             if (! $newTheme instanceof Theme) {
                 continue;

@@ -5,14 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use ZipArchive;
-use const UPLOAD_ERR_CANT_WRITE;
-use const UPLOAD_ERR_EXTENSION;
-use const UPLOAD_ERR_FORM_SIZE;
-use const UPLOAD_ERR_INI_SIZE;
-use const UPLOAD_ERR_NO_FILE;
-use const UPLOAD_ERR_NO_TMP_DIR;
-use const UPLOAD_ERR_OK;
-use const UPLOAD_ERR_PARTIAL;
+
 use function basename;
 use function bin2hex;
 use function bzopen;
@@ -40,6 +33,15 @@ use function strlen;
 use function tempnam;
 use function trim;
 use function unlink;
+
+use const UPLOAD_ERR_CANT_WRITE;
+use const UPLOAD_ERR_EXTENSION;
+use const UPLOAD_ERR_FORM_SIZE;
+use const UPLOAD_ERR_INI_SIZE;
+use const UPLOAD_ERR_NO_FILE;
+use const UPLOAD_ERR_NO_TMP_DIR;
+use const UPLOAD_ERR_OK;
+use const UPLOAD_ERR_PARTIAL;
 
 /**
  * File wrapper class
@@ -305,11 +307,13 @@ class File
         string $key,
         string $rownumber
     ): bool {
-        if (! isset($_FILES['fields_upload'])
+        if (
+            ! isset($_FILES['fields_upload'])
             || empty($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])
         ) {
             return false;
         }
+
         $file = $this->fetchUploadedFromTblChangeRequestMultiple(
             $_FILES['fields_upload'],
             $rownumber,
@@ -319,6 +323,7 @@ class File
         switch ($file['error']) {
             case UPLOAD_ERR_OK:
                 return $this->setUploadedFile($file['tmp_name']);
+
             case UPLOAD_ERR_NO_FILE:
                 break;
             case UPLOAD_ERR_INI_SIZE:
@@ -410,7 +415,8 @@ class File
         string $key,
         ?string $rownumber = null
     ): bool {
-        if (! empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
+        if (
+            ! empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
             && is_string($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
         ) {
             // ... whether with multiple rows ...
@@ -472,6 +478,7 @@ class File
 
             return true;
         }
+
         // all failed, whether just no file uploaded/selected or an error
 
         return false;
@@ -501,6 +508,7 @@ class File
 
             return false;
         }
+
         if (! $this->isReadable()) {
             $this->errorMessage = Message::error(__('File could not be read!'));
             $this->setName(null);
@@ -541,7 +549,7 @@ class File
             return true;
         }
 
-        $tmp_subdir = $GLOBALS['PMA_Config']->getUploadTempDir();
+        $tmp_subdir = $GLOBALS['config']->getUploadTempDir();
         if ($tmp_subdir === null) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->errorMessage = Message::error(__(
@@ -624,7 +632,7 @@ class File
     /**
      * Returns the file handle
      *
-     * @return resource file handle
+     * @return resource|null file handle
      */
     public function getHandle()
     {
@@ -672,6 +680,7 @@ class File
         switch ($this->getCompression()) {
             case false:
                 return false;
+
             case 'application/bzip2':
                 if (! $GLOBALS['cfg']['BZipDump'] || ! function_exists('bzopen')) {
                     $this->errorUnsupported();
@@ -698,6 +707,7 @@ class File
                 $this->errorUnsupported();
 
                 return false;
+
             case 'none':
                 $this->handle = @fopen((string) $this->getName(), 'r');
                 break;
@@ -723,6 +733,7 @@ class File
 
             return false;
         }
+
         $this->content = $result['data'];
         $this->offset = 0;
 
@@ -753,6 +764,7 @@ class File
             $this->content = '';
             $this->offset = 0;
         }
+
         $this->cleanUp();
     }
 
@@ -766,13 +778,16 @@ class File
         switch ($this->compression) {
             case 'application/bzip2':
                 return (string) bzread($this->handle, $size);
+
             case 'application/gzip':
                 return (string) gzread($this->handle, $size);
+
             case 'application/zip':
                 $result = mb_strcut($this->content, $this->offset, $size);
                 $this->offset += strlen($result);
 
                 return $result;
+
             case 'none':
             default:
                 return (string) fread($this->handle, $size);

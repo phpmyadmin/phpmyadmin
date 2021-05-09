@@ -431,3 +431,10 @@ From Wikipedia, the free encyclopedia
       an open-source, cross-platform data compression library by `Jean-loup Gailly <https://en.wikipedia.org/wiki/Jean-Loup_Gailly>`_ and `Mark Adler <https://en.wikipedia.org/wiki/Mark_Adler>`_.
 
       .. seealso:: <https://en.wikipedia.org/wiki/Zlib>
+
+    Content Security Policy
+      The HTTP `Content-Security-Policy` response header allows web site administrators
+      to control resources the user agent is allowed to load for a given page.
+
+      .. seealso:: <https://en.wikipedia.org/wiki/Content_Security_Policy>
+      .. seealso:: <https://developer.mozilla.org/en/docs/Web/HTTP/CSP>

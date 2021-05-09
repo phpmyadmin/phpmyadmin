@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Url;
+
 use function basename;
 use function mb_strpos;
 use function mb_strtolower;
@@ -202,6 +203,7 @@ class Data
                 'params' => '',
             ];
         }
+
         if ($replicaInfo['status']) {
             $links['repl'][__('Show slave status')] = [
                 'url' => '#replication_slave',
@@ -249,50 +251,50 @@ class Data
     private function calculateValues(array $server_status, array $server_variables)
     {
         // Key_buffer_fraction
-        if (isset($server_status['Key_blocks_unused'], $server_variables['key_cache_block_size'])
+        if (
+            isset($server_status['Key_blocks_unused'], $server_variables['key_cache_block_size'])
             && isset($server_variables['key_buffer_size'])
             && $server_variables['key_buffer_size'] != 0
         ) {
-            $server_status['Key_buffer_fraction_%']
-                = 100
+            $server_status['Key_buffer_fraction_%'] = 100
                 - $server_status['Key_blocks_unused']
                 * $server_variables['key_cache_block_size']
                 / $server_variables['key_buffer_size']
                 * 100;
-        } elseif (isset($server_status['Key_blocks_used'], $server_variables['key_buffer_size'])
+        } elseif (
+            isset($server_status['Key_blocks_used'], $server_variables['key_buffer_size'])
             && $server_variables['key_buffer_size'] != 0
         ) {
-            $server_status['Key_buffer_fraction_%']
-                = $server_status['Key_blocks_used']
+            $server_status['Key_buffer_fraction_%'] = $server_status['Key_blocks_used']
                 * 1024
                 / $server_variables['key_buffer_size'];
         }
 
         // Ratio for key read/write
-        if (isset($server_status['Key_writes'], $server_status['Key_write_requests'])
+        if (
+            isset($server_status['Key_writes'], $server_status['Key_write_requests'])
             && $server_status['Key_write_requests'] > 0
         ) {
             $key_writes = $server_status['Key_writes'];
             $key_write_requests = $server_status['Key_write_requests'];
-            $server_status['Key_write_ratio_%']
-                = 100 * $key_writes / $key_write_requests;
+            $server_status['Key_write_ratio_%'] = 100 * $key_writes / $key_write_requests;
         }
 
-        if (isset($server_status['Key_reads'], $server_status['Key_read_requests'])
+        if (
+            isset($server_status['Key_reads'], $server_status['Key_read_requests'])
             && $server_status['Key_read_requests'] > 0
         ) {
             $key_reads = $server_status['Key_reads'];
             $key_read_requests = $server_status['Key_read_requests'];
-            $server_status['Key_read_ratio_%']
-                = 100 * $key_reads / $key_read_requests;
+            $server_status['Key_read_ratio_%'] = 100 * $key_reads / $key_read_requests;
         }
 
         // Threads_cache_hitrate
-        if (isset($server_status['Threads_created'], $server_status['Connections'])
+        if (
+            isset($server_status['Threads_created'], $server_status['Connections'])
             && $server_status['Connections'] > 0
         ) {
-            $server_status['Threads_cache_hitrate_%']
-                = 100 - $server_status['Threads_created']
+            $server_status['Threads_cache_hitrate_%'] = 100 - $server_status['Threads_created']
                 / $server_status['Connections'] * 100;
         }
 
@@ -330,8 +332,10 @@ class Data
                 if ($section === 'com' && $value > 0) {
                     $used_queries[$name] = $value;
                 }
+
                 break; // Only exits inner loop
             }
+
             if ($section_found) {
                 continue;
             }
@@ -366,6 +370,7 @@ class Data
             while ($arr = $dbi->fetchRow($server_status_result)) {
                 $server_status[$arr[0]] = $arr[1];
             }
+
             $dbi->freeResult($server_status_result);
         }
 
@@ -426,12 +431,14 @@ class Data
         $serverHostToLower = mb_strtolower(
             (string) $GLOBALS['cfg']['Server']['host']
         );
-        if ($serverHostToLower === 'localhost'
+        if (
+            $serverHostToLower === 'localhost'
             || $GLOBALS['cfg']['Server']['host'] === '127.0.0.1'
             || $GLOBALS['cfg']['Server']['host'] === '::1'
         ) {
             $this->dbIsLocal = true;
         }
+
         $this->status = $server_status;
         $this->sections = $sections;
         $this->variables = $server_variables;

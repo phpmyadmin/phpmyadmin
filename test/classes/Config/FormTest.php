@@ -9,7 +9,9 @@ use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionClass;
 use ReflectionProperty;
+
 use function array_keys;
+use function method_exists;
 use function preg_match;
 
 class FormTest extends AbstractTestCase
@@ -23,7 +25,6 @@ class FormTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::setTheme();
         parent::loadDefaultConfig();
         parent::setGlobalConfig();
@@ -168,11 +169,11 @@ class FormTest extends AbstractTestCase
 
         // needs regexp because the counter is static
 
-        // assertMatchesRegularExpression added in 9.1
-        $this->assertRegExp(
-            '/^preffoo\/foo\/bar\/\:group\:end\:\d+$/',
-            $result[1]
-        );
+        if (method_exists($this, 'assertMatchesRegularExpression')) {
+            $this->assertMatchesRegularExpression('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
+        } else {
+            $this->assertRegExp('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
+        }
     }
 
     /**
@@ -214,11 +215,11 @@ class FormTest extends AbstractTestCase
         $keys = array_keys($result);
         $key = $keys[0];
 
-        // assertMatchesRegularExpression added in 9.1
-        $this->assertRegExp(
-            '/^\:group\:end\:(\d+)$/',
-            $key
-        );
+        if (method_exists($this, 'assertMatchesRegularExpression')) {
+            $this->assertMatchesRegularExpression('/^\:group\:end\:(\d+)$/', $key);
+        } else {
+            $this->assertRegExp('/^\:group\:end\:(\d+)$/', $key);
+        }
 
         preg_match('/^\:group\:end\:(\d+)$/', $key, $matches);
         $digit = $matches[1];
@@ -268,7 +269,7 @@ class FormTest extends AbstractTestCase
     {
         $this->object = $this->getMockBuilder(Form::class)
             ->disableOriginalConstructor()
-            ->setMethods(['readFormPaths', 'readTypes'])
+            ->onlyMethods(['readFormPaths', 'readTypes'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))
@@ -293,7 +294,7 @@ class FormTest extends AbstractTestCase
     {
         $this->object = $this->getMockBuilder(Form::class)
             ->disableOriginalConstructor()
-            ->setMethods(['readFormPaths', 'readTypes'])
+            ->onlyMethods(['readFormPaths', 'readTypes'])
             ->getMock();
 
         $this->object->expects($this->exactly(1))->method('readFormPaths')->with([

@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -17,10 +18,10 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+
 use function bin2hex;
 use function htmlspecialchars;
 use function str_replace;
-use function stripos;
 use function stripslashes;
 
 /**
@@ -44,7 +45,8 @@ class ExportOdt extends ExportPlugin
     {
         global $plugin_param;
         $hide_structure = false;
-        if ($plugin_param['export_type'] === 'table'
+        if (
+            $plugin_param['export_type'] === 'table'
             && ! $plugin_param['single_table']
         ) {
             $hide_structure = true;
@@ -99,6 +101,7 @@ class ExportOdt extends ExportPlugin
                 );
                 $structureOptions->addProperty($leaf);
             }
+
             $leaf = new BoolPropertyItem(
                 'comments',
                 __('Display comments')
@@ -111,6 +114,7 @@ class ExportOdt extends ExportPlugin
                 );
                 $structureOptions->addProperty($leaf);
             }
+
             // add the main group to the root group
             $exportSpecificOptions->addProperty($structureOptions);
         }
@@ -176,20 +180,20 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader($db, $dbAlias = '')
     {
-        if (empty($db_alias)) {
-            $db_alias = $db;
+        if (empty($dbAlias)) {
+            $dbAlias = $db;
         }
-        $GLOBALS['odt_buffer']
-            .= '<text:h text:outline-level="1" text:style-name="Heading_1"'
+
+        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="1" text:style-name="Heading_1"'
             . ' text:is-list-header="true">'
-            . __('Database') . ' ' . htmlspecialchars($db_alias)
+            . __('Database') . ' ' . htmlspecialchars($dbAlias)
             . '</text:h>';
 
         return true;
@@ -210,13 +214,13 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db         Database name
+     * @param string $exportType 'server', 'database', 'table'
+     * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = '')
     {
         return true;
     }
@@ -224,12 +228,12 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs the content of a table in NHibernate format
      *
-     * @param string $db        database name
-     * @param string $table     table name
-     * @param string $crlf      the end of line sequence
-     * @param string $error_url the url to go back in case of error
-     * @param string $sql_query SQL query for obtaining data
-     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $db       database name
+     * @param string $table    table name
+     * @param string $crlf     the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery SQL query for obtaining data
+     * @param array  $aliases  Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -237,8 +241,8 @@ class ExportOdt extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $sql_query,
+        $errorUrl,
+        $sqlQuery,
         array $aliases = []
     ) {
         global $what, $dbi;
@@ -248,25 +252,20 @@ class ExportOdt extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
         // Gets the data from the database
         $result = $dbi->query(
-            $sql_query,
+            $sqlQuery,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $dbi->numFields($result);
+        /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $dbi->getFieldsMeta($result);
-        $field_flags = [];
-        for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_flags[$j] = $dbi->fieldFlags($result, $j);
-        }
 
-        $GLOBALS['odt_buffer']
-            .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
+        $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
             . ' text:is-list-header="true">';
         $table_alias != ''
             ? $GLOBALS['odt_buffer'] .= __('Dumping data for table') . ' ' . htmlspecialchars($table_alias)
             : $GLOBALS['odt_buffer'] .= __('Dumping data for query result');
-        $GLOBALS['odt_buffer']
-            .= '</text:h>'
+        $GLOBALS['odt_buffer'] .= '</text:h>'
             . '<table:table'
             . ' table:name="' . htmlspecialchars($table_alias) . '_structure">'
             . '<table:table-column'
@@ -280,8 +279,8 @@ class ExportOdt extends ExportPlugin
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
-                $GLOBALS['odt_buffer']
-                    .= '<table:table-cell office:value-type="string">'
+
+                $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                     . '<text:p>'
                     . htmlspecialchars(
                         stripslashes($col_as)
@@ -289,6 +288,7 @@ class ExportOdt extends ExportPlugin
                     . '</text:p>'
                     . '</table:table-cell>';
             }
+
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
         }
 
@@ -296,47 +296,48 @@ class ExportOdt extends ExportPlugin
         while ($row = $dbi->fetchRow($result)) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if ($fields_meta[$j]->type === 'geometry') {
+                if ($fields_meta[$j]->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $row[$j] = '0x' . bin2hex($row[$j]);
                 }
+
                 if (! isset($row[$j]) || $row[$j] === null) {
-                    $GLOBALS['odt_buffer']
-                        .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif (stripos($field_flags[$j], 'BINARY') !== false
-                    && $fields_meta[$j]->blob
+                } elseif (
+                    $fields_meta[$j]->isBinary
+                    && $fields_meta[$j]->isBlob
                 ) {
                     // ignore BLOB
-                    $GLOBALS['odt_buffer']
-                        .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->numeric
-                    && $fields_meta[$j]->type !== 'timestamp'
-                    && ! $fields_meta[$j]->blob
+                } elseif (
+                    $fields_meta[$j]->isNumeric
+                    && ! $fields_meta[$j]->isMappedTypeTimestamp
+                    && ! $fields_meta[$j]->isBlob
                 ) {
-                    $GLOBALS['odt_buffer']
-                        .= '<table:table-cell office:value-type="float"'
+                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="float"'
                         . ' office:value="' . $row[$j] . '" >'
                         . '<text:p>'
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
                 } else {
-                    $GLOBALS['odt_buffer']
-                        .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
                 }
             }
+
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
         }
+
         $dbi->freeResult($result);
 
         $GLOBALS['odt_buffer'] .= '</table:table>';
@@ -347,15 +348,15 @@ class ExportOdt extends ExportPlugin
     /**
      * Outputs result raw query in ODT format
      *
-     * @param string $err_url   the url to go back in case of error
-     * @param string $sql_query the rawquery to output
-     * @param string $crlf      the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery the rawquery to output
+     * @param string $crlf     the end of line sequence
      *
      * @return bool if succeeded
      */
-    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
     {
-        return $this->exportData('', '', $crlf, $err_url, $sql_query);
+        return $this->exportData('', '', $crlf, $errorUrl, $sqlQuery);
     }
 
     /**
@@ -383,12 +384,10 @@ class ExportOdt extends ExportPlugin
         /**
          * Displays the table structure
          */
-        $GLOBALS['odt_buffer']
-            .= '<table:table table:name="'
+        $GLOBALS['odt_buffer'] .= '<table:table table:name="'
             . htmlspecialchars($view_alias) . '_data">';
         $columns_cnt = 4;
-        $GLOBALS['odt_buffer']
-            .= '<table:table-column'
+        $GLOBALS['odt_buffer'] .= '<table:table-column'
             . ' table:number-columns-repeated="' . $columns_cnt . '"/>';
         /* Header */
         $GLOBALS['odt_buffer'] .= '<table:table-row>'
@@ -412,6 +411,7 @@ class ExportOdt extends ExportPlugin
             if (! empty($aliases[$db]['tables'][$view]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$view]['columns'][$col_as];
             }
+
             $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition(
                 $column,
                 $col_as
@@ -484,12 +484,15 @@ class ExportOdt extends ExportPlugin
         if ($do_relation && $have_rel) {
             $columns_cnt++;
         }
+
         if ($do_comments) {
             $columns_cnt++;
         }
+
         if ($do_mime && $cfgRelation['mimework']) {
             $columns_cnt++;
         }
+
         $GLOBALS['odt_buffer'] .= '<table:table-column'
             . ' table:number-columns-repeated="' . $columns_cnt . '"/>';
         /* Header */
@@ -511,18 +514,21 @@ class ExportOdt extends ExportPlugin
                 . '<text:p>' . __('Links to') . '</text:p>'
                 . '</table:table-cell>';
         }
+
         if ($do_comments) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . __('Comments') . '</text:p>'
                 . '</table:table-cell>';
             $comments = $this->relation->getComments($db, $table);
         }
+
         if ($do_mime && $cfgRelation['mimework']) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . __('Media type') . '</text:p>'
                 . '</table:table-cell>';
             $mime_map = $this->transformations->getMime($db, $table, true);
         }
+
         $GLOBALS['odt_buffer'] .= '</table:table-row>';
 
         $columns = $dbi->getColumns($db, $table);
@@ -531,6 +537,7 @@ class ExportOdt extends ExportPlugin
             if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
+
             $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition(
                 $column,
                 $col_as
@@ -540,42 +547,42 @@ class ExportOdt extends ExportPlugin
                 if ($foreigner) {
                     $rtable = $foreigner['foreign_table'];
                     $rfield = $foreigner['foreign_field'];
-                    if (! empty($aliases[$db]['tables'][$rtable]['columns'][$rfield])
+                    if (
+                        ! empty($aliases[$db]['tables'][$rtable]['columns'][$rfield])
                     ) {
-                        $rfield
-                            = $aliases[$db]['tables'][$rtable]['columns'][$rfield];
+                        $rfield = $aliases[$db]['tables'][$rtable]['columns'][$rfield];
                     }
+
                     if (! empty($aliases[$db]['tables'][$rtable]['alias'])) {
                         $rtable = $aliases[$db]['tables'][$rtable]['alias'];
                     }
+
                     $relation = htmlspecialchars($rtable . ' (' . $rfield . ')');
-                    $GLOBALS['odt_buffer']
-                        .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($relation)
                         . '</text:p>'
                         . '</table:table-cell>';
                 }
             }
+
             if ($do_comments) {
                 if (isset($comments[$field_name])) {
-                    $GLOBALS['odt_buffer']
-                        .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($comments[$field_name])
                         . '</text:p>'
                         . '</table:table-cell>';
                 } else {
-                    $GLOBALS['odt_buffer']
-                        .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
                 }
             }
+
             if ($do_mime && $cfgRelation['mimework']) {
                 if (isset($mime_map[$field_name])) {
-                    $GLOBALS['odt_buffer']
-                        .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars(
                             str_replace('_', '/', $mime_map[$field_name]['mimetype'])
@@ -583,12 +590,12 @@ class ExportOdt extends ExportPlugin
                         . '</text:p>'
                         . '</table:table-cell>';
                 } else {
-                    $GLOBALS['odt_buffer']
-                        .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
                 }
             }
+
             $GLOBALS['odt_buffer'] .= '</table:table-row>';
         }
 
@@ -670,10 +677,10 @@ class ExportOdt extends ExportPlugin
      * @param string $db          database name
      * @param string $table       table name
      * @param string $crlf        the end of line sequence
-     * @param string $error_url   the url to go back in case of error
-     * @param string $export_mode 'create_table', 'triggers', 'create_view',
-     *                            'stand_in'
-     * @param string $export_type 'server', 'database', 'table'
+     * @param string $errorUrl    the url to go back in case of error
+     * @param string $exportMode  'create_table', 'triggers', 'create_view',
+     *                             'stand_in'
+     * @param string $exportType  'server', 'database', 'table'
      * @param bool   $do_relation whether to include relation comments
      * @param bool   $do_comments whether to include the pmadb-style column
      *                            comments as comments in the structure;
@@ -690,9 +697,9 @@ class ExportOdt extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $export_mode,
-        $export_type,
+        $errorUrl,
+        $exportMode,
+        $exportType,
         $do_relation = false,
         $do_comments = false,
         $do_mime = false,
@@ -704,10 +711,9 @@ class ExportOdt extends ExportPlugin
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
-        switch ($export_mode) {
+        switch ($exportMode) {
             case 'create_table':
-                $GLOBALS['odt_buffer']
-                .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
+                $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
                 . ' text:is-list-header="true">'
                 . __('Table structure for table') . ' ' .
                 htmlspecialchars($table_alias)
@@ -716,7 +722,7 @@ class ExportOdt extends ExportPlugin
                     $db,
                     $table,
                     $crlf,
-                    $error_url,
+                    $errorUrl,
                     $do_relation,
                     $do_comments,
                     $do_mime,
@@ -727,20 +733,19 @@ class ExportOdt extends ExportPlugin
                 );
                 break;
             case 'triggers':
-                $triggers = $dbi->getTriggers($db, $table, $aliases);
+                $triggers = $dbi->getTriggers($db, $table);
                 if ($triggers) {
-                    $GLOBALS['odt_buffer']
-                    .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
+                    $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
                     . ' text:is-list-header="true">'
                     . __('Triggers') . ' '
                     . htmlspecialchars($table_alias)
                     . '</text:h>';
                     $this->getTriggers($db, $table);
                 }
+
                 break;
             case 'create_view':
-                $GLOBALS['odt_buffer']
-                .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
+                $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
                 . ' text:is-list-header="true">'
                 . __('Structure for view') . ' '
                 . htmlspecialchars($table_alias)
@@ -749,7 +754,7 @@ class ExportOdt extends ExportPlugin
                     $db,
                     $table,
                     $crlf,
-                    $error_url,
+                    $errorUrl,
                     $do_relation,
                     $do_comments,
                     $do_mime,
@@ -760,8 +765,7 @@ class ExportOdt extends ExportPlugin
                 );
                 break;
             case 'stand_in':
-                $GLOBALS['odt_buffer']
-                .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
+                $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
                 . ' text:is-list-header="true">'
                 . __('Stand-in structure for view') . ' '
                 . htmlspecialchars($table_alias)
@@ -786,13 +790,13 @@ class ExportOdt extends ExportPlugin
         if (empty($col_as)) {
             $col_as = $column['Field'];
         }
+
         $definition = '<table:table-row>';
         $definition .= '<table:table-cell office:value-type="string">'
             . '<text:p>' . htmlspecialchars($col_as) . '</text:p>'
             . '</table:table-cell>';
 
-        $extracted_columnspec
-            = Util::extractColumnSpec($column['Type']);
+        $extracted_columnspec = Util::extractColumnSpec($column['Type']);
         $type = htmlspecialchars($extracted_columnspec['print_type']);
         if (empty($type)) {
             $type = '&nbsp;';
@@ -808,6 +812,7 @@ class ExportOdt extends ExportPlugin
                 $column['Default'] = '';
             }
         }
+
         $definition .= '<table:table-cell office:value-type="string">'
             . '<text:p>'
             . ($column['Null'] == '' || $column['Null'] === 'NO'

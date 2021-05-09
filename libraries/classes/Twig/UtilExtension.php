@@ -60,11 +60,11 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'get_gis_datatypes',
-                'PhpMyAdmin\Util::getGISDatatypes'
+                'PhpMyAdmin\Utils\Gis::getDataTypes'
             ),
             new TwigFunction(
                 'get_gis_functions',
-                'PhpMyAdmin\Util::getGISFunctions'
+                'PhpMyAdmin\Utils\Gis::getFunctions'
             ),
             new TwigFunction(
                 'get_icon',
@@ -88,7 +88,7 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFunction(
                 'is_foreign_key_supported',
-                'PhpMyAdmin\Util::isForeignKeySupported'
+                'PhpMyAdmin\Utils\ForeignKey::isSupported'
             ),
             new TwigFunction(
                 'link_or_button',
@@ -163,7 +163,7 @@ class UtilExtension extends AbstractExtension
             ),
             new TwigFilter(
                 'escape_mysql_wildcards',
-                'PhpMyAdmin\Util::convertBitDefaultValue'
+                'PhpMyAdmin\Util::escapeMysqlWildcards'
             ),
         ];
     }

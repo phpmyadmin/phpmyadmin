@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/7.5/phpunit.xsd"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.5/phpunit.xsd"
     bootstrap="test/bootstrap-dist.php"
     backupGlobals="false"
     backupStaticAttributes="false"
@@ -8,10 +8,10 @@
     verbose="true">
 
     <testsuites>
-        <testsuite name="Classes">
+        <testsuite name="default">
             <directory suffix="Test.php">test/classes</directory>
         </testsuite>
-        <testsuite name="Selenium">
+        <testsuite name="selenium">
             <directory suffix="Test.php">test/selenium</directory>
         </testsuite>
     </testsuites>
@@ -22,12 +22,12 @@
     </logging>
 
     <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true">
+        <whitelist>
             <directory suffix=".php">.</directory>
             <exclude>
                 <directory>examples</directory>
-                <directory>node_modules</directory>
                 <directory>libraries/cache</directory>
+                <directory>node_modules</directory>
                 <directory>test</directory>
                 <directory>tmp</directory>
                 <directory>vendor</directory>

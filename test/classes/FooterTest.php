@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
+
 use function json_encode;
 
 class FooterTest extends AbstractTestCase
@@ -33,7 +34,7 @@ class FooterTest extends AbstractTestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['text_dir'] = 'ltr';
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
         $GLOBALS['server'] = '1';
@@ -42,7 +43,7 @@ class FooterTest extends AbstractTestCase
         $this->object = new Footer();
         unset($GLOBALS['error_message']);
         unset($GLOBALS['sql_query']);
-        $GLOBALS['error_handler'] = new ErrorHandler();
+        $GLOBALS['errorHandler'] = new ErrorHandler();
         unset($_POST);
     }
 
@@ -107,82 +108,6 @@ class FooterTest extends AbstractTestCase
         $this->assertEquals(
             '{"child":{"parent":"***RECURSION***"}}',
             json_encode($object)
-        );
-    }
-
-    /**
-     * Test for getSelfLink
-     */
-    public function testGetSelfLink(): void
-    {
-        $GLOBALS['cfg']['TabsMode'] = 'text';
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['db'] = 'db';
-        $GLOBALS['table'] = 'table';
-
-        $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?db=db&amp;'
-            . 'table=table&amp;server=1&amp;lang=en'
-            . '" title="Open new phpMyAdmin window" '
-            . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
-            $this->callFunction(
-                $this->object,
-                Footer::class,
-                'getSelfLink',
-                [
-                    $this->object->getSelfUrl(),
-                ]
-            )
-        );
-    }
-
-    /**
-     * Test for getSelfLink
-     */
-    public function testGetSelfLinkWithImage(): void
-    {
-        $GLOBALS['cfg']['TabsMode'] = 'icons';
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-
-        $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="'
-            . 'index.php?server=1&amp;lang=en" title="Open new phpMyAdmin window" '
-            . 'target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new '
-            . 'phpMyAdmin window" alt="Open new phpMyAdmin window" '
-            . 'class="icon ic_window-new"></a></div>',
-            $this->callFunction(
-                $this->object,
-                Footer::class,
-                'getSelfLink',
-                [
-                    $this->object->getSelfUrl(),
-                ]
-            )
-        );
-    }
-
-    /**
-     * Test for getSelfLink
-     */
-    public function testGetSelfLinkWithRoute(): void
-    {
-        $GLOBALS['route'] = '/test';
-        $GLOBALS['cfg']['TabsMode'] = 'text';
-        $GLOBALS['cfg']['ServerDefault'] = 1;
-
-        $this->assertEquals(
-            '<div id="selflink" class="print_ignore"><a href="index.php?route=%2Ftest'
-            . '&amp;server=1&amp;lang=en'
-            . '" title="Open new phpMyAdmin window" '
-            . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
-            $this->callFunction(
-                $this->object,
-                Footer::class,
-                'getSelfLink',
-                [
-                    $this->object->getSelfUrl(),
-                ]
-            )
         );
     }
 

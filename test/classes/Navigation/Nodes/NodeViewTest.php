@@ -33,7 +33,8 @@ class NodeViewTest extends AbstractTestCase
             'index.php?route=/sql',
             $parent->links['text']
         );
-        $this->assertStringContainsString('b_props', $parent->icon);
+        $this->assertEquals('b_props', $parent->icon['image']);
+        $this->assertEquals('View', $parent->icon['title']);
         $this->assertStringContainsString('view', $parent->classes);
     }
 }

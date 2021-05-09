@@ -9,6 +9,8 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\Version;
+
 use function json_encode;
 use function time;
 
@@ -24,7 +26,6 @@ class UserPreferencesTest extends AbstractNetworkTestCase
     {
         parent::setUp();
         parent::loadDefaultConfig();
-        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
@@ -61,7 +62,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
      */
     public function testLoad(): void
     {
-        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
+        $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
 
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = null;
         unset($_SESSION['userconfig']);
@@ -141,7 +142,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
     public function testSave(): void
     {
         $GLOBALS['server'] = 2;
-        $_SESSION['relation'][2]['PMA_VERSION'] = PMA_VERSION;
+        $_SESSION['relation'][2]['version'] = Version::VERSION;
         $_SESSION['relation'][2]['userconfigwork'] = null;
         unset($_SESSION['userconfig']);
 
@@ -307,7 +308,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
      */
     public function testPersistOption(): void
     {
-        $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] = PMA_VERSION;
+        $_SESSION['relation'][$GLOBALS['server']]['version'] = Version::VERSION;
         $_SESSION['relation'][$GLOBALS['server']]['userconfigwork'] = null;
         $_SESSION['userconfig'] = [];
         $_SESSION['userconfig']['ts'] = '123';
@@ -343,8 +344,8 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $this->mockResponse('Location: /phpmyadmin/file.html?a=b&saved=1&server=0#h+ash');
 
-        $GLOBALS['PMA_Config']->set('PmaAbsoluteUri', '');
-        $GLOBALS['PMA_Config']->set('PMA_IS_IIS', false);
+        $GLOBALS['config']->set('PmaAbsoluteUri', '');
+        $GLOBALS['config']->set('PMA_IS_IIS', false);
 
         $this->userPreferences->redirect(
             'file.html',

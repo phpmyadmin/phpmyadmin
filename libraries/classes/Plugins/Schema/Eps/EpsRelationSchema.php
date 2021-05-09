@@ -11,6 +11,8 @@ use PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia;
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\Pdf\TableStatsPdf;
 use PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg;
+use PhpMyAdmin\Version;
+
 use function date;
 use function in_array;
 use function sprintf;
@@ -64,7 +66,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 $this->pageNumber
             )
         );
-        $this->diagram->setAuthor('phpMyAdmin ' . PMA_VERSION);
+        $this->diagram->setAuthor('phpMyAdmin ' . Version::VERSION);
         $this->diagram->setDate(date('j F Y, g:i a'));
         $this->diagram->setOrientation($this->orientation);
         $this->diagram->setFont('Verdana', '10');
@@ -120,6 +122,7 @@ class EpsRelationSchema extends ExportRelationSchema
                             $this->tableDimension
                         );
                     }
+
                     continue;
                 }
 
@@ -142,6 +145,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 }
             }
         }
+
         if ($seen_a_relation) {
             $this->drawRelations();
         }
@@ -199,6 +203,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 $tableDimension
             );
         }
+
         if (! isset($this->tables[$foreignTable])) {
             $this->tables[$foreignTable] = new TableStatsEps(
                 $this->diagram,
@@ -212,6 +217,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 $tableDimension
             );
         }
+
         $this->relations[] = new RelationStatsEps(
             $this->diagram,
             $this->tables[$masterTable],

@@ -12,6 +12,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\Response;
+use PhpMyAdmin\Version;
 
 class ExportTemplateControllerTest extends AbstractTestCase
 {
@@ -26,13 +27,13 @@ class ExportTemplateControllerTest extends AbstractTestCase
 
     protected function setUp(): void
     {
-        global $dbi, $PMA_Config;
+        global $dbi, $config;
 
         $this->setGlobalDbi();
         parent::setTheme();
 
-        $PMA_Config = new Config();
-        $PMA_Config->enableBc();
+        $config = new Config();
+        $config->enableBc();
 
         $_SESSION = [' PMA_token ' => 'token'];
         $GLOBALS['server'] = 1;
@@ -40,7 +41,7 @@ class ExportTemplateControllerTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = '';
 
         $_SESSION['relation'][$GLOBALS['server']] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'exporttemplateswork' => true,
             'db' => 'db',
             'export_templates' => 'table',

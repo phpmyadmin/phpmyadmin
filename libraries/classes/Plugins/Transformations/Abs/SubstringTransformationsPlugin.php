@@ -7,8 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use stdClass;
+
 use function htmlspecialchars;
 use function mb_strlen;
 use function mb_substr;
@@ -37,13 +38,13 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string        $buffer  text to be transformed
-     * @param array         $options transformation options
-     * @param stdClass|null $meta    meta information
+     * @param string             $buffer  text to be transformed
+     * @param array              $options transformation options
+     * @param FieldMetadata|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
+    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
     {
         // possibly use a global transform and feed it with special options
 
@@ -51,24 +52,26 @@ abstract class SubstringTransformationsPlugin extends TransformationsPlugin
         $cfg = $GLOBALS['cfg'];
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Substring']);
 
+        $optionZero = (int) $options[0];
+
         if ($options[1] !== 'all') {
             $newtext = mb_substr(
-                $buffer,
-                $options[0],
-                $options[1]
+                (string) $buffer,
+                $optionZero,
+                (int) $options[1]
             );
         } else {
-            $newtext = mb_substr($buffer, $options[0]);
+            $newtext = mb_substr((string) $buffer, $optionZero);
         }
 
         $length = mb_strlen($newtext);
-        $baselength = mb_strlen($buffer);
+        $baselength = mb_strlen((string) $buffer);
         if ($length != $baselength) {
-            if ($options[0] != 0) {
+            if ($optionZero !== 0) {
                 $newtext = $options[2] . $newtext;
             }
 
-            if ($length + (int) $options[0] != $baselength) {
+            if ($length + $optionZero != $baselength) {
                 $newtext .= $options[2];
             }
         }

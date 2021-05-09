@@ -324,7 +324,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * Find currently hovered table column's header (excluding actions column).
          *
          * @param e event
-         * @return the hovered column's th object or undefined if no hovered column found.
+         * @return {object|undefined} the hovered column's th object or undefined if no hovered column found.
          */
         getHoveredCol: function (e) {
             var hoveredCol;
@@ -343,7 +343,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * Get a zero-based index from a <th class="draggable"> tag in a table.
          *
          * @param obj table header <th> object
-         * @return zero-based index of the specified table header in the set of table headers (visible or not)
+         * @return {number} zero-based index of the specified table header in the set of table headers (visible or not)
          */
         getHeaderIdx: function (obj) {
             return $(obj).parents('tr').find('th.draggable').index(obj);
@@ -432,6 +432,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         /**
          * Update current hint using the boolean values (showReorderHint, showSortHint, etc.).
          *
+         * @return {string}
+         *
          */
         updateHint: function () {
             var text = '';
@@ -471,7 +473,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          * Toggle column's visibility.
          * After calling this function and it returns true, afterToggleCol() must be called.
          *
-         * @return boolean True if the column is toggled successfully.
+         * @param {number} n
+         *
+         * @return {boolean} True if the column is toggled successfully.
          */
         toggleCol: function (n) {
             if (g.colVisib[n]) {
@@ -527,12 +531,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
             // only show when not resizing or reordering
             if (!g.colRsz && !g.colReorder) {
                 var pos = $(obj).position();
-                // check if the list position is too right
-                if (pos.left + $(g.cList).outerWidth(true) > $(document).width()) {
-                    pos.left = $(document).width() - $(g.cList).outerWidth(true);
-                }
                 $(g.cList).css({
-                    left: pos.left,
                     top: pos.top + $(obj).outerHeight(true)
                 })
                     .show();
@@ -643,8 +642,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
          *              or just specify "true", if we want to replace the edited field with the new value.
          * @param field Optional, the edited <td>. If not specified, the function will
          *              use currently edited <td> from g.currentEditCell.
-         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
-         *              and a <td> to which the grid_edit should move
+         * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
+         *                and a <td> to which the grid_edit should move
          */
         hideEditCell: function (force, data, field, options) {
             if (g.isCellEditActive && !force) {
@@ -688,14 +687,16 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                         var newHtml = Functions.escapeHtml(value);
                         newHtml = newHtml.replace(/\n/g, '<br>\n');
 
+                        var decimals = parseInt($thisField.attr('data-decimals'));
+
                         // remove decimal places if column type not supported
-                        if (($thisField.attr('data-decimals') === 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
+                        if ((decimals === 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
                             newHtml = newHtml.substring(0, newHtml.indexOf('.'));
                         }
 
-                        // remove addtional decimal places
-                        if (($thisField.attr('data-decimals') > 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
-                            newHtml = newHtml.substring(0, newHtml.length - (6 - $thisField.attr('data-decimals')));
+                        // remove additional decimal places
+                        if ((decimals > 0) && ($thisField.attr('data-type').indexOf('time') !== -1)) {
+                            newHtml = newHtml.substring(0, newHtml.length - (6 - decimals));
                         }
 
                         var selector = 'span';
@@ -803,7 +804,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 g.wasEditedCellNull = false;
                 if ($td.is(':not(.not_null)')) {
                     // append a null checkbox
-                    $editArea.append('<div class="null_div"><label>Null:<input type="checkbox"></label></div>');
+                    $editArea.append('<div class="null_div"><label>NULL:<input type="checkbox"></label></div>');
 
                     var $checkbox = $editArea.find('.null_div input');
                     // check if current <td> is NULL
@@ -1127,8 +1128,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         /**
          * Post the content of edited cell.
          *
-         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
-         *              and a <td> to which the grid_edit should move
+         * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
+         *                and a <td> to which the grid_edit should move
          */
         postEditedCell: function (options) {
             if (g.isSaving) {
@@ -1243,11 +1244,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             fieldsType.push('hex');
                         }
                         fieldsNull.push('');
-                        // Convert \n to \r\n to be consistent with form submitted value.
-                        // The internal browser representation has to be just \n
-                        // while form submitted value \r\n, see specification:
-                        // https://www.w3.org/TR/html5/forms.html#the-textarea-element
-                        fields.push($thisField.data('value').replace(/\n/g, '\r\n'));
+                        fields.push($thisField.data('value'));
 
                         var cellIndex = $thisField.index('.to_be_saved');
                         if ($thisField.is(':not(.relation, .enum, .set, .bit)')) {
@@ -1423,6 +1420,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Save edited cell, so it can be posted later.
+         *
+         * @return {bool}
          */
         saveEditedCell: function () {
             /**
@@ -1501,8 +1500,8 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         /**
          * Save or post currently edited cell, depending on the "saveCellsAtOnce" configuration.
          *
-         * @param field Optional, this object contains a boolean named move (true, if called from move* functions)
-         *              and a <td> to which the grid_edit should move
+         * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
+         *                and a <td> to which the grid_edit should move
          */
         saveOrPostEditedCell: function (options) {
             var saved = g.saveEditedCell();
@@ -1631,7 +1630,7 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 })
                 .on('mouseleave', function () {
                     g.showReorderHint = false;
-                    $(this).tooltip('option', {
+                    $(this).uiTooltip('option', {
                         content: g.updateHint()
                     });
                 })
@@ -1774,9 +1773,10 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                 g.hideColList();
             });
 
-            // attach to global div
-            $(g.gDiv).append(g.cDrop);
-            $(g.gDiv).append(g.cList);
+            // attach to first row first col of the grid
+            var thFirst = $(g.t).find('th.print_ignore');
+            $(thFirst).append(g.cDrop);
+            $(thFirst).append(g.cList);
 
             // some adjustment
             g.reposDrop();
@@ -1784,6 +1784,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Move currently Editing Cell to Up
+         *
+         * @param e
+         *
          */
         moveUp: function (e) {
             e.preventDefault();
@@ -1823,6 +1826,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Move currently Editing Cell to Down
+         *
+         * @param e
+         *
          */
         moveDown: function (e) {
             e.preventDefault();
@@ -1868,6 +1874,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Move currently Editing Cell to Left
+         *
+         * @param e
+         *
          */
         moveLeft: function (e) {
             e.preventDefault();
@@ -1908,6 +1917,9 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
 
         /**
          * Move currently Editing Cell to Right
+         *
+         * @param e
+         *
          */
         moveRight: function (e) {
             e.preventDefault();
@@ -2046,13 +2058,6 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
                             // start grid-editing
                             startGridEditing(e, this);
                         }
-                    } else {// If it is not a link or it is a double tap then call startGridEditing
-                        // this is a double click, cancel the single click timer
-                        // and make the click count 0
-                        clearTimeout($cell.data('timer'));
-                        $cell.data('clicks', 0);
-                        // start grid-editing
-                        startGridEditing(e, this);
                     }
                 })
                 .on('dblclick', function (e) {
@@ -2234,14 +2239,14 @@ var makeGrid = function (t, enableResize, enableReorder, enableVisib, enableGrid
         .on('mouseenter', function () {
             g.showSortHint = true;
             g.showMultiSortHint = true;
-            $(t).find('th.draggable').tooltip('option', {
+            $(t).find('th.draggable').uiTooltip('option', {
                 content: g.updateHint()
             });
         })
         .on('mouseleave', function () {
             g.showSortHint = false;
             g.showMultiSortHint = false;
-            $(t).find('th.draggable').tooltip('option', {
+            $(t).find('th.draggable').uiTooltip('option', {
                 content: g.updateHint()
             });
         });

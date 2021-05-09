@@ -33,7 +33,8 @@ $response = Response::getInstance();
 $response->getHeader()->sendHttpHeaders();
 $response->disable();
 
-if (! Core::isValid($_GET['url'])
+if (
+    ! Core::isValid($_GET['url'])
     || ! preg_match('/^https:\/\/[^\n\r]*$/', $_GET['url'])
     || ! Core::isAllowedDomain($_GET['url'])
 ) {
@@ -51,4 +52,5 @@ if (! Core::isValid($_GET['url'])
     // Do not display the value of $_GET['url'] to avoid showing injected content
     echo __('Taking you to the target site.');
 }
+
 die;

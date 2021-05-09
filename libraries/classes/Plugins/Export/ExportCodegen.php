@@ -15,6 +15,7 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
+
 use function implode;
 use function preg_match;
 use function preg_replace;
@@ -119,12 +120,12 @@ class ExportCodegen extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader($db, $dbAlias = '')
     {
         return true;
     }
@@ -144,13 +145,13 @@ class ExportCodegen extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db         Database name
+     * @param string $exportType 'server', 'database', 'table'
+     * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = '')
     {
         return true;
     }
@@ -158,12 +159,12 @@ class ExportCodegen extends ExportPlugin
     /**
      * Outputs the content of a table in NHibernate format
      *
-     * @param string $db        database name
-     * @param string $table     table name
-     * @param string $crlf      the end of line sequence
-     * @param string $error_url the url to go back in case of error
-     * @param string $sql_query SQL query for obtaining data
-     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $db       database name
+     * @param string $table    table name
+     * @param string $crlf     the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery SQL query for obtaining data
+     * @param array  $aliases  Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -171,8 +172,8 @@ class ExportCodegen extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $sql_query,
+        $errorUrl,
+        $sqlQuery,
         array $aliases = []
     ) {
         $format = (int) $GLOBALS['codegen_format'];
@@ -204,6 +205,7 @@ class ExportCodegen extends ExportPlugin
         if (! preg_match('/^\pL/u', $str)) {
             $str = '_' . $str;
         }
+
         if ($ucfirst) {
             $str = ucfirst($str);
         }
@@ -245,8 +247,10 @@ class ExportCodegen extends ExportPlugin
                 if (! empty($col_as)) {
                     $row[0] = $col_as;
                 }
+
                 $tableProperties[] = new TableProperty($row);
             }
+
             $dbi->freeResult($result);
             $lines[] = 'using System;';
             $lines[] = 'using System.Collections;';
@@ -265,6 +269,7 @@ class ExportCodegen extends ExportPlugin
                     '        protected #dotNetPrimitiveType# _#name#;'
                 );
             }
+
             $lines[] = '        #endregion';
             $lines[] = '        #region Constructors';
             $lines[] = '        public '
@@ -279,6 +284,7 @@ class ExportCodegen extends ExportPlugin
                     '#dotNetPrimitiveType# #name#'
                 );
             }
+
             $lines[] = '        public '
                 . self::cgMakeIdentifier($table_alias)
                 . '('
@@ -294,6 +300,7 @@ class ExportCodegen extends ExportPlugin
                     '            this._#name#=#name#;'
                 );
             }
+
             $lines[] = '        }';
             $lines[] = '        #endregion';
             $lines[] = '        #region Public Properties';
@@ -307,6 +314,7 @@ class ExportCodegen extends ExportPlugin
                     . '        }'
                 );
             }
+
             $lines[] = '        #endregion';
             $lines[] = '    }';
             $lines[] = '    #endregion';
@@ -358,6 +366,7 @@ class ExportCodegen extends ExportPlugin
                 if (! empty($col_as)) {
                     $row[0] = $col_as;
                 }
+
                 $tableProperty = new TableProperty($row);
                 if ($tableProperty->isPK()) {
                     $lines[] = $tableProperty->formatXml(
@@ -379,8 +388,10 @@ class ExportCodegen extends ExportPlugin
                     );
                 }
             }
+
             $dbi->freeResult($result);
         }
+
         $lines[] = '    </class>';
         $lines[] = '</hibernate-mapping>';
 

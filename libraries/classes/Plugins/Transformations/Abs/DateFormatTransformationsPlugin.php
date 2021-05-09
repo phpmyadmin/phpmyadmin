@@ -7,10 +7,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
-use stdClass;
+
 use function checkdate;
 use function gmdate;
 use function htmlspecialchars;
@@ -49,13 +50,13 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string        $buffer  text to be transformed
-     * @param array         $options transformation options
-     * @param stdClass|null $meta    meta information
+     * @param string             $buffer  text to be transformed
+     * @param array              $options transformation options
+     * @param FieldMetadata|null $meta    meta information
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
+    public function applyTransformation($buffer, array $options = [], ?FieldMetadata $meta = null)
     {
         $buffer = (string) $buffer;
         // possibly use a global transform and feed it with special options
@@ -78,7 +79,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         // INT columns will be treated as UNIX timestamps
         // and need to be detected before the verification for
         // MySQL TIMESTAMP
-        if ($meta->type === 'int') {
+        if ($meta !== null && $meta->isType(FieldMetadata::TYPE_INT)) {
             $timestamp = $buffer;
 
             // Detect TIMESTAMP(6 | 8 | 10 | 12 | 14)
@@ -111,6 +112,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                         $aDate['year']
                     );
                 }
+
                 // If all fails, assume one of the dozens of valid strtime() syntaxes
                 // (https://www.gnu.org/manual/tar-1.12/html_chapter/tar_7.html)
             } else {

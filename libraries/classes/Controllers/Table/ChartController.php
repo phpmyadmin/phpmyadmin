@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Components\Limit;
@@ -14,9 +15,9 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_keys;
 use function htmlspecialchars;
-use function in_array;
 use function json_encode;
 use function min;
 use function strlen;
@@ -43,9 +44,10 @@ class ChartController extends AbstractController
 
     public function index(): void
     {
-        global $db, $table, $cfg, $sql_query, $err_url;
+        global $db, $table, $cfg, $sql_query, $errorUrl;
 
-        if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
+        if (
+            isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $this->response->isAjax()
         ) {
             $this->ajax();
 
@@ -86,8 +88,8 @@ class ChartController extends AbstractController
             Util::checkParameters(['db', 'table']);
 
             $url_params = ['db' => $db, 'table' => $table];
-            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-            $err_url .= Url::getCommon($url_params, '&');
+            $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $errorUrl .= Url::getCommon($url_params, '&');
 
             DbTableExists::check();
 
@@ -103,8 +105,8 @@ class ChartController extends AbstractController
 
             Util::checkParameters(['db']);
 
-            $err_url = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
-            $err_url .= Url::getCommon(['db' => $db], '&');
+            $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabDatabase'], 'database');
+            $errorUrl .= Url::getCommon(['db' => $db], '&');
 
             if (! $this->hasDatabase()) {
                 return;
@@ -115,7 +117,7 @@ class ChartController extends AbstractController
                 'server'
             );
             $url_params['back'] = Url::getFromRoute('/sql');
-            $err_url = Url::getFromRoute('/');
+            $errorUrl = Url::getFromRoute('/');
 
             if ($this->dbi->isSuperUser()) {
                 $this->dbi->selectDb('mysql');
@@ -125,27 +127,26 @@ class ChartController extends AbstractController
         $data = [];
 
         $result = $this->dbi->tryQuery($sql_query);
-        $fields_meta = $this->dbi->getFieldsMeta($result);
+        $fields_meta = $this->dbi->getFieldsMeta($result) ?? [];
         while ($row = $this->dbi->fetchAssoc($result)) {
             $data[] = $row;
         }
 
         $keys = array_keys($data[0]);
-
-        $numeric_types = [
-            'int',
-            'real',
-        ];
-        $numeric_column_count = 0;
+        $numericColumnFound = false;
         foreach ($keys as $idx => $key) {
-            if (! in_array($fields_meta[$idx]->type, $numeric_types)) {
-                continue;
+            if (
+                isset($fields_meta[$idx]) && (
+                $fields_meta[$idx]->isType(FieldMetadata::TYPE_INT)
+                || $fields_meta[$idx]->isType(FieldMetadata::TYPE_REAL)
+                )
+            ) {
+                $numericColumnFound = true;
+                break;
             }
-
-            $numeric_column_count++;
         }
 
-        if ($numeric_column_count == 0) {
+        if (! $numericColumnFound) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(
                 'message',
@@ -165,8 +166,7 @@ class ChartController extends AbstractController
             'url_params' => $url_params,
             'keys' => $keys,
             'fields_meta' => $fields_meta,
-            'numeric_types' => $numeric_types,
-            'numeric_column_count' => $numeric_column_count,
+            'table_has_a_numeric_column' => $numericColumnFound,
             'sql_query' => $sql_query,
         ]);
     }
@@ -176,14 +176,14 @@ class ChartController extends AbstractController
      */
     public function ajax(): void
     {
-        global $db, $table, $sql_query, $url_params, $err_url, $cfg;
+        global $db, $table, $sql_query, $urlParams, $errorUrl, $cfg;
 
         if (strlen($table) > 0 && strlen($db) > 0) {
             Util::checkParameters(['db', 'table']);
 
-            $url_params = ['db' => $db, 'table' => $table];
-            $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-            $err_url .= Url::getCommon($url_params, '&');
+            $urlParams = ['db' => $db, 'table' => $table];
+            $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+            $errorUrl .= Url::getCommon($urlParams, '&');
 
             DbTableExists::check();
         }
@@ -206,6 +206,7 @@ class ChartController extends AbstractController
             );
             $statement->limit = new Limit($rows, $start);
         }
+
         $sql_with_limit = $statement->build();
 
         $data = [];
@@ -220,6 +221,7 @@ class ChartController extends AbstractController
 
             return;
         }
+
         $sanitized_data = [];
 
         foreach ($data as $data_row_number => $data_row) {
@@ -228,8 +230,10 @@ class ChartController extends AbstractController
                 $escaped_value = $data_value === null ? null : htmlspecialchars($data_value);
                 $tmp_row[htmlspecialchars($data_column)] = $escaped_value;
             }
+
             $sanitized_data[] = $tmp_row;
         }
+
         $this->response->setRequestStatus(true);
         $this->response->addJSON('message', null);
         $this->response->addJSON('chartData', json_encode($sanitized_data));

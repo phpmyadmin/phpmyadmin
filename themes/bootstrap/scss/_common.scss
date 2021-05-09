@@ -37,15 +37,9 @@ button.mult_submit {
 
 .pma-table th {
   font-weight: bold;
-  color: $th-color;
+  color: $black;
   background-color: #f3f3f3;
-  background-image: linear-gradient(#fff, #ccc);
-}
-
-select {
-  &#sel-lang {
-    width: auto;
-  }
+  background-image: linear-gradient($white, #ccc);
 }
 
 textarea {
@@ -68,8 +62,8 @@ textarea {
   border: #aaa solid 1px;
   padding: 0.5em;
   background: #eee;
-  text-shadow: 1px 1px 2px #fff;
-  box-shadow: 1px 1px 2px #fff inset;
+  text-shadow: 1px 1px 2px $white;
+  box-shadow: 1px 1px 2px $white inset;
 }
 
 .pma-fieldset {
@@ -86,7 +80,7 @@ textarea {
     padding: 5px 10px;
     border-radius: 2px;
     border: 1px solid #aaa;
-    background-color: #fff;
+    background-color: $white;
     max-width: 100%;
     box-shadow: 3px 3px 15px #bbb;
     width: initial;
@@ -112,12 +106,12 @@ textarea {
     padding: 0.1em 0.3em;
     margin: 0.1em;
     vertical-align: middle;
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 $white;
   }
 }
 
 .pma-table thead th {
-  border-right: 1px solid #fff;
+  border-right: 1px solid $white;
 }
 
 .pma-table th {
@@ -147,8 +141,8 @@ textarea {
 }
 
 .separator {
-  color: #fff;
-  text-shadow: 0 1px 0 #000;
+  color: $white;
+  text-shadow: 0 1px 0 $black;
 }
 
 div.tools {
@@ -210,7 +204,7 @@ button.mult_submit {
 .pma-table tbody:first-of-type tr:nth-child(odd) th,
 #table_index tbody:nth-of-type(odd) tr,
 #table_index tbody:nth-of-type(odd) th {
-  background: #fff;
+  background: $white;
 }
 
 // even items 2,4,6,8...
@@ -240,7 +234,7 @@ button.mult_submit {
 .pma-table tbody:first-of-type tr.marked:not(.nomarker) th,
 .pma-table tr.marked:not(.nomarker) {
   background: linear-gradient(#ced6df, #b6c6d7);
-  color: $browse-marker-color;
+  color: $black;
 }
 
 // hovered items
@@ -248,7 +242,7 @@ button.mult_submit {
 .pma-table tbody:first-of-type tr:not(.nopointer):hover th,
 .hover:not(.nopointer) {
   background: linear-gradient(#ced6df, #b6c6d7);
-  color: $browse-pointer-color;
+  color: $black;
 }
 
 // hovered table rows
@@ -257,14 +251,14 @@ button.mult_submit {
 #table_index tbody:hover td,
 .pma-table tr.hover:not(.nopointer) th {
   background: linear-gradient(#ced6df, #b6c6d7);
-  color: $browse-pointer-color;
+  color: $black;
 }
 
 /**
  * marks table rows/cells if the db field is in a where condition
  */
 .condition {
-  border-color: $browse-marker-color !important;
+  border-color: $black !important;
 }
 
 .pma-table th.condition {
@@ -284,7 +278,7 @@ button.mult_submit {
 /* rtl:begin:remove */
 .before-condition {
   // for first th which must have right border set (ltr only)
-  border-right: 1px solid $browse-marker-color;
+  border-right: 1px solid $black;
 }
 
 /* rtl:end:remove */
@@ -330,15 +324,15 @@ img.lightbulb {
 .pdflayout {
   overflow: hidden;
   clip: inherit;
-  background-color: #fff;
+  background-color: $white;
   display: none;
-  border: 1px solid #000;
+  border: 1px solid $black;
   position: relative;
 }
 
 .pdflayout_table {
   background: #d3dce3;
-  color: #000;
+  color: $black;
   overflow: hidden;
   clip: inherit;
   z-index: 2;
@@ -347,13 +341,13 @@ img.lightbulb {
   cursor: move;
   position: absolute;
   font-size: 80%;
-  border: 1px dashed #000;
+  border: 1px dashed $black;
 }
 
 // Doc links in SQL
 .cm-sql-doc {
   text-decoration: none;
-  border-bottom: 1px dotted #000;
+  border-bottom: 1px dotted $black;
   color: inherit !important;
 }
 
@@ -381,7 +375,7 @@ td .icon {
 }
 
 .confirmation {
-  color: #000;
+  color: $black;
   background-color: pink;
 }
 
@@ -399,15 +393,15 @@ td .icon {
 
 .tblHeaders {
   font-weight: bold;
-  color: $th-color;
-  background: $th-background;
+  color: $black;
+  background: #d3dce3;
 }
 
 div.tools,
 .tblFooters {
   font-weight: normal;
-  color: $th-color;
-  background: $th-background;
+  color: $black;
+  background: #d3dce3;
 }
 
 .tblHeaders a {
@@ -440,17 +434,11 @@ div.tools a:hover,
   color: #f00;
 }
 
-// forbidden, no privileges
-.noPrivileges {
-  color: #f00;
-  font-weight: bold;
-}
-
 .error {
   border: 1px solid maroon !important;
   margin-left: 2px;
   padding: 1px 2px;
-  color: #000;
+  color: $black;
   background: pink;
 }
 
@@ -506,19 +494,11 @@ body#loginform {
   }
 }
 
-#login_form {
-  text-align: left;
-}
-
-#login_form .pma-fieldset.tblFooters {
-  text-align: right;
-}
-
 div.container.modal_form {
   margin: 0 auto;
   width: 30em;
   text-align: center;
-  background: #fff;
+  background: $white;
   z-index: 999;
 }
 
@@ -528,23 +508,8 @@ div#modalOverlay {
   left: 0;
   height: 100%;
   width: 100%;
-  background: #fff;
+  background: $white;
   z-index: 900;
-}
-
-form.login {
-  input {
-    &[type=text],
-    &[type=password] {
-      box-sizing: border-box;
-      width: 14em;
-    }
-  }
-
-  select {
-    box-sizing: border-box;
-    width: 14em;
-  }
 }
 
 label.col-3.d-flex.align-items-center {
@@ -552,7 +517,7 @@ label.col-3.d-flex.align-items-center {
 }
 
 .commented_column {
-  border-bottom: 1px dashed #000;
+  border-bottom: 1px dashed $black;
 }
 
 .column_attribute {
@@ -657,7 +622,7 @@ div#tablestatistics table {
   top: 0;
   right: 0;
   z-index: 99;
-  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+  padding: $breadcrumb-navbar-padding-y $breadcrumb-padding-x;
 }
 
 #page_settings_icon {
@@ -686,7 +651,7 @@ div#tablestatistics table {
   visibility: hidden;
   background-color: #ffc;
   color: #060;
-  border: 0.1em solid #000;
+  border: 0.1em solid $black;
   padding: 0.5em;
 }
 
@@ -777,11 +742,6 @@ h3#serverstatusqueries span {
   display: inline;
 }
 
-.buttonlinks {
-  float: right;
-  white-space: nowrap;
-}
-
 // Also used for the variables page
 .pma-fieldset#tableFilter {
   padding: 0.1em 1em;
@@ -861,7 +821,7 @@ div.tabLinks {
   border: 1px solid #ccc;
   margin: 0;
   padding: 3px;
-  background-color: #fff;
+  background-color: $white;
   z-index: 2;
   box-shadow: 2px 2px 3px #666;
 }
@@ -953,36 +913,6 @@ div#profilingchart {
   font-size: 1.7em;
 }
 
-#sectionlinks {
-  margin-bottom: 15px;
-  padding: 16px;
-  background: #f3f3f3;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  box-shadow: 0 1px 1px #fff inset;
-}
-
-#sectionlinks a,
-.buttonlinks a,
-a.button {
-  font-weight: bold;
-  text-shadow: 0 1px 0 #fff;
-  margin-bottom: 7px;
-  margin-left: 7px;
-  border: 1px solid #aaa;
-  padding: 7px;
-  color: #111 !important;
-  text-decoration: none;
-  background-color: #ddd;
-  white-space: nowrap;
-  border-radius: 20px;
-  background-image: linear-gradient(#f8f8f8, #d8d8d8);
-
-  &:hover {
-    background: linear-gradient(#fff, #ddd);
-  }
-}
-
 textarea {
   &#sqlquery {
     width: 100%;
@@ -1027,22 +957,11 @@ textarea {
   z-index: 801;
   border-radius: 3px;
   border: solid 1px #888;
-  background: #fff;
+  background: $white;
 }
-
-/* end main page */
-
-/* iconic view for ul items */
-
-li.no_bullets {
-  list-style-type: none !important;
-  margin-left: -25px !important; //align with other list items which have bullets
-}
-
-// end iconic view for ul items
 
 #body_browse_foreigners {
-  background: $navi-background;
+  background: #f3f3f3;
   margin: 0.5em 0.5em 0 0.5em;
 }
 
@@ -1052,7 +971,7 @@ li.no_bullets {
   text-align: center;
 
   img {
-    border: 0.1em solid #000;
+    border: 0.1em solid $black;
   }
 
   a:hover img {
@@ -1090,6 +1009,8 @@ label.desc {
 }
 
 code {
+  font-size: 1em;
+
   &.php {
     display: block;
     padding-left: 1em;
@@ -1123,14 +1044,14 @@ div.sqlvalidate {
 
 .result_query {
   div.sqlOuter {
-    background: $bg-one;
+    background: #e5e5e5;
     text-align: left;
   }
 }
 
 #PMA_slidingMessage code.sql,
 div.sqlvalidate {
-  background: $bg-one;
+  background: #e5e5e5;
 }
 
 textarea#partitiondefinition {
@@ -1159,7 +1080,7 @@ div {
   }
 
   &.upload_progress_bar_outer {
-    border: 1px solid #000;
+    border: 1px solid $black;
     width: 202px;
     position: relative;
     margin: 0 auto 1em;
@@ -1174,12 +1095,12 @@ div {
   }
 
   &.upload_progress_bar_inner {
-    background-color: $navi-pointer-background;
+    background-color: #ddd;
     width: 0;
     height: 12px;
     margin: 1px;
     overflow: hidden;
-    color: $browse-marker-color;
+    color: $black;
     position: relative;
 
     div.percentage {
@@ -1423,7 +1344,7 @@ input#input_import_file {
   height: 100%;
   top: 0;
   left: 0;
-  background: #000;
+  background: $black;
   z-index: 1000;
   overflow: hidden;
 }
@@ -1532,9 +1453,9 @@ table#index_columns {
   }
 
   li {
-    background: $th-background;
+    background: #d3dce3;
     border: 1px solid #aaa;
-    color: $th-color;
+    color: $black;
     font-weight: bold;
     margin: 0.4em;
     padding: 0.2em;
@@ -1553,7 +1474,7 @@ table#index_columns {
     p {
       margin: 0;
       padding: 0.5em;
-      background: #fff;
+      background: $white;
       border-top: 0;
     }
 
@@ -1599,7 +1520,7 @@ table#index_columns {
       vertical-align: top;
       background: transparent;
       filter: none;
-      border-top: 1px $bg-two solid;
+      border-top: 1px #d5d5d5 solid;
       border-right: none;
 
       small {
@@ -1615,7 +1536,7 @@ table#index_columns {
       padding-top: 0.3em;
       padding-bottom: 0.3em;
       vertical-align: top;
-      border-top: 1px $bg-two solid;
+      border-top: 1px #d5d5d5 solid;
       border-right: none;
     }
   }
@@ -1695,7 +1616,7 @@ table#index_columns {
 fieldset {
   .group-header {
     th {
-      background: $bg-two;
+      background: #d5d5d5;
     }
 
     + tr th {
@@ -1807,9 +1728,9 @@ input#auto_increment_opt {
   }
 
   .toggleOn {
-    color: #fff;
+    color: $white;
     padding: 0 1em;
-    text-shadow: 0 0 0.2em #000;
+    text-shadow: 0 0 0.2em $black;
   }
 
   .toggleOff {
@@ -1841,7 +1762,7 @@ input#auto_increment_opt {
   position: fixed;
   top: 100px !important;
   width: 100%;
-  background: #fff;
+  background: $white;
 }
 
 #table_columns {
@@ -1966,13 +1887,13 @@ input#auto_increment_opt {
 
 .cCpy {
   background: #333;
-  color: #fff;
+  color: $white;
   font-weight: bold;
   margin: 0.1em;
   padding: 0.3em;
   position: absolute;
-  text-shadow: -1px -1px #000;
-  box-shadow: 0 0 0.7em #000;
+  text-shadow: -1px -1px $black;
+  box-shadow: 0 0 0.7em $black;
   border-radius: 0.3em;
 }
 
@@ -1992,21 +1913,21 @@ input#auto_increment_opt {
   background: #333 !important;
   opacity: 0.8 !important;
   z-index: 9999;
-  border: 1px solid #000 !important;
+  border: 1px solid $black !important;
   border-radius: 0.3em !important;
-  text-shadow: -1px -1px #000 !important;
+  text-shadow: -1px -1px $black !important;
   font-size: 0.8em !important;
   font-weight: bold !important;
   padding: 1px 3px !important;
 
   * {
     background: none !important;
-    color: #fff !important;
+    color: $white !important;
   }
 }
 
 .cDrop {
-  left: 0;
+  right: 0;
   position: absolute;
   top: 0;
 }
@@ -2015,9 +1936,7 @@ input#auto_increment_opt {
   background: url("../img/col_drop.png");
   cursor: pointer;
   height: 16px;
-  margin-left: 0.3em;
   margin-top: 0.3em;
-  position: absolute;
   width: 16px;
 
   &:hover {
@@ -2034,6 +1953,8 @@ input#auto_increment_opt {
   border: solid 1px #999;
   position: absolute;
   box-shadow: 0 0.2em 0.5em #333;
+  margin-left: 75%;
+  right: 0;
 
   .lDiv div {
     padding: 0.2em 0.5em 0.2em;
@@ -2090,7 +2011,7 @@ input#auto_increment_opt {
       border-radius: 0;
 
       &:hover {
-        color: #fff;
+        color: $white;
         cursor: pointer;
         text-shadow: none;
         background: linear-gradient(#333, #555);
@@ -2098,7 +2019,7 @@ input#auto_increment_opt {
     }
 
     &.edit_mode_active {
-      color: #fff;
+      color: $white;
       cursor: pointer;
       text-shadow: none;
       background: linear-gradient(#333, #555);
@@ -2109,7 +2030,7 @@ input#auto_increment_opt {
     color: $body-color;
 
     &:hover {
-      color: #fff;
+      color: $white;
       background-image: linear-gradient(#333, #555);
       text-decoration: none;
     }
@@ -2127,7 +2048,7 @@ input#auto_increment_opt {
   text-align: center;
   height: 1.4em;
   width: 1.2em;
-  text-shadow: 1px 0 #fff;
+  text-shadow: 1px 0 $white;
 }
 
 .cEdit {
@@ -2136,14 +2057,14 @@ input#auto_increment_opt {
   position: absolute;
 
   input[type=text] {
-    background: #fff;
+    background: $white;
     height: 100%;
     margin: 0;
     padding: 0;
   }
 
   .edit_area {
-    background: #fff;
+    background: $white;
     border: 1px solid #999;
     min-width: 10em;
     padding: 0.3em 0.5em;
@@ -2168,12 +2089,12 @@ input#auto_increment_opt {
   }
 
   .edit_box_posting {
-    background: #fff url('../img/ajax_clock_small.gif') no-repeat right center;
+    background: $white url('../img/ajax_clock_small.gif') no-repeat right center;
     padding-right: 1.5em;
   }
 
   .edit_area_loading {
-    background: #fff url("../img/ajax_clock_small.gif") no-repeat center;
+    background: $white url("../img/ajax_clock_small.gif") no-repeat center;
     height: 10em;
   }
 
@@ -2317,7 +2238,7 @@ table.show_create {
 
 #pma_console {
   position: relative;
-  margin-left: $navi-width;
+  margin-left: $navigation-width;
 
   .templates {
     display: none;
@@ -2410,20 +2331,20 @@ table.show_create {
     overflow-y: auto;
     margin-bottom: -65px;
     border-top: solid 1px #aaa;
-    background: #fff;
+    background: $white;
     padding-top: 0.4em;
 
     &.console_dark_theme {
-      background: #000;
-      color: #fff;
+      background: $black;
+      color: $white;
 
       .CodeMirror-wrap {
-        background: #000;
-        color: #fff;
+        background: $black;
+        color: $white;
       }
 
       .action_content {
-        color: #000;
+        color: $black;
       }
 
       .message {
@@ -2431,7 +2352,7 @@ table.show_create {
       }
 
       .CodeMirror-cursor {
-        border-color: #fff;
+        border-color: $white;
       }
 
       .cm-keyword {
@@ -2589,7 +2510,7 @@ table.show_create {
     }
 
     .text {
-      background: #fff;
+      background: $white;
     }
 
     &.collapsed {
@@ -2606,7 +2527,7 @@ table.show_create {
       padding: 0 4px;
       top: 0;
       background: #369;
-      color: #fff;
+      color: $white;
       border-radius: 3px;
 
       &.shared {
@@ -2815,7 +2736,7 @@ table.show_create {
     padding: 0.1em 0.3em;
     margin-top: 0;
     margin-bottom: 0;
-    color: #fff;
+    color: $white;
     font-size: 1.6em;
     font-weight: normal;
     text-shadow: 0 1px 0 #777;
@@ -2828,7 +2749,7 @@ table.show_create {
   padding: 0.1em 0.3em;
   margin-top: 0;
   margin-bottom: 0;
-  color: #fff;
+  color: $white;
   font-size: 1.6em;
   font-weight: normal;
   text-shadow: 0 1px 0 #777;
@@ -3005,7 +2926,7 @@ body .ui-dialog {
   }
 
   .ui-dialog-buttonpane .ui-dialog-buttonset button {
-    color: #fff;
+    color: $white;
     background: none;
     background-color: #6c757d !important;
     border-color: #6c757d;
@@ -3065,6 +2986,10 @@ body .ui-dialog {
     overflow-x: auto;
   }
 
+  .sticky {
+    top: 0;
+  }
+
   body#loginform div.container {
     width: 100%;
   }
@@ -3114,7 +3039,7 @@ body .ui-dialog {
 
 #tooltip_editor {
   font-size: 12px;
-  background-color: #fff;
+  background-color: $white;
   opacity: 0.95;
   filter: alpha(opacity=95);
   padding: 5px;
@@ -3134,7 +3059,7 @@ body .ui-dialog {
   pointer-events: none;
 }
 
-#filter_query_text {
+#filterQueryText {
   vertical-align: baseline;
 }
 

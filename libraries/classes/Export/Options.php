@@ -12,6 +12,7 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
+
 use function explode;
 use function function_exists;
 use function in_array;
@@ -68,21 +69,25 @@ final class Options
             if (Utilities::isSystemSchema($currentDb, true)) {
                 continue;
             }
+
             $isSelected = false;
             if (isset($_POST['db_select'])) {
                 if (in_array($currentDb, $_POST['db_select'])) {
                     $isSelected = true;
                 }
             } elseif (! empty($tmpSelect)) {
-                if (mb_strpos(
-                    ' ' . $tmpSelect,
-                    '|' . $currentDb . '|'
-                )) {
+                if (
+                    mb_strpos(
+                        ' ' . $tmpSelect,
+                        '|' . $currentDb . '|'
+                    )
+                ) {
                     $isSelected = true;
                 }
             } else {
                 $isSelected = true;
             }
+
             $databases[] = [
                 'name' => $currentDb,
                 'is_selected' => $isSelected,
@@ -214,27 +219,27 @@ final class Options
 
     private function getFileNameTemplate(string $exportType, ?string $filename = null): string
     {
-        global $cfg, $PMA_Config;
+        global $cfg, $config;
 
         if ($filename !== null) {
             return $filename;
         }
 
         if ($exportType === 'database') {
-            return (string) $PMA_Config->getUserValue(
+            return (string) $config->getUserValue(
                 'pma_db_filename_template',
                 $cfg['Export']['file_template_database']
             );
         }
 
         if ($exportType === 'table') {
-            return (string) $PMA_Config->getUserValue(
+            return (string) $config->getUserValue(
                 'pma_table_filename_template',
                 $cfg['Export']['file_template_table']
             );
         }
 
-        return (string) $PMA_Config->getUserValue(
+        return (string) $config->getUserValue(
             'pma_server_filename_template',
             $cfg['Export']['file_template_server']
         );

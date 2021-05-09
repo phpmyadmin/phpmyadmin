@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Message;
+
 use function md5;
 
 class MessageTest extends AbstractTestCase

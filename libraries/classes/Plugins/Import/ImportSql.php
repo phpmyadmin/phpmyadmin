@@ -16,6 +16,7 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
+
 use function count;
 use function implode;
 use function mb_strlen;
@@ -182,14 +183,17 @@ class ImportSql extends ImportPlugin
     private function setSQLMode($dbi, array $request)
     {
         $sql_modes = [];
-        if (isset($request['sql_compatibility'])
+        if (
+            isset($request['sql_compatibility'])
             && $request['sql_compatibility'] !== 'NONE'
         ) {
             $sql_modes[] = $request['sql_compatibility'];
         }
+
         if (isset($request['sql_no_auto_value_on_zero'])) {
             $sql_modes[] = 'NO_AUTO_VALUE_ON_ZERO';
         }
+
         if (count($sql_modes) <= 0) {
             return;
         }

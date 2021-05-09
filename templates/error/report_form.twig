@@ -1,3 +1,4 @@
+{% if allowed_to_send_error_reports %}
 <p>
   {% trans %}
     This report automatically includes data about the error and information about relevant configuration settings. It will be sent to the phpMyAdmin team for debugging the error.
@@ -28,3 +29,8 @@
   {{ hidden_inputs|raw }}
   {{ hidden_fields|raw }}
 </form>
+{% else %}
+<div class="mb-3">
+  <pre class="pre-scrollable">{{ report_data|json_encode(constant('JSON_PRETTY_PRINT') b-or constant('JSON_UNESCAPED_SLASHES')) }}</pre>
+</div>
+{% endif %}

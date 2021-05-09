@@ -22,9 +22,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use const E_USER_NOTICE;
-use const E_USER_WARNING;
-use const PHP_VERSION;
+use PhpMyAdmin\Version;
+
 use function count;
 use function extension_loaded;
 use function file_exists;
@@ -34,6 +33,10 @@ use function sprintf;
 use function strlen;
 use function strtotime;
 use function trigger_error;
+
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const PHP_VERSION;
 
 class HomeController extends AbstractController
 {
@@ -61,7 +64,7 @@ class HomeController extends AbstractController
 
     public function index(): void
     {
-        global $cfg, $server, $collation_connection, $message, $show_query, $db, $table, $err_url;
+        global $cfg, $server, $collation_connection, $message, $show_query, $db, $table, $errorUrl;
 
         if ($this->response->isAjax() && ! empty($_REQUEST['access_time'])) {
             return;
@@ -75,7 +78,7 @@ class HomeController extends AbstractController
         $db = $_POST['db'] ?? '';
         $table = '';
         $show_query = '1';
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($server > 0 && $this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -87,6 +90,7 @@ class HomeController extends AbstractController
             $displayMessage = Generator::getMessage($message);
             unset($message);
         }
+
         if (isset($_SESSION['partial_logout'])) {
             $partialLogout = Message::success(__(
                 'You were logged out from one server, to logout completely '
@@ -126,6 +130,7 @@ class HomeController extends AbstractController
                             'is_selected' => $collation_connection === $collation->getName(),
                         ];
                     }
+
                     $charsetsList[] = [
                         'name' => $charset->getName(),
                         'description' => $charset->getDescription(),
@@ -135,9 +140,9 @@ class HomeController extends AbstractController
             }
         }
 
-        $languageSelector = '';
+        $availableLanguages = [];
         if (empty($cfg['Lang']) && $languageManager->hasChoice()) {
-            $languageSelector = $languageManager->getSelectorDisplay($this->template);
+            $availableLanguages = $languageManager->sortedLanguages();
         }
 
         $databaseServer = [];
@@ -149,9 +154,11 @@ class HomeController extends AbstractController
                     $hostInfo .= ' (';
                 }
             }
+
             if ($cfg['ShowServerInfo'] || empty($cfg['Server']['verbose'])) {
                 $hostInfo .= $this->dbi->getHostInfo();
             }
+
             if (! empty($cfg['Server']['verbose']) && $cfg['ShowServerInfo']) {
                 $hostInfo .= ')';
             }
@@ -170,7 +177,7 @@ class HomeController extends AbstractController
 
         $webServer = [];
         if ($cfg['ShowServerInfo']) {
-            $webServer['software'] = $_SERVER['SERVER_SOFTWARE'];
+            $webServer['software'] = $_SERVER['SERVER_SOFTWARE'] ?? null;
 
             if ($server > 0) {
                 $clientVersion = $this->dbi->getClientInfo();
@@ -187,7 +194,8 @@ class HomeController extends AbstractController
         $relation = new Relation($this->dbi);
         if ($server > 0) {
             $cfgRelation = $relation->getRelationsParam();
-            if (! $cfgRelation['allworks']
+            if (
+                ! $cfgRelation['allworks']
                 && $cfg['PmaNoRelation_DisableWarning'] == false
             ) {
                 $messageText = __(
@@ -202,6 +210,7 @@ class HomeController extends AbstractController
                             . 'to set it up there.'
                         );
                 }
+
                 $messageInstance = Message::notice($messageText);
                 $messageInstance->addParamHtml(
                     '<a href="' . Url::getFromRoute('/check-relations')
@@ -212,15 +221,18 @@ class HomeController extends AbstractController
                 if (! empty($cfg['Servers'][$server]['pmadb'])) {
                     $messageInstance->isError(true);
                 }
+
                 $configStorageMessage = $messageInstance->getDisplay();
             }
         }
 
         $this->checkRequirements();
 
-        $git = new Git($this->config);
+        $git = new Git($this->config->get('ShowGitRevision') ?? true);
 
         $this->render('home/index', [
+            'db' => $db,
+            'table' => $table,
             'message' => $displayMessage ?? '',
             'partial_logout' => $partialLogout ?? '',
             'is_git_revision' => $git->isGitRevision(),
@@ -232,13 +244,13 @@ class HomeController extends AbstractController
             'server_selection' => $serverSelection ?? '',
             'has_change_password_link' => $cfg['Server']['auth_type'] !== 'config' && $cfg['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
-            'language_selector' => $languageSelector,
+            'available_languages' => $availableLanguages,
             'database_server' => $databaseServer,
             'web_server' => $webServer,
             'show_php_info' => $cfg['ShowPhpInfo'],
             'is_version_checked' => $cfg['VersionCheck'],
-            'phpmyadmin_version' => PMA_VERSION,
-            'phpmyadmin_major_version' => PMA_MAJOR_VERSION,
+            'phpmyadmin_version' => Version::VERSION,
+            'phpmyadmin_major_version' => Version::SERIES,
             'config_storage_message' => $configStorageMessage ?? '',
             'has_theme_manager' => $cfg['ThemeManager'],
             'themes' => $this->themeManager->getThemesArray(),
@@ -274,7 +286,7 @@ class HomeController extends AbstractController
             return;
         }
 
-        $git = new Git($this->config);
+        $git = new Git($this->config->get('ShowGitRevision') ?? true);
 
         if (! $git->isGitRevision()) {
             return;
@@ -282,7 +294,7 @@ class HomeController extends AbstractController
 
         $commit = $git->checkGitRevision();
 
-        if (! $this->config->get('PMA_VERSION_GIT') || $commit === null) {
+        if (! $git->hasGitInformation() || $commit === null) {
             $this->response->setRequestStatus(false);
 
             return;
@@ -296,36 +308,9 @@ class HomeController extends AbstractController
 
     private function checkRequirements(): void
     {
-        global $cfg, $server, $lang;
+        global $cfg, $server;
 
-        /**
-         * mbstring is used for handling multibytes inside parser, so it is good
-         * to tell user something might be broken without it, see bug #1063149.
-         */
-        if (! extension_loaded('mbstring')) {
-            trigger_error(
-                __(
-                    'The mbstring PHP extension was not found and you seem to be using'
-                    . ' a multibyte charset. Without the mbstring extension phpMyAdmin'
-                    . ' is unable to split strings correctly and it may result in'
-                    . ' unexpected results.'
-                ),
-                E_USER_WARNING
-            );
-        }
-
-        /**
-         * Missing functionality
-         */
-        if (! extension_loaded('curl') && ! ini_get('allow_url_fopen')) {
-            trigger_error(
-                __(
-                    'The curl extension was not found and allow_url_fopen is '
-                    . 'disabled. Due to this some features such as error reporting '
-                    . 'or version check are disabled.'
-                )
-            );
-        }
+        $this->checkPhpExtensionsRequirements();
 
         if ($cfg['LoginCookieValidityDisableWarning'] == false) {
             /**
@@ -349,7 +334,8 @@ class HomeController extends AbstractController
         /**
          * Check whether LoginCookieValidity is limited by LoginCookieStore.
          */
-        if ($cfg['LoginCookieStore'] != 0
+        if (
+            $cfg['LoginCookieStore'] != 0
             && $cfg['LoginCookieStore'] < $cfg['LoginCookieValidity']
         ) {
             trigger_error(
@@ -365,7 +351,8 @@ class HomeController extends AbstractController
         /**
          * Warning if using the default MySQL controluser account
          */
-        if (isset($cfg['Server']['controluser'], $cfg['Server']['controlpass'])
+        if (
+            isset($cfg['Server']['controluser'], $cfg['Server']['controlpass'])
             && $server != 0
             && $cfg['Server']['controluser'] === 'pma'
             && $cfg['Server']['controlpass'] === 'pmapass'
@@ -422,7 +409,8 @@ class HomeController extends AbstractController
         /**
          * Warning about Suhosin only if its simulation mode is not enabled
          */
-        if ($cfg['SuhosinDisableWarning'] == false
+        if (
+            $cfg['SuhosinDisableWarning'] == false
             && ini_get('suhosin.request.max_value_length')
             && ini_get('suhosin.simulation') == '0'
         ) {
@@ -454,6 +442,13 @@ class HomeController extends AbstractController
             );
         }
 
+        $this->checkLanguageStats();
+    }
+
+    private function checkLanguageStats(): void
+    {
+        global $cfg, $lang;
+
         /**
          * Warning about incomplete translations.
          *
@@ -469,7 +464,8 @@ class HomeController extends AbstractController
          * handling incomplete translations here and focus on english
          * speaking users.
          */
-        if (! isset($GLOBALS['language_stats'][$lang])
+        if (
+            ! isset($GLOBALS['language_stats'][$lang])
             || $GLOBALS['language_stats'][$lang] >= $cfg['TranslationWarningThreshold']
         ) {
             return;
@@ -480,6 +476,40 @@ class HomeController extends AbstractController
             . 'better by [a@https://www.phpmyadmin.net/translate/'
             . '@_blank]contributing[/a].',
             E_USER_NOTICE
+        );
+    }
+
+    private function checkPhpExtensionsRequirements(): void
+    {
+        /**
+         * mbstring is used for handling multibytes inside parser, so it is good
+         * to tell user something might be broken without it, see bug #1063149.
+         */
+        if (! extension_loaded('mbstring')) {
+            trigger_error(
+                __(
+                    'The mbstring PHP extension was not found and you seem to be using'
+                    . ' a multibyte charset. Without the mbstring extension phpMyAdmin'
+                    . ' is unable to split strings correctly and it may result in'
+                    . ' unexpected results.'
+                ),
+                E_USER_WARNING
+            );
+        }
+
+        /**
+         * Missing functionality
+         */
+        if (extension_loaded('curl') || ini_get('allow_url_fopen')) {
+            return;
+        }
+
+        trigger_error(
+            __(
+                'The curl extension was not found and allow_url_fopen is '
+                . 'disabled. Due to this some features such as error reporting '
+                . 'or version check are disabled.'
+            )
         );
     }
 }

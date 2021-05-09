@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionException;
 use ReflectionProperty;
+
 use function array_keys;
 
 class ServerConfigChecksTest extends AbstractTestCase
@@ -62,7 +63,7 @@ class ServerConfigChecksTest extends AbstractTestCase
         $_SESSION[$this->sessionID]['ZipDump'] = true;
 
         $configChecker = $this->getMockBuilder(ServerConfigChecks::class)
-            ->setMethods(['functionExists'])
+            ->onlyMethods(['functionExists'])
             ->setConstructorArgs([$GLOBALS['ConfigFile']])
             ->getMock();
 

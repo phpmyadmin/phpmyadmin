@@ -15,6 +15,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\ForeignKey;
+
 use function is_array;
 use function sprintf;
 
@@ -54,7 +56,7 @@ class DeleteController extends AbstractController
         );
 
         if ($mult_btn === __('Yes')) {
-            $default_fk_check_value = Util::handleDisableFKCheckInit();
+            $default_fk_check_value = ForeignKey::handleDisableCheckInit();
             $sql_query = '';
 
             foreach ($selected as $row) {
@@ -76,13 +78,13 @@ class DeleteController extends AbstractController
                 );
             }
 
-            Util::handleDisableFKCheckCleanup($default_fk_check_value);
+            ForeignKey::handleDisableCheckCleanup($default_fk_check_value);
 
             $disp_message = __('Your SQL query has been executed successfully.');
             $disp_query = $sql_query;
         }
 
-        $_url_params = $GLOBALS['url_params'];
+        $_url_params = $GLOBALS['urlParams'];
         $_url_params['goto'] = Url::getFromRoute('/table/sql');
 
         if (isset($original_sql_query)) {
@@ -111,7 +113,7 @@ class DeleteController extends AbstractController
 
     public function confirm(): void
     {
-        global $db, $table, $sql_query, $url_params, $err_url, $cfg;
+        global $db, $table, $sql_query, $urlParams, $errorUrl, $cfg;
 
         $selected = $_POST['rows_to_delete'] ?? null;
 
@@ -124,9 +126,9 @@ class DeleteController extends AbstractController
 
         Util::checkParameters(['db', 'table']);
 
-        $url_params = ['db' => $db, 'table' => $table];
-        $err_url = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $err_url .= Url::getCommon($url_params, '&');
+        $urlParams = ['db' => $db, 'table' => $table];
+        $errorUrl = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
+        $errorUrl .= Url::getCommon($urlParams, '&');
 
         DbTableExists::check();
 
@@ -135,7 +137,7 @@ class DeleteController extends AbstractController
             'table' => $table,
             'selected' => $selected,
             'sql_query' => $sql_query,
-            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+            'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
         ]);
     }
 }

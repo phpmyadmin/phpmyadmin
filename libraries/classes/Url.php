@@ -42,7 +42,7 @@ class Url
         $indent = 0,
         $skip = []
     ) {
-        global $PMA_Config;
+        global $config;
 
         if (is_array($db)) {
             $params  =& $db;
@@ -51,17 +51,20 @@ class Url
             if (strlen((string) $db) > 0) {
                 $params['db'] = $db;
             }
+
             if (strlen((string) $table) > 0) {
                 $params['table'] = $table;
             }
         }
 
-        if (! empty($GLOBALS['server'])
+        if (
+            ! empty($GLOBALS['server'])
             && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
         ) {
             $params['server'] = $GLOBALS['server'];
         }
-        if (empty($PMA_Config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
+
+        if (empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
             $params['lang'] = $GLOBALS['lang'];
         }
 
@@ -151,31 +154,29 @@ class Url
      * // note the missing ?
      * echo 'script.php' . Url::getCommon($params);
      * // produces with cookies enabled:
-     * // script.php?myparam=myvalue&amp;db=mysql&amp;table=rights
+     * // script.php?myparam=myvalue&db=mysql&table=rights
      * // with cookies disabled:
-     * // script.php?server=1&amp;lang=en&amp;myparam=myvalue&amp;db=mysql
-     * // &amp;table=rights
+     * // script.php?server=1&lang=en&myparam=myvalue&db=mysql
+     * // &table=rights
      *
      * // note the missing ?
      * echo 'script.php' . Url::getCommon();
      * // produces with cookies enabled:
      * // script.php
      * // with cookies disabled:
-     * // script.php?server=1&amp;lang=en
+     * // script.php?server=1&lang=en
      * </code>
      *
-     * @param mixed  $params  optional, Contains an associative array with url params
-     * @param string $divider optional character to use instead of '?'
+     * @param array<string,int|string|bool> $params  optional, Contains an associative array with url params
+     * @param string                        $divider optional character to use instead of '?'
      *
      * @return string   string with URL parameters
      *
      * @access public
      */
-    public static function getCommon($params = [], $divider = '?')
+    public static function getCommon(array $params = [], $divider = '?')
     {
-        return htmlspecialchars(
-            self::getCommonRaw($params, $divider)
-        );
+        return self::getCommonRaw($params, $divider);
     }
 
     /**
@@ -188,44 +189,45 @@ class Url
      * // note the missing ?
      * echo 'script.php' . Url::getCommon($params);
      * // produces with cookies enabled:
-     * // script.php?myparam=myvalue&amp;db=mysql&amp;table=rights
+     * // script.php?myparam=myvalue&db=mysql&table=rights
      * // with cookies disabled:
-     * // script.php?server=1&amp;lang=en&amp;myparam=myvalue&amp;db=mysql
-     * // &amp;table=rights
+     * // script.php?server=1&lang=en&myparam=myvalue&db=mysql
+     * // &table=rights
      *
      * // note the missing ?
      * echo 'script.php' . Url::getCommon();
      * // produces with cookies enabled:
      * // script.php
      * // with cookies disabled:
-     * // script.php?server=1&amp;lang=en
+     * // script.php?server=1&lang=en
      * </code>
      *
-     * @param mixed  $params  optional, Contains an associative array with url params
-     * @param string $divider optional character to use instead of '?'
+     * @param array<string|int,int|string|bool> $params  optional, Contains an associative array with url params
+     * @param string                            $divider optional character to use instead of '?'
      *
      * @return string   string with URL parameters
      *
      * @access public
      */
-    public static function getCommonRaw($params = [], $divider = '?')
+    public static function getCommonRaw(array $params = [], $divider = '?')
     {
-        global $PMA_Config;
+        global $config;
 
         $separator = self::getArgSeparator();
 
         // avoid overwriting when creating navigation panel links to servers
-        if (isset($GLOBALS['server'])
+        if (
+            isset($GLOBALS['server'])
             && $GLOBALS['server'] != $GLOBALS['cfg']['ServerDefault']
             && ! isset($params['server'])
-            && ! $PMA_Config->get('is_setup')
+            && ! $config->get('is_setup')
         ) {
             $params['server'] = $GLOBALS['server'];
         }
 
         // Can be null when the user is missing an extension.
         // See: Core::checkExtensions()
-        if ($PMA_Config !== null && empty($PMA_Config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
+        if ($config !== null && empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
             $params['lang'] = $GLOBALS['lang'];
         }
 
@@ -242,7 +244,7 @@ class Url
      * Returns url separator
      *
      * extracted from arg_separator.input as set in php.ini
-     * we do not use arg_separator.output to avoid problems with &amp; and &
+     * we do not use arg_separator.output to avoid problems with & and &
      *
      * @param string $encode whether to encode separator or not,
      *                       currently 'none' or 'html'
@@ -269,12 +271,14 @@ class Url
             } else {
                 $separator = '&';
             }
+
             $html_separator = htmlentities($separator);
         }
 
         switch ($encode) {
             case 'html':
                 return $html_separator;
+
             case 'text':
             case 'none':
             default:

@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests\Utils;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\FormatConverter;
 
+use function hex2bin;
+
 class FormatConverterTest extends AbstractTestCase
 {
     /**
@@ -14,30 +16,66 @@ class FormatConverterTest extends AbstractTestCase
      *
      * @param string $expected Expected result given an input
      * @param string $input    Input to convert
+     * @param bool   $isBinary The data is binary data
      *
      * @dataProvider providerBinaryToIp
      */
-    public function testBinaryToIp(string $expected, string $input): void
+    public function testBinaryToIp(string $expected, string $input, bool $isBinary): void
     {
-        $result = FormatConverter::binaryToIp($input);
+        $result = FormatConverter::binaryToIp($input, $isBinary);
         $this->assertEquals($expected, $result);
     }
 
     /**
-     * Data provider for binaroToIp
+     * Data provider for binaryToIp
      *
      * @return array
      */
     public function providerBinaryToIp(): array
     {
+        // expected
+        // input
+        // isBinary
         return [
             [
                 '10.11.12.13',
                 '0x0a0b0c0d',
+                false,
             ],
             [
                 'my ip',
                 'my ip',
+                false,
+            ],
+            [
+                '10.11.12.13',
+                '0x0a0b0c0d',
+                true,
+            ],
+            [
+                '6d79206970',
+                'my ip',
+                true,
+            ],
+            [
+                '10.11.12.13',
+                '0x0a0b0c0d',
+                true,
+            ],
+            [
+                '666566',
+                'fef',
+                true,
+            ],
+            [
+                '0ded',
+                hex2bin('0DED'),
+                true,
+            ],
+            [
+                '127.0.0.1',
+                hex2bin('30783766303030303031'),
+                true,
             ],
         ];
     }

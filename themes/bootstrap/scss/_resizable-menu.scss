@@ -28,17 +28,17 @@ ul.resizable-menu {
   }
 
   li:hover {
-    background: linear-gradient(#fff, #e5e5e5);
+    background: linear-gradient($white, #e5e5e5);
 
     ul {
       display: block;
-      background: #fff;
+      background: $white;
     }
   }
 
   .submenuhover ul {
     display: block;
-    background: #fff;
+    background: $white;
   }
 
   ul li {

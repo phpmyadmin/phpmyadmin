@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\Utils\ForeignKey;
+
 use function htmlspecialchars;
 use function sprintf;
 use function strlen;
@@ -63,6 +65,7 @@ class SqlQueryForm
         if (! $display_tab) {
             $display_tab = 'full';
         }
+
         // query to show
         if ($query === true) {
             $query = $GLOBALS['sql_query'];
@@ -130,7 +133,7 @@ class SqlQueryForm
             'display_tab' => $display_tab,
             'bookmarks' => $bookmarks,
             'can_convert_kanji' => Encoding::canConvertKanji(),
-            'is_foreign_key_check' => Util::isForeignKeyCheck(),
+            'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
         ]);
     }
 
@@ -202,6 +205,7 @@ class SqlQueryForm
                 );
             }
         }
+
         $legend .= ': ' . MySQLDocumentation::show('SELECT');
 
         return [

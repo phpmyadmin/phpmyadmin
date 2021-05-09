@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
 use PhpMyAdmin\Plugins\UploadInterface;
+
 use function array_key_exists;
 use function trim;
 
@@ -43,6 +44,7 @@ class UploadNoplugin implements UploadInterface
         if (trim($id) == '') {
             return null;
         }
+
         if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
             $_SESSION[$SESSION_KEY][$id] = [
                 'id'       => $id,

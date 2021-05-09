@@ -7,8 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use const PHP_VERSION;
 use function version_compare;
+
+use const PHP_VERSION;
 
 /**
  * Environment tests
@@ -21,8 +22,8 @@ class EnvironmentTest extends AbstractTestCase
     public function testPhpVersion(): void
     {
         $this->assertTrue(
-            version_compare('7.1.3', PHP_VERSION, '<='),
-            'phpMyAdmin requires PHP 7.1.3 or above'
+            version_compare('7.2.5', PHP_VERSION, '<='),
+            'phpMyAdmin requires PHP 7.2.5 or above'
         );
     }
 }

@@ -21,11 +21,10 @@ class TriggersTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setTheme();
         $GLOBALS['server'] = 0;
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table';
@@ -56,6 +55,7 @@ class TriggersTest extends AbstractTestCase
 
             $_POST[$key] = $value;
         }
+
         $this->assertEquals($out, $this->triggers->getDataFromRequest());
     }
 

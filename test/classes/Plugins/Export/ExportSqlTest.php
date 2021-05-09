@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -18,12 +19,22 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Version;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
+
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;
+
+use const MYSQLI_NUM_FLAG;
+use const MYSQLI_PRI_KEY_FLAG;
+use const MYSQLI_TYPE_BLOB;
+use const MYSQLI_TYPE_FLOAT;
+use const MYSQLI_TYPE_LONG;
+use const MYSQLI_TYPE_STRING;
+use const MYSQLI_UNIQUE_KEY_FLAG;
 
 /**
  * @group medium
@@ -39,10 +50,14 @@ class ExportSqlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
-        $GLOBALS['db'] = 'db';
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = '';
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
@@ -336,44 +351,15 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['crlf'] = '##';
         $GLOBALS['sql_drop_table'] = true;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->at(0))
-            ->method('getProceduresOrFunctions')
-            ->with('db', 'PROCEDURE')
-            ->will($this->returnValue(['p1', 'p2']));
-
-        $dbi->expects($this->at(1))
-            ->method('getProceduresOrFunctions')
-            ->with('db', 'FUNCTION')
-            ->will($this->returnValue(['f1']));
-
-        $dbi->expects($this->at(2))
-            ->method('getDefinition')
-            ->with('db', 'PROCEDURE', 'p1')
-            ->will($this->returnValue('testp1'));
-
-        $dbi->expects($this->at(3))
-            ->method('getDefinition')
-            ->with('db', 'PROCEDURE', 'p2')
-            ->will($this->returnValue('testp2'));
-
-        $dbi->expects($this->at(4))
-            ->method('getDefinition')
-            ->with('db', 'FUNCTION', 'f1')
-            ->will($this->returnValue('testf1'));
-
-        $GLOBALS['dbi'] = $dbi;
-
         $this->expectOutputString(
-            '##DELIMITER $$##DROP PROCEDURE IF EXISTS `p1`$$##testp1$$####' .
-            'DROP PROCEDURE IF EXISTS `p2`$$##testp2$$####DROP FUNCTION IF' .
-            ' EXISTS `f1`$$##testf1$$####DELIMITER ;##'
+            '##DELIMITER $$##DROP PROCEDURE IF EXISTS `test_proc1`$$##CREATE PROCEDURE'
+                . ' `test_proc1` (`p` INT)  BEGIN END$$####DROP PROCEDURE IF EXISTS'
+                . ' `test_proc2`$$##CREATE PROCEDURE `test_proc2` (`p` INT)  BEGIN END$$####DROP'
+                . ' FUNCTION IF EXISTS `test_func`$$##CREATE FUNCTION'
+                . ' `test_func` (`p` INT) RETURNS INT(11) BEGIN END$$####DELIMITER ;##'
         );
 
-        $this->object->exportRoutines('db');
+        $this->object->exportRoutines('test_db');
     }
 
     public function testExportComment(): void
@@ -1180,7 +1166,7 @@ class ExportSqlTest extends AbstractTestCase
     public function testGetTableComments(): void
     {
         $_SESSION['relation'][0] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
@@ -1250,52 +1236,6 @@ class ExportSqlTest extends AbstractTestCase
      */
     public function testExportStructure(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
-
-        $dbi->expects($this->once())
-            ->method('getTriggers')
-            ->with('db', 't&bl')
-            ->will(
-                $this->returnValue(
-                    [
-                        [
-                            'create' => 'bar',
-                            'drop' => 'foo',
-                        ],
-                    ]
-                )
-            );
-
-        $this->object = $this->getMockBuilder(ExportSql::class)
-            ->setMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
-            ->getMock();
-
-        $this->object->expects($this->at(0))
-            ->method('getTableDef')
-            ->with('db', 't&bl', "\n", 'example.com', false)
-            ->will($this->returnValue('dumpText1'));
-
-        $this->object->expects($this->at(1))
-            ->method('getTableDef')
-            ->with(
-                'db',
-                't&bl',
-                "\n",
-                'example.com',
-                false
-            )
-            ->will($this->returnValue('dumpText3'));
-
-        $this->object->expects($this->once())
-            ->method('getTableDefStandIn')
-            ->with('db', 't&bl', "\n")
-            ->will($this->returnValue('dumpText4'));
-
-        $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
         $GLOBALS['sql_backquotes'] = true;
         $GLOBALS['sql_include_comments'] = true;
@@ -1305,10 +1245,10 @@ class ExportSqlTest extends AbstractTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'create_table',
                 'test'
             )
@@ -1316,16 +1256,8 @@ class ExportSqlTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            '-- Table structure for table &quot;t&amp;bl&quot;',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            'dumpText1',
-            $result
-        );
+        $this->assertStringContainsString('-- Table structure for table &quot;test_table&quot;', $result);
+        $this->assertStringContainsString('CREATE TABLE `test_table`', $result);
 
         // case 2
         unset($GLOBALS['sql_compatibility']);
@@ -1337,10 +1269,10 @@ class ExportSqlTest extends AbstractTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'triggers',
                 'test'
             )
@@ -1348,14 +1280,9 @@ class ExportSqlTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
+        $this->assertStringContainsString('-- Triggers test_table', $result);
         $this->assertStringContainsString(
-            "-- Triggers t&amp;bl\n",
-            $result
-        );
-
-        $this->assertStringContainsString(
-            "foo;\nDELIMITER $$\nbarDELIMITER ;\n",
+            'CREATE TRIGGER `test_trigger` AFTER INSERT ON `test_table` FOR EACH ROW BEGIN END',
             $result
         );
 
@@ -1368,10 +1295,10 @@ class ExportSqlTest extends AbstractTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'create_view',
                 'test'
             )
@@ -1379,43 +1306,21 @@ class ExportSqlTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            "-- Structure for view t&amp;bl\n",
-            $result
-        );
-
-        $this->assertStringContainsString(
-            "DROP TABLE IF EXISTS `t&amp;bl`;\n" .
-            'dumpText3',
-            $result
-        );
+        $this->assertStringContainsString('-- Structure for view test_table', $result);
+        $this->assertStringContainsString('DROP TABLE IF EXISTS `test_table`;', $result);
+        $this->assertStringContainsString('CREATE TABLE `test_table`', $result);
 
         // case 4
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
-
-        $dbi->expects($this->once())
-            ->method('getColumns')
-            ->will(
-                $this->returnValue(
-                    []
-                )
-            );
-        $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_views_as_tables'] = true;
         unset($GLOBALS['sql_if_not_exists']);
 
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'create_view',
                 'test'
             )
@@ -1423,26 +1328,18 @@ class ExportSqlTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            "CREATE TABLE`t&amp;bl`(\n\n);",
-            $result
-        );
-
-        $this->assertStringContainsString(
-            "DROP TABLE IF EXISTS `t&amp;bl`;\n",
-            $result
-        );
+        $this->assertStringContainsString('-- Structure for view test_table exported as a table', $result);
+        $this->assertStringContainsString('DROP TABLE IF EXISTS `test_table`;', $result);
+        $this->assertStringContainsString('CREATE TABLE`test_table`', $result);
 
         // case 5
-
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'stand_in',
                 'test'
             )
@@ -1450,11 +1347,8 @@ class ExportSqlTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertIsString($result);
-
-        $this->assertStringContainsString(
-            'dumpText4',
-            $result
-        );
+        $this->assertStringContainsString('-- Stand-in structure for view test_table', $result);
+        $this->assertStringContainsString('CREATE TABLE `test_table`', $result);
     }
 
     /**
@@ -1468,53 +1362,37 @@ class ExportSqlTest extends AbstractTestCase
 
         $flags = [];
         $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = true;
-        $a->type = 'ts';
         $a->name = 'name';
         $a->length = 2;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_LONG, 0, $a);
 
         $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = true;
-        $a->type = 'ts';
         $a->name = 'name';
         $a->length = 2;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(-1, MYSQLI_NUM_FLAG, $a);
 
         $a = new stdClass();
-        $a->blob = true;
-        $a->numeric = false;
-        $a->type = 'ts';
         $a->name = 'name';
         $a->length = 2;
-        $flags[] = $a;
+        $a->charsetnr = 63;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $a);
 
         $a = new stdClass();
-        $a->type = 'bit';
-        $a->blob = false;
-        $a->numeric = false;
         $a->name = 'name';
         $a->length = 2;
-        $flags[] = $a;
+        $a->charsetnr = 63;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $a);
 
         $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = true;
-        $a->type = 'timestamp';
         $a->name = 'name';
         $a->length = 2;
-        $flags[] = $a;
+        $a->charsetnr = 63;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, $a);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with('res')
             ->will($this->returnValue($flags));
-
-        $dbi->expects($this->any())
-            ->method('fieldFlags')
-            ->will($this->returnValue('biNAry'));
 
         $dbi->expects($this->once())
             ->method('tryQuery')
@@ -1623,36 +1501,25 @@ class ExportSqlTest extends AbstractTestCase
 
         $flags = [];
         $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = true;
-        $a->type = 'real';
         $a->name = 'name';
-        $a->length = 2;
-        $a->table = 'tbl';
         $a->orgname = 'pma';
-        $a->primary_key = 1;
-        $flags[] = $a;
+        $a->table = 'tbl';
+        $a->orgtable = 'tbl';
+        $a->length = 2;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_FLOAT, MYSQLI_PRI_KEY_FLAG, $a);
 
         $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = true;
-        $a->type = '';
         $a->name = 'name';
-        $a->table = 'tbl';
         $a->orgname = 'pma';
+        $a->table = 'tbl';
+        $a->orgtable = 'tbl';
         $a->length = 2;
-        $a->primary_key = 0;
-        $a->unique_key = 1;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_FLOAT, MYSQLI_UNIQUE_KEY_FLAG, $a);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with('res')
             ->will($this->returnValue($flags));
-
-        $dbi->expects($this->any())
-            ->method('fieldFlags')
-            ->will($this->returnValue('biNAry'));
 
         $dbi->expects($this->once())
             ->method('tryQuery')

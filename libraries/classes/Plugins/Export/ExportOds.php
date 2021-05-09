@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -16,10 +17,10 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+
 use function bin2hex;
 use function date;
 use function htmlspecialchars;
-use function stripos;
 use function stripslashes;
 use function strtotime;
 
@@ -159,12 +160,12 @@ class ExportOds extends ExportPlugin
     /**
      * Outputs database header
      *
-     * @param string $db       Database name
-     * @param string $db_alias Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader($db, $db_alias = '')
+    public function exportDBHeader($db, $dbAlias = '')
     {
         return true;
     }
@@ -184,13 +185,13 @@ class ExportOds extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db          Database name
-     * @param string $export_type 'server', 'database', 'table'
-     * @param string $db_alias    Aliases of db
+     * @param string $db         Database name
+     * @param string $exportType 'server', 'database', 'table'
+     * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $export_type, $db_alias = '')
+    public function exportDBCreate($db, $exportType, $dbAlias = '')
     {
         return true;
     }
@@ -198,12 +199,12 @@ class ExportOds extends ExportPlugin
     /**
      * Outputs the content of a table in NHibernate format
      *
-     * @param string $db        database name
-     * @param string $table     table name
-     * @param string $crlf      the end of line sequence
-     * @param string $error_url the url to go back in case of error
-     * @param string $sql_query SQL query for obtaining data
-     * @param array  $aliases   Aliases of db/table/columns
+     * @param string $db       database name
+     * @param string $table    table name
+     * @param string $crlf     the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery SQL query for obtaining data
+     * @param array  $aliases  Aliases of db/table/columns
      *
      * @return bool Whether it succeeded
      */
@@ -211,8 +212,8 @@ class ExportOds extends ExportPlugin
         $db,
         $table,
         $crlf,
-        $error_url,
-        $sql_query,
+        $errorUrl,
+        $sqlQuery,
         array $aliases = []
     ) {
         global $what, $dbi;
@@ -222,19 +223,15 @@ class ExportOds extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
         // Gets the data from the database
         $result = $dbi->query(
-            $sql_query,
+            $sqlQuery,
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
         $fields_cnt = $dbi->numFields($result);
+        /** @var FieldMetadata[] $fields_meta */
         $fields_meta = $dbi->getFieldsMeta($result);
-        $field_flags = [];
-        for ($j = 0; $j < $fields_cnt; $j++) {
-            $field_flags[$j] = $dbi->fieldFlags($result, $j);
-        }
 
-        $GLOBALS['ods_buffer']
-            .= '<table:table table:name="' . htmlspecialchars($table_alias) . '">';
+        $GLOBALS['ods_buffer'] .= '<table:table table:name="' . htmlspecialchars($table_alias) . '">';
 
         // If required, get fields name at the first line
         if (isset($GLOBALS[$what . '_columns'])) {
@@ -244,8 +241,8 @@ class ExportOds extends ExportPlugin
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
-                $GLOBALS['ods_buffer']
-                    .= '<table:table-cell office:value-type="string">'
+
+                $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
                     . '<text:p>'
                     . htmlspecialchars(
                         stripslashes($col_as)
@@ -253,6 +250,7 @@ class ExportOds extends ExportPlugin
                     . '</text:p>'
                     . '</table:table-cell>';
             }
+
             $GLOBALS['ods_buffer'] .= '</table:table-row>';
         }
 
@@ -260,28 +258,27 @@ class ExportOds extends ExportPlugin
         while ($row = $dbi->fetchRow($result)) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if ($fields_meta[$j]->type === 'geometry') {
+                if ($fields_meta[$j]->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $row[$j] = '0x' . bin2hex($row[$j]);
                 }
+
                 if (! isset($row[$j]) || $row[$j] === null) {
-                    $GLOBALS['ods_buffer']
-                        .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($GLOBALS[$what . '_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif (stripos($field_flags[$j], 'BINARY') !== false
-                    && $fields_meta[$j]->blob
+                } elseif (
+                    $fields_meta[$j]->isBinary
+                    && $fields_meta[$j]->isBlob
                 ) {
                     // ignore BLOB
-                    $GLOBALS['ods_buffer']
-                        .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->type === 'date') {
-                    $GLOBALS['ods_buffer']
-                        .= '<table:table-cell office:value-type="date"'
+                } elseif ($fields_meta[$j]->isType(FieldMetadata::TYPE_DATE)) {
+                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
                         . date('Y-m-d', strtotime($row[$j]))
                         . '" table:style-name="DateCell">'
@@ -289,9 +286,8 @@ class ExportOds extends ExportPlugin
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->type === 'time') {
-                    $GLOBALS['ods_buffer']
-                        .= '<table:table-cell office:value-type="time"'
+                } elseif ($fields_meta[$j]->isType(FieldMetadata::TYPE_TIME)) {
+                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="time"'
                         . ' office:time-value="'
                         . date('\P\TH\Hi\Ms\S', strtotime($row[$j]))
                         . '" table:style-name="TimeCell">'
@@ -299,9 +295,8 @@ class ExportOds extends ExportPlugin
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif ($fields_meta[$j]->type === 'datetime') {
-                    $GLOBALS['ods_buffer']
-                        .= '<table:table-cell office:value-type="date"'
+                } elseif ($fields_meta[$j]->isType(FieldMetadata::TYPE_DATETIME)) {
+                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
                         . date('Y-m-d\TH:i:s', strtotime($row[$j]))
                         . '" table:style-name="DateTimeCell">'
@@ -309,29 +304,30 @@ class ExportOds extends ExportPlugin
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
-                } elseif (($fields_meta[$j]->numeric
-                    && $fields_meta[$j]->type !== 'timestamp'
-                    && ! $fields_meta[$j]->blob)
-                    || $fields_meta[$j]->type === 'real'
+                } elseif (
+                    ($fields_meta[$j]->isNumeric
+                    && ! $fields_meta[$j]->isMappedTypeTimestamp
+                    && ! $fields_meta[$j]->isBlob)
+                    || $fields_meta[$j]->isType(FieldMetadata::TYPE_REAL)
                 ) {
-                    $GLOBALS['ods_buffer']
-                        .= '<table:table-cell office:value-type="float"'
+                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="float"'
                         . ' office:value="' . $row[$j] . '" >'
                         . '<text:p>'
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
                 } else {
-                    $GLOBALS['ods_buffer']
-                        .= '<table:table-cell office:value-type="string">'
+                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
                 }
             }
+
             $GLOBALS['ods_buffer'] .= '</table:table-row>';
         }
+
         $dbi->freeResult($result);
 
         $GLOBALS['ods_buffer'] .= '</table:table>';
@@ -342,14 +338,14 @@ class ExportOds extends ExportPlugin
     /**
      * Outputs result raw query in ODS format
      *
-     * @param string $err_url   the url to go back in case of error
-     * @param string $sql_query the rawquery to output
-     * @param string $crlf      the end of line sequence
+     * @param string $errorUrl the url to go back in case of error
+     * @param string $sqlQuery the rawquery to output
+     * @param string $crlf     the end of line sequence
      *
      * @return bool if succeeded
      */
-    public function exportRawQuery(string $err_url, string $sql_query, string $crlf): bool
+    public function exportRawQuery(string $errorUrl, string $sqlQuery, string $crlf): bool
     {
-        return $this->exportData('', '', $crlf, $err_url, $sql_query);
+        return $this->exportData('', '', $crlf, $errorUrl, $sqlQuery);
     }
 }

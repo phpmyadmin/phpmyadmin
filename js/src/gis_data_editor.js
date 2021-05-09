@@ -8,6 +8,7 @@
 /* global addZoomPanControllers, loadSVG, selectVisualization, styleOSM, zoomAndPan */ // js/table/gis_visualization.js
 /* global themeImagePath */ // templates/javascript/variables.twig
 
+// eslint-disable-next-line no-unused-vars
 var gisEditorLoaded = false;
 
 /**
@@ -54,9 +55,9 @@ function prepareJSVersion () {
 /**
  * Returns the HTML for a data point.
  *
- * @param pointNumber point number
- * @param prefix      prefix of the name
- * @returns the HTML for a data point
+ * @param {number} pointNumber point number
+ * @param {string} prefix      prefix of the name
+ * @return {string} the HTML for a data point
  */
 function addDataPoint (pointNumber, prefix) {
     return '<br>' +
@@ -99,7 +100,6 @@ function loadJSAndGISEditor (value, field, type, inputName) {
     // Loads a set of small JS file needed for the GIS editor
     var smallScripts = ['js/vendor/jquery/jquery.svg.js',
         'js/vendor/jquery/jquery.mousewheel.js',
-        'js/vendor/jquery/jquery.event.drag-2.2.js',
         'js/dist/table/gis_visualization.js'];
 
     for (var i = 0; i < smallScripts.length; i++) {
@@ -129,7 +129,6 @@ function loadJSAndGISEditor (value, field, type, inputName) {
     script.src = 'js/vendor/openlayers/OpenLayers.js';
     head.appendChild(script);
 
-    // eslint-disable-next-line no-unused-vars
     gisEditorLoaded = true;
 }
 

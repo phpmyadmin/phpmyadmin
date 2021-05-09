@@ -12,6 +12,7 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+
 use function array_keys;
 use function count;
 use function mb_strtolower;
@@ -36,7 +37,7 @@ class ProcessesController extends AbstractController
 
     public function index(): void
     {
-        global $err_url;
+        global $errorUrl;
 
         $params = [
             'showExecuting' => $_POST['showExecuting'] ?? null,
@@ -45,7 +46,7 @@ class ProcessesController extends AbstractController
             'order_by_field' => $_POST['order_by_field'] ?? null,
             'sort_order' => $_POST['sort_order'] ?? null,
         ];
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -121,6 +122,7 @@ class ProcessesController extends AbstractController
             );
             $this->response->setRequestStatus(false);
         }
+
         $message->addParam($kill);
 
         $this->response->addJSON(['message' => $message]);
@@ -140,6 +142,75 @@ class ProcessesController extends AbstractController
             $urlParams['full'] = 1;
         }
 
+        $sqlQuery = $showFullSql
+            ? 'SHOW FULL PROCESSLIST'
+            : 'SHOW PROCESSLIST';
+        if (
+            (! empty($params['order_by_field'])
+                && ! empty($params['sort_order']))
+            || ! empty($params['showExecuting'])
+        ) {
+            $urlParams['order_by_field'] = $params['order_by_field'];
+            $urlParams['sort_order'] = $params['sort_order'];
+            $urlParams['showExecuting'] = $params['showExecuting'];
+            $sqlQuery = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
+        }
+
+        if (! empty($params['showExecuting'])) {
+            $sqlQuery .= ' WHERE state != "" ';
+        }
+
+        if (! empty($params['order_by_field']) && ! empty($params['sort_order'])) {
+            $sqlQuery .= ' ORDER BY '
+                . Util::backquote($params['order_by_field'])
+                . ' ' . $params['sort_order'];
+        }
+
+        $result = $this->dbi->query($sqlQuery);
+        $rows = [];
+        while ($process = $this->dbi->fetchAssoc($result)) {
+            // Array keys need to modify due to the way it has used
+            // to display column values
+            if (
+                (! empty($params['order_by_field']) && ! empty($params['sort_order']))
+                || ! empty($params['showExecuting'])
+            ) {
+                foreach (array_keys($process) as $key) {
+                    $newKey = ucfirst(mb_strtolower($key));
+                    if ($newKey === $key) {
+                        continue;
+                    }
+
+                    $process[$newKey] = $process[$key];
+                    unset($process[$key]);
+                }
+            }
+
+            $rows[] = [
+                'id' => $process['Id'],
+                'user' => $process['User'],
+                'host' => $process['Host'],
+                'db' => ! isset($process['db']) || strlen($process['db']) === 0 ? '' : $process['db'],
+                'command' => $process['Command'],
+                'time' => $process['Time'],
+                'state' => ! empty($process['State']) ? $process['State'] : '---',
+                'progress' => ! empty($process['Progress']) ? $process['Progress'] : '---',
+                'info' => ! empty($process['Info']) ? Generator::formatSql(
+                    $process['Info'],
+                    ! $showFullSql
+                ) : '---',
+            ];
+        }
+
+        return $this->template->render('server/status/processes/list', [
+            'columns' => $this->getSortableColumnsForProcessList($showFullSql, $params),
+            'rows' => $rows,
+            'refresh_params' => $urlParams,
+        ]);
+    }
+
+    private function getSortableColumnsForProcessList(bool $showFullSql, array $params): array
+    {
         // This array contains display name and real column name of each
         // sortable column in the table
         $sortableColumns = [
@@ -180,30 +251,8 @@ class ProcessesController extends AbstractController
                 'order_by_field' => 'Info',
             ],
         ];
+
         $sortableColCount = count($sortableColumns);
-
-        $sqlQuery = $showFullSql
-            ? 'SHOW FULL PROCESSLIST'
-            : 'SHOW PROCESSLIST';
-        if ((! empty($params['order_by_field'])
-                && ! empty($params['sort_order']))
-            || ! empty($params['showExecuting'])
-        ) {
-            $urlParams['order_by_field'] = $params['order_by_field'];
-            $urlParams['sort_order'] = $params['sort_order'];
-            $urlParams['showExecuting'] = $params['showExecuting'];
-            $sqlQuery = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
-        }
-        if (! empty($params['showExecuting'])) {
-            $sqlQuery .= ' WHERE state != "" ';
-        }
-        if (! empty($params['order_by_field']) && ! empty($params['sort_order'])) {
-            $sqlQuery .= ' ORDER BY '
-                . Util::backquote($params['order_by_field'])
-                . ' ' . $params['sort_order'];
-        }
-
-        $result = $this->dbi->query($sqlQuery);
 
         $columns = [];
         foreach ($sortableColumns as $columnKey => $column) {
@@ -215,6 +264,7 @@ class ProcessesController extends AbstractController
             if ($is_sorted && $params['sort_order'] === 'ASC') {
                 $column['sort_order'] = 'DESC';
             }
+
             if (isset($params['showExecuting'])) {
                 $column['showExecuting'] = 'on';
             }
@@ -240,44 +290,6 @@ class ProcessesController extends AbstractController
             $columns[$columnKey]['is_full'] = true;
         }
 
-        $rows = [];
-        while ($process = $this->dbi->fetchAssoc($result)) {
-            // Array keys need to modify due to the way it has used
-            // to display column values
-            if ((! empty($params['order_by_field']) && ! empty($params['sort_order']))
-                || ! empty($params['showExecuting'])
-            ) {
-                foreach (array_keys($process) as $key) {
-                    $newKey = ucfirst(mb_strtolower($key));
-                    if ($newKey === $key) {
-                        continue;
-                    }
-
-                    $process[$newKey] = $process[$key];
-                    unset($process[$key]);
-                }
-            }
-
-            $rows[] = [
-                'id' => $process['Id'],
-                'user' => $process['User'],
-                'host' => $process['Host'],
-                'db' => ! isset($process['db']) || strlen($process['db']) === 0 ? '' : $process['db'],
-                'command' => $process['Command'],
-                'time' => $process['Time'],
-                'state' => ! empty($process['State']) ? $process['State'] : '---',
-                'progress' => ! empty($process['Progress']) ? $process['Progress'] : '---',
-                'info' => ! empty($process['Info']) ? Generator::formatSql(
-                    $process['Info'],
-                    ! $showFullSql
-                ) : '---',
-            ];
-        }
-
-        return $this->template->render('server/status/processes/list', [
-            'columns' => $columns,
-            'rows' => $rows,
-            'refresh_params' => $urlParams,
-        ]);
+        return $columns;
     }
 }

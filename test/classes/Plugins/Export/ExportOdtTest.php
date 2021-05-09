@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -14,10 +15,18 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Version;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
+
 use function array_shift;
+
+use const MYSQLI_BLOB_FLAG;
+use const MYSQLI_NUM_FLAG;
+use const MYSQLI_TYPE_BLOB;
+use const MYSQLI_TYPE_DECIMAL;
+use const MYSQLI_TYPE_STRING;
 
 /**
  * @requires extension zip
@@ -34,7 +43,6 @@ class ExportOdtTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -46,6 +54,7 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['plugin_param']['export_type'] = 'table';
         $GLOBALS['plugin_param']['single_table'] = false;
         $GLOBALS['cfgRelation']['relation'] = true;
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
         $this->object = new ExportOdt();
     }
 
@@ -382,38 +391,20 @@ class ExportOdtTest extends AbstractTestCase
 
         $flags = [];
         $a = new stdClass();
-        $a->type = '';
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(-1, 0, $a);
 
         $a = new stdClass();
-        $a->type = '';
-        $a->blob = true;
-        $flags[] = $a;
+        $a->charsetnr = 63;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_BLOB, MYSQLI_BLOB_FLAG, $a);
 
-        $a = new stdClass();
-        $a->numeric = true;
-        $a->type = 'real';
-        $a->blob = false;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_DECIMAL, MYSQLI_NUM_FLAG, (object) []);
 
-        $a = new stdClass();
-        $a->type = 'timestamp';
-        $a->blob = false;
-        $a->numeric = false;
-        $flags[] = $a;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with(true)
             ->will($this->returnValue($flags));
-
-        $dbi->expects($this->at(4))
-            ->method('fieldFlags')
-            ->will($this->returnValue('BINARYTEST'));
-
-        $dbi->expects($this->at(5))
-            ->method('fieldFlags')
-            ->will($this->returnValue('binary'));
 
         $dbi->expects($this->once())
             ->method('query')
@@ -425,24 +416,17 @@ class ExportOdtTest extends AbstractTestCase
             ->with(true)
             ->will($this->returnValue(4));
 
-        $dbi->expects($this->at(7))
+        $dbi->expects($this->exactly(2))
             ->method('fetchRow')
-            ->with(true)
-            ->will(
-                $this->returnValue(
-                    [
-                        null,
-                        'a<b',
-                        'a>b',
-                        'a&b',
-                    ]
-                )
+            ->willReturnOnConsecutiveCalls(
+                [
+                    null,
+                    'a<b',
+                    'a>b',
+                    'a&b',
+                ],
+                null
             );
-
-        $dbi->expects($this->at(8))
-            ->method('fetchRow')
-            ->with(true)
-            ->will($this->returnValue(null));
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['what'] = 'foo';
@@ -482,15 +466,19 @@ class ExportOdtTest extends AbstractTestCase
             ->getMock();
 
         $flags = [];
+        $a = new stdClass();
+        $a->name = 'fna\"me';
+        $a->length = 20;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $a);
+        $b = new stdClass();
+        $b->name = 'fnam/<e2';
+        $b->length = 20;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_STRING, 0, $b);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with(true)
             ->will($this->returnValue($flags));
-
-        $dbi->expects($this->any())
-            ->method('fieldFlags')
-            ->will($this->returnValue('BINARYTEST'));
 
         $dbi->expects($this->once())
             ->method('query')
@@ -502,15 +490,14 @@ class ExportOdtTest extends AbstractTestCase
             ->with(true)
             ->will($this->returnValue(2));
 
-        $dbi->expects($this->at(5))
+        $dbi->expects($this->exactly(2))
             ->method('fieldName')
-            ->will($this->returnValue('fna\"me'));
+            ->willReturnOnConsecutiveCalls(
+                'fna\"me',
+                'fnam/<e2'
+            );
 
-        $dbi->expects($this->at(6))
-            ->method('fieldName')
-            ->will($this->returnValue('fnam/<e2'));
-
-        $dbi->expects($this->at(7))
+        $dbi->expects($this->exactly(1))
             ->method('fetchRow')
             ->with(true)
             ->will(
@@ -605,45 +592,34 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testGetTableDefStandIn(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('getColumns')
-            ->with('db', 'v&w')
-            ->will($this->returnValue([1, 2]));
-
-        $GLOBALS['dbi'] = $dbi;
-
-        $this->object = $this->getMockBuilder(ExportOdt::class)
-            ->disableOriginalConstructor()
-            ->setMethods(['formatOneColumnDefinition'])
-            ->getMock();
-
-        $this->object->expects($this->at(0))
-            ->method('formatOneColumnDefinition')
-            ->with(1)
-            ->will($this->returnValue('c1'));
-
-        $this->object->expects($this->at(1))
-            ->method('formatOneColumnDefinition')
-            ->with(2)
-            ->will($this->returnValue('c2'));
-
         $this->assertSame(
-            $this->object->getTableDefStandIn('db', 'v&w', '#'),
+            $this->object->getTableDefStandIn('test_db', 'test_table', "\n"),
             ''
         );
 
-        $this->assertStringContainsString(
-            '<table:table table:name="v&amp;w_data">',
-            $GLOBALS['odt_buffer']
-        );
-
-        $this->assertStringContainsString(
-            '</table:table-row>c1</table:table-row>c2</table:table-row>' .
-            '</table:table>',
+        $this->assertEquals(
+            '<table:table table:name="test_table_data">'
+            . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>Column</text:p>'
+            . '</table:table-cell><table:table-cell office:value-type="string"><text:p>Type</text:p>'
+            . '</table:table-cell><table:table-cell office:value-type="string"><text:p>Null</text:p>'
+            . '</table:table-cell><table:table-cell office:value-type="string"><text:p>Default</text:p>'
+            . '</table:table-cell></table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>id</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>int(11)</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
+            . '</table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>name</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>varchar(20)</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
+            . '</table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>datetimefield</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>datetime</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
+            . '</table:table-row></table:table>',
             $GLOBALS['odt_buffer']
         );
     }
@@ -651,7 +627,7 @@ class ExportOdtTest extends AbstractTestCase
     public function testGetTableDef(): void
     {
         $this->object = $this->getMockBuilder(ExportOdt::class)
-            ->setMethods(['formatOneColumnDefinition'])
+            ->onlyMethods(['formatOneColumnDefinition'])
             ->getMock();
 
         // case 1
@@ -707,7 +683,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
@@ -807,7 +783,7 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['odt_buffer'] = '';
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [
-            'PMA_VERSION' => PMA_VERSION,
+            'version' => Version::VERSION,
             'relwork' => true,
             'commwork' => true,
             'mimework' => true,
@@ -890,67 +866,42 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testExportStructure(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('getTriggers')
-            ->with('db', 't&bl')
-            ->will($this->returnValue(1));
-
-        $this->object = $this->getMockBuilder(ExportOdt::class)
-            ->setMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
-            ->getMock();
-
-        $this->object->expects($this->at(0))
-            ->method('getTableDef')
-            ->with('db', 't&bl', "\n", 'example.com', false, false, false, false)
-            ->will($this->returnValue('dumpText1'));
-
-        $this->object->expects($this->once())
-            ->method('getTriggers')
-            ->with('db', 't&bl')
-            ->will($this->returnValue('dumpText2'));
-
-        $this->object->expects($this->at(2))
-            ->method('getTableDef')
-            ->with(
-                'db',
-                't&bl',
-                "\n",
-                'example.com',
-                false,
-                false,
-                false,
-                false,
-                true,
-                true
-            )
-            ->will($this->returnValue('dumpText3'));
-
-        $this->object->expects($this->once())
-            ->method('getTableDefStandIn')
-            ->with('db', 't&bl', "\n")
-            ->will($this->returnValue('dumpText4'));
-
-        $GLOBALS['dbi'] = $dbi;
-
         // case 1
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'create_table',
                 'test'
             )
         );
 
-        $this->assertStringContainsString(
-            '<text:h text:outline-level="2" text:style-name="Heading_2" ' .
-            'text:is-list-header="true">Table structure for table t&amp;bl</text:h>',
+        $this->assertEquals(
+            '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+            . 'Table structure for table test_table</text:h><table:table table:name="test_table_structure">'
+            . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>Column</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>Type</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>Null</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>Default</text:p></table:table-cell>'
+            . '</table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>id</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>int(11)</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
+            . '</table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>name</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>varchar(20)</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
+            . '</table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>datetimefield</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>datetime</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
+            . '</table:table-row></table:table>',
             $GLOBALS['odt_buffer']
         );
 
@@ -959,18 +910,29 @@ class ExportOdtTest extends AbstractTestCase
 
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'triggers',
                 'test'
             )
         );
 
         $this->assertEquals(
-            '<text:h text:outline-level="2" text:style-name="Heading_2" ' .
-            'text:is-list-header="true">Triggers t&amp;bl</text:h>',
+            '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+            . 'Triggers test_table</text:h><table:table table:name="test_table_triggers">'
+            . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>Name</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>Time</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>Event</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>Definition</text:p></table:table-cell>'
+            . '</table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>test_trigger</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>AFTER</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>INSERT</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>BEGIN END</text:p></table:table-cell>'
+            . '</table:table-row></table:table>',
             $GLOBALS['odt_buffer']
         );
 
@@ -979,18 +941,39 @@ class ExportOdtTest extends AbstractTestCase
 
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'create_view',
                 'test'
             )
         );
 
         $this->assertEquals(
-            '<text:h text:outline-level="2" text:style-name="Heading_2" ' .
-            'text:is-list-header="true">Structure for view t&amp;bl</text:h>',
+            '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+            . 'Structure for view test_table</text:h><table:table table:name="test_table_structure">'
+            . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>Column</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>Type</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>Null</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>Default</text:p></table:table-cell>'
+            . '</table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>id</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>int(11)</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
+            . '</table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>name</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>varchar(20)</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
+            . '</table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>datetimefield</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>datetime</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
+            . '</table:table-row></table:table>',
             $GLOBALS['odt_buffer']
         );
 
@@ -998,18 +981,39 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['odt_buffer'] = '';
         $this->assertTrue(
             $this->object->exportStructure(
-                'db',
-                't&bl',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
+                'localhost',
                 'stand_in',
                 'test'
             )
         );
 
         $this->assertEquals(
-            '<text:h text:outline-level="2" text:style-name="Heading_2" text:is' .
-            '-list-header="true">Stand-in structure for view t&amp;bl</text:h>',
+            '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
+            . 'Stand-in structure for view test_table</text:h><table:table table:name="test_table_data">'
+            . '<table:table-column table:number-columns-repeated="4"/><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>Column</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>Type</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>Null</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>Default</text:p></table:table-cell>'
+            . '</table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>id</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>int(11)</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
+            . '</table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>name</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>varchar(20)</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
+            . '</table:table-row><table:table-row>'
+            . '<table:table-cell office:value-type="string"><text:p>datetimefield</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>datetime</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
+            . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
+            . '</table:table-row></table:table>',
             $GLOBALS['odt_buffer']
         );
     }

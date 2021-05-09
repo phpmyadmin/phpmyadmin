@@ -19,7 +19,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use SimpleXMLElement;
-use const LIBXML_COMPACT;
+
 use function count;
 use function implode;
 use function libxml_disable_entity_loader;
@@ -27,6 +27,8 @@ use function rtrim;
 use function simplexml_load_string;
 use function strcmp;
 use function strlen;
+
+use const LIBXML_COMPACT;
 use const PHP_VERSION_ID;
 
 /**
@@ -246,7 +248,8 @@ class ImportOds extends ImportPlugin
      */
     protected function getValue($cell_attrs, $text)
     {
-        if ($_REQUEST['ods_recognize_percentages']
+        if (
+            $_REQUEST['ods_recognize_percentages']
             && ! strcmp(
                 'percentage',
                 (string) $cell_attrs['value-type']
@@ -255,7 +258,8 @@ class ImportOds extends ImportPlugin
             return (float) $cell_attrs['value'];
         }
 
-        if ($_REQUEST['ods_recognize_currency']
+        if (
+            $_REQUEST['ods_recognize_currency']
             && ! strcmp('currency', (string) $cell_attrs['value-type'])
         ) {
             return (float) $cell_attrs['value'];
@@ -302,6 +306,7 @@ class ImportOds extends ImportPlugin
 
                     ++$col_count;
                 }
+
                 continue;
             }
 

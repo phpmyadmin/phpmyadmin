@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Html;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Util;
+
 use function defined;
 use function file_exists;
 use function htmlspecialchars;
@@ -41,6 +42,7 @@ class MySQLDocumentation
         if ($url === null) {
             $url = Util::getMySQLDocuURL($link, $anchor);
         }
+
         $openLink = '<a href="' . htmlspecialchars($url) . '" target="mysql_doc">';
         $closeLink = '</a>';
 

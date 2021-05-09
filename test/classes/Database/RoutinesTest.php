@@ -23,10 +23,9 @@ class RoutinesTest extends AbstractTestCase
     {
         parent::setUp();
         parent::setGlobalConfig();
-        parent::defineVersionConstants();
         parent::setLanguage();
         parent::setTheme();
-        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['config']->enableBc();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
         $GLOBALS['server'] = 0;
@@ -64,6 +63,7 @@ class RoutinesTest extends AbstractTestCase
             $_POST[$key] = $value;
             $_REQUEST[$key] = $value;
         }
+
         $this->assertEquals($out, $this->routines->getDataFromRequest());
     }
 
@@ -974,35 +974,35 @@ class RoutinesTest extends AbstractTestCase
         return [
             [
                 $data,
-                "name='item_name'",
+                'name="item_name"',
             ],
             [
                 $data,
-                "name='funcs[foo]'",
+                'name="funcs[foo]"',
             ],
             [
                 $data,
-                "<input class='datefield' type='text' name='params[foo]'>",
+                '<input class="datefield" type="text" name="params[foo]">',
             ],
             [
                 $data,
-                "name='funcs[fob]'",
+                'name="funcs[fob]"',
             ],
             [
                 $data,
-                "<input class='datetimefield' type='text' name='params[fob]'",
+                '<input class="datetimefield" type="text" name="params[fob]"',
             ],
             [
                 $data,
-                "name='params[fod][]'",
+                'name="params[fod][]"',
             ],
             [
                 $data,
-                "name='params[foe][]'",
+                'name="params[foe][]"',
             ],
             [
                 $data,
-                "name='execute_routine'",
+                'name="execute_routine"',
             ],
         ];
     }
@@ -1113,11 +1113,11 @@ class RoutinesTest extends AbstractTestCase
         return [
             [
                 $data,
-                "name='execute_routine'",
+                'name="execute_routine"',
             ],
             [
                 $data,
-                "name='ajax_request'",
+                'name="ajax_request"',
             ],
         ];
     }

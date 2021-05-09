@@ -13,6 +13,7 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+
 use function array_merge;
 
 final class ExportController extends AbstractController
@@ -37,9 +38,9 @@ final class ExportController extends AbstractController
     public function index(): void
     {
         global $db, $table, $sql_query, $num_tables, $unlim_num_rows;
-        global $tmp_select, $select_item, $err_url;
+        global $tmp_select, $select_item, $errorUrl;
 
-        $err_url = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -57,14 +58,16 @@ final class ExportController extends AbstractController
         if (! isset($sql_query)) {
             $sql_query = '';
         }
+
         if (! isset($num_tables)) {
             $num_tables = 0;
         }
+
         if (! isset($unlim_num_rows)) {
             $unlim_num_rows = 0;
         }
 
-        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? null;
+        $GLOBALS['single_table'] = $_POST['single_table'] ?? $_GET['single_table'] ?? $GLOBALS['single_table'] ?? null;
 
         $exportList = Plugins::getExport('server', isset($GLOBALS['single_table']));
 

@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportJson;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Version;
 use ReflectionMethod;
 use ReflectionProperty;
-use stdClass;
+
 use function array_shift;
 
 /**
@@ -30,7 +30,6 @@ class ExportJsonTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -130,7 +129,7 @@ class ExportJsonTest extends AbstractTestCase
 
         $this->expectOutputString(
             "[\n"
-            . '{"type":"header","version":"' . PMA_VERSION
+            . '{"type":"header","version":"' . Version::VERSION
             . '","comment":"Export to JSON plugin for PHPMyAdmin"},'
             . "\n"
         );
@@ -182,62 +181,69 @@ class ExportJsonTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $flags = [];
-        $a = new stdClass();
-        $a->blob = false;
-        $a->numeric = false;
-        $a->type = 'string';
-        $a->name = 'f1';
-        $a->length = 20;
-        $flags[] = $a;
-
-        $dbi->expects($this->once())
-            ->method('getFieldsMeta')
-            ->with(null)
-            ->will($this->returnValue($flags));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(null)
-            ->will($this->returnValue(1));
-
-        $dbi->expects($this->at(3))
-            ->method('fieldName')
-            ->with(null, 0)
-            ->will($this->returnValue('f1'));
-
-        $dbi->expects($this->at(4))
-            ->method('fetchRow')
-            ->with(null)
-            ->will($this->returnValue(['foo']));
-
-        $dbi->expects($this->at(5))
-            ->method('fetchRow')
-            ->with(null)
-            ->will($this->returnValue(['bar']));
-
-        $dbi->expects($this->at(6))
-            ->method('fetchRow')
-            ->with(null)
-            ->will($this->returnValue(null));
-
-        $GLOBALS['dbi'] = $dbi;
-
         $this->expectOutputString(
-            '{"type":"table","name":"tbl","database":"db","data":'
+            '{"type":"table","name":"test_table","database":"test_db","data":' . "\n"
+            . '[' . "\n"
+            . '{"id":"1","name":"abcd","datetimefield":"2011-01-20 02:00:02"},' . "\n"
+            . '{"id":"2","name":"foo","datetimefield":"2010-01-20 02:00:02"},' . "\n"
+            . '{"id":"3","name":"Abcd","datetimefield":"2012-01-20 02:00:02"}' . "\n"
+            . ']' . "\n"
+            . '}' . "\n"
+        );
+
+        $this->assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
+    }
+
+    public function testExportComplexData(): void
+    {
+        // normalString binaryField textField blobField
+        $this->expectOutputString(
+            '{"type":"table","name":"test_table_complex","database":"test_db","data":'
             . "\n[\n"
-            . '{"f1":"foo"},'
-            . "\n"
-            . '{"f1":"bar"}'
-            . "\n]\n}\n"
+            . '{"f1":"\"\'\"><iframe onload=alert(1)>\u0448\u0435\u043b\u043b\u044b",'
+                . '"f2":"0x3078313233343638353766656665",'
+                . '"f3":"My awesome\nText","f4":"0x307861663132333466363863353766656665"},' . "\n"
+            . '{"f1":null,"f2":null,"f3":null,"f4":null},' . "\n"
+            . '{"f1":"","f2":"0x307831","f3":"\u0448\u0435\u043b\u043b\u044b","f4":"0x307832"}' . "\n"
+            . "]\n}\n"
         );
 
         $this->assertTrue(
-            $this->object->exportData('db', 'tbl', "\n", 'example.com', 'SELECT')
+            $this->object->exportData(
+                'test_db',
+                'test_table_complex',
+                "\n",
+                'example.com',
+                'SELECT * FROM `test_db`.`test_table_complex`;'
+            )
+        );
+    }
+
+    public function testExportRawComplexData(): void
+    {
+        $this->expectOutputString(
+            '{"type":"raw","data":'
+            . "\n[\n"
+            . '{"f1":"\"\'\"><iframe onload=alert(1)>\u0448\u0435\u043b\u043b\u044b",'
+                . '"f2":"0x3078313233343638353766656665",'
+                . '"f3":"My awesome\nText","f4":"0x307861663132333466363863353766656665"},' . "\n"
+            . '{"f1":null,"f2":null,"f3":null,"f4":null},' . "\n"
+            . '{"f1":"","f2":"0x307831","f3":"\u0448\u0435\u043b\u043b\u044b","f4":"0x307832"}' . "\n"
+            . "]\n}\n"
+        );
+
+        $this->assertTrue(
+            $this->object->exportRawQuery(
+                'example.com',
+                'SELECT * FROM `test_db`.`test_table_complex`;',
+                "\n"
+            )
         );
     }
 }

@@ -10,11 +10,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use const DATE_RFC1123;
-use const E_USER_ERROR;
-use const E_USER_WARNING;
-use const FILTER_VALIDATE_IP;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+
 use function array_keys;
 use function array_pop;
 use function array_walk_recursive;
@@ -67,6 +67,11 @@ use function trigger_error;
 use function unserialize;
 use function urldecode;
 use function vsprintf;
+
+use const DATE_RFC1123;
+use const E_USER_ERROR;
+use const E_USER_WARNING;
+use const FILTER_VALIDATE_IP;
 
 /**
  * Core class
@@ -271,8 +276,9 @@ class Core
          * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
          */
-        if (isset($dbi, $GLOBALS['PMA_Config']) && $dbi !== null
-            && $GLOBALS['PMA_Config']->get('is_setup') === false
+        if (
+            isset($dbi, $GLOBALS['config']) && $dbi !== null
+            && $GLOBALS['config']->get('is_setup') === false
             && Response::getInstance()->isAjax()
         ) {
             $response = Response::getInstance();
@@ -297,6 +303,7 @@ class Core
                 'error_message' => Sanitize::sanitizeMessage($error_message),
             ]);
         }
+
         if (! defined('TESTSUITE')) {
             exit;
         }
@@ -349,8 +356,7 @@ class Core
         bool $fatal = false,
         string $extra = ''
     ): void {
-        /** @var ErrorHandler $error_handler */
-        global $error_handler;
+        global $errorHandler;
 
         /* Gettext does not have to be loaded yet here */
         if (function_exists('__')) {
@@ -358,9 +364,9 @@ class Core
                 'The %s extension is missing. Please check your PHP configuration.'
             );
         } else {
-            $message
-                = 'The %s extension is missing. Please check your PHP configuration.';
+            $message = 'The %s extension is missing. Please check your PHP configuration.';
         }
+
         $doclink = self::getPHPDocLink('book.' . $extension . '.php');
         $message = sprintf(
             $message,
@@ -369,13 +375,14 @@ class Core
         if ($extra != '') {
             $message .= ' ' . $extra;
         }
+
         if ($fatal) {
             self::fatalError($message);
 
             return;
         }
 
-        $error_handler->addError(
+        $errorHandler->addError(
             $message,
             E_USER_WARNING,
             '',
@@ -457,6 +464,7 @@ class Core
         if (empty($allowList)) {
             $allowList = ['index.php'];
         }
+
         if (empty($page)) {
             return false;
         }
@@ -464,6 +472,7 @@ class Core
         if (in_array($page, $allowList)) {
             return true;
         }
+
         if ($include) {
             return false;
         }
@@ -511,7 +520,8 @@ class Core
             return (string) getenv($var_name);
         }
 
-        if (function_exists('apache_getenv')
+        if (
+            function_exists('apache_getenv')
             && apache_getenv($var_name, true)
         ) {
             return (string) apache_getenv($var_name, true);
@@ -528,7 +538,7 @@ class Core
      */
     public static function sendHeaderLocation(string $uri, bool $use_refresh = false): void
     {
-        if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
+        if ($GLOBALS['config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
             Response::getInstance()->disable();
 
             $template = new Template();
@@ -542,7 +552,7 @@ class Core
          * like /phpmyadmin/index.php/ which some web servers happily accept.
          */
         if ($uri[0] === '.') {
-            $uri = $GLOBALS['PMA_Config']->getRootPath() . substr($uri, 2);
+            $uri = $GLOBALS['config']->getRootPath() . substr($uri, 2);
         }
 
         $response = Response::getInstance();
@@ -554,14 +564,17 @@ class Core
                 E_USER_ERROR
             );
         }
+
         // bug #1523784: IE6 does not like 'Refresh: 0', it
         // results in a blank page
         // but we need it when coming from the cookie login panel)
-        if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && $use_refresh) {
+        if ($GLOBALS['config']->get('PMA_IS_IIS') && $use_refresh) {
             $response->header('Refresh: 0; ' . $uri);
-        } else {
-            $response->header('Location: ' . $uri);
+
+            return;
         }
+
+        $response->header('Location: ' . $uri);
     }
 
     /**
@@ -572,6 +585,7 @@ class Core
         if (defined('TESTSUITE')) {
             return;
         }
+
         // No caching
         self::noCacheHeader();
         // MIME type
@@ -590,6 +604,7 @@ class Core
         if (defined('TESTSUITE')) {
             return;
         }
+
         // rfc2616 - Section 14.21
         header('Expires: ' . gmdate(DATE_RFC1123));
         // HTTP/1.1
@@ -623,12 +638,14 @@ class Core
         if ($no_cache) {
             self::noCacheHeader();
         }
+
         /* Replace all possibly dangerous chars in filename */
         $filename = Sanitize::sanitizeFilename($filename);
         if (! empty($filename)) {
             header('Content-Description: File Transfer');
             header('Content-Disposition: attachment; filename="' . $filename . '"');
         }
+
         header('Content-Type: ' . $mimetype);
         // inform the server that compression has been done,
         // to avoid a double compression (for example with Apache + mod_deflate)
@@ -637,6 +654,7 @@ class Core
         if (strpos($mimetype, 'gzip') !== false && $notChromeOrLessThan43) {
             header('Content-Encoding: gzip');
         }
+
         header('Content-Transfer-Encoding: binary');
         if ($length <= 0) {
             return;
@@ -664,6 +682,7 @@ class Core
             if (! isset($value[$key])) {
                 return $default;
             }
+
             $value =& $value[$key];
         }
 
@@ -686,8 +705,10 @@ class Core
             if (! isset($a[$key])) {
                 $a[$key] = [];
             }
+
             $a =& $a[$key];
         }
+
         $a[$last_key] = $value;
     }
 
@@ -712,9 +733,11 @@ class Core
                 $found = false;
                 break;
             }
+
             $depth++;
             $path[$depth] =& $path[$depth - 1][$key];
         }
+
         // if element found, remove it
         if ($found) {
             unset($path[$depth][$keys_last]);
@@ -758,13 +781,11 @@ class Core
         parse_str($arr['query'] ?? '', $vars);
         $query = http_build_query(['url' => $vars['url']]);
 
-        if ($GLOBALS['PMA_Config'] !== null && $GLOBALS['PMA_Config']->get('is_setup')) {
-            $url = '../url.php?' . $query;
-        } else {
-            $url = './url.php?' . $query;
+        if ($GLOBALS['config'] !== null && $GLOBALS['config']->get('is_setup')) {
+            return '../url.php?' . $query;
         }
 
-        return $url;
+        return './url.php?' . $query;
     }
 
     /**
@@ -788,6 +809,7 @@ class Core
         if (! isset($arr['host']) || strlen($arr['host']) == 0) {
             return false;
         }
+
         // We do not want these to be present
         $blocked = [
             'user',
@@ -799,6 +821,7 @@ class Core
                 return false;
             }
         }
+
         $domain = $arr['host'];
         $domainAllowList = [
             /* Include current domain */
@@ -862,6 +885,7 @@ class Core
         } else {
             $retval .= Html\Generator::formatSql($query_data);
         }
+
         $retval .= '</div>';
         $response = Response::getInstance();
         $response->addJSON('sql_data', $retval);
@@ -917,7 +941,7 @@ class Core
 
     public static function setDatabaseAndTableFromRequest(ContainerInterface $containerBuilder): void
     {
-        global $db, $table, $url_params;
+        global $db, $table, $urlParams;
 
         $databaseFromRequest = $_POST['db'] ?? $_GET['db'] ?? $_REQUEST['db'] ?? null;
         $tableFromRequest = $_POST['table'] ?? $_GET['table'] ?? $_REQUEST['table'] ?? null;
@@ -925,11 +949,11 @@ class Core
         $db = self::isValid($databaseFromRequest) ? $databaseFromRequest : '';
         $table = self::isValid($tableFromRequest) ? $tableFromRequest : '';
 
-        $url_params['db'] = $db;
-        $url_params['table'] = $table;
+        $urlParams['db'] = $db;
+        $urlParams['table'] = $table;
         $containerBuilder->setParameter('db', $db);
         $containerBuilder->setParameter('table', $table);
-        $containerBuilder->setParameter('url_params', $url_params);
+        $containerBuilder->setParameter('url_params', $urlParams);
     }
 
     /**
@@ -944,12 +968,14 @@ class Core
         if (empty($PMA_PHP_SELF)) {
             $PMA_PHP_SELF = urldecode(self::getenv('REQUEST_URI'));
         }
+
         $_PATH_INFO = self::getenv('PATH_INFO');
         if (! empty($_PATH_INFO) && ! empty($PMA_PHP_SELF)) {
             $question_pos = mb_strpos($PMA_PHP_SELF, '?');
             if ($question_pos != false) {
                 $PMA_PHP_SELF = mb_substr($PMA_PHP_SELF, 0, $question_pos);
             }
+
             $path_info_pos = mb_strrpos($PMA_PHP_SELF, $_PATH_INFO);
             if ($path_info_pos !== false) {
                 $path_info_part = mb_substr($PMA_PHP_SELF, $path_info_pos, mb_strlen($_PATH_INFO));
@@ -973,6 +999,7 @@ class Core
                 // going back up? sure
                 array_pop($path);
             }
+
             // Here we intentionall ignore case where we go too up
             // as there is nothing sane to do
         }
@@ -1126,6 +1153,7 @@ class Core
                     if ($depth <= 0) {
                         return null;
                     }
+
                     $depth--;
                     break;
                 case 's':
@@ -1137,11 +1165,13 @@ class Core
                     if ($i === false) {
                         return null;
                     }
+
                     // skip string, quotes and ;
                     $i += 2 + $strlen + 1;
                     if ($data[$i] !== ';') {
                         return null;
                     }
+
                     break;
 
                 case 'b':
@@ -1153,6 +1183,7 @@ class Core
                     if ($i === false) {
                         return null;
                     }
+
                     break;
                 case 'a':
                     /* array */
@@ -1161,6 +1192,7 @@ class Core
                     if ($i === false) {
                         return null;
                     }
+
                     // remember nesting
                     $depth++;
                     break;
@@ -1171,6 +1203,7 @@ class Core
                     if ($i === false) {
                         return null;
                     }
+
                     break;
                 default:
                     /* any other elements are not wanted */
@@ -1352,7 +1385,7 @@ class Core
 
     public static function setGotoAndBackGlobals(ContainerInterface $container, Config $config): void
     {
-        global $goto, $back, $url_params;
+        global $goto, $back, $urlParams;
 
         // Holds page that should be displayed.
         $goto = '';
@@ -1360,13 +1393,14 @@ class Core
 
         if (isset($_REQUEST['goto']) && self::checkPageValidity($_REQUEST['goto'])) {
             $goto = $_REQUEST['goto'];
-            $url_params['goto'] = $goto;
+            $urlParams['goto'] = $goto;
             $container->setParameter('goto', $goto);
-            $container->setParameter('url_params', $url_params);
+            $container->setParameter('url_params', $urlParams);
         } else {
             if ($config->issetCookie('goto')) {
                 $config->removeCookie('goto');
             }
+
             unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto']);
         }
 
@@ -1374,12 +1408,15 @@ class Core
             // Returning page.
             $back = $_REQUEST['back'];
             $container->setParameter('back', $back);
-        } else {
-            if ($config->issetCookie('back')) {
-                $config->removeCookie('back');
-            }
-            unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
+
+            return;
         }
+
+        if ($config->issetCookie('back')) {
+            $config->removeCookie('back');
+        }
+
+        unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
     }
 
     public static function connectToDatabaseServer(DatabaseInterface $dbi, AuthenticationPlugin $auth): void
@@ -1411,5 +1448,17 @@ class Core
          * main connection and phpMyAdmin issuing queries to configuration storage, which is not locked by that time.
          */
         $dbi->connect(DatabaseInterface::CONNECT_USER, null, DatabaseInterface::CONNECT_CONTROL);
+    }
+
+    /**
+     * Get the container builder
+     */
+    public static function getContainerBuilder(): ContainerBuilder
+    {
+        $containerBuilder = new ContainerBuilder();
+        $loader = new PhpFileLoader($containerBuilder, new FileLocator(ROOT_PATH . 'libraries'));
+        $loader->load('services_loader.php');
+
+        return $containerBuilder;
     }
 }

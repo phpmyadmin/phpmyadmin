@@ -17,6 +17,7 @@ use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Url;
+
 use function defined;
 use function htmlspecialchars;
 use function intval;
@@ -118,7 +119,7 @@ abstract class AuthenticationPlugin
      */
     public function logOut()
     {
-        global $PMA_Config;
+        global $config;
 
         /* Obtain redirect URL (before doing logout) */
         if (! empty($GLOBALS['cfg']['Server']['LogoutURL'])) {
@@ -135,11 +136,12 @@ abstract class AuthenticationPlugin
          * Get a logged-in server count in case of LoginCookieDeleteAll is disabled.
          */
         $server = 0;
-        if ($GLOBALS['cfg']['LoginCookieDeleteAll'] === false
+        if (
+            $GLOBALS['cfg']['LoginCookieDeleteAll'] === false
             && $GLOBALS['cfg']['Server']['auth_type'] === 'cookie'
         ) {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                if (! $PMA_Config->issetCookie('pmaAuth-' . $key)) {
+                if (! $config->issetCookie('pmaAuth-' . $key)) {
                     continue;
                 }
 
@@ -244,6 +246,7 @@ abstract class AuthenticationPlugin
         } else {
             $guid = 'default';
         }
+
         if (isset($_REQUEST['access_time'])) {
             // Ensure access_time is in range <0, LoginCookieValidity + 1>
             // to avoid excessive extension of validity.
@@ -254,6 +257,7 @@ abstract class AuthenticationPlugin
         } else {
             $time = time();
         }
+
         $_SESSION['browser_access_time'][$guid] = $time;
     }
 
@@ -299,6 +303,7 @@ abstract class AuthenticationPlugin
                 if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
                 }
+
                 if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
@@ -306,6 +311,7 @@ abstract class AuthenticationPlugin
                 if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
+
                 if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
                 }
@@ -329,7 +335,8 @@ abstract class AuthenticationPlugin
         }
 
         // is a login without password allowed?
-        if ($cfg['Server']['AllowNoPassword']
+        if (
+            $cfg['Server']['AllowNoPassword']
             || $cfg['Server']['password'] !== ''
         ) {
             return;
@@ -359,6 +366,7 @@ abstract class AuthenticationPlugin
 
             exit;
         }
+
         echo $this->template->render('login/header');
         echo Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.')

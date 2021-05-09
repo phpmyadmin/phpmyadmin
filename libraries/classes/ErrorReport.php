@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Utils\HttpRequest;
-use const E_USER_WARNING;
-use const PHP_VERSION;
+
 use function count;
 use function http_build_query;
 use function is_array;
@@ -17,6 +16,9 @@ use function parse_str;
 use function parse_url;
 use function preg_match;
 use function str_replace;
+
+use const E_USER_WARNING;
+use const PHP_VERSION;
 
 /**
  * Error reporting functions used to generate and submit error reports
@@ -39,16 +41,20 @@ class ErrorReport
     /** @var Template */
     public $template;
 
+    /** @var Config */
+    private $config;
+
     /**
      * @param HttpRequest $httpRequest HttpRequest instance
      * @param Relation    $relation    Relation instance
      * @param Template    $template    Template instance
      */
-    public function __construct(HttpRequest $httpRequest, Relation $relation, Template $template)
+    public function __construct(HttpRequest $httpRequest, Relation $relation, Template $template, Config $config)
     {
         $this->httpRequest = $httpRequest;
         $this->relation = $relation;
         $this->template = $template;
+        $this->config = $config;
     }
 
     /**
@@ -71,20 +77,17 @@ class ErrorReport
      */
     public function getData(string $exceptionType = 'js'): array
     {
-        global $PMA_Config;
-
         $relParams = $this->relation->getRelationsParam();
         // common params for both, php & js exceptions
         $report = [
-            'pma_version' => PMA_VERSION,
+            'pma_version' => Version::VERSION,
             'browser_name' => PMA_USR_BROWSER_AGENT,
             'browser_version' => PMA_USR_BROWSER_VER,
             'user_os' => PMA_USR_OS,
-            'server_software' => $_SERVER['SERVER_SOFTWARE'],
+            'server_software' => $_SERVER['SERVER_SOFTWARE'] ?? null,
             'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
-            'locale' => $PMA_Config->getCookie('pma_lang'),
-            'configuration_storage' =>
-                $relParams['db'] === null ? 'disabled' : 'enabled',
+            'locale' => $this->config->getCookie('pma_lang'),
+            'configuration_storage' => $relParams['db'] === null ? 'disabled' : 'enabled',
             'php_version' => PHP_VERSION,
         ];
 
@@ -92,6 +95,7 @@ class ErrorReport
             if (empty($_POST['exception'])) {
                 return [];
             }
+
             $exception = $_POST['exception'];
 
             if (isset($exception['stack'])) {
@@ -114,9 +118,6 @@ class ErrorReport
 
             $report['exception_type'] = 'js';
             $report['exception'] = $exception;
-            if (isset($_POST['microhistory'])) {
-                $report['microhistory'] = $_POST['microhistory'];
-            }
 
             if (! empty($_POST['description'])) {
                 $report['steps'] = $_POST['description'];
@@ -125,14 +126,17 @@ class ErrorReport
             $errors = [];
             // create php error report
             $i = 0;
-            if (! isset($_SESSION['prev_errors'])
+            if (
+                ! isset($_SESSION['prev_errors'])
                 || $_SESSION['prev_errors'] == ''
             ) {
                 return [];
             }
+
             foreach ($_SESSION['prev_errors'] as $errorObj) {
                 /** @var Error $errorObj */
-                if (! $errorObj->getLine()
+                if (
+                    ! $errorObj->getLine()
                     || ! $errorObj->getType()
                     || $errorObj->getNumber() == E_USER_WARNING
                 ) {
@@ -153,6 +157,7 @@ class ErrorReport
             if ($i == 0) {
                 return []; // then return empty array
             }
+
             $report['exception_type'] = 'php';
             $report['errors'] = $errors;
         } else {
@@ -182,7 +187,8 @@ class ErrorReport
             $components = [];
         }
 
-        if (isset($components['fragment'])
+        if (
+            isset($components['fragment'])
             && preg_match('<PMAURL-\d+:>', $components['fragment'], $matches)
         ) {
             $uri = str_replace($matches[0], '', $components['fragment']);
@@ -255,11 +261,13 @@ class ErrorReport
 
                 $line = mb_substr($line, 0, 75) . '//...';
             }
+
             [$uri, $scriptName] = $this->sanitizeUrl($level['url']);
             $level['uri'] = $uri;
             $level['scriptname'] = $scriptName;
             unset($level['url']);
         }
+
         unset($level);
 
         return $stack;
@@ -279,6 +287,7 @@ class ErrorReport
             'report_data' => $reportData,
             'hidden_inputs' => Url::getHiddenInputs(),
             'hidden_fields' => null,
+            'allowed_to_send_error_reports' => $this->config->get('SendErrorReports') !== 'never',
         ];
 
         if (! empty($reportData)) {
@@ -286,5 +295,12 @@ class ErrorReport
         }
 
         return $this->template->render('error/report_form', $datas);
+    }
+
+    public function getEmptyModal(): string
+    {
+        return $this->template->render('error/report_modal', [
+            'allowed_to_send_error_reports' => $this->config->get('SendErrorReports') !== 'never',
+        ]);
     }
 }

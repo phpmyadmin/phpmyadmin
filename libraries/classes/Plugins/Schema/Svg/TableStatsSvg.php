@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Schema\Svg;
 
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\TableStats;
+
 use function count;
 use function in_array;
 use function max;
@@ -112,13 +113,15 @@ class TableStatsSvg extends TableStats
                 $this->font->getStringWidth($field, $font, $fontSize)
             );
         }
+
         $this->width += $this->font->getStringWidth('  ', $font, $fontSize);
 
         /*
          * it is unknown what value must be added, because
          * table title is affected by the table width value
          */
-        while ($this->width
+        while (
+            $this->width
             < $this->font->getStringWidth($this->getTitle(), $font, $fontSize)
         ) {
             $this->width += 7;
@@ -172,10 +175,12 @@ class TableStatsSvg extends TableStats
                 if (in_array($field, $this->primary)) {
                     $fillColor = '#aea';
                 }
+
                 if ($field == $this->displayfield) {
                     $fillColor = 'none';
                 }
             }
+
             $this->diagram->printElement(
                 'rect',
                 $this->x,

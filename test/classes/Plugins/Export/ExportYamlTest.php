@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportYaml;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -13,6 +12,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
+
 use function array_shift;
 use function ob_get_clean;
 use function ob_start;
@@ -31,6 +31,7 @@ class ExportYamlTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
+        parent::loadDefaultConfig();
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
@@ -38,6 +39,11 @@ class ExportYamlTest extends AbstractTestCase
         $GLOBALS['save_on_server'] = false;
         $GLOBALS['crlf'] = "\n";
         $GLOBALS['cfgRelation']['relation'] = true;
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = '';
         $this->object = new ExportYaml();
     }
 
@@ -165,78 +171,42 @@ class ExportYamlTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->once())
-            ->method('query')
-            ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue(true));
-
-        $dbi->expects($this->once())
-            ->method('numFields')
-            ->with(true)
-            ->will($this->returnValue(4));
-
-        $dbi->expects($this->at(2))
-            ->method('fieldName')
-            ->will($this->returnValue('fName1'));
-
-        $dbi->expects($this->at(3))
-            ->method('fieldName')
-            ->will($this->returnValue('fNa"me2'));
-
-        $dbi->expects($this->at(4))
-            ->method('fieldName')
-            ->will($this->returnValue('fNa\\me3'));
-
-        $dbi->expects($this->at(5))
-            ->method('fieldName')
-            ->will($this->returnValue('fName4'));
-
-        $dbi->expects($this->at(6))
-            ->method('fetchRow')
-            ->with(true)
-            ->will(
-                $this->returnValue(
-                    [
-                        null,
-                        '123',
-                        "\"c\\a\nb\r",
-                    ]
-                )
-            );
-
-        $dbi->expects($this->at(7))
-            ->method('fetchRow')
-            ->with(true)
-            ->will(
-                $this->returnValue(
-                    [null]
-                )
-            );
-
-        $GLOBALS['dbi'] = $dbi;
-
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db',
-                'ta<ble',
+                'test_db',
+                'test_table',
                 "\n",
-                'example.com',
-                'SELECT'
+                'localhost',
+                'SELECT * FROM `test_db`.`test_table_yaml`;'
             )
         );
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '# db.ta&lt;ble' . "\n" .
+            '# test_db.test_table' . "\n" .
             '-' . "\n" .
-            '  fNa&quot;me2: 123' . "\n" .
-            '  fName3: &quot;\&quot;c\\\\a\nb\r&quot;' . "\n" .
-            '-' . "\n",
+            '  id: 1' . "\n" .
+            '  name: &quot;abcd&quot;' . "\n" .
+            '  datetimefield: &quot;2011-01-20 02:00:02&quot;' . "\n" .
+            '-' . "\n" .
+            '  id: 2' . "\n" .
+            '  name: &quot;foo&quot;' . "\n" .
+            '  datetimefield: &quot;2010-01-20 02:00:02&quot;' . "\n" .
+            '-' . "\n" .
+            '  id: 3' . "\n" .
+            '  name: &quot;Abcd&quot;' . "\n" .
+            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
+            '-' . "\n" .
+            '  id: 4' . "\n" .
+            '  name: &quot;Abcd&quot;' . "\n" .
+            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
+            '  textfield: &quot;123&quot;' . "\n" .
+            '-' . "\n" .
+            '  id: 5' . "\n" .
+            '  name: &quot;Abcd&quot;' . "\n" .
+            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
+            '  textfield: &quot;+30.2103210000&quot;' . "\n",
             $result
         );
     }

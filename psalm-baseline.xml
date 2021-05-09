@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.4.1@9fd7a7d885b3a216cff8dec9d8c21a132f275224">
+<files psalm-version="4.7.1@cd53e047a58f71f646dd6bf45476076ab07b5d44">
   <file src="libraries/classes/Bookmark.php">
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
@@ -94,10 +94,10 @@
   </file>
   <file src="libraries/classes/CheckUserPrivileges.php">
     <PossiblyFalseOperand occurrences="6">
-      <code>$tblname_end_offset</code>
-      <code>$tblname_start_offset</code>
-      <code>$tblname_start_offset</code>
-      <code>$tblname_start_offset</code>
+      <code>$tableNameEndOffset</code>
+      <code>$tableNameStartOffset</code>
+      <code>$tableNameStartOffset</code>
+      <code>$tableNameStartOffset</code>
       <code>mb_strpos($row, ' ON ')</code>
       <code>mb_strpos($row, ' ON ')</code>
     </PossiblyFalseOperand>
@@ -107,6 +107,19 @@
       <code>loadTemplate</code>
     </TooFewArguments>
   </file>
+  <file src="libraries/classes/Command/SetVersionCommand.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$defaultName</code>
+    </NonInvariantDocblockPropertyType>
+  </file>
+  <file src="libraries/classes/Command/WriteGitRevisionCommand.php">
+    <ForbiddenCode occurrences="1">
+      <code>shell_exec('git ' . $command)</code>
+    </ForbiddenCode>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$defaultName</code>
+    </NonInvariantDocblockPropertyType>
+  </file>
   <file src="libraries/classes/Config.php">
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;get('is_https')</code>
@@ -115,10 +128,9 @@
       <code>$default_value</code>
       <code>$request</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="3">
+    <PossiblyNullArgument occurrences="2">
       <code>$oldErrorReporting</code>
       <code>$oldErrorReporting</code>
-      <code>$this-&gt;get('PMA_VERSION')</code>
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Config/ConfigFile.php">
@@ -192,8 +204,7 @@
     <PossiblyNullArgument occurrences="1">
       <code>$error</code>
     </PossiblyNullArgument>
-    <ReferenceConstraintViolation occurrences="2">
-      <code>$error</code>
+    <ReferenceConstraintViolation occurrences="1">
       <code>return $retval;</code>
     </ReferenceConstraintViolation>
   </file>
@@ -240,8 +251,7 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Controllers/Database/MultiTableQueryController.php">
-    <PossiblyNullArgument occurrences="2">
-      <code>$params['db']</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$params['db']</code>
     </PossiblyNullArgument>
   </file>
@@ -265,14 +275,14 @@
   </file>
   <file src="libraries/classes/Controllers/Database/StructureController.php">
     <InvalidScalarArgument occurrences="2">
-      <code>$formatted_overhead</code>
-      <code>$formatted_size</code>
+      <code>$formattedOverhead</code>
+      <code>$formattedSize</code>
     </InvalidScalarArgument>
     <PossiblyNullArrayAccess occurrences="6">
-      <code>$formatted_overhead</code>
-      <code>$formatted_size</code>
-      <code>$formatted_size</code>
-      <code>$overhead_unit</code>
+      <code>$formattedOverhead</code>
+      <code>$formattedSize</code>
+      <code>$formattedSize</code>
+      <code>$overheadUnit</code>
       <code>$unit</code>
       <code>$unit</code>
     </PossiblyNullArrayAccess>
@@ -287,9 +297,9 @@
       <code>$asfile</code>
     </InvalidArgument>
     <PossiblyInvalidArgument occurrences="3">
-      <code>$dump_buffer</code>
-      <code>$dump_buffer</code>
       <code>$file_handle</code>
+      <code>$this-&gt;export-&gt;dumpBuffer</code>
+      <code>$this-&gt;export-&gt;dumpBuffer</code>
     </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/GisDataEditorController.php">
@@ -381,7 +391,7 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$dbname</code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument occurrences="11">
+    <PossiblyNullArgument occurrences="10">
       <code>$dbname</code>
       <code>$hostname</code>
       <code>$hostname</code>
@@ -391,7 +401,6 @@
       <code>$username</code>
       <code>$username</code>
       <code>$username</code>
-      <code>$username ?? null</code>
       <code>$username ?? null</code>
     </PossiblyNullArgument>
     <TypeDoesNotContainNull occurrences="1">
@@ -431,25 +440,12 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/ChangeController.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>$jsvkey</code>
-    </InvalidScalarArgument>
     <PossiblyNullArgument occurrences="1">
       <code>$where_clause ?? null</code>
     </PossiblyNullArgument>
     <TypeDoesNotContainType occurrences="1">
       <code>$biggest_max_file_size &gt; 0</code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="libraries/classes/Controllers/Table/ChartController.php">
-    <ImplicitToStringCast occurrences="1">
-      <code>Message::error(__('No SQL query was set to fetch data.'))</code>
-    </ImplicitToStringCast>
-  </file>
-  <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
-    <ImplicitToStringCast occurrences="1">
-      <code>Message::error(__('No SQL query was set to fetch data.'))</code>
-    </ImplicitToStringCast>
   </file>
   <file src="libraries/classes/Controllers/Table/RelationController.php">
     <PossiblyNullArgument occurrences="2">
@@ -481,11 +477,11 @@
     <NullableReturnStatement occurrences="1">
       <code>$this-&gt;dbi-&gt;fetchSingleRow($sql_query)</code>
     </NullableReturnStatement>
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(int) $fields_meta[$i]-&gt;length</code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Controllers/Table/StructureController.php">
-    <ImplicitToStringCast occurrences="1">
-      <code>$message</code>
-    </ImplicitToStringCast>
     <InvalidReturnStatement occurrences="1">
       <code>$partitionDetails</code>
     </InvalidReturnStatement>
@@ -534,6 +530,9 @@
       <code>$dataLabel</code>
       <code>$key</code>
     </PossiblyFalseArgument>
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(int) $fields_meta[$i]-&gt;length</code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Core.php">
     <InvalidOperand occurrences="1">
@@ -558,9 +557,6 @@
     <InvalidScalarArgument occurrences="1">
       <code>$tn_pageNow</code>
     </InvalidScalarArgument>
-    <PossiblyInvalidArgument occurrences="1">
-      <code>$this-&gt;dbi-&gt;getError()</code>
-    </PossiblyInvalidArgument>
     <RedundantCast occurrences="3">
       <code>(array) $has_list</code>
     </RedundantCast>
@@ -581,9 +577,6 @@
     </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Database/Designer/Common.php">
-    <InvalidArgument occurrences="1">
-      <code>$pg</code>
-    </InvalidArgument>
     <PossiblyUndefinedArrayOffset occurrences="4">
       <code>$con['DCN']</code>
       <code>$con['DTN']</code>
@@ -616,7 +609,7 @@
       <code>(string) $master</code>
     </RedundantCastGivenDocblockType>
     <RedundantPropertyInitializationCheck occurrences="2">
-      <code>isset($last_where, $this-&gt;formAndOrCols)</code>
+      <code>isset($lastWhere, $this-&gt;formAndOrCols)</code>
       <code>isset($this-&gt;formAndOrRows)</code>
     </RedundantPropertyInitializationCheck>
   </file>
@@ -678,15 +671,11 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <ImplementedReturnTypeMismatch occurrences="2">
-      <code>array|bool</code>
-      <code>string|false</code>
-    </ImplementedReturnTypeMismatch>
     <InvalidPropertyFetch occurrences="2">
       <code>$mysqli-&gt;connect_errno</code>
       <code>$mysqli-&gt;connect_error</code>
     </InvalidPropertyFetch>
-    <MoreSpecificImplementedParamType occurrences="24">
+    <MoreSpecificImplementedParamType occurrences="23">
       <code>$mysqli</code>
       <code>$mysqli</code>
       <code>$mysqli</code>
@@ -700,7 +689,6 @@
       <code>$mysqli</code>
       <code>$mysqli</code>
       <code>$mysqli</code>
-      <code>$result</code>
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
@@ -731,32 +719,22 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Display/Results.php">
-    <ImplicitToStringCast occurrences="1">
-      <code>$message</code>
-    </ImplicitToStringCast>
-    <InvalidArgument occurrences="16">
+    <InvalidArgument occurrences="9">
       <code>$added[$orgFullTableName]</code>
-      <code>$default_function</code>
-      <code>$default_function</code>
-      <code>$default_function</code>
-      <code>$default_function</code>
-      <code>$default_function</code>
-      <code>$transform_options</code>
-      <code>$transform_options</code>
-      <code>$transform_options</code>
-      <code>$transform_options</code>
-      <code>$transform_options</code>
-      <code>$transform_options</code>
-      <code>$transform_options</code>
-      <code>$transformation_plugin</code>
-      <code>$transformation_plugin</code>
-      <code>$transformation_plugin</code>
+      <code>$defaultFunction</code>
+      <code>$defaultFunction</code>
+      <code>$defaultFunction</code>
+      <code>$defaultFunction</code>
+      <code>$defaultFunction</code>
+      <code>$transformationPlugin</code>
+      <code>$transformationPlugin</code>
+      <code>$transformationPlugin</code>
     </InvalidArgument>
     <InvalidOperand occurrences="1">
       <code>$index</code>
     </InvalidOperand>
     <InvalidScalarArgument occurrences="1">
-      <code>$original_length</code>
+      <code>$originalLength</code>
     </InvalidScalarArgument>
     <ParadoxicalCondition occurrences="3">
       <code>! isset($column) || $column === null</code>
@@ -764,22 +742,22 @@
       <code>! isset($column) || $column === null</code>
     </ParadoxicalCondition>
     <PossiblyInvalidArgument occurrences="3">
-      <code>$col_visib</code>
-      <code>$col_visib</code>
+      <code>$colVisib</code>
+      <code>$colVisib</code>
       <code>$sortExpressionNoDirection</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="4">
-      <code>$col_visib_current</code>
-      <code>$col_visib_current</code>
-      <code>$is_field_truncated</code>
-      <code>$is_field_truncated</code>
+      <code>$colVisibCurrent</code>
+      <code>$colVisibCurrent</code>
+      <code>$isFieldTruncated</code>
+      <code>$isFieldTruncated</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="2">
-      <code>$display_size[0]</code>
-      <code>$display_size[1]</code>
+      <code>$displaySize[0]</code>
+      <code>$displaySize[1]</code>
     </PossiblyNullArrayAccess>
     <PossiblyUndefinedArrayOffset occurrences="1">
-      <code>$analyzed_sql_results['statement']</code>
+      <code>$analyzedSqlResults['statement']</code>
     </PossiblyUndefinedArrayOffset>
     <RedundantCast occurrences="21">
       <code>(string) '0'</code>
@@ -804,6 +782,14 @@
       <code>(string) '1'</code>
       <code>(string) '1'</code>
     </RedundantCast>
+    <RedundantCastGivenDocblockType occurrences="6">
+      <code>(int) $meta-&gt;length</code>
+      <code>(string) $fieldsMeta-&gt;name</code>
+      <code>(string) $fieldsMeta-&gt;name</code>
+      <code>(string) $fieldsMeta-&gt;name</code>
+      <code>(string) $fieldsMeta[$i]-&gt;name</code>
+      <code>(string) $fieldsMeta[$i]-&gt;name</code>
+    </RedundantCastGivenDocblockType>
     <TypeDoesNotContainNull occurrences="3">
       <code>$column === null</code>
       <code>$column === null</code>
@@ -904,13 +890,13 @@
   </file>
   <file src="libraries/classes/Export.php">
     <InvalidReturnStatement occurrences="1">
-      <code>$memory_limit</code>
+      <code>$memoryLimit</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
     <PossiblyInvalidArgument occurrences="1">
-      <code>$db_select</code>
+      <code>$dbSelect</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="2">
       <code>$line</code>
@@ -957,11 +943,7 @@
     <InvalidReturnType occurrences="1">
       <code>object</code>
     </InvalidReturnType>
-    <MissingFile occurrences="1">
-      <code>include ROOT_PATH . 'revision-info.php'</code>
-    </MissingFile>
-    <ReferenceConstraintViolation occurrences="2">
-      <code>$object</code>
+    <ReferenceConstraintViolation occurrences="1">
       <code>return $object;</code>
     </ReferenceConstraintViolation>
   </file>
@@ -1108,7 +1090,7 @@
   </file>
   <file src="libraries/classes/Import.php">
     <InvalidReturnStatement occurrences="1">
-      <code>$column_number</code>
+      <code>$columnNumber</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>int</code>
@@ -1118,18 +1100,18 @@
     </ParadoxicalCondition>
     <PossiblyFalseOperand occurrences="3">
       <code>$decPos</code>
-      <code>strpos($last_cumulative_size, ',')</code>
-      <code>strpos($last_cumulative_size, ',')</code>
+      <code>strpos($lastCumulativeSize, ',')</code>
+      <code>strpos($lastCumulativeSize, ',')</code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="5">
-      <code>$last_cumulative_size</code>
-      <code>$last_cumulative_size</code>
-      <code>$last_cumulative_size</code>
-      <code>$last_cumulative_size</code>
-      <code>$last_cumulative_size</code>
+      <code>$lastCumulativeSize</code>
+      <code>$lastCumulativeSize</code>
+      <code>$lastCumulativeSize</code>
+      <code>$lastCumulativeSize</code>
+      <code>$lastCumulativeSize</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArrayAccess occurrences="1">
-      <code>$additional_sql[$i]</code>
+      <code>$additionalSql[$i]</code>
     </PossiblyNullArrayAccess>
     <RedundantCast occurrences="4">
       <code>(string) $cell</code>
@@ -1159,26 +1141,24 @@
   </file>
   <file src="libraries/classes/InsertEdit.php">
     <InvalidArgument occurrences="1">
-      <code>$current_result</code>
+      <code>$currentResult</code>
     </InvalidArgument>
     <NullableReturnStatement occurrences="1">
       <code>$dispval</code>
     </NullableReturnStatement>
     <PossiblyInvalidOperand occurrences="2">
-      <code>$insert_id</code>
+      <code>$insertId</code>
       <code>$tmp</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArrayAccess occurrences="3">
-      <code>$data_size[0]</code>
-      <code>$data_size[1]</code>
+    <PossiblyNullArrayAccess occurrences="1">
       <code>$dispval</code>
     </PossiblyNullArrayAccess>
     <PossiblyUndefinedVariable occurrences="1">
-      <code>$protected_row</code>
+      <code>$protectedRow</code>
     </PossiblyUndefinedVariable>
     <TypeDoesNotContainType occurrences="2">
-      <code>$input_type === 'time'</code>
-      <code>$input_type === 'time'</code>
+      <code>$inputType === 'time'</code>
+      <code>$inputType === 'time'</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/IpAllowDeny.php">
@@ -1210,7 +1190,7 @@
   <file src="libraries/classes/Menu.php">
     <NullableReturnStatement occurrences="2">
       <code>$allowedTabs</code>
-      <code>SessionCache::get($cache_key)</code>
+      <code>SessionCache::get($cacheKey)</code>
     </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="1">
       <code>mb_strpos($row['tab'], '_')</code>
@@ -1241,6 +1221,12 @@
     <PossiblyFalseReference occurrences="1">
       <code>getPresence</code>
     </PossiblyFalseReference>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$icons</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidIterator occurrences="1">
+      <code>$icons</code>
+    </PossiblyInvalidIterator>
     <PossiblyNullArgument occurrences="2">
       <code>$container-&gt;realName</code>
       <code>$table</code>
@@ -1284,14 +1270,16 @@
     </PossiblyInvalidPropertyFetch>
   </file>
   <file src="libraries/classes/Navigation/Nodes/NodeTable.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$icon</code>
+    </NonInvariantDocblockPropertyType>
     <PossiblyInvalidPropertyFetch occurrences="2">
       <code>$this-&gt;realParent()-&gt;realName</code>
       <code>$this-&gt;realParent()-&gt;realName</code>
     </PossiblyInvalidPropertyFetch>
   </file>
   <file src="libraries/classes/Normalization.php">
-    <RedundantCast occurrences="2">
-      <code>(array) $newTables</code>
+    <RedundantCast occurrences="1">
       <code>(array) $partialDependencies</code>
     </RedundantCast>
   </file>
@@ -1334,12 +1322,6 @@
       <code>(string) array_pop($elem)</code>
       <code>(string) array_pop($elem)</code>
     </RedundantCast>
-    <TypeDoesNotContainType occurrences="4">
-      <code>$property_class == BoolPropertyItem::class</code>
-      <code>$property_class == MessageOnlyPropertyItem::class</code>
-      <code>$property_class == SelectPropertyItem::class</code>
-      <code>$property_class == TextPropertyItem::class</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationCookie.php">
     <ImplementedReturnTypeMismatch occurrences="2">
@@ -1353,13 +1335,7 @@
       <code>(string) $conn_error</code>
     </RedundantCast>
   </file>
-  <file src="libraries/classes/Plugins/Auth/AuthenticationHttp.php">
-    <ImplicitToStringCast occurrences="1"/>
-  </file>
   <file src="libraries/classes/Plugins/Auth/AuthenticationSignon.php">
-    <InvalidArgument occurrences="1">
-      <code>$sessionCookieParams</code>
-    </InvalidArgument>
     <PossiblyInvalidArgument occurrences="5">
       <code>$sessionCookieParams['domain']</code>
       <code>$sessionCookieParams['httponly']</code>
@@ -1462,34 +1438,34 @@
       <code>Context::escape($alias)</code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullArgument occurrences="20">
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$table_alias</code>
-      <code>$view_alias</code>
-      <code>$view_alias</code>
-      <code>$view_alias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$tableAlias</code>
+      <code>$viewAlias</code>
+      <code>$viewAlias</code>
+      <code>$viewAlias</code>
     </PossiblyNullArgument>
-    <RedundantCastGivenDocblockType occurrences="2">
-      <code>(string) $create_query</code>
+    <RedundantCastGivenDocblockType occurrences="3">
+      <code>(int) $fieldsMeta[$j]-&gt;length</code>
+      <code>(string) $createQuery</code>
       <code>(string) $table</code>
     </RedundantCastGivenDocblockType>
-    <ReferenceConstraintViolation occurrences="3">
-      <code>$flag</code>
-      <code>return $sql_query;</code>
+    <ReferenceConstraintViolation occurrences="2">
+      <code>return $sqlQuery;</code>
       <code>return $statement-&gt;build();</code>
     </ReferenceConstraintViolation>
     <UndefinedMethod occurrences="4">
@@ -1534,9 +1510,6 @@
     </ImplementedReturnTypeMismatch>
   </file>
   <file src="libraries/classes/Plugins/Import/ImportCsv.php">
-    <ImplicitToStringCast occurrences="1">
-      <code>$hint</code>
-    </ImplicitToStringCast>
     <ParadoxicalCondition occurrences="1">
       <code>$error</code>
     </ParadoxicalCondition>
@@ -1590,11 +1563,6 @@
       <code>attributes</code>
     </PossiblyNullReference>
     <UndefinedPropertyFetch occurrences="1"/>
-  </file>
-  <file src="libraries/classes/Plugins/Import/ShapeFileImport.php">
-    <ImplementedReturnTypeMismatch occurrences="1">
-      <code>string|false</code>
-    </ImplementedReturnTypeMismatch>
   </file>
   <file src="libraries/classes/Plugins/ImportPlugin.php">
     <RedundantCastGivenDocblockType occurrences="1">
@@ -2096,13 +2064,8 @@
     </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/Svg.php">
-    <InvalidArgument occurrences="4">
-      <code>$x1</code>
-      <code>$x2</code>
-      <code>$y1</code>
-      <code>$y2</code>
-    </InvalidArgument>
-    <RedundantCastGivenDocblockType occurrences="2">
+    <RedundantCastGivenDocblockType occurrences="3">
+      <code>(string) $styles</code>
       <code>(string) $styles</code>
       <code>(string) $this-&gt;font</code>
     </RedundantCastGivenDocblockType>
@@ -2207,9 +2170,6 @@
     <PossiblyInvalidOperand occurrences="1">
       <code>$timestamp</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullPropertyFetch occurrences="1">
-      <code>$meta-&gt;type</code>
-    </PossiblyNullPropertyFetch>
     <RedundantCastGivenDocblockType occurrences="3">
       <code>(string) $buffer</code>
       <code>(string) $buffer</code>
@@ -2225,9 +2185,16 @@
       <code>bool</code>
     </ImplementedReturnTypeMismatch>
   </file>
+  <file src="libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php">
+    <RedundantCastGivenDocblockType occurrences="3">
+      <code>(string) $buffer</code>
+      <code>(string) $buffer</code>
+      <code>(string) $buffer</code>
+    </RedundantCastGivenDocblockType>
+  </file>
   <file src="libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php">
     <FalsableReturnStatement occurrences="1">
-      <code>FormatConverter::binaryToIp($buffer)</code>
+      <code>FormatConverter::binaryToIp($buffer, $isBinary)</code>
     </FalsableReturnStatement>
     <InvalidFalsableReturnType occurrences="1">
       <code>string</code>
@@ -2279,6 +2246,12 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Replication.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$output</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>array{'File'?: string, 'Position'?: string}</code>
+    </MoreSpecificReturnType>
     <PossiblyNullArgument occurrences="1">
       <code>$host</code>
     </PossiblyNullArgument>
@@ -2323,23 +2296,23 @@
       <code>null</code>
     </NullArgument>
     <NullableReturnStatement occurrences="2">
-      <code>$authentication_plugin</code>
+      <code>$authenticationPlugin</code>
       <code>$result['password']</code>
     </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="6">
       <code>mb_strpos($row1['Type'], '(')</code>
       <code>mb_strpos($row1['Type'], '(')</code>
       <code>mb_strpos($row1['Type'], ')')</code>
-      <code>mb_strrpos($_user_name, '@')</code>
       <code>mb_strrpos($currentUser, '@')</code>
-      <code>mb_strrpos($export_user, ';')</code>
+      <code>mb_strrpos($currentUserName, '@')</code>
+      <code>mb_strrpos($exportUser, ';')</code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$dbname</code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="6">
       <code>$dbname</code>
-      <code>$old_usergroup</code>
+      <code>$oldUserGroup</code>
       <code>$row1['Type']</code>
       <code>$row1['Type']</code>
       <code>$row1['Type']</code>
@@ -2349,10 +2322,10 @@
       <code>$result['password']</code>
       <code>$row1['Type']</code>
       <code>$row['@@old_passwords']</code>
-      <code>$tmp_initial</code>
+      <code>$tmpInitial</code>
     </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset occurrences="1">
-      <code>$array_initials</code>
+      <code>$arrayInitials</code>
     </PossiblyNullArrayOffset>
     <PossiblyUndefinedArrayOffset occurrences="1">
       <code>$_POST['pred_dbname']</code>
@@ -2394,52 +2367,49 @@
     <InvalidArgument occurrences="4">
       <code>$result</code>
       <code>$result</code>
-      <code>$showtable</code>
-      <code>$showtable</code>
+      <code>$showTable</code>
+      <code>$showTable</code>
     </InvalidArgument>
     <InvalidReturnStatement occurrences="1">
-      <code>$num_rows</code>
+      <code>$numRows</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
     <InvalidScalarArgument occurrences="4">
       <code>$error</code>
-      <code>$num_rows</code>
-      <code>$num_rows</code>
+      <code>$numRows</code>
+      <code>$numRows</code>
       <code>''</code>
     </InvalidScalarArgument>
     <PossiblyFalseReference occurrences="1">
       <code>save</code>
     </PossiblyFalseReference>
-    <PossiblyInvalidArgument occurrences="5">
-      <code>$fields_meta</code>
-      <code>$fields_meta</code>
+    <PossiblyInvalidArgument occurrences="3">
       <code>$result</code>
       <code>$result</code>
       <code>$result</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidOperand occurrences="1">
-      <code>$insert_id</code>
+      <code>$insertId</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument occurrences="22">
+    <PossiblyNullArgument occurrences="21">
       <code>$_POST['purge'] ?? null</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
-      <code>$disp_message ?? null</code>
-      <code>$extra_data ?? null</code>
-      <code>$message_to_show ?? null</code>
-      <code>$printview</code>
-      <code>$printview</code>
+      <code>$extraData ?? null</code>
+      <code>$messageToShow ?? null</code>
+      <code>$printView</code>
+      <code>$printView</code>
       <code>$result</code>
       <code>$result ?? null</code>
       <code>$row[0]</code>
       <code>$showtable</code>
-      <code>$sql_data ?? null</code>
-      <code>$sql_query_for_bookmark ?? null</code>
+      <code>$sqlData ?? null</code>
+      <code>$sqlQueryForBookmark ?? null</code>
       <code>$table</code>
       <code>$table</code>
       <code>$table</code>
@@ -2465,71 +2435,65 @@
     </NullableReturnStatement>
   </file>
   <file src="libraries/classes/Table.php">
-    <InvalidArgument occurrences="1">
-      <code>$keyBlockSizes</code>
-    </InvalidArgument>
     <InvalidReturnStatement occurrences="1">
-      <code>$table_auto_increment ?? ''</code>
+      <code>$tableAutoIncrement ?? ''</code>
     </InvalidReturnStatement>
     <PossiblyNullArgument occurrences="4">
-      <code>$existrel_foreign[$master_field_md5]['constraint']</code>
-      <code>$existrel_foreign[$master_field_md5]['ref_db_name']</code>
-      <code>$existrel_foreign[$master_field_md5]['ref_index_list']</code>
-      <code>$existrel_foreign[$master_field_md5]['ref_table_name']</code>
+      <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_db_name']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_index_list']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_table_name']</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="7">
-      <code>$existrel_foreign[$master_field_md5]['constraint']</code>
-      <code>$existrel_foreign[$master_field_md5]['constraint']</code>
-      <code>$existrel_foreign[$master_field_md5]['on_delete']</code>
-      <code>$existrel_foreign[$master_field_md5]['on_update']</code>
-      <code>$existrel_foreign[$master_field_md5]['ref_db_name']</code>
-      <code>$existrel_foreign[$master_field_md5]['ref_index_list']</code>
-      <code>$existrel_foreign[$master_field_md5]['ref_table_name']</code>
+      <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
+      <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
+      <code>$existrelForeign[$masterFieldMd5]['on_delete']</code>
+      <code>$existrelForeign[$masterFieldMd5]['on_update']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_db_name']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_index_list']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_table_name']</code>
     </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset occurrences="2">
-      <code>$options_array</code>
-      <code>$options_array</code>
+      <code>$optionsArray</code>
+      <code>$optionsArray</code>
     </PossiblyNullArrayOffset>
     <PossiblyNullPropertyAssignmentValue occurrences="2">
       <code>null</code>
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
     <PossiblyNullReference occurrences="7">
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
-      <code>$existrel_foreign[$master_field_md5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
+      <code>$existrelForeign[$masterFieldMd5]</code>
     </PossiblyNullReference>
-    <RedundantCastGivenDocblockType occurrences="7">
+    <RedundantCastGivenDocblockType occurrences="9">
       <code>(string) $db</code>
-      <code>(string) $default_value</code>
-      <code>(string) $default_value</code>
-      <code>(string) $default_value</code>
-      <code>(string) $source_table</code>
+      <code>(string) $defaultValue</code>
+      <code>(string) $defaultValue</code>
+      <code>(string) $defaultValue</code>
+      <code>(string) $defaultValue</code>
+      <code>(string) $defaultValue</code>
+      <code>(string) $sourceTable</code>
       <code>(string) $table</code>
-      <code>(string) $table_name</code>
+      <code>(string) $tableName</code>
     </RedundantCastGivenDocblockType>
     <RedundantPropertyInitializationCheck occurrences="3">
       <code>isset($this-&gt;uiprefs)</code>
       <code>isset($this-&gt;uiprefs)</code>
       <code>isset($this-&gt;uiprefs)</code>
     </RedundantPropertyInitializationCheck>
-    <ReferenceConstraintViolation occurrences="2">
-      <code>$error</code>
-      <code>return $sql_query;</code>
+    <ReferenceConstraintViolation occurrences="1">
+      <code>return $sqlQuery;</code>
     </ReferenceConstraintViolation>
     <TypeDoesNotContainType occurrences="1">
-      <code>$row_fields[$_key] != 'cc'</code>
+      <code>$rowFields[$key] != 'cc'</code>
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Table/ColumnsDefinition.php">
-    <PossiblyFalseArgument occurrences="2">
-      <code>$form_params['db']</code>
-      <code>$form_params['table']</code>
-    </PossiblyFalseArgument>
     <PossiblyUndefinedVariable occurrences="1">
       <code>$submit_fulltext</code>
     </PossiblyUndefinedVariable>
@@ -2548,7 +2512,7 @@
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
     <RedundantCastGivenDocblockType occurrences="2">
-      <code>(bool) $per_server</code>
+      <code>(bool) $perServer</code>
       <code>(string) $this-&gt;theme-&gt;id</code>
     </RedundantCastGivenDocblockType>
   </file>
@@ -2557,8 +2521,8 @@
       <code>(int) $version - 1</code>
     </InvalidScalarArgument>
     <PossiblyFalseOperand occurrences="2">
-      <code>mb_strpos($log_entry, "\n")</code>
-      <code>mb_strpos($log_entry, "\n")</code>
+      <code>mb_strpos($logEntry, "\n")</code>
+      <code>mb_strpos($logEntry, "\n")</code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$version ?? ''</code>
@@ -2596,15 +2560,6 @@
       <code>$row['comment']</code>
     </PossiblyNullArrayAccess>
   </file>
-  <file src="libraries/classes/Twig/I18n/NodeTrans.php">
-    <PossiblyNullArgument occurrences="5">
-      <code>$msg1</code>
-      <code>$msg1</code>
-      <code>$this-&gt;hasNode('count') ? $this-&gt;getNode('count') : null</code>
-      <code>$this-&gt;hasNode('count') ? $this-&gt;getNode('count') : null</code>
-      <code>$this-&gt;hasNode('count') ? $this-&gt;getNode('count') : null</code>
-    </PossiblyNullArgument>
-  </file>
   <file src="libraries/classes/TwoFactor.php">
     <InvalidPropertyFetch occurrences="1">
       <code>$cls::$id</code>
@@ -2640,36 +2595,33 @@
   </file>
   <file src="libraries/classes/Util.php">
     <EmptyArrayAccess occurrences="1">
-      <code>$group[$group_name]['tab' . $sep . 'count']</code>
+      <code>$group[$groupName]['tab' . $sep . 'count']</code>
     </EmptyArrayAccess>
     <InvalidArrayOffset occurrences="3">
-      <code>$group[$group_name]['is' . $sep . 'group']</code>
-      <code>$group[$group_name]['tab' . $sep . 'count']</code>
+      <code>$group[$groupName]['is' . $sep . 'group']</code>
+      <code>$group[$groupName]['tab' . $sep . 'count']</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
     <InvalidReturnStatement occurrences="1">
-      <code>$return_value</code>
+      <code>$returnValue</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
-    <NullableReturnStatement occurrences="1">
-      <code>$wktval</code>
-    </NullableReturnStatement>
     <PossiblyFalseOperand occurrences="2">
       <code>mb_strpos($value, '.')</code>
-      <code>mb_strrpos($columnspec, ')')</code>
+      <code>mb_strrpos($columnSpecification, ')')</code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$table</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayAccess occurrences="2">
-      <code>$group[$group_name]['tab' . $sep . 'count']</code>
+      <code>$group[$groupName]['tab' . $sep . 'count']</code>
       <code>$table['Name']</code>
     </PossiblyInvalidArrayAccess>
     <PossiblyInvalidArrayAssignment occurrences="3">
-      <code>$group[$group_name]['tab' . $sep . 'count']</code>
-      <code>$group[$table_name]</code>
+      <code>$group[$groupName]['tab' . $sep . 'count']</code>
+      <code>$group[$tableName]</code>
       <code>$table['disp_name']</code>
     </PossiblyInvalidArrayAssignment>
     <PossiblyInvalidArrayOffset occurrences="2">
@@ -2677,29 +2629,34 @@
       <code>$table['disp_name']</code>
     </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument occurrences="2">
-      <code>$max_size</code>
-      <code>$max_unit</code>
+      <code>$maxSize</code>
+      <code>$maxUnit</code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="2">
-      <code>$max_size</code>
-      <code>$max_unit</code>
+      <code>$maxSize</code>
+      <code>$maxUnit</code>
     </PossiblyNullArrayAccess>
     <RedundantCast occurrences="1">
       <code>(string) strftime($string)</code>
     </RedundantCast>
     <RedundantCastGivenDocblockType occurrences="8">
+      <code>(int) $meta-&gt;length</code>
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
       <code>(int) $timestamp</code>
-      <code>(string) $a_name</code>
-      <code>(string) $a_name</code>
-      <code>(string) $engine</code>
+      <code>(string) $aName</code>
+      <code>(string) $aName</code>
     </RedundantCastGivenDocblockType>
     <TypeDoesNotContainType occurrences="1">
       <code>$ret === false</code>
     </TypeDoesNotContainType>
+  </file>
+  <file src="libraries/classes/Utils/ForeignKey.php">
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(string) $engine</code>
+    </RedundantCastGivenDocblockType>
   </file>
   <file src="libraries/classes/Utils/FormatConverter.php">
     <RedundantCast occurrences="1">

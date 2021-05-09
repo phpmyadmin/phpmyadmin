@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Server\Privileges;
+
 use function strlen;
 
 /**
@@ -68,10 +70,10 @@ class UserPassword
 
         [$username, $hostname] = $dbi->getCurrentUserAndHost();
 
-        $serverType = Util::getServerType();
         $serverVersion = $dbi->getVersion();
 
-        if (isset($_POST['authentication_plugin'])
+        if (
+            isset($_POST['authentication_plugin'])
             && ! empty($_POST['authentication_plugin'])
         ) {
             $orig_auth_plugin = $_POST['authentication_plugin'];
@@ -86,19 +88,19 @@ class UserPassword
         $sql_query = 'SET password = '
             . ($password == '' ? '\'\'' : $hashing_function . '(\'***\')');
 
-        if ($serverType === 'MySQL'
-            && $serverVersion >= 50706
+        $isPerconaOrMySql = Compatibility::isMySqlOrPerconaDb();
+        if (
+            $isPerconaOrMySql && $serverVersion >= 50706
         ) {
             $sql_query = 'ALTER USER \'' . $dbi->escapeString($username)
                 . '\'@\'' . $dbi->escapeString($hostname)
                 . '\' IDENTIFIED WITH ' . $orig_auth_plugin . ' BY '
                 . ($password == '' ? '\'\'' : '\'***\'');
-        } elseif (($serverType === 'MySQL'
-            && $serverVersion >= 50507)
-            || ($serverType === 'MariaDB'
-            && $serverVersion >= 50200)
+        } elseif (
+            ($isPerconaOrMySql && $serverVersion >= 50507)
+            || (Compatibility::isMariaDb() && $serverVersion >= 50200)
         ) {
-            // For MySQL versions 5.5.7+ and MariaDB versions 5.2+,
+            // For MySQL and Percona versions 5.5.7+ and MariaDB versions 5.2+,
             // explicitly set value of `old_passwords` so that
             // it does not give an error while using
             // the PASSWORD() function
@@ -107,6 +109,7 @@ class UserPassword
             } else {
                 $value = 0;
             }
+
             $dbi->tryQuery('SET `old_passwords` = ' . $value . ';');
         }
 
@@ -131,11 +134,13 @@ class UserPassword
      */
     private function changePassHashingFunction()
     {
-        if (Core::isValid(
-            $_POST['authentication_plugin'],
-            'identical',
-            'mysql_old_password'
-        )) {
+        if (
+            Core::isValid(
+                $_POST['authentication_plugin'],
+                'identical',
+                'mysql_old_password'
+            )
+        ) {
             $hashing_function = 'OLD_PASSWORD';
         } else {
             $hashing_function = 'PASSWORD';
@@ -168,17 +173,20 @@ class UserPassword
 
         $err_url = Url::getFromRoute('/user-password');
 
-        $serverType = Util::getServerType();
         $serverVersion = $dbi->getVersion();
 
-        if ($serverType === 'MySQL' && $serverVersion >= 50706) {
+        if (
+            Compatibility::isMySqlOrPerconaDb()
+            && $serverVersion >= 50706
+        ) {
             $local_query = 'ALTER USER \'' . $dbi->escapeString($username)
                 . '\'@\'' . $dbi->escapeString($hostname) . '\''
                 . ' IDENTIFIED with ' . $orig_auth_plugin . ' BY '
                 . ($password == ''
                 ? '\'\''
                 : '\'' . $dbi->escapeString($password) . '\'');
-        } elseif ($serverType === 'MariaDB'
+        } elseif (
+            Compatibility::isMariaDb()
             && $serverVersion >= 50200
             && $serverVersion < 100100
             && $orig_auth_plugin !== ''
@@ -207,6 +215,7 @@ class UserPassword
                 : $hashing_function . '(\''
                     . $dbi->escapeString($password) . '\')');
         }
+
         if (! @$dbi->tryQuery($local_query)) {
             Generator::mysqlDie(
                 $dbi->getError(),

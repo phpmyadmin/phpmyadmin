@@ -45,6 +45,7 @@ abstract class OptionsPropertyItem extends PropertyItem
         if ($name) {
             $this->name = $name;
         }
+
         if (! $text) {
             return;
         }

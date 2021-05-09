@@ -16,7 +16,7 @@ use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Util;
 use SimpleXMLElement;
-use const LIBXML_COMPACT;
+
 use function count;
 use function in_array;
 use function libxml_disable_entity_loader;
@@ -24,6 +24,8 @@ use function simplexml_load_string;
 use function str_replace;
 use function strcmp;
 use function strlen;
+
+use const LIBXML_COMPACT;
 use const PHP_VERSION_ID;
 
 /**
@@ -176,7 +178,7 @@ class ImportXml extends ImportPlugin
         /**
          * The XML was malformed
          */
-        if ($db_name === null) {
+        if ($db_name === '') {
             echo Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
@@ -266,6 +268,7 @@ class ImportXml extends ImportPlugin
                     if (! in_array((string) $row_attr['name'], $tempRow)) {
                         $tempRow[] = (string) $row_attr['name'];
                     }
+
                     $tempCells[] = (string) $v2;
                 }
 
@@ -350,10 +353,6 @@ class ImportXml extends ImportPlugin
             $db_name = $db;
             $options = ['create_db' => false];
         } else {
-            if ($db_name === null) {
-                $db_name = 'XML_DB';
-            }
-
             /* Set database collation/charset */
             $options = [
                 'db_collation' => $collation,

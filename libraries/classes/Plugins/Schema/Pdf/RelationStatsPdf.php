@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
 use PhpMyAdmin\Plugins\Schema\RelationStats;
+
 use function sqrt;
 
 /**
@@ -106,6 +107,7 @@ class RelationStatsPdf extends RelationStats
         } else {
             $this->diagram->SetDrawColor(0);
         }
+
         $this->diagram->setLineWidthScale(0.2);
         $this->diagram->lineScale(
             $this->xSrc,

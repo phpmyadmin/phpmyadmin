@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ErrorHandler;
+
 use const E_RECOVERABLE_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;

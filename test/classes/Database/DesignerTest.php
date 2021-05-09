@@ -9,6 +9,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Version;
 use ReflectionMethod;
 
 class DesignerTest extends AbstractTestCase
@@ -22,7 +23,6 @@ class DesignerTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        parent::defineVersionConstants();
 
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -37,7 +37,7 @@ class DesignerTest extends AbstractTestCase
         $_SESSION = [
             'relation' => [
                 '1' => [
-                    'PMA_VERSION' => PMA_VERSION,
+                    'version' => Version::VERSION,
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
                     'pdfwork' => true,
