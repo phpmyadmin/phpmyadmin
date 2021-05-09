@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-05-08 21:33+0000\n"
+"PO-Revision-Date: 2021-05-10 16:34+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/pt/>\n"
@@ -6493,7 +6493,7 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"A %1$svalidade do cookie de login%2$s sendo maior que %3$ssession."
+"A %1$svalidade do cookie de login%2$s a ser maior que %3$ssession."
 "gc_maxlifetime%4$s pode causar invalidação aleatória da sessão (atualmente a "
 "session.gc_maxlifetime é %5$d)."
 
@@ -7722,7 +7722,7 @@ msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
-"A porcentagem de lixo num ficheiro de dados de log antes de ser compactado. "
+"A percentagem de lixo num ficheiro de dados de log antes de ser compactado. "
 "Este é um valor entre 1 e 99. A predefinição é 50."
 
 #: libraries/classes/Engines/Pbxt.php:104
@@ -12526,7 +12526,7 @@ msgid ""
 "reason."
 msgstr ""
 "A quantidade de páginas trancadas no pool de buffer do InnoDB. Estas são "
-"páginas que estão sendo lidas ou escritas atualmente ou que não podem ser "
+"páginas que estão a ser lidas ou escritas atualmente ou que não podem ser "
 "vazadas ou removidas por alguma razão."
 
 #: libraries/classes/Server/Status/Variables.php:462
@@ -13909,7 +13909,7 @@ msgstr "Executar"
 
 #: libraries/classes/Util.php:3861
 msgid "SSL is not being used"
-msgstr "SSL não está sendo usado"
+msgstr "SSL não está a ser usado"
 
 #: libraries/classes/Util.php:3866
 msgid "SSL is used with disabled verification"
@@ -14079,7 +14079,7 @@ msgstr "Sucesso!"
 
 #: libraries/user_preferences.inc.php:31
 msgid "Manage your settings"
-msgstr "Gerencie suas configurações"
+msgstr "Gira as suas configurações"
 
 #: libraries/user_preferences.inc.php:38
 msgid "Two-factor authentication"
@@ -16544,7 +16544,8 @@ msgstr "Taxa de consulta lenta"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
-"A porcentagem de queries lentas está alta comparada com o uptime do servidor."
+"A percentagem de consultas lentas está alta comparada com o uptime do "
+"servidor."
 
 #: libraries/advisory_rules_generic.txt:75
 #, php-format
@@ -16762,7 +16763,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:154
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Porcentagem de ordenações que criam tabelas temporárias"
+msgstr "Percentagem de ordenações que criam tabelas temporárias"
 
 #: libraries/advisory_rules_generic.txt:157
 #: libraries/advisory_rules_generic.txt:164
@@ -16805,7 +16806,7 @@ msgstr "Ordenar linhas"
 
 #: libraries/advisory_rules_generic.txt:171
 msgid "There are lots of rows being sorted."
-msgstr "Muitos campos estão sendo ordenados."
+msgstr "Muitos campos estão a ser ordenados."
 
 #: libraries/advisory_rules_generic.txt:172
 msgid ""
@@ -16837,9 +16838,9 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
-"Isso significa que JOINs estão fazendo leituras completas de tabela. "
-"Adicionar índices aos campos sendo usados nas condições JOIN irá acelerar "
-"bastante a união das tabelas."
+"Isso significa que JOINs fazem leituras completas de tabela. Adicionar "
+"índices aos campos a serem usados nas condições JOIN irá acelerar bastante a "
+"união das tabelas."
 
 #: libraries/advisory_rules_generic.txt:181
 #, php-format
@@ -16956,7 +16957,7 @@ msgstr "Os valores atuais de tmp_table_size são: %s, max_heap_table_size: %s"
 
 #: libraries/advisory_rules_generic.txt:212
 msgid "Percentage of temp tables on disk"
-msgstr "Porcentagem de tabelas temporárias em disco"
+msgstr "Percentagem de tabelas temporárias em disco"
 
 #: libraries/advisory_rules_generic.txt:215
 #: libraries/advisory_rules_generic.txt:222
@@ -16964,7 +16965,7 @@ msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
-"Muitas tabelas temporárias estão sendo escritas no disco ao invés de serem "
+"Muitas tabelas temporárias estão a ser escritas no disco ao invés de serem "
 "mantidas na memória."
 
 #: libraries/advisory_rules_generic.txt:216
@@ -16978,13 +16979,13 @@ msgid ""
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
 "Aumentar o {max_heap_table_size} e {tmp_table_size} pode ajudar. Embora "
-"algumas tabelas temporárias estejam sempre sendo escritas para o disco, "
-"independente do valor dessas variáveis. Para eliminá-las, você terá que "
-"reescrever suas queries para evitar essas condições (dentro de uma tabela "
-"temporária: presença de um campo BLOB ou TEXTO ou presença de um campo maior "
-"que 512 bytes) como mencionado no começo de um <a href=\"https://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">artigo do Pythian "
-"Group</a>"
+"algumas tabelas temporárias estejam sempre a ser escritas para o disco, "
+"independente do valor dessas variáveis. Para eliminá-las, terá que "
+"reescrever as suas consultas para evitar essas condições (dentro de uma "
+"tabela temporária: presença de um campo BLOB ou TEXTO ou presença de um "
+"campo maior que 512 bytes) como mencionado no começo de um <a href=\"https"
+"://www.facebook.com/note.php?note_id=10150111255065841&comments\">artigo do "
+"Pythian Group</a>"
 
 #: libraries/advisory_rules_generic.txt:217
 #, php-format
@@ -16992,8 +16993,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
-"%s%% de todas as tabelas temporárias estão sendo escritas no disco. Este "
-"valor deveria ser menor do que 25%%"
+"%s%% de todas as tabelas temporárias estão a ser escritas no disco. Este "
+"valor deveria ser menor que 25%%"
 
 #: libraries/advisory_rules_generic.txt:219
 msgid "Temp disk rate"
@@ -17010,8 +17011,8 @@ msgid ""
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
 "Aumentar o {max_heap_table_size} e o {tmp_table_size} pode ajudar. Embora "
-"algumas tabelas temporárias estejam sempre sendo escritas para o disco, "
-"independente do valor dessas variáveis. Para eliminá-las, você terá que "
+"algumas tabelas temporárias estejam sempre a serem escritas para o disco, "
+"independente do valor dessas variáveis. Para eliminá-las, terá que "
 "reescrever suas queries para evitar essas condições (dentro de uma tabela "
 "temporária: presença de um campo BLOB ou TEXTO ou a presença de um campo "
 "maior que 512 bytes) como mencionado na <a href=\"https://dev.mysql.com/doc/"
@@ -17023,8 +17024,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
-"A taxa de tabelas temporárias sendo escritas no disco: %s, esse valor "
-"deveria ser menor do que 1 por hora"
+"A taxa de tabelas temporárias a serem escritas no disco: %s, esse valor "
+"deveria ser menor que 1 por hora"
 
 #: libraries/advisory_rules_generic.txt:228
 msgid "MyISAM key buffer size"
@@ -17065,9 +17066,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
-"Você pode precisar diminuir o tamanho do {key_buffer_size}, re-examinar suas "
-"tabelas para ver se os índices foram removidos, ou examinar as queries e "
-"expectativas a respeito de quais índices estão sendo usados."
+"Pode precisar de diminuir o tamanho do {key_buffer_size}, re-examinar as "
+"suas tabelas para ver se os índices foram removidos, ou examinar as "
+"consultas e expectativas a respeito de quais índices estão a ser usados."
 
 #: libraries/advisory_rules_generic.txt:240
 #, php-format
@@ -17079,7 +17080,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:243
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Porcentagem do buffer de chaves MyISAM usada"
+msgstr "Percentagem do buffer de chaves MyISAM usada"
 
 #: libraries/advisory_rules_generic.txt:248
 #, php-format
@@ -17090,7 +17091,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:250
 msgid "Percentage of index reads from memory"
-msgstr "Porcentagem de leituras de índice da memória"
+msgstr "Percentagem de leituras de índice da memória"
 
 #: libraries/advisory_rules_generic.txt:253
 #, php-format
@@ -17131,7 +17132,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:266
 msgid "Percentage of used open files limit"
-msgstr "Porcentagem do limite de ficheiros abertos"
+msgstr "Percentagem do limite de ficheiros abertos"
 
 #: libraries/advisory_rules_generic.txt:269
 msgid ""
@@ -17265,9 +17266,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:313
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
-"%s thread(s) levaram mais de %s segundos para começar, sendo que deveriam "
-"ser 0"
+msgstr "%s thread(s) levaram mais de %s segundos para começar, deveriam ser 0"
 
 #: libraries/advisory_rules_generic.txt:315
 msgid "Slow launch time"
@@ -17622,7 +17621,7 @@ msgstr "Utilização da cache de comandos"
 #: libraries/advisory_rules_mysql_before80003.txt:27
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr "Menos de 80%% do cache de query está sendo utilizado."
+msgstr "Menos de 80%% do cache de query está a ser utilizado."
 
 #: libraries/advisory_rules_mysql_before80003.txt:28
 msgid ""
@@ -17677,7 +17676,7 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
-"O cache está atualmente fragmentado em %s%%, sendo que 100%% de fragmentação "
+"O cache está atualmente fragmentado em %s%%, a ser 100%% de fragmentação "
 "significa que o cache de consulta é um padrão alternante de blocos livres e "
 "utilizados. Esse valor deveria estar abaixo de 20%%."
 
