@@ -2722,13 +2722,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:508
 #, fuzzy
 #| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
+#| "Shows link to [a@https://www.php.net/manual/function.phpinfo."
 #| "php]phpinfo()[/a] output"
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"[a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/a] ප්‍රතිදානය "
+"[a@https://www.php.net/manual/function.phpinfo.php]phpinfo()[/a] ප්‍රතිදානය "
 "වෙත සබැඳුම පෙන්වන්න"
 
 #: libraries/classes/Config/Descriptions.php:511
@@ -5401,12 +5401,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:323
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"ඔබගේ [a@https://secure.php.net/manual/en/session.configuration.php#ini."
+"ඔබගේ [a@https://www.php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] PHP පරාමිතිය "
 "phpMyAdmin හි සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය "
 "phpMyAdmin හි සිටුවා ඇති කාලයට පෙර කල් ඉකුත් විය හැක."

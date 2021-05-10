@@ -2318,7 +2318,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:508
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
 "הצגת קישור אל הפלט של [a@https://php.net/manual/function.phpinfo."
@@ -4763,12 +4763,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:323
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"פרמטר ה־PHP שלך [a@https://secure.php.net/manual/en/session.configuration."
+"פרמטר ה־PHP שלך [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] נמוך מתוקף "
 "העוגייה שמוגדר ב־phpMyAdmin, עקב כך, הכניסה שלך צפויה לפוג מוקדם ממה שמוגדר "
 "ב־phpMyAdmin."

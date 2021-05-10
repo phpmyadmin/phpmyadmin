@@ -2277,7 +2277,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:508
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
 
@@ -4815,12 +4815,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:323
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"உங்கள் PHP [a@https://secure.php.net/manual/en/session.configuration.php#ini."
+"உங்கள் PHP [a@https://www.php.net/manual/en/session.configuration.php#ini."
 "session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] அளவுரு,phpMyAdminல் "
 "கட்டமைக்கப்பட்ட பயனர் நிலை பதிவுத்துணுக்கு(cookie) செல்லுபடியாகும் காலத்தை விட குறைவாக "
 "உள்ளது, இதனால் உங்கள் புகுபதிகை(login) phpMyAdmin கட்டமைக்கப்பட்டதை விட விரைவில் "

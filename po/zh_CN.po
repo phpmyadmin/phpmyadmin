@@ -2388,10 +2388,10 @@ msgstr "定义在编辑/插入模式中是否默认显示字段类型一列。"
 
 #: libraries/classes/Config/Descriptions.php:508
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"显示 [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] 输出的链"
+"显示 [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] 输出的链"
 "接。"
 
 #: libraries/classes/Config/Descriptions.php:511
@@ -4840,12 +4840,12 @@ msgstr "或者也可以去某个数据库的“操作”选项卡那里进行设
 
 #: libraries/classes/Controllers/HomeController.php:323
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"您的 PHP 参数 [a@https://secure.php.net/manual/zh/session.configuration."
+"您的 PHP 参数 [a@https://www.php.net/manual/zh/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 短于您在 "
 "phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期可能会比您在 "
 "phpMyAdmin 中设置的时间要更短。"

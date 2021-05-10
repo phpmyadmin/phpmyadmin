@@ -2499,10 +2499,10 @@ msgstr "定義在編輯／新增模式最初是否顯示欄位類型。"
 
 #: libraries/classes/Config/Descriptions.php:508
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"顯示連結至 [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] 的輸"
+"顯示連結至 [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] 的輸"
 "出。"
 
 #: libraries/classes/Config/Descriptions.php:511
@@ -4978,12 +4978,12 @@ msgstr "或者前往任一個資料庫的「操作」分頁設定。"
 
 #: libraries/classes/Controllers/HomeController.php:323
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"在 PHP 設定參數 [a@https://secure.php.net/manual/en/session.configuration."
+"在 PHP 設定參數 [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 所設定的時間"
 "短於在 phpMyAdmin 設定的 cookie 有效時間，因此登入連線有效時間可能比在 "
 "phpMyAdmin 設定的時間要短。"

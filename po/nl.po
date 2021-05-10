@@ -2695,7 +2695,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:508
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
 "Toon link naar de uitvoer van [a@https://php.net/manual/function.phpinfo."
@@ -5252,12 +5252,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:323
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"De PHP-parameter [a@https://secure.php.net/manual/en/session.configuration."
+"De PHP-parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is korter "
 "dan de ingestelde cookie validatie in phpMyAdmin. Hierdoor verloopt uw "
 "sessie eerder dan in phpMyAdmin is ingesteld."

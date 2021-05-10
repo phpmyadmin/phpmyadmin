@@ -2769,7 +2769,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:508
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
 "Shfaq lidhjen tek rezultati i [a@https://php.net/manual/function.phpinfo."
@@ -5371,12 +5371,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:323
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Parametri juaj PHP [a@https://secure.php.net/manual/en/session.configuration."
+"Parametri juaj PHP [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] është më i "
 "vogël se vlefshmëria e gatimit (cookie) të konfiguruar në phpMyAdmin, për "
 "shkak të kësaj, hyrja juaj mund të përfundojë më shpejt se është konfiguruar "

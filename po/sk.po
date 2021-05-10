@@ -2629,13 +2629,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:508
 #, fuzzy
 #| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
+#| "Shows link to [a@https://www.php.net/manual/function.phpinfo."
 #| "php]phpinfo()[/a] output."
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Zobraziť odkaz na výstup funkcie [a@https://secure.php.net/manual/function."
+"Zobraziť odkaz na výstup funkcie [a@https://www.php.net/manual/function."
 "phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:511
@@ -5195,12 +5195,12 @@ msgstr "Voliteľne môžete ísť do záložky 'Operácie' a nastaviť to tam."
 
 #: libraries/classes/Controllers/HomeController.php:323
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Nastavenie v php.ini [a@https://secure.php.net/manual/en/session."
+"Nastavenie v php.ini [a@https://www.php.net/manual/en/session."
 "configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/"
 "a] má nižšiu hodnotu ako nastavenie životnosti cookie v phpMyAdmin "
 "($cfg['LoginCookieValidity']). Kvôli tomu môže vaše prihlásenie vypršať skôr "

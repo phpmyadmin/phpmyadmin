@@ -2252,7 +2252,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:508
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
 
@@ -4721,12 +4721,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:323
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"ប៉ារ៉ាម៉ែត្រPHPរបស់អ្នក [a@https://secure.php.net/manual/en/session.configuration."
+"ប៉ារ៉ាម៉ែត្រPHPរបស់អ្នក [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank] session.gc_maxlifetime[/a] គឺថា​ទាប​បំផុត​"
 "ដែល​បានកំណត់រចនាសម្ព័ន្ធ​សុពលភាព​ Cookieក្នុង phpMyAdmin, ព្រោះ​តែ​បែបនេះ​ការចូលគណនី​របស់​អ្នក​ អាច​"
 "ផុត​កំណត់​ក្នុង​ពេល​ឆាប់​ៗ​ជាង​ការ​កំណត់​រចនា​សម្ព័ន្ធ​ក្នុង​​​phpMyAdmin។"
