@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-24 01:32+0200\n"
+"POT-Creation-Date: 2021-05-11 01:21+0200\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2768,14 +2768,14 @@ msgstr "সম্পাদনা/ইনর্সাটের সময় টাই
 #: libraries/classes/Config/Descriptions.php:508
 #, fuzzy
 #| msgid ""
-#| "Shows link to [a@https://www.php.net/manual/function.phpinfo."
-#| "php]phpinfo()[/a] output."
+#| "Shows link to [a@https://www.php.net/manual/function.phpinfo.php]phpinfo()"
+#| "[/a] output."
 msgid ""
-"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
-"output."
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
+"[/a] output."
 msgstr ""
-"[a@https://www.php.net/manual/function.phpinfo.php]phpinfo()[/a] আউটপুট "
-"সংযোগ দেখাও।"
+"[a@https://www.php.net/manual/function.phpinfo.php]phpinfo()[/a] আউটপুট সংযোগ "
+"দেখাও।"
 
 #: libraries/classes/Config/Descriptions.php:511
 #, fuzzy
@@ -3682,14 +3682,14 @@ msgid "Navigation tree"
 msgstr "চলাচলের ফ্রেম"
 
 #: libraries/classes/Config/Descriptions.php:772
-#: libraries/classes/Server/Select.php:61 templates/setup/home/index.twig:34
+#: templates/server/select/index.twig:9 templates/setup/home/index.twig:34
 msgid "Servers"
 msgstr "সার্ভার"
 
 #: libraries/classes/Config/Descriptions.php:773
 #: libraries/classes/Controllers/Server/DatabasesController.php:483
+#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Plugins/Export/ExportXml.php:134
 #: libraries/classes/Server/Status/Data.php:160
 #: templates/database/export/index.twig:23
@@ -3741,7 +3741,7 @@ msgstr "পরিবর্তন ট্রেকিং"
 
 #: libraries/classes/Config/Descriptions.php:785 libraries/classes/Menu.php:278
 #: libraries/classes/Menu.php:399 libraries/classes/Menu.php:528
-#: libraries/classes/Navigation/Nodes/NodeTable.php:327
+#: libraries/classes/Navigation/Nodes/NodeTable.php:329
 #: libraries/classes/Util.php:1600 libraries/classes/Util.php:2110
 #: libraries/classes/Util.php:2125 libraries/classes/Util.php:2142
 #: libraries/config.values.php:62 libraries/config.values.php:76
@@ -3946,7 +3946,7 @@ msgstr "চলাচলের ফ্রেম"
 
 #: libraries/classes/Config/Descriptions.php:841
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:620
-#: libraries/classes/Navigation/NavigationTree.php:1560
+#: libraries/classes/Navigation/NavigationTree.php:1531
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
@@ -4515,8 +4515,8 @@ msgstr "টেক্সটএরিয়ার রোসমূহ"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:150
 #: libraries/classes/Plugins/Export/ExportOdt.php:196
 #: libraries/classes/Plugins/Export/ExportTexytext.php:134
-#: libraries/classes/Server/Privileges.php:1959
-#: libraries/classes/Server/Privileges.php:1961
+#: libraries/classes/Server/Privileges.php:1917
+#: libraries/classes/Server/Privileges.php:1919
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4545,8 +4545,8 @@ msgstr "সার্ভার"
 #: libraries/classes/Config/Descriptions.php:967
 #: libraries/classes/Database/Triggers.php:413
 #: libraries/classes/Plugins/Export/ExportXml.php:535
-#: libraries/classes/Server/Privileges.php:1965
-#: libraries/classes/Server/Privileges.php:1967
+#: libraries/classes/Server/Privileges.php:1923
+#: libraries/classes/Server/Privileges.php:1925
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4774,9 +4774,9 @@ msgstr "পরিবর্তন"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
 #: libraries/classes/Import.php:1398 libraries/classes/Menu.php:270
 #: libraries/classes/Menu.php:394
-#: libraries/classes/Navigation/Nodes/NodeColumn.php:44
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:58
-#: libraries/classes/Navigation/Nodes/NodeTable.php:318
+#: libraries/classes/Navigation/Nodes/NodeColumn.php:43
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:55
+#: libraries/classes/Navigation/Nodes/NodeTable.php:320
 #: libraries/classes/Util.php:1599 libraries/classes/Util.php:2124
 #: libraries/classes/Util.php:2141 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
@@ -4821,7 +4821,7 @@ msgstr "ওপেন অফিস টেক্সট"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:374
 #: libraries/classes/Menu.php:300 libraries/classes/Menu.php:419
-#: libraries/classes/Menu.php:556 libraries/classes/Server/Privileges.php:1631
+#: libraries/classes/Menu.php:556 libraries/classes/Server/Privileges.php:1589
 #: libraries/classes/Util.php:2113 libraries/classes/Util.php:2128
 #: libraries/classes/Util.php:2145 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
@@ -4886,38 +4886,38 @@ msgstr "ব্রাউজারের রুপান্তর"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "সেটিংস সংরক্ষন করা যায়নি, দেওয়া তথ্যে ভূল আছে"
 
-#: libraries/classes/Config.php:758
+#: libraries/classes/Config.php:759
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "বর্তমান কনফিগারেশন ফাইল (%s) টি পড়া যাচ্ছে না।"
 
-#: libraries/classes/Config.php:796
+#: libraries/classes/Config.php:797
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "কনফিগারেশন ফাইলে ভুল অনুমতি দেয়া, ওটা লেখার মত নয়"
 
-#: libraries/classes/Config.php:811
+#: libraries/classes/Config.php:812
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "স্বাভাবিক কনফিগারেশন লোড করা যাচ্ছে না:%1$s"
 
-#: libraries/classes/Config.php:821
+#: libraries/classes/Config.php:822
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
 msgstr "কনফিগারেশন ফাইল পড়া যায়নি"
 
-#: libraries/classes/Config.php:824
+#: libraries/classes/Config.php:825
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "ইহা সাধারনত বাক্যে ভুল বোঝায়, কোন ভুল আছে কিনা পরীক্ষা করুন।"
 
-#: libraries/classes/Config.php:1389
+#: libraries/classes/Config.php:1393
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "অকার্যকর সার্ভার ইনডেক্স:%s"
 
-#: libraries/classes/Config.php:1402
+#: libraries/classes/Config.php:1406
 #, php-format
 msgid "Server %d"
 msgstr "সার্ভার %d"
@@ -5009,7 +5009,7 @@ msgid ""
 "system."
 msgstr "%sZip compression%s এর জন্য ফাংশন (%s) এর প্রয়োজন যা এখানে নাই।"
 
-#: libraries/classes/Config/ServerConfigChecks.php:372
+#: libraries/classes/Config/ServerConfigChecks.php:370
 #, fuzzy
 #| msgid ""
 #| "You didn't have blowfish secret set and have enabled cookie "
@@ -5024,17 +5024,17 @@ msgstr ""
 "আপনার জন্য স্বয়ংক্রীয় ভাবে তৈরী হয়েছে। এটা কুকি এনক্রীপট করতে ব্যবহৃত হয়। এটা মনে "
 "রাখার প্রয়োজন নাই।"
 
-#: libraries/classes/Config/ServerConfigChecks.php:384
+#: libraries/classes/Config/ServerConfigChecks.php:385
 #, fuzzy
 #| msgid "Key is too short, it should have at least 8 characters."
 msgid "Key is too short, it should have at least 32 characters."
 msgstr "কী টি থুবই ছোট, অন্তত ৮টি বর্ণ থাকতে হবে।"
 
-#: libraries/classes/Config/ServerConfigChecks.php:395
+#: libraries/classes/Config/ServerConfigChecks.php:396
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "কী তে অক্ষর, সংখ্যা [em]and[/em] বিশেষ চিহ্ন/বর্ণ থাকতে পারবে।"
 
-#: libraries/classes/Config/ServerConfigChecks.php:432
+#: libraries/classes/Config/ServerConfigChecks.php:434
 #, fuzzy, php-format
 #| msgid ""
 #| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
@@ -5048,7 +5048,7 @@ msgstr ""
 "%sLogin cookie validity%s যদি %ssession.gc_maxlifetime%s বেশী হয় random সেশন "
 "অকার্যকর হতে পারে (বর্তমানে session.gc_maxlifetime মান হল %d)।"
 
-#: libraries/classes/Config/ServerConfigChecks.php:454
+#: libraries/classes/Config/ServerConfigChecks.php:456
 #, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
@@ -5057,7 +5057,7 @@ msgstr ""
 "%sLogin cookie validity%s সর্বোচ্চ ১৮০০ সেকেন্ড (৩০ মিনিট) হতে পারে। এর চাইতে "
 "বেশী হলে এটা একটা নিরাপত্তা ঝুঁকি হতে পারে।"
 
-#: libraries/classes/Config/ServerConfigChecks.php:480
+#: libraries/classes/Config/ServerConfigChecks.php:482
 #, fuzzy, php-format
 #| msgid ""
 #| "If using cookie authentication and %sLogin cookie store%s is not 0, "
@@ -5069,7 +5069,7 @@ msgstr ""
 "যদি কুকি প্রমাণীকরন ব্যবহার করেন এবং %sLogin cookie store%s যদি ০ না হয়, "
 "%sLogin cookie validity%s 'র মান অবশ্যই এর থেকে কম বা সমান এ সেট করতে হবে।"
 
-#: libraries/classes/Config/ServerConfigChecks.php:521
+#: libraries/classes/Config/ServerConfigChecks.php:523
 #, fuzzy, php-format
 #| msgid ""
 #| "%sBzip2 compression and decompression%s requires functions (%s) which are "
@@ -5081,7 +5081,7 @@ msgstr ""
 "%sBzip2 compression and decompression%s এর জন্য ফাংশন (%s) প্রয়োজন যা এখানে "
 "নাই।"
 
-#: libraries/classes/Config/ServerConfigChecks.php:554
+#: libraries/classes/Config/ServerConfigChecks.php:556
 #, fuzzy, php-format
 #| msgid ""
 #| "%sGZip compression and decompression%s requires functions (%s) which are "
@@ -5208,7 +5208,7 @@ msgid "No databases selected."
 msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
 
 #: libraries/classes/Controllers/ChangeLogController.php:37
-#: libraries/classes/Controllers/LicenseController.php:32
+#: libraries/classes/Controllers/LicenseController.php:35
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
@@ -5236,15 +5236,15 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr "রফতানী সহায়কটি লোড করা যাচ্ছে না, ইনস্টলেশন পরীক্ষা করুন!"
 
 #: libraries/classes/Controllers/Database/ExportController.php:181
-#: libraries/classes/Controllers/Database/StructureController.php:1203
-#: libraries/classes/Controllers/Database/StructureController.php:1244
-#: libraries/classes/Controllers/Database/StructureController.php:1277
-#: libraries/classes/Controllers/Database/StructureController.php:1300
-#: libraries/classes/Controllers/Database/StructureController.php:1323
-#: libraries/classes/Controllers/Database/StructureController.php:1346
-#: libraries/classes/Controllers/Database/StructureController.php:1369
-#: libraries/classes/Controllers/Database/StructureController.php:1399
-#: libraries/classes/Controllers/Database/StructureController.php:1452
+#: libraries/classes/Controllers/Database/StructureController.php:1202
+#: libraries/classes/Controllers/Database/StructureController.php:1243
+#: libraries/classes/Controllers/Database/StructureController.php:1276
+#: libraries/classes/Controllers/Database/StructureController.php:1299
+#: libraries/classes/Controllers/Database/StructureController.php:1322
+#: libraries/classes/Controllers/Database/StructureController.php:1345
+#: libraries/classes/Controllers/Database/StructureController.php:1368
+#: libraries/classes/Controllers/Database/StructureController.php:1398
+#: libraries/classes/Controllers/Database/StructureController.php:1451
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:345
 #: libraries/classes/Controllers/Table/MaintenanceController.php:45
 #: libraries/classes/Controllers/Table/MaintenanceController.php:80
@@ -5303,31 +5303,31 @@ msgstr ""
 msgid "Access denied!"
 msgstr "প্রবেশ করা যাচ্ছে না"
 
-#: libraries/classes/Controllers/Database/StructureController.php:309
+#: libraries/classes/Controllers/Database/StructureController.php:308
 msgid "Favorite List is full!"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/StructureController.php:590
+#: libraries/classes/Controllers/Database/StructureController.php:589
 #: templates/table/operations/index.twig:430
 #: templates/table/operations/view.twig:31
 #, php-format
 msgid "View %s has been dropped."
 msgstr "ভিউ %s মুছা হয়েছে।"
 
-#: libraries/classes/Controllers/Database/StructureController.php:591
+#: libraries/classes/Controllers/Database/StructureController.php:590
 #: templates/table/operations/index.twig:430
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "টেবল %s মুছা হয়েছে।"
 
-#: libraries/classes/Controllers/Database/StructureController.php:647
+#: libraries/classes/Controllers/Database/StructureController.php:646
 #: templates/table/operations/index.twig:409
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "টেবিল %s খালি করা হয়েছে।"
 
-#: libraries/classes/Controllers/Database/StructureController.php:819
-#: libraries/classes/Display/Results.php:4515
+#: libraries/classes/Controllers/Database/StructureController.php:818
+#: libraries/classes/Display/Results.php:4516
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5335,25 +5335,25 @@ msgid ""
 msgstr ""
 "এই ভিউটির অন্তত পক্ষে এক সারি তথ্য রয়েছে। অনুগ্রহ করে %sdocumentation%s দেখুন।"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1060
+#: libraries/classes/Controllers/Database/StructureController.php:1059
 msgid "unknown"
 msgstr "অজানা"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1285
-#: libraries/classes/Controllers/Database/StructureController.php:1308
-#: libraries/classes/Controllers/Database/StructureController.php:1331
+#: libraries/classes/Controllers/Database/StructureController.php:1284
+#: libraries/classes/Controllers/Database/StructureController.php:1307
+#: libraries/classes/Controllers/Database/StructureController.php:1330
 #, fuzzy
 #| msgid "Success."
 msgid "Success!"
 msgstr "সফল।"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1483
-#: libraries/classes/Controllers/Database/StructureController.php:1566
+#: libraries/classes/Controllers/Database/StructureController.php:1482
+#: libraries/classes/Controllers/Database/StructureController.php:1565
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:496
 #: libraries/classes/Controllers/Table/DeleteController.php:58
-#: libraries/classes/Controllers/Table/StructureController.php:460
-#: libraries/classes/Controllers/Table/StructureController.php:484
-#: libraries/classes/Controllers/Table/StructureController.php:529
+#: libraries/classes/Controllers/Table/DropColumnController.php:61
+#: libraries/classes/Controllers/Table/StructureController.php:466
+#: libraries/classes/Controllers/Table/StructureController.php:490
 #: libraries/classes/IndexColumn.php:140 libraries/classes/Index.php:546
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:687
 #: libraries/classes/Plugins/Export/ExportLatex.php:662
@@ -5388,11 +5388,12 @@ msgstr "সফল।"
 msgid "Yes"
 msgstr "হ্যাঁ"
 
-#: libraries/classes/Controllers/Database/StructureController.php:1484
-#: libraries/classes/Controllers/Database/StructureController.php:1567
+#: libraries/classes/Controllers/Database/StructureController.php:1483
+#: libraries/classes/Controllers/Database/StructureController.php:1566
+#: libraries/classes/Controllers/Table/DropColumnController.php:78
 #: libraries/classes/Controllers/Table/OperationsController.php:340
 #: libraries/classes/Controllers/Table/ReplaceController.php:397
-#: libraries/classes/Core.php:880 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:878 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "পরিবর্তন নয়"
 
@@ -5482,11 +5483,10 @@ msgstr ""
 #: libraries/classes/Controllers/HomeController.php:323
 #, fuzzy
 #| msgid ""
-#| "Your PHP parameter [a@https://www.php.net/manual/en/session."
-#| "configuration.php#ini.session.gc-maxlifetime@_blank]session."
-#| "gc_maxlifetime[/a] is lower than cookie validity configured in "
-#| "phpMyAdmin, because of this, your login will expire sooner than "
-#| "configured in phpMyAdmin."
+#| "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
+#| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
+#| "than cookie validity configured in phpMyAdmin, because of this, your "
+#| "login will expire sooner than configured in phpMyAdmin."
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -5604,7 +5604,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/ImportController.php:684
 #: libraries/classes/Controllers/SqlController.php:378
-#: libraries/classes/Sql.php:1246
+#: libraries/classes/Sql.php:1254
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "বুকমার্ক %s তৈরী করা হয়েছে।"
@@ -5952,13 +5952,13 @@ msgid "The user name is empty!"
 msgstr "ব্যাবহারকারী নামটি শুন্য!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:133
-#: libraries/classes/Server/Privileges.php:1017
+#: libraries/classes/Server/Privileges.php:974
 #: libraries/classes/UserPassword.php:41
 msgid "The password is empty!"
 msgstr "পাসওয়ার্ডটি শুন্য!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:134
-#: libraries/classes/Server/Privileges.php:1015
+#: libraries/classes/Server/Privileges.php:972
 #: libraries/classes/UserPassword.php:45
 msgid "The passwords aren't the same!"
 msgstr "পাসওর্য়াডগুলো এক নয়!"
@@ -5969,8 +5969,11 @@ msgstr "নির্বাচিত ব্যবহারকারীদের �
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:136
 #: libraries/classes/Tracking.php:239 libraries/classes/Tracking.php:650
-#: templates/error/report_modal.twig:14 templates/home/index.twig:270
-#: templates/home/index.twig:278 templates/server/status/advisor/index.twig:20
+#: templates/error/report_modal.twig:14 templates/home/index.twig:272
+#: templates/home/index.twig:280
+#: templates/server/privileges/users_overview.twig:153
+#: templates/server/privileges/users_overview.twig:161
+#: templates/server/status/advisor/index.twig:20
 #: templates/server/status/advisor/index.twig:45
 #: templates/server/user_groups/user_groups.twig:51
 #: templates/server/user_groups/user_groups.twig:55
@@ -6213,7 +6216,7 @@ msgstr "সিরিজে অন্তত একটি চলক যোগ ক�
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:590 templates/export.twig:355
+#: templates/database/designer/main.twig:588 templates/export.twig:355
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
@@ -6588,13 +6591,13 @@ msgstr "প্যারামিটারগুলো খারপ!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:326
 #: templates/database/central_columns/main.twig:271
-#: templates/database/designer/main.twig:341
-#: templates/database/designer/main.twig:392
-#: templates/database/designer/main.twig:670
-#: templates/database/designer/main.twig:736
-#: templates/database/designer/main.twig:875
-#: templates/database/designer/main.twig:960
-#: templates/database/designer/main.twig:1065
+#: templates/database/designer/main.twig:339
+#: templates/database/designer/main.twig:390
+#: templates/database/designer/main.twig:668
+#: templates/database/designer/main.twig:734
+#: templates/database/designer/main.twig:873
+#: templates/database/designer/main.twig:958
+#: templates/database/designer/main.twig:1063
 #: templates/database/structure/check_all_tables.twig:48
 #: templates/database/structure/check_all_tables.twig:52
 #: templates/database/structure/check_all_tables.twig:66
@@ -6607,7 +6610,7 @@ msgid "Cancel"
 msgstr "বাতিল"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:329
-#: templates/header.twig:49
+#: templates/header.twig:48
 #, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
@@ -6619,7 +6622,8 @@ msgid "Apply"
 msgstr "প্রয়োগ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:333
-#: templates/home/index.twig:274 templates/navigation/main.twig:58
+#: templates/home/index.twig:276 templates/navigation/main.twig:58
+#: templates/server/privileges/users_overview.twig:157
 #: templates/server/status/monitor/index.twig:95
 msgid "Loading…"
 msgstr "লোডিং…"
@@ -6683,12 +6687,12 @@ msgid "Adding primary key"
 msgstr "প্রাইমারি কী যোগ কর"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:349
-#: templates/console/display.twig:129 templates/database/designer/main.twig:339
-#: templates/database/designer/main.twig:668
-#: templates/database/designer/main.twig:732
-#: templates/database/designer/main.twig:871
-#: templates/database/designer/main.twig:956
-#: templates/database/designer/main.twig:1063
+#: templates/console/display.twig:129 templates/database/designer/main.twig:337
+#: templates/database/designer/main.twig:666
+#: templates/database/designer/main.twig:730
+#: templates/database/designer/main.twig:869
+#: templates/database/designer/main.twig:954
+#: templates/database/designer/main.twig:1061
 msgid "OK"
 msgstr "ওকে"
 
@@ -6840,7 +6844,7 @@ msgstr "অনুসন্ধান বক্সটি দেখাও"
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:384
 #: templates/database/central_columns/main.twig:385
-#: templates/database/designer/main.twig:390
+#: templates/database/designer/main.twig:388
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:218
@@ -7550,7 +7554,7 @@ msgid "Show hidden navigation tree items."
 msgstr "চলাচল ফ্রেইমে লোগো দেখাও"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:621
-#: libraries/classes/Navigation/NavigationTree.php:1563
+#: libraries/classes/Navigation/NavigationTree.php:1534
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
@@ -7842,8 +7846,8 @@ msgid "Rows"
 msgstr "সারির #"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:498
+#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
 #: templates/table/structure/display_structure.twig:401
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
@@ -7864,7 +7868,7 @@ msgid "Overhead"
 msgstr "অতিরিক্ত"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:150
-#: libraries/classes/Controllers/Server/UserGroupsController.php:51
+#: libraries/classes/Controllers/Server/UserGroupsController.php:56
 msgid "No Privileges"
 msgstr "কোন অধিকার নাই"
 
@@ -7880,7 +7884,7 @@ msgid ""
 "password, 'Change password' tab should be used."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:433
+#: libraries/classes/Controllers/Server/PrivilegesController.php:420
 msgid "User has been added."
 msgstr "ব্যবহারকারী যোগ করা হয়েছে।"
 
@@ -7901,7 +7905,7 @@ msgid "ID"
 msgstr "আইডি"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:222
-#: libraries/classes/Server/Privileges.php:3047
+#: libraries/classes/Server/Privileges.php:3005
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "ব্যবহারকারী"
@@ -8601,6 +8605,17 @@ msgstr "থ্রেড ক্যাম হিটের হার"
 msgid "The number of threads that are not sleeping."
 msgstr "থ্রেডের সংখ্যা যা ঘুমন্ত নয়।"
 
+#: libraries/classes/Controllers/Server/UserGroupsController.php:115
+#: libraries/classes/Util.php:919
+msgid "Missing parameter:"
+msgstr "parameter নাই:"
+
+#: libraries/classes/Controllers/Server/UserGroupsController.php:130
+#, fuzzy
+#| msgid "The query cache is not enabled."
+msgid "User groups management is not enabled."
+msgstr "অনুসন্ধান ক্যাশ অকার্যকর রয়েছে।"
+
 #: libraries/classes/Controllers/Server/VariablesController.php:224
 msgid "Setting variable failed"
 msgstr "চলক সেটিং ব্যার্থ হয়েছে"
@@ -8669,8 +8684,8 @@ msgstr "বুকমার্ক  %s তৈরী করা হয়েছে"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:169
 #: libraries/classes/Controllers/Table/IndexesController.php:250
-#: libraries/classes/Controllers/Table/StructureController.php:1006
-#: libraries/classes/Controllers/Table/StructureController.php:1236
+#: libraries/classes/Controllers/Table/StructureController.php:941
+#: libraries/classes/Controllers/Table/StructureController.php:1171
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "%1$s টেবিলটি সফলভাবে পরিবর্তন করা হয়েছে।"
@@ -8724,10 +8739,33 @@ msgstr "টেবিল %s পুর্ব থেকেই আছে!"
 #: libraries/classes/Controllers/Table/RelationController.php:284
 #: libraries/classes/Controllers/ViewOperationsController.php:84
 #: libraries/classes/Database/Routines.php:1324
-#: libraries/classes/Display/Results.php:4182 libraries/classes/Message.php:176
+#: libraries/classes/Display/Results.php:4183 libraries/classes/Message.php:176
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে."
+
+#: libraries/classes/Controllers/Table/DropColumnConfirmationController.php:21
+#: libraries/classes/Controllers/Table/DropColumnController.php:55
+#: libraries/classes/Controllers/Table/StructureController.php:216
+#: libraries/classes/Controllers/Table/StructureController.php:236
+#: libraries/classes/Controllers/Table/StructureController.php:252
+#: libraries/classes/Controllers/Table/StructureController.php:282
+#: libraries/classes/Controllers/Table/StructureController.php:313
+#: libraries/classes/Controllers/Table/StructureController.php:349
+#: libraries/classes/Controllers/Table/StructureController.php:385
+#: libraries/classes/Controllers/Table/StructureController.php:421
+#: libraries/classes/Controllers/Table/StructureController.php:458
+msgid "No column selected."
+msgstr "কোন স্তম্ভ নির্বাচন করা হয় নাই।"
+
+#: libraries/classes/Controllers/Table/DropColumnController.php:84
+#, fuzzy, php-format
+#| msgid "%1$d database has been dropped successfully."
+#| msgid_plural "%1$d databases have been dropped successfully."
+msgid "%1$d column has been dropped successfully."
+msgid_plural "%1$d columns have been dropped successfully."
+msgstr[0] "%1$d টি ডাটাবেইজ সফলভাবে মুছা হয়েছে।"
+msgstr[1] "%1$d টি ডাটাবেইজ সফলভাবে মুছা হয়েছে।"
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -8744,7 +8782,7 @@ msgstr "ইনডেক্স বিহীন জোড়ার পরিমান
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1346
 #: libraries/classes/Import.php:158 libraries/classes/InsertEdit.php:228
-#: libraries/classes/Sql.php:1051
+#: libraries/classes/Sql.php:1059
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "মাইএসকিউএল কিছু পায়নি। (শুন্য তথ্য)।"
 
@@ -8763,8 +8801,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/OperationsController.php:116
 #: libraries/classes/Controllers/Table/OperationsController.php:320
-#: libraries/classes/Controllers/Table/StructureController.php:125
-#: libraries/classes/Navigation/Nodes/NodeView.php:29
+#: libraries/classes/Controllers/Table/StructureController.php:131
+#: libraries/classes/Navigation/Nodes/NodeView.php:28
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
 #: templates/database/structure/structure_table_row.twig:186
@@ -8798,44 +8836,30 @@ msgstr "আভ্যন্তরীন সম্পর্ক যোগ করা
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/StructureController.php:210
-#: libraries/classes/Controllers/Table/StructureController.php:230
-#: libraries/classes/Controllers/Table/StructureController.php:246
-#: libraries/classes/Controllers/Table/StructureController.php:276
-#: libraries/classes/Controllers/Table/StructureController.php:307
-#: libraries/classes/Controllers/Table/StructureController.php:343
-#: libraries/classes/Controllers/Table/StructureController.php:379
-#: libraries/classes/Controllers/Table/StructureController.php:415
-#: libraries/classes/Controllers/Table/StructureController.php:452
-#: libraries/classes/Controllers/Table/StructureController.php:522
-#: libraries/classes/Controllers/Table/StructureController.php:563
-msgid "No column selected."
-msgstr "কোন স্তম্ভ নির্বাচন করা হয় নাই।"
-
-#: libraries/classes/Controllers/Table/StructureController.php:713
+#: libraries/classes/Controllers/Table/StructureController.php:656
 msgid "The columns have been moved successfully."
 msgstr "স্তম্ভগুলো সফলভাবে সরানো হয়েছে।"
 
-#: libraries/classes/Controllers/Table/StructureController.php:750
+#: libraries/classes/Controllers/Table/StructureController.php:691
 #, fuzzy, php-format
 #| msgid "Failed to fetch headers"
 msgid "Failed to get description of column %s!"
 msgstr "হেডার নিয়ে আসতে ব্যর্থ হয়েছে"
 
-#: libraries/classes/Controllers/Table/StructureController.php:998
-#: libraries/classes/Controllers/Table/StructureController.php:1288
+#: libraries/classes/Controllers/Table/StructureController.php:933
+#: libraries/classes/Controllers/Table/StructureController.php:1223
 #: libraries/classes/Tracking.php:785
 msgid "Query error"
 msgstr "অনুসন্ধানে ভুল"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1230
+#: libraries/classes/Controllers/Table/StructureController.php:1165
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "%1$s টেবিলটি সফলভাবে পরিবর্তন করা হয়েছে।"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1520
+#: libraries/classes/Controllers/Table/StructureController.php:1455
 #: templates/columns_definitions/column_attributes.twig:107
 #: templates/database/data_dictionary/index.twig:33
 #: templates/table/structure/display_structure.twig:138
@@ -8845,8 +8869,8 @@ msgstr "%1$s টেবিলটি সফলভাবে পরিবর্ত�
 msgid "Primary"
 msgstr "প্রাথমিক"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1524
-#: libraries/classes/Navigation/Nodes/NodeIndex.php:29
+#: libraries/classes/Controllers/Table/StructureController.php:1459
+#: libraries/classes/Navigation/Nodes/NodeIndex.php:28
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/display_structure.twig:168
@@ -8857,7 +8881,7 @@ msgstr "প্রাথমিক"
 msgid "Index"
 msgstr "ইনডেক্স"
 
-#: libraries/classes/Controllers/Table/StructureController.php:1783
+#: libraries/classes/Controllers/Table/StructureController.php:1719
 #, fuzzy, php-format
 #| msgid "The column name '%s' is a MySQL reserved keyword."
 msgid "The name '%s' is a MySQL reserved keyword."
@@ -8894,12 +8918,12 @@ msgstr "এই মূহুর্তে এখানে থাকার জন�
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:364 libraries/classes/ZipExtension.php:61
+#: libraries/classes/Core.php:362 libraries/classes/ZipExtension.php:61
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s সংযোজনক পাওয়া যাচ্ছে না। পিএইছপি কনফিগারেশন দেখুন।"
 
-#: libraries/classes/Core.php:1263
+#: libraries/classes/Core.php:1261
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8908,21 +8932,21 @@ msgstr ""
 "আপনার পিএইছপির জন্য mbstring.func_overload ফাংশনটি ব্যবহার করা হচ্ছে। এটা  "
 "phpMyAdmin এর সঙ্গে সামঞ্জস্যপূর্ণ নয় এবং কিছু তথ্য নষ্ট করতে পারে!"
 
-#: libraries/classes/Core.php:1280
+#: libraries/classes/Core.php:1278
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Core.php:1292
+#: libraries/classes/Core.php:1290
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS পুন লিখনের চেষ্টা"
 
-#: libraries/classes/Core.php:1302
+#: libraries/classes/Core.php:1300
 msgid "possible exploit"
 msgstr "সাম্ভাব্য বিপদের সুযোগ"
 
-#: libraries/classes/Core.php:1371
+#: libraries/classes/Core.php:1369
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -9167,7 +9191,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "ডাটাবেইজ %2$s এ %1$s নামের কোন ইভেন্ট পাওয়া যায়নি"
 
-#: libraries/classes/DatabaseInterface.php:1108
+#: libraries/classes/DatabaseInterface.php:1085
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -9175,23 +9199,23 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:1156
+#: libraries/classes/DatabaseInterface.php:1134
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "কনফিগারেশন ফাইল পড়া যায়নি"
 
-#: libraries/classes/DatabaseInterface.php:1957
+#: libraries/classes/DatabaseInterface.php:1937
 #, fuzzy
 #| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "parameter নাই:"
 
-#: libraries/classes/DatabaseInterface.php:1986
+#: libraries/classes/DatabaseInterface.php:1966
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "নিয়ন্ত্রক ব্যবহারকারীর জন্য নির্ধারিত কনফিগারেশন সংযোগে ব্যার্থ হয়েছে।"
 
-#: libraries/classes/DatabaseInterface.php:2475
+#: libraries/classes/DatabaseInterface.php:2455
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -9421,6 +9445,7 @@ msgid "Time"
 msgstr "সময়"
 
 #: libraries/classes/Database/Triggers.php:450
+#: libraries/classes/Navigation/Nodes/NodeEvent.php:28
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:511
 #: libraries/classes/Plugins/Export/ExportOdt.php:635
 #: libraries/classes/Plugins/Export/ExportTexytext.php:486
@@ -9579,31 +9604,31 @@ msgstr "রো টি মুছা হয়েছে।"
 msgid "Kill"
 msgstr "হত্যা"
 
-#: libraries/classes/Display/Results.php:4106
+#: libraries/classes/Display/Results.php:4107
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "সম্ভবত আনুমানিক। [doc@faq3-11]FAQ 3.11[/doc] দেখুন।"
 
-#: libraries/classes/Display/Results.php:4527
+#: libraries/classes/Display/Results.php:4528
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "রো দেখাচ্ছে %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4541
+#: libraries/classes/Display/Results.php:4542
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "মোট %1$d, অনুসন্ধানে %2$d"
 
-#: libraries/classes/Display/Results.php:4546
+#: libraries/classes/Display/Results.php:4547
 #, php-format
 msgid "%d total"
 msgstr "%d মোট"
 
-#: libraries/classes/Display/Results.php:4559 libraries/classes/Sql.php:1057
+#: libraries/classes/Display/Results.php:4560 libraries/classes/Sql.php:1065
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "অনুসন্ধানে %01.4f সেঃ লেগেছ."
 
-#: libraries/classes/Display/Results.php:4936
+#: libraries/classes/Display/Results.php:4937
 msgid "Link not found!"
 msgstr "সংযোগটি পাওয়া যায়নি!"
 
@@ -9935,7 +9960,7 @@ msgstr ""
 #: libraries/classes/Html/Generator.php:844
 #: libraries/classes/Html/MySQLDocumentation.php:51
 #: libraries/classes/Sanitize.php:207
-#: templates/config/form_display/input.twig:10 templates/home/index.twig:229
+#: templates/config/form_display/input.twig:10 templates/home/index.twig:231
 #: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
 msgid "Documentation"
@@ -10063,11 +10088,6 @@ msgstr ""
 msgid "Session not found."
 msgstr "SOAP সংযোজক পাওয়া যাচ্ছে না"
 
-#: libraries/classes/Footer.php:217 libraries/classes/Footer.php:221
-#: libraries/classes/Footer.php:224
-msgid "Open new phpMyAdmin window"
-msgstr "নতুন phpMyAdmin উইন্ডো খোল"
-
 #: libraries/classes/Header.php:370
 msgid "Print view"
 msgstr "মুদ্রনের দেখা"
@@ -10153,7 +10173,7 @@ msgstr "স্থিত তথ্য"
 msgid "%d errors were found during analysis."
 msgstr ""
 
-#: libraries/classes/Import.php:331 libraries/classes/Sql.php:1065
+#: libraries/classes/Import.php:331 libraries/classes/Sql.php:1073
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -10256,7 +10276,7 @@ msgid ""
 msgstr "ইনডেক্স %1$s এবং %2$s এক সমান মনে হয় এবং যে কোন একটি মুছে ফেলুন।"
 
 #: libraries/classes/InsertEdit.php:356
-#: libraries/classes/Navigation/Nodes/NodeFunction.php:29
+#: libraries/classes/Navigation/Nodes/NodeFunction.php:28
 #: templates/database/routines/execute_form.twig:21
 #: templates/table/search/index.twig:36
 #: templates/table/zoom_search/index.twig:36
@@ -10359,7 +10379,7 @@ msgstr ""
 "যাওয়া যাবে।"
 
 #: libraries/classes/InsertEdit.php:1172
-#: libraries/classes/Navigation/Nodes/NodeColumn.php:34
+#: libraries/classes/Navigation/Nodes/NodeColumn.php:33
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:298
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:399
 #: libraries/classes/Plugins/Export/ExportLatex.php:572
@@ -10416,10 +10436,10 @@ msgid "Null"
 msgstr "নাল"
 
 #: libraries/classes/InsertEdit.php:1183
-#: templates/database/designer/main.twig:486
-#: templates/database/designer/main.twig:651
-#: templates/database/designer/main.twig:857
-#: templates/database/designer/main.twig:1050
+#: templates/database/designer/main.twig:484
+#: templates/database/designer/main.twig:649
+#: templates/database/designer/main.twig:855
+#: templates/database/designer/main.twig:1048
 #: templates/database/routines/execute_form.twig:23
 #: templates/server/replication/status_table.twig:17
 #: templates/server/status/variables/index.twig:73
@@ -10430,11 +10450,11 @@ msgstr "নাল"
 msgid "Value"
 msgstr "মান"
 
-#: libraries/classes/InsertEdit.php:1593 libraries/classes/Sql.php:1048
+#: libraries/classes/InsertEdit.php:1593 libraries/classes/Sql.php:1056
 msgid "Showing SQL query"
 msgstr "এসকিউএল অনুসন্ধান দেখাচ্ছে"
 
-#: libraries/classes/InsertEdit.php:1623 libraries/classes/Sql.php:1025
+#: libraries/classes/InsertEdit.php:1623 libraries/classes/Sql.php:1033
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "প্রবেশকৃত রো আইডি: %1$d"
@@ -10454,7 +10474,7 @@ msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
 #: libraries/classes/Menu.php:263
-#: libraries/classes/Navigation/Nodes/NodeTable.php:330
+#: libraries/classes/Navigation/Nodes/NodeTable.php:332
 #: libraries/classes/Util.php:1603 libraries/classes/Util.php:2140
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
@@ -10464,7 +10484,7 @@ msgid "Browse"
 msgstr "দেখা"
 
 #: libraries/classes/Menu.php:282 libraries/classes/Menu.php:403
-#: libraries/classes/Navigation/Nodes/NodeTable.php:321
+#: libraries/classes/Navigation/Nodes/NodeTable.php:323
 #: libraries/classes/Util.php:1601 libraries/classes/Util.php:2126
 #: libraries/classes/Util.php:2143 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
@@ -10477,7 +10497,7 @@ msgid "Search"
 msgstr "খোঁজা"
 
 #: libraries/classes/Menu.php:293
-#: libraries/classes/Navigation/Nodes/NodeTable.php:324
+#: libraries/classes/Navigation/Nodes/NodeTable.php:326
 #: libraries/classes/Util.php:1602 libraries/classes/Util.php:2144
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
@@ -10488,7 +10508,7 @@ msgid "Insert"
 msgstr "ইনর্সাট"
 
 #: libraries/classes/Menu.php:322 libraries/classes/Menu.php:443
-#: libraries/classes/Server/Privileges.php:3021 libraries/classes/Util.php:2131
+#: libraries/classes/Server/Privileges.php:2979 libraries/classes/Util.php:2131
 #: libraries/classes/Util.php:2147 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -10511,6 +10531,7 @@ msgid "Tracking"
 msgstr "ট্রেকিং"
 
 #: libraries/classes/Menu.php:364 libraries/classes/Menu.php:462
+#: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:24
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:604
 #: libraries/classes/Plugins/Export/ExportOdt.php:740
@@ -10538,6 +10559,7 @@ msgid "Routines"
 msgstr "রুটিনসমূহ"
 
 #: libraries/classes/Menu.php:455
+#: libraries/classes/Navigation/Nodes/NodeEventContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:24
 #: libraries/classes/Plugins/Export/ExportSql.php:1046
 #: libraries/classes/Plugins/Export/ExportXml.php:119
@@ -10643,7 +10665,7 @@ msgstr "টেবলসমুহ:"
 msgid "Views:"
 msgstr "ভিউসমূহ:"
 
-#: libraries/classes/Navigation/NavigationTree.php:854
+#: libraries/classes/Navigation/NavigationTree.php:856
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -10655,7 +10677,7 @@ msgstr ""
 msgid "Groups"
 msgstr "দলের নাম:"
 
-#: libraries/classes/Navigation/NavigationTree.php:1047
+#: libraries/classes/Navigation/NavigationTree.php:1046
 #, fuzzy, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
@@ -10664,17 +10686,7 @@ msgid_plural "%s results found"
 msgstr[0] "%s টি অন্যান্য ফলাফল পাওয়াগেছে"
 msgstr[1] "%s গুলো অন্যান্য ফলাফল পাওয়াগেছে"
 
-#: libraries/classes/Navigation/NavigationTree.php:1491
-#: libraries/classes/Navigation/NavigationTree.php:1527
-msgid "Type to filter these, Enter to search all"
-msgstr ""
-
-#: libraries/classes/Navigation/NavigationTree.php:1493
-#: libraries/classes/Navigation/NavigationTree.php:1528
-msgid "Clear fast filter"
-msgstr "দ্রুত ফিল্টারটি সরাও"
-
-#: libraries/classes/Navigation/NavigationTree.php:1554
+#: libraries/classes/Navigation/NavigationTree.php:1525
 msgid "Collapse all"
 msgstr ""
 
@@ -10690,90 +10702,96 @@ msgstr "অযোগ্য ক্লাশ নাম \"%1$s\", স্বাভ�
 msgid "Could not load class \"%1$s\""
 msgstr "কনফিগারেশন সংরক্ষন করা যায়নি।"
 
+#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: templates/sql/query.twig:63
 msgid "Columns"
 msgstr "স্তম্ভসমূহ"
 
-#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:36
+#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:35
 msgctxt "Create new column"
 msgid "New"
 msgstr "নতুন"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:41
+#: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:40
 msgctxt "Create new database"
 msgid "New"
 msgstr "নতুন"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:44
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:42
 msgid "Database operations"
 msgstr "ডাটাবেইজ কার্যক্রম"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:727
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:724
 msgid "Show hidden items"
 msgstr "গোপন জিনিস দেখাও"
 
-#: libraries/classes/Navigation/Nodes/NodeEventContainer.php:36
+#: libraries/classes/Navigation/Nodes/NodeEventContainer.php:35
 msgctxt "Create new event"
 msgid "New"
 msgstr "নতুন ইভেন্ট"
 
+#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:637
 #: libraries/classes/Plugins/Export/ExportXml.php:124
 msgid "Functions"
 msgstr "ফাংশনসমূহ"
 
-#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:38
+#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:37
 msgctxt "Create new function"
 msgid "New"
 msgstr "নতুন"
 
-#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:36
+#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:35
 msgctxt "Create new index"
 msgid "New"
 msgstr "নতুন"
 
-#: libraries/classes/Navigation/Nodes/Node.php:636
+#: libraries/classes/Navigation/Nodes/Node.php:643
 msgid "Expand/Collapse"
 msgstr ""
 
+#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:626
 #: libraries/classes/Plugins/Export/ExportXml.php:129
 msgid "Procedures"
 msgstr "প্রোসিডিউরস"
 
-#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:38
+#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:37
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "নতুন"
 
-#: libraries/classes/Navigation/Nodes/NodeProcedure.php:29
+#: libraries/classes/Navigation/Nodes/NodeProcedure.php:28
 msgid "Procedure"
 msgstr "প্রোসিডিউর"
 
-#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:39
+#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:38
 msgctxt "Create new table"
 msgid "New"
 msgstr "নতুন"
 
-#: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:36
+#: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:35
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "নতুন"
 
+#: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
+#, fuzzy
+#| msgid "Triggers"
+msgid "Trigger"
+msgstr "ট্রিগারসমূহ"
+
+#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:24
-#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Plugins/Export/ExportXml.php:144
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "ভিউসমূহ"
 
-#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:39
+#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:38
 msgctxt "Create new view"
 msgid "New"
 msgstr "নতুন"
@@ -12603,18 +12621,18 @@ msgstr "টেবলের সজ্জা মনে রাখবে"
 msgid "Saving export templates"
 msgstr "রফতানীর ধরন সঠিক নয়"
 
-#: libraries/classes/Relation.php:1878
+#: libraries/classes/Relation.php:1868
 msgid "no description"
 msgstr "বণর্না নাই"
 
-#: libraries/classes/Relation.php:2082
+#: libraries/classes/Relation.php:2072
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2204
+#: libraries/classes/Relation.php:2194
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
@@ -12622,97 +12640,97 @@ msgid ""
 "configuration storage there."
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
-#: libraries/classes/Relation.php:2212
+#: libraries/classes/Relation.php:2202
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
-#: libraries/classes/Relation.php:2220
+#: libraries/classes/Relation.php:2210
 #, fuzzy, php-format
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "phpMyAdmin কনফিগারেশনের storage table পাওয়া যাচ্ছে না"
 
-#: libraries/classes/ReplicationGui.php:453
+#: libraries/classes/ReplicationGui.php:451
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:464
+#: libraries/classes/ReplicationGui.php:462
 msgid "Replication started successfully."
 msgstr "প্রতিলিপির প্রস্তুত কাজ সফলভাবে শুরু হয়েছে।"
 
-#: libraries/classes/ReplicationGui.php:465
+#: libraries/classes/ReplicationGui.php:463
 msgid "Error starting replication."
 msgstr "প্রতিলিপি তৈরীরকাজে সমস্যা হয়েছে।"
 
-#: libraries/classes/ReplicationGui.php:468
+#: libraries/classes/ReplicationGui.php:466
 msgid "Replication stopped successfully."
 msgstr "প্রতিলিপি সফলভাবে বন্ধ হয়েছে।"
 
-#: libraries/classes/ReplicationGui.php:469
+#: libraries/classes/ReplicationGui.php:467
 msgid "Error stopping replication."
 msgstr "প্রতিলিপি বন্ধে সমস্যা হয়েছে।"
 
-#: libraries/classes/ReplicationGui.php:472
+#: libraries/classes/ReplicationGui.php:470
 msgid "Replication resetting successfully."
 msgstr "প্রতিলিপি সফলভাবে পুনস্থাপন করা হয়েছে।"
 
-#: libraries/classes/ReplicationGui.php:473
+#: libraries/classes/ReplicationGui.php:471
 msgid "Error resetting replication."
 msgstr "প্রতিলিপি পুনস্থাপনে সমস্যা হয়েছে।"
 
-#: libraries/classes/ReplicationGui.php:476
+#: libraries/classes/ReplicationGui.php:474
 msgid "Success."
 msgstr "সফল।"
 
-#: libraries/classes/ReplicationGui.php:477
+#: libraries/classes/ReplicationGui.php:475
 msgid "Error."
 msgstr "ভুল।"
 
-#: libraries/classes/ReplicationGui.php:527
+#: libraries/classes/ReplicationGui.php:523
 msgid "Unknown error"
 msgstr "অজ্ঞাত ভুল"
 
-#: libraries/classes/ReplicationGui.php:540
+#: libraries/classes/ReplicationGui.php:536
 #, php-format
 msgid "Unable to connect to master %s."
 msgstr "প্রধান %s সহিত সংযোগ করা যায়নি."
 
-#: libraries/classes/ReplicationGui.php:550
+#: libraries/classes/ReplicationGui.php:546
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr "প্রধান লগ পড়া যায়নি। প্রধান লগে অধিকার সমস্যা."
 
-#: libraries/classes/ReplicationGui.php:568
+#: libraries/classes/ReplicationGui.php:565
 #, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change master!"
 msgstr "প্রধানটি পরিবর্তন করা যায়নি"
 
-#: libraries/classes/ReplicationGui.php:572
+#: libraries/classes/ReplicationGui.php:569
 #, fuzzy, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
 msgstr "প্রধান সার্ভারটি সফলভাবে %s তে পরিবর্তন করা হয়েছে"
 
-#: libraries/classes/Routing.php:102
+#: libraries/classes/Routing.php:103
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:166
+#: libraries/classes/Routing.php:167
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "মূল ডাটাবেইজ `%s` পাওয়া যায়নি!"
 
-#: libraries/classes/Routing.php:177
+#: libraries/classes/Routing.php:178
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -12748,8 +12766,8 @@ msgid "Error while loading the search."
 msgstr "আপলোডকৃত ফাইলটি সরানোর সময় সমস্যা হয়েছে।"
 
 #: libraries/classes/Server/Plugins.php:68
-#: libraries/classes/Server/Privileges.php:860
-#: libraries/classes/Server/Privileges.php:4031
+#: libraries/classes/Server/Privileges.php:817
+#: libraries/classes/Server/Privileges.php:3989
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
@@ -12779,16 +12797,16 @@ msgstr "কুকি প্রমাণীকরণ"
 msgid "Old MySQL-4.0 authentication"
 msgstr "কুকি প্রমাণীকরণ"
 
-#: libraries/classes/Server/Privileges.php:255
+#: libraries/classes/Server/Privileges.php:256
 msgid "No privileges."
 msgstr "কোন অধিকার নাই।"
 
-#: libraries/classes/Server/Privileges.php:266
+#: libraries/classes/Server/Privileges.php:267
 msgid "Includes all privileges except GRANT."
 msgstr "GRANT ব্যাতিত সবগুলো অধিকার।"
 
-#: libraries/classes/Server/Privileges.php:288
-#: libraries/classes/Server/Privileges.php:355
+#: libraries/classes/Server/Privileges.php:289
+#: libraries/classes/Server/Privileges.php:356
 #: templates/server/privileges/privileges_table.twig:100
 #: templates/server/privileges/privileges_table.twig:103
 #: templates/server/privileges/privileges_table.twig:299
@@ -12796,7 +12814,7 @@ msgstr "GRANT ব্যাতিত সবগুলো অধিকার।"
 msgid "Allows deleting data."
 msgstr "তথ্য মুছার অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:293
+#: libraries/classes/Server/Privileges.php:294
 #: templates/server/privileges/privileges_table.twig:112
 #: templates/server/privileges/privileges_table.twig:115
 #: templates/server/privileges/privileges_table.twig:337
@@ -12804,7 +12822,7 @@ msgstr "তথ্য মুছার অনুমোদন।"
 msgid "Allows creating new tables."
 msgstr "নতুন টেবল তৈরীর অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:298
+#: libraries/classes/Server/Privileges.php:299
 #: templates/server/privileges/privileges_table.twig:124
 #: templates/server/privileges/privileges_table.twig:127
 #: templates/server/privileges/privileges_table.twig:385
@@ -12812,8 +12830,8 @@ msgstr "নতুন টেবল তৈরীর অনুমোদন।"
 msgid "Allows dropping tables."
 msgstr "টেবিল মুছার অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:303
-#: libraries/classes/Server/Privileges.php:395
+#: libraries/classes/Server/Privileges.php:304
+#: libraries/classes/Server/Privileges.php:396
 #: templates/server/privileges/privileges_table.twig:149
 #: templates/server/privileges/privileges_table.twig:152
 #: templates/server/privileges/privileges_table.twig:369
@@ -12821,8 +12839,8 @@ msgstr "টেবিল মুছার অনুমোদন।"
 msgid "Allows creating and dropping indexes."
 msgstr "ইনডেক্স তৈরী এবং মুছার অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:308
-#: libraries/classes/Server/Privileges.php:400
+#: libraries/classes/Server/Privileges.php:309
+#: libraries/classes/Server/Privileges.php:401
 #: templates/server/privileges/privileges_table.twig:161
 #: templates/server/privileges/privileges_table.twig:164
 #: templates/server/privileges/privileges_table.twig:356
@@ -12830,9 +12848,9 @@ msgstr "ইনডেক্স তৈরী এবং মুছার অনু�
 msgid "Allows altering the structure of existing tables."
 msgstr "তৈরীকৃত টেবিলের গঠন পরিবর্তনের অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:313
-#: libraries/classes/Server/Privileges.php:439
-#: libraries/classes/Server/Privileges.php:455
+#: libraries/classes/Server/Privileges.php:314
+#: libraries/classes/Server/Privileges.php:440
+#: libraries/classes/Server/Privileges.php:456
 #: templates/server/privileges/privileges_table.twig:173
 #: templates/server/privileges/privileges_table.twig:176
 #: templates/server/privileges/privileges_table.twig:470
@@ -12842,9 +12860,9 @@ msgstr "তৈরীকৃত টেবিলের গঠন পরিবর্
 msgid "Allows creating new views."
 msgstr "নতুন ভিউ তৈরীর অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:318
-#: libraries/classes/Server/Privileges.php:460
-#: libraries/classes/Server/Privileges.php:466
+#: libraries/classes/Server/Privileges.php:319
+#: libraries/classes/Server/Privileges.php:461
+#: libraries/classes/Server/Privileges.php:467
 #: templates/server/privileges/privileges_table.twig:185
 #: templates/server/privileges/privileges_table.twig:188
 #: templates/server/privileges/privileges_table.twig:417
@@ -12852,8 +12870,8 @@ msgstr "নতুন ভিউ তৈরীর অনুমোদন।"
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "SHOW CREATE VIEW কোয়ারীজ তৈরীর অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:323
-#: libraries/classes/Server/Privileges.php:449
+#: libraries/classes/Server/Privileges.php:324
+#: libraries/classes/Server/Privileges.php:450
 #: templates/server/privileges/privileges_table.twig:197
 #: templates/server/privileges/privileges_table.twig:200
 #: templates/server/privileges/privileges_table.twig:513
@@ -12863,52 +12881,52 @@ msgstr "SHOW CREATE VIEW কোয়ারীজ তৈরীর অনুমো�
 msgid "Allows creating and dropping triggers."
 msgstr "ট্রিগার তৈরী এবং মুছার অনুমোদন"
 
-#: libraries/classes/Server/Privileges.php:340
+#: libraries/classes/Server/Privileges.php:341
 #: templates/server/privileges/privileges_table.twig:15
 #: templates/server/privileges/privileges_table.twig:260
 #: templates/server/privileges/privileges_table.twig:263
 msgid "Allows reading data."
 msgstr "তথ্য পড়ার অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:345
+#: libraries/classes/Server/Privileges.php:346
 #: templates/server/privileges/privileges_table.twig:36
 #: templates/server/privileges/privileges_table.twig:273
 #: templates/server/privileges/privileges_table.twig:276
 msgid "Allows inserting and replacing data."
 msgstr "তথ্য যোগকরা এবং প্রতিস্থাপনের অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:350
+#: libraries/classes/Server/Privileges.php:351
 #: templates/server/privileges/privileges_table.twig:57
 #: templates/server/privileges/privileges_table.twig:286
 #: templates/server/privileges/privileges_table.twig:289
 msgid "Allows changing data."
 msgstr "তথ্য পরিবর্তনের অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:360
+#: libraries/classes/Server/Privileges.php:361
 #: templates/server/privileges/privileges_table.twig:335
 #: templates/server/privileges/privileges_table.twig:343
 msgid "Allows creating new databases and tables."
 msgstr "নতুন ডাটাবেজ এবং টেবল তৈরীর অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:365
+#: libraries/classes/Server/Privileges.php:366
 #: templates/server/privileges/privileges_table.twig:383
 #: templates/server/privileges/privileges_table.twig:391
 msgid "Allows dropping databases and tables."
 msgstr "ডাটাবেজ এবং টেবল মুছার অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:370
+#: libraries/classes/Server/Privileges.php:371
 #: templates/server/privileges/privileges_table.twig:575
 #: templates/server/privileges/privileges_table.twig:578
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "সার্ভার সেটিংস এবং সার্ভারের সঞ্চয়কৃত তথ্যাবলী পরিবর্তনের অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:375
+#: libraries/classes/Server/Privileges.php:376
 #: templates/server/privileges/privileges_table.twig:588
 #: templates/server/privileges/privileges_table.twig:591
 msgid "Allows shutting down the server."
 msgstr "সার্ভার বন্ধ করার অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:380
+#: libraries/classes/Server/Privileges.php:381
 #: templates/server/privileges/privileges_table.twig:562
 #: templates/server/privileges/privileges_table.twig:565
 #, fuzzy
@@ -12916,25 +12934,25 @@ msgstr "সার্ভার বন্ধ করার অনুমোদন।
 msgid "Allows viewing processes of all users."
 msgstr "সব ব্যবহারকারীর প্রসেস দেখার অনুমোদন"
 
-#: libraries/classes/Server/Privileges.php:385
+#: libraries/classes/Server/Privileges.php:386
 #: templates/server/privileges/privileges_table.twig:313
 #: templates/server/privileges/privileges_table.twig:316
 msgid "Allows importing data from and exporting data into files."
 msgstr "ফাইলে তথ্য আমদানি এবং রফতানীর অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:390
+#: libraries/classes/Server/Privileges.php:391
 #: templates/server/privileges/privileges_table.twig:78
 #: templates/server/privileges/privileges_table.twig:642
 msgid "Has no effect in this MySQL version."
 msgstr "মাইএসকিউএলের এই ভার্সনে কোন প্রভাব নাই।"
 
-#: libraries/classes/Server/Privileges.php:405
+#: libraries/classes/Server/Privileges.php:406
 #: templates/server/privileges/privileges_table.twig:601
 #: templates/server/privileges/privileges_table.twig:604
 msgid "Gives access to the complete list of databases."
 msgstr "ডাটা বেইজের তালিকা সম্পুর্ন করার অনুমোদন দেওয়া।"
 
-#: libraries/classes/Server/Privileges.php:411
+#: libraries/classes/Server/Privileges.php:412
 #: templates/server/privileges/privileges_table.twig:548
 #: templates/server/privileges/privileges_table.twig:552
 msgid ""
@@ -12945,31 +12963,31 @@ msgstr ""
 "সর্বোচ্চ সংখ্যক সংযোগ ব্যবহারের পরেও সংযোগের অনুমোদন; প্রশাসনিক কাজের যেমন সর্বময় "
 "চলক নির্ধারন বা অন্য ব্যবহারকারীরর থ্রেড হত্যার জন্য প্রয়োজন।"
 
-#: libraries/classes/Server/Privileges.php:419
+#: libraries/classes/Server/Privileges.php:420
 #: templates/server/privileges/privileges_table.twig:404
 #: templates/server/privileges/privileges_table.twig:407
 msgid "Allows creating temporary tables."
 msgstr "অস্থায়ী টেবিল তৈরীর অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:424
+#: libraries/classes/Server/Privileges.php:425
 #: templates/server/privileges/privileges_table.twig:629
 #: templates/server/privileges/privileges_table.twig:632
 msgid "Allows locking tables for the current thread."
 msgstr "বর্তমান থ্রেড এর জন্য টেবল লক করার অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:429
+#: libraries/classes/Server/Privileges.php:430
 #: templates/server/privileges/privileges_table.twig:670
 #: templates/server/privileges/privileges_table.twig:673
 msgid "Needed for the replication slaves."
 msgstr "সহায়তাকরী প্রতিলিপির জন্য প্রয়োজন।"
 
-#: libraries/classes/Server/Privileges.php:434
+#: libraries/classes/Server/Privileges.php:435
 #: templates/server/privileges/privileges_table.twig:657
 #: templates/server/privileges/privileges_table.twig:660
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "সহায়তাকারী এবং প্রধানদের সম্পর্কে জিজ্ঞাসার অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:444
+#: libraries/classes/Server/Privileges.php:445
 #: templates/server/privileges/privileges_table.twig:500
 #: templates/server/privileges/privileges_table.twig:503
 #, fuzzy
@@ -12978,8 +12996,8 @@ msgid "Allows to set up events for the event scheduler."
 msgstr "ইভেন্ট সিডিউলারের জন্য ইভেন্ট নিধার্রন করার অনুমোদন"
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
-#: libraries/classes/Server/Privileges.php:473
-#: libraries/classes/Server/Privileges.php:480
+#: libraries/classes/Server/Privileges.php:474
+#: libraries/classes/Server/Privileges.php:483
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -12987,47 +13005,47 @@ msgstr "ইভেন্ট সিডিউলারের জন্য ইভে
 msgid "Allows deleting historical rows."
 msgstr "তথ্য মুছার অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:485
+#: libraries/classes/Server/Privileges.php:488
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
 msgstr "মজুদ করার জন্য রুটিন তৈরীর অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:490
+#: libraries/classes/Server/Privileges.php:493
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
 msgstr "মজুদকৃত রুটিনসমূহ পরিবর্তন এবং মুছার অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:495
+#: libraries/classes/Server/Privileges.php:498
 #: templates/server/privileges/privileges_table.twig:683
 #: templates/server/privileges/privileges_table.twig:686
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "ব্যবহারকারীর একাউন্ট তৈরী, মুছা এবং নাম পরিবর্তনের অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:500
+#: libraries/classes/Server/Privileges.php:503
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
 msgstr "মজুদকৃত রুটিন ব্যবহারের অনুমোদন।"
 
-#: libraries/classes/Server/Privileges.php:1159
+#: libraries/classes/Server/Privileges.php:1116
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s এর পাসওর্য়াডটি সফলভাবে পরিবর্তন করা হয়েছে।"
 
-#: libraries/classes/Server/Privileges.php:1209
+#: libraries/classes/Server/Privileges.php:1166
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "%s অধিকার সমূহ বাতিল করা হয়েছে।"
 
-#: libraries/classes/Server/Privileges.php:1556
+#: libraries/classes/Server/Privileges.php:1514
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1625
+#: libraries/classes/Server/Privileges.php:1583
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -13037,24 +13055,24 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "সুবিধাসমূহ সম্পাদনা:"
 
-#: libraries/classes/Server/Privileges.php:1628
+#: libraries/classes/Server/Privileges.php:1586
 msgid "Revoke"
 msgstr "বাতিল"
 
-#: libraries/classes/Server/Privileges.php:1960
+#: libraries/classes/Server/Privileges.php:1918
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "ডাটাবেইজ নির্ধারিত অধিকারসমূহ"
 
-#: libraries/classes/Server/Privileges.php:1966
+#: libraries/classes/Server/Privileges.php:1924
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "টেবিলের নির্দিষ্ট অধিকার"
 
-#: libraries/classes/Server/Privileges.php:1971
-#: libraries/classes/Server/Privileges.php:1973
+#: libraries/classes/Server/Privileges.php:1929
+#: libraries/classes/Server/Privileges.php:1931
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -13063,63 +13081,63 @@ msgstr "টেবিলের নির্দিষ্ট অধিকার"
 msgid "Routine"
 msgstr "রুটিনসমূহ"
 
-#: libraries/classes/Server/Privileges.php:1972
+#: libraries/classes/Server/Privileges.php:1930
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "স্বম্ভ সম্পকির্ত অধিকার"
 
-#: libraries/classes/Server/Privileges.php:2329
+#: libraries/classes/Server/Privileges.php:2287
 msgid "No users selected for deleting!"
 msgstr "মুছার জন্য কোন ব্যবহারকারী নির্বাচন করা হয়নি!"
 
-#: libraries/classes/Server/Privileges.php:2332
+#: libraries/classes/Server/Privileges.php:2290
 msgid "Reloading the privileges"
 msgstr "অধিকারসমূহ পুনরায় পূর্ণ করা হয়েছে"
 
-#: libraries/classes/Server/Privileges.php:2357
+#: libraries/classes/Server/Privileges.php:2315
 msgid "The selected users have been deleted successfully."
 msgstr "নির্বাচিত ব্যবহরকারীগনকে সফলভাবে মুছা হয়েছে।"
 
-#: libraries/classes/Server/Privileges.php:2437
+#: libraries/classes/Server/Privileges.php:2395
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s এর অধীকার সমূহ আধুনিকায়ন করা হয়েছে।"
 
-#: libraries/classes/Server/Privileges.php:2526
+#: libraries/classes/Server/Privileges.php:2484
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
 msgstr "ব্যবহারকারী নাই।"
 
-#: libraries/classes/Server/Privileges.php:2613
+#: libraries/classes/Server/Privileges.php:2571
 #, php-format
 msgid "Deleting %s"
 msgstr "%s মুছছি"
 
-#: libraries/classes/Server/Privileges.php:2644
+#: libraries/classes/Server/Privileges.php:2602
 msgid "The privileges were reloaded successfully."
 msgstr "অধিকারসমূহ সফলভাবে পুনরায় পূর্ণকরা হয়েছে।"
 
-#: libraries/classes/Server/Privileges.php:2748
+#: libraries/classes/Server/Privileges.php:2706
 #, php-format
 msgid "The user %s already exists!"
 msgstr "ব্যবহারকারী %s পূর্ব থেকেই আছে!"
 
-#: libraries/classes/Server/Privileges.php:3038
+#: libraries/classes/Server/Privileges.php:2996
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s এর অধিকারসমূহ"
 
-#: libraries/classes/Server/Privileges.php:3177
+#: libraries/classes/Server/Privileges.php:3135
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3221
+#: libraries/classes/Server/Privileges.php:3179
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13137,7 +13155,7 @@ msgstr ""
 "হতে পারে যদি তা পরিবর্তীত হয়ে থাকে। এরুপ ক্ষেত্রে %sreload the privileges%s করতে "
 "হবে।"
 
-#: libraries/classes/Server/Privileges.php:3237
+#: libraries/classes/Server/Privileges.php:3195
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13156,16 +13174,9 @@ msgstr ""
 "হতে পারে যদি তা পরিবর্তীত হয়ে থাকে। এরুপ ক্ষেত্রে %sreload the privileges%s করতে "
 "হবে।"
 
-#: libraries/classes/Server/Privileges.php:3582
+#: libraries/classes/Server/Privileges.php:3540
 msgid "You have added a new user."
 msgstr "একজন নতুন ব্যবহারকারী যোগ করেছেন।"
-
-#: libraries/classes/Server/Select.php:58
-#: libraries/classes/Server/Select.php:63
-#, fuzzy
-#| msgid "Current Server:"
-msgid "Current server:"
-msgstr "বর্তমান সার্ভার:"
 
 #: libraries/classes/Server/Status/Data.php:150
 msgid "Handler"
@@ -13282,11 +13293,11 @@ msgstr "কোন নতুন সুস্থিত সংস্করন প�
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "বুকমার্ক \"%s\" দেখার জন্য স্বাভাবিক অনুসন্ধান হিসাবে ব্যবহৃত হচ্ছে।"
 
-#: libraries/classes/Sql.php:1045
+#: libraries/classes/Sql.php:1053
 msgid "Showing as PHP code"
 msgstr "পিএইছপি কোড দেখাচ্ছে"
 
-#: libraries/classes/Sql.php:1423
+#: libraries/classes/Sql.php:1431
 #, fuzzy, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -13298,7 +13309,7 @@ msgstr ""
 "এই নির্বাচনে কোন অনন্য স্তম্ভ নাই। সম্পাদনা, চেকবক্স, প্রতিলিপি এবং মুছার ব্যবস্থা কাজ "
 "করবে না।"
 
-#: libraries/classes/Sql.php:1437
+#: libraries/classes/Sql.php:1445
 #, fuzzy, php-format
 #| msgid ""
 #| "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -14008,10 +14019,6 @@ msgstr ""
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s দিন, %s ঘন্টা, %s মিনিট এবং %s সেকেন্ড"
 
-#: libraries/classes/Util.php:919
-msgid "Missing parameter:"
-msgstr "parameter নাই:"
-
 #: libraries/classes/Util.php:2112
 msgid "Users"
 msgstr "ব্যবহারকারী"
@@ -14034,7 +14041,7 @@ msgstr "জিপ আর্কাইভের ভিতর কোন ফাই�
 msgid "You should upgrade to %s %s or later."
 msgstr "আপনি অবশ্যই %s %s বা পরের কোন সংস্করনে আপগ্রেড করবেন।"
 
-#: libraries/common.inc.php:317
+#: libraries/common.inc.php:315
 msgid "Error: Token mismatch"
 msgstr "ভুল: টোকেন মিলে নাই"
 
@@ -14975,7 +14982,7 @@ msgstr "পাতা নির্বাচন"
 
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
-#: templates/database/designer/main.twig:273
+#: templates/database/designer/main.twig:271
 #, fuzzy
 #| msgid "Create relation"
 msgid "Create relationship"
@@ -14986,135 +14993,135 @@ msgstr "সম্পর্ক তৈরী কর"
 msgid "Reload"
 msgstr "রিলোড"
 
-#: templates/database/designer/main.twig:114
-#: templates/database/designer/main.twig:117
+#: templates/database/designer/main.twig:112
+#: templates/database/designer/main.twig:115
 msgid "Help"
 msgstr "সাহায্য"
 
-#: templates/database/designer/main.twig:122
-#: templates/database/designer/main.twig:125
+#: templates/database/designer/main.twig:120
+#: templates/database/designer/main.twig:123
 msgid "Angular links"
 msgstr "কোণিক সংযোগ"
 
-#: templates/database/designer/main.twig:122
-#: templates/database/designer/main.twig:125
+#: templates/database/designer/main.twig:120
+#: templates/database/designer/main.twig:123
 msgid "Direct links"
 msgstr "সরাসরি সংযোগ"
 
+#: templates/database/designer/main.twig:127
 #: templates/database/designer/main.twig:129
-#: templates/database/designer/main.twig:131
 msgid "Snap to grid"
 msgstr "গ্রীড অনুযায়ী"
 
-#: templates/database/designer/main.twig:135
-#: templates/database/designer/main.twig:141
+#: templates/database/designer/main.twig:133
+#: templates/database/designer/main.twig:139
 msgid "Small/Big All"
 msgstr "ছোট/বড় সব"
 
-#: templates/database/designer/main.twig:145
-#: templates/database/designer/main.twig:148
+#: templates/database/designer/main.twig:143
+#: templates/database/designer/main.twig:146
 msgid "Toggle small/big"
 msgstr "ছোট/বড় টোগল"
 
-#: templates/database/designer/main.twig:152
-#: templates/database/designer/main.twig:155
+#: templates/database/designer/main.twig:150
+#: templates/database/designer/main.twig:153
 #, fuzzy
 #| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
 msgstr "সর্ম্পক রেখা টোগল"
 
-#: templates/database/designer/main.twig:160
-#: templates/database/designer/main.twig:163
+#: templates/database/designer/main.twig:158
+#: templates/database/designer/main.twig:161
 #, fuzzy
 #| msgid "Export"
 msgid "Export schema"
 msgstr "Export"
 
-#: templates/database/designer/main.twig:171
-#: templates/database/designer/main.twig:174
+#: templates/database/designer/main.twig:169
+#: templates/database/designer/main.twig:172
 msgid "Build Query"
 msgstr "অনুসন্ধান তৈরী"
 
-#: templates/database/designer/main.twig:179
-#: templates/database/designer/main.twig:183
+#: templates/database/designer/main.twig:177
+#: templates/database/designer/main.twig:181
 msgid "Move Menu"
 msgstr "মেন্যু সরান"
 
-#: templates/database/designer/main.twig:187
-#: templates/database/designer/main.twig:192
+#: templates/database/designer/main.twig:185
+#: templates/database/designer/main.twig:190
 #, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
 msgstr "আংশিক লেখা"
 
-#: templates/database/designer/main.twig:204
+#: templates/database/designer/main.twig:202
 msgid "Hide/Show all"
 msgstr "সব দেখা/লুকানো"
 
-#: templates/database/designer/main.twig:214
+#: templates/database/designer/main.twig:212
 #, fuzzy
 #| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show tables with no relationship"
 msgstr "সম্পর্কহীন টেবল দেখাও/লুকাও"
 
-#: templates/database/designer/main.twig:225
+#: templates/database/designer/main.twig:223
 msgid "Number of tables:"
 msgstr "টেবলের সংখ্যা:"
 
-#: templates/database/designer/main.twig:383
+#: templates/database/designer/main.twig:381
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "সর্ম্পক মুছা"
 
-#: templates/database/designer/main.twig:447
-#: templates/database/designer/main.twig:612
+#: templates/database/designer/main.twig:445
+#: templates/database/designer/main.twig:610
 #, fuzzy
 #| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "সর্ম্পক পরিচালক"
 
-#: templates/database/designer/main.twig:476
-#: templates/database/designer/main.twig:641
-#: templates/database/designer/main.twig:847
-#: templates/database/designer/main.twig:1040
+#: templates/database/designer/main.twig:474
+#: templates/database/designer/main.twig:639
+#: templates/database/designer/main.twig:845
+#: templates/database/designer/main.twig:1038
 msgid "Except"
 msgstr "ব্যতিত"
 
-#: templates/database/designer/main.twig:488
-#: templates/database/designer/main.twig:653
-#: templates/database/designer/main.twig:859
-#: templates/database/designer/main.twig:1052
+#: templates/database/designer/main.twig:486
+#: templates/database/designer/main.twig:651
+#: templates/database/designer/main.twig:857
+#: templates/database/designer/main.twig:1050
 msgid "subquery"
 msgstr "সহ-অনুসন্ধান"
 
-#: templates/database/designer/main.twig:497
-#: templates/database/designer/main.twig:713
+#: templates/database/designer/main.twig:495
+#: templates/database/designer/main.twig:711
 msgid "Rename to"
 msgstr "নাম পরিবর্তন"
 
-#: templates/database/designer/main.twig:503
-#: templates/database/designer/main.twig:721
+#: templates/database/designer/main.twig:501
+#: templates/database/designer/main.twig:719
 msgid "New name"
 msgstr "নতুন নাম"
 
-#: templates/database/designer/main.twig:512
-#: templates/database/designer/main.twig:918
+#: templates/database/designer/main.twig:510
+#: templates/database/designer/main.twig:916
 msgid "Aggregate"
 msgstr "সমষ্টিগত"
 
-#: templates/database/designer/main.twig:518
-#: templates/database/designer/main.twig:582
-#: templates/database/designer/main.twig:787
-#: templates/database/designer/main.twig:818
-#: templates/database/designer/main.twig:926
-#: templates/database/designer/main.twig:1011
+#: templates/database/designer/main.twig:516
+#: templates/database/designer/main.twig:580
+#: templates/database/designer/main.twig:785
+#: templates/database/designer/main.twig:816
+#: templates/database/designer/main.twig:924
+#: templates/database/designer/main.twig:1009
 #: templates/table/search/index.twig:41
 #: templates/table/zoom_search/index.twig:41
 msgid "Operator"
 msgstr "পরিচালক"
 
-#: templates/database/designer/main.twig:1092
+#: templates/database/designer/main.twig:1090
 msgid "Active options"
 msgstr "কার্যকর অপশনসমূহ"
 
@@ -16342,17 +16349,21 @@ msgstr "ফিল্টারসমূহ"
 msgid "Containing the word:"
 msgstr "এই শব্দটি আছে:"
 
-#: templates/footer.twig:16 templates/home/index.twig:18
+#: templates/footer.twig:7 templates/footer.twig:9 templates/footer.twig:11
+msgid "Open new phpMyAdmin window"
+msgstr "নতুন phpMyAdmin উইন্ডো খোল"
+
+#: templates/footer.twig:26 templates/home/index.twig:18
 #: templates/login/form.twig:5
 msgid "phpMyAdmin Demo Server"
 msgstr "পিএইছপিমাইএডমিন ডেমো সার্ভার"
 
-#: templates/footer.twig:24
+#: templates/footer.twig:34
 #, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr "বর্তমানে Git'র %2$s শাখা হতে %1$s ব্যবহৃত হচ্ছে।"
 
-#: templates/footer.twig:26
+#: templates/footer.twig:36
 msgid "Git information missing!"
 msgstr "Git সম্পর্কিত তথ্য নাই।"
 
@@ -16435,11 +16446,11 @@ msgstr ""
 "\"Function\" স্তম্ভ থেকে \"GeomFromText\" পছন্দ করুন এবং তার নিচের লেখাটি \"Value"
 "\" স্থানে বসান।"
 
-#: templates/header.twig:40 templates/login/header.twig:13
+#: templates/header.twig:39 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "এখানে আসার পুর্বেই জাভা স্ক্রীপট কার্যকর থাকতে হবে।"
 
-#: templates/header.twig:51
+#: templates/header.twig:50
 msgid "Click on the bar to scroll to top of page"
 msgstr "পাতার উপরে যাওয়ার জন্য বারে ক্লীক করুন"
 
@@ -16550,55 +16561,55 @@ msgstr "সার্ভারের বর্ণসম্ভার:"
 msgid "Web server"
 msgstr "ওয়েব র্সাভার"
 
-#: templates/home/index.twig:192
+#: templates/home/index.twig:194
 msgid "Database client version:"
 msgstr "ডাটাবেইজ সংযোজক সংস্করন:"
 
-#: templates/home/index.twig:196
+#: templates/home/index.twig:198
 msgid "PHP extension:"
 msgstr "পিএইছপি সংযোজক:"
 
-#: templates/home/index.twig:203
+#: templates/home/index.twig:205
 #, fuzzy
 #| msgid "PHP Version:"
 msgid "PHP version:"
 msgstr "পিএইছপির সংস্করন:"
 
-#: templates/home/index.twig:210
+#: templates/home/index.twig:212
 msgid "Show PHP information"
 msgstr "পিএইছপির তথ্যাবলী দেখাও"
 
-#: templates/home/index.twig:224
+#: templates/home/index.twig:226
 msgid "Version information:"
 msgstr "সংস্করন সম্পর্কিত তথ্য:"
 
-#: templates/home/index.twig:234
+#: templates/home/index.twig:236
 msgid "Official Homepage"
 msgstr "দাপ্তরিক প্রধানপাতা"
 
-#: templates/home/index.twig:239
+#: templates/home/index.twig:241
 msgid "Contribute"
 msgstr "সহায়তা করুন"
 
-#: templates/home/index.twig:244
+#: templates/home/index.twig:246
 msgid "Get support"
 msgstr "সাহায্য নিন"
 
-#: templates/home/index.twig:249
+#: templates/home/index.twig:251
 msgid "List of changes"
 msgstr "পরিবর্তনের তালিকা"
 
-#: templates/home/index.twig:254 templates/server/plugins/index.twig:30
+#: templates/home/index.twig:256 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "অনুমোদন"
 
-#: templates/home/index.twig:269
+#: templates/home/index.twig:271
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "প্রধান পাতা"
 
-#: templates/home/index.twig:280
+#: templates/home/index.twig:282
 msgid "Get more themes!"
 msgstr "আরও থীমের জন্য!"
 
@@ -17179,6 +17190,14 @@ msgstr "চলাচলের ট্রি লোডকরার সময় এ�
 msgid "SQL upload"
 msgstr "স্তুপকৃত এসকিউএল"
 
+#: templates/navigation/tree/fast_filter.twig:10
+msgid "Type to filter these, Enter to search all"
+msgstr ""
+
+#: templates/navigation/tree/fast_filter.twig:12
+msgid "Clear fast filter"
+msgstr "দ্রুত ফিল্টারটি সরাও"
+
 #: templates/preferences/autoload.twig:7
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
@@ -17638,12 +17657,7 @@ msgid ""
 "the server."
 msgstr ""
 
-#: templates/server/privileges/choose_user_group.twig:4
-#: templates/server/privileges/users_overview.twig:16
-msgid "User group"
-msgstr "ব্যাবহারকারীর দল"
-
-#: templates/server/privileges/choose_user_group.twig:6
+#: templates/server/privileges/choose_user_group.twig:5
 #, fuzzy
 #| msgid "User group"
 msgid "User group:"
@@ -17820,6 +17834,7 @@ msgstr ""
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:80
+#: templates/server/privileges/users_overview.twig:152
 msgid "Edit user group"
 msgstr "ব্যবহারকারী দল সম্পাদনা"
 
@@ -18013,6 +18028,10 @@ msgid ""
 "afterwards."
 msgstr "পুরাতনটি ব্যবহারকারী টেবল থেকে মুছে ফেল এবং অধিকারগুলো পুনারায় চালু কর।"
 
+#: templates/server/privileges/users_overview.twig:16
+msgid "User group"
+msgstr "ব্যাবহারকারীর দল"
+
 #: templates/server/privileges/users_overview.twig:131
 #, fuzzy
 #| msgid "Remove selected users"
@@ -18026,6 +18045,12 @@ msgstr "এই ব্যবহারকারীদের অধিকার ব
 #: templates/server/privileges/users_overview.twig:137
 msgid "Drop the databases that have the same names as the users."
 msgstr "এই ব্যবহারকারীর নামের সাথে মিল আছে এমন সব ডাটাবেইজ মুছে ফেল।"
+
+#: templates/server/privileges/users_overview.twig:162
+#, fuzzy
+#| msgid "Select page"
+msgid "Save changes"
+msgstr "পাতা নির্বাচন"
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
@@ -18236,6 +18261,12 @@ msgstr "সহায়কের অবস্থা"
 #: templates/server/variables/index.twig:31
 msgid "Variable"
 msgstr "চলক"
+
+#: templates/server/select/index.twig:7 templates/server/select/index.twig:19
+#, fuzzy
+#| msgid "Current Server:"
+msgid "Current server:"
+msgstr "বর্তমান সার্ভার:"
 
 #: templates/server/status/advisor/index.twig:6
 #: templates/server/status/advisor/index.twig:19
