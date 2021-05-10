@@ -29,7 +29,7 @@
     "kbwood-jquery-svg": "https://github.com/kbwood/svg/archive/1.5.0.tar.gz",
     "locutus.sprintf": "^2.0.14-code-lts.2",
     "ol": "6.5.0",
-    "postcss": "^8.2.13",
+    "postcss": "^8.2.15",
     "postcss-cli": "^8.3.1",
     "rtlcss": "^3.1.2",
     "sass": "^1.32.12",
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "babel-jest": "^26.6.3",
-    "eslint": "^7.25.0",
+    "eslint": "^7.26.0",
     "eslint-plugin-compat": "^3.9.0",
     "eslint-plugin-no-jquery": "^2.6.0",
     "jest": "^26.6.3",
