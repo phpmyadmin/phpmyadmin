@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-11 01:21+0200\n"
-"PO-Revision-Date: 2021-04-24 09:46+0000\n"
+"PO-Revision-Date: 2021-05-11 16:22+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -2653,7 +2653,7 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"[a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] çıktısı "
+"[a@https://www.php.net/manual/tr/function.phpinfo.php]phpinfo()[/a] çıktısı "
 "için bağlantı gösterir."
 
 #: libraries/classes/Config/Descriptions.php:511
@@ -5208,8 +5208,8 @@ msgid ""
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"phpMyAdmin içinde yapılandırılmış tanımlama bilgisi geçerliliği, [a@https://"
-"php.net/manual/tr/session.configuration.php#ini.session.gc-"
+"phpMyAdmin içinde yapılandırılmış tanımlama bilgisi geçerliliği, "
+"[a@https://www.php.net/manual/tr/session.configuration.php#ini.session.gc-"
 "maxlifetime@_blank]session.gc_maxlifetime[/a] PHP parametrenizden düşük, "
 "bundan dolayı phpMyAdmin içinde yapılandırılmadıkça oturum açmanızın süresi "
 "dolabilir."
@@ -8208,10 +8208,8 @@ msgid "Missing parameter:"
 msgstr "Eksik parametre:"
 
 #: libraries/classes/Controllers/Server/UserGroupsController.php:130
-#, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
-msgstr "Sorgu önbelleği etkinleştirilmedi."
+msgstr "Kullanıcı grupları yönetimi etkinleştirilmedi."
 
 #: libraries/classes/Controllers/Server/VariablesController.php:224
 msgid "Setting variable failed"
@@ -8348,13 +8346,11 @@ msgid "No column selected."
 msgstr "Seçilen sütun yok."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:84
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%1$d veritabanı başarılı olarak kaldırıldı."
-msgstr[1] "%1$d veritabanı başarılı olarak kaldırıldı."
+msgstr[0] "%1$d sütun başarılı olarak kaldırıldı."
+msgstr[1] "%1$d sütun başarılı olarak kaldırıldı."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -10300,10 +10296,8 @@ msgid "New"
 msgstr "Yeni"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger"
-msgstr "Tetikleyiciler"
+msgstr "Tetikleyici"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:24
@@ -17062,10 +17056,8 @@ msgid "Drop the databases that have the same names as the users."
 msgstr "Kullanıcılarla aynı isimlerde olan veritabanlarını kaldır."
 
 #: templates/server/privileges/users_overview.twig:162
-#, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
-msgstr "Sayfayı kaydet"
+msgstr "Değişiklikleri kaydet"
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
