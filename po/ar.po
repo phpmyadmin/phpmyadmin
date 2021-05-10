@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-25 14:28+0200\n"
+"POT-Creation-Date: 2021-05-10 23:30+0200\n"
 "PO-Revision-Date: 2021-05-01 18:32+0000\n"
 "Last-Translator: Meno25 <meno25mail@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-1/ar/"
@@ -2414,8 +2414,8 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
-"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
-"output."
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
+"[/a] output."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:510
@@ -4080,8 +4080,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
-#: libraries/classes/Server/Privileges.php:1946
 #: libraries/classes/Server/Privileges.php:1948
+#: libraries/classes/Server/Privileges.php:1950
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4110,8 +4110,8 @@ msgstr "خادم"
 #: libraries/classes/Config/Descriptions.php:966
 #: libraries/classes/Database/Triggers.php:398
 #: libraries/classes/Plugins/Export/ExportXml.php:521
-#: libraries/classes/Server/Privileges.php:1952
 #: libraries/classes/Server/Privileges.php:1954
+#: libraries/classes/Server/Privileges.php:1956
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4341,7 +4341,7 @@ msgstr "أقصى %s"
 #: libraries/classes/Engines/Pbxt.php:169
 #: libraries/classes/Html/Generator.php:812
 #: libraries/classes/Html/MySQLDocumentation.php:49
-#: libraries/classes/Sanitize.php:200 templates/home/index.twig:198
+#: libraries/classes/Sanitize.php:200 templates/home/index.twig:200
 #: templates/server/variables/index.twig:17
 msgid "Documentation"
 msgstr "مستندات وثائقية"
@@ -4523,7 +4523,7 @@ msgstr "مستند مفتوح"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 #: libraries/classes/Menu.php:312 libraries/classes/Menu.php:426
-#: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1622
+#: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1624
 #: libraries/classes/Util.php:2478 libraries/classes/Util.php:2493
 #: libraries/classes/Util.php:2510 templates/database/events/index.twig:58
 #: templates/database/events/index.twig:91
@@ -4923,7 +4923,7 @@ msgid "Table %s has been emptied."
 msgstr "تم إفراغ محتويات الجدول %s."
 
 #: libraries/classes/Controllers/Database/StructureController.php:796
-#: libraries/classes/Display/Results.php:4476
+#: libraries/classes/Display/Results.php:4477
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -4946,7 +4946,7 @@ msgstr "نجاح!"
 #: libraries/classes/Controllers/Database/StructureController.php:1537
 #: libraries/classes/Controllers/Table/OperationsController.php:318
 #: libraries/classes/Controllers/Table/ReplaceController.php:397
-#: libraries/classes/Core.php:861 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:859 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "لا تغييرات"
 
@@ -5051,10 +5051,10 @@ msgid ""
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"قيمة العامل [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] الخاص بـPHP "
-"أصغر من مدة صلاحية «الكعكات» التي تم إعدادها بواسطة phpMyAdmin، جلسة العمل "
-"يمكن أن تنتهي أسرع مما قد تم إعداده بواسطة phpMyAdmin."
+"قيمة العامل [a@https://www.php.net/manual/en/session.configuration.php#ini."
+"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] الخاص بـPHP أصغر من "
+"مدة صلاحية «الكعكات» التي تم إعدادها بواسطة phpMyAdmin، جلسة العمل يمكن أن "
+"تنتهي أسرع مما قد تم إعداده بواسطة phpMyAdmin."
 
 #: libraries/classes/Controllers/HomeController.php:372
 msgid ""
@@ -5461,13 +5461,13 @@ msgid "The user name is empty!"
 msgstr "إسم المستخدم فارغ!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
-#: libraries/classes/Server/Privileges.php:1024
+#: libraries/classes/Server/Privileges.php:1026
 #: libraries/classes/UserPassword.php:40
 msgid "The password is empty!"
 msgstr "كلمة المرور فارغة!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
-#: libraries/classes/Server/Privileges.php:1022
+#: libraries/classes/Server/Privileges.php:1024
 #: libraries/classes/UserPassword.php:44
 msgid "The passwords aren't the same!"
 msgstr "كلمتا المرور مختلفتان!"
@@ -5702,7 +5702,7 @@ msgstr "الرجاء إضافة متغير واحد على الأقل إلى ا�
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:591 templates/export.twig:355
+#: templates/database/designer/main.twig:589 templates/export.twig:355
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
@@ -6062,13 +6062,13 @@ msgstr "لم يتم العثور على معلمات!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 #: templates/database/central_columns/main.twig:271
-#: templates/database/designer/main.twig:342
-#: templates/database/designer/main.twig:393
-#: templates/database/designer/main.twig:671
-#: templates/database/designer/main.twig:737
-#: templates/database/designer/main.twig:876
-#: templates/database/designer/main.twig:961
-#: templates/database/designer/main.twig:1066
+#: templates/database/designer/main.twig:340
+#: templates/database/designer/main.twig:391
+#: templates/database/designer/main.twig:669
+#: templates/database/designer/main.twig:735
+#: templates/database/designer/main.twig:874
+#: templates/database/designer/main.twig:959
+#: templates/database/designer/main.twig:1064
 #: templates/server/variables/index.twig:15
 msgid "Cancel"
 msgstr "ألغاء"
@@ -6135,12 +6135,12 @@ msgid "Adding primary key"
 msgstr "إضافة المفتاح الأساسي"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:346
-#: templates/console/display.twig:129 templates/database/designer/main.twig:340
-#: templates/database/designer/main.twig:669
-#: templates/database/designer/main.twig:733
-#: templates/database/designer/main.twig:872
-#: templates/database/designer/main.twig:957
-#: templates/database/designer/main.twig:1064
+#: templates/console/display.twig:129 templates/database/designer/main.twig:338
+#: templates/database/designer/main.twig:667
+#: templates/database/designer/main.twig:731
+#: templates/database/designer/main.twig:870
+#: templates/database/designer/main.twig:955
+#: templates/database/designer/main.twig:1062
 msgid "OK"
 msgstr "موافق"
 
@@ -6248,7 +6248,7 @@ msgstr "إظهار صندوق الإستعلام"
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:385
 #: templates/database/central_columns/main.twig:386
-#: templates/database/designer/main.twig:391
+#: templates/database/designer/main.twig:389
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:218
@@ -7246,7 +7246,7 @@ msgid "ID"
 msgstr "رقم"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Server/Privileges.php:3001
+#: libraries/classes/Server/Privileges.php:3003
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "المستخدم"
@@ -7993,7 +7993,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/RelationController.php:273
 #: libraries/classes/Controllers/ViewOperationsController.php:84
 #: libraries/classes/Database/Routines.php:1482
-#: libraries/classes/Display/Results.php:4139 libraries/classes/Message.php:175
+#: libraries/classes/Display/Results.php:4140 libraries/classes/Message.php:175
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "تم تنفيذ استعلام SQL الخاص بك بنجاح."
@@ -8168,33 +8168,33 @@ msgstr "ليس لديك الحقوق الكافية بأن تكون هنا ال�
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:362 libraries/classes/ZipExtension.php:60
+#: libraries/classes/Core.php:360 libraries/classes/ZipExtension.php:60
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: libraries/classes/Core.php:1234
+#: libraries/classes/Core.php:1232
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: libraries/classes/Core.php:1251
+#: libraries/classes/Core.php:1249
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Core.php:1263
+#: libraries/classes/Core.php:1261
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Core.php:1273
+#: libraries/classes/Core.php:1271
 msgid "possible exploit"
 msgstr "إستغلال محتمل"
 
-#: libraries/classes/Core.php:1342
+#: libraries/classes/Core.php:1340
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -8846,10 +8846,10 @@ msgstr "دالة"
 
 #: libraries/classes/Database/Routines.php:1660
 #: libraries/classes/InsertEdit.php:2007
-#: templates/database/designer/main.twig:487
-#: templates/database/designer/main.twig:652
-#: templates/database/designer/main.twig:858
-#: templates/database/designer/main.twig:1051
+#: templates/database/designer/main.twig:485
+#: templates/database/designer/main.twig:650
+#: templates/database/designer/main.twig:856
+#: templates/database/designer/main.twig:1049
 #: templates/server/replication/status_table.twig:17
 #: templates/server/status/variables/index.twig:73
 #: templates/server/variables/index.twig:32
@@ -9084,32 +9084,32 @@ msgstr "تم حذف الصف."
 msgid "Kill"
 msgstr "حذف"
 
-#: libraries/classes/Display/Results.php:4063
+#: libraries/classes/Display/Results.php:4064
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 "ممكن أن يكون تقريبي. أنظر إلى [doc@faq3-11]الأسئلة المتكررة 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4488
+#: libraries/classes/Display/Results.php:4489
 #, fuzzy, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "اظهر الصفوف %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4502
+#: libraries/classes/Display/Results.php:4503
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d جملة %2$d طلب بحث"
 
-#: libraries/classes/Display/Results.php:4507
+#: libraries/classes/Display/Results.php:4508
 #, php-format
 msgid "%d total"
 msgstr "المجموع %d"
 
-#: libraries/classes/Display/Results.php:4519 libraries/classes/Sql.php:1052
+#: libraries/classes/Display/Results.php:4520 libraries/classes/Sql.php:1052
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "استغرق الاستعلام %01.4f ثانية."
 
-#: libraries/classes/Display/Results.php:4890
+#: libraries/classes/Display/Results.php:4891
 msgid "Link not found!"
 msgstr "لم يتم العثور على الرابط!"
 
@@ -9872,7 +9872,7 @@ msgid "Insert"
 msgstr "إدخال"
 
 #: libraries/classes/Menu.php:332 libraries/classes/Menu.php:450
-#: libraries/classes/Server/Privileges.php:2975 libraries/classes/Util.php:2496
+#: libraries/classes/Server/Privileges.php:2977 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:2512 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -12068,29 +12068,29 @@ msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:565
+#: libraries/classes/ReplicationGui.php:566
 msgid "Unable to change master!"
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:569
+#: libraries/classes/ReplicationGui.php:570
 #, fuzzy, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s."
 msgstr "تم إعادة قراءة الصلاحيات بنجاح."
 
-#: libraries/classes/Routing.php:101
+#: libraries/classes/Routing.php:102
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:164
+#: libraries/classes/Routing.php:165
 #, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "خطأ 404! الصفحة %s غير موجودة ."
 
-#: libraries/classes/Routing.php:175
+#: libraries/classes/Routing.php:176
 msgid "Error 405! Request method not allowed."
 msgstr "خطأ 405! الطلب بهذه الطريقة غير مسموح."
 
@@ -12317,7 +12317,7 @@ msgstr "يسمح بقفل الجداول للعملية الحالية."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Server/Privileges.php:461
-#: libraries/classes/Server/Privileges.php:468
+#: libraries/classes/Server/Privileges.php:470
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -12325,61 +12325,61 @@ msgstr "يسمح بقفل الجداول للعملية الحالية."
 msgid "Allows deleting historical rows."
 msgstr "يسمح بحذف البيانات."
 
-#: libraries/classes/Server/Privileges.php:473
+#: libraries/classes/Server/Privileges.php:475
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:478
+#: libraries/classes/Server/Privileges.php:480
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:483
+#: libraries/classes/Server/Privileges.php:485
 #: templates/server/privileges/privileges_table.twig:683
 #: templates/server/privileges/privileges_table.twig:686
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:488
+#: libraries/classes/Server/Privileges.php:490
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:793
-#: libraries/classes/Server/Privileges.php:867
-#: libraries/classes/Server/Privileges.php:3968
+#: libraries/classes/Server/Privileges.php:795
+#: libraries/classes/Server/Privileges.php:869
+#: libraries/classes/Server/Privileges.php:3970
 #, fuzzy
 #| msgid "Authentication"
 msgid "Native MySQL authentication"
 msgstr "المصادقة"
 
-#: libraries/classes/Server/Privileges.php:795
+#: libraries/classes/Server/Privileges.php:797
 #, fuzzy
 #| msgid "Change password"
 msgid "SHA256 password authentication"
 msgstr "تغيير كلمة السر"
 
-#: libraries/classes/Server/Privileges.php:1164
+#: libraries/classes/Server/Privileges.php:1166
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "تم تغيير كلمة المرور لـ %s بنجاح."
 
-#: libraries/classes/Server/Privileges.php:1213
+#: libraries/classes/Server/Privileges.php:1215
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "لقد أبطلت الامتيازات لـ %s."
 
-#: libraries/classes/Server/Privileges.php:1549
+#: libraries/classes/Server/Privileges.php:1551
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1616
+#: libraries/classes/Server/Privileges.php:1618
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -12389,24 +12389,24 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "تحرير الامتيازات"
 
-#: libraries/classes/Server/Privileges.php:1619
+#: libraries/classes/Server/Privileges.php:1621
 msgid "Revoke"
 msgstr "إبطال"
 
-#: libraries/classes/Server/Privileges.php:1947
+#: libraries/classes/Server/Privileges.php:1949
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "صلاحيات خاصة بقاعدة البيانات"
 
-#: libraries/classes/Server/Privileges.php:1953
+#: libraries/classes/Server/Privileges.php:1955
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "صلاحيات خاصة بالجدول"
 
-#: libraries/classes/Server/Privileges.php:1958
 #: libraries/classes/Server/Privileges.php:1960
+#: libraries/classes/Server/Privileges.php:1962
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -12415,31 +12415,31 @@ msgstr "صلاحيات خاصة بالجدول"
 msgid "Routine"
 msgstr "إضافة حقل جديد"
 
-#: libraries/classes/Server/Privileges.php:1959
+#: libraries/classes/Server/Privileges.php:1961
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "صلاحيات خاصة بالحقل"
 
-#: libraries/classes/Server/Privileges.php:2307
+#: libraries/classes/Server/Privileges.php:2309
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:2310
+#: libraries/classes/Server/Privileges.php:2312
 msgid "Reloading the privileges"
 msgstr "إعادة تحميل الأمتيازات"
 
-#: libraries/classes/Server/Privileges.php:2333
+#: libraries/classes/Server/Privileges.php:2335
 msgid "The selected users have been deleted successfully."
 msgstr "تم حذف المستخدمين المحددين بنجاح."
 
-#: libraries/classes/Server/Privileges.php:2410
+#: libraries/classes/Server/Privileges.php:2412
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "لقد جددت وحدثت الإمتيازات لـ %s."
 
-#: libraries/classes/Server/Privileges.php:2497
+#: libraries/classes/Server/Privileges.php:2499
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 #, fuzzy
@@ -12447,34 +12447,34 @@ msgstr "لقد جددت وحدثت الإمتيازات لـ %s."
 msgid "No user found."
 msgstr "المستخدم(ون) لم يتم إيجادهم."
 
-#: libraries/classes/Server/Privileges.php:2578
+#: libraries/classes/Server/Privileges.php:2580
 #, php-format
 msgid "Deleting %s"
 msgstr "قيد حذف %s"
 
-#: libraries/classes/Server/Privileges.php:2609
+#: libraries/classes/Server/Privileges.php:2611
 msgid "The privileges were reloaded successfully."
 msgstr "تم إعادة قراءة الصلاحيات بنجاح."
 
-#: libraries/classes/Server/Privileges.php:2709
+#: libraries/classes/Server/Privileges.php:2711
 #, php-format
 msgid "The user %s already exists!"
 msgstr "اسم المستخدم %s موجود مسبقاً!"
 
-#: libraries/classes/Server/Privileges.php:2992
+#: libraries/classes/Server/Privileges.php:2994
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "الإمتيازات"
 
-#: libraries/classes/Server/Privileges.php:3131
+#: libraries/classes/Server/Privileges.php:3133
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3174
+#: libraries/classes/Server/Privileges.php:3176
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12492,7 +12492,7 @@ msgstr ""
 "ما تم التعديل عليها يدويا. في هذه الحالة، عليك %s بإعادة قراءة الصلاحيات %s "
 "قبل أن تكمل."
 
-#: libraries/classes/Server/Privileges.php:3190
+#: libraries/classes/Server/Privileges.php:3192
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -12511,7 +12511,7 @@ msgstr ""
 "ما تم التعديل عليها يدويا. في هذه الحالة، عليك %s بإعادة قراءة الصلاحيات %s "
 "قبل أن تكمل."
 
-#: libraries/classes/Server/Privileges.php:3526
+#: libraries/classes/Server/Privileges.php:3528
 msgid "You have added a new user."
 msgstr "لقد أضفت مستخدم جديد."
 
@@ -14244,7 +14244,7 @@ msgstr "اختر الجداول"
 
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
-#: templates/database/designer/main.twig:274
+#: templates/database/designer/main.twig:272
 #, fuzzy
 #| msgid "Create version"
 msgid "Create relationship"
@@ -14255,147 +14255,147 @@ msgstr "إنشاء إصدار"
 msgid "Reload"
 msgstr ""
 
-#: templates/database/designer/main.twig:114
-#: templates/database/designer/main.twig:117
+#: templates/database/designer/main.twig:112
+#: templates/database/designer/main.twig:115
 msgid "Help"
 msgstr "مساعدة"
 
-#: templates/database/designer/main.twig:122
-#: templates/database/designer/main.twig:125
+#: templates/database/designer/main.twig:120
+#: templates/database/designer/main.twig:123
 msgid "Angular links"
 msgstr ""
 
-#: templates/database/designer/main.twig:122
-#: templates/database/designer/main.twig:125
+#: templates/database/designer/main.twig:120
+#: templates/database/designer/main.twig:123
 msgid "Direct links"
 msgstr ""
 
+#: templates/database/designer/main.twig:127
 #: templates/database/designer/main.twig:129
-#: templates/database/designer/main.twig:131
 msgid "Snap to grid"
 msgstr ""
 
-#: templates/database/designer/main.twig:135
-#: templates/database/designer/main.twig:141
+#: templates/database/designer/main.twig:133
+#: templates/database/designer/main.twig:139
 msgid "Small/Big All"
 msgstr ""
 
-#: templates/database/designer/main.twig:145
-#: templates/database/designer/main.twig:148
+#: templates/database/designer/main.twig:143
+#: templates/database/designer/main.twig:146
 msgid "Toggle small/big"
 msgstr ""
 
-#: templates/database/designer/main.twig:152
-#: templates/database/designer/main.twig:155
+#: templates/database/designer/main.twig:150
+#: templates/database/designer/main.twig:153
 #, fuzzy
 #| msgid "Traditional Chinese"
 msgid "Toggle relationship lines"
 msgstr "الصينية التقليدية"
 
-#: templates/database/designer/main.twig:160
-#: templates/database/designer/main.twig:163
+#: templates/database/designer/main.twig:158
+#: templates/database/designer/main.twig:161
 #, fuzzy
 #| msgid "Export"
 msgid "Export schema"
 msgstr "تصدير"
 
-#: templates/database/designer/main.twig:171
-#: templates/database/designer/main.twig:174
+#: templates/database/designer/main.twig:169
+#: templates/database/designer/main.twig:172
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
 msgstr "إرسال الاستعلام"
 
-#: templates/database/designer/main.twig:179
-#: templates/database/designer/main.twig:183
+#: templates/database/designer/main.twig:177
+#: templates/database/designer/main.twig:181
 msgid "Move Menu"
 msgstr "نقل القائمة"
 
-#: templates/database/designer/main.twig:187
-#: templates/database/designer/main.twig:192
+#: templates/database/designer/main.twig:185
+#: templates/database/designer/main.twig:190
 #, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
 msgstr "نصوص جزئيّة"
 
-#: templates/database/designer/main.twig:204
+#: templates/database/designer/main.twig:202
 msgid "Hide/Show all"
 msgstr "إخفاء/عرض الكل"
 
-#: templates/database/designer/main.twig:214
+#: templates/database/designer/main.twig:212
 #, fuzzy
 #| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show tables with no relationship"
 msgstr "إخفاء / عرض الجداول الغير مرتبطة بعلاقة"
 
-#: templates/database/designer/main.twig:225
+#: templates/database/designer/main.twig:223
 msgid "Number of tables:"
 msgstr "عدد الجداول:"
 
-#: templates/database/designer/main.twig:384
+#: templates/database/designer/main.twig:382
 #, fuzzy
 #| msgid "Delete tracking"
 msgid "Delete relationship"
 msgstr "حذف بيانات تتبع التغيرات"
 
-#: templates/database/designer/main.twig:448
-#: templates/database/designer/main.twig:613
+#: templates/database/designer/main.twig:446
+#: templates/database/designer/main.twig:611
 #, fuzzy
 #| msgid "Relation view"
 msgid "Relationship operator"
 msgstr "عرض الروابط"
 
-#: templates/database/designer/main.twig:477
-#: templates/database/designer/main.twig:642
-#: templates/database/designer/main.twig:848
-#: templates/database/designer/main.twig:1041
+#: templates/database/designer/main.twig:475
+#: templates/database/designer/main.twig:640
+#: templates/database/designer/main.twig:846
+#: templates/database/designer/main.twig:1039
 #, fuzzy
 #| msgid "Export"
 msgid "Except"
 msgstr "تصدير"
 
-#: templates/database/designer/main.twig:489
-#: templates/database/designer/main.twig:654
-#: templates/database/designer/main.twig:860
-#: templates/database/designer/main.twig:1053
+#: templates/database/designer/main.twig:487
+#: templates/database/designer/main.twig:652
+#: templates/database/designer/main.twig:858
+#: templates/database/designer/main.twig:1051
 #, fuzzy
 #| msgid "in query"
 msgid "subquery"
 msgstr "في الاستعلام"
 
-#: templates/database/designer/main.twig:498
-#: templates/database/designer/main.twig:714
+#: templates/database/designer/main.twig:496
+#: templates/database/designer/main.twig:712
 #, fuzzy
 #| msgid "Rename table to"
 msgid "Rename to"
 msgstr "تغيير اسم جدول إلى"
 
-#: templates/database/designer/main.twig:504
-#: templates/database/designer/main.twig:722
+#: templates/database/designer/main.twig:502
+#: templates/database/designer/main.twig:720
 #, fuzzy
 #| msgid "User name"
 msgid "New name"
 msgstr "اسم المستخدم"
 
-#: templates/database/designer/main.twig:513
-#: templates/database/designer/main.twig:919
+#: templates/database/designer/main.twig:511
+#: templates/database/designer/main.twig:917
 #, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
 msgstr "تكوين"
 
-#: templates/database/designer/main.twig:519
-#: templates/database/designer/main.twig:583
-#: templates/database/designer/main.twig:788
-#: templates/database/designer/main.twig:819
-#: templates/database/designer/main.twig:927
-#: templates/database/designer/main.twig:1012
+#: templates/database/designer/main.twig:517
+#: templates/database/designer/main.twig:581
+#: templates/database/designer/main.twig:786
+#: templates/database/designer/main.twig:817
+#: templates/database/designer/main.twig:925
+#: templates/database/designer/main.twig:1010
 #: templates/table/search/index.twig:41
 #: templates/table/zoom_search/index.twig:41
 msgid "Operator"
 msgstr "عامل التشغيل"
 
-#: templates/database/designer/main.twig:1093
+#: templates/database/designer/main.twig:1091
 #, fuzzy
 #| msgid "Table options"
 msgid "Active options"
@@ -15701,43 +15701,43 @@ msgstr "مجموعة أحرف الخادم:"
 msgid "Web server"
 msgstr "خادم الويب"
 
-#: templates/home/index.twig:161
+#: templates/home/index.twig:163
 msgid "Database client version:"
 msgstr "إصدار عميل قاعدة البيانات:"
 
-#: templates/home/index.twig:165
+#: templates/home/index.twig:167
 msgid "PHP extension:"
 msgstr "امتداد PHP:"
 
-#: templates/home/index.twig:172
+#: templates/home/index.twig:174
 msgid "PHP version:"
 msgstr "PHP إصدار :"
 
-#: templates/home/index.twig:179
+#: templates/home/index.twig:181
 msgid "Show PHP information"
 msgstr "عرض المعلومات المتعلقة بـPHP"
 
-#: templates/home/index.twig:193
+#: templates/home/index.twig:195
 msgid "Version information:"
 msgstr "بيانات الإصدار:"
 
-#: templates/home/index.twig:203
+#: templates/home/index.twig:205
 msgid "Official Homepage"
 msgstr "الصفحة الرئيسة لـphpMyAdmin"
 
-#: templates/home/index.twig:208
+#: templates/home/index.twig:210
 msgid "Contribute"
 msgstr "مشاركة"
 
-#: templates/home/index.twig:213
+#: templates/home/index.twig:215
 msgid "Get support"
 msgstr "الحصول على الدعم"
 
-#: templates/home/index.twig:218
+#: templates/home/index.twig:220
 msgid "List of changes"
 msgstr "قائمة التعديلات"
 
-#: templates/home/index.twig:223 templates/server/plugins/index.twig:30
+#: templates/home/index.twig:225 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "رخصة"
 
@@ -20359,8 +20359,8 @@ msgstr "تقرير التتبع"
 #~ msgstr "معطل"
 
 #~ msgid ""
-#~ "Cannot load [a@https://www.php.net/%1$s@Documentation][em]%1$s[/em][/"
-#~ "a] extension. Please check your PHP configuration."
+#~ "Cannot load [a@https://www.php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "extension. Please check your PHP configuration."
 #~ msgstr "لا يمكن قراءة الامتداد %s،<br />رجاء تأكد من إعدادات PHP."
 
 #~ msgid ""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-04-25 14:28+0200\n"
+"POT-Creation-Date: 2021-05-10 23:30+0200\n"
 "PO-Revision-Date: 2021-01-22 03:16+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
@@ -2622,8 +2622,8 @@ msgstr "Määrittelee tuleeko tyyppikentät näyttää muokkaus/lisäys-tilassa.
 #| "Shows link to [a@https://www.php.net/manual/en/function.phpinfo."
 #| "php]phpinfo()[/a] output."
 msgid ""
-"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
-"output."
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
+"[/a] output."
 msgstr ""
 "Näyttää linkin [a@https://www.php.net/manual/en/function.phpinfo."
 "php]phpinfo()[/a]-käskyn tulosteeseen."
@@ -4284,8 +4284,8 @@ msgstr "Tekstikenttä rivit"
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:149
 #: libraries/classes/Plugins/Export/ExportOdt.php:192
 #: libraries/classes/Plugins/Export/ExportTexytext.php:133
-#: libraries/classes/Server/Privileges.php:1946
 #: libraries/classes/Server/Privileges.php:1948
+#: libraries/classes/Server/Privileges.php:1950
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:109
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4314,8 +4314,8 @@ msgstr "Palvelin"
 #: libraries/classes/Config/Descriptions.php:966
 #: libraries/classes/Database/Triggers.php:398
 #: libraries/classes/Plugins/Export/ExportXml.php:521
-#: libraries/classes/Server/Privileges.php:1952
 #: libraries/classes/Server/Privileges.php:1954
+#: libraries/classes/Server/Privileges.php:1956
 #: templates/database/structure/show_create.twig:10
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
@@ -4543,7 +4543,7 @@ msgstr "Enintään %s"
 #: libraries/classes/Engines/Pbxt.php:169
 #: libraries/classes/Html/Generator.php:812
 #: libraries/classes/Html/MySQLDocumentation.php:49
-#: libraries/classes/Sanitize.php:200 templates/home/index.twig:198
+#: libraries/classes/Sanitize.php:200 templates/home/index.twig:200
 #: templates/server/variables/index.twig:17
 msgid "Documentation"
 msgstr "Ohjeet"
@@ -4721,7 +4721,7 @@ msgstr "OpenDocument teksti"
 #: libraries/classes/Config/Forms/User/ExportForm.php:151
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:371
 #: libraries/classes/Menu.php:312 libraries/classes/Menu.php:426
-#: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1622
+#: libraries/classes/Menu.php:563 libraries/classes/Server/Privileges.php:1624
 #: libraries/classes/Util.php:2478 libraries/classes/Util.php:2493
 #: libraries/classes/Util.php:2510 templates/database/events/index.twig:58
 #: templates/database/events/index.twig:91
@@ -5189,7 +5189,7 @@ msgid "Table %s has been emptied."
 msgstr "Taulu %s on tyhjennetty."
 
 #: libraries/classes/Controllers/Database/StructureController.php:796
-#: libraries/classes/Display/Results.php:4476
+#: libraries/classes/Display/Results.php:4477
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
@@ -5212,7 +5212,7 @@ msgstr ""
 #: libraries/classes/Controllers/Database/StructureController.php:1537
 #: libraries/classes/Controllers/Table/OperationsController.php:318
 #: libraries/classes/Controllers/Table/ReplaceController.php:397
-#: libraries/classes/Core.php:861 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:859 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Ei muutoksia"
 
@@ -5324,10 +5324,10 @@ msgid ""
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP-parametri [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] on "
-"matalampi kuin phpMyAdminissa määritetty evästekelpoisuus. Siksi "
-"kirjautumisesi saattaa erääntyä nopeammin kuin phpMyAdminissa on määritetty."
+"PHP-parametri [a@https://www.php.net/manual/en/session.configuration.php#ini."
+"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] on matalampi kuin "
+"phpMyAdminissa määritetty evästekelpoisuus. Siksi kirjautumisesi saattaa "
+"erääntyä nopeammin kuin phpMyAdminissa on määritetty."
 
 #: libraries/classes/Controllers/HomeController.php:372
 msgid ""
@@ -5740,13 +5740,13 @@ msgid "The user name is empty!"
 msgstr "Käyttäjän nimi puuttuu!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:131
-#: libraries/classes/Server/Privileges.php:1024
+#: libraries/classes/Server/Privileges.php:1026
 #: libraries/classes/UserPassword.php:40
 msgid "The password is empty!"
 msgstr "Salasana puuttuu!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:132
-#: libraries/classes/Server/Privileges.php:1022
+#: libraries/classes/Server/Privileges.php:1024
 #: libraries/classes/UserPassword.php:44
 msgid "The passwords aren't the same!"
 msgstr "Salasanat eivät ole samat!"
@@ -5981,7 +5981,7 @@ msgstr "Lisää sarjaan vähintään yksi muuttuja!"
 #: templates/columns_definitions/column_attributes.twig:208
 #: templates/columns_definitions/column_attributes.twig:229
 #: templates/database/central_columns/main.twig:309
-#: templates/database/designer/main.twig:591 templates/export.twig:355
+#: templates/database/designer/main.twig:589 templates/export.twig:355
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:204
 #: templates/server/status/processes/list.twig:54
@@ -6351,13 +6351,13 @@ msgstr "Parametrit puuttuvat!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 #: templates/database/central_columns/main.twig:271
-#: templates/database/designer/main.twig:342
-#: templates/database/designer/main.twig:393
-#: templates/database/designer/main.twig:671
-#: templates/database/designer/main.twig:737
-#: templates/database/designer/main.twig:876
-#: templates/database/designer/main.twig:961
-#: templates/database/designer/main.twig:1066
+#: templates/database/designer/main.twig:340
+#: templates/database/designer/main.twig:391
+#: templates/database/designer/main.twig:669
+#: templates/database/designer/main.twig:735
+#: templates/database/designer/main.twig:874
+#: templates/database/designer/main.twig:959
+#: templates/database/designer/main.twig:1064
 #: templates/server/variables/index.twig:15
 msgid "Cancel"
 msgstr "Peruuta"
@@ -6425,12 +6425,12 @@ msgid "Adding primary key"
 msgstr "Lisätään pääavain"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:346
-#: templates/console/display.twig:129 templates/database/designer/main.twig:340
-#: templates/database/designer/main.twig:669
-#: templates/database/designer/main.twig:733
-#: templates/database/designer/main.twig:872
-#: templates/database/designer/main.twig:957
-#: templates/database/designer/main.twig:1064
+#: templates/console/display.twig:129 templates/database/designer/main.twig:338
+#: templates/database/designer/main.twig:667
+#: templates/database/designer/main.twig:731
+#: templates/database/designer/main.twig:870
+#: templates/database/designer/main.twig:955
+#: templates/database/designer/main.twig:1062
 msgid "OK"
 msgstr "OK"
 
@@ -6538,7 +6538,7 @@ msgstr "Näytä kyselykenttä"
 #: templates/database/central_columns/main.twig:270
 #: templates/database/central_columns/main.twig:385
 #: templates/database/central_columns/main.twig:386
-#: templates/database/designer/main.twig:391
+#: templates/database/designer/main.twig:389
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:218
@@ -7561,7 +7561,7 @@ msgid "ID"
 msgstr "Tunnus"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
-#: libraries/classes/Server/Privileges.php:3001
+#: libraries/classes/Server/Privileges.php:3003
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Käyttäjä"
@@ -8457,7 +8457,7 @@ msgstr "Taulu %s on jo olemassa!"
 #: libraries/classes/Controllers/Table/RelationController.php:273
 #: libraries/classes/Controllers/ViewOperationsController.php:84
 #: libraries/classes/Database/Routines.php:1482
-#: libraries/classes/Display/Results.php:4139 libraries/classes/Message.php:175
+#: libraries/classes/Display/Results.php:4140 libraries/classes/Message.php:175
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-kyselysi on suoritettu onnistuneesti."
@@ -8636,12 +8636,12 @@ msgstr "Sinulla ei ole riittäviä oikeuksia!"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: libraries/classes/Core.php:362 libraries/classes/ZipExtension.php:60
+#: libraries/classes/Core.php:360 libraries/classes/ZipExtension.php:60
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Pääte %s puuttuu. Tarkista PHP-määritykset."
 
-#: libraries/classes/Core.php:1234
+#: libraries/classes/Core.php:1232
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -8651,21 +8651,21 @@ msgstr ""
 "valinta ei sovi yhteen phpMyAdminin kanssa ja saattaa johtaa tietojen "
 "katoamiseen!"
 
-#: libraries/classes/Core.php:1251
+#: libraries/classes/Core.php:1249
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Core.php:1263
+#: libraries/classes/Core.php:1261
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS ylikirjoitus yritys"
 
-#: libraries/classes/Core.php:1273
+#: libraries/classes/Core.php:1271
 msgid "possible exploit"
 msgstr "mahdollinen turva-aukko"
 
-#: libraries/classes/Core.php:1342
+#: libraries/classes/Core.php:1340
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -9327,10 +9327,10 @@ msgstr "Funktio"
 
 #: libraries/classes/Database/Routines.php:1660
 #: libraries/classes/InsertEdit.php:2007
-#: templates/database/designer/main.twig:487
-#: templates/database/designer/main.twig:652
-#: templates/database/designer/main.twig:858
-#: templates/database/designer/main.twig:1051
+#: templates/database/designer/main.twig:485
+#: templates/database/designer/main.twig:650
+#: templates/database/designer/main.twig:856
+#: templates/database/designer/main.twig:1049
 #: templates/server/replication/status_table.twig:17
 #: templates/server/status/variables/index.twig:73
 #: templates/server/variables/index.twig:32
@@ -9572,31 +9572,31 @@ msgstr "Rivi on nyt poistettu."
 msgid "Kill"
 msgstr "Lopeta"
 
-#: libraries/classes/Display/Results.php:4063
+#: libraries/classes/Display/Results.php:4064
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Saattaa olla likimääräinen. Katso [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:4488
+#: libraries/classes/Display/Results.php:4489
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Näytetään rivit %1s–%2s"
 
-#: libraries/classes/Display/Results.php:4502
+#: libraries/classes/Display/Results.php:4503
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d kokonaisuudessaan, %2$d hakulauseessa"
 
-#: libraries/classes/Display/Results.php:4507
+#: libraries/classes/Display/Results.php:4508
 #, php-format
 msgid "%d total"
 msgstr "%d tulos"
 
-#: libraries/classes/Display/Results.php:4519 libraries/classes/Sql.php:1052
+#: libraries/classes/Display/Results.php:4520 libraries/classes/Sql.php:1052
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Kysely kesti %01.4f sekuntia."
 
-#: libraries/classes/Display/Results.php:4890
+#: libraries/classes/Display/Results.php:4891
 msgid "Link not found!"
 msgstr "Linkkiä ei löydy!"
 
@@ -10420,7 +10420,7 @@ msgid "Insert"
 msgstr "Lisää rivi"
 
 #: libraries/classes/Menu.php:332 libraries/classes/Menu.php:450
-#: libraries/classes/Server/Privileges.php:2975 libraries/classes/Util.php:2496
+#: libraries/classes/Server/Privileges.php:2977 libraries/classes/Util.php:2496
 #: libraries/classes/Util.php:2512 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -12670,32 +12670,32 @@ msgstr ""
 "Isäntäpalvelimen lokin sijaintia ei voida lukea. Isäntäpalvelimen "
 "käyttöoikeusongelmat mahdollisia."
 
-#: libraries/classes/ReplicationGui.php:565
+#: libraries/classes/ReplicationGui.php:566
 #, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change master!"
 msgstr "Pääpalvelinta ei voitu vaihtaa"
 
-#: libraries/classes/ReplicationGui.php:569
+#: libraries/classes/ReplicationGui.php:570
 #, fuzzy, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Master server changed successfully to %s."
 msgstr "%s on onnistuneesti vaihdettu isäntäpalvelimeksi"
 
-#: libraries/classes/Routing.php:101
+#: libraries/classes/Routing.php:102
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: libraries/classes/Routing.php:164
+#: libraries/classes/Routing.php:165
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "Lähdetietokanta '%s' ei löytynyt!"
 
-#: libraries/classes/Routing.php:175
+#: libraries/classes/Routing.php:176
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -12927,7 +12927,7 @@ msgstr "Sallii luoda tapahtuma-ajastimelle tapahtumia"
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Server/Privileges.php:461
-#: libraries/classes/Server/Privileges.php:468
+#: libraries/classes/Server/Privileges.php:470
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
 #, fuzzy
@@ -12935,61 +12935,61 @@ msgstr "Sallii luoda tapahtuma-ajastimelle tapahtumia"
 msgid "Allows deleting historical rows."
 msgstr "Sallii tietojen poistamisen."
 
-#: libraries/classes/Server/Privileges.php:473
+#: libraries/classes/Server/Privileges.php:475
 #: templates/server/privileges/privileges_table.twig:430
 #: templates/server/privileges/privileges_table.twig:433
 msgid "Allows creating stored routines."
 msgstr "Sallii talletettujen rutiinien luomisen."
 
-#: libraries/classes/Server/Privileges.php:478
+#: libraries/classes/Server/Privileges.php:480
 #: templates/server/privileges/privileges_table.twig:443
 #: templates/server/privileges/privileges_table.twig:446
 msgid "Allows altering and dropping stored routines."
 msgstr "Sallii talletettujen rutiinien muuntamisen ja poistamisen."
 
-#: libraries/classes/Server/Privileges.php:483
+#: libraries/classes/Server/Privileges.php:485
 #: templates/server/privileges/privileges_table.twig:683
 #: templates/server/privileges/privileges_table.twig:686
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Sallii käyttäjätilien luomisen, poistamisen ja uudelleennimeämisen."
 
-#: libraries/classes/Server/Privileges.php:488
+#: libraries/classes/Server/Privileges.php:490
 #: templates/server/privileges/privileges_table.twig:456
 #: templates/server/privileges/privileges_table.twig:459
 msgid "Allows executing stored routines."
 msgstr "Sallii talletettujen rutiinien suorittamisen."
 
-#: libraries/classes/Server/Privileges.php:793
-#: libraries/classes/Server/Privileges.php:867
-#: libraries/classes/Server/Privileges.php:3968
+#: libraries/classes/Server/Privileges.php:795
+#: libraries/classes/Server/Privileges.php:869
+#: libraries/classes/Server/Privileges.php:3970
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
 msgstr "Eväste tunnistautuminen"
 
-#: libraries/classes/Server/Privileges.php:795
+#: libraries/classes/Server/Privileges.php:797
 #, fuzzy
 #| msgid "Signon authentication"
 msgid "SHA256 password authentication"
 msgstr "Sisäänkirjatumistunnitautuminen"
 
-#: libraries/classes/Server/Privileges.php:1164
+#: libraries/classes/Server/Privileges.php:1166
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Käyttäjän %s salasanan vaihto onnistui."
 
-#: libraries/classes/Server/Privileges.php:1213
+#: libraries/classes/Server/Privileges.php:1215
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Käyttäjän %s käyttöoikeudet on poistettu."
 
-#: libraries/classes/Server/Privileges.php:1549
+#: libraries/classes/Server/Privileges.php:1551
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:1616
+#: libraries/classes/Server/Privileges.php:1618
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:72
@@ -12999,24 +12999,24 @@ msgstr ""
 msgid "Edit privileges"
 msgstr "Muokkaa käyttöoikeuksia"
 
-#: libraries/classes/Server/Privileges.php:1619
+#: libraries/classes/Server/Privileges.php:1621
 msgid "Revoke"
 msgstr "Pura käyttöoikeudet"
 
-#: libraries/classes/Server/Privileges.php:1947
+#: libraries/classes/Server/Privileges.php:1949
 #: templates/server/privileges/privileges_table.twig:240
 msgid "Database-specific privileges"
 msgstr "Tietokantakohtaiset käyttöoikeudet"
 
-#: libraries/classes/Server/Privileges.php:1953
+#: libraries/classes/Server/Privileges.php:1955
 #: templates/server/privileges/privileges_summary.twig:18
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:242
 msgid "Table-specific privileges"
 msgstr "Taulukohtaiset käyttöoikeudet"
 
-#: libraries/classes/Server/Privileges.php:1958
 #: libraries/classes/Server/Privileges.php:1960
+#: libraries/classes/Server/Privileges.php:1962
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
@@ -13025,31 +13025,31 @@ msgstr "Taulukohtaiset käyttöoikeudet"
 msgid "Routine"
 msgstr "Rutiinit"
 
-#: libraries/classes/Server/Privileges.php:1959
+#: libraries/classes/Server/Privileges.php:1961
 #: templates/server/privileges/edit_routine_privileges.twig:47
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
 msgstr "Sarakekohtaiset käyttöoikeudet"
 
-#: libraries/classes/Server/Privileges.php:2307
+#: libraries/classes/Server/Privileges.php:2309
 msgid "No users selected for deleting!"
 msgstr "Yhtään käyttäjää ei valittu poistettavaksi!"
 
-#: libraries/classes/Server/Privileges.php:2310
+#: libraries/classes/Server/Privileges.php:2312
 msgid "Reloading the privileges"
 msgstr "Ladataan käyttöoikeuksia uudelleen"
 
-#: libraries/classes/Server/Privileges.php:2333
+#: libraries/classes/Server/Privileges.php:2335
 msgid "The selected users have been deleted successfully."
 msgstr "Valitsemiesi käyttäjien poisto onnistui."
 
-#: libraries/classes/Server/Privileges.php:2410
+#: libraries/classes/Server/Privileges.php:2412
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Käyttäjän %s käyttöoikeudet on päivitetty."
 
-#: libraries/classes/Server/Privileges.php:2497
+#: libraries/classes/Server/Privileges.php:2499
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 #, fuzzy
@@ -13057,34 +13057,34 @@ msgstr "Käyttäjän %s käyttöoikeudet on päivitetty."
 msgid "No user found."
 msgstr "Käyttäjiä ei ole."
 
-#: libraries/classes/Server/Privileges.php:2578
+#: libraries/classes/Server/Privileges.php:2580
 #, php-format
 msgid "Deleting %s"
 msgstr "Poistetaan: %s"
 
-#: libraries/classes/Server/Privileges.php:2609
+#: libraries/classes/Server/Privileges.php:2611
 msgid "The privileges were reloaded successfully."
 msgstr "Käyttöoikeuksien uudelleenlataus onnistui."
 
-#: libraries/classes/Server/Privileges.php:2709
+#: libraries/classes/Server/Privileges.php:2711
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Käyttäjä %s on jo olemassa!"
 
-#: libraries/classes/Server/Privileges.php:2992
+#: libraries/classes/Server/Privileges.php:2994
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Käyttöoikeudet"
 
-#: libraries/classes/Server/Privileges.php:3131
+#: libraries/classes/Server/Privileges.php:3133
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3174
+#: libraries/classes/Server/Privileges.php:3176
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13102,7 +13102,7 @@ msgstr ""
 "käyttämistä käyttöoikeuksista, jos tauluihin on tehty muutoksia käsin. "
 "Tällöin %skäyttöoikeudet on ladattava uudestaan%s ennen jatkamista."
 
-#: libraries/classes/Server/Privileges.php:3190
+#: libraries/classes/Server/Privileges.php:3192
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13121,7 +13121,7 @@ msgstr ""
 "käyttämistä käyttöoikeuksista, jos tauluihin on tehty muutoksia käsin. "
 "Tällöin %skäyttöoikeudet on ladattava uudestaan%s ennen jatkamista."
 
-#: libraries/classes/Server/Privileges.php:3526
+#: libraries/classes/Server/Privileges.php:3528
 msgid "You have added a new user."
 msgstr "Uusi käyttäjä lisätty."
 
@@ -14891,7 +14891,7 @@ msgstr "Valitse taulut"
 
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
-#: templates/database/designer/main.twig:274
+#: templates/database/designer/main.twig:272
 #, fuzzy
 #| msgid "Create relation"
 msgid "Create relationship"
@@ -14902,146 +14902,146 @@ msgstr "Luo relaatio"
 msgid "Reload"
 msgstr "Lataa uudelleen"
 
-#: templates/database/designer/main.twig:114
-#: templates/database/designer/main.twig:117
+#: templates/database/designer/main.twig:112
+#: templates/database/designer/main.twig:115
 msgid "Help"
 msgstr "Ohje"
 
-#: templates/database/designer/main.twig:122
-#: templates/database/designer/main.twig:125
+#: templates/database/designer/main.twig:120
+#: templates/database/designer/main.twig:123
 msgid "Angular links"
 msgstr "Kulmikkaat linkit"
 
-#: templates/database/designer/main.twig:122
-#: templates/database/designer/main.twig:125
+#: templates/database/designer/main.twig:120
+#: templates/database/designer/main.twig:123
 msgid "Direct links"
 msgstr "Suorat linkit"
 
+#: templates/database/designer/main.twig:127
 #: templates/database/designer/main.twig:129
-#: templates/database/designer/main.twig:131
 msgid "Snap to grid"
 msgstr "Sovita ruudukkoon"
 
-#: templates/database/designer/main.twig:135
-#: templates/database/designer/main.twig:141
+#: templates/database/designer/main.twig:133
+#: templates/database/designer/main.twig:139
 msgid "Small/Big All"
 msgstr "Kaikki pienenä/suurena"
 
-#: templates/database/designer/main.twig:145
-#: templates/database/designer/main.twig:148
+#: templates/database/designer/main.twig:143
+#: templates/database/designer/main.twig:146
 msgid "Toggle small/big"
 msgstr "Vaihda pieneksi/suureksi"
 
-#: templates/database/designer/main.twig:152
-#: templates/database/designer/main.twig:155
+#: templates/database/designer/main.twig:150
+#: templates/database/designer/main.twig:153
 #, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relationship lines"
 msgstr "Valitaksesi relaation, paina :"
 
-#: templates/database/designer/main.twig:160
-#: templates/database/designer/main.twig:163
+#: templates/database/designer/main.twig:158
+#: templates/database/designer/main.twig:161
 #, fuzzy
 #| msgid "Export"
 msgid "Export schema"
 msgstr "Vienti"
 
-#: templates/database/designer/main.twig:171
-#: templates/database/designer/main.twig:174
+#: templates/database/designer/main.twig:169
+#: templates/database/designer/main.twig:172
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
 msgstr "Suorita"
 
-#: templates/database/designer/main.twig:179
-#: templates/database/designer/main.twig:183
+#: templates/database/designer/main.twig:177
+#: templates/database/designer/main.twig:181
 msgid "Move Menu"
 msgstr "Siirrä valikko"
 
-#: templates/database/designer/main.twig:187
-#: templates/database/designer/main.twig:192
+#: templates/database/designer/main.twig:185
+#: templates/database/designer/main.twig:190
 #, fuzzy
 #| msgid "Partial texts"
 msgid "Pin text"
 msgstr "Osittaiset tekstit"
 
-#: templates/database/designer/main.twig:204
+#: templates/database/designer/main.twig:202
 msgid "Hide/Show all"
 msgstr "Kätke/näytä kaikki"
 
-#: templates/database/designer/main.twig:214
+#: templates/database/designer/main.twig:212
 #, fuzzy
 #| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show tables with no relationship"
 msgstr "Kätke/näytä taulut, joilla ei ole relaatiota"
 
-#: templates/database/designer/main.twig:225
+#: templates/database/designer/main.twig:223
 #, fuzzy
 #| msgid "Number of tables"
 msgid "Number of tables:"
 msgstr "Taulujen määrä"
 
-#: templates/database/designer/main.twig:384
+#: templates/database/designer/main.twig:382
 #, fuzzy
 #| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "Poista relaatio"
 
-#: templates/database/designer/main.twig:448
-#: templates/database/designer/main.twig:613
+#: templates/database/designer/main.twig:446
+#: templates/database/designer/main.twig:611
 #, fuzzy
 #| msgid "Relation deleted"
 msgid "Relationship operator"
 msgstr "Relaatio poistettu"
 
-#: templates/database/designer/main.twig:477
-#: templates/database/designer/main.twig:642
-#: templates/database/designer/main.twig:848
-#: templates/database/designer/main.twig:1041
+#: templates/database/designer/main.twig:475
+#: templates/database/designer/main.twig:640
+#: templates/database/designer/main.twig:846
+#: templates/database/designer/main.twig:1039
 #, fuzzy
 #| msgid "Export"
 msgid "Except"
 msgstr "Vienti"
 
-#: templates/database/designer/main.twig:489
-#: templates/database/designer/main.twig:654
-#: templates/database/designer/main.twig:860
-#: templates/database/designer/main.twig:1053
+#: templates/database/designer/main.twig:487
+#: templates/database/designer/main.twig:652
+#: templates/database/designer/main.twig:858
+#: templates/database/designer/main.twig:1051
 #, fuzzy
 #| msgid "in query"
 msgid "subquery"
 msgstr "lauseessa"
 
-#: templates/database/designer/main.twig:498
-#: templates/database/designer/main.twig:714
+#: templates/database/designer/main.twig:496
+#: templates/database/designer/main.twig:712
 #, fuzzy
 msgid "Rename to"
 msgstr "Nimeä taulu uudelleen"
 
-#: templates/database/designer/main.twig:504
-#: templates/database/designer/main.twig:722
+#: templates/database/designer/main.twig:502
+#: templates/database/designer/main.twig:720
 msgid "New name"
 msgstr "Uusi nimi"
 
-#: templates/database/designer/main.twig:513
-#: templates/database/designer/main.twig:919
+#: templates/database/designer/main.twig:511
+#: templates/database/designer/main.twig:917
 #, fuzzy
 #| msgid "Create"
 msgid "Aggregate"
 msgstr "Luo"
 
-#: templates/database/designer/main.twig:519
-#: templates/database/designer/main.twig:583
-#: templates/database/designer/main.twig:788
-#: templates/database/designer/main.twig:819
-#: templates/database/designer/main.twig:927
-#: templates/database/designer/main.twig:1012
+#: templates/database/designer/main.twig:517
+#: templates/database/designer/main.twig:581
+#: templates/database/designer/main.twig:786
+#: templates/database/designer/main.twig:817
+#: templates/database/designer/main.twig:925
+#: templates/database/designer/main.twig:1010
 #: templates/table/search/index.twig:41
 #: templates/table/zoom_search/index.twig:41
 msgid "Operator"
 msgstr "Operaattori"
 
-#: templates/database/designer/main.twig:1093
+#: templates/database/designer/main.twig:1091
 #, fuzzy
 #| msgid "Table options"
 msgid "Active options"
@@ -16373,43 +16373,43 @@ msgstr "Palvelimen merkistö:"
 msgid "Web server"
 msgstr "Verkkopalvelin"
 
-#: templates/home/index.twig:161
+#: templates/home/index.twig:163
 msgid "Database client version:"
 msgstr "Tietokannan asiakasohjelman versio:"
 
-#: templates/home/index.twig:165
+#: templates/home/index.twig:167
 msgid "PHP extension:"
 msgstr "PHP-laajennus:"
 
-#: templates/home/index.twig:172
+#: templates/home/index.twig:174
 msgid "PHP version:"
 msgstr "PHP:n versio:"
 
-#: templates/home/index.twig:179
+#: templates/home/index.twig:181
 msgid "Show PHP information"
 msgstr "Näytä PHP:n asetustiedot"
 
-#: templates/home/index.twig:193
+#: templates/home/index.twig:195
 msgid "Version information:"
 msgstr "Versiotiedot:"
 
-#: templates/home/index.twig:203
+#: templates/home/index.twig:205
 msgid "Official Homepage"
 msgstr "phpMyAdminin kotisivut"
 
-#: templates/home/index.twig:208
+#: templates/home/index.twig:210
 msgid "Contribute"
 msgstr "Osallistu"
 
-#: templates/home/index.twig:213
+#: templates/home/index.twig:215
 msgid "Get support"
 msgstr "Hanki tukea"
 
-#: templates/home/index.twig:218
+#: templates/home/index.twig:220
 msgid "List of changes"
 msgstr "Muutoslista"
 
-#: templates/home/index.twig:223 templates/server/plugins/index.twig:30
+#: templates/home/index.twig:225 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Lisenssi"
 
