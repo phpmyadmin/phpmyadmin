@@ -2703,10 +2703,10 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Affiche un lien vers le résultat de [a@https://php.net/manual/function."
+"Affiche un lien vers le résultat de [a@https://www.php.net/manual/fr/function."
 "phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:510
@@ -5373,12 +5373,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"La valeur du paramètre PHP [a@https://secure.php.net/manual/fr/session."
+"La valeur du paramètre PHP [a@https://www.php.net/manual/fr/session."
 "configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/"
 "a] est plus petite que la durée du Cookie configurée dans phpMyAdmin ; la "
 "session de travail pourrait donc expirer plus tôt que la valeur configurée "

@@ -2447,10 +2447,10 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Monstra ligamine a exito[a@https://php.net/manual/function.phpinfo."
+"Monstra ligamine a exito[a@https://www.php.net/manual/en/function.phpinfo."
 "php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:510
@@ -5112,12 +5112,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Tu parametro PHP [a@https://secure.php.net/manual/en/session.configuration."
+"Tu parametro PHP [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] es inferior "
 "del validitate de cookie configurate in phpMyAdmin, debite a isto, tu "
 "authentication poterea expirar ante que lo que es configurate in phpMyAdmin."

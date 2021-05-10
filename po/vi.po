@@ -2505,13 +2505,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:507
 #, fuzzy
 #| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
+#| "Shows link to [a@https://www.php.net/manual/en/function.phpinfo."
 #| "php]phpinfo()[/a] output."
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"Hiển thị liên kết đến [a@https://secure.php.net/manual/function.phpinfo."
+"Hiển thị liên kết đến [a@https://www.php.net/manual/en/function.phpinfo."
 "php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:510
@@ -5121,12 +5121,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"Tham số PHP [a@https://secure.php.net/manual/en/session.configuration."
+"Tham số PHP [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] của bạn "
 "thấp hơn giá trị cookie được đặt cấu hình trong phpMyAdmin, bởi vì điều này "
 "nên việc đăng nhập của bạn có thể hết hạn sớm hơn so với thời hạn cấu hình "

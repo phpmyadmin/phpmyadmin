@@ -2628,10 +2628,10 @@ msgstr "편집/삽입 모드에서 타입 필드가 기본적으로 보일지 �
 
 #: libraries/classes/Config/Descriptions.php:507
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"[a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] 출력 링크 표시."
+"[a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] 출력 링크 표시."
 
 #: libraries/classes/Config/Descriptions.php:510
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -5289,12 +5289,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:353
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"PHP 매개변수 [a@https://secure.php.net/manual/en/session.configuration."
+"PHP 매개변수 [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 가 "
 "phpMyAdmin 의 cookie 유효기간보다 작게 설정되어 있어, 로그인이 phpMyAdmin 설"
 "정값보다 빨리 만료될 수 있습니다."

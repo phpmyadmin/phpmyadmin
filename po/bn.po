@@ -2771,13 +2771,13 @@ msgstr "সম্পাদনা/ইনর্সাটের সময় টাই
 #: libraries/classes/Config/Descriptions.php:507
 #, fuzzy
 #| msgid ""
-#| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
+#| "Shows link to [a@https://www.php.net/manual/en/function.phpinfo."
 #| "php]phpinfo()[/a] output."
 msgid ""
-"Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
+"Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
-"[a@https://secure.php.net/manual/function.phpinfo.php]phpinfo()[/a] আউটপুট "
+"[a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] আউটপুট "
 "সংযোগ দেখাও।"
 
 #: libraries/classes/Config/Descriptions.php:510
@@ -5564,18 +5564,18 @@ msgstr ""
 #: libraries/classes/Controllers/HomeController.php:353
 #, fuzzy
 #| msgid ""
-#| "Your PHP parameter [a@https://secure.php.net/manual/en/session."
+#| "Your PHP parameter [a@https://www.php.net/manual/en/session."
 #| "configuration.php#ini.session.gc-maxlifetime@_blank]session."
 #| "gc_maxlifetime[/a] is lower than cookie validity configured in "
 #| "phpMyAdmin, because of this, your login will expire sooner than "
 #| "configured in phpMyAdmin."
 msgid ""
-"Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"আপনার পিএইছপি চলক[a@https://secure.php.net/manual/en/session.configuration."
+"আপনার পিএইছপি চলক[a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] মান "
 "phpMyAdmin এর কুকির থেকে কম স্থায়ী, এ জন্য আপনার লগইনের কার্যকাল দ্রুত শেষ হয়ে "
 "যাবে।"

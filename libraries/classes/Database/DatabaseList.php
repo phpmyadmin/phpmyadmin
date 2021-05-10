@@ -18,7 +18,7 @@ class DatabaseList
     /**
      * magic access to protected/inaccessible members/properties
      *
-     * @see https://secure.php.net/language.oop5.overloading
+     * @see https://www.php.net/language.oop5.overloading
      *
      * @param string $param parameter name
      *
