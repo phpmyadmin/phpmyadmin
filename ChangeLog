@@ -112,6 +112,8 @@ phpMyAdmin - ChangeLog
 - issue #16871 Fixed PHP and JS errors on normalization steps
 - issue        Fixed CSS missing classes on normalization buttons
 - issue #16437 Fixed sticky top position when using smaller screen sizes
+- issue #16895 Fixed wrong table count on space separated numbers
+- issue #16882 Fixed table delete resets count to 0
 
 5.1.0 (2021-02-24)
 - issue #15350 Change Media (MIME) type references to Media type

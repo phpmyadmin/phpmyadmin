@@ -70,7 +70,7 @@ DatabaseStructure.adjustTotals = function () {
             // The approximated value contains a preceding ~ (Eg 100 --> ~100)
             strRows = strRows.substring(1, strRows.length);
         }
-        strRows = strRows.replace(/[,.]/g, '');
+        strRows = strRows.replace(/[,.\s]/g, '');
         var intRow = parseInt(strRows, 10);
         if (! isNaN(intRow)) {
             rowsSum += intRow;
