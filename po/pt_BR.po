@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2021-01-02 20:29+0000\n"
+"PO-Revision-Date: 2021-05-11 16:22+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.1-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -8260,7 +8260,7 @@ msgstr "Monitoramento"
 #: libraries/classes/Rte/Words.php:63 libraries/classes/Util.php:4014
 #: libraries/classes/Util.php:4030
 msgid "Triggers"
-msgstr "Gatilhos"
+msgstr "Acionadores"
 
 #: libraries/classes/Menu.php:474 libraries/classes/Menu.php:488
 #: libraries/classes/Menu.php:495
@@ -9741,7 +9741,7 @@ msgstr "RELACIONAMENTOS PARA TABELAS"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2069
 msgid "It appears your table uses triggers;"
-msgstr "Isso demonstra que sua tabela utiliza gatilhos;"
+msgstr "Parece que sua tabela usa acionadores;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2106
 #, php-format
@@ -11131,42 +11131,42 @@ msgstr "Retornos"
 
 #: libraries/classes/Rte/Triggers.php:118
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr "Desculpe, mas falhamos em restaurar o gatilho eliminado."
+msgstr "Desculpe, mas falhamos em restaurar o acionador removido."
 
 #: libraries/classes/Rte/Triggers.php:125
 #, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "O gatilho %1$s foi modificado."
+msgstr "O acionador %1$s foi modificado."
 
 #: libraries/classes/Rte/Triggers.php:145
 #, php-format
 msgid "Trigger %1$s has been created."
-msgstr "O gatilho %1$s foi criado."
+msgstr "O acionador %1$s foi criado."
 
 #: libraries/classes/Rte/Triggers.php:221
 msgid "Edit trigger"
-msgstr "Editar gatilho"
+msgstr "Editar acionador"
 
 #: libraries/classes/Rte/Triggers.php:342
 msgid "Trigger name"
-msgstr "Nome do gatilho"
+msgstr "Nome do acionador"
 
 #: libraries/classes/Rte/Triggers.php:365
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr "Momento de ação do gatilho"
+msgstr "Momento de ação"
 
 #: libraries/classes/Rte/Triggers.php:445
 msgid "You must provide a trigger name!"
-msgstr "Você deve informar o nome do gatilho!"
+msgstr "Você deve informar o nome do acionador!"
 
 #: libraries/classes/Rte/Triggers.php:452
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Você deve informar um tempo válido para o gatilho!"
+msgstr "Você deve informar um tempo válido para o acionador!"
 
 #: libraries/classes/Rte/Triggers.php:459
 msgid "You must provide a valid event for the trigger!"
-msgstr "Você deve informar um evento válido para o gatilho!"
+msgstr "Você deve informar um evento válido para o acionador!"
 
 #: libraries/classes/Rte/Triggers.php:467
 msgid "You must provide a valid table name!"
@@ -11174,7 +11174,7 @@ msgstr "Você precisa colocar um nome de tabela válido!"
 
 #: libraries/classes/Rte/Triggers.php:473
 msgid "You must provide a trigger definition."
-msgstr "Você deve informar uma definição para o gatilho."
+msgstr "Você deve informar uma definição para o acionador."
 
 #: libraries/classes/Rte/Words.php:32
 msgid "Add routine"
@@ -11222,12 +11222,12 @@ msgstr "Não existem rotinas para mostrar."
 
 #: libraries/classes/Rte/Words.php:54
 msgid "Add trigger"
-msgstr "Adicionar gatilho"
+msgstr "Adicionar acionador"
 
 #: libraries/classes/Rte/Words.php:56
 #, php-format
 msgid "Export of trigger %s"
-msgstr "Exportação do gatilho %s"
+msgstr "Exportação do acionador %s"
 
 #: libraries/classes/Rte/Words.php:57
 msgid "trigger"
@@ -11240,11 +11240,11 @@ msgstr "Você não possui permissões suficientes para criar um novo gatilho."
 #: libraries/classes/Rte/Words.php:61
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Nenhum gatilho com o nome %1$s foi encontrado no banco de dados %2$s."
+msgstr "Nenhum acionador com o nome %1$s foi encontrado no banco de dados %2$s."
 
 #: libraries/classes/Rte/Words.php:62
 msgid "There are no triggers to display."
-msgstr "Não existem gatilhos para mostrar."
+msgstr "Não existem acionadores para mostrar."
 
 #: libraries/classes/Rte/Words.php:68
 msgid "Add event"
@@ -11426,7 +11426,7 @@ msgstr "Permitir definir eventos no agendador de eventos."
 #: libraries/classes/Server/Privileges.php:413
 #: libraries/classes/Server/Privileges.php:1306 server_privileges.php:118
 msgid "Allows creating and dropping triggers."
-msgstr "Permitir criar e apagar gatilhos."
+msgstr "Permitir criar e remover acionadores."
 
 #: libraries/classes/Server/Privileges.php:424
 #: libraries/classes/Server/Privileges.php:430
