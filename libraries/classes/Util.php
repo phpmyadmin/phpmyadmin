@@ -1622,12 +1622,7 @@ class Util
      */
     public static function getScriptNameForOption($target, string $location): string
     {
-        $url = self::getUrlForOption($target, $location);
-        if ($url === null) {
-            return './';
-        }
-
-        return Url::getFromRoute($url);
+        return Url::getFromRoute(self::getUrlForOption($target, $location));
     }
 
     /**
@@ -1641,9 +1636,9 @@ class Util
      *                         $cfg['DefaultTabServer']
      * @param string $location one out of 'server', 'table', 'database'
      *
-     * @return string The URL corresponding to the config word or null if nothing was found
+     * @return string The URL corresponding to the config word
      */
-    public static function getUrlForOption($target, string $location): ?string
+    public static function getUrlForOption($target, string $location): string
     {
         if ($location === 'server') {
             // Values for $cfg['DefaultTabServer']
@@ -1714,7 +1709,7 @@ class Util
             }
         }
 
-        return null;
+        return '/';
     }
 
     /**

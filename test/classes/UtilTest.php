@@ -2268,12 +2268,12 @@ class UtilTest extends AbstractTestCase
             [
                 'structure', // Notice the typo on db_structure.php
                 'databasesss',
-                './',// Fallback to a relative path, impossible to build a valid route link
+                'index.php?route=/&lang=en', // Fallback to the base route
             ],
             [
                 'db_structures.php', // Notice the typo on databases
                 'database',
-                './',// Fallback to a relative path, impossible to build a valid route link
+                'index.php?route=/&lang=en', // Fallback to the base route
             ],
             [
                 'tbl_structure.php', // Support the legacy value
