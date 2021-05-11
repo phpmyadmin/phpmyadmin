@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.5-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-12-12 17:45+0100\n"
-"PO-Revision-Date: 2021-05-11 16:22+0000\n"
+"PO-Revision-Date: 2021-05-12 14:56+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-0/pt_BR/>\n"
@@ -6486,8 +6486,10 @@ msgstr "O banco de dados %1$s foi criado."
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "O banco de dados %1$d foi eliminado com sucesso."
-msgstr[1] "Os bancos de dados %1$d foram eliminados com sucesso."
+msgstr[0] ""
+"%1$d banco de dados foi removido com sucesso.%1$d bancos de dados foram "
+"removidos com sucesso."
+msgstr[1] ""
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:398
 #: libraries/classes/Import.php:128
