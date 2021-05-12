@@ -371,6 +371,11 @@ parameters:
 			path: libraries/classes/Database/Triggers.php
 
 		-
+			message: "#^Comparison operation \"\\<\\=\\>\" between \\(array\\|float\\|int\\) and \\(array\\|float\\|int\\) results in an error\\.$#"
+			count: 1
+			path: libraries/classes/DatabaseInterface.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\DatabaseInterface\\:\\:getProtoInfo\\(\\) should return bool\\|int but returns int\\|string\\.$#"
 			count: 1
 			path: libraries/classes/DatabaseInterface.php
@@ -929,11 +934,6 @@ parameters:
 			message: "#^Cannot access offset int on array\\|false\\.$#"
 			count: 2
 			path: libraries/classes/Git.php
-
-		-
-			message: "#^Argument of an invalid type \\(array\\<int, string\\>\\|false\\) supplied for foreach, only iterables are supported\\.$#"
-			count: 2
-			path: libraries/classes/Import.php
 
 		-
 			message: "#^Offset int does not exist on array\\|null\\.$#"
