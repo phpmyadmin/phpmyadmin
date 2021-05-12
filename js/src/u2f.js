@@ -12,21 +12,21 @@ AJAX.registerOnload('u2f.js', function () {
                 // Handle returning error data
                 if (data.errorCode && data.errorCode !== 0) {
                     switch (data.errorCode) {
-                        case 5:
-                            Functions.ajaxShowMessage(Messages.strU2FTimeout, false);
-                            break;
-                        case 4:
-                            Functions.ajaxShowMessage(Messages.strU2FErrorRegister, false);
-                            break;
-                        case 3:
-                            Functions.ajaxShowMessage(Messages.strU2FInvalidClient, false);
-                            break;
-                        case 2:
-                            Functions.ajaxShowMessage(Messages.strU2FBadRequest, false);
-                            break;
-                        default:
-                            Functions.ajaxShowMessage(Messages.strU2FUnknown, false);
-                            break;
+                    case 5:
+                        Functions.ajaxShowMessage(Messages.strU2FTimeout, false, 'error');
+                        break;
+                    case 4:
+                        Functions.ajaxShowMessage(Messages.strU2FErrorRegister, false, 'error');
+                        break;
+                    case 3:
+                        Functions.ajaxShowMessage(Messages.strU2FInvalidClient, false, 'error');
+                        break;
+                    case 2:
+                        Functions.ajaxShowMessage(Messages.strU2FBadRequest, false, 'error');
+                        break;
+                    default:
+                        Functions.ajaxShowMessage(Messages.strU2FUnknown, false, 'error');
+                        break;
                     }
                     return;
                 }
@@ -49,21 +49,21 @@ AJAX.registerOnload('u2f.js', function () {
                 // Handle returning error data
                 if (data.errorCode && data.errorCode !== 0) {
                     switch (data.errorCode) {
-                        case 5:
-                            Functions.ajaxShowMessage(Messages.strU2FTimeout, false);
-                            break;
-                        case 4:
-                            Functions.ajaxShowMessage(Messages.strU2FErrorAuthenticate, false);
-                            break;
-                        case 3:
-                            Functions.ajaxShowMessage(Messages.strU2FInvalidClient, false);
-                            break;
-                        case 2:
-                            Functions.ajaxShowMessage(Messages.strU2FBadRequest, false);
-                            break;
-                        default:
-                            Functions.ajaxShowMessage(Messages.strU2FUnknown, false);
-                            break;
+                    case 5:
+                        Functions.ajaxShowMessage(Messages.strU2FTimeout, false, 'error');
+                        break;
+                    case 4:
+                        Functions.ajaxShowMessage(Messages.strU2FErrorAuthenticate, false, 'error');
+                        break;
+                    case 3:
+                        Functions.ajaxShowMessage(Messages.strU2FInvalidClient, false, 'error');
+                        break;
+                    case 2:
+                        Functions.ajaxShowMessage(Messages.strU2FBadRequest, false, 'error');
+                        break;
+                    default:
+                        Functions.ajaxShowMessage(Messages.strU2FUnknown, false, 'error');
+                        break;
                     }
                     return;
                 }
