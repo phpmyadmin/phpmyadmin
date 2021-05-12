@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Url;
 
 /**
  * Represents a container for view nodes in the navigation tree
@@ -23,14 +22,8 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         parent::__construct(__('Views'), Node::CONTAINER);
         $this->icon = ['image' => 'b_views', 'title' => __('Views')];
         $this->links = [
-            'text' => Url::getFromRoute('/database/structure', [
-                'server' => $GLOBALS['server'],
-                'tbl_type' => 'view',
-            ]) . '&amp;db=%1$s',
-            'icon' => Url::getFromRoute('/database/structure', [
-                'server' => $GLOBALS['server'],
-                'tbl_type' => 'view',
-            ]) . '&amp;db=%1$s',
+            'text' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],
+            'icon' => ['route' => '/database/structure', 'params' => ['tbl_type' => 'view', 'db' => null]],
         ];
         $this->classes = 'viewContainer subContainer';
         $this->realName = 'views';
@@ -42,12 +35,8 @@ class NodeViewContainer extends NodeDatabaseChildContainer
         );
         $new->icon = ['image' => 'b_view_add', 'title' => $newLabel];
         $new->links = [
-            'text' => Url::getFromRoute('/view/create', [
-                'server' => $GLOBALS['server'],
-            ]) . '&amp;db=%2$s',
-            'icon' => Url::getFromRoute('/view/create', [
-                'server' => $GLOBALS['server'],
-            ]) . '&amp;db=%2$s',
+            'text' => ['route' => '/view/create', 'params' => ['db' => null]],
+            'icon' => ['route' => '/view/create', 'params' => ['db' => null]],
         ];
         $this->addChild($new);
     }

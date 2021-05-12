@@ -30,13 +30,17 @@ class NodeDatabaseTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeDatabase');
-        $this->assertArrayHasKey(
-            'text',
+        $this->assertIsArray($parent->links);
+        $this->assertEquals(
+            [
+                'text' => [
+                    'route' => '/database/structure',
+                    'params' => ['db' => null],
+                ],
+                'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],
+                'title' => 'Structure',
+            ],
             $parent->links
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/database/structure',
-            $parent->links['text']
         );
         $this->assertStringContainsString('database', $parent->classes);
     }

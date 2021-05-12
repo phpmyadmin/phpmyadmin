@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Url;
 
 class NodeEventContainerTest extends AbstractTestCase
 {
@@ -26,13 +25,13 @@ class NodeEventContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeEventContainer');
-        $this->assertArrayHasKey(
-            'text',
+        $this->assertIsArray($parent->links);
+        $this->assertEquals(
+            [
+                'text' => ['route' => '/database/events', 'params' => ['db' => null]],
+                'icon' => ['route' => '/database/events', 'params' => ['db' => null]],
+            ],
             $parent->links
-        );
-        $this->assertStringContainsString(
-            Url::getFromRoute('/database/events'),
-            $parent->links['text']
         );
         $this->assertEquals('events', $parent->realName);
     }

@@ -9,7 +9,6 @@ namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Url;
 
 /**
  * Represents a container for database nodes in the navigation tree
@@ -44,8 +43,8 @@ class NodeDatabaseContainer extends Node
         );
         $new->icon = ['image' => 'b_newdb', 'title' => $newLabel];
         $new->links = [
-            'text' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
-            'icon' => Url::getFromRoute('/server/databases', ['server' => $GLOBALS['server']]),
+            'text' => ['route' => '/server/databases', 'params' => []],
+            'icon' => ['route' => '/server/databases', 'params' => []],
         ];
         $this->addChild($new);
     }

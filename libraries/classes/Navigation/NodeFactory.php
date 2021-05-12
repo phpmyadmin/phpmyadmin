@@ -78,11 +78,10 @@ class NodeFactory
     /**
      * Instantiates a Node object
      *
-     * @param string $class   The name of the class to instantiate
-     * @param string $name    An identifier for the new node
-     * @param int    $type    Type of node, may be one of CONTAINER or OBJECT
-     * @param bool   $isGroup Whether this object has been created
-     *                        while grouping nodes
+     * @param string       $class   The name of the class to instantiate
+     * @param string|array $name    An identifier for the new node
+     * @param int          $type    Type of node, may be one of CONTAINER or OBJECT
+     * @param bool         $isGroup Whether this object has been created while grouping nodes
      */
     public static function getInstance(
         $class = 'Node',
