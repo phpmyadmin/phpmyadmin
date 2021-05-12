@@ -711,7 +711,11 @@ final class JavaScriptMessagesController
 
             /* U2F errors */
             'strU2FTimeout' => __('Timed out waiting for security key activation.'),
-            'strU2FError' => __('Failed security key activation (%s).'),
+            'strU2FBadRequest' => __('Invalid request sent to security key.'),
+            'strU2FUnknown' => __('Unknown security key error.'),
+            'strU2FInvalidClient' => __('Client does not support security key.'),
+            'strU2FErrorRegister' => __('Failed security key activation.'),
+            'strU2FErrorAuthenticate' => __('Invalid security key.'),
 
             /* Designer */
             'strTableAlreadyExists' => _pgettext(
