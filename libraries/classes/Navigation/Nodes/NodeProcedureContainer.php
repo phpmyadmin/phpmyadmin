@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Url;
 
 /**
  * Represents a container for procedure nodes in the navigation tree
@@ -23,14 +22,8 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
         parent::__construct(__('Procedures'), Node::CONTAINER);
         $this->icon = ['image' => 'b_routines', 'title' => __('Procedures')];
         $this->links = [
-            'text' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'type' => 'PROCEDURE',
-            ]) . '&amp;db=%1$s',
-            'icon' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'type' => 'PROCEDURE',
-            ]) . '&amp;db=%1$s',
+            'text' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
+            'icon' => ['route' => '/database/routines', 'params' => ['type' => 'PROCEDURE', 'db' => null]],
         ];
         $this->realName = 'procedures';
 
@@ -41,14 +34,8 @@ class NodeProcedureContainer extends NodeDatabaseChildContainer
         );
         $new->icon = ['image' => 'b_routine_add', 'title' => $newLabel];
         $new->links = [
-            'text' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'add_item' => 1,
-            ]) . '&amp;db=%2$s',
-            'icon' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'add_item' => 1,
-            ]) . '&amp;db=%2$s',
+            'text' => ['route' => '/database/routines', 'params' => ['add_item' => 1, 'db' => null]],
+            'icon' => ['route' => '/database/routines', 'params' => ['add_item' => 1, 'db' => null]],
         ];
         $this->addChild($new);
     }

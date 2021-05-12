@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Url;
-
 /**
  * Represents a event node in the navigation tree
  */
@@ -27,16 +25,17 @@ class NodeEvent extends NodeDatabaseChild
         parent::__construct($name, $type, $isGroup);
         $this->icon = ['image' => 'b_events', 'title' => __('Event')];
         $this->links = [
-            'text' => Url::getFromRoute('/database/events', [
-                'server' => $GLOBALS['server'],
-                'edit_item' => 1,
-            ]) . '&amp;db=%2$s&amp;item_name=%1$s',
-            'icon' => Url::getFromRoute('/database/events', [
-                'server' => $GLOBALS['server'],
-                'export_item' => 1,
-            ]) . '&amp;db=%2$s&amp;item_name=%1$s',
+            'text' => [
+                'route' => '/database/events',
+                'params' => ['edit_item' => 1, 'db' => null, 'item_name' => null],
+            ],
+            'icon' => [
+                'route' => '/database/events',
+                'params' => ['export_item' => 1, 'db' => null, 'item_name' => null],
+            ],
         ];
         $this->classes = 'event';
+        $this->urlParamName = 'item_name';
     }
 
     /**

@@ -25,13 +25,13 @@ class NodeTriggerContainerTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeTriggerContainer');
-        $this->assertArrayHasKey(
-            'text',
+        $this->assertIsArray($parent->links);
+        $this->assertEquals(
+            [
+                'text' => ['route' => '/database/triggers', 'params' => ['db' => null, 'table' => null]],
+                'icon' => ['route' => '/database/triggers', 'params' => ['db' => null, 'table' => null]],
+            ],
             $parent->links
-        );
-        $this->assertStringContainsString(
-            'index.php?route=/database/triggers',
-            $parent->links['text']
         );
         $this->assertEquals('triggers', $parent->realName);
     }

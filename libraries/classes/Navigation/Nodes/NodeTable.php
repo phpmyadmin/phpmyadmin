@@ -12,7 +12,6 @@ use PhpMyAdmin\Util;
 
 use function in_array;
 use function intval;
-use function strpos;
 
 /**
  * Represents a columns node in the navigation tree
@@ -53,34 +52,23 @@ class NodeTable extends NodeDatabaseChild
         );
         $this->title = $title;
 
-        $scriptName = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabTable'],
-            'table'
-        );
-        $firstIconLink = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['NavigationTreeDefaultTabTable'],
-            'table'
-        );
-        $secondIconLink = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'],
-            'table'
-        );
         $this->links = [
-            'text'  => $scriptName . (strpos($scriptName, '?') === false ? '?' : '&')
-                . 'server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s'
-                . '&amp;pos=0',
+            'text' => [
+                'route' => Util::getUrlForOption($GLOBALS['cfg']['DefaultTabTable'], 'table'),
+                'params' => ['pos' => 0, 'db' => null, 'table' => null],
+            ],
             'icon'  => [
-                $firstIconLink . (strpos($firstIconLink, '?') === false ? '?' : '&')
-                . 'server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
-                $secondIconLink . (strpos($secondIconLink, '?') === false ? '?' : '&')
-                . 'server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
+                'route' => Util::getUrlForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable'], 'table'),
+                'params' => ['db' => null, 'table' => null],
+            ],
+            'second_icon'  => [
+                'route' => Util::getUrlForOption($GLOBALS['cfg']['NavigationTreeDefaultTabTable2'], 'table'),
+                'params' => ['db' => null, 'table' => null],
             ],
             'title' => $this->title,
         ];
         $this->classes = 'table';
+        $this->urlParamName = 'table';
     }
 
     /**

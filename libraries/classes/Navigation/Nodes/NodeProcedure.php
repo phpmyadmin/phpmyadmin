@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Url;
-
 /**
  * Represents a procedure node in the navigation tree
  */
@@ -27,18 +25,17 @@ class NodeProcedure extends NodeDatabaseChild
         parent::__construct($name, $type, $isGroup);
         $this->icon = ['image' => 'b_routines', 'title' => __('Procedure')];
         $this->links = [
-            'text' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'item_type' => 'PROCEDURE',
-                'edit_item' => 1,
-            ]) . '&amp;db=%2$s&amp;item_name=%1$s',
-            'icon' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'item_type' => 'PROCEDURE',
-                'execute_dialog' => 1,
-            ]) . '&amp;db=%2$s&amp;item_name=%1$s',
+            'text' => [
+                'route' => '/database/routines',
+                'params' => ['item_type' => 'PROCEDURE', 'edit_item' => 1, 'db' => null, 'item_name' => null],
+            ],
+            'icon' => [
+                'route' => '/database/routines',
+                'params' => ['item_type' => 'PROCEDURE', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
+            ],
         ];
         $this->classes = 'procedure';
+        $this->urlParamName = 'item_name';
     }
 
     /**

@@ -20,8 +20,10 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
+use function array_intersect_key;
 use function array_key_exists;
 use function array_keys;
+use function array_merge;
 use function array_shift;
 use function base64_decode;
 use function count;
@@ -48,9 +50,7 @@ use function strstr;
 use function substr;
 use function trigger_error;
 use function trim;
-use function urlencode;
 use function usort;
-use function vsprintf;
 
 use const E_USER_WARNING;
 
@@ -876,10 +876,15 @@ class NavigationTree
                 $node instanceof NodeTableContainer
                 || $node instanceof NodeViewContainer
             ) {
-                $tblGroup = '&amp;tbl_group=' . urlencode((string) $key);
                 $groups[$key]->links = [
-                    'text' => $node->links['text'] . $tblGroup,
-                    'icon' => $node->links['icon'] . $tblGroup,
+                    'text' => [
+                        'route' => $node->links['text']['route'],
+                        'params' => array_merge($node->links['text']['params'], ['tbl_group' => $key]),
+                    ],
+                    'icon' => [
+                        'route' => $node->links['icon']['route'],
+                        'params' => array_merge($node->links['icon']['params'], ['tbl_group' => $key]),
+                    ],
                 ];
             }
 
@@ -1239,53 +1244,64 @@ class NavigationTree
             // The .second class is used in js/src/navigation.js
             $divClass = 'second';
 
-            $iconLinks = [];
-            $icons = [];
-            if (isset($node->links['icon']) && ! empty($node->links['icon'])) {
-                $iconLinks = $node->links['icon'];
-                if (! is_array($iconLinks)) {
-                    $iconLinks = [$iconLinks];
-                }
-
-                $icons[] = $node->icon;
-                if (isset($node->secondIcon)) {
-                    // Generates: .second double class for NavigationTreeDefaultTabTable2
-                    $divClass = 'second double';
-                    $icons[] = $node->secondIcon;
-                }
+            if (isset($node->secondIcon)) {
+                // Generates: .second double class for NavigationTreeDefaultTabTable2
+                $divClass .= ' double';
             }
 
             $retval .= '<div class="block ' . $divClass . '">';
 
-            if (isset($node->links['icon']) && ! empty($node->links['icon'])) {
+            if (! $node->isGroup) {
                 $args = [];
-                foreach ($node->parents(true) as $parent) {
-                    $args[] = urlencode($parent->realName);
-                }
-
-                foreach ($icons as $key => $icon) {
-                    $link = vsprintf($iconLinks[$key], $args);
-                    if ($linkClass != '') {
-                        $retval .= '<a class="' . $linkClass . '" href="' . $link . '">';
-                        $retval .= Generator::getImage($icon['image'], $icon['title']) . '</a>';
-                    } else {
-                        $retval .= '<a href="' . $link . '">';
-                        $retval .= Generator::getImage($icon['image'], $icon['title']) . '</a>';
+                $parents = $node->parents(true);
+                foreach ($parents as $parent) {
+                    if (! isset($parent->urlParamName)) {
+                        continue;
                     }
-                }
-            } else {
-                $retval .= '<u>' . Generator::getImage($node->icon['image'], $node->icon['title']) . '</u>';
-            }
 
-            $retval .= '</div>';
-
-            if (isset($node->links['text'])) {
-                $args = [];
-                foreach ($node->parents(true) as $parent) {
-                    $args[] = urlencode($parent->realName);
+                    $args[$parent->urlParamName] = $parent->realName;
                 }
 
-                $link = vsprintf($node->links['text'], $args);
+                $params = array_merge(
+                    $node->links['icon']['params'],
+                    array_intersect_key($args, $node->links['icon']['params'])
+                );
+                $link = Url::getFromRoute($node->links['icon']['route'], $params);
+
+                $retval .= '<a';
+
+                if ($linkClass !== '') {
+                    $retval .= ' class="' . $linkClass . '"';
+                }
+
+                $retval .= ' href="' . $link . '">';
+                $retval .= Generator::getImage($node->icon['image'], $node->icon['title']) . '</a>';
+
+                if (isset($node->links['second_icon'], $node->secondIcon)) {
+                    $params = array_merge(
+                        $node->links['second_icon']['params'],
+                        array_intersect_key($args, $node->links['second_icon']['params'])
+                    );
+                    $link = Url::getFromRoute($node->links['second_icon']['route'], $params);
+
+                    $retval .= '<a';
+
+                    if ($linkClass !== '') {
+                        $retval .= ' class="' . $linkClass . '"';
+                    }
+
+                    $retval .= ' href="' . $link . '">';
+                    $retval .= Generator::getImage($node->secondIcon['image'], $node->secondIcon['title']) . '</a>';
+                }
+
+                $retval .= '</div>';
+
+                $params = array_merge(
+                    $node->links['text']['params'],
+                    array_intersect_key($args, $node->links['text']['params'])
+                );
+                $link = Url::getFromRoute($node->links['text']['route'], $params);
+
                 $title = $node->links['title'] ?? $node->title ?? '';
                 if ($nodeIsContainer) {
                     $retval .= "&nbsp;<a class='hover_show_full' href='" . $link . "'>";
@@ -1298,6 +1314,8 @@ class NavigationTree
                     $retval .= '</a>';
                 }
             } else {
+                $retval .= '<u>' . Generator::getImage($node->icon['image'], $node->icon['title']) . '</u>';
+                $retval .= '</div>';
                 $retval .= '&nbsp;' . $node->name . '';
             }
 
@@ -1401,7 +1419,7 @@ class NavigationTree
                 continue;
             }
 
-            $title = isset($node->links['title']) ? '' : $node->links['title'];
+            $title = $node->links['title'] ?? '';
             $options[] = [
                 'title' => $title,
                 'name' => $node->realName,

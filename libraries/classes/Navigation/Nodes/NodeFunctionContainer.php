@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Url;
 
 /**
  * Represents a container for functions nodes in the navigation tree
@@ -23,14 +22,8 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
         parent::__construct(__('Functions'), Node::CONTAINER);
         $this->icon = ['image' => 'b_routines', 'title' => __('Functions')];
         $this->links = [
-            'text' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'type' => 'FUNCTION',
-            ]) . '&amp;db=%1$s',
-            'icon' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'type' => 'FUNCTION',
-            ]) . '&amp;db=%1$s',
+            'text' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
+            'icon' => ['route' => '/database/routines', 'params' => ['type' => 'FUNCTION', 'db' => null]],
         ];
         $this->realName = 'functions';
 
@@ -41,16 +34,14 @@ class NodeFunctionContainer extends NodeDatabaseChildContainer
         );
         $new->icon = ['image' => 'b_routine_add', 'title' => $newLabel];
         $new->links = [
-            'text' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'item_type' => 'FUNCTION',
-                'add_item' => 1,
-            ]) . '&amp;db=%2$s',
-            'icon' => Url::getFromRoute('/database/routines', [
-                'server' => $GLOBALS['server'],
-                'item_type' => 'FUNCTION',
-                'add_item' => 1,
-            ]) . '&amp;db=%2$s',
+            'text' => [
+                'route' => '/database/routines',
+                'params' => ['item_type' => 'FUNCTION', 'add_item' => 1, 'db' => null],
+            ],
+            'icon' => [
+                'route' => '/database/routines',
+                'params' => ['item_type' => 'FUNCTION', 'add_item' => 1, 'db' => null],
+            ],
         ];
         $this->addChild($new);
     }

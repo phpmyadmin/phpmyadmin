@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Url;
-
 /**
  * Represents a view node in the navigation tree
  */
@@ -27,14 +25,11 @@ class NodeView extends NodeDatabaseChild
         parent::__construct($name, $type, $isGroup);
         $this->icon = ['image' => 'b_props', 'title' => __('View')];
         $this->links = [
-            'text' => Url::getFromRoute('/sql')
-                . '&amp;server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s&amp;pos=0',
-            'icon' => Url::getFromRoute('/table/structure')
-                . '&amp;server=' . $GLOBALS['server']
-                . '&amp;db=%2$s&amp;table=%1$s',
+            'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
+            'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
         ];
         $this->classes = 'view';
+        $this->urlParamName = 'table';
     }
 
     /**

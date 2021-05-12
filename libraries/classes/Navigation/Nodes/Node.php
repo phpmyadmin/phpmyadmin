@@ -50,7 +50,7 @@ class Node
      * @var bool Whether this object has been created while grouping nodes
      *           Only relevant if the node is of type CONTAINER
      */
-    public $isGroup;
+    public $isGroup = false;
     /**
      * @var bool Whether to add a "display: none;" CSS
      *           rule to the node when rendering it
@@ -86,10 +86,21 @@ class Node
     public $icon = ['image' => '', 'title' => ''];
 
     /**
-     * @var array An array of A tags, used when rendering the node
-     *            The indexes in the array may be 'icon' and 'text'
+     * An array of A tags, used when rendering the node.
+     *
+     * @var array<string, mixed>
+     * @psalm-var array{
+     *   text: array{route: string, params: array<string, mixed>},
+     *   icon: array{route: string, params: array<string, mixed>},
+     *   second_icon?: array{route: string, params: array<string, mixed>},
+     *   title?: string
+     * }
      */
-    public $links;
+    public $links = [
+        'text' => ['route' => '', 'params' => []],
+        'icon' => ['route' => '', 'params' => []],
+    ];
+
     /** @var string HTML title */
     public $title;
     /** @var string Extra CSS classes for the node */
@@ -112,6 +123,9 @@ class Node
 
     /** @var string $displayName  display name for the navigation tree */
     public $displayName;
+
+    /** @var string|null */
+    public $urlParamName = null;
 
     /**
      * Initialises the class by setting the mandatory variables

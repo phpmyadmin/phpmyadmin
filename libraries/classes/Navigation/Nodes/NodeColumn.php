@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Navigation\Nodes;
 
-use PhpMyAdmin\Url;
-
 use function strlen;
 use function substr;
 
@@ -32,16 +30,17 @@ class NodeColumn extends Node
         parent::__construct($item['name'], $type, $isGroup);
         $this->icon = ['image' => $this->getColumnIcon($item['key']), 'title' => __('Column')];
         $this->links = [
-            'text' => Url::getFromRoute('/table/structure/change', [
-                'server' => $GLOBALS['server'],
-                'change_column' => 1,
-            ]) . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s',
-            'icon' => Url::getFromRoute('/table/structure/change', [
-                'server' => $GLOBALS['server'],
-                'change_column' => 1,
-            ]) . '&amp;db=%3$s&amp;table=%2$s&amp;field=%1$s',
+            'text' => [
+                'route' => '/table/structure/change',
+                'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
+            ],
+            'icon' => [
+                'route' => '/table/structure/change',
+                'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
+            ],
             'title' => __('Structure'),
         ];
+        $this->urlParamName = 'field';
     }
 
     /**

@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
-use PhpMyAdmin\Url;
 
 /**
  * Represents a container for index nodes in the navigation tree
@@ -23,12 +22,8 @@ class NodeIndexContainer extends Node
         parent::__construct(__('Indexes'), Node::CONTAINER);
         $this->icon = ['image' => 'b_index', 'title' => __('Indexes')];
         $this->links = [
-            'text' => Url::getFromRoute('/table/structure', [
-                'server' => $GLOBALS['server'],
-            ]) . '&amp;db=%2$s&amp;table=%1$s',
-            'icon' => Url::getFromRoute('/table/structure', [
-                'server' => $GLOBALS['server'],
-            ]) . '&amp;db=%2$s&amp;table=%1$s',
+            'text' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
+            'icon' => ['route' => '/table/structure', 'params' => ['db' => null, 'table' => null]],
         ];
         $this->realName = 'indexes';
 
@@ -39,16 +34,14 @@ class NodeIndexContainer extends Node
         );
         $new->icon = ['image' => 'b_index_add', 'title' => $newLabel];
         $new->links = [
-            'text' => Url::getFromRoute('/table/indexes', [
-                'server' => $GLOBALS['server'],
-                'create_index' => 1,
-                'added_fields' => 2,
-            ]) . '&amp;db=%3$s&amp;table=%2$s',
-            'icon' => Url::getFromRoute('/table/indexes', [
-                'server' => $GLOBALS['server'],
-                'create_index' => 1,
-                'added_fields' => 2,
-            ]) . '&amp;db=%3$s&amp;table=%2$s',
+            'text' => [
+                'route' => '/table/indexes',
+                'params' => ['create_index' => 1, 'added_fields' => 2, 'db' => null, 'table' => null],
+            ],
+            'icon' => [
+                'route' => '/table/indexes',
+                'params' => ['create_index' => 1, 'added_fields' => 2, 'db' => null, 'table' => null],
+            ],
         ];
         $this->addChild($new);
     }
