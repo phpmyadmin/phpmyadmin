@@ -6,13 +6,13 @@
   <fieldset class="pma-fieldset">
     {% if not ajax %}
       <legend>{{ routine['item_name'] }}</legend>
-      <table class="pma-table rte_table">
+      <table class="table caption-top rte_table">
         <caption class="tblHeaders">
           {% trans 'Routine parameters' %}
         </caption>
     {% else %}
       <legend>{% trans 'Routine parameters' %}</legend>
-      <table class="pma-table rte_table">
+      <table class="table rte_table">
     {% endif %}
         <tr>
           <th>{% trans 'Name' %}</th>
