@@ -3224,7 +3224,7 @@ AJAX.registerOnload('functions.js', function () {
             // for this dialog, we remove the fieldset wrapping due to double headings
             $('fieldset#fieldset_change_password')
                 .find('legend').remove().end()
-                .find('table.noclick').unwrap().addClass('some-margin')
+                .find('table.table').unwrap().addClass('m-3')
                 .find('input#text_pma_pw').trigger('focus');
             $('#fieldset_change_password_footer').hide();
             Functions.ajaxRemoveMessage($msgbox);
