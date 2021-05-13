@@ -2111,10 +2111,10 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 var newValue = (value === null) ? 'null' : Functions.escapeHtml(value);
 
                 if (key === 'type' && newValue.toLowerCase() === 'all') {
-                    newValue = '<span class="attention">' + newValue + '</span>';
+                    newValue = '<span class="text-danger">' + newValue + '</span>';
                 }
                 if (key === 'Extra') {
-                    newValue = newValue.replace(/(using (temporary|filesort))/gi, '<span class="attention">$1</span>');
+                    newValue = newValue.replace(/(using (temporary|filesort))/gi, '<span class="text-danger">$1</span>');
                 }
                 explain += key + ': ' + newValue + '<br>';
             };

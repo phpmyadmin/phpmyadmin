@@ -85,7 +85,7 @@
             <td class="value font-monospace text-end">
               <span class="formatted">
                 {% if variable.has_alert %}
-                  <span class="{{ variable.is_alert ? 'attention' : 'allfine' }}">
+                  <span class="{{ variable.is_alert ? 'text-danger' : 'text-success' }}">
                 {% endif %}
 
                 {% if variable.name ends with '%' %}
@@ -108,7 +108,7 @@
               </span>
               <span class="original hide">
                 {% if variable.has_alert %}
-                  <span class="{{ variable.is_alert ? 'attention' : 'allfine' }}">
+                  <span class="{{ variable.is_alert ? 'text-danger' : 'text-success' }}">
                 {% endif %}
                 {{ variable.value }}
                 {% if variable.has_alert %}

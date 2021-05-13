@@ -88,7 +88,7 @@ AJAX.registerOnload('server/status/variables.js', function () {
 
         $('#serverStatusVariables').find('th.name').each(function () {
             if ((textFilter === null || textFilter.exec($(this).text())) &&
-                (! alertFilter || $(this).next().find('span.attention').length > 0) &&
+                (! alertFilter || $(this).next().find('span.text-danger').length > 0) &&
                 (categoryFilter.length === 0 || $(this).parent().hasClass('s_' + categoryFilter))
             ) {
                 $(this).parent().css('display', '');

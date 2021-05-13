@@ -112,10 +112,7 @@ class VariablesControllerTest extends AbstractTestCase
             'Aborted clients',
             $html
         );
-        $this->assertStringContainsString(
-            '<span class="allfine">',
-            $html
-        );
+        $this->assertStringContainsString('<span class="text-success">', $html);
         $this->assertStringContainsString(
             'Aborted connects',
             $html

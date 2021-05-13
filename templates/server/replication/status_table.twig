@@ -23,7 +23,7 @@
         <tr>
           <td class="name">{{ variable.name }}</td>
           <td class="value">
-            <span{% if variable.status == 'attention' %} class="attention"{% elseif variable.status == 'allfine' %} class="allfine"{% endif %}>
+            <span{% if variable.status == 'text-danger' %} class="text-danger"{% elseif variable.status == 'text-success' %} class="text-success"{% endif %}>
               {{ variable.value }}
             </span>
           </td>
