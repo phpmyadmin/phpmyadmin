@@ -52,10 +52,6 @@ textarea {
   }
 }
 
-.pma-table th.fillPage {
-  width: 80%;
-}
-
 .pma-fieldset {
   margin-top: 1em;
   border-radius: 4px 4px 0 0;
@@ -117,19 +113,6 @@ textarea {
 /* classes */
 .clearfloat {
   clear: both;
-}
-
-.pma-table {
-  &.nospacing {
-    border-spacing: 0;
-  }
-
-  &.nopadding tr {
-    th,
-    td {
-      padding: 0;
-    }
-  }
 }
 
 .paddingtop {
@@ -197,17 +180,13 @@ button.mult_submit {
 
 // odd items 1,3,5,7...
 .pma-table tbody:first-of-type tr:nth-child(odd),
-.pma-table tbody:first-of-type tr:nth-child(odd) th,
-#table_index tbody:nth-of-type(odd) tr,
-#table_index tbody:nth-of-type(odd) th {
+.pma-table tbody:first-of-type tr:nth-child(odd) th {
   background: $white;
 }
 
 // even items 2,4,6,8...
 .pma-table tbody:first-of-type tr:nth-child(even),
-.pma-table tbody:first-of-type tr:nth-child(even) th,
-#table_index tbody:nth-of-type(even) tr,
-#table_index tbody:nth-of-type(even) th {
+.pma-table tbody:first-of-type tr:nth-child(even) th {
   background: #dfdfdf;
 }
 
@@ -242,9 +221,6 @@ button.mult_submit {
 }
 
 // hovered table rows
-#table_index tbody:hover tr,
-#table_index tbody:hover th,
-#table_index tbody:hover td,
 .pma-table tr.hover:not(.nopointer) th {
   background: linear-gradient(#ced6df, #b6c6d7);
   color: $black;
@@ -257,17 +233,17 @@ button.mult_submit {
   border-color: $black !important;
 }
 
-.pma-table th.condition {
+th.condition {
   border-width: 1px 1px 0 1px;
   border-style: solid;
 }
 
-.pma-table td.condition {
+td.condition {
   border-width: 0 1px 0 1px;
   border-style: solid;
 }
 
-.pma-table tr:last-child td.condition {
+tr:last-child td.condition {
   border-width: 0 1px 1px 1px;
 }
 
@@ -282,20 +258,15 @@ button.mult_submit {
 /**
  * cells with the value NULL
  */
-.pma-table td.null {
+td.null {
   font-style: italic;
   color: #7d7d7d;
 }
 
-.pma-table {
+table {
   .valueHeader,
   .value {
     text-align: right;
-    white-space: normal;
-  }
-
-  // IE doesnt handles 'pre' right
-  [class=value] {
     white-space: normal;
   }
 }

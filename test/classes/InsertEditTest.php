@@ -3099,7 +3099,7 @@ class InsertEditTest extends AbstractTestCase
             $actual
         );
         $this->assertStringContainsString(
-            '<th class="fillPage">Value</th>',
+            '<th class="w-50">Value</th>',
             $actual
         );
         $this->assertStringContainsString(

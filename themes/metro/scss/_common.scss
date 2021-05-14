@@ -355,19 +355,6 @@ select {
   clear: both;
 }
 
-.pma-table {
-  &.nospacing {
-    border-spacing: 0;
-  }
-
-  &.nopadding tr {
-    th,
-    td {
-      padding: 0;
-    }
-  }
-}
-
 .paddingtop {
   padding-top: 1em;
 }
@@ -513,21 +500,13 @@ button.mult_submit {
   color: $th-pointer-color;
 }
 
-/* hovered index table rows */
-#table_index tbody:hover tr,
-#table_index tbody:hover th,
-#table_index tbody:hover td {
-  background: $browse-marker-background;
-  color: $main-color;
-}
-
 /* marks table rows/cells if the db field is in a where condition */
 
 .condition {
   border-color: $browse-warning-color !important;
 }
 
-.pma-table th.condition {
+th.condition {
   border: 1px solid $browse-warning-color;
   background: $browse-warning-color;
   color: $body-bg !important;
@@ -539,7 +518,7 @@ button.mult_submit {
   }
 }
 
-.pma-table td {
+td {
   &.condition {
     border: 1px solid;
   }
@@ -551,15 +530,10 @@ button.mult_submit {
   }
 }
 
-.pma-table {
+table {
   .valueHeader,
   .value {
     text-align: right;
-    white-space: normal;
-  }
-
-  // IE doesnt handles 'pre' right
-  [class="value"] {
     white-space: normal;
   }
 }

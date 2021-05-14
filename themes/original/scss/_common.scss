@@ -62,10 +62,6 @@ textarea {
   overflow: visible;
 }
 
-.pma-table th.fillPage {
-  width: 80%;
-}
-
 textarea.charField {
   width: 95%;
 }
@@ -120,19 +116,6 @@ button {
 // classes
 .clearfloat {
   clear: both;
-}
-
-.pma-table {
-  &.nospacing {
-    border-spacing: 0;
-  }
-
-  &.nopadding tr {
-    th,
-    td {
-      padding: 0;
-    }
-  }
 }
 
 .paddingtop {
@@ -193,23 +176,9 @@ button.mult_submit {
   background: $bg-one;
 }
 
-#table_index tbody:nth-of-type(odd) {
-  tr,
-  th {
-    background: $bg-one;
-  }
-}
-
 // even items 2,4,6,8...
 .pma-table tr:nth-child(even) {
   background: $bg-two;
-}
-
-#table_index tbody:nth-of-type(even) {
-  tr,
-  th {
-    background: $bg-two;
-  }
 }
 
 .pma-table tr {
@@ -248,14 +217,6 @@ button.mult_submit {
   color: $browse-pointer-color;
 }
 
-#table_index tbody:hover {
-  tr,
-  th {
-    background: $browse-pointer-background;
-    color: $browse-pointer-color;
-  }
-}
-
 .pma-table tr.hover:not(.nopointer) th {
   background: $browse-pointer-background;
   color: $browse-pointer-color;
@@ -264,28 +225,23 @@ button.mult_submit {
 /**
  * marks table rows/cells if the db field is in a where condition
  */
-.pma-table td.condition,
-.pma-table th.condition {
+td.condition,
+th.condition {
   border: 1px solid $browse-marker-background;
 }
 
 /**
  * cells with the value NULL
  */
-.pma-table td.null {
+td.null {
   font-style: italic;
   color: #7d7d7d;
 }
 
-.pma-table {
+table {
   .valueHeader,
   .value {
     text-align: right;
-    white-space: normal;
-  }
-
-  /* IE doesnt handles 'pre' right */
-  [class="value"] {
     white-space: normal;
   }
 }

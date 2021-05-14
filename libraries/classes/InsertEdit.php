@@ -1165,8 +1165,8 @@ class InsertEdit
      */
     private function getHeadAndFootOfInsertRowTable(array $urlParams)
     {
-        $htmlOutput = '<div class="responsivetable">'
-            . '<table class="pma-table insertRowTable topmargin">'
+        $htmlOutput = '<div class="table-responsive-lg">'
+            . '<table class="table table-light table-striped align-middle my-3 insertRowTable">'
             . '<thead>'
             . '<tr>'
             . '<th>' . __('Column') . '</th>';
@@ -1180,7 +1180,7 @@ class InsertEdit
         }
 
         $htmlOutput .= '<th>' . __('Null') . '</th>'
-            . '<th class="fillPage">' . __('Value') . '</th>'
+            . '<th class="w-50">' . __('Value') . '</th>'
             . '</tr>'
             . '</thead>'
             . ' <tfoot>'
