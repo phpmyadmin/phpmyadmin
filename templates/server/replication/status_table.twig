@@ -10,7 +10,7 @@
     </h4>
   {% endif %}
 
-  <table id="server{{ type }}replicationsummary" class="pma-table data">
+  <table id="server{{ type }}replicationsummary" class="table w-auto">
     <thead>
       <tr>
         <th>{% trans 'Variable' %}</th>
@@ -21,8 +21,8 @@
     <tbody>
       {% for variable in variables %}
         <tr>
-          <td class="name">{{ variable.name }}</td>
-          <td class="value">
+          <td>{{ variable.name }}</td>
+          <td class="text-end font-monospace">
             <span{% if variable.status == 'text-danger' %} class="text-danger"{% elseif variable.status == 'text-success' %} class="text-success"{% endif %}>
               {{ variable.value }}
             </span>

@@ -37,7 +37,7 @@
 
 {{ sql_message|raw }}
 
-<table class="pma-table" id="binlogTable">
+<table class="table table-light table-striped table-hover align-middle" id="binlogTable">
   <thead>
     <tr>
       <td colspan="6" class="text-center">
@@ -80,7 +80,7 @@
         {% endif %}
       </td>
     </tr>
-    <tr>
+    <tr class="text-nowrap">
       <th>{% trans 'Log name' %}</th>
       <th>{% trans 'Position' %}</th>
       <th>{% trans 'Event type' %}</th>
