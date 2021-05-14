@@ -15,7 +15,7 @@
     "@babel/preset-env": "^7.14.1",
     "@popperjs/core": "^2.9.2",
     "autoprefixer": "^10.2.5",
-    "bootstrap": "5.0.0",
+    "bootstrap": "5.0.1",
     "codemirror": "5.61.0",
     "jquery": "3.6.0",
     "jquery-debounce-throttle": "^1.0.6-rc.0",
