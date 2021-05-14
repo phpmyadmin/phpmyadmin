@@ -803,11 +803,6 @@ class Sql
                 $statement = $analyzed_sql_results['statement'];
                 $token_list = $analyzed_sql_results['parser']->list;
                 $replaces = [
-                    // Replace select by COUNT
-                    [
-                        'SELECT',
-                        'SELECT COUNT(*)',
-                    ],
                     // Remove ORDER BY to decrease unnecessary sorting time
                     [
                         'ORDER BY',
@@ -819,11 +814,11 @@ class Sql
                         '',
                     ],
                 ];
-                $count_query = Query::replaceClauses(
+                $count_query = 'SELECT COUNT(*) FROM (' . Query::replaceClauses(
                     $statement,
                     $token_list,
                     $replaces
-                );
+                ) . ') as cnt';
                 $unlim_num_rows = $this->dbi->fetchValue($count_query);
                 if ($unlim_num_rows === false) {
                     $unlim_num_rows = 0;
