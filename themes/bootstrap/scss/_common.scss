@@ -2929,6 +2929,10 @@ body .ui-dialog {
   margin-left: 50px;
 }
 
+.ui_tpicker_time_input {
+  width: 100%;
+}
+
 // Extra large devices (large desktops, 1200px and up)
 @include media-breakpoint-up(xl) {
   div.tools {

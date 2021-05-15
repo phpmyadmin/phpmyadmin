@@ -63,7 +63,7 @@
         <td></td>
         <td>
           <input type="button" class="btn btn-primary" name="routine_addparameter" value="{% trans 'Add parameter' %}">
-          <input type="submit" name="routine_removeparameter" value="{% trans 'Remove last parameter' %}"{{ not routine.item_num_params ? ' class="isdisableremoveparam_class" disabled' }}>
+          <input type="submit" name="routine_removeparameter" value="{% trans 'Remove last parameter' %}"{{ not routine.item_num_params ? ' disabled' }}>
         </td>
       </tr>
       <tr class="routine_return_row{{ routine.item_type == 'PROCEDURE' ? ' hide' }}">
