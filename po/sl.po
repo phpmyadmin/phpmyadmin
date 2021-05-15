@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-11 01:21+0200\n"
-"PO-Revision-Date: 2021-04-27 23:32+0000\n"
+"PO-Revision-Date: 2021-05-16 19:33+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -2650,8 +2650,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Prikaže povezavo do podatkov [a@https://php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]."
+"Prikaže povezavo do podatkov [a@https://www.php.net/manual/en/function."
+"phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:511
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -8181,10 +8181,8 @@ msgid "Missing parameter:"
 msgstr "Manjkajoč parameter:"
 
 #: libraries/classes/Controllers/Server/UserGroupsController.php:130
-#, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
-msgstr "Predpomnjenje poizvedb ni omogočeno."
+msgstr "Upravljanje uporabniških skupin ni omogočeno."
 
 #: libraries/classes/Controllers/Server/VariablesController.php:224
 msgid "Setting variable failed"
@@ -8322,15 +8320,13 @@ msgid "No column selected."
 msgstr "Ni izbranih stolpcev."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:84
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "Uspešno smo zavrgli %1$d zbirko podatkov."
-msgstr[1] "Uspešno smo zavrgli %1$d zbirki podatkov."
-msgstr[2] "Uspešno smo zavrgli %1$d zbirke podatkov."
-msgstr[3] "Uspešno smo zavrgli %1$d zbirk podatkov."
+msgstr[0] "Uspešno smo zavrgli %1$d stolpec."
+msgstr[1] "Uspešno smo zavrgli %1$d stolpca."
+msgstr[2] "Uspešno smo zavrgli %1$d stolpce."
+msgstr[3] "Uspešno smo zavrgli %1$d stolpcev."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -10286,10 +10282,8 @@ msgid "New"
 msgstr "Nov"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger"
-msgstr "Sprožilci"
+msgstr "Sprožilec"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:24
@@ -17034,10 +17028,8 @@ msgid "Drop the databases that have the same names as the users."
 msgstr "Izbriši zbirke podatkov, ki imajo enako ime kot uporabniki."
 
 #: templates/server/privileges/users_overview.twig:162
-#, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
-msgstr "Shrani stran"
+msgstr "Shrani spremembe"
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
