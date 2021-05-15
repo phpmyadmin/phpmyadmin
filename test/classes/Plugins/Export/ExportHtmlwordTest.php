@@ -328,7 +328,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $this->assertEquals(
             '<h2>Dumping data for table test_table</h2>'
-            . '<table class="pma-table w-100" cellspacing="1"><tr class="print-category">'
+            . '<table width="100%" cellspacing="1"><tr class="print-category">'
             . '<td class="print"><strong>id</strong></td>'
             . '<td class="print"><strong>name</strong></td>'
             . '<td class="print"><strong>datetimefield</strong></td>'
@@ -384,7 +384,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->will($this->returnValue(1));
 
         $this->assertEquals(
-            '<table class="pma-table w-100" cellspacing="1">' .
+            '<table width="100%" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
             '<td class="print"><strong>Null</strong></td>' .
@@ -489,7 +489,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            '<table class="pma-table w-100" cellspacing="1">' .
+            '<table width="100%" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
             '<td class="print"><strong>Null</strong></td>' .
@@ -648,7 +648,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         $this->assertEquals(
-            '<table class="pma-table w-100" cellspacing="1">' .
+            '<table width="100%" cellspacing="1">' .
             '<tr class="print-category"><th class="print">Column</th>' .
             '<td class="print"><strong>Type</strong></td>' .
             '<td class="print"><strong>Null</strong></td>' .
@@ -709,7 +709,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $this->assertEquals(
             '<h2>Table structure for table test_table</h2>'
-            . '<table class="pma-table w-100" cellspacing="1"><tr class="print-category">'
+            . '<table width="100%" cellspacing="1"><tr class="print-category">'
             . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
             . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong></td></tr>'
             . '<tr class="print-category"><td class="print"><em><strong>id</strong></em></td>'
@@ -735,7 +735,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $result = ob_get_clean();
 
         $this->assertEquals(
-            '<h2>Triggers test_table</h2><table class="pma-table w-100" cellspacing="1">'
+            '<h2>Triggers test_table</h2><table width="100%" cellspacing="1">'
             . '<tr class="print-category"><th class="print">Name</th>'
             . '<td class="print"><strong>Time</strong></td><td class="print"><strong>Event</strong></td>'
             . '<td class="print"><strong>Definition</strong></td></tr><tr class="print-category">'
@@ -759,7 +759,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $this->assertEquals(
             '<h2>Structure for view test_table</h2>'
-            . '<table class="pma-table w-100" cellspacing="1"><tr class="print-category">'
+            . '<table width="100%" cellspacing="1"><tr class="print-category">'
             . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
             . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong>'
             . '</td></tr><tr class="print-category"><td class="print"><em><strong>id</strong></em></td>'
@@ -786,7 +786,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $this->assertEquals(
             '<h2>Stand-in structure for view test_table</h2>'
-            . '<table class="pma-table w-100" cellspacing="1"><tr class="print-category">'
+            . '<table width="100%" cellspacing="1"><tr class="print-category">'
             . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
             . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong></td>'
             . '</tr><tr class="print-category">'

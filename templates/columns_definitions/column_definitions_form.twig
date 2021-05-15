@@ -18,7 +18,7 @@
 
     {% if action == url('/table/create') %}
         <div id="table_name_col_no_outer">
-            <table id="table_name_col_no" class="pma-table tdblock">
+            <table id="table_name_col_no" class="table table-borderless tdblock">
                 <tr class="align-middle float-start">
                     <td>{% trans 'Table name' %}:
                     <input type="text"
@@ -67,7 +67,7 @@
     {% endif %}
     {% if action == url('/table/create') %}
         <div class="responsivetable">
-        <table class="pma-table">
+        <table class="table table-borderless w-auto align-middle mb-0">
             <tr class="align-top">
                 <th>{% trans 'Table comments:' %}</th>
                 <td width="25">&nbsp;</td>

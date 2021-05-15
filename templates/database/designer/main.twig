@@ -216,7 +216,7 @@ var designerConfig = {{ designer_config|raw }};
                 </a>
             </div>
             <div id="id_scroll_tab" class="scroll_tab">
-                <table class="pma-table" width="100%" style="padding-left: 3px;"></table>
+                <table class="table table-sm ps-1"></table>
             </div>
             {# end id_scroll_tab #}
             <div class="text-center">
@@ -247,7 +247,7 @@ var designerConfig = {{ designer_config|raw }};
 </div>
 <div id="designer_hint"></div>
 {# create relation pane #}
-<table id="layer_new_relation" class="pma-table hide" width="5%" cellpadding="0" cellspacing="0">
+<table id="layer_new_relation" class="table table-borderless w-auto hide">
     <tbody>
         <tr>
             <td class="frams1" width="10px">
@@ -262,8 +262,8 @@ var designerConfig = {{ designer_config|raw }};
         <tr>
             <td class="frams8">
             </td>
-            <td class="input_tab">
-                <table width="168" class="pma-table text-center" cellpadding="2" cellspacing="0">
+            <td class="input_tab p-0">
+                <table class="table table-borderless bg-white mb-0 text-center">
                     <thead>
                         <tr>
                             <td colspan="2" class="text-center text-nowrap">
@@ -358,7 +358,7 @@ var designerConfig = {{ designer_config|raw }};
     </tbody>
 </table>
 {# delete relation pane #}
-<table id="layer_upd_relation" class="pma-table hide" width="5%" cellpadding="0" cellspacing="0">
+<table id="layer_upd_relation" class="table table-borderless w-auto hide">
     <tbody>
         <tr>
             <td class="frams1" width="10px">
@@ -373,8 +373,8 @@ var designerConfig = {{ designer_config|raw }};
         <tr>
             <td class="frams8">
             </td>
-            <td class="input_tab">
-                <table width="100%" class="pma-table text-center" cellpadding="2" cellspacing="0">
+            <td class="input_tab p-0">
+                <table class="table table-borderless bg-white mb-0 text-center">
                     <tr>
                         <td colspan="3" class="text-center text-nowrap">
                             <strong>
@@ -409,7 +409,7 @@ var designerConfig = {{ designer_config|raw }};
 </table>
 {% if has_query %}
     {# options panel #}
-    <table id="designer_optionse" class="pma-table hide" width="5%" cellpadding="0" cellspacing="0">
+    <table id="designer_optionse" class="table table-borderless w-auto hide">
         <tbody>
             <tr>
                 <td class="frams1" width="10px">
@@ -424,8 +424,8 @@ var designerConfig = {{ designer_config|raw }};
             <tr>
                 <td class="frams8">
                 </td>
-                <td class="input_tab">
-                    <table width="168" class="pma-table text-center" cellpadding="2" cellspacing="0">
+                <td class="input_tab p-0">
+                    <table class="table table-borderless bg-white mb-0 text-center">
                         <thead>
                             <tr>
                                 <td colspan="2" rowspan="2" id="option_col_name" class="text-center text-nowrap">
@@ -687,7 +687,7 @@ var designerConfig = {{ designer_config|raw }};
         </tbody>
     </table>
     {# rename to pane #}
-    <table id="query_rename_to" class="pma-table hide" width="5%" cellpadding="0" cellspacing="0">
+    <table id="query_rename_to" class="table table-borderless w-auto hide">
         <tbody>
             <tr>
                 <td class="frams1" width="10px">
@@ -702,8 +702,8 @@ var designerConfig = {{ designer_config|raw }};
             <tr>
                 <td class="frams8">
                 </td>
-                <td class="input_tab">
-                    <table width="168" class="pma-table text-center" cellpadding="2" cellspacing="0">
+                <td class="input_tab p-0">
+                    <table class="table table-borderless bg-white mb-0 text-center">
                         <thead>
                             <tr>
                                 <td colspan="2" class="text-center text-nowrap">
@@ -753,7 +753,7 @@ var designerConfig = {{ designer_config|raw }};
         </tbody>
     </table>
     {# having query panel #}
-    <table id="query_having" class="pma-table hide" width="5%" cellpadding="0" cellspacing="0">
+    <table id="query_having" class="table table-borderless w-auto hide">
         <tbody>
             <tr>
                 <td class="frams1" width="10px">
@@ -768,8 +768,8 @@ var designerConfig = {{ designer_config|raw }};
             <tr>
                 <td class="frams8">
                 </td>
-                <td class="input_tab">
-                    <table width="168" class="pma-table text-center" cellpadding="2" cellspacing="0">
+                <td class="input_tab p-0">
+                    <table class="table table-borderless bg-white mb-0 text-center">
                         <thead>
                             <tr>
                                 <td colspan="2" class="text-center text-nowrap">
@@ -892,7 +892,7 @@ var designerConfig = {{ designer_config|raw }};
         </tbody>
     </table>
     {# aggregate query pane #}
-    <table id="query_Aggregate" class="pma-table hide" width="5%" cellpadding="0" cellspacing="0">
+    <table id="query_Aggregate" class="table table-borderless w-auto hide">
         <tbody>
             <tr>
                 <td class="frams1" width="10px">
@@ -907,8 +907,8 @@ var designerConfig = {{ designer_config|raw }};
             <tr>
                 <td class="frams8">
                 </td>
-                <td class="input_tab">
-                    <table width="168" class="pma-table text-center" cellpadding="2" cellspacing="0">
+                <td class="input_tab p-0">
+                    <table class="table table-borderless bg-white mb-0 text-center">
                         <thead>
                             <tr>
                                 <td colspan="2" class="text-center text-nowrap">
@@ -977,7 +977,7 @@ var designerConfig = {{ designer_config|raw }};
         </tbody>
     </table>
     {# where query pane #}
-    <table id="query_where" class="pma-table hide" width="5%" cellpadding="0" cellspacing="0">
+    <table id="query_where" class="table table-borderless w-auto hide">
         <tbody>
             <tr>
                 <td class="frams1" width="10px">
@@ -992,8 +992,8 @@ var designerConfig = {{ designer_config|raw }};
             <tr>
                 <td class="frams8">
                 </td>
-                <td class="input_tab">
-                    <table width="168" class="pma-table text-center" cellpadding="2" cellspacing="0">
+                <td class="input_tab p-0">
+                    <table class="table table-borderless bg-white mb-0 text-center">
                         <thead>
                             <tr>
                                 <td colspan="2" class="text-center text-nowrap">

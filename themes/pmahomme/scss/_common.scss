@@ -2,10 +2,6 @@
   margin: 0 0.5em;
 }
 
-.auth_config_tbl {
-  margin: 0 auto;
-}
-
 h2 {
   // Hiding icons in the page titles
   img {
@@ -49,13 +45,6 @@ dfn {
     font-style: normal;
     cursor: help;
   }
-}
-
-.pma-table th {
-  font-weight: bold;
-  color: $th-color;
-  background-color: #f3f3f3;
-  background-image: linear-gradient(#fff, #ccc);
 }
 
 a img {
@@ -247,28 +236,6 @@ button {
   table-layout: fixed;
 }
 
-.pma-table {
-  border-collapse: collapse;
-
-  caption,
-  th,
-  td {
-    padding: 0.1em 0.3em;
-    margin: 0.1em;
-    vertical-align: middle;
-    text-shadow: 0 1px 0 #fff;
-    touch-action: manipulation;
-  }
-}
-
-.pma-table thead th {
-  border-right: 1px solid #fff;
-}
-
-.pma-table th {
-  text-align: left;
-}
-
 img,
 button {
   vertical-align: middle;
@@ -365,54 +332,6 @@ button.mult_submit {
   background-color: transparent;
 }
 
-// odd items 1,3,5,7...
-.pma-table tbody:first-of-type tr:nth-child(odd),
-.pma-table tbody:first-of-type tr:nth-child(odd) th {
-  background: #fff;
-}
-
-// even items 2,4,6,8...
-.pma-table tbody:first-of-type tr:nth-child(even),
-.pma-table tbody:first-of-type tr:nth-child(even) th {
-  background: #dfdfdf;
-}
-
-// only one item
-.pma-table tbody:first-of-type tr:only-child {
-  background: none;
-}
-
-.pma-table tr {
-  text-align: left;
-
-  th {
-    text-align: left;
-  }
-}
-
-// marked table rows
-.pma-table td.marked:not(.nomarker),
-.pma-table tr.marked:not(.nomarker) td,
-.pma-table tbody:first-of-type tr.marked:not(.nomarker) th,
-.pma-table tr.marked:not(.nomarker) {
-  background: linear-gradient(#ced6df, #b6c6d7);
-  color: $browse-marker-color;
-}
-
-// hovered items
-.pma-table tbody:first-of-type tr:not(.nopointer):hover,
-.pma-table tbody:first-of-type tr:not(.nopointer):hover th,
-.hover:not(.nopointer) {
-  background: linear-gradient(#ced6df, #b6c6d7);
-  color: $browse-pointer-color;
-}
-
-// hovered table rows
-.pma-table tr.hover:not(.nopointer) th {
-  background: linear-gradient(#ced6df, #b6c6d7);
-  color: $browse-pointer-color;
-}
-
 /**
  * marks table rows/cells if the db field is in a where condition
  */
@@ -494,12 +413,6 @@ img.lightbulb {
   text-decoration: none;
   border-bottom: 1px dotted #000;
   color: inherit !important;
-}
-
-// no extra space in table cells
-.pma-table td .icon {
-  image-rendering: pixelated;
-  margin: 0;
 }
 
 .selectallarrow {
@@ -604,12 +517,6 @@ div.tools a:hover,
   }
 }
 
-.pma-table tr.disabled td,
-.pma-table td.disabled {
-  background-color: #f3f3f3;
-  color: #aaa;
-}
-
 .pre_wrap {
   white-space: pre-wrap;
 }
@@ -711,32 +618,6 @@ div#dataDisplay {
 
   th {
     line-height: 2em;
-  }
-}
-
-.pma-table {
-  &.calendar {
-    width: 100%;
-
-    td {
-      text-align: center;
-
-      a {
-        display: block;
-
-        &:hover {
-          background-color: #cfc;
-        }
-      }
-    }
-
-    th {
-      background-color: #d3dce3;
-    }
-
-    td.selected {
-      background-color: #fc9;
-    }
   }
 }
 
@@ -3033,46 +2914,6 @@ meter {
 
   &[value="3"]::-webkit-meter-optimum-value {
     background: linear-gradient(white 3%, #ffd700 5%, transparent 10%, #ffd700);
-  }
-}
-
-// styles for sortable tables created with tablesorter jquery plugin
-.pma-table th {
-  &.header {
-    cursor: pointer;
-    color: #235a81;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    .sorticon {
-      width: 16px;
-      height: 16px;
-      background-repeat: no-repeat;
-      background-position: right center;
-      display: inline-table;
-      vertical-align: middle;
-      float: right;
-    }
-  }
-
-  &.headerSortUp .sorticon {
-    background-image: url("../img/s_desc.png");
-  }
-
-  &.headerSortDown {
-    &:hover .sorticon {
-      background-image: url("../img/s_desc.png");
-    }
-
-    .sorticon {
-      background-image: url("../img/s_asc.png");
-    }
-  }
-
-  &.headerSortUp:hover .sorticon {
-    background-image: url("../img/s_asc.png");
   }
 }
 

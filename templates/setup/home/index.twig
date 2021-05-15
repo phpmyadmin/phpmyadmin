@@ -43,7 +43,7 @@
 
   <div class="form">
     {% if server_count > 0 %}
-      <table cellspacing="0" class="pma-table datatable">
+      <table class="table w-auto datatable">
         <tr>
           <th>#</th>
           <th>{% trans 'Name' %}</th>
@@ -73,7 +73,7 @@
         {% endfor %}
       </table>
     {% else %}
-      <table class="pma-table" width="100%">
+      <table class="table mb-0">
         <tr>
           <td>
             <em>{% trans 'There are no configured servers' %}</em>
@@ -82,7 +82,7 @@
       </table>
     {% endif %}
 
-    <table class="pma-table" width="100%">
+    <table class="table mb-0">
       <tr>
         <td class="lastrow text-start">
           <input type="submit" name="submit" value="{% trans 'New server' %}">

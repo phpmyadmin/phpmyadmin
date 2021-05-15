@@ -2,10 +2,6 @@
   margin: 0 0.5em;
 }
 
-.auth_config_tbl {
-  margin: 0 auto;
-}
-
 .data {
   margin: 0 0 12px;
 }
@@ -33,13 +29,6 @@ button.mult_submit {
 
 #navbarDropdown > img {
   display: none;
-}
-
-.pma-table th {
-  font-weight: bold;
-  color: $black;
-  background-color: #f3f3f3;
-  background-image: linear-gradient($white, #ccc);
 }
 
 textarea {
@@ -87,27 +76,6 @@ textarea {
 // 3.4
 .datatable {
   table-layout: fixed;
-}
-
-.pma-table {
-  border-collapse: collapse;
-
-  caption,
-  th,
-  td {
-    padding: 0.1em 0.3em;
-    margin: 0.1em;
-    vertical-align: middle;
-    text-shadow: 0 1px 0 $white;
-  }
-}
-
-.pma-table thead th {
-  border-right: 1px solid $white;
-}
-
-.pma-table th {
-  text-align: left;
 }
 
 /* classes */
@@ -176,54 +144,6 @@ div.null_div {
 button.mult_submit {
   border: none;
   background-color: transparent;
-}
-
-// odd items 1,3,5,7...
-.pma-table tbody:first-of-type tr:nth-child(odd),
-.pma-table tbody:first-of-type tr:nth-child(odd) th {
-  background: $white;
-}
-
-// even items 2,4,6,8...
-.pma-table tbody:first-of-type tr:nth-child(even),
-.pma-table tbody:first-of-type tr:nth-child(even) th {
-  background: #dfdfdf;
-}
-
-// only one item
-.pma-table tbody:first-of-type tr:only-child {
-  background: none;
-}
-
-.pma-table tr {
-  text-align: left;
-
-  th {
-    text-align: left;
-  }
-}
-
-// marked table rows
-.pma-table td.marked:not(.nomarker),
-.pma-table tr.marked:not(.nomarker) td,
-.pma-table tbody:first-of-type tr.marked:not(.nomarker) th,
-.pma-table tr.marked:not(.nomarker) {
-  background: linear-gradient(#ced6df, #b6c6d7);
-  color: $black;
-}
-
-// hovered items
-.pma-table tbody:first-of-type tr:not(.nopointer):hover,
-.pma-table tbody:first-of-type tr:not(.nopointer):hover th,
-.hover:not(.nopointer) {
-  background: linear-gradient(#ced6df, #b6c6d7);
-  color: $black;
-}
-
-// hovered table rows
-.pma-table tr.hover:not(.nopointer) th {
-  background: linear-gradient(#ced6df, #b6c6d7);
-  color: $black;
 }
 
 /**
@@ -521,32 +441,6 @@ div#dataDisplay {
 
   th {
     line-height: 2em;
-  }
-}
-
-.pma-table {
-  &.calendar {
-    width: 100%;
-
-    td {
-      text-align: center;
-
-      a {
-        display: block;
-
-        &:hover {
-          background-color: #cfc;
-        }
-      }
-    }
-
-    th {
-      background-color: #d3dce3;
-    }
-
-    td.selected {
-      background-color: #fc9;
-    }
   }
 }
 

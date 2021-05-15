@@ -1012,7 +1012,7 @@ class InsertEdit
         $foundUniqueKey
     ) {
         $htmlOutput = '<fieldset class="pma-fieldset" id="actions_panel">'
-            . '<table cellpadding="5" cellspacing="0" class="pma-table tdblock w-100">'
+            . '<table class="table table-borderless tdblock">'
             . '<tr>'
             . '<td class="text-nowrap align-middle">'
             . $this->getSubmitTypeDropDown($whereClause, $tabindex, $tabindexForValue)

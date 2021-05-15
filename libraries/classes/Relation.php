@@ -151,14 +151,14 @@ class Relation
         $messages['enabled']  = '<span class="text-success">' . __('Enabled') . '</span>';
         $messages['disabled'] = '<span class="text-danger">' . __('Disabled') . '</span>';
 
-        if (strlen((string) $cfgRelation['db']) == 0) {
-            $retval .= __('Configuration of pmadb…') . ' '
+        if (strlen((string) $cfgRelation['db']) === 0) {
+            $retval .= '<p>' . __('Configuration of pmadb…') . ' '
                  . $messages['error']
                  . MySQLDocumentation::showDocumentation('setup', 'linked-tables')
-                 . '<br>' . "\n"
+                 . '</p><p>' . "\n"
                  . __('General relation features')
-                 . ' <font color="green">' . __('Disabled')
-                 . '</font>' . "\n";
+                 . ' <span class="text-success">' . __('Disabled')
+                 . '</span></p>' . "\n";
             if ($GLOBALS['cfg']['ZeroConf']) {
                 if (strlen($GLOBALS['db']) == 0) {
                     $retval .= $this->getHtmlFixPmaTables(true, true);
@@ -167,7 +167,7 @@ class Relation
                 }
             }
         } else {
-            $retval .= '<table class="pma-table">' . "\n";
+            $retval .= '<table class="table table-light table-striped w-auto">' . "\n";
 
             if (
                 ! $cfgRelation['allworks']

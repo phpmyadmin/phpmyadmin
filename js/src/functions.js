@@ -3457,9 +3457,9 @@ AJAX.registerOnload('functions.js', function () {
                     '<legend>' + title + '</legend>' +
                     '<p>' + Functions.getImage('s_notice') +
                     Messages.enum_hint + '</p>' +
-                    '<table class=\'pma-table values\'>' + fields + '</table>' +
+                    '<table class="table table-borderless values">' + fields + '</table>' +
                     '</fieldset><fieldset class="pma-fieldset tblFooters">' +
-                    '<table class=\'pma-table add\'><tr><td>' +
+                    '<table class="table table-borderless add"><tr><td>' +
                     '<div class=\'slider\'></div>' +
                     '</td><td>' +
                     '<form><div><input type=\'submit\' class=\'add_value btn btn-primary\' value=\'' +
@@ -3598,7 +3598,7 @@ AJAX.registerOnload('functions.js', function () {
         var centralColumnsDialog = '<div class=\'max_height_400\'>' +
             '<fieldset class="pma-fieldset">' +
             searchIn +
-            '<table id=\'col_list\' class=\'pma-table values w-100\'>' + fields + '</table>' +
+            '<table id="col_list" class="table table-borderless values">' + fields + '</table>' +
             '</fieldset>' +
             seeMore +
             '</div>';

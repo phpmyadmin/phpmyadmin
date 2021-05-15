@@ -2,10 +2,6 @@
   margin: 0 0.5em;
 }
 
-.auth_config_tbl {
-  margin: 0 auto;
-}
-
 button.mult_submit,
 .checkall_box + label {
   text-decoration: none;
@@ -33,12 +29,6 @@ dfn {
     font-style: normal;
     cursor: help;
   }
-}
-
-.pma-table th {
-  font-weight: bold;
-  color: $th-color;
-  background: $th-background;
 }
 
 a img {
@@ -89,21 +79,6 @@ textarea.charField {
 // buttons in some browsers (eg. Konqueror) are block elements, this breaks design
 button {
   display: inline;
-}
-
-.pma-table {
-  caption,
-  th,
-  td {
-    padding: 0.1em 0.5em 0.1em 0.5em;
-    margin: 0.1em;
-    vertical-align: top;
-    touch-action: manipulation;
-  }
-}
-
-.pma-table {
-  border-collapse: separate;
 }
 
 img,
@@ -169,57 +144,6 @@ div.null_div {
 button.mult_submit {
   border: none;
   background-color: transparent;
-}
-
-// odd items 1,3,5,7...
-.pma-table tr:nth-child(odd) {
-  background: $bg-one;
-}
-
-// even items 2,4,6,8...
-.pma-table tr:nth-child(even) {
-  background: $bg-two;
-}
-
-.pma-table tr {
-  text-align: left;
-
-  th {
-    text-align: left;
-  }
-}
-
-.pma-table td.marked:not(.nomarker) {
-  background: $browse-marker-background;
-  color: $browse-marker-color;
-}
-
-.pma-table tr {
-  &.marked:not(.nomarker) {
-    background: $browse-marker-background;
-    color: $browse-marker-color;
-
-    td,
-    th {
-      background: $browse-marker-background;
-      color: $browse-marker-color;
-    }
-  }
-
-  &:not(.nopointer):hover {
-    background: $browse-pointer-background;
-    color: $browse-pointer-color;
-  }
-}
-
-.hover:not(.nopointer) {
-  background: $browse-pointer-background;
-  color: $browse-pointer-color;
-}
-
-.pma-table tr.hover:not(.nopointer) th {
-  background: $browse-pointer-background;
-  color: $browse-pointer-color;
 }
 
 /**
@@ -291,11 +215,6 @@ img.lightbulb {
   margin-left: 0.3em;
   background-repeat: no-repeat;
   background-position: center;
-}
-
-/* no extra space in table cells */
-.pma-table td .icon {
-  margin: 0;
 }
 
 .selectallarrow {
@@ -564,32 +483,6 @@ div#dataDisplay {
 
   th {
     line-height: 2em;
-  }
-}
-
-.pma-table {
-  &.calendar {
-    width: 100%;
-
-    td {
-      text-align: center;
-
-      a {
-        display: block;
-
-        &:hover {
-          background-color: #cfc;
-        }
-      }
-    }
-
-    th {
-      background-color: #d3dce3;
-    }
-
-    td.selected {
-      background-color: #fc9;
-    }
   }
 }
 
@@ -2782,48 +2675,6 @@ span.drag_icon {
 .topmargin {
   margin-top: 1em;
 }
-
-/* styles for sortable tables created with tablesorter jquery plugin */
-.pma-table th {
-  &.header {
-    cursor: pointer;
-    color: #00f;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    .sorticon {
-      width: 16px;
-      height: 16px;
-      background-repeat: no-repeat;
-      background-position: right center;
-      display: inline-table;
-      vertical-align: middle;
-      float: right;
-    }
-  }
-
-  &.headerSortUp .sorticon {
-    background-image: url("../img/s_desc.png");
-  }
-
-  &.headerSortDown {
-    &:hover .sorticon {
-      background-image: url("../img/s_desc.png");
-    }
-
-    .sorticon {
-      background-image: url("../img/s_asc.png");
-    }
-  }
-
-  &.headerSortUp:hover .sorticon {
-    background-image: url("../img/s_asc.png");
-  }
-}
-
-/* end of styles of sortable tables */
 
 /* styles for jQuery-ui to support rtl languages */
 

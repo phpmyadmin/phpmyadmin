@@ -1287,7 +1287,7 @@ class Routines
                 $num_rows = $this->dbi->numRows($result);
 
                 if (($result !== false) && ($num_rows > 0)) {
-                    $output .= '<table class="pma-table"><tr>';
+                    $output .= '<table class="table table-light table-striped w-auto"><tr>';
                     $fieldsMeta = $this->dbi->getFieldsMeta($result) ?? [];
                     foreach ($fieldsMeta as $field) {
                         $output .= '<th>';
