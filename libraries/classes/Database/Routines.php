@@ -481,7 +481,7 @@ class Routines
 
         $retval['item_type']         = 'PROCEDURE';
         $retval['item_type_toggle']  = 'FUNCTION';
-        if (isset($_REQUEST['item_type']) && $_REQUEST['item_type'] === 'FUNCTION') {
+        if (isset($_POST['item_type']) && $_POST['item_type'] === 'FUNCTION') {
             $retval['item_type']         = 'FUNCTION';
             $retval['item_type_toggle']  = 'PROCEDURE';
         }
