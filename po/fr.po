@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-11 01:21+0200\n"
-"PO-Revision-Date: 2021-04-26 13:32+0000\n"
+"PO-Revision-Date: 2021-05-17 12:50+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -2703,8 +2703,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Affiche un lien vers le résultat de [a@https://php.net/manual/function."
-"phpinfo.php]phpinfo()[/a]."
+"Affiche un lien vers le résultat de [a@https://www.php.net/manual/en/function"
+".phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:511
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -8329,10 +8329,8 @@ msgid "Missing parameter:"
 msgstr "Paramètre absent :"
 
 #: libraries/classes/Controllers/Server/UserGroupsController.php:130
-#, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
-msgstr "Le cache des requêtes est désactivé."
+msgstr "La gestion des groupes d'utilisateurs n'est pas activée."
 
 #: libraries/classes/Controllers/Server/VariablesController.php:224
 msgid "Setting variable failed"
@@ -8468,13 +8466,11 @@ msgid "No column selected."
 msgstr "Aucune colonne n'a été sélectionnée."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:84
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%1$d bases de données a été supprimée avec succès."
-msgstr[1] "%1$d bases de données ont été supprimées avec succès."
+msgstr[0] "%1$d colonne a été supprimée avec succès."
+msgstr[1] "%1$d colonnes ont été supprimées avec succès."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -10449,10 +10445,8 @@ msgid "New"
 msgstr "Nouveau déclencheur"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger"
-msgstr "Déclencheurs"
+msgstr "Déclencheur"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:24
@@ -17285,10 +17279,8 @@ msgstr ""
 "Supprimer les bases de données portant le même nom que les utilisateurs."
 
 #: templates/server/privileges/users_overview.twig:162
-#, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
-msgstr "Enregistrer la page"
+msgstr "Enregistrer les modifications"
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
