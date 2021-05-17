@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.1-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-10 23:30+0200\n"
-"PO-Revision-Date: 2019-04-27 17:19+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Malay <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ms/>\n"
+"PO-Revision-Date: 2021-05-18 23:33+0000\n"
+"Last-Translator: Jacque Fresco <aidter@use.startmail.com>\n"
+"Language-Team: Malay <https://hosted.weblate.org/projects/phpmyadmin/5-1/ms/>"
+"\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2699,7 +2699,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:630
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/classes/Config/Descriptions.php:631
 msgid "CHAR columns editing"
@@ -4531,7 +4531,7 @@ msgstr "CSV untuk sata MS Excel"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:114
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "Microsoft Word 2000"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:120
 #: libraries/classes/Config/Forms/User/ImportForm.php:50
@@ -10021,7 +10021,7 @@ msgstr ""
 #: libraries/classes/Linter.php:176
 #, php-format
 msgid "%1$s (near <code>%2$s</code>)"
-msgstr ""
+msgstr "%1$s (dekat <code>%2$s</code>)"
 
 #: libraries/classes/Menu.php:275
 #: libraries/classes/Navigation/Nodes/NodeTable.php:322
@@ -10373,7 +10373,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:333
 #: libraries/classes/Normalization.php:370
 msgid "Step 1."
-msgstr ""
+msgstr "1."
 
 #: libraries/classes/Normalization.php:234
 msgid ""
@@ -10477,7 +10477,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:414
 msgid "Step 2."
-msgstr ""
+msgstr "2."
 
 #: libraries/classes/Normalization.php:414
 msgid "Find partial dependencies"
