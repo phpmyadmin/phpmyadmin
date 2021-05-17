@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Gis\GisVisualization;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
@@ -178,13 +179,16 @@ final class GisVisualizationController extends AbstractController
                 'pos' => $pos,
             ]
         ));
+
+        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($sqlQuery);
+
         $html = $this->template->render('table/gis_visualization/gis_visualization', [
             'url_params' => $urlParams,
             'download_url' => $downloadUrl,
             'label_candidates' => $labelCandidates,
             'spatial_candidates' => $spatialCandidates,
             'visualization_settings' => $visualizationSettings,
-            'sql_query' => $sqlQuery,
+            'start_and_number_of_rows_fieldset' => $startAndNumberOfRowsFieldset,
             'visualization' => $this->visualization->toImage('svg'),
             'draw_ol' => $this->visualization->asOl(),
         ]);

@@ -39,7 +39,7 @@
                             </label>
                         </td>
                     </tr>
-                {{ get_start_and_number_of_rows_panel(sql_query) }}
+                {{ include('table/start_and_number_of_rows_fieldset.twig', start_and_number_of_rows_fieldset) }}
             </form>
 
             <div class="pma_quick_warp" style="width: 50px; position: absolute; right: 0; top: 0; cursor: pointer;">

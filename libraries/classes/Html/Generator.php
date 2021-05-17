@@ -16,7 +16,6 @@ use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Throwable;
@@ -432,52 +431,34 @@ class Generator
     }
 
     /**
-     * Function to get html for the start row and number of rows panel
-     *
-     * @param string $sqlQuery sql query
-     *
-     * @return string html
-     *
-     * @throws Throwable
-     * @throws LoaderError
-     * @throws RuntimeError
-     * @throws SyntaxError
+     * @return array<string, int,string>
+     * @psalm-return array{pos: int, unlim_num_rows: int, rows: int, sql_query: string}
      */
-    public static function getStartAndNumberOfRowsPanel($sqlQuery): string
+    public static function getStartAndNumberOfRowsFieldsetData(string $sqlQuery): array
     {
-        $template = new Template();
-
         if (isset($_REQUEST['session_max_rows'])) {
-            $rows = $_REQUEST['session_max_rows'];
+            $rows = (int) $_REQUEST['session_max_rows'];
         } elseif (
             isset($_SESSION['tmpval']['max_rows'])
             && $_SESSION['tmpval']['max_rows'] !== 'all'
         ) {
-            $rows = $_SESSION['tmpval']['max_rows'];
+            $rows = (int) $_SESSION['tmpval']['max_rows'];
         } else {
             $rows = (int) $GLOBALS['cfg']['MaxRows'];
             $_SESSION['tmpval']['max_rows'] = $rows;
         }
 
+        $numberOfLine = (int) $_REQUEST['unlim_num_rows'];
         if (isset($_REQUEST['pos'])) {
-            $pos = $_REQUEST['pos'];
+            $pos = (int) $_REQUEST['pos'];
         } elseif (isset($_SESSION['tmpval']['pos'])) {
-            $pos = $_SESSION['tmpval']['pos'];
+            $pos = (int) $_SESSION['tmpval']['pos'];
         } else {
-            $numberOfLine = (int) $_REQUEST['unlim_num_rows'];
-            $pos = (ceil($numberOfLine / $rows) - 1) * $rows;
+            $pos = ((int) ceil($numberOfLine / $rows) - 1) * $rows;
             $_SESSION['tmpval']['pos'] = $pos;
         }
 
-        return $template->render(
-            'start_and_number_of_rows_panel',
-            [
-                'pos' => $pos,
-                'unlim_num_rows' => (int) $_REQUEST['unlim_num_rows'],
-                'rows' => $rows,
-                'sql_query' => $sqlQuery,
-            ]
-        );
+        return ['pos' => $pos, 'unlim_num_rows' => $numberOfLine, 'rows' => $rows, 'sql_query' => $sqlQuery];
     }
 
     /**

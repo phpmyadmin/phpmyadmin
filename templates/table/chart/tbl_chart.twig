@@ -139,7 +139,9 @@
                     {% endfor %}
                 </select>
             </div>
-            {{ get_start_and_number_of_rows_panel(sql_query) }}
+
+            {{ include('table/start_and_number_of_rows_fieldset.twig', start_and_number_of_rows_fieldset) }}
+
             <div class="clearfloat"></div>
             <div id="resizer" style="width:600px; height:400px;">
                 <div style="position: absolute; right: 10px; top: 10px; cursor: pointer; z-index: 1000;">
