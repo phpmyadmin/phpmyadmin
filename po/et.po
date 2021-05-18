@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-11 01:21+0200\n"
-"PO-Revision-Date: 2021-03-12 07:02+0000\n"
+"PO-Revision-Date: 2021-05-19 05:33+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -7909,16 +7909,12 @@ msgstr ""
 "INSERT DELAYED järjekordades kirjutamisvalmis olevate ootel ridade hulk."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:550
-#, fuzzy
-#| msgid ""
-#| "The number of tables that have been opened. If opened tables is big, your "
-#| "table cache value is probably too small."
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
-"Avatud tabelite hulk. Kui see on liiga suur, siis sinu tabeli puhvri väärtus "
-"on tõenäoliselt liiga väike."
+"Avatud tabelite arv. Kui avatud tabeleid on palju, siis sinu on parameetri "
+"table_open_cache väärtus tõenäoliselt liiga väike."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:554
 msgid "The number of files that are open."
@@ -8125,10 +8121,8 @@ msgid "Missing parameter:"
 msgstr "Puudulik parameeter:"
 
 #: libraries/classes/Controllers/Server/UserGroupsController.php:130
-#, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
-msgstr "Päringu puhver ei ole lubatud."
+msgstr "Kasutajagruppide haldamine ei ole lubatud."
 
 #: libraries/classes/Controllers/Server/VariablesController.php:224
 msgid "Setting variable failed"
@@ -8265,13 +8259,11 @@ msgid "No column selected."
 msgstr "Veergu ei ole valitud."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:84
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%1$d andmebaas kustutati edukalt."
-msgstr[1] "%1$d andmebaasi kustutati edukalt."
+msgstr[0] "%1$d veerg kustutati edukalt."
+msgstr[1] "%1$d veergu kustutati edukalt."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -9530,10 +9522,8 @@ msgstr ""
 "loodud või on seadistuses keelatud."
 
 #: libraries/classes/FlashMessages.php:22
-#, fuzzy
-#| msgid "SOAP extension not found"
 msgid "Session not found."
-msgstr "SOAP laiendit ei leitud"
+msgstr "Sessiooni ei leitud."
 
 #: libraries/classes/Header.php:370
 msgid "Print view"
@@ -10205,10 +10195,8 @@ msgid "New"
 msgstr "Uus"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger"
-msgstr "Päästikud"
+msgstr "Päästik"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:23
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:24
@@ -12148,22 +12136,16 @@ msgid "SHA256 password authentication"
 msgstr "SHA256 parooliga autentimine"
 
 #: libraries/classes/Server/Plugins.php:78
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Caching sha2 authentication"
-msgstr "Config autentimine"
+msgstr "Puhverdatud SHA2 autentimine"
 
 #: libraries/classes/Server/Plugins.php:83
-#, fuzzy
-#| msgid "Cookie authentication"
 msgid "Unix Socket based authentication"
-msgstr "Küpsisega (cookie) autentimine"
+msgstr "Unixi soklil (Unix Socket) põhinev autentimine"
 
 #: libraries/classes/Server/Plugins.php:88
-#, fuzzy
-#| msgid "Native MySQL authentication"
 msgid "Old MySQL-4.0 authentication"
-msgstr "MySQLi omavahenditega autentimine"
+msgstr "Vana MySQL-4.0 autentimine"
 
 #: libraries/classes/Server/Privileges.php:256
 msgid "No privileges."
@@ -16005,7 +15987,7 @@ msgstr "Palun sisesta korrektne 16-nd väärtus"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "See veerg ei saa sisaldada 32 märgilist väärtust"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16013,6 +15995,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Need funktsioonid on mõeldud binaartulemusele. Vasturääkivate tulemuste "
+"vältimiseks peaksid neid salvestama BINARY, VARBINARY või BLOB tüüpi veerus."
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
@@ -16407,11 +16391,9 @@ msgid "Character sets and collations"
 msgstr "Märgitabelid ja kodeeringud"
 
 #: templates/server/collations/index.twig:23
-#, fuzzy
-#| msgid "(default)"
 msgctxt "The collation is the default one"
 msgid "default"
-msgstr "(vaikimisi)"
+msgstr "vaikimisi"
 
 #: templates/server/databases/index.twig:3
 msgid "Databases statistics"
@@ -16935,10 +16917,8 @@ msgid "Drop the databases that have the same names as the users."
 msgstr "Kustuta kasutajatega samanimelised andmebaasid."
 
 #: templates/server/privileges/users_overview.twig:162
-#, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
-msgstr "Salvesta leht"
+msgstr "Salvesta muudatused"
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
@@ -17999,10 +17979,8 @@ msgid "Binary"
 msgstr "Binaarne"
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
-msgstr "\"%s\" veeru väärtus"
+msgstr "Kasuta selles veerus väärtust NULL."
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
