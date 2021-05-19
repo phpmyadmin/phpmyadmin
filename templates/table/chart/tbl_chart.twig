@@ -1,157 +1,155 @@
-{# Display Chart options #}
-<div id="div_view_options">
-    <form method="post" id="tblchartform" action="{{ url('/table/chart') }}" class="ajax">
+<div id="div_view_options" class="container-fluid">
+  <h2>{% trans 'Display chart' %}</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <form method="post" id="tblchartform" action="{{ url('/table/chart') }}" class="ajax">
         {{ get_hidden_inputs(url_params) }}
-        <fieldset class="pma-fieldset">
-            <legend>
-                {% trans 'Display chart' %}
-            </legend>
-            <div class="chartOption">
-                <div class="formelement">
-                    <input type="radio" name="chartType" value="bar" id="radio_bar">
-                    <label for ="radio_bar">{% trans %}Bar{% context %}Chart type{% endtrans %}</label>
-                </div>
-                <div class="formelement">
-                    <input type="radio" name="chartType" value="column" id="radio_column">
-                    <label for ="radio_column">{% trans %}Column{% context %}Chart type{% endtrans %}</label>
-                </div>
-                <div class="formelement">
-                    <input type="radio" name="chartType" value="line" id="radio_line" checked="checked">
-                    <label for ="radio_line">{% trans %}Line{% context %}Chart type{% endtrans %}</label>
-                </div>
-                <div class="formelement">
-                    <input type="radio" name="chartType" value="spline" id="radio_spline">
-                    <label for ="radio_spline">{% trans %}Spline{% context %}Chart type{% endtrans %}</label>
-                </div>
-                <div class="formelement">
-                    <input type="radio" name="chartType" value="area" id="radio_area">
-                    <label for ="radio_area">{% trans %}Area{% context %}Chart type{% endtrans %}</label>
-                </div>
-                <span class="span_pie hide">
-                    <input type="radio" name="chartType" value="pie" id="radio_pie">
-                    <label for ="radio_pie">{% trans %}Pie{% context %}Chart type{% endtrans %}</label>
-                </span>
-                <span class="span_timeline hide">
-                    <input type="radio" name="chartType" value="timeline" id="radio_timeline">
-                    <label for ="radio_timeline">{% trans %}Timeline{% context %}Chart type{% endtrans %}</label>
-                </span>
-                <span class="span_scatter hide">
-                <input type="radio" name="chartType" value="scatter" id="radio_scatter">
-                <label for ="radio_scatter">{% trans %}Scatter{% context %}Chart type{% endtrans %}</label>
-                </span>
-                <br><br>
-                <span class="barStacked hide">
-                    <input type="checkbox" name="barStacked" value="1" id="checkbox_barStacked">
-                    <label for ="checkbox_barStacked">{% trans 'Stacked' %}</label>
-                </span>
-                <br><br>
-                <label for ="chartTitle">{% trans 'Chart title:' %}</label>
-                <input type="text" name="chartTitle" id="chartTitle">
-            </div>
-            {% set xaxis = null %}
-            <div class="chartOption">
-                <label for="select_chartXAxis">{% trans 'X-Axis:' %}</label>
-                <select name="chartXAxis" id="select_chartXAxis">
-                    {% for idx, key in keys %}
-                        {% if xaxis is same as(null) %}
-                            {% set xaxis = idx %}
-                        {% endif %}
-                        {% if xaxis is same as(idx) %}
-                            <option value="{{ idx }}" selected="selected">{{ key }}</option>
-                        {% else %}
-                            <option value="{{ idx }}">{{ key }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select>
-                <br>
-                <label for="select_chartSeries">
-                    {% trans 'Series:' %}
-                </label>
-                <select name="chartSeries" id="select_chartSeries" multiple="multiple">
-                    {% for idx, key in keys %}
-                        {% if fields_meta[idx].isNumericType() %}
-                            {% if idx == xaxis and table_has_a_numeric_column %}
-                                <option value="{{ idx }}">{{ key }}</option>
-                            {% else %}
-                                <option value="{{ idx }}" selected="selected">{{ key }}</option>
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                </select>
-                <input type="hidden" name="dateTimeCols" value="
-                    {% for idx, key in keys %}
-                        {% if fields_meta[idx].isDateTimeType() %}
-                            {{ idx ~ ' ' }}
-                        {% endif %}
-                    {% endfor %}">
-                <input type="hidden" name="numericCols" value="
-                    {% for idx, key in keys %}
-                        {% if fields_meta[idx].isNumericType() %}
-                            {{ idx ~ ' ' }}
-                        {% endif %}
-                    {% endfor %}">
-            </div>
-            <div class="chartOption">
-                <label for="xaxis_panel">
-                    {% trans 'X-Axis label:' %}
-                </label>
-                <input style="margin-top:0;" type="text" name="xaxis_label" id="xaxis_label" value="{{ xaxis == -1 ? 'X Values'|trans : keys[xaxis] }}">
-                <br>
-                <label for="yaxis_label">
-                    {% trans 'Y-Axis label:' %}
-                </label>
-                <input type="text" name="yaxis_label" id="yaxis_label" value="{% trans 'Y Values' %}">
-                <br>
-            </div>
-            <div class="clearfloat"></div>
-            <div>
-                <input type="checkbox" id="chkAlternative" name="chkAlternative" value="alternativeFormat">
-                <label for="chkAlternative">{% trans 'Series names are in a column' %}</label>
-                <br>
-                <label for="select_seriesColumn">
-                    {% trans 'Series column:' %}
-                </label>
-                <select name="chartSeriesColumn" id="select_seriesColumn" disabled>
-                    {% for idx, key in keys %}
-                        <option value="{{ idx }}"
-                            {% if idx == 1 %}
-                                selected="selected"
-                            {% endif %}>
-                                {{ key }}
-                        </option>
-                        {% set series_column = idx %}
-                    {% endfor %}
-                </select>
-                <label for="select_valueColumn">
-                    {% trans 'Value Column:' %}
-                </label>
-                <select name="chartValueColumn" id="select_valueColumn" disabled>
-                    {% set selected = false %}
-                    {% for idx, key in keys %}
-                        {% if fields_meta[idx].isNumericType() %}
-                            {% if not selected and idx != xaxis and idx != series_column %}
-                                <option value="{{ idx }}" selected="selected">{{ key }}</option>
-                                {% set selected = true %}
-                            {% else %}
-                                <option value="{{ idx }}">{{ key }}</option>
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                </select>
-            </div>
 
-            {{ include('table/start_and_number_of_rows_fieldset.twig', start_and_number_of_rows_fieldset) }}
-
-            <div class="clearfloat"></div>
-            <div id="resizer" style="width:600px; height:400px;">
-                <div style="position: absolute; right: 10px; top: 10px; cursor: pointer; z-index: 1000;">
-                    <a class="disableAjax" id="saveChart" href="#" download="chart.png">
-                        {{ get_image('b_saveimage', 'Save chart as image'|trans) }}
-                    </a>
-                </div>
-                <div id="querychart" dir="ltr">
-                </div>
-            </div>
+        <fieldset class="mb-3" role="radiogroup">
+          <legend class="visually-hidden">{% trans 'Chart type' %}</legend>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="chartType" value="bar" id="barChartTypeRadio">
+            <label class="form-check-label" for="barChartTypeRadio">{% trans %}Bar{% context %}Chart type{% endtrans %}</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="chartType" value="column" id="columnChartTypeRadio">
+            <label class="form-check-label" for="columnChartTypeRadio">{% trans %}Column{% context %}Chart type{% endtrans %}</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="chartType" value="line" id="lineChartTypeRadio" checked>
+            <label class="form-check-label" for="lineChartTypeRadio">{% trans %}Line{% context %}Chart type{% endtrans %}</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="chartType" value="spline" id="splineChartTypeRadio">
+            <label class="form-check-label" for="splineChartTypeRadio">{% trans %}Spline{% context %}Chart type{% endtrans %}</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="chartType" value="area" id="areaChartTypeRadio">
+            <label class="form-check-label" for="areaChartTypeRadio">{% trans %}Area{% context %}Chart type{% endtrans %}</label>
+          </div>
+          <div class="form-check form-check-inline d-none" id="pieChartType">
+            <input class="form-check-input" type="radio" name="chartType" value="pie" id="pieChartTypeRadio">
+            <label class="form-check-label" for="pieChartTypeRadio">{% trans %}Pie{% context %}Chart type{% endtrans %}</label>
+          </div>
+          <div class="form-check form-check-inline d-none" id="timelineChartType">
+            <input class="form-check-input" type="radio" name="chartType" value="timeline" id="timelineChartTypeRadio">
+            <label class="form-check-label" for="timelineChartTypeRadio">{% trans %}Timeline{% context %}Chart type{% endtrans %}</label>
+          </div>
+          <div class="form-check form-check-inline d-none" id="scatterChartType">
+            <input class="form-check-input" type="radio" name="chartType" value="scatter" id="scatterChartTypeRadio">
+            <label class="form-check-label" for="scatterChartTypeRadio">{% trans %}Scatter{% context %}Chart type{% endtrans %}</label>
+          </div>
         </fieldset>
-    </form>
+
+        <div class="form-check mb-3 d-none" id="barStacked">
+          <input class="form-check-input" type="checkbox" name="barStackedCheckbox" value="1" id="barStackedCheckbox">
+          <label class="form-check-label" for="barStackedCheckbox">{% trans 'Stacked' %}</label>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="chartTitleInput">{% trans 'Chart title:' %}</label>
+          <input class="form-control" type="text" name="chartTitleInput" id="chartTitleInput">
+        </div>
+
+        {% set xaxis = null %}
+        <div class="mb-3">
+          <label class="form-label" for="chartXAxisSelect">{% trans 'X-Axis:' %}</label>
+          <select class="form-select" name="chartXAxisSelect" id="chartXAxisSelect">
+            {% for idx, key in keys %}
+              {% if xaxis is same as(null) %}
+                {% set xaxis = idx %}
+              {% endif %}
+              {% if xaxis is same as(idx) %}
+                <option value="{{ idx }}" selected>{{ key }}</option>
+              {% else %}
+                <option value="{{ idx }}">{{ key }}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="chartSeriesSelect">{% trans 'Series:' %}</label>
+          <select class="form-select" name="chartSeriesSelect" id="chartSeriesSelect" multiple>
+            {% for idx, key in keys %}
+              {% if fields_meta[idx].isNumericType() %}
+                {% if idx == xaxis and table_has_a_numeric_column %}
+                  <option value="{{ idx }}">{{ key }}</option>
+                {% else %}
+                  <option value="{{ idx }}" selected>{{ key }}</option>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+
+        <input type="hidden" name="dateTimeCols" value="
+          {%- for idx, key in keys -%}
+            {%- if fields_meta[idx].isDateTimeType() -%}
+              {{- idx ~ ' ' -}}
+            {%- endif -%}
+          {%- endfor %}">
+        <input type="hidden" name="numericCols" value="
+          {%- for idx, key in keys -%}
+            {%- if fields_meta[idx].isNumericType() -%}
+              {{- idx ~ ' ' -}}
+            {%- endif -%}
+          {%- endfor %}">
+
+        <div class="mb-3">
+          <label class="form-label" for="xAxisLabelInput">{% trans 'X-Axis label:' %}</label>
+          <input class="form-control" type="text" name="xAxisLabelInput" id="xAxisLabelInput" value="{{ xaxis == -1 ? 'X Values'|trans : keys[xaxis] }}">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="yAxisLabelInput">{% trans 'Y-Axis label:' %}</label>
+          <input class="form-control" type="text" name="yAxisLabelInput" id="yAxisLabelInput" value="{% trans 'Y Values' %}">
+        </div>
+
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="seriesColumnCheckbox" name="seriesColumnCheckbox" value="1">
+          <label class="form-check-label" for="seriesColumnCheckbox">{% trans 'Series names are in a column' %}</label>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="chartSeriesColumnSelect">{% trans 'Series column:' %}</label>
+          <select class="form-select" name="chartSeriesColumnSelect" id="chartSeriesColumnSelect" disabled>
+            {% for idx, key in keys %}
+              <option value="{{ idx }}"{{ idx == 1 ? ' selected' }}>{{ key }}</option>
+              {% set series_column = idx %}
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="chartValueColumnSelect">{% trans 'Value Column:' %}</label>
+          <select class="form-select" name="chartValueColumnSelect" id="chartValueColumnSelect" disabled>
+            {% set selected = false %}
+            {% for idx, key in keys %}
+              {% if fields_meta[idx].isNumericType() %}
+                {% if not selected and idx != xaxis and idx != series_column %}
+                  <option value="{{ idx }}" selected>{{ key }}</option>
+                  {% set selected = true %}
+                {% else %}
+                  <option value="{{ idx }}">{{ key }}</option>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+
+        {{ include('table/start_and_number_of_rows_fieldset.twig', start_and_number_of_rows_fieldset) }}
+
+        <div id="resizer">
+          <div class="position-absolute top-0 end-0 mt-1 me-1">
+            <a class="disableAjax" id="saveChart" href="#" download="chart.png">
+              {{ get_image('b_saveimage', 'Save chart as image'|trans) }}
+            </a>
+          </div>
+          <div id="querychart" dir="ltr"></div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
