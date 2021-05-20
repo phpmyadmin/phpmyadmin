@@ -14,7 +14,6 @@ use function extension_loaded;
 use function fclose;
 use function feof;
 use function file_get_contents;
-use function filesize;
 use function fopen;
 use function fread;
 use function function_exists;
@@ -191,7 +190,7 @@ class File
     /**
      * Gets file content
      *
-     * @return string|false|null the binary file content, or false if no content
+     * @return string|false the binary file content, or false if no content
      *
      * @access public
      */
@@ -209,19 +208,7 @@ class File
             return false;
         }
 
-        if (function_exists('file_get_contents')) {
-            $this->content = file_get_contents((string) $this->getName());
-
-            return $this->content;
-        }
-
-        $size = filesize((string) $this->getName());
-
-        if ($size) {
-            $handle = fopen((string) $this->getName(), 'rb');
-            $this->content = fread($handle, $size);
-            fclose($handle);
-        }
+        $this->content = file_get_contents((string) $this->getName());
 
         return $this->content;
     }
@@ -237,7 +224,7 @@ class File
     public function getContent()
     {
         $result = $this->getRawContent();
-        if ($result === false || $result === null) {
+        if ($result === false) {
             return false;
         }
 

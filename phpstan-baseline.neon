@@ -531,16 +531,6 @@ parameters:
 			path: libraries/classes/File.php
 
 		-
-			message: "#^Parameter \\#1 \\$fp of function fclose expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
-			message: "#^Parameter \\#1 \\$fp of function fread expects resource, resource\\|false given\\.$#"
-			count: 1
-			path: libraries/classes/File.php
-
-		-
 			message: "#^Parameter \\#1 \\$fp of function fread expects resource, resource\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/File.php
@@ -552,7 +542,7 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$content \\(string\\) does not accept string\\|false\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/File.php
 
 		-
