@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-20 12:21-0300\n"
-"PO-Revision-Date: 2021-05-11 16:22+0000\n"
+"PO-Revision-Date: 2021-05-20 15:33+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -18082,10 +18082,8 @@ msgid "Use this value"
 msgstr "Gebruik deze waarde"
 
 #: templates/table/chart/tbl_chart.twig:10
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart type"
-msgstr "Grafiektitel"
+msgstr "Grafiektype"
 
 #: templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
