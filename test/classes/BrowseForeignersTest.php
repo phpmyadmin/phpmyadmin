@@ -197,10 +197,7 @@ class BrowseForeignersTest extends AbstractTestCase
             $result
         );
 
-        $this->assertStringContainsString(
-            '<fieldset class="pma-fieldset">',
-            $result
-        );
+        $this->assertStringContainsString('<fieldset class="row g-3 align-items-center mb-3">', $result);
 
         $this->assertStringContainsString(
             '<input type="hidden" name="field" value="foo">',
@@ -217,31 +214,16 @@ class BrowseForeignersTest extends AbstractTestCase
             $result
         );
 
+        $this->assertStringContainsString('<div class="col-auto">', $result);
+        $this->assertStringContainsString('<label class="form-label" for="input_foreign_filter">', $result);
         $this->assertStringContainsString(
-            '<span class="formelement">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<label for="input_foreign_filter">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<input type="text" name="foreign_filter" '
-            . 'id="input_foreign_filter" '
-            . 'value="5" data-old="5" '
-            . '>',
+            '<input class="form-control" type="text" name="foreign_filter" '
+            . 'id="input_foreign_filter" value="5" data-old="5">',
             $result
         );
 
         $this->assertStringContainsString(
             '<input class="btn btn-primary" type="submit" name="submit_foreign_filter" value="Go">',
-            $result
-        );
-
-        $this->assertStringContainsString(
-            '<span class="formelement">',
             $result
         );
 

@@ -1,12 +1,11 @@
-<div id="div_create_version">
+<div class="card mt-3">
     <form method="post" action="{{ url(route, url_params) }}">
         {{ get_hidden_inputs(db) }}
         {% for selected_table in selected %}
             <input type="hidden" name="selected[]" value="{{ selected_table }}">
         {% endfor %}
 
-        <fieldset class="pma-fieldset">
-            <legend>
+        <div class="card-header">
                 {% if selected|length == 1 %}
                     {{ 'Create version %1$s of %2$s'|trans|format(
                         last_version + 1,
@@ -15,7 +14,9 @@
                 {% else %}
                     {{ 'Create version %1$s'|trans|format(last_version + 1) }}
                 {% endif %}
-            </legend>
+        </div>
+
+        <div class="card-body">
             <input type="hidden" name="version" value="{{ last_version + 1 }}">
             <p>{% trans 'Track these data definition statements:' %}</p>
 
@@ -69,11 +70,11 @@
             <input type="checkbox" name="truncate" value="true"
                 {{- 'TRUNCATE' in default_statements ? ' checked="checked"' }}>
             TRUNCATE<br>
-        </fieldset>
+        </div>
 
-        <fieldset class="pma-fieldset tblFooters">
+        <div class="card-footer">
             <input type="hidden" name="submit_create_version" value="1">
             <input class="btn btn-primary" type="submit" value="{% trans 'Create version' %}">
-        </fieldset>
+        </div>
     </form>
 </div>

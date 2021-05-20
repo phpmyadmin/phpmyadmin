@@ -179,7 +179,7 @@ class BrowseForeigners
         $output = '<form class="ajax" '
             . 'id="browse_foreign_form" name="browse_foreign_from" action="'
             . Url::getFromRoute('/browse-foreigners')
-            . '" method="post"><fieldset class="pma-fieldset">'
+            . '" method="post"><fieldset class="row g-3 align-items-center mb-3">'
             . Url::getHiddenInputs($db, $table)
             . '<input type="hidden" name="field" value="' . htmlspecialchars($field)
             . '">'
@@ -194,17 +194,17 @@ class BrowseForeigners
         $filterValue = (isset($_POST['foreign_filter'])
             ? htmlspecialchars($_POST['foreign_filter'])
             : '');
-        $output .= '<span class="formelement">'
-            . '<label for="input_foreign_filter">' . __('Search:') . '</label>'
-            . '<input type="text" name="foreign_filter" '
+        $output .= '<div class="col-auto">'
+            . '<label class="form-label" for="input_foreign_filter">' . __('Search:') . '</label></div>'
+            . '<div class="col-auto"><input class="form-control" type="text" name="foreign_filter" '
             . 'id="input_foreign_filter" '
-            . 'value="' . $filterValue . '" data-old="' . $filterValue . '" '
-            . '>'
+            . 'value="' . $filterValue . '" data-old="' . $filterValue . '">'
+            . '</div><div class="col-auto">'
             . '<input class="btn btn-primary" type="submit" name="submit_foreign_filter" value="'
             . __('Go') . '">'
-            . '</span>'
-            . '<span class="formelement">' . $gotoPage . '</span>'
-            . '<span class="formelement">' . $foreignShowAll . '</span>'
+            . '</div>'
+            . '<div class="col-auto">' . $gotoPage . '</div>'
+            . '<div class="col-auto">' . $foreignShowAll . '</div>'
             . '</fieldset>'
             . '</form>';
 
