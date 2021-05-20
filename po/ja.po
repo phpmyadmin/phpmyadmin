@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2021-05-11 01:21+0200\n"
+"POT-Creation-Date: 2021-05-20 12:21-0300\n"
 "PO-Revision-Date: 2021-05-11 16:22+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1393,7 +1393,6 @@ msgstr "検索："
 #: templates/server/replication/slave_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
 #: templates/sql/query.twig:148 templates/sql/query.twig:199
-#: templates/start_and_number_of_rows_panel.twig:14
 #: templates/table/find_replace/index.twig:59
 #: templates/table/operations/index.twig:38
 #: templates/table/operations/index.twig:86
@@ -1402,6 +1401,7 @@ msgstr "検索："
 #: templates/table/operations/index.twig:483
 #: templates/table/operations/view.twig:20
 #: templates/table/search/index.twig:161
+#: templates/table/start_and_number_of_rows_fieldset.twig:15
 #: templates/table/structure/display_structure.twig:393
 #: templates/table/structure/display_structure.twig:509
 #: templates/table/zoom_search/index.twig:155 templates/view_create.twig:116
@@ -1425,7 +1425,7 @@ msgid "Description"
 msgstr "説明"
 
 #: libraries/classes/BrowseForeigners.php:331
-#: libraries/classes/Html/Generator.php:1247 libraries/classes/Language.php:210
+#: libraries/classes/Html/Generator.php:1228 libraries/classes/Language.php:210
 #: libraries/classes/Pdf.php:93
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:546
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:580
@@ -2637,8 +2637,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"[a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] "
-"の結果へのリンクを表示します。"
+"[a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()[/a] の結果へ"
+"のリンクを表示します。"
 
 #: libraries/classes/Config/Descriptions.php:511
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -3430,7 +3430,7 @@ msgstr "カレンダーの最初の曜日"
 
 #: libraries/classes/Config/Descriptions.php:758
 #: libraries/classes/Config/Descriptions.php:769 libraries/classes/Menu.php:523
-#: libraries/classes/Util.php:2109 libraries/config.values.php:155
+#: libraries/classes/Util.php:2104 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:11
 #: templates/server/databases/index.twig:3
 #: templates/server/privileges/user_properties.twig:20
@@ -3492,8 +3492,8 @@ msgstr "サーバ"
 
 #: libraries/classes/Config/Descriptions.php:773
 #: libraries/classes/Controllers/Server/DatabasesController.php:483
+#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:22
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:23
-#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:24
 #: libraries/classes/Plugins/Export/ExportXml.php:134
 #: libraries/classes/Server/Status/Data.php:160
 #: templates/database/export/index.twig:23
@@ -3545,9 +3545,9 @@ msgstr "変更追跡機能"
 
 #: libraries/classes/Config/Descriptions.php:785 libraries/classes/Menu.php:278
 #: libraries/classes/Menu.php:399 libraries/classes/Menu.php:528
-#: libraries/classes/Navigation/Nodes/NodeTable.php:329
-#: libraries/classes/Util.php:1600 libraries/classes/Util.php:2110
-#: libraries/classes/Util.php:2125 libraries/classes/Util.php:2142
+#: libraries/classes/Navigation/Nodes/NodeTable.php:317
+#: libraries/classes/Util.php:1600 libraries/classes/Util.php:2105
+#: libraries/classes/Util.php:2120 libraries/classes/Util.php:2137
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -3742,7 +3742,7 @@ msgstr "ナビゲーションパネル幅"
 
 #: libraries/classes/Config/Descriptions.php:841
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:620
-#: libraries/classes/Navigation/NavigationTree.php:1531
+#: libraries/classes/Navigation/NavigationTree.php:1549
 msgid "Link with main panel"
 msgstr "メインパネルへのリンク"
 
@@ -4198,8 +4198,8 @@ msgstr "ロックされているテーブルをスキップする"
 #: libraries/classes/Config/Descriptions.php:956
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 #: libraries/classes/Display/Results.php:3303
-#: libraries/classes/Html/Generator.php:712
-#: libraries/classes/Html/Generator.php:979
+#: libraries/classes/Html/Generator.php:693
+#: libraries/classes/Html/Generator.php:960
 #: libraries/classes/Server/UserGroups.php:128
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
@@ -4223,12 +4223,12 @@ msgid "Edit"
 msgstr "編集"
 
 #: libraries/classes/Config/Descriptions.php:957
-#: libraries/classes/Html/Generator.php:674
+#: libraries/classes/Html/Generator.php:655
 msgid "Explain SQL"
 msgstr "EXPLAIN で確認"
 
 #: libraries/classes/Config/Descriptions.php:958
-#: libraries/classes/Export.php:626 libraries/classes/Html/Generator.php:757
+#: libraries/classes/Export.php:626 libraries/classes/Html/Generator.php:738
 #: templates/console/display.twig:99
 #: templates/server/status/processes/index.twig:10
 #: templates/server/status/variables/index.twig:12
@@ -4236,7 +4236,7 @@ msgid "Refresh"
 msgstr "更新"
 
 #: libraries/classes/Config/Descriptions.php:959
-#: libraries/classes/Html/Generator.php:741
+#: libraries/classes/Html/Generator.php:722
 msgid "Create PHP code"
 msgstr "PHP コードの作成"
 
@@ -4503,11 +4503,11 @@ msgstr "詳細"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
 #: libraries/classes/Import.php:1398 libraries/classes/Menu.php:270
 #: libraries/classes/Menu.php:394
-#: libraries/classes/Navigation/Nodes/NodeColumn.php:43
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:55
-#: libraries/classes/Navigation/Nodes/NodeTable.php:320
-#: libraries/classes/Util.php:1599 libraries/classes/Util.php:2124
-#: libraries/classes/Util.php:2141 libraries/config.values.php:60
+#: libraries/classes/Navigation/Nodes/NodeColumn.php:41
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:49
+#: libraries/classes/Navigation/Nodes/NodeTable.php:308
+#: libraries/classes/Util.php:1599 libraries/classes/Util.php:2119
+#: libraries/classes/Util.php:2136 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4551,8 +4551,8 @@ msgstr "OpenDocument テキスト"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:374
 #: libraries/classes/Menu.php:300 libraries/classes/Menu.php:419
 #: libraries/classes/Menu.php:556 libraries/classes/Server/Privileges.php:1589
-#: libraries/classes/Util.php:2113 libraries/classes/Util.php:2128
-#: libraries/classes/Util.php:2145 templates/database/events/index.twig:16
+#: libraries/classes/Util.php:2108 libraries/classes/Util.php:2123
+#: libraries/classes/Util.php:2140 templates/database/events/index.twig:16
 #: templates/database/events/index.twig:17
 #: templates/database/events/index.twig:86
 #: templates/database/events/row.twig:36
@@ -4595,8 +4595,8 @@ msgstr "LOAD DATA 文を使用した CSV の読み込み"
 #: libraries/classes/Config/Forms/User/ImportForm.php:65
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:311
 #: libraries/classes/Menu.php:309 libraries/classes/Menu.php:429
-#: libraries/classes/Menu.php:561 libraries/classes/Util.php:2114
-#: libraries/classes/Util.php:2129 libraries/classes/Util.php:2146
+#: libraries/classes/Menu.php:561 libraries/classes/Util.php:2109
+#: libraries/classes/Util.php:2124 libraries/classes/Util.php:2141
 #: templates/import.twig:32 templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -5566,7 +5566,7 @@ msgid "Matched rows:"
 msgstr "一致した行:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:121
-#: libraries/classes/Html/Generator.php:951 templates/export.twig:49
+#: libraries/classes/Html/Generator.php:932 templates/export.twig:49
 msgid "SQL query:"
 msgstr "SQL クエリ:"
 
@@ -5813,7 +5813,7 @@ msgid "Traffic"
 msgstr "トラフィック"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:200
-#: libraries/classes/Menu.php:566 libraries/classes/Util.php:2115
+#: libraries/classes/Menu.php:566 libraries/classes/Util.php:2110
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "設定"
@@ -6043,7 +6043,7 @@ msgstr "EXPLAIN の結果"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:274
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:242
-#: libraries/classes/Menu.php:533 libraries/classes/Util.php:2111
+#: libraries/classes/Menu.php:533 libraries/classes/Util.php:2106
 #: libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:23
 #: templates/database/events/index.twig:44
@@ -6556,7 +6556,7 @@ msgstr "部分的な依存が選択されていません!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:427
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:595
-#: libraries/classes/Export.php:621 libraries/classes/Html/Generator.php:1055
+#: libraries/classes/Export.php:621 libraries/classes/Html/Generator.php:1036
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:313
 #: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
@@ -6617,7 +6617,7 @@ msgstr "依存関係が選択されていません！"
 #: templates/database/central_columns/edit.twig:20
 #: templates/database/central_columns/main.twig:274
 #: templates/server/variables/index.twig:12
-#: templates/table/gis_visualization/gis_visualization.twig:48
+#: templates/table/gis_visualization/gis_visualization.twig:40
 #: templates/table/relation/common_form.twig:222
 #: templates/table/structure/partition_definition_form.twig:12
 msgid "Save"
@@ -6704,7 +6704,7 @@ msgstr "無視"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:484
 #: libraries/classes/Display/Results.php:3307
-#: libraries/classes/Html/Generator.php:74
+#: libraries/classes/Html/Generator.php:73
 #: templates/display/results/table.twig:214
 #: templates/display/results/table.twig:215
 msgid "Copy"
@@ -7063,7 +7063,7 @@ msgid "Show hidden navigation tree items."
 msgstr "隠されたナビゲーションツリー項目を表示します。"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:621
-#: libraries/classes/Navigation/NavigationTree.php:1534
+#: libraries/classes/Navigation/NavigationTree.php:1552
 msgid "Unlink from main panel"
 msgstr "メインパネルのリンクを解除"
 
@@ -7330,8 +7330,8 @@ msgid "Rows"
 msgstr "行"
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:498
+#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:22
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:23
-#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:24
 #: templates/database/data_dictionary/index.twig:59 templates/indexes.twig:3
 #: templates/table/structure/display_structure.twig:401
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
@@ -8177,17 +8177,17 @@ msgstr "テーブル %1$s は正常に変更されました。"
 msgid "No row selected."
 msgstr "行が選択されていません。"
 
-#: libraries/classes/Controllers/Table/ChartController.php:61
-#: libraries/classes/Controllers/Table/GisVisualizationController.php:68
+#: libraries/classes/Controllers/Table/ChartController.php:62
+#: libraries/classes/Controllers/Table/GisVisualizationController.php:69
 msgid "No SQL query was set to fetch data."
 msgstr "SQLクエリはデータを取得するために設定されませんでした。"
 
-#: libraries/classes/Controllers/Table/ChartController.php:153
+#: libraries/classes/Controllers/Table/ChartController.php:154
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 "テーブルには数字コラムがない理由でチャートを表示するデータポイントないです。"
 
-#: libraries/classes/Controllers/Table/ChartController.php:220
+#: libraries/classes/Controllers/Table/ChartController.php:223
 msgid "No data to display"
 msgstr "表示するデータはありません"
 
@@ -8277,7 +8277,7 @@ msgstr "複数テーブルの管理の操作は無効です。"
 #: libraries/classes/Controllers/Table/OperationsController.php:116
 #: libraries/classes/Controllers/Table/OperationsController.php:320
 #: libraries/classes/Controllers/Table/StructureController.php:131
-#: libraries/classes/Navigation/Nodes/NodeView.php:28
+#: libraries/classes/Navigation/Nodes/NodeView.php:26
 #: templates/database/structure/show_create.twig:32
 #: templates/database/structure/structure_table_row.twig:122
 #: templates/database/structure/structure_table_row.twig:186
@@ -8288,7 +8288,7 @@ msgstr "ビュー"
 #: libraries/classes/Controllers/Table/PartitionController.php:148
 #: libraries/classes/Controllers/Table/PartitionController.php:201
 #: libraries/classes/Controllers/ViewOperationsController.php:87
-#: libraries/classes/Html/Generator.php:927 libraries/classes/Import.php:139
+#: libraries/classes/Html/Generator.php:908 libraries/classes/Import.php:139
 #: libraries/classes/InsertEdit.php:760 libraries/classes/Message.php:196
 #: templates/error/generic.twig:37
 msgid "Error"
@@ -8339,7 +8339,7 @@ msgid "Primary"
 msgstr "主"
 
 #: libraries/classes/Controllers/Table/StructureController.php:1459
-#: libraries/classes/Navigation/Nodes/NodeIndex.php:28
+#: libraries/classes/Navigation/Nodes/NodeIndex.php:26
 #: templates/columns_definitions/column_attributes.twig:115
 #: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/display_structure.twig:168
@@ -8539,7 +8539,7 @@ msgstr "クエリの実行に失敗しました：『%s』"
 #: libraries/classes/Database/Triggers.php:141
 #: libraries/classes/Database/Triggers.php:166
 #: libraries/classes/Database/Triggers.php:584
-#: libraries/classes/Html/Generator.php:999
+#: libraries/classes/Html/Generator.php:980
 msgid "MySQL said: "
 msgstr "MySQL のメッセージ: "
 
@@ -8865,7 +8865,7 @@ msgid "Time"
 msgstr "実行時機"
 
 #: libraries/classes/Database/Triggers.php:450
-#: libraries/classes/Navigation/Nodes/NodeEvent.php:28
+#: libraries/classes/Navigation/Nodes/NodeEvent.php:26
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:511
 #: libraries/classes/Plugins/Export/ExportOdt.php:635
 #: libraries/classes/Plugins/Export/ExportTexytext.php:486
@@ -8939,31 +8939,31 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "サーバによりSSL接続が自動的に有効に（強制）されています。"
 
 #: libraries/classes/Display/Results.php:914
-#: libraries/classes/Html/Generator.php:1260
-#: libraries/classes/Html/Generator.php:1264
+#: libraries/classes/Html/Generator.php:1241
+#: libraries/classes/Html/Generator.php:1245
 msgctxt "First page"
 msgid "Begin"
 msgstr "先頭"
 
 #: libraries/classes/Display/Results.php:921
-#: libraries/classes/Html/Generator.php:1261
-#: libraries/classes/Html/Generator.php:1265
+#: libraries/classes/Html/Generator.php:1242
+#: libraries/classes/Html/Generator.php:1246
 #: templates/server/binlog/index.twig:47 templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "前へ"
 
 #: libraries/classes/Display/Results.php:949
-#: libraries/classes/Html/Generator.php:1294
-#: libraries/classes/Html/Generator.php:1303
+#: libraries/classes/Html/Generator.php:1275
+#: libraries/classes/Html/Generator.php:1284
 #: templates/server/binlog/index.twig:72 templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "次へ"
 
 #: libraries/classes/Display/Results.php:980
-#: libraries/classes/Html/Generator.php:1295
-#: libraries/classes/Html/Generator.php:1304
+#: libraries/classes/Html/Generator.php:1276
+#: libraries/classes/Html/Generator.php:1285
 msgctxt "Last page"
 msgid "End"
 msgstr "最後"
@@ -8979,8 +8979,8 @@ msgid "Full texts"
 msgstr "全文"
 
 #: libraries/classes/Display/Results.php:1977
-#: libraries/classes/Display/Results.php:2003 libraries/classes/Util.php:2764
-#: libraries/classes/Util.php:2787 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:2003 libraries/classes/Util.php:2759
+#: libraries/classes/Util.php:2782 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:61
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -8993,8 +8993,8 @@ msgid "Descending"
 msgstr "降順"
 
 #: libraries/classes/Display/Results.php:1985
-#: libraries/classes/Display/Results.php:1995 libraries/classes/Util.php:2756
-#: libraries/classes/Util.php:2779 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1995 libraries/classes/Util.php:2751
+#: libraries/classes/Util.php:2774 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:60
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9376,7 +9376,7 @@ msgstr ""
 "ファイル名の変更が行われ、最大番号の 1 つ次の番号が付けられます。"
 
 #: libraries/classes/Engines/Pbxt.php:170
-#: libraries/classes/Html/Generator.php:844
+#: libraries/classes/Html/Generator.php:825
 #: libraries/classes/Html/MySQLDocumentation.php:51
 #: libraries/classes/Sanitize.php:207
 #: templates/config/form_display/input.twig:10 templates/home/index.twig:231
@@ -9513,74 +9513,74 @@ msgstr "セッションが見つかりません。"
 msgid "Print view"
 msgstr "印刷用画面"
 
-#: libraries/classes/Html/Generator.php:154
+#: libraries/classes/Html/Generator.php:153
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "データベース「%s」に移動します。"
 
-#: libraries/classes/Html/Generator.php:182
+#: libraries/classes/Html/Generator.php:181
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s の機能には既知のバグがあります。%s をご覧ください"
 
-#: libraries/classes/Html/Generator.php:253
+#: libraries/classes/Html/Generator.php:252
 msgid "SSL is not being used"
 msgstr "SSLは使用されていません"
 
-#: libraries/classes/Html/Generator.php:258
+#: libraries/classes/Html/Generator.php:257
 msgid "SSL is used with disabled verification"
 msgstr "SSLは無効な検証で使用されます"
 
-#: libraries/classes/Html/Generator.php:260
+#: libraries/classes/Html/Generator.php:259
 msgid "SSL is used without certification authority"
 msgstr "SSLはCAなしで使用されます"
 
-#: libraries/classes/Html/Generator.php:263
+#: libraries/classes/Html/Generator.php:262
 msgid "SSL is used"
 msgstr "SSLを使用されています"
 
-#: libraries/classes/Html/Generator.php:364
+#: libraries/classes/Html/Generator.php:363
 msgid "The PHP function password_hash() with default options."
 msgstr "PHP 関数 password_hash() にデフォルトのオプションを指定します。"
 
-#: libraries/classes/Html/Generator.php:365
+#: libraries/classes/Html/Generator.php:364
 msgid "password_hash() PHP function"
 msgstr "password_hash() PHP 関数"
 
-#: libraries/classes/Html/Generator.php:686
+#: libraries/classes/Html/Generator.php:667
 msgid "Skip Explain SQL"
 msgstr "SQL の EXPLAIN 解析をスキップ"
 
-#: libraries/classes/Html/Generator.php:694
+#: libraries/classes/Html/Generator.php:675
 #, php-format
 msgid "Analyze Explain at %s"
 msgstr "「%s」のEXPLAINを分析"
 
-#: libraries/classes/Html/Generator.php:725
+#: libraries/classes/Html/Generator.php:706
 msgid "Without PHP code"
 msgstr "PHP コードを省略"
 
-#: libraries/classes/Html/Generator.php:732
+#: libraries/classes/Html/Generator.php:713
 #: templates/database/multi_table_query/form.twig:171
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
 msgstr "クエリを実行する"
 
-#: libraries/classes/Html/Generator.php:778 templates/console/display.twig:31
+#: libraries/classes/Html/Generator.php:759 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr "プロファイリング"
 
-#: libraries/classes/Html/Generator.php:794
+#: libraries/classes/Html/Generator.php:775
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "インライン編集"
 
-#: libraries/classes/Html/Generator.php:934
+#: libraries/classes/Html/Generator.php:915
 msgid "Static analysis:"
 msgstr "静的解析:"
 
-#: libraries/classes/Html/Generator.php:937
+#: libraries/classes/Html/Generator.php:918
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "解析中に %d 個のエラーが見つかりました。"
@@ -9687,7 +9687,7 @@ msgstr ""
 "れません。"
 
 #: libraries/classes/InsertEdit.php:356
-#: libraries/classes/Navigation/Nodes/NodeFunction.php:28
+#: libraries/classes/Navigation/Nodes/NodeFunction.php:26
 #: templates/database/routines/execute_form.twig:21
 #: templates/table/search/index.twig:36
 #: templates/table/zoom_search/index.twig:36
@@ -9787,7 +9787,7 @@ msgstr ""
 "由に移動できます。"
 
 #: libraries/classes/InsertEdit.php:1172
-#: libraries/classes/Navigation/Nodes/NodeColumn.php:33
+#: libraries/classes/Navigation/Nodes/NodeColumn.php:31
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:298
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:399
 #: libraries/classes/Plugins/Export/ExportLatex.php:572
@@ -9884,8 +9884,8 @@ msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s （もしかして <code>%2$s</code>）"
 
 #: libraries/classes/Menu.php:263
-#: libraries/classes/Navigation/Nodes/NodeTable.php:332
-#: libraries/classes/Util.php:1603 libraries/classes/Util.php:2140
+#: libraries/classes/Navigation/Nodes/NodeTable.php:320
+#: libraries/classes/Util.php:1603 libraries/classes/Util.php:2135
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -9894,9 +9894,9 @@ msgid "Browse"
 msgstr "表示"
 
 #: libraries/classes/Menu.php:282 libraries/classes/Menu.php:403
-#: libraries/classes/Navigation/Nodes/NodeTable.php:323
-#: libraries/classes/Util.php:1601 libraries/classes/Util.php:2126
-#: libraries/classes/Util.php:2143 libraries/config.values.php:64
+#: libraries/classes/Navigation/Nodes/NodeTable.php:311
+#: libraries/classes/Util.php:1601 libraries/classes/Util.php:2121
+#: libraries/classes/Util.php:2138 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:27
 #: templates/database/routines/index.twig:28
@@ -9907,8 +9907,8 @@ msgid "Search"
 msgstr "検索"
 
 #: libraries/classes/Menu.php:293
-#: libraries/classes/Navigation/Nodes/NodeTable.php:326
-#: libraries/classes/Util.php:1602 libraries/classes/Util.php:2144
+#: libraries/classes/Navigation/Nodes/NodeTable.php:314
+#: libraries/classes/Util.php:1602 libraries/classes/Util.php:2139
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -9918,8 +9918,8 @@ msgid "Insert"
 msgstr "挿入"
 
 #: libraries/classes/Menu.php:322 libraries/classes/Menu.php:443
-#: libraries/classes/Server/Privileges.php:2979 libraries/classes/Util.php:2131
-#: libraries/classes/Util.php:2147 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2979 libraries/classes/Util.php:2126
+#: libraries/classes/Util.php:2142 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -9929,27 +9929,27 @@ msgstr "権限"
 
 #: libraries/classes/Menu.php:333 libraries/classes/Menu.php:343
 #: libraries/classes/Menu.php:434 libraries/classes/Util.php:1604
-#: libraries/classes/Util.php:2130 libraries/classes/Util.php:2148
+#: libraries/classes/Util.php:2125 libraries/classes/Util.php:2143
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "操作"
 
 #: libraries/classes/Menu.php:349 libraries/classes/Menu.php:469
-#: libraries/classes/Relation.php:320 libraries/classes/Util.php:2135
-#: libraries/classes/Util.php:2149
+#: libraries/classes/Relation.php:320 libraries/classes/Util.php:2130
+#: libraries/classes/Util.php:2144
 msgid "Tracking"
 msgstr "SQL コマンドの追跡"
 
 #: libraries/classes/Menu.php:364 libraries/classes/Menu.php:462
+#: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:22
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:23
-#: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:24
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:604
 #: libraries/classes/Plugins/Export/ExportOdt.php:740
 #: libraries/classes/Plugins/Export/ExportPdf.php:300
 #: libraries/classes/Plugins/Export/ExportSql.php:2231
 #: libraries/classes/Plugins/Export/ExportTexytext.php:573
 #: libraries/classes/Plugins/Export/ExportXml.php:139
-#: libraries/classes/Util.php:2134 libraries/classes/Util.php:2150
+#: libraries/classes/Util.php:2129 libraries/classes/Util.php:2145
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "トリガ"
@@ -9959,29 +9959,29 @@ msgstr "トリガ"
 msgid "Database seems to be empty!"
 msgstr "データベースが空のようです!"
 
-#: libraries/classes/Menu.php:411 libraries/classes/Util.php:2127
+#: libraries/classes/Menu.php:411 libraries/classes/Util.php:2122
 msgid "Query"
 msgstr "クエリ"
 
-#: libraries/classes/Menu.php:449 libraries/classes/Util.php:2132
+#: libraries/classes/Menu.php:449 libraries/classes/Util.php:2127
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "ルーチン"
 
 #: libraries/classes/Menu.php:455
+#: libraries/classes/Navigation/Nodes/NodeEventContainer.php:22
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:23
-#: libraries/classes/Navigation/Nodes/NodeEventContainer.php:24
 #: libraries/classes/Plugins/Export/ExportSql.php:1046
 #: libraries/classes/Plugins/Export/ExportXml.php:119
-#: libraries/classes/Util.php:2133 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:2128 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "イベント"
 
-#: libraries/classes/Menu.php:476 libraries/classes/Util.php:2136
+#: libraries/classes/Menu.php:476 libraries/classes/Util.php:2131
 msgid "Designer"
 msgstr "デザイナ"
 
-#: libraries/classes/Menu.php:486 libraries/classes/Util.php:2137
+#: libraries/classes/Menu.php:486 libraries/classes/Util.php:2132
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "主要カラム"
@@ -9991,12 +9991,12 @@ msgid "User accounts"
 msgstr "ユーザアカウント"
 
 #: libraries/classes/Menu.php:581 libraries/classes/Server/Status/Data.php:153
-#: libraries/classes/Util.php:2116 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:2111 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "バイナリログ"
 
 #: libraries/classes/Menu.php:588 libraries/classes/Server/Status/Data.php:158
-#: libraries/classes/Util.php:2117
+#: libraries/classes/Util.php:2112
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10004,21 +10004,21 @@ msgid "Replication"
 msgstr "レプリケーション"
 
 #: libraries/classes/Menu.php:594 libraries/classes/Server/Status/Data.php:230
-#: libraries/classes/Util.php:2118 libraries/config.values.php:159
+#: libraries/classes/Util.php:2113 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:192
 msgid "Variables"
 msgstr "変数"
 
-#: libraries/classes/Menu.php:599 libraries/classes/Util.php:2119
+#: libraries/classes/Menu.php:599 libraries/classes/Util.php:2114
 msgid "Charsets"
 msgstr "文字セット"
 
-#: libraries/classes/Menu.php:604 libraries/classes/Util.php:2121
+#: libraries/classes/Menu.php:604 libraries/classes/Util.php:2116
 msgid "Engines"
 msgstr "エンジン"
 
-#: libraries/classes/Menu.php:609 libraries/classes/Util.php:2120
+#: libraries/classes/Menu.php:609 libraries/classes/Util.php:2115
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "プラグイン"
@@ -10079,13 +10079,13 @@ msgstr ""
 msgid "Groups"
 msgstr "グループ"
 
-#: libraries/classes/Navigation/NavigationTree.php:1046
+#: libraries/classes/Navigation/NavigationTree.php:1051
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] "%s が見つかりました"
 
-#: libraries/classes/Navigation/NavigationTree.php:1525
+#: libraries/classes/Navigation/NavigationTree.php:1543
 msgid "Collapse all"
 msgstr "すべて折りたたむ"
 
@@ -10100,94 +10100,94 @@ msgstr "\"%1$s\" は、デフォルトの \"Node\" を含む無効なクラス�
 msgid "Could not load class \"%1$s\""
 msgstr "「%1$s」のクラスをロード出来ませんでした"
 
+#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:22
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:23
-#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:24
 #: templates/sql/query.twig:63
 msgid "Columns"
 msgstr "カラム"
 
-#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:35
+#: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:30
 msgctxt "Create new column"
 msgid "New"
 msgstr "新規作成"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:40
+#: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:39
 msgctxt "Create new database"
 msgid "New"
 msgstr "新規作成"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:42
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:41
 msgid "Database operations"
 msgstr "データベース操作"
 
-#: libraries/classes/Navigation/Nodes/NodeDatabase.php:724
+#: libraries/classes/Navigation/Nodes/NodeDatabase.php:720
 msgid "Show hidden items"
 msgstr "非表示アイテムの再表示"
 
-#: libraries/classes/Navigation/Nodes/NodeEventContainer.php:35
+#: libraries/classes/Navigation/Nodes/NodeEventContainer.php:30
 msgctxt "Create new event"
 msgid "New"
 msgstr "新規作成"
 
+#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:22
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:23
-#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:24
 #: libraries/classes/Plugins/Export/ExportSql.php:637
 #: libraries/classes/Plugins/Export/ExportXml.php:124
 msgid "Functions"
 msgstr "関数"
 
-#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:37
+#: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:30
 msgctxt "Create new function"
 msgid "New"
 msgstr "新規作成"
 
-#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:35
+#: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:30
 msgctxt "Create new index"
 msgid "New"
 msgstr "新規作成"
 
-#: libraries/classes/Navigation/Nodes/Node.php:643
+#: libraries/classes/Navigation/Nodes/Node.php:657
 msgid "Expand/Collapse"
 msgstr "展開/折りたたみ"
 
+#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:22
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:23
-#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:24
 #: libraries/classes/Plugins/Export/ExportSql.php:626
 #: libraries/classes/Plugins/Export/ExportXml.php:129
 msgid "Procedures"
 msgstr "プロシージャ"
 
-#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:37
+#: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:30
 msgctxt "Create new procedure"
 msgid "New"
 msgstr "新規作成"
 
-#: libraries/classes/Navigation/Nodes/NodeProcedure.php:28
+#: libraries/classes/Navigation/Nodes/NodeProcedure.php:26
 msgid "Procedure"
 msgstr "プロシージャ"
 
-#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:38
+#: libraries/classes/Navigation/Nodes/NodeTableContainer.php:31
 msgctxt "Create new table"
 msgid "New"
 msgstr "新規作成"
 
-#: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:35
+#: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:30
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "新規作成"
 
-#: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
+#: libraries/classes/Navigation/Nodes/NodeTrigger.php:26
 msgid "Trigger"
 msgstr "トリガ"
 
+#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:22
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:23
-#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:24
 #: libraries/classes/Plugins/Export/ExportXml.php:144
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
 msgstr "ビュー"
 
-#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:38
+#: libraries/classes/Navigation/Nodes/NodeViewContainer.php:31
 msgctxt "Create new view"
 msgid "New"
 msgstr "新規作成"
@@ -13309,11 +13309,11 @@ msgstr "午前"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 日 %s 時間 %s 分 %s 秒"
 
-#: libraries/classes/Util.php:2112
+#: libraries/classes/Util.php:2107
 msgid "Users"
 msgstr "ユーザ"
 
-#: libraries/classes/Util.php:2748
+#: libraries/classes/Util.php:2743
 #: templates/database/multi_table_query/form.twig:59
 msgid "Sort"
 msgstr "ソート"
@@ -15057,7 +15057,7 @@ msgid "Restore column order"
 msgstr "カラムの順番を元に戻す"
 
 #: templates/display/results/table.twig:49 templates/export.twig:110
-#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr "行数:"
 
@@ -15103,7 +15103,7 @@ msgid "Copy to clipboard"
 msgstr "クリップボードにコピー"
 
 #: templates/display/results/table.twig:264
-#: templates/table/chart/tbl_chart.twig:7
+#: templates/table/chart/tbl_chart.twig:2
 msgid "Display chart"
 msgstr "グラフで表示する"
 
@@ -15363,7 +15363,7 @@ msgid "Value for the column \"%s\""
 msgstr "カラム \"%s\" に対しての値"
 
 #: templates/gis_data_editor_form.twig:22
-#: templates/table/gis_visualization/gis_visualization.twig:38
+#: templates/table/gis_visualization/gis_visualization.twig:34
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "ベースレイヤーに OpenStreetMap を使用する"
 
@@ -17724,91 +17724,93 @@ msgstr "共有"
 msgid "View only"
 msgstr "表示のみ"
 
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "開始行:"
-
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
 msgstr "この値を利用する"
 
-#: templates/table/chart/tbl_chart.twig:12
+#: templates/table/chart/tbl_chart.twig:10
+#, fuzzy
+#| msgid "Chart title"
+msgid "Chart type"
+msgstr "グラフの題名"
+
+#: templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "横棒グラフ"
 
-#: templates/table/chart/tbl_chart.twig:16
+#: templates/table/chart/tbl_chart.twig:17
 msgctxt "Chart type"
 msgid "Column"
 msgstr "縦棒グラフ"
 
-#: templates/table/chart/tbl_chart.twig:20
+#: templates/table/chart/tbl_chart.twig:21
 msgctxt "Chart type"
 msgid "Line"
 msgstr "折れ線グラフ"
 
-#: templates/table/chart/tbl_chart.twig:24
+#: templates/table/chart/tbl_chart.twig:25
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "曲線グラフ"
 
-#: templates/table/chart/tbl_chart.twig:28
+#: templates/table/chart/tbl_chart.twig:29
 msgctxt "Chart type"
 msgid "Area"
 msgstr "面グラフ"
 
-#: templates/table/chart/tbl_chart.twig:32
+#: templates/table/chart/tbl_chart.twig:33
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "円グラフ"
 
-#: templates/table/chart/tbl_chart.twig:36
+#: templates/table/chart/tbl_chart.twig:37
 msgctxt "Chart type"
 msgid "Timeline"
 msgstr "タイムライン"
 
-#: templates/table/chart/tbl_chart.twig:40
+#: templates/table/chart/tbl_chart.twig:41
 msgctxt "Chart type"
 msgid "Scatter"
 msgstr "散布図"
 
-#: templates/table/chart/tbl_chart.twig:45
+#: templates/table/chart/tbl_chart.twig:47
 msgid "Stacked"
 msgstr "積み上げ形式"
 
-#: templates/table/chart/tbl_chart.twig:48
+#: templates/table/chart/tbl_chart.twig:51
 msgid "Chart title:"
 msgstr "グラフの題名:"
 
-#: templates/table/chart/tbl_chart.twig:53
+#: templates/table/chart/tbl_chart.twig:57
 msgid "X-Axis:"
 msgstr "X 軸:"
 
-#: templates/table/chart/tbl_chart.twig:68
+#: templates/table/chart/tbl_chart.twig:73
 msgid "Series:"
 msgstr "系列："
 
-#: templates/table/chart/tbl_chart.twig:96
+#: templates/table/chart/tbl_chart.twig:101
 msgid "X-Axis label:"
 msgstr "X 軸のラベル:"
 
-#: templates/table/chart/tbl_chart.twig:98
+#: templates/table/chart/tbl_chart.twig:102
 msgid "X Values"
 msgstr "X 軸の値"
 
-#: templates/table/chart/tbl_chart.twig:101
+#: templates/table/chart/tbl_chart.twig:106
 msgid "Y-Axis label:"
 msgstr "Y 軸のラベル:"
 
-#: templates/table/chart/tbl_chart.twig:103
+#: templates/table/chart/tbl_chart.twig:107
 msgid "Y Values"
 msgstr "Y 軸の値"
 
-#: templates/table/chart/tbl_chart.twig:109
+#: templates/table/chart/tbl_chart.twig:112
 msgid "Series names are in a column"
 msgstr "系列名はカラムにあります"
 
-#: templates/table/chart/tbl_chart.twig:112
+#: templates/table/chart/tbl_chart.twig:116
 msgid "Series column:"
 msgstr "系列カラム:"
 
@@ -17875,19 +17877,19 @@ msgstr "置換文字列"
 msgid "Replace"
 msgstr "置換"
 
-#: templates/table/gis_visualization/gis_visualization.twig:3
+#: templates/table/gis_visualization/gis_visualization.twig:2
 msgid "Display GIS Visualization"
 msgstr "視覚化した空間情報"
 
-#: templates/table/gis_visualization/gis_visualization.twig:8
+#: templates/table/gis_visualization/gis_visualization.twig:10
 msgid "Label column"
 msgstr "ラベルカラム"
 
-#: templates/table/gis_visualization/gis_visualization.twig:11
+#: templates/table/gis_visualization/gis_visualization.twig:12
 msgid "-- None --"
 msgstr "-- なし --"
 
-#: templates/table/gis_visualization/gis_visualization.twig:19
+#: templates/table/gis_visualization/gis_visualization.twig:21
 msgid "Spatial column"
 msgstr "空間情報カラム"
 
@@ -18165,6 +18167,10 @@ msgstr "ページあたりの行数"
 #: templates/table/search/index.twig:137
 msgid "Display order:"
 msgstr "表示順:"
+
+#: templates/table/start_and_number_of_rows_fieldset.twig:3
+msgid "Start row:"
+msgstr "開始行:"
 
 #: templates/table/structure/display_partitions.twig:4
 #: templates/table/structure/display_structure.twig:531
