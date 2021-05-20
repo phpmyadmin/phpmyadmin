@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-20 12:21-0300\n"
-"PO-Revision-Date: 2021-05-01 18:32+0000\n"
+"PO-Revision-Date: 2021-05-22 18:16+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -2452,7 +2452,7 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Monstra ligamine a exito[a@https://php.net/manual/function.phpinfo."
+"Monstra ligamine a exito[a@https://www.php.net/manual/en/function.phpinfo."
 "php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:511
@@ -7934,10 +7934,8 @@ msgid "Missing parameter:"
 msgstr "Parametro mancante:"
 
 #: libraries/classes/Controllers/Server/UserGroupsController.php:130
-#, fuzzy
-#| msgid "User groups table"
 msgid "User groups management is not enabled."
-msgstr "Tabella de gruppos de usator"
+msgstr "Gestion de gruppos de usator non es activate."
 
 #: libraries/classes/Controllers/Server/VariablesController.php:224
 msgid "Setting variable failed"
@@ -8063,13 +8061,11 @@ msgid "No column selected."
 msgstr "Necun columna seligite."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:84
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%1$d base de datos ha essite delite con successo."
-msgstr[1] "%1$d bases de datos ha essite delite con successo."
+msgstr[0] "%1$d columna ha essite delite con successo."
+msgstr[1] "%1$d columnas ha essite delite con successo."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -10022,10 +10018,8 @@ msgid "New"
 msgstr "Nove"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:26
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger"
-msgstr "Triggers"
+msgstr "Trigger"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:22
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:23
@@ -16638,10 +16632,8 @@ msgid "Drop the databases that have the same names as the users."
 msgstr ""
 
 #: templates/server/privileges/users_overview.twig:162
-#, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
-msgstr "Salveguarda pagina"
+msgstr "Salveguarda cambiamentos"
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
@@ -17443,10 +17435,8 @@ msgid "Use this value"
 msgstr "Usa iste valor"
 
 #: templates/table/chart/tbl_chart.twig:10
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart type"
-msgstr "Titulo del diagramma"
+msgstr "Typo de diagramma"
 
 #: templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
