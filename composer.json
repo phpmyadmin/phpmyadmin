@@ -87,6 +87,7 @@
         "phpstan/phpstan-phpunit": "^0.12.17",
         "phpunit/phpunit": "^8.5 || ^9.5",
         "pragmarx/google2fa-qrcode": "^1.0.1",
+        "roave/security-advisories": "dev-latest",
         "samyoul/u2f-php-server": "^1.1",
         "symfony/console": "^5.2.3",
         "symfony/finder": "^5.2.3",
