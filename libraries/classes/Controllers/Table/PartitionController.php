@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table\Partition;
 use PhpMyAdmin\Template;
+use Throwable;
 
 use function strlen;
 
@@ -36,7 +39,14 @@ final class PartitionController extends AbstractController
             return;
         }
 
-        [$rows, $query] = $this->model->analyze($this->db, $this->table, $partitionName);
+        try {
+            [$rows, $query] = $this->model->analyze(new DatabaseName($this->db), $this->table, $partitionName);
+        } catch (Throwable $e) {
+            $message = Message::error($e->getMessage());
+            $this->response->addHTML($message->getDisplay());
+
+            return;
+        }
 
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),

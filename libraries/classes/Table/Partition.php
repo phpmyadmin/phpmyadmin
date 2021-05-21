@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Util;
 
 use function sprintf;
@@ -19,7 +20,7 @@ final class Partition
         $this->dbi = $dbi;
     }
 
-    public function analyze(string $db, string $table, string $partition): array
+    public function analyze(DatabaseName $db, string $table, string $partition): array
     {
         $query = sprintf(
             'ALTER TABLE %s ANALYZE PARTITION %s;',
@@ -27,7 +28,7 @@ final class Partition
             Util::backquote($partition)
         );
 
-        $this->dbi->selectDb($db);
+        $this->dbi->selectDb($db->getName());
         $result = $this->dbi->fetchResult($query);
 
         $rows = [];
