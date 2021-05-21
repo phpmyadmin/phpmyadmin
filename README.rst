@@ -36,6 +36,10 @@ Code status
     :alt: CII Best Practices
     :target: https://bestpractices.coreinfrastructure.org/projects/213
 
+.. image:: https://shepherd.dev/github/phpmyadmin/phpmyadmin/coverage.svg
+    :alt: Type coverage
+    :target: https://shepherd.dev/github/phpmyadmin/phpmyadmin
+
 
 Download
 --------
