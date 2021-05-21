@@ -431,7 +431,7 @@ class Generator
     }
 
     /**
-     * @return array<string, int,string>
+     * @return array<string, int|string>
      * @psalm-return array{pos: int, unlim_num_rows: int, rows: int, sql_query: string}
      */
     public static function getStartAndNumberOfRowsFieldsetData(string $sqlQuery): array
