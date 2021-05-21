@@ -85,4 +85,4 @@ jobs:
             - name: Analyse files with phpstan
               run: composer phpstan -- --memory-limit 2G
             - name: Analyse files with psalm
-              run: composer psalm
+              run: composer psalm -- --shepherd
