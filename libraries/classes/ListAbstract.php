@@ -10,10 +10,7 @@ use PhpMyAdmin\Query\Utilities;
 use function in_array;
 
 /**
- * Generic list class
- *
- * @todo add caching
- * @abstract
+ * @extends ArrayObject<int, string>
  */
 abstract class ListAbstract extends ArrayObject
 {
