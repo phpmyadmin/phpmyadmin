@@ -2583,7 +2583,7 @@ class ExportSql extends ExportPlugin
             $values = [];
             for ($j = 0; $j < $fieldsCnt; $j++) {
                 // NULL
-                if (! isset($row[$j]) || $row[$j] === null) {
+                if (! isset($row[$j])) {
                     $values[] = 'NULL';
                 } elseif (
                     $fieldsMeta[$j]->isNumeric

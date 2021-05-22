@@ -18,6 +18,8 @@ use stdClass;
 use function defined;
 use function is_array;
 use function is_bool;
+use function mysqli_connect_errno;
+use function mysqli_connect_error;
 use function mysqli_init;
 use function mysqli_report;
 use function stripos;
@@ -61,6 +63,10 @@ class DbiMysqli implements DbiExtension
         mysqli_report(MYSQLI_REPORT_OFF);
 
         $mysqli = mysqli_init();
+
+        if ($mysqli === false) {
+            return false;
+        }
 
         $client_flags = 0;
 
@@ -118,7 +124,7 @@ class DbiMysqli implements DbiExtension
             $client_flags
         );
 
-        if ($return_value === false || $return_value === null) {
+        if ($return_value === false) {
             /*
              * Switch to SSL if server asked us to do so, unfortunately
              * there are more ways MySQL server can tell this:
@@ -160,25 +166,25 @@ class DbiMysqli implements DbiExtension
      * selects given database
      *
      * @param string|DatabaseName $databaseName database name to select
-     * @param mysqli              $mysqli       the mysqli object
+     * @param mysqli              $link         the mysqli object
      *
      * @return bool
      */
-    public function selectDb($databaseName, $mysqli)
+    public function selectDb($databaseName, $link)
     {
-        return $mysqli->select_db((string) $databaseName);
+        return $link->select_db((string) $databaseName);
     }
 
     /**
      * runs a query and returns the result
      *
      * @param string $query   query to execute
-     * @param mysqli $mysqli  mysqli object
+     * @param mysqli $link    mysqli object
      * @param int    $options query options
      *
      * @return mysqli_result|bool
      */
-    public function realQuery($query, $mysqli, $options)
+    public function realQuery($query, $link, $options)
     {
         if ($options == ($options | DatabaseInterface::QUERY_STORE)) {
             $method = MYSQLI_STORE_RESULT;
@@ -188,20 +194,20 @@ class DbiMysqli implements DbiExtension
             $method = 0;
         }
 
-        return $mysqli->query($query, $method);
+        return $link->query($query, $method);
     }
 
     /**
      * Run the multi query and output the results
      *
-     * @param mysqli $mysqli mysqli object
-     * @param string $query  multi query statement to execute
+     * @param mysqli $link  mysqli object
+     * @param string $query multi query statement to execute
      *
      * @return bool
      */
-    public function realMultiQuery($mysqli, $query)
+    public function realMultiQuery($link, $query)
     {
-        return $mysqli->multi_query($query);
+        return $link->multi_query($query);
     }
 
     /**
@@ -350,7 +356,7 @@ class DbiMysqli implements DbiExtension
     /**
      * returns last error message or false if no errors occurred
      *
-     * @param mysqli $mysqli mysql link
+     * @param mysqli|false|null $mysqli mysql link
      *
      * @return string|bool error or false
      */
@@ -362,11 +368,11 @@ class DbiMysqli implements DbiExtension
             $error_number = $mysqli->errno;
             $error_message = $mysqli->error;
         } else {
-            $error_number = $mysqli->connect_errno;
-            $error_message = $mysqli->connect_error;
+            $error_number = mysqli_connect_errno();
+            $error_message = (string) mysqli_connect_error();
         }
 
-        if ($error_number == 0) {
+        if ($error_number === 0 || $error_message === '') {
             return false;
         }
 
@@ -380,7 +386,7 @@ class DbiMysqli implements DbiExtension
     /**
      * returns the number of rows returned by last query
      *
-     * @param mysqli_result $result result set identifier
+     * @param mysqli_result|bool $result result set identifier
      *
      * @return string|int
      */
@@ -457,7 +463,7 @@ class DbiMysqli implements DbiExtension
             return false;
         }
 
-        /** @var stdClass $fieldDefinition */
+        /** @var stdClass|false $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
         if ($fieldDefinition !== false) {
             return $fieldDefinition->length;
@@ -480,7 +486,7 @@ class DbiMysqli implements DbiExtension
             return '';
         }
 
-        /** @var stdClass $fieldDefinition */
+        /** @var stdClass|false $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
         if ($fieldDefinition !== false) {
             return $fieldDefinition->name;
@@ -492,26 +498,26 @@ class DbiMysqli implements DbiExtension
     /**
      * returns properly escaped string for use in MySQL queries
      *
-     * @param mysqli $mysqli database link
+     * @param mysqli $link   database link
      * @param string $string string to be escaped
      *
      * @return string a MySQL escaped string
      */
-    public function escapeString($mysqli, $string)
+    public function escapeString($link, $string)
     {
-        return $mysqli->real_escape_string($string);
+        return $link->real_escape_string($string);
     }
 
     /**
      * Prepare an SQL statement for execution.
      *
-     * @param mysqli $mysqli database link
-     * @param string $query  The query, as a string.
+     * @param mysqli $link  database link
+     * @param string $query The query, as a string.
      *
      * @return mysqli_stmt|false A statement object or false.
      */
-    public function prepare($mysqli, string $query)
+    public function prepare($link, string $query)
     {
-        return $mysqli->prepare($query);
+        return $link->prepare($query);
     }
 }

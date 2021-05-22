@@ -323,7 +323,7 @@ class Sanitize
     /**
      * Formats a value for javascript code.
      *
-     * @param string $value String to be formatted.
+     * @param string|bool|int $value String to be formatted.
      *
      * @return int|string formatted value.
      */
@@ -338,7 +338,7 @@ class Sanitize
         }
 
         if (is_int($value)) {
-            return (int) $value;
+            return $value;
         }
 
         return '"' . self::escapeJsString($value) . '"';

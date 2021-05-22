@@ -92,11 +92,10 @@ class Footer
     /**
      * Remove recursions and iterator objects from an object
      *
-     * @param object|array $object Object to clean
-     * @param array        $stack  Stack used to keep track of recursion,
-     *                             need not be passed for the first time
+     * @param mixed $object Object to clean
+     * @param array $stack  Stack used to keep track of recursion, need not be passed for the first time
      *
-     * @return object Reference passed object
+     * @return mixed Reference passed object
      */
     private static function removeRecursion(&$object, array $stack = [])
     {
@@ -105,8 +104,9 @@ class Footer
                 $object = '***ITERATOR***';
             } elseif (! in_array($object, $stack, true)) {
                 $stack[] = $object;
-                foreach ($object as &$subobject) {
-                    self::removeRecursion($subobject, $stack);
+                // @phpstan-ignore-next-line
+                foreach ($object as &$subObject) {
+                    self::removeRecursion($subObject, $stack);
                 }
             } else {
                 $object = '***RECURSION***';
@@ -130,7 +130,7 @@ class Footer
             // Remove recursions and iterators from $_SESSION['debug']
             self::removeRecursion($_SESSION['debug']);
 
-            $retval = json_encode($_SESSION['debug']);
+            $retval = (string) json_encode($_SESSION['debug']);
             $_SESSION['debug'] = [];
 
             return json_last_error() ? '\'false\'' : $retval;

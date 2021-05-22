@@ -228,7 +228,7 @@ class ExportTexytext extends ExportPlugin
         while ($row = $dbi->fetchRow($result)) {
             $text_output = '';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (! isset($row[$j]) || $row[$j] === null) {
+                if (! isset($row[$j])) {
                     $value = $GLOBALS[$what . '_null'];
                 } elseif ($row[$j] == '0' || $row[$j] != '') {
                     $value = $row[$j];

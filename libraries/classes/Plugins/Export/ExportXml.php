@@ -551,7 +551,7 @@ class ExportXml extends ExportPlugin
 
                     // If a cell is NULL, still export it to preserve
                     // the XML structure
-                    if (! isset($record[$i]) || $record[$i] === null) {
+                    if (! isset($record[$i])) {
                         $record[$i] = 'NULL';
                     }
 

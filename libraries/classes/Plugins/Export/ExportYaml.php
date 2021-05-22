@@ -15,6 +15,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
+use function array_key_exists;
 use function is_numeric;
 use function str_replace;
 use function stripslashes;
@@ -187,7 +188,7 @@ class ExportYaml extends ExportPlugin
             }
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-                if (! isset($record[$i])) {
+                if (! array_key_exists($i, $record)) {
                     continue;
                 }
 

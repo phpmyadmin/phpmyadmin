@@ -2165,7 +2165,7 @@ class DatabaseInterface implements DbalInterface
     /**
      * returns the number of rows returned by last query
      *
-     * @param object $result result set identifier
+     * @param object|bool $result result set identifier
      *
      * @return string|int
      */

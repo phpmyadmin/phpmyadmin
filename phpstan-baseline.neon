@@ -326,41 +326,6 @@ parameters:
 			path: libraries/classes/DatabaseInterface.php
 
 		-
-			message: "#^Cannot access property \\$connect_errno on mysqli\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Cannot access property \\$connect_error on mysqli\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Cannot call method options\\(\\) on mysqli\\|false\\.$#"
-			count: 3
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Cannot call method real_connect\\(\\) on mysqli\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Cannot call method ssl_set\\(\\) on mysqli\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between true and null will always evaluate to false\\.$#"
-			count: 1
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 2
-			path: libraries/classes/Dbal/DbiMysqli.php
-
-		-
 			message: "#^Call to an undefined method object\\:\\:getMIMESubtype\\(\\)\\.$#"
 			count: 1
 			path: libraries/classes/Display/Results.php
@@ -549,21 +514,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\File\\:\\:\\$handle \\(resource\\|null\\) does not accept resource\\|false\\.$#"
 			count: 4
 			path: libraries/classes/File.php
-
-		-
-			message: "#^Argument of an invalid type array\\|object supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Footer\\:\\:getDebugMessage\\(\\) should return string but returns string\\|false\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Footer\\:\\:removeRecursion\\(\\) should return object but returns array\\|object\\|string\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
 
 		-
 			message: "#^Negated boolean expression is always false\\.$#"
@@ -1816,11 +1766,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Sql\\:\\:getResponseForGridEdit\\(\\) expects object, object\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Menu\\:\\:setTable\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -1999,11 +1944,6 @@ parameters:
 			message: "#^Strict comparison using \\=\\=\\= between array and null will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/ConfigTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$result of method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:numRows\\(\\) expects mysqli_result, false given\\.$#"
-			count: 1
-			path: test/classes/Dbal/DbiMysqliTest.php
 
 		-
 			message: "#^Parameter \\#3 \\$empty of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:generateWkt\\(\\) expects string, string\\|null given\\.$#"

@@ -671,16 +671,12 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
-    <InvalidPropertyFetch occurrences="2">
-      <code>$mysqli-&gt;connect_errno</code>
-      <code>$mysqli-&gt;connect_error</code>
-    </InvalidPropertyFetch>
     <MoreSpecificImplementedParamType occurrences="23">
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
+      <code>$link</code>
       <code>$mysqli</code>
       <code>$mysqli</code>
       <code>$mysqli</code>
@@ -700,23 +696,6 @@
       <code>$result</code>
       <code>$result</code>
     </MoreSpecificImplementedParamType>
-    <ParamNameMismatch occurrences="7">
-      <code>$databaseName</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$mysqli</code>
-      <code>$string</code>
-    </ParamNameMismatch>
-    <PossiblyNullPropertyFetch occurrences="2">
-      <code>$mysqli-&gt;connect_errno</code>
-      <code>$mysqli-&gt;connect_error</code>
-    </PossiblyNullPropertyFetch>
-    <TypeDoesNotContainNull occurrences="2">
-      <code>$return_value === false || $return_value === null</code>
-      <code>$return_value === null</code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Display/Results.php">
     <InvalidArgument occurrences="9">
@@ -935,17 +914,6 @@
     <TypeDoesNotContainType occurrences="1">
       <code>empty($charLists)</code>
     </TypeDoesNotContainType>
-  </file>
-  <file src="libraries/classes/Footer.php">
-    <InvalidReturnStatement occurrences="1">
-      <code>$object</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>object</code>
-    </InvalidReturnType>
-    <ReferenceConstraintViolation occurrences="1">
-      <code>return $object;</code>
-    </ReferenceConstraintViolation>
   </file>
   <file src="libraries/classes/Gis/GisGeometry.php">
     <PossiblyFalseOperand occurrences="2">
@@ -2376,15 +2344,14 @@
     <PossiblyFalseReference occurrences="1">
       <code>save</code>
     </PossiblyFalseReference>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$result</code>
+    <PossiblyInvalidArgument occurrences="2">
       <code>$result</code>
       <code>$result</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidOperand occurrences="1">
       <code>$insertId</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument occurrences="21">
+    <PossiblyNullArgument occurrences="20">
       <code>$_POST['purge'] ?? null</code>
       <code>$db</code>
       <code>$db</code>
@@ -2395,7 +2362,6 @@
       <code>$messageToShow ?? null</code>
       <code>$printView</code>
       <code>$printView</code>
-      <code>$result</code>
       <code>$result ?? null</code>
       <code>$row[0]</code>
       <code>$showtable</code>

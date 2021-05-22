@@ -11,7 +11,6 @@ parameters:
         - test/phpstan-constants.php
     checkMissingIterableValueType: false
     checkGenericClassInNonGenericObjectType: false
-    treatPhpDocTypesAsCertain: false
     excludes_analyse:
         - examples/openid.php
         - node_modules/*

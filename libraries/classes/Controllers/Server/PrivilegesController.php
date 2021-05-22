@@ -334,8 +334,7 @@ class PrivilegesController extends AbstractController
             && empty($_REQUEST['ajax_page_request'])
             && ! isset($_GET['export'])
             && (! isset($_POST['submit_mult']) || $_POST['submit_mult'] !== 'export')
-            && ((! isset($_GET['initial']) || $_GET['initial'] === null
-                    || $_GET['initial'] === '')
+            && ((! isset($_GET['initial']) || $_GET['initial'] === '')
                 || (isset($_POST['delete']) && $_POST['delete'] === __('Go')))
             && ! isset($_GET['showall'])
         ) {

@@ -146,7 +146,7 @@ class HomeController extends AbstractController
         }
 
         $databaseServer = [];
-        if ($server > 0 && $cfg['ShowServerInfo']) {
+        if ($server > 0) {
             $hostInfo = '';
             if (! empty($cfg['Server']['verbose'])) {
                 $hostInfo .= $cfg['Server']['verbose'];
