@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-05-20 12:21-0300\n"
-"PO-Revision-Date: 2021-05-19 05:33+0000\n"
+"PO-Revision-Date: 2021-05-22 18:16+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -17770,10 +17770,8 @@ msgid "Use this value"
 msgstr "Kasuta seda väärtust"
 
 #: templates/table/chart/tbl_chart.twig:10
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart type"
-msgstr "Diagrammi pealkiri"
+msgstr "Diagrammi tüüp"
 
 #: templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
