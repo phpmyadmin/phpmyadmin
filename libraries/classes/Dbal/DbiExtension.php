@@ -32,8 +32,8 @@ interface DbiExtension
     /**
      * selects given database
      *
-     * @param string $dbname database name to select
-     * @param object $link   connection object
+     * @param string|DatabaseName $dbname database name to select
+     * @param object              $link   connection object
      *
      * @return bool
      */

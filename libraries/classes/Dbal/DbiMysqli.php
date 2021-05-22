@@ -159,14 +159,14 @@ class DbiMysqli implements DbiExtension
     /**
      * selects given database
      *
-     * @param string $databaseName database name to select
-     * @param mysqli $mysqli       the mysqli object
+     * @param string|DatabaseName $databaseName database name to select
+     * @param mysqli              $mysqli       the mysqli object
      *
      * @return bool
      */
     public function selectDb($databaseName, $mysqli)
     {
-        return $mysqli->select_db($databaseName);
+        return $mysqli->select_db((string) $databaseName);
     }
 
     /**

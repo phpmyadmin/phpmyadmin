@@ -1803,7 +1803,7 @@ class Sql
         }
 
         $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
-        $this->dbi->selectDb($db);
+        $this->dbi->selectDb($db ?? '');
 
         [
             $result,
@@ -1851,7 +1851,7 @@ class Sql
             $htmlOutput = $this->getQueryResponseForResultsReturned(
                 $result ?? null,
                 $analyzedSqlResults,
-                $db,
+                $db ?? '',
                 $table,
                 $sqlData ?? null,
                 $displayResultsObject,

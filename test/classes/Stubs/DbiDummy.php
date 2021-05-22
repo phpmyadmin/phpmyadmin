@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Stubs;
 
+use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\FieldMetadata;
 
@@ -67,14 +68,14 @@ class DbiDummy implements DbiExtension
     /**
      * selects given database
      *
-     * @param string $dbname name of db to select
-     * @param object $link   mysql link resource
+     * @param string|DatabaseName $dbname name of db to select
+     * @param object              $link   mysql link resource
      *
      * @return bool
      */
     public function selectDb($dbname, $link)
     {
-        $GLOBALS['dummy_db'] = $dbname;
+        $GLOBALS['dummy_db'] = (string) $dbname;
 
         return true;
     }

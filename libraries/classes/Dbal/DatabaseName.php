@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Dbal;
 
+use InvalidArgumentException;
 use Webmozart\Assert\Assert;
 
 /** @psalm-immutable */
@@ -21,6 +22,7 @@ final class DatabaseName
      */
     private $name;
 
+    /** @throws InvalidArgumentException */
     public function __construct(string $name)
     {
         Assert::stringNotEmpty($name);

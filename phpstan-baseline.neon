@@ -1811,11 +1811,6 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#1 \\$dbname of method PhpMyAdmin\\\\DatabaseInterface\\:\\:selectDb\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#1 \\$messageToShow of method PhpMyAdmin\\\\Sql\\:\\:getMessageForNoRowsReturned\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
@@ -1862,11 +1857,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:countQueryResults\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#3 \\$db of method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForResultsReturned\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
