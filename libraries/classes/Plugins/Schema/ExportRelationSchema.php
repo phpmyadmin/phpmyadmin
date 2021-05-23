@@ -29,35 +29,35 @@ class ExportRelationSchema
     protected $diagram;
 
     /** @var bool */
-    protected $showColor;
+    protected $showColor = false;
 
     /** @var bool */
-    protected $tableDimension;
+    protected $tableDimension = false;
 
     /** @var bool */
-    protected $sameWide;
+    protected $sameWide = false;
 
     /** @var bool */
-    protected $showKeys;
+    protected $showKeys = false;
 
     /** @var string */
-    protected $orientation;
+    protected $orientation = 'L';
 
     /** @var string */
-    protected $paper;
+    protected $paper = 'A4';
 
     /** @var int */
-    protected $pageNumber;
+    protected $pageNumber = 0;
 
     /** @var bool */
-    protected $offline;
+    protected $offline = false;
 
     /** @var Relation */
     protected $relation;
 
     /**
-     * @param string                                       $db      database name
-     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf|null $diagram schema diagram
+     * @param string                               $db      database name
+     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|null $diagram schema diagram
      */
     public function __construct($db, $diagram)
     {

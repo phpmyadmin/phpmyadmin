@@ -58,7 +58,7 @@ if (getcwd() == __DIR__) {
 class PdfRelationSchema extends ExportRelationSchema
 {
     /** @var bool */
-    private $showGrid;
+    private $showGrid = false;
 
     /** @var bool */
     private $withDoc;

@@ -109,6 +109,7 @@ class StorageEngine
             if ($dbi->getVersion() >= 50708) {
                 $disabled = (string) SessionCache::get(
                     'disabled_storage_engines',
+                    /** @return mixed|false */
                     static function () use ($dbi) {
                         return $dbi->fetchValue(
                             'SELECT @@disabled_storage_engines'

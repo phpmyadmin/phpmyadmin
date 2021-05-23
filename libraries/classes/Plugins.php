@@ -204,13 +204,13 @@ class Plugins
     /**
      * Returns locale string for $name or $name if no locale is found
      *
-     * @param string $name for local string
+     * @param string|null $name for local string
      *
      * @return string  locale string for $name
      */
     public static function getString($name)
     {
-        return $GLOBALS[$name] ?? $name;
+        return $GLOBALS[$name] ?? $name ?? '';
     }
 
     /**
@@ -418,7 +418,7 @@ class Plugins
                 if (mb_strpos($property_class, 'Subgroup')) {
                     // for subgroups
                     // each subgroup can have a header, which may also be a form element
-                    /** @var OptionsPropertyItem $subgroup_header */
+                    /** @var OptionsPropertyItem|null $subgroup_header */
                     $subgroup_header = $propertyItem->getSubgroupHeader();
                     if ($subgroup_header !== null) {
                         $ret .= self::getOneOption(

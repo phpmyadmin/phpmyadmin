@@ -40,10 +40,10 @@ class TwoFactorPlugin
     protected $twofactor;
 
     /** @var bool */
-    protected $provided;
+    protected $provided = false;
 
     /** @var string */
-    protected $message;
+    protected $message = '';
 
     /** @var Template */
     public $template;
@@ -56,8 +56,6 @@ class TwoFactorPlugin
     public function __construct(TwoFactor $twofactor)
     {
         $this->twofactor = $twofactor;
-        $this->provided = false;
-        $this->message = '';
         $this->template = new Template();
     }
 

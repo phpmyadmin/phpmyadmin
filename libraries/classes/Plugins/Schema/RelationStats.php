@@ -44,7 +44,7 @@ abstract class RelationStats
     public $yDest;
 
     /** @var int */
-    public $wTick;
+    public $wTick = 0;
 
     /**
      * @param object $diagram       The diagram
