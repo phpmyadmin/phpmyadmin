@@ -29,6 +29,7 @@ use function realpath;
 use function strip_tags;
 use function stristr;
 use function sys_get_temp_dir;
+use function crc32;
 
 class ConfigTest extends AbstractTestCase
 {
@@ -950,11 +951,13 @@ class ConfigTest extends AbstractTestCase
      */
     public function testGetThemeUniqueValue(): void
     {
-        $partial_sum = $this->object->sourceMtime +
-            $this->object->defaultSourceMtime +
-            $this->object->get('user_preferences_mtime') +
-            $GLOBALS['PMA_Theme']->mtimeInfo +
-            $GLOBALS['PMA_Theme']->filesizeInfo;
+        $partial_sum = crc32(
+            $this->object->sourceMtime .
+            $this->object->defaultSourceMtime .
+            $this->object->get('user_preferences_mtime') .
+            $GLOBALS['PMA_Theme']->mtimeInfo .
+            $GLOBALS['PMA_Theme']->filesizeInfo
+        );
 
         $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
     }

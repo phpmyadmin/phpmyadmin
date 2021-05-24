@@ -68,6 +68,7 @@ use function sys_get_temp_dir;
 use function time;
 use function trigger_error;
 use function trim;
+use function crc32;
 
 /**
  * Configuration class
@@ -866,11 +867,11 @@ class Config
     {
         global $PMA_Theme;
 
-        return (int) (
-            $this->sourceMtime +
-            $this->defaultSourceMtime +
-            $this->get('user_preferences_mtime') +
-            ($PMA_Theme->mtimeInfo ?? 0) +
+        return crc32(
+            $this->sourceMtime .
+            $this->defaultSourceMtime .
+            $this->get('user_preferences_mtime') .
+            ($PMA_Theme->mtimeInfo ?? 0) .
             ($PMA_Theme->filesizeInfo ?? 0)
         );
     }
