@@ -946,8 +946,6 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * Should test getting unique value for theme
-     *
-     * @group 32bit-incompatible
      */
     public function testGetThemeUniqueValue(): void
     {
