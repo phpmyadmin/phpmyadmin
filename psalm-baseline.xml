@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.7.1@cd53e047a58f71f646dd6bf45476076ab07b5d44">
+<files psalm-version="4.7.3@38c452ae584467e939d55377aaf83b5a26f19dd1">
   <file src="libraries/classes/Bookmark.php">
     <RedundantCastGivenDocblockType occurrences="1">
       <code>(int) $this-&gt;id</code>
@@ -521,6 +521,12 @@
     <PossiblyInvalidArgument occurrences="1">
       <code>$analyzed_sql_results ?? ''</code>
     </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="4">
+      <code>$current_timestamp ? '' : $data['Default']</code>
+      <code>$data['Collation'] ?? ''</code>
+      <code>$data['Expression']</code>
+      <code>$data['Virtuality']</code>
+    </PossiblyNullArgument>
     <PossiblyNullArrayAccess occurrences="14">
       <code>$avg_size</code>
       <code>$avg_unit</code>
@@ -635,10 +641,6 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Database/Routines.php">
-    <PossiblyInvalidArgument occurrences="2">
-      <code>$routine['item_returntype']</code>
-      <code>$routine['item_type_toggle']</code>
-    </PossiblyInvalidArgument>
     <PossiblyNullArgument occurrences="5">
       <code>$create_routine</code>
       <code>$itemReturnType</code>
@@ -730,8 +732,16 @@
       <code>$result</code>
       <code>$result</code>
     </MoreSpecificImplementedParamType>
-    <ParamNameMismatch occurrences="7">
+    <ParamNameMismatch occurrences="15">
       <code>$databaseName</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
+      <code>$mysqli</code>
       <code>$mysqli</code>
       <code>$mysqli</code>
       <code>$mysqli</code>
@@ -887,6 +897,9 @@
     <NullableReturnStatement occurrences="1">
       <code>Util::formatByteDown($value)</code>
     </NullableReturnStatement>
+    <ParamNameMismatch occurrences="1">
+      <code>$formatted_size</code>
+    </ParamNameMismatch>
     <UndefinedConstant occurrences="12">
       <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
       <code>PMA_ENGINE_DETAILS_TYPE_NUMERIC</code>
@@ -1335,6 +1348,11 @@
       <code>(string) $pack_keys</code>
     </RedundantCastGivenDocblockType>
   </file>
+  <file src="libraries/classes/Pdf.php">
+    <ParamNameMismatch occurrences="1">
+      <code>$error_message</code>
+    </ParamNameMismatch>
+  </file>
   <file src="libraries/classes/Plugins.php">
     <InvalidNullableReturnType occurrences="1">
       <code>string</code>
@@ -1536,6 +1554,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
+    <ParamNameMismatch occurrences="1">
+      <code>$topMargin</code>
+    </ParamNameMismatch>
     <PossiblyUndefinedVariable occurrences="6">
       <code>$comments</code>
       <code>$data</code>
@@ -2564,6 +2585,10 @@
     </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Table/ColumnsDefinition.php">
+    <PossiblyFalseArgument occurrences="2">
+      <code>$form_params['db']</code>
+      <code>$form_params['table']</code>
+    </PossiblyFalseArgument>
     <PossiblyUndefinedVariable occurrences="1">
       <code>$submit_fulltext</code>
     </PossiblyUndefinedVariable>
@@ -2676,9 +2701,10 @@
     <EmptyArrayAccess occurrences="1">
       <code>$group[$group_name]['tab' . $sep . 'count']</code>
     </EmptyArrayAccess>
-    <InvalidArrayOffset occurrences="3">
+    <InvalidArrayOffset occurrences="4">
       <code>$group[$group_name]['is' . $sep . 'group']</code>
       <code>$group[$group_name]['tab' . $sep . 'count']</code>
+      <code>$table['disp_name']</code>
       <code>$units[$d]</code>
     </InvalidArrayOffset>
     <InvalidReturnStatement occurrences="1">
@@ -2706,9 +2732,8 @@
       <code>$group[$table_name]</code>
       <code>$table['disp_name']</code>
     </PossiblyInvalidArrayAssignment>
-    <PossiblyInvalidArrayOffset occurrences="2">
+    <PossiblyInvalidArrayOffset occurrences="1">
       <code>$table['Name']</code>
-      <code>$table['disp_name']</code>
     </PossiblyInvalidArrayOffset>
     <PossiblyNullArgument occurrences="2">
       <code>$max_size</code>
