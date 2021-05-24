@@ -21,7 +21,7 @@ use function strtr;
 class Pdf extends TCPDF
 {
     /** @var array */
-    public $footerset;
+    public $footerset = [];
 
     /** @var array */
     public $alias = [];

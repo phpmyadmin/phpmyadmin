@@ -284,89 +284,89 @@ class DbiMysqli implements DbiExtension
     /**
      * Check if there are any more query results from a multi query
      *
-     * @param mysqli $mysqli the mysqli object
+     * @param mysqli $link the mysqli object
      *
      * @return bool true or false
      */
-    public function moreResults($mysqli)
+    public function moreResults($link)
     {
-        return $mysqli->more_results();
+        return $link->more_results();
     }
 
     /**
      * Prepare next result from multi_query
      *
-     * @param mysqli $mysqli the mysqli object
+     * @param mysqli $link the mysqli object
      *
      * @return bool true or false
      */
-    public function nextResult($mysqli)
+    public function nextResult($link)
     {
-        return $mysqli->next_result();
+        return $link->next_result();
     }
 
     /**
      * Store the result returned from multi query
      *
-     * @param mysqli $mysqli the mysqli object
+     * @param mysqli $link the mysqli object
      *
      * @return mysqli_result|bool false when empty results / result set when not empty
      */
-    public function storeResult($mysqli)
+    public function storeResult($link)
     {
-        return $mysqli->store_result();
+        return $link->store_result();
     }
 
     /**
      * Returns a string representing the type of connection used
      *
-     * @param mysqli $mysqli mysql link
+     * @param mysqli $link mysql link
      *
      * @return string type of connection used
      */
-    public function getHostInfo($mysqli)
+    public function getHostInfo($link)
     {
-        return $mysqli->host_info;
+        return $link->host_info;
     }
 
     /**
      * Returns the version of the MySQL protocol used
      *
-     * @param mysqli $mysqli mysql link
+     * @param mysqli $link mysql link
      *
      * @return string version of the MySQL protocol used
      */
-    public function getProtoInfo($mysqli)
+    public function getProtoInfo($link)
     {
-        return $mysqli->protocol_version;
+        return $link->protocol_version;
     }
 
     /**
      * returns a string that represents the client library version
      *
-     * @param mysqli $mysqli mysql link
+     * @param mysqli $link mysql link
      *
      * @return string MySQL client library version
      */
-    public function getClientInfo($mysqli)
+    public function getClientInfo($link)
     {
-        return $mysqli->get_client_info();
+        return $link->get_client_info();
     }
 
     /**
      * returns last error message or false if no errors occurred
      *
-     * @param mysqli|false|null $mysqli mysql link
+     * @param mysqli|false|null $link mysql link
      *
      * @return string|bool error or false
      */
-    public function getError($mysqli)
+    public function getError($link)
     {
         $GLOBALS['errno'] = 0;
 
-        if ($mysqli !== null && $mysqli !== false) {
-            $error_number = $mysqli->errno;
-            $error_message = $mysqli->error;
+        if ($link !== null && $link !== false) {
+            $error_number = $link->errno;
+            $error_message = $link->error;
         } else {
             $error_number = mysqli_connect_errno();
             $error_message = (string) mysqli_connect_error();
@@ -403,13 +403,13 @@ class DbiMysqli implements DbiExtension
     /**
      * returns the number of rows affected by last query
      *
-     * @param mysqli $mysqli the mysqli object
+     * @param mysqli $link the mysqli object
      *
      * @return int
      */
-    public function affectedRows($mysqli)
+    public function affectedRows($link)
     {
-        return $mysqli->affected_rows;
+        return $link->affected_rows;
     }
 
     /**

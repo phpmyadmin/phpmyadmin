@@ -52,8 +52,6 @@ if (getcwd() == __DIR__) {
  *
  * This class inherits ExportRelationSchema class has common functionality added
  * to this class
- *
- * @name Pdf_Relation_Schema
  */
 class PdfRelationSchema extends ExportRelationSchema
 {
@@ -61,10 +59,10 @@ class PdfRelationSchema extends ExportRelationSchema
     private $showGrid = false;
 
     /** @var bool */
-    private $withDoc;
+    private $withDoc = false;
 
     /** @var string */
-    private $tableOrder;
+    private $tableOrder = '';
 
     /** @var TableStatsPdf[] */
     private $tables = [];
@@ -100,7 +98,7 @@ class PdfRelationSchema extends ExportRelationSchema
     private $rightMargin = 10;
 
     /** @var int */
-    private $tablewidth;
+    private $tablewidth = 0;
 
     /** @var RelationStatsPdf[] */
     protected $relations = [];
