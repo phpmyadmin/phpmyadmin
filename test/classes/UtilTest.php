@@ -14,6 +14,7 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
 use PhpMyAdmin\Version;
 
+use function count;
 use function date_default_timezone_get;
 use function date_default_timezone_set;
 use function file_exists;
@@ -28,11 +29,13 @@ use function trim;
 
 use const LC_ALL;
 use const MYSQLI_NUM_FLAG;
+use const MYSQLI_PRI_KEY_FLAG;
 use const MYSQLI_TYPE_BIT;
 use const MYSQLI_TYPE_GEOMETRY;
 use const MYSQLI_TYPE_LONG;
 use const MYSQLI_TYPE_SHORT;
 use const MYSQLI_TYPE_STRING;
+use const MYSQLI_UNIQUE_KEY_FLAG;
 
 class UtilTest extends AbstractTestCase
 {
@@ -66,265 +69,189 @@ class UtilTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for private getConditionValue
-     */
-    public function testGetConditionValue(): void
+    public function testGetUniqueCondition(): void
     {
-        $this->assertSame(
-            ['IS NULL', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
+        $GLOBALS['db'] = 'db';
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+
+        $actual = Util::getUniqueCondition(0, 0, [], []);
+        $this->assertEquals(['', false, []], $actual);
+
+        $actual = Util::getUniqueCondition(0, 0, [], [], true);
+        $this->assertEquals(['', true, []], $actual);
+    }
+
+    public function testGetUniqueConditionWithMultipleFields(): void
+    {
+        $meta = [
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field1',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field2',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_SHORT, MYSQLI_NUM_FLAG, (object) [
+                'name' => 'field3',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG, (object) [
+                'name' => 'field4',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field5',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'charsetnr' => 63, // binary
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field6',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'charsetnr' => 63, // binary
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field7',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'numeric' => false,
+                'type' => 'blob',
+                'charsetnr' => 32, // armscii8_general_ci
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field8',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'numeric' => false,
+                'type' => 'blob',
+                'charsetnr' => 48, // latin1_general_ci
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field9',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'numeric' => false,
+                'type' => 'blob',
+                'charsetnr' => 63, // binary
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_GEOMETRY, 0, (object) [
+                'name' => 'field10',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field11',
+                'table' => 'table2',
+                'orgtable' => 'table2',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_BIT, 0, (object) [
+                'name' => 'field12',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'length' => 4,
+            ]),
+        ];
+
+        $actual = Util::getUniqueCondition(0, count($meta), $meta, [
+            null,
+            'value\'s',
+            123456,
+            123.456,
+            'value',
+            str_repeat('*', 1001),
+            'value',
+            'value',
+            'value',
+            'value',
+            'value',
+            0x1,
+        ], false, 'table');
+        $this->assertEquals(
+            [
+                '`table`.`field1` IS NULL AND `table`.`field2` = \'value\\\'s\' AND `table`.`field3` = 123456'
+                . ' AND `table`.`field4` = 123.456 AND `table`.`field5` = CAST(0x76616c7565 AS BINARY)'
+                . ' AND `table`.`field7` = \'value\' AND `table`.`field8` = \'value\''
+                . ' AND `table`.`field9` = CAST(0x76616c7565 AS BINARY)'
+                . ' AND `table`.`field10` =0x76616c7565 AND'
+                . ' AND `table`.`field12` = b\'0001\'',
+                false,
                 [
-                    null,// row
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),// field meta
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
+                    '`table`.`field1`' => 'IS NULL',
+                    '`table`.`field2`' => '= \'value\\\'s\'',
+                    '`table`.`field3`' => '= 123456',
+                    '`table`.`field4`' => '= 123.456',
+                    '`table`.`field5`' => '= CAST(0x76616c7565 AS BINARY)',
+                    '`table`.`field7`' => '= \'value\'',
+                    '`table`.`field8`' => '= \'value\'',
+                    '`table`.`field9`' => '= CAST(0x76616c7565 AS BINARY)',
+                    '`table`.`field10`' => '',
+                    '`table`.`field12`' => '= b\'0001\'',
+                ],
+            ],
+            $actual
         );
-        $this->assertSame(
-            ['IS NULL', 'CONCAT(`table`.`orgname`)'],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    null,// row
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),// field meta
-                    0,// fields count
-                    '',// condition key
-                    'CONCAT(`table`.`orgname`)',// condition
-                ]
-            )
+    }
+
+    public function testGetUniqueConditionWithSingleBigBinaryField(): void
+    {
+        $meta = [
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field',
+                'table' => 'table',
+                'orgtable' => 'table',
+                'charsetnr' => 63, // binary
+            ]),
+        ];
+
+        $actual = Util::getUniqueCondition(0, 1, $meta, [str_repeat('*', 1001)]);
+        $this->assertEquals(
+            ['CHAR_LENGTH(`table`.`field`)  = 1001', false, ['`table`.`field`' => ' = 1001']],
+            $actual
         );
-        $this->assertSame(
-            ['= 123456', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    123456,// row
-                    new FieldMetadata(MYSQLI_TYPE_SHORT, MYSQLI_NUM_FLAG, (object) []),// field meta
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= 123.456', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    123.456,// row
-                    // This was MYSQLI_TYPE_FLOAT but failed the condition
-                    // Probably that the test case was wrong
-                    new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG, (object) []),// field meta
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= \'value\'', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'value',// row
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) []),// field meta
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= CAST(0x76616c7565 AS BINARY)', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'value',// row
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['charsetnr' => 63]),// field meta
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= \'value\'', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'value',// row
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
-                        'numeric' => false,
-                        'type' => 'blob',
-                        'charsetnr' => 32,// armscii8_general_ci
-                    ]),// field meta
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= \'value\'', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'value',// row
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
-                        'numeric' => false,
-                        'type' => 'blob',
-                        'charsetnr' => 48,// latin1_general_ci
-                    ]),// field meta
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= CAST(0x76616c7565 AS BINARY)', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'value',// row
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
-                        'numeric' => false,
-                        'type' => 'blob',
-                        'charsetnr' => 63,// binary
-                    ]),// field meta
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= CAST(0x76616c7565 AS BINARY)', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'value',// row
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['charsetnr' => 63]),// field meta
-                    1,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            [' = 1001', ' CHAR_LENGTH(conditionKey) '],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    str_repeat('*', 1001),// row
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['charsetnr' => 63]),// field meta
-                    1,// fields count
-                    'conditionKey',// condition key
-                    'conditionInit',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            [null, 'conditionInit'],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    str_repeat('*', 1001),// row
-                    new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) ['charsetnr' => 63]),// field meta
-                    0,// fields count
-                    'conditionKey',// condition key
-                    'conditionInit',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['= b\'0001\'', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    0x1,// row
-                    new FieldMetadata(MYSQLI_TYPE_BIT, 0, (object) ['length' => 4]),// field meta
-                    0,// fields count
-                    'conditionKey',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['', '=0x626c6f6f6f626262 AND'],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'blooobbb',// row
-                    new FieldMetadata(MYSQLI_TYPE_GEOMETRY, 0, (object) []),// field meta
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['', '`table`.`tbl2`=0x626c6f6f6f626262 AND'],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    'blooobbb',// row
-                    new FieldMetadata(MYSQLI_TYPE_GEOMETRY, 0, (object) []),// field meta
-                    0,// fields count
-                    '',// condition key
-                    '`table`.`tbl2`',// condition
-                ]
-            )
-        );
-        $this->assertSame(
-            ['', ''],
-            $this->callFunction(
-                null,
-                Util::class,
-                'getConditionValue',
-                [
-                    str_repeat('*', 5001),// row
-                    new FieldMetadata(MYSQLI_TYPE_GEOMETRY, 0, (object) []),// field meta
-                    0,// fields count
-                    '',// condition key
-                    '',// condition
-                ]
-            )
-        );
+    }
+
+    public function testGetUniqueConditionWithPrimaryKey(): void
+    {
+        $meta = [
+            new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_PRI_KEY_FLAG | MYSQLI_NUM_FLAG, (object) [
+                'name' => 'id',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+        ];
+
+        $actual = Util::getUniqueCondition(0, count($meta), $meta, [1, 'value']);
+        $this->assertEquals(['`table`.`id` = 1', true, ['`table`.`id`' => '= 1']], $actual);
+    }
+
+    public function testGetUniqueConditionWithUniqueKey(): void
+    {
+        $meta = [
+            new FieldMetadata(MYSQLI_TYPE_STRING, MYSQLI_UNIQUE_KEY_FLAG, (object) [
+                'name' => 'id',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+            new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [
+                'name' => 'field',
+                'table' => 'table',
+                'orgtable' => 'table',
+            ]),
+        ];
+
+        $actual = Util::getUniqueCondition(0, count($meta), $meta, ['unique', 'value']);
+        $this->assertEquals(['`table`.`id` = \'unique\'', true, ['`table`.`id`' => '= \'unique\'']], $actual);
     }
 
     /**
